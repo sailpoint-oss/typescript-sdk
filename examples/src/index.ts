@@ -1,4 +1,4 @@
-import { AccountsV3, Configuration } from "sailpoint-sdk"
+import { AccountsBetaApi, Configuration } from "sailpoint-sdk"
 
 const account = async () => {
 
@@ -9,9 +9,7 @@ const account = async () => {
             "clientSecret": ""
         })
 
-    //let api = new SourcesApi(apiConfig)
-    const config = await apiConfig.getV3Config()
-    let api = new AccountsV3(config)
+    let api = new AccountsBetaApi(apiConfig)
 
     const val = await api.listAccounts()
     console.log(val)
