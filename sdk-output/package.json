@@ -1,5 +1,5 @@
 {
-  "name": "@sailpoint/sailpoint",
+  "name": "@sailpoint/sailpoint-test",
   "version": "0.0.1",
   "description": "Official library for using the SailPoint API",
   "author": "SailPoint DevOps",
