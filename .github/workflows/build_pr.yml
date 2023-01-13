@@ -1,0 +1,48 @@
+name: "Build Typescript SDK"
+
+on:
+  pull_request:
+    branches:
+      - master
+  workflow_dispatch:
+
+jobs:
+  build_typescript_sdk:
+    name: Build typescript SDK
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout PR branch
+        uses: actions/checkout@v3
+        with:
+          ref: ${{ github.ref }}
+
+      - name: Checkout API Specs Repo
+        uses: actions/checkout@v3
+        with:
+          repository: sailpoint-oss/api-specs
+          path: api-specs
+          ref: main
+      
+      - name: Set up Node
+        uses: actions/setup-node@v3
+        with:
+          node-version: "16"
+      
+      - name: Build V3 SDK
+        id: buildV3
+        run: |
+          java -jar openapi-generator-cli.jar generate -i api-specs/idn/sailpoint-api.v3.yaml -g typescript-axios -o sdk-output/v3 --global-property skipFormModel=false --config sdk-resources/v3-config.yaml
+
+      - name: Build Beta SDK
+        id: buildBeta
+        if: steps.buildV3.outcome == 'success'
+        run: |
+          java -jar openapi-generator-cli.jar generate -i api-specs/idn/sailpoint-api.beta.yaml -g typescript-axios -o sdk-output/beta --global-property skipFormModel=false --config sdk-resources/beta-config.yaml --api-name-suffix BetaApi --model-name-suffix Beta
+      
+      - name: Run npm install and build Typescript SDK
+        id: buildSDK
+        if: steps.buildBeta.outcome == 'success'
+        run: |
+          cd sdk-output
+          npm install
+          npm run build
