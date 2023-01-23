@@ -1,0 +1,8 @@
+templateDir: ./sdk-resources/cc-resources
+files:
+  package.mustache:
+    templateType: SupportingFiles
+    destinationFilename: package.json
+npmName: sailpoint-sdk
+npmRepository: sailpoint.com
+npmVersion: 0.1.0

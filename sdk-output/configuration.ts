@@ -77,6 +77,20 @@ export class Configuration {
      * @memberof Configuration
      */
      basePathV3?: string;
+     /**
+     * override base path
+     *
+     * @type {string}
+     * @memberof Configuration
+     */
+     basePathV2?: string;
+     /**
+     * override base path
+     *
+     * @type {string}
+     * @memberof Configuration
+     */
+     basePathCC?: string;
     /**
      * base options for axios calls
      *
@@ -96,8 +110,10 @@ export class Configuration {
 
     constructor(param: ConfigurationParameters = {}) {
         this.tenant = param.tenant;
-        this.basePathBeta = `https://${this.tenant}.api.identitynow.com/beta/`
-        this.basePathV3 = `https://${this.tenant}.api.identitynow.com/v3/`
+        this.basePathBeta = `https://${this.tenant}.api.identitynow.com/beta`
+        this.basePathV3 = `https://${this.tenant}.api.identitynow.com/v3`
+        this.basePathV2 = `https://${this.tenant}.api.identitynow.com/v2`
+        this.basePathCC = `https://${this.tenant}.api.identitynow.com`
         this.clientId = param.clientId;
         this.clientSecret = param.clientSecret;
         const url = `https://${this.tenant}.api.identitynow.com/oauth/token?grant_type=client_credentials&client_id=${this.clientId}&client_secret=${this.clientSecret}`;
