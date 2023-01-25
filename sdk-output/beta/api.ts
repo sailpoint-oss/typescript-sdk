@@ -8530,6 +8530,12 @@ export interface ImportOptionsBeta {
      * @memberof ImportOptionsBeta
      */
     'defaultReferences'?: Array<BaseReferenceDtoBeta>;
+    /**
+     * By default, every import will first export all existing objects supported by sp-config as a backup before the import is attempted. If excludeBackup is true, the backup will not be performed.
+     * @type {boolean}
+     * @memberof ImportOptionsBeta
+     */
+    'excludeBackup'?: boolean;
 }
 /**
  * 
@@ -14926,7 +14932,7 @@ export interface SavedSearchCompleteBeta {
     'signedS3Url': string;
 }
 /**
- * The schedule information. 
+ * The schedule information.
  * @export
  * @interface Schedule1Beta
  */
@@ -14939,22 +14945,16 @@ export interface Schedule1Beta {
     'type': ScheduleTypeBeta;
     /**
      * 
-     * @type {SelectorBeta}
+     * @type {Schedule1DaysBeta}
      * @memberof Schedule1Beta
      */
-    'months'?: SelectorBeta | null;
+    'days'?: Schedule1DaysBeta;
     /**
      * 
-     * @type {SelectorBeta}
+     * @type {Schedule1HoursBeta}
      * @memberof Schedule1Beta
      */
-    'days'?: SelectorBeta | null;
-    /**
-     * 
-     * @type {SelectorBeta}
-     * @memberof Schedule1Beta
-     */
-    'hours': SelectorBeta | null;
+    'hours': Schedule1HoursBeta;
     /**
      * A date-time in ISO-8601 format
      * @type {string}
@@ -14962,11 +14962,61 @@ export interface Schedule1Beta {
      */
     'expiration'?: string | null;
     /**
-     * The ID of the time zone for the schedule. 
+     * The GMT formatted timezone the schedule will run in (ex. GMT-06:00).  If no timezone is specified, the org\'s default timezone is used.
      * @type {string}
      * @memberof Schedule1Beta
      */
-    'timeZoneId'?: string;
+    'timeZoneId'?: string | null;
+}
+/**
+ * 
+ * @export
+ * @interface Schedule1DaysBeta
+ */
+export interface Schedule1DaysBeta {
+    /**
+     * 
+     * @type {SelectorTypeBeta}
+     * @memberof Schedule1DaysBeta
+     */
+    'type': SelectorTypeBeta;
+    /**
+     * The selected values. 
+     * @type {Array<string>}
+     * @memberof Schedule1DaysBeta
+     */
+    'values': Array<string>;
+    /**
+     * The selected interval for RANGE selectors. 
+     * @type {number}
+     * @memberof Schedule1DaysBeta
+     */
+    'interval'?: number | null;
+}
+/**
+ * 
+ * @export
+ * @interface Schedule1HoursBeta
+ */
+export interface Schedule1HoursBeta {
+    /**
+     * 
+     * @type {SelectorTypeBeta}
+     * @memberof Schedule1HoursBeta
+     */
+    'type': SelectorTypeBeta;
+    /**
+     * The selected values. 
+     * @type {Array<string>}
+     * @memberof Schedule1HoursBeta
+     */
+    'values': Array<string>;
+    /**
+     * The selected interval for RANGE selectors. 
+     * @type {number}
+     * @memberof Schedule1HoursBeta
+     */
+    'interval'?: number | null;
 }
 /**
  * 
@@ -17352,6 +17402,12 @@ export interface SpConfigImportResultsBeta {
      * @memberof SpConfigImportResultsBeta
      */
     'results': { [key: string]: ObjectImportResultBeta; };
+    /**
+     * If a backup was performed before the import, this will contain the jobId of the backup job. This id can be used to retrieve the json file of the backup export.
+     * @type {string}
+     * @memberof SpConfigImportResultsBeta
+     */
+    'exportJobId'?: string;
 }
 /**
  * 
@@ -25492,7 +25548,7 @@ export const CertificationCampaignsBetaApiAxiosParamCreator = function (configur
             };
         },
         /**
-         * Completes a certification campaign only if it is past the due date. This is provided to admins so that they can complete a certification even if all items have not been completed. Requires roles of CERT_ADMIN and ORG_ADMIN
+         * :::caution  This endpoint will run successfully for any campaigns that are **past due**.  This endpoint will return a content error if the campaign is **not past due**.  :::  Completes a certification campaign. This is provided to admins so that they can complete a certification even if all items have not been completed.  Requires roles of CERT_ADMIN and ORG_ADMIN 
          * @summary Complete a Campaign
          * @param {string} id The campaign id
          * @param {CompleteCampaignOptionsBeta} [completeCampaignOptionsBeta] Optional. Default behavior is for the campaign to auto-approve upon completion, unless autoCompleteAction&#x3D;REVOKE
@@ -26136,7 +26192,7 @@ export const CertificationCampaignsBetaApiAxiosParamCreator = function (configur
          * Allows updating individual fields on a campaign template using the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.
          * @summary Update a Campaign Template
          * @param {string} id The ID of the campaign template being modified.
-         * @param {Array<object>} requestBody A list of campaign update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.  The following fields are patchable: * name * description * ownerRef * deadlineDuration * campaign (all fields that are allowed during create) 
+         * @param {Array<object>} requestBody A list of campaign update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.  The following fields are patchable: * name * description * deadlineDuration * campaign (all fields that are allowed during create) 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
@@ -26441,7 +26497,7 @@ export const CertificationCampaignsBetaApiFp = function(configuration?: Configur
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
-         * Completes a certification campaign only if it is past the due date. This is provided to admins so that they can complete a certification even if all items have not been completed. Requires roles of CERT_ADMIN and ORG_ADMIN
+         * :::caution  This endpoint will run successfully for any campaigns that are **past due**.  This endpoint will return a content error if the campaign is **not past due**.  :::  Completes a certification campaign. This is provided to admins so that they can complete a certification even if all items have not been completed.  Requires roles of CERT_ADMIN and ORG_ADMIN 
          * @summary Complete a Campaign
          * @param {string} id The campaign id
          * @param {CompleteCampaignOptionsBeta} [completeCampaignOptionsBeta] Optional. Default behavior is for the campaign to auto-approve upon completion, unless autoCompleteAction&#x3D;REVOKE
@@ -26607,7 +26663,7 @@ export const CertificationCampaignsBetaApiFp = function(configuration?: Configur
          * Allows updating individual fields on a campaign template using the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.
          * @summary Update a Campaign Template
          * @param {string} id The ID of the campaign template being modified.
-         * @param {Array<object>} requestBody A list of campaign update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.  The following fields are patchable: * name * description * ownerRef * deadlineDuration * campaign (all fields that are allowed during create) 
+         * @param {Array<object>} requestBody A list of campaign update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.  The following fields are patchable: * name * description * deadlineDuration * campaign (all fields that are allowed during create) 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
@@ -26706,7 +26762,7 @@ export const CertificationCampaignsBetaApiFactory = function (configuration?: Co
             return localVarFp.adminReassign(id, adminReviewReassignBeta, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
-         * Completes a certification campaign only if it is past the due date. This is provided to admins so that they can complete a certification even if all items have not been completed. Requires roles of CERT_ADMIN and ORG_ADMIN
+         * :::caution  This endpoint will run successfully for any campaigns that are **past due**.  This endpoint will return a content error if the campaign is **not past due**.  :::  Completes a certification campaign. This is provided to admins so that they can complete a certification even if all items have not been completed.  Requires roles of CERT_ADMIN and ORG_ADMIN 
          * @summary Complete a Campaign
          * @param {string} id The campaign id
          * @param {CompleteCampaignOptionsBeta} [completeCampaignOptionsBeta] Optional. Default behavior is for the campaign to auto-approve upon completion, unless autoCompleteAction&#x3D;REVOKE
@@ -26858,7 +26914,7 @@ export const CertificationCampaignsBetaApiFactory = function (configuration?: Co
          * Allows updating individual fields on a campaign template using the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.
          * @summary Update a Campaign Template
          * @param {string} id The ID of the campaign template being modified.
-         * @param {Array<object>} requestBody A list of campaign update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.  The following fields are patchable: * name * description * ownerRef * deadlineDuration * campaign (all fields that are allowed during create) 
+         * @param {Array<object>} requestBody A list of campaign update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.  The following fields are patchable: * name * description * deadlineDuration * campaign (all fields that are allowed during create) 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
@@ -26955,7 +27011,7 @@ export class CertificationCampaignsBetaApi extends BaseAPI {
     }
 
     /**
-     * Completes a certification campaign only if it is past the due date. This is provided to admins so that they can complete a certification even if all items have not been completed. Requires roles of CERT_ADMIN and ORG_ADMIN
+     * :::caution  This endpoint will run successfully for any campaigns that are **past due**.  This endpoint will return a content error if the campaign is **not past due**.  :::  Completes a certification campaign. This is provided to admins so that they can complete a certification even if all items have not been completed.  Requires roles of CERT_ADMIN and ORG_ADMIN 
      * @summary Complete a Campaign
      * @param {string} id The campaign id
      * @param {CompleteCampaignOptionsBeta} [completeCampaignOptionsBeta] Optional. Default behavior is for the campaign to auto-approve upon completion, unless autoCompleteAction&#x3D;REVOKE
@@ -27135,7 +27191,7 @@ export class CertificationCampaignsBetaApi extends BaseAPI {
      * Allows updating individual fields on a campaign template using the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.
      * @summary Update a Campaign Template
      * @param {string} id The ID of the campaign template being modified.
-     * @param {Array<object>} requestBody A list of campaign update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.  The following fields are patchable: * name * description * ownerRef * deadlineDuration * campaign (all fields that are allowed during create) 
+     * @param {Array<object>} requestBody A list of campaign update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.  The following fields are patchable: * name * description * deadlineDuration * campaign (all fields that are allowed during create) 
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
      * @memberof CertificationCampaignsBetaApi
@@ -28687,7 +28743,7 @@ export const EntitlementsBetaApiAxiosParamCreator = function (configuration?: Co
             };
         },
         /**
-         * This API returns an Entitlement by its ID.  A token with ORG_ADMIN or API authority is required to call this API.
+         * This API returns an Entitlement by its ID.
          * @summary Get an Entitlement
          * @param {string} id Entitlement Id
          * @param {*} [axiosOptions] Override http request option.
@@ -28729,7 +28785,7 @@ export const EntitlementsBetaApiAxiosParamCreator = function (configuration?: Co
             };
         },
         /**
-         * This API returns a list of all parent entitlements of a given entitlement.  A token with ORG_ADMIN or API authority is required to call this API.
+         * This API returns a list of all parent entitlements of a given entitlement.
          * @summary List of entitlements parents
          * @param {string} id Entitlement Id
          * @param {number} [limit] Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
@@ -28786,7 +28842,7 @@ export const EntitlementsBetaApiAxiosParamCreator = function (configuration?: Co
             };
         },
         /**
-         * This API returns a list of all child entitlements of a given entitlement.  A token with ORG_ADMIN or API authority is required to call this API.
+         * This API returns a list of all child entitlements of a given entitlement.
          * @summary List of entitlements children
          * @param {string} id Entitlement Id
          * @param {number} [limit] Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
@@ -28936,7 +28992,7 @@ export const EntitlementsBetaApiAxiosParamCreator = function (configuration?: Co
         patchEntitlement: async (id: string, jsonPatchOperationBeta?: Array<JsonPatchOperationBeta>, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'id' is not null or undefined
             assertParamExists('patchEntitlement', 'id', id)
-            const localVarPath = `/entitlements`
+            const localVarPath = `/entitlements/{id}`
                 .replace(`{${"id"}}`, encodeURIComponent(String(id)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -28993,7 +29049,7 @@ export const EntitlementsBetaApiFp = function(configuration?: Configuration) {
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
-         * This API returns an Entitlement by its ID.  A token with ORG_ADMIN or API authority is required to call this API.
+         * This API returns an Entitlement by its ID.
          * @summary Get an Entitlement
          * @param {string} id Entitlement Id
          * @param {*} [axiosOptions] Override http request option.
@@ -29004,7 +29060,7 @@ export const EntitlementsBetaApiFp = function(configuration?: Configuration) {
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
-         * This API returns a list of all parent entitlements of a given entitlement.  A token with ORG_ADMIN or API authority is required to call this API.
+         * This API returns a list of all parent entitlements of a given entitlement.
          * @summary List of entitlements parents
          * @param {string} id Entitlement Id
          * @param {number} [limit] Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
@@ -29018,7 +29074,7 @@ export const EntitlementsBetaApiFp = function(configuration?: Configuration) {
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
-         * This API returns a list of all child entitlements of a given entitlement.  A token with ORG_ADMIN or API authority is required to call this API.
+         * This API returns a list of all child entitlements of a given entitlement.
          * @summary List of entitlements children
          * @param {string} id Entitlement Id
          * @param {number} [limit] Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
@@ -29083,7 +29139,7 @@ export const EntitlementsBetaApiFactory = function (configuration?: Configuratio
             return localVarFp.entitlementsBulkUpdate(entitlementBulkUpdateRequestBeta, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
-         * This API returns an Entitlement by its ID.  A token with ORG_ADMIN or API authority is required to call this API.
+         * This API returns an Entitlement by its ID.
          * @summary Get an Entitlement
          * @param {string} id Entitlement Id
          * @param {*} [axiosOptions] Override http request option.
@@ -29093,7 +29149,7 @@ export const EntitlementsBetaApiFactory = function (configuration?: Configuratio
             return localVarFp.getEntitlement(id, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
-         * This API returns a list of all parent entitlements of a given entitlement.  A token with ORG_ADMIN or API authority is required to call this API.
+         * This API returns a list of all parent entitlements of a given entitlement.
          * @summary List of entitlements parents
          * @param {string} id Entitlement Id
          * @param {number} [limit] Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
@@ -29106,7 +29162,7 @@ export const EntitlementsBetaApiFactory = function (configuration?: Configuratio
             return localVarFp.listEntitlementParents(id, limit, offset, count, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
-         * This API returns a list of all child entitlements of a given entitlement.  A token with ORG_ADMIN or API authority is required to call this API.
+         * This API returns a list of all child entitlements of a given entitlement.
          * @summary List of entitlements children
          * @param {string} id Entitlement Id
          * @param {number} [limit] Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
@@ -29170,7 +29226,7 @@ export class EntitlementsBetaApi extends BaseAPI {
     }
 
     /**
-     * This API returns an Entitlement by its ID.  A token with ORG_ADMIN or API authority is required to call this API.
+     * This API returns an Entitlement by its ID.
      * @summary Get an Entitlement
      * @param {string} id Entitlement Id
      * @param {*} [axiosOptions] Override http request option.
@@ -29182,7 +29238,7 @@ export class EntitlementsBetaApi extends BaseAPI {
     }
 
     /**
-     * This API returns a list of all parent entitlements of a given entitlement.  A token with ORG_ADMIN or API authority is required to call this API.
+     * This API returns a list of all parent entitlements of a given entitlement.
      * @summary List of entitlements parents
      * @param {string} id Entitlement Id
      * @param {number} [limit] Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
@@ -29197,7 +29253,7 @@ export class EntitlementsBetaApi extends BaseAPI {
     }
 
     /**
-     * This API returns a list of all child entitlements of a given entitlement.  A token with ORG_ADMIN or API authority is required to call this API.
+     * This API returns a list of all child entitlements of a given entitlement.
      * @summary List of entitlements children
      * @param {string} id Entitlement Id
      * @param {number} [limit] Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
@@ -30641,6 +30697,7 @@ export const IAIOutliersBetaApiAxiosParamCreator = function (configuration?: Con
         /**
          * This API returns a list of contributing feature objects for a single outlier. The object contains: feature name, feature value type, value, importance, display name (translated text or message key), description (translated text or message key), translation messages object Requires authorization scope of \'iai:outliers-management:read\'
          * @summary IAI Get an Identity Outlier\'s Contibuting Features
+         * @param {string} outlierId The outlier id
          * @param {number} [limit] Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
          * @param {number} [offset] Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
          * @param {boolean} [count] If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
@@ -30649,8 +30706,11 @@ export const IAIOutliersBetaApiAxiosParamCreator = function (configuration?: Con
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        getOutliersContributingFeatures: async (limit?: number, offset?: number, count?: boolean, includeTranslationMessages?: string, sorters?: string, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
-            const localVarPath = `/outliers/{outlierId}/contributing-features`;
+        getOutliersContributingFeatures: async (outlierId: string, limit?: number, offset?: number, count?: boolean, includeTranslationMessages?: string, sorters?: string, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'outlierId' is not null or undefined
+            assertParamExists('getOutliersContributingFeatures', 'outlierId', outlierId)
+            const localVarPath = `/outliers/{outlierId}/contributing-features`
+                .replace(`{${"outlierId"}}`, encodeURIComponent(String(outlierId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -30855,6 +30915,7 @@ export const IAIOutliersBetaApiFp = function(configuration?: Configuration) {
         /**
          * This API returns a list of contributing feature objects for a single outlier. The object contains: feature name, feature value type, value, importance, display name (translated text or message key), description (translated text or message key), translation messages object Requires authorization scope of \'iai:outliers-management:read\'
          * @summary IAI Get an Identity Outlier\'s Contibuting Features
+         * @param {string} outlierId The outlier id
          * @param {number} [limit] Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
          * @param {number} [offset] Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
          * @param {boolean} [count] If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
@@ -30863,8 +30924,8 @@ export const IAIOutliersBetaApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async getOutliersContributingFeatures(limit?: number, offset?: number, count?: boolean, includeTranslationMessages?: string, sorters?: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<OutlierContributingFeatureBeta>>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.getOutliersContributingFeatures(limit, offset, count, includeTranslationMessages, sorters, axiosOptions);
+        async getOutliersContributingFeatures(outlierId: string, limit?: number, offset?: number, count?: boolean, includeTranslationMessages?: string, sorters?: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<OutlierContributingFeatureBeta>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getOutliersContributingFeatures(outlierId, limit, offset, count, includeTranslationMessages, sorters, axiosOptions);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
@@ -30951,6 +31012,7 @@ export const IAIOutliersBetaApiFactory = function (configuration?: Configuration
         /**
          * This API returns a list of contributing feature objects for a single outlier. The object contains: feature name, feature value type, value, importance, display name (translated text or message key), description (translated text or message key), translation messages object Requires authorization scope of \'iai:outliers-management:read\'
          * @summary IAI Get an Identity Outlier\'s Contibuting Features
+         * @param {string} outlierId The outlier id
          * @param {number} [limit] Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
          * @param {number} [offset] Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
          * @param {boolean} [count] If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
@@ -30959,8 +31021,8 @@ export const IAIOutliersBetaApiFactory = function (configuration?: Configuration
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        getOutliersContributingFeatures(limit?: number, offset?: number, count?: boolean, includeTranslationMessages?: string, sorters?: string, axiosOptions?: any): AxiosPromise<Array<OutlierContributingFeatureBeta>> {
-            return localVarFp.getOutliersContributingFeatures(limit, offset, count, includeTranslationMessages, sorters, axiosOptions).then((request) => request(axios, basePath));
+        getOutliersContributingFeatures(outlierId: string, limit?: number, offset?: number, count?: boolean, includeTranslationMessages?: string, sorters?: string, axiosOptions?: any): AxiosPromise<Array<OutlierContributingFeatureBeta>> {
+            return localVarFp.getOutliersContributingFeatures(outlierId, limit, offset, count, includeTranslationMessages, sorters, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * This API receives a list of IdentityIDs in the request, changes the outliers to be ignored--returning a 204 if successful. Requires authorization scope of \'iai:outliers-management:update\'
@@ -31052,6 +31114,7 @@ export class IAIOutliersBetaApi extends BaseAPI {
     /**
      * This API returns a list of contributing feature objects for a single outlier. The object contains: feature name, feature value type, value, importance, display name (translated text or message key), description (translated text or message key), translation messages object Requires authorization scope of \'iai:outliers-management:read\'
      * @summary IAI Get an Identity Outlier\'s Contibuting Features
+     * @param {string} outlierId The outlier id
      * @param {number} [limit] Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
      * @param {number} [offset] Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
      * @param {boolean} [count] If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
@@ -31061,8 +31124,8 @@ export class IAIOutliersBetaApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof IAIOutliersBetaApi
      */
-    public getOutliersContributingFeatures(limit?: number, offset?: number, count?: boolean, includeTranslationMessages?: string, sorters?: string, axiosOptions?: AxiosRequestConfig) {
-        return IAIOutliersBetaApiFp(this.configuration).getOutliersContributingFeatures(limit, offset, count, includeTranslationMessages, sorters, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public getOutliersContributingFeatures(outlierId: string, limit?: number, offset?: number, count?: boolean, includeTranslationMessages?: string, sorters?: string, axiosOptions?: AxiosRequestConfig) {
+        return IAIOutliersBetaApiFp(this.configuration).getOutliersContributingFeatures(outlierId, limit, offset, count, includeTranslationMessages, sorters, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -40501,7 +40564,7 @@ export class NotificationsBetaApi extends BaseAPI {
 export const OAuthClientsBetaApiAxiosParamCreator = function (configuration?: Configuration) {
     return {
         /**
-         * This creates an OAuth client. Request will require the following security scope: - sp:oauth-client:manage
+         * This creates an OAuth client.
          * @summary Create OAuth Client
          * @param {CreateOAuthClientRequestBeta} createOAuthClientRequestBeta 
          * @param {*} [axiosOptions] Override http request option.
@@ -40545,7 +40608,7 @@ export const OAuthClientsBetaApiAxiosParamCreator = function (configuration?: Co
             };
         },
         /**
-         * This deletes an OAuth client. Request will require the following security scopes: - sp:oauth-client:manage
+         * This deletes an OAuth client.
          * @summary Delete OAuth Client
          * @param {string} id The OAuth client id
          * @param {*} [axiosOptions] Override http request option.
@@ -40587,7 +40650,7 @@ export const OAuthClientsBetaApiAxiosParamCreator = function (configuration?: Co
             };
         },
         /**
-         * This gets details of an OAuth client. Request will require the following security scope: - sp:oauth-client:manage - sp:oauth-client:read
+         * This gets details of an OAuth client.
          * @summary Get OAuth Client
          * @param {string} id The OAuth client id
          * @param {*} [axiosOptions] Override http request option.
@@ -40629,7 +40692,7 @@ export const OAuthClientsBetaApiAxiosParamCreator = function (configuration?: Co
             };
         },
         /**
-         * This gets a list of OAuth clients. Request will require the following security scope: - sp:oauth-client:manage
+         * This gets a list of OAuth clients.
          * @summary List OAuth Clients
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
@@ -40725,7 +40788,7 @@ export const OAuthClientsBetaApiFp = function(configuration?: Configuration) {
     const localVarAxiosParamCreator = OAuthClientsBetaApiAxiosParamCreator(configuration)
     return {
         /**
-         * This creates an OAuth client. Request will require the following security scope: - sp:oauth-client:manage
+         * This creates an OAuth client.
          * @summary Create OAuth Client
          * @param {CreateOAuthClientRequestBeta} createOAuthClientRequestBeta 
          * @param {*} [axiosOptions] Override http request option.
@@ -40736,7 +40799,7 @@ export const OAuthClientsBetaApiFp = function(configuration?: Configuration) {
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
-         * This deletes an OAuth client. Request will require the following security scopes: - sp:oauth-client:manage
+         * This deletes an OAuth client.
          * @summary Delete OAuth Client
          * @param {string} id The OAuth client id
          * @param {*} [axiosOptions] Override http request option.
@@ -40747,7 +40810,7 @@ export const OAuthClientsBetaApiFp = function(configuration?: Configuration) {
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
-         * This gets details of an OAuth client. Request will require the following security scope: - sp:oauth-client:manage - sp:oauth-client:read
+         * This gets details of an OAuth client.
          * @summary Get OAuth Client
          * @param {string} id The OAuth client id
          * @param {*} [axiosOptions] Override http request option.
@@ -40758,7 +40821,7 @@ export const OAuthClientsBetaApiFp = function(configuration?: Configuration) {
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
-         * This gets a list of OAuth clients. Request will require the following security scope: - sp:oauth-client:manage
+         * This gets a list of OAuth clients.
          * @summary List OAuth Clients
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
@@ -40790,7 +40853,7 @@ export const OAuthClientsBetaApiFactory = function (configuration?: Configuratio
     const localVarFp = OAuthClientsBetaApiFp(configuration)
     return {
         /**
-         * This creates an OAuth client. Request will require the following security scope: - sp:oauth-client:manage
+         * This creates an OAuth client.
          * @summary Create OAuth Client
          * @param {CreateOAuthClientRequestBeta} createOAuthClientRequestBeta 
          * @param {*} [axiosOptions] Override http request option.
@@ -40800,7 +40863,7 @@ export const OAuthClientsBetaApiFactory = function (configuration?: Configuratio
             return localVarFp.createOauthClient(createOAuthClientRequestBeta, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
-         * This deletes an OAuth client. Request will require the following security scopes: - sp:oauth-client:manage
+         * This deletes an OAuth client.
          * @summary Delete OAuth Client
          * @param {string} id The OAuth client id
          * @param {*} [axiosOptions] Override http request option.
@@ -40810,7 +40873,7 @@ export const OAuthClientsBetaApiFactory = function (configuration?: Configuratio
             return localVarFp.deleteOauthClient(id, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
-         * This gets details of an OAuth client. Request will require the following security scope: - sp:oauth-client:manage - sp:oauth-client:read
+         * This gets details of an OAuth client.
          * @summary Get OAuth Client
          * @param {string} id The OAuth client id
          * @param {*} [axiosOptions] Override http request option.
@@ -40820,7 +40883,7 @@ export const OAuthClientsBetaApiFactory = function (configuration?: Configuratio
             return localVarFp.getOauthClient(id, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
-         * This gets a list of OAuth clients. Request will require the following security scope: - sp:oauth-client:manage
+         * This gets a list of OAuth clients.
          * @summary List OAuth Clients
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
@@ -40850,7 +40913,7 @@ export const OAuthClientsBetaApiFactory = function (configuration?: Configuratio
  */
 export class OAuthClientsBetaApi extends BaseAPI {
     /**
-     * This creates an OAuth client. Request will require the following security scope: - sp:oauth-client:manage
+     * This creates an OAuth client.
      * @summary Create OAuth Client
      * @param {CreateOAuthClientRequestBeta} createOAuthClientRequestBeta 
      * @param {*} [axiosOptions] Override http request option.
@@ -40862,7 +40925,7 @@ export class OAuthClientsBetaApi extends BaseAPI {
     }
 
     /**
-     * This deletes an OAuth client. Request will require the following security scopes: - sp:oauth-client:manage
+     * This deletes an OAuth client.
      * @summary Delete OAuth Client
      * @param {string} id The OAuth client id
      * @param {*} [axiosOptions] Override http request option.
@@ -40874,7 +40937,7 @@ export class OAuthClientsBetaApi extends BaseAPI {
     }
 
     /**
-     * This gets details of an OAuth client. Request will require the following security scope: - sp:oauth-client:manage - sp:oauth-client:read
+     * This gets details of an OAuth client.
      * @summary Get OAuth Client
      * @param {string} id The OAuth client id
      * @param {*} [axiosOptions] Override http request option.
@@ -40886,7 +40949,7 @@ export class OAuthClientsBetaApi extends BaseAPI {
     }
 
     /**
-     * This gets a list of OAuth clients. Request will require the following security scope: - sp:oauth-client:manage
+     * This gets a list of OAuth clients.
      * @summary List OAuth Clients
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
@@ -42468,7 +42531,7 @@ export class PasswordSyncGroupsBetaApi extends BaseAPI {
 export const PersonalAccessTokensBetaApiAxiosParamCreator = function (configuration?: Configuration) {
     return {
         /**
-         * This creates a personal access token.  Request will require one of the following security scopes:    - sp:my-personal-access-tokens:manage   - sp:all-personal-access-tokens:manage
+         * This creates a personal access token.
          * @summary Create Personal Access Token
          * @param {CreatePersonalAccessTokenRequestBeta} createPersonalAccessTokenRequestBeta Name and scope of personal access token.
          * @param {*} [axiosOptions] Override http request option.
@@ -42512,7 +42575,7 @@ export const PersonalAccessTokensBetaApiAxiosParamCreator = function (configurat
             };
         },
         /**
-         * This deletes a personal access token  Request will require one of the following security scopes:    - sp:my-personal-access-tokens:manage   - sp:all-personal-access-tokens:manage
+         * This deletes a personal access token.
          * @summary Delete Personal Access Token
          * @param {string} id The personal access token id
          * @param {*} [axiosOptions] Override http request option.
@@ -42554,7 +42617,7 @@ export const PersonalAccessTokensBetaApiAxiosParamCreator = function (configurat
             };
         },
         /**
-         * This gets a collection of personal access tokens associated with the optional `owner-id`.  query parameter. If the `owner-id` query parameter is omitted, all personal access tokens  for a tenant will be retrieved, but the caller must have the \'idn:all-personal-access-tokens:read\' right.  Request will require one of the following security scopes:    - sp:my-personal-access-tokens:read   - sp:my-personal-access-tokens:manage   - sp:all-personal-access-tokens:read   - sp:all-personal-access-tokens:manage
+         * This gets a collection of personal access tokens associated with the optional `owner-id`.  query parameter. If the `owner-id` query parameter is omitted, all personal access tokens  for a tenant will be retrieved, but the caller must have the \'idn:all-personal-access-tokens:read\' right.
          * @summary List Personal Access Tokens
          * @param {string} [ownerId] The identity ID of the owner whose personal access tokens should be listed.  If \&quot;me\&quot;, the caller should have the following right: \&#39;idn:my-personal-access-tokens:read\&#39; If an actual owner ID or if the &#x60;owner-id&#x60; parameter is omitted in the request,  the caller should have the following right: \&#39;idn:all-personal-access-tokens:read\&#39;.  If the caller has the following right, then managed personal access tokens associated with &#x60;owner-id&#x60; will be retrieved: \&#39;idn:managed-personal-access-tokens:read\&#39;
          * @param {*} [axiosOptions] Override http request option.
@@ -42596,6 +42659,54 @@ export const PersonalAccessTokensBetaApiAxiosParamCreator = function (configurat
                 axiosOptions: localVarRequestOptions,
             };
         },
+        /**
+         * This performs a targeted update to the field(s) of a Personal Access Token.
+         * @summary Patch Personal Access Token
+         * @param {string} id The Personal Access Token id
+         * @param {Array<JsonPatchOperationBeta>} jsonPatchOperationBeta A list of OAuth client update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.  The following fields are patchable: * name * scope 
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        patchPersonalAccessToken: async (id: string, jsonPatchOperationBeta: Array<JsonPatchOperationBeta>, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'id' is not null or undefined
+            assertParamExists('patchPersonalAccessToken', 'id', id)
+            // verify required parameter 'jsonPatchOperationBeta' is not null or undefined
+            assertParamExists('patchPersonalAccessToken', 'jsonPatchOperationBeta', jsonPatchOperationBeta)
+            const localVarPath = `/personal-access-tokens/{id}`
+                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'PATCH', ...baseOptions, ...axiosOptions};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication oauth2 required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "oauth2", [], configuration)
+
+            // authentication oauth2 required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "oauth2", [], configuration)
+
+
+    
+            localVarHeaderParameter['Content-Type'] = 'application/json-patch+json';
+
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
+            localVarRequestOptions.data = serializeDataIfNeeded(jsonPatchOperationBeta, localVarRequestOptions, configuration)
+
+            return {
+                url: toPathString(localVarUrlObj),
+                axiosOptions: localVarRequestOptions,
+            };
+        },
     }
 };
 
@@ -42607,7 +42718,7 @@ export const PersonalAccessTokensBetaApiFp = function(configuration?: Configurat
     const localVarAxiosParamCreator = PersonalAccessTokensBetaApiAxiosParamCreator(configuration)
     return {
         /**
-         * This creates a personal access token.  Request will require one of the following security scopes:    - sp:my-personal-access-tokens:manage   - sp:all-personal-access-tokens:manage
+         * This creates a personal access token.
          * @summary Create Personal Access Token
          * @param {CreatePersonalAccessTokenRequestBeta} createPersonalAccessTokenRequestBeta Name and scope of personal access token.
          * @param {*} [axiosOptions] Override http request option.
@@ -42618,7 +42729,7 @@ export const PersonalAccessTokensBetaApiFp = function(configuration?: Configurat
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
-         * This deletes a personal access token  Request will require one of the following security scopes:    - sp:my-personal-access-tokens:manage   - sp:all-personal-access-tokens:manage
+         * This deletes a personal access token.
          * @summary Delete Personal Access Token
          * @param {string} id The personal access token id
          * @param {*} [axiosOptions] Override http request option.
@@ -42629,7 +42740,7 @@ export const PersonalAccessTokensBetaApiFp = function(configuration?: Configurat
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
-         * This gets a collection of personal access tokens associated with the optional `owner-id`.  query parameter. If the `owner-id` query parameter is omitted, all personal access tokens  for a tenant will be retrieved, but the caller must have the \'idn:all-personal-access-tokens:read\' right.  Request will require one of the following security scopes:    - sp:my-personal-access-tokens:read   - sp:my-personal-access-tokens:manage   - sp:all-personal-access-tokens:read   - sp:all-personal-access-tokens:manage
+         * This gets a collection of personal access tokens associated with the optional `owner-id`.  query parameter. If the `owner-id` query parameter is omitted, all personal access tokens  for a tenant will be retrieved, but the caller must have the \'idn:all-personal-access-tokens:read\' right.
          * @summary List Personal Access Tokens
          * @param {string} [ownerId] The identity ID of the owner whose personal access tokens should be listed.  If \&quot;me\&quot;, the caller should have the following right: \&#39;idn:my-personal-access-tokens:read\&#39; If an actual owner ID or if the &#x60;owner-id&#x60; parameter is omitted in the request,  the caller should have the following right: \&#39;idn:all-personal-access-tokens:read\&#39;.  If the caller has the following right, then managed personal access tokens associated with &#x60;owner-id&#x60; will be retrieved: \&#39;idn:managed-personal-access-tokens:read\&#39;
          * @param {*} [axiosOptions] Override http request option.
@@ -42637,6 +42748,18 @@ export const PersonalAccessTokensBetaApiFp = function(configuration?: Configurat
          */
         async listPersonalAccessTokens(ownerId?: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<GetPersonalAccessTokenResponseBeta>>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.listPersonalAccessTokens(ownerId, axiosOptions);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * This performs a targeted update to the field(s) of a Personal Access Token.
+         * @summary Patch Personal Access Token
+         * @param {string} id The Personal Access Token id
+         * @param {Array<JsonPatchOperationBeta>} jsonPatchOperationBeta A list of OAuth client update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.  The following fields are patchable: * name * scope 
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        async patchPersonalAccessToken(id: string, jsonPatchOperationBeta: Array<JsonPatchOperationBeta>, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<GetPersonalAccessTokenResponseBeta>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.patchPersonalAccessToken(id, jsonPatchOperationBeta, axiosOptions);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
     }
@@ -42650,7 +42773,7 @@ export const PersonalAccessTokensBetaApiFactory = function (configuration?: Conf
     const localVarFp = PersonalAccessTokensBetaApiFp(configuration)
     return {
         /**
-         * This creates a personal access token.  Request will require one of the following security scopes:    - sp:my-personal-access-tokens:manage   - sp:all-personal-access-tokens:manage
+         * This creates a personal access token.
          * @summary Create Personal Access Token
          * @param {CreatePersonalAccessTokenRequestBeta} createPersonalAccessTokenRequestBeta Name and scope of personal access token.
          * @param {*} [axiosOptions] Override http request option.
@@ -42660,7 +42783,7 @@ export const PersonalAccessTokensBetaApiFactory = function (configuration?: Conf
             return localVarFp.createPersonalAccessToken(createPersonalAccessTokenRequestBeta, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
-         * This deletes a personal access token  Request will require one of the following security scopes:    - sp:my-personal-access-tokens:manage   - sp:all-personal-access-tokens:manage
+         * This deletes a personal access token.
          * @summary Delete Personal Access Token
          * @param {string} id The personal access token id
          * @param {*} [axiosOptions] Override http request option.
@@ -42670,7 +42793,7 @@ export const PersonalAccessTokensBetaApiFactory = function (configuration?: Conf
             return localVarFp.deletePersonalAccessToken(id, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
-         * This gets a collection of personal access tokens associated with the optional `owner-id`.  query parameter. If the `owner-id` query parameter is omitted, all personal access tokens  for a tenant will be retrieved, but the caller must have the \'idn:all-personal-access-tokens:read\' right.  Request will require one of the following security scopes:    - sp:my-personal-access-tokens:read   - sp:my-personal-access-tokens:manage   - sp:all-personal-access-tokens:read   - sp:all-personal-access-tokens:manage
+         * This gets a collection of personal access tokens associated with the optional `owner-id`.  query parameter. If the `owner-id` query parameter is omitted, all personal access tokens  for a tenant will be retrieved, but the caller must have the \'idn:all-personal-access-tokens:read\' right.
          * @summary List Personal Access Tokens
          * @param {string} [ownerId] The identity ID of the owner whose personal access tokens should be listed.  If \&quot;me\&quot;, the caller should have the following right: \&#39;idn:my-personal-access-tokens:read\&#39; If an actual owner ID or if the &#x60;owner-id&#x60; parameter is omitted in the request,  the caller should have the following right: \&#39;idn:all-personal-access-tokens:read\&#39;.  If the caller has the following right, then managed personal access tokens associated with &#x60;owner-id&#x60; will be retrieved: \&#39;idn:managed-personal-access-tokens:read\&#39;
          * @param {*} [axiosOptions] Override http request option.
@@ -42678,6 +42801,17 @@ export const PersonalAccessTokensBetaApiFactory = function (configuration?: Conf
          */
         listPersonalAccessTokens(ownerId?: string, axiosOptions?: any): AxiosPromise<Array<GetPersonalAccessTokenResponseBeta>> {
             return localVarFp.listPersonalAccessTokens(ownerId, axiosOptions).then((request) => request(axios, basePath));
+        },
+        /**
+         * This performs a targeted update to the field(s) of a Personal Access Token.
+         * @summary Patch Personal Access Token
+         * @param {string} id The Personal Access Token id
+         * @param {Array<JsonPatchOperationBeta>} jsonPatchOperationBeta A list of OAuth client update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.  The following fields are patchable: * name * scope 
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        patchPersonalAccessToken(id: string, jsonPatchOperationBeta: Array<JsonPatchOperationBeta>, axiosOptions?: any): AxiosPromise<GetPersonalAccessTokenResponseBeta> {
+            return localVarFp.patchPersonalAccessToken(id, jsonPatchOperationBeta, axiosOptions).then((request) => request(axios, basePath));
         },
     };
 };
@@ -42690,7 +42824,7 @@ export const PersonalAccessTokensBetaApiFactory = function (configuration?: Conf
  */
 export class PersonalAccessTokensBetaApi extends BaseAPI {
     /**
-     * This creates a personal access token.  Request will require one of the following security scopes:    - sp:my-personal-access-tokens:manage   - sp:all-personal-access-tokens:manage
+     * This creates a personal access token.
      * @summary Create Personal Access Token
      * @param {CreatePersonalAccessTokenRequestBeta} createPersonalAccessTokenRequestBeta Name and scope of personal access token.
      * @param {*} [axiosOptions] Override http request option.
@@ -42702,7 +42836,7 @@ export class PersonalAccessTokensBetaApi extends BaseAPI {
     }
 
     /**
-     * This deletes a personal access token  Request will require one of the following security scopes:    - sp:my-personal-access-tokens:manage   - sp:all-personal-access-tokens:manage
+     * This deletes a personal access token.
      * @summary Delete Personal Access Token
      * @param {string} id The personal access token id
      * @param {*} [axiosOptions] Override http request option.
@@ -42714,7 +42848,7 @@ export class PersonalAccessTokensBetaApi extends BaseAPI {
     }
 
     /**
-     * This gets a collection of personal access tokens associated with the optional `owner-id`.  query parameter. If the `owner-id` query parameter is omitted, all personal access tokens  for a tenant will be retrieved, but the caller must have the \'idn:all-personal-access-tokens:read\' right.  Request will require one of the following security scopes:    - sp:my-personal-access-tokens:read   - sp:my-personal-access-tokens:manage   - sp:all-personal-access-tokens:read   - sp:all-personal-access-tokens:manage
+     * This gets a collection of personal access tokens associated with the optional `owner-id`.  query parameter. If the `owner-id` query parameter is omitted, all personal access tokens  for a tenant will be retrieved, but the caller must have the \'idn:all-personal-access-tokens:read\' right.
      * @summary List Personal Access Tokens
      * @param {string} [ownerId] The identity ID of the owner whose personal access tokens should be listed.  If \&quot;me\&quot;, the caller should have the following right: \&#39;idn:my-personal-access-tokens:read\&#39; If an actual owner ID or if the &#x60;owner-id&#x60; parameter is omitted in the request,  the caller should have the following right: \&#39;idn:all-personal-access-tokens:read\&#39;.  If the caller has the following right, then managed personal access tokens associated with &#x60;owner-id&#x60; will be retrieved: \&#39;idn:managed-personal-access-tokens:read\&#39;
      * @param {*} [axiosOptions] Override http request option.
@@ -42723,6 +42857,19 @@ export class PersonalAccessTokensBetaApi extends BaseAPI {
      */
     public listPersonalAccessTokens(ownerId?: string, axiosOptions?: AxiosRequestConfig) {
         return PersonalAccessTokensBetaApiFp(this.configuration).listPersonalAccessTokens(ownerId, axiosOptions).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * This performs a targeted update to the field(s) of a Personal Access Token.
+     * @summary Patch Personal Access Token
+     * @param {string} id The Personal Access Token id
+     * @param {Array<JsonPatchOperationBeta>} jsonPatchOperationBeta A list of OAuth client update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.  The following fields are patchable: * name * scope 
+     * @param {*} [axiosOptions] Override http request option.
+     * @throws {RequiredError}
+     * @memberof PersonalAccessTokensBetaApi
+     */
+    public patchPersonalAccessToken(id: string, jsonPatchOperationBeta: Array<JsonPatchOperationBeta>, axiosOptions?: AxiosRequestConfig) {
+        return PersonalAccessTokensBetaApiFp(this.configuration).patchPersonalAccessToken(id, jsonPatchOperationBeta, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 }
 
@@ -46061,7 +46208,7 @@ export const SPConfigBetaApiAxiosParamCreator = function (configuration?: Config
             };
         },
         /**
-         * This post will import objects from a JSON configuration file into a tenant. Request will need the following security scope: - sp:config:manage
+         * This post will import objects from a JSON configuration file into a tenant. By default, every import will first export all existing objects supported by sp-config as a backup before the import is attempted. The backup is provided so that the state of the configuration prior to the import is available for inspection or restore if needed. The backup can be skipped by setting \"excludeBackup\" to true in the import options. If a backup is performed, the id of the backup will be provided in the ImportResult as the \"exportJobId\". This can be downloaded  using the /sp-config/export/{exportJobId}/download endpoint. Request will need the following security scope: - sp:config:manage
          * @summary Initiates Configuration Objects Import Job.
          * @param {string} data Name of JSON file containing the objects to be imported.
          * @param {boolean} [preview] This option is intended to give the user information about how an import operation would proceed, without having any affect on the target tenant. If true, no objects will be imported. Instead, the import process will pre-process the import file and attempt to resolve references within imported objects. The import result file will contain messages pertaining to how specific references were resolved, any errors associated with the preprocessing, and messages indicating which objects would be imported.
@@ -46285,7 +46432,7 @@ export const SPConfigBetaApiFp = function(configuration?: Configuration) {
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
-         * This post will import objects from a JSON configuration file into a tenant. Request will need the following security scope: - sp:config:manage
+         * This post will import objects from a JSON configuration file into a tenant. By default, every import will first export all existing objects supported by sp-config as a backup before the import is attempted. The backup is provided so that the state of the configuration prior to the import is available for inspection or restore if needed. The backup can be skipped by setting \"excludeBackup\" to true in the import options. If a backup is performed, the id of the backup will be provided in the ImportResult as the \"exportJobId\". This can be downloaded  using the /sp-config/export/{exportJobId}/download endpoint. Request will need the following security scope: - sp:config:manage
          * @summary Initiates Configuration Objects Import Job.
          * @param {string} data Name of JSON file containing the objects to be imported.
          * @param {boolean} [preview] This option is intended to give the user information about how an import operation would proceed, without having any affect on the target tenant. If true, no objects will be imported. Instead, the import process will pre-process the import file and attempt to resolve references within imported objects. The import result file will contain messages pertaining to how specific references were resolved, any errors associated with the preprocessing, and messages indicating which objects would be imported.
@@ -46370,7 +46517,7 @@ export const SPConfigBetaApiFactory = function (configuration?: Configuration, b
             return localVarFp.spConfigExportJobStatus(id, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
-         * This post will import objects from a JSON configuration file into a tenant. Request will need the following security scope: - sp:config:manage
+         * This post will import objects from a JSON configuration file into a tenant. By default, every import will first export all existing objects supported by sp-config as a backup before the import is attempted. The backup is provided so that the state of the configuration prior to the import is available for inspection or restore if needed. The backup can be skipped by setting \"excludeBackup\" to true in the import options. If a backup is performed, the id of the backup will be provided in the ImportResult as the \"exportJobId\". This can be downloaded  using the /sp-config/export/{exportJobId}/download endpoint. Request will need the following security scope: - sp:config:manage
          * @summary Initiates Configuration Objects Import Job.
          * @param {string} data Name of JSON file containing the objects to be imported.
          * @param {boolean} [preview] This option is intended to give the user information about how an import operation would proceed, without having any affect on the target tenant. If true, no objects will be imported. Instead, the import process will pre-process the import file and attempt to resolve references within imported objects. The import result file will contain messages pertaining to how specific references were resolved, any errors associated with the preprocessing, and messages indicating which objects would be imported.
@@ -46457,7 +46604,7 @@ export class SPConfigBetaApi extends BaseAPI {
     }
 
     /**
-     * This post will import objects from a JSON configuration file into a tenant. Request will need the following security scope: - sp:config:manage
+     * This post will import objects from a JSON configuration file into a tenant. By default, every import will first export all existing objects supported by sp-config as a backup before the import is attempted. The backup is provided so that the state of the configuration prior to the import is available for inspection or restore if needed. The backup can be skipped by setting \"excludeBackup\" to true in the import options. If a backup is performed, the id of the backup will be provided in the ImportResult as the \"exportJobId\". This can be downloaded  using the /sp-config/export/{exportJobId}/download endpoint. Request will need the following security scope: - sp:config:manage
      * @summary Initiates Configuration Objects Import Job.
      * @param {string} data Name of JSON file containing the objects to be imported.
      * @param {boolean} [preview] This option is intended to give the user information about how an import operation would proceed, without having any affect on the target tenant. If true, no objects will be imported. Instead, the import process will pre-process the import file and attempt to resolve references within imported objects. The import result file will contain messages pertaining to how specific references were resolved, any errors associated with the preprocessing, and messages indicating which objects would be imported.
@@ -49465,7 +49612,7 @@ export const SourcesBetaApiAxiosParamCreator = function (configuration?: Configu
             };
         },
         /**
-         * Use this API to selectively update an existing Schema using a JSONPatch payload.  The following schema fields are immutable and cannot be updated: * id * name * created * modified  To switch an account attribute to a group, you need to have the following in place: * `isEntitlement: true` * Must define a schema for the group and [add it to the source](https://developer.sailpoint.com/idn/api/v3/create-schema) before updating the `isGroup` flag.  For example, here is the `group` account attribute referencing a schema that defines the group: ```json {     \"name\": \"groups\",     \"type\": \"STRING\",     \"schema\": {         \"type\": \"CONNECTOR_SCHEMA\",         \"id\": \"2c9180887671ff8c01767b4671fc7d60\",         \"name\": \"group\"     },     \"description\": \"The groups, roles etc. that reference account group objects\",     \"isMulti\": true,     \"isEntitlement\": true,     \"isGroup\": true } ```
+         * Use this API to selectively update an existing Schema using a JSONPatch payload.   The following schema fields are immutable and cannot be updated:  - id - name - created - modified   To switch an account attribute to a group entitlement, you need to have the following in place:  - `isEntitlement: true` - Must define a schema for the group and [add it to the source](https://developer.sailpoint.com/idn/api/v3/create-schema) before updating the `isGroup` flag.  For example, here is the `group` account attribute referencing a schema that defines the group: ```json {     \"name\": \"groups\",     \"type\": \"STRING\",     \"schema\": {         \"type\": \"CONNECTOR_SCHEMA\",         \"id\": \"2c9180887671ff8c01767b4671fc7d60\",         \"name\": \"group\"     },     \"description\": \"The groups, roles etc. that reference account group objects\",     \"isMulti\": true,     \"isEntitlement\": true,     \"isGroup\": true } ``` 
          * @summary Update Source Schema (Partial)
          * @param {string} sourceId The Source id.
          * @param {string} schemaId The Schema id.
@@ -50055,7 +50202,7 @@ export const SourcesBetaApiFp = function(configuration?: Configuration) {
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
-         * Use this API to selectively update an existing Schema using a JSONPatch payload.  The following schema fields are immutable and cannot be updated: * id * name * created * modified  To switch an account attribute to a group, you need to have the following in place: * `isEntitlement: true` * Must define a schema for the group and [add it to the source](https://developer.sailpoint.com/idn/api/v3/create-schema) before updating the `isGroup` flag.  For example, here is the `group` account attribute referencing a schema that defines the group: ```json {     \"name\": \"groups\",     \"type\": \"STRING\",     \"schema\": {         \"type\": \"CONNECTOR_SCHEMA\",         \"id\": \"2c9180887671ff8c01767b4671fc7d60\",         \"name\": \"group\"     },     \"description\": \"The groups, roles etc. that reference account group objects\",     \"isMulti\": true,     \"isEntitlement\": true,     \"isGroup\": true } ```
+         * Use this API to selectively update an existing Schema using a JSONPatch payload.   The following schema fields are immutable and cannot be updated:  - id - name - created - modified   To switch an account attribute to a group entitlement, you need to have the following in place:  - `isEntitlement: true` - Must define a schema for the group and [add it to the source](https://developer.sailpoint.com/idn/api/v3/create-schema) before updating the `isGroup` flag.  For example, here is the `group` account attribute referencing a schema that defines the group: ```json {     \"name\": \"groups\",     \"type\": \"STRING\",     \"schema\": {         \"type\": \"CONNECTOR_SCHEMA\",         \"id\": \"2c9180887671ff8c01767b4671fc7d60\",         \"name\": \"group\"     },     \"description\": \"The groups, roles etc. that reference account group objects\",     \"isMulti\": true,     \"isEntitlement\": true,     \"isGroup\": true } ``` 
          * @summary Update Source Schema (Partial)
          * @param {string} sourceId The Source id.
          * @param {string} schemaId The Schema id.
@@ -50422,7 +50569,7 @@ export const SourcesBetaApiFactory = function (configuration?: Configuration, ba
             return localVarFp.updateProvisioningPolicy(sourceId, usageType, jsonPatchOperationBeta, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
-         * Use this API to selectively update an existing Schema using a JSONPatch payload.  The following schema fields are immutable and cannot be updated: * id * name * created * modified  To switch an account attribute to a group, you need to have the following in place: * `isEntitlement: true` * Must define a schema for the group and [add it to the source](https://developer.sailpoint.com/idn/api/v3/create-schema) before updating the `isGroup` flag.  For example, here is the `group` account attribute referencing a schema that defines the group: ```json {     \"name\": \"groups\",     \"type\": \"STRING\",     \"schema\": {         \"type\": \"CONNECTOR_SCHEMA\",         \"id\": \"2c9180887671ff8c01767b4671fc7d60\",         \"name\": \"group\"     },     \"description\": \"The groups, roles etc. that reference account group objects\",     \"isMulti\": true,     \"isEntitlement\": true,     \"isGroup\": true } ```
+         * Use this API to selectively update an existing Schema using a JSONPatch payload.   The following schema fields are immutable and cannot be updated:  - id - name - created - modified   To switch an account attribute to a group entitlement, you need to have the following in place:  - `isEntitlement: true` - Must define a schema for the group and [add it to the source](https://developer.sailpoint.com/idn/api/v3/create-schema) before updating the `isGroup` flag.  For example, here is the `group` account attribute referencing a schema that defines the group: ```json {     \"name\": \"groups\",     \"type\": \"STRING\",     \"schema\": {         \"type\": \"CONNECTOR_SCHEMA\",         \"id\": \"2c9180887671ff8c01767b4671fc7d60\",         \"name\": \"group\"     },     \"description\": \"The groups, roles etc. that reference account group objects\",     \"isMulti\": true,     \"isEntitlement\": true,     \"isGroup\": true } ``` 
          * @summary Update Source Schema (Partial)
          * @param {string} sourceId The Source id.
          * @param {string} schemaId The Schema id.
@@ -50838,7 +50985,7 @@ export class SourcesBetaApi extends BaseAPI {
     }
 
     /**
-     * Use this API to selectively update an existing Schema using a JSONPatch payload.  The following schema fields are immutable and cannot be updated: * id * name * created * modified  To switch an account attribute to a group, you need to have the following in place: * `isEntitlement: true` * Must define a schema for the group and [add it to the source](https://developer.sailpoint.com/idn/api/v3/create-schema) before updating the `isGroup` flag.  For example, here is the `group` account attribute referencing a schema that defines the group: ```json {     \"name\": \"groups\",     \"type\": \"STRING\",     \"schema\": {         \"type\": \"CONNECTOR_SCHEMA\",         \"id\": \"2c9180887671ff8c01767b4671fc7d60\",         \"name\": \"group\"     },     \"description\": \"The groups, roles etc. that reference account group objects\",     \"isMulti\": true,     \"isEntitlement\": true,     \"isGroup\": true } ```
+     * Use this API to selectively update an existing Schema using a JSONPatch payload.   The following schema fields are immutable and cannot be updated:  - id - name - created - modified   To switch an account attribute to a group entitlement, you need to have the following in place:  - `isEntitlement: true` - Must define a schema for the group and [add it to the source](https://developer.sailpoint.com/idn/api/v3/create-schema) before updating the `isGroup` flag.  For example, here is the `group` account attribute referencing a schema that defines the group: ```json {     \"name\": \"groups\",     \"type\": \"STRING\",     \"schema\": {         \"type\": \"CONNECTOR_SCHEMA\",         \"id\": \"2c9180887671ff8c01767b4671fc7d60\",         \"name\": \"group\"     },     \"description\": \"The groups, roles etc. that reference account group objects\",     \"isMulti\": true,     \"isEntitlement\": true,     \"isGroup\": true } ``` 
      * @summary Update Source Schema (Partial)
      * @param {string} sourceId The Source id.
      * @param {string} schemaId The Schema id.
@@ -54211,7 +54358,7 @@ export const WorkflowsBetaApiAxiosParamCreator = function (configuration?: Confi
             };
         },
         /**
-         * Get a single workflow execution.  Workflow executions are available for up to 2 days before being archived.  If you attempt to access a workflow execution that has been archived, you will receive a 404 Not Found.
+         * Get a single workflow execution.  Workflow executions are available for up to 90 days before being archived.  If you attempt to access a workflow execution that has been archived, you will receive a 404 Not Found.
          * @summary Get a Workflow Execution
          * @param {string} id Id of the workflow execution
          * @param {*} [axiosOptions] Override http request option.
@@ -54253,7 +54400,7 @@ export const WorkflowsBetaApiAxiosParamCreator = function (configuration?: Confi
             };
         },
         /**
-         * Get a detailed history of a single workflow execution.  Workflow executions are available for up to 2 days before being archived.  If you attempt to access a workflow execution that has been archived, you will receive a 404 Not Found.
+         * Get a detailed history of a single workflow execution.  Workflow executions are available for up to 90 days before being archived.  If you attempt to access a workflow execution that has been archived, you will receive a 404 Not Found.
          * @summary Get Workflow Execution History
          * @param {string} id Id of the workflow execution
          * @param {*} [axiosOptions] Override http request option.
@@ -54343,7 +54490,7 @@ export const WorkflowsBetaApiAxiosParamCreator = function (configuration?: Confi
             };
         },
         /**
-         * This lists the executions for a given workflow
+         * This lists the executions for a given workflow. Workflow executions are available for up to 90 days before being archived.
          * @summary List Workflow Executions
          * @param {string} id Id of the workflow
          * @param {*} [axiosOptions] Override http request option.
@@ -54899,7 +55046,7 @@ export const WorkflowsBetaApiFp = function(configuration?: Configuration) {
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
-         * Get a single workflow execution.  Workflow executions are available for up to 2 days before being archived.  If you attempt to access a workflow execution that has been archived, you will receive a 404 Not Found.
+         * Get a single workflow execution.  Workflow executions are available for up to 90 days before being archived.  If you attempt to access a workflow execution that has been archived, you will receive a 404 Not Found.
          * @summary Get a Workflow Execution
          * @param {string} id Id of the workflow execution
          * @param {*} [axiosOptions] Override http request option.
@@ -54910,7 +55057,7 @@ export const WorkflowsBetaApiFp = function(configuration?: Configuration) {
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
-         * Get a detailed history of a single workflow execution.  Workflow executions are available for up to 2 days before being archived.  If you attempt to access a workflow execution that has been archived, you will receive a 404 Not Found.
+         * Get a detailed history of a single workflow execution.  Workflow executions are available for up to 90 days before being archived.  If you attempt to access a workflow execution that has been archived, you will receive a 404 Not Found.
          * @summary Get Workflow Execution History
          * @param {string} id Id of the workflow execution
          * @param {*} [axiosOptions] Override http request option.
@@ -54933,7 +55080,7 @@ export const WorkflowsBetaApiFp = function(configuration?: Configuration) {
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
-         * This lists the executions for a given workflow
+         * This lists the executions for a given workflow. Workflow executions are available for up to 90 days before being archived.
          * @summary List Workflow Executions
          * @param {string} id Id of the workflow
          * @param {*} [axiosOptions] Override http request option.
@@ -55111,7 +55258,7 @@ export const WorkflowsBetaApiFactory = function (configuration?: Configuration, 
             return localVarFp.getWorkflow(id, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
-         * Get a single workflow execution.  Workflow executions are available for up to 2 days before being archived.  If you attempt to access a workflow execution that has been archived, you will receive a 404 Not Found.
+         * Get a single workflow execution.  Workflow executions are available for up to 90 days before being archived.  If you attempt to access a workflow execution that has been archived, you will receive a 404 Not Found.
          * @summary Get a Workflow Execution
          * @param {string} id Id of the workflow execution
          * @param {*} [axiosOptions] Override http request option.
@@ -55121,7 +55268,7 @@ export const WorkflowsBetaApiFactory = function (configuration?: Configuration, 
             return localVarFp.getWorkflowExecution(id, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
-         * Get a detailed history of a single workflow execution.  Workflow executions are available for up to 2 days before being archived.  If you attempt to access a workflow execution that has been archived, you will receive a 404 Not Found.
+         * Get a detailed history of a single workflow execution.  Workflow executions are available for up to 90 days before being archived.  If you attempt to access a workflow execution that has been archived, you will receive a 404 Not Found.
          * @summary Get Workflow Execution History
          * @param {string} id Id of the workflow execution
          * @param {*} [axiosOptions] Override http request option.
@@ -55142,7 +55289,7 @@ export const WorkflowsBetaApiFactory = function (configuration?: Configuration, 
             return localVarFp.listCompleteWorkflowLibrary(limit, offset, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
-         * This lists the executions for a given workflow
+         * This lists the executions for a given workflow. Workflow executions are available for up to 90 days before being archived.
          * @summary List Workflow Executions
          * @param {string} id Id of the workflow
          * @param {*} [axiosOptions] Override http request option.
@@ -55317,7 +55464,7 @@ export class WorkflowsBetaApi extends BaseAPI {
     }
 
     /**
-     * Get a single workflow execution.  Workflow executions are available for up to 2 days before being archived.  If you attempt to access a workflow execution that has been archived, you will receive a 404 Not Found.
+     * Get a single workflow execution.  Workflow executions are available for up to 90 days before being archived.  If you attempt to access a workflow execution that has been archived, you will receive a 404 Not Found.
      * @summary Get a Workflow Execution
      * @param {string} id Id of the workflow execution
      * @param {*} [axiosOptions] Override http request option.
@@ -55329,7 +55476,7 @@ export class WorkflowsBetaApi extends BaseAPI {
     }
 
     /**
-     * Get a detailed history of a single workflow execution.  Workflow executions are available for up to 2 days before being archived.  If you attempt to access a workflow execution that has been archived, you will receive a 404 Not Found.
+     * Get a detailed history of a single workflow execution.  Workflow executions are available for up to 90 days before being archived.  If you attempt to access a workflow execution that has been archived, you will receive a 404 Not Found.
      * @summary Get Workflow Execution History
      * @param {string} id Id of the workflow execution
      * @param {*} [axiosOptions] Override http request option.
@@ -55354,7 +55501,7 @@ export class WorkflowsBetaApi extends BaseAPI {
     }
 
     /**
-     * This lists the executions for a given workflow
+     * This lists the executions for a given workflow. Workflow executions are available for up to 90 days before being archived.
      * @summary List Workflow Executions
      * @param {string} id Id of the workflow
      * @param {*} [axiosOptions] Override http request option.

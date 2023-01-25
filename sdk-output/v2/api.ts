@@ -1036,7 +1036,7 @@ export const GovernanceGroupsV2ApiAxiosParamCreator = function (configuration?: 
             };
         },
         /**
-         * This API returns the details for a single account based on the ID
+         * This API returns a list of work groups
          * @summary List Work Groups
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
@@ -1246,7 +1246,7 @@ export const GovernanceGroupsV2ApiFp = function(configuration?: Configuration) {
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
-         * This API returns the details for a single account based on the ID
+         * This API returns a list of work groups
          * @summary List Work Groups
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
@@ -1350,7 +1350,7 @@ export const GovernanceGroupsV2ApiFactory = function (configuration?: Configurat
             return localVarFp.listWorkgroupMembers(workgroupId, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
-         * This API returns the details for a single account based on the ID
+         * This API returns a list of work groups
          * @summary List Work Groups
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
@@ -1463,7 +1463,7 @@ export class GovernanceGroupsV2Api extends BaseAPI {
     }
 
     /**
-     * This API returns the details for a single account based on the ID
+     * This API returns a list of work groups
      * @summary List Work Groups
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}

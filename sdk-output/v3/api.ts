@@ -7462,7 +7462,8 @@ export const Index = {
     Entitlements: 'entitlements',
     Events: 'events',
     Identities: 'identities',
-    Roles: 'roles'
+    Roles: 'roles',
+    Star: '*'
 } as const;
 
 export type Index = typeof Index[keyof typeof Index];
@@ -7922,7 +7923,7 @@ export interface Name {
      * @type {string}
      * @memberof Name
      */
-    'description'?: string;
+    'description'?: string | null;
 }
 /**
  * 
@@ -7935,13 +7936,13 @@ export interface Name1 {
      * @type {string}
      * @memberof Name1
      */
-    'name'?: string;
+    'name'?: string | null;
     /**
      * The description of the scheduled search. 
      * @type {string}
      * @memberof Name1
      */
-    'description'?: string;
+    'description'?: string | null;
 }
 /**
  * 
@@ -11943,7 +11944,7 @@ export interface SavedSearch {
      * @type {string}
      * @memberof SavedSearch
      */
-    'description'?: string;
+    'description'?: string | null;
     /**
      * Indicates if the saved search is public. 
      * @type {boolean}
@@ -11985,7 +11986,7 @@ export interface SavedSearch {
      * @type {Array<string>}
      * @memberof SavedSearch
      */
-    'fields'?: Array<string>;
+    'fields'?: Array<string> | null;
     /**
      * The fields to be used to sort the search results. 
      * @type {Array<string>}
@@ -12035,7 +12036,7 @@ export interface SavedSearchCreateRequest {
      * @type {string}
      * @memberof SavedSearchCreateRequest
      */
-    'description'?: string;
+    'description'?: string | null;
     /**
      * Indicates if the saved search is public. 
      * @type {boolean}
@@ -12077,7 +12078,7 @@ export interface SavedSearchCreateRequest {
      * @type {Array<string>}
      * @memberof SavedSearchCreateRequest
      */
-    'fields'?: Array<string>;
+    'fields'?: Array<string> | null;
     /**
      * The fields to be used to sort the search results. 
      * @type {Array<string>}
@@ -12098,23 +12099,23 @@ export interface SavedSearchCreateRequest {
  */
 export interface Schedule {
     /**
-     * The ID of the saved search that will be executed. 
+     * The ID of the saved search that will be executed.
      * @type {string}
      * @memberof Schedule
      */
     'savedSearchId': string;
     /**
-     * A date-time in ISO-8601 format
+     * The date the scheduled search was initially created.
      * @type {string}
      * @memberof Schedule
      */
-    'created'?: string | null;
+    'created'?: string;
     /**
-     * A date-time in ISO-8601 format
+     * The last date the scheduled search was modified.
      * @type {string}
      * @memberof Schedule
      */
-    'modified'?: string | null;
+    'modified'?: string;
     /**
      * 
      * @type {Schedule1}
@@ -12122,11 +12123,11 @@ export interface Schedule {
      */
     'schedule': Schedule1;
     /**
-     * The email recipients. 
-     * @type {Array<TypedReference>}
+     * A list of identities that should receive the scheduled search report via email.
+     * @type {Array<ScheduleRecipientsInner>}
      * @memberof Schedule
      */
-    'recipients': Array<TypedReference>;
+    'recipients': Array<ScheduleRecipientsInner>;
     /**
      * Indicates if the scheduled search is enabled. 
      * @type {boolean}
@@ -12147,7 +12148,7 @@ export interface Schedule {
     'displayQueryDetails'?: boolean;
 }
 /**
- * The schedule information. 
+ * The schedule information.
  * @export
  * @interface Schedule1
  */
@@ -12160,22 +12161,16 @@ export interface Schedule1 {
     'type': ScheduleType;
     /**
      * 
-     * @type {Selector}
+     * @type {Schedule1Days}
      * @memberof Schedule1
      */
-    'months'?: Selector | null;
+    'days'?: Schedule1Days;
     /**
      * 
-     * @type {Selector}
+     * @type {Schedule1Hours}
      * @memberof Schedule1
      */
-    'days'?: Selector | null;
-    /**
-     * 
-     * @type {Selector}
-     * @memberof Schedule1
-     */
-    'hours': Selector | null;
+    'hours': Schedule1Hours;
     /**
      * A date-time in ISO-8601 format
      * @type {string}
@@ -12183,12 +12178,88 @@ export interface Schedule1 {
      */
     'expiration'?: string | null;
     /**
-     * The ID of the time zone for the schedule. 
+     * The GMT formatted timezone the schedule will run in (ex. GMT-06:00).  If no timezone is specified, the org\'s default timezone is used.
      * @type {string}
      * @memberof Schedule1
      */
-    'timeZoneId'?: string;
+    'timeZoneId'?: string | null;
 }
+/**
+ * 
+ * @export
+ * @interface Schedule1Days
+ */
+export interface Schedule1Days {
+    /**
+     * 
+     * @type {SelectorType}
+     * @memberof Schedule1Days
+     */
+    'type': SelectorType;
+    /**
+     * The selected values. 
+     * @type {Array<string>}
+     * @memberof Schedule1Days
+     */
+    'values': Array<string>;
+    /**
+     * The selected interval for RANGE selectors. 
+     * @type {number}
+     * @memberof Schedule1Days
+     */
+    'interval'?: number | null;
+}
+/**
+ * 
+ * @export
+ * @interface Schedule1Hours
+ */
+export interface Schedule1Hours {
+    /**
+     * 
+     * @type {SelectorType}
+     * @memberof Schedule1Hours
+     */
+    'type': SelectorType;
+    /**
+     * The selected values. 
+     * @type {Array<string>}
+     * @memberof Schedule1Hours
+     */
+    'values': Array<string>;
+    /**
+     * The selected interval for RANGE selectors. 
+     * @type {number}
+     * @memberof Schedule1Hours
+     */
+    'interval'?: number | null;
+}
+/**
+ * 
+ * @export
+ * @interface ScheduleRecipientsInner
+ */
+export interface ScheduleRecipientsInner {
+    /**
+     * The type of object being referenced
+     * @type {string}
+     * @memberof ScheduleRecipientsInner
+     */
+    'type': ScheduleRecipientsInnerTypeEnum;
+    /**
+     * The ID of the referenced object
+     * @type {string}
+     * @memberof ScheduleRecipientsInner
+     */
+    'id': string;
+}
+
+export const ScheduleRecipientsInnerTypeEnum = {
+    Identity: 'IDENTITY'
+} as const;
+
+export type ScheduleRecipientsInnerTypeEnum = typeof ScheduleRecipientsInnerTypeEnum[keyof typeof ScheduleRecipientsInnerTypeEnum];
+
 /**
  * Enum representing the currently supported schedule types.  Additional values may be added in the future without notice. 
  * @export
@@ -12212,35 +12283,54 @@ export type ScheduleType = typeof ScheduleType[keyof typeof ScheduleType];
  */
 export interface ScheduledSearch {
     /**
+     * The scheduled search ID.
+     * @type {string}
+     * @memberof ScheduledSearch
+     */
+    'id': string;
+    /**
+     * 
+     * @type {ScheduledSearchAllOfOwner}
+     * @memberof ScheduledSearch
+     */
+    'owner': ScheduledSearchAllOfOwner;
+    /**
+     * The ID of the scheduled search owner.  Please use the `id` in the `owner` object instead. 
+     * @type {string}
+     * @memberof ScheduledSearch
+     * @deprecated
+     */
+    'ownerId': string;
+    /**
      * The name of the scheduled search. 
      * @type {string}
      * @memberof ScheduledSearch
      */
-    'name'?: string;
+    'name'?: string | null;
     /**
      * The description of the scheduled search. 
      * @type {string}
      * @memberof ScheduledSearch
      */
-    'description'?: string;
+    'description'?: string | null;
     /**
-     * The ID of the saved search that will be executed. 
+     * The ID of the saved search that will be executed.
      * @type {string}
      * @memberof ScheduledSearch
      */
     'savedSearchId': string;
     /**
-     * A date-time in ISO-8601 format
+     * The date the scheduled search was initially created.
      * @type {string}
      * @memberof ScheduledSearch
      */
-    'created'?: string | null;
+    'created'?: string;
     /**
-     * A date-time in ISO-8601 format
+     * The last date the scheduled search was modified.
      * @type {string}
      * @memberof ScheduledSearch
      */
-    'modified'?: string | null;
+    'modified'?: string;
     /**
      * 
      * @type {Schedule1}
@@ -12248,11 +12338,11 @@ export interface ScheduledSearch {
      */
     'schedule': Schedule1;
     /**
-     * The email recipients. 
-     * @type {Array<TypedReference>}
+     * A list of identities that should receive the scheduled search report via email.
+     * @type {Array<ScheduleRecipientsInner>}
      * @memberof ScheduledSearch
      */
-    'recipients': Array<TypedReference>;
+    'recipients': Array<ScheduleRecipientsInner>;
     /**
      * Indicates if the scheduled search is enabled. 
      * @type {boolean}
@@ -12271,24 +12361,6 @@ export interface ScheduledSearch {
      * @memberof ScheduledSearch
      */
     'displayQueryDetails'?: boolean;
-    /**
-     * The scheduled search ID. 
-     * @type {string}
-     * @memberof ScheduledSearch
-     */
-    'id'?: string;
-    /**
-     * 
-     * @type {TypedReference}
-     * @memberof ScheduledSearch
-     */
-    'owner'?: TypedReference;
-    /**
-     * The ID of the scheduled search owner
-     * @type {string}
-     * @memberof ScheduledSearch
-     */
-    'ownerId'?: string;
 }
 /**
  * 
@@ -12297,24 +12369,51 @@ export interface ScheduledSearch {
  */
 export interface ScheduledSearchAllOf {
     /**
-     * The scheduled search ID. 
+     * The scheduled search ID.
      * @type {string}
      * @memberof ScheduledSearchAllOf
      */
     'id'?: string;
     /**
      * 
-     * @type {TypedReference}
+     * @type {ScheduledSearchAllOfOwner}
      * @memberof ScheduledSearchAllOf
      */
-    'owner'?: TypedReference;
+    'owner'?: ScheduledSearchAllOfOwner;
     /**
-     * The ID of the scheduled search owner
+     * The ID of the scheduled search owner.  Please use the `id` in the `owner` object instead. 
      * @type {string}
      * @memberof ScheduledSearchAllOf
+     * @deprecated
      */
     'ownerId'?: string;
 }
+/**
+ * The owner of the scheduled search
+ * @export
+ * @interface ScheduledSearchAllOfOwner
+ */
+export interface ScheduledSearchAllOfOwner {
+    /**
+     * The type of object being referenced
+     * @type {string}
+     * @memberof ScheduledSearchAllOfOwner
+     */
+    'type': ScheduledSearchAllOfOwnerTypeEnum;
+    /**
+     * The ID of the referenced object
+     * @type {string}
+     * @memberof ScheduledSearchAllOfOwner
+     */
+    'id': string;
+}
+
+export const ScheduledSearchAllOfOwnerTypeEnum = {
+    Identity: 'IDENTITY'
+} as const;
+
+export type ScheduledSearchAllOfOwnerTypeEnum = typeof ScheduledSearchAllOfOwnerTypeEnum[keyof typeof ScheduledSearchAllOfOwnerTypeEnum];
+
 /**
  * 
  * @export
@@ -12326,31 +12425,31 @@ export interface ScheduledSearchCreateRequest {
      * @type {string}
      * @memberof ScheduledSearchCreateRequest
      */
-    'name'?: string;
+    'name'?: string | null;
     /**
      * The description of the scheduled search. 
      * @type {string}
      * @memberof ScheduledSearchCreateRequest
      */
-    'description'?: string;
+    'description'?: string | null;
     /**
-     * The ID of the saved search that will be executed. 
+     * The ID of the saved search that will be executed.
      * @type {string}
      * @memberof ScheduledSearchCreateRequest
      */
     'savedSearchId': string;
     /**
-     * A date-time in ISO-8601 format
+     * The date the scheduled search was initially created.
      * @type {string}
      * @memberof ScheduledSearchCreateRequest
      */
-    'created'?: string | null;
+    'created'?: string;
     /**
-     * A date-time in ISO-8601 format
+     * The last date the scheduled search was modified.
      * @type {string}
      * @memberof ScheduledSearchCreateRequest
      */
-    'modified'?: string | null;
+    'modified'?: string;
     /**
      * 
      * @type {Schedule1}
@@ -12358,11 +12457,11 @@ export interface ScheduledSearchCreateRequest {
      */
     'schedule': Schedule1;
     /**
-     * The email recipients. 
-     * @type {Array<TypedReference>}
+     * A list of identities that should receive the scheduled search report via email.
+     * @type {Array<ScheduleRecipientsInner>}
      * @memberof ScheduledSearchCreateRequest
      */
-    'recipients': Array<TypedReference>;
+    'recipients': Array<ScheduleRecipientsInner>;
     /**
      * Indicates if the scheduled search is enabled. 
      * @type {boolean}
@@ -12508,7 +12607,7 @@ export interface Search {
      * @type {Array<string>}
      * @memberof Search
      */
-    'fields'?: Array<string>;
+    'fields'?: Array<string> | null;
     /**
      * The fields to be used to sort the search results. 
      * @type {Array<string>}
@@ -12607,7 +12706,7 @@ export interface Search1 {
      */
     'sort'?: Array<string>;
     /**
-     * Used to begin the search window at the values specified. This parameter consists of the last values of the sorted fields in the current record set. This is used to expand the Elasticsearch limit of 10K records by shifting the 10K window to begin at this value. For example, when searching for identities, if the last idenitity ID in the search result is 2c91808375d8e80a0175e1f88a575221, then using that ID in this property will start a new search after this identity.
+     * Used to begin the search window at the values specified. This parameter consists of the last values of the sorted fields in the current record set. This is used to expand the Elasticsearch limit of 10K records by shifting the 10K window to begin at this value. It is recommended that you always include the ID of the object in addition to any other fields on this parameter in order to ensure you don\'t get duplicate results while paging. For example, when searching for identities, if you are sorting by displayName you will also want to include ID, for example [\"displayName\", \"id\"].  If the last identity ID in the search result is 2c91808375d8e80a0175e1f88a575221 and the last displayName is \"John Doe\", then using that displayName and ID will start a new search after this identity. The searchAfter value will look like [\"John Doe\",\"2c91808375d8e80a0175e1f88a575221\"]
      * @type {Array<string>}
      * @memberof Search1
      */
@@ -21572,7 +21671,7 @@ export class NonEmployeeLifecycleManagementApi extends BaseAPI {
 export const OAuthClientsApiAxiosParamCreator = function (configuration?: Configuration) {
     return {
         /**
-         * This creates an OAuth client. Request will require the following security scope: - sp:oauth-client:manage
+         * This creates an OAuth client.
          * @summary Create OAuth Client
          * @param {CreateOAuthClientRequest} createOAuthClientRequest 
          * @param {*} [axiosOptions] Override http request option.
@@ -21616,7 +21715,7 @@ export const OAuthClientsApiAxiosParamCreator = function (configuration?: Config
             };
         },
         /**
-         * This deletes an OAuth client. Request will require the following security scopes: - sp:oauth-client:manage
+         * This deletes an OAuth client.
          * @summary Delete OAuth Client
          * @param {string} id The OAuth client id
          * @param {*} [axiosOptions] Override http request option.
@@ -21658,7 +21757,7 @@ export const OAuthClientsApiAxiosParamCreator = function (configuration?: Config
             };
         },
         /**
-         * This gets details of an OAuth client. Request will require the following security scope: - sp:oauth-client:manage - sp:oauth-client:read
+         * This gets details of an OAuth client.
          * @summary Get OAuth Client
          * @param {string} id The OAuth client id
          * @param {*} [axiosOptions] Override http request option.
@@ -21700,7 +21799,7 @@ export const OAuthClientsApiAxiosParamCreator = function (configuration?: Config
             };
         },
         /**
-         * This gets a list of OAuth clients. Request will require the following security scope: - sp:oauth-client:manage
+         * This gets a list of OAuth clients.
          * @summary List OAuth Clients
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
@@ -21738,7 +21837,7 @@ export const OAuthClientsApiAxiosParamCreator = function (configuration?: Config
             };
         },
         /**
-         * This performs a targeted update to the field(s) of an OAuth client. Request will require a security scope of - sp:oauth-client:manage
+         * This performs a targeted update to the field(s) of an OAuth client.
          * @summary Patch OAuth Client
          * @param {string} id The OAuth client id
          * @param {Array<JsonPatchOperation>} jsonPatchOperation A list of OAuth client update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.  The following fields are patchable: * tenant * businessName * homepageUrl * name * description * accessTokenValiditySeconds * refreshTokenValiditySeconds * redirectUris * grantTypes * accessType * enabled * strongAuthSupported * claimsSupported 
@@ -21796,7 +21895,7 @@ export const OAuthClientsApiFp = function(configuration?: Configuration) {
     const localVarAxiosParamCreator = OAuthClientsApiAxiosParamCreator(configuration)
     return {
         /**
-         * This creates an OAuth client. Request will require the following security scope: - sp:oauth-client:manage
+         * This creates an OAuth client.
          * @summary Create OAuth Client
          * @param {CreateOAuthClientRequest} createOAuthClientRequest 
          * @param {*} [axiosOptions] Override http request option.
@@ -21807,7 +21906,7 @@ export const OAuthClientsApiFp = function(configuration?: Configuration) {
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
-         * This deletes an OAuth client. Request will require the following security scopes: - sp:oauth-client:manage
+         * This deletes an OAuth client.
          * @summary Delete OAuth Client
          * @param {string} id The OAuth client id
          * @param {*} [axiosOptions] Override http request option.
@@ -21818,7 +21917,7 @@ export const OAuthClientsApiFp = function(configuration?: Configuration) {
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
-         * This gets details of an OAuth client. Request will require the following security scope: - sp:oauth-client:manage - sp:oauth-client:read
+         * This gets details of an OAuth client.
          * @summary Get OAuth Client
          * @param {string} id The OAuth client id
          * @param {*} [axiosOptions] Override http request option.
@@ -21829,7 +21928,7 @@ export const OAuthClientsApiFp = function(configuration?: Configuration) {
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
-         * This gets a list of OAuth clients. Request will require the following security scope: - sp:oauth-client:manage
+         * This gets a list of OAuth clients.
          * @summary List OAuth Clients
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
@@ -21839,7 +21938,7 @@ export const OAuthClientsApiFp = function(configuration?: Configuration) {
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
-         * This performs a targeted update to the field(s) of an OAuth client. Request will require a security scope of - sp:oauth-client:manage
+         * This performs a targeted update to the field(s) of an OAuth client.
          * @summary Patch OAuth Client
          * @param {string} id The OAuth client id
          * @param {Array<JsonPatchOperation>} jsonPatchOperation A list of OAuth client update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.  The following fields are patchable: * tenant * businessName * homepageUrl * name * description * accessTokenValiditySeconds * refreshTokenValiditySeconds * redirectUris * grantTypes * accessType * enabled * strongAuthSupported * claimsSupported 
@@ -21861,7 +21960,7 @@ export const OAuthClientsApiFactory = function (configuration?: Configuration, b
     const localVarFp = OAuthClientsApiFp(configuration)
     return {
         /**
-         * This creates an OAuth client. Request will require the following security scope: - sp:oauth-client:manage
+         * This creates an OAuth client.
          * @summary Create OAuth Client
          * @param {CreateOAuthClientRequest} createOAuthClientRequest 
          * @param {*} [axiosOptions] Override http request option.
@@ -21871,7 +21970,7 @@ export const OAuthClientsApiFactory = function (configuration?: Configuration, b
             return localVarFp.createOauthClient(createOAuthClientRequest, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
-         * This deletes an OAuth client. Request will require the following security scopes: - sp:oauth-client:manage
+         * This deletes an OAuth client.
          * @summary Delete OAuth Client
          * @param {string} id The OAuth client id
          * @param {*} [axiosOptions] Override http request option.
@@ -21881,7 +21980,7 @@ export const OAuthClientsApiFactory = function (configuration?: Configuration, b
             return localVarFp.deleteOauthClient(id, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
-         * This gets details of an OAuth client. Request will require the following security scope: - sp:oauth-client:manage - sp:oauth-client:read
+         * This gets details of an OAuth client.
          * @summary Get OAuth Client
          * @param {string} id The OAuth client id
          * @param {*} [axiosOptions] Override http request option.
@@ -21891,7 +21990,7 @@ export const OAuthClientsApiFactory = function (configuration?: Configuration, b
             return localVarFp.getOauthClient(id, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
-         * This gets a list of OAuth clients. Request will require the following security scope: - sp:oauth-client:manage
+         * This gets a list of OAuth clients.
          * @summary List OAuth Clients
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
@@ -21900,7 +21999,7 @@ export const OAuthClientsApiFactory = function (configuration?: Configuration, b
             return localVarFp.listOauthClients(axiosOptions).then((request) => request(axios, basePath));
         },
         /**
-         * This performs a targeted update to the field(s) of an OAuth client. Request will require a security scope of - sp:oauth-client:manage
+         * This performs a targeted update to the field(s) of an OAuth client.
          * @summary Patch OAuth Client
          * @param {string} id The OAuth client id
          * @param {Array<JsonPatchOperation>} jsonPatchOperation A list of OAuth client update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.  The following fields are patchable: * tenant * businessName * homepageUrl * name * description * accessTokenValiditySeconds * refreshTokenValiditySeconds * redirectUris * grantTypes * accessType * enabled * strongAuthSupported * claimsSupported 
@@ -21921,7 +22020,7 @@ export const OAuthClientsApiFactory = function (configuration?: Configuration, b
  */
 export class OAuthClientsApi extends BaseAPI {
     /**
-     * This creates an OAuth client. Request will require the following security scope: - sp:oauth-client:manage
+     * This creates an OAuth client.
      * @summary Create OAuth Client
      * @param {CreateOAuthClientRequest} createOAuthClientRequest 
      * @param {*} [axiosOptions] Override http request option.
@@ -21933,7 +22032,7 @@ export class OAuthClientsApi extends BaseAPI {
     }
 
     /**
-     * This deletes an OAuth client. Request will require the following security scopes: - sp:oauth-client:manage
+     * This deletes an OAuth client.
      * @summary Delete OAuth Client
      * @param {string} id The OAuth client id
      * @param {*} [axiosOptions] Override http request option.
@@ -21945,7 +22044,7 @@ export class OAuthClientsApi extends BaseAPI {
     }
 
     /**
-     * This gets details of an OAuth client. Request will require the following security scope: - sp:oauth-client:manage - sp:oauth-client:read
+     * This gets details of an OAuth client.
      * @summary Get OAuth Client
      * @param {string} id The OAuth client id
      * @param {*} [axiosOptions] Override http request option.
@@ -21957,7 +22056,7 @@ export class OAuthClientsApi extends BaseAPI {
     }
 
     /**
-     * This gets a list of OAuth clients. Request will require the following security scope: - sp:oauth-client:manage
+     * This gets a list of OAuth clients.
      * @summary List OAuth Clients
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
@@ -21968,7 +22067,7 @@ export class OAuthClientsApi extends BaseAPI {
     }
 
     /**
-     * This performs a targeted update to the field(s) of an OAuth client. Request will require a security scope of - sp:oauth-client:manage
+     * This performs a targeted update to the field(s) of an OAuth client.
      * @summary Patch OAuth Client
      * @param {string} id The OAuth client id
      * @param {Array<JsonPatchOperation>} jsonPatchOperation A list of OAuth client update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.  The following fields are patchable: * tenant * businessName * homepageUrl * name * description * accessTokenValiditySeconds * refreshTokenValiditySeconds * redirectUris * grantTypes * accessType * enabled * strongAuthSupported * claimsSupported 
@@ -22256,7 +22355,7 @@ export class PasswordManagementApi extends BaseAPI {
 export const PersonalAccessTokensApiAxiosParamCreator = function (configuration?: Configuration) {
     return {
         /**
-         * This creates a personal access token.  Request will require one of the following security scopes:    - sp:my-personal-access-tokens:manage   - sp:all-personal-access-tokens:manage
+         * This creates a personal access token.
          * @summary Create Personal Access Token
          * @param {CreatePersonalAccessTokenRequest} createPersonalAccessTokenRequest Name and scope of personal access token.
          * @param {*} [axiosOptions] Override http request option.
@@ -22300,7 +22399,7 @@ export const PersonalAccessTokensApiAxiosParamCreator = function (configuration?
             };
         },
         /**
-         * This deletes a personal access token  Request will require one of the following security scopes:    - sp:my-personal-access-tokens:manage   - sp:all-personal-access-tokens:manage
+         * This deletes a personal access token.
          * @summary Delete Personal Access Token
          * @param {string} id The personal access token id
          * @param {*} [axiosOptions] Override http request option.
@@ -22342,7 +22441,7 @@ export const PersonalAccessTokensApiAxiosParamCreator = function (configuration?
             };
         },
         /**
-         * This gets a collection of personal access tokens associated with the optional `owner-id`.  query parameter. If the `owner-id` query parameter is omitted, all personal access tokens  for a tenant will be retrieved, but the caller must have the \'idn:all-personal-access-tokens:read\' right.  Request will require one of the following security scopes:    - sp:my-personal-access-tokens:read   - sp:my-personal-access-tokens:manage   - sp:all-personal-access-tokens:read   - sp:all-personal-access-tokens:manage
+         * This gets a collection of personal access tokens associated with the optional `owner-id`.  query parameter. If the `owner-id` query parameter is omitted, all personal access tokens  for a tenant will be retrieved, but the caller must have the \'idn:all-personal-access-tokens:read\' right.
          * @summary List Personal Access Tokens
          * @param {string} [ownerId] The identity ID of the owner whose personal access tokens should be listed.  If \&quot;me\&quot;, the caller should have the following right: \&#39;idn:my-personal-access-tokens:read\&#39; If an actual owner ID or if the &#x60;owner-id&#x60; parameter is omitted in the request,  the caller should have the following right: \&#39;idn:all-personal-access-tokens:read\&#39;.  If the caller has the following right, then managed personal access tokens associated with &#x60;owner-id&#x60;  will be retrieved: \&#39;idn:managed-personal-access-tokens:read\&#39;
          * @param {*} [axiosOptions] Override http request option.
@@ -22384,6 +22483,54 @@ export const PersonalAccessTokensApiAxiosParamCreator = function (configuration?
                 axiosOptions: localVarRequestOptions,
             };
         },
+        /**
+         * This performs a targeted update to the field(s) of a Personal Access Token.
+         * @summary Patch Personal Access Token
+         * @param {string} id The Personal Access Token id
+         * @param {Array<JsonPatchOperation>} jsonPatchOperation A list of OAuth client update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.  The following fields are patchable: * name * scope 
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        patchPersonalAccessToken: async (id: string, jsonPatchOperation: Array<JsonPatchOperation>, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'id' is not null or undefined
+            assertParamExists('patchPersonalAccessToken', 'id', id)
+            // verify required parameter 'jsonPatchOperation' is not null or undefined
+            assertParamExists('patchPersonalAccessToken', 'jsonPatchOperation', jsonPatchOperation)
+            const localVarPath = `/personal-access-tokens/{id}`
+                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'PATCH', ...baseOptions, ...axiosOptions};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication oauth2 required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "oauth2", [], configuration)
+
+            // authentication oauth2 required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "oauth2", [], configuration)
+
+
+    
+            localVarHeaderParameter['Content-Type'] = 'application/json-patch+json';
+
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
+            localVarRequestOptions.data = serializeDataIfNeeded(jsonPatchOperation, localVarRequestOptions, configuration)
+
+            return {
+                url: toPathString(localVarUrlObj),
+                axiosOptions: localVarRequestOptions,
+            };
+        },
     }
 };
 
@@ -22395,7 +22542,7 @@ export const PersonalAccessTokensApiFp = function(configuration?: Configuration)
     const localVarAxiosParamCreator = PersonalAccessTokensApiAxiosParamCreator(configuration)
     return {
         /**
-         * This creates a personal access token.  Request will require one of the following security scopes:    - sp:my-personal-access-tokens:manage   - sp:all-personal-access-tokens:manage
+         * This creates a personal access token.
          * @summary Create Personal Access Token
          * @param {CreatePersonalAccessTokenRequest} createPersonalAccessTokenRequest Name and scope of personal access token.
          * @param {*} [axiosOptions] Override http request option.
@@ -22406,7 +22553,7 @@ export const PersonalAccessTokensApiFp = function(configuration?: Configuration)
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
-         * This deletes a personal access token  Request will require one of the following security scopes:    - sp:my-personal-access-tokens:manage   - sp:all-personal-access-tokens:manage
+         * This deletes a personal access token.
          * @summary Delete Personal Access Token
          * @param {string} id The personal access token id
          * @param {*} [axiosOptions] Override http request option.
@@ -22417,7 +22564,7 @@ export const PersonalAccessTokensApiFp = function(configuration?: Configuration)
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
-         * This gets a collection of personal access tokens associated with the optional `owner-id`.  query parameter. If the `owner-id` query parameter is omitted, all personal access tokens  for a tenant will be retrieved, but the caller must have the \'idn:all-personal-access-tokens:read\' right.  Request will require one of the following security scopes:    - sp:my-personal-access-tokens:read   - sp:my-personal-access-tokens:manage   - sp:all-personal-access-tokens:read   - sp:all-personal-access-tokens:manage
+         * This gets a collection of personal access tokens associated with the optional `owner-id`.  query parameter. If the `owner-id` query parameter is omitted, all personal access tokens  for a tenant will be retrieved, but the caller must have the \'idn:all-personal-access-tokens:read\' right.
          * @summary List Personal Access Tokens
          * @param {string} [ownerId] The identity ID of the owner whose personal access tokens should be listed.  If \&quot;me\&quot;, the caller should have the following right: \&#39;idn:my-personal-access-tokens:read\&#39; If an actual owner ID or if the &#x60;owner-id&#x60; parameter is omitted in the request,  the caller should have the following right: \&#39;idn:all-personal-access-tokens:read\&#39;.  If the caller has the following right, then managed personal access tokens associated with &#x60;owner-id&#x60;  will be retrieved: \&#39;idn:managed-personal-access-tokens:read\&#39;
          * @param {*} [axiosOptions] Override http request option.
@@ -22425,6 +22572,18 @@ export const PersonalAccessTokensApiFp = function(configuration?: Configuration)
          */
         async listPersonalAccessTokens(ownerId?: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<GetPersonalAccessTokenResponse>>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.listPersonalAccessTokens(ownerId, axiosOptions);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * This performs a targeted update to the field(s) of a Personal Access Token.
+         * @summary Patch Personal Access Token
+         * @param {string} id The Personal Access Token id
+         * @param {Array<JsonPatchOperation>} jsonPatchOperation A list of OAuth client update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.  The following fields are patchable: * name * scope 
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        async patchPersonalAccessToken(id: string, jsonPatchOperation: Array<JsonPatchOperation>, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<GetPersonalAccessTokenResponse>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.patchPersonalAccessToken(id, jsonPatchOperation, axiosOptions);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
     }
@@ -22438,7 +22597,7 @@ export const PersonalAccessTokensApiFactory = function (configuration?: Configur
     const localVarFp = PersonalAccessTokensApiFp(configuration)
     return {
         /**
-         * This creates a personal access token.  Request will require one of the following security scopes:    - sp:my-personal-access-tokens:manage   - sp:all-personal-access-tokens:manage
+         * This creates a personal access token.
          * @summary Create Personal Access Token
          * @param {CreatePersonalAccessTokenRequest} createPersonalAccessTokenRequest Name and scope of personal access token.
          * @param {*} [axiosOptions] Override http request option.
@@ -22448,7 +22607,7 @@ export const PersonalAccessTokensApiFactory = function (configuration?: Configur
             return localVarFp.createPersonalAccessToken(createPersonalAccessTokenRequest, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
-         * This deletes a personal access token  Request will require one of the following security scopes:    - sp:my-personal-access-tokens:manage   - sp:all-personal-access-tokens:manage
+         * This deletes a personal access token.
          * @summary Delete Personal Access Token
          * @param {string} id The personal access token id
          * @param {*} [axiosOptions] Override http request option.
@@ -22458,7 +22617,7 @@ export const PersonalAccessTokensApiFactory = function (configuration?: Configur
             return localVarFp.deletePersonalAccessToken(id, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
-         * This gets a collection of personal access tokens associated with the optional `owner-id`.  query parameter. If the `owner-id` query parameter is omitted, all personal access tokens  for a tenant will be retrieved, but the caller must have the \'idn:all-personal-access-tokens:read\' right.  Request will require one of the following security scopes:    - sp:my-personal-access-tokens:read   - sp:my-personal-access-tokens:manage   - sp:all-personal-access-tokens:read   - sp:all-personal-access-tokens:manage
+         * This gets a collection of personal access tokens associated with the optional `owner-id`.  query parameter. If the `owner-id` query parameter is omitted, all personal access tokens  for a tenant will be retrieved, but the caller must have the \'idn:all-personal-access-tokens:read\' right.
          * @summary List Personal Access Tokens
          * @param {string} [ownerId] The identity ID of the owner whose personal access tokens should be listed.  If \&quot;me\&quot;, the caller should have the following right: \&#39;idn:my-personal-access-tokens:read\&#39; If an actual owner ID or if the &#x60;owner-id&#x60; parameter is omitted in the request,  the caller should have the following right: \&#39;idn:all-personal-access-tokens:read\&#39;.  If the caller has the following right, then managed personal access tokens associated with &#x60;owner-id&#x60;  will be retrieved: \&#39;idn:managed-personal-access-tokens:read\&#39;
          * @param {*} [axiosOptions] Override http request option.
@@ -22466,6 +22625,17 @@ export const PersonalAccessTokensApiFactory = function (configuration?: Configur
          */
         listPersonalAccessTokens(ownerId?: string, axiosOptions?: any): AxiosPromise<Array<GetPersonalAccessTokenResponse>> {
             return localVarFp.listPersonalAccessTokens(ownerId, axiosOptions).then((request) => request(axios, basePath));
+        },
+        /**
+         * This performs a targeted update to the field(s) of a Personal Access Token.
+         * @summary Patch Personal Access Token
+         * @param {string} id The Personal Access Token id
+         * @param {Array<JsonPatchOperation>} jsonPatchOperation A list of OAuth client update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.  The following fields are patchable: * name * scope 
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        patchPersonalAccessToken(id: string, jsonPatchOperation: Array<JsonPatchOperation>, axiosOptions?: any): AxiosPromise<GetPersonalAccessTokenResponse> {
+            return localVarFp.patchPersonalAccessToken(id, jsonPatchOperation, axiosOptions).then((request) => request(axios, basePath));
         },
     };
 };
@@ -22478,7 +22648,7 @@ export const PersonalAccessTokensApiFactory = function (configuration?: Configur
  */
 export class PersonalAccessTokensApi extends BaseAPI {
     /**
-     * This creates a personal access token.  Request will require one of the following security scopes:    - sp:my-personal-access-tokens:manage   - sp:all-personal-access-tokens:manage
+     * This creates a personal access token.
      * @summary Create Personal Access Token
      * @param {CreatePersonalAccessTokenRequest} createPersonalAccessTokenRequest Name and scope of personal access token.
      * @param {*} [axiosOptions] Override http request option.
@@ -22490,7 +22660,7 @@ export class PersonalAccessTokensApi extends BaseAPI {
     }
 
     /**
-     * This deletes a personal access token  Request will require one of the following security scopes:    - sp:my-personal-access-tokens:manage   - sp:all-personal-access-tokens:manage
+     * This deletes a personal access token.
      * @summary Delete Personal Access Token
      * @param {string} id The personal access token id
      * @param {*} [axiosOptions] Override http request option.
@@ -22502,7 +22672,7 @@ export class PersonalAccessTokensApi extends BaseAPI {
     }
 
     /**
-     * This gets a collection of personal access tokens associated with the optional `owner-id`.  query parameter. If the `owner-id` query parameter is omitted, all personal access tokens  for a tenant will be retrieved, but the caller must have the \'idn:all-personal-access-tokens:read\' right.  Request will require one of the following security scopes:    - sp:my-personal-access-tokens:read   - sp:my-personal-access-tokens:manage   - sp:all-personal-access-tokens:read   - sp:all-personal-access-tokens:manage
+     * This gets a collection of personal access tokens associated with the optional `owner-id`.  query parameter. If the `owner-id` query parameter is omitted, all personal access tokens  for a tenant will be retrieved, but the caller must have the \'idn:all-personal-access-tokens:read\' right.
      * @summary List Personal Access Tokens
      * @param {string} [ownerId] The identity ID of the owner whose personal access tokens should be listed.  If \&quot;me\&quot;, the caller should have the following right: \&#39;idn:my-personal-access-tokens:read\&#39; If an actual owner ID or if the &#x60;owner-id&#x60; parameter is omitted in the request,  the caller should have the following right: \&#39;idn:all-personal-access-tokens:read\&#39;.  If the caller has the following right, then managed personal access tokens associated with &#x60;owner-id&#x60;  will be retrieved: \&#39;idn:managed-personal-access-tokens:read\&#39;
      * @param {*} [axiosOptions] Override http request option.
@@ -22511,6 +22681,19 @@ export class PersonalAccessTokensApi extends BaseAPI {
      */
     public listPersonalAccessTokens(ownerId?: string, axiosOptions?: AxiosRequestConfig) {
         return PersonalAccessTokensApiFp(this.configuration).listPersonalAccessTokens(ownerId, axiosOptions).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * This performs a targeted update to the field(s) of a Personal Access Token.
+     * @summary Patch Personal Access Token
+     * @param {string} id The Personal Access Token id
+     * @param {Array<JsonPatchOperation>} jsonPatchOperation A list of OAuth client update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.  The following fields are patchable: * name * scope 
+     * @param {*} [axiosOptions] Override http request option.
+     * @throws {RequiredError}
+     * @memberof PersonalAccessTokensApi
+     */
+    public patchPersonalAccessToken(id: string, jsonPatchOperation: Array<JsonPatchOperation>, axiosOptions?: AxiosRequestConfig) {
+        return PersonalAccessTokensApiFp(this.configuration).patchPersonalAccessToken(id, jsonPatchOperation, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 }
 
@@ -23615,7 +23798,7 @@ export const ScheduledSearchApiAxiosParamCreator = function (configuration?: Con
         },
         /**
          * Deletes the specified scheduled search. 
-         * @summary Delete a Scheduled Search by ID
+         * @summary Delete a Scheduled Search
          * @param {string} id ID of the requested document.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
@@ -23656,8 +23839,8 @@ export const ScheduledSearchApiAxiosParamCreator = function (configuration?: Con
             };
         },
         /**
-         * Returns the specified scheduled search. 
-         * @summary Return a Scheduled Search by ID
+         * Returns the specified scheduled search.
+         * @summary Get a Scheduled Search
          * @param {string} id ID of the requested document.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
@@ -23699,7 +23882,7 @@ export const ScheduledSearchApiAxiosParamCreator = function (configuration?: Con
         },
         /**
          * Returns a list of scheduled searches. 
-         * @summary Return a list of scheduled searches
+         * @summary List scheduled searches
          * @param {number} [offset] Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
          * @param {number} [limit] Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
          * @param {boolean} [count] If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
@@ -23874,7 +24057,7 @@ export const ScheduledSearchApiFp = function(configuration?: Configuration) {
         },
         /**
          * Deletes the specified scheduled search. 
-         * @summary Delete a Scheduled Search by ID
+         * @summary Delete a Scheduled Search
          * @param {string} id ID of the requested document.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
@@ -23884,8 +24067,8 @@ export const ScheduledSearchApiFp = function(configuration?: Configuration) {
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
-         * Returns the specified scheduled search. 
-         * @summary Return a Scheduled Search by ID
+         * Returns the specified scheduled search.
+         * @summary Get a Scheduled Search
          * @param {string} id ID of the requested document.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
@@ -23896,7 +24079,7 @@ export const ScheduledSearchApiFp = function(configuration?: Configuration) {
         },
         /**
          * Returns a list of scheduled searches. 
-         * @summary Return a list of scheduled searches
+         * @summary List scheduled searches
          * @param {number} [offset] Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
          * @param {number} [limit] Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
          * @param {boolean} [count] If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
@@ -23954,7 +24137,7 @@ export const ScheduledSearchApiFactory = function (configuration?: Configuration
         },
         /**
          * Deletes the specified scheduled search. 
-         * @summary Delete a Scheduled Search by ID
+         * @summary Delete a Scheduled Search
          * @param {string} id ID of the requested document.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
@@ -23963,8 +24146,8 @@ export const ScheduledSearchApiFactory = function (configuration?: Configuration
             return localVarFp.scheduledSearchDelete(id, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
-         * Returns the specified scheduled search. 
-         * @summary Return a Scheduled Search by ID
+         * Returns the specified scheduled search.
+         * @summary Get a Scheduled Search
          * @param {string} id ID of the requested document.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
@@ -23974,7 +24157,7 @@ export const ScheduledSearchApiFactory = function (configuration?: Configuration
         },
         /**
          * Returns a list of scheduled searches. 
-         * @summary Return a list of scheduled searches
+         * @summary List scheduled searches
          * @param {number} [offset] Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
          * @param {number} [limit] Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
          * @param {boolean} [count] If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
@@ -24031,7 +24214,7 @@ export class ScheduledSearchApi extends BaseAPI {
 
     /**
      * Deletes the specified scheduled search. 
-     * @summary Delete a Scheduled Search by ID
+     * @summary Delete a Scheduled Search
      * @param {string} id ID of the requested document.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
@@ -24042,8 +24225,8 @@ export class ScheduledSearchApi extends BaseAPI {
     }
 
     /**
-     * Returns the specified scheduled search. 
-     * @summary Return a Scheduled Search by ID
+     * Returns the specified scheduled search.
+     * @summary Get a Scheduled Search
      * @param {string} id ID of the requested document.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
@@ -24055,7 +24238,7 @@ export class ScheduledSearchApi extends BaseAPI {
 
     /**
      * Returns a list of scheduled searches. 
-     * @summary Return a list of scheduled searches
+     * @summary List scheduled searches
      * @param {number} [offset] Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
      * @param {number} [limit] Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
      * @param {boolean} [count] If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
@@ -24103,7 +24286,7 @@ export class ScheduledSearchApi extends BaseAPI {
 export const SearchApiAxiosParamCreator = function (configuration?: Configuration) {
     return {
         /**
-         * Performs a search query aggregation and returns aggregation result.
+         * Performs a search query aggregation and returns the aggregation result. By default, you can page a maximum of 10,000 search result records.  To page past 10,000 records, you can use searchAfter paging.  Refer to [Paginating Search Queries](https://developer.sailpoint.com/idn/api/standard-collection-parameters#paginating-search-queries) for more information about how to implement searchAfter paging. 
          * @summary Perform a Search Query Aggregation
          * @param {Search1} search1 
          * @param {number} [offset] Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
@@ -24162,8 +24345,8 @@ export const SearchApiAxiosParamCreator = function (configuration?: Configuratio
             };
         },
         /**
-         * Performs a search with provided query and returns count of results in the X-Total-Count header.
-         * @summary Count the number of Documents satisfying a Query
+         * Performs a search with a provided query and returns the count of results in the X-Total-Count header.
+         * @summary Count Documents Satisfying a Query
          * @param {Search1} search1 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
@@ -24206,7 +24389,7 @@ export const SearchApiAxiosParamCreator = function (configuration?: Configuratio
             };
         },
         /**
-         * Fetches a single document from the specified index using the specified document ID.
+         * Fetches a single document from the specified index, using the specified document ID.
          * @summary Get a Document by ID
          * @param {string} index The index from which to fetch the specified document.  The currently supported index names are: *accessprofiles*, *accountactivities*, *accounts*, *aggregations*, *entitlements*, *events*, *identities*, and *roles*. 
          * @param {string} id ID of the requested document.
@@ -24252,7 +24435,7 @@ export const SearchApiAxiosParamCreator = function (configuration?: Configuratio
             };
         },
         /**
-         * Performs a search with the provided query and returns a matching result collection.
+         * Performs a search with the provided query and returns a matching result collection. By default, you can page a maximum of 10,000 search result records.  To page past 10,000 records, you can use searchAfter paging.  Refer to [Paginating Search Queries](https://developer.sailpoint.com/idn/api/standard-collection-parameters#paginating-search-queries) for more information about how to implement searchAfter paging. 
          * @summary Perform Search
          * @param {Search1} search1 
          * @param {number} [offset] Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
@@ -24321,7 +24504,7 @@ export const SearchApiFp = function(configuration?: Configuration) {
     const localVarAxiosParamCreator = SearchApiAxiosParamCreator(configuration)
     return {
         /**
-         * Performs a search query aggregation and returns aggregation result.
+         * Performs a search query aggregation and returns the aggregation result. By default, you can page a maximum of 10,000 search result records.  To page past 10,000 records, you can use searchAfter paging.  Refer to [Paginating Search Queries](https://developer.sailpoint.com/idn/api/standard-collection-parameters#paginating-search-queries) for more information about how to implement searchAfter paging. 
          * @summary Perform a Search Query Aggregation
          * @param {Search1} search1 
          * @param {number} [offset] Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
@@ -24335,8 +24518,8 @@ export const SearchApiFp = function(configuration?: Configuration) {
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
-         * Performs a search with provided query and returns count of results in the X-Total-Count header.
-         * @summary Count the number of Documents satisfying a Query
+         * Performs a search with a provided query and returns the count of results in the X-Total-Count header.
+         * @summary Count Documents Satisfying a Query
          * @param {Search1} search1 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
@@ -24346,7 +24529,7 @@ export const SearchApiFp = function(configuration?: Configuration) {
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
-         * Fetches a single document from the specified index using the specified document ID.
+         * Fetches a single document from the specified index, using the specified document ID.
          * @summary Get a Document by ID
          * @param {string} index The index from which to fetch the specified document.  The currently supported index names are: *accessprofiles*, *accountactivities*, *accounts*, *aggregations*, *entitlements*, *events*, *identities*, and *roles*. 
          * @param {string} id ID of the requested document.
@@ -24358,7 +24541,7 @@ export const SearchApiFp = function(configuration?: Configuration) {
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
-         * Performs a search with the provided query and returns a matching result collection.
+         * Performs a search with the provided query and returns a matching result collection. By default, you can page a maximum of 10,000 search result records.  To page past 10,000 records, you can use searchAfter paging.  Refer to [Paginating Search Queries](https://developer.sailpoint.com/idn/api/standard-collection-parameters#paginating-search-queries) for more information about how to implement searchAfter paging. 
          * @summary Perform Search
          * @param {Search1} search1 
          * @param {number} [offset] Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
@@ -24382,7 +24565,7 @@ export const SearchApiFactory = function (configuration?: Configuration, basePat
     const localVarFp = SearchApiFp(configuration)
     return {
         /**
-         * Performs a search query aggregation and returns aggregation result.
+         * Performs a search query aggregation and returns the aggregation result. By default, you can page a maximum of 10,000 search result records.  To page past 10,000 records, you can use searchAfter paging.  Refer to [Paginating Search Queries](https://developer.sailpoint.com/idn/api/standard-collection-parameters#paginating-search-queries) for more information about how to implement searchAfter paging. 
          * @summary Perform a Search Query Aggregation
          * @param {Search1} search1 
          * @param {number} [offset] Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
@@ -24395,8 +24578,8 @@ export const SearchApiFactory = function (configuration?: Configuration, basePat
             return localVarFp.searchAggregate(search1, offset, limit, count, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
-         * Performs a search with provided query and returns count of results in the X-Total-Count header.
-         * @summary Count the number of Documents satisfying a Query
+         * Performs a search with a provided query and returns the count of results in the X-Total-Count header.
+         * @summary Count Documents Satisfying a Query
          * @param {Search1} search1 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
@@ -24405,7 +24588,7 @@ export const SearchApiFactory = function (configuration?: Configuration, basePat
             return localVarFp.searchCount(search1, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
-         * Fetches a single document from the specified index using the specified document ID.
+         * Fetches a single document from the specified index, using the specified document ID.
          * @summary Get a Document by ID
          * @param {string} index The index from which to fetch the specified document.  The currently supported index names are: *accessprofiles*, *accountactivities*, *accounts*, *aggregations*, *entitlements*, *events*, *identities*, and *roles*. 
          * @param {string} id ID of the requested document.
@@ -24416,7 +24599,7 @@ export const SearchApiFactory = function (configuration?: Configuration, basePat
             return localVarFp.searchGet(index, id, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
-         * Performs a search with the provided query and returns a matching result collection.
+         * Performs a search with the provided query and returns a matching result collection. By default, you can page a maximum of 10,000 search result records.  To page past 10,000 records, you can use searchAfter paging.  Refer to [Paginating Search Queries](https://developer.sailpoint.com/idn/api/standard-collection-parameters#paginating-search-queries) for more information about how to implement searchAfter paging. 
          * @summary Perform Search
          * @param {Search1} search1 
          * @param {number} [offset] Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
@@ -24439,7 +24622,7 @@ export const SearchApiFactory = function (configuration?: Configuration, basePat
  */
 export class SearchApi extends BaseAPI {
     /**
-     * Performs a search query aggregation and returns aggregation result.
+     * Performs a search query aggregation and returns the aggregation result. By default, you can page a maximum of 10,000 search result records.  To page past 10,000 records, you can use searchAfter paging.  Refer to [Paginating Search Queries](https://developer.sailpoint.com/idn/api/standard-collection-parameters#paginating-search-queries) for more information about how to implement searchAfter paging. 
      * @summary Perform a Search Query Aggregation
      * @param {Search1} search1 
      * @param {number} [offset] Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
@@ -24454,8 +24637,8 @@ export class SearchApi extends BaseAPI {
     }
 
     /**
-     * Performs a search with provided query and returns count of results in the X-Total-Count header.
-     * @summary Count the number of Documents satisfying a Query
+     * Performs a search with a provided query and returns the count of results in the X-Total-Count header.
+     * @summary Count Documents Satisfying a Query
      * @param {Search1} search1 
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
@@ -24466,7 +24649,7 @@ export class SearchApi extends BaseAPI {
     }
 
     /**
-     * Fetches a single document from the specified index using the specified document ID.
+     * Fetches a single document from the specified index, using the specified document ID.
      * @summary Get a Document by ID
      * @param {string} index The index from which to fetch the specified document.  The currently supported index names are: *accessprofiles*, *accountactivities*, *accounts*, *aggregations*, *entitlements*, *events*, *identities*, and *roles*. 
      * @param {string} id ID of the requested document.
@@ -24479,7 +24662,7 @@ export class SearchApi extends BaseAPI {
     }
 
     /**
-     * Performs a search with the provided query and returns a matching result collection.
+     * Performs a search with the provided query and returns a matching result collection. By default, you can page a maximum of 10,000 search result records.  To page past 10,000 records, you can use searchAfter paging.  Refer to [Paginating Search Queries](https://developer.sailpoint.com/idn/api/standard-collection-parameters#paginating-search-queries) for more information about how to implement searchAfter paging. 
      * @summary Perform Search
      * @param {Search1} search1 
      * @param {number} [offset] Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
@@ -26284,7 +26467,7 @@ export const SourcesApiAxiosParamCreator = function (configuration?: Configurati
             };
         },
         /**
-         * Use this API to selectively update an existing Schema using a JSONPatch payload.  The following schema fields are immutable and cannot be updated: * id * name * created * modified  To switch an account attribute to a group, you need to have the following in place: * `isEntitlement: true` * Must define a schema for the group and [add it to the source](https://developer.sailpoint.com/idn/api/v3/create-schema) before updating the `isGroup` flag.  For example, here is the `group` account attribute referencing a schema that defines the group: ```json {     \"name\": \"groups\",     \"type\": \"STRING\",     \"schema\": {         \"type\": \"CONNECTOR_SCHEMA\",         \"id\": \"2c9180887671ff8c01767b4671fc7d60\",         \"name\": \"group\"     },     \"description\": \"The groups, roles etc. that reference account group objects\",     \"isMulti\": true,     \"isEntitlement\": true,     \"isGroup\": true } ```
+         * Use this API to selectively update an existing Schema using a JSONPatch payload.   The following schema fields are immutable and cannot be updated:  - id - name - created - modified   To switch an account attribute to a group entitlement, you need to have the following in place:  - `isEntitlement: true` - Must define a schema for the group and [add it to the source](https://developer.sailpoint.com/idn/api/v3/create-schema) before updating the `isGroup` flag.  For example, here is the `group` account attribute referencing a schema that defines the group: ```json {     \"name\": \"groups\",     \"type\": \"STRING\",     \"schema\": {         \"type\": \"CONNECTOR_SCHEMA\",         \"id\": \"2c9180887671ff8c01767b4671fc7d60\",         \"name\": \"group\"     },     \"description\": \"The groups, roles etc. that reference account group objects\",     \"isMulti\": true,     \"isEntitlement\": true,     \"isGroup\": true } ``` 
          * @summary Update Source Schema (Partial)
          * @param {string} sourceId The Source id.
          * @param {string} schemaId The Schema id.
@@ -26794,7 +26977,7 @@ export const SourcesApiFp = function(configuration?: Configuration) {
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
-         * Use this API to selectively update an existing Schema using a JSONPatch payload.  The following schema fields are immutable and cannot be updated: * id * name * created * modified  To switch an account attribute to a group, you need to have the following in place: * `isEntitlement: true` * Must define a schema for the group and [add it to the source](https://developer.sailpoint.com/idn/api/v3/create-schema) before updating the `isGroup` flag.  For example, here is the `group` account attribute referencing a schema that defines the group: ```json {     \"name\": \"groups\",     \"type\": \"STRING\",     \"schema\": {         \"type\": \"CONNECTOR_SCHEMA\",         \"id\": \"2c9180887671ff8c01767b4671fc7d60\",         \"name\": \"group\"     },     \"description\": \"The groups, roles etc. that reference account group objects\",     \"isMulti\": true,     \"isEntitlement\": true,     \"isGroup\": true } ```
+         * Use this API to selectively update an existing Schema using a JSONPatch payload.   The following schema fields are immutable and cannot be updated:  - id - name - created - modified   To switch an account attribute to a group entitlement, you need to have the following in place:  - `isEntitlement: true` - Must define a schema for the group and [add it to the source](https://developer.sailpoint.com/idn/api/v3/create-schema) before updating the `isGroup` flag.  For example, here is the `group` account attribute referencing a schema that defines the group: ```json {     \"name\": \"groups\",     \"type\": \"STRING\",     \"schema\": {         \"type\": \"CONNECTOR_SCHEMA\",         \"id\": \"2c9180887671ff8c01767b4671fc7d60\",         \"name\": \"group\"     },     \"description\": \"The groups, roles etc. that reference account group objects\",     \"isMulti\": true,     \"isEntitlement\": true,     \"isGroup\": true } ``` 
          * @summary Update Source Schema (Partial)
          * @param {string} sourceId The Source id.
          * @param {string} schemaId The Schema id.
@@ -27088,7 +27271,7 @@ export const SourcesApiFactory = function (configuration?: Configuration, basePa
             return localVarFp.updateProvisioningPolicy(sourceId, usageType, jsonPatchOperation, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
-         * Use this API to selectively update an existing Schema using a JSONPatch payload.  The following schema fields are immutable and cannot be updated: * id * name * created * modified  To switch an account attribute to a group, you need to have the following in place: * `isEntitlement: true` * Must define a schema for the group and [add it to the source](https://developer.sailpoint.com/idn/api/v3/create-schema) before updating the `isGroup` flag.  For example, here is the `group` account attribute referencing a schema that defines the group: ```json {     \"name\": \"groups\",     \"type\": \"STRING\",     \"schema\": {         \"type\": \"CONNECTOR_SCHEMA\",         \"id\": \"2c9180887671ff8c01767b4671fc7d60\",         \"name\": \"group\"     },     \"description\": \"The groups, roles etc. that reference account group objects\",     \"isMulti\": true,     \"isEntitlement\": true,     \"isGroup\": true } ```
+         * Use this API to selectively update an existing Schema using a JSONPatch payload.   The following schema fields are immutable and cannot be updated:  - id - name - created - modified   To switch an account attribute to a group entitlement, you need to have the following in place:  - `isEntitlement: true` - Must define a schema for the group and [add it to the source](https://developer.sailpoint.com/idn/api/v3/create-schema) before updating the `isGroup` flag.  For example, here is the `group` account attribute referencing a schema that defines the group: ```json {     \"name\": \"groups\",     \"type\": \"STRING\",     \"schema\": {         \"type\": \"CONNECTOR_SCHEMA\",         \"id\": \"2c9180887671ff8c01767b4671fc7d60\",         \"name\": \"group\"     },     \"description\": \"The groups, roles etc. that reference account group objects\",     \"isMulti\": true,     \"isEntitlement\": true,     \"isGroup\": true } ``` 
          * @summary Update Source Schema (Partial)
          * @param {string} sourceId The Source id.
          * @param {string} schemaId The Schema id.
@@ -27417,7 +27600,7 @@ export class SourcesApi extends BaseAPI {
     }
 
     /**
-     * Use this API to selectively update an existing Schema using a JSONPatch payload.  The following schema fields are immutable and cannot be updated: * id * name * created * modified  To switch an account attribute to a group, you need to have the following in place: * `isEntitlement: true` * Must define a schema for the group and [add it to the source](https://developer.sailpoint.com/idn/api/v3/create-schema) before updating the `isGroup` flag.  For example, here is the `group` account attribute referencing a schema that defines the group: ```json {     \"name\": \"groups\",     \"type\": \"STRING\",     \"schema\": {         \"type\": \"CONNECTOR_SCHEMA\",         \"id\": \"2c9180887671ff8c01767b4671fc7d60\",         \"name\": \"group\"     },     \"description\": \"The groups, roles etc. that reference account group objects\",     \"isMulti\": true,     \"isEntitlement\": true,     \"isGroup\": true } ```
+     * Use this API to selectively update an existing Schema using a JSONPatch payload.   The following schema fields are immutable and cannot be updated:  - id - name - created - modified   To switch an account attribute to a group entitlement, you need to have the following in place:  - `isEntitlement: true` - Must define a schema for the group and [add it to the source](https://developer.sailpoint.com/idn/api/v3/create-schema) before updating the `isGroup` flag.  For example, here is the `group` account attribute referencing a schema that defines the group: ```json {     \"name\": \"groups\",     \"type\": \"STRING\",     \"schema\": {         \"type\": \"CONNECTOR_SCHEMA\",         \"id\": \"2c9180887671ff8c01767b4671fc7d60\",         \"name\": \"group\"     },     \"description\": \"The groups, roles etc. that reference account group objects\",     \"isMulti\": true,     \"isEntitlement\": true,     \"isGroup\": true } ``` 
      * @summary Update Source Schema (Partial)
      * @param {string} sourceId The Source id.
      * @param {string} schemaId The Schema id.
