@@ -2,12 +2,7 @@ import { AccountsBetaApi, Configuration } from "sailpoint-sdk"
 
 const account = async () => {
 
-    let apiConfig = new Configuration(
-        {
-            "tenant": "devrel", 
-            "clientId": "", 
-            "clientSecret": ""
-        })
+    let apiConfig = new Configuration()
 
     let api = new AccountsBetaApi(apiConfig)
 

@@ -1,9 +1,48 @@
 import axios from "axios";
+import * as os from 'os';
+import * as path from 'path';
+import * as yaml from "js-yaml";
+import * as fs from "fs";
 
 export interface ConfigurationParameters {
-    tenant?: string;
+    baseurl?: string;
     clientId?: string;
     clientSecret?: string;
+    accessToken?: string;
+    tokenUrl?: string;
+}
+
+export interface Configuration {
+    authtype?: "pat" | "oauth";
+    debug?: boolean;
+    pat?: PAT;
+}
+
+export interface PAT {
+    baseurl?: string;
+    clientid?: string;
+    clientsecret?: string;
+    tenant?: string;
+    token?: Token;
+    tokenurl?: string;
+}
+export interface Token {
+    accesstoken?: string;
+    expiry?: Date;
+}
+export interface Oauth {
+    authurl?: string;
+    baseurl?: string;
+    clientid?: string;
+    clientsecret?: string;
+    redirect?: Redirect;
+    tenant?: string;
+    token?: Token;
+}
+
+export interface Redirect {
+    path?: string;
+    port?: number;
 }
 
 export class Configuration {
@@ -15,12 +54,6 @@ export class Configuration {
      */
      apiKey?: string | Promise<string> | ((name: string) => string) | ((name: string) => Promise<string>);
 
-    /**
-     * parameter for tenant
-     * @param name security name
-     * @memberof Configuration
-     */
-     tenant?: string;
      /**
       * parameter for clientId
       *
@@ -49,6 +82,13 @@ export class Configuration {
      */
      accessToken?: string | Promise<string> | ((name?: string, scopes?: string[]) => string) | ((name?: string, scopes?: string[]) => Promise<string>);
 
+    /**
+      * parameter for clientId
+      *
+      * @type {string}
+      * @memberof Configuration
+      */
+    tokenUrl?: string;
     /**
      * parameter for basic security
      *
@@ -107,22 +147,42 @@ export class Configuration {
      */
     formDataCtor?: new () => any;
 
+    constructor(param?: ConfigurationParameters) {
 
-    constructor(param: ConfigurationParameters = {}) {
-        this.tenant = param.tenant;
-        this.basePathBeta = `https://${this.tenant}.api.identitynow.com/beta`
-        this.basePathV3 = `https://${this.tenant}.api.identitynow.com/v3`
-        this.basePathV2 = `https://${this.tenant}.api.identitynow.com/v2`
-        this.basePathCC = `https://${this.tenant}.api.identitynow.com`
+        if (!param) {
+            param = this.getParams()
+        }
+
+        this.basePathBeta = param.baseurl + `/beta`
+        this.basePathV3 = param.baseurl + `/v3`
+        this.basePathV2 = param.baseurl + `/v2`
+        this.basePathCC = param.baseurl
+        this.tokenUrl = param.tokenUrl
         this.clientId = param.clientId;
         this.clientSecret = param.clientSecret;
-        const url = `https://${this.tenant}.api.identitynow.com/oauth/token?grant_type=client_credentials&client_id=${this.clientId}&client_secret=${this.clientSecret}`;
-        this.accessToken = this.getAccessToken();
+        const url = `${this.tokenUrl}?grant_type=client_credentials&client_id=${this.clientId}&client_secret=${this.clientSecret}`;
+        if (!this.accessToken) {
+            this.accessToken = this.getAccessToken(url);
+        }
+        
     }
 
-    private async getAccessToken(): Promise<string> {
+    private getParams(): ConfigurationParameters {
+        const homeDir = os.homedir()
+        const configPath = path.join(homeDir, '.sailpoint','config.yaml')
+        const doc = yaml.load(fs.readFileSync(configPath, 'utf8')) as Configuration
+        const config: ConfigurationParameters = {}
+        if (doc.authtype && doc.authtype === 'pat') {
+            config.baseurl = doc.pat.baseurl
+            config.clientId = doc.pat.clientid
+            config.clientSecret = doc.pat.clientsecret
+            config.tokenUrl = doc.pat.tokenurl
+        }
+        return config
+    }
+
+    private async getAccessToken(url: string): Promise<string> {
         try {
-            const url = `https://${this.tenant}.api.identitynow.com/oauth/token?grant_type=client_credentials&client_id=${this.clientId}&client_secret=${this.clientSecret}`;
             const {data, status} = await axios.post(url)
             if (status === 200) {
                 return data.access_token;
