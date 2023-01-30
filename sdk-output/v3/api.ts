@@ -15085,6 +15085,188 @@ export const AccessRequestApprovalsApiFactory = function (configuration?: Config
 };
 
 /**
+ * Request parameters for approvalSummary operation in AccessRequestApprovalsApi.
+ * @export
+ * @interface AccessRequestApprovalsApiApprovalSummaryRequest
+ */
+export interface AccessRequestApprovalsApiApprovalSummaryRequest {
+    /**
+     * The id of the owner or approver identity of the approvals. If present, the value returns approval summary for the specified identity.    * ORG_ADMIN users can call this with any identity ID value.    * ORG_ADMIN user can also fetch all the approvals in the org, when owner-id is not used.    * Non ORG_ADMIN users can only specify *me* or pass their own identity ID value.
+     * @type {string}
+     * @memberof AccessRequestApprovalsApiApprovalSummary
+     */
+    readonly ownerId?: string
+
+    /**
+     * From date is the date and time from which the results will be shown. It should be in a valid ISO-8601 format
+     * @type {string}
+     * @memberof AccessRequestApprovalsApiApprovalSummary
+     */
+    readonly fromDate?: string
+}
+
+/**
+ * Request parameters for approveRequest operation in AccessRequestApprovalsApi.
+ * @export
+ * @interface AccessRequestApprovalsApiApproveRequestRequest
+ */
+export interface AccessRequestApprovalsApiApproveRequestRequest {
+    /**
+     * The id of the approval.
+     * @type {string}
+     * @memberof AccessRequestApprovalsApiApproveRequest
+     */
+    readonly approvalId: string
+
+    /**
+     * Reviewer\&#39;s comment.
+     * @type {CommentDto}
+     * @memberof AccessRequestApprovalsApiApproveRequest
+     */
+    readonly commentDto?: CommentDto
+}
+
+/**
+ * Request parameters for forwardRequest operation in AccessRequestApprovalsApi.
+ * @export
+ * @interface AccessRequestApprovalsApiForwardRequestRequest
+ */
+export interface AccessRequestApprovalsApiForwardRequestRequest {
+    /**
+     * The id of the approval.
+     * @type {string}
+     * @memberof AccessRequestApprovalsApiForwardRequest
+     */
+    readonly approvalId: string
+
+    /**
+     * Information about the forwarded approval.
+     * @type {ForwardApprovalDto}
+     * @memberof AccessRequestApprovalsApiForwardRequest
+     */
+    readonly forwardApprovalDto: ForwardApprovalDto
+}
+
+/**
+ * Request parameters for listCompletedApprovals operation in AccessRequestApprovalsApi.
+ * @export
+ * @interface AccessRequestApprovalsApiListCompletedApprovalsRequest
+ */
+export interface AccessRequestApprovalsApiListCompletedApprovalsRequest {
+    /**
+     * If present, the value returns only completed approvals for the specified identity.    * ORG_ADMIN users can call this with any identity ID value.    * ORG_ADMIN users can also fetch all the approvals in the org, when owner-id is not used.    * Non-ORG_ADMIN users can only specify *me* or pass their own identity ID value.
+     * @type {string}
+     * @memberof AccessRequestApprovalsApiListCompletedApprovals
+     */
+    readonly ownerId?: string
+
+    /**
+     * Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+     * @type {number}
+     * @memberof AccessRequestApprovalsApiListCompletedApprovals
+     */
+    readonly limit?: number
+
+    /**
+     * Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+     * @type {number}
+     * @memberof AccessRequestApprovalsApiListCompletedApprovals
+     */
+    readonly offset?: number
+
+    /**
+     * If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+     * @type {boolean}
+     * @memberof AccessRequestApprovalsApiListCompletedApprovals
+     */
+    readonly count?: boolean
+
+    /**
+     * Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, in*  **requestedFor.id**: *eq, in*  **modified**: *gt, lt, ge, le*
+     * @type {string}
+     * @memberof AccessRequestApprovalsApiListCompletedApprovals
+     */
+    readonly filters?: string
+
+    /**
+     * Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **created, modified**
+     * @type {string}
+     * @memberof AccessRequestApprovalsApiListCompletedApprovals
+     */
+    readonly sorters?: string
+}
+
+/**
+ * Request parameters for listPendingApprovals operation in AccessRequestApprovalsApi.
+ * @export
+ * @interface AccessRequestApprovalsApiListPendingApprovalsRequest
+ */
+export interface AccessRequestApprovalsApiListPendingApprovalsRequest {
+    /**
+     * If present, the value returns only pending approvals for the specified identity.    * ORG_ADMIN users can call this with any identity ID value.    * ORG_ADMIN users can also fetch all the approvals in the org, when owner-id is not used.    * Non-ORG_ADMIN users can only specify *me* or pass their own identity ID value.
+     * @type {string}
+     * @memberof AccessRequestApprovalsApiListPendingApprovals
+     */
+    readonly ownerId?: string
+
+    /**
+     * Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+     * @type {number}
+     * @memberof AccessRequestApprovalsApiListPendingApprovals
+     */
+    readonly limit?: number
+
+    /**
+     * Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+     * @type {number}
+     * @memberof AccessRequestApprovalsApiListPendingApprovals
+     */
+    readonly offset?: number
+
+    /**
+     * If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+     * @type {boolean}
+     * @memberof AccessRequestApprovalsApiListPendingApprovals
+     */
+    readonly count?: boolean
+
+    /**
+     * Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, in*  **requestedFor.id**: *eq, in*  **modified**: *gt, lt, ge, le*
+     * @type {string}
+     * @memberof AccessRequestApprovalsApiListPendingApprovals
+     */
+    readonly filters?: string
+
+    /**
+     * Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **created, modified**
+     * @type {string}
+     * @memberof AccessRequestApprovalsApiListPendingApprovals
+     */
+    readonly sorters?: string
+}
+
+/**
+ * Request parameters for rejectRequest operation in AccessRequestApprovalsApi.
+ * @export
+ * @interface AccessRequestApprovalsApiRejectRequestRequest
+ */
+export interface AccessRequestApprovalsApiRejectRequestRequest {
+    /**
+     * The id of the approval.
+     * @type {string}
+     * @memberof AccessRequestApprovalsApiRejectRequest
+     */
+    readonly approvalId: string
+
+    /**
+     * Reviewer\&#39;s comment.
+     * @type {CommentDto}
+     * @memberof AccessRequestApprovalsApiRejectRequest
+     */
+    readonly commentDto?: CommentDto
+}
+
+/**
  * AccessRequestApprovalsApi - object-oriented interface
  * @export
  * @class AccessRequestApprovalsApi
@@ -15094,87 +15276,73 @@ export class AccessRequestApprovalsApi extends BaseAPI {
     /**
      * This endpoint returns the number of pending, approved and rejected access requests approvals. See \"owner-id\" query parameter below for authorization info.
      * @summary Get the number of access-requests-approvals
-     * @param {string} [ownerId] The id of the owner or approver identity of the approvals. If present, the value returns approval summary for the specified identity.    * ORG_ADMIN users can call this with any identity ID value.    * ORG_ADMIN user can also fetch all the approvals in the org, when owner-id is not used.    * Non ORG_ADMIN users can only specify *me* or pass their own identity ID value.
-     * @param {string} [fromDate] From date is the date and time from which the results will be shown. It should be in a valid ISO-8601 format
+     * @param {AccessRequestApprovalsApiApprovalSummaryRequest} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
      * @memberof AccessRequestApprovalsApi
      */
-    public approvalSummary(ownerId?: string, fromDate?: string, axiosOptions?: AxiosRequestConfig) {
-        return AccessRequestApprovalsApiFp(this.configuration).approvalSummary(ownerId, fromDate, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public approvalSummary(requestParameters: AccessRequestApprovalsApiApprovalSummaryRequest = {}, axiosOptions?: AxiosRequestConfig) {
+        return AccessRequestApprovalsApiFp(this.configuration).approvalSummary(requestParameters.ownerId, requestParameters.fromDate, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * This endpoint approves an access request approval. Only the owner of the approval and ORG_ADMIN users are allowed to perform this action.
      * @summary Approves an access request approval.
-     * @param {string} approvalId The id of the approval.
-     * @param {CommentDto} [commentDto] Reviewer\&#39;s comment.
+     * @param {AccessRequestApprovalsApiApproveRequestRequest} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
      * @memberof AccessRequestApprovalsApi
      */
-    public approveRequest(approvalId: string, commentDto?: CommentDto, axiosOptions?: AxiosRequestConfig) {
-        return AccessRequestApprovalsApiFp(this.configuration).approveRequest(approvalId, commentDto, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public approveRequest(requestParameters: AccessRequestApprovalsApiApproveRequestRequest, axiosOptions?: AxiosRequestConfig) {
+        return AccessRequestApprovalsApiFp(this.configuration).approveRequest(requestParameters.approvalId, requestParameters.commentDto, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * This endpoint forwards an access request approval to a new owner. Only the owner of the approval and ORG_ADMIN users are allowed to perform this action.
      * @summary Forwards an access request approval.
-     * @param {string} approvalId The id of the approval.
-     * @param {ForwardApprovalDto} forwardApprovalDto Information about the forwarded approval.
+     * @param {AccessRequestApprovalsApiForwardRequestRequest} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
      * @memberof AccessRequestApprovalsApi
      */
-    public forwardRequest(approvalId: string, forwardApprovalDto: ForwardApprovalDto, axiosOptions?: AxiosRequestConfig) {
-        return AccessRequestApprovalsApiFp(this.configuration).forwardRequest(approvalId, forwardApprovalDto, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public forwardRequest(requestParameters: AccessRequestApprovalsApiForwardRequestRequest, axiosOptions?: AxiosRequestConfig) {
+        return AccessRequestApprovalsApiFp(this.configuration).forwardRequest(requestParameters.approvalId, requestParameters.forwardApprovalDto, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * This endpoint returns list of completed approvals. See *owner-id* query parameter below for authorization info.
      * @summary Completed Access Request Approvals List
-     * @param {string} [ownerId] If present, the value returns only completed approvals for the specified identity.    * ORG_ADMIN users can call this with any identity ID value.    * ORG_ADMIN users can also fetch all the approvals in the org, when owner-id is not used.    * Non-ORG_ADMIN users can only specify *me* or pass their own identity ID value.
-     * @param {number} [limit] Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
-     * @param {number} [offset] Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
-     * @param {boolean} [count] If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
-     * @param {string} [filters] Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, in*  **requestedFor.id**: *eq, in*  **modified**: *gt, lt, ge, le*
-     * @param {string} [sorters] Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **created, modified**
+     * @param {AccessRequestApprovalsApiListCompletedApprovalsRequest} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
      * @memberof AccessRequestApprovalsApi
      */
-    public listCompletedApprovals(ownerId?: string, limit?: number, offset?: number, count?: boolean, filters?: string, sorters?: string, axiosOptions?: AxiosRequestConfig) {
-        return AccessRequestApprovalsApiFp(this.configuration).listCompletedApprovals(ownerId, limit, offset, count, filters, sorters, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public listCompletedApprovals(requestParameters: AccessRequestApprovalsApiListCompletedApprovalsRequest = {}, axiosOptions?: AxiosRequestConfig) {
+        return AccessRequestApprovalsApiFp(this.configuration).listCompletedApprovals(requestParameters.ownerId, requestParameters.limit, requestParameters.offset, requestParameters.count, requestParameters.filters, requestParameters.sorters, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * This endpoint returns a list of pending approvals. See \"owner-id\" query parameter below for authorization info.
      * @summary Pending Access Request Approvals List
-     * @param {string} [ownerId] If present, the value returns only pending approvals for the specified identity.    * ORG_ADMIN users can call this with any identity ID value.    * ORG_ADMIN users can also fetch all the approvals in the org, when owner-id is not used.    * Non-ORG_ADMIN users can only specify *me* or pass their own identity ID value.
-     * @param {number} [limit] Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
-     * @param {number} [offset] Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
-     * @param {boolean} [count] If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
-     * @param {string} [filters] Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, in*  **requestedFor.id**: *eq, in*  **modified**: *gt, lt, ge, le*
-     * @param {string} [sorters] Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **created, modified**
+     * @param {AccessRequestApprovalsApiListPendingApprovalsRequest} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
      * @memberof AccessRequestApprovalsApi
      */
-    public listPendingApprovals(ownerId?: string, limit?: number, offset?: number, count?: boolean, filters?: string, sorters?: string, axiosOptions?: AxiosRequestConfig) {
-        return AccessRequestApprovalsApiFp(this.configuration).listPendingApprovals(ownerId, limit, offset, count, filters, sorters, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public listPendingApprovals(requestParameters: AccessRequestApprovalsApiListPendingApprovalsRequest = {}, axiosOptions?: AxiosRequestConfig) {
+        return AccessRequestApprovalsApiFp(this.configuration).listPendingApprovals(requestParameters.ownerId, requestParameters.limit, requestParameters.offset, requestParameters.count, requestParameters.filters, requestParameters.sorters, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * This endpoint rejects an access request approval. Only the owner of the approval and admin users are allowed to perform this action.
      * @summary Rejects an access request approval.
-     * @param {string} approvalId The id of the approval.
-     * @param {CommentDto} [commentDto] Reviewer\&#39;s comment.
+     * @param {AccessRequestApprovalsApiRejectRequestRequest} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
      * @memberof AccessRequestApprovalsApi
      */
-    public rejectRequest(approvalId: string, commentDto?: CommentDto, axiosOptions?: AxiosRequestConfig) {
-        return AccessRequestApprovalsApiFp(this.configuration).rejectRequest(approvalId, commentDto, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public rejectRequest(requestParameters: AccessRequestApprovalsApiRejectRequestRequest, axiosOptions?: AxiosRequestConfig) {
+        return AccessRequestApprovalsApiFp(this.configuration).rejectRequest(requestParameters.approvalId, requestParameters.commentDto, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 }
 
@@ -15574,6 +15742,111 @@ export const AccessRequestsApiFactory = function (configuration?: Configuration,
 };
 
 /**
+ * Request parameters for cancelAccessRequest operation in AccessRequestsApi.
+ * @export
+ * @interface AccessRequestsApiCancelAccessRequestRequest
+ */
+export interface AccessRequestsApiCancelAccessRequestRequest {
+    /**
+     * 
+     * @type {CancelAccessRequest}
+     * @memberof AccessRequestsApiCancelAccessRequest
+     */
+    readonly cancelAccessRequest: CancelAccessRequest
+}
+
+/**
+ * Request parameters for createAccessRequest operation in AccessRequestsApi.
+ * @export
+ * @interface AccessRequestsApiCreateAccessRequestRequest
+ */
+export interface AccessRequestsApiCreateAccessRequestRequest {
+    /**
+     * 
+     * @type {AccessRequest}
+     * @memberof AccessRequestsApiCreateAccessRequest
+     */
+    readonly accessRequest: AccessRequest
+}
+
+/**
+ * Request parameters for listAccessRequestStatus operation in AccessRequestsApi.
+ * @export
+ * @interface AccessRequestsApiListAccessRequestStatusRequest
+ */
+export interface AccessRequestsApiListAccessRequestStatusRequest {
+    /**
+     * Filter the results by the identity for which the requests were made. *me* indicates the current user. Mutually exclusive with *regarding-identity*.
+     * @type {string}
+     * @memberof AccessRequestsApiListAccessRequestStatus
+     */
+    readonly requestedFor?: string
+
+    /**
+     * Filter the results by the identity that made the requests. *me* indicates the current user. Mutually exclusive with *regarding-identity*.
+     * @type {string}
+     * @memberof AccessRequestsApiListAccessRequestStatus
+     */
+    readonly requestedBy?: string
+
+    /**
+     * Filter the results by the specified identity which is either the requester or target of the requests. *me* indicates the current user. Mutually exclusive with *requested-for* and *requested-by*.
+     * @type {string}
+     * @memberof AccessRequestsApiListAccessRequestStatus
+     */
+    readonly regardingIdentity?: string
+
+    /**
+     * If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.
+     * @type {boolean}
+     * @memberof AccessRequestsApiListAccessRequestStatus
+     */
+    readonly count?: boolean
+
+    /**
+     * Max number of results to return.
+     * @type {number}
+     * @memberof AccessRequestsApiListAccessRequestStatus
+     */
+    readonly limit?: number
+
+    /**
+     * Offset into the full result set. Usually specified with *limit* to paginate through the results. Defaults to 0 if not specified.
+     * @type {number}
+     * @memberof AccessRequestsApiListAccessRequestStatus
+     */
+    readonly offset?: number
+
+    /**
+     * Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **accountActivityItemId**: *eq, in*
+     * @type {string}
+     * @memberof AccessRequestsApiListAccessRequestStatus
+     */
+    readonly filters?: string
+
+    /**
+     * Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **created, modified, accountActivityItemId**
+     * @type {string}
+     * @memberof AccessRequestsApiListAccessRequestStatus
+     */
+    readonly sorters?: string
+}
+
+/**
+ * Request parameters for updateAccessRequestConfig operation in AccessRequestsApi.
+ * @export
+ * @interface AccessRequestsApiUpdateAccessRequestConfigRequest
+ */
+export interface AccessRequestsApiUpdateAccessRequestConfigRequest {
+    /**
+     * 
+     * @type {AccessRequestConfig}
+     * @memberof AccessRequestsApiUpdateAccessRequestConfig
+     */
+    readonly accessRequestConfig: AccessRequestConfig
+}
+
+/**
  * AccessRequestsApi - object-oriented interface
  * @export
  * @class AccessRequestsApi
@@ -15583,25 +15856,25 @@ export class AccessRequestsApi extends BaseAPI {
     /**
      * This API endpoint cancels a pending access request. An access request can be cancelled only if it has not passed the approval step. Any token with ORG_ADMIN authority or token of the user who originally requested the access request is required to cancel it.
      * @summary Cancel Access Request
-     * @param {CancelAccessRequest} cancelAccessRequest 
+     * @param {AccessRequestsApiCancelAccessRequestRequest} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
      * @memberof AccessRequestsApi
      */
-    public cancelAccessRequest(cancelAccessRequest: CancelAccessRequest, axiosOptions?: AxiosRequestConfig) {
-        return AccessRequestsApiFp(this.configuration).cancelAccessRequest(cancelAccessRequest, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public cancelAccessRequest(requestParameters: AccessRequestsApiCancelAccessRequestRequest, axiosOptions?: AxiosRequestConfig) {
+        return AccessRequestsApiFp(this.configuration).cancelAccessRequest(requestParameters.cancelAccessRequest, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * This submits the access request into IdentityNow, where it will follow any IdentityNow approval processes.  Access requests are processed asynchronously by IdentityNow.  A success response from this endpoint means the request has been submitted to IDN and is queued for processing.  Because this endpoint is asynchronous, it will not return an error if you submit duplicate access requests in quick succession, or you submit an access request for access that is already in progress, approved, or rejected. It is best practice to check for any existing access requests that reference the same access items before submitting a new access request.  This can be accomplished by using the [access request status](https://developer.sailpoint.com/idn/api/v3/list-access-request-status) or the [pending access request approvals](https://developer.sailpoint.com/idn/api/v3/list-pending-approvals) endpoints.  You can also use the [search API](https://developer.sailpoint.com/idn/api/v3/search) to check the existing access items that an identity has before submitting an access request to ensure you are not requesting access that is already granted.  There are two types of access request:  __GRANT_ACCESS__ * Can be requested for multiple identities in a single request. * Supports self request and request on behalf of other users, see \'/beta/access-request-config\' endpoint for request configuration options.   * Allows any authenticated token (except API) to call this endpoint to request to grant access to themselves. Depending on the configuration, a user can request access for others. * Roles, Access Profiles and Entitlements can be requested. * While requesting entitlements, maximum of 25 entitlements and 10 recipients are allowed in a request.   __REVOKE_ACCESS__ * Can only be requested for a single identity at a time. * Does not support self request. Only manager can request to revoke access for their directly managed employees. * If removeDate is specified, then the access will be removed on that date and time. * Allows a manager to request to revoke access for direct employees. A token with ORG_ADMIN authority can also request to revoke access from anyone. * Roles and Access Profiles can be requested for revocation. Revoke request for entitlements are not supported currently.  NOTE: There is no indication to the approver in the IdentityNow UI that the approval request is for a revoke action. Take this into consideration when calling this API.  A token with API authority cannot be used to call this endpoint.  
      * @summary Submit an Access Request
-     * @param {AccessRequest} accessRequest 
+     * @param {AccessRequestsApiCreateAccessRequestRequest} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
      * @memberof AccessRequestsApi
      */
-    public createAccessRequest(accessRequest: AccessRequest, axiosOptions?: AxiosRequestConfig) {
-        return AccessRequestsApiFp(this.configuration).createAccessRequest(accessRequest, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public createAccessRequest(requestParameters: AccessRequestsApiCreateAccessRequestRequest, axiosOptions?: AxiosRequestConfig) {
+        return AccessRequestsApiFp(this.configuration).createAccessRequest(requestParameters.accessRequest, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -15618,32 +15891,25 @@ export class AccessRequestsApi extends BaseAPI {
     /**
      * The Access Request Status API returns a list of access request statuses based on the specified query parameters. Any token with any authority can request their own status. A token with ORG_ADMIN authority is required to call this API to get a list of statuses for other users.
      * @summary Access Request Status
-     * @param {string} [requestedFor] Filter the results by the identity for which the requests were made. *me* indicates the current user. Mutually exclusive with *regarding-identity*.
-     * @param {string} [requestedBy] Filter the results by the identity that made the requests. *me* indicates the current user. Mutually exclusive with *regarding-identity*.
-     * @param {string} [regardingIdentity] Filter the results by the specified identity which is either the requester or target of the requests. *me* indicates the current user. Mutually exclusive with *requested-for* and *requested-by*.
-     * @param {boolean} [count] If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.
-     * @param {number} [limit] Max number of results to return.
-     * @param {number} [offset] Offset into the full result set. Usually specified with *limit* to paginate through the results. Defaults to 0 if not specified.
-     * @param {string} [filters] Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **accountActivityItemId**: *eq, in*
-     * @param {string} [sorters] Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **created, modified, accountActivityItemId**
+     * @param {AccessRequestsApiListAccessRequestStatusRequest} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
      * @memberof AccessRequestsApi
      */
-    public listAccessRequestStatus(requestedFor?: string, requestedBy?: string, regardingIdentity?: string, count?: boolean, limit?: number, offset?: number, filters?: string, sorters?: string, axiosOptions?: AxiosRequestConfig) {
-        return AccessRequestsApiFp(this.configuration).listAccessRequestStatus(requestedFor, requestedBy, regardingIdentity, count, limit, offset, filters, sorters, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public listAccessRequestStatus(requestParameters: AccessRequestsApiListAccessRequestStatusRequest = {}, axiosOptions?: AxiosRequestConfig) {
+        return AccessRequestsApiFp(this.configuration).listAccessRequestStatus(requestParameters.requestedFor, requestParameters.requestedBy, requestParameters.regardingIdentity, requestParameters.count, requestParameters.limit, requestParameters.offset, requestParameters.filters, requestParameters.sorters, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * This endpoint replaces the current access-request configuration. A token with ORG_ADMIN authority is required to call this API.
      * @summary Update Access Request Configuration
-     * @param {AccessRequestConfig} accessRequestConfig 
+     * @param {AccessRequestsApiUpdateAccessRequestConfigRequest} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
      * @memberof AccessRequestsApi
      */
-    public updateAccessRequestConfig(accessRequestConfig: AccessRequestConfig, axiosOptions?: AxiosRequestConfig) {
-        return AccessRequestsApiFp(this.configuration).updateAccessRequestConfig(accessRequestConfig, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public updateAccessRequestConfig(requestParameters: AccessRequestsApiUpdateAccessRequestConfigRequest, axiosOptions?: AxiosRequestConfig) {
+        return AccessRequestsApiFp(this.configuration).updateAccessRequestConfig(requestParameters.accessRequestConfig, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 }
 
@@ -15854,6 +16120,83 @@ export const AccountActivitiesApiFactory = function (configuration?: Configurati
 };
 
 /**
+ * Request parameters for getAccountActivity operation in AccountActivitiesApi.
+ * @export
+ * @interface AccountActivitiesApiGetAccountActivityRequest
+ */
+export interface AccountActivitiesApiGetAccountActivityRequest {
+    /**
+     * The account activity id
+     * @type {string}
+     * @memberof AccountActivitiesApiGetAccountActivity
+     */
+    readonly id: string
+}
+
+/**
+ * Request parameters for listAccountActivities operation in AccountActivitiesApi.
+ * @export
+ * @interface AccountActivitiesApiListAccountActivitiesRequest
+ */
+export interface AccountActivitiesApiListAccountActivitiesRequest {
+    /**
+     * The identity that the activity was requested for. *me* indicates the current user. Mutually exclusive with *regarding-identity*.
+     * @type {string}
+     * @memberof AccountActivitiesApiListAccountActivities
+     */
+    readonly requestedFor?: string
+
+    /**
+     * The identity that requested the activity. *me* indicates the current user. Mutually exclusive with *regarding-identity*.
+     * @type {string}
+     * @memberof AccountActivitiesApiListAccountActivities
+     */
+    readonly requestedBy?: string
+
+    /**
+     * The specified identity will be either the requester or target of the account activity. *me* indicates the current user. Mutually exclusive with *requested-for* and *requested-by*.
+     * @type {string}
+     * @memberof AccountActivitiesApiListAccountActivities
+     */
+    readonly regardingIdentity?: string
+
+    /**
+     * Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+     * @type {number}
+     * @memberof AccountActivitiesApiListAccountActivities
+     */
+    readonly limit?: number
+
+    /**
+     * Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+     * @type {number}
+     * @memberof AccountActivitiesApiListAccountActivities
+     */
+    readonly offset?: number
+
+    /**
+     * If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+     * @type {boolean}
+     * @memberof AccountActivitiesApiListAccountActivities
+     */
+    readonly count?: boolean
+
+    /**
+     * Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results).  Filtering is supported for the following fields and operators:  **type**: *eq, in* (See the &#x60;type&#x60; property in the response schema for possible values)  **created**: *gt, lt, ge, le*  **modified**: *gt, lt, ge, le*
+     * @type {string}
+     * @memberof AccountActivitiesApiListAccountActivities
+     */
+    readonly filters?: string
+
+    /**
+     * Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results) Sorting is supported for the following fields: **type, created, modified**
+     * @type {string}
+     * @memberof AccountActivitiesApiListAccountActivities
+     */
+    readonly sorters?: string
+}
+
+/**
  * AccountActivitiesApi - object-oriented interface
  * @export
  * @class AccountActivitiesApi
@@ -15863,32 +16206,25 @@ export class AccountActivitiesApi extends BaseAPI {
     /**
      * This gets a single account activity by its id.
      * @summary Get an Account Activity
-     * @param {string} id The account activity id
+     * @param {AccountActivitiesApiGetAccountActivityRequest} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
      * @memberof AccountActivitiesApi
      */
-    public getAccountActivity(id: string, axiosOptions?: AxiosRequestConfig) {
-        return AccountActivitiesApiFp(this.configuration).getAccountActivity(id, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public getAccountActivity(requestParameters: AccountActivitiesApiGetAccountActivityRequest, axiosOptions?: AxiosRequestConfig) {
+        return AccountActivitiesApiFp(this.configuration).getAccountActivity(requestParameters.id, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * This gets a collection of account activities that satisfy the given query parameters.
      * @summary List Account Activities
-     * @param {string} [requestedFor] The identity that the activity was requested for. *me* indicates the current user. Mutually exclusive with *regarding-identity*.
-     * @param {string} [requestedBy] The identity that requested the activity. *me* indicates the current user. Mutually exclusive with *regarding-identity*.
-     * @param {string} [regardingIdentity] The specified identity will be either the requester or target of the account activity. *me* indicates the current user. Mutually exclusive with *requested-for* and *requested-by*.
-     * @param {number} [limit] Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
-     * @param {number} [offset] Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
-     * @param {boolean} [count] If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
-     * @param {string} [filters] Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results).  Filtering is supported for the following fields and operators:  **type**: *eq, in* (See the &#x60;type&#x60; property in the response schema for possible values)  **created**: *gt, lt, ge, le*  **modified**: *gt, lt, ge, le*
-     * @param {string} [sorters] Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results) Sorting is supported for the following fields: **type, created, modified**
+     * @param {AccountActivitiesApiListAccountActivitiesRequest} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
      * @memberof AccountActivitiesApi
      */
-    public listAccountActivities(requestedFor?: string, requestedBy?: string, regardingIdentity?: string, limit?: number, offset?: number, count?: boolean, filters?: string, sorters?: string, axiosOptions?: AxiosRequestConfig) {
-        return AccountActivitiesApiFp(this.configuration).listAccountActivities(requestedFor, requestedBy, regardingIdentity, limit, offset, count, filters, sorters, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public listAccountActivities(requestParameters: AccountActivitiesApiListAccountActivitiesRequest = {}, axiosOptions?: AxiosRequestConfig) {
+        return AccountActivitiesApiFp(this.configuration).listAccountActivities(requestParameters.requestedFor, requestParameters.requestedBy, requestParameters.regardingIdentity, requestParameters.limit, requestParameters.offset, requestParameters.count, requestParameters.filters, requestParameters.sorters, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 }
 
@@ -16701,6 +17037,237 @@ export const AccountsApiFactory = function (configuration?: Configuration, baseP
 };
 
 /**
+ * Request parameters for createAccount operation in AccountsApi.
+ * @export
+ * @interface AccountsApiCreateAccountRequest
+ */
+export interface AccountsApiCreateAccountRequest {
+    /**
+     * 
+     * @type {AccountAttributesCreate}
+     * @memberof AccountsApiCreateAccount
+     */
+    readonly accountAttributesCreate: AccountAttributesCreate
+}
+
+/**
+ * Request parameters for deleteAccount operation in AccountsApi.
+ * @export
+ * @interface AccountsApiDeleteAccountRequest
+ */
+export interface AccountsApiDeleteAccountRequest {
+    /**
+     * The account ID
+     * @type {string}
+     * @memberof AccountsApiDeleteAccount
+     */
+    readonly id: string
+}
+
+/**
+ * Request parameters for disableAccount operation in AccountsApi.
+ * @export
+ * @interface AccountsApiDisableAccountRequest
+ */
+export interface AccountsApiDisableAccountRequest {
+    /**
+     * The account id
+     * @type {string}
+     * @memberof AccountsApiDisableAccount
+     */
+    readonly id: string
+
+    /**
+     * 
+     * @type {AccountToggleRequest}
+     * @memberof AccountsApiDisableAccount
+     */
+    readonly accountToggleRequest: AccountToggleRequest
+}
+
+/**
+ * Request parameters for enableAccount operation in AccountsApi.
+ * @export
+ * @interface AccountsApiEnableAccountRequest
+ */
+export interface AccountsApiEnableAccountRequest {
+    /**
+     * The account id
+     * @type {string}
+     * @memberof AccountsApiEnableAccount
+     */
+    readonly id: string
+
+    /**
+     * 
+     * @type {AccountToggleRequest}
+     * @memberof AccountsApiEnableAccount
+     */
+    readonly accountToggleRequest: AccountToggleRequest
+}
+
+/**
+ * Request parameters for getAccount operation in AccountsApi.
+ * @export
+ * @interface AccountsApiGetAccountRequest
+ */
+export interface AccountsApiGetAccountRequest {
+    /**
+     * The account ID
+     * @type {string}
+     * @memberof AccountsApiGetAccount
+     */
+    readonly id: string
+}
+
+/**
+ * Request parameters for getAccountEntitlements operation in AccountsApi.
+ * @export
+ * @interface AccountsApiGetAccountEntitlementsRequest
+ */
+export interface AccountsApiGetAccountEntitlementsRequest {
+    /**
+     * The account id
+     * @type {string}
+     * @memberof AccountsApiGetAccountEntitlements
+     */
+    readonly id: string
+
+    /**
+     * Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+     * @type {number}
+     * @memberof AccountsApiGetAccountEntitlements
+     */
+    readonly limit?: number
+
+    /**
+     * Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+     * @type {number}
+     * @memberof AccountsApiGetAccountEntitlements
+     */
+    readonly offset?: number
+
+    /**
+     * If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+     * @type {boolean}
+     * @memberof AccountsApiGetAccountEntitlements
+     */
+    readonly count?: boolean
+}
+
+/**
+ * Request parameters for listAccounts operation in AccountsApi.
+ * @export
+ * @interface AccountsApiListAccountsRequest
+ */
+export interface AccountsApiListAccountsRequest {
+    /**
+     * Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+     * @type {number}
+     * @memberof AccountsApiListAccounts
+     */
+    readonly limit?: number
+
+    /**
+     * Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+     * @type {number}
+     * @memberof AccountsApiListAccounts
+     */
+    readonly offset?: number
+
+    /**
+     * If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+     * @type {boolean}
+     * @memberof AccountsApiListAccounts
+     */
+    readonly count?: boolean
+
+    /**
+     * Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, in*  **identityId**: *eq*  **name**: *eq, in*  **nativeIdentity**: *eq, in*  **sourceId**: *eq, in*  **uncorrelated**: *eq*
+     * @type {string}
+     * @memberof AccountsApiListAccounts
+     */
+    readonly filters?: string
+}
+
+/**
+ * Request parameters for putAccount operation in AccountsApi.
+ * @export
+ * @interface AccountsApiPutAccountRequest
+ */
+export interface AccountsApiPutAccountRequest {
+    /**
+     * The account ID
+     * @type {string}
+     * @memberof AccountsApiPutAccount
+     */
+    readonly id: string
+
+    /**
+     * 
+     * @type {AccountAttributes}
+     * @memberof AccountsApiPutAccount
+     */
+    readonly accountAttributes: AccountAttributes
+}
+
+/**
+ * Request parameters for reloadAccount operation in AccountsApi.
+ * @export
+ * @interface AccountsApiReloadAccountRequest
+ */
+export interface AccountsApiReloadAccountRequest {
+    /**
+     * The account id
+     * @type {string}
+     * @memberof AccountsApiReloadAccount
+     */
+    readonly id: string
+}
+
+/**
+ * Request parameters for unlockAccount operation in AccountsApi.
+ * @export
+ * @interface AccountsApiUnlockAccountRequest
+ */
+export interface AccountsApiUnlockAccountRequest {
+    /**
+     * The account id
+     * @type {string}
+     * @memberof AccountsApiUnlockAccount
+     */
+    readonly id: string
+
+    /**
+     * 
+     * @type {AccountUnlockRequest}
+     * @memberof AccountsApiUnlockAccount
+     */
+    readonly accountUnlockRequest: AccountUnlockRequest
+}
+
+/**
+ * Request parameters for updateAccount operation in AccountsApi.
+ * @export
+ * @interface AccountsApiUpdateAccountRequest
+ */
+export interface AccountsApiUpdateAccountRequest {
+    /**
+     * The account ID
+     * @type {string}
+     * @memberof AccountsApiUpdateAccount
+     */
+    readonly id: string
+
+    /**
+     * A list of account update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.
+     * @type {Array<JsonPatchOperation>}
+     * @memberof AccountsApiUpdateAccount
+     */
+    readonly jsonPatchOperation: Array<JsonPatchOperation>
+}
+
+/**
  * AccountsApi - object-oriented interface
  * @export
  * @class AccountsApi
@@ -16710,144 +17277,133 @@ export class AccountsApi extends BaseAPI {
     /**
      * This API submits an account creation task and returns the task ID.   A token with ORG_ADMIN authority is required to call this API.
      * @summary Create Account
-     * @param {AccountAttributesCreate} accountAttributesCreate 
+     * @param {AccountsApiCreateAccountRequest} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
      * @memberof AccountsApi
      */
-    public createAccount(accountAttributesCreate: AccountAttributesCreate, axiosOptions?: AxiosRequestConfig) {
-        return AccountsApiFp(this.configuration).createAccount(accountAttributesCreate, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public createAccount(requestParameters: AccountsApiCreateAccountRequest, axiosOptions?: AxiosRequestConfig) {
+        return AccountsApiFp(this.configuration).createAccount(requestParameters.accountAttributesCreate, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * This API submits an account delete task and returns the task ID. This operation can only be used on Flat File Sources. Any attempt to execute this request on the source of other type will result in an error response with a status code of 400. A token with ORG_ADMIN authority is required to call this API.
      * @summary Delete Account
-     * @param {string} id The account ID
+     * @param {AccountsApiDeleteAccountRequest} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
      * @memberof AccountsApi
      */
-    public deleteAccount(id: string, axiosOptions?: AxiosRequestConfig) {
-        return AccountsApiFp(this.configuration).deleteAccount(id, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public deleteAccount(requestParameters: AccountsApiDeleteAccountRequest, axiosOptions?: AxiosRequestConfig) {
+        return AccountsApiFp(this.configuration).deleteAccount(requestParameters.id, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * This API submits a task to disable the account and returns the task ID.   A token with ORG_ADMIN authority is required to call this API.
      * @summary Disable Account
-     * @param {string} id The account id
-     * @param {AccountToggleRequest} accountToggleRequest 
+     * @param {AccountsApiDisableAccountRequest} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
      * @memberof AccountsApi
      */
-    public disableAccount(id: string, accountToggleRequest: AccountToggleRequest, axiosOptions?: AxiosRequestConfig) {
-        return AccountsApiFp(this.configuration).disableAccount(id, accountToggleRequest, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public disableAccount(requestParameters: AccountsApiDisableAccountRequest, axiosOptions?: AxiosRequestConfig) {
+        return AccountsApiFp(this.configuration).disableAccount(requestParameters.id, requestParameters.accountToggleRequest, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * This API submits a task to enable account and returns the task ID.   A token with ORG_ADMIN authority is required to call this API.
      * @summary Enable Account
-     * @param {string} id The account id
-     * @param {AccountToggleRequest} accountToggleRequest 
+     * @param {AccountsApiEnableAccountRequest} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
      * @memberof AccountsApi
      */
-    public enableAccount(id: string, accountToggleRequest: AccountToggleRequest, axiosOptions?: AxiosRequestConfig) {
-        return AccountsApiFp(this.configuration).enableAccount(id, accountToggleRequest, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public enableAccount(requestParameters: AccountsApiEnableAccountRequest, axiosOptions?: AxiosRequestConfig) {
+        return AccountsApiFp(this.configuration).enableAccount(requestParameters.id, requestParameters.accountToggleRequest, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * This API returns the details for a single account based on the ID.   A token with ORG_ADMIN authority is required to call this API.
      * @summary Account Details
-     * @param {string} id The account ID
+     * @param {AccountsApiGetAccountRequest} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
      * @memberof AccountsApi
      */
-    public getAccount(id: string, axiosOptions?: AxiosRequestConfig) {
-        return AccountsApiFp(this.configuration).getAccount(id, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public getAccount(requestParameters: AccountsApiGetAccountRequest, axiosOptions?: AxiosRequestConfig) {
+        return AccountsApiFp(this.configuration).getAccount(requestParameters.id, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * This API returns entitlements of the account.   A token with ORG_ADMIN authority is required to call this API.
      * @summary Account Entitlements
-     * @param {string} id The account id
-     * @param {number} [limit] Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
-     * @param {number} [offset] Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
-     * @param {boolean} [count] If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+     * @param {AccountsApiGetAccountEntitlementsRequest} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
      * @memberof AccountsApi
      */
-    public getAccountEntitlements(id: string, limit?: number, offset?: number, count?: boolean, axiosOptions?: AxiosRequestConfig) {
-        return AccountsApiFp(this.configuration).getAccountEntitlements(id, limit, offset, count, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public getAccountEntitlements(requestParameters: AccountsApiGetAccountEntitlementsRequest, axiosOptions?: AxiosRequestConfig) {
+        return AccountsApiFp(this.configuration).getAccountEntitlements(requestParameters.id, requestParameters.limit, requestParameters.offset, requestParameters.count, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * This returns a list of accounts.   A token with ORG_ADMIN authority is required to call this API.
      * @summary Accounts List
-     * @param {number} [limit] Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
-     * @param {number} [offset] Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
-     * @param {boolean} [count] If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
-     * @param {string} [filters] Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, in*  **identityId**: *eq*  **name**: *eq, in*  **nativeIdentity**: *eq, in*  **sourceId**: *eq, in*  **uncorrelated**: *eq*
+     * @param {AccountsApiListAccountsRequest} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
      * @memberof AccountsApi
      */
-    public listAccounts(limit?: number, offset?: number, count?: boolean, filters?: string, axiosOptions?: AxiosRequestConfig) {
-        return AccountsApiFp(this.configuration).listAccounts(limit, offset, count, filters, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public listAccounts(requestParameters: AccountsApiListAccountsRequest = {}, axiosOptions?: AxiosRequestConfig) {
+        return AccountsApiFp(this.configuration).listAccounts(requestParameters.limit, requestParameters.offset, requestParameters.count, requestParameters.filters, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * This API submits an account update task and returns the task ID.   A token with ORG_ADMIN authority is required to call this API. >**NOTE: The PUT Account API is designated only for Delimited File sources.**
      * @summary Update Account
-     * @param {string} id The account ID
-     * @param {AccountAttributes} accountAttributes 
+     * @param {AccountsApiPutAccountRequest} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
      * @memberof AccountsApi
      */
-    public putAccount(id: string, accountAttributes: AccountAttributes, axiosOptions?: AxiosRequestConfig) {
-        return AccountsApiFp(this.configuration).putAccount(id, accountAttributes, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public putAccount(requestParameters: AccountsApiPutAccountRequest, axiosOptions?: AxiosRequestConfig) {
+        return AccountsApiFp(this.configuration).putAccount(requestParameters.id, requestParameters.accountAttributes, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * This API asynchronously reloads the account directly from the connector and performs a one-time aggregation process.   A token with ORG_ADMIN authority is required to call this API.
      * @summary Reload Account
-     * @param {string} id The account id
+     * @param {AccountsApiReloadAccountRequest} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
      * @memberof AccountsApi
      */
-    public reloadAccount(id: string, axiosOptions?: AxiosRequestConfig) {
-        return AccountsApiFp(this.configuration).reloadAccount(id, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public reloadAccount(requestParameters: AccountsApiReloadAccountRequest, axiosOptions?: AxiosRequestConfig) {
+        return AccountsApiFp(this.configuration).reloadAccount(requestParameters.id, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * This API submits a task to unlock an account and returns the task ID.   A token with ORG_ADMIN authority is required to call this API.
      * @summary Unlock Account
-     * @param {string} id The account id
-     * @param {AccountUnlockRequest} accountUnlockRequest 
+     * @param {AccountsApiUnlockAccountRequest} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
      * @memberof AccountsApi
      */
-    public unlockAccount(id: string, accountUnlockRequest: AccountUnlockRequest, axiosOptions?: AxiosRequestConfig) {
-        return AccountsApiFp(this.configuration).unlockAccount(id, accountUnlockRequest, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public unlockAccount(requestParameters: AccountsApiUnlockAccountRequest, axiosOptions?: AxiosRequestConfig) {
+        return AccountsApiFp(this.configuration).unlockAccount(requestParameters.id, requestParameters.accountUnlockRequest, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * Use this API to modify the following fields: * `identityId`  * `manuallyCorrelated`  >**NOTE: All other fields can not be modified.**  The request must provide a JSONPatch payload.  A token with ORG_ADMIN authority is required to call this API.
      * @summary Update Account
-     * @param {string} id The account ID
-     * @param {Array<JsonPatchOperation>} jsonPatchOperation A list of account update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.
+     * @param {AccountsApiUpdateAccountRequest} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
      * @memberof AccountsApi
      */
-    public updateAccount(id: string, jsonPatchOperation: Array<JsonPatchOperation>, axiosOptions?: AxiosRequestConfig) {
-        return AccountsApiFp(this.configuration).updateAccount(id, jsonPatchOperation, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public updateAccount(requestParameters: AccountsApiUpdateAccountRequest, axiosOptions?: AxiosRequestConfig) {
+        return AccountsApiFp(this.configuration).updateAccount(requestParameters.id, requestParameters.jsonPatchOperation, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 }
 
@@ -17223,6 +17779,153 @@ export const CertificationSummariesApiFactory = function (configuration?: Config
 };
 
 /**
+ * Request parameters for getIdentityAccessSummaries operation in CertificationSummariesApi.
+ * @export
+ * @interface CertificationSummariesApiGetIdentityAccessSummariesRequest
+ */
+export interface CertificationSummariesApiGetIdentityAccessSummariesRequest {
+    /**
+     * The identity campaign certification ID
+     * @type {string}
+     * @memberof CertificationSummariesApiGetIdentityAccessSummaries
+     */
+    readonly id: string
+
+    /**
+     * The type of access review item to retrieve summaries for
+     * @type {'ROLE' | 'ACCESS_PROFILE' | 'ENTITLEMENT'}
+     * @memberof CertificationSummariesApiGetIdentityAccessSummaries
+     */
+    readonly type: 'ROLE' | 'ACCESS_PROFILE' | 'ENTITLEMENT'
+
+    /**
+     * Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+     * @type {number}
+     * @memberof CertificationSummariesApiGetIdentityAccessSummaries
+     */
+    readonly limit?: number
+
+    /**
+     * Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+     * @type {number}
+     * @memberof CertificationSummariesApiGetIdentityAccessSummaries
+     */
+    readonly offset?: number
+
+    /**
+     * If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+     * @type {boolean}
+     * @memberof CertificationSummariesApiGetIdentityAccessSummaries
+     */
+    readonly count?: boolean
+
+    /**
+     * Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://community.sailpoint.com/t5/IdentityNow-Wiki-API-Standard-Collection-Parameters/ta-p/156407)  Filtering is supported for the following fields and operators:  **completed**: *eq, ne*  **access.id**: *eq, in*  **access.name**: *eq, sw*  **entitlement.sourceName**: *eq, sw*  **accessProfile.sourceName**: *eq, sw*
+     * @type {string}
+     * @memberof CertificationSummariesApiGetIdentityAccessSummaries
+     */
+    readonly filters?: string
+
+    /**
+     * Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **access.name**
+     * @type {string}
+     * @memberof CertificationSummariesApiGetIdentityAccessSummaries
+     */
+    readonly sorters?: string
+}
+
+/**
+ * Request parameters for getIdentityDecisionSummary operation in CertificationSummariesApi.
+ * @export
+ * @interface CertificationSummariesApiGetIdentityDecisionSummaryRequest
+ */
+export interface CertificationSummariesApiGetIdentityDecisionSummaryRequest {
+    /**
+     * The certification ID
+     * @type {string}
+     * @memberof CertificationSummariesApiGetIdentityDecisionSummary
+     */
+    readonly id: string
+
+    /**
+     * Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://community.sailpoint.com/t5/IdentityNow-Wiki-API-Standard-Collection-Parameters/ta-p/156407)  Filtering is supported for the following fields and operators:  **identitySummary.id**: *eq, in*
+     * @type {string}
+     * @memberof CertificationSummariesApiGetIdentityDecisionSummary
+     */
+    readonly filters?: string
+}
+
+/**
+ * Request parameters for getIdentitySummaries operation in CertificationSummariesApi.
+ * @export
+ * @interface CertificationSummariesApiGetIdentitySummariesRequest
+ */
+export interface CertificationSummariesApiGetIdentitySummariesRequest {
+    /**
+     * The identity campaign certification ID
+     * @type {string}
+     * @memberof CertificationSummariesApiGetIdentitySummaries
+     */
+    readonly id: string
+
+    /**
+     * Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+     * @type {number}
+     * @memberof CertificationSummariesApiGetIdentitySummaries
+     */
+    readonly limit?: number
+
+    /**
+     * Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+     * @type {number}
+     * @memberof CertificationSummariesApiGetIdentitySummaries
+     */
+    readonly offset?: number
+
+    /**
+     * If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+     * @type {boolean}
+     * @memberof CertificationSummariesApiGetIdentitySummaries
+     */
+    readonly count?: boolean
+
+    /**
+     * Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, in*  **completed**: *eq, ne*  **name**: *eq, sw*
+     * @type {string}
+     * @memberof CertificationSummariesApiGetIdentitySummaries
+     */
+    readonly filters?: string
+
+    /**
+     * Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **name**
+     * @type {string}
+     * @memberof CertificationSummariesApiGetIdentitySummaries
+     */
+    readonly sorters?: string
+}
+
+/**
+ * Request parameters for getIdentitySummary operation in CertificationSummariesApi.
+ * @export
+ * @interface CertificationSummariesApiGetIdentitySummaryRequest
+ */
+export interface CertificationSummariesApiGetIdentitySummaryRequest {
+    /**
+     * The identity campaign certification ID
+     * @type {string}
+     * @memberof CertificationSummariesApiGetIdentitySummary
+     */
+    readonly id: string
+
+    /**
+     * The identity summary ID
+     * @type {string}
+     * @memberof CertificationSummariesApiGetIdentitySummary
+     */
+    readonly identitySummaryId: string
+}
+
+/**
  * CertificationSummariesApi - object-oriented interface
  * @export
  * @class CertificationSummariesApi
@@ -17232,62 +17935,49 @@ export class CertificationSummariesApi extends BaseAPI {
     /**
      * This API returns a list of access summaries for the specified identity campaign certification and type. A token with ORG_ADMIN or CERT_ADMIN authority is required to call this API. Reviewers for this certification can also call this API.
      * @summary Access Summaries
-     * @param {string} id The identity campaign certification ID
-     * @param {'ROLE' | 'ACCESS_PROFILE' | 'ENTITLEMENT'} type The type of access review item to retrieve summaries for
-     * @param {number} [limit] Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
-     * @param {number} [offset] Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
-     * @param {boolean} [count] If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
-     * @param {string} [filters] Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://community.sailpoint.com/t5/IdentityNow-Wiki-API-Standard-Collection-Parameters/ta-p/156407)  Filtering is supported for the following fields and operators:  **completed**: *eq, ne*  **access.id**: *eq, in*  **access.name**: *eq, sw*  **entitlement.sourceName**: *eq, sw*  **accessProfile.sourceName**: *eq, sw*
-     * @param {string} [sorters] Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **access.name**
+     * @param {CertificationSummariesApiGetIdentityAccessSummariesRequest} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
      * @memberof CertificationSummariesApi
      */
-    public getIdentityAccessSummaries(id: string, type: 'ROLE' | 'ACCESS_PROFILE' | 'ENTITLEMENT', limit?: number, offset?: number, count?: boolean, filters?: string, sorters?: string, axiosOptions?: AxiosRequestConfig) {
-        return CertificationSummariesApiFp(this.configuration).getIdentityAccessSummaries(id, type, limit, offset, count, filters, sorters, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public getIdentityAccessSummaries(requestParameters: CertificationSummariesApiGetIdentityAccessSummariesRequest, axiosOptions?: AxiosRequestConfig) {
+        return CertificationSummariesApiFp(this.configuration).getIdentityAccessSummaries(requestParameters.id, requestParameters.type, requestParameters.limit, requestParameters.offset, requestParameters.count, requestParameters.filters, requestParameters.sorters, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * This API returns a summary of the decisions made on an identity campaign certification. The decisions are summarized by type. A token with ORG_ADMIN or CERT_ADMIN authority is required to call this API. Reviewers for this certification can also call this API.
      * @summary Summary of Certification Decisions
-     * @param {string} id The certification ID
-     * @param {string} [filters] Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://community.sailpoint.com/t5/IdentityNow-Wiki-API-Standard-Collection-Parameters/ta-p/156407)  Filtering is supported for the following fields and operators:  **identitySummary.id**: *eq, in*
+     * @param {CertificationSummariesApiGetIdentityDecisionSummaryRequest} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
      * @memberof CertificationSummariesApi
      */
-    public getIdentityDecisionSummary(id: string, filters?: string, axiosOptions?: AxiosRequestConfig) {
-        return CertificationSummariesApiFp(this.configuration).getIdentityDecisionSummary(id, filters, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public getIdentityDecisionSummary(requestParameters: CertificationSummariesApiGetIdentityDecisionSummaryRequest, axiosOptions?: AxiosRequestConfig) {
+        return CertificationSummariesApiFp(this.configuration).getIdentityDecisionSummary(requestParameters.id, requestParameters.filters, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * This API returns a list of the identity summaries for a specific identity campaign certification. A token with ORG_ADMIN or CERT_ADMIN authority is required to call this API. Reviewers for this certification can also call this API.
      * @summary Identity Summaries for Campaign Certification
-     * @param {string} id The identity campaign certification ID
-     * @param {number} [limit] Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
-     * @param {number} [offset] Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
-     * @param {boolean} [count] If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
-     * @param {string} [filters] Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, in*  **completed**: *eq, ne*  **name**: *eq, sw*
-     * @param {string} [sorters] Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **name**
+     * @param {CertificationSummariesApiGetIdentitySummariesRequest} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
      * @memberof CertificationSummariesApi
      */
-    public getIdentitySummaries(id: string, limit?: number, offset?: number, count?: boolean, filters?: string, sorters?: string, axiosOptions?: AxiosRequestConfig) {
-        return CertificationSummariesApiFp(this.configuration).getIdentitySummaries(id, limit, offset, count, filters, sorters, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public getIdentitySummaries(requestParameters: CertificationSummariesApiGetIdentitySummariesRequest, axiosOptions?: AxiosRequestConfig) {
+        return CertificationSummariesApiFp(this.configuration).getIdentitySummaries(requestParameters.id, requestParameters.limit, requestParameters.offset, requestParameters.count, requestParameters.filters, requestParameters.sorters, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * This API returns the summary for an identity on a specified identity campaign certification. A token with ORG_ADMIN or CERT_ADMIN authority is required to call this API. Reviewers for this certification can also call this API.
      * @summary Summary for Identity
-     * @param {string} id The identity campaign certification ID
-     * @param {string} identitySummaryId The identity summary ID
+     * @param {CertificationSummariesApiGetIdentitySummaryRequest} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
      * @memberof CertificationSummariesApi
      */
-    public getIdentitySummary(id: string, identitySummaryId: string, axiosOptions?: AxiosRequestConfig) {
-        return CertificationSummariesApiFp(this.configuration).getIdentitySummary(id, identitySummaryId, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public getIdentitySummary(requestParameters: CertificationSummariesApiGetIdentitySummaryRequest, axiosOptions?: AxiosRequestConfig) {
+        return CertificationSummariesApiFp(this.configuration).getIdentitySummary(requestParameters.id, requestParameters.identitySummaryId, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 }
 
@@ -17808,6 +18498,195 @@ export const CertificationsApiFactory = function (configuration?: Configuration,
 };
 
 /**
+ * Request parameters for getIdentityCertification operation in CertificationsApi.
+ * @export
+ * @interface CertificationsApiGetIdentityCertificationRequest
+ */
+export interface CertificationsApiGetIdentityCertificationRequest {
+    /**
+     * The certification id
+     * @type {string}
+     * @memberof CertificationsApiGetIdentityCertification
+     */
+    readonly id: string
+}
+
+/**
+ * Request parameters for listIdentityAccessReviewItems operation in CertificationsApi.
+ * @export
+ * @interface CertificationsApiListIdentityAccessReviewItemsRequest
+ */
+export interface CertificationsApiListIdentityAccessReviewItemsRequest {
+    /**
+     * The identity campaign certification ID
+     * @type {string}
+     * @memberof CertificationsApiListIdentityAccessReviewItems
+     */
+    readonly id: string
+
+    /**
+     * Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+     * @type {number}
+     * @memberof CertificationsApiListIdentityAccessReviewItems
+     */
+    readonly limit?: number
+
+    /**
+     * Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+     * @type {number}
+     * @memberof CertificationsApiListIdentityAccessReviewItems
+     */
+    readonly offset?: number
+
+    /**
+     * If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+     * @type {boolean}
+     * @memberof CertificationsApiListIdentityAccessReviewItems
+     */
+    readonly count?: boolean
+
+    /**
+     * Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, in*  **type / access.type**: *eq*  **completed**: *eq, ne*  **identitySummary.id**: *eq, in*  **identitySummary.name**: *eq, sw*  **access.id**: *eq, in*  **access.name**: *eq, sw*  **entitlement.sourceName**: *eq, sw*  **accessProfile.sourceName**: *eq, sw*
+     * @type {string}
+     * @memberof CertificationsApiListIdentityAccessReviewItems
+     */
+    readonly filters?: string
+
+    /**
+     * Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **identitySummary.name, access.name, access.type, entitlement.sourceName, accessProfile.sourceName**
+     * @type {string}
+     * @memberof CertificationsApiListIdentityAccessReviewItems
+     */
+    readonly sorters?: string
+
+    /**
+     * Filter results to view access review items that pertain to any of the specified comma-separated entitlement IDs.  An error will occur if this param is used with **access-profiles** or **roles** as only one of these query params can be used at a time.
+     * @type {string}
+     * @memberof CertificationsApiListIdentityAccessReviewItems
+     */
+    readonly entitlements?: string
+
+    /**
+     * Filter results to view access review items that pertain to any of the specified comma-separated access-profle IDs.  An error will occur if this param is used with **entitlements** or **roles** as only one of these query params can be used at a time.
+     * @type {string}
+     * @memberof CertificationsApiListIdentityAccessReviewItems
+     */
+    readonly accessProfiles?: string
+
+    /**
+     * Filter results to view access review items that pertain to any of the specified comma-separated role IDs.  An error will occur if this param is used with **entitlements** or **access-profiles** as only one of these query params can be used at a time.
+     * @type {string}
+     * @memberof CertificationsApiListIdentityAccessReviewItems
+     */
+    readonly roles?: string
+}
+
+/**
+ * Request parameters for listIdentityCertifications operation in CertificationsApi.
+ * @export
+ * @interface CertificationsApiListIdentityCertificationsRequest
+ */
+export interface CertificationsApiListIdentityCertificationsRequest {
+    /**
+     * The ID of reviewer identity. *me* indicates the current user.
+     * @type {string}
+     * @memberof CertificationsApiListIdentityCertifications
+     */
+    readonly reviewerIdentity?: string
+
+    /**
+     * Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+     * @type {number}
+     * @memberof CertificationsApiListIdentityCertifications
+     */
+    readonly limit?: number
+
+    /**
+     * Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+     * @type {number}
+     * @memberof CertificationsApiListIdentityCertifications
+     */
+    readonly offset?: number
+
+    /**
+     * If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+     * @type {boolean}
+     * @memberof CertificationsApiListIdentityCertifications
+     */
+    readonly count?: boolean
+
+    /**
+     * Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results) Filtering is supported for the following fields and operators: **id**: *eq, in* **campaign.id**: *eq, in* **phase**: *eq* **completed**: *eq, ne*
+     * @type {string}
+     * @memberof CertificationsApiListIdentityCertifications
+     */
+    readonly filters?: string
+
+    /**
+     * Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results) Sorting is supported for the following fields: **name, due, signed**
+     * @type {string}
+     * @memberof CertificationsApiListIdentityCertifications
+     */
+    readonly sorters?: string
+}
+
+/**
+ * Request parameters for makeIdentityDecision operation in CertificationsApi.
+ * @export
+ * @interface CertificationsApiMakeIdentityDecisionRequest
+ */
+export interface CertificationsApiMakeIdentityDecisionRequest {
+    /**
+     * The ID of the identity campaign certification on which to make decisions
+     * @type {string}
+     * @memberof CertificationsApiMakeIdentityDecision
+     */
+    readonly id: string
+
+    /**
+     * A non-empty array of decisions to be made.
+     * @type {Array<ReviewDecision>}
+     * @memberof CertificationsApiMakeIdentityDecision
+     */
+    readonly reviewDecision: Array<ReviewDecision>
+}
+
+/**
+ * Request parameters for reassignIdentityCertifications operation in CertificationsApi.
+ * @export
+ * @interface CertificationsApiReassignIdentityCertificationsRequest
+ */
+export interface CertificationsApiReassignIdentityCertificationsRequest {
+    /**
+     * The identity campaign certification ID
+     * @type {string}
+     * @memberof CertificationsApiReassignIdentityCertifications
+     */
+    readonly id: string
+
+    /**
+     * 
+     * @type {ReviewReassign}
+     * @memberof CertificationsApiReassignIdentityCertifications
+     */
+    readonly reviewReassign: ReviewReassign
+}
+
+/**
+ * Request parameters for signOffIdentityCertification operation in CertificationsApi.
+ * @export
+ * @interface CertificationsApiSignOffIdentityCertificationRequest
+ */
+export interface CertificationsApiSignOffIdentityCertificationRequest {
+    /**
+     * The identity campaign certification ID
+     * @type {string}
+     * @memberof CertificationsApiSignOffIdentityCertification
+     */
+    readonly id: string
+}
+
+/**
  * CertificationsApi - object-oriented interface
  * @export
  * @class CertificationsApi
@@ -17817,88 +18696,73 @@ export class CertificationsApi extends BaseAPI {
     /**
      * This API returns a single identity campaign certification by its ID. A token with ORG_ADMIN or CERT_ADMIN authority is required to call this API. Reviewers for this certification can also call this API. This API does not support requests for certifications assigned to Governance Groups.
      * @summary Identity Certification by ID
-     * @param {string} id The certification id
+     * @param {CertificationsApiGetIdentityCertificationRequest} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
      * @memberof CertificationsApi
      */
-    public getIdentityCertification(id: string, axiosOptions?: AxiosRequestConfig) {
-        return CertificationsApiFp(this.configuration).getIdentityCertification(id, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public getIdentityCertification(requestParameters: CertificationsApiGetIdentityCertificationRequest, axiosOptions?: AxiosRequestConfig) {
+        return CertificationsApiFp(this.configuration).getIdentityCertification(requestParameters.id, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * This API returns a list of access review items for an identity campaign certification. A token with ORG_ADMIN or CERT_ADMIN authority is required to call this API. Reviewers for this certification can also call this API. This API does not support requests for certifications assigned to Governance Groups.
      * @summary List of Access Review Items
-     * @param {string} id The identity campaign certification ID
-     * @param {number} [limit] Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
-     * @param {number} [offset] Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
-     * @param {boolean} [count] If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
-     * @param {string} [filters] Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, in*  **type / access.type**: *eq*  **completed**: *eq, ne*  **identitySummary.id**: *eq, in*  **identitySummary.name**: *eq, sw*  **access.id**: *eq, in*  **access.name**: *eq, sw*  **entitlement.sourceName**: *eq, sw*  **accessProfile.sourceName**: *eq, sw*
-     * @param {string} [sorters] Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **identitySummary.name, access.name, access.type, entitlement.sourceName, accessProfile.sourceName**
-     * @param {string} [entitlements] Filter results to view access review items that pertain to any of the specified comma-separated entitlement IDs.  An error will occur if this param is used with **access-profiles** or **roles** as only one of these query params can be used at a time.
-     * @param {string} [accessProfiles] Filter results to view access review items that pertain to any of the specified comma-separated access-profle IDs.  An error will occur if this param is used with **entitlements** or **roles** as only one of these query params can be used at a time.
-     * @param {string} [roles] Filter results to view access review items that pertain to any of the specified comma-separated role IDs.  An error will occur if this param is used with **entitlements** or **access-profiles** as only one of these query params can be used at a time.
+     * @param {CertificationsApiListIdentityAccessReviewItemsRequest} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
      * @memberof CertificationsApi
      */
-    public listIdentityAccessReviewItems(id: string, limit?: number, offset?: number, count?: boolean, filters?: string, sorters?: string, entitlements?: string, accessProfiles?: string, roles?: string, axiosOptions?: AxiosRequestConfig) {
-        return CertificationsApiFp(this.configuration).listIdentityAccessReviewItems(id, limit, offset, count, filters, sorters, entitlements, accessProfiles, roles, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public listIdentityAccessReviewItems(requestParameters: CertificationsApiListIdentityAccessReviewItemsRequest, axiosOptions?: AxiosRequestConfig) {
+        return CertificationsApiFp(this.configuration).listIdentityAccessReviewItems(requestParameters.id, requestParameters.limit, requestParameters.offset, requestParameters.count, requestParameters.filters, requestParameters.sorters, requestParameters.entitlements, requestParameters.accessProfiles, requestParameters.roles, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * This API returns a list of identity campaign certifications that satisfy the given query parameters. Any authenticated token can call this API, but only certifications you are authorized to review will be returned. This API does not support requests for certifications assigned to Governance Groups.
      * @summary Identity Campaign Certifications by IDs
-     * @param {string} [reviewerIdentity] The ID of reviewer identity. *me* indicates the current user.
-     * @param {number} [limit] Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
-     * @param {number} [offset] Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
-     * @param {boolean} [count] If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
-     * @param {string} [filters] Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results) Filtering is supported for the following fields and operators: **id**: *eq, in* **campaign.id**: *eq, in* **phase**: *eq* **completed**: *eq, ne*
-     * @param {string} [sorters] Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results) Sorting is supported for the following fields: **name, due, signed**
+     * @param {CertificationsApiListIdentityCertificationsRequest} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
      * @memberof CertificationsApi
      */
-    public listIdentityCertifications(reviewerIdentity?: string, limit?: number, offset?: number, count?: boolean, filters?: string, sorters?: string, axiosOptions?: AxiosRequestConfig) {
-        return CertificationsApiFp(this.configuration).listIdentityCertifications(reviewerIdentity, limit, offset, count, filters, sorters, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public listIdentityCertifications(requestParameters: CertificationsApiListIdentityCertificationsRequest = {}, axiosOptions?: AxiosRequestConfig) {
+        return CertificationsApiFp(this.configuration).listIdentityCertifications(requestParameters.reviewerIdentity, requestParameters.limit, requestParameters.offset, requestParameters.count, requestParameters.filters, requestParameters.sorters, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * The API makes a decision to approve or revoke one or more identity campaign certification items. A token with ORG_ADMIN or CERT_ADMIN authority is required to call this API. Reviewers for this certification can also call this API. This API does not support requests for certifications assigned to Governance Groups.
      * @summary Decide on a Certification Item
-     * @param {string} id The ID of the identity campaign certification on which to make decisions
-     * @param {Array<ReviewDecision>} reviewDecision A non-empty array of decisions to be made.
+     * @param {CertificationsApiMakeIdentityDecisionRequest} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
      * @memberof CertificationsApi
      */
-    public makeIdentityDecision(id: string, reviewDecision: Array<ReviewDecision>, axiosOptions?: AxiosRequestConfig) {
-        return CertificationsApiFp(this.configuration).makeIdentityDecision(id, reviewDecision, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public makeIdentityDecision(requestParameters: CertificationsApiMakeIdentityDecisionRequest, axiosOptions?: AxiosRequestConfig) {
+        return CertificationsApiFp(this.configuration).makeIdentityDecision(requestParameters.id, requestParameters.reviewDecision, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * This API reassigns up to 50 identities or items in an identity campaign certification to another reviewer. A token with ORG_ADMIN or CERT_ADMIN authority is required to call this API. Reviewers for this certification can also call this API. This API does not support requests for certifications assigned to Governance Groups.
      * @summary Reassign Identities or Items
-     * @param {string} id The identity campaign certification ID
-     * @param {ReviewReassign} reviewReassign 
+     * @param {CertificationsApiReassignIdentityCertificationsRequest} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
      * @memberof CertificationsApi
      */
-    public reassignIdentityCertifications(id: string, reviewReassign: ReviewReassign, axiosOptions?: AxiosRequestConfig) {
-        return CertificationsApiFp(this.configuration).reassignIdentityCertifications(id, reviewReassign, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public reassignIdentityCertifications(requestParameters: CertificationsApiReassignIdentityCertificationsRequest, axiosOptions?: AxiosRequestConfig) {
+        return CertificationsApiFp(this.configuration).reassignIdentityCertifications(requestParameters.id, requestParameters.reviewReassign, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * This API finalizes all decisions made on an identity campaign certification and initiates any remediations required. A token with ORG_ADMIN or CERT_ADMIN authority is required to call this API. Reviewers for this certification can also call this API. This API does not support requests for certifications assigned to Governance Groups.
      * @summary Finalize Identity Certification Decisions
-     * @param {string} id The identity campaign certification ID
+     * @param {CertificationsApiSignOffIdentityCertificationRequest} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
      * @memberof CertificationsApi
      */
-    public signOffIdentityCertification(id: string, axiosOptions?: AxiosRequestConfig) {
-        return CertificationsApiFp(this.configuration).signOffIdentityCertification(id, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public signOffIdentityCertification(requestParameters: CertificationsApiSignOffIdentityCertificationRequest, axiosOptions?: AxiosRequestConfig) {
+        return CertificationsApiFp(this.configuration).signOffIdentityCertification(requestParameters.id, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 }
 
@@ -18308,6 +19172,132 @@ export const IdentityProfilesApiFactory = function (configuration?: Configuratio
 };
 
 /**
+ * Request parameters for exportIdentityProfiles operation in IdentityProfilesApi.
+ * @export
+ * @interface IdentityProfilesApiExportIdentityProfilesRequest
+ */
+export interface IdentityProfilesApiExportIdentityProfilesRequest {
+    /**
+     * Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+     * @type {number}
+     * @memberof IdentityProfilesApiExportIdentityProfiles
+     */
+    readonly limit?: number
+
+    /**
+     * Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+     * @type {number}
+     * @memberof IdentityProfilesApiExportIdentityProfiles
+     */
+    readonly offset?: number
+
+    /**
+     * If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+     * @type {boolean}
+     * @memberof IdentityProfilesApiExportIdentityProfiles
+     */
+    readonly count?: boolean
+
+    /**
+     * Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, ne*  **name**: *eq, ne*  **priority**: *eq, ne*
+     * @type {string}
+     * @memberof IdentityProfilesApiExportIdentityProfiles
+     */
+    readonly filters?: string
+
+    /**
+     * Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **id**, **name**, **priority**
+     * @type {string}
+     * @memberof IdentityProfilesApiExportIdentityProfiles
+     */
+    readonly sorters?: string
+}
+
+/**
+ * Request parameters for getDefaultIdentityAttributeConfig operation in IdentityProfilesApi.
+ * @export
+ * @interface IdentityProfilesApiGetDefaultIdentityAttributeConfigRequest
+ */
+export interface IdentityProfilesApiGetDefaultIdentityAttributeConfigRequest {
+    /**
+     * The Identity Profile ID.
+     * @type {string}
+     * @memberof IdentityProfilesApiGetDefaultIdentityAttributeConfig
+     */
+    readonly identityProfileId: string
+}
+
+/**
+ * Request parameters for getIdentityProfile operation in IdentityProfilesApi.
+ * @export
+ * @interface IdentityProfilesApiGetIdentityProfileRequest
+ */
+export interface IdentityProfilesApiGetIdentityProfileRequest {
+    /**
+     * The Identity Profile ID.
+     * @type {string}
+     * @memberof IdentityProfilesApiGetIdentityProfile
+     */
+    readonly identityProfileId: string
+}
+
+/**
+ * Request parameters for importIdentityProfiles operation in IdentityProfilesApi.
+ * @export
+ * @interface IdentityProfilesApiImportIdentityProfilesRequest
+ */
+export interface IdentityProfilesApiImportIdentityProfilesRequest {
+    /**
+     * Previously exported Identity Profiles.
+     * @type {Array<IdentityProfileExportedObject>}
+     * @memberof IdentityProfilesApiImportIdentityProfiles
+     */
+    readonly identityProfileExportedObject: Array<IdentityProfileExportedObject>
+}
+
+/**
+ * Request parameters for listIdentityProfiles operation in IdentityProfilesApi.
+ * @export
+ * @interface IdentityProfilesApiListIdentityProfilesRequest
+ */
+export interface IdentityProfilesApiListIdentityProfilesRequest {
+    /**
+     * Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+     * @type {number}
+     * @memberof IdentityProfilesApiListIdentityProfiles
+     */
+    readonly limit?: number
+
+    /**
+     * Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+     * @type {number}
+     * @memberof IdentityProfilesApiListIdentityProfiles
+     */
+    readonly offset?: number
+
+    /**
+     * If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+     * @type {boolean}
+     * @memberof IdentityProfilesApiListIdentityProfiles
+     */
+    readonly count?: boolean
+
+    /**
+     * Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, ne*  **name**: *eq, ne*  **priority**: *eq, ne*
+     * @type {string}
+     * @memberof IdentityProfilesApiListIdentityProfiles
+     */
+    readonly filters?: string
+
+    /**
+     * Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **id**, **name**, **priority**
+     * @type {string}
+     * @memberof IdentityProfilesApiListIdentityProfiles
+     */
+    readonly sorters?: string
+}
+
+/**
  * IdentityProfilesApi - object-oriented interface
  * @export
  * @class IdentityProfilesApi
@@ -18317,69 +19307,61 @@ export class IdentityProfilesApi extends BaseAPI {
     /**
      * This exports existing identity profiles in the format specified by the sp-config service.
      * @summary Export Identity Profiles
-     * @param {number} [limit] Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
-     * @param {number} [offset] Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
-     * @param {boolean} [count] If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
-     * @param {string} [filters] Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, ne*  **name**: *eq, ne*  **priority**: *eq, ne*
-     * @param {string} [sorters] Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **id**, **name**, **priority**
+     * @param {IdentityProfilesApiExportIdentityProfilesRequest} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
      * @memberof IdentityProfilesApi
      */
-    public exportIdentityProfiles(limit?: number, offset?: number, count?: boolean, filters?: string, sorters?: string, axiosOptions?: AxiosRequestConfig) {
-        return IdentityProfilesApiFp(this.configuration).exportIdentityProfiles(limit, offset, count, filters, sorters, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public exportIdentityProfiles(requestParameters: IdentityProfilesApiExportIdentityProfilesRequest = {}, axiosOptions?: AxiosRequestConfig) {
+        return IdentityProfilesApiFp(this.configuration).exportIdentityProfiles(requestParameters.limit, requestParameters.offset, requestParameters.count, requestParameters.filters, requestParameters.sorters, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * This returns the default identity attribute config. A token with ORG_ADMIN authority is required to call this API to get the default identity attribute config.
      * @summary Get default Identity Attribute Config
-     * @param {string} identityProfileId The Identity Profile ID.
+     * @param {IdentityProfilesApiGetDefaultIdentityAttributeConfigRequest} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
      * @memberof IdentityProfilesApi
      */
-    public getDefaultIdentityAttributeConfig(identityProfileId: string, axiosOptions?: AxiosRequestConfig) {
-        return IdentityProfilesApiFp(this.configuration).getDefaultIdentityAttributeConfig(identityProfileId, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public getDefaultIdentityAttributeConfig(requestParameters: IdentityProfilesApiGetDefaultIdentityAttributeConfigRequest, axiosOptions?: AxiosRequestConfig) {
+        return IdentityProfilesApiFp(this.configuration).getDefaultIdentityAttributeConfig(requestParameters.identityProfileId, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * This returns a single Identity Profile based on ID. A token with ORG_ADMIN or API authority is required to call this API.
      * @summary Get single Identity Profile
-     * @param {string} identityProfileId The Identity Profile ID.
+     * @param {IdentityProfilesApiGetIdentityProfileRequest} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
      * @memberof IdentityProfilesApi
      */
-    public getIdentityProfile(identityProfileId: string, axiosOptions?: AxiosRequestConfig) {
-        return IdentityProfilesApiFp(this.configuration).getIdentityProfile(identityProfileId, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public getIdentityProfile(requestParameters: IdentityProfilesApiGetIdentityProfileRequest, axiosOptions?: AxiosRequestConfig) {
+        return IdentityProfilesApiFp(this.configuration).getIdentityProfile(requestParameters.identityProfileId, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * This imports previously exported identity profiles.
      * @summary Import Identity Profiles
-     * @param {Array<IdentityProfileExportedObject>} identityProfileExportedObject Previously exported Identity Profiles.
+     * @param {IdentityProfilesApiImportIdentityProfilesRequest} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
      * @memberof IdentityProfilesApi
      */
-    public importIdentityProfiles(identityProfileExportedObject: Array<IdentityProfileExportedObject>, axiosOptions?: AxiosRequestConfig) {
-        return IdentityProfilesApiFp(this.configuration).importIdentityProfiles(identityProfileExportedObject, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public importIdentityProfiles(requestParameters: IdentityProfilesApiImportIdentityProfilesRequest, axiosOptions?: AxiosRequestConfig) {
+        return IdentityProfilesApiFp(this.configuration).importIdentityProfiles(requestParameters.identityProfileExportedObject, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * This returns a list of Identity Profiles based on the specified query parameters. A token with ORG_ADMIN or API authority is required to call this API to get a list of Identity Profiles.
      * @summary Identity Profiles List
-     * @param {number} [limit] Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
-     * @param {number} [offset] Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
-     * @param {boolean} [count] If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
-     * @param {string} [filters] Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, ne*  **name**: *eq, ne*  **priority**: *eq, ne*
-     * @param {string} [sorters] Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **id**, **name**, **priority**
+     * @param {IdentityProfilesApiListIdentityProfilesRequest} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
      * @memberof IdentityProfilesApi
      */
-    public listIdentityProfiles(limit?: number, offset?: number, count?: boolean, filters?: string, sorters?: string, axiosOptions?: AxiosRequestConfig) {
-        return IdentityProfilesApiFp(this.configuration).listIdentityProfiles(limit, offset, count, filters, sorters, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public listIdentityProfiles(requestParameters: IdentityProfilesApiListIdentityProfilesRequest = {}, axiosOptions?: AxiosRequestConfig) {
+        return IdentityProfilesApiFp(this.configuration).listIdentityProfiles(requestParameters.limit, requestParameters.offset, requestParameters.count, requestParameters.filters, requestParameters.sorters, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 }
 
@@ -18862,6 +19844,160 @@ export const LifecycleStatesApiFactory = function (configuration?: Configuration
 };
 
 /**
+ * Request parameters for createLifecycleState operation in LifecycleStatesApi.
+ * @export
+ * @interface LifecycleStatesApiCreateLifecycleStateRequest
+ */
+export interface LifecycleStatesApiCreateLifecycleStateRequest {
+    /**
+     * Identity Profile ID
+     * @type {string}
+     * @memberof LifecycleStatesApiCreateLifecycleState
+     */
+    readonly identityProfileId: string
+
+    /**
+     * Lifecycle State
+     * @type {LifecycleState}
+     * @memberof LifecycleStatesApiCreateLifecycleState
+     */
+    readonly lifecycleState: LifecycleState
+}
+
+/**
+ * Request parameters for deleteLifecycleState operation in LifecycleStatesApi.
+ * @export
+ * @interface LifecycleStatesApiDeleteLifecycleStateRequest
+ */
+export interface LifecycleStatesApiDeleteLifecycleStateRequest {
+    /**
+     * Identity Profile ID
+     * @type {string}
+     * @memberof LifecycleStatesApiDeleteLifecycleState
+     */
+    readonly identityProfileId: string
+
+    /**
+     * Lifecycle State ID
+     * @type {string}
+     * @memberof LifecycleStatesApiDeleteLifecycleState
+     */
+    readonly lifecycleStateId: string
+}
+
+/**
+ * Request parameters for getLifecycleState operation in LifecycleStatesApi.
+ * @export
+ * @interface LifecycleStatesApiGetLifecycleStateRequest
+ */
+export interface LifecycleStatesApiGetLifecycleStateRequest {
+    /**
+     * Identity Profile ID
+     * @type {string}
+     * @memberof LifecycleStatesApiGetLifecycleState
+     */
+    readonly identityProfileId: string
+
+    /**
+     * Lifecycle State ID
+     * @type {string}
+     * @memberof LifecycleStatesApiGetLifecycleState
+     */
+    readonly lifecycleStateId: string
+}
+
+/**
+ * Request parameters for listLifecycleStates operation in LifecycleStatesApi.
+ * @export
+ * @interface LifecycleStatesApiListLifecycleStatesRequest
+ */
+export interface LifecycleStatesApiListLifecycleStatesRequest {
+    /**
+     * The IdentityProfile id
+     * @type {string}
+     * @memberof LifecycleStatesApiListLifecycleStates
+     */
+    readonly identityProfileId: string
+
+    /**
+     * Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+     * @type {number}
+     * @memberof LifecycleStatesApiListLifecycleStates
+     */
+    readonly limit?: number
+
+    /**
+     * Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+     * @type {number}
+     * @memberof LifecycleStatesApiListLifecycleStates
+     */
+    readonly offset?: number
+
+    /**
+     * If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+     * @type {boolean}
+     * @memberof LifecycleStatesApiListLifecycleStates
+     */
+    readonly count?: boolean
+
+    /**
+     * Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **created, modified**
+     * @type {string}
+     * @memberof LifecycleStatesApiListLifecycleStates
+     */
+    readonly sorters?: string
+}
+
+/**
+ * Request parameters for setLifecycleState operation in LifecycleStatesApi.
+ * @export
+ * @interface LifecycleStatesApiSetLifecycleStateRequest
+ */
+export interface LifecycleStatesApiSetLifecycleStateRequest {
+    /**
+     * The ID of the identity to update
+     * @type {string}
+     * @memberof LifecycleStatesApiSetLifecycleState
+     */
+    readonly identityId: string
+
+    /**
+     * 
+     * @type {SetLifecycleStateRequest}
+     * @memberof LifecycleStatesApiSetLifecycleState
+     */
+    readonly setLifecycleStateRequest: SetLifecycleStateRequest
+}
+
+/**
+ * Request parameters for updateLifecycleStates operation in LifecycleStatesApi.
+ * @export
+ * @interface LifecycleStatesApiUpdateLifecycleStatesRequest
+ */
+export interface LifecycleStatesApiUpdateLifecycleStatesRequest {
+    /**
+     * Identity Profile ID
+     * @type {string}
+     * @memberof LifecycleStatesApiUpdateLifecycleStates
+     */
+    readonly identityProfileId: string
+
+    /**
+     * Lifecycle State ID
+     * @type {string}
+     * @memberof LifecycleStatesApiUpdateLifecycleStates
+     */
+    readonly lifecycleStateId: string
+
+    /**
+     * A list of lifecycle state update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.  The following fields can be updated: * enabled * description * accountActions * accessProfileIds * emailNotificationOption 
+     * @type {Array<JsonPatchOperation>}
+     * @memberof LifecycleStatesApiUpdateLifecycleStates
+     */
+    readonly jsonPatchOperation: Array<JsonPatchOperation>
+}
+
+/**
  * LifecycleStatesApi - object-oriented interface
  * @export
  * @class LifecycleStatesApi
@@ -18871,83 +20007,73 @@ export class LifecycleStatesApi extends BaseAPI {
     /**
      * This API creates a new Lifecycle State. A token with ORG_ADMIN or API authority is required to call this API.
      * @summary Create Lifecycle State
-     * @param {string} identityProfileId Identity Profile ID
-     * @param {LifecycleState} lifecycleState Lifecycle State
+     * @param {LifecycleStatesApiCreateLifecycleStateRequest} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
      * @memberof LifecycleStatesApi
      */
-    public createLifecycleState(identityProfileId: string, lifecycleState: LifecycleState, axiosOptions?: AxiosRequestConfig) {
-        return LifecycleStatesApiFp(this.configuration).createLifecycleState(identityProfileId, lifecycleState, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public createLifecycleState(requestParameters: LifecycleStatesApiCreateLifecycleStateRequest, axiosOptions?: AxiosRequestConfig) {
+        return LifecycleStatesApiFp(this.configuration).createLifecycleState(requestParameters.identityProfileId, requestParameters.lifecycleState, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * This endpoint deletes the Lifecycle State using it\'s ID. A token with API, or ORG_ADMIN authority is required to call this API.
      * @summary Delete Lifecycle State by ID
-     * @param {string} identityProfileId Identity Profile ID
-     * @param {string} lifecycleStateId Lifecycle State ID
+     * @param {LifecycleStatesApiDeleteLifecycleStateRequest} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
      * @memberof LifecycleStatesApi
      */
-    public deleteLifecycleState(identityProfileId: string, lifecycleStateId: string, axiosOptions?: AxiosRequestConfig) {
-        return LifecycleStatesApiFp(this.configuration).deleteLifecycleState(identityProfileId, lifecycleStateId, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public deleteLifecycleState(requestParameters: LifecycleStatesApiDeleteLifecycleStateRequest, axiosOptions?: AxiosRequestConfig) {
+        return LifecycleStatesApiFp(this.configuration).deleteLifecycleState(requestParameters.identityProfileId, requestParameters.lifecycleStateId, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * This endpoint retrieves a Lifecycle State. A token with ORG_ADMIN or API authority is required to call this API.
      * @summary Retrieves Lifecycle State
-     * @param {string} identityProfileId Identity Profile ID
-     * @param {string} lifecycleStateId Lifecycle State ID
+     * @param {LifecycleStatesApiGetLifecycleStateRequest} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
      * @memberof LifecycleStatesApi
      */
-    public getLifecycleState(identityProfileId: string, lifecycleStateId: string, axiosOptions?: AxiosRequestConfig) {
-        return LifecycleStatesApiFp(this.configuration).getLifecycleState(identityProfileId, lifecycleStateId, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public getLifecycleState(requestParameters: LifecycleStatesApiGetLifecycleStateRequest, axiosOptions?: AxiosRequestConfig) {
+        return LifecycleStatesApiFp(this.configuration).getLifecycleState(requestParameters.identityProfileId, requestParameters.lifecycleStateId, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * This end-point lists all the LifecycleStates associated with IdentityProfiles. A token with API, or ORG_ADMIN authority is required to call this API.
      * @summary Lists LifecycleStates
-     * @param {string} identityProfileId The IdentityProfile id
-     * @param {number} [limit] Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
-     * @param {number} [offset] Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
-     * @param {boolean} [count] If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
-     * @param {string} [sorters] Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **created, modified**
+     * @param {LifecycleStatesApiListLifecycleStatesRequest} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
      * @memberof LifecycleStatesApi
      */
-    public listLifecycleStates(identityProfileId: string, limit?: number, offset?: number, count?: boolean, sorters?: string, axiosOptions?: AxiosRequestConfig) {
-        return LifecycleStatesApiFp(this.configuration).listLifecycleStates(identityProfileId, limit, offset, count, sorters, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public listLifecycleStates(requestParameters: LifecycleStatesApiListLifecycleStatesRequest, axiosOptions?: AxiosRequestConfig) {
+        return LifecycleStatesApiFp(this.configuration).listLifecycleStates(requestParameters.identityProfileId, requestParameters.limit, requestParameters.offset, requestParameters.count, requestParameters.sorters, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * This endpoint will set/update an identity\'s lifecycle state to the one provided and updates the corresponding Identity Profile. A token with ORG_ADMIN or API authority is required to call this API.
      * @summary Set Lifecycle State
-     * @param {string} identityId The ID of the identity to update
-     * @param {SetLifecycleStateRequest} setLifecycleStateRequest 
+     * @param {LifecycleStatesApiSetLifecycleStateRequest} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
      * @memberof LifecycleStatesApi
      */
-    public setLifecycleState(identityId: string, setLifecycleStateRequest: SetLifecycleStateRequest, axiosOptions?: AxiosRequestConfig) {
-        return LifecycleStatesApiFp(this.configuration).setLifecycleState(identityId, setLifecycleStateRequest, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public setLifecycleState(requestParameters: LifecycleStatesApiSetLifecycleStateRequest, axiosOptions?: AxiosRequestConfig) {
+        return LifecycleStatesApiFp(this.configuration).setLifecycleState(requestParameters.identityId, requestParameters.setLifecycleStateRequest, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * This endpoint updates individual Lifecycle State fields using the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard. A token with ORG_ADMIN or API authority is required to call this API.
      * @summary Update Lifecycle State
-     * @param {string} identityProfileId Identity Profile ID
-     * @param {string} lifecycleStateId Lifecycle State ID
-     * @param {Array<JsonPatchOperation>} jsonPatchOperation A list of lifecycle state update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.  The following fields can be updated: * enabled * description * accountActions * accessProfileIds * emailNotificationOption 
+     * @param {LifecycleStatesApiUpdateLifecycleStatesRequest} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
      * @memberof LifecycleStatesApi
      */
-    public updateLifecycleStates(identityProfileId: string, lifecycleStateId: string, jsonPatchOperation: Array<JsonPatchOperation>, axiosOptions?: AxiosRequestConfig) {
-        return LifecycleStatesApiFp(this.configuration).updateLifecycleStates(identityProfileId, lifecycleStateId, jsonPatchOperation, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public updateLifecycleStates(requestParameters: LifecycleStatesApiUpdateLifecycleStatesRequest, axiosOptions?: AxiosRequestConfig) {
+        return LifecycleStatesApiFp(this.configuration).updateLifecycleStates(requestParameters.identityProfileId, requestParameters.lifecycleStateId, requestParameters.jsonPatchOperation, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 }
 
@@ -21241,6 +22367,671 @@ export const NonEmployeeLifecycleManagementApiFactory = function (configuration?
 };
 
 /**
+ * Request parameters for createSchemaAttribute operation in NonEmployeeLifecycleManagementApi.
+ * @export
+ * @interface NonEmployeeLifecycleManagementApiCreateSchemaAttributeRequest
+ */
+export interface NonEmployeeLifecycleManagementApiCreateSchemaAttributeRequest {
+    /**
+     * The Source id
+     * @type {string}
+     * @memberof NonEmployeeLifecycleManagementApiCreateSchemaAttribute
+     */
+    readonly sourceId: string
+
+    /**
+     * 
+     * @type {NonEmployeeSchemaAttributeBody}
+     * @memberof NonEmployeeLifecycleManagementApiCreateSchemaAttribute
+     */
+    readonly nonEmployeeSchemaAttributeBody: NonEmployeeSchemaAttributeBody
+}
+
+/**
+ * Request parameters for deleteSchemaAttribute operation in NonEmployeeLifecycleManagementApi.
+ * @export
+ * @interface NonEmployeeLifecycleManagementApiDeleteSchemaAttributeRequest
+ */
+export interface NonEmployeeLifecycleManagementApiDeleteSchemaAttributeRequest {
+    /**
+     * The Schema Attribute Id (UUID)
+     * @type {string}
+     * @memberof NonEmployeeLifecycleManagementApiDeleteSchemaAttribute
+     */
+    readonly attributeId: string
+
+    /**
+     * The Source id
+     * @type {string}
+     * @memberof NonEmployeeLifecycleManagementApiDeleteSchemaAttribute
+     */
+    readonly sourceId: string
+}
+
+/**
+ * Request parameters for deleteSchemaAttributes operation in NonEmployeeLifecycleManagementApi.
+ * @export
+ * @interface NonEmployeeLifecycleManagementApiDeleteSchemaAttributesRequest
+ */
+export interface NonEmployeeLifecycleManagementApiDeleteSchemaAttributesRequest {
+    /**
+     * The Source id
+     * @type {string}
+     * @memberof NonEmployeeLifecycleManagementApiDeleteSchemaAttributes
+     */
+    readonly sourceId: string
+}
+
+/**
+ * Request parameters for getSchemaAttribute operation in NonEmployeeLifecycleManagementApi.
+ * @export
+ * @interface NonEmployeeLifecycleManagementApiGetSchemaAttributeRequest
+ */
+export interface NonEmployeeLifecycleManagementApiGetSchemaAttributeRequest {
+    /**
+     * The Schema Attribute Id (UUID)
+     * @type {string}
+     * @memberof NonEmployeeLifecycleManagementApiGetSchemaAttribute
+     */
+    readonly attributeId: string
+
+    /**
+     * The Source id
+     * @type {string}
+     * @memberof NonEmployeeLifecycleManagementApiGetSchemaAttribute
+     */
+    readonly sourceId: string
+}
+
+/**
+ * Request parameters for getSchemaAttributes operation in NonEmployeeLifecycleManagementApi.
+ * @export
+ * @interface NonEmployeeLifecycleManagementApiGetSchemaAttributesRequest
+ */
+export interface NonEmployeeLifecycleManagementApiGetSchemaAttributesRequest {
+    /**
+     * The Source id
+     * @type {string}
+     * @memberof NonEmployeeLifecycleManagementApiGetSchemaAttributes
+     */
+    readonly sourceId: string
+}
+
+/**
+ * Request parameters for nonEmployeeApprovalGet operation in NonEmployeeLifecycleManagementApi.
+ * @export
+ * @interface NonEmployeeLifecycleManagementApiNonEmployeeApprovalGetRequest
+ */
+export interface NonEmployeeLifecycleManagementApiNonEmployeeApprovalGetRequest {
+    /**
+     * Non-Employee approval item id (UUID)
+     * @type {string}
+     * @memberof NonEmployeeLifecycleManagementApiNonEmployeeApprovalGet
+     */
+    readonly id: string
+
+    /**
+     * The object nonEmployeeRequest will not be included detail when set to false. *Default value is true*
+     * @type {boolean}
+     * @memberof NonEmployeeLifecycleManagementApiNonEmployeeApprovalGet
+     */
+    readonly includeDetail?: boolean
+}
+
+/**
+ * Request parameters for nonEmployeeApprovalList operation in NonEmployeeLifecycleManagementApi.
+ * @export
+ * @interface NonEmployeeLifecycleManagementApiNonEmployeeApprovalListRequest
+ */
+export interface NonEmployeeLifecycleManagementApiNonEmployeeApprovalListRequest {
+    /**
+     * The identity for whom the request was made. *me* indicates the current user.
+     * @type {string}
+     * @memberof NonEmployeeLifecycleManagementApiNonEmployeeApprovalList
+     */
+    readonly requestedFor?: string
+
+    /**
+     * Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+     * @type {number}
+     * @memberof NonEmployeeLifecycleManagementApiNonEmployeeApprovalList
+     */
+    readonly limit?: number
+
+    /**
+     * Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+     * @type {number}
+     * @memberof NonEmployeeLifecycleManagementApiNonEmployeeApprovalList
+     */
+    readonly offset?: number
+
+    /**
+     * If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+     * @type {boolean}
+     * @memberof NonEmployeeLifecycleManagementApiNonEmployeeApprovalList
+     */
+    readonly count?: boolean
+
+    /**
+     * Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://community.sailpoint.com/t5/IdentityNow-Wiki/V3-API-Standard-Collection-Parameters/ta-p/156407) Filtering is supported for the following fields and operators: **approvalStatus**: *eq*  *Example:* approvalStatus eq \&quot;PENDING\&quot;
+     * @type {string}
+     * @memberof NonEmployeeLifecycleManagementApiNonEmployeeApprovalList
+     */
+    readonly filters?: string
+
+    /**
+     * Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://community.sailpoint.com/t5/IdentityNow-Wiki/V3-API-Standard-Collection-Parameters/ta-p/156407#toc-hId-2058949) Sorting is supported for the following fields: **created, modified**
+     * @type {string}
+     * @memberof NonEmployeeLifecycleManagementApiNonEmployeeApprovalList
+     */
+    readonly sorters?: string
+}
+
+/**
+ * Request parameters for nonEmployeeApprovalSummary operation in NonEmployeeLifecycleManagementApi.
+ * @export
+ * @interface NonEmployeeLifecycleManagementApiNonEmployeeApprovalSummaryRequest
+ */
+export interface NonEmployeeLifecycleManagementApiNonEmployeeApprovalSummaryRequest {
+    /**
+     * The identity (UUID) of the approver for whom for whom the summary is being retrieved. Use \&quot;me\&quot; instead to indicate the current user.
+     * @type {string}
+     * @memberof NonEmployeeLifecycleManagementApiNonEmployeeApprovalSummary
+     */
+    readonly requestedFor: string
+}
+
+/**
+ * Request parameters for nonEmployeeApproveRequest operation in NonEmployeeLifecycleManagementApi.
+ * @export
+ * @interface NonEmployeeLifecycleManagementApiNonEmployeeApproveRequestRequest
+ */
+export interface NonEmployeeLifecycleManagementApiNonEmployeeApproveRequestRequest {
+    /**
+     * Non-Employee approval item id (UUID)
+     * @type {string}
+     * @memberof NonEmployeeLifecycleManagementApiNonEmployeeApproveRequest
+     */
+    readonly id: string
+
+    /**
+     * 
+     * @type {NonEmployeeApprovalDecision}
+     * @memberof NonEmployeeLifecycleManagementApiNonEmployeeApproveRequest
+     */
+    readonly nonEmployeeApprovalDecision: NonEmployeeApprovalDecision
+}
+
+/**
+ * Request parameters for nonEmployeeBulkUploadStatus operation in NonEmployeeLifecycleManagementApi.
+ * @export
+ * @interface NonEmployeeLifecycleManagementApiNonEmployeeBulkUploadStatusRequest
+ */
+export interface NonEmployeeLifecycleManagementApiNonEmployeeBulkUploadStatusRequest {
+    /**
+     * Source ID (UUID)
+     * @type {string}
+     * @memberof NonEmployeeLifecycleManagementApiNonEmployeeBulkUploadStatus
+     */
+    readonly id: string
+}
+
+/**
+ * Request parameters for nonEmployeeExportSourceSchemaTemplate operation in NonEmployeeLifecycleManagementApi.
+ * @export
+ * @interface NonEmployeeLifecycleManagementApiNonEmployeeExportSourceSchemaTemplateRequest
+ */
+export interface NonEmployeeLifecycleManagementApiNonEmployeeExportSourceSchemaTemplateRequest {
+    /**
+     * Source Id (UUID)
+     * @type {string}
+     * @memberof NonEmployeeLifecycleManagementApiNonEmployeeExportSourceSchemaTemplate
+     */
+    readonly id: string
+}
+
+/**
+ * Request parameters for nonEmployeeRecordBulkDelete operation in NonEmployeeLifecycleManagementApi.
+ * @export
+ * @interface NonEmployeeLifecycleManagementApiNonEmployeeRecordBulkDeleteRequest
+ */
+export interface NonEmployeeLifecycleManagementApiNonEmployeeRecordBulkDeleteRequest {
+    /**
+     * Non-Employee bulk delete request body.
+     * @type {NonEmployeeRecordBulkDeleteRequest}
+     * @memberof NonEmployeeLifecycleManagementApiNonEmployeeRecordBulkDelete
+     */
+    readonly nonEmployeeRecordBulkDeleteRequest: NonEmployeeRecordBulkDeleteRequest
+}
+
+/**
+ * Request parameters for nonEmployeeRecordCreation operation in NonEmployeeLifecycleManagementApi.
+ * @export
+ * @interface NonEmployeeLifecycleManagementApiNonEmployeeRecordCreationRequest
+ */
+export interface NonEmployeeLifecycleManagementApiNonEmployeeRecordCreationRequest {
+    /**
+     * Non-Employee record creation request body.
+     * @type {NonEmployeeRequestBody}
+     * @memberof NonEmployeeLifecycleManagementApiNonEmployeeRecordCreation
+     */
+    readonly nonEmployeeRequestBody: NonEmployeeRequestBody
+}
+
+/**
+ * Request parameters for nonEmployeeRecordDelete operation in NonEmployeeLifecycleManagementApi.
+ * @export
+ * @interface NonEmployeeLifecycleManagementApiNonEmployeeRecordDeleteRequest
+ */
+export interface NonEmployeeLifecycleManagementApiNonEmployeeRecordDeleteRequest {
+    /**
+     * Non-Employee record id (UUID)
+     * @type {string}
+     * @memberof NonEmployeeLifecycleManagementApiNonEmployeeRecordDelete
+     */
+    readonly id: string
+}
+
+/**
+ * Request parameters for nonEmployeeRecordGet operation in NonEmployeeLifecycleManagementApi.
+ * @export
+ * @interface NonEmployeeLifecycleManagementApiNonEmployeeRecordGetRequest
+ */
+export interface NonEmployeeLifecycleManagementApiNonEmployeeRecordGetRequest {
+    /**
+     * Non-Employee record id (UUID)
+     * @type {string}
+     * @memberof NonEmployeeLifecycleManagementApiNonEmployeeRecordGet
+     */
+    readonly id: string
+}
+
+/**
+ * Request parameters for nonEmployeeRecordList operation in NonEmployeeLifecycleManagementApi.
+ * @export
+ * @interface NonEmployeeLifecycleManagementApiNonEmployeeRecordListRequest
+ */
+export interface NonEmployeeLifecycleManagementApiNonEmployeeRecordListRequest {
+    /**
+     * Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+     * @type {number}
+     * @memberof NonEmployeeLifecycleManagementApiNonEmployeeRecordList
+     */
+    readonly limit?: number
+
+    /**
+     * Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+     * @type {number}
+     * @memberof NonEmployeeLifecycleManagementApiNonEmployeeRecordList
+     */
+    readonly offset?: number
+
+    /**
+     * If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+     * @type {boolean}
+     * @memberof NonEmployeeLifecycleManagementApiNonEmployeeRecordList
+     */
+    readonly count?: boolean
+
+    /**
+     * Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://community.sailpoint.com/t5/IdentityNow-Wiki/V3-API-Standard-Collection-Parameters/ta-p/156407#toc-hId-2058949) Sorting is supported for the following fields: **id, accountName, sourceId, manager, firstName, lastName, email, phone, startDate, endDate, created, modified**
+     * @type {string}
+     * @memberof NonEmployeeLifecycleManagementApiNonEmployeeRecordList
+     */
+    readonly sorters?: string
+
+    /**
+     * Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://community.sailpoint.com/t5/IdentityNow-Wiki/V3-API-Standard-Collection-Parameters/ta-p/156407) Filtering is supported for the following fields and operators: **sourceId**: *eq*  *Example:* sourceId eq \&quot;2c91808568c529c60168cca6f90c1313\&quot;
+     * @type {string}
+     * @memberof NonEmployeeLifecycleManagementApiNonEmployeeRecordList
+     */
+    readonly filters?: string
+}
+
+/**
+ * Request parameters for nonEmployeeRecordPatch operation in NonEmployeeLifecycleManagementApi.
+ * @export
+ * @interface NonEmployeeLifecycleManagementApiNonEmployeeRecordPatchRequest
+ */
+export interface NonEmployeeLifecycleManagementApiNonEmployeeRecordPatchRequest {
+    /**
+     * Non-employee record id (UUID)
+     * @type {string}
+     * @memberof NonEmployeeLifecycleManagementApiNonEmployeeRecordPatch
+     */
+    readonly id: string
+
+    /**
+     * A list of non-employee update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard. Attributes are restricted by user type. Owner of source can update end date. Organization admins can update all available fields.
+     * @type {Array<JsonPatchOperation>}
+     * @memberof NonEmployeeLifecycleManagementApiNonEmployeeRecordPatch
+     */
+    readonly jsonPatchOperation: Array<JsonPatchOperation>
+}
+
+/**
+ * Request parameters for nonEmployeeRecordUpdate operation in NonEmployeeLifecycleManagementApi.
+ * @export
+ * @interface NonEmployeeLifecycleManagementApiNonEmployeeRecordUpdateRequest
+ */
+export interface NonEmployeeLifecycleManagementApiNonEmployeeRecordUpdateRequest {
+    /**
+     * Non-employee record id (UUID)
+     * @type {string}
+     * @memberof NonEmployeeLifecycleManagementApiNonEmployeeRecordUpdate
+     */
+    readonly id: string
+
+    /**
+     * Non-employee record creation request body. Attributes are restricted by user type. Owner of source can update end date. Organization admins can update all available fields.
+     * @type {NonEmployeeRequestBody}
+     * @memberof NonEmployeeLifecycleManagementApiNonEmployeeRecordUpdate
+     */
+    readonly nonEmployeeRequestBody: NonEmployeeRequestBody
+}
+
+/**
+ * Request parameters for nonEmployeeRecordsBulkUpload operation in NonEmployeeLifecycleManagementApi.
+ * @export
+ * @interface NonEmployeeLifecycleManagementApiNonEmployeeRecordsBulkUploadRequest
+ */
+export interface NonEmployeeLifecycleManagementApiNonEmployeeRecordsBulkUploadRequest {
+    /**
+     * Source Id (UUID)
+     * @type {string}
+     * @memberof NonEmployeeLifecycleManagementApiNonEmployeeRecordsBulkUpload
+     */
+    readonly id: string
+
+    /**
+     * 
+     * @type {string}
+     * @memberof NonEmployeeLifecycleManagementApiNonEmployeeRecordsBulkUpload
+     */
+    readonly data: string
+}
+
+/**
+ * Request parameters for nonEmployeeRecordsExport operation in NonEmployeeLifecycleManagementApi.
+ * @export
+ * @interface NonEmployeeLifecycleManagementApiNonEmployeeRecordsExportRequest
+ */
+export interface NonEmployeeLifecycleManagementApiNonEmployeeRecordsExportRequest {
+    /**
+     * Source Id (UUID)
+     * @type {string}
+     * @memberof NonEmployeeLifecycleManagementApiNonEmployeeRecordsExport
+     */
+    readonly id: string
+}
+
+/**
+ * Request parameters for nonEmployeeRejectRequest operation in NonEmployeeLifecycleManagementApi.
+ * @export
+ * @interface NonEmployeeLifecycleManagementApiNonEmployeeRejectRequestRequest
+ */
+export interface NonEmployeeLifecycleManagementApiNonEmployeeRejectRequestRequest {
+    /**
+     * Non-Employee approval item id (UUID)
+     * @type {string}
+     * @memberof NonEmployeeLifecycleManagementApiNonEmployeeRejectRequest
+     */
+    readonly id: string
+
+    /**
+     * 
+     * @type {NonEmployeeRejectApprovalDecision}
+     * @memberof NonEmployeeLifecycleManagementApiNonEmployeeRejectRequest
+     */
+    readonly nonEmployeeRejectApprovalDecision: NonEmployeeRejectApprovalDecision
+}
+
+/**
+ * Request parameters for nonEmployeeRequestCreation operation in NonEmployeeLifecycleManagementApi.
+ * @export
+ * @interface NonEmployeeLifecycleManagementApiNonEmployeeRequestCreationRequest
+ */
+export interface NonEmployeeLifecycleManagementApiNonEmployeeRequestCreationRequest {
+    /**
+     * Non-Employee creation request body
+     * @type {NonEmployeeRequestBody}
+     * @memberof NonEmployeeLifecycleManagementApiNonEmployeeRequestCreation
+     */
+    readonly nonEmployeeRequestBody: NonEmployeeRequestBody
+}
+
+/**
+ * Request parameters for nonEmployeeRequestDeletion operation in NonEmployeeLifecycleManagementApi.
+ * @export
+ * @interface NonEmployeeLifecycleManagementApiNonEmployeeRequestDeletionRequest
+ */
+export interface NonEmployeeLifecycleManagementApiNonEmployeeRequestDeletionRequest {
+    /**
+     * Non-Employee request id in the UUID format
+     * @type {string}
+     * @memberof NonEmployeeLifecycleManagementApiNonEmployeeRequestDeletion
+     */
+    readonly id: string
+}
+
+/**
+ * Request parameters for nonEmployeeRequestGet operation in NonEmployeeLifecycleManagementApi.
+ * @export
+ * @interface NonEmployeeLifecycleManagementApiNonEmployeeRequestGetRequest
+ */
+export interface NonEmployeeLifecycleManagementApiNonEmployeeRequestGetRequest {
+    /**
+     * Non-Employee request id (UUID)
+     * @type {string}
+     * @memberof NonEmployeeLifecycleManagementApiNonEmployeeRequestGet
+     */
+    readonly id: string
+}
+
+/**
+ * Request parameters for nonEmployeeRequestList operation in NonEmployeeLifecycleManagementApi.
+ * @export
+ * @interface NonEmployeeLifecycleManagementApiNonEmployeeRequestListRequest
+ */
+export interface NonEmployeeLifecycleManagementApiNonEmployeeRequestListRequest {
+    /**
+     * The identity for whom the request was made. *me* indicates the current user.
+     * @type {string}
+     * @memberof NonEmployeeLifecycleManagementApiNonEmployeeRequestList
+     */
+    readonly requestedFor: string
+
+    /**
+     * Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+     * @type {number}
+     * @memberof NonEmployeeLifecycleManagementApiNonEmployeeRequestList
+     */
+    readonly limit?: number
+
+    /**
+     * Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+     * @type {number}
+     * @memberof NonEmployeeLifecycleManagementApiNonEmployeeRequestList
+     */
+    readonly offset?: number
+
+    /**
+     * If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+     * @type {boolean}
+     * @memberof NonEmployeeLifecycleManagementApiNonEmployeeRequestList
+     */
+    readonly count?: boolean
+
+    /**
+     * Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://community.sailpoint.com/t5/IdentityNow-Wiki/V3-API-Standard-Collection-Parameters/ta-p/156407#toc-hId-2058949) Sorting is supported for the following fields: **created, approvalStatus, firstName, lastName, email, phone, accountName, startDate, endDate**
+     * @type {string}
+     * @memberof NonEmployeeLifecycleManagementApiNonEmployeeRequestList
+     */
+    readonly sorters?: string
+
+    /**
+     * Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://community.sailpoint.com/t5/IdentityNow-Wiki/V3-API-Standard-Collection-Parameters/ta-p/156407) Filtering is supported for the following fields and operators: **sourceId**: *eq*  *Example:* sourceId eq \&quot;2c91808568c529c60168cca6f90c1313\&quot;
+     * @type {string}
+     * @memberof NonEmployeeLifecycleManagementApiNonEmployeeRequestList
+     */
+    readonly filters?: string
+}
+
+/**
+ * Request parameters for nonEmployeeRequestSummaryGet operation in NonEmployeeLifecycleManagementApi.
+ * @export
+ * @interface NonEmployeeLifecycleManagementApiNonEmployeeRequestSummaryGetRequest
+ */
+export interface NonEmployeeLifecycleManagementApiNonEmployeeRequestSummaryGetRequest {
+    /**
+     * The identity (UUID) of the non-employee account manager for whom the summary is being retrieved. Use \&quot;me\&quot; instead to indicate the current user.
+     * @type {string}
+     * @memberof NonEmployeeLifecycleManagementApiNonEmployeeRequestSummaryGet
+     */
+    readonly requestedFor: string
+}
+
+/**
+ * Request parameters for nonEmployeeSourceDelete operation in NonEmployeeLifecycleManagementApi.
+ * @export
+ * @interface NonEmployeeLifecycleManagementApiNonEmployeeSourceDeleteRequest
+ */
+export interface NonEmployeeLifecycleManagementApiNonEmployeeSourceDeleteRequest {
+    /**
+     * Source Id
+     * @type {string}
+     * @memberof NonEmployeeLifecycleManagementApiNonEmployeeSourceDelete
+     */
+    readonly sourceId: string
+}
+
+/**
+ * Request parameters for nonEmployeeSourceGet operation in NonEmployeeLifecycleManagementApi.
+ * @export
+ * @interface NonEmployeeLifecycleManagementApiNonEmployeeSourceGetRequest
+ */
+export interface NonEmployeeLifecycleManagementApiNonEmployeeSourceGetRequest {
+    /**
+     * Source Id
+     * @type {string}
+     * @memberof NonEmployeeLifecycleManagementApiNonEmployeeSourceGet
+     */
+    readonly sourceId: string
+}
+
+/**
+ * Request parameters for nonEmployeeSourcePatch operation in NonEmployeeLifecycleManagementApi.
+ * @export
+ * @interface NonEmployeeLifecycleManagementApiNonEmployeeSourcePatchRequest
+ */
+export interface NonEmployeeLifecycleManagementApiNonEmployeeSourcePatchRequest {
+    /**
+     * Source Id
+     * @type {string}
+     * @memberof NonEmployeeLifecycleManagementApiNonEmployeeSourcePatch
+     */
+    readonly sourceId: string
+
+    /**
+     * A list of non-employee source update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.
+     * @type {Array<JsonPatchOperation>}
+     * @memberof NonEmployeeLifecycleManagementApiNonEmployeeSourcePatch
+     */
+    readonly jsonPatchOperation: Array<JsonPatchOperation>
+}
+
+/**
+ * Request parameters for nonEmployeeSourcesCreation operation in NonEmployeeLifecycleManagementApi.
+ * @export
+ * @interface NonEmployeeLifecycleManagementApiNonEmployeeSourcesCreationRequest
+ */
+export interface NonEmployeeLifecycleManagementApiNonEmployeeSourcesCreationRequest {
+    /**
+     * Non-Employee source creation request body.
+     * @type {NonEmployeeSourceRequestBody}
+     * @memberof NonEmployeeLifecycleManagementApiNonEmployeeSourcesCreation
+     */
+    readonly nonEmployeeSourceRequestBody: NonEmployeeSourceRequestBody
+}
+
+/**
+ * Request parameters for nonEmployeeSourcesList operation in NonEmployeeLifecycleManagementApi.
+ * @export
+ * @interface NonEmployeeLifecycleManagementApiNonEmployeeSourcesListRequest
+ */
+export interface NonEmployeeLifecycleManagementApiNonEmployeeSourcesListRequest {
+    /**
+     * The identity for whom the request was made. *me* indicates the current user.
+     * @type {string}
+     * @memberof NonEmployeeLifecycleManagementApiNonEmployeeSourcesList
+     */
+    readonly requestedFor: string
+
+    /**
+     * Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+     * @type {number}
+     * @memberof NonEmployeeLifecycleManagementApiNonEmployeeSourcesList
+     */
+    readonly limit?: number
+
+    /**
+     * Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+     * @type {number}
+     * @memberof NonEmployeeLifecycleManagementApiNonEmployeeSourcesList
+     */
+    readonly offset?: number
+
+    /**
+     * If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+     * @type {boolean}
+     * @memberof NonEmployeeLifecycleManagementApiNonEmployeeSourcesList
+     */
+    readonly count?: boolean
+
+    /**
+     * The flag to determine whether return a non-employee count associate with source.
+     * @type {boolean}
+     * @memberof NonEmployeeLifecycleManagementApiNonEmployeeSourcesList
+     */
+    readonly nonEmployeeCount?: boolean
+
+    /**
+     * Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://community.sailpoint.com/t5/IdentityNow-Wiki/V3-API-Standard-Collection-Parameters/ta-p/156407#toc-hId-2058949) Sorting is supported for the following fields: **name, created**
+     * @type {string}
+     * @memberof NonEmployeeLifecycleManagementApiNonEmployeeSourcesList
+     */
+    readonly sorters?: string
+}
+
+/**
+ * Request parameters for patchSchemaAttribute operation in NonEmployeeLifecycleManagementApi.
+ * @export
+ * @interface NonEmployeeLifecycleManagementApiPatchSchemaAttributeRequest
+ */
+export interface NonEmployeeLifecycleManagementApiPatchSchemaAttributeRequest {
+    /**
+     * The Schema Attribute Id (UUID)
+     * @type {string}
+     * @memberof NonEmployeeLifecycleManagementApiPatchSchemaAttribute
+     */
+    readonly attributeId: string
+
+    /**
+     * The Source id
+     * @type {string}
+     * @memberof NonEmployeeLifecycleManagementApiPatchSchemaAttribute
+     */
+    readonly sourceId: string
+
+    /**
+     * A list of schema attribute update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard. The following properties are allowed for update \&#39;:\&#39; \&#39;label\&#39;, \&#39;helpText\&#39;, \&#39;placeholder\&#39;, \&#39;required\&#39;.
+     * @type {Array<JsonPatchOperation>}
+     * @memberof NonEmployeeLifecycleManagementApiPatchSchemaAttribute
+     */
+    readonly jsonPatchOperation: Array<JsonPatchOperation>
+}
+
+/**
  * NonEmployeeLifecycleManagementApi - object-oriented interface
  * @export
  * @class NonEmployeeLifecycleManagementApi
@@ -21250,416 +23041,385 @@ export class NonEmployeeLifecycleManagementApi extends BaseAPI {
     /**
      * This API creates a new schema attribute for Non-Employee Source. The schema technical name must be unique in the source. Attempts to create a schema attribute with an existing name will result in a \"400.1.409 Reference conflict\" response. At most, 10 custom attributes can be created per schema. Attempts to create more than 10 will result in a \"400.1.4 Limit violation\" response. Requires role context of `idn:nesr:create`
      * @summary Create a new Schema Attribute for Non-Employee Source
-     * @param {string} sourceId The Source id
-     * @param {NonEmployeeSchemaAttributeBody} nonEmployeeSchemaAttributeBody 
+     * @param {NonEmployeeLifecycleManagementApiCreateSchemaAttributeRequest} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
      * @memberof NonEmployeeLifecycleManagementApi
      */
-    public createSchemaAttribute(sourceId: string, nonEmployeeSchemaAttributeBody: NonEmployeeSchemaAttributeBody, axiosOptions?: AxiosRequestConfig) {
-        return NonEmployeeLifecycleManagementApiFp(this.configuration).createSchemaAttribute(sourceId, nonEmployeeSchemaAttributeBody, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public createSchemaAttribute(requestParameters: NonEmployeeLifecycleManagementApiCreateSchemaAttributeRequest, axiosOptions?: AxiosRequestConfig) {
+        return NonEmployeeLifecycleManagementApiFp(this.configuration).createSchemaAttribute(requestParameters.sourceId, requestParameters.nonEmployeeSchemaAttributeBody, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * This end-point deletes a specific schema attribute for a non-employee source. Requires role context of `idn:nesr:delete` 
      * @summary Delete a Schema Attribute for Non-Employee Source
-     * @param {string} attributeId The Schema Attribute Id (UUID)
-     * @param {string} sourceId The Source id
+     * @param {NonEmployeeLifecycleManagementApiDeleteSchemaAttributeRequest} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
      * @memberof NonEmployeeLifecycleManagementApi
      */
-    public deleteSchemaAttribute(attributeId: string, sourceId: string, axiosOptions?: AxiosRequestConfig) {
-        return NonEmployeeLifecycleManagementApiFp(this.configuration).deleteSchemaAttribute(attributeId, sourceId, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public deleteSchemaAttribute(requestParameters: NonEmployeeLifecycleManagementApiDeleteSchemaAttributeRequest, axiosOptions?: AxiosRequestConfig) {
+        return NonEmployeeLifecycleManagementApiFp(this.configuration).deleteSchemaAttribute(requestParameters.attributeId, requestParameters.sourceId, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * This end-point deletes all custom schema attributes for a non-employee source. Requires role context of `idn:nesr:delete`
      * @summary Delete all custom schema attributes for Non-Employee Source
-     * @param {string} sourceId The Source id
+     * @param {NonEmployeeLifecycleManagementApiDeleteSchemaAttributesRequest} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
      * @memberof NonEmployeeLifecycleManagementApi
      */
-    public deleteSchemaAttributes(sourceId: string, axiosOptions?: AxiosRequestConfig) {
-        return NonEmployeeLifecycleManagementApiFp(this.configuration).deleteSchemaAttributes(sourceId, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public deleteSchemaAttributes(requestParameters: NonEmployeeLifecycleManagementApiDeleteSchemaAttributesRequest, axiosOptions?: AxiosRequestConfig) {
+        return NonEmployeeLifecycleManagementApiFp(this.configuration).deleteSchemaAttributes(requestParameters.sourceId, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * This API gets a schema attribute by Id for the specified Non-Employee SourceId. Requires role context of `idn:nesr:read` or the user must be an account manager of the source.
      * @summary Get Schema Attribute Non-Employee Source
-     * @param {string} attributeId The Schema Attribute Id (UUID)
-     * @param {string} sourceId The Source id
+     * @param {NonEmployeeLifecycleManagementApiGetSchemaAttributeRequest} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
      * @memberof NonEmployeeLifecycleManagementApi
      */
-    public getSchemaAttribute(attributeId: string, sourceId: string, axiosOptions?: AxiosRequestConfig) {
-        return NonEmployeeLifecycleManagementApiFp(this.configuration).getSchemaAttribute(attributeId, sourceId, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public getSchemaAttribute(requestParameters: NonEmployeeLifecycleManagementApiGetSchemaAttributeRequest, axiosOptions?: AxiosRequestConfig) {
+        return NonEmployeeLifecycleManagementApiFp(this.configuration).getSchemaAttribute(requestParameters.attributeId, requestParameters.sourceId, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * This API gets the list of schema attributes for the specified Non-Employee SourceId. There are 8 mandatory attributes added to each new Non-Employee Source automatically. Additionaly, user can add up to 10 custom attributes. This interface returns all the mandatory attributes followed by any custom attributes. At most, a total of 18 attributes will be returned. Requires role context of `idn:nesr:read` or the user must be an account manager of the source.
      * @summary List Schema Attributes Non-Employee Source
-     * @param {string} sourceId The Source id
+     * @param {NonEmployeeLifecycleManagementApiGetSchemaAttributesRequest} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
      * @memberof NonEmployeeLifecycleManagementApi
      */
-    public getSchemaAttributes(sourceId: string, axiosOptions?: AxiosRequestConfig) {
-        return NonEmployeeLifecycleManagementApiFp(this.configuration).getSchemaAttributes(sourceId, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public getSchemaAttributes(requestParameters: NonEmployeeLifecycleManagementApiGetSchemaAttributesRequest, axiosOptions?: AxiosRequestConfig) {
+        return NonEmployeeLifecycleManagementApiFp(this.configuration).getSchemaAttributes(requestParameters.sourceId, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * Gets a non-employee approval item detail. There are two contextual uses for this endpoint:   1. The user has the role context of `idn:nesr:read`, in which case they can get any approval.   2. The user owns the requested approval.
      * @summary Get a non-employee approval item detail
-     * @param {string} id Non-Employee approval item id (UUID)
-     * @param {boolean} [includeDetail] The object nonEmployeeRequest will not be included detail when set to false. *Default value is true*
+     * @param {NonEmployeeLifecycleManagementApiNonEmployeeApprovalGetRequest} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
      * @memberof NonEmployeeLifecycleManagementApi
      */
-    public nonEmployeeApprovalGet(id: string, includeDetail?: boolean, axiosOptions?: AxiosRequestConfig) {
-        return NonEmployeeLifecycleManagementApiFp(this.configuration).nonEmployeeApprovalGet(id, includeDetail, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public nonEmployeeApprovalGet(requestParameters: NonEmployeeLifecycleManagementApiNonEmployeeApprovalGetRequest, axiosOptions?: AxiosRequestConfig) {
+        return NonEmployeeLifecycleManagementApiFp(this.configuration).nonEmployeeApprovalGet(requestParameters.id, requestParameters.includeDetail, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * This gets a list of non-employee approval requests. There are two contextual uses for this endpoint:   1. The user has the role context of `idn:nesr:read`, in which case they can list the approvals for any approver.   2. The user owns the requested approval.
      * @summary Get List of Non-Employee Approval Requests
-     * @param {string} [requestedFor] The identity for whom the request was made. *me* indicates the current user.
-     * @param {number} [limit] Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
-     * @param {number} [offset] Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
-     * @param {boolean} [count] If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
-     * @param {string} [filters] Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://community.sailpoint.com/t5/IdentityNow-Wiki/V3-API-Standard-Collection-Parameters/ta-p/156407) Filtering is supported for the following fields and operators: **approvalStatus**: *eq*  *Example:* approvalStatus eq \&quot;PENDING\&quot;
-     * @param {string} [sorters] Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://community.sailpoint.com/t5/IdentityNow-Wiki/V3-API-Standard-Collection-Parameters/ta-p/156407#toc-hId-2058949) Sorting is supported for the following fields: **created, modified**
+     * @param {NonEmployeeLifecycleManagementApiNonEmployeeApprovalListRequest} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
      * @memberof NonEmployeeLifecycleManagementApi
      */
-    public nonEmployeeApprovalList(requestedFor?: string, limit?: number, offset?: number, count?: boolean, filters?: string, sorters?: string, axiosOptions?: AxiosRequestConfig) {
-        return NonEmployeeLifecycleManagementApiFp(this.configuration).nonEmployeeApprovalList(requestedFor, limit, offset, count, filters, sorters, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public nonEmployeeApprovalList(requestParameters: NonEmployeeLifecycleManagementApiNonEmployeeApprovalListRequest = {}, axiosOptions?: AxiosRequestConfig) {
+        return NonEmployeeLifecycleManagementApiFp(this.configuration).nonEmployeeApprovalList(requestParameters.requestedFor, requestParameters.limit, requestParameters.offset, requestParameters.count, requestParameters.filters, requestParameters.sorters, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * This request will retrieve a summary of non-employee approval requests. There are two contextual uses for the `requested-for` path parameter:   1. The user has the role context of `idn:nesr:read`, in which case he or she may request a summary of all non-employee approval requests assigned to a particular approver by passing in that approver\'s id.   2. The current user is an approver, in which case \"me\" should be provided as the `requested-for` value. This will provide the approver with a summary of the approval items assigned to him or her.
      * @summary Get Summary of Non-Employee Approval Requests
-     * @param {string} requestedFor The identity (UUID) of the approver for whom for whom the summary is being retrieved. Use \&quot;me\&quot; instead to indicate the current user.
+     * @param {NonEmployeeLifecycleManagementApiNonEmployeeApprovalSummaryRequest} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
      * @memberof NonEmployeeLifecycleManagementApi
      */
-    public nonEmployeeApprovalSummary(requestedFor: string, axiosOptions?: AxiosRequestConfig) {
-        return NonEmployeeLifecycleManagementApiFp(this.configuration).nonEmployeeApprovalSummary(requestedFor, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public nonEmployeeApprovalSummary(requestParameters: NonEmployeeLifecycleManagementApiNonEmployeeApprovalSummaryRequest, axiosOptions?: AxiosRequestConfig) {
+        return NonEmployeeLifecycleManagementApiFp(this.configuration).nonEmployeeApprovalSummary(requestParameters.requestedFor, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * Approves a non-employee approval request and notifies the next approver. The current user must be the requested approver.
      * @summary Approve a Non-Employee Request
-     * @param {string} id Non-Employee approval item id (UUID)
-     * @param {NonEmployeeApprovalDecision} nonEmployeeApprovalDecision 
+     * @param {NonEmployeeLifecycleManagementApiNonEmployeeApproveRequestRequest} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
      * @memberof NonEmployeeLifecycleManagementApi
      */
-    public nonEmployeeApproveRequest(id: string, nonEmployeeApprovalDecision: NonEmployeeApprovalDecision, axiosOptions?: AxiosRequestConfig) {
-        return NonEmployeeLifecycleManagementApiFp(this.configuration).nonEmployeeApproveRequest(id, nonEmployeeApprovalDecision, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public nonEmployeeApproveRequest(requestParameters: NonEmployeeLifecycleManagementApiNonEmployeeApproveRequestRequest, axiosOptions?: AxiosRequestConfig) {
+        return NonEmployeeLifecycleManagementApiFp(this.configuration).nonEmployeeApproveRequest(requestParameters.id, requestParameters.nonEmployeeApprovalDecision, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * The nonEmployeeBulkUploadStatus API returns the status of the newest bulk upload job for the specified source. Requires role context of `idn:nesr:read` 
      * @summary Obtain the status of bulk upload on the source
-     * @param {string} id Source ID (UUID)
+     * @param {NonEmployeeLifecycleManagementApiNonEmployeeBulkUploadStatusRequest} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
      * @memberof NonEmployeeLifecycleManagementApi
      */
-    public nonEmployeeBulkUploadStatus(id: string, axiosOptions?: AxiosRequestConfig) {
-        return NonEmployeeLifecycleManagementApiFp(this.configuration).nonEmployeeBulkUploadStatus(id, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public nonEmployeeBulkUploadStatus(requestParameters: NonEmployeeLifecycleManagementApiNonEmployeeBulkUploadStatusRequest, axiosOptions?: AxiosRequestConfig) {
+        return NonEmployeeLifecycleManagementApiFp(this.configuration).nonEmployeeBulkUploadStatus(requestParameters.id, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * This requests a download for the Source Schema Template for a provided source. Requires role context of `idn:nesr:read`
      * @summary Exports Source Schema Template
-     * @param {string} id Source Id (UUID)
+     * @param {NonEmployeeLifecycleManagementApiNonEmployeeExportSourceSchemaTemplateRequest} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
      * @memberof NonEmployeeLifecycleManagementApi
      */
-    public nonEmployeeExportSourceSchemaTemplate(id: string, axiosOptions?: AxiosRequestConfig) {
-        return NonEmployeeLifecycleManagementApiFp(this.configuration).nonEmployeeExportSourceSchemaTemplate(id, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public nonEmployeeExportSourceSchemaTemplate(requestParameters: NonEmployeeLifecycleManagementApiNonEmployeeExportSourceSchemaTemplateRequest, axiosOptions?: AxiosRequestConfig) {
+        return NonEmployeeLifecycleManagementApiFp(this.configuration).nonEmployeeExportSourceSchemaTemplate(requestParameters.id, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * This request will delete multiple non-employee records based on the non-employee ids provided. Requires role context of `idn:nesr:delete`
      * @summary Delete Multiple Non-Employee Records
-     * @param {NonEmployeeRecordBulkDeleteRequest} nonEmployeeRecordBulkDeleteRequest Non-Employee bulk delete request body.
+     * @param {NonEmployeeLifecycleManagementApiNonEmployeeRecordBulkDeleteRequest} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
      * @memberof NonEmployeeLifecycleManagementApi
      */
-    public nonEmployeeRecordBulkDelete(nonEmployeeRecordBulkDeleteRequest: NonEmployeeRecordBulkDeleteRequest, axiosOptions?: AxiosRequestConfig) {
-        return NonEmployeeLifecycleManagementApiFp(this.configuration).nonEmployeeRecordBulkDelete(nonEmployeeRecordBulkDeleteRequest, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public nonEmployeeRecordBulkDelete(requestParameters: NonEmployeeLifecycleManagementApiNonEmployeeRecordBulkDeleteRequest, axiosOptions?: AxiosRequestConfig) {
+        return NonEmployeeLifecycleManagementApiFp(this.configuration).nonEmployeeRecordBulkDelete(requestParameters.nonEmployeeRecordBulkDeleteRequest, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * This request will create a non-employee record. Requires role context of `idn:nesr:create`
      * @summary Create Non-Employee Record
-     * @param {NonEmployeeRequestBody} nonEmployeeRequestBody Non-Employee record creation request body.
+     * @param {NonEmployeeLifecycleManagementApiNonEmployeeRecordCreationRequest} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
      * @memberof NonEmployeeLifecycleManagementApi
      */
-    public nonEmployeeRecordCreation(nonEmployeeRequestBody: NonEmployeeRequestBody, axiosOptions?: AxiosRequestConfig) {
-        return NonEmployeeLifecycleManagementApiFp(this.configuration).nonEmployeeRecordCreation(nonEmployeeRequestBody, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public nonEmployeeRecordCreation(requestParameters: NonEmployeeLifecycleManagementApiNonEmployeeRecordCreationRequest, axiosOptions?: AxiosRequestConfig) {
+        return NonEmployeeLifecycleManagementApiFp(this.configuration).nonEmployeeRecordCreation(requestParameters.nonEmployeeRequestBody, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * This request will delete a non-employee record. Requires role context of `idn:nesr:delete`
      * @summary Delete Non-Employee Record
-     * @param {string} id Non-Employee record id (UUID)
+     * @param {NonEmployeeLifecycleManagementApiNonEmployeeRecordDeleteRequest} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
      * @memberof NonEmployeeLifecycleManagementApi
      */
-    public nonEmployeeRecordDelete(id: string, axiosOptions?: AxiosRequestConfig) {
-        return NonEmployeeLifecycleManagementApiFp(this.configuration).nonEmployeeRecordDelete(id, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public nonEmployeeRecordDelete(requestParameters: NonEmployeeLifecycleManagementApiNonEmployeeRecordDeleteRequest, axiosOptions?: AxiosRequestConfig) {
+        return NonEmployeeLifecycleManagementApiFp(this.configuration).nonEmployeeRecordDelete(requestParameters.id, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * This gets a non-employee record. Requires role context of `idn:nesr:read`
      * @summary Get a Non-Employee Record
-     * @param {string} id Non-Employee record id (UUID)
+     * @param {NonEmployeeLifecycleManagementApiNonEmployeeRecordGetRequest} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
      * @memberof NonEmployeeLifecycleManagementApi
      */
-    public nonEmployeeRecordGet(id: string, axiosOptions?: AxiosRequestConfig) {
-        return NonEmployeeLifecycleManagementApiFp(this.configuration).nonEmployeeRecordGet(id, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public nonEmployeeRecordGet(requestParameters: NonEmployeeLifecycleManagementApiNonEmployeeRecordGetRequest, axiosOptions?: AxiosRequestConfig) {
+        return NonEmployeeLifecycleManagementApiFp(this.configuration).nonEmployeeRecordGet(requestParameters.id, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * This gets a list of non-employee records. There are two contextual uses for this endpoint:   1. The user has the role context of `idn:nesr:read`, in which case they can get a list of all of the non-employees.   2. The user is an account manager, in which case they can get a list of the non-employees that they manage.
      * @summary List Non-Employee Records
-     * @param {number} [limit] Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
-     * @param {number} [offset] Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
-     * @param {boolean} [count] If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
-     * @param {string} [sorters] Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://community.sailpoint.com/t5/IdentityNow-Wiki/V3-API-Standard-Collection-Parameters/ta-p/156407#toc-hId-2058949) Sorting is supported for the following fields: **id, accountName, sourceId, manager, firstName, lastName, email, phone, startDate, endDate, created, modified**
-     * @param {string} [filters] Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://community.sailpoint.com/t5/IdentityNow-Wiki/V3-API-Standard-Collection-Parameters/ta-p/156407) Filtering is supported for the following fields and operators: **sourceId**: *eq*  *Example:* sourceId eq \&quot;2c91808568c529c60168cca6f90c1313\&quot;
+     * @param {NonEmployeeLifecycleManagementApiNonEmployeeRecordListRequest} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
      * @memberof NonEmployeeLifecycleManagementApi
      */
-    public nonEmployeeRecordList(limit?: number, offset?: number, count?: boolean, sorters?: string, filters?: string, axiosOptions?: AxiosRequestConfig) {
-        return NonEmployeeLifecycleManagementApiFp(this.configuration).nonEmployeeRecordList(limit, offset, count, sorters, filters, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public nonEmployeeRecordList(requestParameters: NonEmployeeLifecycleManagementApiNonEmployeeRecordListRequest = {}, axiosOptions?: AxiosRequestConfig) {
+        return NonEmployeeLifecycleManagementApiFp(this.configuration).nonEmployeeRecordList(requestParameters.limit, requestParameters.offset, requestParameters.count, requestParameters.sorters, requestParameters.filters, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * This request will patch a non-employee record. There are two contextual uses for this endpoint:   1. The user has the role context of `idn:nesr:update`, in which case they update all available fields.   2. The user is owner of the source, in this case they can only update the end date.
      * @summary Patch Non-Employee Record
-     * @param {string} id Non-employee record id (UUID)
-     * @param {Array<JsonPatchOperation>} jsonPatchOperation A list of non-employee update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard. Attributes are restricted by user type. Owner of source can update end date. Organization admins can update all available fields.
+     * @param {NonEmployeeLifecycleManagementApiNonEmployeeRecordPatchRequest} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
      * @memberof NonEmployeeLifecycleManagementApi
      */
-    public nonEmployeeRecordPatch(id: string, jsonPatchOperation: Array<JsonPatchOperation>, axiosOptions?: AxiosRequestConfig) {
-        return NonEmployeeLifecycleManagementApiFp(this.configuration).nonEmployeeRecordPatch(id, jsonPatchOperation, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public nonEmployeeRecordPatch(requestParameters: NonEmployeeLifecycleManagementApiNonEmployeeRecordPatchRequest, axiosOptions?: AxiosRequestConfig) {
+        return NonEmployeeLifecycleManagementApiFp(this.configuration).nonEmployeeRecordPatch(requestParameters.id, requestParameters.jsonPatchOperation, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * This request will update a non-employee record. There are two contextual uses for this endpoint:   1. The user has the role context of `idn:nesr:update`, in which case they update all available fields.   2. The user is owner of the source, in this case they can only update the end date.
      * @summary Update Non-Employee Record
-     * @param {string} id Non-employee record id (UUID)
-     * @param {NonEmployeeRequestBody} nonEmployeeRequestBody Non-employee record creation request body. Attributes are restricted by user type. Owner of source can update end date. Organization admins can update all available fields.
+     * @param {NonEmployeeLifecycleManagementApiNonEmployeeRecordUpdateRequest} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
      * @memberof NonEmployeeLifecycleManagementApi
      */
-    public nonEmployeeRecordUpdate(id: string, nonEmployeeRequestBody: NonEmployeeRequestBody, axiosOptions?: AxiosRequestConfig) {
-        return NonEmployeeLifecycleManagementApiFp(this.configuration).nonEmployeeRecordUpdate(id, nonEmployeeRequestBody, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public nonEmployeeRecordUpdate(requestParameters: NonEmployeeLifecycleManagementApiNonEmployeeRecordUpdateRequest, axiosOptions?: AxiosRequestConfig) {
+        return NonEmployeeLifecycleManagementApiFp(this.configuration).nonEmployeeRecordUpdate(requestParameters.id, requestParameters.nonEmployeeRequestBody, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * This post will import, or update, Non-Employee records found in the CSV. Requires role context of `idn:nesr:create`
      * @summary Imports, or Updates, Non-Employee Records
-     * @param {string} id Source Id (UUID)
-     * @param {string} data 
+     * @param {NonEmployeeLifecycleManagementApiNonEmployeeRecordsBulkUploadRequest} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
      * @memberof NonEmployeeLifecycleManagementApi
      */
-    public nonEmployeeRecordsBulkUpload(id: string, data: string, axiosOptions?: AxiosRequestConfig) {
-        return NonEmployeeLifecycleManagementApiFp(this.configuration).nonEmployeeRecordsBulkUpload(id, data, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public nonEmployeeRecordsBulkUpload(requestParameters: NonEmployeeLifecycleManagementApiNonEmployeeRecordsBulkUploadRequest, axiosOptions?: AxiosRequestConfig) {
+        return NonEmployeeLifecycleManagementApiFp(this.configuration).nonEmployeeRecordsBulkUpload(requestParameters.id, requestParameters.data, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * This requests a CSV download for all non-employees from a provided source. Requires role context of `idn:nesr:read`
      * @summary Exports Non-Employee Records to CSV
-     * @param {string} id Source Id (UUID)
+     * @param {NonEmployeeLifecycleManagementApiNonEmployeeRecordsExportRequest} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
      * @memberof NonEmployeeLifecycleManagementApi
      */
-    public nonEmployeeRecordsExport(id: string, axiosOptions?: AxiosRequestConfig) {
-        return NonEmployeeLifecycleManagementApiFp(this.configuration).nonEmployeeRecordsExport(id, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public nonEmployeeRecordsExport(requestParameters: NonEmployeeLifecycleManagementApiNonEmployeeRecordsExportRequest, axiosOptions?: AxiosRequestConfig) {
+        return NonEmployeeLifecycleManagementApiFp(this.configuration).nonEmployeeRecordsExport(requestParameters.id, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * This endpoint will reject an approval item request and notify user. The current user must be the requested approver.
      * @summary Reject a Non-Employee Request
-     * @param {string} id Non-Employee approval item id (UUID)
-     * @param {NonEmployeeRejectApprovalDecision} nonEmployeeRejectApprovalDecision 
+     * @param {NonEmployeeLifecycleManagementApiNonEmployeeRejectRequestRequest} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
      * @memberof NonEmployeeLifecycleManagementApi
      */
-    public nonEmployeeRejectRequest(id: string, nonEmployeeRejectApprovalDecision: NonEmployeeRejectApprovalDecision, axiosOptions?: AxiosRequestConfig) {
-        return NonEmployeeLifecycleManagementApiFp(this.configuration).nonEmployeeRejectRequest(id, nonEmployeeRejectApprovalDecision, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public nonEmployeeRejectRequest(requestParameters: NonEmployeeLifecycleManagementApiNonEmployeeRejectRequestRequest, axiosOptions?: AxiosRequestConfig) {
+        return NonEmployeeLifecycleManagementApiFp(this.configuration).nonEmployeeRejectRequest(requestParameters.id, requestParameters.nonEmployeeRejectApprovalDecision, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * This request will create a non-employee request and notify the approver. Requires role context of `idn:nesr:create` or the user must own the source.
      * @summary Create Non-Employee Request
-     * @param {NonEmployeeRequestBody} nonEmployeeRequestBody Non-Employee creation request body
+     * @param {NonEmployeeLifecycleManagementApiNonEmployeeRequestCreationRequest} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
      * @memberof NonEmployeeLifecycleManagementApi
      */
-    public nonEmployeeRequestCreation(nonEmployeeRequestBody: NonEmployeeRequestBody, axiosOptions?: AxiosRequestConfig) {
-        return NonEmployeeLifecycleManagementApiFp(this.configuration).nonEmployeeRequestCreation(nonEmployeeRequestBody, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public nonEmployeeRequestCreation(requestParameters: NonEmployeeLifecycleManagementApiNonEmployeeRequestCreationRequest, axiosOptions?: AxiosRequestConfig) {
+        return NonEmployeeLifecycleManagementApiFp(this.configuration).nonEmployeeRequestCreation(requestParameters.nonEmployeeRequestBody, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * This request will delete a non-employee request.  Requires role context of `idn:nesr:delete`
      * @summary Delete Non-Employee Request
-     * @param {string} id Non-Employee request id in the UUID format
+     * @param {NonEmployeeLifecycleManagementApiNonEmployeeRequestDeletionRequest} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
      * @memberof NonEmployeeLifecycleManagementApi
      */
-    public nonEmployeeRequestDeletion(id: string, axiosOptions?: AxiosRequestConfig) {
-        return NonEmployeeLifecycleManagementApiFp(this.configuration).nonEmployeeRequestDeletion(id, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public nonEmployeeRequestDeletion(requestParameters: NonEmployeeLifecycleManagementApiNonEmployeeRequestDeletionRequest, axiosOptions?: AxiosRequestConfig) {
+        return NonEmployeeLifecycleManagementApiFp(this.configuration).nonEmployeeRequestDeletion(requestParameters.id, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * This gets a non-employee request. There are two contextual uses for this endpoint:   1. The user has the role context of `idn:nesr:read`, in this case the user can get the non-employee request for any user.   2. The user must be the owner of the non-employee request.
      * @summary Get a Non-Employee Request
-     * @param {string} id Non-Employee request id (UUID)
+     * @param {NonEmployeeLifecycleManagementApiNonEmployeeRequestGetRequest} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
      * @memberof NonEmployeeLifecycleManagementApi
      */
-    public nonEmployeeRequestGet(id: string, axiosOptions?: AxiosRequestConfig) {
-        return NonEmployeeLifecycleManagementApiFp(this.configuration).nonEmployeeRequestGet(id, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public nonEmployeeRequestGet(requestParameters: NonEmployeeLifecycleManagementApiNonEmployeeRequestGetRequest, axiosOptions?: AxiosRequestConfig) {
+        return NonEmployeeLifecycleManagementApiFp(this.configuration).nonEmployeeRequestGet(requestParameters.id, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * This gets a list of non-employee requests. There are two contextual uses for the `requested-for` path parameter:   1. The user has the role context of `idn:nesr:read`, in which case he or she may request a list non-employee requests assigned to a particular account manager by passing in that manager\'s id.   2. The current user is an account manager, in which case \"me\" should be provided as the `requested-for` value. This will provide the user with a list of the non-employee requests in the source(s) he or she manages.
      * @summary List Non-Employee Requests
-     * @param {string} requestedFor The identity for whom the request was made. *me* indicates the current user.
-     * @param {number} [limit] Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
-     * @param {number} [offset] Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
-     * @param {boolean} [count] If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
-     * @param {string} [sorters] Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://community.sailpoint.com/t5/IdentityNow-Wiki/V3-API-Standard-Collection-Parameters/ta-p/156407#toc-hId-2058949) Sorting is supported for the following fields: **created, approvalStatus, firstName, lastName, email, phone, accountName, startDate, endDate**
-     * @param {string} [filters] Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://community.sailpoint.com/t5/IdentityNow-Wiki/V3-API-Standard-Collection-Parameters/ta-p/156407) Filtering is supported for the following fields and operators: **sourceId**: *eq*  *Example:* sourceId eq \&quot;2c91808568c529c60168cca6f90c1313\&quot;
+     * @param {NonEmployeeLifecycleManagementApiNonEmployeeRequestListRequest} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
      * @memberof NonEmployeeLifecycleManagementApi
      */
-    public nonEmployeeRequestList(requestedFor: string, limit?: number, offset?: number, count?: boolean, sorters?: string, filters?: string, axiosOptions?: AxiosRequestConfig) {
-        return NonEmployeeLifecycleManagementApiFp(this.configuration).nonEmployeeRequestList(requestedFor, limit, offset, count, sorters, filters, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public nonEmployeeRequestList(requestParameters: NonEmployeeLifecycleManagementApiNonEmployeeRequestListRequest, axiosOptions?: AxiosRequestConfig) {
+        return NonEmployeeLifecycleManagementApiFp(this.configuration).nonEmployeeRequestList(requestParameters.requestedFor, requestParameters.limit, requestParameters.offset, requestParameters.count, requestParameters.sorters, requestParameters.filters, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * This request will retrieve a summary of non-employee requests. There are two contextual uses for the `requested-for` path parameter:   1. The user has the role context of `idn:nesr:read`, in which case he or she may request a summary of all non-employee approval requests assigned to a particular account manager by passing in that manager\'s id.   2. The current user is an account manager, in which case \"me\" should be provided as the `requested-for` value. This will provide the user with a summary of the non-employee requests in the source(s) he or she manages.
      * @summary Get Summary of Non-Employee Requests
-     * @param {string} requestedFor The identity (UUID) of the non-employee account manager for whom the summary is being retrieved. Use \&quot;me\&quot; instead to indicate the current user.
+     * @param {NonEmployeeLifecycleManagementApiNonEmployeeRequestSummaryGetRequest} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
      * @memberof NonEmployeeLifecycleManagementApi
      */
-    public nonEmployeeRequestSummaryGet(requestedFor: string, axiosOptions?: AxiosRequestConfig) {
-        return NonEmployeeLifecycleManagementApiFp(this.configuration).nonEmployeeRequestSummaryGet(requestedFor, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public nonEmployeeRequestSummaryGet(requestParameters: NonEmployeeLifecycleManagementApiNonEmployeeRequestSummaryGetRequest, axiosOptions?: AxiosRequestConfig) {
+        return NonEmployeeLifecycleManagementApiFp(this.configuration).nonEmployeeRequestSummaryGet(requestParameters.requestedFor, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * This request will delete a non-employee source. Requires role context of `idn:nesr:delete`.
      * @summary Delete Non-Employee Source
-     * @param {string} sourceId Source Id
+     * @param {NonEmployeeLifecycleManagementApiNonEmployeeSourceDeleteRequest} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
      * @memberof NonEmployeeLifecycleManagementApi
      */
-    public nonEmployeeSourceDelete(sourceId: string, axiosOptions?: AxiosRequestConfig) {
-        return NonEmployeeLifecycleManagementApiFp(this.configuration).nonEmployeeSourceDelete(sourceId, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public nonEmployeeSourceDelete(requestParameters: NonEmployeeLifecycleManagementApiNonEmployeeSourceDeleteRequest, axiosOptions?: AxiosRequestConfig) {
+        return NonEmployeeLifecycleManagementApiFp(this.configuration).nonEmployeeSourceDelete(requestParameters.sourceId, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * This gets a non-employee source. There are two contextual uses for the requested-for path parameter:    1. The user has the role context of `idn:nesr:read`, in which case he or she may request any source.   2. The current user is an account manager, in which case the user can only request sources that they own.
      * @summary Get a Non-Employee Source
-     * @param {string} sourceId Source Id
+     * @param {NonEmployeeLifecycleManagementApiNonEmployeeSourceGetRequest} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
      * @memberof NonEmployeeLifecycleManagementApi
      */
-    public nonEmployeeSourceGet(sourceId: string, axiosOptions?: AxiosRequestConfig) {
-        return NonEmployeeLifecycleManagementApiFp(this.configuration).nonEmployeeSourceGet(sourceId, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public nonEmployeeSourceGet(requestParameters: NonEmployeeLifecycleManagementApiNonEmployeeSourceGetRequest, axiosOptions?: AxiosRequestConfig) {
+        return NonEmployeeLifecycleManagementApiFp(this.configuration).nonEmployeeSourceGet(requestParameters.sourceId, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * patch a non-employee source. (partial update) <br/> Patchable field: **name, description, approvers, accountManagers** Requires role context of `idn:nesr:update`.
      * @summary Patch a Non-Employee Source
-     * @param {string} sourceId Source Id
-     * @param {Array<JsonPatchOperation>} jsonPatchOperation A list of non-employee source update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.
+     * @param {NonEmployeeLifecycleManagementApiNonEmployeeSourcePatchRequest} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
      * @memberof NonEmployeeLifecycleManagementApi
      */
-    public nonEmployeeSourcePatch(sourceId: string, jsonPatchOperation: Array<JsonPatchOperation>, axiosOptions?: AxiosRequestConfig) {
-        return NonEmployeeLifecycleManagementApiFp(this.configuration).nonEmployeeSourcePatch(sourceId, jsonPatchOperation, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public nonEmployeeSourcePatch(requestParameters: NonEmployeeLifecycleManagementApiNonEmployeeSourcePatchRequest, axiosOptions?: AxiosRequestConfig) {
+        return NonEmployeeLifecycleManagementApiFp(this.configuration).nonEmployeeSourcePatch(requestParameters.sourceId, requestParameters.jsonPatchOperation, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * This request will create a non-employee source. Requires role context of `idn:nesr:create`
      * @summary Create Non-Employee Source
-     * @param {NonEmployeeSourceRequestBody} nonEmployeeSourceRequestBody Non-Employee source creation request body.
+     * @param {NonEmployeeLifecycleManagementApiNonEmployeeSourcesCreationRequest} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
      * @memberof NonEmployeeLifecycleManagementApi
      */
-    public nonEmployeeSourcesCreation(nonEmployeeSourceRequestBody: NonEmployeeSourceRequestBody, axiosOptions?: AxiosRequestConfig) {
-        return NonEmployeeLifecycleManagementApiFp(this.configuration).nonEmployeeSourcesCreation(nonEmployeeSourceRequestBody, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public nonEmployeeSourcesCreation(requestParameters: NonEmployeeLifecycleManagementApiNonEmployeeSourcesCreationRequest, axiosOptions?: AxiosRequestConfig) {
+        return NonEmployeeLifecycleManagementApiFp(this.configuration).nonEmployeeSourcesCreation(requestParameters.nonEmployeeSourceRequestBody, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * This gets a list of non-employee sources. There are two contextual uses for the requested-for path parameter:    1. The user has the role context of `idn:nesr:read`, in which case he or she may request a list sources assigned to a particular account manager by passing in that manager\'s id.   2. The current user is an account manager, in which case \"me\" should be provided as the `requested-for` value. This will provide the user with a list of the sources that he or she owns.
      * @summary List Non-Employee Sources
-     * @param {string} requestedFor The identity for whom the request was made. *me* indicates the current user.
-     * @param {number} [limit] Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
-     * @param {number} [offset] Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
-     * @param {boolean} [count] If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
-     * @param {boolean} [nonEmployeeCount] The flag to determine whether return a non-employee count associate with source.
-     * @param {string} [sorters] Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://community.sailpoint.com/t5/IdentityNow-Wiki/V3-API-Standard-Collection-Parameters/ta-p/156407#toc-hId-2058949) Sorting is supported for the following fields: **name, created**
+     * @param {NonEmployeeLifecycleManagementApiNonEmployeeSourcesListRequest} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
      * @memberof NonEmployeeLifecycleManagementApi
      */
-    public nonEmployeeSourcesList(requestedFor: string, limit?: number, offset?: number, count?: boolean, nonEmployeeCount?: boolean, sorters?: string, axiosOptions?: AxiosRequestConfig) {
-        return NonEmployeeLifecycleManagementApiFp(this.configuration).nonEmployeeSourcesList(requestedFor, limit, offset, count, nonEmployeeCount, sorters, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public nonEmployeeSourcesList(requestParameters: NonEmployeeLifecycleManagementApiNonEmployeeSourcesListRequest, axiosOptions?: AxiosRequestConfig) {
+        return NonEmployeeLifecycleManagementApiFp(this.configuration).nonEmployeeSourcesList(requestParameters.requestedFor, requestParameters.limit, requestParameters.offset, requestParameters.count, requestParameters.nonEmployeeCount, requestParameters.sorters, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * This end-point patches a specific schema attribute for a non-employee SourceId. Requires role context of `idn:nesr:update` 
      * @summary Patch a Schema Attribute for Non-Employee Source
-     * @param {string} attributeId The Schema Attribute Id (UUID)
-     * @param {string} sourceId The Source id
-     * @param {Array<JsonPatchOperation>} jsonPatchOperation A list of schema attribute update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard. The following properties are allowed for update \&#39;:\&#39; \&#39;label\&#39;, \&#39;helpText\&#39;, \&#39;placeholder\&#39;, \&#39;required\&#39;.
+     * @param {NonEmployeeLifecycleManagementApiPatchSchemaAttributeRequest} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
      * @memberof NonEmployeeLifecycleManagementApi
      */
-    public patchSchemaAttribute(attributeId: string, sourceId: string, jsonPatchOperation: Array<JsonPatchOperation>, axiosOptions?: AxiosRequestConfig) {
-        return NonEmployeeLifecycleManagementApiFp(this.configuration).patchSchemaAttribute(attributeId, sourceId, jsonPatchOperation, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public patchSchemaAttribute(requestParameters: NonEmployeeLifecycleManagementApiPatchSchemaAttributeRequest, axiosOptions?: AxiosRequestConfig) {
+        return NonEmployeeLifecycleManagementApiFp(this.configuration).patchSchemaAttribute(requestParameters.attributeId, requestParameters.sourceId, requestParameters.jsonPatchOperation, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 }
 
@@ -22013,6 +23773,69 @@ export const OAuthClientsApiFactory = function (configuration?: Configuration, b
 };
 
 /**
+ * Request parameters for createOauthClient operation in OAuthClientsApi.
+ * @export
+ * @interface OAuthClientsApiCreateOauthClientRequest
+ */
+export interface OAuthClientsApiCreateOauthClientRequest {
+    /**
+     * 
+     * @type {CreateOAuthClientRequest}
+     * @memberof OAuthClientsApiCreateOauthClient
+     */
+    readonly createOAuthClientRequest: CreateOAuthClientRequest
+}
+
+/**
+ * Request parameters for deleteOauthClient operation in OAuthClientsApi.
+ * @export
+ * @interface OAuthClientsApiDeleteOauthClientRequest
+ */
+export interface OAuthClientsApiDeleteOauthClientRequest {
+    /**
+     * The OAuth client id
+     * @type {string}
+     * @memberof OAuthClientsApiDeleteOauthClient
+     */
+    readonly id: string
+}
+
+/**
+ * Request parameters for getOauthClient operation in OAuthClientsApi.
+ * @export
+ * @interface OAuthClientsApiGetOauthClientRequest
+ */
+export interface OAuthClientsApiGetOauthClientRequest {
+    /**
+     * The OAuth client id
+     * @type {string}
+     * @memberof OAuthClientsApiGetOauthClient
+     */
+    readonly id: string
+}
+
+/**
+ * Request parameters for patchOauthClient operation in OAuthClientsApi.
+ * @export
+ * @interface OAuthClientsApiPatchOauthClientRequest
+ */
+export interface OAuthClientsApiPatchOauthClientRequest {
+    /**
+     * The OAuth client id
+     * @type {string}
+     * @memberof OAuthClientsApiPatchOauthClient
+     */
+    readonly id: string
+
+    /**
+     * A list of OAuth client update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.  The following fields are patchable: * tenant * businessName * homepageUrl * name * description * accessTokenValiditySeconds * refreshTokenValiditySeconds * redirectUris * grantTypes * accessType * enabled * strongAuthSupported * claimsSupported 
+     * @type {Array<JsonPatchOperation>}
+     * @memberof OAuthClientsApiPatchOauthClient
+     */
+    readonly jsonPatchOperation: Array<JsonPatchOperation>
+}
+
+/**
  * OAuthClientsApi - object-oriented interface
  * @export
  * @class OAuthClientsApi
@@ -22022,37 +23845,37 @@ export class OAuthClientsApi extends BaseAPI {
     /**
      * This creates an OAuth client.
      * @summary Create OAuth Client
-     * @param {CreateOAuthClientRequest} createOAuthClientRequest 
+     * @param {OAuthClientsApiCreateOauthClientRequest} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
      * @memberof OAuthClientsApi
      */
-    public createOauthClient(createOAuthClientRequest: CreateOAuthClientRequest, axiosOptions?: AxiosRequestConfig) {
-        return OAuthClientsApiFp(this.configuration).createOauthClient(createOAuthClientRequest, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public createOauthClient(requestParameters: OAuthClientsApiCreateOauthClientRequest, axiosOptions?: AxiosRequestConfig) {
+        return OAuthClientsApiFp(this.configuration).createOauthClient(requestParameters.createOAuthClientRequest, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * This deletes an OAuth client.
      * @summary Delete OAuth Client
-     * @param {string} id The OAuth client id
+     * @param {OAuthClientsApiDeleteOauthClientRequest} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
      * @memberof OAuthClientsApi
      */
-    public deleteOauthClient(id: string, axiosOptions?: AxiosRequestConfig) {
-        return OAuthClientsApiFp(this.configuration).deleteOauthClient(id, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public deleteOauthClient(requestParameters: OAuthClientsApiDeleteOauthClientRequest, axiosOptions?: AxiosRequestConfig) {
+        return OAuthClientsApiFp(this.configuration).deleteOauthClient(requestParameters.id, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * This gets details of an OAuth client.
      * @summary Get OAuth Client
-     * @param {string} id The OAuth client id
+     * @param {OAuthClientsApiGetOauthClientRequest} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
      * @memberof OAuthClientsApi
      */
-    public getOauthClient(id: string, axiosOptions?: AxiosRequestConfig) {
-        return OAuthClientsApiFp(this.configuration).getOauthClient(id, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public getOauthClient(requestParameters: OAuthClientsApiGetOauthClientRequest, axiosOptions?: AxiosRequestConfig) {
+        return OAuthClientsApiFp(this.configuration).getOauthClient(requestParameters.id, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -22069,14 +23892,13 @@ export class OAuthClientsApi extends BaseAPI {
     /**
      * This performs a targeted update to the field(s) of an OAuth client.
      * @summary Patch OAuth Client
-     * @param {string} id The OAuth client id
-     * @param {Array<JsonPatchOperation>} jsonPatchOperation A list of OAuth client update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.  The following fields are patchable: * tenant * businessName * homepageUrl * name * description * accessTokenValiditySeconds * refreshTokenValiditySeconds * redirectUris * grantTypes * accessType * enabled * strongAuthSupported * claimsSupported 
+     * @param {OAuthClientsApiPatchOauthClientRequest} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
      * @memberof OAuthClientsApi
      */
-    public patchOauthClient(id: string, jsonPatchOperation: Array<JsonPatchOperation>, axiosOptions?: AxiosRequestConfig) {
-        return OAuthClientsApiFp(this.configuration).patchOauthClient(id, jsonPatchOperation, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public patchOauthClient(requestParameters: OAuthClientsApiPatchOauthClientRequest, axiosOptions?: AxiosRequestConfig) {
+        return OAuthClientsApiFp(this.configuration).patchOauthClient(requestParameters.id, requestParameters.jsonPatchOperation, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 }
 
@@ -22304,6 +24126,48 @@ export const PasswordManagementApiFactory = function (configuration?: Configurat
 };
 
 /**
+ * Request parameters for getPasswordChangeStatus operation in PasswordManagementApi.
+ * @export
+ * @interface PasswordManagementApiGetPasswordChangeStatusRequest
+ */
+export interface PasswordManagementApiGetPasswordChangeStatusRequest {
+    /**
+     * Password change request ID
+     * @type {string}
+     * @memberof PasswordManagementApiGetPasswordChangeStatus
+     */
+    readonly id: string
+}
+
+/**
+ * Request parameters for queryPasswordInfo operation in PasswordManagementApi.
+ * @export
+ * @interface PasswordManagementApiQueryPasswordInfoRequest
+ */
+export interface PasswordManagementApiQueryPasswordInfoRequest {
+    /**
+     * 
+     * @type {PasswordInfoQueryDTO}
+     * @memberof PasswordManagementApiQueryPasswordInfo
+     */
+    readonly passwordInfoQueryDTO: PasswordInfoQueryDTO
+}
+
+/**
+ * Request parameters for setPassword operation in PasswordManagementApi.
+ * @export
+ * @interface PasswordManagementApiSetPasswordRequest
+ */
+export interface PasswordManagementApiSetPasswordRequest {
+    /**
+     * 
+     * @type {PasswordChangeRequest}
+     * @memberof PasswordManagementApiSetPassword
+     */
+    readonly passwordChangeRequest: PasswordChangeRequest
+}
+
+/**
  * PasswordManagementApi - object-oriented interface
  * @export
  * @class PasswordManagementApi
@@ -22313,37 +24177,37 @@ export class PasswordManagementApi extends BaseAPI {
     /**
      * This API returns the status of a password change request. A token with identity owner or trusted API client application authority is required to call this API.
      * @summary Get Password Change Request Status
-     * @param {string} id Password change request ID
+     * @param {PasswordManagementApiGetPasswordChangeStatusRequest} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
      * @memberof PasswordManagementApi
      */
-    public getPasswordChangeStatus(id: string, axiosOptions?: AxiosRequestConfig) {
-        return PasswordManagementApiFp(this.configuration).getPasswordChangeStatus(id, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public getPasswordChangeStatus(requestParameters: PasswordManagementApiGetPasswordChangeStatusRequest, axiosOptions?: AxiosRequestConfig) {
+        return PasswordManagementApiFp(this.configuration).getPasswordChangeStatus(requestParameters.id, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * This API is used to query password related information.   A token with [API authority](https://developer.sailpoint.com/idn/api/authentication#client-credentials-grant-flow)  is required to call this API.  \"API authority\" refers to a token that only has the \"client_credentials\"  grant type, and therefore no user context. A [personal access token](https://developer.sailpoint.com/idn/api/authentication#personal-access-tokens)  or a token generated with the [authorization_code](https://developer.sailpoint.com/idn/api/authentication#authorization-code-grant-flow)  grant type will **NOT** work on this endpoint, and a `403 Forbidden` response  will be returned. 
      * @summary Query Password Info
-     * @param {PasswordInfoQueryDTO} passwordInfoQueryDTO 
+     * @param {PasswordManagementApiQueryPasswordInfoRequest} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
      * @memberof PasswordManagementApi
      */
-    public queryPasswordInfo(passwordInfoQueryDTO: PasswordInfoQueryDTO, axiosOptions?: AxiosRequestConfig) {
-        return PasswordManagementApiFp(this.configuration).queryPasswordInfo(passwordInfoQueryDTO, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public queryPasswordInfo(requestParameters: PasswordManagementApiQueryPasswordInfoRequest, axiosOptions?: AxiosRequestConfig) {
+        return PasswordManagementApiFp(this.configuration).queryPasswordInfo(requestParameters.passwordInfoQueryDTO, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * This API is used to set a password for an identity.   An identity can change their own password if they use a token generated by their IDN user, such as a [personal access token](https://developer.sailpoint.com/idn/api/authentication#personal-access-tokens) or [\"authorization_code\" derived OAuth token](https://developer.sailpoint.com/idn/api/authentication#authorization-code-grant-flow).  A token with [API authority](https://developer.sailpoint.com/idn/api/authentication#client-credentials-grant-flow) can be used to change **any** identity\'s password.  \"API authority\" refers to a token that only has the \"client_credentials\" grant type. 
      * @summary Set Identity\'s Password
-     * @param {PasswordChangeRequest} passwordChangeRequest 
+     * @param {PasswordManagementApiSetPasswordRequest} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
      * @memberof PasswordManagementApi
      */
-    public setPassword(passwordChangeRequest: PasswordChangeRequest, axiosOptions?: AxiosRequestConfig) {
-        return PasswordManagementApiFp(this.configuration).setPassword(passwordChangeRequest, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public setPassword(requestParameters: PasswordManagementApiSetPasswordRequest, axiosOptions?: AxiosRequestConfig) {
+        return PasswordManagementApiFp(this.configuration).setPassword(requestParameters.passwordChangeRequest, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 }
 
@@ -22641,6 +24505,69 @@ export const PersonalAccessTokensApiFactory = function (configuration?: Configur
 };
 
 /**
+ * Request parameters for createPersonalAccessToken operation in PersonalAccessTokensApi.
+ * @export
+ * @interface PersonalAccessTokensApiCreatePersonalAccessTokenRequest
+ */
+export interface PersonalAccessTokensApiCreatePersonalAccessTokenRequest {
+    /**
+     * Name and scope of personal access token.
+     * @type {CreatePersonalAccessTokenRequest}
+     * @memberof PersonalAccessTokensApiCreatePersonalAccessToken
+     */
+    readonly createPersonalAccessTokenRequest: CreatePersonalAccessTokenRequest
+}
+
+/**
+ * Request parameters for deletePersonalAccessToken operation in PersonalAccessTokensApi.
+ * @export
+ * @interface PersonalAccessTokensApiDeletePersonalAccessTokenRequest
+ */
+export interface PersonalAccessTokensApiDeletePersonalAccessTokenRequest {
+    /**
+     * The personal access token id
+     * @type {string}
+     * @memberof PersonalAccessTokensApiDeletePersonalAccessToken
+     */
+    readonly id: string
+}
+
+/**
+ * Request parameters for listPersonalAccessTokens operation in PersonalAccessTokensApi.
+ * @export
+ * @interface PersonalAccessTokensApiListPersonalAccessTokensRequest
+ */
+export interface PersonalAccessTokensApiListPersonalAccessTokensRequest {
+    /**
+     * The identity ID of the owner whose personal access tokens should be listed.  If \&quot;me\&quot;, the caller should have the following right: \&#39;idn:my-personal-access-tokens:read\&#39; If an actual owner ID or if the &#x60;owner-id&#x60; parameter is omitted in the request,  the caller should have the following right: \&#39;idn:all-personal-access-tokens:read\&#39;.  If the caller has the following right, then managed personal access tokens associated with &#x60;owner-id&#x60;  will be retrieved: \&#39;idn:managed-personal-access-tokens:read\&#39;
+     * @type {string}
+     * @memberof PersonalAccessTokensApiListPersonalAccessTokens
+     */
+    readonly ownerId?: string
+}
+
+/**
+ * Request parameters for patchPersonalAccessToken operation in PersonalAccessTokensApi.
+ * @export
+ * @interface PersonalAccessTokensApiPatchPersonalAccessTokenRequest
+ */
+export interface PersonalAccessTokensApiPatchPersonalAccessTokenRequest {
+    /**
+     * The Personal Access Token id
+     * @type {string}
+     * @memberof PersonalAccessTokensApiPatchPersonalAccessToken
+     */
+    readonly id: string
+
+    /**
+     * A list of OAuth client update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.  The following fields are patchable: * name * scope 
+     * @type {Array<JsonPatchOperation>}
+     * @memberof PersonalAccessTokensApiPatchPersonalAccessToken
+     */
+    readonly jsonPatchOperation: Array<JsonPatchOperation>
+}
+
+/**
  * PersonalAccessTokensApi - object-oriented interface
  * @export
  * @class PersonalAccessTokensApi
@@ -22650,50 +24577,49 @@ export class PersonalAccessTokensApi extends BaseAPI {
     /**
      * This creates a personal access token.
      * @summary Create Personal Access Token
-     * @param {CreatePersonalAccessTokenRequest} createPersonalAccessTokenRequest Name and scope of personal access token.
+     * @param {PersonalAccessTokensApiCreatePersonalAccessTokenRequest} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
      * @memberof PersonalAccessTokensApi
      */
-    public createPersonalAccessToken(createPersonalAccessTokenRequest: CreatePersonalAccessTokenRequest, axiosOptions?: AxiosRequestConfig) {
-        return PersonalAccessTokensApiFp(this.configuration).createPersonalAccessToken(createPersonalAccessTokenRequest, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public createPersonalAccessToken(requestParameters: PersonalAccessTokensApiCreatePersonalAccessTokenRequest, axiosOptions?: AxiosRequestConfig) {
+        return PersonalAccessTokensApiFp(this.configuration).createPersonalAccessToken(requestParameters.createPersonalAccessTokenRequest, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * This deletes a personal access token.
      * @summary Delete Personal Access Token
-     * @param {string} id The personal access token id
+     * @param {PersonalAccessTokensApiDeletePersonalAccessTokenRequest} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
      * @memberof PersonalAccessTokensApi
      */
-    public deletePersonalAccessToken(id: string, axiosOptions?: AxiosRequestConfig) {
-        return PersonalAccessTokensApiFp(this.configuration).deletePersonalAccessToken(id, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public deletePersonalAccessToken(requestParameters: PersonalAccessTokensApiDeletePersonalAccessTokenRequest, axiosOptions?: AxiosRequestConfig) {
+        return PersonalAccessTokensApiFp(this.configuration).deletePersonalAccessToken(requestParameters.id, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * This gets a collection of personal access tokens associated with the optional `owner-id`.  query parameter. If the `owner-id` query parameter is omitted, all personal access tokens  for a tenant will be retrieved, but the caller must have the \'idn:all-personal-access-tokens:read\' right.
      * @summary List Personal Access Tokens
-     * @param {string} [ownerId] The identity ID of the owner whose personal access tokens should be listed.  If \&quot;me\&quot;, the caller should have the following right: \&#39;idn:my-personal-access-tokens:read\&#39; If an actual owner ID or if the &#x60;owner-id&#x60; parameter is omitted in the request,  the caller should have the following right: \&#39;idn:all-personal-access-tokens:read\&#39;.  If the caller has the following right, then managed personal access tokens associated with &#x60;owner-id&#x60;  will be retrieved: \&#39;idn:managed-personal-access-tokens:read\&#39;
+     * @param {PersonalAccessTokensApiListPersonalAccessTokensRequest} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
      * @memberof PersonalAccessTokensApi
      */
-    public listPersonalAccessTokens(ownerId?: string, axiosOptions?: AxiosRequestConfig) {
-        return PersonalAccessTokensApiFp(this.configuration).listPersonalAccessTokens(ownerId, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public listPersonalAccessTokens(requestParameters: PersonalAccessTokensApiListPersonalAccessTokensRequest = {}, axiosOptions?: AxiosRequestConfig) {
+        return PersonalAccessTokensApiFp(this.configuration).listPersonalAccessTokens(requestParameters.ownerId, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * This performs a targeted update to the field(s) of a Personal Access Token.
      * @summary Patch Personal Access Token
-     * @param {string} id The Personal Access Token id
-     * @param {Array<JsonPatchOperation>} jsonPatchOperation A list of OAuth client update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.  The following fields are patchable: * name * scope 
+     * @param {PersonalAccessTokensApiPatchPersonalAccessTokenRequest} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
      * @memberof PersonalAccessTokensApi
      */
-    public patchPersonalAccessToken(id: string, jsonPatchOperation: Array<JsonPatchOperation>, axiosOptions?: AxiosRequestConfig) {
-        return PersonalAccessTokensApiFp(this.configuration).patchPersonalAccessToken(id, jsonPatchOperation, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public patchPersonalAccessToken(requestParameters: PersonalAccessTokensApiPatchPersonalAccessTokenRequest, axiosOptions?: AxiosRequestConfig) {
+        return PersonalAccessTokensApiFp(this.configuration).patchPersonalAccessToken(requestParameters.id, requestParameters.jsonPatchOperation, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 }
 
@@ -22827,6 +24753,55 @@ export const PublicIdentitiesApiFactory = function (configuration?: Configuratio
 };
 
 /**
+ * Request parameters for getPublicIdentities operation in PublicIdentitiesApi.
+ * @export
+ * @interface PublicIdentitiesApiGetPublicIdentitiesRequest
+ */
+export interface PublicIdentitiesApiGetPublicIdentitiesRequest {
+    /**
+     * Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+     * @type {number}
+     * @memberof PublicIdentitiesApiGetPublicIdentities
+     */
+    readonly limit?: number
+
+    /**
+     * Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+     * @type {number}
+     * @memberof PublicIdentitiesApiGetPublicIdentities
+     */
+    readonly offset?: number
+
+    /**
+     * If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+     * @type {boolean}
+     * @memberof PublicIdentitiesApiGetPublicIdentities
+     */
+    readonly count?: boolean
+
+    /**
+     * Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, in*  **alias**: *eq, sw*  **email**: *eq, sw*  **firstname**: *eq, sw*  **lastname**: *eq, sw*
+     * @type {string}
+     * @memberof PublicIdentitiesApiGetPublicIdentities
+     */
+    readonly filters?: string
+
+    /**
+     * If *true*, only get identities which satisfy ALL the following criteria in addition to any criteria specified by *filters*:   - Should be either correlated or protected.   - Should not be \&quot;spadmin\&quot; or \&quot;cloudadmin\&quot;.   - uid should not be null.   - lastname should not be null.   - email should not be null.
+     * @type {boolean}
+     * @memberof PublicIdentitiesApiGetPublicIdentities
+     */
+    readonly addCoreFilters?: boolean
+
+    /**
+     * Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **name**
+     * @type {string}
+     * @memberof PublicIdentitiesApiGetPublicIdentities
+     */
+    readonly sorters?: string
+}
+
+/**
  * PublicIdentitiesApi - object-oriented interface
  * @export
  * @class PublicIdentitiesApi
@@ -22836,18 +24811,13 @@ export class PublicIdentitiesApi extends BaseAPI {
     /**
      * 
      * @summary Get a list of public identities
-     * @param {number} [limit] Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
-     * @param {number} [offset] Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
-     * @param {boolean} [count] If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
-     * @param {string} [filters] Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, in*  **alias**: *eq, sw*  **email**: *eq, sw*  **firstname**: *eq, sw*  **lastname**: *eq, sw*
-     * @param {boolean} [addCoreFilters] If *true*, only get identities which satisfy ALL the following criteria in addition to any criteria specified by *filters*:   - Should be either correlated or protected.   - Should not be \&quot;spadmin\&quot; or \&quot;cloudadmin\&quot;.   - uid should not be null.   - lastname should not be null.   - email should not be null.
-     * @param {string} [sorters] Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **name**
+     * @param {PublicIdentitiesApiGetPublicIdentitiesRequest} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
      * @memberof PublicIdentitiesApi
      */
-    public getPublicIdentities(limit?: number, offset?: number, count?: boolean, filters?: string, addCoreFilters?: boolean, sorters?: string, axiosOptions?: AxiosRequestConfig) {
-        return PublicIdentitiesApiFp(this.configuration).getPublicIdentities(limit, offset, count, filters, addCoreFilters, sorters, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public getPublicIdentities(requestParameters: PublicIdentitiesApiGetPublicIdentitiesRequest = {}, axiosOptions?: AxiosRequestConfig) {
+        return PublicIdentitiesApiFp(this.configuration).getPublicIdentities(requestParameters.limit, requestParameters.offset, requestParameters.count, requestParameters.filters, requestParameters.addCoreFilters, requestParameters.sorters, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 }
 
@@ -23004,6 +24974,20 @@ export const PublicIdentitiesConfigApiFactory = function (configuration?: Config
 };
 
 /**
+ * Request parameters for updatePublicIdentityConfig operation in PublicIdentitiesConfigApi.
+ * @export
+ * @interface PublicIdentitiesConfigApiUpdatePublicIdentityConfigRequest
+ */
+export interface PublicIdentitiesConfigApiUpdatePublicIdentityConfigRequest {
+    /**
+     * 
+     * @type {PublicIdentityConfig}
+     * @memberof PublicIdentitiesConfigApiUpdatePublicIdentityConfig
+     */
+    readonly publicIdentityConfig: PublicIdentityConfig
+}
+
+/**
  * PublicIdentitiesConfigApi - object-oriented interface
  * @export
  * @class PublicIdentitiesConfigApi
@@ -23024,13 +25008,13 @@ export class PublicIdentitiesConfigApi extends BaseAPI {
     /**
      * Updates the publicly visible attributes of an identity available to request approvers for Access Requests and Certification Campaigns. A token with ORG ADMIN authority is required to call this API.
      * @summary Update the Public Identities Configuration
-     * @param {PublicIdentityConfig} publicIdentityConfig 
+     * @param {PublicIdentitiesConfigApiUpdatePublicIdentityConfigRequest} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
      * @memberof PublicIdentitiesConfigApi
      */
-    public updatePublicIdentityConfig(publicIdentityConfig: PublicIdentityConfig, axiosOptions?: AxiosRequestConfig) {
-        return PublicIdentitiesConfigApiFp(this.configuration).updatePublicIdentityConfig(publicIdentityConfig, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public updatePublicIdentityConfig(requestParameters: PublicIdentitiesConfigApiUpdatePublicIdentityConfigRequest, axiosOptions?: AxiosRequestConfig) {
+        return PublicIdentitiesConfigApiFp(this.configuration).updatePublicIdentityConfig(requestParameters.publicIdentityConfig, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 }
 
@@ -23185,6 +25169,76 @@ export const RequestableObjectsApiFactory = function (configuration?: Configurat
 };
 
 /**
+ * Request parameters for listRequestableObjects operation in RequestableObjectsApi.
+ * @export
+ * @interface RequestableObjectsApiListRequestableObjectsRequest
+ */
+export interface RequestableObjectsApiListRequestableObjectsRequest {
+    /**
+     * If present, the value returns only requestable objects for the specified identity.  * Admin users can call this with any identity ID value.  * Non-admin users can only specify *me* or pass their own identity ID value.  * If absent, returns a list of all requestable objects for the tenant. Only admin users can make such a call. In this case, the available, pending, assigned accesses will not be annotated in the result.
+     * @type {string}
+     * @memberof RequestableObjectsApiListRequestableObjects
+     */
+    readonly identityId?: string
+
+    /**
+     * Filters the results to the specified type/types, where each type is one of ROLE or ACCESS_PROFILE. If absent, all types are returned. Support for additional types may be added in the future without notice.
+     * @type {Array<RequestableObjectType>}
+     * @memberof RequestableObjectsApiListRequestableObjects
+     */
+    readonly types?: Array<RequestableObjectType>
+
+    /**
+     * It allows searching requestable access items with a partial match on the name or description. If term is provided, then the *filter* query parameter will be ignored.
+     * @type {string}
+     * @memberof RequestableObjectsApiListRequestableObjects
+     */
+    readonly term?: string
+
+    /**
+     * Filters the result to the specified status/statuses, where each status is one of AVAILABLE, ASSIGNED, or PENDING. It is an error to specify this parameter without also specifying an *identity-id* parameter. Additional statuses may be added in the future without notice.
+     * @type {Array<RequestableObjectRequestStatus>}
+     * @memberof RequestableObjectsApiListRequestableObjects
+     */
+    readonly statuses?: Array<RequestableObjectRequestStatus>
+
+    /**
+     * Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+     * @type {number}
+     * @memberof RequestableObjectsApiListRequestableObjects
+     */
+    readonly limit?: number
+
+    /**
+     * Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+     * @type {number}
+     * @memberof RequestableObjectsApiListRequestableObjects
+     */
+    readonly offset?: number
+
+    /**
+     * If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+     * @type {boolean}
+     * @memberof RequestableObjectsApiListRequestableObjects
+     */
+    readonly count?: boolean
+
+    /**
+     * Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, in*  **name**: *eq, in, sw* 
+     * @type {string}
+     * @memberof RequestableObjectsApiListRequestableObjects
+     */
+    readonly filters?: string
+
+    /**
+     * Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **name** 
+     * @type {string}
+     * @memberof RequestableObjectsApiListRequestableObjects
+     */
+    readonly sorters?: string
+}
+
+/**
  * RequestableObjectsApi - object-oriented interface
  * @export
  * @class RequestableObjectsApi
@@ -23194,21 +25248,13 @@ export class RequestableObjectsApi extends BaseAPI {
     /**
      * This endpoint returns a list of acccess items that that can be requested through the Access Request endpoints. Access items are marked with AVAILABLE, PENDING or ASSIGNED with respect to the identity provided using *identity-id* query param. Any authenticated token can call this endpoint to see their requestable access items. A token with ORG_ADMIN authority is required to call this endpoint to return a list of all of the requestable access items for the org or for another identity.
      * @summary Requestable Objects List
-     * @param {string} [identityId] If present, the value returns only requestable objects for the specified identity.  * Admin users can call this with any identity ID value.  * Non-admin users can only specify *me* or pass their own identity ID value.  * If absent, returns a list of all requestable objects for the tenant. Only admin users can make such a call. In this case, the available, pending, assigned accesses will not be annotated in the result.
-     * @param {Array<RequestableObjectType>} [types] Filters the results to the specified type/types, where each type is one of ROLE or ACCESS_PROFILE. If absent, all types are returned. Support for additional types may be added in the future without notice.
-     * @param {string} [term] It allows searching requestable access items with a partial match on the name or description. If term is provided, then the *filter* query parameter will be ignored.
-     * @param {Array<RequestableObjectRequestStatus>} [statuses] Filters the result to the specified status/statuses, where each status is one of AVAILABLE, ASSIGNED, or PENDING. It is an error to specify this parameter without also specifying an *identity-id* parameter. Additional statuses may be added in the future without notice.
-     * @param {number} [limit] Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
-     * @param {number} [offset] Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
-     * @param {boolean} [count] If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
-     * @param {string} [filters] Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, in*  **name**: *eq, in, sw* 
-     * @param {string} [sorters] Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **name** 
+     * @param {RequestableObjectsApiListRequestableObjectsRequest} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
      * @memberof RequestableObjectsApi
      */
-    public listRequestableObjects(identityId?: string, types?: Array<RequestableObjectType>, term?: string, statuses?: Array<RequestableObjectRequestStatus>, limit?: number, offset?: number, count?: boolean, filters?: string, sorters?: string, axiosOptions?: AxiosRequestConfig) {
-        return RequestableObjectsApiFp(this.configuration).listRequestableObjects(identityId, types, term, statuses, limit, offset, count, filters, sorters, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public listRequestableObjects(requestParameters: RequestableObjectsApiListRequestableObjectsRequest = {}, axiosOptions?: AxiosRequestConfig) {
+        return RequestableObjectsApiFp(this.configuration).listRequestableObjects(requestParameters.identityId, requestParameters.types, requestParameters.term, requestParameters.statuses, requestParameters.limit, requestParameters.offset, requestParameters.count, requestParameters.filters, requestParameters.sorters, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 }
 
@@ -23661,6 +25707,125 @@ export const SavedSearchApiFactory = function (configuration?: Configuration, ba
 };
 
 /**
+ * Request parameters for savedSearchCreate operation in SavedSearchApi.
+ * @export
+ * @interface SavedSearchApiSavedSearchCreateRequest
+ */
+export interface SavedSearchApiSavedSearchCreateRequest {
+    /**
+     * The saved search to persist.
+     * @type {SavedSearchCreateRequest}
+     * @memberof SavedSearchApiSavedSearchCreate
+     */
+    readonly savedSearchCreateRequest: SavedSearchCreateRequest
+}
+
+/**
+ * Request parameters for savedSearchDelete operation in SavedSearchApi.
+ * @export
+ * @interface SavedSearchApiSavedSearchDeleteRequest
+ */
+export interface SavedSearchApiSavedSearchDeleteRequest {
+    /**
+     * ID of the requested document.
+     * @type {string}
+     * @memberof SavedSearchApiSavedSearchDelete
+     */
+    readonly id: string
+}
+
+/**
+ * Request parameters for savedSearchExecute operation in SavedSearchApi.
+ * @export
+ * @interface SavedSearchApiSavedSearchExecuteRequest
+ */
+export interface SavedSearchApiSavedSearchExecuteRequest {
+    /**
+     * ID of the requested document.
+     * @type {string}
+     * @memberof SavedSearchApiSavedSearchExecute
+     */
+    readonly id: string
+
+    /**
+     * When saved search execution is triggered by a scheduled search, *scheduleId* will specify the ID of the triggering scheduled search.  If *scheduleId* is not specified (when execution is triggered by a UI test), the *owner* and *recipients* arguments must be provided. 
+     * @type {SearchArguments}
+     * @memberof SavedSearchApiSavedSearchExecute
+     */
+    readonly searchArguments: SearchArguments
+}
+
+/**
+ * Request parameters for savedSearchGet operation in SavedSearchApi.
+ * @export
+ * @interface SavedSearchApiSavedSearchGetRequest
+ */
+export interface SavedSearchApiSavedSearchGetRequest {
+    /**
+     * ID of the requested document.
+     * @type {string}
+     * @memberof SavedSearchApiSavedSearchGet
+     */
+    readonly id: string
+}
+
+/**
+ * Request parameters for savedSearchList operation in SavedSearchApi.
+ * @export
+ * @interface SavedSearchApiSavedSearchListRequest
+ */
+export interface SavedSearchApiSavedSearchListRequest {
+    /**
+     * Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+     * @type {number}
+     * @memberof SavedSearchApiSavedSearchList
+     */
+    readonly offset?: number
+
+    /**
+     * Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+     * @type {number}
+     * @memberof SavedSearchApiSavedSearchList
+     */
+    readonly limit?: number
+
+    /**
+     * If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+     * @type {boolean}
+     * @memberof SavedSearchApiSavedSearchList
+     */
+    readonly count?: boolean
+
+    /**
+     * An expression used to constrain the result set using the filtering syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results).  Allowed filter properties: *owner.id*, *public*  Allowed filter operator: *eq*  **Example filters**:  &#x60;&#x60;&#x60;owner.id eq \&quot;0de46054-fe90-434a-b84e-c6b3359d0c64\&quot;&#x60;&#x60;&#x60; -- returns saved searches for the specified owner ID  &#x60;&#x60;&#x60;public eq true&#x60;&#x60;&#x60; -- returns all public saved searches  &#x60;&#x60;&#x60;owner.id eq me or public eq true&#x60;&#x60;&#x60; -- returns all of the current user\&#39;s saved searches as well as all public saved searches belonging to other users in the current org 
+     * @type {string}
+     * @memberof SavedSearchApiSavedSearchList
+     */
+    readonly filters?: string
+}
+
+/**
+ * Request parameters for savedSearchUpdate operation in SavedSearchApi.
+ * @export
+ * @interface SavedSearchApiSavedSearchUpdateRequest
+ */
+export interface SavedSearchApiSavedSearchUpdateRequest {
+    /**
+     * ID of the requested document.
+     * @type {string}
+     * @memberof SavedSearchApiSavedSearchUpdate
+     */
+    readonly id: string
+
+    /**
+     * The saved search to persist.
+     * @type {SavedSearch}
+     * @memberof SavedSearchApiSavedSearchUpdate
+     */
+    readonly savedSearch: SavedSearch
+}
+
+/**
  * SavedSearchApi - object-oriented interface
  * @export
  * @class SavedSearchApi
@@ -23670,78 +25835,73 @@ export class SavedSearchApi extends BaseAPI {
     /**
      * Creates a new saved search. 
      * @summary Create a saved search
-     * @param {SavedSearchCreateRequest} savedSearchCreateRequest The saved search to persist.
+     * @param {SavedSearchApiSavedSearchCreateRequest} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
      * @memberof SavedSearchApi
      */
-    public savedSearchCreate(savedSearchCreateRequest: SavedSearchCreateRequest, axiosOptions?: AxiosRequestConfig) {
-        return SavedSearchApiFp(this.configuration).savedSearchCreate(savedSearchCreateRequest, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public savedSearchCreate(requestParameters: SavedSearchApiSavedSearchCreateRequest, axiosOptions?: AxiosRequestConfig) {
+        return SavedSearchApiFp(this.configuration).savedSearchCreate(requestParameters.savedSearchCreateRequest, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * Deletes the specified saved search. 
      * @summary Delete a document by ID
-     * @param {string} id ID of the requested document.
+     * @param {SavedSearchApiSavedSearchDeleteRequest} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
      * @memberof SavedSearchApi
      */
-    public savedSearchDelete(id: string, axiosOptions?: AxiosRequestConfig) {
-        return SavedSearchApiFp(this.configuration).savedSearchDelete(id, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public savedSearchDelete(requestParameters: SavedSearchApiSavedSearchDeleteRequest, axiosOptions?: AxiosRequestConfig) {
+        return SavedSearchApiFp(this.configuration).savedSearchDelete(requestParameters.id, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * Executes the specified saved search. 
      * @summary Execute a saved search by ID
-     * @param {string} id ID of the requested document.
-     * @param {SearchArguments} searchArguments When saved search execution is triggered by a scheduled search, *scheduleId* will specify the ID of the triggering scheduled search.  If *scheduleId* is not specified (when execution is triggered by a UI test), the *owner* and *recipients* arguments must be provided. 
+     * @param {SavedSearchApiSavedSearchExecuteRequest} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
      * @memberof SavedSearchApi
      */
-    public savedSearchExecute(id: string, searchArguments: SearchArguments, axiosOptions?: AxiosRequestConfig) {
-        return SavedSearchApiFp(this.configuration).savedSearchExecute(id, searchArguments, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public savedSearchExecute(requestParameters: SavedSearchApiSavedSearchExecuteRequest, axiosOptions?: AxiosRequestConfig) {
+        return SavedSearchApiFp(this.configuration).savedSearchExecute(requestParameters.id, requestParameters.searchArguments, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * Returns the specified saved search. 
      * @summary Return a saved search by ID
-     * @param {string} id ID of the requested document.
+     * @param {SavedSearchApiSavedSearchGetRequest} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
      * @memberof SavedSearchApi
      */
-    public savedSearchGet(id: string, axiosOptions?: AxiosRequestConfig) {
-        return SavedSearchApiFp(this.configuration).savedSearchGet(id, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public savedSearchGet(requestParameters: SavedSearchApiSavedSearchGetRequest, axiosOptions?: AxiosRequestConfig) {
+        return SavedSearchApiFp(this.configuration).savedSearchGet(requestParameters.id, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * Returns a list of saved searches. 
      * @summary Return a list of Saved Searches
-     * @param {number} [offset] Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
-     * @param {number} [limit] Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
-     * @param {boolean} [count] If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
-     * @param {string} [filters] An expression used to constrain the result set using the filtering syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results).  Allowed filter properties: *owner.id*, *public*  Allowed filter operator: *eq*  **Example filters**:  &#x60;&#x60;&#x60;owner.id eq \&quot;0de46054-fe90-434a-b84e-c6b3359d0c64\&quot;&#x60;&#x60;&#x60; -- returns saved searches for the specified owner ID  &#x60;&#x60;&#x60;public eq true&#x60;&#x60;&#x60; -- returns all public saved searches  &#x60;&#x60;&#x60;owner.id eq me or public eq true&#x60;&#x60;&#x60; -- returns all of the current user\&#39;s saved searches as well as all public saved searches belonging to other users in the current org 
+     * @param {SavedSearchApiSavedSearchListRequest} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
      * @memberof SavedSearchApi
      */
-    public savedSearchList(offset?: number, limit?: number, count?: boolean, filters?: string, axiosOptions?: AxiosRequestConfig) {
-        return SavedSearchApiFp(this.configuration).savedSearchList(offset, limit, count, filters, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public savedSearchList(requestParameters: SavedSearchApiSavedSearchListRequest = {}, axiosOptions?: AxiosRequestConfig) {
+        return SavedSearchApiFp(this.configuration).savedSearchList(requestParameters.offset, requestParameters.limit, requestParameters.count, requestParameters.filters, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * Updates an existing saved search. 
      * @summary Updates an existing saved search 
-     * @param {string} id ID of the requested document.
-     * @param {SavedSearch} savedSearch The saved search to persist.
+     * @param {SavedSearchApiSavedSearchUpdateRequest} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
      * @memberof SavedSearchApi
      */
-    public savedSearchUpdate(id: string, savedSearch: SavedSearch, axiosOptions?: AxiosRequestConfig) {
-        return SavedSearchApiFp(this.configuration).savedSearchUpdate(id, savedSearch, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public savedSearchUpdate(requestParameters: SavedSearchApiSavedSearchUpdateRequest, axiosOptions?: AxiosRequestConfig) {
+        return SavedSearchApiFp(this.configuration).savedSearchUpdate(requestParameters.id, requestParameters.savedSearch, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 }
 
@@ -24194,6 +26354,125 @@ export const ScheduledSearchApiFactory = function (configuration?: Configuration
 };
 
 /**
+ * Request parameters for scheduledSearchCreate operation in ScheduledSearchApi.
+ * @export
+ * @interface ScheduledSearchApiScheduledSearchCreateRequest
+ */
+export interface ScheduledSearchApiScheduledSearchCreateRequest {
+    /**
+     * The scheduled search to persist.
+     * @type {ScheduledSearchCreateRequest}
+     * @memberof ScheduledSearchApiScheduledSearchCreate
+     */
+    readonly scheduledSearchCreateRequest: ScheduledSearchCreateRequest
+}
+
+/**
+ * Request parameters for scheduledSearchDelete operation in ScheduledSearchApi.
+ * @export
+ * @interface ScheduledSearchApiScheduledSearchDeleteRequest
+ */
+export interface ScheduledSearchApiScheduledSearchDeleteRequest {
+    /**
+     * ID of the requested document.
+     * @type {string}
+     * @memberof ScheduledSearchApiScheduledSearchDelete
+     */
+    readonly id: string
+}
+
+/**
+ * Request parameters for scheduledSearchGet operation in ScheduledSearchApi.
+ * @export
+ * @interface ScheduledSearchApiScheduledSearchGetRequest
+ */
+export interface ScheduledSearchApiScheduledSearchGetRequest {
+    /**
+     * ID of the requested document.
+     * @type {string}
+     * @memberof ScheduledSearchApiScheduledSearchGet
+     */
+    readonly id: string
+}
+
+/**
+ * Request parameters for scheduledSearchList operation in ScheduledSearchApi.
+ * @export
+ * @interface ScheduledSearchApiScheduledSearchListRequest
+ */
+export interface ScheduledSearchApiScheduledSearchListRequest {
+    /**
+     * Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+     * @type {number}
+     * @memberof ScheduledSearchApiScheduledSearchList
+     */
+    readonly offset?: number
+
+    /**
+     * Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+     * @type {number}
+     * @memberof ScheduledSearchApiScheduledSearchList
+     */
+    readonly limit?: number
+
+    /**
+     * If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+     * @type {boolean}
+     * @memberof ScheduledSearchApiScheduledSearchList
+     */
+    readonly count?: boolean
+
+    /**
+     * An expression used to constrain the result set using the filtering syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results).  Allowed filter properties: *owner.id*, *savedSearchId*  Allowed filter operator: *eq*  **Example filters**:  &#x60;&#x60;&#x60;owner.id eq \&quot;0de46054-fe90-434a-b84e-c6b3359d0c64\&quot;&#x60;&#x60;&#x60; -- returns scheduled searches for the specified owner ID  &#x60;&#x60;&#x60;savedSearchId eq \&quot;6cc0945d-9eeb-4948-9033-72d066e1153e\&quot;&#x60;&#x60;&#x60; -- returns scheduled searches that reference the specified saved search  &#x60;&#x60;&#x60;owner.id eq me or savedSearchId eq \&quot;6cc0945d-9eeb-4948-9033-72d066e1153e\&quot;&#x60;&#x60;&#x60; -- returns all of the current user\&#39;s scheduled searches as well as all scheduled searches that reference the specified saved search 
+     * @type {string}
+     * @memberof ScheduledSearchApiScheduledSearchList
+     */
+    readonly filters?: string
+}
+
+/**
+ * Request parameters for scheduledSearchUnsubscribe operation in ScheduledSearchApi.
+ * @export
+ * @interface ScheduledSearchApiScheduledSearchUnsubscribeRequest
+ */
+export interface ScheduledSearchApiScheduledSearchUnsubscribeRequest {
+    /**
+     * ID of the requested document.
+     * @type {string}
+     * @memberof ScheduledSearchApiScheduledSearchUnsubscribe
+     */
+    readonly id: string
+
+    /**
+     * The recipient to be removed from the scheduled search. 
+     * @type {TypedReference}
+     * @memberof ScheduledSearchApiScheduledSearchUnsubscribe
+     */
+    readonly typedReference: TypedReference
+}
+
+/**
+ * Request parameters for scheduledSearchUpdate operation in ScheduledSearchApi.
+ * @export
+ * @interface ScheduledSearchApiScheduledSearchUpdateRequest
+ */
+export interface ScheduledSearchApiScheduledSearchUpdateRequest {
+    /**
+     * ID of the requested document.
+     * @type {string}
+     * @memberof ScheduledSearchApiScheduledSearchUpdate
+     */
+    readonly id: string
+
+    /**
+     * The scheduled search to persist.
+     * @type {ScheduledSearch}
+     * @memberof ScheduledSearchApiScheduledSearchUpdate
+     */
+    readonly scheduledSearch: ScheduledSearch
+}
+
+/**
  * ScheduledSearchApi - object-oriented interface
  * @export
  * @class ScheduledSearchApi
@@ -24203,78 +26482,73 @@ export class ScheduledSearchApi extends BaseAPI {
     /**
      * Creates a new scheduled search. 
      * @summary Create a new scheduled search
-     * @param {ScheduledSearchCreateRequest} scheduledSearchCreateRequest The scheduled search to persist.
+     * @param {ScheduledSearchApiScheduledSearchCreateRequest} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
      * @memberof ScheduledSearchApi
      */
-    public scheduledSearchCreate(scheduledSearchCreateRequest: ScheduledSearchCreateRequest, axiosOptions?: AxiosRequestConfig) {
-        return ScheduledSearchApiFp(this.configuration).scheduledSearchCreate(scheduledSearchCreateRequest, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public scheduledSearchCreate(requestParameters: ScheduledSearchApiScheduledSearchCreateRequest, axiosOptions?: AxiosRequestConfig) {
+        return ScheduledSearchApiFp(this.configuration).scheduledSearchCreate(requestParameters.scheduledSearchCreateRequest, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * Deletes the specified scheduled search. 
      * @summary Delete a Scheduled Search
-     * @param {string} id ID of the requested document.
+     * @param {ScheduledSearchApiScheduledSearchDeleteRequest} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
      * @memberof ScheduledSearchApi
      */
-    public scheduledSearchDelete(id: string, axiosOptions?: AxiosRequestConfig) {
-        return ScheduledSearchApiFp(this.configuration).scheduledSearchDelete(id, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public scheduledSearchDelete(requestParameters: ScheduledSearchApiScheduledSearchDeleteRequest, axiosOptions?: AxiosRequestConfig) {
+        return ScheduledSearchApiFp(this.configuration).scheduledSearchDelete(requestParameters.id, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * Returns the specified scheduled search.
      * @summary Get a Scheduled Search
-     * @param {string} id ID of the requested document.
+     * @param {ScheduledSearchApiScheduledSearchGetRequest} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
      * @memberof ScheduledSearchApi
      */
-    public scheduledSearchGet(id: string, axiosOptions?: AxiosRequestConfig) {
-        return ScheduledSearchApiFp(this.configuration).scheduledSearchGet(id, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public scheduledSearchGet(requestParameters: ScheduledSearchApiScheduledSearchGetRequest, axiosOptions?: AxiosRequestConfig) {
+        return ScheduledSearchApiFp(this.configuration).scheduledSearchGet(requestParameters.id, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * Returns a list of scheduled searches. 
      * @summary List scheduled searches
-     * @param {number} [offset] Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
-     * @param {number} [limit] Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
-     * @param {boolean} [count] If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
-     * @param {string} [filters] An expression used to constrain the result set using the filtering syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results).  Allowed filter properties: *owner.id*, *savedSearchId*  Allowed filter operator: *eq*  **Example filters**:  &#x60;&#x60;&#x60;owner.id eq \&quot;0de46054-fe90-434a-b84e-c6b3359d0c64\&quot;&#x60;&#x60;&#x60; -- returns scheduled searches for the specified owner ID  &#x60;&#x60;&#x60;savedSearchId eq \&quot;6cc0945d-9eeb-4948-9033-72d066e1153e\&quot;&#x60;&#x60;&#x60; -- returns scheduled searches that reference the specified saved search  &#x60;&#x60;&#x60;owner.id eq me or savedSearchId eq \&quot;6cc0945d-9eeb-4948-9033-72d066e1153e\&quot;&#x60;&#x60;&#x60; -- returns all of the current user\&#39;s scheduled searches as well as all scheduled searches that reference the specified saved search 
+     * @param {ScheduledSearchApiScheduledSearchListRequest} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
      * @memberof ScheduledSearchApi
      */
-    public scheduledSearchList(offset?: number, limit?: number, count?: boolean, filters?: string, axiosOptions?: AxiosRequestConfig) {
-        return ScheduledSearchApiFp(this.configuration).scheduledSearchList(offset, limit, count, filters, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public scheduledSearchList(requestParameters: ScheduledSearchApiScheduledSearchListRequest = {}, axiosOptions?: AxiosRequestConfig) {
+        return ScheduledSearchApiFp(this.configuration).scheduledSearchList(requestParameters.offset, requestParameters.limit, requestParameters.count, requestParameters.filters, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * Unsubscribes a recipient from the specified scheduled search. 
      * @summary Unsubscribe a recipient from Scheduled Search
-     * @param {string} id ID of the requested document.
-     * @param {TypedReference} typedReference The recipient to be removed from the scheduled search. 
+     * @param {ScheduledSearchApiScheduledSearchUnsubscribeRequest} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
      * @memberof ScheduledSearchApi
      */
-    public scheduledSearchUnsubscribe(id: string, typedReference: TypedReference, axiosOptions?: AxiosRequestConfig) {
-        return ScheduledSearchApiFp(this.configuration).scheduledSearchUnsubscribe(id, typedReference, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public scheduledSearchUnsubscribe(requestParameters: ScheduledSearchApiScheduledSearchUnsubscribeRequest, axiosOptions?: AxiosRequestConfig) {
+        return ScheduledSearchApiFp(this.configuration).scheduledSearchUnsubscribe(requestParameters.id, requestParameters.typedReference, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * Updates an existing scheduled search. 
      * @summary Update an existing Scheduled Search
-     * @param {string} id ID of the requested document.
-     * @param {ScheduledSearch} scheduledSearch The scheduled search to persist.
+     * @param {ScheduledSearchApiScheduledSearchUpdateRequest} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
      * @memberof ScheduledSearchApi
      */
-    public scheduledSearchUpdate(id: string, scheduledSearch: ScheduledSearch, axiosOptions?: AxiosRequestConfig) {
-        return ScheduledSearchApiFp(this.configuration).scheduledSearchUpdate(id, scheduledSearch, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public scheduledSearchUpdate(requestParameters: ScheduledSearchApiScheduledSearchUpdateRequest, axiosOptions?: AxiosRequestConfig) {
+        return ScheduledSearchApiFp(this.configuration).scheduledSearchUpdate(requestParameters.id, requestParameters.scheduledSearch, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 }
 
@@ -24615,6 +26889,111 @@ export const SearchApiFactory = function (configuration?: Configuration, basePat
 };
 
 /**
+ * Request parameters for searchAggregate operation in SearchApi.
+ * @export
+ * @interface SearchApiSearchAggregateRequest
+ */
+export interface SearchApiSearchAggregateRequest {
+    /**
+     * 
+     * @type {Search1}
+     * @memberof SearchApiSearchAggregate
+     */
+    readonly search1: Search1
+
+    /**
+     * Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+     * @type {number}
+     * @memberof SearchApiSearchAggregate
+     */
+    readonly offset?: number
+
+    /**
+     * Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+     * @type {number}
+     * @memberof SearchApiSearchAggregate
+     */
+    readonly limit?: number
+
+    /**
+     * If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+     * @type {boolean}
+     * @memberof SearchApiSearchAggregate
+     */
+    readonly count?: boolean
+}
+
+/**
+ * Request parameters for searchCount operation in SearchApi.
+ * @export
+ * @interface SearchApiSearchCountRequest
+ */
+export interface SearchApiSearchCountRequest {
+    /**
+     * 
+     * @type {Search1}
+     * @memberof SearchApiSearchCount
+     */
+    readonly search1: Search1
+}
+
+/**
+ * Request parameters for searchGet operation in SearchApi.
+ * @export
+ * @interface SearchApiSearchGetRequest
+ */
+export interface SearchApiSearchGetRequest {
+    /**
+     * The index from which to fetch the specified document.  The currently supported index names are: *accessprofiles*, *accountactivities*, *accounts*, *aggregations*, *entitlements*, *events*, *identities*, and *roles*. 
+     * @type {string}
+     * @memberof SearchApiSearchGet
+     */
+    readonly index: string
+
+    /**
+     * ID of the requested document.
+     * @type {string}
+     * @memberof SearchApiSearchGet
+     */
+    readonly id: string
+}
+
+/**
+ * Request parameters for searchPost operation in SearchApi.
+ * @export
+ * @interface SearchApiSearchPostRequest
+ */
+export interface SearchApiSearchPostRequest {
+    /**
+     * 
+     * @type {Search1}
+     * @memberof SearchApiSearchPost
+     */
+    readonly search1: Search1
+
+    /**
+     * Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+     * @type {number}
+     * @memberof SearchApiSearchPost
+     */
+    readonly offset?: number
+
+    /**
+     * Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+     * @type {number}
+     * @memberof SearchApiSearchPost
+     */
+    readonly limit?: number
+
+    /**
+     * If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+     * @type {boolean}
+     * @memberof SearchApiSearchPost
+     */
+    readonly count?: boolean
+}
+
+/**
  * SearchApi - object-oriented interface
  * @export
  * @class SearchApi
@@ -24624,56 +27003,49 @@ export class SearchApi extends BaseAPI {
     /**
      * Performs a search query aggregation and returns the aggregation result. By default, you can page a maximum of 10,000 search result records.  To page past 10,000 records, you can use searchAfter paging.  Refer to [Paginating Search Queries](https://developer.sailpoint.com/idn/api/standard-collection-parameters#paginating-search-queries) for more information about how to implement searchAfter paging. 
      * @summary Perform a Search Query Aggregation
-     * @param {Search1} search1 
-     * @param {number} [offset] Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
-     * @param {number} [limit] Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
-     * @param {boolean} [count] If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+     * @param {SearchApiSearchAggregateRequest} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
      * @memberof SearchApi
      */
-    public searchAggregate(search1: Search1, offset?: number, limit?: number, count?: boolean, axiosOptions?: AxiosRequestConfig) {
-        return SearchApiFp(this.configuration).searchAggregate(search1, offset, limit, count, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public searchAggregate(requestParameters: SearchApiSearchAggregateRequest, axiosOptions?: AxiosRequestConfig) {
+        return SearchApiFp(this.configuration).searchAggregate(requestParameters.search1, requestParameters.offset, requestParameters.limit, requestParameters.count, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * Performs a search with a provided query and returns the count of results in the X-Total-Count header.
      * @summary Count Documents Satisfying a Query
-     * @param {Search1} search1 
+     * @param {SearchApiSearchCountRequest} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
      * @memberof SearchApi
      */
-    public searchCount(search1: Search1, axiosOptions?: AxiosRequestConfig) {
-        return SearchApiFp(this.configuration).searchCount(search1, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public searchCount(requestParameters: SearchApiSearchCountRequest, axiosOptions?: AxiosRequestConfig) {
+        return SearchApiFp(this.configuration).searchCount(requestParameters.search1, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * Fetches a single document from the specified index, using the specified document ID.
      * @summary Get a Document by ID
-     * @param {string} index The index from which to fetch the specified document.  The currently supported index names are: *accessprofiles*, *accountactivities*, *accounts*, *aggregations*, *entitlements*, *events*, *identities*, and *roles*. 
-     * @param {string} id ID of the requested document.
+     * @param {SearchApiSearchGetRequest} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
      * @memberof SearchApi
      */
-    public searchGet(index: string, id: string, axiosOptions?: AxiosRequestConfig) {
-        return SearchApiFp(this.configuration).searchGet(index, id, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public searchGet(requestParameters: SearchApiSearchGetRequest, axiosOptions?: AxiosRequestConfig) {
+        return SearchApiFp(this.configuration).searchGet(requestParameters.index, requestParameters.id, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * Performs a search with the provided query and returns a matching result collection. By default, you can page a maximum of 10,000 search result records.  To page past 10,000 records, you can use searchAfter paging.  Refer to [Paginating Search Queries](https://developer.sailpoint.com/idn/api/standard-collection-parameters#paginating-search-queries) for more information about how to implement searchAfter paging. 
      * @summary Perform Search
-     * @param {Search1} search1 
-     * @param {number} [offset] Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
-     * @param {number} [limit] Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
-     * @param {boolean} [count] If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+     * @param {SearchApiSearchPostRequest} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
      * @memberof SearchApi
      */
-    public searchPost(search1: Search1, offset?: number, limit?: number, count?: boolean, axiosOptions?: AxiosRequestConfig) {
-        return SearchApiFp(this.configuration).searchPost(search1, offset, limit, count, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public searchPost(requestParameters: SearchApiSearchPostRequest, axiosOptions?: AxiosRequestConfig) {
+        return SearchApiFp(this.configuration).searchPost(requestParameters.search1, requestParameters.offset, requestParameters.limit, requestParameters.count, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 }
 
@@ -25375,6 +27747,160 @@ export const ServiceDeskIntegrationApiFactory = function (configuration?: Config
 };
 
 /**
+ * Request parameters for createServiceDeskIntegration operation in ServiceDeskIntegrationApi.
+ * @export
+ * @interface ServiceDeskIntegrationApiCreateServiceDeskIntegrationRequest
+ */
+export interface ServiceDeskIntegrationApiCreateServiceDeskIntegrationRequest {
+    /**
+     * The specifics of a new integration to create
+     * @type {ServiceDeskIntegrationDto}
+     * @memberof ServiceDeskIntegrationApiCreateServiceDeskIntegration
+     */
+    readonly serviceDeskIntegrationDto: ServiceDeskIntegrationDto
+}
+
+/**
+ * Request parameters for deleteServiceDeskIntegration operation in ServiceDeskIntegrationApi.
+ * @export
+ * @interface ServiceDeskIntegrationApiDeleteServiceDeskIntegrationRequest
+ */
+export interface ServiceDeskIntegrationApiDeleteServiceDeskIntegrationRequest {
+    /**
+     * ID of Service Desk integration to delete
+     * @type {string}
+     * @memberof ServiceDeskIntegrationApiDeleteServiceDeskIntegration
+     */
+    readonly id: string
+}
+
+/**
+ * Request parameters for getServiceDeskIntegration operation in ServiceDeskIntegrationApi.
+ * @export
+ * @interface ServiceDeskIntegrationApiGetServiceDeskIntegrationRequest
+ */
+export interface ServiceDeskIntegrationApiGetServiceDeskIntegrationRequest {
+    /**
+     * ID of the Service Desk integration to get
+     * @type {string}
+     * @memberof ServiceDeskIntegrationApiGetServiceDeskIntegration
+     */
+    readonly id: string
+}
+
+/**
+ * Request parameters for getServiceDeskIntegrationList operation in ServiceDeskIntegrationApi.
+ * @export
+ * @interface ServiceDeskIntegrationApiGetServiceDeskIntegrationListRequest
+ */
+export interface ServiceDeskIntegrationApiGetServiceDeskIntegrationListRequest {
+    /**
+     * Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+     * @type {number}
+     * @memberof ServiceDeskIntegrationApiGetServiceDeskIntegrationList
+     */
+    readonly offset?: number
+
+    /**
+     * Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+     * @type {number}
+     * @memberof ServiceDeskIntegrationApiGetServiceDeskIntegrationList
+     */
+    readonly limit?: number
+
+    /**
+     * Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **name**
+     * @type {string}
+     * @memberof ServiceDeskIntegrationApiGetServiceDeskIntegrationList
+     */
+    readonly sorters?: string
+
+    /**
+     * Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, in*  **name**: *eq*  **type**: *eq, in*  **cluster**: *eq, in*
+     * @type {string}
+     * @memberof ServiceDeskIntegrationApiGetServiceDeskIntegrationList
+     */
+    readonly filters?: string
+
+    /**
+     * If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+     * @type {boolean}
+     * @memberof ServiceDeskIntegrationApiGetServiceDeskIntegrationList
+     */
+    readonly count?: boolean
+}
+
+/**
+ * Request parameters for getServiceDeskIntegrationTemplate operation in ServiceDeskIntegrationApi.
+ * @export
+ * @interface ServiceDeskIntegrationApiGetServiceDeskIntegrationTemplateRequest
+ */
+export interface ServiceDeskIntegrationApiGetServiceDeskIntegrationTemplateRequest {
+    /**
+     * The scriptName value of the Service Desk integration template to get
+     * @type {string}
+     * @memberof ServiceDeskIntegrationApiGetServiceDeskIntegrationTemplate
+     */
+    readonly scriptName: string
+}
+
+/**
+ * Request parameters for patchServiceDeskIntegration operation in ServiceDeskIntegrationApi.
+ * @export
+ * @interface ServiceDeskIntegrationApiPatchServiceDeskIntegrationRequest
+ */
+export interface ServiceDeskIntegrationApiPatchServiceDeskIntegrationRequest {
+    /**
+     * ID of the Service Desk integration to update
+     * @type {string}
+     * @memberof ServiceDeskIntegrationApiPatchServiceDeskIntegration
+     */
+    readonly id: string
+
+    /**
+     * A list of SDIM update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.  PATCH can only be applied to the following fields:   *   \&quot;beforeProvisioningRule\&quot;  A 403 Forbidden Error indicates that you attempted to PATCH a field that is not allowed. 
+     * @type {JsonPatch}
+     * @memberof ServiceDeskIntegrationApiPatchServiceDeskIntegration
+     */
+    readonly jsonPatch: JsonPatch
+}
+
+/**
+ * Request parameters for updateServiceDeskIntegration operation in ServiceDeskIntegrationApi.
+ * @export
+ * @interface ServiceDeskIntegrationApiUpdateServiceDeskIntegrationRequest
+ */
+export interface ServiceDeskIntegrationApiUpdateServiceDeskIntegrationRequest {
+    /**
+     * ID of the Service Desk integration to update
+     * @type {string}
+     * @memberof ServiceDeskIntegrationApiUpdateServiceDeskIntegration
+     */
+    readonly id: string
+
+    /**
+     * The specifics of the integration to update
+     * @type {ServiceDeskIntegrationDto}
+     * @memberof ServiceDeskIntegrationApiUpdateServiceDeskIntegration
+     */
+    readonly serviceDeskIntegrationDto: ServiceDeskIntegrationDto
+}
+
+/**
+ * Request parameters for updateStatusCheckDetails operation in ServiceDeskIntegrationApi.
+ * @export
+ * @interface ServiceDeskIntegrationApiUpdateStatusCheckDetailsRequest
+ */
+export interface ServiceDeskIntegrationApiUpdateStatusCheckDetailsRequest {
+    /**
+     * the modified time check configuration
+     * @type {QueuedCheckConfigDetails}
+     * @memberof ServiceDeskIntegrationApiUpdateStatusCheckDetails
+     */
+    readonly queuedCheckConfigDetails: QueuedCheckConfigDetails
+}
+
+/**
  * ServiceDeskIntegrationApi - object-oriented interface
  * @export
  * @class ServiceDeskIntegrationApi
@@ -25384,65 +27910,61 @@ export class ServiceDeskIntegrationApi extends BaseAPI {
     /**
      * Create a new Service Desk Integrations.  A token with Org Admin or Service Desk Admin authority is required to access this endpoint.
      * @summary Create a new Service Desk integration
-     * @param {ServiceDeskIntegrationDto} serviceDeskIntegrationDto The specifics of a new integration to create
+     * @param {ServiceDeskIntegrationApiCreateServiceDeskIntegrationRequest} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
      * @memberof ServiceDeskIntegrationApi
      */
-    public createServiceDeskIntegration(serviceDeskIntegrationDto: ServiceDeskIntegrationDto, axiosOptions?: AxiosRequestConfig) {
-        return ServiceDeskIntegrationApiFp(this.configuration).createServiceDeskIntegration(serviceDeskIntegrationDto, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public createServiceDeskIntegration(requestParameters: ServiceDeskIntegrationApiCreateServiceDeskIntegrationRequest, axiosOptions?: AxiosRequestConfig) {
+        return ServiceDeskIntegrationApiFp(this.configuration).createServiceDeskIntegration(requestParameters.serviceDeskIntegrationDto, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * Delete an existing Service Desk integration by ID.  A token with Org Admin or Service Desk Admin authority is required to access this endpoint.
      * @summary Delete a Service Desk integration by ID
-     * @param {string} id ID of Service Desk integration to delete
+     * @param {ServiceDeskIntegrationApiDeleteServiceDeskIntegrationRequest} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
      * @memberof ServiceDeskIntegrationApi
      */
-    public deleteServiceDeskIntegration(id: string, axiosOptions?: AxiosRequestConfig) {
-        return ServiceDeskIntegrationApiFp(this.configuration).deleteServiceDeskIntegration(id, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public deleteServiceDeskIntegration(requestParameters: ServiceDeskIntegrationApiDeleteServiceDeskIntegrationRequest, axiosOptions?: AxiosRequestConfig) {
+        return ServiceDeskIntegrationApiFp(this.configuration).deleteServiceDeskIntegration(requestParameters.id, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * Get an existing Service Desk integration by ID.  A token with Org Admin or Service Desk Admin authority is required to access this endpoint.
      * @summary Get a Service Desk integration by ID
-     * @param {string} id ID of the Service Desk integration to get
+     * @param {ServiceDeskIntegrationApiGetServiceDeskIntegrationRequest} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
      * @memberof ServiceDeskIntegrationApi
      */
-    public getServiceDeskIntegration(id: string, axiosOptions?: AxiosRequestConfig) {
-        return ServiceDeskIntegrationApiFp(this.configuration).getServiceDeskIntegration(id, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public getServiceDeskIntegration(requestParameters: ServiceDeskIntegrationApiGetServiceDeskIntegrationRequest, axiosOptions?: AxiosRequestConfig) {
+        return ServiceDeskIntegrationApiFp(this.configuration).getServiceDeskIntegration(requestParameters.id, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * Get a list of ServiceDeskIntegrationDto for existing Service Desk Integrations.  A token with Org Admin or Service Desk Admin authority is required to access this endpoint.
      * @summary List existing Service Desk Integrations
-     * @param {number} [offset] Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
-     * @param {number} [limit] Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
-     * @param {string} [sorters] Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **name**
-     * @param {string} [filters] Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, in*  **name**: *eq*  **type**: *eq, in*  **cluster**: *eq, in*
-     * @param {boolean} [count] If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+     * @param {ServiceDeskIntegrationApiGetServiceDeskIntegrationListRequest} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
      * @memberof ServiceDeskIntegrationApi
      */
-    public getServiceDeskIntegrationList(offset?: number, limit?: number, sorters?: string, filters?: string, count?: boolean, axiosOptions?: AxiosRequestConfig) {
-        return ServiceDeskIntegrationApiFp(this.configuration).getServiceDeskIntegrationList(offset, limit, sorters, filters, count, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public getServiceDeskIntegrationList(requestParameters: ServiceDeskIntegrationApiGetServiceDeskIntegrationListRequest = {}, axiosOptions?: AxiosRequestConfig) {
+        return ServiceDeskIntegrationApiFp(this.configuration).getServiceDeskIntegrationList(requestParameters.offset, requestParameters.limit, requestParameters.sorters, requestParameters.filters, requestParameters.count, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * This API endpoint returns an existing Service Desk integration template by scriptName.  A token with Org Admin or Service Desk Admin authority is required to access this endpoint.
      * @summary Service Desk integration template by scriptName.
-     * @param {string} scriptName The scriptName value of the Service Desk integration template to get
+     * @param {ServiceDeskIntegrationApiGetServiceDeskIntegrationTemplateRequest} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
      * @memberof ServiceDeskIntegrationApi
      */
-    public getServiceDeskIntegrationTemplate(scriptName: string, axiosOptions?: AxiosRequestConfig) {
-        return ServiceDeskIntegrationApiFp(this.configuration).getServiceDeskIntegrationTemplate(scriptName, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public getServiceDeskIntegrationTemplate(requestParameters: ServiceDeskIntegrationApiGetServiceDeskIntegrationTemplateRequest, axiosOptions?: AxiosRequestConfig) {
+        return ServiceDeskIntegrationApiFp(this.configuration).getServiceDeskIntegrationTemplate(requestParameters.scriptName, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -25470,39 +27992,37 @@ export class ServiceDeskIntegrationApi extends BaseAPI {
     /**
      * Update an existing ServiceDeskIntegration by ID with a PATCH request.
      * @summary Service Desk Integration Update - PATCH
-     * @param {string} id ID of the Service Desk integration to update
-     * @param {JsonPatch} jsonPatch A list of SDIM update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.  PATCH can only be applied to the following fields:   *   \&quot;beforeProvisioningRule\&quot;  A 403 Forbidden Error indicates that you attempted to PATCH a field that is not allowed. 
+     * @param {ServiceDeskIntegrationApiPatchServiceDeskIntegrationRequest} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
      * @memberof ServiceDeskIntegrationApi
      */
-    public patchServiceDeskIntegration(id: string, jsonPatch: JsonPatch, axiosOptions?: AxiosRequestConfig) {
-        return ServiceDeskIntegrationApiFp(this.configuration).patchServiceDeskIntegration(id, jsonPatch, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public patchServiceDeskIntegration(requestParameters: ServiceDeskIntegrationApiPatchServiceDeskIntegrationRequest, axiosOptions?: AxiosRequestConfig) {
+        return ServiceDeskIntegrationApiFp(this.configuration).patchServiceDeskIntegration(requestParameters.id, requestParameters.jsonPatch, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * Update an existing Service Desk integration by ID with updated value in JSON form as the request body.  A token with Org Admin or Service Desk Admin authority is required to access this endpoint.
      * @summary Update a Service Desk integration by ID
-     * @param {string} id ID of the Service Desk integration to update
-     * @param {ServiceDeskIntegrationDto} serviceDeskIntegrationDto The specifics of the integration to update
+     * @param {ServiceDeskIntegrationApiUpdateServiceDeskIntegrationRequest} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
      * @memberof ServiceDeskIntegrationApi
      */
-    public updateServiceDeskIntegration(id: string, serviceDeskIntegrationDto: ServiceDeskIntegrationDto, axiosOptions?: AxiosRequestConfig) {
-        return ServiceDeskIntegrationApiFp(this.configuration).updateServiceDeskIntegration(id, serviceDeskIntegrationDto, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public updateServiceDeskIntegration(requestParameters: ServiceDeskIntegrationApiUpdateServiceDeskIntegrationRequest, axiosOptions?: AxiosRequestConfig) {
+        return ServiceDeskIntegrationApiFp(this.configuration).updateServiceDeskIntegration(requestParameters.id, requestParameters.serviceDeskIntegrationDto, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * Update the time check configuration of queued SDIM tickets.  A token with Org Admin or Service Desk Admin authority is required to access this endpoint.
      * @summary Update the time check configuration of queued SDIM tickets
-     * @param {QueuedCheckConfigDetails} queuedCheckConfigDetails the modified time check configuration
+     * @param {ServiceDeskIntegrationApiUpdateStatusCheckDetailsRequest} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
      * @memberof ServiceDeskIntegrationApi
      */
-    public updateStatusCheckDetails(queuedCheckConfigDetails: QueuedCheckConfigDetails, axiosOptions?: AxiosRequestConfig) {
-        return ServiceDeskIntegrationApiFp(this.configuration).updateStatusCheckDetails(queuedCheckConfigDetails, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public updateStatusCheckDetails(requestParameters: ServiceDeskIntegrationApiUpdateStatusCheckDetailsRequest, axiosOptions?: AxiosRequestConfig) {
+        return ServiceDeskIntegrationApiFp(this.configuration).updateStatusCheckDetails(requestParameters.queuedCheckConfigDetails, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 }
 
@@ -27331,6 +29851,559 @@ export const SourcesApiFactory = function (configuration?: Configuration, basePa
 };
 
 /**
+ * Request parameters for bulkUpdateProvisioningPolicies operation in SourcesApi.
+ * @export
+ * @interface SourcesApiBulkUpdateProvisioningPoliciesRequest
+ */
+export interface SourcesApiBulkUpdateProvisioningPoliciesRequest {
+    /**
+     * The Source id.
+     * @type {string}
+     * @memberof SourcesApiBulkUpdateProvisioningPolicies
+     */
+    readonly sourceId: string
+
+    /**
+     * 
+     * @type {Array<ProvisioningPolicyDto>}
+     * @memberof SourcesApiBulkUpdateProvisioningPolicies
+     */
+    readonly provisioningPolicyDto: Array<ProvisioningPolicyDto>
+}
+
+/**
+ * Request parameters for createProvisioningPolicy operation in SourcesApi.
+ * @export
+ * @interface SourcesApiCreateProvisioningPolicyRequest
+ */
+export interface SourcesApiCreateProvisioningPolicyRequest {
+    /**
+     * The Source id
+     * @type {string}
+     * @memberof SourcesApiCreateProvisioningPolicy
+     */
+    readonly sourceId: string
+
+    /**
+     * 
+     * @type {ProvisioningPolicyDto}
+     * @memberof SourcesApiCreateProvisioningPolicy
+     */
+    readonly provisioningPolicyDto: ProvisioningPolicyDto
+}
+
+/**
+ * Request parameters for createSchema operation in SourcesApi.
+ * @export
+ * @interface SourcesApiCreateSchemaRequest
+ */
+export interface SourcesApiCreateSchemaRequest {
+    /**
+     * The Source id.
+     * @type {string}
+     * @memberof SourcesApiCreateSchema
+     */
+    readonly sourceId: string
+
+    /**
+     * 
+     * @type {Schema}
+     * @memberof SourcesApiCreateSchema
+     */
+    readonly schema: Schema
+}
+
+/**
+ * Request parameters for createSource operation in SourcesApi.
+ * @export
+ * @interface SourcesApiCreateSourceRequest
+ */
+export interface SourcesApiCreateSourceRequest {
+    /**
+     * 
+     * @type {Source}
+     * @memberof SourcesApiCreateSource
+     */
+    readonly source: Source
+
+    /**
+     * Configures the source as a DelimitedFile type of source.
+     * @type {boolean}
+     * @memberof SourcesApiCreateSource
+     */
+    readonly provisionAsCsv?: boolean
+}
+
+/**
+ * Request parameters for deleteProvisioningPolicy operation in SourcesApi.
+ * @export
+ * @interface SourcesApiDeleteProvisioningPolicyRequest
+ */
+export interface SourcesApiDeleteProvisioningPolicyRequest {
+    /**
+     * The Source ID.
+     * @type {string}
+     * @memberof SourcesApiDeleteProvisioningPolicy
+     */
+    readonly sourceId: string
+
+    /**
+     * The type of ProvisioningPolicy usage.
+     * @type {UsageType}
+     * @memberof SourcesApiDeleteProvisioningPolicy
+     */
+    readonly usageType: UsageType
+}
+
+/**
+ * Request parameters for deleteSchema operation in SourcesApi.
+ * @export
+ * @interface SourcesApiDeleteSchemaRequest
+ */
+export interface SourcesApiDeleteSchemaRequest {
+    /**
+     * The Source id.
+     * @type {string}
+     * @memberof SourcesApiDeleteSchema
+     */
+    readonly sourceId: string
+
+    /**
+     * The Schema id.
+     * @type {string}
+     * @memberof SourcesApiDeleteSchema
+     */
+    readonly schemaId: string
+}
+
+/**
+ * Request parameters for deleteSource operation in SourcesApi.
+ * @export
+ * @interface SourcesApiDeleteSourceRequest
+ */
+export interface SourcesApiDeleteSourceRequest {
+    /**
+     * The Source id
+     * @type {string}
+     * @memberof SourcesApiDeleteSource
+     */
+    readonly id: string
+}
+
+/**
+ * Request parameters for downloadSourceAccountsSchema operation in SourcesApi.
+ * @export
+ * @interface SourcesApiDownloadSourceAccountsSchemaRequest
+ */
+export interface SourcesApiDownloadSourceAccountsSchemaRequest {
+    /**
+     * The Source id
+     * @type {string}
+     * @memberof SourcesApiDownloadSourceAccountsSchema
+     */
+    readonly id: string
+}
+
+/**
+ * Request parameters for downloadSourceEntitlementsSchema operation in SourcesApi.
+ * @export
+ * @interface SourcesApiDownloadSourceEntitlementsSchemaRequest
+ */
+export interface SourcesApiDownloadSourceEntitlementsSchemaRequest {
+    /**
+     * The Source id
+     * @type {string}
+     * @memberof SourcesApiDownloadSourceEntitlementsSchema
+     */
+    readonly id: string
+
+    /**
+     * Name of entitlement schema
+     * @type {string}
+     * @memberof SourcesApiDownloadSourceEntitlementsSchema
+     */
+    readonly schemaName?: string
+}
+
+/**
+ * Request parameters for getProvisioningPolicy operation in SourcesApi.
+ * @export
+ * @interface SourcesApiGetProvisioningPolicyRequest
+ */
+export interface SourcesApiGetProvisioningPolicyRequest {
+    /**
+     * The Source ID.
+     * @type {string}
+     * @memberof SourcesApiGetProvisioningPolicy
+     */
+    readonly sourceId: string
+
+    /**
+     * The type of ProvisioningPolicy usage.
+     * @type {UsageType}
+     * @memberof SourcesApiGetProvisioningPolicy
+     */
+    readonly usageType: UsageType
+}
+
+/**
+ * Request parameters for getSchema operation in SourcesApi.
+ * @export
+ * @interface SourcesApiGetSchemaRequest
+ */
+export interface SourcesApiGetSchemaRequest {
+    /**
+     * The Source id.
+     * @type {string}
+     * @memberof SourcesApiGetSchema
+     */
+    readonly sourceId: string
+
+    /**
+     * The Schema id.
+     * @type {string}
+     * @memberof SourcesApiGetSchema
+     */
+    readonly schemaId: string
+}
+
+/**
+ * Request parameters for getSource operation in SourcesApi.
+ * @export
+ * @interface SourcesApiGetSourceRequest
+ */
+export interface SourcesApiGetSourceRequest {
+    /**
+     * The Source id
+     * @type {string}
+     * @memberof SourcesApiGetSource
+     */
+    readonly id: string
+}
+
+/**
+ * Request parameters for getSourceHealth operation in SourcesApi.
+ * @export
+ * @interface SourcesApiGetSourceHealthRequest
+ */
+export interface SourcesApiGetSourceHealthRequest {
+    /**
+     * The Source id.
+     * @type {string}
+     * @memberof SourcesApiGetSourceHealth
+     */
+    readonly sourceId: string
+}
+
+/**
+ * Request parameters for listProvisioningPolicies operation in SourcesApi.
+ * @export
+ * @interface SourcesApiListProvisioningPoliciesRequest
+ */
+export interface SourcesApiListProvisioningPoliciesRequest {
+    /**
+     * The Source id
+     * @type {string}
+     * @memberof SourcesApiListProvisioningPolicies
+     */
+    readonly sourceId: string
+}
+
+/**
+ * Request parameters for listSchemas operation in SourcesApi.
+ * @export
+ * @interface SourcesApiListSchemasRequest
+ */
+export interface SourcesApiListSchemasRequest {
+    /**
+     * The Source ID.
+     * @type {string}
+     * @memberof SourcesApiListSchemas
+     */
+    readonly sourceId: string
+
+    /**
+     * If set to \&#39;group\&#39;, then the account schema is filtered and only group schemas are returned. Only a value of \&#39;group\&#39; is recognized.
+     * @type {string}
+     * @memberof SourcesApiListSchemas
+     */
+    readonly includeTypes?: string
+}
+
+/**
+ * Request parameters for listSources operation in SourcesApi.
+ * @export
+ * @interface SourcesApiListSourcesRequest
+ */
+export interface SourcesApiListSourcesRequest {
+    /**
+     * Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+     * @type {number}
+     * @memberof SourcesApiListSources
+     */
+    readonly limit?: number
+
+    /**
+     * Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+     * @type {number}
+     * @memberof SourcesApiListSources
+     */
+    readonly offset?: number
+
+    /**
+     * If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+     * @type {boolean}
+     * @memberof SourcesApiListSources
+     */
+    readonly count?: boolean
+
+    /**
+     * Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, in*  **name**: *co, eq, in, sw*  **type**: *eq, in*  **owner.id**: *eq, in*  **features**: *ca, co*  **created**: *eq*  **modified**: *eq*  **managementWorkgroup.id**: *eq*  **description**: *eq*  **authoritative**: *eq*  **healthy**: *eq*  **status**: *eq, in*  **connectionType**: *eq*  **connectorName**: *eq*
+     * @type {string}
+     * @memberof SourcesApiListSources
+     */
+    readonly filters?: string
+
+    /**
+     * Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **type, created, modified, name, owner.name, healthy, status**
+     * @type {string}
+     * @memberof SourcesApiListSources
+     */
+    readonly sorters?: string
+
+    /**
+     * Filter the returned list of sources for the identity specified by the parameter, which is the id of an identity with the role SOURCE_SUBADMIN. By convention, the value **me** indicates the identity id of the current user. Subadmins may only view Sources which they are able to administer; all other Sources will be filtered out when this parameter is set. If the current user is a SOURCE_SUBADMIN but fails to pass a valid value for this parameter, a 403 Forbidden is returned.
+     * @type {string}
+     * @memberof SourcesApiListSources
+     */
+    readonly forSubadmin?: string
+}
+
+/**
+ * Request parameters for replaceProvisioningPolicy operation in SourcesApi.
+ * @export
+ * @interface SourcesApiReplaceProvisioningPolicyRequest
+ */
+export interface SourcesApiReplaceProvisioningPolicyRequest {
+    /**
+     * The Source ID.
+     * @type {string}
+     * @memberof SourcesApiReplaceProvisioningPolicy
+     */
+    readonly sourceId: string
+
+    /**
+     * The type of ProvisioningPolicy usage.
+     * @type {UsageType}
+     * @memberof SourcesApiReplaceProvisioningPolicy
+     */
+    readonly usageType: UsageType
+
+    /**
+     * 
+     * @type {ProvisioningPolicyDto}
+     * @memberof SourcesApiReplaceProvisioningPolicy
+     */
+    readonly provisioningPolicyDto: ProvisioningPolicyDto
+}
+
+/**
+ * Request parameters for replaceSchema operation in SourcesApi.
+ * @export
+ * @interface SourcesApiReplaceSchemaRequest
+ */
+export interface SourcesApiReplaceSchemaRequest {
+    /**
+     * The Source id.
+     * @type {string}
+     * @memberof SourcesApiReplaceSchema
+     */
+    readonly sourceId: string
+
+    /**
+     * The Schema id.
+     * @type {string}
+     * @memberof SourcesApiReplaceSchema
+     */
+    readonly schemaId: string
+
+    /**
+     * 
+     * @type {Schema}
+     * @memberof SourcesApiReplaceSchema
+     */
+    readonly schema: Schema
+}
+
+/**
+ * Request parameters for replaceSource operation in SourcesApi.
+ * @export
+ * @interface SourcesApiReplaceSourceRequest
+ */
+export interface SourcesApiReplaceSourceRequest {
+    /**
+     * The Source id
+     * @type {string}
+     * @memberof SourcesApiReplaceSource
+     */
+    readonly id: string
+
+    /**
+     * 
+     * @type {Source}
+     * @memberof SourcesApiReplaceSource
+     */
+    readonly source: Source
+}
+
+/**
+ * Request parameters for updateProvisioningPolicy operation in SourcesApi.
+ * @export
+ * @interface SourcesApiUpdateProvisioningPolicyRequest
+ */
+export interface SourcesApiUpdateProvisioningPolicyRequest {
+    /**
+     * The Source id.
+     * @type {string}
+     * @memberof SourcesApiUpdateProvisioningPolicy
+     */
+    readonly sourceId: string
+
+    /**
+     * The type of ProvisioningPolicy usage.
+     * @type {UsageType}
+     * @memberof SourcesApiUpdateProvisioningPolicy
+     */
+    readonly usageType: UsageType
+
+    /**
+     * The JSONPatch payload used to update the schema.
+     * @type {Array<JsonPatchOperation>}
+     * @memberof SourcesApiUpdateProvisioningPolicy
+     */
+    readonly jsonPatchOperation: Array<JsonPatchOperation>
+}
+
+/**
+ * Request parameters for updateSchema operation in SourcesApi.
+ * @export
+ * @interface SourcesApiUpdateSchemaRequest
+ */
+export interface SourcesApiUpdateSchemaRequest {
+    /**
+     * The Source id.
+     * @type {string}
+     * @memberof SourcesApiUpdateSchema
+     */
+    readonly sourceId: string
+
+    /**
+     * The Schema id.
+     * @type {string}
+     * @memberof SourcesApiUpdateSchema
+     */
+    readonly schemaId: string
+
+    /**
+     * The JSONPatch payload used to update the schema.
+     * @type {Array<JsonPatchOperation>}
+     * @memberof SourcesApiUpdateSchema
+     */
+    readonly jsonPatchOperation: Array<JsonPatchOperation>
+}
+
+/**
+ * Request parameters for updateSource operation in SourcesApi.
+ * @export
+ * @interface SourcesApiUpdateSourceRequest
+ */
+export interface SourcesApiUpdateSourceRequest {
+    /**
+     * The Source id
+     * @type {string}
+     * @memberof SourcesApiUpdateSource
+     */
+    readonly id: string
+
+    /**
+     * A list of account update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard. Any password changes are submitted as plain-text and encrypted upon receipt in IdentityNow.
+     * @type {Array<JsonPatchOperation>}
+     * @memberof SourcesApiUpdateSource
+     */
+    readonly jsonPatchOperation: Array<JsonPatchOperation>
+}
+
+/**
+ * Request parameters for uploadConnectorFile operation in SourcesApi.
+ * @export
+ * @interface SourcesApiUploadConnectorFileRequest
+ */
+export interface SourcesApiUploadConnectorFileRequest {
+    /**
+     * The Source id.
+     * @type {string}
+     * @memberof SourcesApiUploadConnectorFile
+     */
+    readonly sourceId: string
+
+    /**
+     * 
+     * @type {any}
+     * @memberof SourcesApiUploadConnectorFile
+     */
+    readonly file?: any
+}
+
+/**
+ * Request parameters for uploadSourceAccountsSchema operation in SourcesApi.
+ * @export
+ * @interface SourcesApiUploadSourceAccountsSchemaRequest
+ */
+export interface SourcesApiUploadSourceAccountsSchemaRequest {
+    /**
+     * The Source id
+     * @type {string}
+     * @memberof SourcesApiUploadSourceAccountsSchema
+     */
+    readonly id: string
+
+    /**
+     * 
+     * @type {any}
+     * @memberof SourcesApiUploadSourceAccountsSchema
+     */
+    readonly file?: any
+}
+
+/**
+ * Request parameters for uploadSourceEntitlementsSchema operation in SourcesApi.
+ * @export
+ * @interface SourcesApiUploadSourceEntitlementsSchemaRequest
+ */
+export interface SourcesApiUploadSourceEntitlementsSchemaRequest {
+    /**
+     * The Source id
+     * @type {string}
+     * @memberof SourcesApiUploadSourceEntitlementsSchema
+     */
+    readonly id: string
+
+    /**
+     * Name of entitlement schema
+     * @type {string}
+     * @memberof SourcesApiUploadSourceEntitlementsSchema
+     */
+    readonly schemaName?: string
+
+    /**
+     * 
+     * @type {any}
+     * @memberof SourcesApiUploadSourceEntitlementsSchema
+     */
+    readonly file?: any
+}
+
+/**
  * SourcesApi - object-oriented interface
  * @export
  * @class SourcesApi
@@ -27340,330 +30413,301 @@ export class SourcesApi extends BaseAPI {
     /**
      * This end-point updates a list of provisioning policies on the specified source in IdentityNow. A token with API, or ORG_ADMIN authority is required to call this API.
      * @summary Bulk Update Provisioning Policies
-     * @param {string} sourceId The Source id.
-     * @param {Array<ProvisioningPolicyDto>} provisioningPolicyDto 
+     * @param {SourcesApiBulkUpdateProvisioningPoliciesRequest} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
      * @memberof SourcesApi
      */
-    public bulkUpdateProvisioningPolicies(sourceId: string, provisioningPolicyDto: Array<ProvisioningPolicyDto>, axiosOptions?: AxiosRequestConfig) {
-        return SourcesApiFp(this.configuration).bulkUpdateProvisioningPolicies(sourceId, provisioningPolicyDto, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public bulkUpdateProvisioningPolicies(requestParameters: SourcesApiBulkUpdateProvisioningPoliciesRequest, axiosOptions?: AxiosRequestConfig) {
+        return SourcesApiFp(this.configuration).bulkUpdateProvisioningPolicies(requestParameters.sourceId, requestParameters.provisioningPolicyDto, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * This API generates a create policy/template based on field value transforms. This API is intended for use when setting up JDBC Provisioning type sources, but it will also work on other source types. A token with ORG_ADMIN authority is required to call this API.
      * @summary Create Provisioning Policy
-     * @param {string} sourceId The Source id
-     * @param {ProvisioningPolicyDto} provisioningPolicyDto 
+     * @param {SourcesApiCreateProvisioningPolicyRequest} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
      * @memberof SourcesApi
      */
-    public createProvisioningPolicy(sourceId: string, provisioningPolicyDto: ProvisioningPolicyDto, axiosOptions?: AxiosRequestConfig) {
-        return SourcesApiFp(this.configuration).createProvisioningPolicy(sourceId, provisioningPolicyDto, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public createProvisioningPolicy(requestParameters: SourcesApiCreateProvisioningPolicyRequest, axiosOptions?: AxiosRequestConfig) {
+        return SourcesApiFp(this.configuration).createProvisioningPolicy(requestParameters.sourceId, requestParameters.provisioningPolicyDto, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * Creates a new Schema on the specified Source in IdentityNow. 
      * @summary Create Schema on a Source
-     * @param {string} sourceId The Source id.
-     * @param {Schema} schema 
+     * @param {SourcesApiCreateSchemaRequest} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
      * @memberof SourcesApi
      */
-    public createSchema(sourceId: string, schema: Schema, axiosOptions?: AxiosRequestConfig) {
-        return SourcesApiFp(this.configuration).createSchema(sourceId, schema, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public createSchema(requestParameters: SourcesApiCreateSchemaRequest, axiosOptions?: AxiosRequestConfig) {
+        return SourcesApiFp(this.configuration).createSchema(requestParameters.sourceId, requestParameters.schema, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * This creates a specific source with a full source JSON representation. Any passwords are submitted as plain-text and encrypted upon receipt in IdentityNow. A token with ORG_ADMIN, SOURCE_ADMIN, or SOURCE_SUBADMIN authority is required to call this API.
      * @summary Creates a source in IdentityNow.
-     * @param {Source} source 
-     * @param {boolean} [provisionAsCsv] Configures the source as a DelimitedFile type of source.
+     * @param {SourcesApiCreateSourceRequest} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
      * @memberof SourcesApi
      */
-    public createSource(source: Source, provisionAsCsv?: boolean, axiosOptions?: AxiosRequestConfig) {
-        return SourcesApiFp(this.configuration).createSource(source, provisionAsCsv, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public createSource(requestParameters: SourcesApiCreateSourceRequest, axiosOptions?: AxiosRequestConfig) {
+        return SourcesApiFp(this.configuration).createSource(requestParameters.source, requestParameters.provisionAsCsv, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * Deletes the provisioning policy with the specified usage on an application. A token with API, or ORG_ADMIN authority is required to call this API.
      * @summary Delete Provisioning Policy by UsageType
-     * @param {string} sourceId The Source ID.
-     * @param {UsageType} usageType The type of ProvisioningPolicy usage.
+     * @param {SourcesApiDeleteProvisioningPolicyRequest} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
      * @memberof SourcesApi
      */
-    public deleteProvisioningPolicy(sourceId: string, usageType: UsageType, axiosOptions?: AxiosRequestConfig) {
-        return SourcesApiFp(this.configuration).deleteProvisioningPolicy(sourceId, usageType, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public deleteProvisioningPolicy(requestParameters: SourcesApiDeleteProvisioningPolicyRequest, axiosOptions?: AxiosRequestConfig) {
+        return SourcesApiFp(this.configuration).deleteProvisioningPolicy(requestParameters.sourceId, requestParameters.usageType, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * 
      * @summary Delete Source Schema by ID
-     * @param {string} sourceId The Source id.
-     * @param {string} schemaId The Schema id.
+     * @param {SourcesApiDeleteSchemaRequest} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
      * @memberof SourcesApi
      */
-    public deleteSchema(sourceId: string, schemaId: string, axiosOptions?: AxiosRequestConfig) {
-        return SourcesApiFp(this.configuration).deleteSchema(sourceId, schemaId, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public deleteSchema(requestParameters: SourcesApiDeleteSchemaRequest, axiosOptions?: AxiosRequestConfig) {
+        return SourcesApiFp(this.configuration).deleteSchema(requestParameters.sourceId, requestParameters.schemaId, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * This end-point deletes a specific source in IdentityNow. A token with ORG_ADMIN, SOURCE_ADMIN, or SOURCE_SUBADMIN authority is required to call this API. All of accounts on the source will be removed first, then the source will be deleted. Actual status of task execution can be retrieved via method GET `/task-status/{id}`
      * @summary Delete Source by ID
-     * @param {string} id The Source id
+     * @param {SourcesApiDeleteSourceRequest} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
      * @memberof SourcesApi
      */
-    public deleteSource(id: string, axiosOptions?: AxiosRequestConfig) {
-        return SourcesApiFp(this.configuration).deleteSource(id, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public deleteSource(requestParameters: SourcesApiDeleteSourceRequest, axiosOptions?: AxiosRequestConfig) {
+        return SourcesApiFp(this.configuration).deleteSource(requestParameters.id, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * This API downloads the CSV schema that defines the account attributes on a source. >**NOTE: This API is designated only for Delimited File sources.**
      * @summary Downloads source accounts schema template
-     * @param {string} id The Source id
+     * @param {SourcesApiDownloadSourceAccountsSchemaRequest} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
      * @memberof SourcesApi
      */
-    public downloadSourceAccountsSchema(id: string, axiosOptions?: AxiosRequestConfig) {
-        return SourcesApiFp(this.configuration).downloadSourceAccountsSchema(id, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public downloadSourceAccountsSchema(requestParameters: SourcesApiDownloadSourceAccountsSchemaRequest, axiosOptions?: AxiosRequestConfig) {
+        return SourcesApiFp(this.configuration).downloadSourceAccountsSchema(requestParameters.id, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * This API downloads the CSV schema that defines the entitlement attributes on a source.  >**NOTE: This API is designated only for Delimited File sources.**
      * @summary Downloads source entitlements schema template
-     * @param {string} id The Source id
-     * @param {string} [schemaName] Name of entitlement schema
+     * @param {SourcesApiDownloadSourceEntitlementsSchemaRequest} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
      * @memberof SourcesApi
      */
-    public downloadSourceEntitlementsSchema(id: string, schemaName?: string, axiosOptions?: AxiosRequestConfig) {
-        return SourcesApiFp(this.configuration).downloadSourceEntitlementsSchema(id, schemaName, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public downloadSourceEntitlementsSchema(requestParameters: SourcesApiDownloadSourceEntitlementsSchemaRequest, axiosOptions?: AxiosRequestConfig) {
+        return SourcesApiFp(this.configuration).downloadSourceEntitlementsSchema(requestParameters.id, requestParameters.schemaName, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * This end-point retrieves the ProvisioningPolicy with the specified usage on the specified Source in IdentityNow. A token with API, ORG_ADMIN, SOURCE_ADMIN, or SOURCE_SUBADMIN authority is required to call this API.
      * @summary Get Provisioning Policy by UsageType
-     * @param {string} sourceId The Source ID.
-     * @param {UsageType} usageType The type of ProvisioningPolicy usage.
+     * @param {SourcesApiGetProvisioningPolicyRequest} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
      * @memberof SourcesApi
      */
-    public getProvisioningPolicy(sourceId: string, usageType: UsageType, axiosOptions?: AxiosRequestConfig) {
-        return SourcesApiFp(this.configuration).getProvisioningPolicy(sourceId, usageType, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public getProvisioningPolicy(requestParameters: SourcesApiGetProvisioningPolicyRequest, axiosOptions?: AxiosRequestConfig) {
+        return SourcesApiFp(this.configuration).getProvisioningPolicy(requestParameters.sourceId, requestParameters.usageType, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * Get the Source Schema by ID in IdentityNow. 
      * @summary Get Source Schema by ID
-     * @param {string} sourceId The Source id.
-     * @param {string} schemaId The Schema id.
+     * @param {SourcesApiGetSchemaRequest} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
      * @memberof SourcesApi
      */
-    public getSchema(sourceId: string, schemaId: string, axiosOptions?: AxiosRequestConfig) {
-        return SourcesApiFp(this.configuration).getSchema(sourceId, schemaId, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public getSchema(requestParameters: SourcesApiGetSchemaRequest, axiosOptions?: AxiosRequestConfig) {
+        return SourcesApiFp(this.configuration).getSchema(requestParameters.sourceId, requestParameters.schemaId, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * This end-point gets a specific source in IdentityNow. A token with ORG_ADMIN, SOURCE_ADMIN, or SOURCE_SUBADMIN authority is required to call this API.
      * @summary Get Source by ID
-     * @param {string} id The Source id
+     * @param {SourcesApiGetSourceRequest} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
      * @memberof SourcesApi
      */
-    public getSource(id: string, axiosOptions?: AxiosRequestConfig) {
-        return SourcesApiFp(this.configuration).getSource(id, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public getSource(requestParameters: SourcesApiGetSourceRequest, axiosOptions?: AxiosRequestConfig) {
+        return SourcesApiFp(this.configuration).getSource(requestParameters.id, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * This endpoint fetches source health by source\'s id
      * @summary This API fetches source health by source\'s id
-     * @param {string} sourceId The Source id.
+     * @param {SourcesApiGetSourceHealthRequest} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
      * @memberof SourcesApi
      */
-    public getSourceHealth(sourceId: string, axiosOptions?: AxiosRequestConfig) {
-        return SourcesApiFp(this.configuration).getSourceHealth(sourceId, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public getSourceHealth(requestParameters: SourcesApiGetSourceHealthRequest, axiosOptions?: AxiosRequestConfig) {
+        return SourcesApiFp(this.configuration).getSourceHealth(requestParameters.sourceId, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * This end-point lists all the ProvisioningPolicies in IdentityNow. A token with API, or ORG_ADMIN authority is required to call this API.
      * @summary Lists ProvisioningPolicies
-     * @param {string} sourceId The Source id
+     * @param {SourcesApiListProvisioningPoliciesRequest} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
      * @memberof SourcesApi
      */
-    public listProvisioningPolicies(sourceId: string, axiosOptions?: AxiosRequestConfig) {
-        return SourcesApiFp(this.configuration).listProvisioningPolicies(sourceId, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public listProvisioningPolicies(requestParameters: SourcesApiListProvisioningPoliciesRequest, axiosOptions?: AxiosRequestConfig) {
+        return SourcesApiFp(this.configuration).listProvisioningPolicies(requestParameters.sourceId, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * Lists the Schemas that exist on the specified Source in IdentityNow. 
      * @summary List Schemas on a Source
-     * @param {string} sourceId The Source ID.
-     * @param {string} [includeTypes] If set to \&#39;group\&#39;, then the account schema is filtered and only group schemas are returned. Only a value of \&#39;group\&#39; is recognized.
+     * @param {SourcesApiListSchemasRequest} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
      * @memberof SourcesApi
      */
-    public listSchemas(sourceId: string, includeTypes?: string, axiosOptions?: AxiosRequestConfig) {
-        return SourcesApiFp(this.configuration).listSchemas(sourceId, includeTypes, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public listSchemas(requestParameters: SourcesApiListSchemasRequest, axiosOptions?: AxiosRequestConfig) {
+        return SourcesApiFp(this.configuration).listSchemas(requestParameters.sourceId, requestParameters.includeTypes, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * This end-point lists all the sources in IdentityNow. A token with ORG_ADMIN, SOURCE_ADMIN, SOURCE_SUBADMIN, or ROLE_SUBADMIN authority is required to call this API.
      * @summary Lists all sources in IdentityNow.
-     * @param {number} [limit] Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
-     * @param {number} [offset] Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
-     * @param {boolean} [count] If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
-     * @param {string} [filters] Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, in*  **name**: *co, eq, in, sw*  **type**: *eq, in*  **owner.id**: *eq, in*  **features**: *ca, co*  **created**: *eq*  **modified**: *eq*  **managementWorkgroup.id**: *eq*  **description**: *eq*  **authoritative**: *eq*  **healthy**: *eq*  **status**: *eq, in*  **connectionType**: *eq*  **connectorName**: *eq*
-     * @param {string} [sorters] Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **type, created, modified, name, owner.name, healthy, status**
-     * @param {string} [forSubadmin] Filter the returned list of sources for the identity specified by the parameter, which is the id of an identity with the role SOURCE_SUBADMIN. By convention, the value **me** indicates the identity id of the current user. Subadmins may only view Sources which they are able to administer; all other Sources will be filtered out when this parameter is set. If the current user is a SOURCE_SUBADMIN but fails to pass a valid value for this parameter, a 403 Forbidden is returned.
+     * @param {SourcesApiListSourcesRequest} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
      * @memberof SourcesApi
      */
-    public listSources(limit?: number, offset?: number, count?: boolean, filters?: string, sorters?: string, forSubadmin?: string, axiosOptions?: AxiosRequestConfig) {
-        return SourcesApiFp(this.configuration).listSources(limit, offset, count, filters, sorters, forSubadmin, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public listSources(requestParameters: SourcesApiListSourcesRequest = {}, axiosOptions?: AxiosRequestConfig) {
+        return SourcesApiFp(this.configuration).listSources(requestParameters.limit, requestParameters.offset, requestParameters.count, requestParameters.filters, requestParameters.sorters, requestParameters.forSubadmin, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * This end-point updates the provisioning policy with the specified usage on the specified source in IdentityNow. A token with API, ORG_ADMIN, SOURCE_ADMIN, or SOURCE_SUBADMIN authority is required to call this API.
      * @summary Update Provisioning Policy by UsageType
-     * @param {string} sourceId The Source ID.
-     * @param {UsageType} usageType The type of ProvisioningPolicy usage.
-     * @param {ProvisioningPolicyDto} provisioningPolicyDto 
+     * @param {SourcesApiReplaceProvisioningPolicyRequest} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
      * @memberof SourcesApi
      */
-    public replaceProvisioningPolicy(sourceId: string, usageType: UsageType, provisioningPolicyDto: ProvisioningPolicyDto, axiosOptions?: AxiosRequestConfig) {
-        return SourcesApiFp(this.configuration).replaceProvisioningPolicy(sourceId, usageType, provisioningPolicyDto, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public replaceProvisioningPolicy(requestParameters: SourcesApiReplaceProvisioningPolicyRequest, axiosOptions?: AxiosRequestConfig) {
+        return SourcesApiFp(this.configuration).replaceProvisioningPolicy(requestParameters.sourceId, requestParameters.usageType, requestParameters.provisioningPolicyDto, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * This API will completely replace an existing Schema with the submitted payload. Some fields of the Schema cannot be updated. These fields are listed below.  * id * name * created * modified  Any attempt to modify these fields will result in an error response with a status code of 400.  > `id` must remain in the request body, but it cannot be changed.  If `id` is omitted from the request body, the result will be a 400 error. 
      * @summary Update Source Schema (Full)
-     * @param {string} sourceId The Source id.
-     * @param {string} schemaId The Schema id.
-     * @param {Schema} schema 
+     * @param {SourcesApiReplaceSchemaRequest} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
      * @memberof SourcesApi
      */
-    public replaceSchema(sourceId: string, schemaId: string, schema: Schema, axiosOptions?: AxiosRequestConfig) {
-        return SourcesApiFp(this.configuration).replaceSchema(sourceId, schemaId, schema, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public replaceSchema(requestParameters: SourcesApiReplaceSchemaRequest, axiosOptions?: AxiosRequestConfig) {
+        return SourcesApiFp(this.configuration).replaceSchema(requestParameters.sourceId, requestParameters.schemaId, requestParameters.schema, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * This API updates a source in IdentityNow, using a full object representation. In other words, the existing Source configuration is completely replaced.  Some fields are immutable and cannot be changed, such as:  * id * type * authoritative * connector * connectorClass * passwordPolicies  Attempts to modify these fields will result in a 400 error.  A token with ORG_ADMIN, SOURCE_ADMIN, or SOURCE_SUBADMIN authority is required to call this API. 
      * @summary Update Source (Full)
-     * @param {string} id The Source id
-     * @param {Source} source 
+     * @param {SourcesApiReplaceSourceRequest} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
      * @memberof SourcesApi
      */
-    public replaceSource(id: string, source: Source, axiosOptions?: AxiosRequestConfig) {
-        return SourcesApiFp(this.configuration).replaceSource(id, source, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public replaceSource(requestParameters: SourcesApiReplaceSourceRequest, axiosOptions?: AxiosRequestConfig) {
+        return SourcesApiFp(this.configuration).replaceSource(requestParameters.id, requestParameters.source, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * This API selectively updates an existing Provisioning Policy using a JSONPatch payload. A token with API, ORG_ADMIN, SOURCE_ADMIN, or SOURCE_SUBADMIN authority is required to call this API.
      * @summary Partial update of Provisioning Policy
-     * @param {string} sourceId The Source id.
-     * @param {UsageType} usageType The type of ProvisioningPolicy usage.
-     * @param {Array<JsonPatchOperation>} jsonPatchOperation The JSONPatch payload used to update the schema.
+     * @param {SourcesApiUpdateProvisioningPolicyRequest} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
      * @memberof SourcesApi
      */
-    public updateProvisioningPolicy(sourceId: string, usageType: UsageType, jsonPatchOperation: Array<JsonPatchOperation>, axiosOptions?: AxiosRequestConfig) {
-        return SourcesApiFp(this.configuration).updateProvisioningPolicy(sourceId, usageType, jsonPatchOperation, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public updateProvisioningPolicy(requestParameters: SourcesApiUpdateProvisioningPolicyRequest, axiosOptions?: AxiosRequestConfig) {
+        return SourcesApiFp(this.configuration).updateProvisioningPolicy(requestParameters.sourceId, requestParameters.usageType, requestParameters.jsonPatchOperation, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * Use this API to selectively update an existing Schema using a JSONPatch payload.   The following schema fields are immutable and cannot be updated:  - id - name - created - modified   To switch an account attribute to a group entitlement, you need to have the following in place:  - `isEntitlement: true` - Must define a schema for the group and [add it to the source](https://developer.sailpoint.com/idn/api/v3/create-schema) before updating the `isGroup` flag.  For example, here is the `group` account attribute referencing a schema that defines the group: ```json {     \"name\": \"groups\",     \"type\": \"STRING\",     \"schema\": {         \"type\": \"CONNECTOR_SCHEMA\",         \"id\": \"2c9180887671ff8c01767b4671fc7d60\",         \"name\": \"group\"     },     \"description\": \"The groups, roles etc. that reference account group objects\",     \"isMulti\": true,     \"isEntitlement\": true,     \"isGroup\": true } ``` 
      * @summary Update Source Schema (Partial)
-     * @param {string} sourceId The Source id.
-     * @param {string} schemaId The Schema id.
-     * @param {Array<JsonPatchOperation>} jsonPatchOperation The JSONPatch payload used to update the schema.
+     * @param {SourcesApiUpdateSchemaRequest} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
      * @memberof SourcesApi
      */
-    public updateSchema(sourceId: string, schemaId: string, jsonPatchOperation: Array<JsonPatchOperation>, axiosOptions?: AxiosRequestConfig) {
-        return SourcesApiFp(this.configuration).updateSchema(sourceId, schemaId, jsonPatchOperation, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public updateSchema(requestParameters: SourcesApiUpdateSchemaRequest, axiosOptions?: AxiosRequestConfig) {
+        return SourcesApiFp(this.configuration).updateSchema(requestParameters.sourceId, requestParameters.schemaId, requestParameters.jsonPatchOperation, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * This API partially updates a source in IdentityNow, using a list of patch operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.  Some fields are immutable and cannot be changed, such as:  * id * type * authoritative * created * modified * connector * connectorClass * passwordPolicies  Attempts to modify these fields will result in a 400 error.  A token with ORG_ADMIN, SOURCE_ADMIN, SOURCE_SUBADMIN, or API authority is required to call this API. 
      * @summary Update Source (Partial)
-     * @param {string} id The Source id
-     * @param {Array<JsonPatchOperation>} jsonPatchOperation A list of account update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard. Any password changes are submitted as plain-text and encrypted upon receipt in IdentityNow.
+     * @param {SourcesApiUpdateSourceRequest} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
      * @memberof SourcesApi
      */
-    public updateSource(id: string, jsonPatchOperation: Array<JsonPatchOperation>, axiosOptions?: AxiosRequestConfig) {
-        return SourcesApiFp(this.configuration).updateSource(id, jsonPatchOperation, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public updateSource(requestParameters: SourcesApiUpdateSourceRequest, axiosOptions?: AxiosRequestConfig) {
+        return SourcesApiFp(this.configuration).updateSource(requestParameters.id, requestParameters.jsonPatchOperation, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * This uploads a supplemental source connector file (like jdbc driver jars) to a source\'s S3 bucket. This also sends ETS and Audit events. A token with ORG_ADMIN authority is required to call this API.
      * @summary Upload connector file to source
-     * @param {string} sourceId The Source id.
-     * @param {any} [file] 
+     * @param {SourcesApiUploadConnectorFileRequest} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
      * @memberof SourcesApi
      */
-    public uploadConnectorFile(sourceId: string, file?: any, axiosOptions?: AxiosRequestConfig) {
-        return SourcesApiFp(this.configuration).uploadConnectorFile(sourceId, file, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public uploadConnectorFile(requestParameters: SourcesApiUploadConnectorFileRequest, axiosOptions?: AxiosRequestConfig) {
+        return SourcesApiFp(this.configuration).uploadConnectorFile(requestParameters.sourceId, requestParameters.file, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * This API uploads a source schema template file to configure a source\'s account attributes.  To retrieve the file to modify and upload, log into Identity Now.   Click **Admin** -> **Connections** -> **Sources** -> **`<SourceName>`** -> **Import Data** -> **Account Schema** -> **Options** -> **Download Schema**  >**NOTE: This API is designated only for Delimited File sources.**
      * @summary Uploads source accounts schema template
-     * @param {string} id The Source id
-     * @param {any} [file] 
+     * @param {SourcesApiUploadSourceAccountsSchemaRequest} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
      * @memberof SourcesApi
      */
-    public uploadSourceAccountsSchema(id: string, file?: any, axiosOptions?: AxiosRequestConfig) {
-        return SourcesApiFp(this.configuration).uploadSourceAccountsSchema(id, file, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public uploadSourceAccountsSchema(requestParameters: SourcesApiUploadSourceAccountsSchemaRequest, axiosOptions?: AxiosRequestConfig) {
+        return SourcesApiFp(this.configuration).uploadSourceAccountsSchema(requestParameters.id, requestParameters.file, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * This API uploads a source schema template file to configure a source\'s entitlement attributes.  To retrieve the file to modify and upload, log into Identity Now.   Click **Admin** -> **Connections** -> **Sources** -> **`<SourceName>`** -> **Import Data** -> **Import Entitlements** -> **Download**  >**NOTE: This API is designated only for Delimited File sources.**
      * @summary Uploads source entitlements schema template
-     * @param {string} id The Source id
-     * @param {string} [schemaName] Name of entitlement schema
-     * @param {any} [file] 
+     * @param {SourcesApiUploadSourceEntitlementsSchemaRequest} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
      * @memberof SourcesApi
      */
-    public uploadSourceEntitlementsSchema(id: string, schemaName?: string, file?: any, axiosOptions?: AxiosRequestConfig) {
-        return SourcesApiFp(this.configuration).uploadSourceEntitlementsSchema(id, schemaName, file, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public uploadSourceEntitlementsSchema(requestParameters: SourcesApiUploadSourceEntitlementsSchemaRequest, axiosOptions?: AxiosRequestConfig) {
+        return SourcesApiFp(this.configuration).uploadSourceEntitlementsSchema(requestParameters.id, requestParameters.schemaName, requestParameters.file, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 }
 
@@ -28050,6 +31094,111 @@ export const TransformsApiFactory = function (configuration?: Configuration, bas
 };
 
 /**
+ * Request parameters for createTransform operation in TransformsApi.
+ * @export
+ * @interface TransformsApiCreateTransformRequest
+ */
+export interface TransformsApiCreateTransformRequest {
+    /**
+     * The transform to be created.
+     * @type {Transform}
+     * @memberof TransformsApiCreateTransform
+     */
+    readonly transform: Transform
+}
+
+/**
+ * Request parameters for deleteTransform operation in TransformsApi.
+ * @export
+ * @interface TransformsApiDeleteTransformRequest
+ */
+export interface TransformsApiDeleteTransformRequest {
+    /**
+     * ID of the transform to delete
+     * @type {string}
+     * @memberof TransformsApiDeleteTransform
+     */
+    readonly id: string
+}
+
+/**
+ * Request parameters for getTransform operation in TransformsApi.
+ * @export
+ * @interface TransformsApiGetTransformRequest
+ */
+export interface TransformsApiGetTransformRequest {
+    /**
+     * ID of the transform to retrieve
+     * @type {string}
+     * @memberof TransformsApiGetTransform
+     */
+    readonly id: string
+}
+
+/**
+ * Request parameters for getTransformsList operation in TransformsApi.
+ * @export
+ * @interface TransformsApiGetTransformsListRequest
+ */
+export interface TransformsApiGetTransformsListRequest {
+    /**
+     * Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+     * @type {number}
+     * @memberof TransformsApiGetTransformsList
+     */
+    readonly offset?: number
+
+    /**
+     * Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+     * @type {number}
+     * @memberof TransformsApiGetTransformsList
+     */
+    readonly limit?: number
+
+    /**
+     * If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+     * @type {boolean}
+     * @memberof TransformsApiGetTransformsList
+     */
+    readonly count?: boolean
+
+    /**
+     * Name of the transform to retrieve from the list.
+     * @type {string}
+     * @memberof TransformsApiGetTransformsList
+     */
+    readonly name?: string
+
+    /**
+     * Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results) Filtering is supported for the following fields and operators: **internal**: *eq* **name**: *eq*, *sw*
+     * @type {string}
+     * @memberof TransformsApiGetTransformsList
+     */
+    readonly filters?: string
+}
+
+/**
+ * Request parameters for updateTransform operation in TransformsApi.
+ * @export
+ * @interface TransformsApiUpdateTransformRequest
+ */
+export interface TransformsApiUpdateTransformRequest {
+    /**
+     * ID of the transform to update
+     * @type {string}
+     * @memberof TransformsApiUpdateTransform
+     */
+    readonly id: string
+
+    /**
+     * The updated transform object (must include \&quot;name\&quot;, \&quot;type\&quot;, and \&quot;attributes\&quot; fields).
+     * @type {Transform}
+     * @memberof TransformsApiUpdateTransform
+     */
+    readonly transform?: Transform
+}
+
+/**
  * TransformsApi - object-oriented interface
  * @export
  * @class TransformsApi
@@ -28059,66 +31208,61 @@ export class TransformsApi extends BaseAPI {
     /**
      * Creates a new transform object immediately. By default, the internal flag is set to false to indicate that this is a custom transform. Only SailPoint employees have the ability to create a transform with internal set to true. Newly created Transforms can be used in the Identity Profile mappings within the UI. A token with transform write authority is required to call this API.
      * @summary Create transform
-     * @param {Transform} transform The transform to be created.
+     * @param {TransformsApiCreateTransformRequest} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
      * @memberof TransformsApi
      */
-    public createTransform(transform: Transform, axiosOptions?: AxiosRequestConfig) {
-        return TransformsApiFp(this.configuration).createTransform(transform, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public createTransform(requestParameters: TransformsApiCreateTransformRequest, axiosOptions?: AxiosRequestConfig) {
+        return TransformsApiFp(this.configuration).createTransform(requestParameters.transform, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * Deletes the transform specified by the given ID. Attempting to delete a transform that is used in one or more Identity Profile mappings will result in an error. If this occurs, you must first remove the transform from all mappings before deleting the transform. A token with transform delete authority is required to call this API.
      * @summary Delete a transform
-     * @param {string} id ID of the transform to delete
+     * @param {TransformsApiDeleteTransformRequest} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
      * @memberof TransformsApi
      */
-    public deleteTransform(id: string, axiosOptions?: AxiosRequestConfig) {
-        return TransformsApiFp(this.configuration).deleteTransform(id, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public deleteTransform(requestParameters: TransformsApiDeleteTransformRequest, axiosOptions?: AxiosRequestConfig) {
+        return TransformsApiFp(this.configuration).deleteTransform(requestParameters.id, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * This API returns the transform specified by the given ID. A token with transform read authority is required to call this API.
      * @summary Transform by ID
-     * @param {string} id ID of the transform to retrieve
+     * @param {TransformsApiGetTransformRequest} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
      * @memberof TransformsApi
      */
-    public getTransform(id: string, axiosOptions?: AxiosRequestConfig) {
-        return TransformsApiFp(this.configuration).getTransform(id, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public getTransform(requestParameters: TransformsApiGetTransformRequest, axiosOptions?: AxiosRequestConfig) {
+        return TransformsApiFp(this.configuration).getTransform(requestParameters.id, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * Gets a list of all saved transform objects. A token with transforms-list read authority is required to call this API.
      * @summary List transforms
-     * @param {number} [offset] Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
-     * @param {number} [limit] Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
-     * @param {boolean} [count] If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
-     * @param {string} [name] Name of the transform to retrieve from the list.
-     * @param {string} [filters] Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results) Filtering is supported for the following fields and operators: **internal**: *eq* **name**: *eq*, *sw*
+     * @param {TransformsApiGetTransformsListRequest} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
      * @memberof TransformsApi
      */
-    public getTransformsList(offset?: number, limit?: number, count?: boolean, name?: string, filters?: string, axiosOptions?: AxiosRequestConfig) {
-        return TransformsApiFp(this.configuration).getTransformsList(offset, limit, count, name, filters, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public getTransformsList(requestParameters: TransformsApiGetTransformsListRequest = {}, axiosOptions?: AxiosRequestConfig) {
+        return TransformsApiFp(this.configuration).getTransformsList(requestParameters.offset, requestParameters.limit, requestParameters.count, requestParameters.name, requestParameters.filters, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * Replaces the transform specified by the given ID with the transform provided in the request body. Only the \"attributes\" field is mutable. Attempting to change other properties (ex. \"name\" and \"type\") will result in an error. A token with transform write authority is required to call this API.
      * @summary Update a transform
-     * @param {string} id ID of the transform to update
-     * @param {Transform} [transform] The updated transform object (must include \&quot;name\&quot;, \&quot;type\&quot;, and \&quot;attributes\&quot; fields).
+     * @param {TransformsApiUpdateTransformRequest} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
      * @memberof TransformsApi
      */
-    public updateTransform(id: string, transform?: Transform, axiosOptions?: AxiosRequestConfig) {
-        return TransformsApiFp(this.configuration).updateTransform(id, transform, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public updateTransform(requestParameters: TransformsApiUpdateTransformRequest, axiosOptions?: AxiosRequestConfig) {
+        return TransformsApiFp(this.configuration).updateTransform(requestParameters.id, requestParameters.transform, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 }
 
@@ -28976,6 +32120,237 @@ export const WorkItemsApiFactory = function (configuration?: Configuration, base
 };
 
 /**
+ * Request parameters for approveApprovalItem operation in WorkItemsApi.
+ * @export
+ * @interface WorkItemsApiApproveApprovalItemRequest
+ */
+export interface WorkItemsApiApproveApprovalItemRequest {
+    /**
+     * The ID of the work item
+     * @type {string}
+     * @memberof WorkItemsApiApproveApprovalItem
+     */
+    readonly id: string
+
+    /**
+     * The ID of the approval item.
+     * @type {string}
+     * @memberof WorkItemsApiApproveApprovalItem
+     */
+    readonly approvalItemId: string
+}
+
+/**
+ * Request parameters for bulkApproveApprovalItem operation in WorkItemsApi.
+ * @export
+ * @interface WorkItemsApiBulkApproveApprovalItemRequest
+ */
+export interface WorkItemsApiBulkApproveApprovalItemRequest {
+    /**
+     * The ID of the work item
+     * @type {string}
+     * @memberof WorkItemsApiBulkApproveApprovalItem
+     */
+    readonly id: string
+}
+
+/**
+ * Request parameters for bulkRejectApprovalItem operation in WorkItemsApi.
+ * @export
+ * @interface WorkItemsApiBulkRejectApprovalItemRequest
+ */
+export interface WorkItemsApiBulkRejectApprovalItemRequest {
+    /**
+     * The ID of the work item
+     * @type {string}
+     * @memberof WorkItemsApiBulkRejectApprovalItem
+     */
+    readonly id: string
+}
+
+/**
+ * Request parameters for completeWorkItem operation in WorkItemsApi.
+ * @export
+ * @interface WorkItemsApiCompleteWorkItemRequest
+ */
+export interface WorkItemsApiCompleteWorkItemRequest {
+    /**
+     * The ID of the work item
+     * @type {string}
+     * @memberof WorkItemsApiCompleteWorkItem
+     */
+    readonly id: string
+}
+
+/**
+ * Request parameters for completedWorkItems operation in WorkItemsApi.
+ * @export
+ * @interface WorkItemsApiCompletedWorkItemsRequest
+ */
+export interface WorkItemsApiCompletedWorkItemsRequest {
+    /**
+     * The id of the owner of the work item list being requested.  Either an admin, or the owning/current user must make this request.
+     * @type {string}
+     * @memberof WorkItemsApiCompletedWorkItems
+     */
+    readonly ownerId?: string
+
+    /**
+     * Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+     * @type {number}
+     * @memberof WorkItemsApiCompletedWorkItems
+     */
+    readonly limit?: number
+
+    /**
+     * Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+     * @type {number}
+     * @memberof WorkItemsApiCompletedWorkItems
+     */
+    readonly offset?: number
+
+    /**
+     * If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+     * @type {boolean}
+     * @memberof WorkItemsApiCompletedWorkItems
+     */
+    readonly count?: boolean
+}
+
+/**
+ * Request parameters for countCompletedWorkItems operation in WorkItemsApi.
+ * @export
+ * @interface WorkItemsApiCountCompletedWorkItemsRequest
+ */
+export interface WorkItemsApiCountCompletedWorkItemsRequest {
+    /**
+     * ID of the work item owner.
+     * @type {string}
+     * @memberof WorkItemsApiCountCompletedWorkItems
+     */
+    readonly ownerId?: string
+}
+
+/**
+ * Request parameters for countWorkItems operation in WorkItemsApi.
+ * @export
+ * @interface WorkItemsApiCountWorkItemsRequest
+ */
+export interface WorkItemsApiCountWorkItemsRequest {
+    /**
+     * ID of the work item owner.
+     * @type {string}
+     * @memberof WorkItemsApiCountWorkItems
+     */
+    readonly ownerId?: string
+}
+
+/**
+ * Request parameters for getWorkItems operation in WorkItemsApi.
+ * @export
+ * @interface WorkItemsApiGetWorkItemsRequest
+ */
+export interface WorkItemsApiGetWorkItemsRequest {
+    /**
+     * ID of the work item.
+     * @type {string}
+     * @memberof WorkItemsApiGetWorkItems
+     */
+    readonly id: string
+}
+
+/**
+ * Request parameters for listWorkItems operation in WorkItemsApi.
+ * @export
+ * @interface WorkItemsApiListWorkItemsRequest
+ */
+export interface WorkItemsApiListWorkItemsRequest {
+    /**
+     * Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+     * @type {number}
+     * @memberof WorkItemsApiListWorkItems
+     */
+    readonly limit?: number
+
+    /**
+     * Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+     * @type {number}
+     * @memberof WorkItemsApiListWorkItems
+     */
+    readonly offset?: number
+
+    /**
+     * If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+     * @type {boolean}
+     * @memberof WorkItemsApiListWorkItems
+     */
+    readonly count?: boolean
+
+    /**
+     * ID of the work item owner.
+     * @type {string}
+     * @memberof WorkItemsApiListWorkItems
+     */
+    readonly ownerId?: string
+}
+
+/**
+ * Request parameters for rejectApprovalItem operation in WorkItemsApi.
+ * @export
+ * @interface WorkItemsApiRejectApprovalItemRequest
+ */
+export interface WorkItemsApiRejectApprovalItemRequest {
+    /**
+     * The ID of the work item
+     * @type {string}
+     * @memberof WorkItemsApiRejectApprovalItem
+     */
+    readonly id: string
+
+    /**
+     * The ID of the approval item.
+     * @type {string}
+     * @memberof WorkItemsApiRejectApprovalItem
+     */
+    readonly approvalItemId: string
+}
+
+/**
+ * Request parameters for submitAccountSelection operation in WorkItemsApi.
+ * @export
+ * @interface WorkItemsApiSubmitAccountSelectionRequest
+ */
+export interface WorkItemsApiSubmitAccountSelectionRequest {
+    /**
+     * The ID of the work item
+     * @type {string}
+     * @memberof WorkItemsApiSubmitAccountSelection
+     */
+    readonly id: string
+
+    /**
+     * Account Selection Data map, keyed on fieldName
+     * @type {{ [key: string]: any; }}
+     * @memberof WorkItemsApiSubmitAccountSelection
+     */
+    readonly requestBody: { [key: string]: any; }
+}
+
+/**
+ * Request parameters for summaryWorkItems operation in WorkItemsApi.
+ * @export
+ * @interface WorkItemsApiSummaryWorkItemsRequest
+ */
+export interface WorkItemsApiSummaryWorkItemsRequest {
+    /**
+     * ID of the work item owner.
+     * @type {string}
+     * @memberof WorkItemsApiSummaryWorkItems
+     */
+    readonly ownerId?: string
+}
+
+/**
  * WorkItemsApi - object-oriented interface
  * @export
  * @class WorkItemsApi
@@ -28985,154 +32360,145 @@ export class WorkItemsApi extends BaseAPI {
     /**
      * This API approves an Approval Item. Either an admin, or the owning/current user must make this request.
      * @summary Approve an Approval Item
-     * @param {string} id The ID of the work item
-     * @param {string} approvalItemId The ID of the approval item.
+     * @param {WorkItemsApiApproveApprovalItemRequest} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
      * @memberof WorkItemsApi
      */
-    public approveApprovalItem(id: string, approvalItemId: string, axiosOptions?: AxiosRequestConfig) {
-        return WorkItemsApiFp(this.configuration).approveApprovalItem(id, approvalItemId, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public approveApprovalItem(requestParameters: WorkItemsApiApproveApprovalItemRequest, axiosOptions?: AxiosRequestConfig) {
+        return WorkItemsApiFp(this.configuration).approveApprovalItem(requestParameters.id, requestParameters.approvalItemId, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * This API bulk approves Approval Items. Either an admin, or the owning/current user must make this request.
      * @summary Bulk approve Approval Items
-     * @param {string} id The ID of the work item
+     * @param {WorkItemsApiBulkApproveApprovalItemRequest} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
      * @memberof WorkItemsApi
      */
-    public bulkApproveApprovalItem(id: string, axiosOptions?: AxiosRequestConfig) {
-        return WorkItemsApiFp(this.configuration).bulkApproveApprovalItem(id, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public bulkApproveApprovalItem(requestParameters: WorkItemsApiBulkApproveApprovalItemRequest, axiosOptions?: AxiosRequestConfig) {
+        return WorkItemsApiFp(this.configuration).bulkApproveApprovalItem(requestParameters.id, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * This API bulk rejects Approval Items. Either an admin, or the owning/current user must make this request.
      * @summary Bulk reject Approval Items
-     * @param {string} id The ID of the work item
+     * @param {WorkItemsApiBulkRejectApprovalItemRequest} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
      * @memberof WorkItemsApi
      */
-    public bulkRejectApprovalItem(id: string, axiosOptions?: AxiosRequestConfig) {
-        return WorkItemsApiFp(this.configuration).bulkRejectApprovalItem(id, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public bulkRejectApprovalItem(requestParameters: WorkItemsApiBulkRejectApprovalItemRequest, axiosOptions?: AxiosRequestConfig) {
+        return WorkItemsApiFp(this.configuration).bulkRejectApprovalItem(requestParameters.id, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * This API completes a work item. Either an admin, or the owning/current user must make this request.
      * @summary Complete a Work Item
-     * @param {string} id The ID of the work item
+     * @param {WorkItemsApiCompleteWorkItemRequest} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
      * @memberof WorkItemsApi
      */
-    public completeWorkItem(id: string, axiosOptions?: AxiosRequestConfig) {
-        return WorkItemsApiFp(this.configuration).completeWorkItem(id, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public completeWorkItem(requestParameters: WorkItemsApiCompleteWorkItemRequest, axiosOptions?: AxiosRequestConfig) {
+        return WorkItemsApiFp(this.configuration).completeWorkItem(requestParameters.id, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * This gets a collection of completed work items belonging to either the specified user(admin required), or the current user.
      * @summary Completed Work Items
-     * @param {string} [ownerId] The id of the owner of the work item list being requested.  Either an admin, or the owning/current user must make this request.
-     * @param {number} [limit] Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
-     * @param {number} [offset] Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
-     * @param {boolean} [count] If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+     * @param {WorkItemsApiCompletedWorkItemsRequest} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
      * @memberof WorkItemsApi
      */
-    public completedWorkItems(ownerId?: string, limit?: number, offset?: number, count?: boolean, axiosOptions?: AxiosRequestConfig) {
-        return WorkItemsApiFp(this.configuration).completedWorkItems(ownerId, limit, offset, count, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public completedWorkItems(requestParameters: WorkItemsApiCompletedWorkItemsRequest = {}, axiosOptions?: AxiosRequestConfig) {
+        return WorkItemsApiFp(this.configuration).completedWorkItems(requestParameters.ownerId, requestParameters.limit, requestParameters.offset, requestParameters.count, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * This gets a count of completed work items belonging to either the specified user(admin required), or the current user.
      * @summary Count Completed Work Items
-     * @param {string} [ownerId] ID of the work item owner.
+     * @param {WorkItemsApiCountCompletedWorkItemsRequest} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
      * @memberof WorkItemsApi
      */
-    public countCompletedWorkItems(ownerId?: string, axiosOptions?: AxiosRequestConfig) {
-        return WorkItemsApiFp(this.configuration).countCompletedWorkItems(ownerId, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public countCompletedWorkItems(requestParameters: WorkItemsApiCountCompletedWorkItemsRequest = {}, axiosOptions?: AxiosRequestConfig) {
+        return WorkItemsApiFp(this.configuration).countCompletedWorkItems(requestParameters.ownerId, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * This gets a count of work items belonging to either the specified user(admin required), or the current user.
      * @summary Count Work Items
-     * @param {string} [ownerId] ID of the work item owner.
+     * @param {WorkItemsApiCountWorkItemsRequest} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
      * @memberof WorkItemsApi
      */
-    public countWorkItems(ownerId?: string, axiosOptions?: AxiosRequestConfig) {
-        return WorkItemsApiFp(this.configuration).countWorkItems(ownerId, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public countWorkItems(requestParameters: WorkItemsApiCountWorkItemsRequest = {}, axiosOptions?: AxiosRequestConfig) {
+        return WorkItemsApiFp(this.configuration).countWorkItems(requestParameters.ownerId, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * This gets the details of a Work Item belonging to either the specified user(admin required), or the current user.
      * @summary Get a Work Item
-     * @param {string} id ID of the work item.
+     * @param {WorkItemsApiGetWorkItemsRequest} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
      * @memberof WorkItemsApi
      */
-    public getWorkItems(id: string, axiosOptions?: AxiosRequestConfig) {
-        return WorkItemsApiFp(this.configuration).getWorkItems(id, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public getWorkItems(requestParameters: WorkItemsApiGetWorkItemsRequest, axiosOptions?: AxiosRequestConfig) {
+        return WorkItemsApiFp(this.configuration).getWorkItems(requestParameters.id, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * This gets a collection of work items belonging to either the specified user(admin required), or the current user.
      * @summary List Work Items
-     * @param {number} [limit] Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
-     * @param {number} [offset] Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
-     * @param {boolean} [count] If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
-     * @param {string} [ownerId] ID of the work item owner.
+     * @param {WorkItemsApiListWorkItemsRequest} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
      * @memberof WorkItemsApi
      */
-    public listWorkItems(limit?: number, offset?: number, count?: boolean, ownerId?: string, axiosOptions?: AxiosRequestConfig) {
-        return WorkItemsApiFp(this.configuration).listWorkItems(limit, offset, count, ownerId, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public listWorkItems(requestParameters: WorkItemsApiListWorkItemsRequest = {}, axiosOptions?: AxiosRequestConfig) {
+        return WorkItemsApiFp(this.configuration).listWorkItems(requestParameters.limit, requestParameters.offset, requestParameters.count, requestParameters.ownerId, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * This API rejects an Approval Item. Either an admin, or the owning/current user must make this request.
      * @summary Reject an Approval Item
-     * @param {string} id The ID of the work item
-     * @param {string} approvalItemId The ID of the approval item.
+     * @param {WorkItemsApiRejectApprovalItemRequest} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
      * @memberof WorkItemsApi
      */
-    public rejectApprovalItem(id: string, approvalItemId: string, axiosOptions?: AxiosRequestConfig) {
-        return WorkItemsApiFp(this.configuration).rejectApprovalItem(id, approvalItemId, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public rejectApprovalItem(requestParameters: WorkItemsApiRejectApprovalItemRequest, axiosOptions?: AxiosRequestConfig) {
+        return WorkItemsApiFp(this.configuration).rejectApprovalItem(requestParameters.id, requestParameters.approvalItemId, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * This API submits account selections. Either an admin, or the owning/current user must make this request.
      * @summary Submit Account Selections
-     * @param {string} id The ID of the work item
-     * @param {{ [key: string]: any; }} requestBody Account Selection Data map, keyed on fieldName
+     * @param {WorkItemsApiSubmitAccountSelectionRequest} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
      * @memberof WorkItemsApi
      */
-    public submitAccountSelection(id: string, requestBody: { [key: string]: any; }, axiosOptions?: AxiosRequestConfig) {
-        return WorkItemsApiFp(this.configuration).submitAccountSelection(id, requestBody, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public submitAccountSelection(requestParameters: WorkItemsApiSubmitAccountSelectionRequest, axiosOptions?: AxiosRequestConfig) {
+        return WorkItemsApiFp(this.configuration).submitAccountSelection(requestParameters.id, requestParameters.requestBody, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * This gets a summary of work items belonging to either the specified user(admin required), or the current user.
      * @summary Work Items Summary
-     * @param {string} [ownerId] ID of the work item owner.
+     * @param {WorkItemsApiSummaryWorkItemsRequest} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
      * @memberof WorkItemsApi
      */
-    public summaryWorkItems(ownerId?: string, axiosOptions?: AxiosRequestConfig) {
-        return WorkItemsApiFp(this.configuration).summaryWorkItems(ownerId, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public summaryWorkItems(requestParameters: WorkItemsApiSummaryWorkItemsRequest = {}, axiosOptions?: AxiosRequestConfig) {
+        return WorkItemsApiFp(this.configuration).summaryWorkItems(requestParameters.ownerId, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 }
 

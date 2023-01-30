@@ -310,6 +310,20 @@ export const AccountsCCApiFactory = function (configuration?: Configuration, bas
 };
 
 /**
+ * Request parameters for removeAccount operation in AccountsCCApi.
+ * @export
+ * @interface AccountsCCApiRemoveAccountRequest
+ */
+export interface AccountsCCApiRemoveAccountRequest {
+    /**
+     * 
+     * @type {string}
+     * @memberof AccountsCCApiRemoveAccount
+     */
+    readonly id?: string
+}
+
+/**
  * AccountsCCApi - object-oriented interface
  * @export
  * @class AccountsCCApi
@@ -330,13 +344,13 @@ export class AccountsCCApi extends BaseAPI {
     /**
      * 
      * @summary Remove Account
-     * @param {string} [id] 
+     * @param {AccountsCCApiRemoveAccountRequest} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
      * @memberof AccountsCCApi
      */
-    public removeAccount(id?: string, axiosOptions?: AxiosRequestConfig) {
-        return AccountsCCApiFp(this.configuration).removeAccount(id, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public removeAccount(requestParameters: AccountsCCApiRemoveAccountRequest = {}, axiosOptions?: AxiosRequestConfig) {
+        return AccountsCCApiFp(this.configuration).removeAccount(requestParameters.id, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 }
 
@@ -733,6 +747,83 @@ export const ApplicationsCCApiFactory = function (configuration?: Configuration,
 };
 
 /**
+ * Request parameters for createApplication operation in ApplicationsCCApi.
+ * @export
+ * @interface ApplicationsCCApiCreateApplicationRequest
+ */
+export interface ApplicationsCCApiCreateApplicationRequest {
+    /**
+     * 
+     * @type {CreateApplicationRequestCC}
+     * @memberof ApplicationsCCApiCreateApplication
+     */
+    readonly createApplicationRequestCC?: CreateApplicationRequestCC
+}
+
+/**
+ * Request parameters for deleteApplication operation in ApplicationsCCApi.
+ * @export
+ * @interface ApplicationsCCApiDeleteApplicationRequest
+ */
+export interface ApplicationsCCApiDeleteApplicationRequest {
+    /**
+     * 
+     * @type {string}
+     * @memberof ApplicationsCCApiDeleteApplication
+     */
+    readonly id?: string
+}
+
+/**
+ * Request parameters for getApplication operation in ApplicationsCCApi.
+ * @export
+ * @interface ApplicationsCCApiGetApplicationRequest
+ */
+export interface ApplicationsCCApiGetApplicationRequest {
+    /**
+     * 
+     * @type {string}
+     * @memberof ApplicationsCCApiGetApplication
+     */
+    readonly id?: string
+}
+
+/**
+ * Request parameters for getApplicationAccessProfiles operation in ApplicationsCCApi.
+ * @export
+ * @interface ApplicationsCCApiGetApplicationAccessProfilesRequest
+ */
+export interface ApplicationsCCApiGetApplicationAccessProfilesRequest {
+    /**
+     * 
+     * @type {string}
+     * @memberof ApplicationsCCApiGetApplicationAccessProfiles
+     */
+    readonly id?: string
+}
+
+/**
+ * Request parameters for updateApplication operation in ApplicationsCCApi.
+ * @export
+ * @interface ApplicationsCCApiUpdateApplicationRequest
+ */
+export interface ApplicationsCCApiUpdateApplicationRequest {
+    /**
+     * 
+     * @type {string}
+     * @memberof ApplicationsCCApiUpdateApplication
+     */
+    readonly id?: string
+
+    /**
+     * 
+     * @type {UpdateApplicationRequestCC}
+     * @memberof ApplicationsCCApiUpdateApplication
+     */
+    readonly updateApplicationRequestCC?: UpdateApplicationRequestCC
+}
+
+/**
  * ApplicationsCCApi - object-oriented interface
  * @export
  * @class ApplicationsCCApi
@@ -742,49 +833,49 @@ export class ApplicationsCCApi extends BaseAPI {
     /**
      * 
      * @summary Create Application
-     * @param {CreateApplicationRequestCC} [createApplicationRequestCC] 
+     * @param {ApplicationsCCApiCreateApplicationRequest} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
      * @memberof ApplicationsCCApi
      */
-    public createApplication(createApplicationRequestCC?: CreateApplicationRequestCC, axiosOptions?: AxiosRequestConfig) {
-        return ApplicationsCCApiFp(this.configuration).createApplication(createApplicationRequestCC, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public createApplication(requestParameters: ApplicationsCCApiCreateApplicationRequest = {}, axiosOptions?: AxiosRequestConfig) {
+        return ApplicationsCCApiFp(this.configuration).createApplication(requestParameters.createApplicationRequestCC, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * 
      * @summary Delete Application
-     * @param {string} [id] 
+     * @param {ApplicationsCCApiDeleteApplicationRequest} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
      * @memberof ApplicationsCCApi
      */
-    public deleteApplication(id?: string, axiosOptions?: AxiosRequestConfig) {
-        return ApplicationsCCApiFp(this.configuration).deleteApplication(id, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public deleteApplication(requestParameters: ApplicationsCCApiDeleteApplicationRequest = {}, axiosOptions?: AxiosRequestConfig) {
+        return ApplicationsCCApiFp(this.configuration).deleteApplication(requestParameters.id, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * 
      * @summary Get Single Application
-     * @param {string} [id] 
+     * @param {ApplicationsCCApiGetApplicationRequest} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
      * @memberof ApplicationsCCApi
      */
-    public getApplication(id?: string, axiosOptions?: AxiosRequestConfig) {
-        return ApplicationsCCApiFp(this.configuration).getApplication(id, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public getApplication(requestParameters: ApplicationsCCApiGetApplicationRequest = {}, axiosOptions?: AxiosRequestConfig) {
+        return ApplicationsCCApiFp(this.configuration).getApplication(requestParameters.id, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * 
      * @summary Get Access Profiles for Application
-     * @param {string} [id] 
+     * @param {ApplicationsCCApiGetApplicationAccessProfilesRequest} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
      * @memberof ApplicationsCCApi
      */
-    public getApplicationAccessProfiles(id?: string, axiosOptions?: AxiosRequestConfig) {
-        return ApplicationsCCApiFp(this.configuration).getApplicationAccessProfiles(id, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public getApplicationAccessProfiles(requestParameters: ApplicationsCCApiGetApplicationAccessProfilesRequest = {}, axiosOptions?: AxiosRequestConfig) {
+        return ApplicationsCCApiFp(this.configuration).getApplicationAccessProfiles(requestParameters.id, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -801,14 +892,13 @@ export class ApplicationsCCApi extends BaseAPI {
     /**
      * 
      * @summary Update Application
-     * @param {string} [id] 
-     * @param {UpdateApplicationRequestCC} [updateApplicationRequestCC] 
+     * @param {ApplicationsCCApiUpdateApplicationRequest} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
      * @memberof ApplicationsCCApi
      */
-    public updateApplication(id?: string, updateApplicationRequestCC?: UpdateApplicationRequestCC, axiosOptions?: AxiosRequestConfig) {
-        return ApplicationsCCApiFp(this.configuration).updateApplication(id, updateApplicationRequestCC, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public updateApplication(requestParameters: ApplicationsCCApiUpdateApplicationRequest = {}, axiosOptions?: AxiosRequestConfig) {
+        return ApplicationsCCApiFp(this.configuration).updateApplication(requestParameters.id, requestParameters.updateApplicationRequestCC, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 }
 
@@ -1203,6 +1293,104 @@ export const ConnectorsCCApiFactory = function (configuration?: Configuration, b
 };
 
 /**
+ * Request parameters for createConnector operation in ConnectorsCCApi.
+ * @export
+ * @interface ConnectorsCCApiCreateConnectorRequest
+ */
+export interface ConnectorsCCApiCreateConnectorRequest {
+    /**
+     * 
+     * @type {string}
+     * @memberof ConnectorsCCApiCreateConnector
+     */
+    readonly contentType?: string
+
+    /**
+     * 
+     * @type {string}
+     * @memberof ConnectorsCCApiCreateConnector
+     */
+    readonly name?: string
+
+    /**
+     * 
+     * @type {string}
+     * @memberof ConnectorsCCApiCreateConnector
+     */
+    readonly description?: string
+
+    /**
+     * 
+     * @type {string}
+     * @memberof ConnectorsCCApiCreateConnector
+     */
+    readonly className?: string
+
+    /**
+     * 
+     * @type {boolean}
+     * @memberof ConnectorsCCApiCreateConnector
+     */
+    readonly directConnect?: boolean
+
+    /**
+     * 
+     * @type {string}
+     * @memberof ConnectorsCCApiCreateConnector
+     */
+    readonly status?: string
+}
+
+/**
+ * Request parameters for deleteConnector operation in ConnectorsCCApi.
+ * @export
+ * @interface ConnectorsCCApiDeleteConnectorRequest
+ */
+export interface ConnectorsCCApiDeleteConnectorRequest {
+    /**
+     * 
+     * @type {string}
+     * @memberof ConnectorsCCApiDeleteConnector
+     */
+    readonly id: string
+}
+
+/**
+ * Request parameters for exportConnectorConfig operation in ConnectorsCCApi.
+ * @export
+ * @interface ConnectorsCCApiExportConnectorConfigRequest
+ */
+export interface ConnectorsCCApiExportConnectorConfigRequest {
+    /**
+     * 
+     * @type {string}
+     * @memberof ConnectorsCCApiExportConnectorConfig
+     */
+    readonly id: string
+}
+
+/**
+ * Request parameters for importConnectorConfig operation in ConnectorsCCApi.
+ * @export
+ * @interface ConnectorsCCApiImportConnectorConfigRequest
+ */
+export interface ConnectorsCCApiImportConnectorConfigRequest {
+    /**
+     * 
+     * @type {string}
+     * @memberof ConnectorsCCApiImportConnectorConfig
+     */
+    readonly id: string
+
+    /**
+     * This is the connector config zip bundle which gets uploaded.
+     * @type {any}
+     * @memberof ConnectorsCCApiImportConnectorConfig
+     */
+    readonly file?: any
+}
+
+/**
  * ConnectorsCCApi - object-oriented interface
  * @export
  * @class ConnectorsCCApi
@@ -1212,55 +1400,49 @@ export class ConnectorsCCApi extends BaseAPI {
     /**
      * 
      * @summary Create Connector
-     * @param {string} [contentType] 
-     * @param {string} [name] 
-     * @param {string} [description] 
-     * @param {string} [className] 
-     * @param {boolean} [directConnect] 
-     * @param {string} [status] 
+     * @param {ConnectorsCCApiCreateConnectorRequest} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
      * @memberof ConnectorsCCApi
      */
-    public createConnector(contentType?: string, name?: string, description?: string, className?: string, directConnect?: boolean, status?: string, axiosOptions?: AxiosRequestConfig) {
-        return ConnectorsCCApiFp(this.configuration).createConnector(contentType, name, description, className, directConnect, status, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public createConnector(requestParameters: ConnectorsCCApiCreateConnectorRequest = {}, axiosOptions?: AxiosRequestConfig) {
+        return ConnectorsCCApiFp(this.configuration).createConnector(requestParameters.contentType, requestParameters.name, requestParameters.description, requestParameters.className, requestParameters.directConnect, requestParameters.status, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * 
      * @summary Delete Connector
-     * @param {string} id 
+     * @param {ConnectorsCCApiDeleteConnectorRequest} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
      * @memberof ConnectorsCCApi
      */
-    public deleteConnector(id: string, axiosOptions?: AxiosRequestConfig) {
-        return ConnectorsCCApiFp(this.configuration).deleteConnector(id, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public deleteConnector(requestParameters: ConnectorsCCApiDeleteConnectorRequest, axiosOptions?: AxiosRequestConfig) {
+        return ConnectorsCCApiFp(this.configuration).deleteConnector(requestParameters.id, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * 
      * @summary Export Connector Config
-     * @param {string} id 
+     * @param {ConnectorsCCApiExportConnectorConfigRequest} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
      * @memberof ConnectorsCCApi
      */
-    public exportConnectorConfig(id: string, axiosOptions?: AxiosRequestConfig) {
-        return ConnectorsCCApiFp(this.configuration).exportConnectorConfig(id, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public exportConnectorConfig(requestParameters: ConnectorsCCApiExportConnectorConfigRequest, axiosOptions?: AxiosRequestConfig) {
+        return ConnectorsCCApiFp(this.configuration).exportConnectorConfig(requestParameters.id, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * 
      * @summary Import Connector Config
-     * @param {string} id 
-     * @param {any} [file] This is the connector config zip bundle which gets uploaded.
+     * @param {ConnectorsCCApiImportConnectorConfigRequest} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
      * @memberof ConnectorsCCApi
      */
-    public importConnectorConfig(id: string, file?: any, axiosOptions?: AxiosRequestConfig) {
-        return ConnectorsCCApiFp(this.configuration).importConnectorConfig(id, file, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public importConnectorConfig(requestParameters: ConnectorsCCApiImportConnectorConfigRequest, axiosOptions?: AxiosRequestConfig) {
+        return ConnectorsCCApiFp(this.configuration).importConnectorConfig(requestParameters.id, requestParameters.file, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -1369,6 +1551,20 @@ export const SourcesAccountsCCApiFactory = function (configuration?: Configurati
 };
 
 /**
+ * Request parameters for exportAccountFeed operation in SourcesAccountsCCApi.
+ * @export
+ * @interface SourcesAccountsCCApiExportAccountFeedRequest
+ */
+export interface SourcesAccountsCCApiExportAccountFeedRequest {
+    /**
+     * 
+     * @type {string}
+     * @memberof SourcesAccountsCCApiExportAccountFeed
+     */
+    readonly id: string
+}
+
+/**
  * SourcesAccountsCCApi - object-oriented interface
  * @export
  * @class SourcesAccountsCCApi
@@ -1378,13 +1574,13 @@ export class SourcesAccountsCCApi extends BaseAPI {
     /**
      * Exports a CSV of the accounts for a particular source.
      * @summary Export Account Feed
-     * @param {string} id 
+     * @param {SourcesAccountsCCApiExportAccountFeedRequest} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
      * @memberof SourcesAccountsCCApi
      */
-    public exportAccountFeed(id: string, axiosOptions?: AxiosRequestConfig) {
-        return SourcesAccountsCCApiFp(this.configuration).exportAccountFeed(id, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public exportAccountFeed(requestParameters: SourcesAccountsCCApiExportAccountFeedRequest, axiosOptions?: AxiosRequestConfig) {
+        return SourcesAccountsCCApiFp(this.configuration).exportAccountFeed(requestParameters.id, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 }
 
@@ -1507,6 +1703,41 @@ export const SourcesAggregationCCApiFactory = function (configuration?: Configur
 };
 
 /**
+ * Request parameters for loadAccounts operation in SourcesAggregationCCApi.
+ * @export
+ * @interface SourcesAggregationCCApiLoadAccountsRequest
+ */
+export interface SourcesAggregationCCApiLoadAccountsRequest {
+    /**
+     * 
+     * @type {string}
+     * @memberof SourcesAggregationCCApiLoadAccounts
+     */
+    readonly id: string
+
+    /**
+     * 
+     * @type {string}
+     * @memberof SourcesAggregationCCApiLoadAccounts
+     */
+    readonly contentType?: string
+
+    /**
+     * 
+     * @type {boolean}
+     * @memberof SourcesAggregationCCApiLoadAccounts
+     */
+    readonly disableOptimization?: boolean
+
+    /**
+     * 
+     * @type {any}
+     * @memberof SourcesAggregationCCApiLoadAccounts
+     */
+    readonly file?: any
+}
+
+/**
  * SourcesAggregationCCApi - object-oriented interface
  * @export
  * @class SourcesAggregationCCApi
@@ -1516,16 +1747,13 @@ export class SourcesAggregationCCApi extends BaseAPI {
     /**
      * Aggregates a delimited file for the given source.  This only works for file-based sources.
      * @summary Account Aggregation (File)
-     * @param {string} id 
-     * @param {string} [contentType] 
-     * @param {boolean} [disableOptimization] 
-     * @param {any} [file] 
+     * @param {SourcesAggregationCCApiLoadAccountsRequest} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
      * @memberof SourcesAggregationCCApi
      */
-    public loadAccounts(id: string, contentType?: string, disableOptimization?: boolean, file?: any, axiosOptions?: AxiosRequestConfig) {
-        return SourcesAggregationCCApiFp(this.configuration).loadAccounts(id, contentType, disableOptimization, file, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public loadAccounts(requestParameters: SourcesAggregationCCApiLoadAccountsRequest, axiosOptions?: AxiosRequestConfig) {
+        return SourcesAggregationCCApiFp(this.configuration).loadAccounts(requestParameters.id, requestParameters.contentType, requestParameters.disableOptimization, requestParameters.file, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 }
 
@@ -1630,6 +1858,27 @@ export const SystemCCApiFactory = function (configuration?: Configuration, baseP
 };
 
 /**
+ * Request parameters for refreshIdentities operation in SystemCCApi.
+ * @export
+ * @interface SystemCCApiRefreshIdentitiesRequest
+ */
+export interface SystemCCApiRefreshIdentitiesRequest {
+    /**
+     * 
+     * @type {string}
+     * @memberof SystemCCApiRefreshIdentities
+     */
+    readonly contentType?: string
+
+    /**
+     * 
+     * @type {string}
+     * @memberof SystemCCApiRefreshIdentities
+     */
+    readonly body?: string
+}
+
+/**
  * SystemCCApi - object-oriented interface
  * @export
  * @class SystemCCApi
@@ -1639,14 +1888,13 @@ export class SystemCCApi extends BaseAPI {
     /**
      * This kicks off an identity refresh for a specified set of identity attributes.  This can be a long running process.  IdentityNow has pre-scheduled versions of this task at set intervals and events already, so only run this when directed by SailPoint.  _Note: If the identities specified by the filter do not exist, a full identity refresh will be run.  Use with caution._  Refresh Arguments:  | Key                   | Description                                        | |-----------------------|----------------------------------------------------| | correlateEntitlements | Analyzes entitlements, access profiles, and roles. | | promoteAttributes     | Calculates identity attributes.                    | | refreshManagerStatus  | Calculates manager correlation and manager status. | | synchronizeAttributes | Performs attribute sync provisioning.              | | pruneIdentities       | Removes any identities which don\'t have accounts.  | | provision             | Provisions any assigned roles or access profiles.  |
      * @summary Refresh Identities
-     * @param {string} [contentType] 
-     * @param {string} [body] 
+     * @param {SystemCCApiRefreshIdentitiesRequest} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
      * @memberof SystemCCApi
      */
-    public refreshIdentities(contentType?: string, body?: string, axiosOptions?: AxiosRequestConfig) {
-        return SystemCCApiFp(this.configuration).refreshIdentities(contentType, body, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public refreshIdentities(requestParameters: SystemCCApiRefreshIdentitiesRequest = {}, axiosOptions?: AxiosRequestConfig) {
+        return SystemCCApiFp(this.configuration).refreshIdentities(requestParameters.contentType, requestParameters.body, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 }
 
@@ -1744,6 +1992,20 @@ export const UserCCApiFactory = function (configuration?: Configuration, basePat
 };
 
 /**
+ * Request parameters for updateUserPermissions operation in UserCCApi.
+ * @export
+ * @interface UserCCApiUpdateUserPermissionsRequest
+ */
+export interface UserCCApiUpdateUserPermissionsRequest {
+    /**
+     * 
+     * @type {UpdateUserPermissionsRequestCC}
+     * @memberof UserCCApiUpdateUserPermissions
+     */
+    readonly updateUserPermissionsRequestCC?: UpdateUserPermissionsRequestCC
+}
+
+/**
  * UserCCApi - object-oriented interface
  * @export
  * @class UserCCApi
@@ -1753,13 +2015,13 @@ export class UserCCApi extends BaseAPI {
     /**
      * 
      * @summary Update User Permissions
-     * @param {UpdateUserPermissionsRequestCC} [updateUserPermissionsRequestCC] 
+     * @param {UserCCApiUpdateUserPermissionsRequest} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
      * @memberof UserCCApi
      */
-    public updateUserPermissions(updateUserPermissionsRequestCC?: UpdateUserPermissionsRequestCC, axiosOptions?: AxiosRequestConfig) {
-        return UserCCApiFp(this.configuration).updateUserPermissions(updateUserPermissionsRequestCC, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public updateUserPermissions(requestParameters: UserCCApiUpdateUserPermissionsRequest = {}, axiosOptions?: AxiosRequestConfig) {
+        return UserCCApiFp(this.configuration).updateUserPermissions(requestParameters.updateUserPermissionsRequestCC, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 }
 

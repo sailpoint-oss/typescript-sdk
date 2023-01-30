@@ -26,3 +26,5 @@ export * from "./cc/api";
 export {Configuration as ConfigurationCC, ConfigurationParameters as ConfigurationParametersCC} from "./cc/configuration";
 
 export {Configuration, ConfigurationParameters} from "./configuration";
+
+export * from "./paginator"

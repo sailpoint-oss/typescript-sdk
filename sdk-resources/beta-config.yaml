@@ -6,3 +6,4 @@ files:
 npmName: sailpoint-sdk
 npmRepository: sailpoint.com
 npmVersion: 0.1.0
+useSingleRequestParameter: true
