@@ -7292,6 +7292,12 @@ export interface GetOAuthClientResponseBeta {
      */
     'modified': string;
     /**
+     * The date and time, down to the millisecond, when this API Client was last used to generate an access token. This timestamp does not get updated on every API Client usage, but only once a day. This property can be useful for identifying which API Clients are no longer actively used and can be removed.
+     * @type {string}
+     * @memberof GetOAuthClientResponseBeta
+     */
+    'lastUsed'?: string | null;
+    /**
      * Scopes of the API Client.
      * @type {Array<string>}
      * @memberof GetOAuthClientResponseBeta
