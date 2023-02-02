@@ -7334,6 +7334,12 @@ export interface GetPersonalAccessTokenResponseBeta {
      * @memberof GetPersonalAccessTokenResponseBeta
      */
     'created': string;
+    /**
+     * The date and time, down to the millisecond, when this personal access token was last used to generate an access token. This timestamp does not get updated on every PAT usage, but only once a day. This property can be useful for identifying which PATs are no longer actively used and can be removed.
+     * @type {string}
+     * @memberof GetPersonalAccessTokenResponseBeta
+     */
+    'lastUsed'?: string | null;
 }
 /**
  * OAuth2 Grant Type
