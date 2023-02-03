@@ -28,6 +28,7 @@
   },
   "dependencies": {
     "axios": "^0.26.1",
+    "axios-retry": "^3.4.0",
     "js-yaml": "^4.1.0"
   },
   "devDependencies": {

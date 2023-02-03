@@ -3,6 +3,7 @@ import * as os from 'os';
 import * as path from 'path';
 import * as yaml from "js-yaml";
 import * as fs from "fs";
+import { IAxiosRetryConfig } from "axios-retry";
 
 export interface ConfigurationParameters {
     baseurl?: string;
@@ -146,6 +147,13 @@ export class Configuration {
      * @type {new () => FormData}
      */
     formDataCtor?: new () => any;
+    /**
+     * axios retry configuration
+     *
+     * @type {IAxiosRetryConfig}
+     * @memberof Configuration
+     */
+    retriesConfig?: IAxiosRetryConfig
 
     constructor(param?: ConfigurationParameters) {
 

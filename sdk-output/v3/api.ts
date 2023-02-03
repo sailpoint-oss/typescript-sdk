@@ -6060,12 +6060,6 @@ export interface GetOAuthClientResponse {
      */
     'modified': string;
     /**
-     * The date and time, down to the millisecond, when this API Client was last used to generate an access token. This timestamp does not get updated on every API Client usage, but only once a day. This property can be useful for identifying which API Clients are no longer actively used and can be removed.
-     * @type {string}
-     * @memberof GetOAuthClientResponse
-     */
-    'lastUsed'?: string | null;
-    /**
      * Scopes of the API Client.
      * @type {Array<string>}
      * @memberof GetOAuthClientResponse
@@ -6108,12 +6102,6 @@ export interface GetPersonalAccessTokenResponse {
      * @memberof GetPersonalAccessTokenResponse
      */
     'created': string;
-    /**
-     * The date and time, down to the millisecond, when this personal access token was last used to generate an access token. This timestamp does not get updated on every PAT usage, but only once a day. This property can be useful for identifying which PATs are no longer actively used and can be removed.
-     * @type {string}
-     * @memberof GetPersonalAccessTokenResponse
-     */
-    'lastUsed'?: string | null;
 }
 /**
  * 

@@ -1,4 +1,4 @@
-import { AccountsApi, Configuration, Paginator, Search1, SearchApi, TransformsApi, TransformsApiCreateTransformRequest } from "sailpoint-api-client"
+import { AccountsApi, Configuration, axiosRetry, Paginator, Search1, SearchApi, TransformsApi, TransformsApiCreateTransformRequest} from "sailpoint-api-client"
 
 const createTransform = async () => {
 
@@ -42,9 +42,16 @@ const getPaginatedAccounts = async () => {
 
     
     let apiConfig = new Configuration()
+    apiConfig.retriesConfig = {
+        retries: 4,
+        retryDelay: axiosRetry.exponentialDelay,
+        onRetry(retryCount, error, requestConfig) {
+            console.log(`retrying due to request error, try number ${retryCount}`)
+        },
+    }
     let api = new AccountsApi(apiConfig)
     
-    const val = await Paginator.paginate(api, api.listAccounts, {limit: 500}, 100)
+    const val = await Paginator.paginate(api, api.listAccounts, {limit: 100}, 10)
 
     console.log(val)
 

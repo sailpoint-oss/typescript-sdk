@@ -13,6 +13,7 @@
  */
 
 
+
 export * from "./beta/api";
 export {Configuration as ConfigurationBeta, ConfigurationParameters as ConfigurationParametersBeta} from "./beta/configuration";
 
@@ -27,4 +28,6 @@ export {Configuration as ConfigurationCC, ConfigurationParameters as Configurati
 
 export {Configuration, ConfigurationParameters} from "./configuration";
 
-export * from "./paginator"
+export * from "./paginator";
+
+export * as axiosRetry from "axios-retry"

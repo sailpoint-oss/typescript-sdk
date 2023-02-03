@@ -16,6 +16,7 @@
 import { Configuration } from "../configuration";
 import { RequiredError, RequestArgs } from "./base";
 import { AxiosInstance, AxiosResponse } from 'axios';
+import axiosRetry from "axios-retry";
 
 /**
  *
@@ -132,6 +133,7 @@ export const toPathString = function (url: URL) {
  */
 export const createRequestFunction = function (axiosArgs: RequestArgs, globalAxios: AxiosInstance, BASE_PATH: string, configuration?: Configuration) {
     return <T = unknown, R = AxiosResponse<T>>(axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
+        axiosRetry(globalAxios, configuration.retriesConfig)
         axiosArgs.axiosOptions.headers['X-SailPoint-SDK'] = 'typescript-0.1.0'
         const axiosRequestArgs = {...axiosArgs.axiosOptions, url: (configuration?.basePathCC || basePath) + axiosArgs.url};
         return axios.request<T, R>(axiosRequestArgs);
