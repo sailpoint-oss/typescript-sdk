@@ -501,6 +501,36 @@ export interface AccessItemRoleResponseBeta {
 /**
  * 
  * @export
+ * @interface AccessProfileApprovalSchemeBeta
+ */
+export interface AccessProfileApprovalSchemeBeta {
+    /**
+     * Describes the individual or group that is responsible for an approval step. Values are as follows. **APP_OWNER**: The owner of the Application  **OWNER**: Owner of the associated Access Profile or Role  **SOURCE_OWNER**: Owner of the Source associated with an Access Profile  **MANAGER**: Manager of the Identity making the request  **GOVERNANCE_GROUP**: A Governance Group, the ID of which is specified by the **approverId** field
+     * @type {string}
+     * @memberof AccessProfileApprovalSchemeBeta
+     */
+    'approverType'?: AccessProfileApprovalSchemeBetaApproverTypeEnum;
+    /**
+     * Id of the specific approver, used only when approverType is GOVERNANCE_GROUP
+     * @type {string}
+     * @memberof AccessProfileApprovalSchemeBeta
+     */
+    'approverId'?: string | null;
+}
+
+export const AccessProfileApprovalSchemeBetaApproverTypeEnum = {
+    AppOwner: 'APP_OWNER',
+    Owner: 'OWNER',
+    SourceOwner: 'SOURCE_OWNER',
+    Manager: 'MANAGER',
+    GovernanceGroup: 'GOVERNANCE_GROUP'
+} as const;
+
+export type AccessProfileApprovalSchemeBetaApproverTypeEnum = typeof AccessProfileApprovalSchemeBetaApproverTypeEnum[keyof typeof AccessProfileApprovalSchemeBetaApproverTypeEnum];
+
+/**
+ * 
+ * @export
  * @interface AccessProfileBeta
  */
 export interface AccessProfileBeta {
@@ -2474,7 +2504,7 @@ export interface ApprovalReminderAndEscalationConfigBeta {
  * @enum {string}
  */
 
-export const ApprovalScheme1Beta = {
+export const ApprovalSchemeBeta = {
     AppOwner: 'APP_OWNER',
     SourceOwner: 'SOURCE_OWNER',
     Manager: 'MANAGER',
@@ -2483,38 +2513,8 @@ export const ApprovalScheme1Beta = {
     GovernanceGroup: 'GOVERNANCE_GROUP'
 } as const;
 
-export type ApprovalScheme1Beta = typeof ApprovalScheme1Beta[keyof typeof ApprovalScheme1Beta];
+export type ApprovalSchemeBeta = typeof ApprovalSchemeBeta[keyof typeof ApprovalSchemeBeta];
 
-
-/**
- * 
- * @export
- * @interface ApprovalSchemeBeta
- */
-export interface ApprovalSchemeBeta {
-    /**
-     * Describes the individual or group that is responsible for an approval step. Values are as follows. **APP_OWNER**: The owner of the Application  **OWNER**: Owner of the associated Access Profile or Role  **SOURCE_OWNER**: Owner of the Source associated with an Access Profile  **MANAGER**: Manager of the Identity making the request  **GOVERNANCE_GROUP**: A Governance Group, the ID of which is specified by the **approverId** field
-     * @type {string}
-     * @memberof ApprovalSchemeBeta
-     */
-    'approverType'?: ApprovalSchemeBetaApproverTypeEnum;
-    /**
-     * Id of the specific approver, used only when approverType is GOVERNANCE_GROUP
-     * @type {string}
-     * @memberof ApprovalSchemeBeta
-     */
-    'approverId'?: string | null;
-}
-
-export const ApprovalSchemeBetaApproverTypeEnum = {
-    AppOwner: 'APP_OWNER',
-    Owner: 'OWNER',
-    SourceOwner: 'SOURCE_OWNER',
-    Manager: 'MANAGER',
-    GovernanceGroup: 'GOVERNANCE_GROUP'
-} as const;
-
-export type ApprovalSchemeBetaApproverTypeEnum = typeof ApprovalSchemeBetaApproverTypeEnum[keyof typeof ApprovalSchemeBetaApproverTypeEnum];
 
 /**
  * 
@@ -2605,10 +2605,10 @@ export interface ApprovalStatusDtoBeta {
     'status'?: ManualWorkItemStateBeta;
     /**
      * 
-     * @type {ApprovalScheme1Beta}
+     * @type {ApprovalSchemeBeta}
      * @memberof ApprovalStatusDtoBeta
      */
-    'scheme'?: ApprovalScheme1Beta;
+    'scheme'?: ApprovalSchemeBeta;
     /**
      * If the request failed, includes any error messages that were generated.
      * @type {Array<ErrorMessageDtoBeta>}
@@ -12972,10 +12972,10 @@ export interface RequestabilityBeta {
     'denialCommentsRequired'?: boolean;
     /**
      * List describing the steps in approving the request
-     * @type {Array<ApprovalSchemeBeta>}
+     * @type {Array<AccessProfileApprovalSchemeBeta>}
      * @memberof RequestabilityBeta
      */
-    'approvalSchemes'?: Array<ApprovalSchemeBeta>;
+    'approvalSchemes'?: Array<AccessProfileApprovalSchemeBeta>;
 }
 /**
  * 
@@ -13546,10 +13546,10 @@ export type ReviewerBetaTypeEnum = typeof ReviewerBetaTypeEnum[keyof typeof Revi
 export interface RevocabilityBeta {
     /**
      * List describing the steps in approving the revocation request
-     * @type {Array<ApprovalSchemeBeta>}
+     * @type {Array<AccessProfileApprovalSchemeBeta>}
      * @memberof RevocabilityBeta
      */
-    'approvalSchemes'?: Array<ApprovalSchemeBeta>;
+    'approvalSchemes'?: Array<AccessProfileApprovalSchemeBeta>;
 }
 /**
  * Type which indicates how a particular Identity obtained a particular Role

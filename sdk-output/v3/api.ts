@@ -28,13 +28,13 @@ import { BASE_PATH, COLLECTION_FORMATS, RequestArgs, BaseAPI, RequiredError } fr
  */
 export interface Access {
     /**
-     * 
+     * The unique ID of the referenced object.
      * @type {string}
      * @memberof Access
      */
     'id'?: string;
     /**
-     * 
+     * The human readable name of the referenced object.
      * @type {string}
      * @memberof Access
      */
@@ -58,12 +58,6 @@ export interface Access {
      */
     'description'?: string | null;
 }
-/**
- * @type Access1
- * @export
- */
-export type Access1 = AccessProfile1 | Entitlement1 | Role1;
-
 /**
  * 
  * @export
@@ -86,169 +80,17 @@ export interface AccessAllOf {
 /**
  * This is more of a complete representation of an access profile.  
  * @export
- * @interface AccessProfile
- */
-export interface AccessProfile {
-    /**
-     * 
-     * @type {string}
-     * @memberof AccessProfile
-     */
-    'id': string;
-    /**
-     * 
-     * @type {string}
-     * @memberof AccessProfile
-     */
-    'name': string;
-    /**
-     * 
-     * @type {DocumentType}
-     * @memberof AccessProfile
-     */
-    '_type': DocumentType;
-    /**
-     * The description of the access item
-     * @type {string}
-     * @memberof AccessProfile
-     */
-    'description'?: string;
-    /**
-     * A date-time in ISO-8601 format
-     * @type {string}
-     * @memberof AccessProfile
-     */
-    'created'?: string | null;
-    /**
-     * A date-time in ISO-8601 format
-     * @type {string}
-     * @memberof AccessProfile
-     */
-    'modified'?: string | null;
-    /**
-     * A date-time in ISO-8601 format
-     * @type {string}
-     * @memberof AccessProfile
-     */
-    'synced'?: string | null;
-    /**
-     * 
-     * @type {boolean}
-     * @memberof AccessProfile
-     */
-    'enabled'?: boolean;
-    /**
-     * Indicates if the access can be requested
-     * @type {boolean}
-     * @memberof AccessProfile
-     */
-    'requestable'?: boolean;
-    /**
-     * Indicates if comments are required when requesting access
-     * @type {boolean}
-     * @memberof AccessProfile
-     */
-    'requestCommentsRequired'?: boolean;
-    /**
-     * 
-     * @type {Owner}
-     * @memberof AccessProfile
-     */
-    'owner'?: Owner;
-    /**
-     * 
-     * @type {Reference1}
-     * @memberof AccessProfile
-     */
-    'source'?: Reference1;
-    /**
-     * 
-     * @type {Array<BaseEntitlement>}
-     * @memberof AccessProfile
-     */
-    'entitlements'?: Array<BaseEntitlement>;
-    /**
-     * 
-     * @type {number}
-     * @memberof AccessProfile
-     */
-    'entitlementCount'?: number;
-    /**
-     * 
-     * @type {Array<string>}
-     * @memberof AccessProfile
-     */
-    'tags'?: Array<string>;
-}
-/**
- * This is a summary representation of an access profile.
- * @export
- * @interface AccessProfile1
- */
-export interface AccessProfile1 {
-    /**
-     * 
-     * @type {string}
-     * @memberof AccessProfile1
-     */
-    'id'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof AccessProfile1
-     */
-    'name'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof AccessProfile1
-     */
-    'displayName'?: string;
-    /**
-     * 
-     * @type {DtoType}
-     * @memberof AccessProfile1
-     */
-    'type'?: DtoType;
-    /**
-     * 
-     * @type {string}
-     * @memberof AccessProfile1
-     */
-    'description'?: string | null;
-    /**
-     * 
-     * @type {Reference1}
-     * @memberof AccessProfile1
-     */
-    'source'?: Reference1;
-    /**
-     * 
-     * @type {DisplayReference}
-     * @memberof AccessProfile1
-     */
-    'owner'?: DisplayReference;
-    /**
-     * 
-     * @type {boolean}
-     * @memberof AccessProfile1
-     */
-    'revocable'?: boolean;
-}
-/**
- * This is more of a complete representation of an access profile.  
- * @export
  * @interface AccessProfileDocument
  */
 export interface AccessProfileDocument {
     /**
-     * 
+     * The unique ID of the referenced object.
      * @type {string}
      * @memberof AccessProfileDocument
      */
     'id': string;
     /**
-     * 
+     * The human readable name of the referenced object.
      * @type {string}
      * @memberof AccessProfileDocument
      */
@@ -364,19 +206,141 @@ export interface AccessProfileDocumentAllOf {
     'tags'?: Array<string>;
 }
 /**
+ * EntitlementReference
+ * @export
+ * @interface AccessProfileEntitlement
+ */
+export interface AccessProfileEntitlement {
+    /**
+     * The unique ID of the referenced object.
+     * @type {string}
+     * @memberof AccessProfileEntitlement
+     */
+    'id'?: string;
+    /**
+     * The human readable name of the referenced object.
+     * @type {string}
+     * @memberof AccessProfileEntitlement
+     */
+    'name'?: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof AccessProfileEntitlement
+     */
+    'displayName'?: string;
+    /**
+     * 
+     * @type {DtoType}
+     * @memberof AccessProfileEntitlement
+     */
+    'type'?: DtoType;
+    /**
+     * 
+     * @type {string}
+     * @memberof AccessProfileEntitlement
+     */
+    'description'?: string | null;
+    /**
+     * 
+     * @type {Reference1}
+     * @memberof AccessProfileEntitlement
+     */
+    'source'?: Reference1;
+    /**
+     * 
+     * @type {boolean}
+     * @memberof AccessProfileEntitlement
+     */
+    'privileged'?: boolean;
+    /**
+     * 
+     * @type {string}
+     * @memberof AccessProfileEntitlement
+     */
+    'attribute'?: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof AccessProfileEntitlement
+     */
+    'value'?: string;
+    /**
+     * 
+     * @type {boolean}
+     * @memberof AccessProfileEntitlement
+     */
+    'standalone'?: boolean;
+}
+/**
+ * Role
+ * @export
+ * @interface AccessProfileRole
+ */
+export interface AccessProfileRole {
+    /**
+     * The unique ID of the referenced object.
+     * @type {string}
+     * @memberof AccessProfileRole
+     */
+    'id'?: string;
+    /**
+     * The human readable name of the referenced object.
+     * @type {string}
+     * @memberof AccessProfileRole
+     */
+    'name'?: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof AccessProfileRole
+     */
+    'displayName'?: string;
+    /**
+     * 
+     * @type {DtoType}
+     * @memberof AccessProfileRole
+     */
+    'type'?: DtoType;
+    /**
+     * 
+     * @type {string}
+     * @memberof AccessProfileRole
+     */
+    'description'?: string | null;
+    /**
+     * 
+     * @type {DisplayReference}
+     * @memberof AccessProfileRole
+     */
+    'owner'?: DisplayReference;
+    /**
+     * 
+     * @type {boolean}
+     * @memberof AccessProfileRole
+     */
+    'disabled'?: boolean;
+    /**
+     * 
+     * @type {boolean}
+     * @memberof AccessProfileRole
+     */
+    'revocable'?: boolean;
+}
+/**
  * This is a summary representation of an access profile.
  * @export
  * @interface AccessProfileSummary
  */
 export interface AccessProfileSummary {
     /**
-     * 
+     * The unique ID of the referenced object.
      * @type {string}
      * @memberof AccessProfileSummary
      */
     'id'?: string;
     /**
-     * 
+     * The human readable name of the referenced object.
      * @type {string}
      * @memberof AccessProfileSummary
      */
@@ -884,127 +848,6 @@ export interface Account {
     'hasEntitlements'?: boolean;
 }
 /**
- * Account
- * @export
- * @interface Account1
- */
-export interface Account1 {
-    /**
-     * 
-     * @type {string}
-     * @memberof Account1
-     */
-    'id': string;
-    /**
-     * 
-     * @type {string}
-     * @memberof Account1
-     */
-    'name': string;
-    /**
-     * 
-     * @type {DocumentType}
-     * @memberof Account1
-     */
-    '_type': DocumentType;
-    /**
-     * The ID of the account
-     * @type {string}
-     * @memberof Account1
-     */
-    'accountId'?: string;
-    /**
-     * 
-     * @type {Source1}
-     * @memberof Account1
-     */
-    'source'?: Source1;
-    /**
-     * Indicates if the account is disabled
-     * @type {boolean}
-     * @memberof Account1
-     */
-    'disabled'?: boolean;
-    /**
-     * Indicates if the account is locked
-     * @type {boolean}
-     * @memberof Account1
-     */
-    'locked'?: boolean;
-    /**
-     * 
-     * @type {boolean}
-     * @memberof Account1
-     */
-    'privileged'?: boolean;
-    /**
-     * Indicates if the account has been manually correlated to an identity
-     * @type {boolean}
-     * @memberof Account1
-     */
-    'manuallyCorrelated'?: boolean;
-    /**
-     * A date-time in ISO-8601 format
-     * @type {string}
-     * @memberof Account1
-     */
-    'passwordLastSet'?: string | null;
-    /**
-     * a map or dictionary of key/value pairs
-     * @type {{ [key: string]: any; }}
-     * @memberof Account1
-     */
-    'entitlementAttributes'?: { [key: string]: any; } | null;
-    /**
-     * A date-time in ISO-8601 format
-     * @type {string}
-     * @memberof Account1
-     */
-    'created'?: string | null;
-    /**
-     * A date-time in ISO-8601 format
-     * @type {string}
-     * @memberof Account1
-     */
-    'modified'?: string | null;
-    /**
-     * a map or dictionary of key/value pairs
-     * @type {{ [key: string]: any; }}
-     * @memberof Account1
-     */
-    'attributes'?: { [key: string]: any; };
-    /**
-     * 
-     * @type {DisplayReference}
-     * @memberof Account1
-     */
-    'identity'?: DisplayReference;
-    /**
-     * 
-     * @type {Array<Entitlement1>}
-     * @memberof Account1
-     */
-    'access'?: Array<Entitlement1>;
-    /**
-     * The number of entitlements assigned to the account
-     * @type {number}
-     * @memberof Account1
-     */
-    'entitlementCount'?: number;
-    /**
-     * Indicates if the account is not correlated to an identity
-     * @type {boolean}
-     * @memberof Account1
-     */
-    'uncorrelated'?: boolean;
-    /**
-     * 
-     * @type {Array<string>}
-     * @memberof Account1
-     */
-    'tags'?: Array<string>;
-}
-/**
  * Object for specifying Actions to be performed on a specified list of sources\' account.
  * @export
  * @interface AccountAction
@@ -1125,121 +968,121 @@ export interface AccountActivity {
 /**
  * AccountActivity
  * @export
- * @interface AccountActivity1
+ * @interface AccountActivityDocument
  */
-export interface AccountActivity1 {
+export interface AccountActivityDocument {
     /**
      * 
      * @type {string}
-     * @memberof AccountActivity1
+     * @memberof AccountActivityDocument
      */
     'id': string;
     /**
      * 
      * @type {string}
-     * @memberof AccountActivity1
+     * @memberof AccountActivityDocument
      */
     'name': string;
     /**
      * 
      * @type {DocumentType}
-     * @memberof AccountActivity1
+     * @memberof AccountActivityDocument
      */
     '_type': DocumentType;
     /**
      * The type of action that this activity performed
      * @type {string}
-     * @memberof AccountActivity1
+     * @memberof AccountActivityDocument
      */
     'action'?: string;
     /**
      * A date-time in ISO-8601 format
      * @type {string}
-     * @memberof AccountActivity1
+     * @memberof AccountActivityDocument
      */
     'created'?: string | null;
     /**
      * A date-time in ISO-8601 format
      * @type {string}
-     * @memberof AccountActivity1
+     * @memberof AccountActivityDocument
      */
     'modified'?: string | null;
     /**
      * The current stage of the activity
      * @type {string}
-     * @memberof AccountActivity1
+     * @memberof AccountActivityDocument
      */
     'stage'?: string;
     /**
      * 
      * @type {string}
-     * @memberof AccountActivity1
+     * @memberof AccountActivityDocument
      */
     'origin'?: string | null;
     /**
      * the current status of the activity
      * @type {string}
-     * @memberof AccountActivity1
+     * @memberof AccountActivityDocument
      */
     'status'?: string;
     /**
      * 
-     * @type {Source1}
-     * @memberof AccountActivity1
+     * @type {AccountSource}
+     * @memberof AccountActivityDocument
      */
-    'requester'?: Source1;
+    'requester'?: AccountSource;
     /**
      * 
-     * @type {Source1}
-     * @memberof AccountActivity1
+     * @type {AccountSource}
+     * @memberof AccountActivityDocument
      */
-    'recipient'?: Source1;
+    'recipient'?: AccountSource;
     /**
      * 
      * @type {string}
-     * @memberof AccountActivity1
+     * @memberof AccountActivityDocument
      */
     'trackingNumber'?: string;
     /**
      * 
      * @type {Array<string>}
-     * @memberof AccountActivity1
+     * @memberof AccountActivityDocument
      */
     'errors'?: Array<string> | null;
     /**
      * 
      * @type {Array<string>}
-     * @memberof AccountActivity1
+     * @memberof AccountActivityDocument
      */
     'warnings'?: Array<string> | null;
     /**
      * 
      * @type {Array<Approval>}
-     * @memberof AccountActivity1
+     * @memberof AccountActivityDocument
      */
     'approvals'?: Array<Approval>;
     /**
      * 
      * @type {Array<OriginalRequest>}
-     * @memberof AccountActivity1
+     * @memberof AccountActivityDocument
      */
     'originalRequests'?: Array<OriginalRequest>;
     /**
      * 
      * @type {Array<ExpansionItem>}
-     * @memberof AccountActivity1
+     * @memberof AccountActivityDocument
      */
     'expansionItems'?: Array<ExpansionItem>;
     /**
      * 
      * @type {Array<AccountRequest>}
-     * @memberof AccountActivity1
+     * @memberof AccountActivityDocument
      */
     'accountRequests'?: Array<AccountRequest>;
     /**
      * 
      * @type {string}
-     * @memberof AccountActivity1
+     * @memberof AccountActivityDocument
      */
     'sources'?: string;
 }
@@ -1429,16 +1272,16 @@ export interface AccountActivitySearchedItem {
     'status'?: string;
     /**
      * 
-     * @type {Source1}
+     * @type {AccountSource}
      * @memberof AccountActivitySearchedItem
      */
-    'requester'?: Source1;
+    'requester'?: AccountSource;
     /**
      * 
-     * @type {Source1}
+     * @type {AccountSource}
      * @memberof AccountActivitySearchedItem
      */
-    'recipient'?: Source1;
+    'recipient'?: AccountSource;
     /**
      * 
      * @type {string}
@@ -1532,16 +1375,16 @@ export interface AccountActivitySearchedItemAllOf {
     'status'?: string;
     /**
      * 
-     * @type {Source1}
+     * @type {AccountSource}
      * @memberof AccountActivitySearchedItemAllOf
      */
-    'requester'?: Source1;
+    'requester'?: AccountSource;
     /**
      * 
-     * @type {Source1}
+     * @type {AccountSource}
      * @memberof AccountActivitySearchedItemAllOf
      */
-    'recipient'?: Source1;
+    'recipient'?: AccountSource;
     /**
      * 
      * @type {string}
@@ -1785,13 +1628,13 @@ export interface AccountAttributesCreateAttributes {
  */
 export interface AccountDocument {
     /**
-     * 
+     * The unique ID of the referenced object.
      * @type {string}
      * @memberof AccountDocument
      */
     'id': string;
     /**
-     * 
+     * The human readable name of the referenced object.
      * @type {string}
      * @memberof AccountDocument
      */
@@ -1810,10 +1653,10 @@ export interface AccountDocument {
     'accountId'?: string;
     /**
      * 
-     * @type {Source1}
+     * @type {AccountSource}
      * @memberof AccountDocument
      */
-    'source'?: Source1;
+    'source'?: AccountSource;
     /**
      * Indicates if the account is disabled
      * @type {boolean}
@@ -1876,10 +1719,10 @@ export interface AccountDocument {
     'identity'?: DisplayReference;
     /**
      * 
-     * @type {Array<Entitlement1>}
+     * @type {Array<AccessProfileEntitlement>}
      * @memberof AccountDocument
      */
-    'access'?: Array<Entitlement1>;
+    'access'?: Array<AccessProfileEntitlement>;
     /**
      * The number of entitlements assigned to the account
      * @type {number}
@@ -1925,10 +1768,10 @@ export interface AccountDocumentAllOf {
     'identity'?: DisplayReference;
     /**
      * 
-     * @type {Array<Entitlement1>}
+     * @type {Array<AccessProfileEntitlement>}
      * @memberof AccountDocumentAllOf
      */
-    'access'?: Array<Entitlement1>;
+    'access'?: Array<AccessProfileEntitlement>;
     /**
      * The number of entitlements assigned to the account
      * @type {number}
@@ -1974,10 +1817,10 @@ export interface AccountRequest {
     'op'?: string;
     /**
      * 
-     * @type {Source1}
+     * @type {AccountSource}
      * @memberof AccountRequest
      */
-    'provisioningTarget'?: Source1;
+    'provisioningTarget'?: AccountSource;
     /**
      * 
      * @type {AccountRequestResult}
@@ -1986,10 +1829,10 @@ export interface AccountRequest {
     'result'?: AccountRequestResult;
     /**
      * 
-     * @type {Source1}
+     * @type {AccountSource}
      * @memberof AccountRequest
      */
-    'source'?: Source1;
+    'source'?: AccountSource;
 }
 /**
  * If an account activity item is associated with an access request, captures details of that request.
@@ -2040,6 +1883,44 @@ export interface AccountRequestResult {
      * @memberof AccountRequestResult
      */
     'ticketId'?: string | null;
+}
+/**
+ * 
+ * @export
+ * @interface AccountSource
+ */
+export interface AccountSource {
+    /**
+     * The unique ID of the referenced object.
+     * @type {string}
+     * @memberof AccountSource
+     */
+    'id'?: string;
+    /**
+     * The human readable name of the referenced object.
+     * @type {string}
+     * @memberof AccountSource
+     */
+    'name'?: string;
+    /**
+     * the type of source returned
+     * @type {string}
+     * @memberof AccountSource
+     */
+    'type'?: string;
+}
+/**
+ * 
+ * @export
+ * @interface AccountSourceAllOf
+ */
+export interface AccountSourceAllOf {
+    /**
+     * the type of source returned
+     * @type {string}
+     * @memberof AccountSourceAllOf
+     */
+    'type'?: string;
 }
 /**
  * Request used for account enable/disable
@@ -2168,106 +2049,6 @@ export interface Aggregation {
 /**
  * 
  * @export
- * @interface Aggregation1
- */
-export interface Aggregation1 {
-    /**
-     * 
-     * @type {NestedAggregation}
-     * @memberof Aggregation1
-     */
-    'nested'?: NestedAggregation;
-    /**
-     * 
-     * @type {MetricAggregation}
-     * @memberof Aggregation1
-     */
-    'metric'?: MetricAggregation;
-    /**
-     * 
-     * @type {FilterAggregation}
-     * @memberof Aggregation1
-     */
-    'filter'?: FilterAggregation;
-    /**
-     * 
-     * @type {BucketAggregation}
-     * @memberof Aggregation1
-     */
-    'bucket'?: BucketAggregation;
-    /**
-     * 
-     * @type {Aggregation2}
-     * @memberof Aggregation1
-     */
-    'subAggregation'?: Aggregation2;
-}
-/**
- * 
- * @export
- * @interface Aggregation1AllOf
- */
-export interface Aggregation1AllOf {
-    /**
-     * 
-     * @type {Aggregation2}
-     * @memberof Aggregation1AllOf
-     */
-    'subAggregation'?: Aggregation2;
-}
-/**
- * 
- * @export
- * @interface Aggregation2
- */
-export interface Aggregation2 {
-    /**
-     * 
-     * @type {NestedAggregation}
-     * @memberof Aggregation2
-     */
-    'nested'?: NestedAggregation;
-    /**
-     * 
-     * @type {MetricAggregation}
-     * @memberof Aggregation2
-     */
-    'metric'?: MetricAggregation;
-    /**
-     * 
-     * @type {FilterAggregation}
-     * @memberof Aggregation2
-     */
-    'filter'?: FilterAggregation;
-    /**
-     * 
-     * @type {BucketAggregation}
-     * @memberof Aggregation2
-     */
-    'bucket'?: BucketAggregation;
-    /**
-     * 
-     * @type {Aggregations}
-     * @memberof Aggregation2
-     */
-    'subAggregation'?: Aggregations;
-}
-/**
- * 
- * @export
- * @interface Aggregation2AllOf
- */
-export interface Aggregation2AllOf {
-    /**
-     * 
-     * @type {Aggregations}
-     * @memberof Aggregation2AllOf
-     */
-    'subAggregation'?: Aggregations;
-}
-/**
- * 
- * @export
  * @interface AggregationAllOf
  */
 export interface AggregationAllOf {
@@ -2311,6 +2092,73 @@ export interface AggregationAllOf {
      * John Doe
      * @type {string}
      * @memberof AggregationAllOf
+     */
+    'sourceOwner'?: string;
+}
+/**
+ * Aggregation
+ * @export
+ * @interface AggregationDocument
+ */
+export interface AggregationDocument {
+    /**
+     * 
+     * @type {string}
+     * @memberof AggregationDocument
+     */
+    'id': string;
+    /**
+     * 
+     * @type {string}
+     * @memberof AggregationDocument
+     */
+    'name': string;
+    /**
+     * 
+     * @type {DocumentType}
+     * @memberof AggregationDocument
+     */
+    '_type': DocumentType;
+    /**
+     * 
+     * @type {string}
+     * @memberof AggregationDocument
+     */
+    'status'?: string;
+    /**
+     * 
+     * @type {number}
+     * @memberof AggregationDocument
+     */
+    'duration'?: number;
+    /**
+     * 
+     * @type {number}
+     * @memberof AggregationDocument
+     */
+    'avgDuration'?: number;
+    /**
+     * 
+     * @type {number}
+     * @memberof AggregationDocument
+     */
+    'changedAccounts'?: number;
+    /**
+     * A date-time in ISO-8601 format
+     * @type {string}
+     * @memberof AggregationDocument
+     */
+    'nextScheduled'?: string | null;
+    /**
+     * A date-time in ISO-8601 format
+     * @type {string}
+     * @memberof AggregationDocument
+     */
+    'startTime'?: string | null;
+    /**
+     * John Doe
+     * @type {string}
+     * @memberof AggregationDocument
      */
     'sourceOwner'?: string;
 }
@@ -2385,13 +2233,13 @@ export interface Aggregations {
  */
 export interface App {
     /**
-     * 
+     * The unique ID of the referenced object.
      * @type {string}
      * @memberof App
      */
     'id'?: string;
     /**
-     * 
+     * The human readable name of the referenced object.
      * @type {string}
      * @memberof App
      */
@@ -2455,10 +2303,10 @@ export interface AppAllOfAccount {
 export interface Approval {
     /**
      * 
-     * @type {Array<Comment1>}
+     * @type {Array<ApprovalComment>}
      * @memberof Approval
      */
-    'comments'?: Array<Comment1>;
+    'comments'?: Array<ApprovalComment>;
     /**
      * A date-time in ISO-8601 format
      * @type {string}
@@ -2473,10 +2321,10 @@ export interface Approval {
     'modified'?: string | null;
     /**
      * 
-     * @type {Source1}
+     * @type {AccountSource}
      * @memberof Approval
      */
-    'owner'?: Source1;
+    'owner'?: AccountSource;
     /**
      * The result of the approval
      * @type {string}
@@ -2489,6 +2337,31 @@ export interface Approval {
      * @memberof Approval
      */
     'type'?: string | null;
+}
+/**
+ * 
+ * @export
+ * @interface ApprovalComment
+ */
+export interface ApprovalComment {
+    /**
+     * The comment text
+     * @type {string}
+     * @memberof ApprovalComment
+     */
+    'comment'?: string;
+    /**
+     * The name of the commenter
+     * @type {string}
+     * @memberof ApprovalComment
+     */
+    'commenter'?: string;
+    /**
+     * A date-time in ISO-8601 format
+     * @type {string}
+     * @memberof ApprovalComment
+     */
+    'date'?: string | null;
 }
 /**
  * 
@@ -2944,13 +2817,13 @@ export interface Base64Encode {
  */
 export interface BaseAccess {
     /**
-     * 
+     * The unique ID of the referenced object.
      * @type {string}
      * @memberof BaseAccess
      */
     'id'?: string;
     /**
-     * 
+     * The human readable name of the referenced object.
      * @type {string}
      * @memberof BaseAccess
      */
@@ -3066,13 +2939,13 @@ export interface BaseAccessAllOf {
  */
 export interface BaseAccount {
     /**
-     * 
+     * The unique ID of the referenced object.
      * @type {string}
      * @memberof BaseAccount
      */
     'id'?: string;
     /**
-     * 
+     * The human readable name of the referenced object.
      * @type {string}
      * @memberof BaseAccount
      */
@@ -3085,10 +2958,10 @@ export interface BaseAccount {
     'accountId'?: string;
     /**
      * 
-     * @type {Source1}
+     * @type {AccountSource}
      * @memberof BaseAccount
      */
-    'source'?: Source1;
+    'source'?: AccountSource;
     /**
      * Indicates if the account is disabled
      * @type {boolean}
@@ -3146,10 +3019,10 @@ export interface BaseAccountAllOf {
     'accountId'?: string;
     /**
      * 
-     * @type {Source1}
+     * @type {AccountSource}
      * @memberof BaseAccountAllOf
      */
-    'source'?: Source1;
+    'source'?: AccountSource;
     /**
      * Indicates if the account is disabled
      * @type {boolean}
@@ -3256,13 +3129,13 @@ export interface BaseDocument {
  */
 export interface BaseEntitlement {
     /**
-     * 
+     * The unique ID of the referenced object.
      * @type {string}
      * @memberof BaseEntitlement
      */
     'id'?: string;
     /**
-     * 
+     * The human readable name of the referenced object.
      * @type {string}
      * @memberof BaseEntitlement
      */
@@ -3821,31 +3694,6 @@ export interface Comment {
      * @memberof Comment
      */
     'date'?: string;
-}
-/**
- * 
- * @export
- * @interface Comment1
- */
-export interface Comment1 {
-    /**
-     * The comment text
-     * @type {string}
-     * @memberof Comment1
-     */
-    'comment'?: string;
-    /**
-     * The name of the commenter
-     * @type {string}
-     * @memberof Comment1
-     */
-    'commenter'?: string;
-    /**
-     * A date-time in ISO-8601 format
-     * @type {string}
-     * @memberof Comment1
-     */
-    'date'?: string | null;
 }
 /**
  * 
@@ -4635,13 +4483,13 @@ export type DeleteSource202ResponseTypeEnum = typeof DeleteSource202ResponseType
  */
 export interface DisplayReference {
     /**
-     * 
+     * The unique ID of the referenced object.
      * @type {string}
      * @memberof DisplayReference
      */
     'id'?: string;
     /**
-     * 
+     * The human readable name of the referenced object.
      * @type {string}
      * @memberof DisplayReference
      */
@@ -4783,169 +4631,17 @@ export interface EmailNotificationOption {
 /**
  * Entitlement
  * @export
- * @interface Entitlement
- */
-export interface Entitlement {
-    /**
-     * 
-     * @type {string}
-     * @memberof Entitlement
-     */
-    'id': string;
-    /**
-     * 
-     * @type {string}
-     * @memberof Entitlement
-     */
-    'name': string;
-    /**
-     * 
-     * @type {DocumentType}
-     * @memberof Entitlement
-     */
-    '_type': DocumentType;
-    /**
-     * A description of the entitlement
-     * @type {string}
-     * @memberof Entitlement
-     */
-    'description'?: string;
-    /**
-     * The name of the entitlement attribute
-     * @type {string}
-     * @memberof Entitlement
-     */
-    'attribute'?: string;
-    /**
-     * The value of the entitlement
-     * @type {string}
-     * @memberof Entitlement
-     */
-    'value'?: string;
-    /**
-     * A date-time in ISO-8601 format
-     * @type {string}
-     * @memberof Entitlement
-     */
-    'modified'?: string | null;
-    /**
-     * A date-time in ISO-8601 format
-     * @type {string}
-     * @memberof Entitlement
-     */
-    'synced'?: string | null;
-    /**
-     * The display name of the entitlement
-     * @type {string}
-     * @memberof Entitlement
-     */
-    'displayName'?: string;
-    /**
-     * 
-     * @type {Reference1}
-     * @memberof Entitlement
-     */
-    'source'?: Reference1;
-    /**
-     * 
-     * @type {boolean}
-     * @memberof Entitlement
-     */
-    'privileged'?: boolean;
-    /**
-     * 
-     * @type {number}
-     * @memberof Entitlement
-     */
-    'identityCount'?: number;
-    /**
-     * 
-     * @type {Array<string>}
-     * @memberof Entitlement
-     */
-    'tags'?: Array<string>;
-}
-/**
- * EntitlementReference
- * @export
- * @interface Entitlement1
- */
-export interface Entitlement1 {
-    /**
-     * 
-     * @type {string}
-     * @memberof Entitlement1
-     */
-    'id'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof Entitlement1
-     */
-    'name'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof Entitlement1
-     */
-    'displayName'?: string;
-    /**
-     * 
-     * @type {DtoType}
-     * @memberof Entitlement1
-     */
-    'type'?: DtoType;
-    /**
-     * 
-     * @type {string}
-     * @memberof Entitlement1
-     */
-    'description'?: string | null;
-    /**
-     * 
-     * @type {Reference1}
-     * @memberof Entitlement1
-     */
-    'source'?: Reference1;
-    /**
-     * 
-     * @type {boolean}
-     * @memberof Entitlement1
-     */
-    'privileged'?: boolean;
-    /**
-     * 
-     * @type {string}
-     * @memberof Entitlement1
-     */
-    'attribute'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof Entitlement1
-     */
-    'value'?: string;
-    /**
-     * 
-     * @type {boolean}
-     * @memberof Entitlement1
-     */
-    'standalone'?: boolean;
-}
-/**
- * Entitlement
- * @export
  * @interface EntitlementDocument
  */
 export interface EntitlementDocument {
     /**
-     * 
+     * The unique ID of the referenced object.
      * @type {string}
      * @memberof EntitlementDocument
      */
     'id': string;
     /**
-     * 
+     * The human readable name of the referenced object.
      * @type {string}
      * @memberof EntitlementDocument
      */
@@ -5238,13 +4934,13 @@ export interface EntitlementRequestConfig {
  */
 export interface EntitlementSummary {
     /**
-     * 
+     * The unique ID of the referenced object.
      * @type {string}
      * @memberof EntitlementSummary
      */
     'id'?: string;
     /**
-     * 
+     * The human readable name of the referenced object.
      * @type {string}
      * @memberof EntitlementSummary
      */
@@ -5604,6 +5300,121 @@ export interface EventAllOf {
     'technicalName'?: string;
 }
 /**
+ * Event
+ * @export
+ * @interface EventDocument
+ */
+export interface EventDocument {
+    /**
+     * 
+     * @type {string}
+     * @memberof EventDocument
+     */
+    'id': string;
+    /**
+     * 
+     * @type {string}
+     * @memberof EventDocument
+     */
+    'name': string;
+    /**
+     * 
+     * @type {DocumentType}
+     * @memberof EventDocument
+     */
+    '_type': DocumentType;
+    /**
+     * A date-time in ISO-8601 format
+     * @type {string}
+     * @memberof EventDocument
+     */
+    'created'?: string | null;
+    /**
+     * A date-time in ISO-8601 format
+     * @type {string}
+     * @memberof EventDocument
+     */
+    'synced'?: string | null;
+    /**
+     * The action that was performed
+     * @type {string}
+     * @memberof EventDocument
+     */
+    'action'?: string;
+    /**
+     * The type of event
+     * @type {string}
+     * @memberof EventDocument
+     */
+    'type'?: string;
+    /**
+     * 
+     * @type {NameType}
+     * @memberof EventDocument
+     */
+    'actor'?: NameType;
+    /**
+     * 
+     * @type {NameType}
+     * @memberof EventDocument
+     */
+    'target'?: NameType;
+    /**
+     * 
+     * @type {string}
+     * @memberof EventDocument
+     */
+    'stack'?: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof EventDocument
+     */
+    'trackingNumber'?: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof EventDocument
+     */
+    'ipAddress'?: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof EventDocument
+     */
+    'details'?: string;
+    /**
+     * 
+     * @type {{ [key: string]: any; }}
+     * @memberof EventDocument
+     */
+    'attributes'?: { [key: string]: any; };
+    /**
+     * 
+     * @type {Array<string>}
+     * @memberof EventDocument
+     */
+    'objects'?: Array<string>;
+    /**
+     * 
+     * @type {string}
+     * @memberof EventDocument
+     */
+    'operation'?: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof EventDocument
+     */
+    'status'?: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof EventDocument
+     */
+    'technicalName'?: string;
+}
+/**
  * The current state of execution.
  * @export
  * @enum {string}
@@ -5651,10 +5462,10 @@ export interface ExpansionItem {
     'attributeRequests'?: Array<AttributeRequest>;
     /**
      * 
-     * @type {Source1}
+     * @type {AccountSource}
      * @memberof ExpansionItem
      */
-    'source'?: Source1;
+    'source'?: AccountSource;
 }
 /**
  * 
@@ -5744,10 +5555,10 @@ export interface FilterAggregation {
     'name': string;
     /**
      * 
-     * @type {FilterType1}
+     * @type {SearchFilterType}
      * @memberof FilterAggregation
      */
-    'type'?: FilterType1;
+    'type'?: SearchFilterType;
     /**
      * The search field to apply the filter to.  Prefix the field name with \'@\' to reference a nested object. 
      * @type {string}
@@ -5774,19 +5585,6 @@ export const FilterType = {
 } as const;
 
 export type FilterType = typeof FilterType[keyof typeof FilterType];
-
-
-/**
- * Enum representing the currently supported filter aggregation types. Additional values may be added in the future without notice.
- * @export
- * @enum {string}
- */
-
-export const FilterType1 = {
-    Term: 'TERM'
-} as const;
-
-export type FilterType1 = typeof FilterType1[keyof typeof FilterType1];
 
 
 /**
@@ -6187,210 +5985,11 @@ export interface ISO3166 {
     'input'?: { [key: string]: any; };
 }
 /**
- * Identity
+ * @type IdentityAccess
  * @export
- * @interface Identity
  */
-export interface Identity {
-    /**
-     * 
-     * @type {string}
-     * @memberof Identity
-     */
-    'id': string;
-    /**
-     * 
-     * @type {string}
-     * @memberof Identity
-     */
-    'name': string;
-    /**
-     * 
-     * @type {DocumentType}
-     * @memberof Identity
-     */
-    '_type': DocumentType;
-    /**
-     * The display name of the identity
-     * @type {string}
-     * @memberof Identity
-     */
-    'displayName'?: string;
-    /**
-     * The first name of the identity
-     * @type {string}
-     * @memberof Identity
-     */
-    'firstName'?: string;
-    /**
-     * The last name of the identity
-     * @type {string}
-     * @memberof Identity
-     */
-    'lastName'?: string;
-    /**
-     * The identity\'s primary email address
-     * @type {string}
-     * @memberof Identity
-     */
-    'email'?: string;
-    /**
-     * A date-time in ISO-8601 format
-     * @type {string}
-     * @memberof Identity
-     */
-    'created'?: string | null;
-    /**
-     * A date-time in ISO-8601 format
-     * @type {string}
-     * @memberof Identity
-     */
-    'modified'?: string | null;
-    /**
-     * A date-time in ISO-8601 format
-     * @type {string}
-     * @memberof Identity
-     */
-    'synced'?: string | null;
-    /**
-     * The phone number of the identity
-     * @type {string}
-     * @memberof Identity
-     */
-    'phone'?: string;
-    /**
-     * Indicates if the identity is inactive
-     * @type {boolean}
-     * @memberof Identity
-     */
-    'inactive'?: boolean;
-    /**
-     * 
-     * @type {boolean}
-     * @memberof Identity
-     */
-    'protected'?: boolean;
-    /**
-     * The identity\'s status in SailPoint
-     * @type {string}
-     * @memberof Identity
-     */
-    'status'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof Identity
-     */
-    'employeeNumber'?: string;
-    /**
-     * 
-     * @type {DisplayReference}
-     * @memberof Identity
-     */
-    'manager'?: DisplayReference;
-    /**
-     * Indicates if this identity is a manager of other identities
-     * @type {boolean}
-     * @memberof Identity
-     */
-    'isManager'?: boolean;
-    /**
-     * 
-     * @type {Reference1}
-     * @memberof Identity
-     */
-    'identityProfile'?: Reference1;
-    /**
-     * 
-     * @type {Reference1}
-     * @memberof Identity
-     */
-    'source'?: Reference1;
-    /**
-     * a map or dictionary of key/value pairs
-     * @type {{ [key: string]: any; }}
-     * @memberof Identity
-     */
-    'attributes'?: { [key: string]: any; };
-    /**
-     * 
-     * @type {string}
-     * @memberof Identity
-     */
-    'processingState'?: string | null;
-    /**
-     * 
-     * @type {ProcessingDetails}
-     * @memberof Identity
-     */
-    'processingDetails'?: ProcessingDetails;
-    /**
-     * List of accounts associated with the identity
-     * @type {Array<BaseAccount>}
-     * @memberof Identity
-     */
-    'accounts'?: Array<BaseAccount>;
-    /**
-     * Number of accounts associated with the identity
-     * @type {number}
-     * @memberof Identity
-     */
-    'accountCount'?: number;
-    /**
-     * The list of applications the identity has access to
-     * @type {Array<App>}
-     * @memberof Identity
-     */
-    'apps'?: Array<App>;
-    /**
-     * The number of applications the identity has access to
-     * @type {number}
-     * @memberof Identity
-     */
-    'appCount'?: number;
-    /**
-     * The list of access items assigned to the identity
-     * @type {Array<Access1>}
-     * @memberof Identity
-     */
-    'access'?: Array<Access1>;
-    /**
-     * The number of access items assigned to the identity
-     * @type {number}
-     * @memberof Identity
-     */
-    'accessCount'?: number;
-    /**
-     * The number of access profiles assigned to the identity
-     * @type {number}
-     * @memberof Identity
-     */
-    'accessProfileCount'?: number;
-    /**
-     * The number of entitlements assigned to the identity
-     * @type {number}
-     * @memberof Identity
-     */
-    'entitlementCount'?: number;
-    /**
-     * The number of roles assigned to the identity
-     * @type {number}
-     * @memberof Identity
-     */
-    'roleCount'?: number;
-    /**
-     * 
-     * @type {Owns}
-     * @memberof Identity
-     */
-    'owns'?: Owns;
-    /**
-     * 
-     * @type {Array<string>}
-     * @memberof Identity
-     */
-    'tags'?: Array<string>;
-}
+export type IdentityAccess = AccessProfileEntitlement | AccessProfileRole | AccessProfileSummary;
+
 /**
  * 
  * @export
@@ -6698,13 +6297,13 @@ export interface IdentityCertificationDto {
  */
 export interface IdentityDocument {
     /**
-     * 
+     * The unique ID of the referenced object.
      * @type {string}
      * @memberof IdentityDocument
      */
     'id': string;
     /**
-     * 
+     * The human readable name of the referenced object.
      * @type {string}
      * @memberof IdentityDocument
      */
@@ -6855,10 +6454,10 @@ export interface IdentityDocument {
     'appCount'?: number;
     /**
      * The list of access items assigned to the identity
-     * @type {Array<Access1>}
+     * @type {Array<IdentityAccess>}
      * @memberof IdentityDocument
      */
-    'access'?: Array<Access1>;
+    'access'?: Array<IdentityAccess>;
     /**
      * The number of access items assigned to the identity
      * @type {number}
@@ -7042,10 +6641,10 @@ export interface IdentityDocumentAllOf {
     'appCount'?: number;
     /**
      * The list of access items assigned to the identity
-     * @type {Array<Access1>}
+     * @type {Array<IdentityAccess>}
      * @memberof IdentityDocumentAllOf
      */
-    'access'?: Array<Access1>;
+    'access'?: Array<IdentityAccess>;
     /**
      * The number of access items assigned to the identity
      * @type {number}
@@ -7361,44 +6960,6 @@ export interface IdentityReference {
      * @memberof IdentityReference
      */
     'name'?: string;
-}
-/**
- * 
- * @export
- * @interface IdentityReference1
- */
-export interface IdentityReference1 {
-    /**
-     * 
-     * @type {string}
-     * @memberof IdentityReference1
-     */
-    'id'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof IdentityReference1
-     */
-    'name'?: string;
-    /**
-     * 
-     * @type {DtoType}
-     * @memberof IdentityReference1
-     */
-    'type'?: DtoType;
-}
-/**
- * 
- * @export
- * @interface IdentityReference1AllOf
- */
-export interface IdentityReference1AllOf {
-    /**
-     * 
-     * @type {DtoType}
-     * @memberof IdentityReference1AllOf
-     */
-    'type'?: DtoType;
 }
 /**
  * 
@@ -7918,44 +7479,6 @@ export const MetricType = {
 export type MetricType = typeof MetricType[keyof typeof MetricType];
 
 
-/**
- * 
- * @export
- * @interface Name
- */
-export interface Name {
-    /**
-     * The name of the saved search. 
-     * @type {string}
-     * @memberof Name
-     */
-    'name'?: string;
-    /**
-     * The description of the saved search. 
-     * @type {string}
-     * @memberof Name
-     */
-    'description'?: string | null;
-}
-/**
- * 
- * @export
- * @interface Name1
- */
-export interface Name1 {
-    /**
-     * The name of the scheduled search. 
-     * @type {string}
-     * @memberof Name1
-     */
-    'name'?: string | null;
-    /**
-     * The description of the scheduled search. 
-     * @type {string}
-     * @memberof Name1
-     */
-    'description'?: string | null;
-}
 /**
  * 
  * @export
@@ -9604,10 +9127,10 @@ export interface OriginalRequest {
     'op'?: string;
     /**
      * 
-     * @type {Source1}
+     * @type {AccountSource}
      * @memberof OriginalRequest
      */
-    'source'?: Source1;
+    'source'?: AccountSource;
 }
 /**
  * 
@@ -9616,13 +9139,13 @@ export interface OriginalRequest {
  */
 export interface Owner {
     /**
-     * 
+     * The unique ID of the referenced object.
      * @type {string}
      * @memberof Owner
      */
     'id'?: string;
     /**
-     * 
+     * The human readable name of the referenced object.
      * @type {string}
      * @memberof Owner
      */
@@ -10610,13 +10133,13 @@ export interface Reference {
  */
 export interface Reference1 {
     /**
-     * 
+     * The unique ID of the referenced object.
      * @type {string}
      * @memberof Reference1
      */
     'id'?: string;
     /**
-     * 
+     * The human readable name of the referenced object.
      * @type {string}
      * @memberof Reference1
      */
@@ -11582,163 +11105,17 @@ export interface RightPad {
 /**
  * Role
  * @export
- * @interface Role
- */
-export interface Role {
-    /**
-     * 
-     * @type {string}
-     * @memberof Role
-     */
-    'id': string;
-    /**
-     * 
-     * @type {string}
-     * @memberof Role
-     */
-    'name': string;
-    /**
-     * 
-     * @type {DocumentType}
-     * @memberof Role
-     */
-    '_type': DocumentType;
-    /**
-     * The description of the access item
-     * @type {string}
-     * @memberof Role
-     */
-    'description'?: string;
-    /**
-     * A date-time in ISO-8601 format
-     * @type {string}
-     * @memberof Role
-     */
-    'created'?: string | null;
-    /**
-     * A date-time in ISO-8601 format
-     * @type {string}
-     * @memberof Role
-     */
-    'modified'?: string | null;
-    /**
-     * A date-time in ISO-8601 format
-     * @type {string}
-     * @memberof Role
-     */
-    'synced'?: string | null;
-    /**
-     * 
-     * @type {boolean}
-     * @memberof Role
-     */
-    'enabled'?: boolean;
-    /**
-     * Indicates if the access can be requested
-     * @type {boolean}
-     * @memberof Role
-     */
-    'requestable'?: boolean;
-    /**
-     * Indicates if comments are required when requesting access
-     * @type {boolean}
-     * @memberof Role
-     */
-    'requestCommentsRequired'?: boolean;
-    /**
-     * 
-     * @type {Owner}
-     * @memberof Role
-     */
-    'owner'?: Owner;
-    /**
-     * 
-     * @type {Array<Reference1>}
-     * @memberof Role
-     */
-    'accessProfiles'?: Array<Reference1>;
-    /**
-     * 
-     * @type {number}
-     * @memberof Role
-     */
-    'accessProfileCount'?: number;
-    /**
-     * 
-     * @type {Array<string>}
-     * @memberof Role
-     */
-    'tags'?: Array<string>;
-}
-/**
- * Role
- * @export
- * @interface Role1
- */
-export interface Role1 {
-    /**
-     * 
-     * @type {string}
-     * @memberof Role1
-     */
-    'id'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof Role1
-     */
-    'name'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof Role1
-     */
-    'displayName'?: string;
-    /**
-     * 
-     * @type {DtoType}
-     * @memberof Role1
-     */
-    'type'?: DtoType;
-    /**
-     * 
-     * @type {string}
-     * @memberof Role1
-     */
-    'description'?: string | null;
-    /**
-     * 
-     * @type {DisplayReference}
-     * @memberof Role1
-     */
-    'owner'?: DisplayReference;
-    /**
-     * 
-     * @type {boolean}
-     * @memberof Role1
-     */
-    'disabled'?: boolean;
-    /**
-     * 
-     * @type {boolean}
-     * @memberof Role1
-     */
-    'revocable'?: boolean;
-}
-/**
- * Role
- * @export
  * @interface RoleDocument
  */
 export interface RoleDocument {
     /**
-     * 
+     * The unique ID of the referenced object.
      * @type {string}
      * @memberof RoleDocument
      */
     'id': string;
     /**
-     * 
+     * The human readable name of the referenced object.
      * @type {string}
      * @memberof RoleDocument
      */
@@ -11848,13 +11225,13 @@ export interface RoleDocumentAllOf {
  */
 export interface RoleSummary {
     /**
-     * 
+     * The unique ID of the referenced object.
      * @type {string}
      * @memberof RoleSummary
      */
     'id'?: string;
     /**
-     * 
+     * The human readable name of the referenced object.
      * @type {string}
      * @memberof RoleSummary
      */
@@ -12007,10 +11384,10 @@ export interface SavedSearch {
     'sort'?: Array<string>;
     /**
      * 
-     * @type {SearchFilters}
+     * @type {SavedSearchDetailFilters}
      * @memberof SavedSearch
      */
-    'filters'?: SearchFilters | null;
+    'filters'?: SavedSearchDetailFilters | null;
 }
 /**
  * 
@@ -12099,179 +11476,209 @@ export interface SavedSearchCreateRequest {
     'sort'?: Array<string>;
     /**
      * 
-     * @type {SearchFilters}
+     * @type {SavedSearchDetailFilters}
      * @memberof SavedSearchCreateRequest
      */
-    'filters'?: SearchFilters | null;
+    'filters'?: SavedSearchDetailFilters | null;
 }
 /**
  * 
+ * @export
+ * @interface SavedSearchDetail
+ */
+export interface SavedSearchDetail {
+    /**
+     * Indicates if the saved search is public. 
+     * @type {boolean}
+     * @memberof SavedSearchDetail
+     */
+    'public'?: boolean;
+    /**
+     * A date-time in ISO-8601 format
+     * @type {string}
+     * @memberof SavedSearchDetail
+     */
+    'created'?: string | null;
+    /**
+     * A date-time in ISO-8601 format
+     * @type {string}
+     * @memberof SavedSearchDetail
+     */
+    'modified'?: string | null;
+    /**
+     * The names of the Elasticsearch indices in which to search. 
+     * @type {Array<Index>}
+     * @memberof SavedSearchDetail
+     */
+    'indices': Array<Index>;
+    /**
+     * The columns to be returned (specifies the order in which they will be presented) for each document type.  The currently supported document types are: _accessprofile_, _accountactivity_, _account_, _aggregation_, _entitlement_, _event_, _identity_, and _role_. 
+     * @type {{ [key: string]: Array<Column>; }}
+     * @memberof SavedSearchDetail
+     */
+    'columns'?: { [key: string]: Array<Column>; };
+    /**
+     * The search query using Elasticsearch [Query String Query](https://www.elastic.co/guide/en/elasticsearch/reference/5.2/query-dsl-query-string-query.html#query-string) syntax from the Query DSL. 
+     * @type {string}
+     * @memberof SavedSearchDetail
+     */
+    'query': string;
+    /**
+     * The fields to be searched against in a multi-field query. 
+     * @type {Array<string>}
+     * @memberof SavedSearchDetail
+     */
+    'fields'?: Array<string> | null;
+    /**
+     * The fields to be used to sort the search results. 
+     * @type {Array<string>}
+     * @memberof SavedSearchDetail
+     */
+    'sort'?: Array<string>;
+    /**
+     * 
+     * @type {SavedSearchDetailFilters}
+     * @memberof SavedSearchDetail
+     */
+    'filters'?: SavedSearchDetailFilters | null;
+}
+/**
+ * 
+ * @export
+ * @interface SavedSearchDetailFilters
+ */
+export interface SavedSearchDetailFilters {
+    /**
+     * 
+     * @type {FilterType}
+     * @memberof SavedSearchDetailFilters
+     */
+    'type'?: FilterType;
+    /**
+     * 
+     * @type {Range}
+     * @memberof SavedSearchDetailFilters
+     */
+    'range'?: Range;
+    /**
+     * The terms to be filtered.
+     * @type {Array<string>}
+     * @memberof SavedSearchDetailFilters
+     */
+    'terms'?: Array<string>;
+    /**
+     * Indicates if the filter excludes results.
+     * @type {boolean}
+     * @memberof SavedSearchDetailFilters
+     */
+    'exclude'?: boolean;
+}
+/**
+ * 
+ * @export
+ * @interface SavedSearchName
+ */
+export interface SavedSearchName {
+    /**
+     * The name of the saved search. 
+     * @type {string}
+     * @memberof SavedSearchName
+     */
+    'name'?: string;
+    /**
+     * The description of the saved search. 
+     * @type {string}
+     * @memberof SavedSearchName
+     */
+    'description'?: string | null;
+}
+/**
+ * The schedule information.
  * @export
  * @interface Schedule
  */
 export interface Schedule {
     /**
-     * The ID of the saved search that will be executed.
-     * @type {string}
-     * @memberof Schedule
-     */
-    'savedSearchId': string;
-    /**
-     * The date the scheduled search was initially created.
-     * @type {string}
-     * @memberof Schedule
-     */
-    'created'?: string;
-    /**
-     * The last date the scheduled search was modified.
-     * @type {string}
-     * @memberof Schedule
-     */
-    'modified'?: string;
-    /**
-     * 
-     * @type {Schedule1}
-     * @memberof Schedule
-     */
-    'schedule': Schedule1;
-    /**
-     * A list of identities that should receive the scheduled search report via email.
-     * @type {Array<ScheduleRecipientsInner>}
-     * @memberof Schedule
-     */
-    'recipients': Array<ScheduleRecipientsInner>;
-    /**
-     * Indicates if the scheduled search is enabled. 
-     * @type {boolean}
-     * @memberof Schedule
-     */
-    'enabled'?: boolean;
-    /**
-     * Indicates if email generation should not be suppressed if search returns no results. 
-     * @type {boolean}
-     * @memberof Schedule
-     */
-    'emailEmptyResults'?: boolean;
-    /**
-     * Indicates if the generated email should include the query and search results preview (which could include PII). 
-     * @type {boolean}
-     * @memberof Schedule
-     */
-    'displayQueryDetails'?: boolean;
-}
-/**
- * The schedule information.
- * @export
- * @interface Schedule1
- */
-export interface Schedule1 {
-    /**
      * 
      * @type {ScheduleType}
-     * @memberof Schedule1
+     * @memberof Schedule
      */
     'type': ScheduleType;
     /**
      * 
-     * @type {Schedule1Days}
-     * @memberof Schedule1
+     * @type {ScheduleDays}
+     * @memberof Schedule
      */
-    'days'?: Schedule1Days;
+    'days'?: ScheduleDays;
     /**
      * 
-     * @type {Schedule1Hours}
-     * @memberof Schedule1
+     * @type {ScheduleHours}
+     * @memberof Schedule
      */
-    'hours': Schedule1Hours;
+    'hours': ScheduleHours;
     /**
      * A date-time in ISO-8601 format
      * @type {string}
-     * @memberof Schedule1
+     * @memberof Schedule
      */
     'expiration'?: string | null;
     /**
      * The GMT formatted timezone the schedule will run in (ex. GMT-06:00).  If no timezone is specified, the org\'s default timezone is used.
      * @type {string}
-     * @memberof Schedule1
+     * @memberof Schedule
      */
     'timeZoneId'?: string | null;
 }
 /**
  * 
  * @export
- * @interface Schedule1Days
+ * @interface ScheduleDays
  */
-export interface Schedule1Days {
+export interface ScheduleDays {
     /**
      * 
      * @type {SelectorType}
-     * @memberof Schedule1Days
+     * @memberof ScheduleDays
      */
     'type': SelectorType;
     /**
      * The selected values. 
      * @type {Array<string>}
-     * @memberof Schedule1Days
+     * @memberof ScheduleDays
      */
     'values': Array<string>;
     /**
      * The selected interval for RANGE selectors. 
      * @type {number}
-     * @memberof Schedule1Days
+     * @memberof ScheduleDays
      */
     'interval'?: number | null;
 }
 /**
  * 
  * @export
- * @interface Schedule1Hours
+ * @interface ScheduleHours
  */
-export interface Schedule1Hours {
+export interface ScheduleHours {
     /**
      * 
      * @type {SelectorType}
-     * @memberof Schedule1Hours
+     * @memberof ScheduleHours
      */
     'type': SelectorType;
     /**
      * The selected values. 
      * @type {Array<string>}
-     * @memberof Schedule1Hours
+     * @memberof ScheduleHours
      */
     'values': Array<string>;
     /**
      * The selected interval for RANGE selectors. 
      * @type {number}
-     * @memberof Schedule1Hours
+     * @memberof ScheduleHours
      */
     'interval'?: number | null;
 }
-/**
- * 
- * @export
- * @interface ScheduleRecipientsInner
- */
-export interface ScheduleRecipientsInner {
-    /**
-     * The type of object being referenced
-     * @type {string}
-     * @memberof ScheduleRecipientsInner
-     */
-    'type': ScheduleRecipientsInnerTypeEnum;
-    /**
-     * The ID of the referenced object
-     * @type {string}
-     * @memberof ScheduleRecipientsInner
-     */
-    'id': string;
-}
-
-export const ScheduleRecipientsInnerTypeEnum = {
-    Identity: 'IDENTITY'
-} as const;
-
-export type ScheduleRecipientsInnerTypeEnum = typeof ScheduleRecipientsInnerTypeEnum[keyof typeof ScheduleRecipientsInnerTypeEnum];
-
 /**
  * Enum representing the currently supported schedule types.  Additional values may be added in the future without notice. 
  * @export
@@ -12345,16 +11752,16 @@ export interface ScheduledSearch {
     'modified'?: string;
     /**
      * 
-     * @type {Schedule1}
+     * @type {Schedule}
      * @memberof ScheduledSearch
      */
-    'schedule': Schedule1;
+    'schedule': Schedule;
     /**
      * A list of identities that should receive the scheduled search report via email.
-     * @type {Array<ScheduleRecipientsInner>}
+     * @type {Array<SearchScheduleRecipientsInner>}
      * @memberof ScheduledSearch
      */
-    'recipients': Array<ScheduleRecipientsInner>;
+    'recipients': Array<SearchScheduleRecipientsInner>;
     /**
      * Indicates if the scheduled search is enabled. 
      * @type {boolean}
@@ -12464,16 +11871,16 @@ export interface ScheduledSearchCreateRequest {
     'modified'?: string;
     /**
      * 
-     * @type {Schedule1}
+     * @type {Schedule}
      * @memberof ScheduledSearchCreateRequest
      */
-    'schedule': Schedule1;
+    'schedule': Schedule;
     /**
      * A list of identities that should receive the scheduled search report via email.
-     * @type {Array<ScheduleRecipientsInner>}
+     * @type {Array<SearchScheduleRecipientsInner>}
      * @memberof ScheduledSearchCreateRequest
      */
-    'recipients': Array<ScheduleRecipientsInner>;
+    'recipients': Array<SearchScheduleRecipientsInner>;
     /**
      * Indicates if the scheduled search is enabled. 
      * @type {boolean}
@@ -12492,6 +11899,25 @@ export interface ScheduledSearchCreateRequest {
      * @memberof ScheduledSearchCreateRequest
      */
     'displayQueryDetails'?: boolean;
+}
+/**
+ * 
+ * @export
+ * @interface ScheduledSearchName
+ */
+export interface ScheduledSearchName {
+    /**
+     * The name of the scheduled search. 
+     * @type {string}
+     * @memberof ScheduledSearchName
+     */
+    'name'?: string | null;
+    /**
+     * The description of the scheduled search. 
+     * @type {string}
+     * @memberof ScheduledSearchName
+     */
+    'description'?: string | null;
 }
 /**
  * 
@@ -12579,156 +12005,145 @@ export interface Schema {
  */
 export interface Search {
     /**
-     * Indicates if the saved search is public. 
-     * @type {boolean}
-     * @memberof Search
-     */
-    'public'?: boolean;
-    /**
-     * A date-time in ISO-8601 format
-     * @type {string}
-     * @memberof Search
-     */
-    'created'?: string | null;
-    /**
-     * A date-time in ISO-8601 format
-     * @type {string}
-     * @memberof Search
-     */
-    'modified'?: string | null;
-    /**
-     * The names of the Elasticsearch indices in which to search. 
-     * @type {Array<Index>}
-     * @memberof Search
-     */
-    'indices': Array<Index>;
-    /**
-     * The columns to be returned (specifies the order in which they will be presented) for each document type.  The currently supported document types are: _accessprofile_, _accountactivity_, _account_, _aggregation_, _entitlement_, _event_, _identity_, and _role_. 
-     * @type {{ [key: string]: Array<Column>; }}
-     * @memberof Search
-     */
-    'columns'?: { [key: string]: Array<Column>; };
-    /**
-     * The search query using Elasticsearch [Query String Query](https://www.elastic.co/guide/en/elasticsearch/reference/5.2/query-dsl-query-string-query.html#query-string) syntax from the Query DSL. 
-     * @type {string}
-     * @memberof Search
-     */
-    'query': string;
-    /**
-     * The fields to be searched against in a multi-field query. 
-     * @type {Array<string>}
-     * @memberof Search
-     */
-    'fields'?: Array<string> | null;
-    /**
-     * The fields to be used to sort the search results. 
-     * @type {Array<string>}
-     * @memberof Search
-     */
-    'sort'?: Array<string>;
-    /**
-     * 
-     * @type {SearchFilters}
-     * @memberof Search
-     */
-    'filters'?: SearchFilters | null;
-}
-/**
- * 
- * @export
- * @interface Search1
- */
-export interface Search1 {
-    /**
      * The names of the Elasticsearch indices in which to search. If none are provided, then all indices will be searched.
      * @type {Array<Index>}
-     * @memberof Search1
+     * @memberof Search
      */
     'indices'?: Array<Index>;
     /**
      * 
      * @type {QueryType}
-     * @memberof Search1
+     * @memberof Search
      */
     'queryType'?: QueryType;
     /**
      * 
      * @type {string}
-     * @memberof Search1
+     * @memberof Search
      */
     'queryVersion'?: string;
     /**
      * 
      * @type {Query}
-     * @memberof Search1
+     * @memberof Search
      */
     'query'?: Query;
     /**
      * The search query using the Elasticsearch [Query DSL](https://www.elastic.co/guide/en/elasticsearch/reference/7.10/query-dsl.html) syntax.
      * @type {object}
-     * @memberof Search1
+     * @memberof Search
      */
     'queryDsl'?: object;
     /**
      * 
      * @type {TypeAheadQuery}
-     * @memberof Search1
+     * @memberof Search
      */
     'typeAheadQuery'?: TypeAheadQuery;
     /**
      * Indicates whether nested objects from returned search results should be included.
      * @type {boolean}
-     * @memberof Search1
+     * @memberof Search
      */
     'includeNested'?: boolean;
     /**
      * 
      * @type {QueryResultFilter}
-     * @memberof Search1
+     * @memberof Search
      */
     'queryResultFilter'?: QueryResultFilter;
     /**
      * 
      * @type {AggregationType}
-     * @memberof Search1
+     * @memberof Search
      */
     'aggregationType'?: AggregationType;
     /**
      * 
      * @type {string}
-     * @memberof Search1
+     * @memberof Search
      */
     'aggregationsVersion'?: string;
     /**
      * The aggregation search query using Elasticsearch [Aggregations](https://www.elastic.co/guide/en/elasticsearch/reference/5.2/search-aggregations.html) syntax.
      * @type {object}
-     * @memberof Search1
+     * @memberof Search
      */
     'aggregationsDsl'?: object;
     /**
      * 
-     * @type {Aggregation1}
-     * @memberof Search1
+     * @type {SearchAggregationSpecification}
+     * @memberof Search
      */
-    'aggregations'?: Aggregation1;
+    'aggregations'?: SearchAggregationSpecification;
     /**
      * The fields to be used to sort the search results. Use + or - to specify the sort direction.
      * @type {Array<string>}
-     * @memberof Search1
+     * @memberof Search
      */
     'sort'?: Array<string>;
     /**
      * Used to begin the search window at the values specified. This parameter consists of the last values of the sorted fields in the current record set. This is used to expand the Elasticsearch limit of 10K records by shifting the 10K window to begin at this value. It is recommended that you always include the ID of the object in addition to any other fields on this parameter in order to ensure you don\'t get duplicate results while paging. For example, when searching for identities, if you are sorting by displayName you will also want to include ID, for example [\"displayName\", \"id\"].  If the last identity ID in the search result is 2c91808375d8e80a0175e1f88a575221 and the last displayName is \"John Doe\", then using that displayName and ID will start a new search after this identity. The searchAfter value will look like [\"John Doe\",\"2c91808375d8e80a0175e1f88a575221\"]
      * @type {Array<string>}
-     * @memberof Search1
+     * @memberof Search
      */
     'searchAfter'?: Array<string>;
     /**
      * The filters to be applied for each filtered field name.
      * @type {{ [key: string]: Filter; }}
-     * @memberof Search1
+     * @memberof Search
      */
     'filters'?: { [key: string]: Filter; };
+}
+/**
+ * 
+ * @export
+ * @interface SearchAggregationSpecification
+ */
+export interface SearchAggregationSpecification {
+    /**
+     * 
+     * @type {NestedAggregation}
+     * @memberof SearchAggregationSpecification
+     */
+    'nested'?: NestedAggregation;
+    /**
+     * 
+     * @type {MetricAggregation}
+     * @memberof SearchAggregationSpecification
+     */
+    'metric'?: MetricAggregation;
+    /**
+     * 
+     * @type {FilterAggregation}
+     * @memberof SearchAggregationSpecification
+     */
+    'filter'?: FilterAggregation;
+    /**
+     * 
+     * @type {BucketAggregation}
+     * @memberof SearchAggregationSpecification
+     */
+    'bucket'?: BucketAggregation;
+    /**
+     * 
+     * @type {SubSearchAggregationSpecification}
+     * @memberof SearchAggregationSpecification
+     */
+    'subAggregation'?: SubSearchAggregationSpecification;
+}
+/**
+ * 
+ * @export
+ * @interface SearchAggregationSpecificationAllOf
+ */
+export interface SearchAggregationSpecificationAllOf {
+    /**
+     * 
+     * @type {SubSearchAggregationSpecification}
+     * @memberof SearchAggregationSpecificationAllOf
+     */
+    'subAggregation'?: SubSearchAggregationSpecification;
 }
 /**
  * 
@@ -12778,39 +12193,140 @@ export interface SearchArgumentsOwner {
  * @type SearchDocument
  * @export
  */
-export type SearchDocument = AccessProfile | Account1 | AccountActivity1 | Aggregation | Entitlement | Event | Identity | Role;
+export type SearchDocument = AccessProfileDocument | AccountActivityDocument | AccountDocument | AggregationDocument | EntitlementDocument | EventDocument | IdentityDocument | RoleDocument;
+
+/**
+ * Enum representing the currently supported filter aggregation types. Additional values may be added in the future without notice.
+ * @export
+ * @enum {string}
+ */
+
+export const SearchFilterType = {
+    Term: 'TERM'
+} as const;
+
+export type SearchFilterType = typeof SearchFilterType[keyof typeof SearchFilterType];
+
 
 /**
  * 
  * @export
- * @interface SearchFilters
+ * @interface SearchIdentityReference
  */
-export interface SearchFilters {
+export interface SearchIdentityReference {
+    /**
+     * The unique ID of the referenced object.
+     * @type {string}
+     * @memberof SearchIdentityReference
+     */
+    'id'?: string;
+    /**
+     * The human readable name of the referenced object.
+     * @type {string}
+     * @memberof SearchIdentityReference
+     */
+    'name'?: string;
     /**
      * 
-     * @type {FilterType}
-     * @memberof SearchFilters
+     * @type {DtoType}
+     * @memberof SearchIdentityReference
      */
-    'type'?: FilterType;
-    /**
-     * 
-     * @type {Range}
-     * @memberof SearchFilters
-     */
-    'range'?: Range;
-    /**
-     * The terms to be filtered.
-     * @type {Array<string>}
-     * @memberof SearchFilters
-     */
-    'terms'?: Array<string>;
-    /**
-     * Indicates if the filter excludes results.
-     * @type {boolean}
-     * @memberof SearchFilters
-     */
-    'exclude'?: boolean;
+    'type'?: DtoType;
 }
+/**
+ * 
+ * @export
+ * @interface SearchIdentityReferenceAllOf
+ */
+export interface SearchIdentityReferenceAllOf {
+    /**
+     * 
+     * @type {DtoType}
+     * @memberof SearchIdentityReferenceAllOf
+     */
+    'type'?: DtoType;
+}
+/**
+ * 
+ * @export
+ * @interface SearchSchedule
+ */
+export interface SearchSchedule {
+    /**
+     * The ID of the saved search that will be executed.
+     * @type {string}
+     * @memberof SearchSchedule
+     */
+    'savedSearchId': string;
+    /**
+     * The date the scheduled search was initially created.
+     * @type {string}
+     * @memberof SearchSchedule
+     */
+    'created'?: string;
+    /**
+     * The last date the scheduled search was modified.
+     * @type {string}
+     * @memberof SearchSchedule
+     */
+    'modified'?: string;
+    /**
+     * 
+     * @type {Schedule}
+     * @memberof SearchSchedule
+     */
+    'schedule': Schedule;
+    /**
+     * A list of identities that should receive the scheduled search report via email.
+     * @type {Array<SearchScheduleRecipientsInner>}
+     * @memberof SearchSchedule
+     */
+    'recipients': Array<SearchScheduleRecipientsInner>;
+    /**
+     * Indicates if the scheduled search is enabled. 
+     * @type {boolean}
+     * @memberof SearchSchedule
+     */
+    'enabled'?: boolean;
+    /**
+     * Indicates if email generation should not be suppressed if search returns no results. 
+     * @type {boolean}
+     * @memberof SearchSchedule
+     */
+    'emailEmptyResults'?: boolean;
+    /**
+     * Indicates if the generated email should include the query and search results preview (which could include PII). 
+     * @type {boolean}
+     * @memberof SearchSchedule
+     */
+    'displayQueryDetails'?: boolean;
+}
+/**
+ * 
+ * @export
+ * @interface SearchScheduleRecipientsInner
+ */
+export interface SearchScheduleRecipientsInner {
+    /**
+     * The type of object being referenced
+     * @type {string}
+     * @memberof SearchScheduleRecipientsInner
+     */
+    'type': SearchScheduleRecipientsInnerTypeEnum;
+    /**
+     * The ID of the referenced object
+     * @type {string}
+     * @memberof SearchScheduleRecipientsInner
+     */
+    'id': string;
+}
+
+export const SearchScheduleRecipientsInnerTypeEnum = {
+    Identity: 'IDENTITY'
+} as const;
+
+export type SearchScheduleRecipientsInnerTypeEnum = typeof SearchScheduleRecipientsInnerTypeEnum[keyof typeof SearchScheduleRecipientsInnerTypeEnum];
+
 /**
  * 
  * @export
@@ -13575,44 +13091,6 @@ export interface Source {
     'connectorImplementstionId'?: string;
 }
 /**
- * 
- * @export
- * @interface Source1
- */
-export interface Source1 {
-    /**
-     * 
-     * @type {string}
-     * @memberof Source1
-     */
-    'id'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof Source1
-     */
-    'name'?: string;
-    /**
-     * the type of source returned
-     * @type {string}
-     * @memberof Source1
-     */
-    'type'?: string;
-}
-/**
- * 
- * @export
- * @interface Source1AllOf
- */
-export interface Source1AllOf {
-    /**
-     * the type of source returned
-     * @type {string}
-     * @memberof Source1AllOf
-     */
-    'type'?: string;
-}
-/**
  * Reference to an Account Correlation Config object
  * @export
  * @interface SourceAccountCorrelationConfig
@@ -14101,6 +13579,56 @@ export interface Static {
      * @memberof Static
      */
     'requiresPeriodicRefresh'?: boolean;
+}
+/**
+ * 
+ * @export
+ * @interface SubSearchAggregationSpecification
+ */
+export interface SubSearchAggregationSpecification {
+    /**
+     * 
+     * @type {NestedAggregation}
+     * @memberof SubSearchAggregationSpecification
+     */
+    'nested'?: NestedAggregation;
+    /**
+     * 
+     * @type {MetricAggregation}
+     * @memberof SubSearchAggregationSpecification
+     */
+    'metric'?: MetricAggregation;
+    /**
+     * 
+     * @type {FilterAggregation}
+     * @memberof SubSearchAggregationSpecification
+     */
+    'filter'?: FilterAggregation;
+    /**
+     * 
+     * @type {BucketAggregation}
+     * @memberof SubSearchAggregationSpecification
+     */
+    'bucket'?: BucketAggregation;
+    /**
+     * 
+     * @type {Aggregations}
+     * @memberof SubSearchAggregationSpecification
+     */
+    'subAggregation'?: Aggregations;
+}
+/**
+ * 
+ * @export
+ * @interface SubSearchAggregationSpecificationAllOf
+ */
+export interface SubSearchAggregationSpecificationAllOf {
+    /**
+     * 
+     * @type {Aggregations}
+     * @memberof SubSearchAggregationSpecificationAllOf
+     */
+    'subAggregation'?: Aggregations;
 }
 /**
  * 
@@ -26574,16 +26102,16 @@ export const SearchApiAxiosParamCreator = function (configuration?: Configuratio
         /**
          * Performs a search query aggregation and returns the aggregation result. By default, you can page a maximum of 10,000 search result records.  To page past 10,000 records, you can use searchAfter paging.  Refer to [Paginating Search Queries](https://developer.sailpoint.com/idn/api/standard-collection-parameters#paginating-search-queries) for more information about how to implement searchAfter paging. 
          * @summary Perform a Search Query Aggregation
-         * @param {Search1} search1 
+         * @param {Search} search 
          * @param {number} [offset] Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
          * @param {number} [limit] Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
          * @param {boolean} [count] If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        searchAggregate: async (search1: Search1, offset?: number, limit?: number, count?: boolean, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
-            // verify required parameter 'search1' is not null or undefined
-            assertParamExists('searchAggregate', 'search1', search1)
+        searchAggregate: async (search: Search, offset?: number, limit?: number, count?: boolean, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'search' is not null or undefined
+            assertParamExists('searchAggregate', 'search', search)
             const localVarPath = `/search/aggregate`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -26623,7 +26151,7 @@ export const SearchApiAxiosParamCreator = function (configuration?: Configuratio
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(search1, localVarRequestOptions, configuration)
+            localVarRequestOptions.data = serializeDataIfNeeded(search, localVarRequestOptions, configuration)
 
             return {
                 url: toPathString(localVarUrlObj),
@@ -26633,13 +26161,13 @@ export const SearchApiAxiosParamCreator = function (configuration?: Configuratio
         /**
          * Performs a search with a provided query and returns the count of results in the X-Total-Count header.
          * @summary Count Documents Satisfying a Query
-         * @param {Search1} search1 
+         * @param {Search} search 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        searchCount: async (search1: Search1, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
-            // verify required parameter 'search1' is not null or undefined
-            assertParamExists('searchCount', 'search1', search1)
+        searchCount: async (search: Search, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'search' is not null or undefined
+            assertParamExists('searchCount', 'search', search)
             const localVarPath = `/search/count`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -26667,7 +26195,7 @@ export const SearchApiAxiosParamCreator = function (configuration?: Configuratio
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(search1, localVarRequestOptions, configuration)
+            localVarRequestOptions.data = serializeDataIfNeeded(search, localVarRequestOptions, configuration)
 
             return {
                 url: toPathString(localVarUrlObj),
@@ -26723,16 +26251,16 @@ export const SearchApiAxiosParamCreator = function (configuration?: Configuratio
         /**
          * Performs a search with the provided query and returns a matching result collection. By default, you can page a maximum of 10,000 search result records.  To page past 10,000 records, you can use searchAfter paging.  Refer to [Paginating Search Queries](https://developer.sailpoint.com/idn/api/standard-collection-parameters#paginating-search-queries) for more information about how to implement searchAfter paging. 
          * @summary Perform Search
-         * @param {Search1} search1 
+         * @param {Search} search 
          * @param {number} [offset] Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
          * @param {number} [limit] Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
          * @param {boolean} [count] If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        searchPost: async (search1: Search1, offset?: number, limit?: number, count?: boolean, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
-            // verify required parameter 'search1' is not null or undefined
-            assertParamExists('searchPost', 'search1', search1)
+        searchPost: async (search: Search, offset?: number, limit?: number, count?: boolean, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'search' is not null or undefined
+            assertParamExists('searchPost', 'search', search)
             const localVarPath = `/search`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -26772,7 +26300,7 @@ export const SearchApiAxiosParamCreator = function (configuration?: Configuratio
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(search1, localVarRequestOptions, configuration)
+            localVarRequestOptions.data = serializeDataIfNeeded(search, localVarRequestOptions, configuration)
 
             return {
                 url: toPathString(localVarUrlObj),
@@ -26792,26 +26320,26 @@ export const SearchApiFp = function(configuration?: Configuration) {
         /**
          * Performs a search query aggregation and returns the aggregation result. By default, you can page a maximum of 10,000 search result records.  To page past 10,000 records, you can use searchAfter paging.  Refer to [Paginating Search Queries](https://developer.sailpoint.com/idn/api/standard-collection-parameters#paginating-search-queries) for more information about how to implement searchAfter paging. 
          * @summary Perform a Search Query Aggregation
-         * @param {Search1} search1 
+         * @param {Search} search 
          * @param {number} [offset] Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
          * @param {number} [limit] Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
          * @param {boolean} [count] If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async searchAggregate(search1: Search1, offset?: number, limit?: number, count?: boolean, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<AggregationResult>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.searchAggregate(search1, offset, limit, count, axiosOptions);
+        async searchAggregate(search: Search, offset?: number, limit?: number, count?: boolean, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<AggregationResult>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.searchAggregate(search, offset, limit, count, axiosOptions);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
          * Performs a search with a provided query and returns the count of results in the X-Total-Count header.
          * @summary Count Documents Satisfying a Query
-         * @param {Search1} search1 
+         * @param {Search} search 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async searchCount(search1: Search1, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.searchCount(search1, axiosOptions);
+        async searchCount(search: Search, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.searchCount(search, axiosOptions);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
@@ -26829,15 +26357,15 @@ export const SearchApiFp = function(configuration?: Configuration) {
         /**
          * Performs a search with the provided query and returns a matching result collection. By default, you can page a maximum of 10,000 search result records.  To page past 10,000 records, you can use searchAfter paging.  Refer to [Paginating Search Queries](https://developer.sailpoint.com/idn/api/standard-collection-parameters#paginating-search-queries) for more information about how to implement searchAfter paging. 
          * @summary Perform Search
-         * @param {Search1} search1 
+         * @param {Search} search 
          * @param {number} [offset] Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
          * @param {number} [limit] Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
          * @param {boolean} [count] If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async searchPost(search1: Search1, offset?: number, limit?: number, count?: boolean, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<SearchDocument>>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.searchPost(search1, offset, limit, count, axiosOptions);
+        async searchPost(search: Search, offset?: number, limit?: number, count?: boolean, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<SearchDocument>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.searchPost(search, offset, limit, count, axiosOptions);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
     }
@@ -26853,25 +26381,25 @@ export const SearchApiFactory = function (configuration?: Configuration, basePat
         /**
          * Performs a search query aggregation and returns the aggregation result. By default, you can page a maximum of 10,000 search result records.  To page past 10,000 records, you can use searchAfter paging.  Refer to [Paginating Search Queries](https://developer.sailpoint.com/idn/api/standard-collection-parameters#paginating-search-queries) for more information about how to implement searchAfter paging. 
          * @summary Perform a Search Query Aggregation
-         * @param {Search1} search1 
+         * @param {Search} search 
          * @param {number} [offset] Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
          * @param {number} [limit] Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
          * @param {boolean} [count] If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        searchAggregate(search1: Search1, offset?: number, limit?: number, count?: boolean, axiosOptions?: any): AxiosPromise<AggregationResult> {
-            return localVarFp.searchAggregate(search1, offset, limit, count, axiosOptions).then((request) => request(axios, basePath));
+        searchAggregate(search: Search, offset?: number, limit?: number, count?: boolean, axiosOptions?: any): AxiosPromise<AggregationResult> {
+            return localVarFp.searchAggregate(search, offset, limit, count, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * Performs a search with a provided query and returns the count of results in the X-Total-Count header.
          * @summary Count Documents Satisfying a Query
-         * @param {Search1} search1 
+         * @param {Search} search 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        searchCount(search1: Search1, axiosOptions?: any): AxiosPromise<void> {
-            return localVarFp.searchCount(search1, axiosOptions).then((request) => request(axios, basePath));
+        searchCount(search: Search, axiosOptions?: any): AxiosPromise<void> {
+            return localVarFp.searchCount(search, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * Fetches a single document from the specified index, using the specified document ID.
@@ -26887,15 +26415,15 @@ export const SearchApiFactory = function (configuration?: Configuration, basePat
         /**
          * Performs a search with the provided query and returns a matching result collection. By default, you can page a maximum of 10,000 search result records.  To page past 10,000 records, you can use searchAfter paging.  Refer to [Paginating Search Queries](https://developer.sailpoint.com/idn/api/standard-collection-parameters#paginating-search-queries) for more information about how to implement searchAfter paging. 
          * @summary Perform Search
-         * @param {Search1} search1 
+         * @param {Search} search 
          * @param {number} [offset] Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
          * @param {number} [limit] Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
          * @param {boolean} [count] If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        searchPost(search1: Search1, offset?: number, limit?: number, count?: boolean, axiosOptions?: any): AxiosPromise<Array<SearchDocument>> {
-            return localVarFp.searchPost(search1, offset, limit, count, axiosOptions).then((request) => request(axios, basePath));
+        searchPost(search: Search, offset?: number, limit?: number, count?: boolean, axiosOptions?: any): AxiosPromise<Array<SearchDocument>> {
+            return localVarFp.searchPost(search, offset, limit, count, axiosOptions).then((request) => request(axios, basePath));
         },
     };
 };
@@ -26908,10 +26436,10 @@ export const SearchApiFactory = function (configuration?: Configuration, basePat
 export interface SearchApiSearchAggregateRequest {
     /**
      * 
-     * @type {Search1}
+     * @type {Search}
      * @memberof SearchApiSearchAggregate
      */
-    readonly search1: Search1
+    readonly search: Search
 
     /**
      * Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
@@ -26943,10 +26471,10 @@ export interface SearchApiSearchAggregateRequest {
 export interface SearchApiSearchCountRequest {
     /**
      * 
-     * @type {Search1}
+     * @type {Search}
      * @memberof SearchApiSearchCount
      */
-    readonly search1: Search1
+    readonly search: Search
 }
 
 /**
@@ -26978,10 +26506,10 @@ export interface SearchApiSearchGetRequest {
 export interface SearchApiSearchPostRequest {
     /**
      * 
-     * @type {Search1}
+     * @type {Search}
      * @memberof SearchApiSearchPost
      */
-    readonly search1: Search1
+    readonly search: Search
 
     /**
      * Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
@@ -27021,7 +26549,7 @@ export class SearchApi extends BaseAPI {
      * @memberof SearchApi
      */
     public searchAggregate(requestParameters: SearchApiSearchAggregateRequest, axiosOptions?: AxiosRequestConfig) {
-        return SearchApiFp(this.configuration).searchAggregate(requestParameters.search1, requestParameters.offset, requestParameters.limit, requestParameters.count, axiosOptions).then((request) => request(this.axios, this.basePath));
+        return SearchApiFp(this.configuration).searchAggregate(requestParameters.search, requestParameters.offset, requestParameters.limit, requestParameters.count, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -27033,7 +26561,7 @@ export class SearchApi extends BaseAPI {
      * @memberof SearchApi
      */
     public searchCount(requestParameters: SearchApiSearchCountRequest, axiosOptions?: AxiosRequestConfig) {
-        return SearchApiFp(this.configuration).searchCount(requestParameters.search1, axiosOptions).then((request) => request(this.axios, this.basePath));
+        return SearchApiFp(this.configuration).searchCount(requestParameters.search, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -27057,7 +26585,7 @@ export class SearchApi extends BaseAPI {
      * @memberof SearchApi
      */
     public searchPost(requestParameters: SearchApiSearchPostRequest, axiosOptions?: AxiosRequestConfig) {
-        return SearchApiFp(this.configuration).searchPost(requestParameters.search1, requestParameters.offset, requestParameters.limit, requestParameters.count, axiosOptions).then((request) => request(this.axios, this.basePath));
+        return SearchApiFp(this.configuration).searchPost(requestParameters.search, requestParameters.offset, requestParameters.limit, requestParameters.count, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 }
 
