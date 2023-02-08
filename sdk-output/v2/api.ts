@@ -997,10 +997,13 @@ export const GovernanceGroupsV2ApiAxiosParamCreator = function (configuration?: 
          * This API returns the members of a work group
          * @summary List Work Group Members
          * @param {string} workgroupId The workgroup ID
+         * @param {number} [limit] Max number of results to return
+         * @param {number} [offset] Offset into the full result set. Usually specified with *limit* to paginate through the results.
+         * @param {string} [filters] Filter results using the following syntax. [{property:name, value: \&quot;Tyler\&quot;, operation: EQ}]
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        listWorkgroupMembers: async (workgroupId: string, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        listWorkgroupMembers: async (workgroupId: string, limit?: number, offset?: number, filters?: string, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'workgroupId' is not null or undefined
             assertParamExists('listWorkgroupMembers', 'workgroupId', workgroupId)
             const localVarPath = `/workgroups/{workgroupId}/members`
@@ -1024,6 +1027,18 @@ export const GovernanceGroupsV2ApiAxiosParamCreator = function (configuration?: 
             // oauth required
             await setOAuthToObject(localVarHeaderParameter, "oauth2", [], configuration)
 
+            if (limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+
+            if (offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+
+            if (filters !== undefined) {
+                localVarQueryParameter['filters'] = filters;
+            }
+
 
     
             setSearchParams(localVarUrlObj, localVarQueryParameter);
@@ -1038,10 +1053,13 @@ export const GovernanceGroupsV2ApiAxiosParamCreator = function (configuration?: 
         /**
          * This API returns a list of work groups
          * @summary List Work Groups
+         * @param {number} [limit] Max number of results to return
+         * @param {number} [offset] Offset into the full result set. Usually specified with *limit* to paginate through the results.
+         * @param {string} [filters] Filter results using the following syntax. [{property:name, value: \&quot;Tyler\&quot;, operation: EQ}]
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        listWorkgroups: async (axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        listWorkgroups: async (limit?: number, offset?: number, filters?: string, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             const localVarPath = `/workgroups`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -1061,6 +1079,18 @@ export const GovernanceGroupsV2ApiAxiosParamCreator = function (configuration?: 
             // authentication oauth2 required
             // oauth required
             await setOAuthToObject(localVarHeaderParameter, "oauth2", [], configuration)
+
+            if (limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+
+            if (offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+
+            if (filters !== undefined) {
+                localVarQueryParameter['filters'] = filters;
+            }
 
 
     
@@ -1238,21 +1268,27 @@ export const GovernanceGroupsV2ApiFp = function(configuration?: Configuration) {
          * This API returns the members of a work group
          * @summary List Work Group Members
          * @param {string} workgroupId The workgroup ID
+         * @param {number} [limit] Max number of results to return
+         * @param {number} [offset] Offset into the full result set. Usually specified with *limit* to paginate through the results.
+         * @param {string} [filters] Filter results using the following syntax. [{property:name, value: \&quot;Tyler\&quot;, operation: EQ}]
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async listWorkgroupMembers(workgroupId: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<ListWorkgroupMembers200ResponseInnerV2>>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.listWorkgroupMembers(workgroupId, axiosOptions);
+        async listWorkgroupMembers(workgroupId: string, limit?: number, offset?: number, filters?: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<ListWorkgroupMembers200ResponseInnerV2>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.listWorkgroupMembers(workgroupId, limit, offset, filters, axiosOptions);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
          * This API returns a list of work groups
          * @summary List Work Groups
+         * @param {number} [limit] Max number of results to return
+         * @param {number} [offset] Offset into the full result set. Usually specified with *limit* to paginate through the results.
+         * @param {string} [filters] Filter results using the following syntax. [{property:name, value: \&quot;Tyler\&quot;, operation: EQ}]
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async listWorkgroups(axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<ListWorkgroups200ResponseInnerV2>>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.listWorkgroups(axiosOptions);
+        async listWorkgroups(limit?: number, offset?: number, filters?: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<ListWorkgroups200ResponseInnerV2>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.listWorkgroups(limit, offset, filters, axiosOptions);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
@@ -1343,20 +1379,26 @@ export const GovernanceGroupsV2ApiFactory = function (configuration?: Configurat
          * This API returns the members of a work group
          * @summary List Work Group Members
          * @param {string} workgroupId The workgroup ID
+         * @param {number} [limit] Max number of results to return
+         * @param {number} [offset] Offset into the full result set. Usually specified with *limit* to paginate through the results.
+         * @param {string} [filters] Filter results using the following syntax. [{property:name, value: \&quot;Tyler\&quot;, operation: EQ}]
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        listWorkgroupMembers(workgroupId: string, axiosOptions?: any): AxiosPromise<Array<ListWorkgroupMembers200ResponseInnerV2>> {
-            return localVarFp.listWorkgroupMembers(workgroupId, axiosOptions).then((request) => request(axios, basePath));
+        listWorkgroupMembers(workgroupId: string, limit?: number, offset?: number, filters?: string, axiosOptions?: any): AxiosPromise<Array<ListWorkgroupMembers200ResponseInnerV2>> {
+            return localVarFp.listWorkgroupMembers(workgroupId, limit, offset, filters, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * This API returns a list of work groups
          * @summary List Work Groups
+         * @param {number} [limit] Max number of results to return
+         * @param {number} [offset] Offset into the full result set. Usually specified with *limit* to paginate through the results.
+         * @param {string} [filters] Filter results using the following syntax. [{property:name, value: \&quot;Tyler\&quot;, operation: EQ}]
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        listWorkgroups(axiosOptions?: any): AxiosPromise<Array<ListWorkgroups200ResponseInnerV2>> {
-            return localVarFp.listWorkgroups(axiosOptions).then((request) => request(axios, basePath));
+        listWorkgroups(limit?: number, offset?: number, filters?: string, axiosOptions?: any): AxiosPromise<Array<ListWorkgroups200ResponseInnerV2>> {
+            return localVarFp.listWorkgroups(limit, offset, filters, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * This API allows you to modify the members of a work group
@@ -1465,6 +1507,55 @@ export interface GovernanceGroupsV2ApiListWorkgroupMembersRequest {
      * @memberof GovernanceGroupsV2ApiListWorkgroupMembers
      */
     readonly workgroupId: string
+
+    /**
+     * Max number of results to return
+     * @type {number}
+     * @memberof GovernanceGroupsV2ApiListWorkgroupMembers
+     */
+    readonly limit?: number
+
+    /**
+     * Offset into the full result set. Usually specified with *limit* to paginate through the results.
+     * @type {number}
+     * @memberof GovernanceGroupsV2ApiListWorkgroupMembers
+     */
+    readonly offset?: number
+
+    /**
+     * Filter results using the following syntax. [{property:name, value: \&quot;Tyler\&quot;, operation: EQ}]
+     * @type {string}
+     * @memberof GovernanceGroupsV2ApiListWorkgroupMembers
+     */
+    readonly filters?: string
+}
+
+/**
+ * Request parameters for listWorkgroups operation in GovernanceGroupsV2Api.
+ * @export
+ * @interface GovernanceGroupsV2ApiListWorkgroupsRequest
+ */
+export interface GovernanceGroupsV2ApiListWorkgroupsRequest {
+    /**
+     * Max number of results to return
+     * @type {number}
+     * @memberof GovernanceGroupsV2ApiListWorkgroups
+     */
+    readonly limit?: number
+
+    /**
+     * Offset into the full result set. Usually specified with *limit* to paginate through the results.
+     * @type {number}
+     * @memberof GovernanceGroupsV2ApiListWorkgroups
+     */
+    readonly offset?: number
+
+    /**
+     * Filter results using the following syntax. [{property:name, value: \&quot;Tyler\&quot;, operation: EQ}]
+     * @type {string}
+     * @memberof GovernanceGroupsV2ApiListWorkgroups
+     */
+    readonly filters?: string
 }
 
 /**
@@ -1585,18 +1676,19 @@ export class GovernanceGroupsV2Api extends BaseAPI {
      * @memberof GovernanceGroupsV2Api
      */
     public listWorkgroupMembers(requestParameters: GovernanceGroupsV2ApiListWorkgroupMembersRequest, axiosOptions?: AxiosRequestConfig) {
-        return GovernanceGroupsV2ApiFp(this.configuration).listWorkgroupMembers(requestParameters.workgroupId, axiosOptions).then((request) => request(this.axios, this.basePath));
+        return GovernanceGroupsV2ApiFp(this.configuration).listWorkgroupMembers(requestParameters.workgroupId, requestParameters.limit, requestParameters.offset, requestParameters.filters, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * This API returns a list of work groups
      * @summary List Work Groups
+     * @param {GovernanceGroupsV2ApiListWorkgroupsRequest} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
      * @memberof GovernanceGroupsV2Api
      */
-    public listWorkgroups(axiosOptions?: AxiosRequestConfig) {
-        return GovernanceGroupsV2ApiFp(this.configuration).listWorkgroups(axiosOptions).then((request) => request(this.axios, this.basePath));
+    public listWorkgroups(requestParameters: GovernanceGroupsV2ApiListWorkgroupsRequest = {}, axiosOptions?: AxiosRequestConfig) {
+        return GovernanceGroupsV2ApiFp(this.configuration).listWorkgroups(requestParameters.limit, requestParameters.offset, requestParameters.filters, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
