@@ -4279,6 +4279,146 @@ export interface CreatePersonalAccessTokenResponse {
 /**
  * 
  * @export
+ * @interface CreateSavedSearchRequest
+ */
+export interface CreateSavedSearchRequest {
+    /**
+     * The name of the saved search. 
+     * @type {string}
+     * @memberof CreateSavedSearchRequest
+     */
+    'name'?: string;
+    /**
+     * The description of the saved search. 
+     * @type {string}
+     * @memberof CreateSavedSearchRequest
+     */
+    'description'?: string | null;
+    /**
+     * Indicates if the saved search is public. 
+     * @type {boolean}
+     * @memberof CreateSavedSearchRequest
+     */
+    'public'?: boolean;
+    /**
+     * A date-time in ISO-8601 format
+     * @type {string}
+     * @memberof CreateSavedSearchRequest
+     */
+    'created'?: string | null;
+    /**
+     * A date-time in ISO-8601 format
+     * @type {string}
+     * @memberof CreateSavedSearchRequest
+     */
+    'modified'?: string | null;
+    /**
+     * The names of the Elasticsearch indices in which to search. 
+     * @type {Array<Index>}
+     * @memberof CreateSavedSearchRequest
+     */
+    'indices': Array<Index>;
+    /**
+     * The columns to be returned (specifies the order in which they will be presented) for each document type.  The currently supported document types are: _accessprofile_, _accountactivity_, _account_, _aggregation_, _entitlement_, _event_, _identity_, and _role_. 
+     * @type {{ [key: string]: Array<Column>; }}
+     * @memberof CreateSavedSearchRequest
+     */
+    'columns'?: { [key: string]: Array<Column>; };
+    /**
+     * The search query using Elasticsearch [Query String Query](https://www.elastic.co/guide/en/elasticsearch/reference/5.2/query-dsl-query-string-query.html#query-string) syntax from the Query DSL. 
+     * @type {string}
+     * @memberof CreateSavedSearchRequest
+     */
+    'query': string;
+    /**
+     * The fields to be searched against in a multi-field query. 
+     * @type {Array<string>}
+     * @memberof CreateSavedSearchRequest
+     */
+    'fields'?: Array<string> | null;
+    /**
+     * The fields to be used to sort the search results. 
+     * @type {Array<string>}
+     * @memberof CreateSavedSearchRequest
+     */
+    'sort'?: Array<string>;
+    /**
+     * 
+     * @type {SavedSearchDetailFilters}
+     * @memberof CreateSavedSearchRequest
+     */
+    'filters'?: SavedSearchDetailFilters | null;
+}
+/**
+ * 
+ * @export
+ * @interface CreateScheduledSearchRequest
+ */
+export interface CreateScheduledSearchRequest {
+    /**
+     * The name of the scheduled search. 
+     * @type {string}
+     * @memberof CreateScheduledSearchRequest
+     */
+    'name'?: string | null;
+    /**
+     * The description of the scheduled search. 
+     * @type {string}
+     * @memberof CreateScheduledSearchRequest
+     */
+    'description'?: string | null;
+    /**
+     * The ID of the saved search that will be executed.
+     * @type {string}
+     * @memberof CreateScheduledSearchRequest
+     */
+    'savedSearchId': string;
+    /**
+     * The date the scheduled search was initially created.
+     * @type {string}
+     * @memberof CreateScheduledSearchRequest
+     */
+    'created'?: string;
+    /**
+     * The last date the scheduled search was modified.
+     * @type {string}
+     * @memberof CreateScheduledSearchRequest
+     */
+    'modified'?: string;
+    /**
+     * 
+     * @type {Schedule}
+     * @memberof CreateScheduledSearchRequest
+     */
+    'schedule': Schedule;
+    /**
+     * A list of identities that should receive the scheduled search report via email.
+     * @type {Array<SearchScheduleRecipientsInner>}
+     * @memberof CreateScheduledSearchRequest
+     */
+    'recipients': Array<SearchScheduleRecipientsInner>;
+    /**
+     * Indicates if the scheduled search is enabled. 
+     * @type {boolean}
+     * @memberof CreateScheduledSearchRequest
+     */
+    'enabled'?: boolean;
+    /**
+     * Indicates if email generation should not be suppressed if search returns no results. 
+     * @type {boolean}
+     * @memberof CreateScheduledSearchRequest
+     */
+    'emailEmptyResults'?: boolean;
+    /**
+     * Indicates if the generated email should include the query and search results preview (which could include PII). 
+     * @type {boolean}
+     * @memberof CreateScheduledSearchRequest
+     */
+    'displayQueryDetails'?: boolean;
+}
+/**
+ * 
+ * @export
  * @interface DateCompare
  */
 export interface DateCompare {
@@ -4443,6 +4583,19 @@ export interface DecomposeDiacriticalMarks {
      * @memberof DecomposeDiacriticalMarks
      */
     'input'?: { [key: string]: any; };
+}
+/**
+ * 
+ * @export
+ * @interface DeleteNonEmployeeRecordsInBulkRequest
+ */
+export interface DeleteNonEmployeeRecordsInBulkRequest {
+    /**
+     * List of non-employee ids.
+     * @type {Array<string>}
+     * @memberof DeleteNonEmployeeRecordsInBulkRequest
+     */
+    'ids': Array<string>;
 }
 /**
  * 
@@ -7998,32 +8151,6 @@ export interface NonEmployeeRecord {
 /**
  * 
  * @export
- * @interface NonEmployeeRecordBulkDeleteRequest
- */
-export interface NonEmployeeRecordBulkDeleteRequest {
-    /**
-     * List of non-employee ids.
-     * @type {Array<string>}
-     * @memberof NonEmployeeRecordBulkDeleteRequest
-     */
-    'ids': Array<string>;
-}
-/**
- * 
- * @export
- * @interface NonEmployeeRecordsBulkUploadRequest
- */
-export interface NonEmployeeRecordsBulkUploadRequest {
-    /**
-     * 
-     * @type {string}
-     * @memberof NonEmployeeRecordsBulkUploadRequest
-     */
-    'data': string;
-}
-/**
- * 
- * @export
  * @interface NonEmployeeRejectApprovalDecision
  */
 export interface NonEmployeeRejectApprovalDecision {
@@ -11411,79 +11538,6 @@ export interface SavedSearchAllOf {
 /**
  * 
  * @export
- * @interface SavedSearchCreateRequest
- */
-export interface SavedSearchCreateRequest {
-    /**
-     * The name of the saved search. 
-     * @type {string}
-     * @memberof SavedSearchCreateRequest
-     */
-    'name'?: string;
-    /**
-     * The description of the saved search. 
-     * @type {string}
-     * @memberof SavedSearchCreateRequest
-     */
-    'description'?: string | null;
-    /**
-     * Indicates if the saved search is public. 
-     * @type {boolean}
-     * @memberof SavedSearchCreateRequest
-     */
-    'public'?: boolean;
-    /**
-     * A date-time in ISO-8601 format
-     * @type {string}
-     * @memberof SavedSearchCreateRequest
-     */
-    'created'?: string | null;
-    /**
-     * A date-time in ISO-8601 format
-     * @type {string}
-     * @memberof SavedSearchCreateRequest
-     */
-    'modified'?: string | null;
-    /**
-     * The names of the Elasticsearch indices in which to search. 
-     * @type {Array<Index>}
-     * @memberof SavedSearchCreateRequest
-     */
-    'indices': Array<Index>;
-    /**
-     * The columns to be returned (specifies the order in which they will be presented) for each document type.  The currently supported document types are: _accessprofile_, _accountactivity_, _account_, _aggregation_, _entitlement_, _event_, _identity_, and _role_. 
-     * @type {{ [key: string]: Array<Column>; }}
-     * @memberof SavedSearchCreateRequest
-     */
-    'columns'?: { [key: string]: Array<Column>; };
-    /**
-     * The search query using Elasticsearch [Query String Query](https://www.elastic.co/guide/en/elasticsearch/reference/5.2/query-dsl-query-string-query.html#query-string) syntax from the Query DSL. 
-     * @type {string}
-     * @memberof SavedSearchCreateRequest
-     */
-    'query': string;
-    /**
-     * The fields to be searched against in a multi-field query. 
-     * @type {Array<string>}
-     * @memberof SavedSearchCreateRequest
-     */
-    'fields'?: Array<string> | null;
-    /**
-     * The fields to be used to sort the search results. 
-     * @type {Array<string>}
-     * @memberof SavedSearchCreateRequest
-     */
-    'sort'?: Array<string>;
-    /**
-     * 
-     * @type {SavedSearchDetailFilters}
-     * @memberof SavedSearchCreateRequest
-     */
-    'filters'?: SavedSearchDetailFilters | null;
-}
-/**
- * 
- * @export
  * @interface SavedSearchDetail
  */
 export interface SavedSearchDetail {
@@ -11833,73 +11887,6 @@ export const ScheduledSearchAllOfOwnerTypeEnum = {
 
 export type ScheduledSearchAllOfOwnerTypeEnum = typeof ScheduledSearchAllOfOwnerTypeEnum[keyof typeof ScheduledSearchAllOfOwnerTypeEnum];
 
-/**
- * 
- * @export
- * @interface ScheduledSearchCreateRequest
- */
-export interface ScheduledSearchCreateRequest {
-    /**
-     * The name of the scheduled search. 
-     * @type {string}
-     * @memberof ScheduledSearchCreateRequest
-     */
-    'name'?: string | null;
-    /**
-     * The description of the scheduled search. 
-     * @type {string}
-     * @memberof ScheduledSearchCreateRequest
-     */
-    'description'?: string | null;
-    /**
-     * The ID of the saved search that will be executed.
-     * @type {string}
-     * @memberof ScheduledSearchCreateRequest
-     */
-    'savedSearchId': string;
-    /**
-     * The date the scheduled search was initially created.
-     * @type {string}
-     * @memberof ScheduledSearchCreateRequest
-     */
-    'created'?: string;
-    /**
-     * The last date the scheduled search was modified.
-     * @type {string}
-     * @memberof ScheduledSearchCreateRequest
-     */
-    'modified'?: string;
-    /**
-     * 
-     * @type {Schedule}
-     * @memberof ScheduledSearchCreateRequest
-     */
-    'schedule': Schedule;
-    /**
-     * A list of identities that should receive the scheduled search report via email.
-     * @type {Array<SearchScheduleRecipientsInner>}
-     * @memberof ScheduledSearchCreateRequest
-     */
-    'recipients': Array<SearchScheduleRecipientsInner>;
-    /**
-     * Indicates if the scheduled search is enabled. 
-     * @type {boolean}
-     * @memberof ScheduledSearchCreateRequest
-     */
-    'enabled'?: boolean;
-    /**
-     * Indicates if email generation should not be suppressed if search returns no results. 
-     * @type {boolean}
-     * @memberof ScheduledSearchCreateRequest
-     */
-    'emailEmptyResults'?: boolean;
-    /**
-     * Indicates if the generated email should include the query and search results preview (which could include PII). 
-     * @type {boolean}
-     * @memberof ScheduledSearchCreateRequest
-     */
-    'displayQueryDetails'?: boolean;
-}
 /**
  * 
  * @export
@@ -13867,6 +13854,19 @@ export interface UUIDGenerator {
 /**
  * 
  * @export
+ * @interface UploadNonEmployeeRecordsInBulkRequest
+ */
+export interface UploadNonEmployeeRecordsInBulkRequest {
+    /**
+     * 
+     * @type {string}
+     * @memberof UploadNonEmployeeRecordsInBulkRequest
+     */
+    'data': string;
+}
+/**
+ * 
+ * @export
  * @interface UploadSourceAccountsSchemaRequest
  */
 export interface UploadSourceAccountsSchemaRequest {
@@ -14124,54 +14124,6 @@ export interface WorkItemsSummary {
 export const AccessRequestApprovalsApiAxiosParamCreator = function (configuration?: Configuration) {
     return {
         /**
-         * This endpoint returns the number of pending, approved and rejected access requests approvals. See \"owner-id\" query parameter below for authorization info.
-         * @summary Get the number of access-requests-approvals
-         * @param {string} [ownerId] The id of the owner or approver identity of the approvals. If present, the value returns approval summary for the specified identity.    * ORG_ADMIN users can call this with any identity ID value.    * ORG_ADMIN user can also fetch all the approvals in the org, when owner-id is not used.    * Non ORG_ADMIN users can only specify *me* or pass their own identity ID value.
-         * @param {string} [fromDate] From date is the date and time from which the results will be shown. It should be in a valid ISO-8601 format
-         * @param {*} [axiosOptions] Override http request option.
-         * @throws {RequiredError}
-         */
-        approvalSummary: async (ownerId?: string, fromDate?: string, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
-            const localVarPath = `/access-request-approvals/approval-summary`;
-            // use dummy base URL string because the URL constructor only accepts absolute URLs.
-            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
-            let baseOptions;
-            if (configuration) {
-                baseOptions = configuration.baseOptions;
-            }
-
-            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...axiosOptions};
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-
-            // authentication oauth2 required
-            // oauth required
-            await setOAuthToObject(localVarHeaderParameter, "oauth2", [], configuration)
-
-            // authentication oauth2 required
-            // oauth required
-            await setOAuthToObject(localVarHeaderParameter, "oauth2", [], configuration)
-
-            if (ownerId !== undefined) {
-                localVarQueryParameter['owner-id'] = ownerId;
-            }
-
-            if (fromDate !== undefined) {
-                localVarQueryParameter['from-date'] = fromDate;
-            }
-
-
-    
-            setSearchParams(localVarUrlObj, localVarQueryParameter);
-            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
-            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
-
-            return {
-                url: toPathString(localVarUrlObj),
-                axiosOptions: localVarRequestOptions,
-            };
-        },
-        /**
          * This endpoint approves an access request approval. Only the owner of the approval and ORG_ADMIN users are allowed to perform this action.
          * @summary Approves an access request approval.
          * @param {string} approvalId The id of the approval.
@@ -14179,9 +14131,9 @@ export const AccessRequestApprovalsApiAxiosParamCreator = function (configuratio
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        approveRequest: async (approvalId: string, commentDto?: CommentDto, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        approveAccessRequest: async (approvalId: string, commentDto?: CommentDto, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'approvalId' is not null or undefined
-            assertParamExists('approveRequest', 'approvalId', approvalId)
+            assertParamExists('approveAccessRequest', 'approvalId', approvalId)
             const localVarPath = `/access-request-approvals/{approvalId}/approve`
                 .replace(`{${"approvalId"}}`, encodeURIComponent(String(approvalId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
@@ -14225,11 +14177,11 @@ export const AccessRequestApprovalsApiAxiosParamCreator = function (configuratio
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        forwardRequest: async (approvalId: string, forwardApprovalDto: ForwardApprovalDto, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        forwardAccessRequest: async (approvalId: string, forwardApprovalDto: ForwardApprovalDto, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'approvalId' is not null or undefined
-            assertParamExists('forwardRequest', 'approvalId', approvalId)
+            assertParamExists('forwardAccessRequest', 'approvalId', approvalId)
             // verify required parameter 'forwardApprovalDto' is not null or undefined
-            assertParamExists('forwardRequest', 'forwardApprovalDto', forwardApprovalDto)
+            assertParamExists('forwardAccessRequest', 'forwardApprovalDto', forwardApprovalDto)
             const localVarPath = `/access-request-approvals/{approvalId}/forward`
                 .replace(`{${"approvalId"}}`, encodeURIComponent(String(approvalId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
@@ -14259,6 +14211,54 @@ export const AccessRequestApprovalsApiAxiosParamCreator = function (configuratio
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
             localVarRequestOptions.data = serializeDataIfNeeded(forwardApprovalDto, localVarRequestOptions, configuration)
+
+            return {
+                url: toPathString(localVarUrlObj),
+                axiosOptions: localVarRequestOptions,
+            };
+        },
+        /**
+         * This endpoint returns the number of pending, approved and rejected access requests approvals. See \"owner-id\" query parameter below for authorization info.
+         * @summary Get the number of access-requests-approvals
+         * @param {string} [ownerId] The id of the owner or approver identity of the approvals. If present, the value returns approval summary for the specified identity.    * ORG_ADMIN users can call this with any identity ID value.    * ORG_ADMIN user can also fetch all the approvals in the org, when owner-id is not used.    * Non ORG_ADMIN users can only specify *me* or pass their own identity ID value.
+         * @param {string} [fromDate] From date is the date and time from which the results will be shown. It should be in a valid ISO-8601 format
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        getAccessRequestApprovalSummary: async (ownerId?: string, fromDate?: string, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            const localVarPath = `/access-request-approvals/approval-summary`;
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...axiosOptions};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication oauth2 required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "oauth2", [], configuration)
+
+            // authentication oauth2 required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "oauth2", [], configuration)
+
+            if (ownerId !== undefined) {
+                localVarQueryParameter['owner-id'] = ownerId;
+            }
+
+            if (fromDate !== undefined) {
+                localVarQueryParameter['from-date'] = fromDate;
+            }
+
+
+    
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
 
             return {
                 url: toPathString(localVarUrlObj),
@@ -14409,9 +14409,9 @@ export const AccessRequestApprovalsApiAxiosParamCreator = function (configuratio
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        rejectRequest: async (approvalId: string, commentDto?: CommentDto, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        rejectAccessRequest: async (approvalId: string, commentDto?: CommentDto, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'approvalId' is not null or undefined
-            assertParamExists('rejectRequest', 'approvalId', approvalId)
+            assertParamExists('rejectAccessRequest', 'approvalId', approvalId)
             const localVarPath = `/access-request-approvals/{approvalId}/reject`
                 .replace(`{${"approvalId"}}`, encodeURIComponent(String(approvalId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
@@ -14458,18 +14458,6 @@ export const AccessRequestApprovalsApiFp = function(configuration?: Configuratio
     const localVarAxiosParamCreator = AccessRequestApprovalsApiAxiosParamCreator(configuration)
     return {
         /**
-         * This endpoint returns the number of pending, approved and rejected access requests approvals. See \"owner-id\" query parameter below for authorization info.
-         * @summary Get the number of access-requests-approvals
-         * @param {string} [ownerId] The id of the owner or approver identity of the approvals. If present, the value returns approval summary for the specified identity.    * ORG_ADMIN users can call this with any identity ID value.    * ORG_ADMIN user can also fetch all the approvals in the org, when owner-id is not used.    * Non ORG_ADMIN users can only specify *me* or pass their own identity ID value.
-         * @param {string} [fromDate] From date is the date and time from which the results will be shown. It should be in a valid ISO-8601 format
-         * @param {*} [axiosOptions] Override http request option.
-         * @throws {RequiredError}
-         */
-        async approvalSummary(ownerId?: string, fromDate?: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ApprovalSummary>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.approvalSummary(ownerId, fromDate, axiosOptions);
-            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
-        },
-        /**
          * This endpoint approves an access request approval. Only the owner of the approval and ORG_ADMIN users are allowed to perform this action.
          * @summary Approves an access request approval.
          * @param {string} approvalId The id of the approval.
@@ -14477,8 +14465,8 @@ export const AccessRequestApprovalsApiFp = function(configuration?: Configuratio
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async approveRequest(approvalId: string, commentDto?: CommentDto, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<object>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.approveRequest(approvalId, commentDto, axiosOptions);
+        async approveAccessRequest(approvalId: string, commentDto?: CommentDto, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<object>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.approveAccessRequest(approvalId, commentDto, axiosOptions);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
@@ -14489,8 +14477,20 @@ export const AccessRequestApprovalsApiFp = function(configuration?: Configuratio
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async forwardRequest(approvalId: string, forwardApprovalDto: ForwardApprovalDto, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<object>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.forwardRequest(approvalId, forwardApprovalDto, axiosOptions);
+        async forwardAccessRequest(approvalId: string, forwardApprovalDto: ForwardApprovalDto, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<object>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.forwardAccessRequest(approvalId, forwardApprovalDto, axiosOptions);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * This endpoint returns the number of pending, approved and rejected access requests approvals. See \"owner-id\" query parameter below for authorization info.
+         * @summary Get the number of access-requests-approvals
+         * @param {string} [ownerId] The id of the owner or approver identity of the approvals. If present, the value returns approval summary for the specified identity.    * ORG_ADMIN users can call this with any identity ID value.    * ORG_ADMIN user can also fetch all the approvals in the org, when owner-id is not used.    * Non ORG_ADMIN users can only specify *me* or pass their own identity ID value.
+         * @param {string} [fromDate] From date is the date and time from which the results will be shown. It should be in a valid ISO-8601 format
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        async getAccessRequestApprovalSummary(ownerId?: string, fromDate?: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ApprovalSummary>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getAccessRequestApprovalSummary(ownerId, fromDate, axiosOptions);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
@@ -14533,8 +14533,8 @@ export const AccessRequestApprovalsApiFp = function(configuration?: Configuratio
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async rejectRequest(approvalId: string, commentDto?: CommentDto, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<object>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.rejectRequest(approvalId, commentDto, axiosOptions);
+        async rejectAccessRequest(approvalId: string, commentDto?: CommentDto, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<object>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.rejectAccessRequest(approvalId, commentDto, axiosOptions);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
     }
@@ -14548,17 +14548,6 @@ export const AccessRequestApprovalsApiFactory = function (configuration?: Config
     const localVarFp = AccessRequestApprovalsApiFp(configuration)
     return {
         /**
-         * This endpoint returns the number of pending, approved and rejected access requests approvals. See \"owner-id\" query parameter below for authorization info.
-         * @summary Get the number of access-requests-approvals
-         * @param {string} [ownerId] The id of the owner or approver identity of the approvals. If present, the value returns approval summary for the specified identity.    * ORG_ADMIN users can call this with any identity ID value.    * ORG_ADMIN user can also fetch all the approvals in the org, when owner-id is not used.    * Non ORG_ADMIN users can only specify *me* or pass their own identity ID value.
-         * @param {string} [fromDate] From date is the date and time from which the results will be shown. It should be in a valid ISO-8601 format
-         * @param {*} [axiosOptions] Override http request option.
-         * @throws {RequiredError}
-         */
-        approvalSummary(ownerId?: string, fromDate?: string, axiosOptions?: any): AxiosPromise<ApprovalSummary> {
-            return localVarFp.approvalSummary(ownerId, fromDate, axiosOptions).then((request) => request(axios, basePath));
-        },
-        /**
          * This endpoint approves an access request approval. Only the owner of the approval and ORG_ADMIN users are allowed to perform this action.
          * @summary Approves an access request approval.
          * @param {string} approvalId The id of the approval.
@@ -14566,8 +14555,8 @@ export const AccessRequestApprovalsApiFactory = function (configuration?: Config
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        approveRequest(approvalId: string, commentDto?: CommentDto, axiosOptions?: any): AxiosPromise<object> {
-            return localVarFp.approveRequest(approvalId, commentDto, axiosOptions).then((request) => request(axios, basePath));
+        approveAccessRequest(approvalId: string, commentDto?: CommentDto, axiosOptions?: any): AxiosPromise<object> {
+            return localVarFp.approveAccessRequest(approvalId, commentDto, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * This endpoint forwards an access request approval to a new owner. Only the owner of the approval and ORG_ADMIN users are allowed to perform this action.
@@ -14577,8 +14566,19 @@ export const AccessRequestApprovalsApiFactory = function (configuration?: Config
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        forwardRequest(approvalId: string, forwardApprovalDto: ForwardApprovalDto, axiosOptions?: any): AxiosPromise<object> {
-            return localVarFp.forwardRequest(approvalId, forwardApprovalDto, axiosOptions).then((request) => request(axios, basePath));
+        forwardAccessRequest(approvalId: string, forwardApprovalDto: ForwardApprovalDto, axiosOptions?: any): AxiosPromise<object> {
+            return localVarFp.forwardAccessRequest(approvalId, forwardApprovalDto, axiosOptions).then((request) => request(axios, basePath));
+        },
+        /**
+         * This endpoint returns the number of pending, approved and rejected access requests approvals. See \"owner-id\" query parameter below for authorization info.
+         * @summary Get the number of access-requests-approvals
+         * @param {string} [ownerId] The id of the owner or approver identity of the approvals. If present, the value returns approval summary for the specified identity.    * ORG_ADMIN users can call this with any identity ID value.    * ORG_ADMIN user can also fetch all the approvals in the org, when owner-id is not used.    * Non ORG_ADMIN users can only specify *me* or pass their own identity ID value.
+         * @param {string} [fromDate] From date is the date and time from which the results will be shown. It should be in a valid ISO-8601 format
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        getAccessRequestApprovalSummary(ownerId?: string, fromDate?: string, axiosOptions?: any): AxiosPromise<ApprovalSummary> {
+            return localVarFp.getAccessRequestApprovalSummary(ownerId, fromDate, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * This endpoint returns list of completed approvals. See *owner-id* query parameter below for authorization info.
@@ -14618,73 +14618,73 @@ export const AccessRequestApprovalsApiFactory = function (configuration?: Config
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        rejectRequest(approvalId: string, commentDto?: CommentDto, axiosOptions?: any): AxiosPromise<object> {
-            return localVarFp.rejectRequest(approvalId, commentDto, axiosOptions).then((request) => request(axios, basePath));
+        rejectAccessRequest(approvalId: string, commentDto?: CommentDto, axiosOptions?: any): AxiosPromise<object> {
+            return localVarFp.rejectAccessRequest(approvalId, commentDto, axiosOptions).then((request) => request(axios, basePath));
         },
     };
 };
 
 /**
- * Request parameters for approvalSummary operation in AccessRequestApprovalsApi.
+ * Request parameters for approveAccessRequest operation in AccessRequestApprovalsApi.
  * @export
- * @interface AccessRequestApprovalsApiApprovalSummaryRequest
+ * @interface AccessRequestApprovalsApiApproveAccessRequestRequest
  */
-export interface AccessRequestApprovalsApiApprovalSummaryRequest {
-    /**
-     * The id of the owner or approver identity of the approvals. If present, the value returns approval summary for the specified identity.    * ORG_ADMIN users can call this with any identity ID value.    * ORG_ADMIN user can also fetch all the approvals in the org, when owner-id is not used.    * Non ORG_ADMIN users can only specify *me* or pass their own identity ID value.
-     * @type {string}
-     * @memberof AccessRequestApprovalsApiApprovalSummary
-     */
-    readonly ownerId?: string
-
-    /**
-     * From date is the date and time from which the results will be shown. It should be in a valid ISO-8601 format
-     * @type {string}
-     * @memberof AccessRequestApprovalsApiApprovalSummary
-     */
-    readonly fromDate?: string
-}
-
-/**
- * Request parameters for approveRequest operation in AccessRequestApprovalsApi.
- * @export
- * @interface AccessRequestApprovalsApiApproveRequestRequest
- */
-export interface AccessRequestApprovalsApiApproveRequestRequest {
+export interface AccessRequestApprovalsApiApproveAccessRequestRequest {
     /**
      * The id of the approval.
      * @type {string}
-     * @memberof AccessRequestApprovalsApiApproveRequest
+     * @memberof AccessRequestApprovalsApiApproveAccessRequest
      */
     readonly approvalId: string
 
     /**
      * Reviewer\&#39;s comment.
      * @type {CommentDto}
-     * @memberof AccessRequestApprovalsApiApproveRequest
+     * @memberof AccessRequestApprovalsApiApproveAccessRequest
      */
     readonly commentDto?: CommentDto
 }
 
 /**
- * Request parameters for forwardRequest operation in AccessRequestApprovalsApi.
+ * Request parameters for forwardAccessRequest operation in AccessRequestApprovalsApi.
  * @export
- * @interface AccessRequestApprovalsApiForwardRequestRequest
+ * @interface AccessRequestApprovalsApiForwardAccessRequestRequest
  */
-export interface AccessRequestApprovalsApiForwardRequestRequest {
+export interface AccessRequestApprovalsApiForwardAccessRequestRequest {
     /**
      * The id of the approval.
      * @type {string}
-     * @memberof AccessRequestApprovalsApiForwardRequest
+     * @memberof AccessRequestApprovalsApiForwardAccessRequest
      */
     readonly approvalId: string
 
     /**
      * Information about the forwarded approval.
      * @type {ForwardApprovalDto}
-     * @memberof AccessRequestApprovalsApiForwardRequest
+     * @memberof AccessRequestApprovalsApiForwardAccessRequest
      */
     readonly forwardApprovalDto: ForwardApprovalDto
+}
+
+/**
+ * Request parameters for getAccessRequestApprovalSummary operation in AccessRequestApprovalsApi.
+ * @export
+ * @interface AccessRequestApprovalsApiGetAccessRequestApprovalSummaryRequest
+ */
+export interface AccessRequestApprovalsApiGetAccessRequestApprovalSummaryRequest {
+    /**
+     * The id of the owner or approver identity of the approvals. If present, the value returns approval summary for the specified identity.    * ORG_ADMIN users can call this with any identity ID value.    * ORG_ADMIN user can also fetch all the approvals in the org, when owner-id is not used.    * Non ORG_ADMIN users can only specify *me* or pass their own identity ID value.
+     * @type {string}
+     * @memberof AccessRequestApprovalsApiGetAccessRequestApprovalSummary
+     */
+    readonly ownerId?: string
+
+    /**
+     * From date is the date and time from which the results will be shown. It should be in a valid ISO-8601 format
+     * @type {string}
+     * @memberof AccessRequestApprovalsApiGetAccessRequestApprovalSummary
+     */
+    readonly fromDate?: string
 }
 
 /**
@@ -14786,22 +14786,22 @@ export interface AccessRequestApprovalsApiListPendingApprovalsRequest {
 }
 
 /**
- * Request parameters for rejectRequest operation in AccessRequestApprovalsApi.
+ * Request parameters for rejectAccessRequest operation in AccessRequestApprovalsApi.
  * @export
- * @interface AccessRequestApprovalsApiRejectRequestRequest
+ * @interface AccessRequestApprovalsApiRejectAccessRequestRequest
  */
-export interface AccessRequestApprovalsApiRejectRequestRequest {
+export interface AccessRequestApprovalsApiRejectAccessRequestRequest {
     /**
      * The id of the approval.
      * @type {string}
-     * @memberof AccessRequestApprovalsApiRejectRequest
+     * @memberof AccessRequestApprovalsApiRejectAccessRequest
      */
     readonly approvalId: string
 
     /**
      * Reviewer\&#39;s comment.
      * @type {CommentDto}
-     * @memberof AccessRequestApprovalsApiRejectRequest
+     * @memberof AccessRequestApprovalsApiRejectAccessRequest
      */
     readonly commentDto?: CommentDto
 }
@@ -14814,39 +14814,39 @@ export interface AccessRequestApprovalsApiRejectRequestRequest {
  */
 export class AccessRequestApprovalsApi extends BaseAPI {
     /**
-     * This endpoint returns the number of pending, approved and rejected access requests approvals. See \"owner-id\" query parameter below for authorization info.
-     * @summary Get the number of access-requests-approvals
-     * @param {AccessRequestApprovalsApiApprovalSummaryRequest} requestParameters Request parameters.
-     * @param {*} [axiosOptions] Override http request option.
-     * @throws {RequiredError}
-     * @memberof AccessRequestApprovalsApi
-     */
-    public approvalSummary(requestParameters: AccessRequestApprovalsApiApprovalSummaryRequest = {}, axiosOptions?: AxiosRequestConfig) {
-        return AccessRequestApprovalsApiFp(this.configuration).approvalSummary(requestParameters.ownerId, requestParameters.fromDate, axiosOptions).then((request) => request(this.axios, this.basePath));
-    }
-
-    /**
      * This endpoint approves an access request approval. Only the owner of the approval and ORG_ADMIN users are allowed to perform this action.
      * @summary Approves an access request approval.
-     * @param {AccessRequestApprovalsApiApproveRequestRequest} requestParameters Request parameters.
+     * @param {AccessRequestApprovalsApiApproveAccessRequestRequest} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
      * @memberof AccessRequestApprovalsApi
      */
-    public approveRequest(requestParameters: AccessRequestApprovalsApiApproveRequestRequest, axiosOptions?: AxiosRequestConfig) {
-        return AccessRequestApprovalsApiFp(this.configuration).approveRequest(requestParameters.approvalId, requestParameters.commentDto, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public approveAccessRequest(requestParameters: AccessRequestApprovalsApiApproveAccessRequestRequest, axiosOptions?: AxiosRequestConfig) {
+        return AccessRequestApprovalsApiFp(this.configuration).approveAccessRequest(requestParameters.approvalId, requestParameters.commentDto, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * This endpoint forwards an access request approval to a new owner. Only the owner of the approval and ORG_ADMIN users are allowed to perform this action.
      * @summary Forwards an access request approval.
-     * @param {AccessRequestApprovalsApiForwardRequestRequest} requestParameters Request parameters.
+     * @param {AccessRequestApprovalsApiForwardAccessRequestRequest} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
      * @memberof AccessRequestApprovalsApi
      */
-    public forwardRequest(requestParameters: AccessRequestApprovalsApiForwardRequestRequest, axiosOptions?: AxiosRequestConfig) {
-        return AccessRequestApprovalsApiFp(this.configuration).forwardRequest(requestParameters.approvalId, requestParameters.forwardApprovalDto, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public forwardAccessRequest(requestParameters: AccessRequestApprovalsApiForwardAccessRequestRequest, axiosOptions?: AxiosRequestConfig) {
+        return AccessRequestApprovalsApiFp(this.configuration).forwardAccessRequest(requestParameters.approvalId, requestParameters.forwardApprovalDto, axiosOptions).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * This endpoint returns the number of pending, approved and rejected access requests approvals. See \"owner-id\" query parameter below for authorization info.
+     * @summary Get the number of access-requests-approvals
+     * @param {AccessRequestApprovalsApiGetAccessRequestApprovalSummaryRequest} requestParameters Request parameters.
+     * @param {*} [axiosOptions] Override http request option.
+     * @throws {RequiredError}
+     * @memberof AccessRequestApprovalsApi
+     */
+    public getAccessRequestApprovalSummary(requestParameters: AccessRequestApprovalsApiGetAccessRequestApprovalSummaryRequest = {}, axiosOptions?: AxiosRequestConfig) {
+        return AccessRequestApprovalsApiFp(this.configuration).getAccessRequestApprovalSummary(requestParameters.ownerId, requestParameters.fromDate, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -14876,13 +14876,13 @@ export class AccessRequestApprovalsApi extends BaseAPI {
     /**
      * This endpoint rejects an access request approval. Only the owner of the approval and admin users are allowed to perform this action.
      * @summary Rejects an access request approval.
-     * @param {AccessRequestApprovalsApiRejectRequestRequest} requestParameters Request parameters.
+     * @param {AccessRequestApprovalsApiRejectAccessRequestRequest} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
      * @memberof AccessRequestApprovalsApi
      */
-    public rejectRequest(requestParameters: AccessRequestApprovalsApiRejectRequestRequest, axiosOptions?: AxiosRequestConfig) {
-        return AccessRequestApprovalsApiFp(this.configuration).rejectRequest(requestParameters.approvalId, requestParameters.commentDto, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public rejectAccessRequest(requestParameters: AccessRequestApprovalsApiRejectAccessRequestRequest, axiosOptions?: AxiosRequestConfig) {
+        return AccessRequestApprovalsApiFp(this.configuration).rejectAccessRequest(requestParameters.approvalId, requestParameters.commentDto, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 }
 
@@ -19625,6 +19625,186 @@ export class LifecycleStatesApi extends BaseAPI {
 export const NonEmployeeLifecycleManagementApiAxiosParamCreator = function (configuration?: Configuration) {
     return {
         /**
+         * Approves a non-employee approval request and notifies the next approver. The current user must be the requested approver.
+         * @summary Approve a Non-Employee Request
+         * @param {string} id Non-Employee approval item id (UUID)
+         * @param {NonEmployeeApprovalDecision} nonEmployeeApprovalDecision 
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        approveNonEmployeeRequest: async (id: string, nonEmployeeApprovalDecision: NonEmployeeApprovalDecision, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'id' is not null or undefined
+            assertParamExists('approveNonEmployeeRequest', 'id', id)
+            // verify required parameter 'nonEmployeeApprovalDecision' is not null or undefined
+            assertParamExists('approveNonEmployeeRequest', 'nonEmployeeApprovalDecision', nonEmployeeApprovalDecision)
+            const localVarPath = `/non-employee-approvals/{id}/approve`
+                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'POST', ...baseOptions, ...axiosOptions};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication oauth2 required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "oauth2", [], configuration)
+
+            // authentication oauth2 required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "oauth2", [], configuration)
+
+
+    
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
+            localVarRequestOptions.data = serializeDataIfNeeded(nonEmployeeApprovalDecision, localVarRequestOptions, configuration)
+
+            return {
+                url: toPathString(localVarUrlObj),
+                axiosOptions: localVarRequestOptions,
+            };
+        },
+        /**
+         * This request will create a non-employee record. Requires role context of `idn:nesr:create`
+         * @summary Create Non-Employee Record
+         * @param {NonEmployeeRequestBody} nonEmployeeRequestBody Non-Employee record creation request body.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        createNonEmployeeRecord: async (nonEmployeeRequestBody: NonEmployeeRequestBody, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'nonEmployeeRequestBody' is not null or undefined
+            assertParamExists('createNonEmployeeRecord', 'nonEmployeeRequestBody', nonEmployeeRequestBody)
+            const localVarPath = `/non-employee-records`;
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'POST', ...baseOptions, ...axiosOptions};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication oauth2 required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "oauth2", [], configuration)
+
+            // authentication oauth2 required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "oauth2", [], configuration)
+
+
+    
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
+            localVarRequestOptions.data = serializeDataIfNeeded(nonEmployeeRequestBody, localVarRequestOptions, configuration)
+
+            return {
+                url: toPathString(localVarUrlObj),
+                axiosOptions: localVarRequestOptions,
+            };
+        },
+        /**
+         * This request will create a non-employee request and notify the approver. Requires role context of `idn:nesr:create` or the user must own the source.
+         * @summary Create Non-Employee Request
+         * @param {NonEmployeeRequestBody} nonEmployeeRequestBody Non-Employee creation request body
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        createNonEmployeeRequest: async (nonEmployeeRequestBody: NonEmployeeRequestBody, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'nonEmployeeRequestBody' is not null or undefined
+            assertParamExists('createNonEmployeeRequest', 'nonEmployeeRequestBody', nonEmployeeRequestBody)
+            const localVarPath = `/non-employee-requests`;
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'POST', ...baseOptions, ...axiosOptions};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication oauth2 required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "oauth2", [], configuration)
+
+            // authentication oauth2 required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "oauth2", [], configuration)
+
+
+    
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
+            localVarRequestOptions.data = serializeDataIfNeeded(nonEmployeeRequestBody, localVarRequestOptions, configuration)
+
+            return {
+                url: toPathString(localVarUrlObj),
+                axiosOptions: localVarRequestOptions,
+            };
+        },
+        /**
+         * This request will create a non-employee source. Requires role context of `idn:nesr:create`
+         * @summary Create Non-Employee Source
+         * @param {NonEmployeeSourceRequestBody} nonEmployeeSourceRequestBody Non-Employee source creation request body.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        createNonEmployeeSource: async (nonEmployeeSourceRequestBody: NonEmployeeSourceRequestBody, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'nonEmployeeSourceRequestBody' is not null or undefined
+            assertParamExists('createNonEmployeeSource', 'nonEmployeeSourceRequestBody', nonEmployeeSourceRequestBody)
+            const localVarPath = `/non-employee-sources`;
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'POST', ...baseOptions, ...axiosOptions};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication oauth2 required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "oauth2", [], configuration)
+
+            // authentication oauth2 required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "oauth2", [], configuration)
+
+
+    
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
+            localVarRequestOptions.data = serializeDataIfNeeded(nonEmployeeSourceRequestBody, localVarRequestOptions, configuration)
+
+            return {
+                url: toPathString(localVarUrlObj),
+                axiosOptions: localVarRequestOptions,
+            };
+        },
+        /**
          * This API creates a new schema attribute for Non-Employee Source. The schema technical name must be unique in the source. Attempts to create a schema attribute with an existing name will result in a \"400.1.409 Reference conflict\" response. At most, 10 custom attributes can be created per schema. Attempts to create more than 10 will result in a \"400.1.4 Limit violation\" response. Requires role context of `idn:nesr:create`
          * @summary Create a new Schema Attribute for Non-Employee Source
          * @param {string} sourceId The Source id
@@ -19632,11 +19812,11 @@ export const NonEmployeeLifecycleManagementApiAxiosParamCreator = function (conf
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        createSchemaAttribute: async (sourceId: string, nonEmployeeSchemaAttributeBody: NonEmployeeSchemaAttributeBody, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        createNonEmployeeSourceSchemaAttributes: async (sourceId: string, nonEmployeeSchemaAttributeBody: NonEmployeeSchemaAttributeBody, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'sourceId' is not null or undefined
-            assertParamExists('createSchemaAttribute', 'sourceId', sourceId)
+            assertParamExists('createNonEmployeeSourceSchemaAttributes', 'sourceId', sourceId)
             // verify required parameter 'nonEmployeeSchemaAttributeBody' is not null or undefined
-            assertParamExists('createSchemaAttribute', 'nonEmployeeSchemaAttributeBody', nonEmployeeSchemaAttributeBody)
+            assertParamExists('createNonEmployeeSourceSchemaAttributes', 'nonEmployeeSchemaAttributeBody', nonEmployeeSchemaAttributeBody)
             const localVarPath = `/non-employee-sources/{sourceId}/schema-attributes`
                 .replace(`{${"sourceId"}}`, encodeURIComponent(String(sourceId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
@@ -19673,6 +19853,134 @@ export const NonEmployeeLifecycleManagementApiAxiosParamCreator = function (conf
             };
         },
         /**
+         * This request will delete a non-employee record. Requires role context of `idn:nesr:delete`
+         * @summary Delete Non-Employee Record
+         * @param {string} id Non-Employee record id (UUID)
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        deleteNonEmployeeRecord: async (id: string, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'id' is not null or undefined
+            assertParamExists('deleteNonEmployeeRecord', 'id', id)
+            const localVarPath = `/non-employee-records/{id}`
+                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'DELETE', ...baseOptions, ...axiosOptions};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication oauth2 required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "oauth2", [], configuration)
+
+            // authentication oauth2 required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "oauth2", [], configuration)
+
+
+    
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                axiosOptions: localVarRequestOptions,
+            };
+        },
+        /**
+         * This request will delete multiple non-employee records based on the non-employee ids provided. Requires role context of `idn:nesr:delete`
+         * @summary Delete Multiple Non-Employee Records
+         * @param {DeleteNonEmployeeRecordsInBulkRequest} deleteNonEmployeeRecordsInBulkRequest Non-Employee bulk delete request body.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        deleteNonEmployeeRecordsInBulk: async (deleteNonEmployeeRecordsInBulkRequest: DeleteNonEmployeeRecordsInBulkRequest, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'deleteNonEmployeeRecordsInBulkRequest' is not null or undefined
+            assertParamExists('deleteNonEmployeeRecordsInBulk', 'deleteNonEmployeeRecordsInBulkRequest', deleteNonEmployeeRecordsInBulkRequest)
+            const localVarPath = `/non-employee-records/bulk-delete`;
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'POST', ...baseOptions, ...axiosOptions};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication oauth2 required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "oauth2", [], configuration)
+
+            // authentication oauth2 required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "oauth2", [], configuration)
+
+
+    
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
+            localVarRequestOptions.data = serializeDataIfNeeded(deleteNonEmployeeRecordsInBulkRequest, localVarRequestOptions, configuration)
+
+            return {
+                url: toPathString(localVarUrlObj),
+                axiosOptions: localVarRequestOptions,
+            };
+        },
+        /**
+         * This request will delete a non-employee request.  Requires role context of `idn:nesr:delete`
+         * @summary Delete Non-Employee Request
+         * @param {string} id Non-Employee request id in the UUID format
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        deleteNonEmployeeRequest: async (id: string, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'id' is not null or undefined
+            assertParamExists('deleteNonEmployeeRequest', 'id', id)
+            const localVarPath = `/non-employee-requests/{id}`
+                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'DELETE', ...baseOptions, ...axiosOptions};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication oauth2 required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "oauth2", [], configuration)
+
+            // authentication oauth2 required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "oauth2", [], configuration)
+
+
+    
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                axiosOptions: localVarRequestOptions,
+            };
+        },
+        /**
          * This end-point deletes a specific schema attribute for a non-employee source. Requires role context of `idn:nesr:delete` 
          * @summary Delete a Schema Attribute for Non-Employee Source
          * @param {string} attributeId The Schema Attribute Id (UUID)
@@ -19680,13 +19988,55 @@ export const NonEmployeeLifecycleManagementApiAxiosParamCreator = function (conf
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        deleteSchemaAttribute: async (attributeId: string, sourceId: string, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        deleteNonEmployeeSchemaAttribute: async (attributeId: string, sourceId: string, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'attributeId' is not null or undefined
-            assertParamExists('deleteSchemaAttribute', 'attributeId', attributeId)
+            assertParamExists('deleteNonEmployeeSchemaAttribute', 'attributeId', attributeId)
             // verify required parameter 'sourceId' is not null or undefined
-            assertParamExists('deleteSchemaAttribute', 'sourceId', sourceId)
+            assertParamExists('deleteNonEmployeeSchemaAttribute', 'sourceId', sourceId)
             const localVarPath = `/non-employee-sources/{sourceId}/schema-attributes/{attributeId}`
                 .replace(`{${"attributeId"}}`, encodeURIComponent(String(attributeId)))
+                .replace(`{${"sourceId"}}`, encodeURIComponent(String(sourceId)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'DELETE', ...baseOptions, ...axiosOptions};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication oauth2 required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "oauth2", [], configuration)
+
+            // authentication oauth2 required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "oauth2", [], configuration)
+
+
+    
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                axiosOptions: localVarRequestOptions,
+            };
+        },
+        /**
+         * This request will delete a non-employee source. Requires role context of `idn:nesr:delete`.
+         * @summary Delete Non-Employee Source
+         * @param {string} sourceId Source Id
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        deleteNonEmployeeSource: async (sourceId: string, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'sourceId' is not null or undefined
+            assertParamExists('deleteNonEmployeeSource', 'sourceId', sourceId)
+            const localVarPath = `/non-employee-sources/{sourceId}`
                 .replace(`{${"sourceId"}}`, encodeURIComponent(String(sourceId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -19725,9 +20075,9 @@ export const NonEmployeeLifecycleManagementApiAxiosParamCreator = function (conf
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        deleteSchemaAttributes: async (sourceId: string, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        deleteNonEmployeeSourceSchemaAttributes: async (sourceId: string, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'sourceId' is not null or undefined
-            assertParamExists('deleteSchemaAttributes', 'sourceId', sourceId)
+            assertParamExists('deleteNonEmployeeSourceSchemaAttributes', 'sourceId', sourceId)
             const localVarPath = `/non-employee-sources/{sourceId}/schema-attributes`
                 .replace(`{${"sourceId"}}`, encodeURIComponent(String(sourceId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
@@ -19761,21 +20111,17 @@ export const NonEmployeeLifecycleManagementApiAxiosParamCreator = function (conf
             };
         },
         /**
-         * This API gets a schema attribute by Id for the specified Non-Employee SourceId. Requires role context of `idn:nesr:read` or the user must be an account manager of the source.
-         * @summary Get Schema Attribute Non-Employee Source
-         * @param {string} attributeId The Schema Attribute Id (UUID)
-         * @param {string} sourceId The Source id
+         * This requests a CSV download for all non-employees from a provided source. Requires role context of `idn:nesr:read`
+         * @summary Exports Non-Employee Records to CSV
+         * @param {string} id Source Id (UUID)
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        getSchemaAttribute: async (attributeId: string, sourceId: string, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
-            // verify required parameter 'attributeId' is not null or undefined
-            assertParamExists('getSchemaAttribute', 'attributeId', attributeId)
-            // verify required parameter 'sourceId' is not null or undefined
-            assertParamExists('getSchemaAttribute', 'sourceId', sourceId)
-            const localVarPath = `/non-employee-sources/{sourceId}/schema-attributes/{attributeId}`
-                .replace(`{${"attributeId"}}`, encodeURIComponent(String(attributeId)))
-                .replace(`{${"sourceId"}}`, encodeURIComponent(String(sourceId)));
+        exportNonEmployeeRecords: async (id: string, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'id' is not null or undefined
+            assertParamExists('exportNonEmployeeRecords', 'id', id)
+            const localVarPath = `/non-employee-sources/{id}/non-employees/download`
+                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -19807,17 +20153,17 @@ export const NonEmployeeLifecycleManagementApiAxiosParamCreator = function (conf
             };
         },
         /**
-         * This API gets the list of schema attributes for the specified Non-Employee SourceId. There are 8 mandatory attributes added to each new Non-Employee Source automatically. Additionaly, user can add up to 10 custom attributes. This interface returns all the mandatory attributes followed by any custom attributes. At most, a total of 18 attributes will be returned. Requires role context of `idn:nesr:read` or the user must be an account manager of the source.
-         * @summary List Schema Attributes Non-Employee Source
-         * @param {string} sourceId The Source id
+         * This requests a download for the Source Schema Template for a provided source. Requires role context of `idn:nesr:read`
+         * @summary Exports Source Schema Template
+         * @param {string} id Source Id (UUID)
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        getSchemaAttributes: async (sourceId: string, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
-            // verify required parameter 'sourceId' is not null or undefined
-            assertParamExists('getSchemaAttributes', 'sourceId', sourceId)
-            const localVarPath = `/non-employee-sources/{sourceId}/schema-attributes`
-                .replace(`{${"sourceId"}}`, encodeURIComponent(String(sourceId)));
+        exportNonEmployeeSourceSchemaTemplate: async (id: string, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'id' is not null or undefined
+            assertParamExists('exportNonEmployeeSourceSchemaTemplate', 'id', id)
+            const localVarPath = `/non-employee-sources/{id}/schema-attributes-template/download`
+                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -19856,9 +20202,9 @@ export const NonEmployeeLifecycleManagementApiAxiosParamCreator = function (conf
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        nonEmployeeApprovalGet: async (id: string, includeDetail?: boolean, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        getNonEmployeeApproval: async (id: string, includeDetail?: boolean, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'id' is not null or undefined
-            assertParamExists('nonEmployeeApprovalGet', 'id', id)
+            assertParamExists('getNonEmployeeApproval', 'id', id)
             const localVarPath = `/non-employee-approvals/{id}`
                 .replace(`{${"id"}}`, encodeURIComponent(String(id)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
@@ -19896,6 +20242,346 @@ export const NonEmployeeLifecycleManagementApiAxiosParamCreator = function (conf
             };
         },
         /**
+         * This request will retrieve a summary of non-employee approval requests. There are two contextual uses for the `requested-for` path parameter:   1. The user has the role context of `idn:nesr:read`, in which case he or she may request a summary of all non-employee approval requests assigned to a particular approver by passing in that approver\'s id.   2. The current user is an approver, in which case \"me\" should be provided as the `requested-for` value. This will provide the approver with a summary of the approval items assigned to him or her.
+         * @summary Get Summary of Non-Employee Approval Requests
+         * @param {string} requestedFor The identity (UUID) of the approver for whom for whom the summary is being retrieved. Use \&quot;me\&quot; instead to indicate the current user.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        getNonEmployeeApprovalSummary: async (requestedFor: string, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'requestedFor' is not null or undefined
+            assertParamExists('getNonEmployeeApprovalSummary', 'requestedFor', requestedFor)
+            const localVarPath = `/non-employee-approvals/summary/{requested-for}`
+                .replace(`{${"requested-for"}}`, encodeURIComponent(String(requestedFor)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...axiosOptions};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication oauth2 required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "oauth2", [], configuration)
+
+            // authentication oauth2 required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "oauth2", [], configuration)
+
+
+    
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                axiosOptions: localVarRequestOptions,
+            };
+        },
+        /**
+         * The nonEmployeeBulkUploadStatus API returns the status of the newest bulk upload job for the specified source. Requires role context of `idn:nesr:read` 
+         * @summary Obtain the status of bulk upload on the source
+         * @param {string} id Source ID (UUID)
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        getNonEmployeeBulkUploadStatus: async (id: string, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'id' is not null or undefined
+            assertParamExists('getNonEmployeeBulkUploadStatus', 'id', id)
+            const localVarPath = `/non-employee-sources/{id}/non-employee-bulk-upload/status`
+                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...axiosOptions};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication oauth2 required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "oauth2", [], configuration)
+
+            // authentication oauth2 required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "oauth2", [], configuration)
+
+
+    
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                axiosOptions: localVarRequestOptions,
+            };
+        },
+        /**
+         * This gets a non-employee record. Requires role context of `idn:nesr:read`
+         * @summary Get a Non-Employee Record
+         * @param {string} id Non-Employee record id (UUID)
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        getNonEmployeeRecord: async (id: string, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'id' is not null or undefined
+            assertParamExists('getNonEmployeeRecord', 'id', id)
+            const localVarPath = `/non-employee-records/{id}`
+                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...axiosOptions};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication oauth2 required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "oauth2", [], configuration)
+
+            // authentication oauth2 required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "oauth2", [], configuration)
+
+
+    
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                axiosOptions: localVarRequestOptions,
+            };
+        },
+        /**
+         * This gets a non-employee request. There are two contextual uses for this endpoint:   1. The user has the role context of `idn:nesr:read`, in this case the user can get the non-employee request for any user.   2. The user must be the owner of the non-employee request.
+         * @summary Get a Non-Employee Request
+         * @param {string} id Non-Employee request id (UUID)
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        getNonEmployeeRequest: async (id: string, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'id' is not null or undefined
+            assertParamExists('getNonEmployeeRequest', 'id', id)
+            const localVarPath = `/non-employee-requests/{id}`
+                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...axiosOptions};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication oauth2 required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "oauth2", [], configuration)
+
+            // authentication oauth2 required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "oauth2", [], configuration)
+
+
+    
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                axiosOptions: localVarRequestOptions,
+            };
+        },
+        /**
+         * This request will retrieve a summary of non-employee requests. There are two contextual uses for the `requested-for` path parameter:   1. The user has the role context of `idn:nesr:read`, in which case he or she may request a summary of all non-employee approval requests assigned to a particular account manager by passing in that manager\'s id.   2. The current user is an account manager, in which case \"me\" should be provided as the `requested-for` value. This will provide the user with a summary of the non-employee requests in the source(s) he or she manages.
+         * @summary Get Summary of Non-Employee Requests
+         * @param {string} requestedFor The identity (UUID) of the non-employee account manager for whom the summary is being retrieved. Use \&quot;me\&quot; instead to indicate the current user.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        getNonEmployeeRequestSummary: async (requestedFor: string, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'requestedFor' is not null or undefined
+            assertParamExists('getNonEmployeeRequestSummary', 'requestedFor', requestedFor)
+            const localVarPath = `/non-employee-requests/summary/{requested-for}`
+                .replace(`{${"requested-for"}}`, encodeURIComponent(String(requestedFor)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...axiosOptions};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication oauth2 required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "oauth2", [], configuration)
+
+            // authentication oauth2 required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "oauth2", [], configuration)
+
+
+    
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                axiosOptions: localVarRequestOptions,
+            };
+        },
+        /**
+         * This API gets a schema attribute by Id for the specified Non-Employee SourceId. Requires role context of `idn:nesr:read` or the user must be an account manager of the source.
+         * @summary Get Schema Attribute Non-Employee Source
+         * @param {string} attributeId The Schema Attribute Id (UUID)
+         * @param {string} sourceId The Source id
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        getNonEmployeeSchemaAttribute: async (attributeId: string, sourceId: string, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'attributeId' is not null or undefined
+            assertParamExists('getNonEmployeeSchemaAttribute', 'attributeId', attributeId)
+            // verify required parameter 'sourceId' is not null or undefined
+            assertParamExists('getNonEmployeeSchemaAttribute', 'sourceId', sourceId)
+            const localVarPath = `/non-employee-sources/{sourceId}/schema-attributes/{attributeId}`
+                .replace(`{${"attributeId"}}`, encodeURIComponent(String(attributeId)))
+                .replace(`{${"sourceId"}}`, encodeURIComponent(String(sourceId)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...axiosOptions};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication oauth2 required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "oauth2", [], configuration)
+
+            // authentication oauth2 required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "oauth2", [], configuration)
+
+
+    
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                axiosOptions: localVarRequestOptions,
+            };
+        },
+        /**
+         * This gets a non-employee source. There are two contextual uses for the requested-for path parameter:    1. The user has the role context of `idn:nesr:read`, in which case he or she may request any source.   2. The current user is an account manager, in which case the user can only request sources that they own.
+         * @summary Get a Non-Employee Source
+         * @param {string} sourceId Source Id
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        getNonEmployeeSource: async (sourceId: string, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'sourceId' is not null or undefined
+            assertParamExists('getNonEmployeeSource', 'sourceId', sourceId)
+            const localVarPath = `/non-employee-sources/{sourceId}`
+                .replace(`{${"sourceId"}}`, encodeURIComponent(String(sourceId)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...axiosOptions};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication oauth2 required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "oauth2", [], configuration)
+
+            // authentication oauth2 required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "oauth2", [], configuration)
+
+
+    
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                axiosOptions: localVarRequestOptions,
+            };
+        },
+        /**
+         * This API gets the list of schema attributes for the specified Non-Employee SourceId. There are 8 mandatory attributes added to each new Non-Employee Source automatically. Additionaly, user can add up to 10 custom attributes. This interface returns all the mandatory attributes followed by any custom attributes. At most, a total of 18 attributes will be returned. Requires role context of `idn:nesr:read` or the user must be an account manager of the source.
+         * @summary List Schema Attributes Non-Employee Source
+         * @param {string} sourceId The Source id
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        getNonEmployeeSourceSchemaAttributes: async (sourceId: string, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'sourceId' is not null or undefined
+            assertParamExists('getNonEmployeeSourceSchemaAttributes', 'sourceId', sourceId)
+            const localVarPath = `/non-employee-sources/{sourceId}/schema-attributes`
+                .replace(`{${"sourceId"}}`, encodeURIComponent(String(sourceId)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...axiosOptions};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication oauth2 required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "oauth2", [], configuration)
+
+            // authentication oauth2 required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "oauth2", [], configuration)
+
+
+    
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                axiosOptions: localVarRequestOptions,
+            };
+        },
+        /**
          * This gets a list of non-employee approval requests. There are two contextual uses for this endpoint:   1. The user has the role context of `idn:nesr:read`, in which case they can list the approvals for any approver.   2. The user owns the requested approval.
          * @summary Get List of Non-Employee Approval Requests
          * @param {string} [requestedFor] The identity for whom the request was made. *me* indicates the current user.
@@ -19907,7 +20593,7 @@ export const NonEmployeeLifecycleManagementApiAxiosParamCreator = function (conf
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        nonEmployeeApprovalList: async (requestedFor?: string, limit?: number, offset?: number, count?: boolean, filters?: string, sorters?: string, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        listNonEmployeeApprovals: async (requestedFor?: string, limit?: number, offset?: number, count?: boolean, filters?: string, sorters?: string, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             const localVarPath = `/non-employee-approvals`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -19964,352 +20650,6 @@ export const NonEmployeeLifecycleManagementApiAxiosParamCreator = function (conf
             };
         },
         /**
-         * This request will retrieve a summary of non-employee approval requests. There are two contextual uses for the `requested-for` path parameter:   1. The user has the role context of `idn:nesr:read`, in which case he or she may request a summary of all non-employee approval requests assigned to a particular approver by passing in that approver\'s id.   2. The current user is an approver, in which case \"me\" should be provided as the `requested-for` value. This will provide the approver with a summary of the approval items assigned to him or her.
-         * @summary Get Summary of Non-Employee Approval Requests
-         * @param {string} requestedFor The identity (UUID) of the approver for whom for whom the summary is being retrieved. Use \&quot;me\&quot; instead to indicate the current user.
-         * @param {*} [axiosOptions] Override http request option.
-         * @throws {RequiredError}
-         */
-        nonEmployeeApprovalSummary: async (requestedFor: string, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
-            // verify required parameter 'requestedFor' is not null or undefined
-            assertParamExists('nonEmployeeApprovalSummary', 'requestedFor', requestedFor)
-            const localVarPath = `/non-employee-approvals/summary/{requested-for}`
-                .replace(`{${"requested-for"}}`, encodeURIComponent(String(requestedFor)));
-            // use dummy base URL string because the URL constructor only accepts absolute URLs.
-            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
-            let baseOptions;
-            if (configuration) {
-                baseOptions = configuration.baseOptions;
-            }
-
-            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...axiosOptions};
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-
-            // authentication oauth2 required
-            // oauth required
-            await setOAuthToObject(localVarHeaderParameter, "oauth2", [], configuration)
-
-            // authentication oauth2 required
-            // oauth required
-            await setOAuthToObject(localVarHeaderParameter, "oauth2", [], configuration)
-
-
-    
-            setSearchParams(localVarUrlObj, localVarQueryParameter);
-            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
-            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
-
-            return {
-                url: toPathString(localVarUrlObj),
-                axiosOptions: localVarRequestOptions,
-            };
-        },
-        /**
-         * Approves a non-employee approval request and notifies the next approver. The current user must be the requested approver.
-         * @summary Approve a Non-Employee Request
-         * @param {string} id Non-Employee approval item id (UUID)
-         * @param {NonEmployeeApprovalDecision} nonEmployeeApprovalDecision 
-         * @param {*} [axiosOptions] Override http request option.
-         * @throws {RequiredError}
-         */
-        nonEmployeeApproveRequest: async (id: string, nonEmployeeApprovalDecision: NonEmployeeApprovalDecision, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
-            // verify required parameter 'id' is not null or undefined
-            assertParamExists('nonEmployeeApproveRequest', 'id', id)
-            // verify required parameter 'nonEmployeeApprovalDecision' is not null or undefined
-            assertParamExists('nonEmployeeApproveRequest', 'nonEmployeeApprovalDecision', nonEmployeeApprovalDecision)
-            const localVarPath = `/non-employee-approvals/{id}/approve`
-                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
-            // use dummy base URL string because the URL constructor only accepts absolute URLs.
-            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
-            let baseOptions;
-            if (configuration) {
-                baseOptions = configuration.baseOptions;
-            }
-
-            const localVarRequestOptions = { method: 'POST', ...baseOptions, ...axiosOptions};
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-
-            // authentication oauth2 required
-            // oauth required
-            await setOAuthToObject(localVarHeaderParameter, "oauth2", [], configuration)
-
-            // authentication oauth2 required
-            // oauth required
-            await setOAuthToObject(localVarHeaderParameter, "oauth2", [], configuration)
-
-
-    
-            localVarHeaderParameter['Content-Type'] = 'application/json';
-
-            setSearchParams(localVarUrlObj, localVarQueryParameter);
-            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
-            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(nonEmployeeApprovalDecision, localVarRequestOptions, configuration)
-
-            return {
-                url: toPathString(localVarUrlObj),
-                axiosOptions: localVarRequestOptions,
-            };
-        },
-        /**
-         * The nonEmployeeBulkUploadStatus API returns the status of the newest bulk upload job for the specified source. Requires role context of `idn:nesr:read` 
-         * @summary Obtain the status of bulk upload on the source
-         * @param {string} id Source ID (UUID)
-         * @param {*} [axiosOptions] Override http request option.
-         * @throws {RequiredError}
-         */
-        nonEmployeeBulkUploadStatus: async (id: string, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
-            // verify required parameter 'id' is not null or undefined
-            assertParamExists('nonEmployeeBulkUploadStatus', 'id', id)
-            const localVarPath = `/non-employee-sources/{id}/non-employee-bulk-upload/status`
-                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
-            // use dummy base URL string because the URL constructor only accepts absolute URLs.
-            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
-            let baseOptions;
-            if (configuration) {
-                baseOptions = configuration.baseOptions;
-            }
-
-            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...axiosOptions};
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-
-            // authentication oauth2 required
-            // oauth required
-            await setOAuthToObject(localVarHeaderParameter, "oauth2", [], configuration)
-
-            // authentication oauth2 required
-            // oauth required
-            await setOAuthToObject(localVarHeaderParameter, "oauth2", [], configuration)
-
-
-    
-            setSearchParams(localVarUrlObj, localVarQueryParameter);
-            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
-            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
-
-            return {
-                url: toPathString(localVarUrlObj),
-                axiosOptions: localVarRequestOptions,
-            };
-        },
-        /**
-         * This requests a download for the Source Schema Template for a provided source. Requires role context of `idn:nesr:read`
-         * @summary Exports Source Schema Template
-         * @param {string} id Source Id (UUID)
-         * @param {*} [axiosOptions] Override http request option.
-         * @throws {RequiredError}
-         */
-        nonEmployeeExportSourceSchemaTemplate: async (id: string, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
-            // verify required parameter 'id' is not null or undefined
-            assertParamExists('nonEmployeeExportSourceSchemaTemplate', 'id', id)
-            const localVarPath = `/non-employee-sources/{id}/schema-attributes-template/download`
-                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
-            // use dummy base URL string because the URL constructor only accepts absolute URLs.
-            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
-            let baseOptions;
-            if (configuration) {
-                baseOptions = configuration.baseOptions;
-            }
-
-            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...axiosOptions};
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-
-            // authentication oauth2 required
-            // oauth required
-            await setOAuthToObject(localVarHeaderParameter, "oauth2", [], configuration)
-
-            // authentication oauth2 required
-            // oauth required
-            await setOAuthToObject(localVarHeaderParameter, "oauth2", [], configuration)
-
-
-    
-            setSearchParams(localVarUrlObj, localVarQueryParameter);
-            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
-            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
-
-            return {
-                url: toPathString(localVarUrlObj),
-                axiosOptions: localVarRequestOptions,
-            };
-        },
-        /**
-         * This request will delete multiple non-employee records based on the non-employee ids provided. Requires role context of `idn:nesr:delete`
-         * @summary Delete Multiple Non-Employee Records
-         * @param {NonEmployeeRecordBulkDeleteRequest} nonEmployeeRecordBulkDeleteRequest Non-Employee bulk delete request body.
-         * @param {*} [axiosOptions] Override http request option.
-         * @throws {RequiredError}
-         */
-        nonEmployeeRecordBulkDelete: async (nonEmployeeRecordBulkDeleteRequest: NonEmployeeRecordBulkDeleteRequest, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
-            // verify required parameter 'nonEmployeeRecordBulkDeleteRequest' is not null or undefined
-            assertParamExists('nonEmployeeRecordBulkDelete', 'nonEmployeeRecordBulkDeleteRequest', nonEmployeeRecordBulkDeleteRequest)
-            const localVarPath = `/non-employee-records/bulk-delete`;
-            // use dummy base URL string because the URL constructor only accepts absolute URLs.
-            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
-            let baseOptions;
-            if (configuration) {
-                baseOptions = configuration.baseOptions;
-            }
-
-            const localVarRequestOptions = { method: 'POST', ...baseOptions, ...axiosOptions};
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-
-            // authentication oauth2 required
-            // oauth required
-            await setOAuthToObject(localVarHeaderParameter, "oauth2", [], configuration)
-
-            // authentication oauth2 required
-            // oauth required
-            await setOAuthToObject(localVarHeaderParameter, "oauth2", [], configuration)
-
-
-    
-            localVarHeaderParameter['Content-Type'] = 'application/json';
-
-            setSearchParams(localVarUrlObj, localVarQueryParameter);
-            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
-            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(nonEmployeeRecordBulkDeleteRequest, localVarRequestOptions, configuration)
-
-            return {
-                url: toPathString(localVarUrlObj),
-                axiosOptions: localVarRequestOptions,
-            };
-        },
-        /**
-         * This request will create a non-employee record. Requires role context of `idn:nesr:create`
-         * @summary Create Non-Employee Record
-         * @param {NonEmployeeRequestBody} nonEmployeeRequestBody Non-Employee record creation request body.
-         * @param {*} [axiosOptions] Override http request option.
-         * @throws {RequiredError}
-         */
-        nonEmployeeRecordCreation: async (nonEmployeeRequestBody: NonEmployeeRequestBody, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
-            // verify required parameter 'nonEmployeeRequestBody' is not null or undefined
-            assertParamExists('nonEmployeeRecordCreation', 'nonEmployeeRequestBody', nonEmployeeRequestBody)
-            const localVarPath = `/non-employee-records`;
-            // use dummy base URL string because the URL constructor only accepts absolute URLs.
-            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
-            let baseOptions;
-            if (configuration) {
-                baseOptions = configuration.baseOptions;
-            }
-
-            const localVarRequestOptions = { method: 'POST', ...baseOptions, ...axiosOptions};
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-
-            // authentication oauth2 required
-            // oauth required
-            await setOAuthToObject(localVarHeaderParameter, "oauth2", [], configuration)
-
-            // authentication oauth2 required
-            // oauth required
-            await setOAuthToObject(localVarHeaderParameter, "oauth2", [], configuration)
-
-
-    
-            localVarHeaderParameter['Content-Type'] = 'application/json';
-
-            setSearchParams(localVarUrlObj, localVarQueryParameter);
-            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
-            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(nonEmployeeRequestBody, localVarRequestOptions, configuration)
-
-            return {
-                url: toPathString(localVarUrlObj),
-                axiosOptions: localVarRequestOptions,
-            };
-        },
-        /**
-         * This request will delete a non-employee record. Requires role context of `idn:nesr:delete`
-         * @summary Delete Non-Employee Record
-         * @param {string} id Non-Employee record id (UUID)
-         * @param {*} [axiosOptions] Override http request option.
-         * @throws {RequiredError}
-         */
-        nonEmployeeRecordDelete: async (id: string, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
-            // verify required parameter 'id' is not null or undefined
-            assertParamExists('nonEmployeeRecordDelete', 'id', id)
-            const localVarPath = `/non-employee-records/{id}`
-                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
-            // use dummy base URL string because the URL constructor only accepts absolute URLs.
-            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
-            let baseOptions;
-            if (configuration) {
-                baseOptions = configuration.baseOptions;
-            }
-
-            const localVarRequestOptions = { method: 'DELETE', ...baseOptions, ...axiosOptions};
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-
-            // authentication oauth2 required
-            // oauth required
-            await setOAuthToObject(localVarHeaderParameter, "oauth2", [], configuration)
-
-            // authentication oauth2 required
-            // oauth required
-            await setOAuthToObject(localVarHeaderParameter, "oauth2", [], configuration)
-
-
-    
-            setSearchParams(localVarUrlObj, localVarQueryParameter);
-            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
-            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
-
-            return {
-                url: toPathString(localVarUrlObj),
-                axiosOptions: localVarRequestOptions,
-            };
-        },
-        /**
-         * This gets a non-employee record. Requires role context of `idn:nesr:read`
-         * @summary Get a Non-Employee Record
-         * @param {string} id Non-Employee record id (UUID)
-         * @param {*} [axiosOptions] Override http request option.
-         * @throws {RequiredError}
-         */
-        nonEmployeeRecordGet: async (id: string, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
-            // verify required parameter 'id' is not null or undefined
-            assertParamExists('nonEmployeeRecordGet', 'id', id)
-            const localVarPath = `/non-employee-records/{id}`
-                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
-            // use dummy base URL string because the URL constructor only accepts absolute URLs.
-            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
-            let baseOptions;
-            if (configuration) {
-                baseOptions = configuration.baseOptions;
-            }
-
-            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...axiosOptions};
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-
-            // authentication oauth2 required
-            // oauth required
-            await setOAuthToObject(localVarHeaderParameter, "oauth2", [], configuration)
-
-            // authentication oauth2 required
-            // oauth required
-            await setOAuthToObject(localVarHeaderParameter, "oauth2", [], configuration)
-
-
-    
-            setSearchParams(localVarUrlObj, localVarQueryParameter);
-            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
-            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
-
-            return {
-                url: toPathString(localVarUrlObj),
-                axiosOptions: localVarRequestOptions,
-            };
-        },
-        /**
          * This gets a list of non-employee records. There are two contextual uses for this endpoint:   1. The user has the role context of `idn:nesr:read`, in which case they can get a list of all of the non-employees.   2. The user is an account manager, in which case they can get a list of the non-employees that they manage.
          * @summary List Non-Employee Records
          * @param {number} [limit] Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
@@ -20320,7 +20660,7 @@ export const NonEmployeeLifecycleManagementApiAxiosParamCreator = function (conf
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        nonEmployeeRecordList: async (limit?: number, offset?: number, count?: boolean, sorters?: string, filters?: string, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        listNonEmployeeRecords: async (limit?: number, offset?: number, count?: boolean, sorters?: string, filters?: string, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             const localVarPath = `/non-employee-records`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -20373,373 +20713,6 @@ export const NonEmployeeLifecycleManagementApiAxiosParamCreator = function (conf
             };
         },
         /**
-         * This request will patch a non-employee record. There are two contextual uses for this endpoint:   1. The user has the role context of `idn:nesr:update`, in which case they update all available fields.   2. The user is owner of the source, in this case they can only update the end date.
-         * @summary Patch Non-Employee Record
-         * @param {string} id Non-employee record id (UUID)
-         * @param {Array<JsonPatchOperation>} jsonPatchOperation A list of non-employee update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard. Attributes are restricted by user type. Owner of source can update end date. Organization admins can update all available fields.
-         * @param {*} [axiosOptions] Override http request option.
-         * @throws {RequiredError}
-         */
-        nonEmployeeRecordPatch: async (id: string, jsonPatchOperation: Array<JsonPatchOperation>, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
-            // verify required parameter 'id' is not null or undefined
-            assertParamExists('nonEmployeeRecordPatch', 'id', id)
-            // verify required parameter 'jsonPatchOperation' is not null or undefined
-            assertParamExists('nonEmployeeRecordPatch', 'jsonPatchOperation', jsonPatchOperation)
-            const localVarPath = `/non-employee-records/{id}`
-                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
-            // use dummy base URL string because the URL constructor only accepts absolute URLs.
-            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
-            let baseOptions;
-            if (configuration) {
-                baseOptions = configuration.baseOptions;
-            }
-
-            const localVarRequestOptions = { method: 'PATCH', ...baseOptions, ...axiosOptions};
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-
-            // authentication oauth2 required
-            // oauth required
-            await setOAuthToObject(localVarHeaderParameter, "oauth2", [], configuration)
-
-            // authentication oauth2 required
-            // oauth required
-            await setOAuthToObject(localVarHeaderParameter, "oauth2", [], configuration)
-
-
-    
-            localVarHeaderParameter['Content-Type'] = 'application/json-patch+json';
-
-            setSearchParams(localVarUrlObj, localVarQueryParameter);
-            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
-            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(jsonPatchOperation, localVarRequestOptions, configuration)
-
-            return {
-                url: toPathString(localVarUrlObj),
-                axiosOptions: localVarRequestOptions,
-            };
-        },
-        /**
-         * This request will update a non-employee record. There are two contextual uses for this endpoint:   1. The user has the role context of `idn:nesr:update`, in which case they update all available fields.   2. The user is owner of the source, in this case they can only update the end date.
-         * @summary Update Non-Employee Record
-         * @param {string} id Non-employee record id (UUID)
-         * @param {NonEmployeeRequestBody} nonEmployeeRequestBody Non-employee record creation request body. Attributes are restricted by user type. Owner of source can update end date. Organization admins can update all available fields.
-         * @param {*} [axiosOptions] Override http request option.
-         * @throws {RequiredError}
-         */
-        nonEmployeeRecordUpdate: async (id: string, nonEmployeeRequestBody: NonEmployeeRequestBody, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
-            // verify required parameter 'id' is not null or undefined
-            assertParamExists('nonEmployeeRecordUpdate', 'id', id)
-            // verify required parameter 'nonEmployeeRequestBody' is not null or undefined
-            assertParamExists('nonEmployeeRecordUpdate', 'nonEmployeeRequestBody', nonEmployeeRequestBody)
-            const localVarPath = `/non-employee-records/{id}`
-                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
-            // use dummy base URL string because the URL constructor only accepts absolute URLs.
-            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
-            let baseOptions;
-            if (configuration) {
-                baseOptions = configuration.baseOptions;
-            }
-
-            const localVarRequestOptions = { method: 'PUT', ...baseOptions, ...axiosOptions};
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-
-            // authentication oauth2 required
-            // oauth required
-            await setOAuthToObject(localVarHeaderParameter, "oauth2", [], configuration)
-
-            // authentication oauth2 required
-            // oauth required
-            await setOAuthToObject(localVarHeaderParameter, "oauth2", [], configuration)
-
-
-    
-            localVarHeaderParameter['Content-Type'] = 'application/json';
-
-            setSearchParams(localVarUrlObj, localVarQueryParameter);
-            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
-            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(nonEmployeeRequestBody, localVarRequestOptions, configuration)
-
-            return {
-                url: toPathString(localVarUrlObj),
-                axiosOptions: localVarRequestOptions,
-            };
-        },
-        /**
-         * This post will import, or update, Non-Employee records found in the CSV. Requires role context of `idn:nesr:create`
-         * @summary Imports, or Updates, Non-Employee Records
-         * @param {string} id Source Id (UUID)
-         * @param {string} data 
-         * @param {*} [axiosOptions] Override http request option.
-         * @throws {RequiredError}
-         */
-        nonEmployeeRecordsBulkUpload: async (id: string, data: string, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
-            // verify required parameter 'id' is not null or undefined
-            assertParamExists('nonEmployeeRecordsBulkUpload', 'id', id)
-            // verify required parameter 'data' is not null or undefined
-            assertParamExists('nonEmployeeRecordsBulkUpload', 'data', data)
-            const localVarPath = `/non-employee-sources/{id}/non-employee-bulk-upload`
-                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
-            // use dummy base URL string because the URL constructor only accepts absolute URLs.
-            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
-            let baseOptions;
-            if (configuration) {
-                baseOptions = configuration.baseOptions;
-            }
-
-            const localVarRequestOptions = { method: 'POST', ...baseOptions, ...axiosOptions};
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-            const localVarFormParams = new ((configuration && configuration.formDataCtor) || FormData)();
-
-            // authentication oauth2 required
-            // oauth required
-            await setOAuthToObject(localVarHeaderParameter, "oauth2", [], configuration)
-
-            // authentication oauth2 required
-            // oauth required
-            await setOAuthToObject(localVarHeaderParameter, "oauth2", [], configuration)
-
-
-            if (data !== undefined) { 
-                localVarFormParams.append('data', data as any);
-            }
-    
-    
-            localVarHeaderParameter['Content-Type'] = 'multipart/form-data';
-    
-            setSearchParams(localVarUrlObj, localVarQueryParameter);
-            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
-            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
-            localVarRequestOptions.data = localVarFormParams;
-
-            return {
-                url: toPathString(localVarUrlObj),
-                axiosOptions: localVarRequestOptions,
-            };
-        },
-        /**
-         * This requests a CSV download for all non-employees from a provided source. Requires role context of `idn:nesr:read`
-         * @summary Exports Non-Employee Records to CSV
-         * @param {string} id Source Id (UUID)
-         * @param {*} [axiosOptions] Override http request option.
-         * @throws {RequiredError}
-         */
-        nonEmployeeRecordsExport: async (id: string, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
-            // verify required parameter 'id' is not null or undefined
-            assertParamExists('nonEmployeeRecordsExport', 'id', id)
-            const localVarPath = `/non-employee-sources/{id}/non-employees/download`
-                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
-            // use dummy base URL string because the URL constructor only accepts absolute URLs.
-            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
-            let baseOptions;
-            if (configuration) {
-                baseOptions = configuration.baseOptions;
-            }
-
-            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...axiosOptions};
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-
-            // authentication oauth2 required
-            // oauth required
-            await setOAuthToObject(localVarHeaderParameter, "oauth2", [], configuration)
-
-            // authentication oauth2 required
-            // oauth required
-            await setOAuthToObject(localVarHeaderParameter, "oauth2", [], configuration)
-
-
-    
-            setSearchParams(localVarUrlObj, localVarQueryParameter);
-            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
-            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
-
-            return {
-                url: toPathString(localVarUrlObj),
-                axiosOptions: localVarRequestOptions,
-            };
-        },
-        /**
-         * This endpoint will reject an approval item request and notify user. The current user must be the requested approver.
-         * @summary Reject a Non-Employee Request
-         * @param {string} id Non-Employee approval item id (UUID)
-         * @param {NonEmployeeRejectApprovalDecision} nonEmployeeRejectApprovalDecision 
-         * @param {*} [axiosOptions] Override http request option.
-         * @throws {RequiredError}
-         */
-        nonEmployeeRejectRequest: async (id: string, nonEmployeeRejectApprovalDecision: NonEmployeeRejectApprovalDecision, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
-            // verify required parameter 'id' is not null or undefined
-            assertParamExists('nonEmployeeRejectRequest', 'id', id)
-            // verify required parameter 'nonEmployeeRejectApprovalDecision' is not null or undefined
-            assertParamExists('nonEmployeeRejectRequest', 'nonEmployeeRejectApprovalDecision', nonEmployeeRejectApprovalDecision)
-            const localVarPath = `/non-employee-approvals/{id}/reject`
-                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
-            // use dummy base URL string because the URL constructor only accepts absolute URLs.
-            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
-            let baseOptions;
-            if (configuration) {
-                baseOptions = configuration.baseOptions;
-            }
-
-            const localVarRequestOptions = { method: 'POST', ...baseOptions, ...axiosOptions};
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-
-            // authentication oauth2 required
-            // oauth required
-            await setOAuthToObject(localVarHeaderParameter, "oauth2", [], configuration)
-
-            // authentication oauth2 required
-            // oauth required
-            await setOAuthToObject(localVarHeaderParameter, "oauth2", [], configuration)
-
-
-    
-            localVarHeaderParameter['Content-Type'] = 'application/json';
-
-            setSearchParams(localVarUrlObj, localVarQueryParameter);
-            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
-            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(nonEmployeeRejectApprovalDecision, localVarRequestOptions, configuration)
-
-            return {
-                url: toPathString(localVarUrlObj),
-                axiosOptions: localVarRequestOptions,
-            };
-        },
-        /**
-         * This request will create a non-employee request and notify the approver. Requires role context of `idn:nesr:create` or the user must own the source.
-         * @summary Create Non-Employee Request
-         * @param {NonEmployeeRequestBody} nonEmployeeRequestBody Non-Employee creation request body
-         * @param {*} [axiosOptions] Override http request option.
-         * @throws {RequiredError}
-         */
-        nonEmployeeRequestCreation: async (nonEmployeeRequestBody: NonEmployeeRequestBody, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
-            // verify required parameter 'nonEmployeeRequestBody' is not null or undefined
-            assertParamExists('nonEmployeeRequestCreation', 'nonEmployeeRequestBody', nonEmployeeRequestBody)
-            const localVarPath = `/non-employee-requests`;
-            // use dummy base URL string because the URL constructor only accepts absolute URLs.
-            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
-            let baseOptions;
-            if (configuration) {
-                baseOptions = configuration.baseOptions;
-            }
-
-            const localVarRequestOptions = { method: 'POST', ...baseOptions, ...axiosOptions};
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-
-            // authentication oauth2 required
-            // oauth required
-            await setOAuthToObject(localVarHeaderParameter, "oauth2", [], configuration)
-
-            // authentication oauth2 required
-            // oauth required
-            await setOAuthToObject(localVarHeaderParameter, "oauth2", [], configuration)
-
-
-    
-            localVarHeaderParameter['Content-Type'] = 'application/json';
-
-            setSearchParams(localVarUrlObj, localVarQueryParameter);
-            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
-            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(nonEmployeeRequestBody, localVarRequestOptions, configuration)
-
-            return {
-                url: toPathString(localVarUrlObj),
-                axiosOptions: localVarRequestOptions,
-            };
-        },
-        /**
-         * This request will delete a non-employee request.  Requires role context of `idn:nesr:delete`
-         * @summary Delete Non-Employee Request
-         * @param {string} id Non-Employee request id in the UUID format
-         * @param {*} [axiosOptions] Override http request option.
-         * @throws {RequiredError}
-         */
-        nonEmployeeRequestDeletion: async (id: string, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
-            // verify required parameter 'id' is not null or undefined
-            assertParamExists('nonEmployeeRequestDeletion', 'id', id)
-            const localVarPath = `/non-employee-requests/{id}`
-                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
-            // use dummy base URL string because the URL constructor only accepts absolute URLs.
-            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
-            let baseOptions;
-            if (configuration) {
-                baseOptions = configuration.baseOptions;
-            }
-
-            const localVarRequestOptions = { method: 'DELETE', ...baseOptions, ...axiosOptions};
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-
-            // authentication oauth2 required
-            // oauth required
-            await setOAuthToObject(localVarHeaderParameter, "oauth2", [], configuration)
-
-            // authentication oauth2 required
-            // oauth required
-            await setOAuthToObject(localVarHeaderParameter, "oauth2", [], configuration)
-
-
-    
-            setSearchParams(localVarUrlObj, localVarQueryParameter);
-            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
-            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
-
-            return {
-                url: toPathString(localVarUrlObj),
-                axiosOptions: localVarRequestOptions,
-            };
-        },
-        /**
-         * This gets a non-employee request. There are two contextual uses for this endpoint:   1. The user has the role context of `idn:nesr:read`, in this case the user can get the non-employee request for any user.   2. The user must be the owner of the non-employee request.
-         * @summary Get a Non-Employee Request
-         * @param {string} id Non-Employee request id (UUID)
-         * @param {*} [axiosOptions] Override http request option.
-         * @throws {RequiredError}
-         */
-        nonEmployeeRequestGet: async (id: string, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
-            // verify required parameter 'id' is not null or undefined
-            assertParamExists('nonEmployeeRequestGet', 'id', id)
-            const localVarPath = `/non-employee-requests/{id}`
-                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
-            // use dummy base URL string because the URL constructor only accepts absolute URLs.
-            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
-            let baseOptions;
-            if (configuration) {
-                baseOptions = configuration.baseOptions;
-            }
-
-            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...axiosOptions};
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-
-            // authentication oauth2 required
-            // oauth required
-            await setOAuthToObject(localVarHeaderParameter, "oauth2", [], configuration)
-
-            // authentication oauth2 required
-            // oauth required
-            await setOAuthToObject(localVarHeaderParameter, "oauth2", [], configuration)
-
-
-    
-            setSearchParams(localVarUrlObj, localVarQueryParameter);
-            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
-            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
-
-            return {
-                url: toPathString(localVarUrlObj),
-                axiosOptions: localVarRequestOptions,
-            };
-        },
-        /**
          * This gets a list of non-employee requests. There are two contextual uses for the `requested-for` path parameter:   1. The user has the role context of `idn:nesr:read`, in which case he or she may request a list non-employee requests assigned to a particular account manager by passing in that manager\'s id.   2. The current user is an account manager, in which case \"me\" should be provided as the `requested-for` value. This will provide the user with a list of the non-employee requests in the source(s) he or she manages.
          * @summary List Non-Employee Requests
          * @param {string} requestedFor The identity for whom the request was made. *me* indicates the current user.
@@ -20751,9 +20724,9 @@ export const NonEmployeeLifecycleManagementApiAxiosParamCreator = function (conf
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        nonEmployeeRequestList: async (requestedFor: string, limit?: number, offset?: number, count?: boolean, sorters?: string, filters?: string, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        listNonEmployeeRequests: async (requestedFor: string, limit?: number, offset?: number, count?: boolean, sorters?: string, filters?: string, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'requestedFor' is not null or undefined
-            assertParamExists('nonEmployeeRequestList', 'requestedFor', requestedFor)
+            assertParamExists('listNonEmployeeRequests', 'requestedFor', requestedFor)
             const localVarPath = `/non-employee-requests`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -20810,224 +20783,6 @@ export const NonEmployeeLifecycleManagementApiAxiosParamCreator = function (conf
             };
         },
         /**
-         * This request will retrieve a summary of non-employee requests. There are two contextual uses for the `requested-for` path parameter:   1. The user has the role context of `idn:nesr:read`, in which case he or she may request a summary of all non-employee approval requests assigned to a particular account manager by passing in that manager\'s id.   2. The current user is an account manager, in which case \"me\" should be provided as the `requested-for` value. This will provide the user with a summary of the non-employee requests in the source(s) he or she manages.
-         * @summary Get Summary of Non-Employee Requests
-         * @param {string} requestedFor The identity (UUID) of the non-employee account manager for whom the summary is being retrieved. Use \&quot;me\&quot; instead to indicate the current user.
-         * @param {*} [axiosOptions] Override http request option.
-         * @throws {RequiredError}
-         */
-        nonEmployeeRequestSummaryGet: async (requestedFor: string, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
-            // verify required parameter 'requestedFor' is not null or undefined
-            assertParamExists('nonEmployeeRequestSummaryGet', 'requestedFor', requestedFor)
-            const localVarPath = `/non-employee-requests/summary/{requested-for}`
-                .replace(`{${"requested-for"}}`, encodeURIComponent(String(requestedFor)));
-            // use dummy base URL string because the URL constructor only accepts absolute URLs.
-            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
-            let baseOptions;
-            if (configuration) {
-                baseOptions = configuration.baseOptions;
-            }
-
-            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...axiosOptions};
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-
-            // authentication oauth2 required
-            // oauth required
-            await setOAuthToObject(localVarHeaderParameter, "oauth2", [], configuration)
-
-            // authentication oauth2 required
-            // oauth required
-            await setOAuthToObject(localVarHeaderParameter, "oauth2", [], configuration)
-
-
-    
-            setSearchParams(localVarUrlObj, localVarQueryParameter);
-            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
-            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
-
-            return {
-                url: toPathString(localVarUrlObj),
-                axiosOptions: localVarRequestOptions,
-            };
-        },
-        /**
-         * This request will delete a non-employee source. Requires role context of `idn:nesr:delete`.
-         * @summary Delete Non-Employee Source
-         * @param {string} sourceId Source Id
-         * @param {*} [axiosOptions] Override http request option.
-         * @throws {RequiredError}
-         */
-        nonEmployeeSourceDelete: async (sourceId: string, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
-            // verify required parameter 'sourceId' is not null or undefined
-            assertParamExists('nonEmployeeSourceDelete', 'sourceId', sourceId)
-            const localVarPath = `/non-employee-sources/{sourceId}`
-                .replace(`{${"sourceId"}}`, encodeURIComponent(String(sourceId)));
-            // use dummy base URL string because the URL constructor only accepts absolute URLs.
-            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
-            let baseOptions;
-            if (configuration) {
-                baseOptions = configuration.baseOptions;
-            }
-
-            const localVarRequestOptions = { method: 'DELETE', ...baseOptions, ...axiosOptions};
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-
-            // authentication oauth2 required
-            // oauth required
-            await setOAuthToObject(localVarHeaderParameter, "oauth2", [], configuration)
-
-            // authentication oauth2 required
-            // oauth required
-            await setOAuthToObject(localVarHeaderParameter, "oauth2", [], configuration)
-
-
-    
-            setSearchParams(localVarUrlObj, localVarQueryParameter);
-            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
-            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
-
-            return {
-                url: toPathString(localVarUrlObj),
-                axiosOptions: localVarRequestOptions,
-            };
-        },
-        /**
-         * This gets a non-employee source. There are two contextual uses for the requested-for path parameter:    1. The user has the role context of `idn:nesr:read`, in which case he or she may request any source.   2. The current user is an account manager, in which case the user can only request sources that they own.
-         * @summary Get a Non-Employee Source
-         * @param {string} sourceId Source Id
-         * @param {*} [axiosOptions] Override http request option.
-         * @throws {RequiredError}
-         */
-        nonEmployeeSourceGet: async (sourceId: string, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
-            // verify required parameter 'sourceId' is not null or undefined
-            assertParamExists('nonEmployeeSourceGet', 'sourceId', sourceId)
-            const localVarPath = `/non-employee-sources/{sourceId}`
-                .replace(`{${"sourceId"}}`, encodeURIComponent(String(sourceId)));
-            // use dummy base URL string because the URL constructor only accepts absolute URLs.
-            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
-            let baseOptions;
-            if (configuration) {
-                baseOptions = configuration.baseOptions;
-            }
-
-            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...axiosOptions};
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-
-            // authentication oauth2 required
-            // oauth required
-            await setOAuthToObject(localVarHeaderParameter, "oauth2", [], configuration)
-
-            // authentication oauth2 required
-            // oauth required
-            await setOAuthToObject(localVarHeaderParameter, "oauth2", [], configuration)
-
-
-    
-            setSearchParams(localVarUrlObj, localVarQueryParameter);
-            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
-            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
-
-            return {
-                url: toPathString(localVarUrlObj),
-                axiosOptions: localVarRequestOptions,
-            };
-        },
-        /**
-         * patch a non-employee source. (partial update) <br/> Patchable field: **name, description, approvers, accountManagers** Requires role context of `idn:nesr:update`.
-         * @summary Patch a Non-Employee Source
-         * @param {string} sourceId Source Id
-         * @param {Array<JsonPatchOperation>} jsonPatchOperation A list of non-employee source update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.
-         * @param {*} [axiosOptions] Override http request option.
-         * @throws {RequiredError}
-         */
-        nonEmployeeSourcePatch: async (sourceId: string, jsonPatchOperation: Array<JsonPatchOperation>, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
-            // verify required parameter 'sourceId' is not null or undefined
-            assertParamExists('nonEmployeeSourcePatch', 'sourceId', sourceId)
-            // verify required parameter 'jsonPatchOperation' is not null or undefined
-            assertParamExists('nonEmployeeSourcePatch', 'jsonPatchOperation', jsonPatchOperation)
-            const localVarPath = `/non-employee-sources/{sourceId}`
-                .replace(`{${"sourceId"}}`, encodeURIComponent(String(sourceId)));
-            // use dummy base URL string because the URL constructor only accepts absolute URLs.
-            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
-            let baseOptions;
-            if (configuration) {
-                baseOptions = configuration.baseOptions;
-            }
-
-            const localVarRequestOptions = { method: 'PATCH', ...baseOptions, ...axiosOptions};
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-
-            // authentication oauth2 required
-            // oauth required
-            await setOAuthToObject(localVarHeaderParameter, "oauth2", [], configuration)
-
-            // authentication oauth2 required
-            // oauth required
-            await setOAuthToObject(localVarHeaderParameter, "oauth2", [], configuration)
-
-
-    
-            localVarHeaderParameter['Content-Type'] = 'application/json-patch+json';
-
-            setSearchParams(localVarUrlObj, localVarQueryParameter);
-            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
-            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(jsonPatchOperation, localVarRequestOptions, configuration)
-
-            return {
-                url: toPathString(localVarUrlObj),
-                axiosOptions: localVarRequestOptions,
-            };
-        },
-        /**
-         * This request will create a non-employee source. Requires role context of `idn:nesr:create`
-         * @summary Create Non-Employee Source
-         * @param {NonEmployeeSourceRequestBody} nonEmployeeSourceRequestBody Non-Employee source creation request body.
-         * @param {*} [axiosOptions] Override http request option.
-         * @throws {RequiredError}
-         */
-        nonEmployeeSourcesCreation: async (nonEmployeeSourceRequestBody: NonEmployeeSourceRequestBody, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
-            // verify required parameter 'nonEmployeeSourceRequestBody' is not null or undefined
-            assertParamExists('nonEmployeeSourcesCreation', 'nonEmployeeSourceRequestBody', nonEmployeeSourceRequestBody)
-            const localVarPath = `/non-employee-sources`;
-            // use dummy base URL string because the URL constructor only accepts absolute URLs.
-            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
-            let baseOptions;
-            if (configuration) {
-                baseOptions = configuration.baseOptions;
-            }
-
-            const localVarRequestOptions = { method: 'POST', ...baseOptions, ...axiosOptions};
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-
-            // authentication oauth2 required
-            // oauth required
-            await setOAuthToObject(localVarHeaderParameter, "oauth2", [], configuration)
-
-            // authentication oauth2 required
-            // oauth required
-            await setOAuthToObject(localVarHeaderParameter, "oauth2", [], configuration)
-
-
-    
-            localVarHeaderParameter['Content-Type'] = 'application/json';
-
-            setSearchParams(localVarUrlObj, localVarQueryParameter);
-            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
-            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(nonEmployeeSourceRequestBody, localVarRequestOptions, configuration)
-
-            return {
-                url: toPathString(localVarUrlObj),
-                axiosOptions: localVarRequestOptions,
-            };
-        },
-        /**
          * This gets a list of non-employee sources. There are two contextual uses for the requested-for path parameter:    1. The user has the role context of `idn:nesr:read`, in which case he or she may request a list sources assigned to a particular account manager by passing in that manager\'s id.   2. The current user is an account manager, in which case \"me\" should be provided as the `requested-for` value. This will provide the user with a list of the sources that he or she owns.
          * @summary List Non-Employee Sources
          * @param {string} requestedFor The identity for whom the request was made. *me* indicates the current user.
@@ -21039,9 +20794,9 @@ export const NonEmployeeLifecycleManagementApiAxiosParamCreator = function (conf
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        nonEmployeeSourcesList: async (requestedFor: string, limit?: number, offset?: number, count?: boolean, nonEmployeeCount?: boolean, sorters?: string, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        listNonEmployeeSources: async (requestedFor: string, limit?: number, offset?: number, count?: boolean, nonEmployeeCount?: boolean, sorters?: string, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'requestedFor' is not null or undefined
-            assertParamExists('nonEmployeeSourcesList', 'requestedFor', requestedFor)
+            assertParamExists('listNonEmployeeSources', 'requestedFor', requestedFor)
             const localVarPath = `/non-employee-sources`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -21098,6 +20853,54 @@ export const NonEmployeeLifecycleManagementApiAxiosParamCreator = function (conf
             };
         },
         /**
+         * This request will patch a non-employee record. There are two contextual uses for this endpoint:   1. The user has the role context of `idn:nesr:update`, in which case they update all available fields.   2. The user is owner of the source, in this case they can only update the end date.
+         * @summary Patch Non-Employee Record
+         * @param {string} id Non-employee record id (UUID)
+         * @param {Array<JsonPatchOperation>} jsonPatchOperation A list of non-employee update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard. Attributes are restricted by user type. Owner of source can update end date. Organization admins can update all available fields.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        patchNonEmployeeRecord: async (id: string, jsonPatchOperation: Array<JsonPatchOperation>, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'id' is not null or undefined
+            assertParamExists('patchNonEmployeeRecord', 'id', id)
+            // verify required parameter 'jsonPatchOperation' is not null or undefined
+            assertParamExists('patchNonEmployeeRecord', 'jsonPatchOperation', jsonPatchOperation)
+            const localVarPath = `/non-employee-records/{id}`
+                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'PATCH', ...baseOptions, ...axiosOptions};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication oauth2 required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "oauth2", [], configuration)
+
+            // authentication oauth2 required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "oauth2", [], configuration)
+
+
+    
+            localVarHeaderParameter['Content-Type'] = 'application/json-patch+json';
+
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
+            localVarRequestOptions.data = serializeDataIfNeeded(jsonPatchOperation, localVarRequestOptions, configuration)
+
+            return {
+                url: toPathString(localVarUrlObj),
+                axiosOptions: localVarRequestOptions,
+            };
+        },
+        /**
          * This end-point patches a specific schema attribute for a non-employee SourceId. Requires role context of `idn:nesr:update` 
          * @summary Patch a Schema Attribute for Non-Employee Source
          * @param {string} attributeId The Schema Attribute Id (UUID)
@@ -21106,13 +20909,13 @@ export const NonEmployeeLifecycleManagementApiAxiosParamCreator = function (conf
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        patchSchemaAttribute: async (attributeId: string, sourceId: string, jsonPatchOperation: Array<JsonPatchOperation>, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        patchNonEmployeeSchemaAttribute: async (attributeId: string, sourceId: string, jsonPatchOperation: Array<JsonPatchOperation>, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'attributeId' is not null or undefined
-            assertParamExists('patchSchemaAttribute', 'attributeId', attributeId)
+            assertParamExists('patchNonEmployeeSchemaAttribute', 'attributeId', attributeId)
             // verify required parameter 'sourceId' is not null or undefined
-            assertParamExists('patchSchemaAttribute', 'sourceId', sourceId)
+            assertParamExists('patchNonEmployeeSchemaAttribute', 'sourceId', sourceId)
             // verify required parameter 'jsonPatchOperation' is not null or undefined
-            assertParamExists('patchSchemaAttribute', 'jsonPatchOperation', jsonPatchOperation)
+            assertParamExists('patchNonEmployeeSchemaAttribute', 'jsonPatchOperation', jsonPatchOperation)
             const localVarPath = `/non-employee-sources/{sourceId}/schema-attributes/{attributeId}`
                 .replace(`{${"attributeId"}}`, encodeURIComponent(String(attributeId)))
                 .replace(`{${"sourceId"}}`, encodeURIComponent(String(sourceId)));
@@ -21149,6 +20952,203 @@ export const NonEmployeeLifecycleManagementApiAxiosParamCreator = function (conf
                 axiosOptions: localVarRequestOptions,
             };
         },
+        /**
+         * patch a non-employee source. (partial update) <br/> Patchable field: **name, description, approvers, accountManagers** Requires role context of `idn:nesr:update`.
+         * @summary Patch a Non-Employee Source
+         * @param {string} sourceId Source Id
+         * @param {Array<JsonPatchOperation>} jsonPatchOperation A list of non-employee source update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        patchNonEmployeeSource: async (sourceId: string, jsonPatchOperation: Array<JsonPatchOperation>, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'sourceId' is not null or undefined
+            assertParamExists('patchNonEmployeeSource', 'sourceId', sourceId)
+            // verify required parameter 'jsonPatchOperation' is not null or undefined
+            assertParamExists('patchNonEmployeeSource', 'jsonPatchOperation', jsonPatchOperation)
+            const localVarPath = `/non-employee-sources/{sourceId}`
+                .replace(`{${"sourceId"}}`, encodeURIComponent(String(sourceId)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'PATCH', ...baseOptions, ...axiosOptions};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication oauth2 required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "oauth2", [], configuration)
+
+            // authentication oauth2 required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "oauth2", [], configuration)
+
+
+    
+            localVarHeaderParameter['Content-Type'] = 'application/json-patch+json';
+
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
+            localVarRequestOptions.data = serializeDataIfNeeded(jsonPatchOperation, localVarRequestOptions, configuration)
+
+            return {
+                url: toPathString(localVarUrlObj),
+                axiosOptions: localVarRequestOptions,
+            };
+        },
+        /**
+         * This endpoint will reject an approval item request and notify user. The current user must be the requested approver.
+         * @summary Reject a Non-Employee Request
+         * @param {string} id Non-Employee approval item id (UUID)
+         * @param {NonEmployeeRejectApprovalDecision} nonEmployeeRejectApprovalDecision 
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        rejectNonEmployeeRequest: async (id: string, nonEmployeeRejectApprovalDecision: NonEmployeeRejectApprovalDecision, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'id' is not null or undefined
+            assertParamExists('rejectNonEmployeeRequest', 'id', id)
+            // verify required parameter 'nonEmployeeRejectApprovalDecision' is not null or undefined
+            assertParamExists('rejectNonEmployeeRequest', 'nonEmployeeRejectApprovalDecision', nonEmployeeRejectApprovalDecision)
+            const localVarPath = `/non-employee-approvals/{id}/reject`
+                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'POST', ...baseOptions, ...axiosOptions};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication oauth2 required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "oauth2", [], configuration)
+
+            // authentication oauth2 required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "oauth2", [], configuration)
+
+
+    
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
+            localVarRequestOptions.data = serializeDataIfNeeded(nonEmployeeRejectApprovalDecision, localVarRequestOptions, configuration)
+
+            return {
+                url: toPathString(localVarUrlObj),
+                axiosOptions: localVarRequestOptions,
+            };
+        },
+        /**
+         * This request will update a non-employee record. There are two contextual uses for this endpoint:   1. The user has the role context of `idn:nesr:update`, in which case they update all available fields.   2. The user is owner of the source, in this case they can only update the end date.
+         * @summary Update Non-Employee Record
+         * @param {string} id Non-employee record id (UUID)
+         * @param {NonEmployeeRequestBody} nonEmployeeRequestBody Non-employee record creation request body. Attributes are restricted by user type. Owner of source can update end date. Organization admins can update all available fields.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        updateNonEmployeeRecord: async (id: string, nonEmployeeRequestBody: NonEmployeeRequestBody, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'id' is not null or undefined
+            assertParamExists('updateNonEmployeeRecord', 'id', id)
+            // verify required parameter 'nonEmployeeRequestBody' is not null or undefined
+            assertParamExists('updateNonEmployeeRecord', 'nonEmployeeRequestBody', nonEmployeeRequestBody)
+            const localVarPath = `/non-employee-records/{id}`
+                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'PUT', ...baseOptions, ...axiosOptions};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication oauth2 required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "oauth2", [], configuration)
+
+            // authentication oauth2 required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "oauth2", [], configuration)
+
+
+    
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
+            localVarRequestOptions.data = serializeDataIfNeeded(nonEmployeeRequestBody, localVarRequestOptions, configuration)
+
+            return {
+                url: toPathString(localVarUrlObj),
+                axiosOptions: localVarRequestOptions,
+            };
+        },
+        /**
+         * This post will import, or update, Non-Employee records found in the CSV. Requires role context of `idn:nesr:create`
+         * @summary Imports, or Updates, Non-Employee Records
+         * @param {string} id Source Id (UUID)
+         * @param {string} data 
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        uploadNonEmployeeRecordsInBulk: async (id: string, data: string, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'id' is not null or undefined
+            assertParamExists('uploadNonEmployeeRecordsInBulk', 'id', id)
+            // verify required parameter 'data' is not null or undefined
+            assertParamExists('uploadNonEmployeeRecordsInBulk', 'data', data)
+            const localVarPath = `/non-employee-sources/{id}/non-employee-bulk-upload`
+                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'POST', ...baseOptions, ...axiosOptions};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            const localVarFormParams = new ((configuration && configuration.formDataCtor) || FormData)();
+
+            // authentication oauth2 required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "oauth2", [], configuration)
+
+            // authentication oauth2 required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "oauth2", [], configuration)
+
+
+            if (data !== undefined) { 
+                localVarFormParams.append('data', data as any);
+            }
+    
+    
+            localVarHeaderParameter['Content-Type'] = 'multipart/form-data';
+    
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
+            localVarRequestOptions.data = localVarFormParams;
+
+            return {
+                url: toPathString(localVarUrlObj),
+                axiosOptions: localVarRequestOptions,
+            };
+        },
     }
 };
 
@@ -21160,6 +21160,51 @@ export const NonEmployeeLifecycleManagementApiFp = function(configuration?: Conf
     const localVarAxiosParamCreator = NonEmployeeLifecycleManagementApiAxiosParamCreator(configuration)
     return {
         /**
+         * Approves a non-employee approval request and notifies the next approver. The current user must be the requested approver.
+         * @summary Approve a Non-Employee Request
+         * @param {string} id Non-Employee approval item id (UUID)
+         * @param {NonEmployeeApprovalDecision} nonEmployeeApprovalDecision 
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        async approveNonEmployeeRequest(id: string, nonEmployeeApprovalDecision: NonEmployeeApprovalDecision, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<NonEmployeeApprovalItem>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.approveNonEmployeeRequest(id, nonEmployeeApprovalDecision, axiosOptions);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * This request will create a non-employee record. Requires role context of `idn:nesr:create`
+         * @summary Create Non-Employee Record
+         * @param {NonEmployeeRequestBody} nonEmployeeRequestBody Non-Employee record creation request body.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        async createNonEmployeeRecord(nonEmployeeRequestBody: NonEmployeeRequestBody, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<NonEmployeeRecord>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.createNonEmployeeRecord(nonEmployeeRequestBody, axiosOptions);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * This request will create a non-employee request and notify the approver. Requires role context of `idn:nesr:create` or the user must own the source.
+         * @summary Create Non-Employee Request
+         * @param {NonEmployeeRequestBody} nonEmployeeRequestBody Non-Employee creation request body
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        async createNonEmployeeRequest(nonEmployeeRequestBody: NonEmployeeRequestBody, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<NonEmployeeRequest>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.createNonEmployeeRequest(nonEmployeeRequestBody, axiosOptions);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * This request will create a non-employee source. Requires role context of `idn:nesr:create`
+         * @summary Create Non-Employee Source
+         * @param {NonEmployeeSourceRequestBody} nonEmployeeSourceRequestBody Non-Employee source creation request body.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        async createNonEmployeeSource(nonEmployeeSourceRequestBody: NonEmployeeSourceRequestBody, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<NonEmployeeSourceWithCloudExternalId>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.createNonEmployeeSource(nonEmployeeSourceRequestBody, axiosOptions);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
          * This API creates a new schema attribute for Non-Employee Source. The schema technical name must be unique in the source. Attempts to create a schema attribute with an existing name will result in a \"400.1.409 Reference conflict\" response. At most, 10 custom attributes can be created per schema. Attempts to create more than 10 will result in a \"400.1.4 Limit violation\" response. Requires role context of `idn:nesr:create`
          * @summary Create a new Schema Attribute for Non-Employee Source
          * @param {string} sourceId The Source id
@@ -21167,8 +21212,41 @@ export const NonEmployeeLifecycleManagementApiFp = function(configuration?: Conf
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async createSchemaAttribute(sourceId: string, nonEmployeeSchemaAttributeBody: NonEmployeeSchemaAttributeBody, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<NonEmployeeSchemaAttribute>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.createSchemaAttribute(sourceId, nonEmployeeSchemaAttributeBody, axiosOptions);
+        async createNonEmployeeSourceSchemaAttributes(sourceId: string, nonEmployeeSchemaAttributeBody: NonEmployeeSchemaAttributeBody, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<NonEmployeeSchemaAttribute>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.createNonEmployeeSourceSchemaAttributes(sourceId, nonEmployeeSchemaAttributeBody, axiosOptions);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * This request will delete a non-employee record. Requires role context of `idn:nesr:delete`
+         * @summary Delete Non-Employee Record
+         * @param {string} id Non-Employee record id (UUID)
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        async deleteNonEmployeeRecord(id: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.deleteNonEmployeeRecord(id, axiosOptions);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * This request will delete multiple non-employee records based on the non-employee ids provided. Requires role context of `idn:nesr:delete`
+         * @summary Delete Multiple Non-Employee Records
+         * @param {DeleteNonEmployeeRecordsInBulkRequest} deleteNonEmployeeRecordsInBulkRequest Non-Employee bulk delete request body.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        async deleteNonEmployeeRecordsInBulk(deleteNonEmployeeRecordsInBulkRequest: DeleteNonEmployeeRecordsInBulkRequest, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.deleteNonEmployeeRecordsInBulk(deleteNonEmployeeRecordsInBulkRequest, axiosOptions);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * This request will delete a non-employee request.  Requires role context of `idn:nesr:delete`
+         * @summary Delete Non-Employee Request
+         * @param {string} id Non-Employee request id in the UUID format
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        async deleteNonEmployeeRequest(id: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.deleteNonEmployeeRequest(id, axiosOptions);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
@@ -21179,8 +21257,19 @@ export const NonEmployeeLifecycleManagementApiFp = function(configuration?: Conf
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async deleteSchemaAttribute(attributeId: string, sourceId: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.deleteSchemaAttribute(attributeId, sourceId, axiosOptions);
+        async deleteNonEmployeeSchemaAttribute(attributeId: string, sourceId: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.deleteNonEmployeeSchemaAttribute(attributeId, sourceId, axiosOptions);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * This request will delete a non-employee source. Requires role context of `idn:nesr:delete`.
+         * @summary Delete Non-Employee Source
+         * @param {string} sourceId Source Id
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        async deleteNonEmployeeSource(sourceId: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.deleteNonEmployeeSource(sourceId, axiosOptions);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
@@ -21190,31 +21279,30 @@ export const NonEmployeeLifecycleManagementApiFp = function(configuration?: Conf
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async deleteSchemaAttributes(sourceId: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.deleteSchemaAttributes(sourceId, axiosOptions);
+        async deleteNonEmployeeSourceSchemaAttributes(sourceId: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.deleteNonEmployeeSourceSchemaAttributes(sourceId, axiosOptions);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
-         * This API gets a schema attribute by Id for the specified Non-Employee SourceId. Requires role context of `idn:nesr:read` or the user must be an account manager of the source.
-         * @summary Get Schema Attribute Non-Employee Source
-         * @param {string} attributeId The Schema Attribute Id (UUID)
-         * @param {string} sourceId The Source id
+         * This requests a CSV download for all non-employees from a provided source. Requires role context of `idn:nesr:read`
+         * @summary Exports Non-Employee Records to CSV
+         * @param {string} id Source Id (UUID)
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async getSchemaAttribute(attributeId: string, sourceId: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<NonEmployeeSchemaAttribute>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.getSchemaAttribute(attributeId, sourceId, axiosOptions);
+        async exportNonEmployeeRecords(id: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.exportNonEmployeeRecords(id, axiosOptions);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
-         * This API gets the list of schema attributes for the specified Non-Employee SourceId. There are 8 mandatory attributes added to each new Non-Employee Source automatically. Additionaly, user can add up to 10 custom attributes. This interface returns all the mandatory attributes followed by any custom attributes. At most, a total of 18 attributes will be returned. Requires role context of `idn:nesr:read` or the user must be an account manager of the source.
-         * @summary List Schema Attributes Non-Employee Source
-         * @param {string} sourceId The Source id
+         * This requests a download for the Source Schema Template for a provided source. Requires role context of `idn:nesr:read`
+         * @summary Exports Source Schema Template
+         * @param {string} id Source Id (UUID)
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async getSchemaAttributes(sourceId: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<NonEmployeeSchemaAttribute>>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.getSchemaAttributes(sourceId, axiosOptions);
+        async exportNonEmployeeSourceSchemaTemplate(id: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.exportNonEmployeeSourceSchemaTemplate(id, axiosOptions);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
@@ -21225,8 +21313,97 @@ export const NonEmployeeLifecycleManagementApiFp = function(configuration?: Conf
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async nonEmployeeApprovalGet(id: string, includeDetail?: boolean, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<NonEmployeeApprovalItemDetail>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.nonEmployeeApprovalGet(id, includeDetail, axiosOptions);
+        async getNonEmployeeApproval(id: string, includeDetail?: boolean, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<NonEmployeeApprovalItemDetail>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getNonEmployeeApproval(id, includeDetail, axiosOptions);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * This request will retrieve a summary of non-employee approval requests. There are two contextual uses for the `requested-for` path parameter:   1. The user has the role context of `idn:nesr:read`, in which case he or she may request a summary of all non-employee approval requests assigned to a particular approver by passing in that approver\'s id.   2. The current user is an approver, in which case \"me\" should be provided as the `requested-for` value. This will provide the approver with a summary of the approval items assigned to him or her.
+         * @summary Get Summary of Non-Employee Approval Requests
+         * @param {string} requestedFor The identity (UUID) of the approver for whom for whom the summary is being retrieved. Use \&quot;me\&quot; instead to indicate the current user.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        async getNonEmployeeApprovalSummary(requestedFor: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<NonEmployeeApprovalSummary>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getNonEmployeeApprovalSummary(requestedFor, axiosOptions);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * The nonEmployeeBulkUploadStatus API returns the status of the newest bulk upload job for the specified source. Requires role context of `idn:nesr:read` 
+         * @summary Obtain the status of bulk upload on the source
+         * @param {string} id Source ID (UUID)
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        async getNonEmployeeBulkUploadStatus(id: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<NonEmployeeBulkUploadStatus>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getNonEmployeeBulkUploadStatus(id, axiosOptions);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * This gets a non-employee record. Requires role context of `idn:nesr:read`
+         * @summary Get a Non-Employee Record
+         * @param {string} id Non-Employee record id (UUID)
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        async getNonEmployeeRecord(id: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<NonEmployeeRecord>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getNonEmployeeRecord(id, axiosOptions);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * This gets a non-employee request. There are two contextual uses for this endpoint:   1. The user has the role context of `idn:nesr:read`, in this case the user can get the non-employee request for any user.   2. The user must be the owner of the non-employee request.
+         * @summary Get a Non-Employee Request
+         * @param {string} id Non-Employee request id (UUID)
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        async getNonEmployeeRequest(id: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<NonEmployeeRequest>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getNonEmployeeRequest(id, axiosOptions);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * This request will retrieve a summary of non-employee requests. There are two contextual uses for the `requested-for` path parameter:   1. The user has the role context of `idn:nesr:read`, in which case he or she may request a summary of all non-employee approval requests assigned to a particular account manager by passing in that manager\'s id.   2. The current user is an account manager, in which case \"me\" should be provided as the `requested-for` value. This will provide the user with a summary of the non-employee requests in the source(s) he or she manages.
+         * @summary Get Summary of Non-Employee Requests
+         * @param {string} requestedFor The identity (UUID) of the non-employee account manager for whom the summary is being retrieved. Use \&quot;me\&quot; instead to indicate the current user.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        async getNonEmployeeRequestSummary(requestedFor: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<NonEmployeeRequestSummary>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getNonEmployeeRequestSummary(requestedFor, axiosOptions);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * This API gets a schema attribute by Id for the specified Non-Employee SourceId. Requires role context of `idn:nesr:read` or the user must be an account manager of the source.
+         * @summary Get Schema Attribute Non-Employee Source
+         * @param {string} attributeId The Schema Attribute Id (UUID)
+         * @param {string} sourceId The Source id
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        async getNonEmployeeSchemaAttribute(attributeId: string, sourceId: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<NonEmployeeSchemaAttribute>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getNonEmployeeSchemaAttribute(attributeId, sourceId, axiosOptions);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * This gets a non-employee source. There are two contextual uses for the requested-for path parameter:    1. The user has the role context of `idn:nesr:read`, in which case he or she may request any source.   2. The current user is an account manager, in which case the user can only request sources that they own.
+         * @summary Get a Non-Employee Source
+         * @param {string} sourceId Source Id
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        async getNonEmployeeSource(sourceId: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<NonEmployeeSource>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getNonEmployeeSource(sourceId, axiosOptions);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * This API gets the list of schema attributes for the specified Non-Employee SourceId. There are 8 mandatory attributes added to each new Non-Employee Source automatically. Additionaly, user can add up to 10 custom attributes. This interface returns all the mandatory attributes followed by any custom attributes. At most, a total of 18 attributes will be returned. Requires role context of `idn:nesr:read` or the user must be an account manager of the source.
+         * @summary List Schema Attributes Non-Employee Source
+         * @param {string} sourceId The Source id
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        async getNonEmployeeSourceSchemaAttributes(sourceId: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<NonEmployeeSchemaAttribute>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getNonEmployeeSourceSchemaAttributes(sourceId, axiosOptions);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
@@ -21241,97 +21418,8 @@ export const NonEmployeeLifecycleManagementApiFp = function(configuration?: Conf
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async nonEmployeeApprovalList(requestedFor?: string, limit?: number, offset?: number, count?: boolean, filters?: string, sorters?: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<NonEmployeeApprovalItem>>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.nonEmployeeApprovalList(requestedFor, limit, offset, count, filters, sorters, axiosOptions);
-            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
-        },
-        /**
-         * This request will retrieve a summary of non-employee approval requests. There are two contextual uses for the `requested-for` path parameter:   1. The user has the role context of `idn:nesr:read`, in which case he or she may request a summary of all non-employee approval requests assigned to a particular approver by passing in that approver\'s id.   2. The current user is an approver, in which case \"me\" should be provided as the `requested-for` value. This will provide the approver with a summary of the approval items assigned to him or her.
-         * @summary Get Summary of Non-Employee Approval Requests
-         * @param {string} requestedFor The identity (UUID) of the approver for whom for whom the summary is being retrieved. Use \&quot;me\&quot; instead to indicate the current user.
-         * @param {*} [axiosOptions] Override http request option.
-         * @throws {RequiredError}
-         */
-        async nonEmployeeApprovalSummary(requestedFor: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<NonEmployeeApprovalSummary>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.nonEmployeeApprovalSummary(requestedFor, axiosOptions);
-            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
-        },
-        /**
-         * Approves a non-employee approval request and notifies the next approver. The current user must be the requested approver.
-         * @summary Approve a Non-Employee Request
-         * @param {string} id Non-Employee approval item id (UUID)
-         * @param {NonEmployeeApprovalDecision} nonEmployeeApprovalDecision 
-         * @param {*} [axiosOptions] Override http request option.
-         * @throws {RequiredError}
-         */
-        async nonEmployeeApproveRequest(id: string, nonEmployeeApprovalDecision: NonEmployeeApprovalDecision, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<NonEmployeeApprovalItem>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.nonEmployeeApproveRequest(id, nonEmployeeApprovalDecision, axiosOptions);
-            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
-        },
-        /**
-         * The nonEmployeeBulkUploadStatus API returns the status of the newest bulk upload job for the specified source. Requires role context of `idn:nesr:read` 
-         * @summary Obtain the status of bulk upload on the source
-         * @param {string} id Source ID (UUID)
-         * @param {*} [axiosOptions] Override http request option.
-         * @throws {RequiredError}
-         */
-        async nonEmployeeBulkUploadStatus(id: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<NonEmployeeBulkUploadStatus>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.nonEmployeeBulkUploadStatus(id, axiosOptions);
-            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
-        },
-        /**
-         * This requests a download for the Source Schema Template for a provided source. Requires role context of `idn:nesr:read`
-         * @summary Exports Source Schema Template
-         * @param {string} id Source Id (UUID)
-         * @param {*} [axiosOptions] Override http request option.
-         * @throws {RequiredError}
-         */
-        async nonEmployeeExportSourceSchemaTemplate(id: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.nonEmployeeExportSourceSchemaTemplate(id, axiosOptions);
-            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
-        },
-        /**
-         * This request will delete multiple non-employee records based on the non-employee ids provided. Requires role context of `idn:nesr:delete`
-         * @summary Delete Multiple Non-Employee Records
-         * @param {NonEmployeeRecordBulkDeleteRequest} nonEmployeeRecordBulkDeleteRequest Non-Employee bulk delete request body.
-         * @param {*} [axiosOptions] Override http request option.
-         * @throws {RequiredError}
-         */
-        async nonEmployeeRecordBulkDelete(nonEmployeeRecordBulkDeleteRequest: NonEmployeeRecordBulkDeleteRequest, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.nonEmployeeRecordBulkDelete(nonEmployeeRecordBulkDeleteRequest, axiosOptions);
-            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
-        },
-        /**
-         * This request will create a non-employee record. Requires role context of `idn:nesr:create`
-         * @summary Create Non-Employee Record
-         * @param {NonEmployeeRequestBody} nonEmployeeRequestBody Non-Employee record creation request body.
-         * @param {*} [axiosOptions] Override http request option.
-         * @throws {RequiredError}
-         */
-        async nonEmployeeRecordCreation(nonEmployeeRequestBody: NonEmployeeRequestBody, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<NonEmployeeRecord>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.nonEmployeeRecordCreation(nonEmployeeRequestBody, axiosOptions);
-            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
-        },
-        /**
-         * This request will delete a non-employee record. Requires role context of `idn:nesr:delete`
-         * @summary Delete Non-Employee Record
-         * @param {string} id Non-Employee record id (UUID)
-         * @param {*} [axiosOptions] Override http request option.
-         * @throws {RequiredError}
-         */
-        async nonEmployeeRecordDelete(id: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.nonEmployeeRecordDelete(id, axiosOptions);
-            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
-        },
-        /**
-         * This gets a non-employee record. Requires role context of `idn:nesr:read`
-         * @summary Get a Non-Employee Record
-         * @param {string} id Non-Employee record id (UUID)
-         * @param {*} [axiosOptions] Override http request option.
-         * @throws {RequiredError}
-         */
-        async nonEmployeeRecordGet(id: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<NonEmployeeRecord>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.nonEmployeeRecordGet(id, axiosOptions);
+        async listNonEmployeeApprovals(requestedFor?: string, limit?: number, offset?: number, count?: boolean, filters?: string, sorters?: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<NonEmployeeApprovalItem>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.listNonEmployeeApprovals(requestedFor, limit, offset, count, filters, sorters, axiosOptions);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
@@ -21345,100 +21433,8 @@ export const NonEmployeeLifecycleManagementApiFp = function(configuration?: Conf
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async nonEmployeeRecordList(limit?: number, offset?: number, count?: boolean, sorters?: string, filters?: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<NonEmployeeRecord>>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.nonEmployeeRecordList(limit, offset, count, sorters, filters, axiosOptions);
-            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
-        },
-        /**
-         * This request will patch a non-employee record. There are two contextual uses for this endpoint:   1. The user has the role context of `idn:nesr:update`, in which case they update all available fields.   2. The user is owner of the source, in this case they can only update the end date.
-         * @summary Patch Non-Employee Record
-         * @param {string} id Non-employee record id (UUID)
-         * @param {Array<JsonPatchOperation>} jsonPatchOperation A list of non-employee update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard. Attributes are restricted by user type. Owner of source can update end date. Organization admins can update all available fields.
-         * @param {*} [axiosOptions] Override http request option.
-         * @throws {RequiredError}
-         */
-        async nonEmployeeRecordPatch(id: string, jsonPatchOperation: Array<JsonPatchOperation>, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<NonEmployeeRecord>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.nonEmployeeRecordPatch(id, jsonPatchOperation, axiosOptions);
-            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
-        },
-        /**
-         * This request will update a non-employee record. There are two contextual uses for this endpoint:   1. The user has the role context of `idn:nesr:update`, in which case they update all available fields.   2. The user is owner of the source, in this case they can only update the end date.
-         * @summary Update Non-Employee Record
-         * @param {string} id Non-employee record id (UUID)
-         * @param {NonEmployeeRequestBody} nonEmployeeRequestBody Non-employee record creation request body. Attributes are restricted by user type. Owner of source can update end date. Organization admins can update all available fields.
-         * @param {*} [axiosOptions] Override http request option.
-         * @throws {RequiredError}
-         */
-        async nonEmployeeRecordUpdate(id: string, nonEmployeeRequestBody: NonEmployeeRequestBody, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<NonEmployeeRecord>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.nonEmployeeRecordUpdate(id, nonEmployeeRequestBody, axiosOptions);
-            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
-        },
-        /**
-         * This post will import, or update, Non-Employee records found in the CSV. Requires role context of `idn:nesr:create`
-         * @summary Imports, or Updates, Non-Employee Records
-         * @param {string} id Source Id (UUID)
-         * @param {string} data 
-         * @param {*} [axiosOptions] Override http request option.
-         * @throws {RequiredError}
-         */
-        async nonEmployeeRecordsBulkUpload(id: string, data: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<NonEmployeeBulkUploadJob>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.nonEmployeeRecordsBulkUpload(id, data, axiosOptions);
-            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
-        },
-        /**
-         * This requests a CSV download for all non-employees from a provided source. Requires role context of `idn:nesr:read`
-         * @summary Exports Non-Employee Records to CSV
-         * @param {string} id Source Id (UUID)
-         * @param {*} [axiosOptions] Override http request option.
-         * @throws {RequiredError}
-         */
-        async nonEmployeeRecordsExport(id: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.nonEmployeeRecordsExport(id, axiosOptions);
-            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
-        },
-        /**
-         * This endpoint will reject an approval item request and notify user. The current user must be the requested approver.
-         * @summary Reject a Non-Employee Request
-         * @param {string} id Non-Employee approval item id (UUID)
-         * @param {NonEmployeeRejectApprovalDecision} nonEmployeeRejectApprovalDecision 
-         * @param {*} [axiosOptions] Override http request option.
-         * @throws {RequiredError}
-         */
-        async nonEmployeeRejectRequest(id: string, nonEmployeeRejectApprovalDecision: NonEmployeeRejectApprovalDecision, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<NonEmployeeApprovalItem>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.nonEmployeeRejectRequest(id, nonEmployeeRejectApprovalDecision, axiosOptions);
-            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
-        },
-        /**
-         * This request will create a non-employee request and notify the approver. Requires role context of `idn:nesr:create` or the user must own the source.
-         * @summary Create Non-Employee Request
-         * @param {NonEmployeeRequestBody} nonEmployeeRequestBody Non-Employee creation request body
-         * @param {*} [axiosOptions] Override http request option.
-         * @throws {RequiredError}
-         */
-        async nonEmployeeRequestCreation(nonEmployeeRequestBody: NonEmployeeRequestBody, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<NonEmployeeRequest>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.nonEmployeeRequestCreation(nonEmployeeRequestBody, axiosOptions);
-            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
-        },
-        /**
-         * This request will delete a non-employee request.  Requires role context of `idn:nesr:delete`
-         * @summary Delete Non-Employee Request
-         * @param {string} id Non-Employee request id in the UUID format
-         * @param {*} [axiosOptions] Override http request option.
-         * @throws {RequiredError}
-         */
-        async nonEmployeeRequestDeletion(id: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.nonEmployeeRequestDeletion(id, axiosOptions);
-            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
-        },
-        /**
-         * This gets a non-employee request. There are two contextual uses for this endpoint:   1. The user has the role context of `idn:nesr:read`, in this case the user can get the non-employee request for any user.   2. The user must be the owner of the non-employee request.
-         * @summary Get a Non-Employee Request
-         * @param {string} id Non-Employee request id (UUID)
-         * @param {*} [axiosOptions] Override http request option.
-         * @throws {RequiredError}
-         */
-        async nonEmployeeRequestGet(id: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<NonEmployeeRequest>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.nonEmployeeRequestGet(id, axiosOptions);
+        async listNonEmployeeRecords(limit?: number, offset?: number, count?: boolean, sorters?: string, filters?: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<NonEmployeeRecord>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.listNonEmployeeRecords(limit, offset, count, sorters, filters, axiosOptions);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
@@ -21453,64 +21449,8 @@ export const NonEmployeeLifecycleManagementApiFp = function(configuration?: Conf
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async nonEmployeeRequestList(requestedFor: string, limit?: number, offset?: number, count?: boolean, sorters?: string, filters?: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<NonEmployeeRequest>>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.nonEmployeeRequestList(requestedFor, limit, offset, count, sorters, filters, axiosOptions);
-            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
-        },
-        /**
-         * This request will retrieve a summary of non-employee requests. There are two contextual uses for the `requested-for` path parameter:   1. The user has the role context of `idn:nesr:read`, in which case he or she may request a summary of all non-employee approval requests assigned to a particular account manager by passing in that manager\'s id.   2. The current user is an account manager, in which case \"me\" should be provided as the `requested-for` value. This will provide the user with a summary of the non-employee requests in the source(s) he or she manages.
-         * @summary Get Summary of Non-Employee Requests
-         * @param {string} requestedFor The identity (UUID) of the non-employee account manager for whom the summary is being retrieved. Use \&quot;me\&quot; instead to indicate the current user.
-         * @param {*} [axiosOptions] Override http request option.
-         * @throws {RequiredError}
-         */
-        async nonEmployeeRequestSummaryGet(requestedFor: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<NonEmployeeRequestSummary>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.nonEmployeeRequestSummaryGet(requestedFor, axiosOptions);
-            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
-        },
-        /**
-         * This request will delete a non-employee source. Requires role context of `idn:nesr:delete`.
-         * @summary Delete Non-Employee Source
-         * @param {string} sourceId Source Id
-         * @param {*} [axiosOptions] Override http request option.
-         * @throws {RequiredError}
-         */
-        async nonEmployeeSourceDelete(sourceId: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.nonEmployeeSourceDelete(sourceId, axiosOptions);
-            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
-        },
-        /**
-         * This gets a non-employee source. There are two contextual uses for the requested-for path parameter:    1. The user has the role context of `idn:nesr:read`, in which case he or she may request any source.   2. The current user is an account manager, in which case the user can only request sources that they own.
-         * @summary Get a Non-Employee Source
-         * @param {string} sourceId Source Id
-         * @param {*} [axiosOptions] Override http request option.
-         * @throws {RequiredError}
-         */
-        async nonEmployeeSourceGet(sourceId: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<NonEmployeeSource>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.nonEmployeeSourceGet(sourceId, axiosOptions);
-            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
-        },
-        /**
-         * patch a non-employee source. (partial update) <br/> Patchable field: **name, description, approvers, accountManagers** Requires role context of `idn:nesr:update`.
-         * @summary Patch a Non-Employee Source
-         * @param {string} sourceId Source Id
-         * @param {Array<JsonPatchOperation>} jsonPatchOperation A list of non-employee source update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.
-         * @param {*} [axiosOptions] Override http request option.
-         * @throws {RequiredError}
-         */
-        async nonEmployeeSourcePatch(sourceId: string, jsonPatchOperation: Array<JsonPatchOperation>, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<NonEmployeeSource>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.nonEmployeeSourcePatch(sourceId, jsonPatchOperation, axiosOptions);
-            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
-        },
-        /**
-         * This request will create a non-employee source. Requires role context of `idn:nesr:create`
-         * @summary Create Non-Employee Source
-         * @param {NonEmployeeSourceRequestBody} nonEmployeeSourceRequestBody Non-Employee source creation request body.
-         * @param {*} [axiosOptions] Override http request option.
-         * @throws {RequiredError}
-         */
-        async nonEmployeeSourcesCreation(nonEmployeeSourceRequestBody: NonEmployeeSourceRequestBody, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<NonEmployeeSourceWithCloudExternalId>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.nonEmployeeSourcesCreation(nonEmployeeSourceRequestBody, axiosOptions);
+        async listNonEmployeeRequests(requestedFor: string, limit?: number, offset?: number, count?: boolean, sorters?: string, filters?: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<NonEmployeeRequest>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.listNonEmployeeRequests(requestedFor, limit, offset, count, sorters, filters, axiosOptions);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
@@ -21525,8 +21465,20 @@ export const NonEmployeeLifecycleManagementApiFp = function(configuration?: Conf
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async nonEmployeeSourcesList(requestedFor: string, limit?: number, offset?: number, count?: boolean, nonEmployeeCount?: boolean, sorters?: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<NonEmployeeSourceWithNECount>>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.nonEmployeeSourcesList(requestedFor, limit, offset, count, nonEmployeeCount, sorters, axiosOptions);
+        async listNonEmployeeSources(requestedFor: string, limit?: number, offset?: number, count?: boolean, nonEmployeeCount?: boolean, sorters?: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<NonEmployeeSourceWithNECount>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.listNonEmployeeSources(requestedFor, limit, offset, count, nonEmployeeCount, sorters, axiosOptions);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * This request will patch a non-employee record. There are two contextual uses for this endpoint:   1. The user has the role context of `idn:nesr:update`, in which case they update all available fields.   2. The user is owner of the source, in this case they can only update the end date.
+         * @summary Patch Non-Employee Record
+         * @param {string} id Non-employee record id (UUID)
+         * @param {Array<JsonPatchOperation>} jsonPatchOperation A list of non-employee update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard. Attributes are restricted by user type. Owner of source can update end date. Organization admins can update all available fields.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        async patchNonEmployeeRecord(id: string, jsonPatchOperation: Array<JsonPatchOperation>, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<NonEmployeeRecord>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.patchNonEmployeeRecord(id, jsonPatchOperation, axiosOptions);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
@@ -21538,8 +21490,56 @@ export const NonEmployeeLifecycleManagementApiFp = function(configuration?: Conf
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async patchSchemaAttribute(attributeId: string, sourceId: string, jsonPatchOperation: Array<JsonPatchOperation>, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<NonEmployeeSchemaAttribute>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.patchSchemaAttribute(attributeId, sourceId, jsonPatchOperation, axiosOptions);
+        async patchNonEmployeeSchemaAttribute(attributeId: string, sourceId: string, jsonPatchOperation: Array<JsonPatchOperation>, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<NonEmployeeSchemaAttribute>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.patchNonEmployeeSchemaAttribute(attributeId, sourceId, jsonPatchOperation, axiosOptions);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * patch a non-employee source. (partial update) <br/> Patchable field: **name, description, approvers, accountManagers** Requires role context of `idn:nesr:update`.
+         * @summary Patch a Non-Employee Source
+         * @param {string} sourceId Source Id
+         * @param {Array<JsonPatchOperation>} jsonPatchOperation A list of non-employee source update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        async patchNonEmployeeSource(sourceId: string, jsonPatchOperation: Array<JsonPatchOperation>, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<NonEmployeeSource>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.patchNonEmployeeSource(sourceId, jsonPatchOperation, axiosOptions);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * This endpoint will reject an approval item request and notify user. The current user must be the requested approver.
+         * @summary Reject a Non-Employee Request
+         * @param {string} id Non-Employee approval item id (UUID)
+         * @param {NonEmployeeRejectApprovalDecision} nonEmployeeRejectApprovalDecision 
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        async rejectNonEmployeeRequest(id: string, nonEmployeeRejectApprovalDecision: NonEmployeeRejectApprovalDecision, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<NonEmployeeApprovalItem>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.rejectNonEmployeeRequest(id, nonEmployeeRejectApprovalDecision, axiosOptions);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * This request will update a non-employee record. There are two contextual uses for this endpoint:   1. The user has the role context of `idn:nesr:update`, in which case they update all available fields.   2. The user is owner of the source, in this case they can only update the end date.
+         * @summary Update Non-Employee Record
+         * @param {string} id Non-employee record id (UUID)
+         * @param {NonEmployeeRequestBody} nonEmployeeRequestBody Non-employee record creation request body. Attributes are restricted by user type. Owner of source can update end date. Organization admins can update all available fields.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        async updateNonEmployeeRecord(id: string, nonEmployeeRequestBody: NonEmployeeRequestBody, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<NonEmployeeRecord>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.updateNonEmployeeRecord(id, nonEmployeeRequestBody, axiosOptions);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * This post will import, or update, Non-Employee records found in the CSV. Requires role context of `idn:nesr:create`
+         * @summary Imports, or Updates, Non-Employee Records
+         * @param {string} id Source Id (UUID)
+         * @param {string} data 
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        async uploadNonEmployeeRecordsInBulk(id: string, data: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<NonEmployeeBulkUploadJob>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.uploadNonEmployeeRecordsInBulk(id, data, axiosOptions);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
     }
@@ -21553,6 +21553,47 @@ export const NonEmployeeLifecycleManagementApiFactory = function (configuration?
     const localVarFp = NonEmployeeLifecycleManagementApiFp(configuration)
     return {
         /**
+         * Approves a non-employee approval request and notifies the next approver. The current user must be the requested approver.
+         * @summary Approve a Non-Employee Request
+         * @param {string} id Non-Employee approval item id (UUID)
+         * @param {NonEmployeeApprovalDecision} nonEmployeeApprovalDecision 
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        approveNonEmployeeRequest(id: string, nonEmployeeApprovalDecision: NonEmployeeApprovalDecision, axiosOptions?: any): AxiosPromise<NonEmployeeApprovalItem> {
+            return localVarFp.approveNonEmployeeRequest(id, nonEmployeeApprovalDecision, axiosOptions).then((request) => request(axios, basePath));
+        },
+        /**
+         * This request will create a non-employee record. Requires role context of `idn:nesr:create`
+         * @summary Create Non-Employee Record
+         * @param {NonEmployeeRequestBody} nonEmployeeRequestBody Non-Employee record creation request body.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        createNonEmployeeRecord(nonEmployeeRequestBody: NonEmployeeRequestBody, axiosOptions?: any): AxiosPromise<NonEmployeeRecord> {
+            return localVarFp.createNonEmployeeRecord(nonEmployeeRequestBody, axiosOptions).then((request) => request(axios, basePath));
+        },
+        /**
+         * This request will create a non-employee request and notify the approver. Requires role context of `idn:nesr:create` or the user must own the source.
+         * @summary Create Non-Employee Request
+         * @param {NonEmployeeRequestBody} nonEmployeeRequestBody Non-Employee creation request body
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        createNonEmployeeRequest(nonEmployeeRequestBody: NonEmployeeRequestBody, axiosOptions?: any): AxiosPromise<NonEmployeeRequest> {
+            return localVarFp.createNonEmployeeRequest(nonEmployeeRequestBody, axiosOptions).then((request) => request(axios, basePath));
+        },
+        /**
+         * This request will create a non-employee source. Requires role context of `idn:nesr:create`
+         * @summary Create Non-Employee Source
+         * @param {NonEmployeeSourceRequestBody} nonEmployeeSourceRequestBody Non-Employee source creation request body.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        createNonEmployeeSource(nonEmployeeSourceRequestBody: NonEmployeeSourceRequestBody, axiosOptions?: any): AxiosPromise<NonEmployeeSourceWithCloudExternalId> {
+            return localVarFp.createNonEmployeeSource(nonEmployeeSourceRequestBody, axiosOptions).then((request) => request(axios, basePath));
+        },
+        /**
          * This API creates a new schema attribute for Non-Employee Source. The schema technical name must be unique in the source. Attempts to create a schema attribute with an existing name will result in a \"400.1.409 Reference conflict\" response. At most, 10 custom attributes can be created per schema. Attempts to create more than 10 will result in a \"400.1.4 Limit violation\" response. Requires role context of `idn:nesr:create`
          * @summary Create a new Schema Attribute for Non-Employee Source
          * @param {string} sourceId The Source id
@@ -21560,8 +21601,38 @@ export const NonEmployeeLifecycleManagementApiFactory = function (configuration?
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        createSchemaAttribute(sourceId: string, nonEmployeeSchemaAttributeBody: NonEmployeeSchemaAttributeBody, axiosOptions?: any): AxiosPromise<NonEmployeeSchemaAttribute> {
-            return localVarFp.createSchemaAttribute(sourceId, nonEmployeeSchemaAttributeBody, axiosOptions).then((request) => request(axios, basePath));
+        createNonEmployeeSourceSchemaAttributes(sourceId: string, nonEmployeeSchemaAttributeBody: NonEmployeeSchemaAttributeBody, axiosOptions?: any): AxiosPromise<NonEmployeeSchemaAttribute> {
+            return localVarFp.createNonEmployeeSourceSchemaAttributes(sourceId, nonEmployeeSchemaAttributeBody, axiosOptions).then((request) => request(axios, basePath));
+        },
+        /**
+         * This request will delete a non-employee record. Requires role context of `idn:nesr:delete`
+         * @summary Delete Non-Employee Record
+         * @param {string} id Non-Employee record id (UUID)
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        deleteNonEmployeeRecord(id: string, axiosOptions?: any): AxiosPromise<void> {
+            return localVarFp.deleteNonEmployeeRecord(id, axiosOptions).then((request) => request(axios, basePath));
+        },
+        /**
+         * This request will delete multiple non-employee records based on the non-employee ids provided. Requires role context of `idn:nesr:delete`
+         * @summary Delete Multiple Non-Employee Records
+         * @param {DeleteNonEmployeeRecordsInBulkRequest} deleteNonEmployeeRecordsInBulkRequest Non-Employee bulk delete request body.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        deleteNonEmployeeRecordsInBulk(deleteNonEmployeeRecordsInBulkRequest: DeleteNonEmployeeRecordsInBulkRequest, axiosOptions?: any): AxiosPromise<void> {
+            return localVarFp.deleteNonEmployeeRecordsInBulk(deleteNonEmployeeRecordsInBulkRequest, axiosOptions).then((request) => request(axios, basePath));
+        },
+        /**
+         * This request will delete a non-employee request.  Requires role context of `idn:nesr:delete`
+         * @summary Delete Non-Employee Request
+         * @param {string} id Non-Employee request id in the UUID format
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        deleteNonEmployeeRequest(id: string, axiosOptions?: any): AxiosPromise<void> {
+            return localVarFp.deleteNonEmployeeRequest(id, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * This end-point deletes a specific schema attribute for a non-employee source. Requires role context of `idn:nesr:delete` 
@@ -21571,8 +21642,18 @@ export const NonEmployeeLifecycleManagementApiFactory = function (configuration?
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        deleteSchemaAttribute(attributeId: string, sourceId: string, axiosOptions?: any): AxiosPromise<void> {
-            return localVarFp.deleteSchemaAttribute(attributeId, sourceId, axiosOptions).then((request) => request(axios, basePath));
+        deleteNonEmployeeSchemaAttribute(attributeId: string, sourceId: string, axiosOptions?: any): AxiosPromise<void> {
+            return localVarFp.deleteNonEmployeeSchemaAttribute(attributeId, sourceId, axiosOptions).then((request) => request(axios, basePath));
+        },
+        /**
+         * This request will delete a non-employee source. Requires role context of `idn:nesr:delete`.
+         * @summary Delete Non-Employee Source
+         * @param {string} sourceId Source Id
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        deleteNonEmployeeSource(sourceId: string, axiosOptions?: any): AxiosPromise<void> {
+            return localVarFp.deleteNonEmployeeSource(sourceId, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * This end-point deletes all custom schema attributes for a non-employee source. Requires role context of `idn:nesr:delete`
@@ -21581,29 +21662,28 @@ export const NonEmployeeLifecycleManagementApiFactory = function (configuration?
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        deleteSchemaAttributes(sourceId: string, axiosOptions?: any): AxiosPromise<void> {
-            return localVarFp.deleteSchemaAttributes(sourceId, axiosOptions).then((request) => request(axios, basePath));
+        deleteNonEmployeeSourceSchemaAttributes(sourceId: string, axiosOptions?: any): AxiosPromise<void> {
+            return localVarFp.deleteNonEmployeeSourceSchemaAttributes(sourceId, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
-         * This API gets a schema attribute by Id for the specified Non-Employee SourceId. Requires role context of `idn:nesr:read` or the user must be an account manager of the source.
-         * @summary Get Schema Attribute Non-Employee Source
-         * @param {string} attributeId The Schema Attribute Id (UUID)
-         * @param {string} sourceId The Source id
+         * This requests a CSV download for all non-employees from a provided source. Requires role context of `idn:nesr:read`
+         * @summary Exports Non-Employee Records to CSV
+         * @param {string} id Source Id (UUID)
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        getSchemaAttribute(attributeId: string, sourceId: string, axiosOptions?: any): AxiosPromise<NonEmployeeSchemaAttribute> {
-            return localVarFp.getSchemaAttribute(attributeId, sourceId, axiosOptions).then((request) => request(axios, basePath));
+        exportNonEmployeeRecords(id: string, axiosOptions?: any): AxiosPromise<void> {
+            return localVarFp.exportNonEmployeeRecords(id, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
-         * This API gets the list of schema attributes for the specified Non-Employee SourceId. There are 8 mandatory attributes added to each new Non-Employee Source automatically. Additionaly, user can add up to 10 custom attributes. This interface returns all the mandatory attributes followed by any custom attributes. At most, a total of 18 attributes will be returned. Requires role context of `idn:nesr:read` or the user must be an account manager of the source.
-         * @summary List Schema Attributes Non-Employee Source
-         * @param {string} sourceId The Source id
+         * This requests a download for the Source Schema Template for a provided source. Requires role context of `idn:nesr:read`
+         * @summary Exports Source Schema Template
+         * @param {string} id Source Id (UUID)
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        getSchemaAttributes(sourceId: string, axiosOptions?: any): AxiosPromise<Array<NonEmployeeSchemaAttribute>> {
-            return localVarFp.getSchemaAttributes(sourceId, axiosOptions).then((request) => request(axios, basePath));
+        exportNonEmployeeSourceSchemaTemplate(id: string, axiosOptions?: any): AxiosPromise<void> {
+            return localVarFp.exportNonEmployeeSourceSchemaTemplate(id, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * Gets a non-employee approval item detail. There are two contextual uses for this endpoint:   1. The user has the role context of `idn:nesr:read`, in which case they can get any approval.   2. The user owns the requested approval.
@@ -21613,8 +21693,89 @@ export const NonEmployeeLifecycleManagementApiFactory = function (configuration?
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        nonEmployeeApprovalGet(id: string, includeDetail?: boolean, axiosOptions?: any): AxiosPromise<NonEmployeeApprovalItemDetail> {
-            return localVarFp.nonEmployeeApprovalGet(id, includeDetail, axiosOptions).then((request) => request(axios, basePath));
+        getNonEmployeeApproval(id: string, includeDetail?: boolean, axiosOptions?: any): AxiosPromise<NonEmployeeApprovalItemDetail> {
+            return localVarFp.getNonEmployeeApproval(id, includeDetail, axiosOptions).then((request) => request(axios, basePath));
+        },
+        /**
+         * This request will retrieve a summary of non-employee approval requests. There are two contextual uses for the `requested-for` path parameter:   1. The user has the role context of `idn:nesr:read`, in which case he or she may request a summary of all non-employee approval requests assigned to a particular approver by passing in that approver\'s id.   2. The current user is an approver, in which case \"me\" should be provided as the `requested-for` value. This will provide the approver with a summary of the approval items assigned to him or her.
+         * @summary Get Summary of Non-Employee Approval Requests
+         * @param {string} requestedFor The identity (UUID) of the approver for whom for whom the summary is being retrieved. Use \&quot;me\&quot; instead to indicate the current user.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        getNonEmployeeApprovalSummary(requestedFor: string, axiosOptions?: any): AxiosPromise<NonEmployeeApprovalSummary> {
+            return localVarFp.getNonEmployeeApprovalSummary(requestedFor, axiosOptions).then((request) => request(axios, basePath));
+        },
+        /**
+         * The nonEmployeeBulkUploadStatus API returns the status of the newest bulk upload job for the specified source. Requires role context of `idn:nesr:read` 
+         * @summary Obtain the status of bulk upload on the source
+         * @param {string} id Source ID (UUID)
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        getNonEmployeeBulkUploadStatus(id: string, axiosOptions?: any): AxiosPromise<NonEmployeeBulkUploadStatus> {
+            return localVarFp.getNonEmployeeBulkUploadStatus(id, axiosOptions).then((request) => request(axios, basePath));
+        },
+        /**
+         * This gets a non-employee record. Requires role context of `idn:nesr:read`
+         * @summary Get a Non-Employee Record
+         * @param {string} id Non-Employee record id (UUID)
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        getNonEmployeeRecord(id: string, axiosOptions?: any): AxiosPromise<NonEmployeeRecord> {
+            return localVarFp.getNonEmployeeRecord(id, axiosOptions).then((request) => request(axios, basePath));
+        },
+        /**
+         * This gets a non-employee request. There are two contextual uses for this endpoint:   1. The user has the role context of `idn:nesr:read`, in this case the user can get the non-employee request for any user.   2. The user must be the owner of the non-employee request.
+         * @summary Get a Non-Employee Request
+         * @param {string} id Non-Employee request id (UUID)
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        getNonEmployeeRequest(id: string, axiosOptions?: any): AxiosPromise<NonEmployeeRequest> {
+            return localVarFp.getNonEmployeeRequest(id, axiosOptions).then((request) => request(axios, basePath));
+        },
+        /**
+         * This request will retrieve a summary of non-employee requests. There are two contextual uses for the `requested-for` path parameter:   1. The user has the role context of `idn:nesr:read`, in which case he or she may request a summary of all non-employee approval requests assigned to a particular account manager by passing in that manager\'s id.   2. The current user is an account manager, in which case \"me\" should be provided as the `requested-for` value. This will provide the user with a summary of the non-employee requests in the source(s) he or she manages.
+         * @summary Get Summary of Non-Employee Requests
+         * @param {string} requestedFor The identity (UUID) of the non-employee account manager for whom the summary is being retrieved. Use \&quot;me\&quot; instead to indicate the current user.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        getNonEmployeeRequestSummary(requestedFor: string, axiosOptions?: any): AxiosPromise<NonEmployeeRequestSummary> {
+            return localVarFp.getNonEmployeeRequestSummary(requestedFor, axiosOptions).then((request) => request(axios, basePath));
+        },
+        /**
+         * This API gets a schema attribute by Id for the specified Non-Employee SourceId. Requires role context of `idn:nesr:read` or the user must be an account manager of the source.
+         * @summary Get Schema Attribute Non-Employee Source
+         * @param {string} attributeId The Schema Attribute Id (UUID)
+         * @param {string} sourceId The Source id
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        getNonEmployeeSchemaAttribute(attributeId: string, sourceId: string, axiosOptions?: any): AxiosPromise<NonEmployeeSchemaAttribute> {
+            return localVarFp.getNonEmployeeSchemaAttribute(attributeId, sourceId, axiosOptions).then((request) => request(axios, basePath));
+        },
+        /**
+         * This gets a non-employee source. There are two contextual uses for the requested-for path parameter:    1. The user has the role context of `idn:nesr:read`, in which case he or she may request any source.   2. The current user is an account manager, in which case the user can only request sources that they own.
+         * @summary Get a Non-Employee Source
+         * @param {string} sourceId Source Id
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        getNonEmployeeSource(sourceId: string, axiosOptions?: any): AxiosPromise<NonEmployeeSource> {
+            return localVarFp.getNonEmployeeSource(sourceId, axiosOptions).then((request) => request(axios, basePath));
+        },
+        /**
+         * This API gets the list of schema attributes for the specified Non-Employee SourceId. There are 8 mandatory attributes added to each new Non-Employee Source automatically. Additionaly, user can add up to 10 custom attributes. This interface returns all the mandatory attributes followed by any custom attributes. At most, a total of 18 attributes will be returned. Requires role context of `idn:nesr:read` or the user must be an account manager of the source.
+         * @summary List Schema Attributes Non-Employee Source
+         * @param {string} sourceId The Source id
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        getNonEmployeeSourceSchemaAttributes(sourceId: string, axiosOptions?: any): AxiosPromise<Array<NonEmployeeSchemaAttribute>> {
+            return localVarFp.getNonEmployeeSourceSchemaAttributes(sourceId, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * This gets a list of non-employee approval requests. There are two contextual uses for this endpoint:   1. The user has the role context of `idn:nesr:read`, in which case they can list the approvals for any approver.   2. The user owns the requested approval.
@@ -21628,89 +21789,8 @@ export const NonEmployeeLifecycleManagementApiFactory = function (configuration?
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        nonEmployeeApprovalList(requestedFor?: string, limit?: number, offset?: number, count?: boolean, filters?: string, sorters?: string, axiosOptions?: any): AxiosPromise<Array<NonEmployeeApprovalItem>> {
-            return localVarFp.nonEmployeeApprovalList(requestedFor, limit, offset, count, filters, sorters, axiosOptions).then((request) => request(axios, basePath));
-        },
-        /**
-         * This request will retrieve a summary of non-employee approval requests. There are two contextual uses for the `requested-for` path parameter:   1. The user has the role context of `idn:nesr:read`, in which case he or she may request a summary of all non-employee approval requests assigned to a particular approver by passing in that approver\'s id.   2. The current user is an approver, in which case \"me\" should be provided as the `requested-for` value. This will provide the approver with a summary of the approval items assigned to him or her.
-         * @summary Get Summary of Non-Employee Approval Requests
-         * @param {string} requestedFor The identity (UUID) of the approver for whom for whom the summary is being retrieved. Use \&quot;me\&quot; instead to indicate the current user.
-         * @param {*} [axiosOptions] Override http request option.
-         * @throws {RequiredError}
-         */
-        nonEmployeeApprovalSummary(requestedFor: string, axiosOptions?: any): AxiosPromise<NonEmployeeApprovalSummary> {
-            return localVarFp.nonEmployeeApprovalSummary(requestedFor, axiosOptions).then((request) => request(axios, basePath));
-        },
-        /**
-         * Approves a non-employee approval request and notifies the next approver. The current user must be the requested approver.
-         * @summary Approve a Non-Employee Request
-         * @param {string} id Non-Employee approval item id (UUID)
-         * @param {NonEmployeeApprovalDecision} nonEmployeeApprovalDecision 
-         * @param {*} [axiosOptions] Override http request option.
-         * @throws {RequiredError}
-         */
-        nonEmployeeApproveRequest(id: string, nonEmployeeApprovalDecision: NonEmployeeApprovalDecision, axiosOptions?: any): AxiosPromise<NonEmployeeApprovalItem> {
-            return localVarFp.nonEmployeeApproveRequest(id, nonEmployeeApprovalDecision, axiosOptions).then((request) => request(axios, basePath));
-        },
-        /**
-         * The nonEmployeeBulkUploadStatus API returns the status of the newest bulk upload job for the specified source. Requires role context of `idn:nesr:read` 
-         * @summary Obtain the status of bulk upload on the source
-         * @param {string} id Source ID (UUID)
-         * @param {*} [axiosOptions] Override http request option.
-         * @throws {RequiredError}
-         */
-        nonEmployeeBulkUploadStatus(id: string, axiosOptions?: any): AxiosPromise<NonEmployeeBulkUploadStatus> {
-            return localVarFp.nonEmployeeBulkUploadStatus(id, axiosOptions).then((request) => request(axios, basePath));
-        },
-        /**
-         * This requests a download for the Source Schema Template for a provided source. Requires role context of `idn:nesr:read`
-         * @summary Exports Source Schema Template
-         * @param {string} id Source Id (UUID)
-         * @param {*} [axiosOptions] Override http request option.
-         * @throws {RequiredError}
-         */
-        nonEmployeeExportSourceSchemaTemplate(id: string, axiosOptions?: any): AxiosPromise<void> {
-            return localVarFp.nonEmployeeExportSourceSchemaTemplate(id, axiosOptions).then((request) => request(axios, basePath));
-        },
-        /**
-         * This request will delete multiple non-employee records based on the non-employee ids provided. Requires role context of `idn:nesr:delete`
-         * @summary Delete Multiple Non-Employee Records
-         * @param {NonEmployeeRecordBulkDeleteRequest} nonEmployeeRecordBulkDeleteRequest Non-Employee bulk delete request body.
-         * @param {*} [axiosOptions] Override http request option.
-         * @throws {RequiredError}
-         */
-        nonEmployeeRecordBulkDelete(nonEmployeeRecordBulkDeleteRequest: NonEmployeeRecordBulkDeleteRequest, axiosOptions?: any): AxiosPromise<void> {
-            return localVarFp.nonEmployeeRecordBulkDelete(nonEmployeeRecordBulkDeleteRequest, axiosOptions).then((request) => request(axios, basePath));
-        },
-        /**
-         * This request will create a non-employee record. Requires role context of `idn:nesr:create`
-         * @summary Create Non-Employee Record
-         * @param {NonEmployeeRequestBody} nonEmployeeRequestBody Non-Employee record creation request body.
-         * @param {*} [axiosOptions] Override http request option.
-         * @throws {RequiredError}
-         */
-        nonEmployeeRecordCreation(nonEmployeeRequestBody: NonEmployeeRequestBody, axiosOptions?: any): AxiosPromise<NonEmployeeRecord> {
-            return localVarFp.nonEmployeeRecordCreation(nonEmployeeRequestBody, axiosOptions).then((request) => request(axios, basePath));
-        },
-        /**
-         * This request will delete a non-employee record. Requires role context of `idn:nesr:delete`
-         * @summary Delete Non-Employee Record
-         * @param {string} id Non-Employee record id (UUID)
-         * @param {*} [axiosOptions] Override http request option.
-         * @throws {RequiredError}
-         */
-        nonEmployeeRecordDelete(id: string, axiosOptions?: any): AxiosPromise<void> {
-            return localVarFp.nonEmployeeRecordDelete(id, axiosOptions).then((request) => request(axios, basePath));
-        },
-        /**
-         * This gets a non-employee record. Requires role context of `idn:nesr:read`
-         * @summary Get a Non-Employee Record
-         * @param {string} id Non-Employee record id (UUID)
-         * @param {*} [axiosOptions] Override http request option.
-         * @throws {RequiredError}
-         */
-        nonEmployeeRecordGet(id: string, axiosOptions?: any): AxiosPromise<NonEmployeeRecord> {
-            return localVarFp.nonEmployeeRecordGet(id, axiosOptions).then((request) => request(axios, basePath));
+        listNonEmployeeApprovals(requestedFor?: string, limit?: number, offset?: number, count?: boolean, filters?: string, sorters?: string, axiosOptions?: any): AxiosPromise<Array<NonEmployeeApprovalItem>> {
+            return localVarFp.listNonEmployeeApprovals(requestedFor, limit, offset, count, filters, sorters, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * This gets a list of non-employee records. There are two contextual uses for this endpoint:   1. The user has the role context of `idn:nesr:read`, in which case they can get a list of all of the non-employees.   2. The user is an account manager, in which case they can get a list of the non-employees that they manage.
@@ -21723,92 +21803,8 @@ export const NonEmployeeLifecycleManagementApiFactory = function (configuration?
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        nonEmployeeRecordList(limit?: number, offset?: number, count?: boolean, sorters?: string, filters?: string, axiosOptions?: any): AxiosPromise<Array<NonEmployeeRecord>> {
-            return localVarFp.nonEmployeeRecordList(limit, offset, count, sorters, filters, axiosOptions).then((request) => request(axios, basePath));
-        },
-        /**
-         * This request will patch a non-employee record. There are two contextual uses for this endpoint:   1. The user has the role context of `idn:nesr:update`, in which case they update all available fields.   2. The user is owner of the source, in this case they can only update the end date.
-         * @summary Patch Non-Employee Record
-         * @param {string} id Non-employee record id (UUID)
-         * @param {Array<JsonPatchOperation>} jsonPatchOperation A list of non-employee update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard. Attributes are restricted by user type. Owner of source can update end date. Organization admins can update all available fields.
-         * @param {*} [axiosOptions] Override http request option.
-         * @throws {RequiredError}
-         */
-        nonEmployeeRecordPatch(id: string, jsonPatchOperation: Array<JsonPatchOperation>, axiosOptions?: any): AxiosPromise<NonEmployeeRecord> {
-            return localVarFp.nonEmployeeRecordPatch(id, jsonPatchOperation, axiosOptions).then((request) => request(axios, basePath));
-        },
-        /**
-         * This request will update a non-employee record. There are two contextual uses for this endpoint:   1. The user has the role context of `idn:nesr:update`, in which case they update all available fields.   2. The user is owner of the source, in this case they can only update the end date.
-         * @summary Update Non-Employee Record
-         * @param {string} id Non-employee record id (UUID)
-         * @param {NonEmployeeRequestBody} nonEmployeeRequestBody Non-employee record creation request body. Attributes are restricted by user type. Owner of source can update end date. Organization admins can update all available fields.
-         * @param {*} [axiosOptions] Override http request option.
-         * @throws {RequiredError}
-         */
-        nonEmployeeRecordUpdate(id: string, nonEmployeeRequestBody: NonEmployeeRequestBody, axiosOptions?: any): AxiosPromise<NonEmployeeRecord> {
-            return localVarFp.nonEmployeeRecordUpdate(id, nonEmployeeRequestBody, axiosOptions).then((request) => request(axios, basePath));
-        },
-        /**
-         * This post will import, or update, Non-Employee records found in the CSV. Requires role context of `idn:nesr:create`
-         * @summary Imports, or Updates, Non-Employee Records
-         * @param {string} id Source Id (UUID)
-         * @param {string} data 
-         * @param {*} [axiosOptions] Override http request option.
-         * @throws {RequiredError}
-         */
-        nonEmployeeRecordsBulkUpload(id: string, data: string, axiosOptions?: any): AxiosPromise<NonEmployeeBulkUploadJob> {
-            return localVarFp.nonEmployeeRecordsBulkUpload(id, data, axiosOptions).then((request) => request(axios, basePath));
-        },
-        /**
-         * This requests a CSV download for all non-employees from a provided source. Requires role context of `idn:nesr:read`
-         * @summary Exports Non-Employee Records to CSV
-         * @param {string} id Source Id (UUID)
-         * @param {*} [axiosOptions] Override http request option.
-         * @throws {RequiredError}
-         */
-        nonEmployeeRecordsExport(id: string, axiosOptions?: any): AxiosPromise<void> {
-            return localVarFp.nonEmployeeRecordsExport(id, axiosOptions).then((request) => request(axios, basePath));
-        },
-        /**
-         * This endpoint will reject an approval item request and notify user. The current user must be the requested approver.
-         * @summary Reject a Non-Employee Request
-         * @param {string} id Non-Employee approval item id (UUID)
-         * @param {NonEmployeeRejectApprovalDecision} nonEmployeeRejectApprovalDecision 
-         * @param {*} [axiosOptions] Override http request option.
-         * @throws {RequiredError}
-         */
-        nonEmployeeRejectRequest(id: string, nonEmployeeRejectApprovalDecision: NonEmployeeRejectApprovalDecision, axiosOptions?: any): AxiosPromise<NonEmployeeApprovalItem> {
-            return localVarFp.nonEmployeeRejectRequest(id, nonEmployeeRejectApprovalDecision, axiosOptions).then((request) => request(axios, basePath));
-        },
-        /**
-         * This request will create a non-employee request and notify the approver. Requires role context of `idn:nesr:create` or the user must own the source.
-         * @summary Create Non-Employee Request
-         * @param {NonEmployeeRequestBody} nonEmployeeRequestBody Non-Employee creation request body
-         * @param {*} [axiosOptions] Override http request option.
-         * @throws {RequiredError}
-         */
-        nonEmployeeRequestCreation(nonEmployeeRequestBody: NonEmployeeRequestBody, axiosOptions?: any): AxiosPromise<NonEmployeeRequest> {
-            return localVarFp.nonEmployeeRequestCreation(nonEmployeeRequestBody, axiosOptions).then((request) => request(axios, basePath));
-        },
-        /**
-         * This request will delete a non-employee request.  Requires role context of `idn:nesr:delete`
-         * @summary Delete Non-Employee Request
-         * @param {string} id Non-Employee request id in the UUID format
-         * @param {*} [axiosOptions] Override http request option.
-         * @throws {RequiredError}
-         */
-        nonEmployeeRequestDeletion(id: string, axiosOptions?: any): AxiosPromise<void> {
-            return localVarFp.nonEmployeeRequestDeletion(id, axiosOptions).then((request) => request(axios, basePath));
-        },
-        /**
-         * This gets a non-employee request. There are two contextual uses for this endpoint:   1. The user has the role context of `idn:nesr:read`, in this case the user can get the non-employee request for any user.   2. The user must be the owner of the non-employee request.
-         * @summary Get a Non-Employee Request
-         * @param {string} id Non-Employee request id (UUID)
-         * @param {*} [axiosOptions] Override http request option.
-         * @throws {RequiredError}
-         */
-        nonEmployeeRequestGet(id: string, axiosOptions?: any): AxiosPromise<NonEmployeeRequest> {
-            return localVarFp.nonEmployeeRequestGet(id, axiosOptions).then((request) => request(axios, basePath));
+        listNonEmployeeRecords(limit?: number, offset?: number, count?: boolean, sorters?: string, filters?: string, axiosOptions?: any): AxiosPromise<Array<NonEmployeeRecord>> {
+            return localVarFp.listNonEmployeeRecords(limit, offset, count, sorters, filters, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * This gets a list of non-employee requests. There are two contextual uses for the `requested-for` path parameter:   1. The user has the role context of `idn:nesr:read`, in which case he or she may request a list non-employee requests assigned to a particular account manager by passing in that manager\'s id.   2. The current user is an account manager, in which case \"me\" should be provided as the `requested-for` value. This will provide the user with a list of the non-employee requests in the source(s) he or she manages.
@@ -21822,59 +21818,8 @@ export const NonEmployeeLifecycleManagementApiFactory = function (configuration?
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        nonEmployeeRequestList(requestedFor: string, limit?: number, offset?: number, count?: boolean, sorters?: string, filters?: string, axiosOptions?: any): AxiosPromise<Array<NonEmployeeRequest>> {
-            return localVarFp.nonEmployeeRequestList(requestedFor, limit, offset, count, sorters, filters, axiosOptions).then((request) => request(axios, basePath));
-        },
-        /**
-         * This request will retrieve a summary of non-employee requests. There are two contextual uses for the `requested-for` path parameter:   1. The user has the role context of `idn:nesr:read`, in which case he or she may request a summary of all non-employee approval requests assigned to a particular account manager by passing in that manager\'s id.   2. The current user is an account manager, in which case \"me\" should be provided as the `requested-for` value. This will provide the user with a summary of the non-employee requests in the source(s) he or she manages.
-         * @summary Get Summary of Non-Employee Requests
-         * @param {string} requestedFor The identity (UUID) of the non-employee account manager for whom the summary is being retrieved. Use \&quot;me\&quot; instead to indicate the current user.
-         * @param {*} [axiosOptions] Override http request option.
-         * @throws {RequiredError}
-         */
-        nonEmployeeRequestSummaryGet(requestedFor: string, axiosOptions?: any): AxiosPromise<NonEmployeeRequestSummary> {
-            return localVarFp.nonEmployeeRequestSummaryGet(requestedFor, axiosOptions).then((request) => request(axios, basePath));
-        },
-        /**
-         * This request will delete a non-employee source. Requires role context of `idn:nesr:delete`.
-         * @summary Delete Non-Employee Source
-         * @param {string} sourceId Source Id
-         * @param {*} [axiosOptions] Override http request option.
-         * @throws {RequiredError}
-         */
-        nonEmployeeSourceDelete(sourceId: string, axiosOptions?: any): AxiosPromise<void> {
-            return localVarFp.nonEmployeeSourceDelete(sourceId, axiosOptions).then((request) => request(axios, basePath));
-        },
-        /**
-         * This gets a non-employee source. There are two contextual uses for the requested-for path parameter:    1. The user has the role context of `idn:nesr:read`, in which case he or she may request any source.   2. The current user is an account manager, in which case the user can only request sources that they own.
-         * @summary Get a Non-Employee Source
-         * @param {string} sourceId Source Id
-         * @param {*} [axiosOptions] Override http request option.
-         * @throws {RequiredError}
-         */
-        nonEmployeeSourceGet(sourceId: string, axiosOptions?: any): AxiosPromise<NonEmployeeSource> {
-            return localVarFp.nonEmployeeSourceGet(sourceId, axiosOptions).then((request) => request(axios, basePath));
-        },
-        /**
-         * patch a non-employee source. (partial update) <br/> Patchable field: **name, description, approvers, accountManagers** Requires role context of `idn:nesr:update`.
-         * @summary Patch a Non-Employee Source
-         * @param {string} sourceId Source Id
-         * @param {Array<JsonPatchOperation>} jsonPatchOperation A list of non-employee source update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.
-         * @param {*} [axiosOptions] Override http request option.
-         * @throws {RequiredError}
-         */
-        nonEmployeeSourcePatch(sourceId: string, jsonPatchOperation: Array<JsonPatchOperation>, axiosOptions?: any): AxiosPromise<NonEmployeeSource> {
-            return localVarFp.nonEmployeeSourcePatch(sourceId, jsonPatchOperation, axiosOptions).then((request) => request(axios, basePath));
-        },
-        /**
-         * This request will create a non-employee source. Requires role context of `idn:nesr:create`
-         * @summary Create Non-Employee Source
-         * @param {NonEmployeeSourceRequestBody} nonEmployeeSourceRequestBody Non-Employee source creation request body.
-         * @param {*} [axiosOptions] Override http request option.
-         * @throws {RequiredError}
-         */
-        nonEmployeeSourcesCreation(nonEmployeeSourceRequestBody: NonEmployeeSourceRequestBody, axiosOptions?: any): AxiosPromise<NonEmployeeSourceWithCloudExternalId> {
-            return localVarFp.nonEmployeeSourcesCreation(nonEmployeeSourceRequestBody, axiosOptions).then((request) => request(axios, basePath));
+        listNonEmployeeRequests(requestedFor: string, limit?: number, offset?: number, count?: boolean, sorters?: string, filters?: string, axiosOptions?: any): AxiosPromise<Array<NonEmployeeRequest>> {
+            return localVarFp.listNonEmployeeRequests(requestedFor, limit, offset, count, sorters, filters, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * This gets a list of non-employee sources. There are two contextual uses for the requested-for path parameter:    1. The user has the role context of `idn:nesr:read`, in which case he or she may request a list sources assigned to a particular account manager by passing in that manager\'s id.   2. The current user is an account manager, in which case \"me\" should be provided as the `requested-for` value. This will provide the user with a list of the sources that he or she owns.
@@ -21888,8 +21833,19 @@ export const NonEmployeeLifecycleManagementApiFactory = function (configuration?
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        nonEmployeeSourcesList(requestedFor: string, limit?: number, offset?: number, count?: boolean, nonEmployeeCount?: boolean, sorters?: string, axiosOptions?: any): AxiosPromise<Array<NonEmployeeSourceWithNECount>> {
-            return localVarFp.nonEmployeeSourcesList(requestedFor, limit, offset, count, nonEmployeeCount, sorters, axiosOptions).then((request) => request(axios, basePath));
+        listNonEmployeeSources(requestedFor: string, limit?: number, offset?: number, count?: boolean, nonEmployeeCount?: boolean, sorters?: string, axiosOptions?: any): AxiosPromise<Array<NonEmployeeSourceWithNECount>> {
+            return localVarFp.listNonEmployeeSources(requestedFor, limit, offset, count, nonEmployeeCount, sorters, axiosOptions).then((request) => request(axios, basePath));
+        },
+        /**
+         * This request will patch a non-employee record. There are two contextual uses for this endpoint:   1. The user has the role context of `idn:nesr:update`, in which case they update all available fields.   2. The user is owner of the source, in this case they can only update the end date.
+         * @summary Patch Non-Employee Record
+         * @param {string} id Non-employee record id (UUID)
+         * @param {Array<JsonPatchOperation>} jsonPatchOperation A list of non-employee update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard. Attributes are restricted by user type. Owner of source can update end date. Organization admins can update all available fields.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        patchNonEmployeeRecord(id: string, jsonPatchOperation: Array<JsonPatchOperation>, axiosOptions?: any): AxiosPromise<NonEmployeeRecord> {
+            return localVarFp.patchNonEmployeeRecord(id, jsonPatchOperation, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * This end-point patches a specific schema attribute for a non-employee SourceId. Requires role context of `idn:nesr:update` 
@@ -21900,675 +21856,719 @@ export const NonEmployeeLifecycleManagementApiFactory = function (configuration?
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        patchSchemaAttribute(attributeId: string, sourceId: string, jsonPatchOperation: Array<JsonPatchOperation>, axiosOptions?: any): AxiosPromise<NonEmployeeSchemaAttribute> {
-            return localVarFp.patchSchemaAttribute(attributeId, sourceId, jsonPatchOperation, axiosOptions).then((request) => request(axios, basePath));
+        patchNonEmployeeSchemaAttribute(attributeId: string, sourceId: string, jsonPatchOperation: Array<JsonPatchOperation>, axiosOptions?: any): AxiosPromise<NonEmployeeSchemaAttribute> {
+            return localVarFp.patchNonEmployeeSchemaAttribute(attributeId, sourceId, jsonPatchOperation, axiosOptions).then((request) => request(axios, basePath));
+        },
+        /**
+         * patch a non-employee source. (partial update) <br/> Patchable field: **name, description, approvers, accountManagers** Requires role context of `idn:nesr:update`.
+         * @summary Patch a Non-Employee Source
+         * @param {string} sourceId Source Id
+         * @param {Array<JsonPatchOperation>} jsonPatchOperation A list of non-employee source update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        patchNonEmployeeSource(sourceId: string, jsonPatchOperation: Array<JsonPatchOperation>, axiosOptions?: any): AxiosPromise<NonEmployeeSource> {
+            return localVarFp.patchNonEmployeeSource(sourceId, jsonPatchOperation, axiosOptions).then((request) => request(axios, basePath));
+        },
+        /**
+         * This endpoint will reject an approval item request and notify user. The current user must be the requested approver.
+         * @summary Reject a Non-Employee Request
+         * @param {string} id Non-Employee approval item id (UUID)
+         * @param {NonEmployeeRejectApprovalDecision} nonEmployeeRejectApprovalDecision 
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        rejectNonEmployeeRequest(id: string, nonEmployeeRejectApprovalDecision: NonEmployeeRejectApprovalDecision, axiosOptions?: any): AxiosPromise<NonEmployeeApprovalItem> {
+            return localVarFp.rejectNonEmployeeRequest(id, nonEmployeeRejectApprovalDecision, axiosOptions).then((request) => request(axios, basePath));
+        },
+        /**
+         * This request will update a non-employee record. There are two contextual uses for this endpoint:   1. The user has the role context of `idn:nesr:update`, in which case they update all available fields.   2. The user is owner of the source, in this case they can only update the end date.
+         * @summary Update Non-Employee Record
+         * @param {string} id Non-employee record id (UUID)
+         * @param {NonEmployeeRequestBody} nonEmployeeRequestBody Non-employee record creation request body. Attributes are restricted by user type. Owner of source can update end date. Organization admins can update all available fields.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        updateNonEmployeeRecord(id: string, nonEmployeeRequestBody: NonEmployeeRequestBody, axiosOptions?: any): AxiosPromise<NonEmployeeRecord> {
+            return localVarFp.updateNonEmployeeRecord(id, nonEmployeeRequestBody, axiosOptions).then((request) => request(axios, basePath));
+        },
+        /**
+         * This post will import, or update, Non-Employee records found in the CSV. Requires role context of `idn:nesr:create`
+         * @summary Imports, or Updates, Non-Employee Records
+         * @param {string} id Source Id (UUID)
+         * @param {string} data 
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        uploadNonEmployeeRecordsInBulk(id: string, data: string, axiosOptions?: any): AxiosPromise<NonEmployeeBulkUploadJob> {
+            return localVarFp.uploadNonEmployeeRecordsInBulk(id, data, axiosOptions).then((request) => request(axios, basePath));
         },
     };
 };
 
 /**
- * Request parameters for createSchemaAttribute operation in NonEmployeeLifecycleManagementApi.
+ * Request parameters for approveNonEmployeeRequest operation in NonEmployeeLifecycleManagementApi.
  * @export
- * @interface NonEmployeeLifecycleManagementApiCreateSchemaAttributeRequest
+ * @interface NonEmployeeLifecycleManagementApiApproveNonEmployeeRequestRequest
  */
-export interface NonEmployeeLifecycleManagementApiCreateSchemaAttributeRequest {
-    /**
-     * The Source id
-     * @type {string}
-     * @memberof NonEmployeeLifecycleManagementApiCreateSchemaAttribute
-     */
-    readonly sourceId: string
-
-    /**
-     * 
-     * @type {NonEmployeeSchemaAttributeBody}
-     * @memberof NonEmployeeLifecycleManagementApiCreateSchemaAttribute
-     */
-    readonly nonEmployeeSchemaAttributeBody: NonEmployeeSchemaAttributeBody
-}
-
-/**
- * Request parameters for deleteSchemaAttribute operation in NonEmployeeLifecycleManagementApi.
- * @export
- * @interface NonEmployeeLifecycleManagementApiDeleteSchemaAttributeRequest
- */
-export interface NonEmployeeLifecycleManagementApiDeleteSchemaAttributeRequest {
-    /**
-     * The Schema Attribute Id (UUID)
-     * @type {string}
-     * @memberof NonEmployeeLifecycleManagementApiDeleteSchemaAttribute
-     */
-    readonly attributeId: string
-
-    /**
-     * The Source id
-     * @type {string}
-     * @memberof NonEmployeeLifecycleManagementApiDeleteSchemaAttribute
-     */
-    readonly sourceId: string
-}
-
-/**
- * Request parameters for deleteSchemaAttributes operation in NonEmployeeLifecycleManagementApi.
- * @export
- * @interface NonEmployeeLifecycleManagementApiDeleteSchemaAttributesRequest
- */
-export interface NonEmployeeLifecycleManagementApiDeleteSchemaAttributesRequest {
-    /**
-     * The Source id
-     * @type {string}
-     * @memberof NonEmployeeLifecycleManagementApiDeleteSchemaAttributes
-     */
-    readonly sourceId: string
-}
-
-/**
- * Request parameters for getSchemaAttribute operation in NonEmployeeLifecycleManagementApi.
- * @export
- * @interface NonEmployeeLifecycleManagementApiGetSchemaAttributeRequest
- */
-export interface NonEmployeeLifecycleManagementApiGetSchemaAttributeRequest {
-    /**
-     * The Schema Attribute Id (UUID)
-     * @type {string}
-     * @memberof NonEmployeeLifecycleManagementApiGetSchemaAttribute
-     */
-    readonly attributeId: string
-
-    /**
-     * The Source id
-     * @type {string}
-     * @memberof NonEmployeeLifecycleManagementApiGetSchemaAttribute
-     */
-    readonly sourceId: string
-}
-
-/**
- * Request parameters for getSchemaAttributes operation in NonEmployeeLifecycleManagementApi.
- * @export
- * @interface NonEmployeeLifecycleManagementApiGetSchemaAttributesRequest
- */
-export interface NonEmployeeLifecycleManagementApiGetSchemaAttributesRequest {
-    /**
-     * The Source id
-     * @type {string}
-     * @memberof NonEmployeeLifecycleManagementApiGetSchemaAttributes
-     */
-    readonly sourceId: string
-}
-
-/**
- * Request parameters for nonEmployeeApprovalGet operation in NonEmployeeLifecycleManagementApi.
- * @export
- * @interface NonEmployeeLifecycleManagementApiNonEmployeeApprovalGetRequest
- */
-export interface NonEmployeeLifecycleManagementApiNonEmployeeApprovalGetRequest {
+export interface NonEmployeeLifecycleManagementApiApproveNonEmployeeRequestRequest {
     /**
      * Non-Employee approval item id (UUID)
      * @type {string}
-     * @memberof NonEmployeeLifecycleManagementApiNonEmployeeApprovalGet
-     */
-    readonly id: string
-
-    /**
-     * The object nonEmployeeRequest will not be included detail when set to false. *Default value is true*
-     * @type {boolean}
-     * @memberof NonEmployeeLifecycleManagementApiNonEmployeeApprovalGet
-     */
-    readonly includeDetail?: boolean
-}
-
-/**
- * Request parameters for nonEmployeeApprovalList operation in NonEmployeeLifecycleManagementApi.
- * @export
- * @interface NonEmployeeLifecycleManagementApiNonEmployeeApprovalListRequest
- */
-export interface NonEmployeeLifecycleManagementApiNonEmployeeApprovalListRequest {
-    /**
-     * The identity for whom the request was made. *me* indicates the current user.
-     * @type {string}
-     * @memberof NonEmployeeLifecycleManagementApiNonEmployeeApprovalList
-     */
-    readonly requestedFor?: string
-
-    /**
-     * Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
-     * @type {number}
-     * @memberof NonEmployeeLifecycleManagementApiNonEmployeeApprovalList
-     */
-    readonly limit?: number
-
-    /**
-     * Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
-     * @type {number}
-     * @memberof NonEmployeeLifecycleManagementApiNonEmployeeApprovalList
-     */
-    readonly offset?: number
-
-    /**
-     * If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
-     * @type {boolean}
-     * @memberof NonEmployeeLifecycleManagementApiNonEmployeeApprovalList
-     */
-    readonly count?: boolean
-
-    /**
-     * Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://community.sailpoint.com/t5/IdentityNow-Wiki/V3-API-Standard-Collection-Parameters/ta-p/156407) Filtering is supported for the following fields and operators: **approvalStatus**: *eq*  *Example:* approvalStatus eq \&quot;PENDING\&quot;
-     * @type {string}
-     * @memberof NonEmployeeLifecycleManagementApiNonEmployeeApprovalList
-     */
-    readonly filters?: string
-
-    /**
-     * Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://community.sailpoint.com/t5/IdentityNow-Wiki/V3-API-Standard-Collection-Parameters/ta-p/156407#toc-hId-2058949) Sorting is supported for the following fields: **created, modified**
-     * @type {string}
-     * @memberof NonEmployeeLifecycleManagementApiNonEmployeeApprovalList
-     */
-    readonly sorters?: string
-}
-
-/**
- * Request parameters for nonEmployeeApprovalSummary operation in NonEmployeeLifecycleManagementApi.
- * @export
- * @interface NonEmployeeLifecycleManagementApiNonEmployeeApprovalSummaryRequest
- */
-export interface NonEmployeeLifecycleManagementApiNonEmployeeApprovalSummaryRequest {
-    /**
-     * The identity (UUID) of the approver for whom for whom the summary is being retrieved. Use \&quot;me\&quot; instead to indicate the current user.
-     * @type {string}
-     * @memberof NonEmployeeLifecycleManagementApiNonEmployeeApprovalSummary
-     */
-    readonly requestedFor: string
-}
-
-/**
- * Request parameters for nonEmployeeApproveRequest operation in NonEmployeeLifecycleManagementApi.
- * @export
- * @interface NonEmployeeLifecycleManagementApiNonEmployeeApproveRequestRequest
- */
-export interface NonEmployeeLifecycleManagementApiNonEmployeeApproveRequestRequest {
-    /**
-     * Non-Employee approval item id (UUID)
-     * @type {string}
-     * @memberof NonEmployeeLifecycleManagementApiNonEmployeeApproveRequest
+     * @memberof NonEmployeeLifecycleManagementApiApproveNonEmployeeRequest
      */
     readonly id: string
 
     /**
      * 
      * @type {NonEmployeeApprovalDecision}
-     * @memberof NonEmployeeLifecycleManagementApiNonEmployeeApproveRequest
+     * @memberof NonEmployeeLifecycleManagementApiApproveNonEmployeeRequest
      */
     readonly nonEmployeeApprovalDecision: NonEmployeeApprovalDecision
 }
 
 /**
- * Request parameters for nonEmployeeBulkUploadStatus operation in NonEmployeeLifecycleManagementApi.
+ * Request parameters for createNonEmployeeRecord operation in NonEmployeeLifecycleManagementApi.
  * @export
- * @interface NonEmployeeLifecycleManagementApiNonEmployeeBulkUploadStatusRequest
+ * @interface NonEmployeeLifecycleManagementApiCreateNonEmployeeRecordRequest
  */
-export interface NonEmployeeLifecycleManagementApiNonEmployeeBulkUploadStatusRequest {
-    /**
-     * Source ID (UUID)
-     * @type {string}
-     * @memberof NonEmployeeLifecycleManagementApiNonEmployeeBulkUploadStatus
-     */
-    readonly id: string
-}
-
-/**
- * Request parameters for nonEmployeeExportSourceSchemaTemplate operation in NonEmployeeLifecycleManagementApi.
- * @export
- * @interface NonEmployeeLifecycleManagementApiNonEmployeeExportSourceSchemaTemplateRequest
- */
-export interface NonEmployeeLifecycleManagementApiNonEmployeeExportSourceSchemaTemplateRequest {
-    /**
-     * Source Id (UUID)
-     * @type {string}
-     * @memberof NonEmployeeLifecycleManagementApiNonEmployeeExportSourceSchemaTemplate
-     */
-    readonly id: string
-}
-
-/**
- * Request parameters for nonEmployeeRecordBulkDelete operation in NonEmployeeLifecycleManagementApi.
- * @export
- * @interface NonEmployeeLifecycleManagementApiNonEmployeeRecordBulkDeleteRequest
- */
-export interface NonEmployeeLifecycleManagementApiNonEmployeeRecordBulkDeleteRequest {
-    /**
-     * Non-Employee bulk delete request body.
-     * @type {NonEmployeeRecordBulkDeleteRequest}
-     * @memberof NonEmployeeLifecycleManagementApiNonEmployeeRecordBulkDelete
-     */
-    readonly nonEmployeeRecordBulkDeleteRequest: NonEmployeeRecordBulkDeleteRequest
-}
-
-/**
- * Request parameters for nonEmployeeRecordCreation operation in NonEmployeeLifecycleManagementApi.
- * @export
- * @interface NonEmployeeLifecycleManagementApiNonEmployeeRecordCreationRequest
- */
-export interface NonEmployeeLifecycleManagementApiNonEmployeeRecordCreationRequest {
+export interface NonEmployeeLifecycleManagementApiCreateNonEmployeeRecordRequest {
     /**
      * Non-Employee record creation request body.
      * @type {NonEmployeeRequestBody}
-     * @memberof NonEmployeeLifecycleManagementApiNonEmployeeRecordCreation
+     * @memberof NonEmployeeLifecycleManagementApiCreateNonEmployeeRecord
      */
     readonly nonEmployeeRequestBody: NonEmployeeRequestBody
 }
 
 /**
- * Request parameters for nonEmployeeRecordDelete operation in NonEmployeeLifecycleManagementApi.
+ * Request parameters for createNonEmployeeRequest operation in NonEmployeeLifecycleManagementApi.
  * @export
- * @interface NonEmployeeLifecycleManagementApiNonEmployeeRecordDeleteRequest
+ * @interface NonEmployeeLifecycleManagementApiCreateNonEmployeeRequestRequest
  */
-export interface NonEmployeeLifecycleManagementApiNonEmployeeRecordDeleteRequest {
-    /**
-     * Non-Employee record id (UUID)
-     * @type {string}
-     * @memberof NonEmployeeLifecycleManagementApiNonEmployeeRecordDelete
-     */
-    readonly id: string
-}
-
-/**
- * Request parameters for nonEmployeeRecordGet operation in NonEmployeeLifecycleManagementApi.
- * @export
- * @interface NonEmployeeLifecycleManagementApiNonEmployeeRecordGetRequest
- */
-export interface NonEmployeeLifecycleManagementApiNonEmployeeRecordGetRequest {
-    /**
-     * Non-Employee record id (UUID)
-     * @type {string}
-     * @memberof NonEmployeeLifecycleManagementApiNonEmployeeRecordGet
-     */
-    readonly id: string
-}
-
-/**
- * Request parameters for nonEmployeeRecordList operation in NonEmployeeLifecycleManagementApi.
- * @export
- * @interface NonEmployeeLifecycleManagementApiNonEmployeeRecordListRequest
- */
-export interface NonEmployeeLifecycleManagementApiNonEmployeeRecordListRequest {
-    /**
-     * Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
-     * @type {number}
-     * @memberof NonEmployeeLifecycleManagementApiNonEmployeeRecordList
-     */
-    readonly limit?: number
-
-    /**
-     * Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
-     * @type {number}
-     * @memberof NonEmployeeLifecycleManagementApiNonEmployeeRecordList
-     */
-    readonly offset?: number
-
-    /**
-     * If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
-     * @type {boolean}
-     * @memberof NonEmployeeLifecycleManagementApiNonEmployeeRecordList
-     */
-    readonly count?: boolean
-
-    /**
-     * Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://community.sailpoint.com/t5/IdentityNow-Wiki/V3-API-Standard-Collection-Parameters/ta-p/156407#toc-hId-2058949) Sorting is supported for the following fields: **id, accountName, sourceId, manager, firstName, lastName, email, phone, startDate, endDate, created, modified**
-     * @type {string}
-     * @memberof NonEmployeeLifecycleManagementApiNonEmployeeRecordList
-     */
-    readonly sorters?: string
-
-    /**
-     * Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://community.sailpoint.com/t5/IdentityNow-Wiki/V3-API-Standard-Collection-Parameters/ta-p/156407) Filtering is supported for the following fields and operators: **sourceId**: *eq*  *Example:* sourceId eq \&quot;2c91808568c529c60168cca6f90c1313\&quot;
-     * @type {string}
-     * @memberof NonEmployeeLifecycleManagementApiNonEmployeeRecordList
-     */
-    readonly filters?: string
-}
-
-/**
- * Request parameters for nonEmployeeRecordPatch operation in NonEmployeeLifecycleManagementApi.
- * @export
- * @interface NonEmployeeLifecycleManagementApiNonEmployeeRecordPatchRequest
- */
-export interface NonEmployeeLifecycleManagementApiNonEmployeeRecordPatchRequest {
-    /**
-     * Non-employee record id (UUID)
-     * @type {string}
-     * @memberof NonEmployeeLifecycleManagementApiNonEmployeeRecordPatch
-     */
-    readonly id: string
-
-    /**
-     * A list of non-employee update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard. Attributes are restricted by user type. Owner of source can update end date. Organization admins can update all available fields.
-     * @type {Array<JsonPatchOperation>}
-     * @memberof NonEmployeeLifecycleManagementApiNonEmployeeRecordPatch
-     */
-    readonly jsonPatchOperation: Array<JsonPatchOperation>
-}
-
-/**
- * Request parameters for nonEmployeeRecordUpdate operation in NonEmployeeLifecycleManagementApi.
- * @export
- * @interface NonEmployeeLifecycleManagementApiNonEmployeeRecordUpdateRequest
- */
-export interface NonEmployeeLifecycleManagementApiNonEmployeeRecordUpdateRequest {
-    /**
-     * Non-employee record id (UUID)
-     * @type {string}
-     * @memberof NonEmployeeLifecycleManagementApiNonEmployeeRecordUpdate
-     */
-    readonly id: string
-
-    /**
-     * Non-employee record creation request body. Attributes are restricted by user type. Owner of source can update end date. Organization admins can update all available fields.
-     * @type {NonEmployeeRequestBody}
-     * @memberof NonEmployeeLifecycleManagementApiNonEmployeeRecordUpdate
-     */
-    readonly nonEmployeeRequestBody: NonEmployeeRequestBody
-}
-
-/**
- * Request parameters for nonEmployeeRecordsBulkUpload operation in NonEmployeeLifecycleManagementApi.
- * @export
- * @interface NonEmployeeLifecycleManagementApiNonEmployeeRecordsBulkUploadRequest
- */
-export interface NonEmployeeLifecycleManagementApiNonEmployeeRecordsBulkUploadRequest {
-    /**
-     * Source Id (UUID)
-     * @type {string}
-     * @memberof NonEmployeeLifecycleManagementApiNonEmployeeRecordsBulkUpload
-     */
-    readonly id: string
-
-    /**
-     * 
-     * @type {string}
-     * @memberof NonEmployeeLifecycleManagementApiNonEmployeeRecordsBulkUpload
-     */
-    readonly data: string
-}
-
-/**
- * Request parameters for nonEmployeeRecordsExport operation in NonEmployeeLifecycleManagementApi.
- * @export
- * @interface NonEmployeeLifecycleManagementApiNonEmployeeRecordsExportRequest
- */
-export interface NonEmployeeLifecycleManagementApiNonEmployeeRecordsExportRequest {
-    /**
-     * Source Id (UUID)
-     * @type {string}
-     * @memberof NonEmployeeLifecycleManagementApiNonEmployeeRecordsExport
-     */
-    readonly id: string
-}
-
-/**
- * Request parameters for nonEmployeeRejectRequest operation in NonEmployeeLifecycleManagementApi.
- * @export
- * @interface NonEmployeeLifecycleManagementApiNonEmployeeRejectRequestRequest
- */
-export interface NonEmployeeLifecycleManagementApiNonEmployeeRejectRequestRequest {
-    /**
-     * Non-Employee approval item id (UUID)
-     * @type {string}
-     * @memberof NonEmployeeLifecycleManagementApiNonEmployeeRejectRequest
-     */
-    readonly id: string
-
-    /**
-     * 
-     * @type {NonEmployeeRejectApprovalDecision}
-     * @memberof NonEmployeeLifecycleManagementApiNonEmployeeRejectRequest
-     */
-    readonly nonEmployeeRejectApprovalDecision: NonEmployeeRejectApprovalDecision
-}
-
-/**
- * Request parameters for nonEmployeeRequestCreation operation in NonEmployeeLifecycleManagementApi.
- * @export
- * @interface NonEmployeeLifecycleManagementApiNonEmployeeRequestCreationRequest
- */
-export interface NonEmployeeLifecycleManagementApiNonEmployeeRequestCreationRequest {
+export interface NonEmployeeLifecycleManagementApiCreateNonEmployeeRequestRequest {
     /**
      * Non-Employee creation request body
      * @type {NonEmployeeRequestBody}
-     * @memberof NonEmployeeLifecycleManagementApiNonEmployeeRequestCreation
+     * @memberof NonEmployeeLifecycleManagementApiCreateNonEmployeeRequest
      */
     readonly nonEmployeeRequestBody: NonEmployeeRequestBody
 }
 
 /**
- * Request parameters for nonEmployeeRequestDeletion operation in NonEmployeeLifecycleManagementApi.
+ * Request parameters for createNonEmployeeSource operation in NonEmployeeLifecycleManagementApi.
  * @export
- * @interface NonEmployeeLifecycleManagementApiNonEmployeeRequestDeletionRequest
+ * @interface NonEmployeeLifecycleManagementApiCreateNonEmployeeSourceRequest
  */
-export interface NonEmployeeLifecycleManagementApiNonEmployeeRequestDeletionRequest {
-    /**
-     * Non-Employee request id in the UUID format
-     * @type {string}
-     * @memberof NonEmployeeLifecycleManagementApiNonEmployeeRequestDeletion
-     */
-    readonly id: string
-}
-
-/**
- * Request parameters for nonEmployeeRequestGet operation in NonEmployeeLifecycleManagementApi.
- * @export
- * @interface NonEmployeeLifecycleManagementApiNonEmployeeRequestGetRequest
- */
-export interface NonEmployeeLifecycleManagementApiNonEmployeeRequestGetRequest {
-    /**
-     * Non-Employee request id (UUID)
-     * @type {string}
-     * @memberof NonEmployeeLifecycleManagementApiNonEmployeeRequestGet
-     */
-    readonly id: string
-}
-
-/**
- * Request parameters for nonEmployeeRequestList operation in NonEmployeeLifecycleManagementApi.
- * @export
- * @interface NonEmployeeLifecycleManagementApiNonEmployeeRequestListRequest
- */
-export interface NonEmployeeLifecycleManagementApiNonEmployeeRequestListRequest {
-    /**
-     * The identity for whom the request was made. *me* indicates the current user.
-     * @type {string}
-     * @memberof NonEmployeeLifecycleManagementApiNonEmployeeRequestList
-     */
-    readonly requestedFor: string
-
-    /**
-     * Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
-     * @type {number}
-     * @memberof NonEmployeeLifecycleManagementApiNonEmployeeRequestList
-     */
-    readonly limit?: number
-
-    /**
-     * Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
-     * @type {number}
-     * @memberof NonEmployeeLifecycleManagementApiNonEmployeeRequestList
-     */
-    readonly offset?: number
-
-    /**
-     * If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
-     * @type {boolean}
-     * @memberof NonEmployeeLifecycleManagementApiNonEmployeeRequestList
-     */
-    readonly count?: boolean
-
-    /**
-     * Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://community.sailpoint.com/t5/IdentityNow-Wiki/V3-API-Standard-Collection-Parameters/ta-p/156407#toc-hId-2058949) Sorting is supported for the following fields: **created, approvalStatus, firstName, lastName, email, phone, accountName, startDate, endDate**
-     * @type {string}
-     * @memberof NonEmployeeLifecycleManagementApiNonEmployeeRequestList
-     */
-    readonly sorters?: string
-
-    /**
-     * Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://community.sailpoint.com/t5/IdentityNow-Wiki/V3-API-Standard-Collection-Parameters/ta-p/156407) Filtering is supported for the following fields and operators: **sourceId**: *eq*  *Example:* sourceId eq \&quot;2c91808568c529c60168cca6f90c1313\&quot;
-     * @type {string}
-     * @memberof NonEmployeeLifecycleManagementApiNonEmployeeRequestList
-     */
-    readonly filters?: string
-}
-
-/**
- * Request parameters for nonEmployeeRequestSummaryGet operation in NonEmployeeLifecycleManagementApi.
- * @export
- * @interface NonEmployeeLifecycleManagementApiNonEmployeeRequestSummaryGetRequest
- */
-export interface NonEmployeeLifecycleManagementApiNonEmployeeRequestSummaryGetRequest {
-    /**
-     * The identity (UUID) of the non-employee account manager for whom the summary is being retrieved. Use \&quot;me\&quot; instead to indicate the current user.
-     * @type {string}
-     * @memberof NonEmployeeLifecycleManagementApiNonEmployeeRequestSummaryGet
-     */
-    readonly requestedFor: string
-}
-
-/**
- * Request parameters for nonEmployeeSourceDelete operation in NonEmployeeLifecycleManagementApi.
- * @export
- * @interface NonEmployeeLifecycleManagementApiNonEmployeeSourceDeleteRequest
- */
-export interface NonEmployeeLifecycleManagementApiNonEmployeeSourceDeleteRequest {
-    /**
-     * Source Id
-     * @type {string}
-     * @memberof NonEmployeeLifecycleManagementApiNonEmployeeSourceDelete
-     */
-    readonly sourceId: string
-}
-
-/**
- * Request parameters for nonEmployeeSourceGet operation in NonEmployeeLifecycleManagementApi.
- * @export
- * @interface NonEmployeeLifecycleManagementApiNonEmployeeSourceGetRequest
- */
-export interface NonEmployeeLifecycleManagementApiNonEmployeeSourceGetRequest {
-    /**
-     * Source Id
-     * @type {string}
-     * @memberof NonEmployeeLifecycleManagementApiNonEmployeeSourceGet
-     */
-    readonly sourceId: string
-}
-
-/**
- * Request parameters for nonEmployeeSourcePatch operation in NonEmployeeLifecycleManagementApi.
- * @export
- * @interface NonEmployeeLifecycleManagementApiNonEmployeeSourcePatchRequest
- */
-export interface NonEmployeeLifecycleManagementApiNonEmployeeSourcePatchRequest {
-    /**
-     * Source Id
-     * @type {string}
-     * @memberof NonEmployeeLifecycleManagementApiNonEmployeeSourcePatch
-     */
-    readonly sourceId: string
-
-    /**
-     * A list of non-employee source update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.
-     * @type {Array<JsonPatchOperation>}
-     * @memberof NonEmployeeLifecycleManagementApiNonEmployeeSourcePatch
-     */
-    readonly jsonPatchOperation: Array<JsonPatchOperation>
-}
-
-/**
- * Request parameters for nonEmployeeSourcesCreation operation in NonEmployeeLifecycleManagementApi.
- * @export
- * @interface NonEmployeeLifecycleManagementApiNonEmployeeSourcesCreationRequest
- */
-export interface NonEmployeeLifecycleManagementApiNonEmployeeSourcesCreationRequest {
+export interface NonEmployeeLifecycleManagementApiCreateNonEmployeeSourceRequest {
     /**
      * Non-Employee source creation request body.
      * @type {NonEmployeeSourceRequestBody}
-     * @memberof NonEmployeeLifecycleManagementApiNonEmployeeSourcesCreation
+     * @memberof NonEmployeeLifecycleManagementApiCreateNonEmployeeSource
      */
     readonly nonEmployeeSourceRequestBody: NonEmployeeSourceRequestBody
 }
 
 /**
- * Request parameters for nonEmployeeSourcesList operation in NonEmployeeLifecycleManagementApi.
+ * Request parameters for createNonEmployeeSourceSchemaAttributes operation in NonEmployeeLifecycleManagementApi.
  * @export
- * @interface NonEmployeeLifecycleManagementApiNonEmployeeSourcesListRequest
+ * @interface NonEmployeeLifecycleManagementApiCreateNonEmployeeSourceSchemaAttributesRequest
  */
-export interface NonEmployeeLifecycleManagementApiNonEmployeeSourcesListRequest {
+export interface NonEmployeeLifecycleManagementApiCreateNonEmployeeSourceSchemaAttributesRequest {
     /**
-     * The identity for whom the request was made. *me* indicates the current user.
+     * The Source id
      * @type {string}
-     * @memberof NonEmployeeLifecycleManagementApiNonEmployeeSourcesList
+     * @memberof NonEmployeeLifecycleManagementApiCreateNonEmployeeSourceSchemaAttributes
      */
-    readonly requestedFor: string
+    readonly sourceId: string
 
     /**
-     * Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
-     * @type {number}
-     * @memberof NonEmployeeLifecycleManagementApiNonEmployeeSourcesList
+     * 
+     * @type {NonEmployeeSchemaAttributeBody}
+     * @memberof NonEmployeeLifecycleManagementApiCreateNonEmployeeSourceSchemaAttributes
      */
-    readonly limit?: number
-
-    /**
-     * Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
-     * @type {number}
-     * @memberof NonEmployeeLifecycleManagementApiNonEmployeeSourcesList
-     */
-    readonly offset?: number
-
-    /**
-     * If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
-     * @type {boolean}
-     * @memberof NonEmployeeLifecycleManagementApiNonEmployeeSourcesList
-     */
-    readonly count?: boolean
-
-    /**
-     * The flag to determine whether return a non-employee count associate with source.
-     * @type {boolean}
-     * @memberof NonEmployeeLifecycleManagementApiNonEmployeeSourcesList
-     */
-    readonly nonEmployeeCount?: boolean
-
-    /**
-     * Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://community.sailpoint.com/t5/IdentityNow-Wiki/V3-API-Standard-Collection-Parameters/ta-p/156407#toc-hId-2058949) Sorting is supported for the following fields: **name, created**
-     * @type {string}
-     * @memberof NonEmployeeLifecycleManagementApiNonEmployeeSourcesList
-     */
-    readonly sorters?: string
+    readonly nonEmployeeSchemaAttributeBody: NonEmployeeSchemaAttributeBody
 }
 
 /**
- * Request parameters for patchSchemaAttribute operation in NonEmployeeLifecycleManagementApi.
+ * Request parameters for deleteNonEmployeeRecord operation in NonEmployeeLifecycleManagementApi.
  * @export
- * @interface NonEmployeeLifecycleManagementApiPatchSchemaAttributeRequest
+ * @interface NonEmployeeLifecycleManagementApiDeleteNonEmployeeRecordRequest
  */
-export interface NonEmployeeLifecycleManagementApiPatchSchemaAttributeRequest {
+export interface NonEmployeeLifecycleManagementApiDeleteNonEmployeeRecordRequest {
+    /**
+     * Non-Employee record id (UUID)
+     * @type {string}
+     * @memberof NonEmployeeLifecycleManagementApiDeleteNonEmployeeRecord
+     */
+    readonly id: string
+}
+
+/**
+ * Request parameters for deleteNonEmployeeRecordsInBulk operation in NonEmployeeLifecycleManagementApi.
+ * @export
+ * @interface NonEmployeeLifecycleManagementApiDeleteNonEmployeeRecordsInBulkRequest
+ */
+export interface NonEmployeeLifecycleManagementApiDeleteNonEmployeeRecordsInBulkRequest {
+    /**
+     * Non-Employee bulk delete request body.
+     * @type {DeleteNonEmployeeRecordsInBulkRequest}
+     * @memberof NonEmployeeLifecycleManagementApiDeleteNonEmployeeRecordsInBulk
+     */
+    readonly deleteNonEmployeeRecordsInBulkRequest: DeleteNonEmployeeRecordsInBulkRequest
+}
+
+/**
+ * Request parameters for deleteNonEmployeeRequest operation in NonEmployeeLifecycleManagementApi.
+ * @export
+ * @interface NonEmployeeLifecycleManagementApiDeleteNonEmployeeRequestRequest
+ */
+export interface NonEmployeeLifecycleManagementApiDeleteNonEmployeeRequestRequest {
+    /**
+     * Non-Employee request id in the UUID format
+     * @type {string}
+     * @memberof NonEmployeeLifecycleManagementApiDeleteNonEmployeeRequest
+     */
+    readonly id: string
+}
+
+/**
+ * Request parameters for deleteNonEmployeeSchemaAttribute operation in NonEmployeeLifecycleManagementApi.
+ * @export
+ * @interface NonEmployeeLifecycleManagementApiDeleteNonEmployeeSchemaAttributeRequest
+ */
+export interface NonEmployeeLifecycleManagementApiDeleteNonEmployeeSchemaAttributeRequest {
     /**
      * The Schema Attribute Id (UUID)
      * @type {string}
-     * @memberof NonEmployeeLifecycleManagementApiPatchSchemaAttribute
+     * @memberof NonEmployeeLifecycleManagementApiDeleteNonEmployeeSchemaAttribute
      */
     readonly attributeId: string
 
     /**
      * The Source id
      * @type {string}
-     * @memberof NonEmployeeLifecycleManagementApiPatchSchemaAttribute
+     * @memberof NonEmployeeLifecycleManagementApiDeleteNonEmployeeSchemaAttribute
+     */
+    readonly sourceId: string
+}
+
+/**
+ * Request parameters for deleteNonEmployeeSource operation in NonEmployeeLifecycleManagementApi.
+ * @export
+ * @interface NonEmployeeLifecycleManagementApiDeleteNonEmployeeSourceRequest
+ */
+export interface NonEmployeeLifecycleManagementApiDeleteNonEmployeeSourceRequest {
+    /**
+     * Source Id
+     * @type {string}
+     * @memberof NonEmployeeLifecycleManagementApiDeleteNonEmployeeSource
+     */
+    readonly sourceId: string
+}
+
+/**
+ * Request parameters for deleteNonEmployeeSourceSchemaAttributes operation in NonEmployeeLifecycleManagementApi.
+ * @export
+ * @interface NonEmployeeLifecycleManagementApiDeleteNonEmployeeSourceSchemaAttributesRequest
+ */
+export interface NonEmployeeLifecycleManagementApiDeleteNonEmployeeSourceSchemaAttributesRequest {
+    /**
+     * The Source id
+     * @type {string}
+     * @memberof NonEmployeeLifecycleManagementApiDeleteNonEmployeeSourceSchemaAttributes
+     */
+    readonly sourceId: string
+}
+
+/**
+ * Request parameters for exportNonEmployeeRecords operation in NonEmployeeLifecycleManagementApi.
+ * @export
+ * @interface NonEmployeeLifecycleManagementApiExportNonEmployeeRecordsRequest
+ */
+export interface NonEmployeeLifecycleManagementApiExportNonEmployeeRecordsRequest {
+    /**
+     * Source Id (UUID)
+     * @type {string}
+     * @memberof NonEmployeeLifecycleManagementApiExportNonEmployeeRecords
+     */
+    readonly id: string
+}
+
+/**
+ * Request parameters for exportNonEmployeeSourceSchemaTemplate operation in NonEmployeeLifecycleManagementApi.
+ * @export
+ * @interface NonEmployeeLifecycleManagementApiExportNonEmployeeSourceSchemaTemplateRequest
+ */
+export interface NonEmployeeLifecycleManagementApiExportNonEmployeeSourceSchemaTemplateRequest {
+    /**
+     * Source Id (UUID)
+     * @type {string}
+     * @memberof NonEmployeeLifecycleManagementApiExportNonEmployeeSourceSchemaTemplate
+     */
+    readonly id: string
+}
+
+/**
+ * Request parameters for getNonEmployeeApproval operation in NonEmployeeLifecycleManagementApi.
+ * @export
+ * @interface NonEmployeeLifecycleManagementApiGetNonEmployeeApprovalRequest
+ */
+export interface NonEmployeeLifecycleManagementApiGetNonEmployeeApprovalRequest {
+    /**
+     * Non-Employee approval item id (UUID)
+     * @type {string}
+     * @memberof NonEmployeeLifecycleManagementApiGetNonEmployeeApproval
+     */
+    readonly id: string
+
+    /**
+     * The object nonEmployeeRequest will not be included detail when set to false. *Default value is true*
+     * @type {boolean}
+     * @memberof NonEmployeeLifecycleManagementApiGetNonEmployeeApproval
+     */
+    readonly includeDetail?: boolean
+}
+
+/**
+ * Request parameters for getNonEmployeeApprovalSummary operation in NonEmployeeLifecycleManagementApi.
+ * @export
+ * @interface NonEmployeeLifecycleManagementApiGetNonEmployeeApprovalSummaryRequest
+ */
+export interface NonEmployeeLifecycleManagementApiGetNonEmployeeApprovalSummaryRequest {
+    /**
+     * The identity (UUID) of the approver for whom for whom the summary is being retrieved. Use \&quot;me\&quot; instead to indicate the current user.
+     * @type {string}
+     * @memberof NonEmployeeLifecycleManagementApiGetNonEmployeeApprovalSummary
+     */
+    readonly requestedFor: string
+}
+
+/**
+ * Request parameters for getNonEmployeeBulkUploadStatus operation in NonEmployeeLifecycleManagementApi.
+ * @export
+ * @interface NonEmployeeLifecycleManagementApiGetNonEmployeeBulkUploadStatusRequest
+ */
+export interface NonEmployeeLifecycleManagementApiGetNonEmployeeBulkUploadStatusRequest {
+    /**
+     * Source ID (UUID)
+     * @type {string}
+     * @memberof NonEmployeeLifecycleManagementApiGetNonEmployeeBulkUploadStatus
+     */
+    readonly id: string
+}
+
+/**
+ * Request parameters for getNonEmployeeRecord operation in NonEmployeeLifecycleManagementApi.
+ * @export
+ * @interface NonEmployeeLifecycleManagementApiGetNonEmployeeRecordRequest
+ */
+export interface NonEmployeeLifecycleManagementApiGetNonEmployeeRecordRequest {
+    /**
+     * Non-Employee record id (UUID)
+     * @type {string}
+     * @memberof NonEmployeeLifecycleManagementApiGetNonEmployeeRecord
+     */
+    readonly id: string
+}
+
+/**
+ * Request parameters for getNonEmployeeRequest operation in NonEmployeeLifecycleManagementApi.
+ * @export
+ * @interface NonEmployeeLifecycleManagementApiGetNonEmployeeRequestRequest
+ */
+export interface NonEmployeeLifecycleManagementApiGetNonEmployeeRequestRequest {
+    /**
+     * Non-Employee request id (UUID)
+     * @type {string}
+     * @memberof NonEmployeeLifecycleManagementApiGetNonEmployeeRequest
+     */
+    readonly id: string
+}
+
+/**
+ * Request parameters for getNonEmployeeRequestSummary operation in NonEmployeeLifecycleManagementApi.
+ * @export
+ * @interface NonEmployeeLifecycleManagementApiGetNonEmployeeRequestSummaryRequest
+ */
+export interface NonEmployeeLifecycleManagementApiGetNonEmployeeRequestSummaryRequest {
+    /**
+     * The identity (UUID) of the non-employee account manager for whom the summary is being retrieved. Use \&quot;me\&quot; instead to indicate the current user.
+     * @type {string}
+     * @memberof NonEmployeeLifecycleManagementApiGetNonEmployeeRequestSummary
+     */
+    readonly requestedFor: string
+}
+
+/**
+ * Request parameters for getNonEmployeeSchemaAttribute operation in NonEmployeeLifecycleManagementApi.
+ * @export
+ * @interface NonEmployeeLifecycleManagementApiGetNonEmployeeSchemaAttributeRequest
+ */
+export interface NonEmployeeLifecycleManagementApiGetNonEmployeeSchemaAttributeRequest {
+    /**
+     * The Schema Attribute Id (UUID)
+     * @type {string}
+     * @memberof NonEmployeeLifecycleManagementApiGetNonEmployeeSchemaAttribute
+     */
+    readonly attributeId: string
+
+    /**
+     * The Source id
+     * @type {string}
+     * @memberof NonEmployeeLifecycleManagementApiGetNonEmployeeSchemaAttribute
+     */
+    readonly sourceId: string
+}
+
+/**
+ * Request parameters for getNonEmployeeSource operation in NonEmployeeLifecycleManagementApi.
+ * @export
+ * @interface NonEmployeeLifecycleManagementApiGetNonEmployeeSourceRequest
+ */
+export interface NonEmployeeLifecycleManagementApiGetNonEmployeeSourceRequest {
+    /**
+     * Source Id
+     * @type {string}
+     * @memberof NonEmployeeLifecycleManagementApiGetNonEmployeeSource
+     */
+    readonly sourceId: string
+}
+
+/**
+ * Request parameters for getNonEmployeeSourceSchemaAttributes operation in NonEmployeeLifecycleManagementApi.
+ * @export
+ * @interface NonEmployeeLifecycleManagementApiGetNonEmployeeSourceSchemaAttributesRequest
+ */
+export interface NonEmployeeLifecycleManagementApiGetNonEmployeeSourceSchemaAttributesRequest {
+    /**
+     * The Source id
+     * @type {string}
+     * @memberof NonEmployeeLifecycleManagementApiGetNonEmployeeSourceSchemaAttributes
+     */
+    readonly sourceId: string
+}
+
+/**
+ * Request parameters for listNonEmployeeApprovals operation in NonEmployeeLifecycleManagementApi.
+ * @export
+ * @interface NonEmployeeLifecycleManagementApiListNonEmployeeApprovalsRequest
+ */
+export interface NonEmployeeLifecycleManagementApiListNonEmployeeApprovalsRequest {
+    /**
+     * The identity for whom the request was made. *me* indicates the current user.
+     * @type {string}
+     * @memberof NonEmployeeLifecycleManagementApiListNonEmployeeApprovals
+     */
+    readonly requestedFor?: string
+
+    /**
+     * Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+     * @type {number}
+     * @memberof NonEmployeeLifecycleManagementApiListNonEmployeeApprovals
+     */
+    readonly limit?: number
+
+    /**
+     * Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+     * @type {number}
+     * @memberof NonEmployeeLifecycleManagementApiListNonEmployeeApprovals
+     */
+    readonly offset?: number
+
+    /**
+     * If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+     * @type {boolean}
+     * @memberof NonEmployeeLifecycleManagementApiListNonEmployeeApprovals
+     */
+    readonly count?: boolean
+
+    /**
+     * Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://community.sailpoint.com/t5/IdentityNow-Wiki/V3-API-Standard-Collection-Parameters/ta-p/156407) Filtering is supported for the following fields and operators: **approvalStatus**: *eq*  *Example:* approvalStatus eq \&quot;PENDING\&quot;
+     * @type {string}
+     * @memberof NonEmployeeLifecycleManagementApiListNonEmployeeApprovals
+     */
+    readonly filters?: string
+
+    /**
+     * Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://community.sailpoint.com/t5/IdentityNow-Wiki/V3-API-Standard-Collection-Parameters/ta-p/156407#toc-hId-2058949) Sorting is supported for the following fields: **created, modified**
+     * @type {string}
+     * @memberof NonEmployeeLifecycleManagementApiListNonEmployeeApprovals
+     */
+    readonly sorters?: string
+}
+
+/**
+ * Request parameters for listNonEmployeeRecords operation in NonEmployeeLifecycleManagementApi.
+ * @export
+ * @interface NonEmployeeLifecycleManagementApiListNonEmployeeRecordsRequest
+ */
+export interface NonEmployeeLifecycleManagementApiListNonEmployeeRecordsRequest {
+    /**
+     * Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+     * @type {number}
+     * @memberof NonEmployeeLifecycleManagementApiListNonEmployeeRecords
+     */
+    readonly limit?: number
+
+    /**
+     * Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+     * @type {number}
+     * @memberof NonEmployeeLifecycleManagementApiListNonEmployeeRecords
+     */
+    readonly offset?: number
+
+    /**
+     * If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+     * @type {boolean}
+     * @memberof NonEmployeeLifecycleManagementApiListNonEmployeeRecords
+     */
+    readonly count?: boolean
+
+    /**
+     * Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://community.sailpoint.com/t5/IdentityNow-Wiki/V3-API-Standard-Collection-Parameters/ta-p/156407#toc-hId-2058949) Sorting is supported for the following fields: **id, accountName, sourceId, manager, firstName, lastName, email, phone, startDate, endDate, created, modified**
+     * @type {string}
+     * @memberof NonEmployeeLifecycleManagementApiListNonEmployeeRecords
+     */
+    readonly sorters?: string
+
+    /**
+     * Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://community.sailpoint.com/t5/IdentityNow-Wiki/V3-API-Standard-Collection-Parameters/ta-p/156407) Filtering is supported for the following fields and operators: **sourceId**: *eq*  *Example:* sourceId eq \&quot;2c91808568c529c60168cca6f90c1313\&quot;
+     * @type {string}
+     * @memberof NonEmployeeLifecycleManagementApiListNonEmployeeRecords
+     */
+    readonly filters?: string
+}
+
+/**
+ * Request parameters for listNonEmployeeRequests operation in NonEmployeeLifecycleManagementApi.
+ * @export
+ * @interface NonEmployeeLifecycleManagementApiListNonEmployeeRequestsRequest
+ */
+export interface NonEmployeeLifecycleManagementApiListNonEmployeeRequestsRequest {
+    /**
+     * The identity for whom the request was made. *me* indicates the current user.
+     * @type {string}
+     * @memberof NonEmployeeLifecycleManagementApiListNonEmployeeRequests
+     */
+    readonly requestedFor: string
+
+    /**
+     * Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+     * @type {number}
+     * @memberof NonEmployeeLifecycleManagementApiListNonEmployeeRequests
+     */
+    readonly limit?: number
+
+    /**
+     * Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+     * @type {number}
+     * @memberof NonEmployeeLifecycleManagementApiListNonEmployeeRequests
+     */
+    readonly offset?: number
+
+    /**
+     * If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+     * @type {boolean}
+     * @memberof NonEmployeeLifecycleManagementApiListNonEmployeeRequests
+     */
+    readonly count?: boolean
+
+    /**
+     * Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://community.sailpoint.com/t5/IdentityNow-Wiki/V3-API-Standard-Collection-Parameters/ta-p/156407#toc-hId-2058949) Sorting is supported for the following fields: **created, approvalStatus, firstName, lastName, email, phone, accountName, startDate, endDate**
+     * @type {string}
+     * @memberof NonEmployeeLifecycleManagementApiListNonEmployeeRequests
+     */
+    readonly sorters?: string
+
+    /**
+     * Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://community.sailpoint.com/t5/IdentityNow-Wiki/V3-API-Standard-Collection-Parameters/ta-p/156407) Filtering is supported for the following fields and operators: **sourceId**: *eq*  *Example:* sourceId eq \&quot;2c91808568c529c60168cca6f90c1313\&quot;
+     * @type {string}
+     * @memberof NonEmployeeLifecycleManagementApiListNonEmployeeRequests
+     */
+    readonly filters?: string
+}
+
+/**
+ * Request parameters for listNonEmployeeSources operation in NonEmployeeLifecycleManagementApi.
+ * @export
+ * @interface NonEmployeeLifecycleManagementApiListNonEmployeeSourcesRequest
+ */
+export interface NonEmployeeLifecycleManagementApiListNonEmployeeSourcesRequest {
+    /**
+     * The identity for whom the request was made. *me* indicates the current user.
+     * @type {string}
+     * @memberof NonEmployeeLifecycleManagementApiListNonEmployeeSources
+     */
+    readonly requestedFor: string
+
+    /**
+     * Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+     * @type {number}
+     * @memberof NonEmployeeLifecycleManagementApiListNonEmployeeSources
+     */
+    readonly limit?: number
+
+    /**
+     * Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+     * @type {number}
+     * @memberof NonEmployeeLifecycleManagementApiListNonEmployeeSources
+     */
+    readonly offset?: number
+
+    /**
+     * If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+     * @type {boolean}
+     * @memberof NonEmployeeLifecycleManagementApiListNonEmployeeSources
+     */
+    readonly count?: boolean
+
+    /**
+     * The flag to determine whether return a non-employee count associate with source.
+     * @type {boolean}
+     * @memberof NonEmployeeLifecycleManagementApiListNonEmployeeSources
+     */
+    readonly nonEmployeeCount?: boolean
+
+    /**
+     * Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://community.sailpoint.com/t5/IdentityNow-Wiki/V3-API-Standard-Collection-Parameters/ta-p/156407#toc-hId-2058949) Sorting is supported for the following fields: **name, created**
+     * @type {string}
+     * @memberof NonEmployeeLifecycleManagementApiListNonEmployeeSources
+     */
+    readonly sorters?: string
+}
+
+/**
+ * Request parameters for patchNonEmployeeRecord operation in NonEmployeeLifecycleManagementApi.
+ * @export
+ * @interface NonEmployeeLifecycleManagementApiPatchNonEmployeeRecordRequest
+ */
+export interface NonEmployeeLifecycleManagementApiPatchNonEmployeeRecordRequest {
+    /**
+     * Non-employee record id (UUID)
+     * @type {string}
+     * @memberof NonEmployeeLifecycleManagementApiPatchNonEmployeeRecord
+     */
+    readonly id: string
+
+    /**
+     * A list of non-employee update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard. Attributes are restricted by user type. Owner of source can update end date. Organization admins can update all available fields.
+     * @type {Array<JsonPatchOperation>}
+     * @memberof NonEmployeeLifecycleManagementApiPatchNonEmployeeRecord
+     */
+    readonly jsonPatchOperation: Array<JsonPatchOperation>
+}
+
+/**
+ * Request parameters for patchNonEmployeeSchemaAttribute operation in NonEmployeeLifecycleManagementApi.
+ * @export
+ * @interface NonEmployeeLifecycleManagementApiPatchNonEmployeeSchemaAttributeRequest
+ */
+export interface NonEmployeeLifecycleManagementApiPatchNonEmployeeSchemaAttributeRequest {
+    /**
+     * The Schema Attribute Id (UUID)
+     * @type {string}
+     * @memberof NonEmployeeLifecycleManagementApiPatchNonEmployeeSchemaAttribute
+     */
+    readonly attributeId: string
+
+    /**
+     * The Source id
+     * @type {string}
+     * @memberof NonEmployeeLifecycleManagementApiPatchNonEmployeeSchemaAttribute
      */
     readonly sourceId: string
 
     /**
      * A list of schema attribute update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard. The following properties are allowed for update \&#39;:\&#39; \&#39;label\&#39;, \&#39;helpText\&#39;, \&#39;placeholder\&#39;, \&#39;required\&#39;.
      * @type {Array<JsonPatchOperation>}
-     * @memberof NonEmployeeLifecycleManagementApiPatchSchemaAttribute
+     * @memberof NonEmployeeLifecycleManagementApiPatchNonEmployeeSchemaAttribute
      */
     readonly jsonPatchOperation: Array<JsonPatchOperation>
+}
+
+/**
+ * Request parameters for patchNonEmployeeSource operation in NonEmployeeLifecycleManagementApi.
+ * @export
+ * @interface NonEmployeeLifecycleManagementApiPatchNonEmployeeSourceRequest
+ */
+export interface NonEmployeeLifecycleManagementApiPatchNonEmployeeSourceRequest {
+    /**
+     * Source Id
+     * @type {string}
+     * @memberof NonEmployeeLifecycleManagementApiPatchNonEmployeeSource
+     */
+    readonly sourceId: string
+
+    /**
+     * A list of non-employee source update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.
+     * @type {Array<JsonPatchOperation>}
+     * @memberof NonEmployeeLifecycleManagementApiPatchNonEmployeeSource
+     */
+    readonly jsonPatchOperation: Array<JsonPatchOperation>
+}
+
+/**
+ * Request parameters for rejectNonEmployeeRequest operation in NonEmployeeLifecycleManagementApi.
+ * @export
+ * @interface NonEmployeeLifecycleManagementApiRejectNonEmployeeRequestRequest
+ */
+export interface NonEmployeeLifecycleManagementApiRejectNonEmployeeRequestRequest {
+    /**
+     * Non-Employee approval item id (UUID)
+     * @type {string}
+     * @memberof NonEmployeeLifecycleManagementApiRejectNonEmployeeRequest
+     */
+    readonly id: string
+
+    /**
+     * 
+     * @type {NonEmployeeRejectApprovalDecision}
+     * @memberof NonEmployeeLifecycleManagementApiRejectNonEmployeeRequest
+     */
+    readonly nonEmployeeRejectApprovalDecision: NonEmployeeRejectApprovalDecision
+}
+
+/**
+ * Request parameters for updateNonEmployeeRecord operation in NonEmployeeLifecycleManagementApi.
+ * @export
+ * @interface NonEmployeeLifecycleManagementApiUpdateNonEmployeeRecordRequest
+ */
+export interface NonEmployeeLifecycleManagementApiUpdateNonEmployeeRecordRequest {
+    /**
+     * Non-employee record id (UUID)
+     * @type {string}
+     * @memberof NonEmployeeLifecycleManagementApiUpdateNonEmployeeRecord
+     */
+    readonly id: string
+
+    /**
+     * Non-employee record creation request body. Attributes are restricted by user type. Owner of source can update end date. Organization admins can update all available fields.
+     * @type {NonEmployeeRequestBody}
+     * @memberof NonEmployeeLifecycleManagementApiUpdateNonEmployeeRecord
+     */
+    readonly nonEmployeeRequestBody: NonEmployeeRequestBody
+}
+
+/**
+ * Request parameters for uploadNonEmployeeRecordsInBulk operation in NonEmployeeLifecycleManagementApi.
+ * @export
+ * @interface NonEmployeeLifecycleManagementApiUploadNonEmployeeRecordsInBulkRequest
+ */
+export interface NonEmployeeLifecycleManagementApiUploadNonEmployeeRecordsInBulkRequest {
+    /**
+     * Source Id (UUID)
+     * @type {string}
+     * @memberof NonEmployeeLifecycleManagementApiUploadNonEmployeeRecordsInBulk
+     */
+    readonly id: string
+
+    /**
+     * 
+     * @type {string}
+     * @memberof NonEmployeeLifecycleManagementApiUploadNonEmployeeRecordsInBulk
+     */
+    readonly data: string
 }
 
 /**
@@ -22579,387 +22579,387 @@ export interface NonEmployeeLifecycleManagementApiPatchSchemaAttributeRequest {
  */
 export class NonEmployeeLifecycleManagementApi extends BaseAPI {
     /**
-     * This API creates a new schema attribute for Non-Employee Source. The schema technical name must be unique in the source. Attempts to create a schema attribute with an existing name will result in a \"400.1.409 Reference conflict\" response. At most, 10 custom attributes can be created per schema. Attempts to create more than 10 will result in a \"400.1.4 Limit violation\" response. Requires role context of `idn:nesr:create`
-     * @summary Create a new Schema Attribute for Non-Employee Source
-     * @param {NonEmployeeLifecycleManagementApiCreateSchemaAttributeRequest} requestParameters Request parameters.
-     * @param {*} [axiosOptions] Override http request option.
-     * @throws {RequiredError}
-     * @memberof NonEmployeeLifecycleManagementApi
-     */
-    public createSchemaAttribute(requestParameters: NonEmployeeLifecycleManagementApiCreateSchemaAttributeRequest, axiosOptions?: AxiosRequestConfig) {
-        return NonEmployeeLifecycleManagementApiFp(this.configuration).createSchemaAttribute(requestParameters.sourceId, requestParameters.nonEmployeeSchemaAttributeBody, axiosOptions).then((request) => request(this.axios, this.basePath));
-    }
-
-    /**
-     * This end-point deletes a specific schema attribute for a non-employee source. Requires role context of `idn:nesr:delete` 
-     * @summary Delete a Schema Attribute for Non-Employee Source
-     * @param {NonEmployeeLifecycleManagementApiDeleteSchemaAttributeRequest} requestParameters Request parameters.
-     * @param {*} [axiosOptions] Override http request option.
-     * @throws {RequiredError}
-     * @memberof NonEmployeeLifecycleManagementApi
-     */
-    public deleteSchemaAttribute(requestParameters: NonEmployeeLifecycleManagementApiDeleteSchemaAttributeRequest, axiosOptions?: AxiosRequestConfig) {
-        return NonEmployeeLifecycleManagementApiFp(this.configuration).deleteSchemaAttribute(requestParameters.attributeId, requestParameters.sourceId, axiosOptions).then((request) => request(this.axios, this.basePath));
-    }
-
-    /**
-     * This end-point deletes all custom schema attributes for a non-employee source. Requires role context of `idn:nesr:delete`
-     * @summary Delete all custom schema attributes for Non-Employee Source
-     * @param {NonEmployeeLifecycleManagementApiDeleteSchemaAttributesRequest} requestParameters Request parameters.
-     * @param {*} [axiosOptions] Override http request option.
-     * @throws {RequiredError}
-     * @memberof NonEmployeeLifecycleManagementApi
-     */
-    public deleteSchemaAttributes(requestParameters: NonEmployeeLifecycleManagementApiDeleteSchemaAttributesRequest, axiosOptions?: AxiosRequestConfig) {
-        return NonEmployeeLifecycleManagementApiFp(this.configuration).deleteSchemaAttributes(requestParameters.sourceId, axiosOptions).then((request) => request(this.axios, this.basePath));
-    }
-
-    /**
-     * This API gets a schema attribute by Id for the specified Non-Employee SourceId. Requires role context of `idn:nesr:read` or the user must be an account manager of the source.
-     * @summary Get Schema Attribute Non-Employee Source
-     * @param {NonEmployeeLifecycleManagementApiGetSchemaAttributeRequest} requestParameters Request parameters.
-     * @param {*} [axiosOptions] Override http request option.
-     * @throws {RequiredError}
-     * @memberof NonEmployeeLifecycleManagementApi
-     */
-    public getSchemaAttribute(requestParameters: NonEmployeeLifecycleManagementApiGetSchemaAttributeRequest, axiosOptions?: AxiosRequestConfig) {
-        return NonEmployeeLifecycleManagementApiFp(this.configuration).getSchemaAttribute(requestParameters.attributeId, requestParameters.sourceId, axiosOptions).then((request) => request(this.axios, this.basePath));
-    }
-
-    /**
-     * This API gets the list of schema attributes for the specified Non-Employee SourceId. There are 8 mandatory attributes added to each new Non-Employee Source automatically. Additionaly, user can add up to 10 custom attributes. This interface returns all the mandatory attributes followed by any custom attributes. At most, a total of 18 attributes will be returned. Requires role context of `idn:nesr:read` or the user must be an account manager of the source.
-     * @summary List Schema Attributes Non-Employee Source
-     * @param {NonEmployeeLifecycleManagementApiGetSchemaAttributesRequest} requestParameters Request parameters.
-     * @param {*} [axiosOptions] Override http request option.
-     * @throws {RequiredError}
-     * @memberof NonEmployeeLifecycleManagementApi
-     */
-    public getSchemaAttributes(requestParameters: NonEmployeeLifecycleManagementApiGetSchemaAttributesRequest, axiosOptions?: AxiosRequestConfig) {
-        return NonEmployeeLifecycleManagementApiFp(this.configuration).getSchemaAttributes(requestParameters.sourceId, axiosOptions).then((request) => request(this.axios, this.basePath));
-    }
-
-    /**
-     * Gets a non-employee approval item detail. There are two contextual uses for this endpoint:   1. The user has the role context of `idn:nesr:read`, in which case they can get any approval.   2. The user owns the requested approval.
-     * @summary Get a non-employee approval item detail
-     * @param {NonEmployeeLifecycleManagementApiNonEmployeeApprovalGetRequest} requestParameters Request parameters.
-     * @param {*} [axiosOptions] Override http request option.
-     * @throws {RequiredError}
-     * @memberof NonEmployeeLifecycleManagementApi
-     */
-    public nonEmployeeApprovalGet(requestParameters: NonEmployeeLifecycleManagementApiNonEmployeeApprovalGetRequest, axiosOptions?: AxiosRequestConfig) {
-        return NonEmployeeLifecycleManagementApiFp(this.configuration).nonEmployeeApprovalGet(requestParameters.id, requestParameters.includeDetail, axiosOptions).then((request) => request(this.axios, this.basePath));
-    }
-
-    /**
-     * This gets a list of non-employee approval requests. There are two contextual uses for this endpoint:   1. The user has the role context of `idn:nesr:read`, in which case they can list the approvals for any approver.   2. The user owns the requested approval.
-     * @summary Get List of Non-Employee Approval Requests
-     * @param {NonEmployeeLifecycleManagementApiNonEmployeeApprovalListRequest} requestParameters Request parameters.
-     * @param {*} [axiosOptions] Override http request option.
-     * @throws {RequiredError}
-     * @memberof NonEmployeeLifecycleManagementApi
-     */
-    public nonEmployeeApprovalList(requestParameters: NonEmployeeLifecycleManagementApiNonEmployeeApprovalListRequest = {}, axiosOptions?: AxiosRequestConfig) {
-        return NonEmployeeLifecycleManagementApiFp(this.configuration).nonEmployeeApprovalList(requestParameters.requestedFor, requestParameters.limit, requestParameters.offset, requestParameters.count, requestParameters.filters, requestParameters.sorters, axiosOptions).then((request) => request(this.axios, this.basePath));
-    }
-
-    /**
-     * This request will retrieve a summary of non-employee approval requests. There are two contextual uses for the `requested-for` path parameter:   1. The user has the role context of `idn:nesr:read`, in which case he or she may request a summary of all non-employee approval requests assigned to a particular approver by passing in that approver\'s id.   2. The current user is an approver, in which case \"me\" should be provided as the `requested-for` value. This will provide the approver with a summary of the approval items assigned to him or her.
-     * @summary Get Summary of Non-Employee Approval Requests
-     * @param {NonEmployeeLifecycleManagementApiNonEmployeeApprovalSummaryRequest} requestParameters Request parameters.
-     * @param {*} [axiosOptions] Override http request option.
-     * @throws {RequiredError}
-     * @memberof NonEmployeeLifecycleManagementApi
-     */
-    public nonEmployeeApprovalSummary(requestParameters: NonEmployeeLifecycleManagementApiNonEmployeeApprovalSummaryRequest, axiosOptions?: AxiosRequestConfig) {
-        return NonEmployeeLifecycleManagementApiFp(this.configuration).nonEmployeeApprovalSummary(requestParameters.requestedFor, axiosOptions).then((request) => request(this.axios, this.basePath));
-    }
-
-    /**
      * Approves a non-employee approval request and notifies the next approver. The current user must be the requested approver.
      * @summary Approve a Non-Employee Request
-     * @param {NonEmployeeLifecycleManagementApiNonEmployeeApproveRequestRequest} requestParameters Request parameters.
+     * @param {NonEmployeeLifecycleManagementApiApproveNonEmployeeRequestRequest} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
      * @memberof NonEmployeeLifecycleManagementApi
      */
-    public nonEmployeeApproveRequest(requestParameters: NonEmployeeLifecycleManagementApiNonEmployeeApproveRequestRequest, axiosOptions?: AxiosRequestConfig) {
-        return NonEmployeeLifecycleManagementApiFp(this.configuration).nonEmployeeApproveRequest(requestParameters.id, requestParameters.nonEmployeeApprovalDecision, axiosOptions).then((request) => request(this.axios, this.basePath));
-    }
-
-    /**
-     * The nonEmployeeBulkUploadStatus API returns the status of the newest bulk upload job for the specified source. Requires role context of `idn:nesr:read` 
-     * @summary Obtain the status of bulk upload on the source
-     * @param {NonEmployeeLifecycleManagementApiNonEmployeeBulkUploadStatusRequest} requestParameters Request parameters.
-     * @param {*} [axiosOptions] Override http request option.
-     * @throws {RequiredError}
-     * @memberof NonEmployeeLifecycleManagementApi
-     */
-    public nonEmployeeBulkUploadStatus(requestParameters: NonEmployeeLifecycleManagementApiNonEmployeeBulkUploadStatusRequest, axiosOptions?: AxiosRequestConfig) {
-        return NonEmployeeLifecycleManagementApiFp(this.configuration).nonEmployeeBulkUploadStatus(requestParameters.id, axiosOptions).then((request) => request(this.axios, this.basePath));
-    }
-
-    /**
-     * This requests a download for the Source Schema Template for a provided source. Requires role context of `idn:nesr:read`
-     * @summary Exports Source Schema Template
-     * @param {NonEmployeeLifecycleManagementApiNonEmployeeExportSourceSchemaTemplateRequest} requestParameters Request parameters.
-     * @param {*} [axiosOptions] Override http request option.
-     * @throws {RequiredError}
-     * @memberof NonEmployeeLifecycleManagementApi
-     */
-    public nonEmployeeExportSourceSchemaTemplate(requestParameters: NonEmployeeLifecycleManagementApiNonEmployeeExportSourceSchemaTemplateRequest, axiosOptions?: AxiosRequestConfig) {
-        return NonEmployeeLifecycleManagementApiFp(this.configuration).nonEmployeeExportSourceSchemaTemplate(requestParameters.id, axiosOptions).then((request) => request(this.axios, this.basePath));
-    }
-
-    /**
-     * This request will delete multiple non-employee records based on the non-employee ids provided. Requires role context of `idn:nesr:delete`
-     * @summary Delete Multiple Non-Employee Records
-     * @param {NonEmployeeLifecycleManagementApiNonEmployeeRecordBulkDeleteRequest} requestParameters Request parameters.
-     * @param {*} [axiosOptions] Override http request option.
-     * @throws {RequiredError}
-     * @memberof NonEmployeeLifecycleManagementApi
-     */
-    public nonEmployeeRecordBulkDelete(requestParameters: NonEmployeeLifecycleManagementApiNonEmployeeRecordBulkDeleteRequest, axiosOptions?: AxiosRequestConfig) {
-        return NonEmployeeLifecycleManagementApiFp(this.configuration).nonEmployeeRecordBulkDelete(requestParameters.nonEmployeeRecordBulkDeleteRequest, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public approveNonEmployeeRequest(requestParameters: NonEmployeeLifecycleManagementApiApproveNonEmployeeRequestRequest, axiosOptions?: AxiosRequestConfig) {
+        return NonEmployeeLifecycleManagementApiFp(this.configuration).approveNonEmployeeRequest(requestParameters.id, requestParameters.nonEmployeeApprovalDecision, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * This request will create a non-employee record. Requires role context of `idn:nesr:create`
      * @summary Create Non-Employee Record
-     * @param {NonEmployeeLifecycleManagementApiNonEmployeeRecordCreationRequest} requestParameters Request parameters.
+     * @param {NonEmployeeLifecycleManagementApiCreateNonEmployeeRecordRequest} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
      * @memberof NonEmployeeLifecycleManagementApi
      */
-    public nonEmployeeRecordCreation(requestParameters: NonEmployeeLifecycleManagementApiNonEmployeeRecordCreationRequest, axiosOptions?: AxiosRequestConfig) {
-        return NonEmployeeLifecycleManagementApiFp(this.configuration).nonEmployeeRecordCreation(requestParameters.nonEmployeeRequestBody, axiosOptions).then((request) => request(this.axios, this.basePath));
-    }
-
-    /**
-     * This request will delete a non-employee record. Requires role context of `idn:nesr:delete`
-     * @summary Delete Non-Employee Record
-     * @param {NonEmployeeLifecycleManagementApiNonEmployeeRecordDeleteRequest} requestParameters Request parameters.
-     * @param {*} [axiosOptions] Override http request option.
-     * @throws {RequiredError}
-     * @memberof NonEmployeeLifecycleManagementApi
-     */
-    public nonEmployeeRecordDelete(requestParameters: NonEmployeeLifecycleManagementApiNonEmployeeRecordDeleteRequest, axiosOptions?: AxiosRequestConfig) {
-        return NonEmployeeLifecycleManagementApiFp(this.configuration).nonEmployeeRecordDelete(requestParameters.id, axiosOptions).then((request) => request(this.axios, this.basePath));
-    }
-
-    /**
-     * This gets a non-employee record. Requires role context of `idn:nesr:read`
-     * @summary Get a Non-Employee Record
-     * @param {NonEmployeeLifecycleManagementApiNonEmployeeRecordGetRequest} requestParameters Request parameters.
-     * @param {*} [axiosOptions] Override http request option.
-     * @throws {RequiredError}
-     * @memberof NonEmployeeLifecycleManagementApi
-     */
-    public nonEmployeeRecordGet(requestParameters: NonEmployeeLifecycleManagementApiNonEmployeeRecordGetRequest, axiosOptions?: AxiosRequestConfig) {
-        return NonEmployeeLifecycleManagementApiFp(this.configuration).nonEmployeeRecordGet(requestParameters.id, axiosOptions).then((request) => request(this.axios, this.basePath));
-    }
-
-    /**
-     * This gets a list of non-employee records. There are two contextual uses for this endpoint:   1. The user has the role context of `idn:nesr:read`, in which case they can get a list of all of the non-employees.   2. The user is an account manager, in which case they can get a list of the non-employees that they manage.
-     * @summary List Non-Employee Records
-     * @param {NonEmployeeLifecycleManagementApiNonEmployeeRecordListRequest} requestParameters Request parameters.
-     * @param {*} [axiosOptions] Override http request option.
-     * @throws {RequiredError}
-     * @memberof NonEmployeeLifecycleManagementApi
-     */
-    public nonEmployeeRecordList(requestParameters: NonEmployeeLifecycleManagementApiNonEmployeeRecordListRequest = {}, axiosOptions?: AxiosRequestConfig) {
-        return NonEmployeeLifecycleManagementApiFp(this.configuration).nonEmployeeRecordList(requestParameters.limit, requestParameters.offset, requestParameters.count, requestParameters.sorters, requestParameters.filters, axiosOptions).then((request) => request(this.axios, this.basePath));
-    }
-
-    /**
-     * This request will patch a non-employee record. There are two contextual uses for this endpoint:   1. The user has the role context of `idn:nesr:update`, in which case they update all available fields.   2. The user is owner of the source, in this case they can only update the end date.
-     * @summary Patch Non-Employee Record
-     * @param {NonEmployeeLifecycleManagementApiNonEmployeeRecordPatchRequest} requestParameters Request parameters.
-     * @param {*} [axiosOptions] Override http request option.
-     * @throws {RequiredError}
-     * @memberof NonEmployeeLifecycleManagementApi
-     */
-    public nonEmployeeRecordPatch(requestParameters: NonEmployeeLifecycleManagementApiNonEmployeeRecordPatchRequest, axiosOptions?: AxiosRequestConfig) {
-        return NonEmployeeLifecycleManagementApiFp(this.configuration).nonEmployeeRecordPatch(requestParameters.id, requestParameters.jsonPatchOperation, axiosOptions).then((request) => request(this.axios, this.basePath));
-    }
-
-    /**
-     * This request will update a non-employee record. There are two contextual uses for this endpoint:   1. The user has the role context of `idn:nesr:update`, in which case they update all available fields.   2. The user is owner of the source, in this case they can only update the end date.
-     * @summary Update Non-Employee Record
-     * @param {NonEmployeeLifecycleManagementApiNonEmployeeRecordUpdateRequest} requestParameters Request parameters.
-     * @param {*} [axiosOptions] Override http request option.
-     * @throws {RequiredError}
-     * @memberof NonEmployeeLifecycleManagementApi
-     */
-    public nonEmployeeRecordUpdate(requestParameters: NonEmployeeLifecycleManagementApiNonEmployeeRecordUpdateRequest, axiosOptions?: AxiosRequestConfig) {
-        return NonEmployeeLifecycleManagementApiFp(this.configuration).nonEmployeeRecordUpdate(requestParameters.id, requestParameters.nonEmployeeRequestBody, axiosOptions).then((request) => request(this.axios, this.basePath));
-    }
-
-    /**
-     * This post will import, or update, Non-Employee records found in the CSV. Requires role context of `idn:nesr:create`
-     * @summary Imports, or Updates, Non-Employee Records
-     * @param {NonEmployeeLifecycleManagementApiNonEmployeeRecordsBulkUploadRequest} requestParameters Request parameters.
-     * @param {*} [axiosOptions] Override http request option.
-     * @throws {RequiredError}
-     * @memberof NonEmployeeLifecycleManagementApi
-     */
-    public nonEmployeeRecordsBulkUpload(requestParameters: NonEmployeeLifecycleManagementApiNonEmployeeRecordsBulkUploadRequest, axiosOptions?: AxiosRequestConfig) {
-        return NonEmployeeLifecycleManagementApiFp(this.configuration).nonEmployeeRecordsBulkUpload(requestParameters.id, requestParameters.data, axiosOptions).then((request) => request(this.axios, this.basePath));
-    }
-
-    /**
-     * This requests a CSV download for all non-employees from a provided source. Requires role context of `idn:nesr:read`
-     * @summary Exports Non-Employee Records to CSV
-     * @param {NonEmployeeLifecycleManagementApiNonEmployeeRecordsExportRequest} requestParameters Request parameters.
-     * @param {*} [axiosOptions] Override http request option.
-     * @throws {RequiredError}
-     * @memberof NonEmployeeLifecycleManagementApi
-     */
-    public nonEmployeeRecordsExport(requestParameters: NonEmployeeLifecycleManagementApiNonEmployeeRecordsExportRequest, axiosOptions?: AxiosRequestConfig) {
-        return NonEmployeeLifecycleManagementApiFp(this.configuration).nonEmployeeRecordsExport(requestParameters.id, axiosOptions).then((request) => request(this.axios, this.basePath));
-    }
-
-    /**
-     * This endpoint will reject an approval item request and notify user. The current user must be the requested approver.
-     * @summary Reject a Non-Employee Request
-     * @param {NonEmployeeLifecycleManagementApiNonEmployeeRejectRequestRequest} requestParameters Request parameters.
-     * @param {*} [axiosOptions] Override http request option.
-     * @throws {RequiredError}
-     * @memberof NonEmployeeLifecycleManagementApi
-     */
-    public nonEmployeeRejectRequest(requestParameters: NonEmployeeLifecycleManagementApiNonEmployeeRejectRequestRequest, axiosOptions?: AxiosRequestConfig) {
-        return NonEmployeeLifecycleManagementApiFp(this.configuration).nonEmployeeRejectRequest(requestParameters.id, requestParameters.nonEmployeeRejectApprovalDecision, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public createNonEmployeeRecord(requestParameters: NonEmployeeLifecycleManagementApiCreateNonEmployeeRecordRequest, axiosOptions?: AxiosRequestConfig) {
+        return NonEmployeeLifecycleManagementApiFp(this.configuration).createNonEmployeeRecord(requestParameters.nonEmployeeRequestBody, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * This request will create a non-employee request and notify the approver. Requires role context of `idn:nesr:create` or the user must own the source.
      * @summary Create Non-Employee Request
-     * @param {NonEmployeeLifecycleManagementApiNonEmployeeRequestCreationRequest} requestParameters Request parameters.
+     * @param {NonEmployeeLifecycleManagementApiCreateNonEmployeeRequestRequest} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
      * @memberof NonEmployeeLifecycleManagementApi
      */
-    public nonEmployeeRequestCreation(requestParameters: NonEmployeeLifecycleManagementApiNonEmployeeRequestCreationRequest, axiosOptions?: AxiosRequestConfig) {
-        return NonEmployeeLifecycleManagementApiFp(this.configuration).nonEmployeeRequestCreation(requestParameters.nonEmployeeRequestBody, axiosOptions).then((request) => request(this.axios, this.basePath));
-    }
-
-    /**
-     * This request will delete a non-employee request.  Requires role context of `idn:nesr:delete`
-     * @summary Delete Non-Employee Request
-     * @param {NonEmployeeLifecycleManagementApiNonEmployeeRequestDeletionRequest} requestParameters Request parameters.
-     * @param {*} [axiosOptions] Override http request option.
-     * @throws {RequiredError}
-     * @memberof NonEmployeeLifecycleManagementApi
-     */
-    public nonEmployeeRequestDeletion(requestParameters: NonEmployeeLifecycleManagementApiNonEmployeeRequestDeletionRequest, axiosOptions?: AxiosRequestConfig) {
-        return NonEmployeeLifecycleManagementApiFp(this.configuration).nonEmployeeRequestDeletion(requestParameters.id, axiosOptions).then((request) => request(this.axios, this.basePath));
-    }
-
-    /**
-     * This gets a non-employee request. There are two contextual uses for this endpoint:   1. The user has the role context of `idn:nesr:read`, in this case the user can get the non-employee request for any user.   2. The user must be the owner of the non-employee request.
-     * @summary Get a Non-Employee Request
-     * @param {NonEmployeeLifecycleManagementApiNonEmployeeRequestGetRequest} requestParameters Request parameters.
-     * @param {*} [axiosOptions] Override http request option.
-     * @throws {RequiredError}
-     * @memberof NonEmployeeLifecycleManagementApi
-     */
-    public nonEmployeeRequestGet(requestParameters: NonEmployeeLifecycleManagementApiNonEmployeeRequestGetRequest, axiosOptions?: AxiosRequestConfig) {
-        return NonEmployeeLifecycleManagementApiFp(this.configuration).nonEmployeeRequestGet(requestParameters.id, axiosOptions).then((request) => request(this.axios, this.basePath));
-    }
-
-    /**
-     * This gets a list of non-employee requests. There are two contextual uses for the `requested-for` path parameter:   1. The user has the role context of `idn:nesr:read`, in which case he or she may request a list non-employee requests assigned to a particular account manager by passing in that manager\'s id.   2. The current user is an account manager, in which case \"me\" should be provided as the `requested-for` value. This will provide the user with a list of the non-employee requests in the source(s) he or she manages.
-     * @summary List Non-Employee Requests
-     * @param {NonEmployeeLifecycleManagementApiNonEmployeeRequestListRequest} requestParameters Request parameters.
-     * @param {*} [axiosOptions] Override http request option.
-     * @throws {RequiredError}
-     * @memberof NonEmployeeLifecycleManagementApi
-     */
-    public nonEmployeeRequestList(requestParameters: NonEmployeeLifecycleManagementApiNonEmployeeRequestListRequest, axiosOptions?: AxiosRequestConfig) {
-        return NonEmployeeLifecycleManagementApiFp(this.configuration).nonEmployeeRequestList(requestParameters.requestedFor, requestParameters.limit, requestParameters.offset, requestParameters.count, requestParameters.sorters, requestParameters.filters, axiosOptions).then((request) => request(this.axios, this.basePath));
-    }
-
-    /**
-     * This request will retrieve a summary of non-employee requests. There are two contextual uses for the `requested-for` path parameter:   1. The user has the role context of `idn:nesr:read`, in which case he or she may request a summary of all non-employee approval requests assigned to a particular account manager by passing in that manager\'s id.   2. The current user is an account manager, in which case \"me\" should be provided as the `requested-for` value. This will provide the user with a summary of the non-employee requests in the source(s) he or she manages.
-     * @summary Get Summary of Non-Employee Requests
-     * @param {NonEmployeeLifecycleManagementApiNonEmployeeRequestSummaryGetRequest} requestParameters Request parameters.
-     * @param {*} [axiosOptions] Override http request option.
-     * @throws {RequiredError}
-     * @memberof NonEmployeeLifecycleManagementApi
-     */
-    public nonEmployeeRequestSummaryGet(requestParameters: NonEmployeeLifecycleManagementApiNonEmployeeRequestSummaryGetRequest, axiosOptions?: AxiosRequestConfig) {
-        return NonEmployeeLifecycleManagementApiFp(this.configuration).nonEmployeeRequestSummaryGet(requestParameters.requestedFor, axiosOptions).then((request) => request(this.axios, this.basePath));
-    }
-
-    /**
-     * This request will delete a non-employee source. Requires role context of `idn:nesr:delete`.
-     * @summary Delete Non-Employee Source
-     * @param {NonEmployeeLifecycleManagementApiNonEmployeeSourceDeleteRequest} requestParameters Request parameters.
-     * @param {*} [axiosOptions] Override http request option.
-     * @throws {RequiredError}
-     * @memberof NonEmployeeLifecycleManagementApi
-     */
-    public nonEmployeeSourceDelete(requestParameters: NonEmployeeLifecycleManagementApiNonEmployeeSourceDeleteRequest, axiosOptions?: AxiosRequestConfig) {
-        return NonEmployeeLifecycleManagementApiFp(this.configuration).nonEmployeeSourceDelete(requestParameters.sourceId, axiosOptions).then((request) => request(this.axios, this.basePath));
-    }
-
-    /**
-     * This gets a non-employee source. There are two contextual uses for the requested-for path parameter:    1. The user has the role context of `idn:nesr:read`, in which case he or she may request any source.   2. The current user is an account manager, in which case the user can only request sources that they own.
-     * @summary Get a Non-Employee Source
-     * @param {NonEmployeeLifecycleManagementApiNonEmployeeSourceGetRequest} requestParameters Request parameters.
-     * @param {*} [axiosOptions] Override http request option.
-     * @throws {RequiredError}
-     * @memberof NonEmployeeLifecycleManagementApi
-     */
-    public nonEmployeeSourceGet(requestParameters: NonEmployeeLifecycleManagementApiNonEmployeeSourceGetRequest, axiosOptions?: AxiosRequestConfig) {
-        return NonEmployeeLifecycleManagementApiFp(this.configuration).nonEmployeeSourceGet(requestParameters.sourceId, axiosOptions).then((request) => request(this.axios, this.basePath));
-    }
-
-    /**
-     * patch a non-employee source. (partial update) <br/> Patchable field: **name, description, approvers, accountManagers** Requires role context of `idn:nesr:update`.
-     * @summary Patch a Non-Employee Source
-     * @param {NonEmployeeLifecycleManagementApiNonEmployeeSourcePatchRequest} requestParameters Request parameters.
-     * @param {*} [axiosOptions] Override http request option.
-     * @throws {RequiredError}
-     * @memberof NonEmployeeLifecycleManagementApi
-     */
-    public nonEmployeeSourcePatch(requestParameters: NonEmployeeLifecycleManagementApiNonEmployeeSourcePatchRequest, axiosOptions?: AxiosRequestConfig) {
-        return NonEmployeeLifecycleManagementApiFp(this.configuration).nonEmployeeSourcePatch(requestParameters.sourceId, requestParameters.jsonPatchOperation, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public createNonEmployeeRequest(requestParameters: NonEmployeeLifecycleManagementApiCreateNonEmployeeRequestRequest, axiosOptions?: AxiosRequestConfig) {
+        return NonEmployeeLifecycleManagementApiFp(this.configuration).createNonEmployeeRequest(requestParameters.nonEmployeeRequestBody, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * This request will create a non-employee source. Requires role context of `idn:nesr:create`
      * @summary Create Non-Employee Source
-     * @param {NonEmployeeLifecycleManagementApiNonEmployeeSourcesCreationRequest} requestParameters Request parameters.
+     * @param {NonEmployeeLifecycleManagementApiCreateNonEmployeeSourceRequest} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
      * @memberof NonEmployeeLifecycleManagementApi
      */
-    public nonEmployeeSourcesCreation(requestParameters: NonEmployeeLifecycleManagementApiNonEmployeeSourcesCreationRequest, axiosOptions?: AxiosRequestConfig) {
-        return NonEmployeeLifecycleManagementApiFp(this.configuration).nonEmployeeSourcesCreation(requestParameters.nonEmployeeSourceRequestBody, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public createNonEmployeeSource(requestParameters: NonEmployeeLifecycleManagementApiCreateNonEmployeeSourceRequest, axiosOptions?: AxiosRequestConfig) {
+        return NonEmployeeLifecycleManagementApiFp(this.configuration).createNonEmployeeSource(requestParameters.nonEmployeeSourceRequestBody, axiosOptions).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * This API creates a new schema attribute for Non-Employee Source. The schema technical name must be unique in the source. Attempts to create a schema attribute with an existing name will result in a \"400.1.409 Reference conflict\" response. At most, 10 custom attributes can be created per schema. Attempts to create more than 10 will result in a \"400.1.4 Limit violation\" response. Requires role context of `idn:nesr:create`
+     * @summary Create a new Schema Attribute for Non-Employee Source
+     * @param {NonEmployeeLifecycleManagementApiCreateNonEmployeeSourceSchemaAttributesRequest} requestParameters Request parameters.
+     * @param {*} [axiosOptions] Override http request option.
+     * @throws {RequiredError}
+     * @memberof NonEmployeeLifecycleManagementApi
+     */
+    public createNonEmployeeSourceSchemaAttributes(requestParameters: NonEmployeeLifecycleManagementApiCreateNonEmployeeSourceSchemaAttributesRequest, axiosOptions?: AxiosRequestConfig) {
+        return NonEmployeeLifecycleManagementApiFp(this.configuration).createNonEmployeeSourceSchemaAttributes(requestParameters.sourceId, requestParameters.nonEmployeeSchemaAttributeBody, axiosOptions).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * This request will delete a non-employee record. Requires role context of `idn:nesr:delete`
+     * @summary Delete Non-Employee Record
+     * @param {NonEmployeeLifecycleManagementApiDeleteNonEmployeeRecordRequest} requestParameters Request parameters.
+     * @param {*} [axiosOptions] Override http request option.
+     * @throws {RequiredError}
+     * @memberof NonEmployeeLifecycleManagementApi
+     */
+    public deleteNonEmployeeRecord(requestParameters: NonEmployeeLifecycleManagementApiDeleteNonEmployeeRecordRequest, axiosOptions?: AxiosRequestConfig) {
+        return NonEmployeeLifecycleManagementApiFp(this.configuration).deleteNonEmployeeRecord(requestParameters.id, axiosOptions).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * This request will delete multiple non-employee records based on the non-employee ids provided. Requires role context of `idn:nesr:delete`
+     * @summary Delete Multiple Non-Employee Records
+     * @param {NonEmployeeLifecycleManagementApiDeleteNonEmployeeRecordsInBulkRequest} requestParameters Request parameters.
+     * @param {*} [axiosOptions] Override http request option.
+     * @throws {RequiredError}
+     * @memberof NonEmployeeLifecycleManagementApi
+     */
+    public deleteNonEmployeeRecordsInBulk(requestParameters: NonEmployeeLifecycleManagementApiDeleteNonEmployeeRecordsInBulkRequest, axiosOptions?: AxiosRequestConfig) {
+        return NonEmployeeLifecycleManagementApiFp(this.configuration).deleteNonEmployeeRecordsInBulk(requestParameters.deleteNonEmployeeRecordsInBulkRequest, axiosOptions).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * This request will delete a non-employee request.  Requires role context of `idn:nesr:delete`
+     * @summary Delete Non-Employee Request
+     * @param {NonEmployeeLifecycleManagementApiDeleteNonEmployeeRequestRequest} requestParameters Request parameters.
+     * @param {*} [axiosOptions] Override http request option.
+     * @throws {RequiredError}
+     * @memberof NonEmployeeLifecycleManagementApi
+     */
+    public deleteNonEmployeeRequest(requestParameters: NonEmployeeLifecycleManagementApiDeleteNonEmployeeRequestRequest, axiosOptions?: AxiosRequestConfig) {
+        return NonEmployeeLifecycleManagementApiFp(this.configuration).deleteNonEmployeeRequest(requestParameters.id, axiosOptions).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * This end-point deletes a specific schema attribute for a non-employee source. Requires role context of `idn:nesr:delete` 
+     * @summary Delete a Schema Attribute for Non-Employee Source
+     * @param {NonEmployeeLifecycleManagementApiDeleteNonEmployeeSchemaAttributeRequest} requestParameters Request parameters.
+     * @param {*} [axiosOptions] Override http request option.
+     * @throws {RequiredError}
+     * @memberof NonEmployeeLifecycleManagementApi
+     */
+    public deleteNonEmployeeSchemaAttribute(requestParameters: NonEmployeeLifecycleManagementApiDeleteNonEmployeeSchemaAttributeRequest, axiosOptions?: AxiosRequestConfig) {
+        return NonEmployeeLifecycleManagementApiFp(this.configuration).deleteNonEmployeeSchemaAttribute(requestParameters.attributeId, requestParameters.sourceId, axiosOptions).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * This request will delete a non-employee source. Requires role context of `idn:nesr:delete`.
+     * @summary Delete Non-Employee Source
+     * @param {NonEmployeeLifecycleManagementApiDeleteNonEmployeeSourceRequest} requestParameters Request parameters.
+     * @param {*} [axiosOptions] Override http request option.
+     * @throws {RequiredError}
+     * @memberof NonEmployeeLifecycleManagementApi
+     */
+    public deleteNonEmployeeSource(requestParameters: NonEmployeeLifecycleManagementApiDeleteNonEmployeeSourceRequest, axiosOptions?: AxiosRequestConfig) {
+        return NonEmployeeLifecycleManagementApiFp(this.configuration).deleteNonEmployeeSource(requestParameters.sourceId, axiosOptions).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * This end-point deletes all custom schema attributes for a non-employee source. Requires role context of `idn:nesr:delete`
+     * @summary Delete all custom schema attributes for Non-Employee Source
+     * @param {NonEmployeeLifecycleManagementApiDeleteNonEmployeeSourceSchemaAttributesRequest} requestParameters Request parameters.
+     * @param {*} [axiosOptions] Override http request option.
+     * @throws {RequiredError}
+     * @memberof NonEmployeeLifecycleManagementApi
+     */
+    public deleteNonEmployeeSourceSchemaAttributes(requestParameters: NonEmployeeLifecycleManagementApiDeleteNonEmployeeSourceSchemaAttributesRequest, axiosOptions?: AxiosRequestConfig) {
+        return NonEmployeeLifecycleManagementApiFp(this.configuration).deleteNonEmployeeSourceSchemaAttributes(requestParameters.sourceId, axiosOptions).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * This requests a CSV download for all non-employees from a provided source. Requires role context of `idn:nesr:read`
+     * @summary Exports Non-Employee Records to CSV
+     * @param {NonEmployeeLifecycleManagementApiExportNonEmployeeRecordsRequest} requestParameters Request parameters.
+     * @param {*} [axiosOptions] Override http request option.
+     * @throws {RequiredError}
+     * @memberof NonEmployeeLifecycleManagementApi
+     */
+    public exportNonEmployeeRecords(requestParameters: NonEmployeeLifecycleManagementApiExportNonEmployeeRecordsRequest, axiosOptions?: AxiosRequestConfig) {
+        return NonEmployeeLifecycleManagementApiFp(this.configuration).exportNonEmployeeRecords(requestParameters.id, axiosOptions).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * This requests a download for the Source Schema Template for a provided source. Requires role context of `idn:nesr:read`
+     * @summary Exports Source Schema Template
+     * @param {NonEmployeeLifecycleManagementApiExportNonEmployeeSourceSchemaTemplateRequest} requestParameters Request parameters.
+     * @param {*} [axiosOptions] Override http request option.
+     * @throws {RequiredError}
+     * @memberof NonEmployeeLifecycleManagementApi
+     */
+    public exportNonEmployeeSourceSchemaTemplate(requestParameters: NonEmployeeLifecycleManagementApiExportNonEmployeeSourceSchemaTemplateRequest, axiosOptions?: AxiosRequestConfig) {
+        return NonEmployeeLifecycleManagementApiFp(this.configuration).exportNonEmployeeSourceSchemaTemplate(requestParameters.id, axiosOptions).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Gets a non-employee approval item detail. There are two contextual uses for this endpoint:   1. The user has the role context of `idn:nesr:read`, in which case they can get any approval.   2. The user owns the requested approval.
+     * @summary Get a non-employee approval item detail
+     * @param {NonEmployeeLifecycleManagementApiGetNonEmployeeApprovalRequest} requestParameters Request parameters.
+     * @param {*} [axiosOptions] Override http request option.
+     * @throws {RequiredError}
+     * @memberof NonEmployeeLifecycleManagementApi
+     */
+    public getNonEmployeeApproval(requestParameters: NonEmployeeLifecycleManagementApiGetNonEmployeeApprovalRequest, axiosOptions?: AxiosRequestConfig) {
+        return NonEmployeeLifecycleManagementApiFp(this.configuration).getNonEmployeeApproval(requestParameters.id, requestParameters.includeDetail, axiosOptions).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * This request will retrieve a summary of non-employee approval requests. There are two contextual uses for the `requested-for` path parameter:   1. The user has the role context of `idn:nesr:read`, in which case he or she may request a summary of all non-employee approval requests assigned to a particular approver by passing in that approver\'s id.   2. The current user is an approver, in which case \"me\" should be provided as the `requested-for` value. This will provide the approver with a summary of the approval items assigned to him or her.
+     * @summary Get Summary of Non-Employee Approval Requests
+     * @param {NonEmployeeLifecycleManagementApiGetNonEmployeeApprovalSummaryRequest} requestParameters Request parameters.
+     * @param {*} [axiosOptions] Override http request option.
+     * @throws {RequiredError}
+     * @memberof NonEmployeeLifecycleManagementApi
+     */
+    public getNonEmployeeApprovalSummary(requestParameters: NonEmployeeLifecycleManagementApiGetNonEmployeeApprovalSummaryRequest, axiosOptions?: AxiosRequestConfig) {
+        return NonEmployeeLifecycleManagementApiFp(this.configuration).getNonEmployeeApprovalSummary(requestParameters.requestedFor, axiosOptions).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * The nonEmployeeBulkUploadStatus API returns the status of the newest bulk upload job for the specified source. Requires role context of `idn:nesr:read` 
+     * @summary Obtain the status of bulk upload on the source
+     * @param {NonEmployeeLifecycleManagementApiGetNonEmployeeBulkUploadStatusRequest} requestParameters Request parameters.
+     * @param {*} [axiosOptions] Override http request option.
+     * @throws {RequiredError}
+     * @memberof NonEmployeeLifecycleManagementApi
+     */
+    public getNonEmployeeBulkUploadStatus(requestParameters: NonEmployeeLifecycleManagementApiGetNonEmployeeBulkUploadStatusRequest, axiosOptions?: AxiosRequestConfig) {
+        return NonEmployeeLifecycleManagementApiFp(this.configuration).getNonEmployeeBulkUploadStatus(requestParameters.id, axiosOptions).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * This gets a non-employee record. Requires role context of `idn:nesr:read`
+     * @summary Get a Non-Employee Record
+     * @param {NonEmployeeLifecycleManagementApiGetNonEmployeeRecordRequest} requestParameters Request parameters.
+     * @param {*} [axiosOptions] Override http request option.
+     * @throws {RequiredError}
+     * @memberof NonEmployeeLifecycleManagementApi
+     */
+    public getNonEmployeeRecord(requestParameters: NonEmployeeLifecycleManagementApiGetNonEmployeeRecordRequest, axiosOptions?: AxiosRequestConfig) {
+        return NonEmployeeLifecycleManagementApiFp(this.configuration).getNonEmployeeRecord(requestParameters.id, axiosOptions).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * This gets a non-employee request. There are two contextual uses for this endpoint:   1. The user has the role context of `idn:nesr:read`, in this case the user can get the non-employee request for any user.   2. The user must be the owner of the non-employee request.
+     * @summary Get a Non-Employee Request
+     * @param {NonEmployeeLifecycleManagementApiGetNonEmployeeRequestRequest} requestParameters Request parameters.
+     * @param {*} [axiosOptions] Override http request option.
+     * @throws {RequiredError}
+     * @memberof NonEmployeeLifecycleManagementApi
+     */
+    public getNonEmployeeRequest(requestParameters: NonEmployeeLifecycleManagementApiGetNonEmployeeRequestRequest, axiosOptions?: AxiosRequestConfig) {
+        return NonEmployeeLifecycleManagementApiFp(this.configuration).getNonEmployeeRequest(requestParameters.id, axiosOptions).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * This request will retrieve a summary of non-employee requests. There are two contextual uses for the `requested-for` path parameter:   1. The user has the role context of `idn:nesr:read`, in which case he or she may request a summary of all non-employee approval requests assigned to a particular account manager by passing in that manager\'s id.   2. The current user is an account manager, in which case \"me\" should be provided as the `requested-for` value. This will provide the user with a summary of the non-employee requests in the source(s) he or she manages.
+     * @summary Get Summary of Non-Employee Requests
+     * @param {NonEmployeeLifecycleManagementApiGetNonEmployeeRequestSummaryRequest} requestParameters Request parameters.
+     * @param {*} [axiosOptions] Override http request option.
+     * @throws {RequiredError}
+     * @memberof NonEmployeeLifecycleManagementApi
+     */
+    public getNonEmployeeRequestSummary(requestParameters: NonEmployeeLifecycleManagementApiGetNonEmployeeRequestSummaryRequest, axiosOptions?: AxiosRequestConfig) {
+        return NonEmployeeLifecycleManagementApiFp(this.configuration).getNonEmployeeRequestSummary(requestParameters.requestedFor, axiosOptions).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * This API gets a schema attribute by Id for the specified Non-Employee SourceId. Requires role context of `idn:nesr:read` or the user must be an account manager of the source.
+     * @summary Get Schema Attribute Non-Employee Source
+     * @param {NonEmployeeLifecycleManagementApiGetNonEmployeeSchemaAttributeRequest} requestParameters Request parameters.
+     * @param {*} [axiosOptions] Override http request option.
+     * @throws {RequiredError}
+     * @memberof NonEmployeeLifecycleManagementApi
+     */
+    public getNonEmployeeSchemaAttribute(requestParameters: NonEmployeeLifecycleManagementApiGetNonEmployeeSchemaAttributeRequest, axiosOptions?: AxiosRequestConfig) {
+        return NonEmployeeLifecycleManagementApiFp(this.configuration).getNonEmployeeSchemaAttribute(requestParameters.attributeId, requestParameters.sourceId, axiosOptions).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * This gets a non-employee source. There are two contextual uses for the requested-for path parameter:    1. The user has the role context of `idn:nesr:read`, in which case he or she may request any source.   2. The current user is an account manager, in which case the user can only request sources that they own.
+     * @summary Get a Non-Employee Source
+     * @param {NonEmployeeLifecycleManagementApiGetNonEmployeeSourceRequest} requestParameters Request parameters.
+     * @param {*} [axiosOptions] Override http request option.
+     * @throws {RequiredError}
+     * @memberof NonEmployeeLifecycleManagementApi
+     */
+    public getNonEmployeeSource(requestParameters: NonEmployeeLifecycleManagementApiGetNonEmployeeSourceRequest, axiosOptions?: AxiosRequestConfig) {
+        return NonEmployeeLifecycleManagementApiFp(this.configuration).getNonEmployeeSource(requestParameters.sourceId, axiosOptions).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * This API gets the list of schema attributes for the specified Non-Employee SourceId. There are 8 mandatory attributes added to each new Non-Employee Source automatically. Additionaly, user can add up to 10 custom attributes. This interface returns all the mandatory attributes followed by any custom attributes. At most, a total of 18 attributes will be returned. Requires role context of `idn:nesr:read` or the user must be an account manager of the source.
+     * @summary List Schema Attributes Non-Employee Source
+     * @param {NonEmployeeLifecycleManagementApiGetNonEmployeeSourceSchemaAttributesRequest} requestParameters Request parameters.
+     * @param {*} [axiosOptions] Override http request option.
+     * @throws {RequiredError}
+     * @memberof NonEmployeeLifecycleManagementApi
+     */
+    public getNonEmployeeSourceSchemaAttributes(requestParameters: NonEmployeeLifecycleManagementApiGetNonEmployeeSourceSchemaAttributesRequest, axiosOptions?: AxiosRequestConfig) {
+        return NonEmployeeLifecycleManagementApiFp(this.configuration).getNonEmployeeSourceSchemaAttributes(requestParameters.sourceId, axiosOptions).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * This gets a list of non-employee approval requests. There are two contextual uses for this endpoint:   1. The user has the role context of `idn:nesr:read`, in which case they can list the approvals for any approver.   2. The user owns the requested approval.
+     * @summary Get List of Non-Employee Approval Requests
+     * @param {NonEmployeeLifecycleManagementApiListNonEmployeeApprovalsRequest} requestParameters Request parameters.
+     * @param {*} [axiosOptions] Override http request option.
+     * @throws {RequiredError}
+     * @memberof NonEmployeeLifecycleManagementApi
+     */
+    public listNonEmployeeApprovals(requestParameters: NonEmployeeLifecycleManagementApiListNonEmployeeApprovalsRequest = {}, axiosOptions?: AxiosRequestConfig) {
+        return NonEmployeeLifecycleManagementApiFp(this.configuration).listNonEmployeeApprovals(requestParameters.requestedFor, requestParameters.limit, requestParameters.offset, requestParameters.count, requestParameters.filters, requestParameters.sorters, axiosOptions).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * This gets a list of non-employee records. There are two contextual uses for this endpoint:   1. The user has the role context of `idn:nesr:read`, in which case they can get a list of all of the non-employees.   2. The user is an account manager, in which case they can get a list of the non-employees that they manage.
+     * @summary List Non-Employee Records
+     * @param {NonEmployeeLifecycleManagementApiListNonEmployeeRecordsRequest} requestParameters Request parameters.
+     * @param {*} [axiosOptions] Override http request option.
+     * @throws {RequiredError}
+     * @memberof NonEmployeeLifecycleManagementApi
+     */
+    public listNonEmployeeRecords(requestParameters: NonEmployeeLifecycleManagementApiListNonEmployeeRecordsRequest = {}, axiosOptions?: AxiosRequestConfig) {
+        return NonEmployeeLifecycleManagementApiFp(this.configuration).listNonEmployeeRecords(requestParameters.limit, requestParameters.offset, requestParameters.count, requestParameters.sorters, requestParameters.filters, axiosOptions).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * This gets a list of non-employee requests. There are two contextual uses for the `requested-for` path parameter:   1. The user has the role context of `idn:nesr:read`, in which case he or she may request a list non-employee requests assigned to a particular account manager by passing in that manager\'s id.   2. The current user is an account manager, in which case \"me\" should be provided as the `requested-for` value. This will provide the user with a list of the non-employee requests in the source(s) he or she manages.
+     * @summary List Non-Employee Requests
+     * @param {NonEmployeeLifecycleManagementApiListNonEmployeeRequestsRequest} requestParameters Request parameters.
+     * @param {*} [axiosOptions] Override http request option.
+     * @throws {RequiredError}
+     * @memberof NonEmployeeLifecycleManagementApi
+     */
+    public listNonEmployeeRequests(requestParameters: NonEmployeeLifecycleManagementApiListNonEmployeeRequestsRequest, axiosOptions?: AxiosRequestConfig) {
+        return NonEmployeeLifecycleManagementApiFp(this.configuration).listNonEmployeeRequests(requestParameters.requestedFor, requestParameters.limit, requestParameters.offset, requestParameters.count, requestParameters.sorters, requestParameters.filters, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * This gets a list of non-employee sources. There are two contextual uses for the requested-for path parameter:    1. The user has the role context of `idn:nesr:read`, in which case he or she may request a list sources assigned to a particular account manager by passing in that manager\'s id.   2. The current user is an account manager, in which case \"me\" should be provided as the `requested-for` value. This will provide the user with a list of the sources that he or she owns.
      * @summary List Non-Employee Sources
-     * @param {NonEmployeeLifecycleManagementApiNonEmployeeSourcesListRequest} requestParameters Request parameters.
+     * @param {NonEmployeeLifecycleManagementApiListNonEmployeeSourcesRequest} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
      * @memberof NonEmployeeLifecycleManagementApi
      */
-    public nonEmployeeSourcesList(requestParameters: NonEmployeeLifecycleManagementApiNonEmployeeSourcesListRequest, axiosOptions?: AxiosRequestConfig) {
-        return NonEmployeeLifecycleManagementApiFp(this.configuration).nonEmployeeSourcesList(requestParameters.requestedFor, requestParameters.limit, requestParameters.offset, requestParameters.count, requestParameters.nonEmployeeCount, requestParameters.sorters, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public listNonEmployeeSources(requestParameters: NonEmployeeLifecycleManagementApiListNonEmployeeSourcesRequest, axiosOptions?: AxiosRequestConfig) {
+        return NonEmployeeLifecycleManagementApiFp(this.configuration).listNonEmployeeSources(requestParameters.requestedFor, requestParameters.limit, requestParameters.offset, requestParameters.count, requestParameters.nonEmployeeCount, requestParameters.sorters, axiosOptions).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * This request will patch a non-employee record. There are two contextual uses for this endpoint:   1. The user has the role context of `idn:nesr:update`, in which case they update all available fields.   2. The user is owner of the source, in this case they can only update the end date.
+     * @summary Patch Non-Employee Record
+     * @param {NonEmployeeLifecycleManagementApiPatchNonEmployeeRecordRequest} requestParameters Request parameters.
+     * @param {*} [axiosOptions] Override http request option.
+     * @throws {RequiredError}
+     * @memberof NonEmployeeLifecycleManagementApi
+     */
+    public patchNonEmployeeRecord(requestParameters: NonEmployeeLifecycleManagementApiPatchNonEmployeeRecordRequest, axiosOptions?: AxiosRequestConfig) {
+        return NonEmployeeLifecycleManagementApiFp(this.configuration).patchNonEmployeeRecord(requestParameters.id, requestParameters.jsonPatchOperation, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * This end-point patches a specific schema attribute for a non-employee SourceId. Requires role context of `idn:nesr:update` 
      * @summary Patch a Schema Attribute for Non-Employee Source
-     * @param {NonEmployeeLifecycleManagementApiPatchSchemaAttributeRequest} requestParameters Request parameters.
+     * @param {NonEmployeeLifecycleManagementApiPatchNonEmployeeSchemaAttributeRequest} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
      * @memberof NonEmployeeLifecycleManagementApi
      */
-    public patchSchemaAttribute(requestParameters: NonEmployeeLifecycleManagementApiPatchSchemaAttributeRequest, axiosOptions?: AxiosRequestConfig) {
-        return NonEmployeeLifecycleManagementApiFp(this.configuration).patchSchemaAttribute(requestParameters.attributeId, requestParameters.sourceId, requestParameters.jsonPatchOperation, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public patchNonEmployeeSchemaAttribute(requestParameters: NonEmployeeLifecycleManagementApiPatchNonEmployeeSchemaAttributeRequest, axiosOptions?: AxiosRequestConfig) {
+        return NonEmployeeLifecycleManagementApiFp(this.configuration).patchNonEmployeeSchemaAttribute(requestParameters.attributeId, requestParameters.sourceId, requestParameters.jsonPatchOperation, axiosOptions).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * patch a non-employee source. (partial update) <br/> Patchable field: **name, description, approvers, accountManagers** Requires role context of `idn:nesr:update`.
+     * @summary Patch a Non-Employee Source
+     * @param {NonEmployeeLifecycleManagementApiPatchNonEmployeeSourceRequest} requestParameters Request parameters.
+     * @param {*} [axiosOptions] Override http request option.
+     * @throws {RequiredError}
+     * @memberof NonEmployeeLifecycleManagementApi
+     */
+    public patchNonEmployeeSource(requestParameters: NonEmployeeLifecycleManagementApiPatchNonEmployeeSourceRequest, axiosOptions?: AxiosRequestConfig) {
+        return NonEmployeeLifecycleManagementApiFp(this.configuration).patchNonEmployeeSource(requestParameters.sourceId, requestParameters.jsonPatchOperation, axiosOptions).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * This endpoint will reject an approval item request and notify user. The current user must be the requested approver.
+     * @summary Reject a Non-Employee Request
+     * @param {NonEmployeeLifecycleManagementApiRejectNonEmployeeRequestRequest} requestParameters Request parameters.
+     * @param {*} [axiosOptions] Override http request option.
+     * @throws {RequiredError}
+     * @memberof NonEmployeeLifecycleManagementApi
+     */
+    public rejectNonEmployeeRequest(requestParameters: NonEmployeeLifecycleManagementApiRejectNonEmployeeRequestRequest, axiosOptions?: AxiosRequestConfig) {
+        return NonEmployeeLifecycleManagementApiFp(this.configuration).rejectNonEmployeeRequest(requestParameters.id, requestParameters.nonEmployeeRejectApprovalDecision, axiosOptions).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * This request will update a non-employee record. There are two contextual uses for this endpoint:   1. The user has the role context of `idn:nesr:update`, in which case they update all available fields.   2. The user is owner of the source, in this case they can only update the end date.
+     * @summary Update Non-Employee Record
+     * @param {NonEmployeeLifecycleManagementApiUpdateNonEmployeeRecordRequest} requestParameters Request parameters.
+     * @param {*} [axiosOptions] Override http request option.
+     * @throws {RequiredError}
+     * @memberof NonEmployeeLifecycleManagementApi
+     */
+    public updateNonEmployeeRecord(requestParameters: NonEmployeeLifecycleManagementApiUpdateNonEmployeeRecordRequest, axiosOptions?: AxiosRequestConfig) {
+        return NonEmployeeLifecycleManagementApiFp(this.configuration).updateNonEmployeeRecord(requestParameters.id, requestParameters.nonEmployeeRequestBody, axiosOptions).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * This post will import, or update, Non-Employee records found in the CSV. Requires role context of `idn:nesr:create`
+     * @summary Imports, or Updates, Non-Employee Records
+     * @param {NonEmployeeLifecycleManagementApiUploadNonEmployeeRecordsInBulkRequest} requestParameters Request parameters.
+     * @param {*} [axiosOptions] Override http request option.
+     * @throws {RequiredError}
+     * @memberof NonEmployeeLifecycleManagementApi
+     */
+    public uploadNonEmployeeRecordsInBulk(requestParameters: NonEmployeeLifecycleManagementApiUploadNonEmployeeRecordsInBulkRequest, axiosOptions?: AxiosRequestConfig) {
+        return NonEmployeeLifecycleManagementApiFp(this.configuration).uploadNonEmployeeRecordsInBulk(requestParameters.id, requestParameters.data, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 }
 
@@ -24808,13 +24808,13 @@ export const SavedSearchApiAxiosParamCreator = function (configuration?: Configu
         /**
          * Creates a new saved search. 
          * @summary Create a saved search
-         * @param {SavedSearchCreateRequest} savedSearchCreateRequest The saved search to persist.
+         * @param {CreateSavedSearchRequest} createSavedSearchRequest The saved search to persist.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        savedSearchCreate: async (savedSearchCreateRequest: SavedSearchCreateRequest, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
-            // verify required parameter 'savedSearchCreateRequest' is not null or undefined
-            assertParamExists('savedSearchCreate', 'savedSearchCreateRequest', savedSearchCreateRequest)
+        createSavedSearch: async (createSavedSearchRequest: CreateSavedSearchRequest, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'createSavedSearchRequest' is not null or undefined
+            assertParamExists('createSavedSearch', 'createSavedSearchRequest', createSavedSearchRequest)
             const localVarPath = `/saved-searches`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -24842,7 +24842,7 @@ export const SavedSearchApiAxiosParamCreator = function (configuration?: Configu
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(savedSearchCreateRequest, localVarRequestOptions, configuration)
+            localVarRequestOptions.data = serializeDataIfNeeded(createSavedSearchRequest, localVarRequestOptions, configuration)
 
             return {
                 url: toPathString(localVarUrlObj),
@@ -24856,9 +24856,9 @@ export const SavedSearchApiAxiosParamCreator = function (configuration?: Configu
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        savedSearchDelete: async (id: string, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        deleteSavedSearch: async (id: string, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'id' is not null or undefined
-            assertParamExists('savedSearchDelete', 'id', id)
+            assertParamExists('deleteSavedSearch', 'id', id)
             const localVarPath = `/saved-searches/{id}`
                 .replace(`{${"id"}}`, encodeURIComponent(String(id)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
@@ -24899,11 +24899,11 @@ export const SavedSearchApiAxiosParamCreator = function (configuration?: Configu
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        savedSearchExecute: async (id: string, searchArguments: SearchArguments, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        executeSavedSearch: async (id: string, searchArguments: SearchArguments, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'id' is not null or undefined
-            assertParamExists('savedSearchExecute', 'id', id)
+            assertParamExists('executeSavedSearch', 'id', id)
             // verify required parameter 'searchArguments' is not null or undefined
-            assertParamExists('savedSearchExecute', 'searchArguments', searchArguments)
+            assertParamExists('executeSavedSearch', 'searchArguments', searchArguments)
             const localVarPath = `/saved-searches/{id}/execute`
                 .replace(`{${"id"}}`, encodeURIComponent(String(id)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
@@ -24946,9 +24946,9 @@ export const SavedSearchApiAxiosParamCreator = function (configuration?: Configu
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        savedSearchGet: async (id: string, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        getSavedSearch: async (id: string, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'id' is not null or undefined
-            assertParamExists('savedSearchGet', 'id', id)
+            assertParamExists('getSavedSearch', 'id', id)
             const localVarPath = `/saved-searches/{id}`
                 .replace(`{${"id"}}`, encodeURIComponent(String(id)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
@@ -24991,7 +24991,7 @@ export const SavedSearchApiAxiosParamCreator = function (configuration?: Configu
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        savedSearchList: async (offset?: number, limit?: number, count?: boolean, filters?: string, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        listSavedSearches: async (offset?: number, limit?: number, count?: boolean, filters?: string, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             const localVarPath = `/saved-searches`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -25047,11 +25047,11 @@ export const SavedSearchApiAxiosParamCreator = function (configuration?: Configu
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        savedSearchUpdate: async (id: string, savedSearch: SavedSearch, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        updateSavedSearch: async (id: string, savedSearch: SavedSearch, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'id' is not null or undefined
-            assertParamExists('savedSearchUpdate', 'id', id)
+            assertParamExists('updateSavedSearch', 'id', id)
             // verify required parameter 'savedSearch' is not null or undefined
-            assertParamExists('savedSearchUpdate', 'savedSearch', savedSearch)
+            assertParamExists('updateSavedSearch', 'savedSearch', savedSearch)
             const localVarPath = `/saved-searches/{id}`
                 .replace(`{${"id"}}`, encodeURIComponent(String(id)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
@@ -25100,12 +25100,12 @@ export const SavedSearchApiFp = function(configuration?: Configuration) {
         /**
          * Creates a new saved search. 
          * @summary Create a saved search
-         * @param {SavedSearchCreateRequest} savedSearchCreateRequest The saved search to persist.
+         * @param {CreateSavedSearchRequest} createSavedSearchRequest The saved search to persist.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async savedSearchCreate(savedSearchCreateRequest: SavedSearchCreateRequest, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SavedSearch>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.savedSearchCreate(savedSearchCreateRequest, axiosOptions);
+        async createSavedSearch(createSavedSearchRequest: CreateSavedSearchRequest, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SavedSearch>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.createSavedSearch(createSavedSearchRequest, axiosOptions);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
@@ -25115,8 +25115,8 @@ export const SavedSearchApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async savedSearchDelete(id: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.savedSearchDelete(id, axiosOptions);
+        async deleteSavedSearch(id: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.deleteSavedSearch(id, axiosOptions);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
@@ -25127,8 +25127,8 @@ export const SavedSearchApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async savedSearchExecute(id: string, searchArguments: SearchArguments, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.savedSearchExecute(id, searchArguments, axiosOptions);
+        async executeSavedSearch(id: string, searchArguments: SearchArguments, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.executeSavedSearch(id, searchArguments, axiosOptions);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
@@ -25138,8 +25138,8 @@ export const SavedSearchApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async savedSearchGet(id: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SavedSearch>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.savedSearchGet(id, axiosOptions);
+        async getSavedSearch(id: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SavedSearch>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getSavedSearch(id, axiosOptions);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
@@ -25152,8 +25152,8 @@ export const SavedSearchApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async savedSearchList(offset?: number, limit?: number, count?: boolean, filters?: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<SavedSearch>>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.savedSearchList(offset, limit, count, filters, axiosOptions);
+        async listSavedSearches(offset?: number, limit?: number, count?: boolean, filters?: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<SavedSearch>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.listSavedSearches(offset, limit, count, filters, axiosOptions);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
@@ -25164,8 +25164,8 @@ export const SavedSearchApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async savedSearchUpdate(id: string, savedSearch: SavedSearch, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SavedSearch>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.savedSearchUpdate(id, savedSearch, axiosOptions);
+        async updateSavedSearch(id: string, savedSearch: SavedSearch, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SavedSearch>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.updateSavedSearch(id, savedSearch, axiosOptions);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
     }
@@ -25181,12 +25181,12 @@ export const SavedSearchApiFactory = function (configuration?: Configuration, ba
         /**
          * Creates a new saved search. 
          * @summary Create a saved search
-         * @param {SavedSearchCreateRequest} savedSearchCreateRequest The saved search to persist.
+         * @param {CreateSavedSearchRequest} createSavedSearchRequest The saved search to persist.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        savedSearchCreate(savedSearchCreateRequest: SavedSearchCreateRequest, axiosOptions?: any): AxiosPromise<SavedSearch> {
-            return localVarFp.savedSearchCreate(savedSearchCreateRequest, axiosOptions).then((request) => request(axios, basePath));
+        createSavedSearch(createSavedSearchRequest: CreateSavedSearchRequest, axiosOptions?: any): AxiosPromise<SavedSearch> {
+            return localVarFp.createSavedSearch(createSavedSearchRequest, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * Deletes the specified saved search. 
@@ -25195,8 +25195,8 @@ export const SavedSearchApiFactory = function (configuration?: Configuration, ba
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        savedSearchDelete(id: string, axiosOptions?: any): AxiosPromise<void> {
-            return localVarFp.savedSearchDelete(id, axiosOptions).then((request) => request(axios, basePath));
+        deleteSavedSearch(id: string, axiosOptions?: any): AxiosPromise<void> {
+            return localVarFp.deleteSavedSearch(id, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * Executes the specified saved search. 
@@ -25206,8 +25206,8 @@ export const SavedSearchApiFactory = function (configuration?: Configuration, ba
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        savedSearchExecute(id: string, searchArguments: SearchArguments, axiosOptions?: any): AxiosPromise<void> {
-            return localVarFp.savedSearchExecute(id, searchArguments, axiosOptions).then((request) => request(axios, basePath));
+        executeSavedSearch(id: string, searchArguments: SearchArguments, axiosOptions?: any): AxiosPromise<void> {
+            return localVarFp.executeSavedSearch(id, searchArguments, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * Returns the specified saved search. 
@@ -25216,8 +25216,8 @@ export const SavedSearchApiFactory = function (configuration?: Configuration, ba
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        savedSearchGet(id: string, axiosOptions?: any): AxiosPromise<SavedSearch> {
-            return localVarFp.savedSearchGet(id, axiosOptions).then((request) => request(axios, basePath));
+        getSavedSearch(id: string, axiosOptions?: any): AxiosPromise<SavedSearch> {
+            return localVarFp.getSavedSearch(id, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * Returns a list of saved searches. 
@@ -25229,8 +25229,8 @@ export const SavedSearchApiFactory = function (configuration?: Configuration, ba
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        savedSearchList(offset?: number, limit?: number, count?: boolean, filters?: string, axiosOptions?: any): AxiosPromise<Array<SavedSearch>> {
-            return localVarFp.savedSearchList(offset, limit, count, filters, axiosOptions).then((request) => request(axios, basePath));
+        listSavedSearches(offset?: number, limit?: number, count?: boolean, filters?: string, axiosOptions?: any): AxiosPromise<Array<SavedSearch>> {
+            return localVarFp.listSavedSearches(offset, limit, count, filters, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * Updates an existing saved search. 
@@ -25240,127 +25240,127 @@ export const SavedSearchApiFactory = function (configuration?: Configuration, ba
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        savedSearchUpdate(id: string, savedSearch: SavedSearch, axiosOptions?: any): AxiosPromise<SavedSearch> {
-            return localVarFp.savedSearchUpdate(id, savedSearch, axiosOptions).then((request) => request(axios, basePath));
+        updateSavedSearch(id: string, savedSearch: SavedSearch, axiosOptions?: any): AxiosPromise<SavedSearch> {
+            return localVarFp.updateSavedSearch(id, savedSearch, axiosOptions).then((request) => request(axios, basePath));
         },
     };
 };
 
 /**
- * Request parameters for savedSearchCreate operation in SavedSearchApi.
+ * Request parameters for createSavedSearch operation in SavedSearchApi.
  * @export
- * @interface SavedSearchApiSavedSearchCreateRequest
+ * @interface SavedSearchApiCreateSavedSearchRequest
  */
-export interface SavedSearchApiSavedSearchCreateRequest {
+export interface SavedSearchApiCreateSavedSearchRequest {
     /**
      * The saved search to persist.
-     * @type {SavedSearchCreateRequest}
-     * @memberof SavedSearchApiSavedSearchCreate
+     * @type {CreateSavedSearchRequest}
+     * @memberof SavedSearchApiCreateSavedSearch
      */
-    readonly savedSearchCreateRequest: SavedSearchCreateRequest
+    readonly createSavedSearchRequest: CreateSavedSearchRequest
 }
 
 /**
- * Request parameters for savedSearchDelete operation in SavedSearchApi.
+ * Request parameters for deleteSavedSearch operation in SavedSearchApi.
  * @export
- * @interface SavedSearchApiSavedSearchDeleteRequest
+ * @interface SavedSearchApiDeleteSavedSearchRequest
  */
-export interface SavedSearchApiSavedSearchDeleteRequest {
+export interface SavedSearchApiDeleteSavedSearchRequest {
     /**
      * ID of the requested document.
      * @type {string}
-     * @memberof SavedSearchApiSavedSearchDelete
+     * @memberof SavedSearchApiDeleteSavedSearch
      */
     readonly id: string
 }
 
 /**
- * Request parameters for savedSearchExecute operation in SavedSearchApi.
+ * Request parameters for executeSavedSearch operation in SavedSearchApi.
  * @export
- * @interface SavedSearchApiSavedSearchExecuteRequest
+ * @interface SavedSearchApiExecuteSavedSearchRequest
  */
-export interface SavedSearchApiSavedSearchExecuteRequest {
+export interface SavedSearchApiExecuteSavedSearchRequest {
     /**
      * ID of the requested document.
      * @type {string}
-     * @memberof SavedSearchApiSavedSearchExecute
+     * @memberof SavedSearchApiExecuteSavedSearch
      */
     readonly id: string
 
     /**
      * When saved search execution is triggered by a scheduled search, *scheduleId* will specify the ID of the triggering scheduled search.  If *scheduleId* is not specified (when execution is triggered by a UI test), the *owner* and *recipients* arguments must be provided. 
      * @type {SearchArguments}
-     * @memberof SavedSearchApiSavedSearchExecute
+     * @memberof SavedSearchApiExecuteSavedSearch
      */
     readonly searchArguments: SearchArguments
 }
 
 /**
- * Request parameters for savedSearchGet operation in SavedSearchApi.
+ * Request parameters for getSavedSearch operation in SavedSearchApi.
  * @export
- * @interface SavedSearchApiSavedSearchGetRequest
+ * @interface SavedSearchApiGetSavedSearchRequest
  */
-export interface SavedSearchApiSavedSearchGetRequest {
+export interface SavedSearchApiGetSavedSearchRequest {
     /**
      * ID of the requested document.
      * @type {string}
-     * @memberof SavedSearchApiSavedSearchGet
+     * @memberof SavedSearchApiGetSavedSearch
      */
     readonly id: string
 }
 
 /**
- * Request parameters for savedSearchList operation in SavedSearchApi.
+ * Request parameters for listSavedSearches operation in SavedSearchApi.
  * @export
- * @interface SavedSearchApiSavedSearchListRequest
+ * @interface SavedSearchApiListSavedSearchesRequest
  */
-export interface SavedSearchApiSavedSearchListRequest {
+export interface SavedSearchApiListSavedSearchesRequest {
     /**
      * Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
      * @type {number}
-     * @memberof SavedSearchApiSavedSearchList
+     * @memberof SavedSearchApiListSavedSearches
      */
     readonly offset?: number
 
     /**
      * Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
      * @type {number}
-     * @memberof SavedSearchApiSavedSearchList
+     * @memberof SavedSearchApiListSavedSearches
      */
     readonly limit?: number
 
     /**
      * If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
      * @type {boolean}
-     * @memberof SavedSearchApiSavedSearchList
+     * @memberof SavedSearchApiListSavedSearches
      */
     readonly count?: boolean
 
     /**
      * An expression used to constrain the result set using the filtering syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results).  Allowed filter properties: *owner.id*, *public*  Allowed filter operator: *eq*  **Example filters**:  &#x60;&#x60;&#x60;owner.id eq \&quot;0de46054-fe90-434a-b84e-c6b3359d0c64\&quot;&#x60;&#x60;&#x60; -- returns saved searches for the specified owner ID  &#x60;&#x60;&#x60;public eq true&#x60;&#x60;&#x60; -- returns all public saved searches  &#x60;&#x60;&#x60;owner.id eq me or public eq true&#x60;&#x60;&#x60; -- returns all of the current user\&#39;s saved searches as well as all public saved searches belonging to other users in the current org 
      * @type {string}
-     * @memberof SavedSearchApiSavedSearchList
+     * @memberof SavedSearchApiListSavedSearches
      */
     readonly filters?: string
 }
 
 /**
- * Request parameters for savedSearchUpdate operation in SavedSearchApi.
+ * Request parameters for updateSavedSearch operation in SavedSearchApi.
  * @export
- * @interface SavedSearchApiSavedSearchUpdateRequest
+ * @interface SavedSearchApiUpdateSavedSearchRequest
  */
-export interface SavedSearchApiSavedSearchUpdateRequest {
+export interface SavedSearchApiUpdateSavedSearchRequest {
     /**
      * ID of the requested document.
      * @type {string}
-     * @memberof SavedSearchApiSavedSearchUpdate
+     * @memberof SavedSearchApiUpdateSavedSearch
      */
     readonly id: string
 
     /**
      * The saved search to persist.
      * @type {SavedSearch}
-     * @memberof SavedSearchApiSavedSearchUpdate
+     * @memberof SavedSearchApiUpdateSavedSearch
      */
     readonly savedSearch: SavedSearch
 }
@@ -25375,73 +25375,73 @@ export class SavedSearchApi extends BaseAPI {
     /**
      * Creates a new saved search. 
      * @summary Create a saved search
-     * @param {SavedSearchApiSavedSearchCreateRequest} requestParameters Request parameters.
+     * @param {SavedSearchApiCreateSavedSearchRequest} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
      * @memberof SavedSearchApi
      */
-    public savedSearchCreate(requestParameters: SavedSearchApiSavedSearchCreateRequest, axiosOptions?: AxiosRequestConfig) {
-        return SavedSearchApiFp(this.configuration).savedSearchCreate(requestParameters.savedSearchCreateRequest, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public createSavedSearch(requestParameters: SavedSearchApiCreateSavedSearchRequest, axiosOptions?: AxiosRequestConfig) {
+        return SavedSearchApiFp(this.configuration).createSavedSearch(requestParameters.createSavedSearchRequest, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * Deletes the specified saved search. 
      * @summary Delete a document by ID
-     * @param {SavedSearchApiSavedSearchDeleteRequest} requestParameters Request parameters.
+     * @param {SavedSearchApiDeleteSavedSearchRequest} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
      * @memberof SavedSearchApi
      */
-    public savedSearchDelete(requestParameters: SavedSearchApiSavedSearchDeleteRequest, axiosOptions?: AxiosRequestConfig) {
-        return SavedSearchApiFp(this.configuration).savedSearchDelete(requestParameters.id, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public deleteSavedSearch(requestParameters: SavedSearchApiDeleteSavedSearchRequest, axiosOptions?: AxiosRequestConfig) {
+        return SavedSearchApiFp(this.configuration).deleteSavedSearch(requestParameters.id, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * Executes the specified saved search. 
      * @summary Execute a saved search by ID
-     * @param {SavedSearchApiSavedSearchExecuteRequest} requestParameters Request parameters.
+     * @param {SavedSearchApiExecuteSavedSearchRequest} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
      * @memberof SavedSearchApi
      */
-    public savedSearchExecute(requestParameters: SavedSearchApiSavedSearchExecuteRequest, axiosOptions?: AxiosRequestConfig) {
-        return SavedSearchApiFp(this.configuration).savedSearchExecute(requestParameters.id, requestParameters.searchArguments, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public executeSavedSearch(requestParameters: SavedSearchApiExecuteSavedSearchRequest, axiosOptions?: AxiosRequestConfig) {
+        return SavedSearchApiFp(this.configuration).executeSavedSearch(requestParameters.id, requestParameters.searchArguments, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * Returns the specified saved search. 
      * @summary Return a saved search by ID
-     * @param {SavedSearchApiSavedSearchGetRequest} requestParameters Request parameters.
+     * @param {SavedSearchApiGetSavedSearchRequest} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
      * @memberof SavedSearchApi
      */
-    public savedSearchGet(requestParameters: SavedSearchApiSavedSearchGetRequest, axiosOptions?: AxiosRequestConfig) {
-        return SavedSearchApiFp(this.configuration).savedSearchGet(requestParameters.id, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public getSavedSearch(requestParameters: SavedSearchApiGetSavedSearchRequest, axiosOptions?: AxiosRequestConfig) {
+        return SavedSearchApiFp(this.configuration).getSavedSearch(requestParameters.id, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * Returns a list of saved searches. 
      * @summary Return a list of Saved Searches
-     * @param {SavedSearchApiSavedSearchListRequest} requestParameters Request parameters.
+     * @param {SavedSearchApiListSavedSearchesRequest} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
      * @memberof SavedSearchApi
      */
-    public savedSearchList(requestParameters: SavedSearchApiSavedSearchListRequest = {}, axiosOptions?: AxiosRequestConfig) {
-        return SavedSearchApiFp(this.configuration).savedSearchList(requestParameters.offset, requestParameters.limit, requestParameters.count, requestParameters.filters, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public listSavedSearches(requestParameters: SavedSearchApiListSavedSearchesRequest = {}, axiosOptions?: AxiosRequestConfig) {
+        return SavedSearchApiFp(this.configuration).listSavedSearches(requestParameters.offset, requestParameters.limit, requestParameters.count, requestParameters.filters, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * Updates an existing saved search. 
      * @summary Updates an existing saved search 
-     * @param {SavedSearchApiSavedSearchUpdateRequest} requestParameters Request parameters.
+     * @param {SavedSearchApiUpdateSavedSearchRequest} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
      * @memberof SavedSearchApi
      */
-    public savedSearchUpdate(requestParameters: SavedSearchApiSavedSearchUpdateRequest, axiosOptions?: AxiosRequestConfig) {
-        return SavedSearchApiFp(this.configuration).savedSearchUpdate(requestParameters.id, requestParameters.savedSearch, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public updateSavedSearch(requestParameters: SavedSearchApiUpdateSavedSearchRequest, axiosOptions?: AxiosRequestConfig) {
+        return SavedSearchApiFp(this.configuration).updateSavedSearch(requestParameters.id, requestParameters.savedSearch, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 }
 
@@ -25455,13 +25455,13 @@ export const ScheduledSearchApiAxiosParamCreator = function (configuration?: Con
         /**
          * Creates a new scheduled search. 
          * @summary Create a new scheduled search
-         * @param {ScheduledSearchCreateRequest} scheduledSearchCreateRequest The scheduled search to persist.
+         * @param {CreateScheduledSearchRequest} createScheduledSearchRequest The scheduled search to persist.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        scheduledSearchCreate: async (scheduledSearchCreateRequest: ScheduledSearchCreateRequest, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
-            // verify required parameter 'scheduledSearchCreateRequest' is not null or undefined
-            assertParamExists('scheduledSearchCreate', 'scheduledSearchCreateRequest', scheduledSearchCreateRequest)
+        createScheduledSearch: async (createScheduledSearchRequest: CreateScheduledSearchRequest, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'createScheduledSearchRequest' is not null or undefined
+            assertParamExists('createScheduledSearch', 'createScheduledSearchRequest', createScheduledSearchRequest)
             const localVarPath = `/scheduled-searches`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -25489,7 +25489,7 @@ export const ScheduledSearchApiAxiosParamCreator = function (configuration?: Con
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(scheduledSearchCreateRequest, localVarRequestOptions, configuration)
+            localVarRequestOptions.data = serializeDataIfNeeded(createScheduledSearchRequest, localVarRequestOptions, configuration)
 
             return {
                 url: toPathString(localVarUrlObj),
@@ -25503,9 +25503,9 @@ export const ScheduledSearchApiAxiosParamCreator = function (configuration?: Con
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        scheduledSearchDelete: async (id: string, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        deleteScheduledSearch: async (id: string, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'id' is not null or undefined
-            assertParamExists('scheduledSearchDelete', 'id', id)
+            assertParamExists('deleteScheduledSearch', 'id', id)
             const localVarPath = `/scheduled-searches/{id}`
                 .replace(`{${"id"}}`, encodeURIComponent(String(id)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
@@ -25545,9 +25545,9 @@ export const ScheduledSearchApiAxiosParamCreator = function (configuration?: Con
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        scheduledSearchGet: async (id: string, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        getScheduledSearch: async (id: string, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'id' is not null or undefined
-            assertParamExists('scheduledSearchGet', 'id', id)
+            assertParamExists('getScheduledSearch', 'id', id)
             const localVarPath = `/scheduled-searches/{id}`
                 .replace(`{${"id"}}`, encodeURIComponent(String(id)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
@@ -25590,7 +25590,7 @@ export const ScheduledSearchApiAxiosParamCreator = function (configuration?: Con
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        scheduledSearchList: async (offset?: number, limit?: number, count?: boolean, filters?: string, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        listScheduledSearch: async (offset?: number, limit?: number, count?: boolean, filters?: string, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             const localVarPath = `/scheduled-searches`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -25646,11 +25646,11 @@ export const ScheduledSearchApiAxiosParamCreator = function (configuration?: Con
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        scheduledSearchUnsubscribe: async (id: string, typedReference: TypedReference, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        unsubscribeScheduledSearch: async (id: string, typedReference: TypedReference, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'id' is not null or undefined
-            assertParamExists('scheduledSearchUnsubscribe', 'id', id)
+            assertParamExists('unsubscribeScheduledSearch', 'id', id)
             // verify required parameter 'typedReference' is not null or undefined
-            assertParamExists('scheduledSearchUnsubscribe', 'typedReference', typedReference)
+            assertParamExists('unsubscribeScheduledSearch', 'typedReference', typedReference)
             const localVarPath = `/scheduled-searches/{id}/unsubscribe`
                 .replace(`{${"id"}}`, encodeURIComponent(String(id)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
@@ -25694,11 +25694,11 @@ export const ScheduledSearchApiAxiosParamCreator = function (configuration?: Con
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        scheduledSearchUpdate: async (id: string, scheduledSearch: ScheduledSearch, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        updateScheduledSearch: async (id: string, scheduledSearch: ScheduledSearch, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'id' is not null or undefined
-            assertParamExists('scheduledSearchUpdate', 'id', id)
+            assertParamExists('updateScheduledSearch', 'id', id)
             // verify required parameter 'scheduledSearch' is not null or undefined
-            assertParamExists('scheduledSearchUpdate', 'scheduledSearch', scheduledSearch)
+            assertParamExists('updateScheduledSearch', 'scheduledSearch', scheduledSearch)
             const localVarPath = `/scheduled-searches/{id}`
                 .replace(`{${"id"}}`, encodeURIComponent(String(id)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
@@ -25747,12 +25747,12 @@ export const ScheduledSearchApiFp = function(configuration?: Configuration) {
         /**
          * Creates a new scheduled search. 
          * @summary Create a new scheduled search
-         * @param {ScheduledSearchCreateRequest} scheduledSearchCreateRequest The scheduled search to persist.
+         * @param {CreateScheduledSearchRequest} createScheduledSearchRequest The scheduled search to persist.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async scheduledSearchCreate(scheduledSearchCreateRequest: ScheduledSearchCreateRequest, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ScheduledSearch>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.scheduledSearchCreate(scheduledSearchCreateRequest, axiosOptions);
+        async createScheduledSearch(createScheduledSearchRequest: CreateScheduledSearchRequest, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ScheduledSearch>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.createScheduledSearch(createScheduledSearchRequest, axiosOptions);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
@@ -25762,8 +25762,8 @@ export const ScheduledSearchApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async scheduledSearchDelete(id: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.scheduledSearchDelete(id, axiosOptions);
+        async deleteScheduledSearch(id: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.deleteScheduledSearch(id, axiosOptions);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
@@ -25773,8 +25773,8 @@ export const ScheduledSearchApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async scheduledSearchGet(id: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ScheduledSearch>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.scheduledSearchGet(id, axiosOptions);
+        async getScheduledSearch(id: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ScheduledSearch>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getScheduledSearch(id, axiosOptions);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
@@ -25787,8 +25787,8 @@ export const ScheduledSearchApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async scheduledSearchList(offset?: number, limit?: number, count?: boolean, filters?: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<ScheduledSearch>>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.scheduledSearchList(offset, limit, count, filters, axiosOptions);
+        async listScheduledSearch(offset?: number, limit?: number, count?: boolean, filters?: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<ScheduledSearch>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.listScheduledSearch(offset, limit, count, filters, axiosOptions);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
@@ -25799,8 +25799,8 @@ export const ScheduledSearchApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async scheduledSearchUnsubscribe(id: string, typedReference: TypedReference, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.scheduledSearchUnsubscribe(id, typedReference, axiosOptions);
+        async unsubscribeScheduledSearch(id: string, typedReference: TypedReference, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.unsubscribeScheduledSearch(id, typedReference, axiosOptions);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
@@ -25811,8 +25811,8 @@ export const ScheduledSearchApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async scheduledSearchUpdate(id: string, scheduledSearch: ScheduledSearch, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ScheduledSearch>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.scheduledSearchUpdate(id, scheduledSearch, axiosOptions);
+        async updateScheduledSearch(id: string, scheduledSearch: ScheduledSearch, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ScheduledSearch>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.updateScheduledSearch(id, scheduledSearch, axiosOptions);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
     }
@@ -25828,12 +25828,12 @@ export const ScheduledSearchApiFactory = function (configuration?: Configuration
         /**
          * Creates a new scheduled search. 
          * @summary Create a new scheduled search
-         * @param {ScheduledSearchCreateRequest} scheduledSearchCreateRequest The scheduled search to persist.
+         * @param {CreateScheduledSearchRequest} createScheduledSearchRequest The scheduled search to persist.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        scheduledSearchCreate(scheduledSearchCreateRequest: ScheduledSearchCreateRequest, axiosOptions?: any): AxiosPromise<ScheduledSearch> {
-            return localVarFp.scheduledSearchCreate(scheduledSearchCreateRequest, axiosOptions).then((request) => request(axios, basePath));
+        createScheduledSearch(createScheduledSearchRequest: CreateScheduledSearchRequest, axiosOptions?: any): AxiosPromise<ScheduledSearch> {
+            return localVarFp.createScheduledSearch(createScheduledSearchRequest, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * Deletes the specified scheduled search. 
@@ -25842,8 +25842,8 @@ export const ScheduledSearchApiFactory = function (configuration?: Configuration
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        scheduledSearchDelete(id: string, axiosOptions?: any): AxiosPromise<void> {
-            return localVarFp.scheduledSearchDelete(id, axiosOptions).then((request) => request(axios, basePath));
+        deleteScheduledSearch(id: string, axiosOptions?: any): AxiosPromise<void> {
+            return localVarFp.deleteScheduledSearch(id, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * Returns the specified scheduled search.
@@ -25852,8 +25852,8 @@ export const ScheduledSearchApiFactory = function (configuration?: Configuration
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        scheduledSearchGet(id: string, axiosOptions?: any): AxiosPromise<ScheduledSearch> {
-            return localVarFp.scheduledSearchGet(id, axiosOptions).then((request) => request(axios, basePath));
+        getScheduledSearch(id: string, axiosOptions?: any): AxiosPromise<ScheduledSearch> {
+            return localVarFp.getScheduledSearch(id, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * Returns a list of scheduled searches. 
@@ -25865,8 +25865,8 @@ export const ScheduledSearchApiFactory = function (configuration?: Configuration
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        scheduledSearchList(offset?: number, limit?: number, count?: boolean, filters?: string, axiosOptions?: any): AxiosPromise<Array<ScheduledSearch>> {
-            return localVarFp.scheduledSearchList(offset, limit, count, filters, axiosOptions).then((request) => request(axios, basePath));
+        listScheduledSearch(offset?: number, limit?: number, count?: boolean, filters?: string, axiosOptions?: any): AxiosPromise<Array<ScheduledSearch>> {
+            return localVarFp.listScheduledSearch(offset, limit, count, filters, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * Unsubscribes a recipient from the specified scheduled search. 
@@ -25876,8 +25876,8 @@ export const ScheduledSearchApiFactory = function (configuration?: Configuration
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        scheduledSearchUnsubscribe(id: string, typedReference: TypedReference, axiosOptions?: any): AxiosPromise<void> {
-            return localVarFp.scheduledSearchUnsubscribe(id, typedReference, axiosOptions).then((request) => request(axios, basePath));
+        unsubscribeScheduledSearch(id: string, typedReference: TypedReference, axiosOptions?: any): AxiosPromise<void> {
+            return localVarFp.unsubscribeScheduledSearch(id, typedReference, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * Updates an existing scheduled search. 
@@ -25887,127 +25887,127 @@ export const ScheduledSearchApiFactory = function (configuration?: Configuration
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        scheduledSearchUpdate(id: string, scheduledSearch: ScheduledSearch, axiosOptions?: any): AxiosPromise<ScheduledSearch> {
-            return localVarFp.scheduledSearchUpdate(id, scheduledSearch, axiosOptions).then((request) => request(axios, basePath));
+        updateScheduledSearch(id: string, scheduledSearch: ScheduledSearch, axiosOptions?: any): AxiosPromise<ScheduledSearch> {
+            return localVarFp.updateScheduledSearch(id, scheduledSearch, axiosOptions).then((request) => request(axios, basePath));
         },
     };
 };
 
 /**
- * Request parameters for scheduledSearchCreate operation in ScheduledSearchApi.
+ * Request parameters for createScheduledSearch operation in ScheduledSearchApi.
  * @export
- * @interface ScheduledSearchApiScheduledSearchCreateRequest
+ * @interface ScheduledSearchApiCreateScheduledSearchRequest
  */
-export interface ScheduledSearchApiScheduledSearchCreateRequest {
+export interface ScheduledSearchApiCreateScheduledSearchRequest {
     /**
      * The scheduled search to persist.
-     * @type {ScheduledSearchCreateRequest}
-     * @memberof ScheduledSearchApiScheduledSearchCreate
+     * @type {CreateScheduledSearchRequest}
+     * @memberof ScheduledSearchApiCreateScheduledSearch
      */
-    readonly scheduledSearchCreateRequest: ScheduledSearchCreateRequest
+    readonly createScheduledSearchRequest: CreateScheduledSearchRequest
 }
 
 /**
- * Request parameters for scheduledSearchDelete operation in ScheduledSearchApi.
+ * Request parameters for deleteScheduledSearch operation in ScheduledSearchApi.
  * @export
- * @interface ScheduledSearchApiScheduledSearchDeleteRequest
+ * @interface ScheduledSearchApiDeleteScheduledSearchRequest
  */
-export interface ScheduledSearchApiScheduledSearchDeleteRequest {
+export interface ScheduledSearchApiDeleteScheduledSearchRequest {
     /**
      * ID of the requested document.
      * @type {string}
-     * @memberof ScheduledSearchApiScheduledSearchDelete
+     * @memberof ScheduledSearchApiDeleteScheduledSearch
      */
     readonly id: string
 }
 
 /**
- * Request parameters for scheduledSearchGet operation in ScheduledSearchApi.
+ * Request parameters for getScheduledSearch operation in ScheduledSearchApi.
  * @export
- * @interface ScheduledSearchApiScheduledSearchGetRequest
+ * @interface ScheduledSearchApiGetScheduledSearchRequest
  */
-export interface ScheduledSearchApiScheduledSearchGetRequest {
+export interface ScheduledSearchApiGetScheduledSearchRequest {
     /**
      * ID of the requested document.
      * @type {string}
-     * @memberof ScheduledSearchApiScheduledSearchGet
+     * @memberof ScheduledSearchApiGetScheduledSearch
      */
     readonly id: string
 }
 
 /**
- * Request parameters for scheduledSearchList operation in ScheduledSearchApi.
+ * Request parameters for listScheduledSearch operation in ScheduledSearchApi.
  * @export
- * @interface ScheduledSearchApiScheduledSearchListRequest
+ * @interface ScheduledSearchApiListScheduledSearchRequest
  */
-export interface ScheduledSearchApiScheduledSearchListRequest {
+export interface ScheduledSearchApiListScheduledSearchRequest {
     /**
      * Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
      * @type {number}
-     * @memberof ScheduledSearchApiScheduledSearchList
+     * @memberof ScheduledSearchApiListScheduledSearch
      */
     readonly offset?: number
 
     /**
      * Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
      * @type {number}
-     * @memberof ScheduledSearchApiScheduledSearchList
+     * @memberof ScheduledSearchApiListScheduledSearch
      */
     readonly limit?: number
 
     /**
      * If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
      * @type {boolean}
-     * @memberof ScheduledSearchApiScheduledSearchList
+     * @memberof ScheduledSearchApiListScheduledSearch
      */
     readonly count?: boolean
 
     /**
      * An expression used to constrain the result set using the filtering syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results).  Allowed filter properties: *owner.id*, *savedSearchId*  Allowed filter operator: *eq*  **Example filters**:  &#x60;&#x60;&#x60;owner.id eq \&quot;0de46054-fe90-434a-b84e-c6b3359d0c64\&quot;&#x60;&#x60;&#x60; -- returns scheduled searches for the specified owner ID  &#x60;&#x60;&#x60;savedSearchId eq \&quot;6cc0945d-9eeb-4948-9033-72d066e1153e\&quot;&#x60;&#x60;&#x60; -- returns scheduled searches that reference the specified saved search  &#x60;&#x60;&#x60;owner.id eq me or savedSearchId eq \&quot;6cc0945d-9eeb-4948-9033-72d066e1153e\&quot;&#x60;&#x60;&#x60; -- returns all of the current user\&#39;s scheduled searches as well as all scheduled searches that reference the specified saved search 
      * @type {string}
-     * @memberof ScheduledSearchApiScheduledSearchList
+     * @memberof ScheduledSearchApiListScheduledSearch
      */
     readonly filters?: string
 }
 
 /**
- * Request parameters for scheduledSearchUnsubscribe operation in ScheduledSearchApi.
+ * Request parameters for unsubscribeScheduledSearch operation in ScheduledSearchApi.
  * @export
- * @interface ScheduledSearchApiScheduledSearchUnsubscribeRequest
+ * @interface ScheduledSearchApiUnsubscribeScheduledSearchRequest
  */
-export interface ScheduledSearchApiScheduledSearchUnsubscribeRequest {
+export interface ScheduledSearchApiUnsubscribeScheduledSearchRequest {
     /**
      * ID of the requested document.
      * @type {string}
-     * @memberof ScheduledSearchApiScheduledSearchUnsubscribe
+     * @memberof ScheduledSearchApiUnsubscribeScheduledSearch
      */
     readonly id: string
 
     /**
      * The recipient to be removed from the scheduled search. 
      * @type {TypedReference}
-     * @memberof ScheduledSearchApiScheduledSearchUnsubscribe
+     * @memberof ScheduledSearchApiUnsubscribeScheduledSearch
      */
     readonly typedReference: TypedReference
 }
 
 /**
- * Request parameters for scheduledSearchUpdate operation in ScheduledSearchApi.
+ * Request parameters for updateScheduledSearch operation in ScheduledSearchApi.
  * @export
- * @interface ScheduledSearchApiScheduledSearchUpdateRequest
+ * @interface ScheduledSearchApiUpdateScheduledSearchRequest
  */
-export interface ScheduledSearchApiScheduledSearchUpdateRequest {
+export interface ScheduledSearchApiUpdateScheduledSearchRequest {
     /**
      * ID of the requested document.
      * @type {string}
-     * @memberof ScheduledSearchApiScheduledSearchUpdate
+     * @memberof ScheduledSearchApiUpdateScheduledSearch
      */
     readonly id: string
 
     /**
      * The scheduled search to persist.
      * @type {ScheduledSearch}
-     * @memberof ScheduledSearchApiScheduledSearchUpdate
+     * @memberof ScheduledSearchApiUpdateScheduledSearch
      */
     readonly scheduledSearch: ScheduledSearch
 }
@@ -26022,73 +26022,73 @@ export class ScheduledSearchApi extends BaseAPI {
     /**
      * Creates a new scheduled search. 
      * @summary Create a new scheduled search
-     * @param {ScheduledSearchApiScheduledSearchCreateRequest} requestParameters Request parameters.
+     * @param {ScheduledSearchApiCreateScheduledSearchRequest} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
      * @memberof ScheduledSearchApi
      */
-    public scheduledSearchCreate(requestParameters: ScheduledSearchApiScheduledSearchCreateRequest, axiosOptions?: AxiosRequestConfig) {
-        return ScheduledSearchApiFp(this.configuration).scheduledSearchCreate(requestParameters.scheduledSearchCreateRequest, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public createScheduledSearch(requestParameters: ScheduledSearchApiCreateScheduledSearchRequest, axiosOptions?: AxiosRequestConfig) {
+        return ScheduledSearchApiFp(this.configuration).createScheduledSearch(requestParameters.createScheduledSearchRequest, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * Deletes the specified scheduled search. 
      * @summary Delete a Scheduled Search
-     * @param {ScheduledSearchApiScheduledSearchDeleteRequest} requestParameters Request parameters.
+     * @param {ScheduledSearchApiDeleteScheduledSearchRequest} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
      * @memberof ScheduledSearchApi
      */
-    public scheduledSearchDelete(requestParameters: ScheduledSearchApiScheduledSearchDeleteRequest, axiosOptions?: AxiosRequestConfig) {
-        return ScheduledSearchApiFp(this.configuration).scheduledSearchDelete(requestParameters.id, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public deleteScheduledSearch(requestParameters: ScheduledSearchApiDeleteScheduledSearchRequest, axiosOptions?: AxiosRequestConfig) {
+        return ScheduledSearchApiFp(this.configuration).deleteScheduledSearch(requestParameters.id, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * Returns the specified scheduled search.
      * @summary Get a Scheduled Search
-     * @param {ScheduledSearchApiScheduledSearchGetRequest} requestParameters Request parameters.
+     * @param {ScheduledSearchApiGetScheduledSearchRequest} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
      * @memberof ScheduledSearchApi
      */
-    public scheduledSearchGet(requestParameters: ScheduledSearchApiScheduledSearchGetRequest, axiosOptions?: AxiosRequestConfig) {
-        return ScheduledSearchApiFp(this.configuration).scheduledSearchGet(requestParameters.id, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public getScheduledSearch(requestParameters: ScheduledSearchApiGetScheduledSearchRequest, axiosOptions?: AxiosRequestConfig) {
+        return ScheduledSearchApiFp(this.configuration).getScheduledSearch(requestParameters.id, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * Returns a list of scheduled searches. 
      * @summary List scheduled searches
-     * @param {ScheduledSearchApiScheduledSearchListRequest} requestParameters Request parameters.
+     * @param {ScheduledSearchApiListScheduledSearchRequest} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
      * @memberof ScheduledSearchApi
      */
-    public scheduledSearchList(requestParameters: ScheduledSearchApiScheduledSearchListRequest = {}, axiosOptions?: AxiosRequestConfig) {
-        return ScheduledSearchApiFp(this.configuration).scheduledSearchList(requestParameters.offset, requestParameters.limit, requestParameters.count, requestParameters.filters, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public listScheduledSearch(requestParameters: ScheduledSearchApiListScheduledSearchRequest = {}, axiosOptions?: AxiosRequestConfig) {
+        return ScheduledSearchApiFp(this.configuration).listScheduledSearch(requestParameters.offset, requestParameters.limit, requestParameters.count, requestParameters.filters, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * Unsubscribes a recipient from the specified scheduled search. 
      * @summary Unsubscribe a recipient from Scheduled Search
-     * @param {ScheduledSearchApiScheduledSearchUnsubscribeRequest} requestParameters Request parameters.
+     * @param {ScheduledSearchApiUnsubscribeScheduledSearchRequest} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
      * @memberof ScheduledSearchApi
      */
-    public scheduledSearchUnsubscribe(requestParameters: ScheduledSearchApiScheduledSearchUnsubscribeRequest, axiosOptions?: AxiosRequestConfig) {
-        return ScheduledSearchApiFp(this.configuration).scheduledSearchUnsubscribe(requestParameters.id, requestParameters.typedReference, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public unsubscribeScheduledSearch(requestParameters: ScheduledSearchApiUnsubscribeScheduledSearchRequest, axiosOptions?: AxiosRequestConfig) {
+        return ScheduledSearchApiFp(this.configuration).unsubscribeScheduledSearch(requestParameters.id, requestParameters.typedReference, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * Updates an existing scheduled search. 
      * @summary Update an existing Scheduled Search
-     * @param {ScheduledSearchApiScheduledSearchUpdateRequest} requestParameters Request parameters.
+     * @param {ScheduledSearchApiUpdateScheduledSearchRequest} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
      * @memberof ScheduledSearchApi
      */
-    public scheduledSearchUpdate(requestParameters: ScheduledSearchApiScheduledSearchUpdateRequest, axiosOptions?: AxiosRequestConfig) {
-        return ScheduledSearchApiFp(this.configuration).scheduledSearchUpdate(requestParameters.id, requestParameters.scheduledSearch, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public updateScheduledSearch(requestParameters: ScheduledSearchApiUpdateScheduledSearchRequest, axiosOptions?: AxiosRequestConfig) {
+        return ScheduledSearchApiFp(this.configuration).updateScheduledSearch(requestParameters.id, requestParameters.scheduledSearch, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 }
 
@@ -26725,69 +26725,6 @@ export const ServiceDeskIntegrationApiAxiosParamCreator = function (configuratio
             };
         },
         /**
-         * Get a list of ServiceDeskIntegrationDto for existing Service Desk Integrations.  A token with Org Admin or Service Desk Admin authority is required to access this endpoint.
-         * @summary List existing Service Desk Integrations
-         * @param {number} [offset] Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
-         * @param {number} [limit] Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
-         * @param {string} [sorters] Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **name**
-         * @param {string} [filters] Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, in*  **name**: *eq*  **type**: *eq, in*  **cluster**: *eq, in*
-         * @param {boolean} [count] If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
-         * @param {*} [axiosOptions] Override http request option.
-         * @throws {RequiredError}
-         */
-        getServiceDeskIntegrationList: async (offset?: number, limit?: number, sorters?: string, filters?: string, count?: boolean, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
-            const localVarPath = `/service-desk-integrations`;
-            // use dummy base URL string because the URL constructor only accepts absolute URLs.
-            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
-            let baseOptions;
-            if (configuration) {
-                baseOptions = configuration.baseOptions;
-            }
-
-            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...axiosOptions};
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-
-            // authentication oauth2 required
-            // oauth required
-            await setOAuthToObject(localVarHeaderParameter, "oauth2", [], configuration)
-
-            // authentication oauth2 required
-            // oauth required
-            await setOAuthToObject(localVarHeaderParameter, "oauth2", [], configuration)
-
-            if (offset !== undefined) {
-                localVarQueryParameter['offset'] = offset;
-            }
-
-            if (limit !== undefined) {
-                localVarQueryParameter['limit'] = limit;
-            }
-
-            if (sorters !== undefined) {
-                localVarQueryParameter['sorters'] = sorters;
-            }
-
-            if (filters !== undefined) {
-                localVarQueryParameter['filters'] = filters;
-            }
-
-            if (count !== undefined) {
-                localVarQueryParameter['count'] = count;
-            }
-
-
-    
-            setSearchParams(localVarUrlObj, localVarQueryParameter);
-            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
-            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
-
-            return {
-                url: toPathString(localVarUrlObj),
-                axiosOptions: localVarRequestOptions,
-            };
-        },
-        /**
          * This API endpoint returns an existing Service Desk integration template by scriptName.  A token with Org Admin or Service Desk Admin authority is required to access this endpoint.
          * @summary Service Desk integration template by scriptName.
          * @param {string} scriptName The scriptName value of the Service Desk integration template to get
@@ -26855,6 +26792,69 @@ export const ServiceDeskIntegrationApiAxiosParamCreator = function (configuratio
             // authentication oauth2 required
             // oauth required
             await setOAuthToObject(localVarHeaderParameter, "oauth2", [], configuration)
+
+
+    
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                axiosOptions: localVarRequestOptions,
+            };
+        },
+        /**
+         * Get a list of ServiceDeskIntegrationDto for existing Service Desk Integrations.  A token with Org Admin or Service Desk Admin authority is required to access this endpoint.
+         * @summary List existing Service Desk Integrations
+         * @param {number} [offset] Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+         * @param {number} [limit] Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+         * @param {string} [sorters] Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **name**
+         * @param {string} [filters] Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, in*  **name**: *eq*  **type**: *eq, in*  **cluster**: *eq, in*
+         * @param {boolean} [count] If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        getServiceDeskIntegrations: async (offset?: number, limit?: number, sorters?: string, filters?: string, count?: boolean, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            const localVarPath = `/service-desk-integrations`;
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...axiosOptions};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication oauth2 required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "oauth2", [], configuration)
+
+            // authentication oauth2 required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "oauth2", [], configuration)
+
+            if (offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+
+            if (limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+
+            if (sorters !== undefined) {
+                localVarQueryParameter['sorters'] = sorters;
+            }
+
+            if (filters !== undefined) {
+                localVarQueryParameter['filters'] = filters;
+            }
+
+            if (count !== undefined) {
+                localVarQueryParameter['count'] = count;
+            }
 
 
     
@@ -27089,21 +27089,6 @@ export const ServiceDeskIntegrationApiFp = function(configuration?: Configuratio
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
-         * Get a list of ServiceDeskIntegrationDto for existing Service Desk Integrations.  A token with Org Admin or Service Desk Admin authority is required to access this endpoint.
-         * @summary List existing Service Desk Integrations
-         * @param {number} [offset] Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
-         * @param {number} [limit] Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
-         * @param {string} [sorters] Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **name**
-         * @param {string} [filters] Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, in*  **name**: *eq*  **type**: *eq, in*  **cluster**: *eq, in*
-         * @param {boolean} [count] If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
-         * @param {*} [axiosOptions] Override http request option.
-         * @throws {RequiredError}
-         */
-        async getServiceDeskIntegrationList(offset?: number, limit?: number, sorters?: string, filters?: string, count?: boolean, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<ServiceDeskIntegrationDto>>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.getServiceDeskIntegrationList(offset, limit, sorters, filters, count, axiosOptions);
-            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
-        },
-        /**
          * This API endpoint returns an existing Service Desk integration template by scriptName.  A token with Org Admin or Service Desk Admin authority is required to access this endpoint.
          * @summary Service Desk integration template by scriptName.
          * @param {string} scriptName The scriptName value of the Service Desk integration template to get
@@ -27122,6 +27107,21 @@ export const ServiceDeskIntegrationApiFp = function(configuration?: Configuratio
          */
         async getServiceDeskIntegrationTypes(axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<ServiceDeskIntegrationTemplateType>>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getServiceDeskIntegrationTypes(axiosOptions);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * Get a list of ServiceDeskIntegrationDto for existing Service Desk Integrations.  A token with Org Admin or Service Desk Admin authority is required to access this endpoint.
+         * @summary List existing Service Desk Integrations
+         * @param {number} [offset] Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+         * @param {number} [limit] Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+         * @param {string} [sorters] Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **name**
+         * @param {string} [filters] Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, in*  **name**: *eq*  **type**: *eq, in*  **cluster**: *eq, in*
+         * @param {boolean} [count] If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        async getServiceDeskIntegrations(offset?: number, limit?: number, sorters?: string, filters?: string, count?: boolean, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<ServiceDeskIntegrationDto>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getServiceDeskIntegrations(offset, limit, sorters, filters, count, axiosOptions);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
@@ -27210,20 +27210,6 @@ export const ServiceDeskIntegrationApiFactory = function (configuration?: Config
             return localVarFp.getServiceDeskIntegration(id, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
-         * Get a list of ServiceDeskIntegrationDto for existing Service Desk Integrations.  A token with Org Admin or Service Desk Admin authority is required to access this endpoint.
-         * @summary List existing Service Desk Integrations
-         * @param {number} [offset] Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
-         * @param {number} [limit] Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
-         * @param {string} [sorters] Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **name**
-         * @param {string} [filters] Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, in*  **name**: *eq*  **type**: *eq, in*  **cluster**: *eq, in*
-         * @param {boolean} [count] If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
-         * @param {*} [axiosOptions] Override http request option.
-         * @throws {RequiredError}
-         */
-        getServiceDeskIntegrationList(offset?: number, limit?: number, sorters?: string, filters?: string, count?: boolean, axiosOptions?: any): AxiosPromise<Array<ServiceDeskIntegrationDto>> {
-            return localVarFp.getServiceDeskIntegrationList(offset, limit, sorters, filters, count, axiosOptions).then((request) => request(axios, basePath));
-        },
-        /**
          * This API endpoint returns an existing Service Desk integration template by scriptName.  A token with Org Admin or Service Desk Admin authority is required to access this endpoint.
          * @summary Service Desk integration template by scriptName.
          * @param {string} scriptName The scriptName value of the Service Desk integration template to get
@@ -27241,6 +27227,20 @@ export const ServiceDeskIntegrationApiFactory = function (configuration?: Config
          */
         getServiceDeskIntegrationTypes(axiosOptions?: any): AxiosPromise<Array<ServiceDeskIntegrationTemplateType>> {
             return localVarFp.getServiceDeskIntegrationTypes(axiosOptions).then((request) => request(axios, basePath));
+        },
+        /**
+         * Get a list of ServiceDeskIntegrationDto for existing Service Desk Integrations.  A token with Org Admin or Service Desk Admin authority is required to access this endpoint.
+         * @summary List existing Service Desk Integrations
+         * @param {number} [offset] Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+         * @param {number} [limit] Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+         * @param {string} [sorters] Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **name**
+         * @param {string} [filters] Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, in*  **name**: *eq*  **type**: *eq, in*  **cluster**: *eq, in*
+         * @param {boolean} [count] If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        getServiceDeskIntegrations(offset?: number, limit?: number, sorters?: string, filters?: string, count?: boolean, axiosOptions?: any): AxiosPromise<Array<ServiceDeskIntegrationDto>> {
+            return localVarFp.getServiceDeskIntegrations(offset, limit, sorters, filters, count, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * Get the time check configuration of queued SDIM tickets.  A token with Org Admin or Service Desk Admin authority is required to access this endpoint.
@@ -27329,48 +27329,6 @@ export interface ServiceDeskIntegrationApiGetServiceDeskIntegrationRequest {
 }
 
 /**
- * Request parameters for getServiceDeskIntegrationList operation in ServiceDeskIntegrationApi.
- * @export
- * @interface ServiceDeskIntegrationApiGetServiceDeskIntegrationListRequest
- */
-export interface ServiceDeskIntegrationApiGetServiceDeskIntegrationListRequest {
-    /**
-     * Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
-     * @type {number}
-     * @memberof ServiceDeskIntegrationApiGetServiceDeskIntegrationList
-     */
-    readonly offset?: number
-
-    /**
-     * Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
-     * @type {number}
-     * @memberof ServiceDeskIntegrationApiGetServiceDeskIntegrationList
-     */
-    readonly limit?: number
-
-    /**
-     * Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **name**
-     * @type {string}
-     * @memberof ServiceDeskIntegrationApiGetServiceDeskIntegrationList
-     */
-    readonly sorters?: string
-
-    /**
-     * Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, in*  **name**: *eq*  **type**: *eq, in*  **cluster**: *eq, in*
-     * @type {string}
-     * @memberof ServiceDeskIntegrationApiGetServiceDeskIntegrationList
-     */
-    readonly filters?: string
-
-    /**
-     * If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
-     * @type {boolean}
-     * @memberof ServiceDeskIntegrationApiGetServiceDeskIntegrationList
-     */
-    readonly count?: boolean
-}
-
-/**
  * Request parameters for getServiceDeskIntegrationTemplate operation in ServiceDeskIntegrationApi.
  * @export
  * @interface ServiceDeskIntegrationApiGetServiceDeskIntegrationTemplateRequest
@@ -27382,6 +27340,48 @@ export interface ServiceDeskIntegrationApiGetServiceDeskIntegrationTemplateReque
      * @memberof ServiceDeskIntegrationApiGetServiceDeskIntegrationTemplate
      */
     readonly scriptName: string
+}
+
+/**
+ * Request parameters for getServiceDeskIntegrations operation in ServiceDeskIntegrationApi.
+ * @export
+ * @interface ServiceDeskIntegrationApiGetServiceDeskIntegrationsRequest
+ */
+export interface ServiceDeskIntegrationApiGetServiceDeskIntegrationsRequest {
+    /**
+     * Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+     * @type {number}
+     * @memberof ServiceDeskIntegrationApiGetServiceDeskIntegrations
+     */
+    readonly offset?: number
+
+    /**
+     * Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+     * @type {number}
+     * @memberof ServiceDeskIntegrationApiGetServiceDeskIntegrations
+     */
+    readonly limit?: number
+
+    /**
+     * Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **name**
+     * @type {string}
+     * @memberof ServiceDeskIntegrationApiGetServiceDeskIntegrations
+     */
+    readonly sorters?: string
+
+    /**
+     * Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, in*  **name**: *eq*  **type**: *eq, in*  **cluster**: *eq, in*
+     * @type {string}
+     * @memberof ServiceDeskIntegrationApiGetServiceDeskIntegrations
+     */
+    readonly filters?: string
+
+    /**
+     * If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+     * @type {boolean}
+     * @memberof ServiceDeskIntegrationApiGetServiceDeskIntegrations
+     */
+    readonly count?: boolean
 }
 
 /**
@@ -27484,18 +27484,6 @@ export class ServiceDeskIntegrationApi extends BaseAPI {
     }
 
     /**
-     * Get a list of ServiceDeskIntegrationDto for existing Service Desk Integrations.  A token with Org Admin or Service Desk Admin authority is required to access this endpoint.
-     * @summary List existing Service Desk Integrations
-     * @param {ServiceDeskIntegrationApiGetServiceDeskIntegrationListRequest} requestParameters Request parameters.
-     * @param {*} [axiosOptions] Override http request option.
-     * @throws {RequiredError}
-     * @memberof ServiceDeskIntegrationApi
-     */
-    public getServiceDeskIntegrationList(requestParameters: ServiceDeskIntegrationApiGetServiceDeskIntegrationListRequest = {}, axiosOptions?: AxiosRequestConfig) {
-        return ServiceDeskIntegrationApiFp(this.configuration).getServiceDeskIntegrationList(requestParameters.offset, requestParameters.limit, requestParameters.sorters, requestParameters.filters, requestParameters.count, axiosOptions).then((request) => request(this.axios, this.basePath));
-    }
-
-    /**
      * This API endpoint returns an existing Service Desk integration template by scriptName.  A token with Org Admin or Service Desk Admin authority is required to access this endpoint.
      * @summary Service Desk integration template by scriptName.
      * @param {ServiceDeskIntegrationApiGetServiceDeskIntegrationTemplateRequest} requestParameters Request parameters.
@@ -27516,6 +27504,18 @@ export class ServiceDeskIntegrationApi extends BaseAPI {
      */
     public getServiceDeskIntegrationTypes(axiosOptions?: AxiosRequestConfig) {
         return ServiceDeskIntegrationApiFp(this.configuration).getServiceDeskIntegrationTypes(axiosOptions).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Get a list of ServiceDeskIntegrationDto for existing Service Desk Integrations.  A token with Org Admin or Service Desk Admin authority is required to access this endpoint.
+     * @summary List existing Service Desk Integrations
+     * @param {ServiceDeskIntegrationApiGetServiceDeskIntegrationsRequest} requestParameters Request parameters.
+     * @param {*} [axiosOptions] Override http request option.
+     * @throws {RequiredError}
+     * @memberof ServiceDeskIntegrationApi
+     */
+    public getServiceDeskIntegrations(requestParameters: ServiceDeskIntegrationApiGetServiceDeskIntegrationsRequest = {}, axiosOptions?: AxiosRequestConfig) {
+        return ServiceDeskIntegrationApiFp(this.configuration).getServiceDeskIntegrations(requestParameters.offset, requestParameters.limit, requestParameters.sorters, requestParameters.filters, requestParameters.count, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -27574,54 +27574,6 @@ export class ServiceDeskIntegrationApi extends BaseAPI {
 export const SourcesApiAxiosParamCreator = function (configuration?: Configuration) {
     return {
         /**
-         * This end-point updates a list of provisioning policies on the specified source in IdentityNow. A token with API, or ORG_ADMIN authority is required to call this API.
-         * @summary Bulk Update Provisioning Policies
-         * @param {string} sourceId The Source id.
-         * @param {Array<ProvisioningPolicyDto>} provisioningPolicyDto 
-         * @param {*} [axiosOptions] Override http request option.
-         * @throws {RequiredError}
-         */
-        bulkUpdateProvisioningPolicies: async (sourceId: string, provisioningPolicyDto: Array<ProvisioningPolicyDto>, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
-            // verify required parameter 'sourceId' is not null or undefined
-            assertParamExists('bulkUpdateProvisioningPolicies', 'sourceId', sourceId)
-            // verify required parameter 'provisioningPolicyDto' is not null or undefined
-            assertParamExists('bulkUpdateProvisioningPolicies', 'provisioningPolicyDto', provisioningPolicyDto)
-            const localVarPath = `/sources/{sourceId}/provisioning-policies/bulk-update`
-                .replace(`{${"sourceId"}}`, encodeURIComponent(String(sourceId)));
-            // use dummy base URL string because the URL constructor only accepts absolute URLs.
-            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
-            let baseOptions;
-            if (configuration) {
-                baseOptions = configuration.baseOptions;
-            }
-
-            const localVarRequestOptions = { method: 'POST', ...baseOptions, ...axiosOptions};
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-
-            // authentication oauth2 required
-            // oauth required
-            await setOAuthToObject(localVarHeaderParameter, "oauth2", [], configuration)
-
-            // authentication oauth2 required
-            // oauth required
-            await setOAuthToObject(localVarHeaderParameter, "oauth2", [], configuration)
-
-
-    
-            localVarHeaderParameter['Content-Type'] = 'application/json';
-
-            setSearchParams(localVarUrlObj, localVarQueryParameter);
-            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
-            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(provisioningPolicyDto, localVarRequestOptions, configuration)
-
-            return {
-                url: toPathString(localVarUrlObj),
-                axiosOptions: localVarRequestOptions,
-            };
-        },
-        /**
          * This API generates a create policy/template based on field value transforms. This API is intended for use when setting up JDBC Provisioning type sources, but it will also work on other source types. A token with ORG_ADMIN authority is required to call this API.
          * @summary Create Provisioning Policy
          * @param {string} sourceId The Source id
@@ -27663,54 +27615,6 @@ export const SourcesApiAxiosParamCreator = function (configuration?: Configurati
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
             localVarRequestOptions.data = serializeDataIfNeeded(provisioningPolicyDto, localVarRequestOptions, configuration)
-
-            return {
-                url: toPathString(localVarUrlObj),
-                axiosOptions: localVarRequestOptions,
-            };
-        },
-        /**
-         * Creates a new Schema on the specified Source in IdentityNow. 
-         * @summary Create Schema on a Source
-         * @param {string} sourceId The Source id.
-         * @param {Schema} schema 
-         * @param {*} [axiosOptions] Override http request option.
-         * @throws {RequiredError}
-         */
-        createSchema: async (sourceId: string, schema: Schema, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
-            // verify required parameter 'sourceId' is not null or undefined
-            assertParamExists('createSchema', 'sourceId', sourceId)
-            // verify required parameter 'schema' is not null or undefined
-            assertParamExists('createSchema', 'schema', schema)
-            const localVarPath = `/sources/{sourceId}/schemas`
-                .replace(`{${"sourceId"}}`, encodeURIComponent(String(sourceId)));
-            // use dummy base URL string because the URL constructor only accepts absolute URLs.
-            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
-            let baseOptions;
-            if (configuration) {
-                baseOptions = configuration.baseOptions;
-            }
-
-            const localVarRequestOptions = { method: 'POST', ...baseOptions, ...axiosOptions};
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-
-            // authentication oauth2 required
-            // oauth required
-            await setOAuthToObject(localVarHeaderParameter, "oauth2", [], configuration)
-
-            // authentication oauth2 required
-            // oauth required
-            await setOAuthToObject(localVarHeaderParameter, "oauth2", [], configuration)
-
-
-    
-            localVarHeaderParameter['Content-Type'] = 'application/json';
-
-            setSearchParams(localVarUrlObj, localVarQueryParameter);
-            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
-            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(schema, localVarRequestOptions, configuration)
 
             return {
                 url: toPathString(localVarUrlObj),
@@ -27767,6 +27671,54 @@ export const SourcesApiAxiosParamCreator = function (configuration?: Configurati
             };
         },
         /**
+         * Creates a new Schema on the specified Source in IdentityNow. 
+         * @summary Create Schema on a Source
+         * @param {string} sourceId The Source id.
+         * @param {Schema} schema 
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        createSourceSchema: async (sourceId: string, schema: Schema, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'sourceId' is not null or undefined
+            assertParamExists('createSourceSchema', 'sourceId', sourceId)
+            // verify required parameter 'schema' is not null or undefined
+            assertParamExists('createSourceSchema', 'schema', schema)
+            const localVarPath = `/sources/{sourceId}/schemas`
+                .replace(`{${"sourceId"}}`, encodeURIComponent(String(sourceId)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'POST', ...baseOptions, ...axiosOptions};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication oauth2 required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "oauth2", [], configuration)
+
+            // authentication oauth2 required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "oauth2", [], configuration)
+
+
+    
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
+            localVarRequestOptions.data = serializeDataIfNeeded(schema, localVarRequestOptions, configuration)
+
+            return {
+                url: toPathString(localVarUrlObj),
+                axiosOptions: localVarRequestOptions,
+            };
+        },
+        /**
          * Deletes the provisioning policy with the specified usage on an application. A token with API, or ORG_ADMIN authority is required to call this API.
          * @summary Delete Provisioning Policy by UsageType
          * @param {string} sourceId The Source ID.
@@ -27813,21 +27765,17 @@ export const SourcesApiAxiosParamCreator = function (configuration?: Configurati
             };
         },
         /**
-         * 
-         * @summary Delete Source Schema by ID
-         * @param {string} sourceId The Source id.
-         * @param {string} schemaId The Schema id.
+         * This end-point deletes a specific source in IdentityNow. A token with ORG_ADMIN, SOURCE_ADMIN, or SOURCE_SUBADMIN authority is required to call this API. All of accounts on the source will be removed first, then the source will be deleted. Actual status of task execution can be retrieved via method GET `/task-status/{id}`
+         * @summary Delete Source by ID
+         * @param {string} id The Source id
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        deleteSchema: async (sourceId: string, schemaId: string, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
-            // verify required parameter 'sourceId' is not null or undefined
-            assertParamExists('deleteSchema', 'sourceId', sourceId)
-            // verify required parameter 'schemaId' is not null or undefined
-            assertParamExists('deleteSchema', 'schemaId', schemaId)
-            const localVarPath = `/sources/{sourceId}/schemas/{schemaId}`
-                .replace(`{${"sourceId"}}`, encodeURIComponent(String(sourceId)))
-                .replace(`{${"schemaId"}}`, encodeURIComponent(String(schemaId)));
+        deleteSource: async (id: string, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'id' is not null or undefined
+            assertParamExists('deleteSource', 'id', id)
+            const localVarPath = `/sources/{id}`
+                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -27859,17 +27807,21 @@ export const SourcesApiAxiosParamCreator = function (configuration?: Configurati
             };
         },
         /**
-         * This end-point deletes a specific source in IdentityNow. A token with ORG_ADMIN, SOURCE_ADMIN, or SOURCE_SUBADMIN authority is required to call this API. All of accounts on the source will be removed first, then the source will be deleted. Actual status of task execution can be retrieved via method GET `/task-status/{id}`
-         * @summary Delete Source by ID
-         * @param {string} id The Source id
+         * 
+         * @summary Delete Source Schema by ID
+         * @param {string} sourceId The Source id.
+         * @param {string} schemaId The Schema id.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        deleteSource: async (id: string, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
-            // verify required parameter 'id' is not null or undefined
-            assertParamExists('deleteSource', 'id', id)
-            const localVarPath = `/sources/{id}`
-                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
+        deleteSourceSchema: async (sourceId: string, schemaId: string, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'sourceId' is not null or undefined
+            assertParamExists('deleteSourceSchema', 'sourceId', sourceId)
+            // verify required parameter 'schemaId' is not null or undefined
+            assertParamExists('deleteSourceSchema', 'schemaId', schemaId)
+            const localVarPath = `/sources/{sourceId}/schemas/{schemaId}`
+                .replace(`{${"sourceId"}}`, encodeURIComponent(String(sourceId)))
+                .replace(`{${"schemaId"}}`, encodeURIComponent(String(schemaId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -28036,52 +27988,6 @@ export const SourcesApiAxiosParamCreator = function (configuration?: Configurati
             };
         },
         /**
-         * Get the Source Schema by ID in IdentityNow. 
-         * @summary Get Source Schema by ID
-         * @param {string} sourceId The Source id.
-         * @param {string} schemaId The Schema id.
-         * @param {*} [axiosOptions] Override http request option.
-         * @throws {RequiredError}
-         */
-        getSchema: async (sourceId: string, schemaId: string, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
-            // verify required parameter 'sourceId' is not null or undefined
-            assertParamExists('getSchema', 'sourceId', sourceId)
-            // verify required parameter 'schemaId' is not null or undefined
-            assertParamExists('getSchema', 'schemaId', schemaId)
-            const localVarPath = `/sources/{sourceId}/schemas/{schemaId}`
-                .replace(`{${"sourceId"}}`, encodeURIComponent(String(sourceId)))
-                .replace(`{${"schemaId"}}`, encodeURIComponent(String(schemaId)));
-            // use dummy base URL string because the URL constructor only accepts absolute URLs.
-            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
-            let baseOptions;
-            if (configuration) {
-                baseOptions = configuration.baseOptions;
-            }
-
-            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...axiosOptions};
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-
-            // authentication oauth2 required
-            // oauth required
-            await setOAuthToObject(localVarHeaderParameter, "oauth2", [], configuration)
-
-            // authentication oauth2 required
-            // oauth required
-            await setOAuthToObject(localVarHeaderParameter, "oauth2", [], configuration)
-
-
-    
-            setSearchParams(localVarUrlObj, localVarQueryParameter);
-            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
-            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
-
-            return {
-                url: toPathString(localVarUrlObj),
-                axiosOptions: localVarRequestOptions,
-            };
-        },
-        /**
          * This end-point gets a specific source in IdentityNow. A token with ORG_ADMIN, SOURCE_ADMIN, or SOURCE_SUBADMIN authority is required to call this API.
          * @summary Get Source by ID
          * @param {string} id The Source id
@@ -28166,6 +28072,52 @@ export const SourcesApiAxiosParamCreator = function (configuration?: Configurati
             };
         },
         /**
+         * Get the Source Schema by ID in IdentityNow. 
+         * @summary Get Source Schema by ID
+         * @param {string} sourceId The Source id.
+         * @param {string} schemaId The Schema id.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        getSourceSchema: async (sourceId: string, schemaId: string, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'sourceId' is not null or undefined
+            assertParamExists('getSourceSchema', 'sourceId', sourceId)
+            // verify required parameter 'schemaId' is not null or undefined
+            assertParamExists('getSourceSchema', 'schemaId', schemaId)
+            const localVarPath = `/sources/{sourceId}/schemas/{schemaId}`
+                .replace(`{${"sourceId"}}`, encodeURIComponent(String(sourceId)))
+                .replace(`{${"schemaId"}}`, encodeURIComponent(String(schemaId)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...axiosOptions};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication oauth2 required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "oauth2", [], configuration)
+
+            // authentication oauth2 required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "oauth2", [], configuration)
+
+
+    
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                axiosOptions: localVarRequestOptions,
+            };
+        },
+        /**
          * This end-point lists all the ProvisioningPolicies in IdentityNow. A token with API, or ORG_ADMIN authority is required to call this API.
          * @summary Lists ProvisioningPolicies
          * @param {string} sourceId The Source id
@@ -28215,9 +28167,9 @@ export const SourcesApiAxiosParamCreator = function (configuration?: Configurati
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        listSchemas: async (sourceId: string, includeTypes?: string, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        listSourceSchemas: async (sourceId: string, includeTypes?: string, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'sourceId' is not null or undefined
-            assertParamExists('listSchemas', 'sourceId', sourceId)
+            assertParamExists('listSourceSchemas', 'sourceId', sourceId)
             const localVarPath = `/sources/{sourceId}/schemas`
                 .replace(`{${"sourceId"}}`, encodeURIComponent(String(sourceId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
@@ -28331,13 +28283,13 @@ export const SourcesApiAxiosParamCreator = function (configuration?: Configurati
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        replaceProvisioningPolicy: async (sourceId: string, usageType: UsageType, provisioningPolicyDto: ProvisioningPolicyDto, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        putProvisioningPolicy: async (sourceId: string, usageType: UsageType, provisioningPolicyDto: ProvisioningPolicyDto, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'sourceId' is not null or undefined
-            assertParamExists('replaceProvisioningPolicy', 'sourceId', sourceId)
+            assertParamExists('putProvisioningPolicy', 'sourceId', sourceId)
             // verify required parameter 'usageType' is not null or undefined
-            assertParamExists('replaceProvisioningPolicy', 'usageType', usageType)
+            assertParamExists('putProvisioningPolicy', 'usageType', usageType)
             // verify required parameter 'provisioningPolicyDto' is not null or undefined
-            assertParamExists('replaceProvisioningPolicy', 'provisioningPolicyDto', provisioningPolicyDto)
+            assertParamExists('putProvisioningPolicy', 'provisioningPolicyDto', provisioningPolicyDto)
             const localVarPath = `/sources/{sourceId}/provisioning-policies/{usageType}`
                 .replace(`{${"sourceId"}}`, encodeURIComponent(String(sourceId)))
                 .replace(`{${"usageType"}}`, encodeURIComponent(String(usageType)));
@@ -28375,6 +28327,54 @@ export const SourcesApiAxiosParamCreator = function (configuration?: Configurati
             };
         },
         /**
+         * This API updates a source in IdentityNow, using a full object representation. In other words, the existing Source configuration is completely replaced.  Some fields are immutable and cannot be changed, such as:  * id * type * authoritative * connector * connectorClass * passwordPolicies  Attempts to modify these fields will result in a 400 error.  A token with ORG_ADMIN, SOURCE_ADMIN, or SOURCE_SUBADMIN authority is required to call this API. 
+         * @summary Update Source (Full)
+         * @param {string} id The Source id
+         * @param {Source} source 
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        putSource: async (id: string, source: Source, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'id' is not null or undefined
+            assertParamExists('putSource', 'id', id)
+            // verify required parameter 'source' is not null or undefined
+            assertParamExists('putSource', 'source', source)
+            const localVarPath = `/sources/{id}`
+                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'PUT', ...baseOptions, ...axiosOptions};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication oauth2 required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "oauth2", [], configuration)
+
+            // authentication oauth2 required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "oauth2", [], configuration)
+
+
+    
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
+            localVarRequestOptions.data = serializeDataIfNeeded(source, localVarRequestOptions, configuration)
+
+            return {
+                url: toPathString(localVarUrlObj),
+                axiosOptions: localVarRequestOptions,
+            };
+        },
+        /**
          * This API will completely replace an existing Schema with the submitted payload. Some fields of the Schema cannot be updated. These fields are listed below.  * id * name * created * modified  Any attempt to modify these fields will result in an error response with a status code of 400.  > `id` must remain in the request body, but it cannot be changed.  If `id` is omitted from the request body, the result will be a 400 error. 
          * @summary Update Source Schema (Full)
          * @param {string} sourceId The Source id.
@@ -28383,13 +28383,13 @@ export const SourcesApiAxiosParamCreator = function (configuration?: Configurati
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        replaceSchema: async (sourceId: string, schemaId: string, schema: Schema, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        putSourceSchema: async (sourceId: string, schemaId: string, schema: Schema, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'sourceId' is not null or undefined
-            assertParamExists('replaceSchema', 'sourceId', sourceId)
+            assertParamExists('putSourceSchema', 'sourceId', sourceId)
             // verify required parameter 'schemaId' is not null or undefined
-            assertParamExists('replaceSchema', 'schemaId', schemaId)
+            assertParamExists('putSourceSchema', 'schemaId', schemaId)
             // verify required parameter 'schema' is not null or undefined
-            assertParamExists('replaceSchema', 'schema', schema)
+            assertParamExists('putSourceSchema', 'schema', schema)
             const localVarPath = `/sources/{sourceId}/schemas/{schemaId}`
                 .replace(`{${"sourceId"}}`, encodeURIComponent(String(sourceId)))
                 .replace(`{${"schemaId"}}`, encodeURIComponent(String(schemaId)));
@@ -28427,20 +28427,20 @@ export const SourcesApiAxiosParamCreator = function (configuration?: Configurati
             };
         },
         /**
-         * This API updates a source in IdentityNow, using a full object representation. In other words, the existing Source configuration is completely replaced.  Some fields are immutable and cannot be changed, such as:  * id * type * authoritative * connector * connectorClass * passwordPolicies  Attempts to modify these fields will result in a 400 error.  A token with ORG_ADMIN, SOURCE_ADMIN, or SOURCE_SUBADMIN authority is required to call this API. 
-         * @summary Update Source (Full)
-         * @param {string} id The Source id
-         * @param {Source} source 
+         * This end-point updates a list of provisioning policies on the specified source in IdentityNow. A token with API, or ORG_ADMIN authority is required to call this API.
+         * @summary Bulk Update Provisioning Policies
+         * @param {string} sourceId The Source id.
+         * @param {Array<ProvisioningPolicyDto>} provisioningPolicyDto 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        replaceSource: async (id: string, source: Source, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
-            // verify required parameter 'id' is not null or undefined
-            assertParamExists('replaceSource', 'id', id)
-            // verify required parameter 'source' is not null or undefined
-            assertParamExists('replaceSource', 'source', source)
-            const localVarPath = `/sources/{id}`
-                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
+        updateProvisioningPoliciesInBulk: async (sourceId: string, provisioningPolicyDto: Array<ProvisioningPolicyDto>, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'sourceId' is not null or undefined
+            assertParamExists('updateProvisioningPoliciesInBulk', 'sourceId', sourceId)
+            // verify required parameter 'provisioningPolicyDto' is not null or undefined
+            assertParamExists('updateProvisioningPoliciesInBulk', 'provisioningPolicyDto', provisioningPolicyDto)
+            const localVarPath = `/sources/{sourceId}/provisioning-policies/bulk-update`
+                .replace(`{${"sourceId"}}`, encodeURIComponent(String(sourceId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -28448,7 +28448,7 @@ export const SourcesApiAxiosParamCreator = function (configuration?: Configurati
                 baseOptions = configuration.baseOptions;
             }
 
-            const localVarRequestOptions = { method: 'PUT', ...baseOptions, ...axiosOptions};
+            const localVarRequestOptions = { method: 'POST', ...baseOptions, ...axiosOptions};
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
 
@@ -28467,7 +28467,7 @@ export const SourcesApiAxiosParamCreator = function (configuration?: Configurati
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(source, localVarRequestOptions, configuration)
+            localVarRequestOptions.data = serializeDataIfNeeded(provisioningPolicyDto, localVarRequestOptions, configuration)
 
             return {
                 url: toPathString(localVarUrlObj),
@@ -28493,58 +28493,6 @@ export const SourcesApiAxiosParamCreator = function (configuration?: Configurati
             const localVarPath = `/sources/{sourceId}/provisioning-policies/{usageType}`
                 .replace(`{${"sourceId"}}`, encodeURIComponent(String(sourceId)))
                 .replace(`{${"usageType"}}`, encodeURIComponent(String(usageType)));
-            // use dummy base URL string because the URL constructor only accepts absolute URLs.
-            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
-            let baseOptions;
-            if (configuration) {
-                baseOptions = configuration.baseOptions;
-            }
-
-            const localVarRequestOptions = { method: 'PATCH', ...baseOptions, ...axiosOptions};
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-
-            // authentication oauth2 required
-            // oauth required
-            await setOAuthToObject(localVarHeaderParameter, "oauth2", [], configuration)
-
-            // authentication oauth2 required
-            // oauth required
-            await setOAuthToObject(localVarHeaderParameter, "oauth2", [], configuration)
-
-
-    
-            localVarHeaderParameter['Content-Type'] = 'application/json-patch+json';
-
-            setSearchParams(localVarUrlObj, localVarQueryParameter);
-            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
-            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(jsonPatchOperation, localVarRequestOptions, configuration)
-
-            return {
-                url: toPathString(localVarUrlObj),
-                axiosOptions: localVarRequestOptions,
-            };
-        },
-        /**
-         * Use this API to selectively update an existing Schema using a JSONPatch payload.   The following schema fields are immutable and cannot be updated:  - id - name - created - modified   To switch an account attribute to a group entitlement, you need to have the following in place:  - `isEntitlement: true` - Must define a schema for the group and [add it to the source](https://developer.sailpoint.com/idn/api/v3/create-schema) before updating the `isGroup` flag.  For example, here is the `group` account attribute referencing a schema that defines the group: ```json {     \"name\": \"groups\",     \"type\": \"STRING\",     \"schema\": {         \"type\": \"CONNECTOR_SCHEMA\",         \"id\": \"2c9180887671ff8c01767b4671fc7d60\",         \"name\": \"group\"     },     \"description\": \"The groups, roles etc. that reference account group objects\",     \"isMulti\": true,     \"isEntitlement\": true,     \"isGroup\": true } ``` 
-         * @summary Update Source Schema (Partial)
-         * @param {string} sourceId The Source id.
-         * @param {string} schemaId The Schema id.
-         * @param {Array<JsonPatchOperation>} jsonPatchOperation The JSONPatch payload used to update the schema.
-         * @param {*} [axiosOptions] Override http request option.
-         * @throws {RequiredError}
-         */
-        updateSchema: async (sourceId: string, schemaId: string, jsonPatchOperation: Array<JsonPatchOperation>, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
-            // verify required parameter 'sourceId' is not null or undefined
-            assertParamExists('updateSchema', 'sourceId', sourceId)
-            // verify required parameter 'schemaId' is not null or undefined
-            assertParamExists('updateSchema', 'schemaId', schemaId)
-            // verify required parameter 'jsonPatchOperation' is not null or undefined
-            assertParamExists('updateSchema', 'jsonPatchOperation', jsonPatchOperation)
-            const localVarPath = `/sources/{sourceId}/schemas/{schemaId}`
-                .replace(`{${"sourceId"}}`, encodeURIComponent(String(sourceId)))
-                .replace(`{${"schemaId"}}`, encodeURIComponent(String(schemaId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -28627,18 +28575,70 @@ export const SourcesApiAxiosParamCreator = function (configuration?: Configurati
             };
         },
         /**
-         * This uploads a supplemental source connector file (like jdbc driver jars) to a source\'s S3 bucket. This also sends ETS and Audit events. A token with ORG_ADMIN authority is required to call this API.
-         * @summary Upload connector file to source
+         * Use this API to selectively update an existing Schema using a JSONPatch payload.   The following schema fields are immutable and cannot be updated:  - id - name - created - modified   To switch an account attribute to a group entitlement, you need to have the following in place:  - `isEntitlement: true` - Must define a schema for the group and [add it to the source](https://developer.sailpoint.com/idn/api/v3/create-schema) before updating the `isGroup` flag.  For example, here is the `group` account attribute referencing a schema that defines the group: ```json {     \"name\": \"groups\",     \"type\": \"STRING\",     \"schema\": {         \"type\": \"CONNECTOR_SCHEMA\",         \"id\": \"2c9180887671ff8c01767b4671fc7d60\",         \"name\": \"group\"     },     \"description\": \"The groups, roles etc. that reference account group objects\",     \"isMulti\": true,     \"isEntitlement\": true,     \"isGroup\": true } ``` 
+         * @summary Update Source Schema (Partial)
          * @param {string} sourceId The Source id.
+         * @param {string} schemaId The Schema id.
+         * @param {Array<JsonPatchOperation>} jsonPatchOperation The JSONPatch payload used to update the schema.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        updateSourceSchema: async (sourceId: string, schemaId: string, jsonPatchOperation: Array<JsonPatchOperation>, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'sourceId' is not null or undefined
+            assertParamExists('updateSourceSchema', 'sourceId', sourceId)
+            // verify required parameter 'schemaId' is not null or undefined
+            assertParamExists('updateSourceSchema', 'schemaId', schemaId)
+            // verify required parameter 'jsonPatchOperation' is not null or undefined
+            assertParamExists('updateSourceSchema', 'jsonPatchOperation', jsonPatchOperation)
+            const localVarPath = `/sources/{sourceId}/schemas/{schemaId}`
+                .replace(`{${"sourceId"}}`, encodeURIComponent(String(sourceId)))
+                .replace(`{${"schemaId"}}`, encodeURIComponent(String(schemaId)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'PATCH', ...baseOptions, ...axiosOptions};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication oauth2 required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "oauth2", [], configuration)
+
+            // authentication oauth2 required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "oauth2", [], configuration)
+
+
+    
+            localVarHeaderParameter['Content-Type'] = 'application/json-patch+json';
+
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
+            localVarRequestOptions.data = serializeDataIfNeeded(jsonPatchOperation, localVarRequestOptions, configuration)
+
+            return {
+                url: toPathString(localVarUrlObj),
+                axiosOptions: localVarRequestOptions,
+            };
+        },
+        /**
+         * This API uploads a source schema template file to configure a source\'s account attributes.  To retrieve the file to modify and upload, log into Identity Now.   Click **Admin** -> **Connections** -> **Sources** -> **`<SourceName>`** -> **Import Data** -> **Account Schema** -> **Options** -> **Download Schema**  >**NOTE: This API is designated only for Delimited File sources.**
+         * @summary Uploads source accounts schema template
+         * @param {string} id The Source id
          * @param {any} [file] 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        uploadConnectorFile: async (sourceId: string, file?: any, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
-            // verify required parameter 'sourceId' is not null or undefined
-            assertParamExists('uploadConnectorFile', 'sourceId', sourceId)
-            const localVarPath = `/sources/{sourceId}/upload-connector-file`
-                .replace(`{${"sourceId"}}`, encodeURIComponent(String(sourceId)));
+        uploadSourceAccountsSchema: async (id: string, file?: any, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'id' is not null or undefined
+            assertParamExists('uploadSourceAccountsSchema', 'id', id)
+            const localVarPath = `/sources/{id}/schemas/accounts`
+                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -28678,18 +28678,18 @@ export const SourcesApiAxiosParamCreator = function (configuration?: Configurati
             };
         },
         /**
-         * This API uploads a source schema template file to configure a source\'s account attributes.  To retrieve the file to modify and upload, log into Identity Now.   Click **Admin** -> **Connections** -> **Sources** -> **`<SourceName>`** -> **Import Data** -> **Account Schema** -> **Options** -> **Download Schema**  >**NOTE: This API is designated only for Delimited File sources.**
-         * @summary Uploads source accounts schema template
-         * @param {string} id The Source id
+         * This uploads a supplemental source connector file (like jdbc driver jars) to a source\'s S3 bucket. This also sends ETS and Audit events. A token with ORG_ADMIN authority is required to call this API.
+         * @summary Upload connector file to source
+         * @param {string} sourceId The Source id.
          * @param {any} [file] 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        uploadSourceAccountsSchema: async (id: string, file?: any, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
-            // verify required parameter 'id' is not null or undefined
-            assertParamExists('uploadSourceAccountsSchema', 'id', id)
-            const localVarPath = `/sources/{id}/schemas/accounts`
-                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
+        uploadSourceConnectorFile: async (sourceId: string, file?: any, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'sourceId' is not null or undefined
+            assertParamExists('uploadSourceConnectorFile', 'sourceId', sourceId)
+            const localVarPath = `/sources/{sourceId}/upload-connector-file`
+                .replace(`{${"sourceId"}}`, encodeURIComponent(String(sourceId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -28795,18 +28795,6 @@ export const SourcesApiFp = function(configuration?: Configuration) {
     const localVarAxiosParamCreator = SourcesApiAxiosParamCreator(configuration)
     return {
         /**
-         * This end-point updates a list of provisioning policies on the specified source in IdentityNow. A token with API, or ORG_ADMIN authority is required to call this API.
-         * @summary Bulk Update Provisioning Policies
-         * @param {string} sourceId The Source id.
-         * @param {Array<ProvisioningPolicyDto>} provisioningPolicyDto 
-         * @param {*} [axiosOptions] Override http request option.
-         * @throws {RequiredError}
-         */
-        async bulkUpdateProvisioningPolicies(sourceId: string, provisioningPolicyDto: Array<ProvisioningPolicyDto>, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<ProvisioningPolicyDto>>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.bulkUpdateProvisioningPolicies(sourceId, provisioningPolicyDto, axiosOptions);
-            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
-        },
-        /**
          * This API generates a create policy/template based on field value transforms. This API is intended for use when setting up JDBC Provisioning type sources, but it will also work on other source types. A token with ORG_ADMIN authority is required to call this API.
          * @summary Create Provisioning Policy
          * @param {string} sourceId The Source id
@@ -28816,18 +28804,6 @@ export const SourcesApiFp = function(configuration?: Configuration) {
          */
         async createProvisioningPolicy(sourceId: string, provisioningPolicyDto: ProvisioningPolicyDto, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ProvisioningPolicyDto>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.createProvisioningPolicy(sourceId, provisioningPolicyDto, axiosOptions);
-            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
-        },
-        /**
-         * Creates a new Schema on the specified Source in IdentityNow. 
-         * @summary Create Schema on a Source
-         * @param {string} sourceId The Source id.
-         * @param {Schema} schema 
-         * @param {*} [axiosOptions] Override http request option.
-         * @throws {RequiredError}
-         */
-        async createSchema(sourceId: string, schema: Schema, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Schema>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.createSchema(sourceId, schema, axiosOptions);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
@@ -28843,6 +28819,18 @@ export const SourcesApiFp = function(configuration?: Configuration) {
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
+         * Creates a new Schema on the specified Source in IdentityNow. 
+         * @summary Create Schema on a Source
+         * @param {string} sourceId The Source id.
+         * @param {Schema} schema 
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        async createSourceSchema(sourceId: string, schema: Schema, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Schema>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.createSourceSchema(sourceId, schema, axiosOptions);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
          * Deletes the provisioning policy with the specified usage on an application. A token with API, or ORG_ADMIN authority is required to call this API.
          * @summary Delete Provisioning Policy by UsageType
          * @param {string} sourceId The Source ID.
@@ -28855,18 +28843,6 @@ export const SourcesApiFp = function(configuration?: Configuration) {
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
-         * 
-         * @summary Delete Source Schema by ID
-         * @param {string} sourceId The Source id.
-         * @param {string} schemaId The Schema id.
-         * @param {*} [axiosOptions] Override http request option.
-         * @throws {RequiredError}
-         */
-        async deleteSchema(sourceId: string, schemaId: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.deleteSchema(sourceId, schemaId, axiosOptions);
-            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
-        },
-        /**
          * This end-point deletes a specific source in IdentityNow. A token with ORG_ADMIN, SOURCE_ADMIN, or SOURCE_SUBADMIN authority is required to call this API. All of accounts on the source will be removed first, then the source will be deleted. Actual status of task execution can be retrieved via method GET `/task-status/{id}`
          * @summary Delete Source by ID
          * @param {string} id The Source id
@@ -28875,6 +28851,18 @@ export const SourcesApiFp = function(configuration?: Configuration) {
          */
         async deleteSource(id: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<DeleteSource202Response>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.deleteSource(id, axiosOptions);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * 
+         * @summary Delete Source Schema by ID
+         * @param {string} sourceId The Source id.
+         * @param {string} schemaId The Schema id.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        async deleteSourceSchema(sourceId: string, schemaId: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.deleteSourceSchema(sourceId, schemaId, axiosOptions);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
@@ -28913,18 +28901,6 @@ export const SourcesApiFp = function(configuration?: Configuration) {
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
-         * Get the Source Schema by ID in IdentityNow. 
-         * @summary Get Source Schema by ID
-         * @param {string} sourceId The Source id.
-         * @param {string} schemaId The Schema id.
-         * @param {*} [axiosOptions] Override http request option.
-         * @throws {RequiredError}
-         */
-        async getSchema(sourceId: string, schemaId: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Schema>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.getSchema(sourceId, schemaId, axiosOptions);
-            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
-        },
-        /**
          * This end-point gets a specific source in IdentityNow. A token with ORG_ADMIN, SOURCE_ADMIN, or SOURCE_SUBADMIN authority is required to call this API.
          * @summary Get Source by ID
          * @param {string} id The Source id
@@ -28947,6 +28923,18 @@ export const SourcesApiFp = function(configuration?: Configuration) {
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
+         * Get the Source Schema by ID in IdentityNow. 
+         * @summary Get Source Schema by ID
+         * @param {string} sourceId The Source id.
+         * @param {string} schemaId The Schema id.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        async getSourceSchema(sourceId: string, schemaId: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Schema>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getSourceSchema(sourceId, schemaId, axiosOptions);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
          * This end-point lists all the ProvisioningPolicies in IdentityNow. A token with API, or ORG_ADMIN authority is required to call this API.
          * @summary Lists ProvisioningPolicies
          * @param {string} sourceId The Source id
@@ -28965,8 +28953,8 @@ export const SourcesApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async listSchemas(sourceId: string, includeTypes?: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Schema>>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.listSchemas(sourceId, includeTypes, axiosOptions);
+        async listSourceSchemas(sourceId: string, includeTypes?: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Schema>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.listSourceSchemas(sourceId, includeTypes, axiosOptions);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
@@ -28994,8 +28982,20 @@ export const SourcesApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async replaceProvisioningPolicy(sourceId: string, usageType: UsageType, provisioningPolicyDto: ProvisioningPolicyDto, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ProvisioningPolicyDto>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.replaceProvisioningPolicy(sourceId, usageType, provisioningPolicyDto, axiosOptions);
+        async putProvisioningPolicy(sourceId: string, usageType: UsageType, provisioningPolicyDto: ProvisioningPolicyDto, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ProvisioningPolicyDto>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.putProvisioningPolicy(sourceId, usageType, provisioningPolicyDto, axiosOptions);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * This API updates a source in IdentityNow, using a full object representation. In other words, the existing Source configuration is completely replaced.  Some fields are immutable and cannot be changed, such as:  * id * type * authoritative * connector * connectorClass * passwordPolicies  Attempts to modify these fields will result in a 400 error.  A token with ORG_ADMIN, SOURCE_ADMIN, or SOURCE_SUBADMIN authority is required to call this API. 
+         * @summary Update Source (Full)
+         * @param {string} id The Source id
+         * @param {Source} source 
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        async putSource(id: string, source: Source, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Source>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.putSource(id, source, axiosOptions);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
@@ -29007,20 +29007,20 @@ export const SourcesApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async replaceSchema(sourceId: string, schemaId: string, schema: Schema, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Schema>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.replaceSchema(sourceId, schemaId, schema, axiosOptions);
+        async putSourceSchema(sourceId: string, schemaId: string, schema: Schema, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Schema>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.putSourceSchema(sourceId, schemaId, schema, axiosOptions);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
-         * This API updates a source in IdentityNow, using a full object representation. In other words, the existing Source configuration is completely replaced.  Some fields are immutable and cannot be changed, such as:  * id * type * authoritative * connector * connectorClass * passwordPolicies  Attempts to modify these fields will result in a 400 error.  A token with ORG_ADMIN, SOURCE_ADMIN, or SOURCE_SUBADMIN authority is required to call this API. 
-         * @summary Update Source (Full)
-         * @param {string} id The Source id
-         * @param {Source} source 
+         * This end-point updates a list of provisioning policies on the specified source in IdentityNow. A token with API, or ORG_ADMIN authority is required to call this API.
+         * @summary Bulk Update Provisioning Policies
+         * @param {string} sourceId The Source id.
+         * @param {Array<ProvisioningPolicyDto>} provisioningPolicyDto 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async replaceSource(id: string, source: Source, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Source>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.replaceSource(id, source, axiosOptions);
+        async updateProvisioningPoliciesInBulk(sourceId: string, provisioningPolicyDto: Array<ProvisioningPolicyDto>, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<ProvisioningPolicyDto>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.updateProvisioningPoliciesInBulk(sourceId, provisioningPolicyDto, axiosOptions);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
@@ -29037,19 +29037,6 @@ export const SourcesApiFp = function(configuration?: Configuration) {
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
-         * Use this API to selectively update an existing Schema using a JSONPatch payload.   The following schema fields are immutable and cannot be updated:  - id - name - created - modified   To switch an account attribute to a group entitlement, you need to have the following in place:  - `isEntitlement: true` - Must define a schema for the group and [add it to the source](https://developer.sailpoint.com/idn/api/v3/create-schema) before updating the `isGroup` flag.  For example, here is the `group` account attribute referencing a schema that defines the group: ```json {     \"name\": \"groups\",     \"type\": \"STRING\",     \"schema\": {         \"type\": \"CONNECTOR_SCHEMA\",         \"id\": \"2c9180887671ff8c01767b4671fc7d60\",         \"name\": \"group\"     },     \"description\": \"The groups, roles etc. that reference account group objects\",     \"isMulti\": true,     \"isEntitlement\": true,     \"isGroup\": true } ``` 
-         * @summary Update Source Schema (Partial)
-         * @param {string} sourceId The Source id.
-         * @param {string} schemaId The Schema id.
-         * @param {Array<JsonPatchOperation>} jsonPatchOperation The JSONPatch payload used to update the schema.
-         * @param {*} [axiosOptions] Override http request option.
-         * @throws {RequiredError}
-         */
-        async updateSchema(sourceId: string, schemaId: string, jsonPatchOperation: Array<JsonPatchOperation>, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Schema>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.updateSchema(sourceId, schemaId, jsonPatchOperation, axiosOptions);
-            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
-        },
-        /**
          * This API partially updates a source in IdentityNow, using a list of patch operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.  Some fields are immutable and cannot be changed, such as:  * id * type * authoritative * created * modified * connector * connectorClass * passwordPolicies  Attempts to modify these fields will result in a 400 error.  A token with ORG_ADMIN, SOURCE_ADMIN, SOURCE_SUBADMIN, or API authority is required to call this API. 
          * @summary Update Source (Partial)
          * @param {string} id The Source id
@@ -29062,15 +29049,16 @@ export const SourcesApiFp = function(configuration?: Configuration) {
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
-         * This uploads a supplemental source connector file (like jdbc driver jars) to a source\'s S3 bucket. This also sends ETS and Audit events. A token with ORG_ADMIN authority is required to call this API.
-         * @summary Upload connector file to source
+         * Use this API to selectively update an existing Schema using a JSONPatch payload.   The following schema fields are immutable and cannot be updated:  - id - name - created - modified   To switch an account attribute to a group entitlement, you need to have the following in place:  - `isEntitlement: true` - Must define a schema for the group and [add it to the source](https://developer.sailpoint.com/idn/api/v3/create-schema) before updating the `isGroup` flag.  For example, here is the `group` account attribute referencing a schema that defines the group: ```json {     \"name\": \"groups\",     \"type\": \"STRING\",     \"schema\": {         \"type\": \"CONNECTOR_SCHEMA\",         \"id\": \"2c9180887671ff8c01767b4671fc7d60\",         \"name\": \"group\"     },     \"description\": \"The groups, roles etc. that reference account group objects\",     \"isMulti\": true,     \"isEntitlement\": true,     \"isGroup\": true } ``` 
+         * @summary Update Source Schema (Partial)
          * @param {string} sourceId The Source id.
-         * @param {any} [file] 
+         * @param {string} schemaId The Schema id.
+         * @param {Array<JsonPatchOperation>} jsonPatchOperation The JSONPatch payload used to update the schema.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async uploadConnectorFile(sourceId: string, file?: any, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Source>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.uploadConnectorFile(sourceId, file, axiosOptions);
+        async updateSourceSchema(sourceId: string, schemaId: string, jsonPatchOperation: Array<JsonPatchOperation>, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Schema>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.updateSourceSchema(sourceId, schemaId, jsonPatchOperation, axiosOptions);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
@@ -29083,6 +29071,18 @@ export const SourcesApiFp = function(configuration?: Configuration) {
          */
         async uploadSourceAccountsSchema(id: string, file?: any, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Schema>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.uploadSourceAccountsSchema(id, file, axiosOptions);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * This uploads a supplemental source connector file (like jdbc driver jars) to a source\'s S3 bucket. This also sends ETS and Audit events. A token with ORG_ADMIN authority is required to call this API.
+         * @summary Upload connector file to source
+         * @param {string} sourceId The Source id.
+         * @param {any} [file] 
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        async uploadSourceConnectorFile(sourceId: string, file?: any, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Source>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.uploadSourceConnectorFile(sourceId, file, axiosOptions);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
@@ -29109,17 +29109,6 @@ export const SourcesApiFactory = function (configuration?: Configuration, basePa
     const localVarFp = SourcesApiFp(configuration)
     return {
         /**
-         * This end-point updates a list of provisioning policies on the specified source in IdentityNow. A token with API, or ORG_ADMIN authority is required to call this API.
-         * @summary Bulk Update Provisioning Policies
-         * @param {string} sourceId The Source id.
-         * @param {Array<ProvisioningPolicyDto>} provisioningPolicyDto 
-         * @param {*} [axiosOptions] Override http request option.
-         * @throws {RequiredError}
-         */
-        bulkUpdateProvisioningPolicies(sourceId: string, provisioningPolicyDto: Array<ProvisioningPolicyDto>, axiosOptions?: any): AxiosPromise<Array<ProvisioningPolicyDto>> {
-            return localVarFp.bulkUpdateProvisioningPolicies(sourceId, provisioningPolicyDto, axiosOptions).then((request) => request(axios, basePath));
-        },
-        /**
          * This API generates a create policy/template based on field value transforms. This API is intended for use when setting up JDBC Provisioning type sources, but it will also work on other source types. A token with ORG_ADMIN authority is required to call this API.
          * @summary Create Provisioning Policy
          * @param {string} sourceId The Source id
@@ -29129,17 +29118,6 @@ export const SourcesApiFactory = function (configuration?: Configuration, basePa
          */
         createProvisioningPolicy(sourceId: string, provisioningPolicyDto: ProvisioningPolicyDto, axiosOptions?: any): AxiosPromise<ProvisioningPolicyDto> {
             return localVarFp.createProvisioningPolicy(sourceId, provisioningPolicyDto, axiosOptions).then((request) => request(axios, basePath));
-        },
-        /**
-         * Creates a new Schema on the specified Source in IdentityNow. 
-         * @summary Create Schema on a Source
-         * @param {string} sourceId The Source id.
-         * @param {Schema} schema 
-         * @param {*} [axiosOptions] Override http request option.
-         * @throws {RequiredError}
-         */
-        createSchema(sourceId: string, schema: Schema, axiosOptions?: any): AxiosPromise<Schema> {
-            return localVarFp.createSchema(sourceId, schema, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * This creates a specific source with a full source JSON representation. Any passwords are submitted as plain-text and encrypted upon receipt in IdentityNow. A token with ORG_ADMIN, SOURCE_ADMIN, or SOURCE_SUBADMIN authority is required to call this API.
@@ -29153,6 +29131,17 @@ export const SourcesApiFactory = function (configuration?: Configuration, basePa
             return localVarFp.createSource(source, provisionAsCsv, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
+         * Creates a new Schema on the specified Source in IdentityNow. 
+         * @summary Create Schema on a Source
+         * @param {string} sourceId The Source id.
+         * @param {Schema} schema 
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        createSourceSchema(sourceId: string, schema: Schema, axiosOptions?: any): AxiosPromise<Schema> {
+            return localVarFp.createSourceSchema(sourceId, schema, axiosOptions).then((request) => request(axios, basePath));
+        },
+        /**
          * Deletes the provisioning policy with the specified usage on an application. A token with API, or ORG_ADMIN authority is required to call this API.
          * @summary Delete Provisioning Policy by UsageType
          * @param {string} sourceId The Source ID.
@@ -29164,17 +29153,6 @@ export const SourcesApiFactory = function (configuration?: Configuration, basePa
             return localVarFp.deleteProvisioningPolicy(sourceId, usageType, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
-         * 
-         * @summary Delete Source Schema by ID
-         * @param {string} sourceId The Source id.
-         * @param {string} schemaId The Schema id.
-         * @param {*} [axiosOptions] Override http request option.
-         * @throws {RequiredError}
-         */
-        deleteSchema(sourceId: string, schemaId: string, axiosOptions?: any): AxiosPromise<void> {
-            return localVarFp.deleteSchema(sourceId, schemaId, axiosOptions).then((request) => request(axios, basePath));
-        },
-        /**
          * This end-point deletes a specific source in IdentityNow. A token with ORG_ADMIN, SOURCE_ADMIN, or SOURCE_SUBADMIN authority is required to call this API. All of accounts on the source will be removed first, then the source will be deleted. Actual status of task execution can be retrieved via method GET `/task-status/{id}`
          * @summary Delete Source by ID
          * @param {string} id The Source id
@@ -29183,6 +29161,17 @@ export const SourcesApiFactory = function (configuration?: Configuration, basePa
          */
         deleteSource(id: string, axiosOptions?: any): AxiosPromise<DeleteSource202Response> {
             return localVarFp.deleteSource(id, axiosOptions).then((request) => request(axios, basePath));
+        },
+        /**
+         * 
+         * @summary Delete Source Schema by ID
+         * @param {string} sourceId The Source id.
+         * @param {string} schemaId The Schema id.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        deleteSourceSchema(sourceId: string, schemaId: string, axiosOptions?: any): AxiosPromise<void> {
+            return localVarFp.deleteSourceSchema(sourceId, schemaId, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * This API downloads the CSV schema that defines the account attributes on a source. >**NOTE: This API is designated only for Delimited File sources.**
@@ -29217,17 +29206,6 @@ export const SourcesApiFactory = function (configuration?: Configuration, basePa
             return localVarFp.getProvisioningPolicy(sourceId, usageType, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
-         * Get the Source Schema by ID in IdentityNow. 
-         * @summary Get Source Schema by ID
-         * @param {string} sourceId The Source id.
-         * @param {string} schemaId The Schema id.
-         * @param {*} [axiosOptions] Override http request option.
-         * @throws {RequiredError}
-         */
-        getSchema(sourceId: string, schemaId: string, axiosOptions?: any): AxiosPromise<Schema> {
-            return localVarFp.getSchema(sourceId, schemaId, axiosOptions).then((request) => request(axios, basePath));
-        },
-        /**
          * This end-point gets a specific source in IdentityNow. A token with ORG_ADMIN, SOURCE_ADMIN, or SOURCE_SUBADMIN authority is required to call this API.
          * @summary Get Source by ID
          * @param {string} id The Source id
@@ -29248,6 +29226,17 @@ export const SourcesApiFactory = function (configuration?: Configuration, basePa
             return localVarFp.getSourceHealth(sourceId, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
+         * Get the Source Schema by ID in IdentityNow. 
+         * @summary Get Source Schema by ID
+         * @param {string} sourceId The Source id.
+         * @param {string} schemaId The Schema id.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        getSourceSchema(sourceId: string, schemaId: string, axiosOptions?: any): AxiosPromise<Schema> {
+            return localVarFp.getSourceSchema(sourceId, schemaId, axiosOptions).then((request) => request(axios, basePath));
+        },
+        /**
          * This end-point lists all the ProvisioningPolicies in IdentityNow. A token with API, or ORG_ADMIN authority is required to call this API.
          * @summary Lists ProvisioningPolicies
          * @param {string} sourceId The Source id
@@ -29265,8 +29254,8 @@ export const SourcesApiFactory = function (configuration?: Configuration, basePa
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        listSchemas(sourceId: string, includeTypes?: string, axiosOptions?: any): AxiosPromise<Array<Schema>> {
-            return localVarFp.listSchemas(sourceId, includeTypes, axiosOptions).then((request) => request(axios, basePath));
+        listSourceSchemas(sourceId: string, includeTypes?: string, axiosOptions?: any): AxiosPromise<Array<Schema>> {
+            return localVarFp.listSourceSchemas(sourceId, includeTypes, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * This end-point lists all the sources in IdentityNow. A token with ORG_ADMIN, SOURCE_ADMIN, SOURCE_SUBADMIN, or ROLE_SUBADMIN authority is required to call this API.
@@ -29292,8 +29281,19 @@ export const SourcesApiFactory = function (configuration?: Configuration, basePa
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        replaceProvisioningPolicy(sourceId: string, usageType: UsageType, provisioningPolicyDto: ProvisioningPolicyDto, axiosOptions?: any): AxiosPromise<ProvisioningPolicyDto> {
-            return localVarFp.replaceProvisioningPolicy(sourceId, usageType, provisioningPolicyDto, axiosOptions).then((request) => request(axios, basePath));
+        putProvisioningPolicy(sourceId: string, usageType: UsageType, provisioningPolicyDto: ProvisioningPolicyDto, axiosOptions?: any): AxiosPromise<ProvisioningPolicyDto> {
+            return localVarFp.putProvisioningPolicy(sourceId, usageType, provisioningPolicyDto, axiosOptions).then((request) => request(axios, basePath));
+        },
+        /**
+         * This API updates a source in IdentityNow, using a full object representation. In other words, the existing Source configuration is completely replaced.  Some fields are immutable and cannot be changed, such as:  * id * type * authoritative * connector * connectorClass * passwordPolicies  Attempts to modify these fields will result in a 400 error.  A token with ORG_ADMIN, SOURCE_ADMIN, or SOURCE_SUBADMIN authority is required to call this API. 
+         * @summary Update Source (Full)
+         * @param {string} id The Source id
+         * @param {Source} source 
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        putSource(id: string, source: Source, axiosOptions?: any): AxiosPromise<Source> {
+            return localVarFp.putSource(id, source, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * This API will completely replace an existing Schema with the submitted payload. Some fields of the Schema cannot be updated. These fields are listed below.  * id * name * created * modified  Any attempt to modify these fields will result in an error response with a status code of 400.  > `id` must remain in the request body, but it cannot be changed.  If `id` is omitted from the request body, the result will be a 400 error. 
@@ -29304,19 +29304,19 @@ export const SourcesApiFactory = function (configuration?: Configuration, basePa
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        replaceSchema(sourceId: string, schemaId: string, schema: Schema, axiosOptions?: any): AxiosPromise<Schema> {
-            return localVarFp.replaceSchema(sourceId, schemaId, schema, axiosOptions).then((request) => request(axios, basePath));
+        putSourceSchema(sourceId: string, schemaId: string, schema: Schema, axiosOptions?: any): AxiosPromise<Schema> {
+            return localVarFp.putSourceSchema(sourceId, schemaId, schema, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
-         * This API updates a source in IdentityNow, using a full object representation. In other words, the existing Source configuration is completely replaced.  Some fields are immutable and cannot be changed, such as:  * id * type * authoritative * connector * connectorClass * passwordPolicies  Attempts to modify these fields will result in a 400 error.  A token with ORG_ADMIN, SOURCE_ADMIN, or SOURCE_SUBADMIN authority is required to call this API. 
-         * @summary Update Source (Full)
-         * @param {string} id The Source id
-         * @param {Source} source 
+         * This end-point updates a list of provisioning policies on the specified source in IdentityNow. A token with API, or ORG_ADMIN authority is required to call this API.
+         * @summary Bulk Update Provisioning Policies
+         * @param {string} sourceId The Source id.
+         * @param {Array<ProvisioningPolicyDto>} provisioningPolicyDto 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        replaceSource(id: string, source: Source, axiosOptions?: any): AxiosPromise<Source> {
-            return localVarFp.replaceSource(id, source, axiosOptions).then((request) => request(axios, basePath));
+        updateProvisioningPoliciesInBulk(sourceId: string, provisioningPolicyDto: Array<ProvisioningPolicyDto>, axiosOptions?: any): AxiosPromise<Array<ProvisioningPolicyDto>> {
+            return localVarFp.updateProvisioningPoliciesInBulk(sourceId, provisioningPolicyDto, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * This API selectively updates an existing Provisioning Policy using a JSONPatch payload. A token with API, ORG_ADMIN, SOURCE_ADMIN, or SOURCE_SUBADMIN authority is required to call this API.
@@ -29331,18 +29331,6 @@ export const SourcesApiFactory = function (configuration?: Configuration, basePa
             return localVarFp.updateProvisioningPolicy(sourceId, usageType, jsonPatchOperation, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
-         * Use this API to selectively update an existing Schema using a JSONPatch payload.   The following schema fields are immutable and cannot be updated:  - id - name - created - modified   To switch an account attribute to a group entitlement, you need to have the following in place:  - `isEntitlement: true` - Must define a schema for the group and [add it to the source](https://developer.sailpoint.com/idn/api/v3/create-schema) before updating the `isGroup` flag.  For example, here is the `group` account attribute referencing a schema that defines the group: ```json {     \"name\": \"groups\",     \"type\": \"STRING\",     \"schema\": {         \"type\": \"CONNECTOR_SCHEMA\",         \"id\": \"2c9180887671ff8c01767b4671fc7d60\",         \"name\": \"group\"     },     \"description\": \"The groups, roles etc. that reference account group objects\",     \"isMulti\": true,     \"isEntitlement\": true,     \"isGroup\": true } ``` 
-         * @summary Update Source Schema (Partial)
-         * @param {string} sourceId The Source id.
-         * @param {string} schemaId The Schema id.
-         * @param {Array<JsonPatchOperation>} jsonPatchOperation The JSONPatch payload used to update the schema.
-         * @param {*} [axiosOptions] Override http request option.
-         * @throws {RequiredError}
-         */
-        updateSchema(sourceId: string, schemaId: string, jsonPatchOperation: Array<JsonPatchOperation>, axiosOptions?: any): AxiosPromise<Schema> {
-            return localVarFp.updateSchema(sourceId, schemaId, jsonPatchOperation, axiosOptions).then((request) => request(axios, basePath));
-        },
-        /**
          * This API partially updates a source in IdentityNow, using a list of patch operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.  Some fields are immutable and cannot be changed, such as:  * id * type * authoritative * created * modified * connector * connectorClass * passwordPolicies  Attempts to modify these fields will result in a 400 error.  A token with ORG_ADMIN, SOURCE_ADMIN, SOURCE_SUBADMIN, or API authority is required to call this API. 
          * @summary Update Source (Partial)
          * @param {string} id The Source id
@@ -29354,15 +29342,16 @@ export const SourcesApiFactory = function (configuration?: Configuration, basePa
             return localVarFp.updateSource(id, jsonPatchOperation, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
-         * This uploads a supplemental source connector file (like jdbc driver jars) to a source\'s S3 bucket. This also sends ETS and Audit events. A token with ORG_ADMIN authority is required to call this API.
-         * @summary Upload connector file to source
+         * Use this API to selectively update an existing Schema using a JSONPatch payload.   The following schema fields are immutable and cannot be updated:  - id - name - created - modified   To switch an account attribute to a group entitlement, you need to have the following in place:  - `isEntitlement: true` - Must define a schema for the group and [add it to the source](https://developer.sailpoint.com/idn/api/v3/create-schema) before updating the `isGroup` flag.  For example, here is the `group` account attribute referencing a schema that defines the group: ```json {     \"name\": \"groups\",     \"type\": \"STRING\",     \"schema\": {         \"type\": \"CONNECTOR_SCHEMA\",         \"id\": \"2c9180887671ff8c01767b4671fc7d60\",         \"name\": \"group\"     },     \"description\": \"The groups, roles etc. that reference account group objects\",     \"isMulti\": true,     \"isEntitlement\": true,     \"isGroup\": true } ``` 
+         * @summary Update Source Schema (Partial)
          * @param {string} sourceId The Source id.
-         * @param {any} [file] 
+         * @param {string} schemaId The Schema id.
+         * @param {Array<JsonPatchOperation>} jsonPatchOperation The JSONPatch payload used to update the schema.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        uploadConnectorFile(sourceId: string, file?: any, axiosOptions?: any): AxiosPromise<Source> {
-            return localVarFp.uploadConnectorFile(sourceId, file, axiosOptions).then((request) => request(axios, basePath));
+        updateSourceSchema(sourceId: string, schemaId: string, jsonPatchOperation: Array<JsonPatchOperation>, axiosOptions?: any): AxiosPromise<Schema> {
+            return localVarFp.updateSourceSchema(sourceId, schemaId, jsonPatchOperation, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * This API uploads a source schema template file to configure a source\'s account attributes.  To retrieve the file to modify and upload, log into Identity Now.   Click **Admin** -> **Connections** -> **Sources** -> **`<SourceName>`** -> **Import Data** -> **Account Schema** -> **Options** -> **Download Schema**  >**NOTE: This API is designated only for Delimited File sources.**
@@ -29374,6 +29363,17 @@ export const SourcesApiFactory = function (configuration?: Configuration, basePa
          */
         uploadSourceAccountsSchema(id: string, file?: any, axiosOptions?: any): AxiosPromise<Schema> {
             return localVarFp.uploadSourceAccountsSchema(id, file, axiosOptions).then((request) => request(axios, basePath));
+        },
+        /**
+         * This uploads a supplemental source connector file (like jdbc driver jars) to a source\'s S3 bucket. This also sends ETS and Audit events. A token with ORG_ADMIN authority is required to call this API.
+         * @summary Upload connector file to source
+         * @param {string} sourceId The Source id.
+         * @param {any} [file] 
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        uploadSourceConnectorFile(sourceId: string, file?: any, axiosOptions?: any): AxiosPromise<Source> {
+            return localVarFp.uploadSourceConnectorFile(sourceId, file, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * This API uploads a source schema template file to configure a source\'s entitlement attributes.  To retrieve the file to modify and upload, log into Identity Now.   Click **Admin** -> **Connections** -> **Sources** -> **`<SourceName>`** -> **Import Data** -> **Import Entitlements** -> **Download**  >**NOTE: This API is designated only for Delimited File sources.**
@@ -29389,27 +29389,6 @@ export const SourcesApiFactory = function (configuration?: Configuration, basePa
         },
     };
 };
-
-/**
- * Request parameters for bulkUpdateProvisioningPolicies operation in SourcesApi.
- * @export
- * @interface SourcesApiBulkUpdateProvisioningPoliciesRequest
- */
-export interface SourcesApiBulkUpdateProvisioningPoliciesRequest {
-    /**
-     * The Source id.
-     * @type {string}
-     * @memberof SourcesApiBulkUpdateProvisioningPolicies
-     */
-    readonly sourceId: string
-
-    /**
-     * 
-     * @type {Array<ProvisioningPolicyDto>}
-     * @memberof SourcesApiBulkUpdateProvisioningPolicies
-     */
-    readonly provisioningPolicyDto: Array<ProvisioningPolicyDto>
-}
 
 /**
  * Request parameters for createProvisioningPolicy operation in SourcesApi.
@@ -29430,27 +29409,6 @@ export interface SourcesApiCreateProvisioningPolicyRequest {
      * @memberof SourcesApiCreateProvisioningPolicy
      */
     readonly provisioningPolicyDto: ProvisioningPolicyDto
-}
-
-/**
- * Request parameters for createSchema operation in SourcesApi.
- * @export
- * @interface SourcesApiCreateSchemaRequest
- */
-export interface SourcesApiCreateSchemaRequest {
-    /**
-     * The Source id.
-     * @type {string}
-     * @memberof SourcesApiCreateSchema
-     */
-    readonly sourceId: string
-
-    /**
-     * 
-     * @type {Schema}
-     * @memberof SourcesApiCreateSchema
-     */
-    readonly schema: Schema
 }
 
 /**
@@ -29475,6 +29433,27 @@ export interface SourcesApiCreateSourceRequest {
 }
 
 /**
+ * Request parameters for createSourceSchema operation in SourcesApi.
+ * @export
+ * @interface SourcesApiCreateSourceSchemaRequest
+ */
+export interface SourcesApiCreateSourceSchemaRequest {
+    /**
+     * The Source id.
+     * @type {string}
+     * @memberof SourcesApiCreateSourceSchema
+     */
+    readonly sourceId: string
+
+    /**
+     * 
+     * @type {Schema}
+     * @memberof SourcesApiCreateSourceSchema
+     */
+    readonly schema: Schema
+}
+
+/**
  * Request parameters for deleteProvisioningPolicy operation in SourcesApi.
  * @export
  * @interface SourcesApiDeleteProvisioningPolicyRequest
@@ -29496,27 +29475,6 @@ export interface SourcesApiDeleteProvisioningPolicyRequest {
 }
 
 /**
- * Request parameters for deleteSchema operation in SourcesApi.
- * @export
- * @interface SourcesApiDeleteSchemaRequest
- */
-export interface SourcesApiDeleteSchemaRequest {
-    /**
-     * The Source id.
-     * @type {string}
-     * @memberof SourcesApiDeleteSchema
-     */
-    readonly sourceId: string
-
-    /**
-     * The Schema id.
-     * @type {string}
-     * @memberof SourcesApiDeleteSchema
-     */
-    readonly schemaId: string
-}
-
-/**
  * Request parameters for deleteSource operation in SourcesApi.
  * @export
  * @interface SourcesApiDeleteSourceRequest
@@ -29528,6 +29486,27 @@ export interface SourcesApiDeleteSourceRequest {
      * @memberof SourcesApiDeleteSource
      */
     readonly id: string
+}
+
+/**
+ * Request parameters for deleteSourceSchema operation in SourcesApi.
+ * @export
+ * @interface SourcesApiDeleteSourceSchemaRequest
+ */
+export interface SourcesApiDeleteSourceSchemaRequest {
+    /**
+     * The Source id.
+     * @type {string}
+     * @memberof SourcesApiDeleteSourceSchema
+     */
+    readonly sourceId: string
+
+    /**
+     * The Schema id.
+     * @type {string}
+     * @memberof SourcesApiDeleteSourceSchema
+     */
+    readonly schemaId: string
 }
 
 /**
@@ -29587,27 +29566,6 @@ export interface SourcesApiGetProvisioningPolicyRequest {
 }
 
 /**
- * Request parameters for getSchema operation in SourcesApi.
- * @export
- * @interface SourcesApiGetSchemaRequest
- */
-export interface SourcesApiGetSchemaRequest {
-    /**
-     * The Source id.
-     * @type {string}
-     * @memberof SourcesApiGetSchema
-     */
-    readonly sourceId: string
-
-    /**
-     * The Schema id.
-     * @type {string}
-     * @memberof SourcesApiGetSchema
-     */
-    readonly schemaId: string
-}
-
-/**
  * Request parameters for getSource operation in SourcesApi.
  * @export
  * @interface SourcesApiGetSourceRequest
@@ -29636,6 +29594,27 @@ export interface SourcesApiGetSourceHealthRequest {
 }
 
 /**
+ * Request parameters for getSourceSchema operation in SourcesApi.
+ * @export
+ * @interface SourcesApiGetSourceSchemaRequest
+ */
+export interface SourcesApiGetSourceSchemaRequest {
+    /**
+     * The Source id.
+     * @type {string}
+     * @memberof SourcesApiGetSourceSchema
+     */
+    readonly sourceId: string
+
+    /**
+     * The Schema id.
+     * @type {string}
+     * @memberof SourcesApiGetSourceSchema
+     */
+    readonly schemaId: string
+}
+
+/**
  * Request parameters for listProvisioningPolicies operation in SourcesApi.
  * @export
  * @interface SourcesApiListProvisioningPoliciesRequest
@@ -29650,22 +29629,22 @@ export interface SourcesApiListProvisioningPoliciesRequest {
 }
 
 /**
- * Request parameters for listSchemas operation in SourcesApi.
+ * Request parameters for listSourceSchemas operation in SourcesApi.
  * @export
- * @interface SourcesApiListSchemasRequest
+ * @interface SourcesApiListSourceSchemasRequest
  */
-export interface SourcesApiListSchemasRequest {
+export interface SourcesApiListSourceSchemasRequest {
     /**
      * The Source ID.
      * @type {string}
-     * @memberof SourcesApiListSchemas
+     * @memberof SourcesApiListSourceSchemas
      */
     readonly sourceId: string
 
     /**
      * If set to \&#39;group\&#39;, then the account schema is filtered and only group schemas are returned. Only a value of \&#39;group\&#39; is recognized.
      * @type {string}
-     * @memberof SourcesApiListSchemas
+     * @memberof SourcesApiListSourceSchemas
      */
     readonly includeTypes?: string
 }
@@ -29720,80 +29699,101 @@ export interface SourcesApiListSourcesRequest {
 }
 
 /**
- * Request parameters for replaceProvisioningPolicy operation in SourcesApi.
+ * Request parameters for putProvisioningPolicy operation in SourcesApi.
  * @export
- * @interface SourcesApiReplaceProvisioningPolicyRequest
+ * @interface SourcesApiPutProvisioningPolicyRequest
  */
-export interface SourcesApiReplaceProvisioningPolicyRequest {
+export interface SourcesApiPutProvisioningPolicyRequest {
     /**
      * The Source ID.
      * @type {string}
-     * @memberof SourcesApiReplaceProvisioningPolicy
+     * @memberof SourcesApiPutProvisioningPolicy
      */
     readonly sourceId: string
 
     /**
      * The type of ProvisioningPolicy usage.
      * @type {UsageType}
-     * @memberof SourcesApiReplaceProvisioningPolicy
+     * @memberof SourcesApiPutProvisioningPolicy
      */
     readonly usageType: UsageType
 
     /**
      * 
      * @type {ProvisioningPolicyDto}
-     * @memberof SourcesApiReplaceProvisioningPolicy
+     * @memberof SourcesApiPutProvisioningPolicy
      */
     readonly provisioningPolicyDto: ProvisioningPolicyDto
 }
 
 /**
- * Request parameters for replaceSchema operation in SourcesApi.
+ * Request parameters for putSource operation in SourcesApi.
  * @export
- * @interface SourcesApiReplaceSchemaRequest
+ * @interface SourcesApiPutSourceRequest
  */
-export interface SourcesApiReplaceSchemaRequest {
-    /**
-     * The Source id.
-     * @type {string}
-     * @memberof SourcesApiReplaceSchema
-     */
-    readonly sourceId: string
-
-    /**
-     * The Schema id.
-     * @type {string}
-     * @memberof SourcesApiReplaceSchema
-     */
-    readonly schemaId: string
-
-    /**
-     * 
-     * @type {Schema}
-     * @memberof SourcesApiReplaceSchema
-     */
-    readonly schema: Schema
-}
-
-/**
- * Request parameters for replaceSource operation in SourcesApi.
- * @export
- * @interface SourcesApiReplaceSourceRequest
- */
-export interface SourcesApiReplaceSourceRequest {
+export interface SourcesApiPutSourceRequest {
     /**
      * The Source id
      * @type {string}
-     * @memberof SourcesApiReplaceSource
+     * @memberof SourcesApiPutSource
      */
     readonly id: string
 
     /**
      * 
      * @type {Source}
-     * @memberof SourcesApiReplaceSource
+     * @memberof SourcesApiPutSource
      */
     readonly source: Source
+}
+
+/**
+ * Request parameters for putSourceSchema operation in SourcesApi.
+ * @export
+ * @interface SourcesApiPutSourceSchemaRequest
+ */
+export interface SourcesApiPutSourceSchemaRequest {
+    /**
+     * The Source id.
+     * @type {string}
+     * @memberof SourcesApiPutSourceSchema
+     */
+    readonly sourceId: string
+
+    /**
+     * The Schema id.
+     * @type {string}
+     * @memberof SourcesApiPutSourceSchema
+     */
+    readonly schemaId: string
+
+    /**
+     * 
+     * @type {Schema}
+     * @memberof SourcesApiPutSourceSchema
+     */
+    readonly schema: Schema
+}
+
+/**
+ * Request parameters for updateProvisioningPoliciesInBulk operation in SourcesApi.
+ * @export
+ * @interface SourcesApiUpdateProvisioningPoliciesInBulkRequest
+ */
+export interface SourcesApiUpdateProvisioningPoliciesInBulkRequest {
+    /**
+     * The Source id.
+     * @type {string}
+     * @memberof SourcesApiUpdateProvisioningPoliciesInBulk
+     */
+    readonly sourceId: string
+
+    /**
+     * 
+     * @type {Array<ProvisioningPolicyDto>}
+     * @memberof SourcesApiUpdateProvisioningPoliciesInBulk
+     */
+    readonly provisioningPolicyDto: Array<ProvisioningPolicyDto>
 }
 
 /**
@@ -29825,34 +29825,6 @@ export interface SourcesApiUpdateProvisioningPolicyRequest {
 }
 
 /**
- * Request parameters for updateSchema operation in SourcesApi.
- * @export
- * @interface SourcesApiUpdateSchemaRequest
- */
-export interface SourcesApiUpdateSchemaRequest {
-    /**
-     * The Source id.
-     * @type {string}
-     * @memberof SourcesApiUpdateSchema
-     */
-    readonly sourceId: string
-
-    /**
-     * The Schema id.
-     * @type {string}
-     * @memberof SourcesApiUpdateSchema
-     */
-    readonly schemaId: string
-
-    /**
-     * The JSONPatch payload used to update the schema.
-     * @type {Array<JsonPatchOperation>}
-     * @memberof SourcesApiUpdateSchema
-     */
-    readonly jsonPatchOperation: Array<JsonPatchOperation>
-}
-
-/**
  * Request parameters for updateSource operation in SourcesApi.
  * @export
  * @interface SourcesApiUpdateSourceRequest
@@ -29874,24 +29846,31 @@ export interface SourcesApiUpdateSourceRequest {
 }
 
 /**
- * Request parameters for uploadConnectorFile operation in SourcesApi.
+ * Request parameters for updateSourceSchema operation in SourcesApi.
  * @export
- * @interface SourcesApiUploadConnectorFileRequest
+ * @interface SourcesApiUpdateSourceSchemaRequest
  */
-export interface SourcesApiUploadConnectorFileRequest {
+export interface SourcesApiUpdateSourceSchemaRequest {
     /**
      * The Source id.
      * @type {string}
-     * @memberof SourcesApiUploadConnectorFile
+     * @memberof SourcesApiUpdateSourceSchema
      */
     readonly sourceId: string
 
     /**
-     * 
-     * @type {any}
-     * @memberof SourcesApiUploadConnectorFile
+     * The Schema id.
+     * @type {string}
+     * @memberof SourcesApiUpdateSourceSchema
      */
-    readonly file?: any
+    readonly schemaId: string
+
+    /**
+     * The JSONPatch payload used to update the schema.
+     * @type {Array<JsonPatchOperation>}
+     * @memberof SourcesApiUpdateSourceSchema
+     */
+    readonly jsonPatchOperation: Array<JsonPatchOperation>
 }
 
 /**
@@ -29911,6 +29890,27 @@ export interface SourcesApiUploadSourceAccountsSchemaRequest {
      * 
      * @type {any}
      * @memberof SourcesApiUploadSourceAccountsSchema
+     */
+    readonly file?: any
+}
+
+/**
+ * Request parameters for uploadSourceConnectorFile operation in SourcesApi.
+ * @export
+ * @interface SourcesApiUploadSourceConnectorFileRequest
+ */
+export interface SourcesApiUploadSourceConnectorFileRequest {
+    /**
+     * The Source id.
+     * @type {string}
+     * @memberof SourcesApiUploadSourceConnectorFile
+     */
+    readonly sourceId: string
+
+    /**
+     * 
+     * @type {any}
+     * @memberof SourcesApiUploadSourceConnectorFile
      */
     readonly file?: any
 }
@@ -29951,18 +29951,6 @@ export interface SourcesApiUploadSourceEntitlementsSchemaRequest {
  */
 export class SourcesApi extends BaseAPI {
     /**
-     * This end-point updates a list of provisioning policies on the specified source in IdentityNow. A token with API, or ORG_ADMIN authority is required to call this API.
-     * @summary Bulk Update Provisioning Policies
-     * @param {SourcesApiBulkUpdateProvisioningPoliciesRequest} requestParameters Request parameters.
-     * @param {*} [axiosOptions] Override http request option.
-     * @throws {RequiredError}
-     * @memberof SourcesApi
-     */
-    public bulkUpdateProvisioningPolicies(requestParameters: SourcesApiBulkUpdateProvisioningPoliciesRequest, axiosOptions?: AxiosRequestConfig) {
-        return SourcesApiFp(this.configuration).bulkUpdateProvisioningPolicies(requestParameters.sourceId, requestParameters.provisioningPolicyDto, axiosOptions).then((request) => request(this.axios, this.basePath));
-    }
-
-    /**
      * This API generates a create policy/template based on field value transforms. This API is intended for use when setting up JDBC Provisioning type sources, but it will also work on other source types. A token with ORG_ADMIN authority is required to call this API.
      * @summary Create Provisioning Policy
      * @param {SourcesApiCreateProvisioningPolicyRequest} requestParameters Request parameters.
@@ -29972,18 +29960,6 @@ export class SourcesApi extends BaseAPI {
      */
     public createProvisioningPolicy(requestParameters: SourcesApiCreateProvisioningPolicyRequest, axiosOptions?: AxiosRequestConfig) {
         return SourcesApiFp(this.configuration).createProvisioningPolicy(requestParameters.sourceId, requestParameters.provisioningPolicyDto, axiosOptions).then((request) => request(this.axios, this.basePath));
-    }
-
-    /**
-     * Creates a new Schema on the specified Source in IdentityNow. 
-     * @summary Create Schema on a Source
-     * @param {SourcesApiCreateSchemaRequest} requestParameters Request parameters.
-     * @param {*} [axiosOptions] Override http request option.
-     * @throws {RequiredError}
-     * @memberof SourcesApi
-     */
-    public createSchema(requestParameters: SourcesApiCreateSchemaRequest, axiosOptions?: AxiosRequestConfig) {
-        return SourcesApiFp(this.configuration).createSchema(requestParameters.sourceId, requestParameters.schema, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -29999,6 +29975,18 @@ export class SourcesApi extends BaseAPI {
     }
 
     /**
+     * Creates a new Schema on the specified Source in IdentityNow. 
+     * @summary Create Schema on a Source
+     * @param {SourcesApiCreateSourceSchemaRequest} requestParameters Request parameters.
+     * @param {*} [axiosOptions] Override http request option.
+     * @throws {RequiredError}
+     * @memberof SourcesApi
+     */
+    public createSourceSchema(requestParameters: SourcesApiCreateSourceSchemaRequest, axiosOptions?: AxiosRequestConfig) {
+        return SourcesApiFp(this.configuration).createSourceSchema(requestParameters.sourceId, requestParameters.schema, axiosOptions).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
      * Deletes the provisioning policy with the specified usage on an application. A token with API, or ORG_ADMIN authority is required to call this API.
      * @summary Delete Provisioning Policy by UsageType
      * @param {SourcesApiDeleteProvisioningPolicyRequest} requestParameters Request parameters.
@@ -30011,18 +29999,6 @@ export class SourcesApi extends BaseAPI {
     }
 
     /**
-     * 
-     * @summary Delete Source Schema by ID
-     * @param {SourcesApiDeleteSchemaRequest} requestParameters Request parameters.
-     * @param {*} [axiosOptions] Override http request option.
-     * @throws {RequiredError}
-     * @memberof SourcesApi
-     */
-    public deleteSchema(requestParameters: SourcesApiDeleteSchemaRequest, axiosOptions?: AxiosRequestConfig) {
-        return SourcesApiFp(this.configuration).deleteSchema(requestParameters.sourceId, requestParameters.schemaId, axiosOptions).then((request) => request(this.axios, this.basePath));
-    }
-
-    /**
      * This end-point deletes a specific source in IdentityNow. A token with ORG_ADMIN, SOURCE_ADMIN, or SOURCE_SUBADMIN authority is required to call this API. All of accounts on the source will be removed first, then the source will be deleted. Actual status of task execution can be retrieved via method GET `/task-status/{id}`
      * @summary Delete Source by ID
      * @param {SourcesApiDeleteSourceRequest} requestParameters Request parameters.
@@ -30032,6 +30008,18 @@ export class SourcesApi extends BaseAPI {
      */
     public deleteSource(requestParameters: SourcesApiDeleteSourceRequest, axiosOptions?: AxiosRequestConfig) {
         return SourcesApiFp(this.configuration).deleteSource(requestParameters.id, axiosOptions).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * 
+     * @summary Delete Source Schema by ID
+     * @param {SourcesApiDeleteSourceSchemaRequest} requestParameters Request parameters.
+     * @param {*} [axiosOptions] Override http request option.
+     * @throws {RequiredError}
+     * @memberof SourcesApi
+     */
+    public deleteSourceSchema(requestParameters: SourcesApiDeleteSourceSchemaRequest, axiosOptions?: AxiosRequestConfig) {
+        return SourcesApiFp(this.configuration).deleteSourceSchema(requestParameters.sourceId, requestParameters.schemaId, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -30071,18 +30059,6 @@ export class SourcesApi extends BaseAPI {
     }
 
     /**
-     * Get the Source Schema by ID in IdentityNow. 
-     * @summary Get Source Schema by ID
-     * @param {SourcesApiGetSchemaRequest} requestParameters Request parameters.
-     * @param {*} [axiosOptions] Override http request option.
-     * @throws {RequiredError}
-     * @memberof SourcesApi
-     */
-    public getSchema(requestParameters: SourcesApiGetSchemaRequest, axiosOptions?: AxiosRequestConfig) {
-        return SourcesApiFp(this.configuration).getSchema(requestParameters.sourceId, requestParameters.schemaId, axiosOptions).then((request) => request(this.axios, this.basePath));
-    }
-
-    /**
      * This end-point gets a specific source in IdentityNow. A token with ORG_ADMIN, SOURCE_ADMIN, or SOURCE_SUBADMIN authority is required to call this API.
      * @summary Get Source by ID
      * @param {SourcesApiGetSourceRequest} requestParameters Request parameters.
@@ -30107,6 +30083,18 @@ export class SourcesApi extends BaseAPI {
     }
 
     /**
+     * Get the Source Schema by ID in IdentityNow. 
+     * @summary Get Source Schema by ID
+     * @param {SourcesApiGetSourceSchemaRequest} requestParameters Request parameters.
+     * @param {*} [axiosOptions] Override http request option.
+     * @throws {RequiredError}
+     * @memberof SourcesApi
+     */
+    public getSourceSchema(requestParameters: SourcesApiGetSourceSchemaRequest, axiosOptions?: AxiosRequestConfig) {
+        return SourcesApiFp(this.configuration).getSourceSchema(requestParameters.sourceId, requestParameters.schemaId, axiosOptions).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
      * This end-point lists all the ProvisioningPolicies in IdentityNow. A token with API, or ORG_ADMIN authority is required to call this API.
      * @summary Lists ProvisioningPolicies
      * @param {SourcesApiListProvisioningPoliciesRequest} requestParameters Request parameters.
@@ -30121,13 +30109,13 @@ export class SourcesApi extends BaseAPI {
     /**
      * Lists the Schemas that exist on the specified Source in IdentityNow. 
      * @summary List Schemas on a Source
-     * @param {SourcesApiListSchemasRequest} requestParameters Request parameters.
+     * @param {SourcesApiListSourceSchemasRequest} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
      * @memberof SourcesApi
      */
-    public listSchemas(requestParameters: SourcesApiListSchemasRequest, axiosOptions?: AxiosRequestConfig) {
-        return SourcesApiFp(this.configuration).listSchemas(requestParameters.sourceId, requestParameters.includeTypes, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public listSourceSchemas(requestParameters: SourcesApiListSourceSchemasRequest, axiosOptions?: AxiosRequestConfig) {
+        return SourcesApiFp(this.configuration).listSourceSchemas(requestParameters.sourceId, requestParameters.includeTypes, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -30145,37 +30133,49 @@ export class SourcesApi extends BaseAPI {
     /**
      * This end-point updates the provisioning policy with the specified usage on the specified source in IdentityNow. A token with API, ORG_ADMIN, SOURCE_ADMIN, or SOURCE_SUBADMIN authority is required to call this API.
      * @summary Update Provisioning Policy by UsageType
-     * @param {SourcesApiReplaceProvisioningPolicyRequest} requestParameters Request parameters.
+     * @param {SourcesApiPutProvisioningPolicyRequest} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
      * @memberof SourcesApi
      */
-    public replaceProvisioningPolicy(requestParameters: SourcesApiReplaceProvisioningPolicyRequest, axiosOptions?: AxiosRequestConfig) {
-        return SourcesApiFp(this.configuration).replaceProvisioningPolicy(requestParameters.sourceId, requestParameters.usageType, requestParameters.provisioningPolicyDto, axiosOptions).then((request) => request(this.axios, this.basePath));
-    }
-
-    /**
-     * This API will completely replace an existing Schema with the submitted payload. Some fields of the Schema cannot be updated. These fields are listed below.  * id * name * created * modified  Any attempt to modify these fields will result in an error response with a status code of 400.  > `id` must remain in the request body, but it cannot be changed.  If `id` is omitted from the request body, the result will be a 400 error. 
-     * @summary Update Source Schema (Full)
-     * @param {SourcesApiReplaceSchemaRequest} requestParameters Request parameters.
-     * @param {*} [axiosOptions] Override http request option.
-     * @throws {RequiredError}
-     * @memberof SourcesApi
-     */
-    public replaceSchema(requestParameters: SourcesApiReplaceSchemaRequest, axiosOptions?: AxiosRequestConfig) {
-        return SourcesApiFp(this.configuration).replaceSchema(requestParameters.sourceId, requestParameters.schemaId, requestParameters.schema, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public putProvisioningPolicy(requestParameters: SourcesApiPutProvisioningPolicyRequest, axiosOptions?: AxiosRequestConfig) {
+        return SourcesApiFp(this.configuration).putProvisioningPolicy(requestParameters.sourceId, requestParameters.usageType, requestParameters.provisioningPolicyDto, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * This API updates a source in IdentityNow, using a full object representation. In other words, the existing Source configuration is completely replaced.  Some fields are immutable and cannot be changed, such as:  * id * type * authoritative * connector * connectorClass * passwordPolicies  Attempts to modify these fields will result in a 400 error.  A token with ORG_ADMIN, SOURCE_ADMIN, or SOURCE_SUBADMIN authority is required to call this API. 
      * @summary Update Source (Full)
-     * @param {SourcesApiReplaceSourceRequest} requestParameters Request parameters.
+     * @param {SourcesApiPutSourceRequest} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
      * @memberof SourcesApi
      */
-    public replaceSource(requestParameters: SourcesApiReplaceSourceRequest, axiosOptions?: AxiosRequestConfig) {
-        return SourcesApiFp(this.configuration).replaceSource(requestParameters.id, requestParameters.source, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public putSource(requestParameters: SourcesApiPutSourceRequest, axiosOptions?: AxiosRequestConfig) {
+        return SourcesApiFp(this.configuration).putSource(requestParameters.id, requestParameters.source, axiosOptions).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * This API will completely replace an existing Schema with the submitted payload. Some fields of the Schema cannot be updated. These fields are listed below.  * id * name * created * modified  Any attempt to modify these fields will result in an error response with a status code of 400.  > `id` must remain in the request body, but it cannot be changed.  If `id` is omitted from the request body, the result will be a 400 error. 
+     * @summary Update Source Schema (Full)
+     * @param {SourcesApiPutSourceSchemaRequest} requestParameters Request parameters.
+     * @param {*} [axiosOptions] Override http request option.
+     * @throws {RequiredError}
+     * @memberof SourcesApi
+     */
+    public putSourceSchema(requestParameters: SourcesApiPutSourceSchemaRequest, axiosOptions?: AxiosRequestConfig) {
+        return SourcesApiFp(this.configuration).putSourceSchema(requestParameters.sourceId, requestParameters.schemaId, requestParameters.schema, axiosOptions).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * This end-point updates a list of provisioning policies on the specified source in IdentityNow. A token with API, or ORG_ADMIN authority is required to call this API.
+     * @summary Bulk Update Provisioning Policies
+     * @param {SourcesApiUpdateProvisioningPoliciesInBulkRequest} requestParameters Request parameters.
+     * @param {*} [axiosOptions] Override http request option.
+     * @throws {RequiredError}
+     * @memberof SourcesApi
+     */
+    public updateProvisioningPoliciesInBulk(requestParameters: SourcesApiUpdateProvisioningPoliciesInBulkRequest, axiosOptions?: AxiosRequestConfig) {
+        return SourcesApiFp(this.configuration).updateProvisioningPoliciesInBulk(requestParameters.sourceId, requestParameters.provisioningPolicyDto, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -30191,18 +30191,6 @@ export class SourcesApi extends BaseAPI {
     }
 
     /**
-     * Use this API to selectively update an existing Schema using a JSONPatch payload.   The following schema fields are immutable and cannot be updated:  - id - name - created - modified   To switch an account attribute to a group entitlement, you need to have the following in place:  - `isEntitlement: true` - Must define a schema for the group and [add it to the source](https://developer.sailpoint.com/idn/api/v3/create-schema) before updating the `isGroup` flag.  For example, here is the `group` account attribute referencing a schema that defines the group: ```json {     \"name\": \"groups\",     \"type\": \"STRING\",     \"schema\": {         \"type\": \"CONNECTOR_SCHEMA\",         \"id\": \"2c9180887671ff8c01767b4671fc7d60\",         \"name\": \"group\"     },     \"description\": \"The groups, roles etc. that reference account group objects\",     \"isMulti\": true,     \"isEntitlement\": true,     \"isGroup\": true } ``` 
-     * @summary Update Source Schema (Partial)
-     * @param {SourcesApiUpdateSchemaRequest} requestParameters Request parameters.
-     * @param {*} [axiosOptions] Override http request option.
-     * @throws {RequiredError}
-     * @memberof SourcesApi
-     */
-    public updateSchema(requestParameters: SourcesApiUpdateSchemaRequest, axiosOptions?: AxiosRequestConfig) {
-        return SourcesApiFp(this.configuration).updateSchema(requestParameters.sourceId, requestParameters.schemaId, requestParameters.jsonPatchOperation, axiosOptions).then((request) => request(this.axios, this.basePath));
-    }
-
-    /**
      * This API partially updates a source in IdentityNow, using a list of patch operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.  Some fields are immutable and cannot be changed, such as:  * id * type * authoritative * created * modified * connector * connectorClass * passwordPolicies  Attempts to modify these fields will result in a 400 error.  A token with ORG_ADMIN, SOURCE_ADMIN, SOURCE_SUBADMIN, or API authority is required to call this API. 
      * @summary Update Source (Partial)
      * @param {SourcesApiUpdateSourceRequest} requestParameters Request parameters.
@@ -30215,15 +30203,15 @@ export class SourcesApi extends BaseAPI {
     }
 
     /**
-     * This uploads a supplemental source connector file (like jdbc driver jars) to a source\'s S3 bucket. This also sends ETS and Audit events. A token with ORG_ADMIN authority is required to call this API.
-     * @summary Upload connector file to source
-     * @param {SourcesApiUploadConnectorFileRequest} requestParameters Request parameters.
+     * Use this API to selectively update an existing Schema using a JSONPatch payload.   The following schema fields are immutable and cannot be updated:  - id - name - created - modified   To switch an account attribute to a group entitlement, you need to have the following in place:  - `isEntitlement: true` - Must define a schema for the group and [add it to the source](https://developer.sailpoint.com/idn/api/v3/create-schema) before updating the `isGroup` flag.  For example, here is the `group` account attribute referencing a schema that defines the group: ```json {     \"name\": \"groups\",     \"type\": \"STRING\",     \"schema\": {         \"type\": \"CONNECTOR_SCHEMA\",         \"id\": \"2c9180887671ff8c01767b4671fc7d60\",         \"name\": \"group\"     },     \"description\": \"The groups, roles etc. that reference account group objects\",     \"isMulti\": true,     \"isEntitlement\": true,     \"isGroup\": true } ``` 
+     * @summary Update Source Schema (Partial)
+     * @param {SourcesApiUpdateSourceSchemaRequest} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
      * @memberof SourcesApi
      */
-    public uploadConnectorFile(requestParameters: SourcesApiUploadConnectorFileRequest, axiosOptions?: AxiosRequestConfig) {
-        return SourcesApiFp(this.configuration).uploadConnectorFile(requestParameters.sourceId, requestParameters.file, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public updateSourceSchema(requestParameters: SourcesApiUpdateSourceSchemaRequest, axiosOptions?: AxiosRequestConfig) {
+        return SourcesApiFp(this.configuration).updateSourceSchema(requestParameters.sourceId, requestParameters.schemaId, requestParameters.jsonPatchOperation, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -30236,6 +30224,18 @@ export class SourcesApi extends BaseAPI {
      */
     public uploadSourceAccountsSchema(requestParameters: SourcesApiUploadSourceAccountsSchemaRequest, axiosOptions?: AxiosRequestConfig) {
         return SourcesApiFp(this.configuration).uploadSourceAccountsSchema(requestParameters.id, requestParameters.file, axiosOptions).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * This uploads a supplemental source connector file (like jdbc driver jars) to a source\'s S3 bucket. This also sends ETS and Audit events. A token with ORG_ADMIN authority is required to call this API.
+     * @summary Upload connector file to source
+     * @param {SourcesApiUploadSourceConnectorFileRequest} requestParameters Request parameters.
+     * @param {*} [axiosOptions] Override http request option.
+     * @throws {RequiredError}
+     * @memberof SourcesApi
+     */
+    public uploadSourceConnectorFile(requestParameters: SourcesApiUploadSourceConnectorFileRequest, axiosOptions?: AxiosRequestConfig) {
+        return SourcesApiFp(this.configuration).uploadSourceConnectorFile(requestParameters.sourceId, requestParameters.file, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -30397,7 +30397,7 @@ export const TransformsApiAxiosParamCreator = function (configuration?: Configur
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        getTransformsList: async (offset?: number, limit?: number, count?: boolean, name?: string, filters?: string, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        listTransforms: async (offset?: number, limit?: number, count?: boolean, name?: string, filters?: string, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             const localVarPath = `/transforms`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -30549,8 +30549,8 @@ export const TransformsApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async getTransformsList(offset?: number, limit?: number, count?: boolean, name?: string, filters?: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Transform>>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.getTransformsList(offset, limit, count, name, filters, axiosOptions);
+        async listTransforms(offset?: number, limit?: number, count?: boolean, name?: string, filters?: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Transform>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.listTransforms(offset, limit, count, name, filters, axiosOptions);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
@@ -30616,8 +30616,8 @@ export const TransformsApiFactory = function (configuration?: Configuration, bas
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        getTransformsList(offset?: number, limit?: number, count?: boolean, name?: string, filters?: string, axiosOptions?: any): AxiosPromise<Array<Transform>> {
-            return localVarFp.getTransformsList(offset, limit, count, name, filters, axiosOptions).then((request) => request(axios, basePath));
+        listTransforms(offset?: number, limit?: number, count?: boolean, name?: string, filters?: string, axiosOptions?: any): AxiosPromise<Array<Transform>> {
+            return localVarFp.listTransforms(offset, limit, count, name, filters, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * Replaces the transform specified by the given ID with the transform provided in the request body. Only the \"attributes\" field is mutable. Attempting to change other properties (ex. \"name\" and \"type\") will result in an error. A token with transform write authority is required to call this API.
@@ -30676,43 +30676,43 @@ export interface TransformsApiGetTransformRequest {
 }
 
 /**
- * Request parameters for getTransformsList operation in TransformsApi.
+ * Request parameters for listTransforms operation in TransformsApi.
  * @export
- * @interface TransformsApiGetTransformsListRequest
+ * @interface TransformsApiListTransformsRequest
  */
-export interface TransformsApiGetTransformsListRequest {
+export interface TransformsApiListTransformsRequest {
     /**
      * Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
      * @type {number}
-     * @memberof TransformsApiGetTransformsList
+     * @memberof TransformsApiListTransforms
      */
     readonly offset?: number
 
     /**
      * Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
      * @type {number}
-     * @memberof TransformsApiGetTransformsList
+     * @memberof TransformsApiListTransforms
      */
     readonly limit?: number
 
     /**
      * If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
      * @type {boolean}
-     * @memberof TransformsApiGetTransformsList
+     * @memberof TransformsApiListTransforms
      */
     readonly count?: boolean
 
     /**
      * Name of the transform to retrieve from the list.
      * @type {string}
-     * @memberof TransformsApiGetTransformsList
+     * @memberof TransformsApiListTransforms
      */
     readonly name?: string
 
     /**
      * Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results) Filtering is supported for the following fields and operators: **internal**: *eq* **name**: *eq*, *sw*
      * @type {string}
-     * @memberof TransformsApiGetTransformsList
+     * @memberof TransformsApiListTransforms
      */
     readonly filters?: string
 }
@@ -30784,13 +30784,13 @@ export class TransformsApi extends BaseAPI {
     /**
      * Gets a list of all saved transform objects. A token with transforms-list read authority is required to call this API.
      * @summary List transforms
-     * @param {TransformsApiGetTransformsListRequest} requestParameters Request parameters.
+     * @param {TransformsApiListTransformsRequest} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
      * @memberof TransformsApi
      */
-    public getTransformsList(requestParameters: TransformsApiGetTransformsListRequest = {}, axiosOptions?: AxiosRequestConfig) {
-        return TransformsApiFp(this.configuration).getTransformsList(requestParameters.offset, requestParameters.limit, requestParameters.count, requestParameters.name, requestParameters.filters, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public listTransforms(requestParameters: TransformsApiListTransformsRequest = {}, axiosOptions?: AxiosRequestConfig) {
+        return TransformsApiFp(this.configuration).listTransforms(requestParameters.offset, requestParameters.limit, requestParameters.count, requestParameters.name, requestParameters.filters, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -30866,52 +30866,10 @@ export const WorkItemsApiAxiosParamCreator = function (configuration?: Configura
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        bulkApproveApprovalItem: async (id: string, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        approveApprovalItemsInBulk: async (id: string, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'id' is not null or undefined
-            assertParamExists('bulkApproveApprovalItem', 'id', id)
+            assertParamExists('approveApprovalItemsInBulk', 'id', id)
             const localVarPath = `/work-items/bulk-approve/{id}`
-                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
-            // use dummy base URL string because the URL constructor only accepts absolute URLs.
-            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
-            let baseOptions;
-            if (configuration) {
-                baseOptions = configuration.baseOptions;
-            }
-
-            const localVarRequestOptions = { method: 'POST', ...baseOptions, ...axiosOptions};
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-
-            // authentication oauth2 required
-            // oauth required
-            await setOAuthToObject(localVarHeaderParameter, "oauth2", [], configuration)
-
-            // authentication oauth2 required
-            // oauth required
-            await setOAuthToObject(localVarHeaderParameter, "oauth2", [], configuration)
-
-
-    
-            setSearchParams(localVarUrlObj, localVarQueryParameter);
-            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
-            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
-
-            return {
-                url: toPathString(localVarUrlObj),
-                axiosOptions: localVarRequestOptions,
-            };
-        },
-        /**
-         * This API bulk rejects Approval Items. Either an admin, or the owning/current user must make this request.
-         * @summary Bulk reject Approval Items
-         * @param {string} id The ID of the work item
-         * @param {*} [axiosOptions] Override http request option.
-         * @throws {RequiredError}
-         */
-        bulkRejectApprovalItem: async (id: string, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
-            // verify required parameter 'id' is not null or undefined
-            assertParamExists('bulkRejectApprovalItem', 'id', id)
-            const localVarPath = `/work-items/bulk-reject/{id}`
                 .replace(`{${"id"}}`, encodeURIComponent(String(id)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -30995,7 +30953,7 @@ export const WorkItemsApiAxiosParamCreator = function (configuration?: Configura
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        completedWorkItems: async (ownerId?: string, limit?: number, offset?: number, count?: boolean, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        getCompletedWorkItems: async (ownerId?: string, limit?: number, offset?: number, count?: boolean, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             const localVarPath = `/work-items/completed`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -31050,7 +31008,7 @@ export const WorkItemsApiAxiosParamCreator = function (configuration?: Configura
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        countCompletedWorkItems: async (ownerId?: string, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        getCountCompletedWorkItems: async (ownerId?: string, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             const localVarPath = `/work-items/completed/count`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -31093,7 +31051,7 @@ export const WorkItemsApiAxiosParamCreator = function (configuration?: Configura
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        countWorkItems: async (ownerId?: string, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        getCountWorkItems: async (ownerId?: string, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             const localVarPath = `/work-items/count`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -31136,9 +31094,9 @@ export const WorkItemsApiAxiosParamCreator = function (configuration?: Configura
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        getWorkItems: async (id: string, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        getWorkItem: async (id: string, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'id' is not null or undefined
-            assertParamExists('getWorkItems', 'id', id)
+            assertParamExists('getWorkItem', 'id', id)
             const localVarPath = `/work-items/{id}`
                 .replace(`{${"id"}}`, encodeURIComponent(String(id)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
@@ -31159,6 +31117,49 @@ export const WorkItemsApiAxiosParamCreator = function (configuration?: Configura
             // authentication oauth2 required
             // oauth required
             await setOAuthToObject(localVarHeaderParameter, "oauth2", [], configuration)
+
+
+    
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                axiosOptions: localVarRequestOptions,
+            };
+        },
+        /**
+         * This gets a summary of work items belonging to either the specified user(admin required), or the current user.
+         * @summary Work Items Summary
+         * @param {string} [ownerId] ID of the work item owner.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        getWorkItemsSummary: async (ownerId?: string, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            const localVarPath = `/work-items/summary`;
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...axiosOptions};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication oauth2 required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "oauth2", [], configuration)
+
+            // authentication oauth2 required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "oauth2", [], configuration)
+
+            if (ownerId !== undefined) {
+                localVarQueryParameter['ownerId'] = ownerId;
+            }
 
 
     
@@ -31276,6 +31277,48 @@ export const WorkItemsApiAxiosParamCreator = function (configuration?: Configura
             };
         },
         /**
+         * This API bulk rejects Approval Items. Either an admin, or the owning/current user must make this request.
+         * @summary Bulk reject Approval Items
+         * @param {string} id The ID of the work item
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        rejectApprovalItemsInBulk: async (id: string, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'id' is not null or undefined
+            assertParamExists('rejectApprovalItemsInBulk', 'id', id)
+            const localVarPath = `/work-items/bulk-reject/{id}`
+                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'POST', ...baseOptions, ...axiosOptions};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication oauth2 required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "oauth2", [], configuration)
+
+            // authentication oauth2 required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "oauth2", [], configuration)
+
+
+    
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                axiosOptions: localVarRequestOptions,
+            };
+        },
+        /**
          * This API submits account selections. Either an admin, or the owning/current user must make this request.
          * @summary Submit Account Selections
          * @param {string} id The ID of the work item
@@ -31323,49 +31366,6 @@ export const WorkItemsApiAxiosParamCreator = function (configuration?: Configura
                 axiosOptions: localVarRequestOptions,
             };
         },
-        /**
-         * This gets a summary of work items belonging to either the specified user(admin required), or the current user.
-         * @summary Work Items Summary
-         * @param {string} [ownerId] ID of the work item owner.
-         * @param {*} [axiosOptions] Override http request option.
-         * @throws {RequiredError}
-         */
-        summaryWorkItems: async (ownerId?: string, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
-            const localVarPath = `/work-items/summary`;
-            // use dummy base URL string because the URL constructor only accepts absolute URLs.
-            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
-            let baseOptions;
-            if (configuration) {
-                baseOptions = configuration.baseOptions;
-            }
-
-            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...axiosOptions};
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-
-            // authentication oauth2 required
-            // oauth required
-            await setOAuthToObject(localVarHeaderParameter, "oauth2", [], configuration)
-
-            // authentication oauth2 required
-            // oauth required
-            await setOAuthToObject(localVarHeaderParameter, "oauth2", [], configuration)
-
-            if (ownerId !== undefined) {
-                localVarQueryParameter['ownerId'] = ownerId;
-            }
-
-
-    
-            setSearchParams(localVarUrlObj, localVarQueryParameter);
-            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
-            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
-
-            return {
-                url: toPathString(localVarUrlObj),
-                axiosOptions: localVarRequestOptions,
-            };
-        },
     }
 };
 
@@ -31395,19 +31395,8 @@ export const WorkItemsApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async bulkApproveApprovalItem(id: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<WorkItems>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.bulkApproveApprovalItem(id, axiosOptions);
-            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
-        },
-        /**
-         * This API bulk rejects Approval Items. Either an admin, or the owning/current user must make this request.
-         * @summary Bulk reject Approval Items
-         * @param {string} id The ID of the work item
-         * @param {*} [axiosOptions] Override http request option.
-         * @throws {RequiredError}
-         */
-        async bulkRejectApprovalItem(id: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<WorkItems>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.bulkRejectApprovalItem(id, axiosOptions);
+        async approveApprovalItemsInBulk(id: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<WorkItems>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.approveApprovalItemsInBulk(id, axiosOptions);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
@@ -31431,8 +31420,8 @@ export const WorkItemsApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async completedWorkItems(ownerId?: string, limit?: number, offset?: number, count?: boolean, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<WorkItems>>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.completedWorkItems(ownerId, limit, offset, count, axiosOptions);
+        async getCompletedWorkItems(ownerId?: string, limit?: number, offset?: number, count?: boolean, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<WorkItems>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getCompletedWorkItems(ownerId, limit, offset, count, axiosOptions);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
@@ -31442,8 +31431,8 @@ export const WorkItemsApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async countCompletedWorkItems(ownerId?: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<WorkItemsCount>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.countCompletedWorkItems(ownerId, axiosOptions);
+        async getCountCompletedWorkItems(ownerId?: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<WorkItemsCount>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getCountCompletedWorkItems(ownerId, axiosOptions);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
@@ -31453,8 +31442,8 @@ export const WorkItemsApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async countWorkItems(ownerId?: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<WorkItemsCount>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.countWorkItems(ownerId, axiosOptions);
+        async getCountWorkItems(ownerId?: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<WorkItemsCount>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getCountWorkItems(ownerId, axiosOptions);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
@@ -31464,8 +31453,19 @@ export const WorkItemsApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async getWorkItems(id: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<WorkItems>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.getWorkItems(id, axiosOptions);
+        async getWorkItem(id: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<WorkItems>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getWorkItem(id, axiosOptions);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * This gets a summary of work items belonging to either the specified user(admin required), or the current user.
+         * @summary Work Items Summary
+         * @param {string} [ownerId] ID of the work item owner.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        async getWorkItemsSummary(ownerId?: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<WorkItemsSummary>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getWorkItemsSummary(ownerId, axiosOptions);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
@@ -31495,6 +31495,17 @@ export const WorkItemsApiFp = function(configuration?: Configuration) {
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
+         * This API bulk rejects Approval Items. Either an admin, or the owning/current user must make this request.
+         * @summary Bulk reject Approval Items
+         * @param {string} id The ID of the work item
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        async rejectApprovalItemsInBulk(id: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<WorkItems>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.rejectApprovalItemsInBulk(id, axiosOptions);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
          * This API submits account selections. Either an admin, or the owning/current user must make this request.
          * @summary Submit Account Selections
          * @param {string} id The ID of the work item
@@ -31504,17 +31515,6 @@ export const WorkItemsApiFp = function(configuration?: Configuration) {
          */
         async submitAccountSelection(id: string, requestBody: { [key: string]: any; }, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<WorkItems>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.submitAccountSelection(id, requestBody, axiosOptions);
-            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
-        },
-        /**
-         * This gets a summary of work items belonging to either the specified user(admin required), or the current user.
-         * @summary Work Items Summary
-         * @param {string} [ownerId] ID of the work item owner.
-         * @param {*} [axiosOptions] Override http request option.
-         * @throws {RequiredError}
-         */
-        async summaryWorkItems(ownerId?: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<WorkItemsSummary>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.summaryWorkItems(ownerId, axiosOptions);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
     }
@@ -31545,18 +31545,8 @@ export const WorkItemsApiFactory = function (configuration?: Configuration, base
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        bulkApproveApprovalItem(id: string, axiosOptions?: any): AxiosPromise<WorkItems> {
-            return localVarFp.bulkApproveApprovalItem(id, axiosOptions).then((request) => request(axios, basePath));
-        },
-        /**
-         * This API bulk rejects Approval Items. Either an admin, or the owning/current user must make this request.
-         * @summary Bulk reject Approval Items
-         * @param {string} id The ID of the work item
-         * @param {*} [axiosOptions] Override http request option.
-         * @throws {RequiredError}
-         */
-        bulkRejectApprovalItem(id: string, axiosOptions?: any): AxiosPromise<WorkItems> {
-            return localVarFp.bulkRejectApprovalItem(id, axiosOptions).then((request) => request(axios, basePath));
+        approveApprovalItemsInBulk(id: string, axiosOptions?: any): AxiosPromise<WorkItems> {
+            return localVarFp.approveApprovalItemsInBulk(id, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * This API completes a work item. Either an admin, or the owning/current user must make this request.
@@ -31578,8 +31568,8 @@ export const WorkItemsApiFactory = function (configuration?: Configuration, base
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        completedWorkItems(ownerId?: string, limit?: number, offset?: number, count?: boolean, axiosOptions?: any): AxiosPromise<Array<WorkItems>> {
-            return localVarFp.completedWorkItems(ownerId, limit, offset, count, axiosOptions).then((request) => request(axios, basePath));
+        getCompletedWorkItems(ownerId?: string, limit?: number, offset?: number, count?: boolean, axiosOptions?: any): AxiosPromise<Array<WorkItems>> {
+            return localVarFp.getCompletedWorkItems(ownerId, limit, offset, count, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * This gets a count of completed work items belonging to either the specified user(admin required), or the current user.
@@ -31588,8 +31578,8 @@ export const WorkItemsApiFactory = function (configuration?: Configuration, base
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        countCompletedWorkItems(ownerId?: string, axiosOptions?: any): AxiosPromise<WorkItemsCount> {
-            return localVarFp.countCompletedWorkItems(ownerId, axiosOptions).then((request) => request(axios, basePath));
+        getCountCompletedWorkItems(ownerId?: string, axiosOptions?: any): AxiosPromise<WorkItemsCount> {
+            return localVarFp.getCountCompletedWorkItems(ownerId, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * This gets a count of work items belonging to either the specified user(admin required), or the current user.
@@ -31598,8 +31588,8 @@ export const WorkItemsApiFactory = function (configuration?: Configuration, base
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        countWorkItems(ownerId?: string, axiosOptions?: any): AxiosPromise<WorkItemsCount> {
-            return localVarFp.countWorkItems(ownerId, axiosOptions).then((request) => request(axios, basePath));
+        getCountWorkItems(ownerId?: string, axiosOptions?: any): AxiosPromise<WorkItemsCount> {
+            return localVarFp.getCountWorkItems(ownerId, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * This gets the details of a Work Item belonging to either the specified user(admin required), or the current user.
@@ -31608,8 +31598,18 @@ export const WorkItemsApiFactory = function (configuration?: Configuration, base
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        getWorkItems(id: string, axiosOptions?: any): AxiosPromise<WorkItems> {
-            return localVarFp.getWorkItems(id, axiosOptions).then((request) => request(axios, basePath));
+        getWorkItem(id: string, axiosOptions?: any): AxiosPromise<WorkItems> {
+            return localVarFp.getWorkItem(id, axiosOptions).then((request) => request(axios, basePath));
+        },
+        /**
+         * This gets a summary of work items belonging to either the specified user(admin required), or the current user.
+         * @summary Work Items Summary
+         * @param {string} [ownerId] ID of the work item owner.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        getWorkItemsSummary(ownerId?: string, axiosOptions?: any): AxiosPromise<WorkItemsSummary> {
+            return localVarFp.getWorkItemsSummary(ownerId, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * This gets a collection of work items belonging to either the specified user(admin required), or the current user.
@@ -31636,6 +31636,16 @@ export const WorkItemsApiFactory = function (configuration?: Configuration, base
             return localVarFp.rejectApprovalItem(id, approvalItemId, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
+         * This API bulk rejects Approval Items. Either an admin, or the owning/current user must make this request.
+         * @summary Bulk reject Approval Items
+         * @param {string} id The ID of the work item
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        rejectApprovalItemsInBulk(id: string, axiosOptions?: any): AxiosPromise<WorkItems> {
+            return localVarFp.rejectApprovalItemsInBulk(id, axiosOptions).then((request) => request(axios, basePath));
+        },
+        /**
          * This API submits account selections. Either an admin, or the owning/current user must make this request.
          * @summary Submit Account Selections
          * @param {string} id The ID of the work item
@@ -31645,16 +31655,6 @@ export const WorkItemsApiFactory = function (configuration?: Configuration, base
          */
         submitAccountSelection(id: string, requestBody: { [key: string]: any; }, axiosOptions?: any): AxiosPromise<WorkItems> {
             return localVarFp.submitAccountSelection(id, requestBody, axiosOptions).then((request) => request(axios, basePath));
-        },
-        /**
-         * This gets a summary of work items belonging to either the specified user(admin required), or the current user.
-         * @summary Work Items Summary
-         * @param {string} [ownerId] ID of the work item owner.
-         * @param {*} [axiosOptions] Override http request option.
-         * @throws {RequiredError}
-         */
-        summaryWorkItems(ownerId?: string, axiosOptions?: any): AxiosPromise<WorkItemsSummary> {
-            return localVarFp.summaryWorkItems(ownerId, axiosOptions).then((request) => request(axios, basePath));
         },
     };
 };
@@ -31681,29 +31681,15 @@ export interface WorkItemsApiApproveApprovalItemRequest {
 }
 
 /**
- * Request parameters for bulkApproveApprovalItem operation in WorkItemsApi.
+ * Request parameters for approveApprovalItemsInBulk operation in WorkItemsApi.
  * @export
- * @interface WorkItemsApiBulkApproveApprovalItemRequest
+ * @interface WorkItemsApiApproveApprovalItemsInBulkRequest
  */
-export interface WorkItemsApiBulkApproveApprovalItemRequest {
+export interface WorkItemsApiApproveApprovalItemsInBulkRequest {
     /**
      * The ID of the work item
      * @type {string}
-     * @memberof WorkItemsApiBulkApproveApprovalItem
-     */
-    readonly id: string
-}
-
-/**
- * Request parameters for bulkRejectApprovalItem operation in WorkItemsApi.
- * @export
- * @interface WorkItemsApiBulkRejectApprovalItemRequest
- */
-export interface WorkItemsApiBulkRejectApprovalItemRequest {
-    /**
-     * The ID of the work item
-     * @type {string}
-     * @memberof WorkItemsApiBulkRejectApprovalItem
+     * @memberof WorkItemsApiApproveApprovalItemsInBulk
      */
     readonly id: string
 }
@@ -31723,80 +31709,94 @@ export interface WorkItemsApiCompleteWorkItemRequest {
 }
 
 /**
- * Request parameters for completedWorkItems operation in WorkItemsApi.
+ * Request parameters for getCompletedWorkItems operation in WorkItemsApi.
  * @export
- * @interface WorkItemsApiCompletedWorkItemsRequest
+ * @interface WorkItemsApiGetCompletedWorkItemsRequest
  */
-export interface WorkItemsApiCompletedWorkItemsRequest {
+export interface WorkItemsApiGetCompletedWorkItemsRequest {
     /**
      * The id of the owner of the work item list being requested.  Either an admin, or the owning/current user must make this request.
      * @type {string}
-     * @memberof WorkItemsApiCompletedWorkItems
+     * @memberof WorkItemsApiGetCompletedWorkItems
      */
     readonly ownerId?: string
 
     /**
      * Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
      * @type {number}
-     * @memberof WorkItemsApiCompletedWorkItems
+     * @memberof WorkItemsApiGetCompletedWorkItems
      */
     readonly limit?: number
 
     /**
      * Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
      * @type {number}
-     * @memberof WorkItemsApiCompletedWorkItems
+     * @memberof WorkItemsApiGetCompletedWorkItems
      */
     readonly offset?: number
 
     /**
      * If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
      * @type {boolean}
-     * @memberof WorkItemsApiCompletedWorkItems
+     * @memberof WorkItemsApiGetCompletedWorkItems
      */
     readonly count?: boolean
 }
 
 /**
- * Request parameters for countCompletedWorkItems operation in WorkItemsApi.
+ * Request parameters for getCountCompletedWorkItems operation in WorkItemsApi.
  * @export
- * @interface WorkItemsApiCountCompletedWorkItemsRequest
+ * @interface WorkItemsApiGetCountCompletedWorkItemsRequest
  */
-export interface WorkItemsApiCountCompletedWorkItemsRequest {
+export interface WorkItemsApiGetCountCompletedWorkItemsRequest {
     /**
      * ID of the work item owner.
      * @type {string}
-     * @memberof WorkItemsApiCountCompletedWorkItems
+     * @memberof WorkItemsApiGetCountCompletedWorkItems
      */
     readonly ownerId?: string
 }
 
 /**
- * Request parameters for countWorkItems operation in WorkItemsApi.
+ * Request parameters for getCountWorkItems operation in WorkItemsApi.
  * @export
- * @interface WorkItemsApiCountWorkItemsRequest
+ * @interface WorkItemsApiGetCountWorkItemsRequest
  */
-export interface WorkItemsApiCountWorkItemsRequest {
+export interface WorkItemsApiGetCountWorkItemsRequest {
     /**
      * ID of the work item owner.
      * @type {string}
-     * @memberof WorkItemsApiCountWorkItems
+     * @memberof WorkItemsApiGetCountWorkItems
      */
     readonly ownerId?: string
 }
 
 /**
- * Request parameters for getWorkItems operation in WorkItemsApi.
+ * Request parameters for getWorkItem operation in WorkItemsApi.
  * @export
- * @interface WorkItemsApiGetWorkItemsRequest
+ * @interface WorkItemsApiGetWorkItemRequest
  */
-export interface WorkItemsApiGetWorkItemsRequest {
+export interface WorkItemsApiGetWorkItemRequest {
     /**
      * ID of the work item.
      * @type {string}
-     * @memberof WorkItemsApiGetWorkItems
+     * @memberof WorkItemsApiGetWorkItem
      */
     readonly id: string
+}
+
+/**
+ * Request parameters for getWorkItemsSummary operation in WorkItemsApi.
+ * @export
+ * @interface WorkItemsApiGetWorkItemsSummaryRequest
+ */
+export interface WorkItemsApiGetWorkItemsSummaryRequest {
+    /**
+     * ID of the work item owner.
+     * @type {string}
+     * @memberof WorkItemsApiGetWorkItemsSummary
+     */
+    readonly ownerId?: string
 }
 
 /**
@@ -31856,6 +31856,20 @@ export interface WorkItemsApiRejectApprovalItemRequest {
 }
 
 /**
+ * Request parameters for rejectApprovalItemsInBulk operation in WorkItemsApi.
+ * @export
+ * @interface WorkItemsApiRejectApprovalItemsInBulkRequest
+ */
+export interface WorkItemsApiRejectApprovalItemsInBulkRequest {
+    /**
+     * The ID of the work item
+     * @type {string}
+     * @memberof WorkItemsApiRejectApprovalItemsInBulk
+     */
+    readonly id: string
+}
+
+/**
  * Request parameters for submitAccountSelection operation in WorkItemsApi.
  * @export
  * @interface WorkItemsApiSubmitAccountSelectionRequest
@@ -31874,20 +31888,6 @@ export interface WorkItemsApiSubmitAccountSelectionRequest {
      * @memberof WorkItemsApiSubmitAccountSelection
      */
     readonly requestBody: { [key: string]: any; }
-}
-
-/**
- * Request parameters for summaryWorkItems operation in WorkItemsApi.
- * @export
- * @interface WorkItemsApiSummaryWorkItemsRequest
- */
-export interface WorkItemsApiSummaryWorkItemsRequest {
-    /**
-     * ID of the work item owner.
-     * @type {string}
-     * @memberof WorkItemsApiSummaryWorkItems
-     */
-    readonly ownerId?: string
 }
 
 /**
@@ -31912,25 +31912,13 @@ export class WorkItemsApi extends BaseAPI {
     /**
      * This API bulk approves Approval Items. Either an admin, or the owning/current user must make this request.
      * @summary Bulk approve Approval Items
-     * @param {WorkItemsApiBulkApproveApprovalItemRequest} requestParameters Request parameters.
+     * @param {WorkItemsApiApproveApprovalItemsInBulkRequest} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
      * @memberof WorkItemsApi
      */
-    public bulkApproveApprovalItem(requestParameters: WorkItemsApiBulkApproveApprovalItemRequest, axiosOptions?: AxiosRequestConfig) {
-        return WorkItemsApiFp(this.configuration).bulkApproveApprovalItem(requestParameters.id, axiosOptions).then((request) => request(this.axios, this.basePath));
-    }
-
-    /**
-     * This API bulk rejects Approval Items. Either an admin, or the owning/current user must make this request.
-     * @summary Bulk reject Approval Items
-     * @param {WorkItemsApiBulkRejectApprovalItemRequest} requestParameters Request parameters.
-     * @param {*} [axiosOptions] Override http request option.
-     * @throws {RequiredError}
-     * @memberof WorkItemsApi
-     */
-    public bulkRejectApprovalItem(requestParameters: WorkItemsApiBulkRejectApprovalItemRequest, axiosOptions?: AxiosRequestConfig) {
-        return WorkItemsApiFp(this.configuration).bulkRejectApprovalItem(requestParameters.id, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public approveApprovalItemsInBulk(requestParameters: WorkItemsApiApproveApprovalItemsInBulkRequest, axiosOptions?: AxiosRequestConfig) {
+        return WorkItemsApiFp(this.configuration).approveApprovalItemsInBulk(requestParameters.id, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -31948,49 +31936,61 @@ export class WorkItemsApi extends BaseAPI {
     /**
      * This gets a collection of completed work items belonging to either the specified user(admin required), or the current user.
      * @summary Completed Work Items
-     * @param {WorkItemsApiCompletedWorkItemsRequest} requestParameters Request parameters.
+     * @param {WorkItemsApiGetCompletedWorkItemsRequest} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
      * @memberof WorkItemsApi
      */
-    public completedWorkItems(requestParameters: WorkItemsApiCompletedWorkItemsRequest = {}, axiosOptions?: AxiosRequestConfig) {
-        return WorkItemsApiFp(this.configuration).completedWorkItems(requestParameters.ownerId, requestParameters.limit, requestParameters.offset, requestParameters.count, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public getCompletedWorkItems(requestParameters: WorkItemsApiGetCompletedWorkItemsRequest = {}, axiosOptions?: AxiosRequestConfig) {
+        return WorkItemsApiFp(this.configuration).getCompletedWorkItems(requestParameters.ownerId, requestParameters.limit, requestParameters.offset, requestParameters.count, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * This gets a count of completed work items belonging to either the specified user(admin required), or the current user.
      * @summary Count Completed Work Items
-     * @param {WorkItemsApiCountCompletedWorkItemsRequest} requestParameters Request parameters.
+     * @param {WorkItemsApiGetCountCompletedWorkItemsRequest} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
      * @memberof WorkItemsApi
      */
-    public countCompletedWorkItems(requestParameters: WorkItemsApiCountCompletedWorkItemsRequest = {}, axiosOptions?: AxiosRequestConfig) {
-        return WorkItemsApiFp(this.configuration).countCompletedWorkItems(requestParameters.ownerId, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public getCountCompletedWorkItems(requestParameters: WorkItemsApiGetCountCompletedWorkItemsRequest = {}, axiosOptions?: AxiosRequestConfig) {
+        return WorkItemsApiFp(this.configuration).getCountCompletedWorkItems(requestParameters.ownerId, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * This gets a count of work items belonging to either the specified user(admin required), or the current user.
      * @summary Count Work Items
-     * @param {WorkItemsApiCountWorkItemsRequest} requestParameters Request parameters.
+     * @param {WorkItemsApiGetCountWorkItemsRequest} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
      * @memberof WorkItemsApi
      */
-    public countWorkItems(requestParameters: WorkItemsApiCountWorkItemsRequest = {}, axiosOptions?: AxiosRequestConfig) {
-        return WorkItemsApiFp(this.configuration).countWorkItems(requestParameters.ownerId, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public getCountWorkItems(requestParameters: WorkItemsApiGetCountWorkItemsRequest = {}, axiosOptions?: AxiosRequestConfig) {
+        return WorkItemsApiFp(this.configuration).getCountWorkItems(requestParameters.ownerId, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * This gets the details of a Work Item belonging to either the specified user(admin required), or the current user.
      * @summary Get a Work Item
-     * @param {WorkItemsApiGetWorkItemsRequest} requestParameters Request parameters.
+     * @param {WorkItemsApiGetWorkItemRequest} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
      * @memberof WorkItemsApi
      */
-    public getWorkItems(requestParameters: WorkItemsApiGetWorkItemsRequest, axiosOptions?: AxiosRequestConfig) {
-        return WorkItemsApiFp(this.configuration).getWorkItems(requestParameters.id, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public getWorkItem(requestParameters: WorkItemsApiGetWorkItemRequest, axiosOptions?: AxiosRequestConfig) {
+        return WorkItemsApiFp(this.configuration).getWorkItem(requestParameters.id, axiosOptions).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * This gets a summary of work items belonging to either the specified user(admin required), or the current user.
+     * @summary Work Items Summary
+     * @param {WorkItemsApiGetWorkItemsSummaryRequest} requestParameters Request parameters.
+     * @param {*} [axiosOptions] Override http request option.
+     * @throws {RequiredError}
+     * @memberof WorkItemsApi
+     */
+    public getWorkItemsSummary(requestParameters: WorkItemsApiGetWorkItemsSummaryRequest = {}, axiosOptions?: AxiosRequestConfig) {
+        return WorkItemsApiFp(this.configuration).getWorkItemsSummary(requestParameters.ownerId, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -32018,6 +32018,18 @@ export class WorkItemsApi extends BaseAPI {
     }
 
     /**
+     * This API bulk rejects Approval Items. Either an admin, or the owning/current user must make this request.
+     * @summary Bulk reject Approval Items
+     * @param {WorkItemsApiRejectApprovalItemsInBulkRequest} requestParameters Request parameters.
+     * @param {*} [axiosOptions] Override http request option.
+     * @throws {RequiredError}
+     * @memberof WorkItemsApi
+     */
+    public rejectApprovalItemsInBulk(requestParameters: WorkItemsApiRejectApprovalItemsInBulkRequest, axiosOptions?: AxiosRequestConfig) {
+        return WorkItemsApiFp(this.configuration).rejectApprovalItemsInBulk(requestParameters.id, axiosOptions).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
      * This API submits account selections. Either an admin, or the owning/current user must make this request.
      * @summary Submit Account Selections
      * @param {WorkItemsApiSubmitAccountSelectionRequest} requestParameters Request parameters.
@@ -32027,18 +32039,6 @@ export class WorkItemsApi extends BaseAPI {
      */
     public submitAccountSelection(requestParameters: WorkItemsApiSubmitAccountSelectionRequest, axiosOptions?: AxiosRequestConfig) {
         return WorkItemsApiFp(this.configuration).submitAccountSelection(requestParameters.id, requestParameters.requestBody, axiosOptions).then((request) => request(this.axios, this.basePath));
-    }
-
-    /**
-     * This gets a summary of work items belonging to either the specified user(admin required), or the current user.
-     * @summary Work Items Summary
-     * @param {WorkItemsApiSummaryWorkItemsRequest} requestParameters Request parameters.
-     * @param {*} [axiosOptions] Override http request option.
-     * @throws {RequiredError}
-     * @memberof WorkItemsApi
-     */
-    public summaryWorkItems(requestParameters: WorkItemsApiSummaryWorkItemsRequest = {}, axiosOptions?: AxiosRequestConfig) {
-        return WorkItemsApiFp(this.configuration).summaryWorkItems(requestParameters.ownerId, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 }
 
