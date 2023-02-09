@@ -1,3 +1,5 @@
+import { Search, SearchApi, SearchApiSearchPostRequest, SearchDocument } from "./v3";
+
 export interface PaginationParams {
     /**
      * Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
@@ -59,6 +61,39 @@ export class Paginator {
                 return results
             }
             params.offset += increment
+        }
+    }
+
+    public static async paginateSearch(searchAPI: SearchApi, search: Search, increment?: number, limit?: number): Promise<AxiosResponse<SearchDocument[], any>> {
+        increment = increment ? increment : 250
+        const searchParams: SearchApiSearchPostRequest = {
+            search: search,
+            limit: increment
+        }
+        let offset = 0 
+        const maxLimit = limit ? limit : 0
+        let modified: SearchDocument[] = []
+    
+        if (!search.sort || search.sort.length != 1) {
+            throw("search must include exactly one sort parameter to paginate properly")
+        }
+    
+        while (true) {
+            console.log(`Paginating call, offset = ${offset}`)
+            let results = await searchAPI.searchPost(searchParams)
+            if (results.data.length === 0 || (offset >= maxLimit && maxLimit > 0)) {
+                results.data = modified
+                return results
+            } else {
+                const result = <any>results.data[results.data.length - 1]
+                if (searchParams.search.sort) {
+                    searchParams.search.searchAfter = [result[searchParams.search.sort[0].replace("-", "")]]
+                } else {
+                    throw("search unexpectedly did not return a result we can search after!")
+                }
+            }
+            modified.push.apply(modified, results.data)
+            offset += increment
         }
     }
 }

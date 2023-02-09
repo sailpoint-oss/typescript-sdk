@@ -1,4 +1,4 @@
-import { AccountsApi, Configuration, axiosRetry, Paginator, Search1, SearchApi, TransformsApi, TransformsApiCreateTransformRequest} from "sailpoint-api-client"
+import { AccountsApi, Configuration, axiosRetry, Paginator, SearchApi, TransformsApi, TransformsApiCreateTransformRequest, Search, IdentityDocument} from "sailpoint-api-client"
 
 const createTransform = async () => {
 
@@ -23,19 +23,22 @@ const createTransform = async () => {
 const search = async () => {
     let apiConfig = new Configuration()
     let api = new SearchApi(apiConfig)
-    let search: Search1 = {
+    let search: Search = {
         indices: [
             "identities"
         ],
         query: {
-            query: "\"philip.ellis\"",
-            fields: [
-            "name"
-            ]
-        }
+            query: "*"
+        },
+        sort: ["-name"]
 	}
-    const val = await Paginator.paginate(api, api.searchPost, {search1: search})
-    console.log(val)
+    const val = await Paginator.paginateSearch(api, search, 10, 1000)
+
+    for (const result of val.data) {
+        const castedResult: IdentityDocument = result
+        console.log(castedResult.name)
+    }
+    
 }
 
 const getPaginatedAccounts = async () => {
@@ -58,4 +61,5 @@ const getPaginatedAccounts = async () => {
 }
 
 
-getPaginatedAccounts()
+
+search()
