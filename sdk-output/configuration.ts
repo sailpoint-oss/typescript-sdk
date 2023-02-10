@@ -176,16 +176,25 @@ export class Configuration {
     }
 
     private getParams(): ConfigurationParameters {
-        const homeDir = os.homedir()
-        const configPath = path.join(homeDir, '.sailpoint','config.yaml')
-        const doc = yaml.load(fs.readFileSync(configPath, 'utf8')) as Configuration
         const config: ConfigurationParameters = {}
-        if (doc.authtype && doc.authtype === 'pat') {
-            config.baseurl = doc.pat.baseurl
-            config.clientId = doc.pat.clientid
-            config.clientSecret = doc.pat.clientsecret
-            config.tokenUrl = doc.pat.tokenurl
+        try {
+            const homeDir = os.homedir()
+            const configPath = path.join(homeDir, '.sailpoint','config.yaml')
+            const doc = yaml.load(fs.readFileSync(configPath, 'utf8')) as Configuration
+            if (doc.authtype && doc.authtype === 'pat') {
+                config.baseurl = doc.pat.baseurl
+                config.clientId = doc.pat.clientid
+                config.clientSecret = doc.pat.clientsecret
+                config.tokenUrl = doc.pat.tokenurl
+            }   
+        } catch (error) {
+            console.log('unable to find config file')
         }
+        config.baseurl = process.env["BASE_URL"] ? process.env["BASE_URL"] : config.baseurl
+        config.tokenUrl = process.env["TOKEN_URL"] ? process.env["TOKEN_URL"] : config.tokenUrl
+        config.clientId = process.env["CLIENT_ID"] ? process.env["CLIENT_ID"] : config.clientId
+        config.clientSecret = process.env["CLIENT_SECRET"] ? process.env["CLIENT_SECRET"] : config.clientSecret
+
         return config
     }
 
