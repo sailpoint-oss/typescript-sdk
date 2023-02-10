@@ -32,7 +32,7 @@ const search = async () => {
         },
         sort: ["-name"]
 	}
-    const val = await Paginator.paginateSearch(api, search, 10, 1000)
+    const val = await Paginator.paginateSearchApi(api, search, 10, 1000)
 
     for (const result of val.data) {
         const castedResult: IdentityDocument = result

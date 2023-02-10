@@ -64,7 +64,7 @@ export class Paginator {
         }
     }
 
-    public static async paginateSearch(searchAPI: SearchApi, search: Search, increment?: number, limit?: number): Promise<AxiosResponse<SearchDocument[], any>> {
+    public static async paginateSearchApi(searchAPI: SearchApi, search: Search, increment?: number, limit?: number): Promise<AxiosResponse<SearchDocument[], any>> {
         increment = increment ? increment : 250
         const searchParams: SearchApiSearchPostRequest = {
             search: search,
