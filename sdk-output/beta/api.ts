@@ -3020,6 +3020,31 @@ export interface BearerTokenAuthConfigBeta {
     'bearerToken'?: string | null;
 }
 /**
+ * Bulk response object.
+ * @export
+ * @interface BulkIdentitiesAccountsResponseBeta
+ */
+export interface BulkIdentitiesAccountsResponseBeta {
+    /**
+     * Identifier of bulk request item.
+     * @type {string}
+     * @memberof BulkIdentitiesAccountsResponseBeta
+     */
+    'id'?: string;
+    /**
+     * Response status value.
+     * @type {number}
+     * @memberof BulkIdentitiesAccountsResponseBeta
+     */
+    'statusCode'?: number;
+    /**
+     * Status containing additional context information about failures.
+     * @type {string}
+     * @memberof BulkIdentitiesAccountsResponseBeta
+     */
+    'message'?: string;
+}
+/**
  * 
  * @export
  * @interface BulkTaggedObjectBeta
@@ -7442,6 +7467,19 @@ export const HttpDispatchModeBeta = {
 export type HttpDispatchModeBeta = typeof HttpDispatchModeBeta[keyof typeof HttpDispatchModeBeta];
 
 
+/**
+ * 
+ * @export
+ * @interface IdentitiesAccountsBulkRequestBeta
+ */
+export interface IdentitiesAccountsBulkRequestBeta {
+    /**
+     * The ids of the identities for which enable/disable accounts.
+     * @type {Array<string>}
+     * @memberof IdentitiesAccountsBulkRequestBeta
+     */
+    'identityIds'?: Array<string>;
+}
 /**
  * Defines all the identity attribute mapping configurations. This defines how to generate or collect data for each identity attributes in identity refresh process.
  * @export
@@ -25224,6 +25262,92 @@ export const AccountsBetaApiAxiosParamCreator = function (configuration?: Config
             };
         },
         /**
+         * This API submits a task to disable IDN account for a single identity.
+         * @summary Disable IDN Account for Identity
+         * @param {string} id The identity id.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        disableAccountForIdentity: async (id: string, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'id' is not null or undefined
+            assertParamExists('disableAccountForIdentity', 'id', id)
+            const localVarPath = `/identities-accounts/{id}/disable`
+                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'POST', ...baseOptions, ...axiosOptions};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication oauth2 required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "oauth2", [], configuration)
+
+            // authentication oauth2 required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "oauth2", [], configuration)
+
+
+    
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                axiosOptions: localVarRequestOptions,
+            };
+        },
+        /**
+         * This API submits tasks to disable IDN account for each identity provided in the request body.
+         * @summary Disable IDN Accounts for Identities
+         * @param {IdentitiesAccountsBulkRequestBeta} identitiesAccountsBulkRequestBeta 
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        disableAccountsForIdentities: async (identitiesAccountsBulkRequestBeta: IdentitiesAccountsBulkRequestBeta, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'identitiesAccountsBulkRequestBeta' is not null or undefined
+            assertParamExists('disableAccountsForIdentities', 'identitiesAccountsBulkRequestBeta', identitiesAccountsBulkRequestBeta)
+            const localVarPath = `/identities-accounts/disable`;
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'POST', ...baseOptions, ...axiosOptions};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication oauth2 required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "oauth2", [], configuration)
+
+            // authentication oauth2 required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "oauth2", [], configuration)
+
+
+    
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
+            localVarRequestOptions.data = serializeDataIfNeeded(identitiesAccountsBulkRequestBeta, localVarRequestOptions, configuration)
+
+            return {
+                url: toPathString(localVarUrlObj),
+                axiosOptions: localVarRequestOptions,
+            };
+        },
+        /**
          * This API submits a task to enable account and returns the task ID.   A token with ORG_ADMIN authority is required to call this API.
          * @summary Enable Account
          * @param {string} id The account id
@@ -25265,6 +25389,92 @@ export const AccountsBetaApiAxiosParamCreator = function (configuration?: Config
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
             localVarRequestOptions.data = serializeDataIfNeeded(accountToggleRequestBeta, localVarRequestOptions, configuration)
+
+            return {
+                url: toPathString(localVarUrlObj),
+                axiosOptions: localVarRequestOptions,
+            };
+        },
+        /**
+         * This API submits a task to enable IDN account for a single identity.
+         * @summary Enable IDN Account for Identity
+         * @param {string} id The identity id.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        enableAccountForIdentity: async (id: string, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'id' is not null or undefined
+            assertParamExists('enableAccountForIdentity', 'id', id)
+            const localVarPath = `/identities-accounts/{id}/enable`
+                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'POST', ...baseOptions, ...axiosOptions};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication oauth2 required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "oauth2", [], configuration)
+
+            // authentication oauth2 required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "oauth2", [], configuration)
+
+
+    
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                axiosOptions: localVarRequestOptions,
+            };
+        },
+        /**
+         * This API submits tasks to enable IDN account for each identity provided in the request body.
+         * @summary Enable IDN Accounts for Identities
+         * @param {IdentitiesAccountsBulkRequestBeta} identitiesAccountsBulkRequestBeta 
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        enableAccountsForIdentities: async (identitiesAccountsBulkRequestBeta: IdentitiesAccountsBulkRequestBeta, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'identitiesAccountsBulkRequestBeta' is not null or undefined
+            assertParamExists('enableAccountsForIdentities', 'identitiesAccountsBulkRequestBeta', identitiesAccountsBulkRequestBeta)
+            const localVarPath = `/identities-accounts/enable`;
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'POST', ...baseOptions, ...axiosOptions};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication oauth2 required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "oauth2", [], configuration)
+
+            // authentication oauth2 required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "oauth2", [], configuration)
+
+
+    
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
+            localVarRequestOptions.data = serializeDataIfNeeded(identitiesAccountsBulkRequestBeta, localVarRequestOptions, configuration)
 
             return {
                 url: toPathString(localVarUrlObj),
@@ -25664,6 +25874,28 @@ export const AccountsBetaApiFp = function(configuration?: Configuration) {
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
+         * This API submits a task to disable IDN account for a single identity.
+         * @summary Disable IDN Account for Identity
+         * @param {string} id The identity id.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        async disableAccountForIdentity(id: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<object>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.disableAccountForIdentity(id, axiosOptions);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * This API submits tasks to disable IDN account for each identity provided in the request body.
+         * @summary Disable IDN Accounts for Identities
+         * @param {IdentitiesAccountsBulkRequestBeta} identitiesAccountsBulkRequestBeta 
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        async disableAccountsForIdentities(identitiesAccountsBulkRequestBeta: IdentitiesAccountsBulkRequestBeta, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<BulkIdentitiesAccountsResponseBeta>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.disableAccountsForIdentities(identitiesAccountsBulkRequestBeta, axiosOptions);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
          * This API submits a task to enable account and returns the task ID.   A token with ORG_ADMIN authority is required to call this API.
          * @summary Enable Account
          * @param {string} id The account id
@@ -25673,6 +25905,28 @@ export const AccountsBetaApiFp = function(configuration?: Configuration) {
          */
         async enableAccount(id: string, accountToggleRequestBeta: AccountToggleRequestBeta, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<AccountsAsyncResultBeta>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.enableAccount(id, accountToggleRequestBeta, axiosOptions);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * This API submits a task to enable IDN account for a single identity.
+         * @summary Enable IDN Account for Identity
+         * @param {string} id The identity id.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        async enableAccountForIdentity(id: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<object>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.enableAccountForIdentity(id, axiosOptions);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * This API submits tasks to enable IDN account for each identity provided in the request body.
+         * @summary Enable IDN Accounts for Identities
+         * @param {IdentitiesAccountsBulkRequestBeta} identitiesAccountsBulkRequestBeta 
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        async enableAccountsForIdentities(identitiesAccountsBulkRequestBeta: IdentitiesAccountsBulkRequestBeta, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<BulkIdentitiesAccountsResponseBeta>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.enableAccountsForIdentities(identitiesAccountsBulkRequestBeta, axiosOptions);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
@@ -25804,6 +26058,26 @@ export const AccountsBetaApiFactory = function (configuration?: Configuration, b
             return localVarFp.disableAccount(id, accountToggleRequestBeta, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
+         * This API submits a task to disable IDN account for a single identity.
+         * @summary Disable IDN Account for Identity
+         * @param {string} id The identity id.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        disableAccountForIdentity(id: string, axiosOptions?: any): AxiosPromise<object> {
+            return localVarFp.disableAccountForIdentity(id, axiosOptions).then((request) => request(axios, basePath));
+        },
+        /**
+         * This API submits tasks to disable IDN account for each identity provided in the request body.
+         * @summary Disable IDN Accounts for Identities
+         * @param {IdentitiesAccountsBulkRequestBeta} identitiesAccountsBulkRequestBeta 
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        disableAccountsForIdentities(identitiesAccountsBulkRequestBeta: IdentitiesAccountsBulkRequestBeta, axiosOptions?: any): AxiosPromise<Array<BulkIdentitiesAccountsResponseBeta>> {
+            return localVarFp.disableAccountsForIdentities(identitiesAccountsBulkRequestBeta, axiosOptions).then((request) => request(axios, basePath));
+        },
+        /**
          * This API submits a task to enable account and returns the task ID.   A token with ORG_ADMIN authority is required to call this API.
          * @summary Enable Account
          * @param {string} id The account id
@@ -25813,6 +26087,26 @@ export const AccountsBetaApiFactory = function (configuration?: Configuration, b
          */
         enableAccount(id: string, accountToggleRequestBeta: AccountToggleRequestBeta, axiosOptions?: any): AxiosPromise<AccountsAsyncResultBeta> {
             return localVarFp.enableAccount(id, accountToggleRequestBeta, axiosOptions).then((request) => request(axios, basePath));
+        },
+        /**
+         * This API submits a task to enable IDN account for a single identity.
+         * @summary Enable IDN Account for Identity
+         * @param {string} id The identity id.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        enableAccountForIdentity(id: string, axiosOptions?: any): AxiosPromise<object> {
+            return localVarFp.enableAccountForIdentity(id, axiosOptions).then((request) => request(axios, basePath));
+        },
+        /**
+         * This API submits tasks to enable IDN account for each identity provided in the request body.
+         * @summary Enable IDN Accounts for Identities
+         * @param {IdentitiesAccountsBulkRequestBeta} identitiesAccountsBulkRequestBeta 
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        enableAccountsForIdentities(identitiesAccountsBulkRequestBeta: IdentitiesAccountsBulkRequestBeta, axiosOptions?: any): AxiosPromise<Array<BulkIdentitiesAccountsResponseBeta>> {
+            return localVarFp.enableAccountsForIdentities(identitiesAccountsBulkRequestBeta, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * This API returns the details for a single account based on the ID.   A token with ORG_ADMIN authority is required to call this API.
@@ -25947,6 +26241,34 @@ export interface AccountsBetaApiDisableAccountRequest {
 }
 
 /**
+ * Request parameters for disableAccountForIdentity operation in AccountsBetaApi.
+ * @export
+ * @interface AccountsBetaApiDisableAccountForIdentityRequest
+ */
+export interface AccountsBetaApiDisableAccountForIdentityRequest {
+    /**
+     * The identity id.
+     * @type {string}
+     * @memberof AccountsBetaApiDisableAccountForIdentity
+     */
+    readonly id: string
+}
+
+/**
+ * Request parameters for disableAccountsForIdentities operation in AccountsBetaApi.
+ * @export
+ * @interface AccountsBetaApiDisableAccountsForIdentitiesRequest
+ */
+export interface AccountsBetaApiDisableAccountsForIdentitiesRequest {
+    /**
+     * 
+     * @type {IdentitiesAccountsBulkRequestBeta}
+     * @memberof AccountsBetaApiDisableAccountsForIdentities
+     */
+    readonly identitiesAccountsBulkRequestBeta: IdentitiesAccountsBulkRequestBeta
+}
+
+/**
  * Request parameters for enableAccount operation in AccountsBetaApi.
  * @export
  * @interface AccountsBetaApiEnableAccountRequest
@@ -25965,6 +26287,34 @@ export interface AccountsBetaApiEnableAccountRequest {
      * @memberof AccountsBetaApiEnableAccount
      */
     readonly accountToggleRequestBeta: AccountToggleRequestBeta
+}
+
+/**
+ * Request parameters for enableAccountForIdentity operation in AccountsBetaApi.
+ * @export
+ * @interface AccountsBetaApiEnableAccountForIdentityRequest
+ */
+export interface AccountsBetaApiEnableAccountForIdentityRequest {
+    /**
+     * The identity id.
+     * @type {string}
+     * @memberof AccountsBetaApiEnableAccountForIdentity
+     */
+    readonly id: string
+}
+
+/**
+ * Request parameters for enableAccountsForIdentities operation in AccountsBetaApi.
+ * @export
+ * @interface AccountsBetaApiEnableAccountsForIdentitiesRequest
+ */
+export interface AccountsBetaApiEnableAccountsForIdentitiesRequest {
+    /**
+     * 
+     * @type {IdentitiesAccountsBulkRequestBeta}
+     * @memberof AccountsBetaApiEnableAccountsForIdentities
+     */
+    readonly identitiesAccountsBulkRequestBeta: IdentitiesAccountsBulkRequestBeta
 }
 
 /**
@@ -26179,6 +26529,30 @@ export class AccountsBetaApi extends BaseAPI {
     }
 
     /**
+     * This API submits a task to disable IDN account for a single identity.
+     * @summary Disable IDN Account for Identity
+     * @param {AccountsBetaApiDisableAccountForIdentityRequest} requestParameters Request parameters.
+     * @param {*} [axiosOptions] Override http request option.
+     * @throws {RequiredError}
+     * @memberof AccountsBetaApi
+     */
+    public disableAccountForIdentity(requestParameters: AccountsBetaApiDisableAccountForIdentityRequest, axiosOptions?: AxiosRequestConfig) {
+        return AccountsBetaApiFp(this.configuration).disableAccountForIdentity(requestParameters.id, axiosOptions).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * This API submits tasks to disable IDN account for each identity provided in the request body.
+     * @summary Disable IDN Accounts for Identities
+     * @param {AccountsBetaApiDisableAccountsForIdentitiesRequest} requestParameters Request parameters.
+     * @param {*} [axiosOptions] Override http request option.
+     * @throws {RequiredError}
+     * @memberof AccountsBetaApi
+     */
+    public disableAccountsForIdentities(requestParameters: AccountsBetaApiDisableAccountsForIdentitiesRequest, axiosOptions?: AxiosRequestConfig) {
+        return AccountsBetaApiFp(this.configuration).disableAccountsForIdentities(requestParameters.identitiesAccountsBulkRequestBeta, axiosOptions).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
      * This API submits a task to enable account and returns the task ID.   A token with ORG_ADMIN authority is required to call this API.
      * @summary Enable Account
      * @param {AccountsBetaApiEnableAccountRequest} requestParameters Request parameters.
@@ -26188,6 +26562,30 @@ export class AccountsBetaApi extends BaseAPI {
      */
     public enableAccount(requestParameters: AccountsBetaApiEnableAccountRequest, axiosOptions?: AxiosRequestConfig) {
         return AccountsBetaApiFp(this.configuration).enableAccount(requestParameters.id, requestParameters.accountToggleRequestBeta, axiosOptions).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * This API submits a task to enable IDN account for a single identity.
+     * @summary Enable IDN Account for Identity
+     * @param {AccountsBetaApiEnableAccountForIdentityRequest} requestParameters Request parameters.
+     * @param {*} [axiosOptions] Override http request option.
+     * @throws {RequiredError}
+     * @memberof AccountsBetaApi
+     */
+    public enableAccountForIdentity(requestParameters: AccountsBetaApiEnableAccountForIdentityRequest, axiosOptions?: AxiosRequestConfig) {
+        return AccountsBetaApiFp(this.configuration).enableAccountForIdentity(requestParameters.id, axiosOptions).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * This API submits tasks to enable IDN account for each identity provided in the request body.
+     * @summary Enable IDN Accounts for Identities
+     * @param {AccountsBetaApiEnableAccountsForIdentitiesRequest} requestParameters Request parameters.
+     * @param {*} [axiosOptions] Override http request option.
+     * @throws {RequiredError}
+     * @memberof AccountsBetaApi
+     */
+    public enableAccountsForIdentities(requestParameters: AccountsBetaApiEnableAccountsForIdentitiesRequest, axiosOptions?: AxiosRequestConfig) {
+        return AccountsBetaApiFp(this.configuration).enableAccountsForIdentities(requestParameters.identitiesAccountsBulkRequestBeta, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -45312,10 +45710,11 @@ export const OAuthClientsBetaApiAxiosParamCreator = function (configuration?: Co
         /**
          * This gets a list of OAuth clients.
          * @summary List OAuth Clients
+         * @param {string} [filters] Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **lastUsed**: *le, isnull*
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        listOauthClients: async (axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        listOauthClients: async (filters?: string, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             const localVarPath = `/oauth-clients`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -45335,6 +45734,10 @@ export const OAuthClientsBetaApiAxiosParamCreator = function (configuration?: Co
             // authentication oauth2 required
             // oauth required
             await setOAuthToObject(localVarHeaderParameter, "oauth2", [], configuration)
+
+            if (filters !== undefined) {
+                localVarQueryParameter['filters'] = filters;
+            }
 
 
     
@@ -45441,11 +45844,12 @@ export const OAuthClientsBetaApiFp = function(configuration?: Configuration) {
         /**
          * This gets a list of OAuth clients.
          * @summary List OAuth Clients
+         * @param {string} [filters] Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **lastUsed**: *le, isnull*
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async listOauthClients(axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<GetOAuthClientResponseBeta>>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.listOauthClients(axiosOptions);
+        async listOauthClients(filters?: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<GetOAuthClientResponseBeta>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.listOauthClients(filters, axiosOptions);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
@@ -45503,11 +45907,12 @@ export const OAuthClientsBetaApiFactory = function (configuration?: Configuratio
         /**
          * This gets a list of OAuth clients.
          * @summary List OAuth Clients
+         * @param {string} [filters] Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **lastUsed**: *le, isnull*
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        listOauthClients(axiosOptions?: any): AxiosPromise<Array<GetOAuthClientResponseBeta>> {
-            return localVarFp.listOauthClients(axiosOptions).then((request) => request(axios, basePath));
+        listOauthClients(filters?: string, axiosOptions?: any): AxiosPromise<Array<GetOAuthClientResponseBeta>> {
+            return localVarFp.listOauthClients(filters, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * This performs a targeted update to the field(s) of an OAuth client. Request will require a security scope of  - sp:oauth-client:manage
@@ -45563,6 +45968,20 @@ export interface OAuthClientsBetaApiGetOauthClientRequest {
      * @memberof OAuthClientsBetaApiGetOauthClient
      */
     readonly id: string
+}
+
+/**
+ * Request parameters for listOauthClients operation in OAuthClientsBetaApi.
+ * @export
+ * @interface OAuthClientsBetaApiListOauthClientsRequest
+ */
+export interface OAuthClientsBetaApiListOauthClientsRequest {
+    /**
+     * Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **lastUsed**: *le, isnull*
+     * @type {string}
+     * @memberof OAuthClientsBetaApiListOauthClients
+     */
+    readonly filters?: string
 }
 
 /**
@@ -45632,12 +46051,13 @@ export class OAuthClientsBetaApi extends BaseAPI {
     /**
      * This gets a list of OAuth clients.
      * @summary List OAuth Clients
+     * @param {OAuthClientsBetaApiListOauthClientsRequest} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
      * @memberof OAuthClientsBetaApi
      */
-    public listOauthClients(axiosOptions?: AxiosRequestConfig) {
-        return OAuthClientsBetaApiFp(this.configuration).listOauthClients(axiosOptions).then((request) => request(this.axios, this.basePath));
+    public listOauthClients(requestParameters: OAuthClientsBetaApiListOauthClientsRequest = {}, axiosOptions?: AxiosRequestConfig) {
+        return OAuthClientsBetaApiFp(this.configuration).listOauthClients(requestParameters.filters, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
