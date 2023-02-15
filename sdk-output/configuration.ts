@@ -181,7 +181,7 @@ export class Configuration {
             const homeDir = os.homedir()
             const configPath = path.join(homeDir, '.sailpoint','config.yaml')
             const doc = yaml.load(fs.readFileSync(configPath, 'utf8')) as Configuration
-            if (doc.authtype && doc.authtype === 'pat') {
+            if (doc.authtype && doc.authtype.toLowerCase() === 'pat') {
                 config.baseurl = doc.pat.baseurl
                 config.clientId = doc.pat.clientid
                 config.clientSecret = doc.pat.clientsecret
