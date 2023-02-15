@@ -45710,10 +45710,11 @@ export const OAuthClientsBetaApiAxiosParamCreator = function (configuration?: Co
         /**
          * This gets a list of OAuth clients.
          * @summary List OAuth Clients
+         * @param {string} [filters] Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **lastUsed**: *le, isnull*
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        listOauthClients: async (axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        listOauthClients: async (filters?: string, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             const localVarPath = `/oauth-clients`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -45733,6 +45734,10 @@ export const OAuthClientsBetaApiAxiosParamCreator = function (configuration?: Co
             // authentication oauth2 required
             // oauth required
             await setOAuthToObject(localVarHeaderParameter, "oauth2", [], configuration)
+
+            if (filters !== undefined) {
+                localVarQueryParameter['filters'] = filters;
+            }
 
 
     
@@ -45839,11 +45844,12 @@ export const OAuthClientsBetaApiFp = function(configuration?: Configuration) {
         /**
          * This gets a list of OAuth clients.
          * @summary List OAuth Clients
+         * @param {string} [filters] Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **lastUsed**: *le, isnull*
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async listOauthClients(axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<GetOAuthClientResponseBeta>>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.listOauthClients(axiosOptions);
+        async listOauthClients(filters?: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<GetOAuthClientResponseBeta>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.listOauthClients(filters, axiosOptions);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
@@ -45901,11 +45907,12 @@ export const OAuthClientsBetaApiFactory = function (configuration?: Configuratio
         /**
          * This gets a list of OAuth clients.
          * @summary List OAuth Clients
+         * @param {string} [filters] Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **lastUsed**: *le, isnull*
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        listOauthClients(axiosOptions?: any): AxiosPromise<Array<GetOAuthClientResponseBeta>> {
-            return localVarFp.listOauthClients(axiosOptions).then((request) => request(axios, basePath));
+        listOauthClients(filters?: string, axiosOptions?: any): AxiosPromise<Array<GetOAuthClientResponseBeta>> {
+            return localVarFp.listOauthClients(filters, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * This performs a targeted update to the field(s) of an OAuth client. Request will require a security scope of  - sp:oauth-client:manage
@@ -45961,6 +45968,20 @@ export interface OAuthClientsBetaApiGetOauthClientRequest {
      * @memberof OAuthClientsBetaApiGetOauthClient
      */
     readonly id: string
+}
+
+/**
+ * Request parameters for listOauthClients operation in OAuthClientsBetaApi.
+ * @export
+ * @interface OAuthClientsBetaApiListOauthClientsRequest
+ */
+export interface OAuthClientsBetaApiListOauthClientsRequest {
+    /**
+     * Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **lastUsed**: *le, isnull*
+     * @type {string}
+     * @memberof OAuthClientsBetaApiListOauthClients
+     */
+    readonly filters?: string
 }
 
 /**
@@ -46030,12 +46051,13 @@ export class OAuthClientsBetaApi extends BaseAPI {
     /**
      * This gets a list of OAuth clients.
      * @summary List OAuth Clients
+     * @param {OAuthClientsBetaApiListOauthClientsRequest} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
      * @memberof OAuthClientsBetaApi
      */
-    public listOauthClients(axiosOptions?: AxiosRequestConfig) {
-        return OAuthClientsBetaApiFp(this.configuration).listOauthClients(axiosOptions).then((request) => request(this.axios, this.basePath));
+    public listOauthClients(requestParameters: OAuthClientsBetaApiListOauthClientsRequest = {}, axiosOptions?: AxiosRequestConfig) {
+        return OAuthClientsBetaApiFp(this.configuration).listOauthClients(requestParameters.filters, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
