@@ -13650,7 +13650,7 @@ export interface RoleBeta {
      * @type {OwnerReferenceBeta}
      * @memberof RoleBeta
      */
-    'owner'?: OwnerReferenceBeta;
+    'owner': OwnerReferenceBeta;
     /**
      * 
      * @type {Array<AccessProfileRefBeta>}
