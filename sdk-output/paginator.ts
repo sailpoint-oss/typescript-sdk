@@ -81,6 +81,7 @@ export class Paginator {
         while (true) {
             console.log(`Paginating call, offset = ${offset}`)
             let results = await searchAPI.searchPost(searchParams)
+            modified.push.apply(modified, results.data)
             if (results.data.length < increment || (offset >= maxLimit && maxLimit > 0)) {
                 results.data = modified
                 return results
@@ -92,7 +93,6 @@ export class Paginator {
                     throw("search unexpectedly did not return a result we can search after!")
                 }
             }
-            modified.push.apply(modified, results.data)
             offset += increment
         }
     }
