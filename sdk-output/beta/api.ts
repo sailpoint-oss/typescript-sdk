@@ -62326,13 +62326,17 @@ export const WorkflowsBetaApiAxiosParamCreator = function (configuration?: Confi
             };
         },
         /**
-         * This lists the executions for a given workflow. Workflow executions are available for up to 90 days before being archived.
+         * This lists the executions for a given workflow. Workflow executions are available for up to 90 days before being archived. By default, you can get a maximum of 250 executions.  To get executions past the first 250 records, you can do the following:  1. Use the [Get Workflows](https://developer.sailpoint.com/idn/api/beta/list-workflows) endpoint to get your workflows.  2. Get your workflow ID from the response.  3. You can then do either of the following:     - Filter to find relevant workflow executions.   For example, you can filter for failed workflow executions: `GET /workflows/:workflowID/executions?filters=status eq \"Failed\"`    - You can paginate through results with the `offset` parameter.    For example, you can page through 50 executions per page and use that as a way to get to the records past the first 250.    Refer to [Paginating Results](https://developer.sailpoint.com/idn/api/standard-collection-parameters#paginating-results) for more information about the query parameters you can use to achieve pagination. 
          * @summary List Workflow Executions
          * @param {string} id Id of the workflow
+         * @param {number} [limit] Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+         * @param {number} [offset] Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+         * @param {boolean} [count] If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+         * @param {string} [filters] Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **start_time**: *eq, lt, lte, gt, gte*  **status**: *eq*
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        listWorkflowExecutions: async (id: string, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        listWorkflowExecutions: async (id: string, limit?: number, offset?: number, count?: boolean, filters?: string, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'id' is not null or undefined
             assertParamExists('listWorkflowExecutions', 'id', id)
             const localVarPath = `/workflows/{id}/executions`
@@ -62355,6 +62359,22 @@ export const WorkflowsBetaApiAxiosParamCreator = function (configuration?: Confi
             // authentication oauth2 required
             // oauth required
             await setOAuthToObject(localVarHeaderParameter, "oauth2", [], configuration)
+
+            if (limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+
+            if (offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+
+            if (count !== undefined) {
+                localVarQueryParameter['count'] = count;
+            }
+
+            if (filters !== undefined) {
+                localVarQueryParameter['filters'] = filters;
+            }
 
 
     
@@ -62916,14 +62936,18 @@ export const WorkflowsBetaApiFp = function(configuration?: Configuration) {
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
-         * This lists the executions for a given workflow. Workflow executions are available for up to 90 days before being archived.
+         * This lists the executions for a given workflow. Workflow executions are available for up to 90 days before being archived. By default, you can get a maximum of 250 executions.  To get executions past the first 250 records, you can do the following:  1. Use the [Get Workflows](https://developer.sailpoint.com/idn/api/beta/list-workflows) endpoint to get your workflows.  2. Get your workflow ID from the response.  3. You can then do either of the following:     - Filter to find relevant workflow executions.   For example, you can filter for failed workflow executions: `GET /workflows/:workflowID/executions?filters=status eq \"Failed\"`    - You can paginate through results with the `offset` parameter.    For example, you can page through 50 executions per page and use that as a way to get to the records past the first 250.    Refer to [Paginating Results](https://developer.sailpoint.com/idn/api/standard-collection-parameters#paginating-results) for more information about the query parameters you can use to achieve pagination. 
          * @summary List Workflow Executions
          * @param {string} id Id of the workflow
+         * @param {number} [limit] Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+         * @param {number} [offset] Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+         * @param {boolean} [count] If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+         * @param {string} [filters] Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **start_time**: *eq, lt, lte, gt, gte*  **status**: *eq*
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async listWorkflowExecutions(id: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<WorkflowExecutionBeta>>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.listWorkflowExecutions(id, axiosOptions);
+        async listWorkflowExecutions(id: string, limit?: number, offset?: number, count?: boolean, filters?: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<WorkflowExecutionBeta>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.listWorkflowExecutions(id, limit, offset, count, filters, axiosOptions);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
@@ -63125,14 +63149,18 @@ export const WorkflowsBetaApiFactory = function (configuration?: Configuration, 
             return localVarFp.listCompleteWorkflowLibrary(limit, offset, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
-         * This lists the executions for a given workflow. Workflow executions are available for up to 90 days before being archived.
+         * This lists the executions for a given workflow. Workflow executions are available for up to 90 days before being archived. By default, you can get a maximum of 250 executions.  To get executions past the first 250 records, you can do the following:  1. Use the [Get Workflows](https://developer.sailpoint.com/idn/api/beta/list-workflows) endpoint to get your workflows.  2. Get your workflow ID from the response.  3. You can then do either of the following:     - Filter to find relevant workflow executions.   For example, you can filter for failed workflow executions: `GET /workflows/:workflowID/executions?filters=status eq \"Failed\"`    - You can paginate through results with the `offset` parameter.    For example, you can page through 50 executions per page and use that as a way to get to the records past the first 250.    Refer to [Paginating Results](https://developer.sailpoint.com/idn/api/standard-collection-parameters#paginating-results) for more information about the query parameters you can use to achieve pagination. 
          * @summary List Workflow Executions
          * @param {string} id Id of the workflow
+         * @param {number} [limit] Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+         * @param {number} [offset] Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+         * @param {boolean} [count] If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+         * @param {string} [filters] Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **start_time**: *eq, lt, lte, gt, gte*  **status**: *eq*
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        listWorkflowExecutions(id: string, axiosOptions?: any): AxiosPromise<Array<WorkflowExecutionBeta>> {
-            return localVarFp.listWorkflowExecutions(id, axiosOptions).then((request) => request(axios, basePath));
+        listWorkflowExecutions(id: string, limit?: number, offset?: number, count?: boolean, filters?: string, axiosOptions?: any): AxiosPromise<Array<WorkflowExecutionBeta>> {
+            return localVarFp.listWorkflowExecutions(id, limit, offset, count, filters, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * This lists the workflow actions available to you.
@@ -63361,6 +63389,34 @@ export interface WorkflowsBetaApiListWorkflowExecutionsRequest {
      * @memberof WorkflowsBetaApiListWorkflowExecutions
      */
     readonly id: string
+
+    /**
+     * Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+     * @type {number}
+     * @memberof WorkflowsBetaApiListWorkflowExecutions
+     */
+    readonly limit?: number
+
+    /**
+     * Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+     * @type {number}
+     * @memberof WorkflowsBetaApiListWorkflowExecutions
+     */
+    readonly offset?: number
+
+    /**
+     * If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+     * @type {boolean}
+     * @memberof WorkflowsBetaApiListWorkflowExecutions
+     */
+    readonly count?: boolean
+
+    /**
+     * Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **start_time**: *eq, lt, lte, gt, gte*  **status**: *eq*
+     * @type {string}
+     * @memberof WorkflowsBetaApiListWorkflowExecutions
+     */
+    readonly filters?: string
 }
 
 /**
@@ -63630,7 +63686,7 @@ export class WorkflowsBetaApi extends BaseAPI {
     }
 
     /**
-     * This lists the executions for a given workflow. Workflow executions are available for up to 90 days before being archived.
+     * This lists the executions for a given workflow. Workflow executions are available for up to 90 days before being archived. By default, you can get a maximum of 250 executions.  To get executions past the first 250 records, you can do the following:  1. Use the [Get Workflows](https://developer.sailpoint.com/idn/api/beta/list-workflows) endpoint to get your workflows.  2. Get your workflow ID from the response.  3. You can then do either of the following:     - Filter to find relevant workflow executions.   For example, you can filter for failed workflow executions: `GET /workflows/:workflowID/executions?filters=status eq \"Failed\"`    - You can paginate through results with the `offset` parameter.    For example, you can page through 50 executions per page and use that as a way to get to the records past the first 250.    Refer to [Paginating Results](https://developer.sailpoint.com/idn/api/standard-collection-parameters#paginating-results) for more information about the query parameters you can use to achieve pagination. 
      * @summary List Workflow Executions
      * @param {WorkflowsBetaApiListWorkflowExecutionsRequest} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
@@ -63638,7 +63694,7 @@ export class WorkflowsBetaApi extends BaseAPI {
      * @memberof WorkflowsBetaApi
      */
     public listWorkflowExecutions(requestParameters: WorkflowsBetaApiListWorkflowExecutionsRequest, axiosOptions?: AxiosRequestConfig) {
-        return WorkflowsBetaApiFp(this.configuration).listWorkflowExecutions(requestParameters.id, axiosOptions).then((request) => request(this.axios, this.basePath));
+        return WorkflowsBetaApiFp(this.configuration).listWorkflowExecutions(requestParameters.id, requestParameters.limit, requestParameters.offset, requestParameters.count, requestParameters.filters, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
