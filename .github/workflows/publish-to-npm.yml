@@ -11,11 +11,13 @@ jobs:
       - uses: actions/setup-node@v3
         with:
           node-version: '16.x'
-          registry-url: 'https://registry.npmjs.org'
       - run: |
           cd sdk-output
           npm ci
           npm run build
-          npm publish
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN_TEST }}
+
+      - id: publish
+        uses: JS-DevTools/npm-publish@v1
+        with:
+          token: ${{ secrets.NPM_TOKEN_TEST }}
+          package: ./sdk-output/package.json
