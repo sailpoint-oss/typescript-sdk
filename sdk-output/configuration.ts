@@ -172,15 +172,15 @@ export class Configuration {
                 config.baseurl = doc.environments[doc.activeenvironment].baseurl
                 config.clientId = doc.environments[doc.activeenvironment].pat.clientid
                 config.clientSecret = doc.environments[doc.activeenvironment].pat.clientsecret
-                config.tokenUrl = doc.environments[doc.activeenvironment].baseurl + '/oauth/token'
             }   
         } catch (error) {
             console.log('unable to find config file')
         }
-        config.baseurl = process.env["BASE_URL"] ? process.env["BASE_URL"] : config.baseurl
-        config.tokenUrl = process.env["TOKEN_URL"] ? process.env["TOKEN_URL"] : config.tokenUrl
-        config.clientId = process.env["CLIENT_ID"] ? process.env["CLIENT_ID"] : config.clientId
-        config.clientSecret = process.env["CLIENT_SECRET"] ? process.env["CLIENT_SECRET"] : config.clientSecret
+        config.baseurl = process.env["SAIL_BASE_URL"] ? process.env["BASE_URL"] : config.baseurl
+        config.clientId = process.env["SAIL_CLIENT_ID"] ? process.env["CLIENT_ID"] : config.clientId
+        config.clientSecret = process.env["SAIL_CLIENT_SECRET"] ? process.env["CLIENT_SECRET"] : config.clientSecret
+
+        config.tokenUrl = config.baseurl + '/oauth/token'
 
         return config
     }
