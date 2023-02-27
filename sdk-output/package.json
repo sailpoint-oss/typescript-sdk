@@ -5,7 +5,7 @@
   "author": "SailPoint DevOps",
   "repository": {
     "type": "git",
-    "url": "https://github.com/sailpoint-oss/sdk-ts.git"
+    "url": "https://github.com/sailpoint-oss/typescript-sdk.git"
   },
   "keywords": [
     "axios",
@@ -18,7 +18,7 @@
     "access": "public"
   },
   "bugs": {
-    "url": "https://github.com/sailpoint-oss/sdk-ts/issues"
+    "url": "https://github.com/sailpoint-oss/typescript-sdk/issues"
   },
   "main": "./dist/index.js",
   "typings": "./dist/index.d.ts",
