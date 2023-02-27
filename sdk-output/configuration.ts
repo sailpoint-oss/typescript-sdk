@@ -14,36 +14,23 @@ export interface ConfigurationParameters {
 }
 
 export interface Configuration {
-    authtype?: "pat" | "oauth";
-    debug?: boolean;
-    pat?: PAT;
+    activeenvironment?:         string;
+    authtype?:                  string;
+    customexporttemplatespath?: string;
+    customsearchtemplatespath?: string;
+    debug?:                     boolean;
+    environments?:              {[key: string]: Environment};
 }
 
-export interface PAT {
-    baseurl?: string;
-    clientid?: string;
-    clientsecret?: string;
-    tenant?: string;
-    token?: Token;
-    tokenurl?: string;
-}
-export interface Token {
-    accesstoken?: string;
-    expiry?: Date;
-}
-export interface Oauth {
-    authurl?: string;
-    baseurl?: string;
-    clientid?: string;
-    clientsecret?: string;
-    redirect?: Redirect;
-    tenant?: string;
-    token?: Token;
+export interface Environment {
+    baseurl:   string;
+    pat:       Pat;
+    tenanturl: string;
 }
 
-export interface Redirect {
-    path?: string;
-    port?: number;
+export interface Pat {
+    clientid:     string;
+    clientsecret: string;
 }
 
 export class Configuration {
@@ -182,10 +169,10 @@ export class Configuration {
             const configPath = path.join(homeDir, '.sailpoint','config.yaml')
             const doc = yaml.load(fs.readFileSync(configPath, 'utf8')) as Configuration
             if (doc.authtype && doc.authtype.toLowerCase() === 'pat') {
-                config.baseurl = doc.pat.baseurl
-                config.clientId = doc.pat.clientid
-                config.clientSecret = doc.pat.clientsecret
-                config.tokenUrl = doc.pat.tokenurl
+                config.baseurl = doc.environments[doc.activeenvironment].baseurl
+                config.clientId = doc.environments[doc.activeenvironment].pat.clientid
+                config.clientSecret = doc.environments[doc.activeenvironment].pat.clientsecret
+                config.tokenUrl = doc.environments[doc.activeenvironment].baseurl + '/oauth/token'
             }   
         } catch (error) {
             console.log('unable to find config file')

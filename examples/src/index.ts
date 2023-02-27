@@ -61,5 +61,25 @@ const getPaginatedAccounts = async () => {
 }
 
 
+const getPaginatedTransforms = async () => {
 
-search()
+    
+    let apiConfig = new Configuration()
+    apiConfig.retriesConfig = {
+        retries: 4,
+        retryDelay: axiosRetry.exponentialDelay,
+        onRetry(retryCount, error, requestConfig) {
+            console.log(`retrying due to request error, try number ${retryCount}`)
+        },
+    }
+    let api = new TransformsApi(apiConfig)
+    
+    const val = await Paginator.paginate(api, api.listTransforms, {limit: 250}, 100)
+
+    console.log(val.data.length)
+
+}
+
+
+
+getPaginatedTransforms()
