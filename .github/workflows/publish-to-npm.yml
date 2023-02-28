@@ -19,5 +19,5 @@ jobs:
       - id: publish
         uses: JS-DevTools/npm-publish@v1
         with:
-          token: ${{ secrets.NPM_TOKEN_TEST }}
+          token: ${{ secrets.NPM_TOKEN }}
           package: ./sdk-output/package.json
