@@ -47920,10 +47920,11 @@ export const PersonalAccessTokensBetaApiAxiosParamCreator = function (configurat
          * This gets a collection of personal access tokens associated with the optional `owner-id`.  query parameter. If the `owner-id` query parameter is omitted, all personal access tokens  for a tenant will be retrieved, but the caller must have the \'idn:all-personal-access-tokens:read\' right.
          * @summary List Personal Access Tokens
          * @param {string} [ownerId] The identity ID of the owner whose personal access tokens should be listed.  If \&quot;me\&quot;, the caller should have the following right: \&#39;idn:my-personal-access-tokens:read\&#39; If an actual owner ID or if the &#x60;owner-id&#x60; parameter is omitted in the request,  the caller should have the following right: \&#39;idn:all-personal-access-tokens:read\&#39;.  If the caller has the following right, then managed personal access tokens associated with &#x60;owner-id&#x60; will be retrieved: \&#39;idn:managed-personal-access-tokens:read\&#39;
+         * @param {string} [filters] Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **lastUsed**: *le, isnull*
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        listPersonalAccessTokens: async (ownerId?: string, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        listPersonalAccessTokens: async (ownerId?: string, filters?: string, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             const localVarPath = `/personal-access-tokens`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -47946,6 +47947,10 @@ export const PersonalAccessTokensBetaApiAxiosParamCreator = function (configurat
 
             if (ownerId !== undefined) {
                 localVarQueryParameter['owner-id'] = ownerId;
+            }
+
+            if (filters !== undefined) {
+                localVarQueryParameter['filters'] = filters;
             }
 
 
@@ -48043,11 +48048,12 @@ export const PersonalAccessTokensBetaApiFp = function(configuration?: Configurat
          * This gets a collection of personal access tokens associated with the optional `owner-id`.  query parameter. If the `owner-id` query parameter is omitted, all personal access tokens  for a tenant will be retrieved, but the caller must have the \'idn:all-personal-access-tokens:read\' right.
          * @summary List Personal Access Tokens
          * @param {string} [ownerId] The identity ID of the owner whose personal access tokens should be listed.  If \&quot;me\&quot;, the caller should have the following right: \&#39;idn:my-personal-access-tokens:read\&#39; If an actual owner ID or if the &#x60;owner-id&#x60; parameter is omitted in the request,  the caller should have the following right: \&#39;idn:all-personal-access-tokens:read\&#39;.  If the caller has the following right, then managed personal access tokens associated with &#x60;owner-id&#x60; will be retrieved: \&#39;idn:managed-personal-access-tokens:read\&#39;
+         * @param {string} [filters] Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **lastUsed**: *le, isnull*
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async listPersonalAccessTokens(ownerId?: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<GetPersonalAccessTokenResponseBeta>>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.listPersonalAccessTokens(ownerId, axiosOptions);
+        async listPersonalAccessTokens(ownerId?: string, filters?: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<GetPersonalAccessTokenResponseBeta>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.listPersonalAccessTokens(ownerId, filters, axiosOptions);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
@@ -48096,11 +48102,12 @@ export const PersonalAccessTokensBetaApiFactory = function (configuration?: Conf
          * This gets a collection of personal access tokens associated with the optional `owner-id`.  query parameter. If the `owner-id` query parameter is omitted, all personal access tokens  for a tenant will be retrieved, but the caller must have the \'idn:all-personal-access-tokens:read\' right.
          * @summary List Personal Access Tokens
          * @param {string} [ownerId] The identity ID of the owner whose personal access tokens should be listed.  If \&quot;me\&quot;, the caller should have the following right: \&#39;idn:my-personal-access-tokens:read\&#39; If an actual owner ID or if the &#x60;owner-id&#x60; parameter is omitted in the request,  the caller should have the following right: \&#39;idn:all-personal-access-tokens:read\&#39;.  If the caller has the following right, then managed personal access tokens associated with &#x60;owner-id&#x60; will be retrieved: \&#39;idn:managed-personal-access-tokens:read\&#39;
+         * @param {string} [filters] Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **lastUsed**: *le, isnull*
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        listPersonalAccessTokens(ownerId?: string, axiosOptions?: any): AxiosPromise<Array<GetPersonalAccessTokenResponseBeta>> {
-            return localVarFp.listPersonalAccessTokens(ownerId, axiosOptions).then((request) => request(axios, basePath));
+        listPersonalAccessTokens(ownerId?: string, filters?: string, axiosOptions?: any): AxiosPromise<Array<GetPersonalAccessTokenResponseBeta>> {
+            return localVarFp.listPersonalAccessTokens(ownerId, filters, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * This performs a targeted update to the field(s) of a Personal Access Token.
@@ -48156,6 +48163,13 @@ export interface PersonalAccessTokensBetaApiListPersonalAccessTokensRequest {
      * @memberof PersonalAccessTokensBetaApiListPersonalAccessTokens
      */
     readonly ownerId?: string
+
+    /**
+     * Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **lastUsed**: *le, isnull*
+     * @type {string}
+     * @memberof PersonalAccessTokensBetaApiListPersonalAccessTokens
+     */
+    readonly filters?: string
 }
 
 /**
@@ -48219,7 +48233,7 @@ export class PersonalAccessTokensBetaApi extends BaseAPI {
      * @memberof PersonalAccessTokensBetaApi
      */
     public listPersonalAccessTokens(requestParameters: PersonalAccessTokensBetaApiListPersonalAccessTokensRequest = {}, axiosOptions?: AxiosRequestConfig) {
-        return PersonalAccessTokensBetaApiFp(this.configuration).listPersonalAccessTokens(requestParameters.ownerId, axiosOptions).then((request) => request(this.axios, this.basePath));
+        return PersonalAccessTokensBetaApiFp(this.configuration).listPersonalAccessTokens(requestParameters.ownerId, requestParameters.filters, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
