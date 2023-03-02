@@ -78,6 +78,171 @@ export interface AccessAllOf {
     'description'?: string | null;
 }
 /**
+ * 
+ * @export
+ * @interface AccessProfile
+ */
+export interface AccessProfile {
+    /**
+     * The ID of the Access Profile
+     * @type {string}
+     * @memberof AccessProfile
+     */
+    'id'?: string;
+    /**
+     * Name of the Access Profile
+     * @type {string}
+     * @memberof AccessProfile
+     */
+    'name': string;
+    /**
+     * Information about the Access Profile
+     * @type {string}
+     * @memberof AccessProfile
+     */
+    'description'?: string | null;
+    /**
+     * Date the Access Profile was created
+     * @type {string}
+     * @memberof AccessProfile
+     */
+    'created'?: string;
+    /**
+     * Date the Access Profile was last modified.
+     * @type {string}
+     * @memberof AccessProfile
+     */
+    'modified'?: string;
+    /**
+     * Whether the Access Profile is enabled. If the Access Profile is enabled then you must include at least one Entitlement.
+     * @type {boolean}
+     * @memberof AccessProfile
+     */
+    'enabled'?: boolean;
+    /**
+     * 
+     * @type {OwnerReference}
+     * @memberof AccessProfile
+     */
+    'owner': OwnerReference;
+    /**
+     * 
+     * @type {AccessProfileSourceRef}
+     * @memberof AccessProfile
+     */
+    'source': AccessProfileSourceRef;
+    /**
+     * A list of entitlements associated with the Access Profile. If enabled is false this is allowed to be empty otherwise it needs to contain at least one Entitlement.
+     * @type {Array<EntitlementRef>}
+     * @memberof AccessProfile
+     */
+    'entitlements'?: Array<EntitlementRef>;
+    /**
+     * Whether the Access Profile is requestable via access request. Currently, making an Access Profile non-requestable is only supported  for customers enabled with the new Request Center. Otherwise, attempting to create an Access Profile with a value  **false** in this field results in a 400 error.
+     * @type {boolean}
+     * @memberof AccessProfile
+     */
+    'requestable'?: boolean;
+    /**
+     * 
+     * @type {Requestability}
+     * @memberof AccessProfile
+     */
+    'accessRequestConfig'?: Requestability;
+    /**
+     * 
+     * @type {Revocability}
+     * @memberof AccessProfile
+     */
+    'revocationRequestConfig'?: Revocability;
+    /**
+     * List of IDs of segments, if any, to which this Access Profile is assigned.
+     * @type {Array<string>}
+     * @memberof AccessProfile
+     */
+    'segments'?: Array<string> | null;
+    /**
+     * 
+     * @type {ProvisioningCriteriaLevel1}
+     * @memberof AccessProfile
+     */
+    'provisioningCriteria'?: ProvisioningCriteriaLevel1 | null;
+}
+/**
+ * 
+ * @export
+ * @interface AccessProfileApprovalScheme
+ */
+export interface AccessProfileApprovalScheme {
+    /**
+     * Describes the individual or group that is responsible for an approval step. Values are as follows. **APP_OWNER**: The owner of the Application  **OWNER**: Owner of the associated Access Profile or Role  **SOURCE_OWNER**: Owner of the Source associated with an Access Profile  **MANAGER**: Manager of the Identity making the request  **GOVERNANCE_GROUP**: A Governance Group, the ID of which is specified by the **approverId** field
+     * @type {string}
+     * @memberof AccessProfileApprovalScheme
+     */
+    'approverType'?: AccessProfileApprovalSchemeApproverTypeEnum;
+    /**
+     * Id of the specific approver, used only when approverType is GOVERNANCE_GROUP
+     * @type {string}
+     * @memberof AccessProfileApprovalScheme
+     */
+    'approverId'?: string | null;
+}
+
+export const AccessProfileApprovalSchemeApproverTypeEnum = {
+    AppOwner: 'APP_OWNER',
+    Owner: 'OWNER',
+    SourceOwner: 'SOURCE_OWNER',
+    Manager: 'MANAGER',
+    GovernanceGroup: 'GOVERNANCE_GROUP'
+} as const;
+
+export type AccessProfileApprovalSchemeApproverTypeEnum = typeof AccessProfileApprovalSchemeApproverTypeEnum[keyof typeof AccessProfileApprovalSchemeApproverTypeEnum];
+
+/**
+ * 
+ * @export
+ * @interface AccessProfileBulkDeleteRequest
+ */
+export interface AccessProfileBulkDeleteRequest {
+    /**
+     * List of IDs of Access Profiles to be deleted.
+     * @type {Array<string>}
+     * @memberof AccessProfileBulkDeleteRequest
+     */
+    'accessProfileIds'?: Array<string>;
+    /**
+     * If **true**, silently skip over any of the specified Access Profiles if they cannot be deleted because they are in use. If **false**, no deletions will be attempted if any of the Access Profiles are in use.
+     * @type {boolean}
+     * @memberof AccessProfileBulkDeleteRequest
+     */
+    'bestEffortOnly'?: boolean;
+}
+/**
+ * 
+ * @export
+ * @interface AccessProfileBulkDeleteResponse
+ */
+export interface AccessProfileBulkDeleteResponse {
+    /**
+     * ID of the task which is executing the bulk deletion. This can be passed to the **_/task-status** API to track status.
+     * @type {string}
+     * @memberof AccessProfileBulkDeleteResponse
+     */
+    'taskId'?: string;
+    /**
+     * List of IDs of Access Profiles which are pending deletion.
+     * @type {Array<string>}
+     * @memberof AccessProfileBulkDeleteResponse
+     */
+    'pending'?: Array<string>;
+    /**
+     * List of usages of Access Profiles targeted for deletion.
+     * @type {Array<AccessProfileUsage>}
+     * @memberof AccessProfileBulkDeleteResponse
+     */
+    'inUse'?: Array<AccessProfileUsage>;
+}
+/**
  * This is more of a complete representation of an access profile.  
  * @export
  * @interface AccessProfileDocument
@@ -273,6 +438,38 @@ export interface AccessProfileEntitlement {
     'standalone'?: boolean;
 }
 /**
+ * 
+ * @export
+ * @interface AccessProfileRef
+ */
+export interface AccessProfileRef {
+    /**
+     * ID of the Access Profile
+     * @type {string}
+     * @memberof AccessProfileRef
+     */
+    'id'?: string;
+    /**
+     * Type of requested object. This field must be either left null or set to \'ACCESS_PROFILE\' when creating an Access Profile, otherwise a 400 Bad Request error will result.
+     * @type {string}
+     * @memberof AccessProfileRef
+     */
+    'type'?: AccessProfileRefTypeEnum;
+    /**
+     * Human-readable display name of the Access Profile. This field is ignored on input.
+     * @type {string}
+     * @memberof AccessProfileRef
+     */
+    'name'?: string;
+}
+
+export const AccessProfileRefTypeEnum = {
+    AccessProfile: 'ACCESS_PROFILE'
+} as const;
+
+export type AccessProfileRefTypeEnum = typeof AccessProfileRefTypeEnum[keyof typeof AccessProfileRefTypeEnum];
+
+/**
  * Role
  * @export
  * @interface AccessProfileRole
@@ -327,6 +524,38 @@ export interface AccessProfileRole {
      */
     'revocable'?: boolean;
 }
+/**
+ * 
+ * @export
+ * @interface AccessProfileSourceRef
+ */
+export interface AccessProfileSourceRef {
+    /**
+     * The ID of the Source with with which the Access Profile is associated
+     * @type {string}
+     * @memberof AccessProfileSourceRef
+     */
+    'id'?: string;
+    /**
+     * The type of the Source, will always be SOURCE
+     * @type {string}
+     * @memberof AccessProfileSourceRef
+     */
+    'type'?: AccessProfileSourceRefTypeEnum;
+    /**
+     * The display name of the associated Source
+     * @type {string}
+     * @memberof AccessProfileSourceRef
+     */
+    'name'?: string;
+}
+
+export const AccessProfileSourceRefTypeEnum = {
+    Source: 'SOURCE'
+} as const;
+
+export type AccessProfileSourceRefTypeEnum = typeof AccessProfileSourceRefTypeEnum[keyof typeof AccessProfileSourceRefTypeEnum];
+
 /**
  * This is a summary representation of an access profile.
  * @export
@@ -406,6 +635,25 @@ export interface AccessProfileSummaryAllOf {
      * @memberof AccessProfileSummaryAllOf
      */
     'revocable'?: boolean;
+}
+/**
+ * 
+ * @export
+ * @interface AccessProfileUsage
+ */
+export interface AccessProfileUsage {
+    /**
+     * ID of the Access Profile that is in use
+     * @type {string}
+     * @memberof AccessProfileUsage
+     */
+    'accessProfileId'?: string;
+    /**
+     * List of references to objects which are using the indicated Access Profile
+     * @type {Array<BaseReferenceDto>}
+     * @memberof AccessProfileUsage
+     */
+    'usedBy'?: Array<BaseReferenceDto>;
 }
 /**
  * 
@@ -2542,6 +2790,34 @@ export type ApprovalScheme = typeof ApprovalScheme[keyof typeof ApprovalScheme];
 
 
 /**
+ * 
+ * @export
+ * @interface ApprovalSchemeForRole
+ */
+export interface ApprovalSchemeForRole {
+    /**
+     * Describes the individual or group that is responsible for an approval step. Values are as follows.  **OWNER**: Owner of the associated Role  **MANAGER**: Manager of the Identity making the request  **GOVERNANCE_GROUP**: A Governance Group, the ID of which is specified by the **approverId** field
+     * @type {string}
+     * @memberof ApprovalSchemeForRole
+     */
+    'approverType'?: ApprovalSchemeForRoleApproverTypeEnum;
+    /**
+     * Id of the specific approver, used only when approverType is GOVERNANCE_GROUP
+     * @type {string}
+     * @memberof ApprovalSchemeForRole
+     */
+    'approverId'?: string | null;
+}
+
+export const ApprovalSchemeForRoleApproverTypeEnum = {
+    Owner: 'OWNER',
+    Manager: 'MANAGER',
+    GovernanceGroup: 'GOVERNANCE_GROUP'
+} as const;
+
+export type ApprovalSchemeForRoleApproverTypeEnum = typeof ApprovalSchemeForRoleApproverTypeEnum[keyof typeof ApprovalSchemeForRoleApproverTypeEnum];
+
+/**
  * Enum representing the non-employee request approval status
  * @export
  * @enum {string}
@@ -3973,32 +4249,6 @@ export interface Conditional {
 /**
  * 
  * @export
- * @interface CreateAccessRequest401Response
- */
-export interface CreateAccessRequest401Response {
-    /**
-     * A message describing the error
-     * @type {object}
-     * @memberof CreateAccessRequest401Response
-     */
-    'error'?: object;
-}
-/**
- * 
- * @export
- * @interface CreateAccessRequest429Response
- */
-export interface CreateAccessRequest429Response {
-    /**
-     * A message describing the error
-     * @type {object}
-     * @memberof CreateAccessRequest429Response
-     */
-    'message'?: object;
-}
-/**
- * 
- * @export
  * @interface CreateOAuthClientRequest
  */
 export interface CreateOAuthClientRequest {
@@ -4782,6 +5032,97 @@ export interface EmailNotificationOption {
     'emailAddressList'?: Array<string>;
 }
 /**
+ * 
+ * @export
+ * @interface Entitlement
+ */
+export interface Entitlement {
+    /**
+     * The entitlement id
+     * @type {string}
+     * @memberof Entitlement
+     */
+    'id'?: string;
+    /**
+     * The entitlement name
+     * @type {string}
+     * @memberof Entitlement
+     */
+    'name'?: string;
+    /**
+     * The entitlement attribute name
+     * @type {string}
+     * @memberof Entitlement
+     */
+    'attribute'?: string;
+    /**
+     * The value of the entitlement
+     * @type {string}
+     * @memberof Entitlement
+     */
+    'value'?: string;
+    /**
+     * The object type of the entitlement from the source schema
+     * @type {string}
+     * @memberof Entitlement
+     */
+    'sourceSchemaObjectType'?: string;
+    /**
+     * The description of the entitlement
+     * @type {string}
+     * @memberof Entitlement
+     */
+    'description'?: string;
+    /**
+     * True if the entitlement is privileged
+     * @type {boolean}
+     * @memberof Entitlement
+     */
+    'privileged'?: boolean;
+    /**
+     * True if the entitlement is cloud governed
+     * @type {boolean}
+     * @memberof Entitlement
+     */
+    'cloudGoverned'?: boolean;
+    /**
+     * Time when the entitlement was created
+     * @type {string}
+     * @memberof Entitlement
+     */
+    'created'?: string;
+    /**
+     * Time when the entitlement was last modified
+     * @type {string}
+     * @memberof Entitlement
+     */
+    'modified'?: string;
+    /**
+     * 
+     * @type {EntitlementSource}
+     * @memberof Entitlement
+     */
+    'source'?: EntitlementSource;
+    /**
+     * A map of free-form key-value pairs from the source system
+     * @type {{ [key: string]: any; }}
+     * @memberof Entitlement
+     */
+    'attributes'?: { [key: string]: any; };
+    /**
+     * List of IDs of segments, if any, to which this Entitlement is assigned.
+     * @type {Array<string>}
+     * @memberof Entitlement
+     */
+    'segments'?: Array<string> | null;
+    /**
+     * 
+     * @type {Array<PermissionDto>}
+     * @memberof Entitlement
+     */
+    'directPermissions'?: Array<PermissionDto>;
+}
+/**
  * Entitlement
  * @export
  * @interface EntitlementDocument
@@ -5052,6 +5393,38 @@ export interface EntitlementDtoAllOf {
 /**
  * 
  * @export
+ * @interface EntitlementRef
+ */
+export interface EntitlementRef {
+    /**
+     * The ID of the Entitlement
+     * @type {string}
+     * @memberof EntitlementRef
+     */
+    'id'?: string;
+    /**
+     * The type of the Entitlement, will always be ENTITLEMENT
+     * @type {string}
+     * @memberof EntitlementRef
+     */
+    'type'?: EntitlementRefTypeEnum;
+    /**
+     * The display name of the Entitlement
+     * @type {string}
+     * @memberof EntitlementRef
+     */
+    'name'?: string;
+}
+
+export const EntitlementRefTypeEnum = {
+    Entitlement: 'ENTITLEMENT'
+} as const;
+
+export type EntitlementRefTypeEnum = typeof EntitlementRefTypeEnum[keyof typeof EntitlementRefTypeEnum];
+
+/**
+ * 
+ * @export
  * @interface EntitlementRequestConfig
  */
 export interface EntitlementRequestConfig {
@@ -5079,6 +5452,31 @@ export interface EntitlementRequestConfig {
      * @memberof EntitlementRequestConfig
      */
     'grantRequestApprovalSchemes'?: string;
+}
+/**
+ * 
+ * @export
+ * @interface EntitlementSource
+ */
+export interface EntitlementSource {
+    /**
+     * The source ID
+     * @type {string}
+     * @memberof EntitlementSource
+     */
+    'id'?: string;
+    /**
+     * The source type, will always be \"SOURCE\"
+     * @type {string}
+     * @memberof EntitlementSource
+     */
+    'type'?: string;
+    /**
+     * The source name
+     * @type {string}
+     * @memberof EntitlementSource
+     */
+    'name'?: string;
 }
 /**
  * EntitlementReference
@@ -7457,6 +7855,32 @@ export interface LifecycleStateAllOf {
     'accessProfileIds'?: Set<string>;
 }
 /**
+ * 
+ * @export
+ * @interface ListAccessProfiles401Response
+ */
+export interface ListAccessProfiles401Response {
+    /**
+     * A message describing the error
+     * @type {object}
+     * @memberof ListAccessProfiles401Response
+     */
+    'error'?: object;
+}
+/**
+ * 
+ * @export
+ * @interface ListAccessProfiles429Response
+ */
+export interface ListAccessProfiles429Response {
+    /**
+     * A message describing the error
+     * @type {object}
+     * @memberof ListAccessProfiles429Response
+     */
+    'message'?: object;
+}
+/**
  * An indicator of how the locale was selected. *DEFAULT* means the locale is the system default. *REQUEST* means the locale was selected from the request context (i.e., best match based on the *Accept-Language* header). Additional values may be added in the future without notice.
  * @export
  * @enum {string}
@@ -9304,6 +9728,31 @@ export interface OwnerAllOf {
     'email'?: string;
 }
 /**
+ * The owner of this object.
+ * @export
+ * @interface OwnerReference
+ */
+export interface OwnerReference {
+    /**
+     * 
+     * @type {DtoType}
+     * @memberof OwnerReference
+     */
+    'type'?: DtoType;
+    /**
+     * Identity id
+     * @type {string}
+     * @memberof OwnerReference
+     */
+    'id'?: string;
+    /**
+     * Human-readable display name of the owner. It may be left null or omitted in a POST or PATCH. If set, it must match the current value of the owner\'s display name, otherwise a 400 Bad Request error will result.
+     * @type {string}
+     * @memberof OwnerReference
+     */
+    'name'?: string;
+}
+/**
  * 
  * @export
  * @interface Owns
@@ -9675,6 +10124,25 @@ export type PendingApprovalAction = typeof PendingApprovalAction[keyof typeof Pe
 
 
 /**
+ * Simplified DTO for the Permission objects stored in SailPoint\'s database. The data is aggregated from customer systems and is free-form, so its appearance can vary largely between different clients/customers.
+ * @export
+ * @interface PermissionDto
+ */
+export interface PermissionDto {
+    /**
+     * All the rights (e.g. actions) that this permission allows on the target
+     * @type {Array<string>}
+     * @memberof PermissionDto
+     */
+    'rights'?: Array<string>;
+    /**
+     * The target the permission would grants rights on.
+     * @type {string}
+     * @memberof PermissionDto
+     */
+    'target'?: string;
+}
+/**
  * Provides additional details about the pre-approval trigger for this request.
  * @export
  * @interface PreApprovalTriggerDetails
@@ -9814,6 +10282,111 @@ export interface ProvisioningConfigPlanInitializerScript {
      */
     'source'?: string;
 }
+/**
+ * Defines matching criteria for an Account to be provisioned with a specific Access Profile
+ * @export
+ * @interface ProvisioningCriteriaLevel1
+ */
+export interface ProvisioningCriteriaLevel1 {
+    /**
+     * 
+     * @type {ProvisioningCriteriaOperation}
+     * @memberof ProvisioningCriteriaLevel1
+     */
+    'operation'?: ProvisioningCriteriaOperation;
+    /**
+     * Name of the Account attribute to be tested. If **operation** is one of EQUALS, NOT_EQUALS, CONTAINS, or HAS, this field is required. Otherwise, specifying it is an error.
+     * @type {string}
+     * @memberof ProvisioningCriteriaLevel1
+     */
+    'attribute'?: string | null;
+    /**
+     * String value to test the Account attribute w/r/t the specified operation. If the operation is one of EQUALS, NOT_EQUALS, or CONTAINS, this field is required. Otherwise, specifying it is an error. If the Attribute is not String-typed, it will be converted to the appropriate type.
+     * @type {string}
+     * @memberof ProvisioningCriteriaLevel1
+     */
+    'value'?: string | null;
+    /**
+     * Array of child criteria. Required if the operation is AND or OR, otherwise it must be left null. A maximum of three levels of criteria are supported, including leaf nodes.
+     * @type {Array<ProvisioningCriteriaLevel2>}
+     * @memberof ProvisioningCriteriaLevel1
+     */
+    'children'?: Array<ProvisioningCriteriaLevel2> | null;
+}
+/**
+ * Defines matching criteria for an Account to be provisioned with a specific Access Profile
+ * @export
+ * @interface ProvisioningCriteriaLevel2
+ */
+export interface ProvisioningCriteriaLevel2 {
+    /**
+     * 
+     * @type {ProvisioningCriteriaOperation}
+     * @memberof ProvisioningCriteriaLevel2
+     */
+    'operation'?: ProvisioningCriteriaOperation;
+    /**
+     * Name of the Account attribute to be tested. If **operation** is one of EQUALS, NOT_EQUALS, CONTAINS, or HAS, this field is required. Otherwise, specifying it is an error.
+     * @type {string}
+     * @memberof ProvisioningCriteriaLevel2
+     */
+    'attribute'?: string | null;
+    /**
+     * String value to test the Account attribute w/r/t the specified operation. If the operation is one of EQUALS, NOT_EQUALS, or CONTAINS, this field is required. Otherwise, specifying it is an error. If the Attribute is not String-typed, it will be converted to the appropriate type.
+     * @type {string}
+     * @memberof ProvisioningCriteriaLevel2
+     */
+    'value'?: string | null;
+    /**
+     * Array of child criteria. Required if the operation is AND or OR, otherwise it must be left null. A maximum of three levels of criteria are supported, including leaf nodes.
+     * @type {Array<ProvisioningCriteriaLevel3>}
+     * @memberof ProvisioningCriteriaLevel2
+     */
+    'children'?: Array<ProvisioningCriteriaLevel3> | null;
+}
+/**
+ * Defines matching criteria for an Account to be provisioned with a specific Access Profile
+ * @export
+ * @interface ProvisioningCriteriaLevel3
+ */
+export interface ProvisioningCriteriaLevel3 {
+    /**
+     * 
+     * @type {ProvisioningCriteriaOperation}
+     * @memberof ProvisioningCriteriaLevel3
+     */
+    'operation'?: ProvisioningCriteriaOperation;
+    /**
+     * Name of the Account attribute to be tested. If **operation** is one of EQUALS, NOT_EQUALS, CONTAINS, or HAS, this field is required. Otherwise, specifying it is an error.
+     * @type {string}
+     * @memberof ProvisioningCriteriaLevel3
+     */
+    'attribute'?: string | null;
+    /**
+     * String value to test the Account attribute w/r/t the specified operation. If the operation is one of EQUALS, NOT_EQUALS, or CONTAINS, this field is required. Otherwise, specifying it is an error. If the Attribute is not String-typed, it will be converted to the appropriate type.
+     * @type {string}
+     * @memberof ProvisioningCriteriaLevel3
+     */
+    'value'?: string;
+}
+/**
+ * Supported operations on ProvisioningCriteria
+ * @export
+ * @enum {string}
+ */
+
+export const ProvisioningCriteriaOperation = {
+    Equals: 'EQUALS',
+    NotEquals: 'NOT_EQUALS',
+    Contains: 'CONTAINS',
+    Has: 'HAS',
+    And: 'AND',
+    Or: 'OR'
+} as const;
+
+export type ProvisioningCriteriaOperation = typeof ProvisioningCriteriaOperation[keyof typeof ProvisioningCriteriaOperation];
+
+
 /**
  * Provides additional details about provisioning for this request.
  * @export
@@ -10468,6 +11041,56 @@ export interface RequestOnBehalfOfConfig {
      * @memberof RequestOnBehalfOfConfig
      */
     'allowRequestOnBehalfOfEmployeeByManager'?: boolean;
+}
+/**
+ * 
+ * @export
+ * @interface Requestability
+ */
+export interface Requestability {
+    /**
+     * Whether the requester of the containing object must provide comments justifying the request
+     * @type {boolean}
+     * @memberof Requestability
+     */
+    'commentsRequired'?: boolean;
+    /**
+     * Whether an approver must provide comments when denying the request
+     * @type {boolean}
+     * @memberof Requestability
+     */
+    'denialCommentsRequired'?: boolean;
+    /**
+     * List describing the steps in approving the request
+     * @type {Array<AccessProfileApprovalScheme>}
+     * @memberof Requestability
+     */
+    'approvalSchemes'?: Array<AccessProfileApprovalScheme>;
+}
+/**
+ * 
+ * @export
+ * @interface RequestabilityForRole
+ */
+export interface RequestabilityForRole {
+    /**
+     * Whether the requester of the containing object must provide comments justifying the request
+     * @type {boolean}
+     * @memberof RequestabilityForRole
+     */
+    'commentsRequired'?: boolean;
+    /**
+     * Whether an approver must provide comments when denying the request
+     * @type {boolean}
+     * @memberof RequestabilityForRole
+     */
+    'denialCommentsRequired'?: boolean;
+    /**
+     * List describing the steps in approving the request
+     * @type {Array<ApprovalSchemeForRole>}
+     * @memberof RequestabilityForRole
+     */
+    'approvalSchemes'?: Array<ApprovalSchemeForRole>;
 }
 /**
  * 
@@ -11201,6 +11824,19 @@ export type ReviewerTypeEnum = typeof ReviewerTypeEnum[keyof typeof ReviewerType
 /**
  * 
  * @export
+ * @interface Revocability
+ */
+export interface Revocability {
+    /**
+     * List describing the steps in approving the revocation request
+     * @type {Array<AccessProfileApprovalScheme>}
+     * @memberof Revocability
+     */
+    'approvalSchemes'?: Array<AccessProfileApprovalScheme>;
+}
+/**
+ * 
+ * @export
  * @interface RightPad
  */
 export interface RightPad {
@@ -11229,6 +11865,257 @@ export interface RightPad {
      */
     'input'?: { [key: string]: any; };
 }
+/**
+ * A Role
+ * @export
+ * @interface Role
+ */
+export interface Role {
+    /**
+     * The id of the Role. This field must be left null when creating an Role, otherwise a 400 Bad Request error will result.
+     * @type {string}
+     * @memberof Role
+     */
+    'id'?: string;
+    /**
+     * The human-readable display name of the Role
+     * @type {string}
+     * @memberof Role
+     */
+    'name': string;
+    /**
+     * Date the Role was created
+     * @type {string}
+     * @memberof Role
+     */
+    'created'?: string;
+    /**
+     * Date the Role was last modified.
+     * @type {string}
+     * @memberof Role
+     */
+    'modified'?: string;
+    /**
+     * A human-readable description of the Role
+     * @type {string}
+     * @memberof Role
+     */
+    'description'?: string | null;
+    /**
+     * 
+     * @type {OwnerReference}
+     * @memberof Role
+     */
+    'owner': OwnerReference;
+    /**
+     * 
+     * @type {Array<AccessProfileRef>}
+     * @memberof Role
+     */
+    'accessProfiles'?: Array<AccessProfileRef> | null;
+    /**
+     * 
+     * @type {RoleMembershipSelector}
+     * @memberof Role
+     */
+    'membership'?: RoleMembershipSelector | null;
+    /**
+     * This field is not directly modifiable and is generally expected to be *null*. In very rare instances, some Roles may have been created using membership selection criteria that are no longer fully supported. While these Roles will still work, they should be migrated to STANDARD or IDENTITY_LIST selection criteria. This field exists for informational purposes as an aid to such migration.
+     * @type {{ [key: string]: any; }}
+     * @memberof Role
+     */
+    'legacyMembershipInfo'?: { [key: string]: any; } | null;
+    /**
+     * Whether the Role is enabled or not. This field is false by default.
+     * @type {boolean}
+     * @memberof Role
+     */
+    'enabled'?: boolean;
+    /**
+     * Whether the Role can be the target of Access Requests. This field is false by default.
+     * @type {boolean}
+     * @memberof Role
+     */
+    'requestable'?: boolean;
+    /**
+     * 
+     * @type {RequestabilityForRole}
+     * @memberof Role
+     */
+    'accessRequestConfig'?: RequestabilityForRole;
+    /**
+     * 
+     * @type {Revocability}
+     * @memberof Role
+     */
+    'revocationRequestConfig'?: Revocability;
+    /**
+     * List of IDs of segments, if any, to which this Role is assigned.
+     * @type {Array<string>}
+     * @memberof Role
+     */
+    'segments'?: Array<string> | null;
+}
+/**
+ * Type which indicates how a particular Identity obtained a particular Role
+ * @export
+ * @enum {string}
+ */
+
+export const RoleAssignmentSourceType = {
+    AccessRequest: 'ACCESS_REQUEST',
+    RoleMembership: 'ROLE_MEMBERSHIP'
+} as const;
+
+export type RoleAssignmentSourceType = typeof RoleAssignmentSourceType[keyof typeof RoleAssignmentSourceType];
+
+
+/**
+ * Refers to a specific Identity attribute, Account attibute, or Entitlement used in Role membership criteria
+ * @export
+ * @interface RoleCriteriaKey
+ */
+export interface RoleCriteriaKey {
+    /**
+     * 
+     * @type {RoleCriteriaKeyType}
+     * @memberof RoleCriteriaKey
+     */
+    'type': RoleCriteriaKeyType;
+    /**
+     * The name of the attribute or entitlement to which the associated criteria applies.
+     * @type {string}
+     * @memberof RoleCriteriaKey
+     */
+    'property': string;
+    /**
+     * ID of the Source from which an account attribute or entitlement is drawn. Required if type is ACCOUNT or ENTITLEMENT
+     * @type {string}
+     * @memberof RoleCriteriaKey
+     */
+    'sourceId'?: string | null;
+}
+/**
+ * Indicates whether the associated criteria represents an expression on identity attributes, account attributes, or entitlements, respectively.
+ * @export
+ * @enum {string}
+ */
+
+export const RoleCriteriaKeyType = {
+    Identity: 'IDENTITY',
+    Account: 'ACCOUNT',
+    Entitlement: 'ENTITLEMENT'
+} as const;
+
+export type RoleCriteriaKeyType = typeof RoleCriteriaKeyType[keyof typeof RoleCriteriaKeyType];
+
+
+/**
+ * Defines STANDARD type Role membership
+ * @export
+ * @interface RoleCriteriaLevel1
+ */
+export interface RoleCriteriaLevel1 {
+    /**
+     * 
+     * @type {RoleCriteriaOperation}
+     * @memberof RoleCriteriaLevel1
+     */
+    'operation'?: RoleCriteriaOperation;
+    /**
+     * 
+     * @type {RoleCriteriaKey}
+     * @memberof RoleCriteriaLevel1
+     */
+    'key'?: RoleCriteriaKey | null;
+    /**
+     * String value to test the Identity attribute, Account attribute, or Entitlement specified in the key w/r/t the specified operation. If this criteria is a leaf node, that is, if the operation is one of EQUALS, NOT_EQUALS, CONTAINS, STARTS_WITH, or ENDS_WITH, this field is required. Otherwise, specifying it is an error.
+     * @type {string}
+     * @memberof RoleCriteriaLevel1
+     */
+    'stringValue'?: string | null;
+    /**
+     * Array of child criteria. Required if the operation is AND or OR, otherwise it must be left null. A maximum of three levels of criteria are supported, including leaf nodes. Additionally, AND nodes can only be children or OR nodes and vice-versa.
+     * @type {Array<RoleCriteriaLevel2>}
+     * @memberof RoleCriteriaLevel1
+     */
+    'children'?: Array<RoleCriteriaLevel2> | null;
+}
+/**
+ * Defines STANDARD type Role membership
+ * @export
+ * @interface RoleCriteriaLevel2
+ */
+export interface RoleCriteriaLevel2 {
+    /**
+     * 
+     * @type {RoleCriteriaOperation}
+     * @memberof RoleCriteriaLevel2
+     */
+    'operation'?: RoleCriteriaOperation;
+    /**
+     * 
+     * @type {RoleCriteriaKey}
+     * @memberof RoleCriteriaLevel2
+     */
+    'key'?: RoleCriteriaKey | null;
+    /**
+     * String value to test the Identity attribute, Account attribute, or Entitlement specified in the key w/r/t the specified operation. If this criteria is a leaf node, that is, if the operation is one of EQUALS, NOT_EQUALS, CONTAINS, STARTS_WITH, or ENDS_WITH, this field is required. Otherwise, specifying it is an error.
+     * @type {string}
+     * @memberof RoleCriteriaLevel2
+     */
+    'stringValue'?: string | null;
+    /**
+     * Array of child criteria. Required if the operation is AND or OR, otherwise it must be left null. A maximum of three levels of criteria are supported, including leaf nodes. Additionally, AND nodes can only be children or OR nodes and vice-versa.
+     * @type {Array<RoleCriteriaLevel3>}
+     * @memberof RoleCriteriaLevel2
+     */
+    'children'?: Array<RoleCriteriaLevel3> | null;
+}
+/**
+ * Defines STANDARD type Role membership
+ * @export
+ * @interface RoleCriteriaLevel3
+ */
+export interface RoleCriteriaLevel3 {
+    /**
+     * 
+     * @type {RoleCriteriaOperation}
+     * @memberof RoleCriteriaLevel3
+     */
+    'operation'?: RoleCriteriaOperation;
+    /**
+     * 
+     * @type {RoleCriteriaKey}
+     * @memberof RoleCriteriaLevel3
+     */
+    'key'?: RoleCriteriaKey | null;
+    /**
+     * String value to test the Identity attribute, Account attribute, or Entitlement specified in the key w/r/t the specified operation. If this criteria is a leaf node, that is, if the operation is one of EQUALS, NOT_EQUALS, CONTAINS, STARTS_WITH, or ENDS_WITH, this field is required. Otherwise, specifying it is an error.
+     * @type {string}
+     * @memberof RoleCriteriaLevel3
+     */
+    'stringValue'?: string;
+}
+/**
+ * An operation
+ * @export
+ * @enum {string}
+ */
+
+export const RoleCriteriaOperation = {
+    Equals: 'EQUALS',
+    NotEquals: 'NOT_EQUALS',
+    Contains: 'CONTAINS',
+    StartsWith: 'STARTS_WITH',
+    EndsWith: 'ENDS_WITH',
+    And: 'AND',
+    Or: 'OR'
+} as const;
+
+export type RoleCriteriaOperation = typeof RoleCriteriaOperation[keyof typeof RoleCriteriaOperation];
+
+
 /**
  * Role
  * @export
@@ -11345,6 +12232,113 @@ export interface RoleDocumentAllOf {
      */
     'tags'?: Array<string>;
 }
+/**
+ * A subset of the fields of an Identity which is a member of a Role.
+ * @export
+ * @interface RoleIdentity
+ */
+export interface RoleIdentity {
+    /**
+     * The ID of the Identity
+     * @type {string}
+     * @memberof RoleIdentity
+     */
+    'id'?: string;
+    /**
+     * The alias / username of the Identity
+     * @type {string}
+     * @memberof RoleIdentity
+     */
+    'aliasName'?: string;
+    /**
+     * The human-readable display name of the Identity
+     * @type {string}
+     * @memberof RoleIdentity
+     */
+    'name'?: string;
+    /**
+     * Email address of the Identity
+     * @type {string}
+     * @memberof RoleIdentity
+     */
+    'email'?: string;
+    /**
+     * 
+     * @type {RoleAssignmentSourceType}
+     * @memberof RoleIdentity
+     */
+    'roleAssignmentSource'?: RoleAssignmentSourceType;
+}
+/**
+ * A reference to an Identity in an IDENTITY_LIST role membership criteria.
+ * @export
+ * @interface RoleMembershipIdentity
+ */
+export interface RoleMembershipIdentity {
+    /**
+     * 
+     * @type {DtoType}
+     * @memberof RoleMembershipIdentity
+     */
+    'type'?: DtoType;
+    /**
+     * Identity id
+     * @type {string}
+     * @memberof RoleMembershipIdentity
+     */
+    'id'?: string;
+    /**
+     * Human-readable display name of the Identity.
+     * @type {string}
+     * @memberof RoleMembershipIdentity
+     */
+    'name'?: string | null;
+    /**
+     * User name of the Identity
+     * @type {string}
+     * @memberof RoleMembershipIdentity
+     */
+    'aliasName'?: string | null;
+}
+/**
+ * When present, specifies that the Role is to be granted to Identities which either satisfy specific criteria or which are members of a given list of Identities.
+ * @export
+ * @interface RoleMembershipSelector
+ */
+export interface RoleMembershipSelector {
+    /**
+     * 
+     * @type {RoleMembershipSelectorType}
+     * @memberof RoleMembershipSelector
+     */
+    'type'?: RoleMembershipSelectorType;
+    /**
+     * 
+     * @type {RoleCriteriaLevel1}
+     * @memberof RoleMembershipSelector
+     */
+    'criteria'?: RoleCriteriaLevel1 | null;
+    /**
+     * Defines role membership as being exclusive to the specified Identities, when type is IDENTITY_LIST.
+     * @type {Array<RoleMembershipIdentity>}
+     * @memberof RoleMembershipSelector
+     */
+    'identities'?: Array<RoleMembershipIdentity> | null;
+}
+/**
+ * This enum characterizes the type of a Role\'s membership selector. Only the following two are fully supported:  STANDARD: Indicates that Role membership is defined in terms of a criteria expression  IDENTITY_LIST: Indicates that Role membership is conferred on the specific identities listed
+ * @export
+ * @enum {string}
+ */
+
+export const RoleMembershipSelectorType = {
+    Standard: 'STANDARD',
+    IdentityList: 'IDENTITY_LIST'
+} as const;
+
+export type RoleMembershipSelectorType = typeof RoleMembershipSelectorType[keyof typeof RoleMembershipSelectorType];
+
+
 /**
  * Role
  * @export
@@ -14116,6 +15110,766 @@ export interface WorkItemsSummary {
      */
     'total'?: number;
 }
+
+/**
+ * AccessProfilesApi - axios parameter creator
+ * @export
+ */
+export const AccessProfilesApiAxiosParamCreator = function (configuration?: Configuration) {
+    return {
+        /**
+         * This API creates an Access Profile. A token with API, ORG_ADMIN, ROLE_ADMIN, ROLE_SUBADMIN, SOURCE_ADMIN, or SOURCE_SUBADMIN authority is required to call this API. In addition, a token with only ROLE_SUBADMIN or SOURCE_SUBADMIN authority must be associated with the Access Profile\'s Source. The maximum supported length for the description field is 2000 characters. Longer descriptions will be preserved for existing access profiles, however, any new access profiles as well as any updates to existing descriptions will be limited to 2000 characters.
+         * @summary Create an Access Profile
+         * @param {AccessProfile} accessProfile 
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        createAccessProfile: async (accessProfile: AccessProfile, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'accessProfile' is not null or undefined
+            assertParamExists('createAccessProfile', 'accessProfile', accessProfile)
+            const localVarPath = `/access-profiles`;
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'POST', ...baseOptions, ...axiosOptions};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication oauth2 required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "oauth2", [], configuration)
+
+            // authentication oauth2 required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "oauth2", [], configuration)
+
+
+    
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
+            localVarRequestOptions.data = serializeDataIfNeeded(accessProfile, localVarRequestOptions, configuration)
+
+            return {
+                url: toPathString(localVarUrlObj),
+                axiosOptions: localVarRequestOptions,
+            };
+        },
+        /**
+         * This API initiates a bulk deletion of one or more Access Profiles.  By default, if any of the indicated Access Profiles are in use, no deletions will be performed and the **inUse** field of the response indicates the usages that must be removed first. If the request field **bestEffortOnly** is **true**, however, usages are reported in the **inUse** response field but all other indicated Access Profiles will be deleted.  A token with API, ORG_ADMIN, SOURCE_ADMIN, or SOURCE_SUBADMIN authority is required to call this API. In addition, a SOURCE_SUBADMIN may only use this API to delete Access Profiles which are associated with Sources they are able to administer.
+         * @summary Delete Access Profile(s)
+         * @param {AccessProfileBulkDeleteRequest} accessProfileBulkDeleteRequest 
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        deleteAccessProfilesInBulk: async (accessProfileBulkDeleteRequest: AccessProfileBulkDeleteRequest, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'accessProfileBulkDeleteRequest' is not null or undefined
+            assertParamExists('deleteAccessProfilesInBulk', 'accessProfileBulkDeleteRequest', accessProfileBulkDeleteRequest)
+            const localVarPath = `/access-profiles/bulk-delete`;
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'POST', ...baseOptions, ...axiosOptions};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication oauth2 required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "oauth2", [], configuration)
+
+            // authentication oauth2 required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "oauth2", [], configuration)
+
+
+    
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
+            localVarRequestOptions.data = serializeDataIfNeeded(accessProfileBulkDeleteRequest, localVarRequestOptions, configuration)
+
+            return {
+                url: toPathString(localVarUrlObj),
+                axiosOptions: localVarRequestOptions,
+            };
+        },
+        /**
+         * This API returns an Access Profile by its ID.  A token with API, ORG_ADMIN, ROLE_ADMIN, ROLE_SUBADMIN, SOURCE_ADMIN, or SOURCE_SUBADMIN authority is required to call this API.
+         * @summary Get an Access Profile
+         * @param {string} id ID of the Access Profile
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        getAccessProfile: async (id: string, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'id' is not null or undefined
+            assertParamExists('getAccessProfile', 'id', id)
+            const localVarPath = `/access-profiles/{id}`
+                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...axiosOptions};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication oauth2 required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "oauth2", [], configuration)
+
+            // authentication oauth2 required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "oauth2", [], configuration)
+
+
+    
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                axiosOptions: localVarRequestOptions,
+            };
+        },
+        /**
+         * This API lists the Entitlements associated with a given Access Profile  A token with API, ORG_ADMIN, SOURCE_ADMIN, or SOURCE_SUBADMIN authority is required to invoke this API. In addition, a token with SOURCE_SUBADMIN authority must have access to the Source associated with the given Access Profile
+         * @summary List Access Profile\'s Entitlements
+         * @param {string} id ID of the containing Access Profile
+         * @param {number} [limit] Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+         * @param {number} [offset] Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+         * @param {boolean} [count] If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+         * @param {string} [filters] Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following Entitlement fields and operators: **id**: *eq, in*  **name**: *eq, sw*  **attribute**: *eq, sw*  **value**: *eq, sw*  **created, modified**: *gt, lt, ge, le*  **owner.id**: *eq, in*  **source.id**: *eq, in*
+         * @param {string} [sorters] Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **name, attribute, value, created, modified**
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        getAccessProfileEntitlements: async (id: string, limit?: number, offset?: number, count?: boolean, filters?: string, sorters?: string, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'id' is not null or undefined
+            assertParamExists('getAccessProfileEntitlements', 'id', id)
+            const localVarPath = `/access-profiles/{id}/entitlements`
+                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...axiosOptions};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication oauth2 required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "oauth2", [], configuration)
+
+            // authentication oauth2 required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "oauth2", [], configuration)
+
+            if (limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+
+            if (offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+
+            if (count !== undefined) {
+                localVarQueryParameter['count'] = count;
+            }
+
+            if (filters !== undefined) {
+                localVarQueryParameter['filters'] = filters;
+            }
+
+            if (sorters !== undefined) {
+                localVarQueryParameter['sorters'] = sorters;
+            }
+
+
+    
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                axiosOptions: localVarRequestOptions,
+            };
+        },
+        /**
+         * This API returns a list of Access Profiles.  A token with API, ORG_ADMIN, ROLE_ADMIN, ROLE_SUBADMIN, SOURCE_ADMIN, or SOURCE_SUBADMIN authority is required to call this API.
+         * @summary List Access Profiles
+         * @param {string} [forSubadmin] If provided, filters the returned list according to what is visible to the indicated ROLE_SUBADMIN or SOURCE_SUBADMIN Identity. The value of the parameter is either an Identity ID, or the special value **me**, which is shorthand for the calling Identity\&#39;s ID.  A 400 Bad Request error is returned if the **for-subadmin** parameter is specified for an Identity that is not a subadmin.
+         * @param {number} [limit] Note that for this API the maximum value for limit is 50. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+         * @param {number} [offset] Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+         * @param {boolean} [count] If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+         * @param {string} [filters] Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, in*  **name**: *eq, sw*  **created, modified**: *gt, lt, ge, le*  **owner.id**: *eq, in*  **requestable**: *eq*  **source.id**: *eq, in*
+         * @param {string} [sorters] Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **name, created, modified**
+         * @param {string} [forSegmentIds] If present and not empty, additionally filters Access Profiles to those which are assigned to the Segment(s) with the specified IDs.  If segmentation is currently unavailable, specifying this parameter results in an error.
+         * @param {boolean} [includeUnsegmented] Whether or not the response list should contain unsegmented Access Profiles. If *for-segment-ids* is absent or empty, specifying *include-unsegmented* as false results in an error.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        listAccessProfiles: async (forSubadmin?: string, limit?: number, offset?: number, count?: boolean, filters?: string, sorters?: string, forSegmentIds?: string, includeUnsegmented?: boolean, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            const localVarPath = `/access-profiles`;
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...axiosOptions};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication oauth2 required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "oauth2", [], configuration)
+
+            // authentication oauth2 required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "oauth2", [], configuration)
+
+            if (forSubadmin !== undefined) {
+                localVarQueryParameter['for-subadmin'] = forSubadmin;
+            }
+
+            if (limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+
+            if (offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+
+            if (count !== undefined) {
+                localVarQueryParameter['count'] = count;
+            }
+
+            if (filters !== undefined) {
+                localVarQueryParameter['filters'] = filters;
+            }
+
+            if (sorters !== undefined) {
+                localVarQueryParameter['sorters'] = sorters;
+            }
+
+            if (forSegmentIds !== undefined) {
+                localVarQueryParameter['for-segment-ids'] = forSegmentIds;
+            }
+
+            if (includeUnsegmented !== undefined) {
+                localVarQueryParameter['include-unsegmented'] = includeUnsegmented;
+            }
+
+
+    
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                axiosOptions: localVarRequestOptions,
+            };
+        },
+        /**
+         * This API updates an existing Access Profile. The following fields are patchable: **name**, **description**, **enabled**, **owner**, **requestable**, **accessRequestConfig**, **revokeRequestConfig**, **segments**, **entitlements**, **provisioningCriteria** A token with API, ORG_ADMIN, SOURCE_ADMIN, or SOURCE_SUBADMIN authority is required to call this API. In addition, a SOURCE_SUBADMIN may only use this API to patch Access Profiles which are associated with Sources they are able to administer. >  The maximum supported length for the description field is 2000 characters. Longer descriptions will be preserved for existing access profiles, however, any new access profiles as well as any updates to existing descriptions will be limited to 2000 characters.  > You can only add or replace **entitlements** that exist on the source that the access profile is attached to. You can use the **list entitlements** endpoint with the **filters** query parameter to get a list of available entitlements on the access profile\'s source.  >  Patching the value of the **requestable** field is only supported for customers enabled with the new Request Center. Otherwise, attempting to modify this field results in a 400 error.
+         * @summary Patch a specified Access Profile
+         * @param {string} id ID of the Access Profile to patch
+         * @param {Array<JsonPatchOperation>} jsonPatchOperation 
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        patchAccessProfile: async (id: string, jsonPatchOperation: Array<JsonPatchOperation>, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'id' is not null or undefined
+            assertParamExists('patchAccessProfile', 'id', id)
+            // verify required parameter 'jsonPatchOperation' is not null or undefined
+            assertParamExists('patchAccessProfile', 'jsonPatchOperation', jsonPatchOperation)
+            const localVarPath = `/access-profiles/{id}`
+                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'PATCH', ...baseOptions, ...axiosOptions};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication oauth2 required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "oauth2", [], configuration)
+
+            // authentication oauth2 required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "oauth2", [], configuration)
+
+
+    
+            localVarHeaderParameter['Content-Type'] = 'application/json-patch+json';
+
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
+            localVarRequestOptions.data = serializeDataIfNeeded(jsonPatchOperation, localVarRequestOptions, configuration)
+
+            return {
+                url: toPathString(localVarUrlObj),
+                axiosOptions: localVarRequestOptions,
+            };
+        },
+    }
+};
+
+/**
+ * AccessProfilesApi - functional programming interface
+ * @export
+ */
+export const AccessProfilesApiFp = function(configuration?: Configuration) {
+    const localVarAxiosParamCreator = AccessProfilesApiAxiosParamCreator(configuration)
+    return {
+        /**
+         * This API creates an Access Profile. A token with API, ORG_ADMIN, ROLE_ADMIN, ROLE_SUBADMIN, SOURCE_ADMIN, or SOURCE_SUBADMIN authority is required to call this API. In addition, a token with only ROLE_SUBADMIN or SOURCE_SUBADMIN authority must be associated with the Access Profile\'s Source. The maximum supported length for the description field is 2000 characters. Longer descriptions will be preserved for existing access profiles, however, any new access profiles as well as any updates to existing descriptions will be limited to 2000 characters.
+         * @summary Create an Access Profile
+         * @param {AccessProfile} accessProfile 
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        async createAccessProfile(accessProfile: AccessProfile, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<AccessProfile>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.createAccessProfile(accessProfile, axiosOptions);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * This API initiates a bulk deletion of one or more Access Profiles.  By default, if any of the indicated Access Profiles are in use, no deletions will be performed and the **inUse** field of the response indicates the usages that must be removed first. If the request field **bestEffortOnly** is **true**, however, usages are reported in the **inUse** response field but all other indicated Access Profiles will be deleted.  A token with API, ORG_ADMIN, SOURCE_ADMIN, or SOURCE_SUBADMIN authority is required to call this API. In addition, a SOURCE_SUBADMIN may only use this API to delete Access Profiles which are associated with Sources they are able to administer.
+         * @summary Delete Access Profile(s)
+         * @param {AccessProfileBulkDeleteRequest} accessProfileBulkDeleteRequest 
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        async deleteAccessProfilesInBulk(accessProfileBulkDeleteRequest: AccessProfileBulkDeleteRequest, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<AccessProfileBulkDeleteResponse>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.deleteAccessProfilesInBulk(accessProfileBulkDeleteRequest, axiosOptions);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * This API returns an Access Profile by its ID.  A token with API, ORG_ADMIN, ROLE_ADMIN, ROLE_SUBADMIN, SOURCE_ADMIN, or SOURCE_SUBADMIN authority is required to call this API.
+         * @summary Get an Access Profile
+         * @param {string} id ID of the Access Profile
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        async getAccessProfile(id: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<AccessProfile>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getAccessProfile(id, axiosOptions);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * This API lists the Entitlements associated with a given Access Profile  A token with API, ORG_ADMIN, SOURCE_ADMIN, or SOURCE_SUBADMIN authority is required to invoke this API. In addition, a token with SOURCE_SUBADMIN authority must have access to the Source associated with the given Access Profile
+         * @summary List Access Profile\'s Entitlements
+         * @param {string} id ID of the containing Access Profile
+         * @param {number} [limit] Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+         * @param {number} [offset] Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+         * @param {boolean} [count] If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+         * @param {string} [filters] Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following Entitlement fields and operators: **id**: *eq, in*  **name**: *eq, sw*  **attribute**: *eq, sw*  **value**: *eq, sw*  **created, modified**: *gt, lt, ge, le*  **owner.id**: *eq, in*  **source.id**: *eq, in*
+         * @param {string} [sorters] Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **name, attribute, value, created, modified**
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        async getAccessProfileEntitlements(id: string, limit?: number, offset?: number, count?: boolean, filters?: string, sorters?: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Entitlement>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getAccessProfileEntitlements(id, limit, offset, count, filters, sorters, axiosOptions);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * This API returns a list of Access Profiles.  A token with API, ORG_ADMIN, ROLE_ADMIN, ROLE_SUBADMIN, SOURCE_ADMIN, or SOURCE_SUBADMIN authority is required to call this API.
+         * @summary List Access Profiles
+         * @param {string} [forSubadmin] If provided, filters the returned list according to what is visible to the indicated ROLE_SUBADMIN or SOURCE_SUBADMIN Identity. The value of the parameter is either an Identity ID, or the special value **me**, which is shorthand for the calling Identity\&#39;s ID.  A 400 Bad Request error is returned if the **for-subadmin** parameter is specified for an Identity that is not a subadmin.
+         * @param {number} [limit] Note that for this API the maximum value for limit is 50. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+         * @param {number} [offset] Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+         * @param {boolean} [count] If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+         * @param {string} [filters] Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, in*  **name**: *eq, sw*  **created, modified**: *gt, lt, ge, le*  **owner.id**: *eq, in*  **requestable**: *eq*  **source.id**: *eq, in*
+         * @param {string} [sorters] Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **name, created, modified**
+         * @param {string} [forSegmentIds] If present and not empty, additionally filters Access Profiles to those which are assigned to the Segment(s) with the specified IDs.  If segmentation is currently unavailable, specifying this parameter results in an error.
+         * @param {boolean} [includeUnsegmented] Whether or not the response list should contain unsegmented Access Profiles. If *for-segment-ids* is absent or empty, specifying *include-unsegmented* as false results in an error.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        async listAccessProfiles(forSubadmin?: string, limit?: number, offset?: number, count?: boolean, filters?: string, sorters?: string, forSegmentIds?: string, includeUnsegmented?: boolean, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<AccessProfile>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.listAccessProfiles(forSubadmin, limit, offset, count, filters, sorters, forSegmentIds, includeUnsegmented, axiosOptions);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * This API updates an existing Access Profile. The following fields are patchable: **name**, **description**, **enabled**, **owner**, **requestable**, **accessRequestConfig**, **revokeRequestConfig**, **segments**, **entitlements**, **provisioningCriteria** A token with API, ORG_ADMIN, SOURCE_ADMIN, or SOURCE_SUBADMIN authority is required to call this API. In addition, a SOURCE_SUBADMIN may only use this API to patch Access Profiles which are associated with Sources they are able to administer. >  The maximum supported length for the description field is 2000 characters. Longer descriptions will be preserved for existing access profiles, however, any new access profiles as well as any updates to existing descriptions will be limited to 2000 characters.  > You can only add or replace **entitlements** that exist on the source that the access profile is attached to. You can use the **list entitlements** endpoint with the **filters** query parameter to get a list of available entitlements on the access profile\'s source.  >  Patching the value of the **requestable** field is only supported for customers enabled with the new Request Center. Otherwise, attempting to modify this field results in a 400 error.
+         * @summary Patch a specified Access Profile
+         * @param {string} id ID of the Access Profile to patch
+         * @param {Array<JsonPatchOperation>} jsonPatchOperation 
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        async patchAccessProfile(id: string, jsonPatchOperation: Array<JsonPatchOperation>, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<AccessProfile>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.patchAccessProfile(id, jsonPatchOperation, axiosOptions);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+    }
+};
+
+/**
+ * AccessProfilesApi - factory interface
+ * @export
+ */
+export const AccessProfilesApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
+    const localVarFp = AccessProfilesApiFp(configuration)
+    return {
+        /**
+         * This API creates an Access Profile. A token with API, ORG_ADMIN, ROLE_ADMIN, ROLE_SUBADMIN, SOURCE_ADMIN, or SOURCE_SUBADMIN authority is required to call this API. In addition, a token with only ROLE_SUBADMIN or SOURCE_SUBADMIN authority must be associated with the Access Profile\'s Source. The maximum supported length for the description field is 2000 characters. Longer descriptions will be preserved for existing access profiles, however, any new access profiles as well as any updates to existing descriptions will be limited to 2000 characters.
+         * @summary Create an Access Profile
+         * @param {AccessProfile} accessProfile 
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        createAccessProfile(accessProfile: AccessProfile, axiosOptions?: any): AxiosPromise<AccessProfile> {
+            return localVarFp.createAccessProfile(accessProfile, axiosOptions).then((request) => request(axios, basePath));
+        },
+        /**
+         * This API initiates a bulk deletion of one or more Access Profiles.  By default, if any of the indicated Access Profiles are in use, no deletions will be performed and the **inUse** field of the response indicates the usages that must be removed first. If the request field **bestEffortOnly** is **true**, however, usages are reported in the **inUse** response field but all other indicated Access Profiles will be deleted.  A token with API, ORG_ADMIN, SOURCE_ADMIN, or SOURCE_SUBADMIN authority is required to call this API. In addition, a SOURCE_SUBADMIN may only use this API to delete Access Profiles which are associated with Sources they are able to administer.
+         * @summary Delete Access Profile(s)
+         * @param {AccessProfileBulkDeleteRequest} accessProfileBulkDeleteRequest 
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        deleteAccessProfilesInBulk(accessProfileBulkDeleteRequest: AccessProfileBulkDeleteRequest, axiosOptions?: any): AxiosPromise<AccessProfileBulkDeleteResponse> {
+            return localVarFp.deleteAccessProfilesInBulk(accessProfileBulkDeleteRequest, axiosOptions).then((request) => request(axios, basePath));
+        },
+        /**
+         * This API returns an Access Profile by its ID.  A token with API, ORG_ADMIN, ROLE_ADMIN, ROLE_SUBADMIN, SOURCE_ADMIN, or SOURCE_SUBADMIN authority is required to call this API.
+         * @summary Get an Access Profile
+         * @param {string} id ID of the Access Profile
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        getAccessProfile(id: string, axiosOptions?: any): AxiosPromise<AccessProfile> {
+            return localVarFp.getAccessProfile(id, axiosOptions).then((request) => request(axios, basePath));
+        },
+        /**
+         * This API lists the Entitlements associated with a given Access Profile  A token with API, ORG_ADMIN, SOURCE_ADMIN, or SOURCE_SUBADMIN authority is required to invoke this API. In addition, a token with SOURCE_SUBADMIN authority must have access to the Source associated with the given Access Profile
+         * @summary List Access Profile\'s Entitlements
+         * @param {string} id ID of the containing Access Profile
+         * @param {number} [limit] Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+         * @param {number} [offset] Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+         * @param {boolean} [count] If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+         * @param {string} [filters] Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following Entitlement fields and operators: **id**: *eq, in*  **name**: *eq, sw*  **attribute**: *eq, sw*  **value**: *eq, sw*  **created, modified**: *gt, lt, ge, le*  **owner.id**: *eq, in*  **source.id**: *eq, in*
+         * @param {string} [sorters] Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **name, attribute, value, created, modified**
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        getAccessProfileEntitlements(id: string, limit?: number, offset?: number, count?: boolean, filters?: string, sorters?: string, axiosOptions?: any): AxiosPromise<Array<Entitlement>> {
+            return localVarFp.getAccessProfileEntitlements(id, limit, offset, count, filters, sorters, axiosOptions).then((request) => request(axios, basePath));
+        },
+        /**
+         * This API returns a list of Access Profiles.  A token with API, ORG_ADMIN, ROLE_ADMIN, ROLE_SUBADMIN, SOURCE_ADMIN, or SOURCE_SUBADMIN authority is required to call this API.
+         * @summary List Access Profiles
+         * @param {string} [forSubadmin] If provided, filters the returned list according to what is visible to the indicated ROLE_SUBADMIN or SOURCE_SUBADMIN Identity. The value of the parameter is either an Identity ID, or the special value **me**, which is shorthand for the calling Identity\&#39;s ID.  A 400 Bad Request error is returned if the **for-subadmin** parameter is specified for an Identity that is not a subadmin.
+         * @param {number} [limit] Note that for this API the maximum value for limit is 50. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+         * @param {number} [offset] Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+         * @param {boolean} [count] If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+         * @param {string} [filters] Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, in*  **name**: *eq, sw*  **created, modified**: *gt, lt, ge, le*  **owner.id**: *eq, in*  **requestable**: *eq*  **source.id**: *eq, in*
+         * @param {string} [sorters] Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **name, created, modified**
+         * @param {string} [forSegmentIds] If present and not empty, additionally filters Access Profiles to those which are assigned to the Segment(s) with the specified IDs.  If segmentation is currently unavailable, specifying this parameter results in an error.
+         * @param {boolean} [includeUnsegmented] Whether or not the response list should contain unsegmented Access Profiles. If *for-segment-ids* is absent or empty, specifying *include-unsegmented* as false results in an error.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        listAccessProfiles(forSubadmin?: string, limit?: number, offset?: number, count?: boolean, filters?: string, sorters?: string, forSegmentIds?: string, includeUnsegmented?: boolean, axiosOptions?: any): AxiosPromise<Array<AccessProfile>> {
+            return localVarFp.listAccessProfiles(forSubadmin, limit, offset, count, filters, sorters, forSegmentIds, includeUnsegmented, axiosOptions).then((request) => request(axios, basePath));
+        },
+        /**
+         * This API updates an existing Access Profile. The following fields are patchable: **name**, **description**, **enabled**, **owner**, **requestable**, **accessRequestConfig**, **revokeRequestConfig**, **segments**, **entitlements**, **provisioningCriteria** A token with API, ORG_ADMIN, SOURCE_ADMIN, or SOURCE_SUBADMIN authority is required to call this API. In addition, a SOURCE_SUBADMIN may only use this API to patch Access Profiles which are associated with Sources they are able to administer. >  The maximum supported length for the description field is 2000 characters. Longer descriptions will be preserved for existing access profiles, however, any new access profiles as well as any updates to existing descriptions will be limited to 2000 characters.  > You can only add or replace **entitlements** that exist on the source that the access profile is attached to. You can use the **list entitlements** endpoint with the **filters** query parameter to get a list of available entitlements on the access profile\'s source.  >  Patching the value of the **requestable** field is only supported for customers enabled with the new Request Center. Otherwise, attempting to modify this field results in a 400 error.
+         * @summary Patch a specified Access Profile
+         * @param {string} id ID of the Access Profile to patch
+         * @param {Array<JsonPatchOperation>} jsonPatchOperation 
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        patchAccessProfile(id: string, jsonPatchOperation: Array<JsonPatchOperation>, axiosOptions?: any): AxiosPromise<AccessProfile> {
+            return localVarFp.patchAccessProfile(id, jsonPatchOperation, axiosOptions).then((request) => request(axios, basePath));
+        },
+    };
+};
+
+/**
+ * Request parameters for createAccessProfile operation in AccessProfilesApi.
+ * @export
+ * @interface AccessProfilesApiCreateAccessProfileRequest
+ */
+export interface AccessProfilesApiCreateAccessProfileRequest {
+    /**
+     * 
+     * @type {AccessProfile}
+     * @memberof AccessProfilesApiCreateAccessProfile
+     */
+    readonly accessProfile: AccessProfile
+}
+
+/**
+ * Request parameters for deleteAccessProfilesInBulk operation in AccessProfilesApi.
+ * @export
+ * @interface AccessProfilesApiDeleteAccessProfilesInBulkRequest
+ */
+export interface AccessProfilesApiDeleteAccessProfilesInBulkRequest {
+    /**
+     * 
+     * @type {AccessProfileBulkDeleteRequest}
+     * @memberof AccessProfilesApiDeleteAccessProfilesInBulk
+     */
+    readonly accessProfileBulkDeleteRequest: AccessProfileBulkDeleteRequest
+}
+
+/**
+ * Request parameters for getAccessProfile operation in AccessProfilesApi.
+ * @export
+ * @interface AccessProfilesApiGetAccessProfileRequest
+ */
+export interface AccessProfilesApiGetAccessProfileRequest {
+    /**
+     * ID of the Access Profile
+     * @type {string}
+     * @memberof AccessProfilesApiGetAccessProfile
+     */
+    readonly id: string
+}
+
+/**
+ * Request parameters for getAccessProfileEntitlements operation in AccessProfilesApi.
+ * @export
+ * @interface AccessProfilesApiGetAccessProfileEntitlementsRequest
+ */
+export interface AccessProfilesApiGetAccessProfileEntitlementsRequest {
+    /**
+     * ID of the containing Access Profile
+     * @type {string}
+     * @memberof AccessProfilesApiGetAccessProfileEntitlements
+     */
+    readonly id: string
+
+    /**
+     * Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+     * @type {number}
+     * @memberof AccessProfilesApiGetAccessProfileEntitlements
+     */
+    readonly limit?: number
+
+    /**
+     * Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+     * @type {number}
+     * @memberof AccessProfilesApiGetAccessProfileEntitlements
+     */
+    readonly offset?: number
+
+    /**
+     * If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+     * @type {boolean}
+     * @memberof AccessProfilesApiGetAccessProfileEntitlements
+     */
+    readonly count?: boolean
+
+    /**
+     * Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following Entitlement fields and operators: **id**: *eq, in*  **name**: *eq, sw*  **attribute**: *eq, sw*  **value**: *eq, sw*  **created, modified**: *gt, lt, ge, le*  **owner.id**: *eq, in*  **source.id**: *eq, in*
+     * @type {string}
+     * @memberof AccessProfilesApiGetAccessProfileEntitlements
+     */
+    readonly filters?: string
+
+    /**
+     * Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **name, attribute, value, created, modified**
+     * @type {string}
+     * @memberof AccessProfilesApiGetAccessProfileEntitlements
+     */
+    readonly sorters?: string
+}
+
+/**
+ * Request parameters for listAccessProfiles operation in AccessProfilesApi.
+ * @export
+ * @interface AccessProfilesApiListAccessProfilesRequest
+ */
+export interface AccessProfilesApiListAccessProfilesRequest {
+    /**
+     * If provided, filters the returned list according to what is visible to the indicated ROLE_SUBADMIN or SOURCE_SUBADMIN Identity. The value of the parameter is either an Identity ID, or the special value **me**, which is shorthand for the calling Identity\&#39;s ID.  A 400 Bad Request error is returned if the **for-subadmin** parameter is specified for an Identity that is not a subadmin.
+     * @type {string}
+     * @memberof AccessProfilesApiListAccessProfiles
+     */
+    readonly forSubadmin?: string
+
+    /**
+     * Note that for this API the maximum value for limit is 50. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+     * @type {number}
+     * @memberof AccessProfilesApiListAccessProfiles
+     */
+    readonly limit?: number
+
+    /**
+     * Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+     * @type {number}
+     * @memberof AccessProfilesApiListAccessProfiles
+     */
+    readonly offset?: number
+
+    /**
+     * If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+     * @type {boolean}
+     * @memberof AccessProfilesApiListAccessProfiles
+     */
+    readonly count?: boolean
+
+    /**
+     * Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, in*  **name**: *eq, sw*  **created, modified**: *gt, lt, ge, le*  **owner.id**: *eq, in*  **requestable**: *eq*  **source.id**: *eq, in*
+     * @type {string}
+     * @memberof AccessProfilesApiListAccessProfiles
+     */
+    readonly filters?: string
+
+    /**
+     * Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **name, created, modified**
+     * @type {string}
+     * @memberof AccessProfilesApiListAccessProfiles
+     */
+    readonly sorters?: string
+
+    /**
+     * If present and not empty, additionally filters Access Profiles to those which are assigned to the Segment(s) with the specified IDs.  If segmentation is currently unavailable, specifying this parameter results in an error.
+     * @type {string}
+     * @memberof AccessProfilesApiListAccessProfiles
+     */
+    readonly forSegmentIds?: string
+
+    /**
+     * Whether or not the response list should contain unsegmented Access Profiles. If *for-segment-ids* is absent or empty, specifying *include-unsegmented* as false results in an error.
+     * @type {boolean}
+     * @memberof AccessProfilesApiListAccessProfiles
+     */
+    readonly includeUnsegmented?: boolean
+}
+
+/**
+ * Request parameters for patchAccessProfile operation in AccessProfilesApi.
+ * @export
+ * @interface AccessProfilesApiPatchAccessProfileRequest
+ */
+export interface AccessProfilesApiPatchAccessProfileRequest {
+    /**
+     * ID of the Access Profile to patch
+     * @type {string}
+     * @memberof AccessProfilesApiPatchAccessProfile
+     */
+    readonly id: string
+
+    /**
+     * 
+     * @type {Array<JsonPatchOperation>}
+     * @memberof AccessProfilesApiPatchAccessProfile
+     */
+    readonly jsonPatchOperation: Array<JsonPatchOperation>
+}
+
+/**
+ * AccessProfilesApi - object-oriented interface
+ * @export
+ * @class AccessProfilesApi
+ * @extends {BaseAPI}
+ */
+export class AccessProfilesApi extends BaseAPI {
+    /**
+     * This API creates an Access Profile. A token with API, ORG_ADMIN, ROLE_ADMIN, ROLE_SUBADMIN, SOURCE_ADMIN, or SOURCE_SUBADMIN authority is required to call this API. In addition, a token with only ROLE_SUBADMIN or SOURCE_SUBADMIN authority must be associated with the Access Profile\'s Source. The maximum supported length for the description field is 2000 characters. Longer descriptions will be preserved for existing access profiles, however, any new access profiles as well as any updates to existing descriptions will be limited to 2000 characters.
+     * @summary Create an Access Profile
+     * @param {AccessProfilesApiCreateAccessProfileRequest} requestParameters Request parameters.
+     * @param {*} [axiosOptions] Override http request option.
+     * @throws {RequiredError}
+     * @memberof AccessProfilesApi
+     */
+    public createAccessProfile(requestParameters: AccessProfilesApiCreateAccessProfileRequest, axiosOptions?: AxiosRequestConfig) {
+        return AccessProfilesApiFp(this.configuration).createAccessProfile(requestParameters.accessProfile, axiosOptions).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * This API initiates a bulk deletion of one or more Access Profiles.  By default, if any of the indicated Access Profiles are in use, no deletions will be performed and the **inUse** field of the response indicates the usages that must be removed first. If the request field **bestEffortOnly** is **true**, however, usages are reported in the **inUse** response field but all other indicated Access Profiles will be deleted.  A token with API, ORG_ADMIN, SOURCE_ADMIN, or SOURCE_SUBADMIN authority is required to call this API. In addition, a SOURCE_SUBADMIN may only use this API to delete Access Profiles which are associated with Sources they are able to administer.
+     * @summary Delete Access Profile(s)
+     * @param {AccessProfilesApiDeleteAccessProfilesInBulkRequest} requestParameters Request parameters.
+     * @param {*} [axiosOptions] Override http request option.
+     * @throws {RequiredError}
+     * @memberof AccessProfilesApi
+     */
+    public deleteAccessProfilesInBulk(requestParameters: AccessProfilesApiDeleteAccessProfilesInBulkRequest, axiosOptions?: AxiosRequestConfig) {
+        return AccessProfilesApiFp(this.configuration).deleteAccessProfilesInBulk(requestParameters.accessProfileBulkDeleteRequest, axiosOptions).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * This API returns an Access Profile by its ID.  A token with API, ORG_ADMIN, ROLE_ADMIN, ROLE_SUBADMIN, SOURCE_ADMIN, or SOURCE_SUBADMIN authority is required to call this API.
+     * @summary Get an Access Profile
+     * @param {AccessProfilesApiGetAccessProfileRequest} requestParameters Request parameters.
+     * @param {*} [axiosOptions] Override http request option.
+     * @throws {RequiredError}
+     * @memberof AccessProfilesApi
+     */
+    public getAccessProfile(requestParameters: AccessProfilesApiGetAccessProfileRequest, axiosOptions?: AxiosRequestConfig) {
+        return AccessProfilesApiFp(this.configuration).getAccessProfile(requestParameters.id, axiosOptions).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * This API lists the Entitlements associated with a given Access Profile  A token with API, ORG_ADMIN, SOURCE_ADMIN, or SOURCE_SUBADMIN authority is required to invoke this API. In addition, a token with SOURCE_SUBADMIN authority must have access to the Source associated with the given Access Profile
+     * @summary List Access Profile\'s Entitlements
+     * @param {AccessProfilesApiGetAccessProfileEntitlementsRequest} requestParameters Request parameters.
+     * @param {*} [axiosOptions] Override http request option.
+     * @throws {RequiredError}
+     * @memberof AccessProfilesApi
+     */
+    public getAccessProfileEntitlements(requestParameters: AccessProfilesApiGetAccessProfileEntitlementsRequest, axiosOptions?: AxiosRequestConfig) {
+        return AccessProfilesApiFp(this.configuration).getAccessProfileEntitlements(requestParameters.id, requestParameters.limit, requestParameters.offset, requestParameters.count, requestParameters.filters, requestParameters.sorters, axiosOptions).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * This API returns a list of Access Profiles.  A token with API, ORG_ADMIN, ROLE_ADMIN, ROLE_SUBADMIN, SOURCE_ADMIN, or SOURCE_SUBADMIN authority is required to call this API.
+     * @summary List Access Profiles
+     * @param {AccessProfilesApiListAccessProfilesRequest} requestParameters Request parameters.
+     * @param {*} [axiosOptions] Override http request option.
+     * @throws {RequiredError}
+     * @memberof AccessProfilesApi
+     */
+    public listAccessProfiles(requestParameters: AccessProfilesApiListAccessProfilesRequest = {}, axiosOptions?: AxiosRequestConfig) {
+        return AccessProfilesApiFp(this.configuration).listAccessProfiles(requestParameters.forSubadmin, requestParameters.limit, requestParameters.offset, requestParameters.count, requestParameters.filters, requestParameters.sorters, requestParameters.forSegmentIds, requestParameters.includeUnsegmented, axiosOptions).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * This API updates an existing Access Profile. The following fields are patchable: **name**, **description**, **enabled**, **owner**, **requestable**, **accessRequestConfig**, **revokeRequestConfig**, **segments**, **entitlements**, **provisioningCriteria** A token with API, ORG_ADMIN, SOURCE_ADMIN, or SOURCE_SUBADMIN authority is required to call this API. In addition, a SOURCE_SUBADMIN may only use this API to patch Access Profiles which are associated with Sources they are able to administer. >  The maximum supported length for the description field is 2000 characters. Longer descriptions will be preserved for existing access profiles, however, any new access profiles as well as any updates to existing descriptions will be limited to 2000 characters.  > You can only add or replace **entitlements** that exist on the source that the access profile is attached to. You can use the **list entitlements** endpoint with the **filters** query parameter to get a list of available entitlements on the access profile\'s source.  >  Patching the value of the **requestable** field is only supported for customers enabled with the new Request Center. Otherwise, attempting to modify this field results in a 400 error.
+     * @summary Patch a specified Access Profile
+     * @param {AccessProfilesApiPatchAccessProfileRequest} requestParameters Request parameters.
+     * @param {*} [axiosOptions] Override http request option.
+     * @throws {RequiredError}
+     * @memberof AccessProfilesApi
+     */
+    public patchAccessProfile(requestParameters: AccessProfilesApiPatchAccessProfileRequest, axiosOptions?: AxiosRequestConfig) {
+        return AccessProfilesApiFp(this.configuration).patchAccessProfile(requestParameters.id, requestParameters.jsonPatchOperation, axiosOptions).then((request) => request(this.axios, this.basePath));
+    }
+}
+
 
 /**
  * AccessRequestApprovalsApi - axios parameter creator
@@ -24831,6 +26585,675 @@ export class RequestableObjectsApi extends BaseAPI {
      */
     public listRequestableObjects(requestParameters: RequestableObjectsApiListRequestableObjectsRequest = {}, axiosOptions?: AxiosRequestConfig) {
         return RequestableObjectsApiFp(this.configuration).listRequestableObjects(requestParameters.identityId, requestParameters.types, requestParameters.term, requestParameters.statuses, requestParameters.limit, requestParameters.offset, requestParameters.count, requestParameters.filters, requestParameters.sorters, axiosOptions).then((request) => request(this.axios, this.basePath));
+    }
+}
+
+
+/**
+ * RolesApi - axios parameter creator
+ * @export
+ */
+export const RolesApiAxiosParamCreator = function (configuration?: Configuration) {
+    return {
+        /**
+         * This API creates a Role. There is a soft limit of 800 roles per org in IdentityNow.  You will receive an error if you attempt to add more than 800 roles via the API or the UI.  If you need to add roles above this limit, please create a support ticket. A token with API, ORG_ADMIN, ROLE_ADMIN, or ROLE_SUBADMIN authority is required to call this API. In addition, a ROLE_SUBADMIN may not create a Role including an Access Profile if that Access Profile is associated with a Source with which the ROLE_SUBADMIN is not themselves associated. The maximum supported length for the description field is 2000 characters. Longer descriptions will be preserved for existing roles, however, any new roles as well as any updates to existing descriptions will be limited to 2000 characters.
+         * @summary Create a Role
+         * @param {Role} role 
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        createRole: async (role: Role, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'role' is not null or undefined
+            assertParamExists('createRole', 'role', role)
+            const localVarPath = `/roles`;
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'POST', ...baseOptions, ...axiosOptions};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication oauth2 required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "oauth2", [], configuration)
+
+            // authentication oauth2 required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "oauth2", [], configuration)
+
+
+    
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
+            localVarRequestOptions.data = serializeDataIfNeeded(role, localVarRequestOptions, configuration)
+
+            return {
+                url: toPathString(localVarUrlObj),
+                axiosOptions: localVarRequestOptions,
+            };
+        },
+        /**
+         * This API returns a Role by its ID.  A token with API, ORG_ADMIN, ROLE_ADMIN, or ROLE_SUBADMIN authority is required to call this API. In addition, a token with ROLE_SUBADMIN authority may only call this API if all Access Profiles included in the Role are associated to Sources with management workgroups of which the ROLE_SUBADMIN is a member.
+         * @summary Get a Role
+         * @param {string} id ID of the Role
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        getRole: async (id: string, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'id' is not null or undefined
+            assertParamExists('getRole', 'id', id)
+            const localVarPath = `/roles/{id}`
+                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...axiosOptions};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication oauth2 required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "oauth2", [], configuration)
+
+            // authentication oauth2 required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "oauth2", [], configuration)
+
+
+    
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                axiosOptions: localVarRequestOptions,
+            };
+        },
+        /**
+         * 
+         * @summary List Identities assigned a Role
+         * @param {string} id ID of the Role for which the assigned Identities are to be listed
+         * @param {number} [limit] Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+         * @param {number} [offset] Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+         * @param {boolean} [count] If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+         * @param {string} [filters] Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, in*  **aliasName**: *eq, sw*  **email**: *eq, sw*  **name**: *eq, sw, co*
+         * @param {string} [sorters] Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **id**, **name**, **aliasName**, **email**
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        getRoleAssignedIdentities: async (id: string, limit?: number, offset?: number, count?: boolean, filters?: string, sorters?: string, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'id' is not null or undefined
+            assertParamExists('getRoleAssignedIdentities', 'id', id)
+            const localVarPath = `/roles/{id}/assigned-identities`
+                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...axiosOptions};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication oauth2 required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "oauth2", [], configuration)
+
+            // authentication oauth2 required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "oauth2", [], configuration)
+
+            if (limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+
+            if (offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+
+            if (count !== undefined) {
+                localVarQueryParameter['count'] = count;
+            }
+
+            if (filters !== undefined) {
+                localVarQueryParameter['filters'] = filters;
+            }
+
+            if (sorters !== undefined) {
+                localVarQueryParameter['sorters'] = sorters;
+            }
+
+
+    
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                axiosOptions: localVarRequestOptions,
+            };
+        },
+        /**
+         * This API returns a list of Roles.  A token with API, ORG_ADMIN, ROLE_ADMIN, or ROLE_SUBADMIN authority is required to call this API.
+         * @summary List Roles
+         * @param {string} [forSubadmin] If provided, filters the returned list according to what is visible to the indicated ROLE_SUBADMIN Identity. The value of the parameter is either an Identity ID, or the special value **me**, which is shorthand for the calling Identity\&#39;s ID. A 400 Bad Request error is returned if the **for-subadmin** parameter is specified for an Identity that is not a subadmin.
+         * @param {number} [limit] Note that for this API the maximum value for limit is 50. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+         * @param {number} [offset] Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+         * @param {boolean} [count] If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+         * @param {string} [filters] Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results) Filtering is supported for the following fields and operators: **id**: *eq, in* **name**: *eq, sw* **created, modified**: *gt, lt, ge, le* **owner.id**: *eq, in* **requestable**: *eq*
+         * @param {string} [sorters] Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results) Sorting is supported for the following fields: **name, created, modified**
+         * @param {string} [forSegmentIds] If present and not empty, additionally filters Roles to those which are assigned to the Segment(s) with the specified IDs.  If segmentation is currently unavailable, specifying this parameter results in an error.
+         * @param {boolean} [includeUnsegmented] Whether or not the response list should contain unsegmented Roles. If *for-segment-ids* is absent or empty, specifying *include-unsegmented* as false results in an error.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        listRoles: async (forSubadmin?: string, limit?: number, offset?: number, count?: boolean, filters?: string, sorters?: string, forSegmentIds?: string, includeUnsegmented?: boolean, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            const localVarPath = `/roles`;
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...axiosOptions};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication oauth2 required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "oauth2", [], configuration)
+
+            // authentication oauth2 required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "oauth2", [], configuration)
+
+            if (forSubadmin !== undefined) {
+                localVarQueryParameter['for-subadmin'] = forSubadmin;
+            }
+
+            if (limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+
+            if (offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+
+            if (count !== undefined) {
+                localVarQueryParameter['count'] = count;
+            }
+
+            if (filters !== undefined) {
+                localVarQueryParameter['filters'] = filters;
+            }
+
+            if (sorters !== undefined) {
+                localVarQueryParameter['sorters'] = sorters;
+            }
+
+            if (forSegmentIds !== undefined) {
+                localVarQueryParameter['for-segment-ids'] = forSegmentIds;
+            }
+
+            if (includeUnsegmented !== undefined) {
+                localVarQueryParameter['include-unsegmented'] = includeUnsegmented;
+            }
+
+
+    
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                axiosOptions: localVarRequestOptions,
+            };
+        },
+        /**
+         * This API updates an existing Role using [JSON Patch](https://tools.ietf.org/html/rfc6902) syntax.  The following fields are patchable: **name**, **description**, **enabled**, **owner**, **accessProfiles**, **membership**, **requestable**, **accessRequestConfig**, **revokeRequestConfig**, **segments** A token with API, ORG_ADMIN, ROLE_ADMIN, or ROLE_SUBADMIN authority is required to call this API. In addition, a token with ROLE_SUBADMIN authority may only call this API if all Access Profiles included in the Role are associated to Sources with management workgroups of which the ROLE_SUBADMIN is a member. The maximum supported length for the description field is 2000 characters. Longer descriptions will be preserved for existing roles, however, any new roles as well as any updates to existing descriptions will be limited to 2000 characters.
+         * @summary Patch a specified Role
+         * @param {string} id ID of the Role to patch
+         * @param {Array<JsonPatchOperation>} jsonPatchOperation 
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        patchRole: async (id: string, jsonPatchOperation: Array<JsonPatchOperation>, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'id' is not null or undefined
+            assertParamExists('patchRole', 'id', id)
+            // verify required parameter 'jsonPatchOperation' is not null or undefined
+            assertParamExists('patchRole', 'jsonPatchOperation', jsonPatchOperation)
+            const localVarPath = `/roles/{id}`
+                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'PATCH', ...baseOptions, ...axiosOptions};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication oauth2 required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "oauth2", [], configuration)
+
+            // authentication oauth2 required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "oauth2", [], configuration)
+
+
+    
+            localVarHeaderParameter['Content-Type'] = 'application/json-patch+json';
+
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
+            localVarRequestOptions.data = serializeDataIfNeeded(jsonPatchOperation, localVarRequestOptions, configuration)
+
+            return {
+                url: toPathString(localVarUrlObj),
+                axiosOptions: localVarRequestOptions,
+            };
+        },
+    }
+};
+
+/**
+ * RolesApi - functional programming interface
+ * @export
+ */
+export const RolesApiFp = function(configuration?: Configuration) {
+    const localVarAxiosParamCreator = RolesApiAxiosParamCreator(configuration)
+    return {
+        /**
+         * This API creates a Role. There is a soft limit of 800 roles per org in IdentityNow.  You will receive an error if you attempt to add more than 800 roles via the API or the UI.  If you need to add roles above this limit, please create a support ticket. A token with API, ORG_ADMIN, ROLE_ADMIN, or ROLE_SUBADMIN authority is required to call this API. In addition, a ROLE_SUBADMIN may not create a Role including an Access Profile if that Access Profile is associated with a Source with which the ROLE_SUBADMIN is not themselves associated. The maximum supported length for the description field is 2000 characters. Longer descriptions will be preserved for existing roles, however, any new roles as well as any updates to existing descriptions will be limited to 2000 characters.
+         * @summary Create a Role
+         * @param {Role} role 
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        async createRole(role: Role, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Role>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.createRole(role, axiosOptions);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * This API returns a Role by its ID.  A token with API, ORG_ADMIN, ROLE_ADMIN, or ROLE_SUBADMIN authority is required to call this API. In addition, a token with ROLE_SUBADMIN authority may only call this API if all Access Profiles included in the Role are associated to Sources with management workgroups of which the ROLE_SUBADMIN is a member.
+         * @summary Get a Role
+         * @param {string} id ID of the Role
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        async getRole(id: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Role>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getRole(id, axiosOptions);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * 
+         * @summary List Identities assigned a Role
+         * @param {string} id ID of the Role for which the assigned Identities are to be listed
+         * @param {number} [limit] Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+         * @param {number} [offset] Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+         * @param {boolean} [count] If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+         * @param {string} [filters] Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, in*  **aliasName**: *eq, sw*  **email**: *eq, sw*  **name**: *eq, sw, co*
+         * @param {string} [sorters] Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **id**, **name**, **aliasName**, **email**
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        async getRoleAssignedIdentities(id: string, limit?: number, offset?: number, count?: boolean, filters?: string, sorters?: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<RoleIdentity>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getRoleAssignedIdentities(id, limit, offset, count, filters, sorters, axiosOptions);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * This API returns a list of Roles.  A token with API, ORG_ADMIN, ROLE_ADMIN, or ROLE_SUBADMIN authority is required to call this API.
+         * @summary List Roles
+         * @param {string} [forSubadmin] If provided, filters the returned list according to what is visible to the indicated ROLE_SUBADMIN Identity. The value of the parameter is either an Identity ID, or the special value **me**, which is shorthand for the calling Identity\&#39;s ID. A 400 Bad Request error is returned if the **for-subadmin** parameter is specified for an Identity that is not a subadmin.
+         * @param {number} [limit] Note that for this API the maximum value for limit is 50. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+         * @param {number} [offset] Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+         * @param {boolean} [count] If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+         * @param {string} [filters] Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results) Filtering is supported for the following fields and operators: **id**: *eq, in* **name**: *eq, sw* **created, modified**: *gt, lt, ge, le* **owner.id**: *eq, in* **requestable**: *eq*
+         * @param {string} [sorters] Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results) Sorting is supported for the following fields: **name, created, modified**
+         * @param {string} [forSegmentIds] If present and not empty, additionally filters Roles to those which are assigned to the Segment(s) with the specified IDs.  If segmentation is currently unavailable, specifying this parameter results in an error.
+         * @param {boolean} [includeUnsegmented] Whether or not the response list should contain unsegmented Roles. If *for-segment-ids* is absent or empty, specifying *include-unsegmented* as false results in an error.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        async listRoles(forSubadmin?: string, limit?: number, offset?: number, count?: boolean, filters?: string, sorters?: string, forSegmentIds?: string, includeUnsegmented?: boolean, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Role>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.listRoles(forSubadmin, limit, offset, count, filters, sorters, forSegmentIds, includeUnsegmented, axiosOptions);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * This API updates an existing Role using [JSON Patch](https://tools.ietf.org/html/rfc6902) syntax.  The following fields are patchable: **name**, **description**, **enabled**, **owner**, **accessProfiles**, **membership**, **requestable**, **accessRequestConfig**, **revokeRequestConfig**, **segments** A token with API, ORG_ADMIN, ROLE_ADMIN, or ROLE_SUBADMIN authority is required to call this API. In addition, a token with ROLE_SUBADMIN authority may only call this API if all Access Profiles included in the Role are associated to Sources with management workgroups of which the ROLE_SUBADMIN is a member. The maximum supported length for the description field is 2000 characters. Longer descriptions will be preserved for existing roles, however, any new roles as well as any updates to existing descriptions will be limited to 2000 characters.
+         * @summary Patch a specified Role
+         * @param {string} id ID of the Role to patch
+         * @param {Array<JsonPatchOperation>} jsonPatchOperation 
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        async patchRole(id: string, jsonPatchOperation: Array<JsonPatchOperation>, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Role>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.patchRole(id, jsonPatchOperation, axiosOptions);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+    }
+};
+
+/**
+ * RolesApi - factory interface
+ * @export
+ */
+export const RolesApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
+    const localVarFp = RolesApiFp(configuration)
+    return {
+        /**
+         * This API creates a Role. There is a soft limit of 800 roles per org in IdentityNow.  You will receive an error if you attempt to add more than 800 roles via the API or the UI.  If you need to add roles above this limit, please create a support ticket. A token with API, ORG_ADMIN, ROLE_ADMIN, or ROLE_SUBADMIN authority is required to call this API. In addition, a ROLE_SUBADMIN may not create a Role including an Access Profile if that Access Profile is associated with a Source with which the ROLE_SUBADMIN is not themselves associated. The maximum supported length for the description field is 2000 characters. Longer descriptions will be preserved for existing roles, however, any new roles as well as any updates to existing descriptions will be limited to 2000 characters.
+         * @summary Create a Role
+         * @param {Role} role 
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        createRole(role: Role, axiosOptions?: any): AxiosPromise<Role> {
+            return localVarFp.createRole(role, axiosOptions).then((request) => request(axios, basePath));
+        },
+        /**
+         * This API returns a Role by its ID.  A token with API, ORG_ADMIN, ROLE_ADMIN, or ROLE_SUBADMIN authority is required to call this API. In addition, a token with ROLE_SUBADMIN authority may only call this API if all Access Profiles included in the Role are associated to Sources with management workgroups of which the ROLE_SUBADMIN is a member.
+         * @summary Get a Role
+         * @param {string} id ID of the Role
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        getRole(id: string, axiosOptions?: any): AxiosPromise<Role> {
+            return localVarFp.getRole(id, axiosOptions).then((request) => request(axios, basePath));
+        },
+        /**
+         * 
+         * @summary List Identities assigned a Role
+         * @param {string} id ID of the Role for which the assigned Identities are to be listed
+         * @param {number} [limit] Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+         * @param {number} [offset] Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+         * @param {boolean} [count] If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+         * @param {string} [filters] Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, in*  **aliasName**: *eq, sw*  **email**: *eq, sw*  **name**: *eq, sw, co*
+         * @param {string} [sorters] Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **id**, **name**, **aliasName**, **email**
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        getRoleAssignedIdentities(id: string, limit?: number, offset?: number, count?: boolean, filters?: string, sorters?: string, axiosOptions?: any): AxiosPromise<Array<RoleIdentity>> {
+            return localVarFp.getRoleAssignedIdentities(id, limit, offset, count, filters, sorters, axiosOptions).then((request) => request(axios, basePath));
+        },
+        /**
+         * This API returns a list of Roles.  A token with API, ORG_ADMIN, ROLE_ADMIN, or ROLE_SUBADMIN authority is required to call this API.
+         * @summary List Roles
+         * @param {string} [forSubadmin] If provided, filters the returned list according to what is visible to the indicated ROLE_SUBADMIN Identity. The value of the parameter is either an Identity ID, or the special value **me**, which is shorthand for the calling Identity\&#39;s ID. A 400 Bad Request error is returned if the **for-subadmin** parameter is specified for an Identity that is not a subadmin.
+         * @param {number} [limit] Note that for this API the maximum value for limit is 50. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+         * @param {number} [offset] Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+         * @param {boolean} [count] If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+         * @param {string} [filters] Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results) Filtering is supported for the following fields and operators: **id**: *eq, in* **name**: *eq, sw* **created, modified**: *gt, lt, ge, le* **owner.id**: *eq, in* **requestable**: *eq*
+         * @param {string} [sorters] Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results) Sorting is supported for the following fields: **name, created, modified**
+         * @param {string} [forSegmentIds] If present and not empty, additionally filters Roles to those which are assigned to the Segment(s) with the specified IDs.  If segmentation is currently unavailable, specifying this parameter results in an error.
+         * @param {boolean} [includeUnsegmented] Whether or not the response list should contain unsegmented Roles. If *for-segment-ids* is absent or empty, specifying *include-unsegmented* as false results in an error.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        listRoles(forSubadmin?: string, limit?: number, offset?: number, count?: boolean, filters?: string, sorters?: string, forSegmentIds?: string, includeUnsegmented?: boolean, axiosOptions?: any): AxiosPromise<Array<Role>> {
+            return localVarFp.listRoles(forSubadmin, limit, offset, count, filters, sorters, forSegmentIds, includeUnsegmented, axiosOptions).then((request) => request(axios, basePath));
+        },
+        /**
+         * This API updates an existing Role using [JSON Patch](https://tools.ietf.org/html/rfc6902) syntax.  The following fields are patchable: **name**, **description**, **enabled**, **owner**, **accessProfiles**, **membership**, **requestable**, **accessRequestConfig**, **revokeRequestConfig**, **segments** A token with API, ORG_ADMIN, ROLE_ADMIN, or ROLE_SUBADMIN authority is required to call this API. In addition, a token with ROLE_SUBADMIN authority may only call this API if all Access Profiles included in the Role are associated to Sources with management workgroups of which the ROLE_SUBADMIN is a member. The maximum supported length for the description field is 2000 characters. Longer descriptions will be preserved for existing roles, however, any new roles as well as any updates to existing descriptions will be limited to 2000 characters.
+         * @summary Patch a specified Role
+         * @param {string} id ID of the Role to patch
+         * @param {Array<JsonPatchOperation>} jsonPatchOperation 
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        patchRole(id: string, jsonPatchOperation: Array<JsonPatchOperation>, axiosOptions?: any): AxiosPromise<Role> {
+            return localVarFp.patchRole(id, jsonPatchOperation, axiosOptions).then((request) => request(axios, basePath));
+        },
+    };
+};
+
+/**
+ * Request parameters for createRole operation in RolesApi.
+ * @export
+ * @interface RolesApiCreateRoleRequest
+ */
+export interface RolesApiCreateRoleRequest {
+    /**
+     * 
+     * @type {Role}
+     * @memberof RolesApiCreateRole
+     */
+    readonly role: Role
+}
+
+/**
+ * Request parameters for getRole operation in RolesApi.
+ * @export
+ * @interface RolesApiGetRoleRequest
+ */
+export interface RolesApiGetRoleRequest {
+    /**
+     * ID of the Role
+     * @type {string}
+     * @memberof RolesApiGetRole
+     */
+    readonly id: string
+}
+
+/**
+ * Request parameters for getRoleAssignedIdentities operation in RolesApi.
+ * @export
+ * @interface RolesApiGetRoleAssignedIdentitiesRequest
+ */
+export interface RolesApiGetRoleAssignedIdentitiesRequest {
+    /**
+     * ID of the Role for which the assigned Identities are to be listed
+     * @type {string}
+     * @memberof RolesApiGetRoleAssignedIdentities
+     */
+    readonly id: string
+
+    /**
+     * Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+     * @type {number}
+     * @memberof RolesApiGetRoleAssignedIdentities
+     */
+    readonly limit?: number
+
+    /**
+     * Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+     * @type {number}
+     * @memberof RolesApiGetRoleAssignedIdentities
+     */
+    readonly offset?: number
+
+    /**
+     * If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+     * @type {boolean}
+     * @memberof RolesApiGetRoleAssignedIdentities
+     */
+    readonly count?: boolean
+
+    /**
+     * Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, in*  **aliasName**: *eq, sw*  **email**: *eq, sw*  **name**: *eq, sw, co*
+     * @type {string}
+     * @memberof RolesApiGetRoleAssignedIdentities
+     */
+    readonly filters?: string
+
+    /**
+     * Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **id**, **name**, **aliasName**, **email**
+     * @type {string}
+     * @memberof RolesApiGetRoleAssignedIdentities
+     */
+    readonly sorters?: string
+}
+
+/**
+ * Request parameters for listRoles operation in RolesApi.
+ * @export
+ * @interface RolesApiListRolesRequest
+ */
+export interface RolesApiListRolesRequest {
+    /**
+     * If provided, filters the returned list according to what is visible to the indicated ROLE_SUBADMIN Identity. The value of the parameter is either an Identity ID, or the special value **me**, which is shorthand for the calling Identity\&#39;s ID. A 400 Bad Request error is returned if the **for-subadmin** parameter is specified for an Identity that is not a subadmin.
+     * @type {string}
+     * @memberof RolesApiListRoles
+     */
+    readonly forSubadmin?: string
+
+    /**
+     * Note that for this API the maximum value for limit is 50. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+     * @type {number}
+     * @memberof RolesApiListRoles
+     */
+    readonly limit?: number
+
+    /**
+     * Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+     * @type {number}
+     * @memberof RolesApiListRoles
+     */
+    readonly offset?: number
+
+    /**
+     * If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+     * @type {boolean}
+     * @memberof RolesApiListRoles
+     */
+    readonly count?: boolean
+
+    /**
+     * Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results) Filtering is supported for the following fields and operators: **id**: *eq, in* **name**: *eq, sw* **created, modified**: *gt, lt, ge, le* **owner.id**: *eq, in* **requestable**: *eq*
+     * @type {string}
+     * @memberof RolesApiListRoles
+     */
+    readonly filters?: string
+
+    /**
+     * Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results) Sorting is supported for the following fields: **name, created, modified**
+     * @type {string}
+     * @memberof RolesApiListRoles
+     */
+    readonly sorters?: string
+
+    /**
+     * If present and not empty, additionally filters Roles to those which are assigned to the Segment(s) with the specified IDs.  If segmentation is currently unavailable, specifying this parameter results in an error.
+     * @type {string}
+     * @memberof RolesApiListRoles
+     */
+    readonly forSegmentIds?: string
+
+    /**
+     * Whether or not the response list should contain unsegmented Roles. If *for-segment-ids* is absent or empty, specifying *include-unsegmented* as false results in an error.
+     * @type {boolean}
+     * @memberof RolesApiListRoles
+     */
+    readonly includeUnsegmented?: boolean
+}
+
+/**
+ * Request parameters for patchRole operation in RolesApi.
+ * @export
+ * @interface RolesApiPatchRoleRequest
+ */
+export interface RolesApiPatchRoleRequest {
+    /**
+     * ID of the Role to patch
+     * @type {string}
+     * @memberof RolesApiPatchRole
+     */
+    readonly id: string
+
+    /**
+     * 
+     * @type {Array<JsonPatchOperation>}
+     * @memberof RolesApiPatchRole
+     */
+    readonly jsonPatchOperation: Array<JsonPatchOperation>
+}
+
+/**
+ * RolesApi - object-oriented interface
+ * @export
+ * @class RolesApi
+ * @extends {BaseAPI}
+ */
+export class RolesApi extends BaseAPI {
+    /**
+     * This API creates a Role. There is a soft limit of 800 roles per org in IdentityNow.  You will receive an error if you attempt to add more than 800 roles via the API or the UI.  If you need to add roles above this limit, please create a support ticket. A token with API, ORG_ADMIN, ROLE_ADMIN, or ROLE_SUBADMIN authority is required to call this API. In addition, a ROLE_SUBADMIN may not create a Role including an Access Profile if that Access Profile is associated with a Source with which the ROLE_SUBADMIN is not themselves associated. The maximum supported length for the description field is 2000 characters. Longer descriptions will be preserved for existing roles, however, any new roles as well as any updates to existing descriptions will be limited to 2000 characters.
+     * @summary Create a Role
+     * @param {RolesApiCreateRoleRequest} requestParameters Request parameters.
+     * @param {*} [axiosOptions] Override http request option.
+     * @throws {RequiredError}
+     * @memberof RolesApi
+     */
+    public createRole(requestParameters: RolesApiCreateRoleRequest, axiosOptions?: AxiosRequestConfig) {
+        return RolesApiFp(this.configuration).createRole(requestParameters.role, axiosOptions).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * This API returns a Role by its ID.  A token with API, ORG_ADMIN, ROLE_ADMIN, or ROLE_SUBADMIN authority is required to call this API. In addition, a token with ROLE_SUBADMIN authority may only call this API if all Access Profiles included in the Role are associated to Sources with management workgroups of which the ROLE_SUBADMIN is a member.
+     * @summary Get a Role
+     * @param {RolesApiGetRoleRequest} requestParameters Request parameters.
+     * @param {*} [axiosOptions] Override http request option.
+     * @throws {RequiredError}
+     * @memberof RolesApi
+     */
+    public getRole(requestParameters: RolesApiGetRoleRequest, axiosOptions?: AxiosRequestConfig) {
+        return RolesApiFp(this.configuration).getRole(requestParameters.id, axiosOptions).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * 
+     * @summary List Identities assigned a Role
+     * @param {RolesApiGetRoleAssignedIdentitiesRequest} requestParameters Request parameters.
+     * @param {*} [axiosOptions] Override http request option.
+     * @throws {RequiredError}
+     * @memberof RolesApi
+     */
+    public getRoleAssignedIdentities(requestParameters: RolesApiGetRoleAssignedIdentitiesRequest, axiosOptions?: AxiosRequestConfig) {
+        return RolesApiFp(this.configuration).getRoleAssignedIdentities(requestParameters.id, requestParameters.limit, requestParameters.offset, requestParameters.count, requestParameters.filters, requestParameters.sorters, axiosOptions).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * This API returns a list of Roles.  A token with API, ORG_ADMIN, ROLE_ADMIN, or ROLE_SUBADMIN authority is required to call this API.
+     * @summary List Roles
+     * @param {RolesApiListRolesRequest} requestParameters Request parameters.
+     * @param {*} [axiosOptions] Override http request option.
+     * @throws {RequiredError}
+     * @memberof RolesApi
+     */
+    public listRoles(requestParameters: RolesApiListRolesRequest = {}, axiosOptions?: AxiosRequestConfig) {
+        return RolesApiFp(this.configuration).listRoles(requestParameters.forSubadmin, requestParameters.limit, requestParameters.offset, requestParameters.count, requestParameters.filters, requestParameters.sorters, requestParameters.forSegmentIds, requestParameters.includeUnsegmented, axiosOptions).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * This API updates an existing Role using [JSON Patch](https://tools.ietf.org/html/rfc6902) syntax.  The following fields are patchable: **name**, **description**, **enabled**, **owner**, **accessProfiles**, **membership**, **requestable**, **accessRequestConfig**, **revokeRequestConfig**, **segments** A token with API, ORG_ADMIN, ROLE_ADMIN, or ROLE_SUBADMIN authority is required to call this API. In addition, a token with ROLE_SUBADMIN authority may only call this API if all Access Profiles included in the Role are associated to Sources with management workgroups of which the ROLE_SUBADMIN is a member. The maximum supported length for the description field is 2000 characters. Longer descriptions will be preserved for existing roles, however, any new roles as well as any updates to existing descriptions will be limited to 2000 characters.
+     * @summary Patch a specified Role
+     * @param {RolesApiPatchRoleRequest} requestParameters Request parameters.
+     * @param {*} [axiosOptions] Override http request option.
+     * @throws {RequiredError}
+     * @memberof RolesApi
+     */
+    public patchRole(requestParameters: RolesApiPatchRoleRequest, axiosOptions?: AxiosRequestConfig) {
+        return RolesApiFp(this.configuration).patchRole(requestParameters.id, requestParameters.jsonPatchOperation, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 }
 
