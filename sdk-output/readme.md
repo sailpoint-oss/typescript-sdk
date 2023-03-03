@@ -50,4 +50,4 @@ createTransform()
 
 ```
 
-### See more uses of the SDK [here](../examples/src/index.ts)
+### See more uses of the SDK [here](https://github.com/sailpoint-oss/typescript-sdk/blob/main/examples/src/index.ts)
