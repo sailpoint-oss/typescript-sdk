@@ -1,11 +1,18 @@
-# Typescript SDK Generator
+[![Discourse Topics][discourse-shield]][discourse-url]
+![Times Downloaded][downloads-shield] ![Issues][issues-shield]
+![Latest Releases][release-shield] ![Contributor Shield][contributor-shield]
+![License Shield][license-shield]
 
-to generate the SDKs, run the following commands:
+[discourse-shield]: https://img.shields.io/discourse/topics?label=Discuss%20This%20Tool&server=https%3A%2F%2Fdeveloper.sailpoint.com%2Fdiscuss
+[discourse-url]: https://developer.sailpoint.com/discuss
+[downloads-shield]: https://img.shields.io/github/downloads/sailpoint-oss/typescript-sdk/total?label=Downloads
+[issues-shield]: https://img.shields.io/github/issues/sailpoint-oss/typescript-sdk?label=Issues
+[release-shield]: https://img.shields.io/github/v/release/sailpoint-oss/typescript-sdk?label=Current%20Release
+[contributor-shield]: https://img.shields.io/github/contributors/sailpoint-oss/typescript-sdk?label=Contributors
+[license-shield]: https://img.shields.io/badge/MIT-License-green
 
-```
-java -jar openapi-generator-cli.jar generate -i /path/to/v3/sailpoint-api.v3.yaml -g typescript-axios -o sdk-output/v3 --global-property skipFormModel=false --config sdk-resources/v3-config.yaml --api-name-suffix V3 --model-name-suffix V3
+Documentation
 
-java -jar openapi-generator-cli.jar generate -i /path/to/beta/sailpoint-api.beta.yaml -g typescript-axios -o sdk-output/beta --global-property skipFormModel=false --config sdk-resources/beta-config.yaml --api-name-suffix Beta --model-name-suffix Beta
-```
+The SailPoint SDK is an API Client that provides programmable access to the SailPoint Identity Now APIs through various languages.
 
-run ```npm install``` in the sdk-output directory and in the examples directory, then you should be able to run the examples.
+For documentation, please see https://developer.sailpoint.com/idn/tools/sdk
