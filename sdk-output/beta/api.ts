@@ -6528,152 +6528,6 @@ export interface ForwardApprovalDtoBeta {
 /**
  * 
  * @export
- * @interface FullAccountAllOfBeta
- */
-export interface FullAccountAllOfBeta {
-    /**
-     * Whether this account belongs to an authoritative source
-     * @type {boolean}
-     * @memberof FullAccountAllOfBeta
-     */
-    'authoritative'?: boolean;
-    /**
-     * Whether this account is for the IdentityNow source
-     * @type {boolean}
-     * @memberof FullAccountAllOfBeta
-     */
-    'systemAccount'?: boolean;
-    /**
-     * True if this account is not correlated to an identity
-     * @type {boolean}
-     * @memberof FullAccountAllOfBeta
-     */
-    'uncorrelated'?: boolean;
-    /**
-     * A string list containing the owning source\'s features
-     * @type {string}
-     * @memberof FullAccountAllOfBeta
-     */
-    'features'?: string;
-}
-/**
- * 
- * @export
- * @interface FullAccountBeta
- */
-export interface FullAccountBeta {
-    /**
-     * System-generated unique ID of the Object
-     * @type {string}
-     * @memberof FullAccountBeta
-     */
-    'id'?: string;
-    /**
-     * Name of the Object
-     * @type {string}
-     * @memberof FullAccountBeta
-     */
-    'name': string;
-    /**
-     * Creation date of the Object
-     * @type {string}
-     * @memberof FullAccountBeta
-     */
-    'created'?: string;
-    /**
-     * Last modification date of the Object
-     * @type {string}
-     * @memberof FullAccountBeta
-     */
-    'modified'?: string;
-    /**
-     * Unique ID from the owning source
-     * @type {string}
-     * @memberof FullAccountBeta
-     */
-    'uuid'?: string;
-    /**
-     * The native identifier of the account
-     * @type {string}
-     * @memberof FullAccountBeta
-     */
-    'nativeIdentity'?: string;
-    /**
-     * The description for the account
-     * @type {string}
-     * @memberof FullAccountBeta
-     */
-    'description'?: string;
-    /**
-     * Whether the account is disabled
-     * @type {boolean}
-     * @memberof FullAccountBeta
-     */
-    'disabled'?: boolean;
-    /**
-     * Whether the account is locked
-     * @type {boolean}
-     * @memberof FullAccountBeta
-     */
-    'locked'?: boolean;
-    /**
-     * Whether the account was manually correlated
-     * @type {boolean}
-     * @memberof FullAccountBeta
-     */
-    'manuallyCorrelated'?: boolean;
-    /**
-     * Whether the account has any entitlements associated with it
-     * @type {boolean}
-     * @memberof FullAccountBeta
-     */
-    'hasEntitlements'?: boolean;
-    /**
-     * The ID of the source for which this account belongs
-     * @type {string}
-     * @memberof FullAccountBeta
-     */
-    'sourceId'?: string;
-    /**
-     * The ID of the identity for which this account is correlated to if not uncorrelated
-     * @type {string}
-     * @memberof FullAccountBeta
-     */
-    'identityId'?: string;
-    /**
-     * A map containing attributes associated with the account
-     * @type {object}
-     * @memberof FullAccountBeta
-     */
-    'attributes'?: object;
-    /**
-     * Whether this account belongs to an authoritative source
-     * @type {boolean}
-     * @memberof FullAccountBeta
-     */
-    'authoritative'?: boolean;
-    /**
-     * Whether this account is for the IdentityNow source
-     * @type {boolean}
-     * @memberof FullAccountBeta
-     */
-    'systemAccount'?: boolean;
-    /**
-     * True if this account is not correlated to an identity
-     * @type {boolean}
-     * @memberof FullAccountBeta
-     */
-    'uncorrelated'?: boolean;
-    /**
-     * A string list containing the owning source\'s features
-     * @type {string}
-     * @memberof FullAccountBeta
-     */
-    'features'?: string;
-}
-/**
- * 
- * @export
  * @interface FullcampaignAllOfBeta
  */
 export interface FullcampaignAllOfBeta {
@@ -8927,12 +8781,6 @@ export interface ListAccessProfiles429ResponseBeta {
      */
     'message'?: object;
 }
-/**
- * @type ListAccounts200ResponseInnerBeta
- * @export
- */
-export type ListAccounts200ResponseInnerBeta = FullAccountBeta | SlimAccountBeta;
-
 /**
  * 
  * @export
@@ -15946,164 +15794,6 @@ export interface ServiceDeskIntegrationTemplateTypeBeta {
      * @memberof ServiceDeskIntegrationTemplateTypeBeta
      */
     'scriptName': string;
-}
-/**
- * 
- * @export
- * @interface SlimAccountAllOfBeta
- */
-export interface SlimAccountAllOfBeta {
-    /**
-     * Unique ID from the owning source
-     * @type {string}
-     * @memberof SlimAccountAllOfBeta
-     */
-    'uuid'?: string;
-    /**
-     * The native identifier of the account
-     * @type {string}
-     * @memberof SlimAccountAllOfBeta
-     */
-    'nativeIdentity'?: string;
-    /**
-     * The description for the account
-     * @type {string}
-     * @memberof SlimAccountAllOfBeta
-     */
-    'description'?: string;
-    /**
-     * Whether the account is disabled
-     * @type {boolean}
-     * @memberof SlimAccountAllOfBeta
-     */
-    'disabled'?: boolean;
-    /**
-     * Whether the account is locked
-     * @type {boolean}
-     * @memberof SlimAccountAllOfBeta
-     */
-    'locked'?: boolean;
-    /**
-     * Whether the account was manually correlated
-     * @type {boolean}
-     * @memberof SlimAccountAllOfBeta
-     */
-    'manuallyCorrelated'?: boolean;
-    /**
-     * Whether the account has any entitlements associated with it
-     * @type {boolean}
-     * @memberof SlimAccountAllOfBeta
-     */
-    'hasEntitlements'?: boolean;
-    /**
-     * The ID of the source for which this account belongs
-     * @type {string}
-     * @memberof SlimAccountAllOfBeta
-     */
-    'sourceId'?: string;
-    /**
-     * The ID of the identity for which this account is correlated to if not uncorrelated
-     * @type {string}
-     * @memberof SlimAccountAllOfBeta
-     */
-    'identityId'?: string;
-    /**
-     * A map containing attributes associated with the account
-     * @type {object}
-     * @memberof SlimAccountAllOfBeta
-     */
-    'attributes'?: object;
-}
-/**
- * 
- * @export
- * @interface SlimAccountBeta
- */
-export interface SlimAccountBeta {
-    /**
-     * System-generated unique ID of the Object
-     * @type {string}
-     * @memberof SlimAccountBeta
-     */
-    'id'?: string;
-    /**
-     * Name of the Object
-     * @type {string}
-     * @memberof SlimAccountBeta
-     */
-    'name': string;
-    /**
-     * Creation date of the Object
-     * @type {string}
-     * @memberof SlimAccountBeta
-     */
-    'created'?: string;
-    /**
-     * Last modification date of the Object
-     * @type {string}
-     * @memberof SlimAccountBeta
-     */
-    'modified'?: string;
-    /**
-     * Unique ID from the owning source
-     * @type {string}
-     * @memberof SlimAccountBeta
-     */
-    'uuid'?: string;
-    /**
-     * The native identifier of the account
-     * @type {string}
-     * @memberof SlimAccountBeta
-     */
-    'nativeIdentity'?: string;
-    /**
-     * The description for the account
-     * @type {string}
-     * @memberof SlimAccountBeta
-     */
-    'description'?: string;
-    /**
-     * Whether the account is disabled
-     * @type {boolean}
-     * @memberof SlimAccountBeta
-     */
-    'disabled'?: boolean;
-    /**
-     * Whether the account is locked
-     * @type {boolean}
-     * @memberof SlimAccountBeta
-     */
-    'locked'?: boolean;
-    /**
-     * Whether the account was manually correlated
-     * @type {boolean}
-     * @memberof SlimAccountBeta
-     */
-    'manuallyCorrelated'?: boolean;
-    /**
-     * Whether the account has any entitlements associated with it
-     * @type {boolean}
-     * @memberof SlimAccountBeta
-     */
-    'hasEntitlements'?: boolean;
-    /**
-     * The ID of the source for which this account belongs
-     * @type {string}
-     * @memberof SlimAccountBeta
-     */
-    'sourceId'?: string;
-    /**
-     * The ID of the identity for which this account is correlated to if not uncorrelated
-     * @type {string}
-     * @memberof SlimAccountBeta
-     */
-    'identityId'?: string;
-    /**
-     * A map containing attributes associated with the account
-     * @type {object}
-     * @memberof SlimAccountBeta
-     */
-    'attributes'?: object;
 }
 /**
  * 
@@ -25965,7 +25655,7 @@ export const AccountsBetaApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async listAccounts(detailLevel?: 'SLIM' | 'FULL', limit?: number, offset?: number, count?: boolean, filters?: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<ListAccounts200ResponseInnerBeta>>> {
+        async listAccounts(detailLevel?: 'SLIM' | 'FULL', limit?: number, offset?: number, count?: boolean, filters?: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<object>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.listAccounts(detailLevel, limit, offset, count, filters, axiosOptions);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -26142,7 +25832,7 @@ export const AccountsBetaApiFactory = function (configuration?: Configuration, b
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        listAccounts(detailLevel?: 'SLIM' | 'FULL', limit?: number, offset?: number, count?: boolean, filters?: string, axiosOptions?: any): AxiosPromise<Array<ListAccounts200ResponseInnerBeta>> {
+        listAccounts(detailLevel?: 'SLIM' | 'FULL', limit?: number, offset?: number, count?: boolean, filters?: string, axiosOptions?: any): AxiosPromise<object> {
             return localVarFp.listAccounts(detailLevel, limit, offset, count, filters, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
