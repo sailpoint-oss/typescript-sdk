@@ -2618,7 +2618,7 @@ export interface ApprovalComment {
  */
 export interface ApprovalForwardHistory {
     /**
-     * Display name of approver that forwarded the approval.
+     * Display name of approver from whom the approval was forwarded.
      * @type {string}
      * @memberof ApprovalForwardHistory
      */
@@ -2630,17 +2630,29 @@ export interface ApprovalForwardHistory {
      */
     'newApproverName'?: string;
     /**
-     * Comment made by old approver when forwarding.
+     * Comment made while forwarding.
      * @type {string}
      * @memberof ApprovalForwardHistory
      */
-    'comment'?: string;
+    'comment'?: string | null;
     /**
      * Time at which approval was forwarded.
      * @type {string}
      * @memberof ApprovalForwardHistory
      */
     'modified'?: string;
+    /**
+     * Display name of forwarder who forwarded the approval.
+     * @type {string}
+     * @memberof ApprovalForwardHistory
+     */
+    'forwarderName'?: string | null;
+    /**
+     * 
+     * @type {ReassignmentType}
+     * @memberof ApprovalForwardHistory
+     */
+    'reassignmentType'?: ReassignmentType;
 }
 /**
  * 
@@ -8018,6 +8030,12 @@ export interface ManualWorkItemDetails {
      * @memberof ManualWorkItemDetails
      */
     'status'?: ManualWorkItemState;
+    /**
+     * The history of approval forward action.
+     * @type {Array<ApprovalForwardHistory>}
+     * @memberof ManualWorkItemDetails
+     */
+    'forwardHistory'?: Array<ApprovalForwardHistory>;
 }
 /**
  * Indicates the state of the request processing for this item: * PENDING: The request for this item is awaiting processing. * APPROVED: The request for this item has been approved. * REJECTED: The request for this item was rejected. * EXPIRED: The request for this item expired with no action taken. * CANCELLED: The request for this item was cancelled with no user action. * ARCHIVED: The request for this item has been archived after completion.
@@ -10825,6 +10843,22 @@ export const ReassignmentReferenceTypeEnum = {
 } as const;
 
 export type ReassignmentReferenceTypeEnum = typeof ReassignmentReferenceTypeEnum[keyof typeof ReassignmentReferenceTypeEnum];
+
+/**
+ * Type of approval reassignment.
+ * @export
+ * @enum {string}
+ */
+
+export const ReassignmentType = {
+    ManualReassignment: 'MANUAL_REASSIGNMENT',
+    AutomaticReassignment: 'AUTOMATIC_REASSIGNMENT',
+    AutoEscalation: 'AUTO_ESCALATION',
+    SelfReviewDelegation: 'SELF_REVIEW_DELEGATION'
+} as const;
+
+export type ReassignmentType = typeof ReassignmentType[keyof typeof ReassignmentType];
+
 
 /**
  * 

@@ -2320,7 +2320,7 @@ export type AdminReviewReassignReassignToBetaTypeEnum = typeof AdminReviewReassi
  */
 export interface ApprovalForwardHistoryBeta {
     /**
-     * Display name of approver that forwarded the approval.
+     * Display name of approver from whom the approval was forwarded.
      * @type {string}
      * @memberof ApprovalForwardHistoryBeta
      */
@@ -2332,17 +2332,29 @@ export interface ApprovalForwardHistoryBeta {
      */
     'newApproverName'?: string;
     /**
-     * Comment made by old approver when forwarding.
+     * Comment made while forwarding.
      * @type {string}
      * @memberof ApprovalForwardHistoryBeta
      */
-    'comment'?: string;
+    'comment'?: string | null;
     /**
      * Time at which approval was forwarded.
      * @type {string}
      * @memberof ApprovalForwardHistoryBeta
      */
     'modified'?: string;
+    /**
+     * Display name of forwarder who forwarded the approval.
+     * @type {string}
+     * @memberof ApprovalForwardHistoryBeta
+     */
+    'forwarderName'?: string | null;
+    /**
+     * 
+     * @type {ReassignmentTypeBeta}
+     * @memberof ApprovalForwardHistoryBeta
+     */
+    'reassignmentType'?: ReassignmentTypeBeta;
 }
 /**
  * 
@@ -9379,6 +9391,12 @@ export interface ManualWorkItemDetailsBeta {
      * @memberof ManualWorkItemDetailsBeta
      */
     'status'?: ManualWorkItemStateBeta;
+    /**
+     * The history of approval forward action.
+     * @type {Array<ApprovalForwardHistoryBeta>}
+     * @memberof ManualWorkItemDetailsBeta
+     */
+    'forwardHistory'?: Array<ApprovalForwardHistoryBeta>;
 }
 /**
  * Indicates the state of the request processing for this item: * PENDING: The request for this item is awaiting processing. * APPROVED: The request for this item has been approved. * REJECTED: The request for this item was rejected. * EXPIRED: The request for this item expired with no action taken. * CANCELLED: The request for this item was cancelled with no user action. * ARCHIVED: The request for this item has been archived after completion.
@@ -12379,6 +12397,22 @@ export interface ReassignmentBeta {
      */
     'comment'?: string;
 }
+/**
+ * Type of approval reassignment.
+ * @export
+ * @enum {string}
+ */
+
+export const ReassignmentTypeBeta = {
+    ManualReassignment: 'MANUAL_REASSIGNMENT',
+    AutomaticReassignment: 'AUTOMATIC_REASSIGNMENT',
+    AutoEscalation: 'AUTO_ESCALATION',
+    SelfReviewDelegation: 'SELF_REVIEW_DELEGATION'
+} as const;
+
+export type ReassignmentTypeBeta = typeof ReassignmentTypeBeta[keyof typeof ReassignmentTypeBeta];
+
+
 /**
  * 
  * @export
