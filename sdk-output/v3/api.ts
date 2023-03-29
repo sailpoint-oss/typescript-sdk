@@ -2795,6 +2795,7 @@ export const ApprovalScheme = {
     Manager: 'MANAGER',
     RoleOwner: 'ROLE_OWNER',
     AccessProfileOwner: 'ACCESS_PROFILE_OWNER',
+    EntitlementOwner: 'ENTITLEMENT_OWNER',
     GovernanceGroup: 'GOVERNANCE_GROUP'
 } as const;
 
@@ -5484,7 +5485,7 @@ export interface EntitlementRequestConfig {
      */
     'deniedCommentsRequired'?: boolean;
     /**
-     * Approval schemes for granting entitlement request. This can be empty if no approval is needed. Multiple schemes must be comma-separated. The valid schemes are \"sourceOwner\", \"manager\" and \"workgroup:{id}\". Multiple workgroups (governance groups) can be used. 
+     * Approval schemes for granting entitlement request. This can be empty if no approval is needed. Multiple schemes must be comma-separated. The valid schemes are \"entitlementOwner\", \"sourceOwner\", \"manager\" and \"workgroup:{id}\". Multiple workgroups (governance groups) can be used. 
      * @type {string}
      * @memberof EntitlementRequestConfig
      */
