@@ -5742,6 +5742,12 @@ export interface EntitlementBeta {
      * @memberof EntitlementBeta
      */
     'directPermissions'?: Array<PermissionDtoBeta>;
+    /**
+     * 
+     * @type {OwnerReferenceDtoBeta}
+     * @memberof EntitlementBeta
+     */
+    'owner'?: OwnerReferenceDtoBeta;
 }
 /**
  * 
@@ -11395,6 +11401,39 @@ export interface OwnerReferenceBeta {
     'name'?: string;
 }
 /**
+ * Simplified DTO for the owner object of the entitlement
+ * @export
+ * @interface OwnerReferenceDtoBeta
+ */
+export interface OwnerReferenceDtoBeta {
+    /**
+     * The owner id for the entitlement
+     * @type {string}
+     * @memberof OwnerReferenceDtoBeta
+     */
+    'id'?: string;
+    /**
+     * The owner name for the entitlement
+     * @type {string}
+     * @memberof OwnerReferenceDtoBeta
+     */
+    'name'?: string;
+    /**
+     * The type of the owner
+     * @type {string}
+     * @memberof OwnerReferenceDtoBeta
+     */
+    'type'?: OwnerReferenceDtoBetaTypeEnum;
+}
+
+export const OwnerReferenceDtoBetaTypeEnum = {
+    Identity: 'IDENTITY',
+    GovernanceGroup: 'GOVERNANCE_GROUP'
+} as const;
+
+export type OwnerReferenceDtoBetaTypeEnum = typeof OwnerReferenceDtoBetaTypeEnum[keyof typeof OwnerReferenceDtoBetaTypeEnum];
+
+/**
  * 
  * @export
  * @interface PasswordChangeRequestBeta
@@ -16571,6 +16610,12 @@ export interface SourceBeta {
      */
     'id'?: string;
     /**
+     * Human-readable name of the source
+     * @type {string}
+     * @memberof SourceBeta
+     */
+    'name': string;
+    /**
      * Human-readable description of the source
      * @type {string}
      * @memberof SourceBeta
@@ -16581,7 +16626,7 @@ export interface SourceBeta {
      * @type {SourceOwnerBeta}
      * @memberof SourceBeta
      */
-    'owner'?: SourceOwnerBeta;
+    'owner': SourceOwnerBeta;
     /**
      * 
      * @type {SourceClusterBeta}
@@ -16647,7 +16692,7 @@ export interface SourceBeta {
      * @type {string}
      * @memberof SourceBeta
      */
-    'connector'?: string;
+    'connector': string;
     /**
      * The fully qualified name of the Java class that implements the connector interface.
      * @type {string}
@@ -30589,7 +30634,7 @@ export const EntitlementsBetaApiAxiosParamCreator = function (configuration?: Co
             };
         },
         /**
-         * This API updates an existing Entitlement using [JSON Patch](https://tools.ietf.org/html/rfc6902) syntax.  The following fields are patchable: **requestable**, **privileged**, **segments**  A token with ORG_ADMIN or SOURCE_ADMIN authority is required to call this API.
+         * This API updates an existing Entitlement using [JSON Patch](https://tools.ietf.org/html/rfc6902) syntax.  The following fields are patchable: **requestable**, **privileged**, **segments**, **owner**.  When patching owner only owner type and owner id need to be provided. Owner name is optional and it won\'t be modified. If it is provided, it should correspond to the real name.  A token with ORG_ADMIN or SOURCE_ADMIN authority is required to call this API.
          * @summary Patch a specified Entitlement
          * @param {string} id ID of the Entitlement to patch
          * @param {Array<JsonPatchOperationBeta>} [jsonPatchOperationBeta] 
@@ -30747,7 +30792,7 @@ export const EntitlementsBetaApiFp = function(configuration?: Configuration) {
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
-         * This API updates an existing Entitlement using [JSON Patch](https://tools.ietf.org/html/rfc6902) syntax.  The following fields are patchable: **requestable**, **privileged**, **segments**  A token with ORG_ADMIN or SOURCE_ADMIN authority is required to call this API.
+         * This API updates an existing Entitlement using [JSON Patch](https://tools.ietf.org/html/rfc6902) syntax.  The following fields are patchable: **requestable**, **privileged**, **segments**, **owner**.  When patching owner only owner type and owner id need to be provided. Owner name is optional and it won\'t be modified. If it is provided, it should correspond to the real name.  A token with ORG_ADMIN or SOURCE_ADMIN authority is required to call this API.
          * @summary Patch a specified Entitlement
          * @param {string} id ID of the Entitlement to patch
          * @param {Array<JsonPatchOperationBeta>} [jsonPatchOperationBeta] 
@@ -30834,7 +30879,7 @@ export const EntitlementsBetaApiFactory = function (configuration?: Configuratio
             return localVarFp.listEntitlements(accountId, segmentedForIdentity, forSegmentIds, includeUnsegmented, offset, limit, count, sorters, filters, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
-         * This API updates an existing Entitlement using [JSON Patch](https://tools.ietf.org/html/rfc6902) syntax.  The following fields are patchable: **requestable**, **privileged**, **segments**  A token with ORG_ADMIN or SOURCE_ADMIN authority is required to call this API.
+         * This API updates an existing Entitlement using [JSON Patch](https://tools.ietf.org/html/rfc6902) syntax.  The following fields are patchable: **requestable**, **privileged**, **segments**, **owner**.  When patching owner only owner type and owner id need to be provided. Owner name is optional and it won\'t be modified. If it is provided, it should correspond to the real name.  A token with ORG_ADMIN or SOURCE_ADMIN authority is required to call this API.
          * @summary Patch a specified Entitlement
          * @param {string} id ID of the Entitlement to patch
          * @param {Array<JsonPatchOperationBeta>} [jsonPatchOperationBeta] 
@@ -31102,7 +31147,7 @@ export class EntitlementsBetaApi extends BaseAPI {
     }
 
     /**
-     * This API updates an existing Entitlement using [JSON Patch](https://tools.ietf.org/html/rfc6902) syntax.  The following fields are patchable: **requestable**, **privileged**, **segments**  A token with ORG_ADMIN or SOURCE_ADMIN authority is required to call this API.
+     * This API updates an existing Entitlement using [JSON Patch](https://tools.ietf.org/html/rfc6902) syntax.  The following fields are patchable: **requestable**, **privileged**, **segments**, **owner**.  When patching owner only owner type and owner id need to be provided. Owner name is optional and it won\'t be modified. If it is provided, it should correspond to the real name.  A token with ORG_ADMIN or SOURCE_ADMIN authority is required to call this API.
      * @summary Patch a specified Entitlement
      * @param {EntitlementsBetaApiPatchEntitlementRequest} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.

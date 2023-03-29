@@ -13980,6 +13980,12 @@ export interface Source {
      */
     'id'?: string;
     /**
+     * Human-readable name of the source
+     * @type {string}
+     * @memberof Source
+     */
+    'name': string;
+    /**
      * Human-readable description of the source
      * @type {string}
      * @memberof Source
@@ -13990,7 +13996,7 @@ export interface Source {
      * @type {SourceOwner}
      * @memberof Source
      */
-    'owner'?: SourceOwner;
+    'owner': SourceOwner;
     /**
      * 
      * @type {SourceCluster}
@@ -14056,7 +14062,7 @@ export interface Source {
      * @type {string}
      * @memberof Source
      */
-    'connector'?: string;
+    'connector': string;
     /**
      * The fully qualified name of the Java class that implements the connector interface.
      * @type {string}
