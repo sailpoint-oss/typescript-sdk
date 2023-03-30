@@ -822,10 +822,10 @@ export interface AccessRequestConfigBeta {
     'approvalReminderAndEscalationConfig'?: ApprovalReminderAndEscalationConfigBeta;
     /**
      * 
-     * @type {EntitlementRequestConfigBeta}
+     * @type {EntitlementRequestConfig1Beta}
      * @memberof AccessRequestConfigBeta
      */
-    'entitlementRequestConfig'?: EntitlementRequestConfigBeta;
+    'entitlementRequestConfig'?: EntitlementRequestConfig1Beta;
 }
 /**
  * 
@@ -5656,6 +5656,60 @@ export type EmailStatusDtoBetaVerificationStatusEnum = typeof EmailStatusDtoBeta
 /**
  * 
  * @export
+ * @interface EntitlementAccessRequestConfigBeta
+ */
+export interface EntitlementAccessRequestConfigBeta {
+    /**
+     * Ordered list of approval steps for the access request. Empty when no approval is required.
+     * @type {Array<EntitlementApprovalSchemeBeta>}
+     * @memberof EntitlementAccessRequestConfigBeta
+     */
+    'approvalSchemes'?: Array<EntitlementApprovalSchemeBeta>;
+    /**
+     * If the requester must provide a comment during access request.
+     * @type {boolean}
+     * @memberof EntitlementAccessRequestConfigBeta
+     */
+    'requestCommentRequired'?: boolean;
+    /**
+     * If the reviewer must provide a comment when denying the access request.
+     * @type {boolean}
+     * @memberof EntitlementAccessRequestConfigBeta
+     */
+    'denialCommentRequired'?: boolean;
+}
+/**
+ * 
+ * @export
+ * @interface EntitlementApprovalSchemeBeta
+ */
+export interface EntitlementApprovalSchemeBeta {
+    /**
+     * Describes the individual or group that is responsible for an approval step. Values are as follows.  **ENTITLEMENT_OWNER**: Owner of the associated Entitlement  **SOURCE_OWNER**: Owner of the associated Source  **MANAGER**: Manager of the Identity for whom the request is being made  **GOVERNANCE_GROUP**: A Governance Group, the ID of which is specified by the **approverId** field
+     * @type {string}
+     * @memberof EntitlementApprovalSchemeBeta
+     */
+    'approverType'?: EntitlementApprovalSchemeBetaApproverTypeEnum;
+    /**
+     * Id of the specific approver, used only when approverType is GOVERNANCE_GROUP
+     * @type {string}
+     * @memberof EntitlementApprovalSchemeBeta
+     */
+    'approverId'?: string | null;
+}
+
+export const EntitlementApprovalSchemeBetaApproverTypeEnum = {
+    EntitlementOwner: 'ENTITLEMENT_OWNER',
+    SourceOwner: 'SOURCE_OWNER',
+    Manager: 'MANAGER',
+    GovernanceGroup: 'GOVERNANCE_GROUP'
+} as const;
+
+export type EntitlementApprovalSchemeBetaApproverTypeEnum = typeof EntitlementApprovalSchemeBetaApproverTypeEnum[keyof typeof EntitlementApprovalSchemeBetaApproverTypeEnum];
+
+/**
+ * 
+ * @export
  * @interface EntitlementBeta
  */
 export interface EntitlementBeta {
@@ -5804,33 +5858,46 @@ export type EntitlementRefBetaTypeEnum = typeof EntitlementRefBetaTypeEnum[keyof
 /**
  * 
  * @export
- * @interface EntitlementRequestConfigBeta
+ * @interface EntitlementRequestConfig1Beta
  */
-export interface EntitlementRequestConfigBeta {
+export interface EntitlementRequestConfig1Beta {
     /**
      * Flag for allowing entitlement request.
      * @type {boolean}
-     * @memberof EntitlementRequestConfigBeta
+     * @memberof EntitlementRequestConfig1Beta
      */
     'allowEntitlementRequest'?: boolean;
     /**
      * Flag for requiring comments while submitting an entitlement request.
      * @type {boolean}
-     * @memberof EntitlementRequestConfigBeta
+     * @memberof EntitlementRequestConfig1Beta
      */
     'requestCommentsRequired'?: boolean;
     /**
      * Flag for requiring comments while rejecting an entitlement request.
      * @type {boolean}
-     * @memberof EntitlementRequestConfigBeta
+     * @memberof EntitlementRequestConfig1Beta
      */
     'deniedCommentsRequired'?: boolean;
     /**
      * Approval schemes for granting entitlement request. This can be empty if no approval is needed. Multiple schemes must be comma-separated. The valid schemes are \"entitlementOwner\", \"sourceOwner\", \"manager\" and \"workgroup:{id}\". Multiple workgroups (governance groups) can be used. 
      * @type {string}
-     * @memberof EntitlementRequestConfigBeta
+     * @memberof EntitlementRequestConfig1Beta
      */
     'grantRequestApprovalSchemes'?: string;
+}
+/**
+ * 
+ * @export
+ * @interface EntitlementRequestConfigBeta
+ */
+export interface EntitlementRequestConfigBeta {
+    /**
+     * 
+     * @type {EntitlementAccessRequestConfigBeta}
+     * @memberof EntitlementRequestConfigBeta
+     */
+    'accessRequestConfig'?: EntitlementAccessRequestConfigBeta;
 }
 /**
  * 
@@ -16903,6 +16970,19 @@ export interface SourceDeletedBeta {
      * @memberof SourceDeletedBeta
      */
     'actor': TriggerInputSourceDeletedActorBeta;
+}
+/**
+ * Entitlement Request Configuration
+ * @export
+ * @interface SourceEntitlementRequestConfigBeta
+ */
+export interface SourceEntitlementRequestConfigBeta {
+    /**
+     * 
+     * @type {EntitlementAccessRequestConfigBeta}
+     * @memberof SourceEntitlementRequestConfigBeta
+     */
+    'accessRequestConfig'?: EntitlementAccessRequestConfigBeta;
 }
 /**
  * Optional features that can be supported by an source. * AUTHENTICATE: The source supports pass-through authentication. * COMPOSITE: The source supports composite source creation. * DIRECT_PERMISSIONS: The source supports returning DirectPermissions. * DISCOVER_SCHEMA: The source supports discovering schemas for users and groups. * ENABLE The source supports reading if an account is enabled or disabled. * MANAGER_LOOKUP: The source supports looking up managers as they are encountered in a feed. This is the opposite of NO_RANDOM_ACCESS. * NO_RANDOM_ACCESS: The source does not support random access and the getObject() methods should not be called and expected to perform. * PROXY: The source can serve as a proxy for another source. When an source has a proxy, all connector calls made with that source are redirected through the connector for the proxy source. * SEARCH * TEMPLATE * UNLOCK: The source supports reading if an account is locked or unlocked. * UNSTRUCTURED_TARGETS: The source supports returning unstructured Targets. * SHAREPOINT_TARGET: The source supports returning unstructured Target data for SharePoint. It will be typically used by AD, LDAP sources. * PROVISIONING: The source can both read and write accounts. Having this feature implies that the provision() method is implemented. It also means that direct and target permissions can also be provisioned if they can be returned by aggregation. * GROUP_PROVISIONING: The source can both read and write groups. Having this feature implies that the provision() method is implemented. * SYNC_PROVISIONING: The source can provision accounts synchronously. * PASSWORD: The source can provision password changes. Since sources can never read passwords, this is should only be used in conjunction with the PROVISIONING feature. * CURRENT_PASSWORD: Some source types support verification of the current password * ACCOUNT_ONLY_REQUEST: The source supports requesting accounts without entitlements. * ADDITIONAL_ACCOUNT_REQUEST: The source supports requesting additional accounts. * NO_AGGREGATION: A source that does not support aggregation. * GROUPS_HAVE_MEMBERS: The source models group memberships with a member attribute on the group object rather than a groups attribute on the account object. This effects the implementation of delta account aggregation. * NO_PERMISSIONS_PROVISIONING: Indicates that the connector cannot provision direct or target permissions for accounts. When DIRECT_PERMISSIONS and PROVISIONING features are present, it is assumed that the connector can also provision direct permissions. This feature disables that assumption and causes permission request to be converted to work items for accounts. * NO_GROUP_PERMISSIONS_PROVISIONING: Indicates that the connector cannot provision direct or target permissions for groups. When DIRECT_PERMISSIONS and PROVISIONING features are present, it is assumed that the connector can also provision direct permissions. This feature disables that assumption and causes permission request to be converted to work items for groups. * NO_UNSTRUCTURED_TARGETS_PROVISIONING: This string will be replaced by NO_GROUP_PERMISSIONS_PROVISIONING and NO_PERMISSIONS_PROVISIONING. * NO_DIRECT_PERMISSIONS_PROVISIONING: This string will be replaced by NO_GROUP_PERMISSIONS_PROVISIONING and NO_PERMISSIONS_PROVISIONING.
@@ -30438,6 +30518,48 @@ export const EntitlementsBetaApiAxiosParamCreator = function (configuration?: Co
             };
         },
         /**
+         * This API returns the entitlement request config for a specified entitlement.
+         * @summary Get Entitlement Request Config
+         * @param {string} id Entitlement Id
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        getEntitlementRequestConfig: async (id: string, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'id' is not null or undefined
+            assertParamExists('getEntitlementRequestConfig', 'id', id)
+            const localVarPath = `/entitlements/{id}/entitlement-request-config`
+                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...axiosOptions};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication oauth2 required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "oauth2", [], configuration)
+
+            // authentication oauth2 required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "oauth2", [], configuration)
+
+
+    
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                axiosOptions: localVarRequestOptions,
+            };
+        },
+        /**
          * This API returns a list of all child entitlements of a given entitlement.
          * @summary List of entitlements children
          * @param {string} id Entitlement Id
@@ -30681,6 +30803,54 @@ export const EntitlementsBetaApiAxiosParamCreator = function (configuration?: Co
             };
         },
         /**
+         * This API replaces the entitlement request config for a specified entitlement.
+         * @summary Replace Entitlement Request Config
+         * @param {string} id Entitlement ID
+         * @param {EntitlementRequestConfigBeta} entitlementRequestConfigBeta 
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        putEntitlementRequestConfig: async (id: string, entitlementRequestConfigBeta: EntitlementRequestConfigBeta, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'id' is not null or undefined
+            assertParamExists('putEntitlementRequestConfig', 'id', id)
+            // verify required parameter 'entitlementRequestConfigBeta' is not null or undefined
+            assertParamExists('putEntitlementRequestConfig', 'entitlementRequestConfigBeta', entitlementRequestConfigBeta)
+            const localVarPath = `/entitlements/{id}/entitlement-request-config`
+                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'PUT', ...baseOptions, ...axiosOptions};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication oauth2 required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "oauth2", [], configuration)
+
+            // authentication oauth2 required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "oauth2", [], configuration)
+
+
+    
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
+            localVarRequestOptions.data = serializeDataIfNeeded(entitlementRequestConfigBeta, localVarRequestOptions, configuration)
+
+            return {
+                url: toPathString(localVarUrlObj),
+                axiosOptions: localVarRequestOptions,
+            };
+        },
+        /**
          * This API applies an update to every entitlement of the list.  The number of entitlements to update is limited to 50 items maximum.  The JsonPatch update follows the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard. allowed operations : **{ \"op\": \"replace\", \"path\": \"/privileged\", \"value\": boolean }**  **{ \"op\": \"replace\", \"path\": \"/requestable\",\"value\": boolean }**   A token with ORG_ADMIN or API authority is required to call this API.
          * @summary Bulk update an entitlement list
          * @param {EntitlementBulkUpdateRequestBeta} entitlementBulkUpdateRequestBeta 
@@ -30746,6 +30916,17 @@ export const EntitlementsBetaApiFp = function(configuration?: Configuration) {
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
+         * This API returns the entitlement request config for a specified entitlement.
+         * @summary Get Entitlement Request Config
+         * @param {string} id Entitlement Id
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        async getEntitlementRequestConfig(id: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<EntitlementRequestConfigBeta>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getEntitlementRequestConfig(id, axiosOptions);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
          * This API returns a list of all child entitlements of a given entitlement.
          * @summary List of entitlements children
          * @param {string} id Entitlement Id
@@ -30805,6 +30986,18 @@ export const EntitlementsBetaApiFp = function(configuration?: Configuration) {
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
+         * This API replaces the entitlement request config for a specified entitlement.
+         * @summary Replace Entitlement Request Config
+         * @param {string} id Entitlement ID
+         * @param {EntitlementRequestConfigBeta} entitlementRequestConfigBeta 
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        async putEntitlementRequestConfig(id: string, entitlementRequestConfigBeta: EntitlementRequestConfigBeta, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<EntitlementRequestConfigBeta>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.putEntitlementRequestConfig(id, entitlementRequestConfigBeta, axiosOptions);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
          * This API applies an update to every entitlement of the list.  The number of entitlements to update is limited to 50 items maximum.  The JsonPatch update follows the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard. allowed operations : **{ \"op\": \"replace\", \"path\": \"/privileged\", \"value\": boolean }**  **{ \"op\": \"replace\", \"path\": \"/requestable\",\"value\": boolean }**   A token with ORG_ADMIN or API authority is required to call this API.
          * @summary Bulk update an entitlement list
          * @param {EntitlementBulkUpdateRequestBeta} entitlementBulkUpdateRequestBeta 
@@ -30834,6 +31027,16 @@ export const EntitlementsBetaApiFactory = function (configuration?: Configuratio
          */
         getEntitlement(id: string, axiosOptions?: any): AxiosPromise<EntitlementBeta> {
             return localVarFp.getEntitlement(id, axiosOptions).then((request) => request(axios, basePath));
+        },
+        /**
+         * This API returns the entitlement request config for a specified entitlement.
+         * @summary Get Entitlement Request Config
+         * @param {string} id Entitlement Id
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        getEntitlementRequestConfig(id: string, axiosOptions?: any): AxiosPromise<EntitlementRequestConfigBeta> {
+            return localVarFp.getEntitlementRequestConfig(id, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * This API returns a list of all child entitlements of a given entitlement.
@@ -30891,6 +31094,17 @@ export const EntitlementsBetaApiFactory = function (configuration?: Configuratio
             return localVarFp.patchEntitlement(id, jsonPatchOperationBeta, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
+         * This API replaces the entitlement request config for a specified entitlement.
+         * @summary Replace Entitlement Request Config
+         * @param {string} id Entitlement ID
+         * @param {EntitlementRequestConfigBeta} entitlementRequestConfigBeta 
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        putEntitlementRequestConfig(id: string, entitlementRequestConfigBeta: EntitlementRequestConfigBeta, axiosOptions?: any): AxiosPromise<EntitlementRequestConfigBeta> {
+            return localVarFp.putEntitlementRequestConfig(id, entitlementRequestConfigBeta, axiosOptions).then((request) => request(axios, basePath));
+        },
+        /**
          * This API applies an update to every entitlement of the list.  The number of entitlements to update is limited to 50 items maximum.  The JsonPatch update follows the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard. allowed operations : **{ \"op\": \"replace\", \"path\": \"/privileged\", \"value\": boolean }**  **{ \"op\": \"replace\", \"path\": \"/requestable\",\"value\": boolean }**   A token with ORG_ADMIN or API authority is required to call this API.
          * @summary Bulk update an entitlement list
          * @param {EntitlementBulkUpdateRequestBeta} entitlementBulkUpdateRequestBeta 
@@ -30913,6 +31127,20 @@ export interface EntitlementsBetaApiGetEntitlementRequest {
      * Entitlement Id
      * @type {string}
      * @memberof EntitlementsBetaApiGetEntitlement
+     */
+    readonly id: string
+}
+
+/**
+ * Request parameters for getEntitlementRequestConfig operation in EntitlementsBetaApi.
+ * @export
+ * @interface EntitlementsBetaApiGetEntitlementRequestConfigRequest
+ */
+export interface EntitlementsBetaApiGetEntitlementRequestConfigRequest {
+    /**
+     * Entitlement Id
+     * @type {string}
+     * @memberof EntitlementsBetaApiGetEntitlementRequestConfig
      */
     readonly id: string
 }
@@ -31079,6 +31307,27 @@ export interface EntitlementsBetaApiPatchEntitlementRequest {
 }
 
 /**
+ * Request parameters for putEntitlementRequestConfig operation in EntitlementsBetaApi.
+ * @export
+ * @interface EntitlementsBetaApiPutEntitlementRequestConfigRequest
+ */
+export interface EntitlementsBetaApiPutEntitlementRequestConfigRequest {
+    /**
+     * Entitlement ID
+     * @type {string}
+     * @memberof EntitlementsBetaApiPutEntitlementRequestConfig
+     */
+    readonly id: string
+
+    /**
+     * 
+     * @type {EntitlementRequestConfigBeta}
+     * @memberof EntitlementsBetaApiPutEntitlementRequestConfig
+     */
+    readonly entitlementRequestConfigBeta: EntitlementRequestConfigBeta
+}
+
+/**
  * Request parameters for updateEntitlementsInBulk operation in EntitlementsBetaApi.
  * @export
  * @interface EntitlementsBetaApiUpdateEntitlementsInBulkRequest
@@ -31109,6 +31358,18 @@ export class EntitlementsBetaApi extends BaseAPI {
      */
     public getEntitlement(requestParameters: EntitlementsBetaApiGetEntitlementRequest, axiosOptions?: AxiosRequestConfig) {
         return EntitlementsBetaApiFp(this.configuration).getEntitlement(requestParameters.id, axiosOptions).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * This API returns the entitlement request config for a specified entitlement.
+     * @summary Get Entitlement Request Config
+     * @param {EntitlementsBetaApiGetEntitlementRequestConfigRequest} requestParameters Request parameters.
+     * @param {*} [axiosOptions] Override http request option.
+     * @throws {RequiredError}
+     * @memberof EntitlementsBetaApi
+     */
+    public getEntitlementRequestConfig(requestParameters: EntitlementsBetaApiGetEntitlementRequestConfigRequest, axiosOptions?: AxiosRequestConfig) {
+        return EntitlementsBetaApiFp(this.configuration).getEntitlementRequestConfig(requestParameters.id, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -31157,6 +31418,18 @@ export class EntitlementsBetaApi extends BaseAPI {
      */
     public patchEntitlement(requestParameters: EntitlementsBetaApiPatchEntitlementRequest, axiosOptions?: AxiosRequestConfig) {
         return EntitlementsBetaApiFp(this.configuration).patchEntitlement(requestParameters.id, requestParameters.jsonPatchOperationBeta, axiosOptions).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * This API replaces the entitlement request config for a specified entitlement.
+     * @summary Replace Entitlement Request Config
+     * @param {EntitlementsBetaApiPutEntitlementRequestConfigRequest} requestParameters Request parameters.
+     * @param {*} [axiosOptions] Override http request option.
+     * @throws {RequiredError}
+     * @memberof EntitlementsBetaApi
+     */
+    public putEntitlementRequestConfig(requestParameters: EntitlementsBetaApiPutEntitlementRequestConfigRequest, axiosOptions?: AxiosRequestConfig) {
+        return EntitlementsBetaApiFp(this.configuration).putEntitlementRequestConfig(requestParameters.id, requestParameters.entitlementRequestConfigBeta, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -55137,6 +55410,44 @@ export const SourcesBetaApiAxiosParamCreator = function (configuration?: Configu
             };
         },
         /**
+         * This API gets the current entitlement request configuration for a source. This source-level configuration should apply for all the entitlements in the source.  Access request to any entitlements in the source should follow this configuration unless a separate entitlement-level configuration is defined. - During access request, this source-level entitlement request configuration overrides the global organization-level configuration. - However, the entitlement-level configuration (if defined) overrides this source-level configuration.  A token with ORG_ADMIN, SOURCE_ADMIN, or SOURCE_SUBADMIN authority is required to call this API.
+         * @summary Get Source Entitlement Request Configuration
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        getSourceEntitlementRequestConfig: async (axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            const localVarPath = `/sources/{id}/entitlement-request-config`;
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...axiosOptions};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication oauth2 required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "oauth2", [], configuration)
+
+            // authentication oauth2 required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "oauth2", [], configuration)
+
+
+    
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                axiosOptions: localVarRequestOptions,
+            };
+        },
+        /**
          * Get the Source Schema by ID in IdentityNow. 
          * @summary Get Source Schema by ID
          * @param {string} sourceId The Source ID.
@@ -55904,6 +56215,50 @@ export const SourcesBetaApiAxiosParamCreator = function (configuration?: Configu
             };
         },
         /**
+         * This API replaces the current entitlement request configuration for a source. This source-level configuration should apply for all the entitlements in the source.  Access request to any entitlements in the source should follow this configuration unless a separate entitlement-level configuration is defined. - During access request, this source-level entitlement request configuration overrides the global organization-level configuration. - However, the entitlement-level configuration (if defined) overrides this source-level configuration.  A token with ORG_ADMIN, SOURCE_ADMIN, or SOURCE_SUBADMIN authority is required to call this API.
+         * @summary Update Source Entitlement Request Configuration
+         * @param {SourceEntitlementRequestConfigBeta} sourceEntitlementRequestConfigBeta 
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        updateSourceEntitlementRequestConfig: async (sourceEntitlementRequestConfigBeta: SourceEntitlementRequestConfigBeta, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'sourceEntitlementRequestConfigBeta' is not null or undefined
+            assertParamExists('updateSourceEntitlementRequestConfig', 'sourceEntitlementRequestConfigBeta', sourceEntitlementRequestConfigBeta)
+            const localVarPath = `/sources/{id}/entitlement-request-config`;
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'PUT', ...baseOptions, ...axiosOptions};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication oauth2 required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "oauth2", [], configuration)
+
+            // authentication oauth2 required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "oauth2", [], configuration)
+
+
+    
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
+            localVarRequestOptions.data = serializeDataIfNeeded(sourceEntitlementRequestConfigBeta, localVarRequestOptions, configuration)
+
+            return {
+                url: toPathString(localVarUrlObj),
+                axiosOptions: localVarRequestOptions,
+            };
+        },
+        /**
          * Use this API to selectively update an existing Schema using a JSONPatch payload.   The following schema fields are immutable and cannot be updated:  - id - name - created - modified   To switch an account attribute to a group entitlement, you need to have the following in place:  - `isEntitlement: true` - Must define a schema for the group and [add it to the source](https://developer.sailpoint.com/idn/api/beta/create-source-schema) before updating the `isGroup` flag.  For example, here is the `group` account attribute referencing a schema that defines the group: ```json {     \"name\": \"groups\",     \"type\": \"STRING\",     \"schema\": {         \"type\": \"CONNECTOR_SCHEMA\",         \"id\": \"2c9180887671ff8c01767b4671fc7d60\",         \"name\": \"group\"     },     \"description\": \"The groups, roles etc. that reference account group objects\",     \"isMulti\": true,     \"isEntitlement\": true,     \"isGroup\": true } ``` 
          * @summary Update Source Schema (Partial)
          * @param {string} sourceId The Source id.
@@ -56264,6 +56619,16 @@ export const SourcesBetaApiFp = function(configuration?: Configuration) {
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
+         * This API gets the current entitlement request configuration for a source. This source-level configuration should apply for all the entitlements in the source.  Access request to any entitlements in the source should follow this configuration unless a separate entitlement-level configuration is defined. - During access request, this source-level entitlement request configuration overrides the global organization-level configuration. - However, the entitlement-level configuration (if defined) overrides this source-level configuration.  A token with ORG_ADMIN, SOURCE_ADMIN, or SOURCE_SUBADMIN authority is required to call this API.
+         * @summary Get Source Entitlement Request Configuration
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        async getSourceEntitlementRequestConfig(axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SourceEntitlementRequestConfigBeta>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getSourceEntitlementRequestConfig(axiosOptions);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
          * Get the Source Schema by ID in IdentityNow. 
          * @summary Get Source Schema by ID
          * @param {string} sourceId The Source ID.
@@ -56458,6 +56823,17 @@ export const SourcesBetaApiFp = function(configuration?: Configuration) {
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
+         * This API replaces the current entitlement request configuration for a source. This source-level configuration should apply for all the entitlements in the source.  Access request to any entitlements in the source should follow this configuration unless a separate entitlement-level configuration is defined. - During access request, this source-level entitlement request configuration overrides the global organization-level configuration. - However, the entitlement-level configuration (if defined) overrides this source-level configuration.  A token with ORG_ADMIN, SOURCE_ADMIN, or SOURCE_SUBADMIN authority is required to call this API.
+         * @summary Update Source Entitlement Request Configuration
+         * @param {SourceEntitlementRequestConfigBeta} sourceEntitlementRequestConfigBeta 
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        async updateSourceEntitlementRequestConfig(sourceEntitlementRequestConfigBeta: SourceEntitlementRequestConfigBeta, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SourceEntitlementRequestConfigBeta>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.updateSourceEntitlementRequestConfig(sourceEntitlementRequestConfigBeta, axiosOptions);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
          * Use this API to selectively update an existing Schema using a JSONPatch payload.   The following schema fields are immutable and cannot be updated:  - id - name - created - modified   To switch an account attribute to a group entitlement, you need to have the following in place:  - `isEntitlement: true` - Must define a schema for the group and [add it to the source](https://developer.sailpoint.com/idn/api/beta/create-source-schema) before updating the `isGroup` flag.  For example, here is the `group` account attribute referencing a schema that defines the group: ```json {     \"name\": \"groups\",     \"type\": \"STRING\",     \"schema\": {         \"type\": \"CONNECTOR_SCHEMA\",         \"id\": \"2c9180887671ff8c01767b4671fc7d60\",         \"name\": \"group\"     },     \"description\": \"The groups, roles etc. that reference account group objects\",     \"isMulti\": true,     \"isEntitlement\": true,     \"isGroup\": true } ``` 
          * @summary Update Source Schema (Partial)
          * @param {string} sourceId The Source id.
@@ -56646,6 +57022,15 @@ export const SourcesBetaApiFactory = function (configuration?: Configuration, ba
             return localVarFp.getSourceConfig(id, locale, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
+         * This API gets the current entitlement request configuration for a source. This source-level configuration should apply for all the entitlements in the source.  Access request to any entitlements in the source should follow this configuration unless a separate entitlement-level configuration is defined. - During access request, this source-level entitlement request configuration overrides the global organization-level configuration. - However, the entitlement-level configuration (if defined) overrides this source-level configuration.  A token with ORG_ADMIN, SOURCE_ADMIN, or SOURCE_SUBADMIN authority is required to call this API.
+         * @summary Get Source Entitlement Request Configuration
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        getSourceEntitlementRequestConfig(axiosOptions?: any): AxiosPromise<SourceEntitlementRequestConfigBeta> {
+            return localVarFp.getSourceEntitlementRequestConfig(axiosOptions).then((request) => request(axios, basePath));
+        },
+        /**
          * Get the Source Schema by ID in IdentityNow. 
          * @summary Get Source Schema by ID
          * @param {string} sourceId The Source ID.
@@ -56822,6 +57207,16 @@ export const SourcesBetaApiFactory = function (configuration?: Configuration, ba
          */
         updateSource(id: string, jsonPatchOperationBeta: Array<JsonPatchOperationBeta>, axiosOptions?: any): AxiosPromise<SourceBeta> {
             return localVarFp.updateSource(id, jsonPatchOperationBeta, axiosOptions).then((request) => request(axios, basePath));
+        },
+        /**
+         * This API replaces the current entitlement request configuration for a source. This source-level configuration should apply for all the entitlements in the source.  Access request to any entitlements in the source should follow this configuration unless a separate entitlement-level configuration is defined. - During access request, this source-level entitlement request configuration overrides the global organization-level configuration. - However, the entitlement-level configuration (if defined) overrides this source-level configuration.  A token with ORG_ADMIN, SOURCE_ADMIN, or SOURCE_SUBADMIN authority is required to call this API.
+         * @summary Update Source Entitlement Request Configuration
+         * @param {SourceEntitlementRequestConfigBeta} sourceEntitlementRequestConfigBeta 
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        updateSourceEntitlementRequestConfig(sourceEntitlementRequestConfigBeta: SourceEntitlementRequestConfigBeta, axiosOptions?: any): AxiosPromise<SourceEntitlementRequestConfigBeta> {
+            return localVarFp.updateSourceEntitlementRequestConfig(sourceEntitlementRequestConfigBeta, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * Use this API to selectively update an existing Schema using a JSONPatch payload.   The following schema fields are immutable and cannot be updated:  - id - name - created - modified   To switch an account attribute to a group entitlement, you need to have the following in place:  - `isEntitlement: true` - Must define a schema for the group and [add it to the source](https://developer.sailpoint.com/idn/api/beta/create-source-schema) before updating the `isGroup` flag.  For example, here is the `group` account attribute referencing a schema that defines the group: ```json {     \"name\": \"groups\",     \"type\": \"STRING\",     \"schema\": {         \"type\": \"CONNECTOR_SCHEMA\",         \"id\": \"2c9180887671ff8c01767b4671fc7d60\",         \"name\": \"group\"     },     \"description\": \"The groups, roles etc. that reference account group objects\",     \"isMulti\": true,     \"isEntitlement\": true,     \"isGroup\": true } ``` 
@@ -57447,6 +57842,20 @@ export interface SourcesBetaApiUpdateSourceRequest {
 }
 
 /**
+ * Request parameters for updateSourceEntitlementRequestConfig operation in SourcesBetaApi.
+ * @export
+ * @interface SourcesBetaApiUpdateSourceEntitlementRequestConfigRequest
+ */
+export interface SourcesBetaApiUpdateSourceEntitlementRequestConfigRequest {
+    /**
+     * 
+     * @type {SourceEntitlementRequestConfigBeta}
+     * @memberof SourcesBetaApiUpdateSourceEntitlementRequestConfig
+     */
+    readonly sourceEntitlementRequestConfigBeta: SourceEntitlementRequestConfigBeta
+}
+
+/**
  * Request parameters for updateSourceSchema operation in SourcesBetaApi.
  * @export
  * @interface SourcesBetaApiUpdateSourceSchemaRequest
@@ -57696,6 +58105,17 @@ export class SourcesBetaApi extends BaseAPI {
     }
 
     /**
+     * This API gets the current entitlement request configuration for a source. This source-level configuration should apply for all the entitlements in the source.  Access request to any entitlements in the source should follow this configuration unless a separate entitlement-level configuration is defined. - During access request, this source-level entitlement request configuration overrides the global organization-level configuration. - However, the entitlement-level configuration (if defined) overrides this source-level configuration.  A token with ORG_ADMIN, SOURCE_ADMIN, or SOURCE_SUBADMIN authority is required to call this API.
+     * @summary Get Source Entitlement Request Configuration
+     * @param {*} [axiosOptions] Override http request option.
+     * @throws {RequiredError}
+     * @memberof SourcesBetaApi
+     */
+    public getSourceEntitlementRequestConfig(axiosOptions?: AxiosRequestConfig) {
+        return SourcesBetaApiFp(this.configuration).getSourceEntitlementRequestConfig(axiosOptions).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
      * Get the Source Schema by ID in IdentityNow. 
      * @summary Get Source Schema by ID
      * @param {SourcesBetaApiGetSourceSchemaRequest} requestParameters Request parameters.
@@ -57885,6 +58305,18 @@ export class SourcesBetaApi extends BaseAPI {
      */
     public updateSource(requestParameters: SourcesBetaApiUpdateSourceRequest, axiosOptions?: AxiosRequestConfig) {
         return SourcesBetaApiFp(this.configuration).updateSource(requestParameters.id, requestParameters.jsonPatchOperationBeta, axiosOptions).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * This API replaces the current entitlement request configuration for a source. This source-level configuration should apply for all the entitlements in the source.  Access request to any entitlements in the source should follow this configuration unless a separate entitlement-level configuration is defined. - During access request, this source-level entitlement request configuration overrides the global organization-level configuration. - However, the entitlement-level configuration (if defined) overrides this source-level configuration.  A token with ORG_ADMIN, SOURCE_ADMIN, or SOURCE_SUBADMIN authority is required to call this API.
+     * @summary Update Source Entitlement Request Configuration
+     * @param {SourcesBetaApiUpdateSourceEntitlementRequestConfigRequest} requestParameters Request parameters.
+     * @param {*} [axiosOptions] Override http request option.
+     * @throws {RequiredError}
+     * @memberof SourcesBetaApi
+     */
+    public updateSourceEntitlementRequestConfig(requestParameters: SourcesBetaApiUpdateSourceEntitlementRequestConfigRequest, axiosOptions?: AxiosRequestConfig) {
+        return SourcesBetaApiFp(this.configuration).updateSourceEntitlementRequestConfig(requestParameters.sourceEntitlementRequestConfigBeta, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
