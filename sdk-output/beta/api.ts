@@ -8886,6 +8886,12 @@ export interface ListCompleteWorkflowLibrary200ResponseInnerBeta {
      */
     'name'?: string;
     /**
+     * Operator type
+     * @type {string}
+     * @memberof ListCompleteWorkflowLibrary200ResponseInnerBeta
+     */
+    'type'?: string;
+    /**
      * Description of the operator
      * @type {string}
      * @memberof ListCompleteWorkflowLibrary200ResponseInnerBeta
@@ -8898,33 +8904,24 @@ export interface ListCompleteWorkflowLibrary200ResponseInnerBeta {
      */
     'formFields'?: Array<WorkflowLibraryFormFieldsBeta>;
     /**
+     * Determines whether the dynamic output schema is returned in place of the action\'s output schema. The dynamic schema lists non-static properties, like properties of a workflow form where each form has different fields. These will be provided dynamically based on available form fields.
+     * @type {boolean}
+     * @memberof ListCompleteWorkflowLibrary200ResponseInnerBeta
+     */
+    'isDynamicSchema'?: boolean;
+    /**
      * Defines the output schema, if any, that this action produces.
      * @type {object}
      * @memberof ListCompleteWorkflowLibrary200ResponseInnerBeta
      */
     'outputSchema'?: object;
     /**
-     * Trigger type
-     * @type {object}
-     * @memberof ListCompleteWorkflowLibrary200ResponseInnerBeta
-     */
-    'type'?: ListCompleteWorkflowLibrary200ResponseInnerBetaTypeEnum;
-    /**
      * Example trigger payload if applicable
      * @type {object}
      * @memberof ListCompleteWorkflowLibrary200ResponseInnerBeta
      */
-    'inputExample'?: object;
+    'inputExample'?: object | null;
 }
-
-export const ListCompleteWorkflowLibrary200ResponseInnerBetaTypeEnum = {
-    Event: 'EVENT',
-    Scheduled: 'SCHEDULED',
-    External: 'EXTERNAL'
-} as const;
-
-export type ListCompleteWorkflowLibrary200ResponseInnerBetaTypeEnum = typeof ListCompleteWorkflowLibrary200ResponseInnerBetaTypeEnum[keyof typeof ListCompleteWorkflowLibrary200ResponseInnerBetaTypeEnum];
-
 /**
  * @type ListIdentityAccessItems200ResponseInnerBeta
  * @export
@@ -11487,7 +11484,7 @@ export interface OwnerReferenceDtoBeta {
      */
     'name'?: string;
     /**
-     * The type of the owner
+     * The type of the owner. Initially only type IDENTITY is supported
      * @type {string}
      * @memberof OwnerReferenceDtoBeta
      */
@@ -11495,8 +11492,7 @@ export interface OwnerReferenceDtoBeta {
 }
 
 export const OwnerReferenceDtoBetaTypeEnum = {
-    Identity: 'IDENTITY',
-    GovernanceGroup: 'GOVERNANCE_GROUP'
+    Identity: 'IDENTITY'
 } as const;
 
 export type OwnerReferenceDtoBetaTypeEnum = typeof OwnerReferenceDtoBetaTypeEnum[keyof typeof OwnerReferenceDtoBetaTypeEnum];
@@ -22025,6 +22021,12 @@ export interface WorkflowLibraryActionBeta {
      */
     'name'?: string;
     /**
+     * Action type
+     * @type {string}
+     * @memberof WorkflowLibraryActionBeta
+     */
+    'type'?: string;
+    /**
      * Action Description
      * @type {string}
      * @memberof WorkflowLibraryActionBeta
@@ -22036,6 +22038,12 @@ export interface WorkflowLibraryActionBeta {
      * @memberof WorkflowLibraryActionBeta
      */
     'formFields'?: Array<WorkflowLibraryFormFieldsBeta>;
+    /**
+     * Determines whether the dynamic output schema is returned in place of the action\'s output schema. The dynamic schema lists non-static properties, like properties of a workflow form where each form has different fields. These will be provided dynamically based on available form fields.
+     * @type {boolean}
+     * @memberof WorkflowLibraryActionBeta
+     */
+    'isDynamicSchema'?: boolean;
     /**
      * Defines the output schema, if any, that this action produces.
      * @type {object}
@@ -22089,7 +22097,21 @@ export const WorkflowLibraryFormFieldsBetaTypeEnum = {
     Url: 'url',
     Number: 'number',
     Json: 'json',
-    Checkbox: 'checkbox'
+    Checkbox: 'checkbox',
+    Jsonpath: 'jsonpath',
+    Select: 'select',
+    MultiType: 'multiType',
+    Duration: 'duration',
+    Toggle: 'toggle',
+    IdentityPicker: 'identityPicker',
+    GovernanceGroupPicker: 'governanceGroupPicker',
+    String: 'string',
+    Object: 'object',
+    Array: 'array',
+    Secret: 'secret',
+    KeyValuePairs: 'keyValuePairs',
+    EmailPicker: 'emailPicker',
+    AdvancedToggle: 'advancedToggle'
 } as const;
 
 export type WorkflowLibraryFormFieldsBetaTypeEnum = typeof WorkflowLibraryFormFieldsBetaTypeEnum[keyof typeof WorkflowLibraryFormFieldsBetaTypeEnum];
@@ -22112,6 +22134,12 @@ export interface WorkflowLibraryOperatorBeta {
      * @memberof WorkflowLibraryOperatorBeta
      */
     'name'?: string;
+    /**
+     * Operator type
+     * @type {string}
+     * @memberof WorkflowLibraryOperatorBeta
+     */
+    'type'?: string;
     /**
      * Description of the operator
      * @type {string}
@@ -22156,17 +22184,23 @@ export interface WorkflowLibraryTriggerBeta {
      */
     'description'?: string;
     /**
+     * Determines whether the dynamic output schema is returned in place of the action\'s output schema. The dynamic schema lists non-static properties, like properties of a workflow form where each form has different fields. These will be provided dynamically based on available form fields.
+     * @type {boolean}
+     * @memberof WorkflowLibraryTriggerBeta
+     */
+    'isDynamicSchema'?: boolean;
+    /**
      * Example trigger payload if applicable
      * @type {object}
      * @memberof WorkflowLibraryTriggerBeta
      */
-    'inputExample'?: object;
+    'inputExample'?: object | null;
     /**
      * One or more inputs that the trigger accepts
      * @type {Array<WorkflowLibraryFormFieldsBeta>}
      * @memberof WorkflowLibraryTriggerBeta
      */
-    'formFields'?: Array<WorkflowLibraryFormFieldsBeta>;
+    'formFields'?: Array<WorkflowLibraryFormFieldsBeta> | null;
 }
 
 export const WorkflowLibraryTriggerBetaTypeEnum = {
@@ -22637,7 +22671,7 @@ export const AccessProfilesBetaApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async deleteAccessProfile(id: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<BaseReferenceDtoBeta>> {
+        async deleteAccessProfile(id: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.deleteAccessProfile(id, axiosOptions);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -22736,7 +22770,7 @@ export const AccessProfilesBetaApiFactory = function (configuration?: Configurat
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        deleteAccessProfile(id: string, axiosOptions?: any): AxiosPromise<BaseReferenceDtoBeta> {
+        deleteAccessProfile(id: string, axiosOptions?: any): AxiosPromise<void> {
             return localVarFp.deleteAccessProfile(id, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
@@ -30757,7 +30791,7 @@ export const EntitlementsBetaApiAxiosParamCreator = function (configuration?: Co
             };
         },
         /**
-         * This API updates an existing Entitlement using [JSON Patch](https://tools.ietf.org/html/rfc6902) syntax.  The following fields are patchable: **requestable**, **privileged**, **segments**, **owner**.  When patching owner only owner type and owner id need to be provided. Owner name is optional and it won\'t be modified. If it is provided, it should correspond to the real name.  A token with ORG_ADMIN or SOURCE_ADMIN authority is required to call this API.
+         * This API updates an existing Entitlement using [JSON Patch](https://tools.ietf.org/html/rfc6902) syntax.  The following fields are patchable: **requestable**, **privileged**, **segments**, **owner**.  When patching owner, only owner type and owner id need to be provided. Owner name is optional and it won\'t be modified. If it is provided, it should correspond to the real name. The only owner type currently supported is IDENTITY.  A token with ORG_ADMIN or SOURCE_ADMIN authority is required to call this API.
          * @summary Patch a specified Entitlement
          * @param {string} id ID of the Entitlement to patch
          * @param {Array<JsonPatchOperationBeta>} [jsonPatchOperationBeta] 
@@ -30974,7 +31008,7 @@ export const EntitlementsBetaApiFp = function(configuration?: Configuration) {
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
-         * This API updates an existing Entitlement using [JSON Patch](https://tools.ietf.org/html/rfc6902) syntax.  The following fields are patchable: **requestable**, **privileged**, **segments**, **owner**.  When patching owner only owner type and owner id need to be provided. Owner name is optional and it won\'t be modified. If it is provided, it should correspond to the real name.  A token with ORG_ADMIN or SOURCE_ADMIN authority is required to call this API.
+         * This API updates an existing Entitlement using [JSON Patch](https://tools.ietf.org/html/rfc6902) syntax.  The following fields are patchable: **requestable**, **privileged**, **segments**, **owner**.  When patching owner, only owner type and owner id need to be provided. Owner name is optional and it won\'t be modified. If it is provided, it should correspond to the real name. The only owner type currently supported is IDENTITY.  A token with ORG_ADMIN or SOURCE_ADMIN authority is required to call this API.
          * @summary Patch a specified Entitlement
          * @param {string} id ID of the Entitlement to patch
          * @param {Array<JsonPatchOperationBeta>} [jsonPatchOperationBeta] 
@@ -31083,7 +31117,7 @@ export const EntitlementsBetaApiFactory = function (configuration?: Configuratio
             return localVarFp.listEntitlements(accountId, segmentedForIdentity, forSegmentIds, includeUnsegmented, offset, limit, count, sorters, filters, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
-         * This API updates an existing Entitlement using [JSON Patch](https://tools.ietf.org/html/rfc6902) syntax.  The following fields are patchable: **requestable**, **privileged**, **segments**, **owner**.  When patching owner only owner type and owner id need to be provided. Owner name is optional and it won\'t be modified. If it is provided, it should correspond to the real name.  A token with ORG_ADMIN or SOURCE_ADMIN authority is required to call this API.
+         * This API updates an existing Entitlement using [JSON Patch](https://tools.ietf.org/html/rfc6902) syntax.  The following fields are patchable: **requestable**, **privileged**, **segments**, **owner**.  When patching owner, only owner type and owner id need to be provided. Owner name is optional and it won\'t be modified. If it is provided, it should correspond to the real name. The only owner type currently supported is IDENTITY.  A token with ORG_ADMIN or SOURCE_ADMIN authority is required to call this API.
          * @summary Patch a specified Entitlement
          * @param {string} id ID of the Entitlement to patch
          * @param {Array<JsonPatchOperationBeta>} [jsonPatchOperationBeta] 
@@ -31409,7 +31443,7 @@ export class EntitlementsBetaApi extends BaseAPI {
     }
 
     /**
-     * This API updates an existing Entitlement using [JSON Patch](https://tools.ietf.org/html/rfc6902) syntax.  The following fields are patchable: **requestable**, **privileged**, **segments**, **owner**.  When patching owner only owner type and owner id need to be provided. Owner name is optional and it won\'t be modified. If it is provided, it should correspond to the real name.  A token with ORG_ADMIN or SOURCE_ADMIN authority is required to call this API.
+     * This API updates an existing Entitlement using [JSON Patch](https://tools.ietf.org/html/rfc6902) syntax.  The following fields are patchable: **requestable**, **privileged**, **segments**, **owner**.  When patching owner, only owner type and owner id need to be provided. Owner name is optional and it won\'t be modified. If it is provided, it should correspond to the real name. The only owner type currently supported is IDENTITY.  A token with ORG_ADMIN or SOURCE_ADMIN authority is required to call this API.
      * @summary Patch a specified Entitlement
      * @param {EntitlementsBetaApiPatchEntitlementRequest} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
@@ -50106,7 +50140,7 @@ export const RolesBetaApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async deleteRole(id: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<BaseReferenceDtoBeta>> {
+        async deleteRole(id: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.deleteRole(id, axiosOptions);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -50194,7 +50228,7 @@ export const RolesBetaApiFactory = function (configuration?: Configuration, base
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        deleteRole(id: string, axiosOptions?: any): AxiosPromise<BaseReferenceDtoBeta> {
+        deleteRole(id: string, axiosOptions?: any): AxiosPromise<void> {
             return localVarFp.deleteRole(id, axiosOptions).then((request) => request(axios, basePath));
         },
         /**

@@ -25286,6 +25286,112 @@ export class OAuthClientsApi extends BaseAPI {
 
 
 /**
+ * PasswordDictionaryApi - axios parameter creator
+ * @export
+ */
+export const PasswordDictionaryApiAxiosParamCreator = function (configuration?: Configuration) {
+    return {
+        /**
+         * This gets password dictionary for the organization. A token with ORG_ADMIN authority is required to call this API.
+         * @summary Get Password Dictionary
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        getPasswordDictionary: async (axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            const localVarPath = `/password-dictionary`;
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...axiosOptions};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication oauth2 required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "oauth2", [], configuration)
+
+            // authentication oauth2 required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "oauth2", [], configuration)
+
+
+    
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                axiosOptions: localVarRequestOptions,
+            };
+        },
+    }
+};
+
+/**
+ * PasswordDictionaryApi - functional programming interface
+ * @export
+ */
+export const PasswordDictionaryApiFp = function(configuration?: Configuration) {
+    const localVarAxiosParamCreator = PasswordDictionaryApiAxiosParamCreator(configuration)
+    return {
+        /**
+         * This gets password dictionary for the organization. A token with ORG_ADMIN authority is required to call this API.
+         * @summary Get Password Dictionary
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        async getPasswordDictionary(axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<string>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getPasswordDictionary(axiosOptions);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+    }
+};
+
+/**
+ * PasswordDictionaryApi - factory interface
+ * @export
+ */
+export const PasswordDictionaryApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
+    const localVarFp = PasswordDictionaryApiFp(configuration)
+    return {
+        /**
+         * This gets password dictionary for the organization. A token with ORG_ADMIN authority is required to call this API.
+         * @summary Get Password Dictionary
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        getPasswordDictionary(axiosOptions?: any): AxiosPromise<string> {
+            return localVarFp.getPasswordDictionary(axiosOptions).then((request) => request(axios, basePath));
+        },
+    };
+};
+
+/**
+ * PasswordDictionaryApi - object-oriented interface
+ * @export
+ * @class PasswordDictionaryApi
+ * @extends {BaseAPI}
+ */
+export class PasswordDictionaryApi extends BaseAPI {
+    /**
+     * This gets password dictionary for the organization. A token with ORG_ADMIN authority is required to call this API.
+     * @summary Get Password Dictionary
+     * @param {*} [axiosOptions] Override http request option.
+     * @throws {RequiredError}
+     * @memberof PasswordDictionaryApi
+     */
+    public getPasswordDictionary(axiosOptions?: AxiosRequestConfig) {
+        return PasswordDictionaryApiFp(this.configuration).getPasswordDictionary(axiosOptions).then((request) => request(this.axios, this.basePath));
+    }
+}
+
+
+/**
  * PasswordManagementApi - axios parameter creator
  * @export
  */
