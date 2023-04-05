@@ -11193,31 +11193,31 @@ export interface OrgConfigBeta {
      * @type {string}
      * @memberof OrgConfigBeta
      */
-    'armCustomerId'?: string;
+    'armCustomerId'?: string | null;
     /**
      * A list of IDN::sourceId to ARM::systemId mappings.
      * @type {string}
      * @memberof OrgConfigBeta
      */
-    'armSapSystemIdMappings'?: string;
+    'armSapSystemIdMappings'?: string | null;
     /**
      * ARM authentication string
      * @type {string}
      * @memberof OrgConfigBeta
      */
-    'armAuth'?: string;
+    'armAuth'?: string | null;
     /**
      * ARM database name
      * @type {string}
      * @memberof OrgConfigBeta
      */
-    'armDb'?: string;
+    'armDb'?: string | null;
     /**
      * ARM SSO URL
      * @type {string}
      * @memberof OrgConfigBeta
      */
-    'armSsoUrl'?: string;
+    'armSsoUrl'?: string | null;
     /**
      * Flag to determine whether IAI Certification Recommendations are enabled for the current org
      * @type {boolean}
@@ -46158,7 +46158,7 @@ export class OAuthClientsBetaApi extends BaseAPI {
 export const OrgConfigBetaApiAxiosParamCreator = function (configuration?: Configuration) {
     return {
         /**
-         * Get org configuration with only external (org admin) accessible properties for the current org.  Request will require the following security scope: - \'idn:org-config:read\' - \'idn:org-config-internal:read\'
+         * Get org configuration with only external (org admin) accessible properties for the current org.
          * @summary Get Org configuration settings
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
@@ -46196,7 +46196,7 @@ export const OrgConfigBetaApiAxiosParamCreator = function (configuration?: Confi
             };
         },
         /**
-         * Get a list of valid time zones that can be set in org configurations. Request will require the following security scope: - \'idn:org-config-user:read\' - \'idn:org-config:read\' - \'idn:org-config-internal:read\'
+         * Get a list of valid time zones that can be set in org configurations.
          * @summary Get list of time zones
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
@@ -46234,7 +46234,7 @@ export const OrgConfigBetaApiAxiosParamCreator = function (configuration?: Confi
             };
         },
         /**
-         * Patch configuration of the current org using http://jsonpatch.com/ syntax.  Commonly used for changing the time zone of an org. Request will require a security scope of: - \'idn:org-config:write\' - \'idn:org-config-internal:write\'
+         * Patch configuration of the current org using http://jsonpatch.com/ syntax.  Commonly used for changing the time zone of an org.
          * @summary Patch an Org configuration property
          * @param {Array<JsonPatchOperationBeta>} jsonPatchOperationBeta A list of schema attribute update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.
          * @param {*} [axiosOptions] Override http request option.
@@ -46288,7 +46288,7 @@ export const OrgConfigBetaApiFp = function(configuration?: Configuration) {
     const localVarAxiosParamCreator = OrgConfigBetaApiAxiosParamCreator(configuration)
     return {
         /**
-         * Get org configuration with only external (org admin) accessible properties for the current org.  Request will require the following security scope: - \'idn:org-config:read\' - \'idn:org-config-internal:read\'
+         * Get org configuration with only external (org admin) accessible properties for the current org.
          * @summary Get Org configuration settings
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
@@ -46298,7 +46298,7 @@ export const OrgConfigBetaApiFp = function(configuration?: Configuration) {
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
-         * Get a list of valid time zones that can be set in org configurations. Request will require the following security scope: - \'idn:org-config-user:read\' - \'idn:org-config:read\' - \'idn:org-config-internal:read\'
+         * Get a list of valid time zones that can be set in org configurations.
          * @summary Get list of time zones
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
@@ -46308,7 +46308,7 @@ export const OrgConfigBetaApiFp = function(configuration?: Configuration) {
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
-         * Patch configuration of the current org using http://jsonpatch.com/ syntax.  Commonly used for changing the time zone of an org. Request will require a security scope of: - \'idn:org-config:write\' - \'idn:org-config-internal:write\'
+         * Patch configuration of the current org using http://jsonpatch.com/ syntax.  Commonly used for changing the time zone of an org.
          * @summary Patch an Org configuration property
          * @param {Array<JsonPatchOperationBeta>} jsonPatchOperationBeta A list of schema attribute update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.
          * @param {*} [axiosOptions] Override http request option.
@@ -46329,7 +46329,7 @@ export const OrgConfigBetaApiFactory = function (configuration?: Configuration, 
     const localVarFp = OrgConfigBetaApiFp(configuration)
     return {
         /**
-         * Get org configuration with only external (org admin) accessible properties for the current org.  Request will require the following security scope: - \'idn:org-config:read\' - \'idn:org-config-internal:read\'
+         * Get org configuration with only external (org admin) accessible properties for the current org.
          * @summary Get Org configuration settings
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
@@ -46338,7 +46338,7 @@ export const OrgConfigBetaApiFactory = function (configuration?: Configuration, 
             return localVarFp.getOrgConfig(axiosOptions).then((request) => request(axios, basePath));
         },
         /**
-         * Get a list of valid time zones that can be set in org configurations. Request will require the following security scope: - \'idn:org-config-user:read\' - \'idn:org-config:read\' - \'idn:org-config-internal:read\'
+         * Get a list of valid time zones that can be set in org configurations.
          * @summary Get list of time zones
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
@@ -46347,7 +46347,7 @@ export const OrgConfigBetaApiFactory = function (configuration?: Configuration, 
             return localVarFp.getValidTimeZones(axiosOptions).then((request) => request(axios, basePath));
         },
         /**
-         * Patch configuration of the current org using http://jsonpatch.com/ syntax.  Commonly used for changing the time zone of an org. Request will require a security scope of: - \'idn:org-config:write\' - \'idn:org-config-internal:write\'
+         * Patch configuration of the current org using http://jsonpatch.com/ syntax.  Commonly used for changing the time zone of an org.
          * @summary Patch an Org configuration property
          * @param {Array<JsonPatchOperationBeta>} jsonPatchOperationBeta A list of schema attribute update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.
          * @param {*} [axiosOptions] Override http request option.
@@ -46381,7 +46381,7 @@ export interface OrgConfigBetaApiPatchOrgConfigRequest {
  */
 export class OrgConfigBetaApi extends BaseAPI {
     /**
-     * Get org configuration with only external (org admin) accessible properties for the current org.  Request will require the following security scope: - \'idn:org-config:read\' - \'idn:org-config-internal:read\'
+     * Get org configuration with only external (org admin) accessible properties for the current org.
      * @summary Get Org configuration settings
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
@@ -46392,7 +46392,7 @@ export class OrgConfigBetaApi extends BaseAPI {
     }
 
     /**
-     * Get a list of valid time zones that can be set in org configurations. Request will require the following security scope: - \'idn:org-config-user:read\' - \'idn:org-config:read\' - \'idn:org-config-internal:read\'
+     * Get a list of valid time zones that can be set in org configurations.
      * @summary Get list of time zones
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
@@ -46403,7 +46403,7 @@ export class OrgConfigBetaApi extends BaseAPI {
     }
 
     /**
-     * Patch configuration of the current org using http://jsonpatch.com/ syntax.  Commonly used for changing the time zone of an org. Request will require a security scope of: - \'idn:org-config:write\' - \'idn:org-config-internal:write\'
+     * Patch configuration of the current org using http://jsonpatch.com/ syntax.  Commonly used for changing the time zone of an org.
      * @summary Patch an Org configuration property
      * @param {OrgConfigBetaApiPatchOrgConfigRequest} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
