@@ -47077,44 +47077,6 @@ export const PasswordDictionaryBetaApiAxiosParamCreator = function (configuratio
             };
         },
         /**
-         * Used to check the status of password dictionary. A token with ORG_ADMIN authority is required to call this API.
-         * @summary Get Password Dictionary Status
-         * @param {*} [axiosOptions] Override http request option.
-         * @throws {RequiredError}
-         */
-        getPasswordDictionaryFileStatus: async (axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
-            const localVarPath = `/password-dictionary`;
-            // use dummy base URL string because the URL constructor only accepts absolute URLs.
-            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
-            let baseOptions;
-            if (configuration) {
-                baseOptions = configuration.baseOptions;
-            }
-
-            const localVarRequestOptions = { method: 'HEAD', ...baseOptions, ...axiosOptions};
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-
-            // authentication oauth2 required
-            // oauth required
-            await setOAuthToObject(localVarHeaderParameter, "oauth2", [], configuration)
-
-            // authentication oauth2 required
-            // oauth required
-            await setOAuthToObject(localVarHeaderParameter, "oauth2", [], configuration)
-
-
-    
-            setSearchParams(localVarUrlObj, localVarQueryParameter);
-            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
-            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
-
-            return {
-                url: toPathString(localVarUrlObj),
-                axiosOptions: localVarRequestOptions,
-            };
-        },
-        /**
          * This updates password dictionary for the organization. A token with ORG_ADMIN authority is required to call this API.
          * @summary Update Password Dictionary
          * @param {any} [file] 
@@ -47182,16 +47144,6 @@ export const PasswordDictionaryBetaApiFp = function(configuration?: Configuratio
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
-         * Used to check the status of password dictionary. A token with ORG_ADMIN authority is required to call this API.
-         * @summary Get Password Dictionary Status
-         * @param {*} [axiosOptions] Override http request option.
-         * @throws {RequiredError}
-         */
-        async getPasswordDictionaryFileStatus(axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.getPasswordDictionaryFileStatus(axiosOptions);
-            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
-        },
-        /**
          * This updates password dictionary for the organization. A token with ORG_ADMIN authority is required to call this API.
          * @summary Update Password Dictionary
          * @param {any} [file] 
@@ -47220,15 +47172,6 @@ export const PasswordDictionaryBetaApiFactory = function (configuration?: Config
          */
         getPasswordDictionary(axiosOptions?: any): AxiosPromise<string> {
             return localVarFp.getPasswordDictionary(axiosOptions).then((request) => request(axios, basePath));
-        },
-        /**
-         * Used to check the status of password dictionary. A token with ORG_ADMIN authority is required to call this API.
-         * @summary Get Password Dictionary Status
-         * @param {*} [axiosOptions] Override http request option.
-         * @throws {RequiredError}
-         */
-        getPasswordDictionaryFileStatus(axiosOptions?: any): AxiosPromise<void> {
-            return localVarFp.getPasswordDictionaryFileStatus(axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * This updates password dictionary for the organization. A token with ORG_ADMIN authority is required to call this API.
@@ -47273,17 +47216,6 @@ export class PasswordDictionaryBetaApi extends BaseAPI {
      */
     public getPasswordDictionary(axiosOptions?: AxiosRequestConfig) {
         return PasswordDictionaryBetaApiFp(this.configuration).getPasswordDictionary(axiosOptions).then((request) => request(this.axios, this.basePath));
-    }
-
-    /**
-     * Used to check the status of password dictionary. A token with ORG_ADMIN authority is required to call this API.
-     * @summary Get Password Dictionary Status
-     * @param {*} [axiosOptions] Override http request option.
-     * @throws {RequiredError}
-     * @memberof PasswordDictionaryBetaApi
-     */
-    public getPasswordDictionaryFileStatus(axiosOptions?: AxiosRequestConfig) {
-        return PasswordDictionaryBetaApiFp(this.configuration).getPasswordDictionaryFileStatus(axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**

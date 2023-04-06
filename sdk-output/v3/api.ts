@@ -14914,6 +14914,19 @@ export interface UUIDGenerator {
 /**
  * 
  * @export
+ * @interface UpdatePasswordDictionaryRequest
+ */
+export interface UpdatePasswordDictionaryRequest {
+    /**
+     * 
+     * @type {any}
+     * @memberof UpdatePasswordDictionaryRequest
+     */
+    'file'?: any;
+}
+/**
+ * 
+ * @export
  * @interface UploadNonEmployeeRecordsInBulkRequest
  */
 export interface UploadNonEmployeeRecordsInBulkRequest {
@@ -14923,19 +14936,6 @@ export interface UploadNonEmployeeRecordsInBulkRequest {
      * @memberof UploadNonEmployeeRecordsInBulkRequest
      */
     'data': string;
-}
-/**
- * 
- * @export
- * @interface UploadSourceAccountsSchemaRequest
- */
-export interface UploadSourceAccountsSchemaRequest {
-    /**
-     * 
-     * @type {any}
-     * @memberof UploadSourceAccountsSchemaRequest
-     */
-    'file'?: any;
 }
 /**
  * 
@@ -25329,6 +25329,53 @@ export const PasswordDictionaryApiAxiosParamCreator = function (configuration?: 
                 axiosOptions: localVarRequestOptions,
             };
         },
+        /**
+         * This updates password dictionary for the organization. A token with ORG_ADMIN authority is required to call this API.
+         * @summary Update Password Dictionary
+         * @param {any} [file] 
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        updatePasswordDictionary: async (file?: any, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            const localVarPath = `/password-dictionary`;
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'PUT', ...baseOptions, ...axiosOptions};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            const localVarFormParams = new ((configuration && configuration.formDataCtor) || FormData)();
+
+            // authentication oauth2 required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "oauth2", [], configuration)
+
+            // authentication oauth2 required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "oauth2", [], configuration)
+
+
+            if (file !== undefined) { 
+                localVarFormParams.append('file', file as any);
+            }
+    
+    
+            localVarHeaderParameter['Content-Type'] = 'multipart/form-data';
+    
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
+            localVarRequestOptions.data = localVarFormParams;
+
+            return {
+                url: toPathString(localVarUrlObj),
+                axiosOptions: localVarRequestOptions,
+            };
+        },
     }
 };
 
@@ -25347,6 +25394,17 @@ export const PasswordDictionaryApiFp = function(configuration?: Configuration) {
          */
         async getPasswordDictionary(axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<string>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getPasswordDictionary(axiosOptions);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * This updates password dictionary for the organization. A token with ORG_ADMIN authority is required to call this API.
+         * @summary Update Password Dictionary
+         * @param {any} [file] 
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        async updatePasswordDictionary(file?: any, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.updatePasswordDictionary(file, axiosOptions);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
     }
@@ -25368,8 +25426,32 @@ export const PasswordDictionaryApiFactory = function (configuration?: Configurat
         getPasswordDictionary(axiosOptions?: any): AxiosPromise<string> {
             return localVarFp.getPasswordDictionary(axiosOptions).then((request) => request(axios, basePath));
         },
+        /**
+         * This updates password dictionary for the organization. A token with ORG_ADMIN authority is required to call this API.
+         * @summary Update Password Dictionary
+         * @param {any} [file] 
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        updatePasswordDictionary(file?: any, axiosOptions?: any): AxiosPromise<void> {
+            return localVarFp.updatePasswordDictionary(file, axiosOptions).then((request) => request(axios, basePath));
+        },
     };
 };
+
+/**
+ * Request parameters for updatePasswordDictionary operation in PasswordDictionaryApi.
+ * @export
+ * @interface PasswordDictionaryApiUpdatePasswordDictionaryRequest
+ */
+export interface PasswordDictionaryApiUpdatePasswordDictionaryRequest {
+    /**
+     * 
+     * @type {any}
+     * @memberof PasswordDictionaryApiUpdatePasswordDictionary
+     */
+    readonly file?: any
+}
 
 /**
  * PasswordDictionaryApi - object-oriented interface
@@ -25387,6 +25469,18 @@ export class PasswordDictionaryApi extends BaseAPI {
      */
     public getPasswordDictionary(axiosOptions?: AxiosRequestConfig) {
         return PasswordDictionaryApiFp(this.configuration).getPasswordDictionary(axiosOptions).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * This updates password dictionary for the organization. A token with ORG_ADMIN authority is required to call this API.
+     * @summary Update Password Dictionary
+     * @param {PasswordDictionaryApiUpdatePasswordDictionaryRequest} requestParameters Request parameters.
+     * @param {*} [axiosOptions] Override http request option.
+     * @throws {RequiredError}
+     * @memberof PasswordDictionaryApi
+     */
+    public updatePasswordDictionary(requestParameters: PasswordDictionaryApiUpdatePasswordDictionaryRequest = {}, axiosOptions?: AxiosRequestConfig) {
+        return PasswordDictionaryApiFp(this.configuration).updatePasswordDictionary(requestParameters.file, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 }
 
