@@ -10034,6 +10034,37 @@ export type PasswordStatusStateEnum = typeof PasswordStatusStateEnum[keyof typeo
 /**
  * 
  * @export
+ * @interface PasswordSyncGroup
+ */
+export interface PasswordSyncGroup {
+    /**
+     * ID of the sync group
+     * @type {string}
+     * @memberof PasswordSyncGroup
+     */
+    'id'?: string;
+    /**
+     * Name of the sync group
+     * @type {string}
+     * @memberof PasswordSyncGroup
+     */
+    'name'?: string;
+    /**
+     * ID of the password policy
+     * @type {string}
+     * @memberof PasswordSyncGroup
+     */
+    'passwordPolicyId'?: string;
+    /**
+     * List of password managed sources IDs
+     * @type {Array<string>}
+     * @memberof PasswordSyncGroup
+     */
+    'sourceIds'?: Array<string>;
+}
+/**
+ * 
+ * @export
  * @interface PendingApproval
  */
 export interface PendingApproval {
@@ -25790,6 +25821,135 @@ export class PasswordManagementApi extends BaseAPI {
      */
     public setPassword(requestParameters: PasswordManagementApiSetPasswordRequest, axiosOptions?: AxiosRequestConfig) {
         return PasswordManagementApiFp(this.configuration).setPassword(requestParameters.passwordChangeRequest, axiosOptions).then((request) => request(this.axios, this.basePath));
+    }
+}
+
+
+/**
+ * PasswordSyncGroupsApi - axios parameter creator
+ * @export
+ */
+export const PasswordSyncGroupsApiAxiosParamCreator = function (configuration?: Configuration) {
+    return {
+        /**
+         * This API creates a password sync group based on the specifications provided. A token with ORG_ADMIN authority is required to call this API.
+         * @summary Create Password Sync Group
+         * @param {PasswordSyncGroup} passwordSyncGroup 
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        createPasswordSyncGroup: async (passwordSyncGroup: PasswordSyncGroup, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'passwordSyncGroup' is not null or undefined
+            assertParamExists('createPasswordSyncGroup', 'passwordSyncGroup', passwordSyncGroup)
+            const localVarPath = `/password-sync-groups`;
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'POST', ...baseOptions, ...axiosOptions};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication oauth2 required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "oauth2", [], configuration)
+
+            // authentication oauth2 required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "oauth2", [], configuration)
+
+
+    
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
+            localVarRequestOptions.data = serializeDataIfNeeded(passwordSyncGroup, localVarRequestOptions, configuration)
+
+            return {
+                url: toPathString(localVarUrlObj),
+                axiosOptions: localVarRequestOptions,
+            };
+        },
+    }
+};
+
+/**
+ * PasswordSyncGroupsApi - functional programming interface
+ * @export
+ */
+export const PasswordSyncGroupsApiFp = function(configuration?: Configuration) {
+    const localVarAxiosParamCreator = PasswordSyncGroupsApiAxiosParamCreator(configuration)
+    return {
+        /**
+         * This API creates a password sync group based on the specifications provided. A token with ORG_ADMIN authority is required to call this API.
+         * @summary Create Password Sync Group
+         * @param {PasswordSyncGroup} passwordSyncGroup 
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        async createPasswordSyncGroup(passwordSyncGroup: PasswordSyncGroup, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<PasswordSyncGroup>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.createPasswordSyncGroup(passwordSyncGroup, axiosOptions);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+    }
+};
+
+/**
+ * PasswordSyncGroupsApi - factory interface
+ * @export
+ */
+export const PasswordSyncGroupsApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
+    const localVarFp = PasswordSyncGroupsApiFp(configuration)
+    return {
+        /**
+         * This API creates a password sync group based on the specifications provided. A token with ORG_ADMIN authority is required to call this API.
+         * @summary Create Password Sync Group
+         * @param {PasswordSyncGroup} passwordSyncGroup 
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        createPasswordSyncGroup(passwordSyncGroup: PasswordSyncGroup, axiosOptions?: any): AxiosPromise<PasswordSyncGroup> {
+            return localVarFp.createPasswordSyncGroup(passwordSyncGroup, axiosOptions).then((request) => request(axios, basePath));
+        },
+    };
+};
+
+/**
+ * Request parameters for createPasswordSyncGroup operation in PasswordSyncGroupsApi.
+ * @export
+ * @interface PasswordSyncGroupsApiCreatePasswordSyncGroupRequest
+ */
+export interface PasswordSyncGroupsApiCreatePasswordSyncGroupRequest {
+    /**
+     * 
+     * @type {PasswordSyncGroup}
+     * @memberof PasswordSyncGroupsApiCreatePasswordSyncGroup
+     */
+    readonly passwordSyncGroup: PasswordSyncGroup
+}
+
+/**
+ * PasswordSyncGroupsApi - object-oriented interface
+ * @export
+ * @class PasswordSyncGroupsApi
+ * @extends {BaseAPI}
+ */
+export class PasswordSyncGroupsApi extends BaseAPI {
+    /**
+     * This API creates a password sync group based on the specifications provided. A token with ORG_ADMIN authority is required to call this API.
+     * @summary Create Password Sync Group
+     * @param {PasswordSyncGroupsApiCreatePasswordSyncGroupRequest} requestParameters Request parameters.
+     * @param {*} [axiosOptions] Override http request option.
+     * @throws {RequiredError}
+     * @memberof PasswordSyncGroupsApi
+     */
+    public createPasswordSyncGroup(requestParameters: PasswordSyncGroupsApiCreatePasswordSyncGroupRequest, axiosOptions?: AxiosRequestConfig) {
+        return PasswordSyncGroupsApiFp(this.configuration).createPasswordSyncGroup(requestParameters.passwordSyncGroup, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 }
 
