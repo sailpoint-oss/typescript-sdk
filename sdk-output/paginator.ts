@@ -56,7 +56,7 @@ export class Paginator {
             console.log(`Paginating call, offset = ${params.offset}`)
             let results = await callbackFn.call(thisArg, params)
             modified.push.apply(modified, results.data)
-            if (results.data.length < increment || (params.offset >= maxLimit && maxLimit > 0)) {
+            if (results.data.length < increment || (modified.length >= maxLimit && maxLimit > 0)) {
                 results.data = modified
                 return results
             }
@@ -82,7 +82,7 @@ export class Paginator {
             console.log(`Paginating call, offset = ${offset}`)
             let results = await searchAPI.searchPost(searchParams)
             modified.push.apply(modified, results.data)
-            if (results.data.length < increment || (offset >= maxLimit && maxLimit > 0)) {
+            if (results.data.length < increment || (modified.length >= maxLimit && maxLimit > 0)) {
                 results.data = modified
                 return results
             } else {
