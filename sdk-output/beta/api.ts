@@ -30863,9 +30863,9 @@ export class CustomPasswordInstructionsBetaApi extends BaseAPI {
 export const EntitlementsBetaApiAxiosParamCreator = function (configuration?: Configuration) {
     return {
         /**
-         * This API returns an Entitlement by its ID.
-         * @summary Get an Entitlement
-         * @param {string} id Entitlement Id
+         * This API returns an entitlement by its ID.
+         * @summary Get an entitlement
+         * @param {string} id The entitlement ID
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
@@ -31144,9 +31144,9 @@ export const EntitlementsBetaApiAxiosParamCreator = function (configuration?: Co
             };
         },
         /**
-         * This API updates an existing Entitlement using [JSON Patch](https://tools.ietf.org/html/rfc6902) syntax.  The following fields are patchable: **requestable**, **privileged**, **segments**, **owner**.  When patching owner, only owner type and owner id need to be provided. Owner name is optional and it won\'t be modified. If it is provided, it should correspond to the real name. The only owner type currently supported is IDENTITY.  A token with ORG_ADMIN or SOURCE_ADMIN authority is required to call this API.
-         * @summary Patch a specified Entitlement
-         * @param {string} id ID of the Entitlement to patch
+         * This API updates an existing entitlement using [JSON Patch](https://tools.ietf.org/html/rfc6902) syntax.  The following fields are patchable: **requestable**, **privileged**, **segments**, **owner**.  When you\'re patching owner, only owner type and owner id must be provided. Owner name is optional, and it won\'t be modified. If the owner name is provided, it should correspond to the real name. The only owner type currently supported is IDENTITY.  A token with ORG_ADMIN or SOURCE_ADMIN authority is required to call this API.
+         * @summary Patch an entitlement
+         * @param {string} id ID of the entitlement to patch
          * @param {Array<JsonPatchOperationBeta>} [jsonPatchOperationBeta] 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
@@ -31292,9 +31292,9 @@ export const EntitlementsBetaApiFp = function(configuration?: Configuration) {
     const localVarAxiosParamCreator = EntitlementsBetaApiAxiosParamCreator(configuration)
     return {
         /**
-         * This API returns an Entitlement by its ID.
-         * @summary Get an Entitlement
-         * @param {string} id Entitlement Id
+         * This API returns an entitlement by its ID.
+         * @summary Get an entitlement
+         * @param {string} id The entitlement ID
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
@@ -31361,9 +31361,9 @@ export const EntitlementsBetaApiFp = function(configuration?: Configuration) {
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
-         * This API updates an existing Entitlement using [JSON Patch](https://tools.ietf.org/html/rfc6902) syntax.  The following fields are patchable: **requestable**, **privileged**, **segments**, **owner**.  When patching owner, only owner type and owner id need to be provided. Owner name is optional and it won\'t be modified. If it is provided, it should correspond to the real name. The only owner type currently supported is IDENTITY.  A token with ORG_ADMIN or SOURCE_ADMIN authority is required to call this API.
-         * @summary Patch a specified Entitlement
-         * @param {string} id ID of the Entitlement to patch
+         * This API updates an existing entitlement using [JSON Patch](https://tools.ietf.org/html/rfc6902) syntax.  The following fields are patchable: **requestable**, **privileged**, **segments**, **owner**.  When you\'re patching owner, only owner type and owner id must be provided. Owner name is optional, and it won\'t be modified. If the owner name is provided, it should correspond to the real name. The only owner type currently supported is IDENTITY.  A token with ORG_ADMIN or SOURCE_ADMIN authority is required to call this API.
+         * @summary Patch an entitlement
+         * @param {string} id ID of the entitlement to patch
          * @param {Array<JsonPatchOperationBeta>} [jsonPatchOperationBeta] 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
@@ -31406,9 +31406,9 @@ export const EntitlementsBetaApiFactory = function (configuration?: Configuratio
     const localVarFp = EntitlementsBetaApiFp(configuration)
     return {
         /**
-         * This API returns an Entitlement by its ID.
-         * @summary Get an Entitlement
-         * @param {string} id Entitlement Id
+         * This API returns an entitlement by its ID.
+         * @summary Get an entitlement
+         * @param {string} id The entitlement ID
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
@@ -31470,9 +31470,9 @@ export const EntitlementsBetaApiFactory = function (configuration?: Configuratio
             return localVarFp.listEntitlements(accountId, segmentedForIdentity, forSegmentIds, includeUnsegmented, offset, limit, count, sorters, filters, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
-         * This API updates an existing Entitlement using [JSON Patch](https://tools.ietf.org/html/rfc6902) syntax.  The following fields are patchable: **requestable**, **privileged**, **segments**, **owner**.  When patching owner, only owner type and owner id need to be provided. Owner name is optional and it won\'t be modified. If it is provided, it should correspond to the real name. The only owner type currently supported is IDENTITY.  A token with ORG_ADMIN or SOURCE_ADMIN authority is required to call this API.
-         * @summary Patch a specified Entitlement
-         * @param {string} id ID of the Entitlement to patch
+         * This API updates an existing entitlement using [JSON Patch](https://tools.ietf.org/html/rfc6902) syntax.  The following fields are patchable: **requestable**, **privileged**, **segments**, **owner**.  When you\'re patching owner, only owner type and owner id must be provided. Owner name is optional, and it won\'t be modified. If the owner name is provided, it should correspond to the real name. The only owner type currently supported is IDENTITY.  A token with ORG_ADMIN or SOURCE_ADMIN authority is required to call this API.
+         * @summary Patch an entitlement
+         * @param {string} id ID of the entitlement to patch
          * @param {Array<JsonPatchOperationBeta>} [jsonPatchOperationBeta] 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
@@ -31511,7 +31511,7 @@ export const EntitlementsBetaApiFactory = function (configuration?: Configuratio
  */
 export interface EntitlementsBetaApiGetEntitlementRequest {
     /**
-     * Entitlement Id
+     * The entitlement ID
      * @type {string}
      * @memberof EntitlementsBetaApiGetEntitlement
      */
@@ -31679,7 +31679,7 @@ export interface EntitlementsBetaApiListEntitlementsRequest {
  */
 export interface EntitlementsBetaApiPatchEntitlementRequest {
     /**
-     * ID of the Entitlement to patch
+     * ID of the entitlement to patch
      * @type {string}
      * @memberof EntitlementsBetaApiPatchEntitlement
      */
@@ -31736,8 +31736,8 @@ export interface EntitlementsBetaApiUpdateEntitlementsInBulkRequest {
  */
 export class EntitlementsBetaApi extends BaseAPI {
     /**
-     * This API returns an Entitlement by its ID.
-     * @summary Get an Entitlement
+     * This API returns an entitlement by its ID.
+     * @summary Get an entitlement
      * @param {EntitlementsBetaApiGetEntitlementRequest} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
@@ -31796,8 +31796,8 @@ export class EntitlementsBetaApi extends BaseAPI {
     }
 
     /**
-     * This API updates an existing Entitlement using [JSON Patch](https://tools.ietf.org/html/rfc6902) syntax.  The following fields are patchable: **requestable**, **privileged**, **segments**, **owner**.  When patching owner, only owner type and owner id need to be provided. Owner name is optional and it won\'t be modified. If it is provided, it should correspond to the real name. The only owner type currently supported is IDENTITY.  A token with ORG_ADMIN or SOURCE_ADMIN authority is required to call this API.
-     * @summary Patch a specified Entitlement
+     * This API updates an existing entitlement using [JSON Patch](https://tools.ietf.org/html/rfc6902) syntax.  The following fields are patchable: **requestable**, **privileged**, **segments**, **owner**.  When you\'re patching owner, only owner type and owner id must be provided. Owner name is optional, and it won\'t be modified. If the owner name is provided, it should correspond to the real name. The only owner type currently supported is IDENTITY.  A token with ORG_ADMIN or SOURCE_ADMIN authority is required to call this API.
+     * @summary Patch an entitlement
      * @param {EntitlementsBetaApiPatchEntitlementRequest} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
@@ -50835,8 +50835,8 @@ export class RolesBetaApi extends BaseAPI {
 export const SODPolicyBetaApiAxiosParamCreator = function (configuration?: Configuration) {
     return {
         /**
-         * This creates both General and Conflicting Access Based policy, with a limit of 50 entitlements for each (left & right) criteria for Conflicting Access Based SOD policy Requires role of ORG_ADMIN
-         * @summary Create SOD Policy
+         * This creates both General and Conflicting Access Based policy, with a limit of 50 entitlements for each (left & right) criteria for Conflicting Access Based SOD policy. Requires role of ORG_ADMIN.
+         * @summary Create SOD policy
          * @param {SodPolicyBeta} sodPolicyBeta 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
@@ -50880,9 +50880,9 @@ export const SODPolicyBetaApiAxiosParamCreator = function (configuration?: Confi
         },
         /**
          * This deletes a specified SOD policy. Requires role of ORG_ADMIN.
-         * @summary Delete SOD Policy by ID
+         * @summary Delete SOD policy by ID
          * @param {string} id The ID of the SOD Policy to delete.
-         * @param {boolean} [logical] whether this is soft delete i.e. logical true or hard delete
+         * @param {boolean} [logical] Indicates whether this is a soft delete (logical true) or a hard delete.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
@@ -50927,8 +50927,8 @@ export const SODPolicyBetaApiAxiosParamCreator = function (configuration?: Confi
         },
         /**
          * This deletes schedule for a specified SOD policy. Requires role of ORG_ADMIN.
-         * @summary Delete SOD Policy Schedule
-         * @param {string} id The ID of the SOD Policy for which the schedule needs to be deleted.
+         * @summary Delete SOD policy schedule
+         * @param {string} id The ID of the SOD policy the schedule must be deleted for.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
@@ -50968,7 +50968,7 @@ export const SODPolicyBetaApiAxiosParamCreator = function (configuration?: Confi
             };
         },
         /**
-         * This allows to download a specified named violation report  for given report reference. Requires role of ORG_ADMIN.
+         * This allows to download a specified named violation report for a given report reference. Requires role of ORG_ADMIN.
          * @summary Download custom violation report
          * @param {string} reportResultId The ID of the report reference to download.
          * @param {string} fileName Custom Name for the  file.
@@ -51014,7 +51014,7 @@ export const SODPolicyBetaApiAxiosParamCreator = function (configuration?: Confi
             };
         },
         /**
-         * This allows to download a violation report for given report reference. Requires role of ORG_ADMIN.
+         * This allows to download a violation report for a given report reference. Requires role of ORG_ADMIN.
          * @summary Download violation report
          * @param {string} reportResultId The ID of the report reference to download.
          * @param {*} [axiosOptions] Override http request option.
@@ -51056,7 +51056,7 @@ export const SODPolicyBetaApiAxiosParamCreator = function (configuration?: Confi
             };
         },
         /**
-         * This gets status for a violation report for all policy run. Requires role of ORG_ADMIN.
+         * This endpoint gets the status for a violation report for all policy run. Requires role of ORG_ADMIN.
          * @summary Get multi-report run task status
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
@@ -51095,7 +51095,7 @@ export const SODPolicyBetaApiAxiosParamCreator = function (configuration?: Confi
         },
         /**
          * This gets specified SOD policy. Requires role of ORG_ADMIN.
-         * @summary Get SOD Policy By ID
+         * @summary Get SOD policy by ID
          * @param {string} id The ID of the object reference to retrieve.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
@@ -51136,8 +51136,8 @@ export const SODPolicyBetaApiAxiosParamCreator = function (configuration?: Confi
             };
         },
         /**
-         * This gets schedule for a specified SOD policy. Requires a role of ORG_ADMIN
-         * @summary Get SOD Policy Schedule
+         * This endpoint gets a specified SOD policy\'s schedule. Requires the role of ORG_ADMIN.
+         * @summary Get SOD policy schedule
          * @param {string} id The ID of the object reference to retrieve.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
@@ -51178,7 +51178,7 @@ export const SODPolicyBetaApiAxiosParamCreator = function (configuration?: Confi
             };
         },
         /**
-         * This gets status for a violation report run task invoked already. Requires role of ORG_ADMIN.
+         * This gets the status for a violation report run task that has already been invoked. Requires role of ORG_ADMIN.
          * @summary Get violation report run status
          * @param {string} reportResultId The ID of the report reference to retrieve.
          * @param {*} [axiosOptions] Override http request option.
@@ -51220,7 +51220,7 @@ export const SODPolicyBetaApiAxiosParamCreator = function (configuration?: Confi
             };
         },
         /**
-         * This gets status for a violation report run task invoked already. Requires role of ORG_ADMIN.
+         * This gets the status for a violation report run task that has already been invoked. Requires role of ORG_ADMIN.
          * @summary Get SOD violation report status
          * @param {string} id The ID of the object reference to retrieve.
          * @param {*} [axiosOptions] Override http request option.
@@ -51262,8 +51262,8 @@ export const SODPolicyBetaApiAxiosParamCreator = function (configuration?: Confi
             };
         },
         /**
-         * This gets list of all SOD Policies. Requires role of ORG_ADMIN
-         * @summary List SOD Policies
+         * This gets list of all SOD policies. Requires role of ORG_ADMIN
+         * @summary List SOD policies
          * @param {number} [limit] Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
          * @param {number} [offset] Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
          * @param {boolean} [count] If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
@@ -51320,9 +51320,9 @@ export const SODPolicyBetaApiAxiosParamCreator = function (configuration?: Confi
             };
         },
         /**
-         * Allows updating SOD Policy fields other than [\"id\",\"created\",\"creatorId\",\"policyQuery\",\"type\"] using the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard. Requires role of ORG_ADMIN.
-         * @summary Update a SOD Policy
-         * @param {string} id The ID of the SOD Policy being modified.
+         * Allows updating SOD Policy fields other than [\"id\",\"created\",\"creatorId\",\"policyQuery\",\"type\"] using the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard. Requires role of ORG_ADMIN. This endpoint can only patch CONFLICTING_ACCESS_BASED type policies. Do not use this endpoint to patch general policies - doing so will build an API exception. 
+         * @summary Patch a SOD policy
+         * @param {string} id The ID of the SOD policy being modified.
          * @param {Array<object>} requestBody A list of SOD Policy update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.  The following fields are patchable: * name * description * ownerRef * externalPolicyReference * compensatingControls * correctionAdvice * state * tags * violationOwnerAssignmentConfig * scheduled * conflictingAccessCriteria 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
@@ -51368,8 +51368,8 @@ export const SODPolicyBetaApiAxiosParamCreator = function (configuration?: Confi
             };
         },
         /**
-         * Runs multi policy report for the Org. If a policy reports more than 5000 violation, the report mentions Violation limit exceeded for that policy. If the request is empty, report will run for all policies. Otherwise, report will run only for the filtered policy list provided. Requires role of ORG_ADMIN.
-         * @summary Runs all policies for Org.
+         * Runs multi-policy report for the org. If a policy reports more than 5000 violations, the report mentions that the violation limit was exceeded for that policy. If the request is empty, the report runs for all policies. Otherwise, the report runs for only the filtered policy list provided. Requires role of ORG_ADMIN.
+         * @summary Runs all policies for org
          * @param {MultiPolicyRequestBeta} [multiPolicyRequestBeta] 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
@@ -51410,9 +51410,9 @@ export const SODPolicyBetaApiAxiosParamCreator = function (configuration?: Confi
             };
         },
         /**
-         * This invokes processing of violation report for given SOD Policy. If policy reports more than 5000 violations, the report returns with violation limit exceeded message. Requires role of ORG_ADMIN.
-         * @summary Runs SOD Policy Violation Report
-         * @param {string} id The ID of the SOD Policy to run.
+         * This invokes processing of violation report for given SOD policy. If the policy reports more than 5000 violations, the report returns with violation limit exceeded message. Requires role of ORG_ADMIN.
+         * @summary Runs SOD policy violation report
+         * @param {string} id The SOD policy ID to run.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
@@ -51452,7 +51452,7 @@ export const SODPolicyBetaApiAxiosParamCreator = function (configuration?: Confi
             };
         },
         /**
-         * This updates schedule for a specified SOD policy. Requires role of ORG_ADMIN
+         * This updates schedule for a specified SOD policy. Requires role of ORG_ADMIN.
          * @summary Update SOD Policy schedule
          * @param {string} id The ID of the SOD policy to update its schedule.
          * @param {SodPolicyScheduleBeta} sodPolicyScheduleBeta 
@@ -51501,7 +51501,7 @@ export const SODPolicyBetaApiAxiosParamCreator = function (configuration?: Confi
         },
         /**
          * This updates a specified SOD policy. Requires role of ORG_ADMIN.
-         * @summary Update SOD Policy By ID
+         * @summary Update SOD policy by ID
          * @param {string} id The ID of the SOD policy to update.
          * @param {SodPolicyBeta} sodPolicyBeta 
          * @param {*} [axiosOptions] Override http request option.
@@ -51558,8 +51558,8 @@ export const SODPolicyBetaApiFp = function(configuration?: Configuration) {
     const localVarAxiosParamCreator = SODPolicyBetaApiAxiosParamCreator(configuration)
     return {
         /**
-         * This creates both General and Conflicting Access Based policy, with a limit of 50 entitlements for each (left & right) criteria for Conflicting Access Based SOD policy Requires role of ORG_ADMIN
-         * @summary Create SOD Policy
+         * This creates both General and Conflicting Access Based policy, with a limit of 50 entitlements for each (left & right) criteria for Conflicting Access Based SOD policy. Requires role of ORG_ADMIN.
+         * @summary Create SOD policy
          * @param {SodPolicyBeta} sodPolicyBeta 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
@@ -51570,9 +51570,9 @@ export const SODPolicyBetaApiFp = function(configuration?: Configuration) {
         },
         /**
          * This deletes a specified SOD policy. Requires role of ORG_ADMIN.
-         * @summary Delete SOD Policy by ID
+         * @summary Delete SOD policy by ID
          * @param {string} id The ID of the SOD Policy to delete.
-         * @param {boolean} [logical] whether this is soft delete i.e. logical true or hard delete
+         * @param {boolean} [logical] Indicates whether this is a soft delete (logical true) or a hard delete.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
@@ -51582,8 +51582,8 @@ export const SODPolicyBetaApiFp = function(configuration?: Configuration) {
         },
         /**
          * This deletes schedule for a specified SOD policy. Requires role of ORG_ADMIN.
-         * @summary Delete SOD Policy Schedule
-         * @param {string} id The ID of the SOD Policy for which the schedule needs to be deleted.
+         * @summary Delete SOD policy schedule
+         * @param {string} id The ID of the SOD policy the schedule must be deleted for.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
@@ -51592,7 +51592,7 @@ export const SODPolicyBetaApiFp = function(configuration?: Configuration) {
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
-         * This allows to download a specified named violation report  for given report reference. Requires role of ORG_ADMIN.
+         * This allows to download a specified named violation report for a given report reference. Requires role of ORG_ADMIN.
          * @summary Download custom violation report
          * @param {string} reportResultId The ID of the report reference to download.
          * @param {string} fileName Custom Name for the  file.
@@ -51604,7 +51604,7 @@ export const SODPolicyBetaApiFp = function(configuration?: Configuration) {
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
-         * This allows to download a violation report for given report reference. Requires role of ORG_ADMIN.
+         * This allows to download a violation report for a given report reference. Requires role of ORG_ADMIN.
          * @summary Download violation report
          * @param {string} reportResultId The ID of the report reference to download.
          * @param {*} [axiosOptions] Override http request option.
@@ -51615,7 +51615,7 @@ export const SODPolicyBetaApiFp = function(configuration?: Configuration) {
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
-         * This gets status for a violation report for all policy run. Requires role of ORG_ADMIN.
+         * This endpoint gets the status for a violation report for all policy run. Requires role of ORG_ADMIN.
          * @summary Get multi-report run task status
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
@@ -51626,7 +51626,7 @@ export const SODPolicyBetaApiFp = function(configuration?: Configuration) {
         },
         /**
          * This gets specified SOD policy. Requires role of ORG_ADMIN.
-         * @summary Get SOD Policy By ID
+         * @summary Get SOD policy by ID
          * @param {string} id The ID of the object reference to retrieve.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
@@ -51636,8 +51636,8 @@ export const SODPolicyBetaApiFp = function(configuration?: Configuration) {
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
-         * This gets schedule for a specified SOD policy. Requires a role of ORG_ADMIN
-         * @summary Get SOD Policy Schedule
+         * This endpoint gets a specified SOD policy\'s schedule. Requires the role of ORG_ADMIN.
+         * @summary Get SOD policy schedule
          * @param {string} id The ID of the object reference to retrieve.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
@@ -51647,7 +51647,7 @@ export const SODPolicyBetaApiFp = function(configuration?: Configuration) {
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
-         * This gets status for a violation report run task invoked already. Requires role of ORG_ADMIN.
+         * This gets the status for a violation report run task that has already been invoked. Requires role of ORG_ADMIN.
          * @summary Get violation report run status
          * @param {string} reportResultId The ID of the report reference to retrieve.
          * @param {*} [axiosOptions] Override http request option.
@@ -51658,7 +51658,7 @@ export const SODPolicyBetaApiFp = function(configuration?: Configuration) {
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
-         * This gets status for a violation report run task invoked already. Requires role of ORG_ADMIN.
+         * This gets the status for a violation report run task that has already been invoked. Requires role of ORG_ADMIN.
          * @summary Get SOD violation report status
          * @param {string} id The ID of the object reference to retrieve.
          * @param {*} [axiosOptions] Override http request option.
@@ -51669,8 +51669,8 @@ export const SODPolicyBetaApiFp = function(configuration?: Configuration) {
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
-         * This gets list of all SOD Policies. Requires role of ORG_ADMIN
-         * @summary List SOD Policies
+         * This gets list of all SOD policies. Requires role of ORG_ADMIN
+         * @summary List SOD policies
          * @param {number} [limit] Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
          * @param {number} [offset] Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
          * @param {boolean} [count] If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
@@ -51683,9 +51683,9 @@ export const SODPolicyBetaApiFp = function(configuration?: Configuration) {
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
-         * Allows updating SOD Policy fields other than [\"id\",\"created\",\"creatorId\",\"policyQuery\",\"type\"] using the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard. Requires role of ORG_ADMIN.
-         * @summary Update a SOD Policy
-         * @param {string} id The ID of the SOD Policy being modified.
+         * Allows updating SOD Policy fields other than [\"id\",\"created\",\"creatorId\",\"policyQuery\",\"type\"] using the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard. Requires role of ORG_ADMIN. This endpoint can only patch CONFLICTING_ACCESS_BASED type policies. Do not use this endpoint to patch general policies - doing so will build an API exception. 
+         * @summary Patch a SOD policy
+         * @param {string} id The ID of the SOD policy being modified.
          * @param {Array<object>} requestBody A list of SOD Policy update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.  The following fields are patchable: * name * description * ownerRef * externalPolicyReference * compensatingControls * correctionAdvice * state * tags * violationOwnerAssignmentConfig * scheduled * conflictingAccessCriteria 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
@@ -51695,8 +51695,8 @@ export const SODPolicyBetaApiFp = function(configuration?: Configuration) {
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
-         * Runs multi policy report for the Org. If a policy reports more than 5000 violation, the report mentions Violation limit exceeded for that policy. If the request is empty, report will run for all policies. Otherwise, report will run only for the filtered policy list provided. Requires role of ORG_ADMIN.
-         * @summary Runs all policies for Org.
+         * Runs multi-policy report for the org. If a policy reports more than 5000 violations, the report mentions that the violation limit was exceeded for that policy. If the request is empty, the report runs for all policies. Otherwise, the report runs for only the filtered policy list provided. Requires role of ORG_ADMIN.
+         * @summary Runs all policies for org
          * @param {MultiPolicyRequestBeta} [multiPolicyRequestBeta] 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
@@ -51706,9 +51706,9 @@ export const SODPolicyBetaApiFp = function(configuration?: Configuration) {
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
-         * This invokes processing of violation report for given SOD Policy. If policy reports more than 5000 violations, the report returns with violation limit exceeded message. Requires role of ORG_ADMIN.
-         * @summary Runs SOD Policy Violation Report
-         * @param {string} id The ID of the SOD Policy to run.
+         * This invokes processing of violation report for given SOD policy. If the policy reports more than 5000 violations, the report returns with violation limit exceeded message. Requires role of ORG_ADMIN.
+         * @summary Runs SOD policy violation report
+         * @param {string} id The SOD policy ID to run.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
@@ -51717,7 +51717,7 @@ export const SODPolicyBetaApiFp = function(configuration?: Configuration) {
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
-         * This updates schedule for a specified SOD policy. Requires role of ORG_ADMIN
+         * This updates schedule for a specified SOD policy. Requires role of ORG_ADMIN.
          * @summary Update SOD Policy schedule
          * @param {string} id The ID of the SOD policy to update its schedule.
          * @param {SodPolicyScheduleBeta} sodPolicyScheduleBeta 
@@ -51730,7 +51730,7 @@ export const SODPolicyBetaApiFp = function(configuration?: Configuration) {
         },
         /**
          * This updates a specified SOD policy. Requires role of ORG_ADMIN.
-         * @summary Update SOD Policy By ID
+         * @summary Update SOD policy by ID
          * @param {string} id The ID of the SOD policy to update.
          * @param {SodPolicyBeta} sodPolicyBeta 
          * @param {*} [axiosOptions] Override http request option.
@@ -51751,8 +51751,8 @@ export const SODPolicyBetaApiFactory = function (configuration?: Configuration, 
     const localVarFp = SODPolicyBetaApiFp(configuration)
     return {
         /**
-         * This creates both General and Conflicting Access Based policy, with a limit of 50 entitlements for each (left & right) criteria for Conflicting Access Based SOD policy Requires role of ORG_ADMIN
-         * @summary Create SOD Policy
+         * This creates both General and Conflicting Access Based policy, with a limit of 50 entitlements for each (left & right) criteria for Conflicting Access Based SOD policy. Requires role of ORG_ADMIN.
+         * @summary Create SOD policy
          * @param {SodPolicyBeta} sodPolicyBeta 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
@@ -51762,9 +51762,9 @@ export const SODPolicyBetaApiFactory = function (configuration?: Configuration, 
         },
         /**
          * This deletes a specified SOD policy. Requires role of ORG_ADMIN.
-         * @summary Delete SOD Policy by ID
+         * @summary Delete SOD policy by ID
          * @param {string} id The ID of the SOD Policy to delete.
-         * @param {boolean} [logical] whether this is soft delete i.e. logical true or hard delete
+         * @param {boolean} [logical] Indicates whether this is a soft delete (logical true) or a hard delete.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
@@ -51773,8 +51773,8 @@ export const SODPolicyBetaApiFactory = function (configuration?: Configuration, 
         },
         /**
          * This deletes schedule for a specified SOD policy. Requires role of ORG_ADMIN.
-         * @summary Delete SOD Policy Schedule
-         * @param {string} id The ID of the SOD Policy for which the schedule needs to be deleted.
+         * @summary Delete SOD policy schedule
+         * @param {string} id The ID of the SOD policy the schedule must be deleted for.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
@@ -51782,7 +51782,7 @@ export const SODPolicyBetaApiFactory = function (configuration?: Configuration, 
             return localVarFp.deleteSodPolicySchedule(id, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
-         * This allows to download a specified named violation report  for given report reference. Requires role of ORG_ADMIN.
+         * This allows to download a specified named violation report for a given report reference. Requires role of ORG_ADMIN.
          * @summary Download custom violation report
          * @param {string} reportResultId The ID of the report reference to download.
          * @param {string} fileName Custom Name for the  file.
@@ -51793,7 +51793,7 @@ export const SODPolicyBetaApiFactory = function (configuration?: Configuration, 
             return localVarFp.downloadCustomViolationReport(reportResultId, fileName, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
-         * This allows to download a violation report for given report reference. Requires role of ORG_ADMIN.
+         * This allows to download a violation report for a given report reference. Requires role of ORG_ADMIN.
          * @summary Download violation report
          * @param {string} reportResultId The ID of the report reference to download.
          * @param {*} [axiosOptions] Override http request option.
@@ -51803,7 +51803,7 @@ export const SODPolicyBetaApiFactory = function (configuration?: Configuration, 
             return localVarFp.downloadDefaultViolationReport(reportResultId, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
-         * This gets status for a violation report for all policy run. Requires role of ORG_ADMIN.
+         * This endpoint gets the status for a violation report for all policy run. Requires role of ORG_ADMIN.
          * @summary Get multi-report run task status
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
@@ -51813,7 +51813,7 @@ export const SODPolicyBetaApiFactory = function (configuration?: Configuration, 
         },
         /**
          * This gets specified SOD policy. Requires role of ORG_ADMIN.
-         * @summary Get SOD Policy By ID
+         * @summary Get SOD policy by ID
          * @param {string} id The ID of the object reference to retrieve.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
@@ -51822,8 +51822,8 @@ export const SODPolicyBetaApiFactory = function (configuration?: Configuration, 
             return localVarFp.getSodPolicy(id, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
-         * This gets schedule for a specified SOD policy. Requires a role of ORG_ADMIN
-         * @summary Get SOD Policy Schedule
+         * This endpoint gets a specified SOD policy\'s schedule. Requires the role of ORG_ADMIN.
+         * @summary Get SOD policy schedule
          * @param {string} id The ID of the object reference to retrieve.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
@@ -51832,7 +51832,7 @@ export const SODPolicyBetaApiFactory = function (configuration?: Configuration, 
             return localVarFp.getSodPolicySchedule(id, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
-         * This gets status for a violation report run task invoked already. Requires role of ORG_ADMIN.
+         * This gets the status for a violation report run task that has already been invoked. Requires role of ORG_ADMIN.
          * @summary Get violation report run status
          * @param {string} reportResultId The ID of the report reference to retrieve.
          * @param {*} [axiosOptions] Override http request option.
@@ -51842,7 +51842,7 @@ export const SODPolicyBetaApiFactory = function (configuration?: Configuration, 
             return localVarFp.getSodViolationReportRunStatus(reportResultId, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
-         * This gets status for a violation report run task invoked already. Requires role of ORG_ADMIN.
+         * This gets the status for a violation report run task that has already been invoked. Requires role of ORG_ADMIN.
          * @summary Get SOD violation report status
          * @param {string} id The ID of the object reference to retrieve.
          * @param {*} [axiosOptions] Override http request option.
@@ -51852,8 +51852,8 @@ export const SODPolicyBetaApiFactory = function (configuration?: Configuration, 
             return localVarFp.getSodViolationReportStatus(id, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
-         * This gets list of all SOD Policies. Requires role of ORG_ADMIN
-         * @summary List SOD Policies
+         * This gets list of all SOD policies. Requires role of ORG_ADMIN
+         * @summary List SOD policies
          * @param {number} [limit] Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
          * @param {number} [offset] Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
          * @param {boolean} [count] If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
@@ -51865,9 +51865,9 @@ export const SODPolicyBetaApiFactory = function (configuration?: Configuration, 
             return localVarFp.listSodPolicies(limit, offset, count, filters, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
-         * Allows updating SOD Policy fields other than [\"id\",\"created\",\"creatorId\",\"policyQuery\",\"type\"] using the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard. Requires role of ORG_ADMIN.
-         * @summary Update a SOD Policy
-         * @param {string} id The ID of the SOD Policy being modified.
+         * Allows updating SOD Policy fields other than [\"id\",\"created\",\"creatorId\",\"policyQuery\",\"type\"] using the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard. Requires role of ORG_ADMIN. This endpoint can only patch CONFLICTING_ACCESS_BASED type policies. Do not use this endpoint to patch general policies - doing so will build an API exception. 
+         * @summary Patch a SOD policy
+         * @param {string} id The ID of the SOD policy being modified.
          * @param {Array<object>} requestBody A list of SOD Policy update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.  The following fields are patchable: * name * description * ownerRef * externalPolicyReference * compensatingControls * correctionAdvice * state * tags * violationOwnerAssignmentConfig * scheduled * conflictingAccessCriteria 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
@@ -51876,8 +51876,8 @@ export const SODPolicyBetaApiFactory = function (configuration?: Configuration, 
             return localVarFp.patchSodPolicy(id, requestBody, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
-         * Runs multi policy report for the Org. If a policy reports more than 5000 violation, the report mentions Violation limit exceeded for that policy. If the request is empty, report will run for all policies. Otherwise, report will run only for the filtered policy list provided. Requires role of ORG_ADMIN.
-         * @summary Runs all policies for Org.
+         * Runs multi-policy report for the org. If a policy reports more than 5000 violations, the report mentions that the violation limit was exceeded for that policy. If the request is empty, the report runs for all policies. Otherwise, the report runs for only the filtered policy list provided. Requires role of ORG_ADMIN.
+         * @summary Runs all policies for org
          * @param {MultiPolicyRequestBeta} [multiPolicyRequestBeta] 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
@@ -51886,9 +51886,9 @@ export const SODPolicyBetaApiFactory = function (configuration?: Configuration, 
             return localVarFp.runSodAllPoliciesForOrg(multiPolicyRequestBeta, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
-         * This invokes processing of violation report for given SOD Policy. If policy reports more than 5000 violations, the report returns with violation limit exceeded message. Requires role of ORG_ADMIN.
-         * @summary Runs SOD Policy Violation Report
-         * @param {string} id The ID of the SOD Policy to run.
+         * This invokes processing of violation report for given SOD policy. If the policy reports more than 5000 violations, the report returns with violation limit exceeded message. Requires role of ORG_ADMIN.
+         * @summary Runs SOD policy violation report
+         * @param {string} id The SOD policy ID to run.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
@@ -51896,7 +51896,7 @@ export const SODPolicyBetaApiFactory = function (configuration?: Configuration, 
             return localVarFp.runSodPolicy(id, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
-         * This updates schedule for a specified SOD policy. Requires role of ORG_ADMIN
+         * This updates schedule for a specified SOD policy. Requires role of ORG_ADMIN.
          * @summary Update SOD Policy schedule
          * @param {string} id The ID of the SOD policy to update its schedule.
          * @param {SodPolicyScheduleBeta} sodPolicyScheduleBeta 
@@ -51908,7 +51908,7 @@ export const SODPolicyBetaApiFactory = function (configuration?: Configuration, 
         },
         /**
          * This updates a specified SOD policy. Requires role of ORG_ADMIN.
-         * @summary Update SOD Policy By ID
+         * @summary Update SOD policy by ID
          * @param {string} id The ID of the SOD policy to update.
          * @param {SodPolicyBeta} sodPolicyBeta 
          * @param {*} [axiosOptions] Override http request option.
@@ -51948,7 +51948,7 @@ export interface SODPolicyBetaApiDeleteSodPolicyRequest {
     readonly id: string
 
     /**
-     * whether this is soft delete i.e. logical true or hard delete
+     * Indicates whether this is a soft delete (logical true) or a hard delete.
      * @type {boolean}
      * @memberof SODPolicyBetaApiDeleteSodPolicy
      */
@@ -51962,7 +51962,7 @@ export interface SODPolicyBetaApiDeleteSodPolicyRequest {
  */
 export interface SODPolicyBetaApiDeleteSodPolicyScheduleRequest {
     /**
-     * The ID of the SOD Policy for which the schedule needs to be deleted.
+     * The ID of the SOD policy the schedule must be deleted for.
      * @type {string}
      * @memberof SODPolicyBetaApiDeleteSodPolicySchedule
      */
@@ -52102,7 +52102,7 @@ export interface SODPolicyBetaApiListSodPoliciesRequest {
  */
 export interface SODPolicyBetaApiPatchSodPolicyRequest {
     /**
-     * The ID of the SOD Policy being modified.
+     * The ID of the SOD policy being modified.
      * @type {string}
      * @memberof SODPolicyBetaApiPatchSodPolicy
      */
@@ -52137,7 +52137,7 @@ export interface SODPolicyBetaApiRunSodAllPoliciesForOrgRequest {
  */
 export interface SODPolicyBetaApiRunSodPolicyRequest {
     /**
-     * The ID of the SOD Policy to run.
+     * The SOD policy ID to run.
      * @type {string}
      * @memberof SODPolicyBetaApiRunSodPolicy
      */
@@ -52194,8 +52194,8 @@ export interface SODPolicyBetaApiUpdateSodPolicyRequest {
  */
 export class SODPolicyBetaApi extends BaseAPI {
     /**
-     * This creates both General and Conflicting Access Based policy, with a limit of 50 entitlements for each (left & right) criteria for Conflicting Access Based SOD policy Requires role of ORG_ADMIN
-     * @summary Create SOD Policy
+     * This creates both General and Conflicting Access Based policy, with a limit of 50 entitlements for each (left & right) criteria for Conflicting Access Based SOD policy. Requires role of ORG_ADMIN.
+     * @summary Create SOD policy
      * @param {SODPolicyBetaApiCreateSodPolicyRequest} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
@@ -52207,7 +52207,7 @@ export class SODPolicyBetaApi extends BaseAPI {
 
     /**
      * This deletes a specified SOD policy. Requires role of ORG_ADMIN.
-     * @summary Delete SOD Policy by ID
+     * @summary Delete SOD policy by ID
      * @param {SODPolicyBetaApiDeleteSodPolicyRequest} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
@@ -52219,7 +52219,7 @@ export class SODPolicyBetaApi extends BaseAPI {
 
     /**
      * This deletes schedule for a specified SOD policy. Requires role of ORG_ADMIN.
-     * @summary Delete SOD Policy Schedule
+     * @summary Delete SOD policy schedule
      * @param {SODPolicyBetaApiDeleteSodPolicyScheduleRequest} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
@@ -52230,7 +52230,7 @@ export class SODPolicyBetaApi extends BaseAPI {
     }
 
     /**
-     * This allows to download a specified named violation report  for given report reference. Requires role of ORG_ADMIN.
+     * This allows to download a specified named violation report for a given report reference. Requires role of ORG_ADMIN.
      * @summary Download custom violation report
      * @param {SODPolicyBetaApiDownloadCustomViolationReportRequest} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
@@ -52242,7 +52242,7 @@ export class SODPolicyBetaApi extends BaseAPI {
     }
 
     /**
-     * This allows to download a violation report for given report reference. Requires role of ORG_ADMIN.
+     * This allows to download a violation report for a given report reference. Requires role of ORG_ADMIN.
      * @summary Download violation report
      * @param {SODPolicyBetaApiDownloadDefaultViolationReportRequest} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
@@ -52254,7 +52254,7 @@ export class SODPolicyBetaApi extends BaseAPI {
     }
 
     /**
-     * This gets status for a violation report for all policy run. Requires role of ORG_ADMIN.
+     * This endpoint gets the status for a violation report for all policy run. Requires role of ORG_ADMIN.
      * @summary Get multi-report run task status
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
@@ -52266,7 +52266,7 @@ export class SODPolicyBetaApi extends BaseAPI {
 
     /**
      * This gets specified SOD policy. Requires role of ORG_ADMIN.
-     * @summary Get SOD Policy By ID
+     * @summary Get SOD policy by ID
      * @param {SODPolicyBetaApiGetSodPolicyRequest} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
@@ -52277,8 +52277,8 @@ export class SODPolicyBetaApi extends BaseAPI {
     }
 
     /**
-     * This gets schedule for a specified SOD policy. Requires a role of ORG_ADMIN
-     * @summary Get SOD Policy Schedule
+     * This endpoint gets a specified SOD policy\'s schedule. Requires the role of ORG_ADMIN.
+     * @summary Get SOD policy schedule
      * @param {SODPolicyBetaApiGetSodPolicyScheduleRequest} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
@@ -52289,7 +52289,7 @@ export class SODPolicyBetaApi extends BaseAPI {
     }
 
     /**
-     * This gets status for a violation report run task invoked already. Requires role of ORG_ADMIN.
+     * This gets the status for a violation report run task that has already been invoked. Requires role of ORG_ADMIN.
      * @summary Get violation report run status
      * @param {SODPolicyBetaApiGetSodViolationReportRunStatusRequest} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
@@ -52301,7 +52301,7 @@ export class SODPolicyBetaApi extends BaseAPI {
     }
 
     /**
-     * This gets status for a violation report run task invoked already. Requires role of ORG_ADMIN.
+     * This gets the status for a violation report run task that has already been invoked. Requires role of ORG_ADMIN.
      * @summary Get SOD violation report status
      * @param {SODPolicyBetaApiGetSodViolationReportStatusRequest} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
@@ -52313,8 +52313,8 @@ export class SODPolicyBetaApi extends BaseAPI {
     }
 
     /**
-     * This gets list of all SOD Policies. Requires role of ORG_ADMIN
-     * @summary List SOD Policies
+     * This gets list of all SOD policies. Requires role of ORG_ADMIN
+     * @summary List SOD policies
      * @param {SODPolicyBetaApiListSodPoliciesRequest} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
@@ -52325,8 +52325,8 @@ export class SODPolicyBetaApi extends BaseAPI {
     }
 
     /**
-     * Allows updating SOD Policy fields other than [\"id\",\"created\",\"creatorId\",\"policyQuery\",\"type\"] using the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard. Requires role of ORG_ADMIN.
-     * @summary Update a SOD Policy
+     * Allows updating SOD Policy fields other than [\"id\",\"created\",\"creatorId\",\"policyQuery\",\"type\"] using the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard. Requires role of ORG_ADMIN. This endpoint can only patch CONFLICTING_ACCESS_BASED type policies. Do not use this endpoint to patch general policies - doing so will build an API exception. 
+     * @summary Patch a SOD policy
      * @param {SODPolicyBetaApiPatchSodPolicyRequest} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
@@ -52337,8 +52337,8 @@ export class SODPolicyBetaApi extends BaseAPI {
     }
 
     /**
-     * Runs multi policy report for the Org. If a policy reports more than 5000 violation, the report mentions Violation limit exceeded for that policy. If the request is empty, report will run for all policies. Otherwise, report will run only for the filtered policy list provided. Requires role of ORG_ADMIN.
-     * @summary Runs all policies for Org.
+     * Runs multi-policy report for the org. If a policy reports more than 5000 violations, the report mentions that the violation limit was exceeded for that policy. If the request is empty, the report runs for all policies. Otherwise, the report runs for only the filtered policy list provided. Requires role of ORG_ADMIN.
+     * @summary Runs all policies for org
      * @param {SODPolicyBetaApiRunSodAllPoliciesForOrgRequest} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
@@ -52349,8 +52349,8 @@ export class SODPolicyBetaApi extends BaseAPI {
     }
 
     /**
-     * This invokes processing of violation report for given SOD Policy. If policy reports more than 5000 violations, the report returns with violation limit exceeded message. Requires role of ORG_ADMIN.
-     * @summary Runs SOD Policy Violation Report
+     * This invokes processing of violation report for given SOD policy. If the policy reports more than 5000 violations, the report returns with violation limit exceeded message. Requires role of ORG_ADMIN.
+     * @summary Runs SOD policy violation report
      * @param {SODPolicyBetaApiRunSodPolicyRequest} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
@@ -52361,7 +52361,7 @@ export class SODPolicyBetaApi extends BaseAPI {
     }
 
     /**
-     * This updates schedule for a specified SOD policy. Requires role of ORG_ADMIN
+     * This updates schedule for a specified SOD policy. Requires role of ORG_ADMIN.
      * @summary Update SOD Policy schedule
      * @param {SODPolicyBetaApiUpdatePolicyScheduleRequest} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
@@ -52374,7 +52374,7 @@ export class SODPolicyBetaApi extends BaseAPI {
 
     /**
      * This updates a specified SOD policy. Requires role of ORG_ADMIN.
-     * @summary Update SOD Policy By ID
+     * @summary Update SOD policy by ID
      * @param {SODPolicyBetaApiUpdateSodPolicyRequest} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
