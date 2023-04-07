@@ -21845,6 +21845,31 @@ export interface VisibilityCriteriaBeta {
     'expression'?: ExpressionBeta;
 }
 /**
+ * 
+ * @export
+ * @interface WorkItemForwardBeta
+ */
+export interface WorkItemForwardBeta {
+    /**
+     * The ID of the identity to forward this work item to.
+     * @type {string}
+     * @memberof WorkItemForwardBeta
+     */
+    'targetOwnerId': string;
+    /**
+     * Comments to send to the target owner
+     * @type {string}
+     * @memberof WorkItemForwardBeta
+     */
+    'comment': string;
+    /**
+     * If true, send a notification to the target owner.
+     * @type {boolean}
+     * @memberof WorkItemForwardBeta
+     */
+    'sendNotifications'?: boolean;
+}
+/**
  * The state of a work item
  * @export
  * @enum {string}
@@ -61414,6 +61439,54 @@ export const WorkItemsBetaApiAxiosParamCreator = function (configuration?: Confi
             };
         },
         /**
+         * This API forwards a work item to a new owner. Either an admin, or the owning/current user must make this request.
+         * @summary Forward a Work Item
+         * @param {string} id The ID of the work item
+         * @param {WorkItemForwardBeta} workItemForwardBeta 
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        forwardWorkItem: async (id: string, workItemForwardBeta: WorkItemForwardBeta, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'id' is not null or undefined
+            assertParamExists('forwardWorkItem', 'id', id)
+            // verify required parameter 'workItemForwardBeta' is not null or undefined
+            assertParamExists('forwardWorkItem', 'workItemForwardBeta', workItemForwardBeta)
+            const localVarPath = `/work-items/{id}/forward`
+                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'POST', ...baseOptions, ...axiosOptions};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication oauth2 required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "oauth2", [], configuration)
+
+            // authentication oauth2 required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "oauth2", [], configuration)
+
+
+    
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
+            localVarRequestOptions.data = serializeDataIfNeeded(workItemForwardBeta, localVarRequestOptions, configuration)
+
+            return {
+                url: toPathString(localVarUrlObj),
+                axiosOptions: localVarRequestOptions,
+            };
+        },
+        /**
          * This gets a collection of completed work items belonging to either the specified user(admin required), or the current user.
          * @summary Completed Work Items
          * @param {string} [ownerId] The id of the owner of the work item list being requested.  Either an admin, or the owning/current user must make this request.
@@ -61886,6 +61959,18 @@ export const WorkItemsBetaApiFp = function(configuration?: Configuration) {
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
+         * This API forwards a work item to a new owner. Either an admin, or the owning/current user must make this request.
+         * @summary Forward a Work Item
+         * @param {string} id The ID of the work item
+         * @param {WorkItemForwardBeta} workItemForwardBeta 
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        async forwardWorkItem(id: string, workItemForwardBeta: WorkItemForwardBeta, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.forwardWorkItem(id, workItemForwardBeta, axiosOptions);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
          * This gets a collection of completed work items belonging to either the specified user(admin required), or the current user.
          * @summary Completed Work Items
          * @param {string} [ownerId] The id of the owner of the work item list being requested.  Either an admin, or the owning/current user must make this request.
@@ -62033,6 +62118,17 @@ export const WorkItemsBetaApiFactory = function (configuration?: Configuration, 
          */
         completeWorkItem(id: string, axiosOptions?: any): AxiosPromise<WorkItemsBeta> {
             return localVarFp.completeWorkItem(id, axiosOptions).then((request) => request(axios, basePath));
+        },
+        /**
+         * This API forwards a work item to a new owner. Either an admin, or the owning/current user must make this request.
+         * @summary Forward a Work Item
+         * @param {string} id The ID of the work item
+         * @param {WorkItemForwardBeta} workItemForwardBeta 
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        forwardWorkItem(id: string, workItemForwardBeta: WorkItemForwardBeta, axiosOptions?: any): AxiosPromise<void> {
+            return localVarFp.forwardWorkItem(id, workItemForwardBeta, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * This gets a collection of completed work items belonging to either the specified user(admin required), or the current user.
@@ -62183,6 +62279,27 @@ export interface WorkItemsBetaApiCompleteWorkItemRequest {
      * @memberof WorkItemsBetaApiCompleteWorkItem
      */
     readonly id: string
+}
+
+/**
+ * Request parameters for forwardWorkItem operation in WorkItemsBetaApi.
+ * @export
+ * @interface WorkItemsBetaApiForwardWorkItemRequest
+ */
+export interface WorkItemsBetaApiForwardWorkItemRequest {
+    /**
+     * The ID of the work item
+     * @type {string}
+     * @memberof WorkItemsBetaApiForwardWorkItem
+     */
+    readonly id: string
+
+    /**
+     * 
+     * @type {WorkItemForwardBeta}
+     * @memberof WorkItemsBetaApiForwardWorkItem
+     */
+    readonly workItemForwardBeta: WorkItemForwardBeta
 }
 
 /**
@@ -62415,6 +62532,18 @@ export class WorkItemsBetaApi extends BaseAPI {
      */
     public completeWorkItem(requestParameters: WorkItemsBetaApiCompleteWorkItemRequest, axiosOptions?: AxiosRequestConfig) {
         return WorkItemsBetaApiFp(this.configuration).completeWorkItem(requestParameters.id, axiosOptions).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * This API forwards a work item to a new owner. Either an admin, or the owning/current user must make this request.
+     * @summary Forward a Work Item
+     * @param {WorkItemsBetaApiForwardWorkItemRequest} requestParameters Request parameters.
+     * @param {*} [axiosOptions] Override http request option.
+     * @throws {RequiredError}
+     * @memberof WorkItemsBetaApi
+     */
+    public forwardWorkItem(requestParameters: WorkItemsBetaApiForwardWorkItemRequest, axiosOptions?: AxiosRequestConfig) {
+        return WorkItemsBetaApiFp(this.configuration).forwardWorkItem(requestParameters.id, requestParameters.workItemForwardBeta, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
