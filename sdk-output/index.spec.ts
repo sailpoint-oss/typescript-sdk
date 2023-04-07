@@ -1,5 +1,5 @@
-import { AccountsBetaApi, AccountsCCApi, ConnectorsBetaApi, GovernanceGroupsV2Api, IdentityProfilesBetaApi, Paginator, Search, SourcesBetaApi, TransformsApi } from "."
-import { AccountsApi, Configuration, SearchApi } from "."
+import { AccountsBetaApi, AccountsCCApi, ConnectorsBetaApi, GovernanceGroupsV2Api, IdentityProfilesBetaApi, Paginator, Search, SourcesBetaApi, TransformsApi } from "./index"
+import { AccountsApi, Configuration, SearchApi } from "./index"
 
 describe('Test_v3', () => {
     it('Test List Accounts', async () => {
