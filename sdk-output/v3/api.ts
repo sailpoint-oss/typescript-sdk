@@ -25875,6 +25875,59 @@ export const PasswordSyncGroupsApiAxiosParamCreator = function (configuration?: 
                 axiosOptions: localVarRequestOptions,
             };
         },
+        /**
+         * This API returns a list of password sync groups. A token with ORG_ADMIN authority is required to call this API.
+         * @summary Get Password Sync Group List
+         * @param {number} [limit] Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+         * @param {number} [offset] Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+         * @param {boolean} [count] If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        getPasswordSyncGroups: async (limit?: number, offset?: number, count?: boolean, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            const localVarPath = `/password-sync-groups`;
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...axiosOptions};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication oauth2 required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "oauth2", [], configuration)
+
+            // authentication oauth2 required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "oauth2", [], configuration)
+
+            if (limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+
+            if (offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+
+            if (count !== undefined) {
+                localVarQueryParameter['count'] = count;
+            }
+
+
+    
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                axiosOptions: localVarRequestOptions,
+            };
+        },
     }
 };
 
@@ -25894,6 +25947,19 @@ export const PasswordSyncGroupsApiFp = function(configuration?: Configuration) {
          */
         async createPasswordSyncGroup(passwordSyncGroup: PasswordSyncGroup, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<PasswordSyncGroup>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.createPasswordSyncGroup(passwordSyncGroup, axiosOptions);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * This API returns a list of password sync groups. A token with ORG_ADMIN authority is required to call this API.
+         * @summary Get Password Sync Group List
+         * @param {number} [limit] Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+         * @param {number} [offset] Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+         * @param {boolean} [count] If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        async getPasswordSyncGroups(limit?: number, offset?: number, count?: boolean, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<PasswordSyncGroup>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getPasswordSyncGroups(limit, offset, count, axiosOptions);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
     }
@@ -25916,6 +25982,18 @@ export const PasswordSyncGroupsApiFactory = function (configuration?: Configurat
         createPasswordSyncGroup(passwordSyncGroup: PasswordSyncGroup, axiosOptions?: any): AxiosPromise<PasswordSyncGroup> {
             return localVarFp.createPasswordSyncGroup(passwordSyncGroup, axiosOptions).then((request) => request(axios, basePath));
         },
+        /**
+         * This API returns a list of password sync groups. A token with ORG_ADMIN authority is required to call this API.
+         * @summary Get Password Sync Group List
+         * @param {number} [limit] Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+         * @param {number} [offset] Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+         * @param {boolean} [count] If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        getPasswordSyncGroups(limit?: number, offset?: number, count?: boolean, axiosOptions?: any): AxiosPromise<Array<PasswordSyncGroup>> {
+            return localVarFp.getPasswordSyncGroups(limit, offset, count, axiosOptions).then((request) => request(axios, basePath));
+        },
     };
 };
 
@@ -25931,6 +26009,34 @@ export interface PasswordSyncGroupsApiCreatePasswordSyncGroupRequest {
      * @memberof PasswordSyncGroupsApiCreatePasswordSyncGroup
      */
     readonly passwordSyncGroup: PasswordSyncGroup
+}
+
+/**
+ * Request parameters for getPasswordSyncGroups operation in PasswordSyncGroupsApi.
+ * @export
+ * @interface PasswordSyncGroupsApiGetPasswordSyncGroupsRequest
+ */
+export interface PasswordSyncGroupsApiGetPasswordSyncGroupsRequest {
+    /**
+     * Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+     * @type {number}
+     * @memberof PasswordSyncGroupsApiGetPasswordSyncGroups
+     */
+    readonly limit?: number
+
+    /**
+     * Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+     * @type {number}
+     * @memberof PasswordSyncGroupsApiGetPasswordSyncGroups
+     */
+    readonly offset?: number
+
+    /**
+     * If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+     * @type {boolean}
+     * @memberof PasswordSyncGroupsApiGetPasswordSyncGroups
+     */
+    readonly count?: boolean
 }
 
 /**
@@ -25950,6 +26056,18 @@ export class PasswordSyncGroupsApi extends BaseAPI {
      */
     public createPasswordSyncGroup(requestParameters: PasswordSyncGroupsApiCreatePasswordSyncGroupRequest, axiosOptions?: AxiosRequestConfig) {
         return PasswordSyncGroupsApiFp(this.configuration).createPasswordSyncGroup(requestParameters.passwordSyncGroup, axiosOptions).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * This API returns a list of password sync groups. A token with ORG_ADMIN authority is required to call this API.
+     * @summary Get Password Sync Group List
+     * @param {PasswordSyncGroupsApiGetPasswordSyncGroupsRequest} requestParameters Request parameters.
+     * @param {*} [axiosOptions] Override http request option.
+     * @throws {RequiredError}
+     * @memberof PasswordSyncGroupsApi
+     */
+    public getPasswordSyncGroups(requestParameters: PasswordSyncGroupsApiGetPasswordSyncGroupsRequest = {}, axiosOptions?: AxiosRequestConfig) {
+        return PasswordSyncGroupsApiFp(this.configuration).getPasswordSyncGroups(requestParameters.limit, requestParameters.offset, requestParameters.count, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 }
 
