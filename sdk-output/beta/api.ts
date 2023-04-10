@@ -12366,6 +12366,18 @@ export interface ProvisioningConfigBeta {
      * @memberof ProvisioningConfigBeta
      */
     'planInitializerScript'?: ProvisioningConfigPlanInitializerScriptBeta;
+    /**
+     * Name of an attribute that when true disables the saving of ProvisioningRequest objects whenever plans are sent through this integration.
+     * @type {boolean}
+     * @memberof ProvisioningConfigBeta
+     */
+    'noProvisioningRequests'?: boolean;
+    /**
+     * When saving pending requests is enabled, this defines the number of hours the request is allowed to live before it is considered expired and no longer affects plan compilation.
+     * @type {number}
+     * @memberof ProvisioningConfigBeta
+     */
+    'provisioningRequestExpiration'?: number;
 }
 /**
  * 
@@ -12375,22 +12387,22 @@ export interface ProvisioningConfigBeta {
 export interface ProvisioningConfigManagedResourceRefsInnerBeta {
     /**
      * The type of object being referenced
-     * @type {string}
+     * @type {object}
      * @memberof ProvisioningConfigManagedResourceRefsInnerBeta
      */
     'type'?: ProvisioningConfigManagedResourceRefsInnerBetaTypeEnum;
     /**
      * ID of the source
-     * @type {string}
+     * @type {object}
      * @memberof ProvisioningConfigManagedResourceRefsInnerBeta
      */
-    'id'?: string;
+    'id'?: object;
     /**
      * Human-readable display name of the source
-     * @type {string}
+     * @type {object}
      * @memberof ProvisioningConfigManagedResourceRefsInnerBeta
      */
-    'name'?: string;
+    'name'?: object;
 }
 
 export const ProvisioningConfigManagedResourceRefsInnerBetaTypeEnum = {
@@ -15777,38 +15789,6 @@ export const SendTestNotificationRequestDtoBetaMediumEnum = {
 export type SendTestNotificationRequestDtoBetaMediumEnum = typeof SendTestNotificationRequestDtoBetaMediumEnum[keyof typeof SendTestNotificationRequestDtoBetaMediumEnum];
 
 /**
- * Reference to beforeProvisioningRule for this Service Desk integration
- * @export
- * @interface ServiceDeskIntegrationDtoAllOfBeforeProvisioningRuleBeta
- */
-export interface ServiceDeskIntegrationDtoAllOfBeforeProvisioningRuleBeta {
-    /**
-     * The type of object being referenced
-     * @type {string}
-     * @memberof ServiceDeskIntegrationDtoAllOfBeforeProvisioningRuleBeta
-     */
-    'type'?: ServiceDeskIntegrationDtoAllOfBeforeProvisioningRuleBetaTypeEnum;
-    /**
-     * ID of the rule
-     * @type {string}
-     * @memberof ServiceDeskIntegrationDtoAllOfBeforeProvisioningRuleBeta
-     */
-    'id'?: string;
-    /**
-     * Human-readable display name of the rule
-     * @type {string}
-     * @memberof ServiceDeskIntegrationDtoAllOfBeforeProvisioningRuleBeta
-     */
-    'name'?: string;
-}
-
-export const ServiceDeskIntegrationDtoAllOfBeforeProvisioningRuleBetaTypeEnum = {
-    Rule: 'RULE'
-} as const;
-
-export type ServiceDeskIntegrationDtoAllOfBeforeProvisioningRuleBetaTypeEnum = typeof ServiceDeskIntegrationDtoAllOfBeforeProvisioningRuleBetaTypeEnum[keyof typeof ServiceDeskIntegrationDtoAllOfBeforeProvisioningRuleBetaTypeEnum];
-
-/**
  * Specification of a Service Desk integration
  * @export
  * @interface ServiceDeskIntegrationDtoAllOfBeta
@@ -15827,17 +15807,17 @@ export interface ServiceDeskIntegrationDtoAllOfBeta {
      */
     'type': string;
     /**
-     * 
-     * @type {ServiceDeskIntegrationDtoAllOfOwnerRefBeta}
+     * Reference to the identity that is the owner of this Service Desk integration
+     * @type {BaseReferenceDtoBeta}
      * @memberof ServiceDeskIntegrationDtoAllOfBeta
      */
-    'ownerRef'?: ServiceDeskIntegrationDtoAllOfOwnerRefBeta;
+    'ownerRef'?: BaseReferenceDtoBeta;
     /**
-     * 
-     * @type {ServiceDeskIntegrationDtoAllOfClusterRefBeta}
+     * Reference to the source cluster for this Service Desk integration
+     * @type {BaseReferenceDtoBeta}
      * @memberof ServiceDeskIntegrationDtoAllOfBeta
      */
-    'clusterRef'?: ServiceDeskIntegrationDtoAllOfClusterRefBeta;
+    'clusterRef'?: BaseReferenceDtoBeta;
     /**
      * ID of the cluster for the Service Desk integration (replaced by clusterRef, retained for backward compatibility)
      * @type {string}
@@ -15865,76 +15845,12 @@ export interface ServiceDeskIntegrationDtoAllOfBeta {
      */
     'attributes': { [key: string]: any; };
     /**
-     * 
-     * @type {ServiceDeskIntegrationDtoAllOfBeforeProvisioningRuleBeta}
+     * Reference to beforeProvisioningRule for this Service Desk integration
+     * @type {BaseReferenceDtoBeta}
      * @memberof ServiceDeskIntegrationDtoAllOfBeta
      */
-    'beforeProvisioningRule'?: ServiceDeskIntegrationDtoAllOfBeforeProvisioningRuleBeta;
+    'beforeProvisioningRule'?: BaseReferenceDtoBeta;
 }
-/**
- * Reference to the source cluster for this Service Desk integration
- * @export
- * @interface ServiceDeskIntegrationDtoAllOfClusterRefBeta
- */
-export interface ServiceDeskIntegrationDtoAllOfClusterRefBeta {
-    /**
-     * The type of object being referenced
-     * @type {string}
-     * @memberof ServiceDeskIntegrationDtoAllOfClusterRefBeta
-     */
-    'type'?: ServiceDeskIntegrationDtoAllOfClusterRefBetaTypeEnum;
-    /**
-     * ID of the cluster
-     * @type {string}
-     * @memberof ServiceDeskIntegrationDtoAllOfClusterRefBeta
-     */
-    'id'?: string;
-    /**
-     * Human-readable display name of the cluster
-     * @type {string}
-     * @memberof ServiceDeskIntegrationDtoAllOfClusterRefBeta
-     */
-    'name'?: string;
-}
-
-export const ServiceDeskIntegrationDtoAllOfClusterRefBetaTypeEnum = {
-    Cluster: 'CLUSTER'
-} as const;
-
-export type ServiceDeskIntegrationDtoAllOfClusterRefBetaTypeEnum = typeof ServiceDeskIntegrationDtoAllOfClusterRefBetaTypeEnum[keyof typeof ServiceDeskIntegrationDtoAllOfClusterRefBetaTypeEnum];
-
-/**
- * Reference to the identity that is the owner of this Service Desk integration
- * @export
- * @interface ServiceDeskIntegrationDtoAllOfOwnerRefBeta
- */
-export interface ServiceDeskIntegrationDtoAllOfOwnerRefBeta {
-    /**
-     * The type of object being referenced
-     * @type {string}
-     * @memberof ServiceDeskIntegrationDtoAllOfOwnerRefBeta
-     */
-    'type'?: ServiceDeskIntegrationDtoAllOfOwnerRefBetaTypeEnum;
-    /**
-     * ID of the identity
-     * @type {string}
-     * @memberof ServiceDeskIntegrationDtoAllOfOwnerRefBeta
-     */
-    'id'?: string;
-    /**
-     * Human-readable display name of the identity
-     * @type {string}
-     * @memberof ServiceDeskIntegrationDtoAllOfOwnerRefBeta
-     */
-    'name'?: string;
-}
-
-export const ServiceDeskIntegrationDtoAllOfOwnerRefBetaTypeEnum = {
-    Identity: 'IDENTITY'
-} as const;
-
-export type ServiceDeskIntegrationDtoAllOfOwnerRefBetaTypeEnum = typeof ServiceDeskIntegrationDtoAllOfOwnerRefBetaTypeEnum[keyof typeof ServiceDeskIntegrationDtoAllOfOwnerRefBetaTypeEnum];
-
 /**
  * 
  * @export
@@ -15978,17 +15894,17 @@ export interface ServiceDeskIntegrationDtoBeta {
      */
     'type': string;
     /**
-     * 
-     * @type {ServiceDeskIntegrationDtoAllOfOwnerRefBeta}
+     * Reference to the identity that is the owner of this Service Desk integration
+     * @type {BaseReferenceDtoBeta}
      * @memberof ServiceDeskIntegrationDtoBeta
      */
-    'ownerRef'?: ServiceDeskIntegrationDtoAllOfOwnerRefBeta;
+    'ownerRef'?: BaseReferenceDtoBeta;
     /**
-     * 
-     * @type {ServiceDeskIntegrationDtoAllOfClusterRefBeta}
+     * Reference to the source cluster for this Service Desk integration
+     * @type {BaseReferenceDtoBeta}
      * @memberof ServiceDeskIntegrationDtoBeta
      */
-    'clusterRef'?: ServiceDeskIntegrationDtoAllOfClusterRefBeta;
+    'clusterRef'?: BaseReferenceDtoBeta;
     /**
      * ID of the cluster for the Service Desk integration (replaced by clusterRef, retained for backward compatibility)
      * @type {string}
@@ -16016,11 +15932,11 @@ export interface ServiceDeskIntegrationDtoBeta {
      */
     'attributes': { [key: string]: any; };
     /**
-     * 
-     * @type {ServiceDeskIntegrationDtoAllOfBeforeProvisioningRuleBeta}
+     * Reference to beforeProvisioningRule for this Service Desk integration
+     * @type {BaseReferenceDtoBeta}
      * @memberof ServiceDeskIntegrationDtoBeta
      */
-    'beforeProvisioningRule'?: ServiceDeskIntegrationDtoAllOfBeforeProvisioningRuleBeta;
+    'beforeProvisioningRule'?: BaseReferenceDtoBeta;
 }
 /**
  * This is the model for a Service Desk integration template, used to create and edit Service Desk Integrations.
@@ -54595,50 +54511,6 @@ export const ServiceDeskIntegrationBetaApiAxiosParamCreator = function (configur
             };
         },
         /**
-         * Update the time check configuration of queued SDIM tickets.  A token with Org Admin or Service Desk Admin authority is required to access this endpoint.
-         * @summary Update the time check configuration of queued SDIM tickets
-         * @param {QueuedCheckConfigDetailsBeta} queuedCheckConfigDetailsBeta the modified time check configuration
-         * @param {*} [axiosOptions] Override http request option.
-         * @throws {RequiredError}
-         */
-        updateManagedClientStatusCheckDetails: async (queuedCheckConfigDetailsBeta: QueuedCheckConfigDetailsBeta, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
-            // verify required parameter 'queuedCheckConfigDetailsBeta' is not null or undefined
-            assertParamExists('updateManagedClientStatusCheckDetails', 'queuedCheckConfigDetailsBeta', queuedCheckConfigDetailsBeta)
-            const localVarPath = `/service-desk-integrations/status-check-configuration`;
-            // use dummy base URL string because the URL constructor only accepts absolute URLs.
-            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
-            let baseOptions;
-            if (configuration) {
-                baseOptions = configuration.baseOptions;
-            }
-
-            const localVarRequestOptions = { method: 'PUT', ...baseOptions, ...axiosOptions};
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-
-            // authentication oauth2 required
-            // oauth required
-            await setOAuthToObject(localVarHeaderParameter, "oauth2", [], configuration)
-
-            // authentication oauth2 required
-            // oauth required
-            await setOAuthToObject(localVarHeaderParameter, "oauth2", [], configuration)
-
-
-    
-            localVarHeaderParameter['Content-Type'] = 'application/json';
-
-            setSearchParams(localVarUrlObj, localVarQueryParameter);
-            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
-            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(queuedCheckConfigDetailsBeta, localVarRequestOptions, configuration)
-
-            return {
-                url: toPathString(localVarUrlObj),
-                axiosOptions: localVarRequestOptions,
-            };
-        },
-        /**
          * Update an existing Service Desk integration by ID with updated value in JSON form as the request body.  A token with Org Admin or Service Desk Admin authority is required to access this endpoint.
          * @summary Update a Service Desk integration by ID
          * @param {string} id ID of the Service Desk integration to update
@@ -54680,6 +54552,50 @@ export const ServiceDeskIntegrationBetaApiAxiosParamCreator = function (configur
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
             localVarRequestOptions.data = serializeDataIfNeeded(serviceDeskIntegrationDtoBeta, localVarRequestOptions, configuration)
+
+            return {
+                url: toPathString(localVarUrlObj),
+                axiosOptions: localVarRequestOptions,
+            };
+        },
+        /**
+         * Update the time check configuration of queued SDIM tickets.  A token with Org Admin or Service Desk Admin authority is required to access this endpoint.
+         * @summary Update the time check configuration of queued SDIM tickets
+         * @param {QueuedCheckConfigDetailsBeta} queuedCheckConfigDetailsBeta the modified time check configuration
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        updateStatusCheckDetails: async (queuedCheckConfigDetailsBeta: QueuedCheckConfigDetailsBeta, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'queuedCheckConfigDetailsBeta' is not null or undefined
+            assertParamExists('updateStatusCheckDetails', 'queuedCheckConfigDetailsBeta', queuedCheckConfigDetailsBeta)
+            const localVarPath = `/service-desk-integrations/status-check-configuration`;
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'PUT', ...baseOptions, ...axiosOptions};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication oauth2 required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "oauth2", [], configuration)
+
+            // authentication oauth2 required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "oauth2", [], configuration)
+
+
+    
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
+            localVarRequestOptions.data = serializeDataIfNeeded(queuedCheckConfigDetailsBeta, localVarRequestOptions, configuration)
 
             return {
                 url: toPathString(localVarUrlObj),
@@ -54788,17 +54704,6 @@ export const ServiceDeskIntegrationBetaApiFp = function(configuration?: Configur
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
-         * Update the time check configuration of queued SDIM tickets.  A token with Org Admin or Service Desk Admin authority is required to access this endpoint.
-         * @summary Update the time check configuration of queued SDIM tickets
-         * @param {QueuedCheckConfigDetailsBeta} queuedCheckConfigDetailsBeta the modified time check configuration
-         * @param {*} [axiosOptions] Override http request option.
-         * @throws {RequiredError}
-         */
-        async updateManagedClientStatusCheckDetails(queuedCheckConfigDetailsBeta: QueuedCheckConfigDetailsBeta, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<QueuedCheckConfigDetailsBeta>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.updateManagedClientStatusCheckDetails(queuedCheckConfigDetailsBeta, axiosOptions);
-            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
-        },
-        /**
          * Update an existing Service Desk integration by ID with updated value in JSON form as the request body.  A token with Org Admin or Service Desk Admin authority is required to access this endpoint.
          * @summary Update a Service Desk integration by ID
          * @param {string} id ID of the Service Desk integration to update
@@ -54808,6 +54713,17 @@ export const ServiceDeskIntegrationBetaApiFp = function(configuration?: Configur
          */
         async updateServiceDeskIntegration(id: string, serviceDeskIntegrationDtoBeta: ServiceDeskIntegrationDtoBeta, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ServiceDeskIntegrationDtoBeta>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.updateServiceDeskIntegration(id, serviceDeskIntegrationDtoBeta, axiosOptions);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * Update the time check configuration of queued SDIM tickets.  A token with Org Admin or Service Desk Admin authority is required to access this endpoint.
+         * @summary Update the time check configuration of queued SDIM tickets
+         * @param {QueuedCheckConfigDetailsBeta} queuedCheckConfigDetailsBeta the modified time check configuration
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        async updateStatusCheckDetails(queuedCheckConfigDetailsBeta: QueuedCheckConfigDetailsBeta, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<QueuedCheckConfigDetailsBeta>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.updateStatusCheckDetails(queuedCheckConfigDetailsBeta, axiosOptions);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
     }
@@ -54904,16 +54820,6 @@ export const ServiceDeskIntegrationBetaApiFactory = function (configuration?: Co
             return localVarFp.patchServiceDeskIntegration(id, jsonPatchBeta, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
-         * Update the time check configuration of queued SDIM tickets.  A token with Org Admin or Service Desk Admin authority is required to access this endpoint.
-         * @summary Update the time check configuration of queued SDIM tickets
-         * @param {QueuedCheckConfigDetailsBeta} queuedCheckConfigDetailsBeta the modified time check configuration
-         * @param {*} [axiosOptions] Override http request option.
-         * @throws {RequiredError}
-         */
-        updateManagedClientStatusCheckDetails(queuedCheckConfigDetailsBeta: QueuedCheckConfigDetailsBeta, axiosOptions?: any): AxiosPromise<QueuedCheckConfigDetailsBeta> {
-            return localVarFp.updateManagedClientStatusCheckDetails(queuedCheckConfigDetailsBeta, axiosOptions).then((request) => request(axios, basePath));
-        },
-        /**
          * Update an existing Service Desk integration by ID with updated value in JSON form as the request body.  A token with Org Admin or Service Desk Admin authority is required to access this endpoint.
          * @summary Update a Service Desk integration by ID
          * @param {string} id ID of the Service Desk integration to update
@@ -54923,6 +54829,16 @@ export const ServiceDeskIntegrationBetaApiFactory = function (configuration?: Co
          */
         updateServiceDeskIntegration(id: string, serviceDeskIntegrationDtoBeta: ServiceDeskIntegrationDtoBeta, axiosOptions?: any): AxiosPromise<ServiceDeskIntegrationDtoBeta> {
             return localVarFp.updateServiceDeskIntegration(id, serviceDeskIntegrationDtoBeta, axiosOptions).then((request) => request(axios, basePath));
+        },
+        /**
+         * Update the time check configuration of queued SDIM tickets.  A token with Org Admin or Service Desk Admin authority is required to access this endpoint.
+         * @summary Update the time check configuration of queued SDIM tickets
+         * @param {QueuedCheckConfigDetailsBeta} queuedCheckConfigDetailsBeta the modified time check configuration
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        updateStatusCheckDetails(queuedCheckConfigDetailsBeta: QueuedCheckConfigDetailsBeta, axiosOptions?: any): AxiosPromise<QueuedCheckConfigDetailsBeta> {
+            return localVarFp.updateStatusCheckDetails(queuedCheckConfigDetailsBeta, axiosOptions).then((request) => request(axios, basePath));
         },
     };
 };
@@ -55047,20 +54963,6 @@ export interface ServiceDeskIntegrationBetaApiPatchServiceDeskIntegrationRequest
 }
 
 /**
- * Request parameters for updateManagedClientStatusCheckDetails operation in ServiceDeskIntegrationBetaApi.
- * @export
- * @interface ServiceDeskIntegrationBetaApiUpdateManagedClientStatusCheckDetailsRequest
- */
-export interface ServiceDeskIntegrationBetaApiUpdateManagedClientStatusCheckDetailsRequest {
-    /**
-     * the modified time check configuration
-     * @type {QueuedCheckConfigDetailsBeta}
-     * @memberof ServiceDeskIntegrationBetaApiUpdateManagedClientStatusCheckDetails
-     */
-    readonly queuedCheckConfigDetailsBeta: QueuedCheckConfigDetailsBeta
-}
-
-/**
  * Request parameters for updateServiceDeskIntegration operation in ServiceDeskIntegrationBetaApi.
  * @export
  * @interface ServiceDeskIntegrationBetaApiUpdateServiceDeskIntegrationRequest
@@ -55079,6 +54981,20 @@ export interface ServiceDeskIntegrationBetaApiUpdateServiceDeskIntegrationReques
      * @memberof ServiceDeskIntegrationBetaApiUpdateServiceDeskIntegration
      */
     readonly serviceDeskIntegrationDtoBeta: ServiceDeskIntegrationDtoBeta
+}
+
+/**
+ * Request parameters for updateStatusCheckDetails operation in ServiceDeskIntegrationBetaApi.
+ * @export
+ * @interface ServiceDeskIntegrationBetaApiUpdateStatusCheckDetailsRequest
+ */
+export interface ServiceDeskIntegrationBetaApiUpdateStatusCheckDetailsRequest {
+    /**
+     * the modified time check configuration
+     * @type {QueuedCheckConfigDetailsBeta}
+     * @memberof ServiceDeskIntegrationBetaApiUpdateStatusCheckDetails
+     */
+    readonly queuedCheckConfigDetailsBeta: QueuedCheckConfigDetailsBeta
 }
 
 /**
@@ -55183,18 +55099,6 @@ export class ServiceDeskIntegrationBetaApi extends BaseAPI {
     }
 
     /**
-     * Update the time check configuration of queued SDIM tickets.  A token with Org Admin or Service Desk Admin authority is required to access this endpoint.
-     * @summary Update the time check configuration of queued SDIM tickets
-     * @param {ServiceDeskIntegrationBetaApiUpdateManagedClientStatusCheckDetailsRequest} requestParameters Request parameters.
-     * @param {*} [axiosOptions] Override http request option.
-     * @throws {RequiredError}
-     * @memberof ServiceDeskIntegrationBetaApi
-     */
-    public updateManagedClientStatusCheckDetails(requestParameters: ServiceDeskIntegrationBetaApiUpdateManagedClientStatusCheckDetailsRequest, axiosOptions?: AxiosRequestConfig) {
-        return ServiceDeskIntegrationBetaApiFp(this.configuration).updateManagedClientStatusCheckDetails(requestParameters.queuedCheckConfigDetailsBeta, axiosOptions).then((request) => request(this.axios, this.basePath));
-    }
-
-    /**
      * Update an existing Service Desk integration by ID with updated value in JSON form as the request body.  A token with Org Admin or Service Desk Admin authority is required to access this endpoint.
      * @summary Update a Service Desk integration by ID
      * @param {ServiceDeskIntegrationBetaApiUpdateServiceDeskIntegrationRequest} requestParameters Request parameters.
@@ -55204,6 +55108,18 @@ export class ServiceDeskIntegrationBetaApi extends BaseAPI {
      */
     public updateServiceDeskIntegration(requestParameters: ServiceDeskIntegrationBetaApiUpdateServiceDeskIntegrationRequest, axiosOptions?: AxiosRequestConfig) {
         return ServiceDeskIntegrationBetaApiFp(this.configuration).updateServiceDeskIntegration(requestParameters.id, requestParameters.serviceDeskIntegrationDtoBeta, axiosOptions).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Update the time check configuration of queued SDIM tickets.  A token with Org Admin or Service Desk Admin authority is required to access this endpoint.
+     * @summary Update the time check configuration of queued SDIM tickets
+     * @param {ServiceDeskIntegrationBetaApiUpdateStatusCheckDetailsRequest} requestParameters Request parameters.
+     * @param {*} [axiosOptions] Override http request option.
+     * @throws {RequiredError}
+     * @memberof ServiceDeskIntegrationBetaApi
+     */
+    public updateStatusCheckDetails(requestParameters: ServiceDeskIntegrationBetaApiUpdateStatusCheckDetailsRequest, axiosOptions?: AxiosRequestConfig) {
+        return ServiceDeskIntegrationBetaApiFp(this.configuration).updateStatusCheckDetails(requestParameters.queuedCheckConfigDetailsBeta, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 }
 

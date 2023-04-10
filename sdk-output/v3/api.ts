@@ -10311,6 +10311,18 @@ export interface ProvisioningConfig {
      * @memberof ProvisioningConfig
      */
     'planInitializerScript'?: ProvisioningConfigPlanInitializerScript;
+    /**
+     * Name of an attribute that when true disables the saving of ProvisioningRequest objects whenever plans are sent through this integration.
+     * @type {boolean}
+     * @memberof ProvisioningConfig
+     */
+    'noProvisioningRequests'?: boolean;
+    /**
+     * When saving pending requests is enabled, this defines the number of hours the request is allowed to live before it is considered expired and no longer affects plan compilation.
+     * @type {number}
+     * @memberof ProvisioningConfig
+     */
+    'provisioningRequestExpiration'?: number;
 }
 /**
  * 
@@ -10320,22 +10332,22 @@ export interface ProvisioningConfig {
 export interface ProvisioningConfigManagedResourceRefsInner {
     /**
      * The type of object being referenced
-     * @type {string}
+     * @type {object}
      * @memberof ProvisioningConfigManagedResourceRefsInner
      */
     'type'?: ProvisioningConfigManagedResourceRefsInnerTypeEnum;
     /**
      * ID of the source
-     * @type {string}
+     * @type {object}
      * @memberof ProvisioningConfigManagedResourceRefsInner
      */
-    'id'?: string;
+    'id'?: object;
     /**
      * Human-readable display name of the source
-     * @type {string}
+     * @type {object}
      * @memberof ProvisioningConfigManagedResourceRefsInner
      */
-    'name'?: string;
+    'name'?: object;
 }
 
 export const ProvisioningConfigManagedResourceRefsInnerTypeEnum = {
@@ -13525,17 +13537,17 @@ export interface ServiceDeskIntegrationDto {
      */
     'type': string;
     /**
-     * 
-     * @type {ServiceDeskIntegrationDtoAllOfOwnerRef}
+     * Reference to the identity that is the owner of this Service Desk integration
+     * @type {BaseReferenceDto}
      * @memberof ServiceDeskIntegrationDto
      */
-    'ownerRef'?: ServiceDeskIntegrationDtoAllOfOwnerRef;
+    'ownerRef'?: BaseReferenceDto;
     /**
-     * 
-     * @type {ServiceDeskIntegrationDtoAllOfClusterRef}
+     * Reference to the source cluster for this Service Desk integration
+     * @type {BaseReferenceDto}
      * @memberof ServiceDeskIntegrationDto
      */
-    'clusterRef'?: ServiceDeskIntegrationDtoAllOfClusterRef;
+    'clusterRef'?: BaseReferenceDto;
     /**
      * ID of the cluster for the Service Desk integration (replaced by clusterRef, retained for backward compatibility)
      * @type {string}
@@ -13563,11 +13575,11 @@ export interface ServiceDeskIntegrationDto {
      */
     'attributes': { [key: string]: any; };
     /**
-     * 
-     * @type {ServiceDeskIntegrationDtoAllOfBeforeProvisioningRule}
+     * Reference to beforeProvisioningRule for this Service Desk integration
+     * @type {BaseReferenceDto}
      * @memberof ServiceDeskIntegrationDto
      */
-    'beforeProvisioningRule'?: ServiceDeskIntegrationDtoAllOfBeforeProvisioningRule;
+    'beforeProvisioningRule'?: BaseReferenceDto;
 }
 /**
  * Specification of a Service Desk integration
@@ -13588,17 +13600,17 @@ export interface ServiceDeskIntegrationDtoAllOf {
      */
     'type': string;
     /**
-     * 
-     * @type {ServiceDeskIntegrationDtoAllOfOwnerRef}
+     * Reference to the identity that is the owner of this Service Desk integration
+     * @type {BaseReferenceDto}
      * @memberof ServiceDeskIntegrationDtoAllOf
      */
-    'ownerRef'?: ServiceDeskIntegrationDtoAllOfOwnerRef;
+    'ownerRef'?: BaseReferenceDto;
     /**
-     * 
-     * @type {ServiceDeskIntegrationDtoAllOfClusterRef}
+     * Reference to the source cluster for this Service Desk integration
+     * @type {BaseReferenceDto}
      * @memberof ServiceDeskIntegrationDtoAllOf
      */
-    'clusterRef'?: ServiceDeskIntegrationDtoAllOfClusterRef;
+    'clusterRef'?: BaseReferenceDto;
     /**
      * ID of the cluster for the Service Desk integration (replaced by clusterRef, retained for backward compatibility)
      * @type {string}
@@ -13626,108 +13638,12 @@ export interface ServiceDeskIntegrationDtoAllOf {
      */
     'attributes': { [key: string]: any; };
     /**
-     * 
-     * @type {ServiceDeskIntegrationDtoAllOfBeforeProvisioningRule}
+     * Reference to beforeProvisioningRule for this Service Desk integration
+     * @type {BaseReferenceDto}
      * @memberof ServiceDeskIntegrationDtoAllOf
      */
-    'beforeProvisioningRule'?: ServiceDeskIntegrationDtoAllOfBeforeProvisioningRule;
+    'beforeProvisioningRule'?: BaseReferenceDto;
 }
-/**
- * Reference to beforeProvisioningRule for this Service Desk integration
- * @export
- * @interface ServiceDeskIntegrationDtoAllOfBeforeProvisioningRule
- */
-export interface ServiceDeskIntegrationDtoAllOfBeforeProvisioningRule {
-    /**
-     * The type of object being referenced
-     * @type {string}
-     * @memberof ServiceDeskIntegrationDtoAllOfBeforeProvisioningRule
-     */
-    'type'?: ServiceDeskIntegrationDtoAllOfBeforeProvisioningRuleTypeEnum;
-    /**
-     * ID of the rule
-     * @type {string}
-     * @memberof ServiceDeskIntegrationDtoAllOfBeforeProvisioningRule
-     */
-    'id'?: string;
-    /**
-     * Human-readable display name of the rule
-     * @type {string}
-     * @memberof ServiceDeskIntegrationDtoAllOfBeforeProvisioningRule
-     */
-    'name'?: string;
-}
-
-export const ServiceDeskIntegrationDtoAllOfBeforeProvisioningRuleTypeEnum = {
-    Rule: 'RULE'
-} as const;
-
-export type ServiceDeskIntegrationDtoAllOfBeforeProvisioningRuleTypeEnum = typeof ServiceDeskIntegrationDtoAllOfBeforeProvisioningRuleTypeEnum[keyof typeof ServiceDeskIntegrationDtoAllOfBeforeProvisioningRuleTypeEnum];
-
-/**
- * Reference to the source cluster for this Service Desk integration
- * @export
- * @interface ServiceDeskIntegrationDtoAllOfClusterRef
- */
-export interface ServiceDeskIntegrationDtoAllOfClusterRef {
-    /**
-     * The type of object being referenced
-     * @type {string}
-     * @memberof ServiceDeskIntegrationDtoAllOfClusterRef
-     */
-    'type'?: ServiceDeskIntegrationDtoAllOfClusterRefTypeEnum;
-    /**
-     * ID of the cluster
-     * @type {string}
-     * @memberof ServiceDeskIntegrationDtoAllOfClusterRef
-     */
-    'id'?: string;
-    /**
-     * Human-readable display name of the cluster
-     * @type {string}
-     * @memberof ServiceDeskIntegrationDtoAllOfClusterRef
-     */
-    'name'?: string;
-}
-
-export const ServiceDeskIntegrationDtoAllOfClusterRefTypeEnum = {
-    Cluster: 'CLUSTER'
-} as const;
-
-export type ServiceDeskIntegrationDtoAllOfClusterRefTypeEnum = typeof ServiceDeskIntegrationDtoAllOfClusterRefTypeEnum[keyof typeof ServiceDeskIntegrationDtoAllOfClusterRefTypeEnum];
-
-/**
- * Reference to the identity that is the owner of this Service Desk integration
- * @export
- * @interface ServiceDeskIntegrationDtoAllOfOwnerRef
- */
-export interface ServiceDeskIntegrationDtoAllOfOwnerRef {
-    /**
-     * The type of object being referenced
-     * @type {string}
-     * @memberof ServiceDeskIntegrationDtoAllOfOwnerRef
-     */
-    'type'?: ServiceDeskIntegrationDtoAllOfOwnerRefTypeEnum;
-    /**
-     * ID of the identity
-     * @type {string}
-     * @memberof ServiceDeskIntegrationDtoAllOfOwnerRef
-     */
-    'id'?: string;
-    /**
-     * Human-readable display name of the identity
-     * @type {string}
-     * @memberof ServiceDeskIntegrationDtoAllOfOwnerRef
-     */
-    'name'?: string;
-}
-
-export const ServiceDeskIntegrationDtoAllOfOwnerRefTypeEnum = {
-    Identity: 'IDENTITY'
-} as const;
-
-export type ServiceDeskIntegrationDtoAllOfOwnerRefTypeEnum = typeof ServiceDeskIntegrationDtoAllOfOwnerRefTypeEnum[keyof typeof ServiceDeskIntegrationDtoAllOfOwnerRefTypeEnum];
-
 /**
  * 
  * @export
