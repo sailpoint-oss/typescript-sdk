@@ -25792,6 +25792,90 @@ export const PasswordSyncGroupsApiAxiosParamCreator = function (configuration?: 
             };
         },
         /**
+         * This API deletes the specified password sync group. A token with ORG_ADMIN authority is required to call this API.
+         * @summary Delete Password Sync Group by ID
+         * @param {string} id The ID of password sync group to delete.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        deletePasswordSyncGroup: async (id: string, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'id' is not null or undefined
+            assertParamExists('deletePasswordSyncGroup', 'id', id)
+            const localVarPath = `/password-sync-groups/{id}`
+                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'DELETE', ...baseOptions, ...axiosOptions};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication oauth2 required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "oauth2", [], configuration)
+
+            // authentication oauth2 required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "oauth2", [], configuration)
+
+
+    
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                axiosOptions: localVarRequestOptions,
+            };
+        },
+        /**
+         * This API returns the sync group for the specified ID. A token with ORG_ADMIN authority is required to call this API.
+         * @summary Get Password Sync Group by ID
+         * @param {string} id The ID of password sync group to retrieve.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        getPasswordSyncGroup: async (id: string, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'id' is not null or undefined
+            assertParamExists('getPasswordSyncGroup', 'id', id)
+            const localVarPath = `/password-sync-groups/{id}`
+                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...axiosOptions};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication oauth2 required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "oauth2", [], configuration)
+
+            // authentication oauth2 required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "oauth2", [], configuration)
+
+
+    
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                axiosOptions: localVarRequestOptions,
+            };
+        },
+        /**
          * This API returns a list of password sync groups. A token with ORG_ADMIN authority is required to call this API.
          * @summary Get Password Sync Group List
          * @param {number} [limit] Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
@@ -25844,6 +25928,54 @@ export const PasswordSyncGroupsApiAxiosParamCreator = function (configuration?: 
                 axiosOptions: localVarRequestOptions,
             };
         },
+        /**
+         * This API updates the specified password sync group. A token with ORG_ADMIN authority is required to call this API.
+         * @summary Update Password Sync Group by ID
+         * @param {string} id The ID of password sync group to update.
+         * @param {PasswordSyncGroup} passwordSyncGroup 
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        updatePasswordSyncGroup: async (id: string, passwordSyncGroup: PasswordSyncGroup, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'id' is not null or undefined
+            assertParamExists('updatePasswordSyncGroup', 'id', id)
+            // verify required parameter 'passwordSyncGroup' is not null or undefined
+            assertParamExists('updatePasswordSyncGroup', 'passwordSyncGroup', passwordSyncGroup)
+            const localVarPath = `/password-sync-groups/{id}`
+                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'PUT', ...baseOptions, ...axiosOptions};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication oauth2 required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "oauth2", [], configuration)
+
+            // authentication oauth2 required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "oauth2", [], configuration)
+
+
+    
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
+            localVarRequestOptions.data = serializeDataIfNeeded(passwordSyncGroup, localVarRequestOptions, configuration)
+
+            return {
+                url: toPathString(localVarUrlObj),
+                axiosOptions: localVarRequestOptions,
+            };
+        },
     }
 };
 
@@ -25866,6 +25998,28 @@ export const PasswordSyncGroupsApiFp = function(configuration?: Configuration) {
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
+         * This API deletes the specified password sync group. A token with ORG_ADMIN authority is required to call this API.
+         * @summary Delete Password Sync Group by ID
+         * @param {string} id The ID of password sync group to delete.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        async deletePasswordSyncGroup(id: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.deletePasswordSyncGroup(id, axiosOptions);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * This API returns the sync group for the specified ID. A token with ORG_ADMIN authority is required to call this API.
+         * @summary Get Password Sync Group by ID
+         * @param {string} id The ID of password sync group to retrieve.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        async getPasswordSyncGroup(id: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<PasswordSyncGroup>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getPasswordSyncGroup(id, axiosOptions);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
          * This API returns a list of password sync groups. A token with ORG_ADMIN authority is required to call this API.
          * @summary Get Password Sync Group List
          * @param {number} [limit] Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
@@ -25876,6 +26030,18 @@ export const PasswordSyncGroupsApiFp = function(configuration?: Configuration) {
          */
         async getPasswordSyncGroups(limit?: number, offset?: number, count?: boolean, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<PasswordSyncGroup>>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getPasswordSyncGroups(limit, offset, count, axiosOptions);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * This API updates the specified password sync group. A token with ORG_ADMIN authority is required to call this API.
+         * @summary Update Password Sync Group by ID
+         * @param {string} id The ID of password sync group to update.
+         * @param {PasswordSyncGroup} passwordSyncGroup 
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        async updatePasswordSyncGroup(id: string, passwordSyncGroup: PasswordSyncGroup, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<PasswordSyncGroup>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.updatePasswordSyncGroup(id, passwordSyncGroup, axiosOptions);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
     }
@@ -25899,6 +26065,26 @@ export const PasswordSyncGroupsApiFactory = function (configuration?: Configurat
             return localVarFp.createPasswordSyncGroup(passwordSyncGroup, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
+         * This API deletes the specified password sync group. A token with ORG_ADMIN authority is required to call this API.
+         * @summary Delete Password Sync Group by ID
+         * @param {string} id The ID of password sync group to delete.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        deletePasswordSyncGroup(id: string, axiosOptions?: any): AxiosPromise<void> {
+            return localVarFp.deletePasswordSyncGroup(id, axiosOptions).then((request) => request(axios, basePath));
+        },
+        /**
+         * This API returns the sync group for the specified ID. A token with ORG_ADMIN authority is required to call this API.
+         * @summary Get Password Sync Group by ID
+         * @param {string} id The ID of password sync group to retrieve.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        getPasswordSyncGroup(id: string, axiosOptions?: any): AxiosPromise<PasswordSyncGroup> {
+            return localVarFp.getPasswordSyncGroup(id, axiosOptions).then((request) => request(axios, basePath));
+        },
+        /**
          * This API returns a list of password sync groups. A token with ORG_ADMIN authority is required to call this API.
          * @summary Get Password Sync Group List
          * @param {number} [limit] Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
@@ -25909,6 +26095,17 @@ export const PasswordSyncGroupsApiFactory = function (configuration?: Configurat
          */
         getPasswordSyncGroups(limit?: number, offset?: number, count?: boolean, axiosOptions?: any): AxiosPromise<Array<PasswordSyncGroup>> {
             return localVarFp.getPasswordSyncGroups(limit, offset, count, axiosOptions).then((request) => request(axios, basePath));
+        },
+        /**
+         * This API updates the specified password sync group. A token with ORG_ADMIN authority is required to call this API.
+         * @summary Update Password Sync Group by ID
+         * @param {string} id The ID of password sync group to update.
+         * @param {PasswordSyncGroup} passwordSyncGroup 
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        updatePasswordSyncGroup(id: string, passwordSyncGroup: PasswordSyncGroup, axiosOptions?: any): AxiosPromise<PasswordSyncGroup> {
+            return localVarFp.updatePasswordSyncGroup(id, passwordSyncGroup, axiosOptions).then((request) => request(axios, basePath));
         },
     };
 };
@@ -25925,6 +26122,34 @@ export interface PasswordSyncGroupsApiCreatePasswordSyncGroupRequest {
      * @memberof PasswordSyncGroupsApiCreatePasswordSyncGroup
      */
     readonly passwordSyncGroup: PasswordSyncGroup
+}
+
+/**
+ * Request parameters for deletePasswordSyncGroup operation in PasswordSyncGroupsApi.
+ * @export
+ * @interface PasswordSyncGroupsApiDeletePasswordSyncGroupRequest
+ */
+export interface PasswordSyncGroupsApiDeletePasswordSyncGroupRequest {
+    /**
+     * The ID of password sync group to delete.
+     * @type {string}
+     * @memberof PasswordSyncGroupsApiDeletePasswordSyncGroup
+     */
+    readonly id: string
+}
+
+/**
+ * Request parameters for getPasswordSyncGroup operation in PasswordSyncGroupsApi.
+ * @export
+ * @interface PasswordSyncGroupsApiGetPasswordSyncGroupRequest
+ */
+export interface PasswordSyncGroupsApiGetPasswordSyncGroupRequest {
+    /**
+     * The ID of password sync group to retrieve.
+     * @type {string}
+     * @memberof PasswordSyncGroupsApiGetPasswordSyncGroup
+     */
+    readonly id: string
 }
 
 /**
@@ -25956,6 +26181,27 @@ export interface PasswordSyncGroupsApiGetPasswordSyncGroupsRequest {
 }
 
 /**
+ * Request parameters for updatePasswordSyncGroup operation in PasswordSyncGroupsApi.
+ * @export
+ * @interface PasswordSyncGroupsApiUpdatePasswordSyncGroupRequest
+ */
+export interface PasswordSyncGroupsApiUpdatePasswordSyncGroupRequest {
+    /**
+     * The ID of password sync group to update.
+     * @type {string}
+     * @memberof PasswordSyncGroupsApiUpdatePasswordSyncGroup
+     */
+    readonly id: string
+
+    /**
+     * 
+     * @type {PasswordSyncGroup}
+     * @memberof PasswordSyncGroupsApiUpdatePasswordSyncGroup
+     */
+    readonly passwordSyncGroup: PasswordSyncGroup
+}
+
+/**
  * PasswordSyncGroupsApi - object-oriented interface
  * @export
  * @class PasswordSyncGroupsApi
@@ -25975,6 +26221,30 @@ export class PasswordSyncGroupsApi extends BaseAPI {
     }
 
     /**
+     * This API deletes the specified password sync group. A token with ORG_ADMIN authority is required to call this API.
+     * @summary Delete Password Sync Group by ID
+     * @param {PasswordSyncGroupsApiDeletePasswordSyncGroupRequest} requestParameters Request parameters.
+     * @param {*} [axiosOptions] Override http request option.
+     * @throws {RequiredError}
+     * @memberof PasswordSyncGroupsApi
+     */
+    public deletePasswordSyncGroup(requestParameters: PasswordSyncGroupsApiDeletePasswordSyncGroupRequest, axiosOptions?: AxiosRequestConfig) {
+        return PasswordSyncGroupsApiFp(this.configuration).deletePasswordSyncGroup(requestParameters.id, axiosOptions).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * This API returns the sync group for the specified ID. A token with ORG_ADMIN authority is required to call this API.
+     * @summary Get Password Sync Group by ID
+     * @param {PasswordSyncGroupsApiGetPasswordSyncGroupRequest} requestParameters Request parameters.
+     * @param {*} [axiosOptions] Override http request option.
+     * @throws {RequiredError}
+     * @memberof PasswordSyncGroupsApi
+     */
+    public getPasswordSyncGroup(requestParameters: PasswordSyncGroupsApiGetPasswordSyncGroupRequest, axiosOptions?: AxiosRequestConfig) {
+        return PasswordSyncGroupsApiFp(this.configuration).getPasswordSyncGroup(requestParameters.id, axiosOptions).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
      * This API returns a list of password sync groups. A token with ORG_ADMIN authority is required to call this API.
      * @summary Get Password Sync Group List
      * @param {PasswordSyncGroupsApiGetPasswordSyncGroupsRequest} requestParameters Request parameters.
@@ -25984,6 +26254,18 @@ export class PasswordSyncGroupsApi extends BaseAPI {
      */
     public getPasswordSyncGroups(requestParameters: PasswordSyncGroupsApiGetPasswordSyncGroupsRequest = {}, axiosOptions?: AxiosRequestConfig) {
         return PasswordSyncGroupsApiFp(this.configuration).getPasswordSyncGroups(requestParameters.limit, requestParameters.offset, requestParameters.count, axiosOptions).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * This API updates the specified password sync group. A token with ORG_ADMIN authority is required to call this API.
+     * @summary Update Password Sync Group by ID
+     * @param {PasswordSyncGroupsApiUpdatePasswordSyncGroupRequest} requestParameters Request parameters.
+     * @param {*} [axiosOptions] Override http request option.
+     * @throws {RequiredError}
+     * @memberof PasswordSyncGroupsApi
+     */
+    public updatePasswordSyncGroup(requestParameters: PasswordSyncGroupsApiUpdatePasswordSyncGroupRequest, axiosOptions?: AxiosRequestConfig) {
+        return PasswordSyncGroupsApiFp(this.configuration).updatePasswordSyncGroup(requestParameters.id, requestParameters.passwordSyncGroup, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 }
 

@@ -11919,37 +11919,6 @@ export type PasswordStatusBetaStateEnum = typeof PasswordStatusBetaStateEnum[key
 /**
  * 
  * @export
- * @interface PasswordSyncGroup1Beta
- */
-export interface PasswordSyncGroup1Beta {
-    /**
-     * ID of the sync group
-     * @type {string}
-     * @memberof PasswordSyncGroup1Beta
-     */
-    'id'?: string;
-    /**
-     * Name of the sync group
-     * @type {string}
-     * @memberof PasswordSyncGroup1Beta
-     */
-    'name'?: string;
-    /**
-     * 
-     * @type {string}
-     * @memberof PasswordSyncGroup1Beta
-     */
-    'passwordPolicyId'?: string;
-    /**
-     * List of password managed sources IDs
-     * @type {Array<string>}
-     * @memberof PasswordSyncGroup1Beta
-     */
-    'sourceIds'?: Array<string>;
-}
-/**
- * 
- * @export
  * @interface PasswordSyncGroupBeta
  */
 export interface PasswordSyncGroupBeta {
@@ -47795,15 +47764,15 @@ export const PasswordSyncGroupsBetaApiAxiosParamCreator = function (configuratio
          * This API updates the specified password sync group. A token with ORG_ADMIN authority is required to call this API.
          * @summary Update Password Sync Group by ID
          * @param {string} id The ID of password sync group to update.
-         * @param {PasswordSyncGroup1Beta} passwordSyncGroup1Beta 
+         * @param {PasswordSyncGroupBeta} passwordSyncGroupBeta 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        updatePasswordSyncGroup: async (id: string, passwordSyncGroup1Beta: PasswordSyncGroup1Beta, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        updatePasswordSyncGroup: async (id: string, passwordSyncGroupBeta: PasswordSyncGroupBeta, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'id' is not null or undefined
             assertParamExists('updatePasswordSyncGroup', 'id', id)
-            // verify required parameter 'passwordSyncGroup1Beta' is not null or undefined
-            assertParamExists('updatePasswordSyncGroup', 'passwordSyncGroup1Beta', passwordSyncGroup1Beta)
+            // verify required parameter 'passwordSyncGroupBeta' is not null or undefined
+            assertParamExists('updatePasswordSyncGroup', 'passwordSyncGroupBeta', passwordSyncGroupBeta)
             const localVarPath = `/password-sync-groups/{id}`
                 .replace(`{${"id"}}`, encodeURIComponent(String(id)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
@@ -47832,7 +47801,7 @@ export const PasswordSyncGroupsBetaApiAxiosParamCreator = function (configuratio
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(passwordSyncGroup1Beta, localVarRequestOptions, configuration)
+            localVarRequestOptions.data = serializeDataIfNeeded(passwordSyncGroupBeta, localVarRequestOptions, configuration)
 
             return {
                 url: toPathString(localVarUrlObj),
@@ -47878,7 +47847,7 @@ export const PasswordSyncGroupsBetaApiFp = function(configuration?: Configuratio
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async getPasswordSyncGroup(id: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<PasswordSyncGroup1Beta>> {
+        async getPasswordSyncGroup(id: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<PasswordSyncGroupBeta>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getPasswordSyncGroup(id, axiosOptions);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -47899,12 +47868,12 @@ export const PasswordSyncGroupsBetaApiFp = function(configuration?: Configuratio
          * This API updates the specified password sync group. A token with ORG_ADMIN authority is required to call this API.
          * @summary Update Password Sync Group by ID
          * @param {string} id The ID of password sync group to update.
-         * @param {PasswordSyncGroup1Beta} passwordSyncGroup1Beta 
+         * @param {PasswordSyncGroupBeta} passwordSyncGroupBeta 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async updatePasswordSyncGroup(id: string, passwordSyncGroup1Beta: PasswordSyncGroup1Beta, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<PasswordSyncGroup1Beta>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.updatePasswordSyncGroup(id, passwordSyncGroup1Beta, axiosOptions);
+        async updatePasswordSyncGroup(id: string, passwordSyncGroupBeta: PasswordSyncGroupBeta, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<PasswordSyncGroupBeta>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.updatePasswordSyncGroup(id, passwordSyncGroupBeta, axiosOptions);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
     }
@@ -47944,7 +47913,7 @@ export const PasswordSyncGroupsBetaApiFactory = function (configuration?: Config
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        getPasswordSyncGroup(id: string, axiosOptions?: any): AxiosPromise<PasswordSyncGroup1Beta> {
+        getPasswordSyncGroup(id: string, axiosOptions?: any): AxiosPromise<PasswordSyncGroupBeta> {
             return localVarFp.getPasswordSyncGroup(id, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
@@ -47963,12 +47932,12 @@ export const PasswordSyncGroupsBetaApiFactory = function (configuration?: Config
          * This API updates the specified password sync group. A token with ORG_ADMIN authority is required to call this API.
          * @summary Update Password Sync Group by ID
          * @param {string} id The ID of password sync group to update.
-         * @param {PasswordSyncGroup1Beta} passwordSyncGroup1Beta 
+         * @param {PasswordSyncGroupBeta} passwordSyncGroupBeta 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        updatePasswordSyncGroup(id: string, passwordSyncGroup1Beta: PasswordSyncGroup1Beta, axiosOptions?: any): AxiosPromise<PasswordSyncGroup1Beta> {
-            return localVarFp.updatePasswordSyncGroup(id, passwordSyncGroup1Beta, axiosOptions).then((request) => request(axios, basePath));
+        updatePasswordSyncGroup(id: string, passwordSyncGroupBeta: PasswordSyncGroupBeta, axiosOptions?: any): AxiosPromise<PasswordSyncGroupBeta> {
+            return localVarFp.updatePasswordSyncGroup(id, passwordSyncGroupBeta, axiosOptions).then((request) => request(axios, basePath));
         },
     };
 };
@@ -48058,10 +48027,10 @@ export interface PasswordSyncGroupsBetaApiUpdatePasswordSyncGroupRequest {
 
     /**
      * 
-     * @type {PasswordSyncGroup1Beta}
+     * @type {PasswordSyncGroupBeta}
      * @memberof PasswordSyncGroupsBetaApiUpdatePasswordSyncGroup
      */
-    readonly passwordSyncGroup1Beta: PasswordSyncGroup1Beta
+    readonly passwordSyncGroupBeta: PasswordSyncGroupBeta
 }
 
 /**
@@ -48128,7 +48097,7 @@ export class PasswordSyncGroupsBetaApi extends BaseAPI {
      * @memberof PasswordSyncGroupsBetaApi
      */
     public updatePasswordSyncGroup(requestParameters: PasswordSyncGroupsBetaApiUpdatePasswordSyncGroupRequest, axiosOptions?: AxiosRequestConfig) {
-        return PasswordSyncGroupsBetaApiFp(this.configuration).updatePasswordSyncGroup(requestParameters.id, requestParameters.passwordSyncGroup1Beta, axiosOptions).then((request) => request(this.axios, this.basePath));
+        return PasswordSyncGroupsBetaApiFp(this.configuration).updatePasswordSyncGroup(requestParameters.id, requestParameters.passwordSyncGroupBeta, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 }
 
