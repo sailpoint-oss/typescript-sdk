@@ -5,7 +5,7 @@
 
 [discourse-shield]: https://img.shields.io/discourse/topics?label=Discuss%20This%20Tool&server=https%3A%2F%2Fdeveloper.sailpoint.com%2Fdiscuss
 [discourse-url]: https://developer.sailpoint.com/discuss
-[downloads-shield]: https://img.shields.io/github/downloads/sailpoint-oss/typescript-sdk/total?label=Downloads
+[downloads-shield]: https://img.shields.io/npm/dw/sailpoint-api-client
 [issues-shield]: https://img.shields.io/github/issues/sailpoint-oss/typescript-sdk?label=Issues
 [release-shield]: https://img.shields.io/github/v/release/sailpoint-oss/typescript-sdk?label=Current%20Release
 [contributor-shield]: https://img.shields.io/github/contributors/sailpoint-oss/typescript-sdk?label=Contributors
