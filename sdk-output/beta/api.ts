@@ -8699,11 +8699,11 @@ export interface ImportOptionsBeta {
  */
 export interface ImportSpConfigRequestBeta {
     /**
-     * Name of JSON file containing the objects to be imported.
-     * @type {string}
+     * JSON file containing the objects to be imported.
+     * @type {any}
      * @memberof ImportSpConfigRequestBeta
      */
-    'data': string;
+    'data': any;
     /**
      * 
      * @type {ImportOptionsBeta}
@@ -52568,13 +52568,13 @@ export const SPConfigBetaApiAxiosParamCreator = function (configuration?: Config
         /**
          * This post will import objects from a JSON configuration file into a tenant. By default, every import will first export all existing objects supported by sp-config as a backup before the import is attempted. The backup is provided so that the state of the configuration prior to the import is available for inspection or restore if needed. The backup can be skipped by setting \"excludeBackup\" to true in the import options. If a backup is performed, the id of the backup will be provided in the ImportResult as the \"exportJobId\". This can be downloaded  using the /sp-config/export/{exportJobId}/download endpoint. Request will need the following security scope: - sp:config:manage
          * @summary Initiates Configuration Objects Import Job.
-         * @param {string} data Name of JSON file containing the objects to be imported.
+         * @param {any} data JSON file containing the objects to be imported.
          * @param {boolean} [preview] This option is intended to give the user information about how an import operation would proceed, without having any affect on the target tenant. If true, no objects will be imported. Instead, the import process will pre-process the import file and attempt to resolve references within imported objects. The import result file will contain messages pertaining to how specific references were resolved, any errors associated with the preprocessing, and messages indicating which objects would be imported.
          * @param {ImportOptionsBeta} [options] 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        importSpConfig: async (data: string, preview?: boolean, options?: ImportOptionsBeta, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        importSpConfig: async (data: any, preview?: boolean, options?: ImportOptionsBeta, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'data' is not null or undefined
             assertParamExists('importSpConfig', 'data', data)
             const localVarPath = `/sp-config/import`;
@@ -52792,13 +52792,13 @@ export const SPConfigBetaApiFp = function(configuration?: Configuration) {
         /**
          * This post will import objects from a JSON configuration file into a tenant. By default, every import will first export all existing objects supported by sp-config as a backup before the import is attempted. The backup is provided so that the state of the configuration prior to the import is available for inspection or restore if needed. The backup can be skipped by setting \"excludeBackup\" to true in the import options. If a backup is performed, the id of the backup will be provided in the ImportResult as the \"exportJobId\". This can be downloaded  using the /sp-config/export/{exportJobId}/download endpoint. Request will need the following security scope: - sp:config:manage
          * @summary Initiates Configuration Objects Import Job.
-         * @param {string} data Name of JSON file containing the objects to be imported.
+         * @param {any} data JSON file containing the objects to be imported.
          * @param {boolean} [preview] This option is intended to give the user information about how an import operation would proceed, without having any affect on the target tenant. If true, no objects will be imported. Instead, the import process will pre-process the import file and attempt to resolve references within imported objects. The import result file will contain messages pertaining to how specific references were resolved, any errors associated with the preprocessing, and messages indicating which objects would be imported.
          * @param {ImportOptionsBeta} [options] 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async importSpConfig(data: string, preview?: boolean, options?: ImportOptionsBeta, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SpConfigJobBeta>> {
+        async importSpConfig(data: any, preview?: boolean, options?: ImportOptionsBeta, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SpConfigJobBeta>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.importSpConfig(data, preview, options, axiosOptions);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -52877,13 +52877,13 @@ export const SPConfigBetaApiFactory = function (configuration?: Configuration, b
         /**
          * This post will import objects from a JSON configuration file into a tenant. By default, every import will first export all existing objects supported by sp-config as a backup before the import is attempted. The backup is provided so that the state of the configuration prior to the import is available for inspection or restore if needed. The backup can be skipped by setting \"excludeBackup\" to true in the import options. If a backup is performed, the id of the backup will be provided in the ImportResult as the \"exportJobId\". This can be downloaded  using the /sp-config/export/{exportJobId}/download endpoint. Request will need the following security scope: - sp:config:manage
          * @summary Initiates Configuration Objects Import Job.
-         * @param {string} data Name of JSON file containing the objects to be imported.
+         * @param {any} data JSON file containing the objects to be imported.
          * @param {boolean} [preview] This option is intended to give the user information about how an import operation would proceed, without having any affect on the target tenant. If true, no objects will be imported. Instead, the import process will pre-process the import file and attempt to resolve references within imported objects. The import result file will contain messages pertaining to how specific references were resolved, any errors associated with the preprocessing, and messages indicating which objects would be imported.
          * @param {ImportOptionsBeta} [options] 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        importSpConfig(data: string, preview?: boolean, options?: ImportOptionsBeta, axiosOptions?: any): AxiosPromise<SpConfigJobBeta> {
+        importSpConfig(data: any, preview?: boolean, options?: ImportOptionsBeta, axiosOptions?: any): AxiosPromise<SpConfigJobBeta> {
             return localVarFp.importSpConfig(data, preview, options, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
@@ -52967,11 +52967,11 @@ export interface SPConfigBetaApiExportSpConfigJobStatusRequest {
  */
 export interface SPConfigBetaApiImportSpConfigRequest {
     /**
-     * Name of JSON file containing the objects to be imported.
-     * @type {string}
+     * JSON file containing the objects to be imported.
+     * @type {any}
      * @memberof SPConfigBetaApiImportSpConfig
      */
-    readonly data: string
+    readonly data: any
 
     /**
      * This option is intended to give the user information about how an import operation would proceed, without having any affect on the target tenant. If true, no objects will be imported. Instead, the import process will pre-process the import file and attempt to resolve references within imported objects. The import result file will contain messages pertaining to how specific references were resolved, any errors associated with the preprocessing, and messages indicating which objects would be imported.
