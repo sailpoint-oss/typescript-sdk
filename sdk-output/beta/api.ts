@@ -3982,13 +3982,13 @@ export interface CertifierResponseBeta {
  */
 export interface ClientLogConfigurationBeta {
     /**
-     * client ID of the Log configuration
+     * Log configuration\'s client ID
      * @type {string}
      * @memberof ClientLogConfigurationBeta
      */
     'clientId'?: string;
     /**
-     * duration in minutes for the log configuration to remain in effect before resetting to defaults
+     * Duration in minutes for log configuration to remain in effect before resetting to defaults
      * @type {number}
      * @memberof ClientLogConfigurationBeta
      */
@@ -40720,9 +40720,9 @@ export class ManagedClientsBetaApi extends BaseAPI {
 export const ManagedClustersBetaApiAxiosParamCreator = function (configuration?: Configuration) {
     return {
         /**
-         * Get log configuration for a managed cluster.
-         * @summary get ManagedCluster Log Configuration for a specified cluster
-         * @param {string} id ID of the ManagedCluster to get log configuration for
+         * Get managed cluster\'s log configuration.
+         * @summary Get managed cluster\'s log configuration
+         * @param {string} id ID of ManagedCluster to get log configuration for
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
@@ -40862,10 +40862,10 @@ export const ManagedClustersBetaApiAxiosParamCreator = function (configuration?:
             };
         },
         /**
-         * Update log configuration for a managed cluster.
-         * @summary Update log configuration for a specified cluster.
-         * @param {string} id ID of the ManagedCluster to update log configuration for
-         * @param {ClientLogConfigurationBeta} clientLogConfigurationBeta ClientLogConfiguration for the given ManagedCluster
+         * Update managed cluster\'s log configuration
+         * @summary Update managed cluster\'s log configuration
+         * @param {string} id ID of ManagedCluster to update log configuration for
+         * @param {ClientLogConfigurationBeta} clientLogConfigurationBeta ClientLogConfiguration for given ManagedCluster
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
@@ -40920,9 +40920,9 @@ export const ManagedClustersBetaApiFp = function(configuration?: Configuration) 
     const localVarAxiosParamCreator = ManagedClustersBetaApiAxiosParamCreator(configuration)
     return {
         /**
-         * Get log configuration for a managed cluster.
-         * @summary get ManagedCluster Log Configuration for a specified cluster
-         * @param {string} id ID of the ManagedCluster to get log configuration for
+         * Get managed cluster\'s log configuration.
+         * @summary Get managed cluster\'s log configuration
+         * @param {string} id ID of ManagedCluster to get log configuration for
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
@@ -40956,10 +40956,10 @@ export const ManagedClustersBetaApiFp = function(configuration?: Configuration) 
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
-         * Update log configuration for a managed cluster.
-         * @summary Update log configuration for a specified cluster.
-         * @param {string} id ID of the ManagedCluster to update log configuration for
-         * @param {ClientLogConfigurationBeta} clientLogConfigurationBeta ClientLogConfiguration for the given ManagedCluster
+         * Update managed cluster\'s log configuration
+         * @summary Update managed cluster\'s log configuration
+         * @param {string} id ID of ManagedCluster to update log configuration for
+         * @param {ClientLogConfigurationBeta} clientLogConfigurationBeta ClientLogConfiguration for given ManagedCluster
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
@@ -40978,9 +40978,9 @@ export const ManagedClustersBetaApiFactory = function (configuration?: Configura
     const localVarFp = ManagedClustersBetaApiFp(configuration)
     return {
         /**
-         * Get log configuration for a managed cluster.
-         * @summary get ManagedCluster Log Configuration for a specified cluster
-         * @param {string} id ID of the ManagedCluster to get log configuration for
+         * Get managed cluster\'s log configuration.
+         * @summary Get managed cluster\'s log configuration
+         * @param {string} id ID of ManagedCluster to get log configuration for
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
@@ -41011,10 +41011,10 @@ export const ManagedClustersBetaApiFactory = function (configuration?: Configura
             return localVarFp.getManagedClusters(offset, limit, count, filters, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
-         * Update log configuration for a managed cluster.
-         * @summary Update log configuration for a specified cluster.
-         * @param {string} id ID of the ManagedCluster to update log configuration for
-         * @param {ClientLogConfigurationBeta} clientLogConfigurationBeta ClientLogConfiguration for the given ManagedCluster
+         * Update managed cluster\'s log configuration
+         * @summary Update managed cluster\'s log configuration
+         * @param {string} id ID of ManagedCluster to update log configuration for
+         * @param {ClientLogConfigurationBeta} clientLogConfigurationBeta ClientLogConfiguration for given ManagedCluster
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
@@ -41031,7 +41031,7 @@ export const ManagedClustersBetaApiFactory = function (configuration?: Configura
  */
 export interface ManagedClustersBetaApiGetClientLogConfigurationRequest {
     /**
-     * ID of the ManagedCluster to get log configuration for
+     * ID of ManagedCluster to get log configuration for
      * @type {string}
      * @memberof ManagedClustersBetaApiGetClientLogConfiguration
      */
@@ -41094,14 +41094,14 @@ export interface ManagedClustersBetaApiGetManagedClustersRequest {
  */
 export interface ManagedClustersBetaApiUpdateClientLogConfigurationRequest {
     /**
-     * ID of the ManagedCluster to update log configuration for
+     * ID of ManagedCluster to update log configuration for
      * @type {string}
      * @memberof ManagedClustersBetaApiUpdateClientLogConfiguration
      */
     readonly id: string
 
     /**
-     * ClientLogConfiguration for the given ManagedCluster
+     * ClientLogConfiguration for given ManagedCluster
      * @type {ClientLogConfigurationBeta}
      * @memberof ManagedClustersBetaApiUpdateClientLogConfiguration
      */
@@ -41116,8 +41116,8 @@ export interface ManagedClustersBetaApiUpdateClientLogConfigurationRequest {
  */
 export class ManagedClustersBetaApi extends BaseAPI {
     /**
-     * Get log configuration for a managed cluster.
-     * @summary get ManagedCluster Log Configuration for a specified cluster
+     * Get managed cluster\'s log configuration.
+     * @summary Get managed cluster\'s log configuration
      * @param {ManagedClustersBetaApiGetClientLogConfigurationRequest} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
@@ -41152,8 +41152,8 @@ export class ManagedClustersBetaApi extends BaseAPI {
     }
 
     /**
-     * Update log configuration for a managed cluster.
-     * @summary Update log configuration for a specified cluster.
+     * Update managed cluster\'s log configuration
+     * @summary Update managed cluster\'s log configuration
      * @param {ManagedClustersBetaApiUpdateClientLogConfigurationRequest} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
