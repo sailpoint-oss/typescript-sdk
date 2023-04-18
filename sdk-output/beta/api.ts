@@ -7701,6 +7701,107 @@ export interface IdentityAttributesChangedBeta {
 /**
  * 
  * @export
+ * @interface IdentityBeta
+ */
+export interface IdentityBeta {
+    /**
+     * System-generated unique ID of the Object
+     * @type {string}
+     * @memberof IdentityBeta
+     */
+    'id'?: string;
+    /**
+     * Name of the Object
+     * @type {string}
+     * @memberof IdentityBeta
+     */
+    'name': string;
+    /**
+     * Creation date of the Object
+     * @type {string}
+     * @memberof IdentityBeta
+     */
+    'created'?: string;
+    /**
+     * Last modification date of the Object
+     * @type {string}
+     * @memberof IdentityBeta
+     */
+    'modified'?: string;
+    /**
+     * Alternate unique identifier for the identity
+     * @type {string}
+     * @memberof IdentityBeta
+     */
+    'alias'?: string;
+    /**
+     * The email address of the identity
+     * @type {string}
+     * @memberof IdentityBeta
+     */
+    'emailAddress'?: string;
+    /**
+     * The processing state of the identity
+     * @type {string}
+     * @memberof IdentityBeta
+     */
+    'processingState'?: IdentityBetaProcessingStateEnum;
+    /**
+     * The identity\'s status in the system
+     * @type {string}
+     * @memberof IdentityBeta
+     */
+    'identityStatus'?: IdentityBetaIdentityStatusEnum;
+    /**
+     * 
+     * @type {BaseReferenceDtoBeta}
+     * @memberof IdentityBeta
+     */
+    'managerRef'?: BaseReferenceDtoBeta;
+    /**
+     * Whether this identity is a manager of another identity
+     * @type {boolean}
+     * @memberof IdentityBeta
+     */
+    'isManager'?: boolean;
+    /**
+     * The last time the identity was refreshed by the system
+     * @type {string}
+     * @memberof IdentityBeta
+     */
+    'lastRefresh'?: string;
+    /**
+     * A map with the identity attributes for the identity
+     * @type {object}
+     * @memberof IdentityBeta
+     */
+    'attributes'?: object;
+}
+
+export const IdentityBetaProcessingStateEnum = {
+    Error: 'ERROR',
+    Ok: 'OK'
+} as const;
+
+export type IdentityBetaProcessingStateEnum = typeof IdentityBetaProcessingStateEnum[keyof typeof IdentityBetaProcessingStateEnum];
+export const IdentityBetaIdentityStatusEnum = {
+    Unregistered: 'UNREGISTERED',
+    Registered: 'REGISTERED',
+    Pending: 'PENDING',
+    Warning: 'WARNING',
+    Disabled: 'DISABLED',
+    Active: 'ACTIVE',
+    Deactivated: 'DEACTIVATED',
+    Terminated: 'TERMINATED',
+    Error: 'ERROR',
+    Locked: 'LOCKED'
+} as const;
+
+export type IdentityBetaIdentityStatusEnum = typeof IdentityBetaIdentityStatusEnum[keyof typeof IdentityBetaIdentityStatusEnum];
+
+/**
+ * 
+ * @export
  * @interface IdentityCertificationTaskBeta
  */
 export interface IdentityCertificationTaskBeta {
@@ -7856,6 +7957,83 @@ export interface IdentityDeletedBeta {
      */
     'attributes': { [key: string]: any; };
 }
+/**
+ * 
+ * @export
+ * @interface IdentityDtoBeta
+ */
+export interface IdentityDtoBeta {
+    /**
+     * Alternate unique identifier for the identity
+     * @type {string}
+     * @memberof IdentityDtoBeta
+     */
+    'alias'?: string;
+    /**
+     * The email address of the identity
+     * @type {string}
+     * @memberof IdentityDtoBeta
+     */
+    'emailAddress'?: string;
+    /**
+     * The processing state of the identity
+     * @type {string}
+     * @memberof IdentityDtoBeta
+     */
+    'processingState'?: IdentityDtoBetaProcessingStateEnum;
+    /**
+     * The identity\'s status in the system
+     * @type {string}
+     * @memberof IdentityDtoBeta
+     */
+    'identityStatus'?: IdentityDtoBetaIdentityStatusEnum;
+    /**
+     * 
+     * @type {BaseReferenceDtoBeta}
+     * @memberof IdentityDtoBeta
+     */
+    'managerRef'?: BaseReferenceDtoBeta;
+    /**
+     * Whether this identity is a manager of another identity
+     * @type {boolean}
+     * @memberof IdentityDtoBeta
+     */
+    'isManager'?: boolean;
+    /**
+     * The last time the identity was refreshed by the system
+     * @type {string}
+     * @memberof IdentityDtoBeta
+     */
+    'lastRefresh'?: string;
+    /**
+     * A map with the identity attributes for the identity
+     * @type {object}
+     * @memberof IdentityDtoBeta
+     */
+    'attributes'?: object;
+}
+
+export const IdentityDtoBetaProcessingStateEnum = {
+    Error: 'ERROR',
+    Ok: 'OK'
+} as const;
+
+export type IdentityDtoBetaProcessingStateEnum = typeof IdentityDtoBetaProcessingStateEnum[keyof typeof IdentityDtoBetaProcessingStateEnum];
+export const IdentityDtoBetaIdentityStatusEnum = {
+    Unregistered: 'UNREGISTERED',
+    Registered: 'REGISTERED',
+    Pending: 'PENDING',
+    Warning: 'WARNING',
+    Disabled: 'DISABLED',
+    Active: 'ACTIVE',
+    Deactivated: 'DEACTIVATED',
+    Terminated: 'TERMINATED',
+    Error: 'ERROR',
+    Locked: 'LOCKED'
+} as const;
+
+export type IdentityDtoBetaIdentityStatusEnum = typeof IdentityDtoBetaIdentityStatusEnum[keyof typeof IdentityDtoBetaIdentityStatusEnum];
+
 /**
  * 
  * @export
@@ -8710,6 +8888,25 @@ export interface ImportSpConfigRequestBeta {
      * @memberof ImportSpConfigRequestBeta
      */
     'options'?: ImportOptionsBeta;
+}
+/**
+ * 
+ * @export
+ * @interface InternalIdentityDtoBeta
+ */
+export interface InternalIdentityDtoBeta {
+    /**
+     * The identity ID
+     * @type {string}
+     * @memberof InternalIdentityDtoBeta
+     */
+    'id': string;
+    /**
+     * Internal cloud status of identity.
+     * @type {string}
+     * @memberof InternalIdentityDtoBeta
+     */
+    'internalCloudStatus': string;
 }
 /**
  * 
@@ -37068,6 +37265,200 @@ export class IAIRoleMiningBetaApi extends BaseAPI {
 export const IdentitiesBetaApiAxiosParamCreator = function (configuration?: Configuration) {
     return {
         /**
+         * This API returns successful response if the requested identity exists and not found error if it doesn`t.
+         * @summary Check if identity exists
+         * @param {string} identityId Identity Id
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        checkIdentityExists: async (identityId: string, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'identityId' is not null or undefined
+            assertParamExists('checkIdentityExists', 'identityId', identityId)
+            const localVarPath = `/identities/{id}`
+                .replace(`{${"identityId"}}`, encodeURIComponent(String(identityId)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'HEAD', ...baseOptions, ...axiosOptions};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication oauth2 required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "oauth2", [], configuration)
+
+            // authentication oauth2 required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "oauth2", [], configuration)
+
+
+    
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                axiosOptions: localVarRequestOptions,
+            };
+        },
+        /**
+         * The API returns successful response if the requested identity was deleted.
+         * @summary Deletes an identity.
+         * @param {string} identityId Identity Id
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        deleteIdentity: async (identityId: string, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'identityId' is not null or undefined
+            assertParamExists('deleteIdentity', 'identityId', identityId)
+            const localVarPath = `/identities/{id}`
+                .replace(`{${"identityId"}}`, encodeURIComponent(String(identityId)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'DELETE', ...baseOptions, ...axiosOptions};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication oauth2 required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "oauth2", [], configuration)
+
+            // authentication oauth2 required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "oauth2", [], configuration)
+
+
+    
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                axiosOptions: localVarRequestOptions,
+            };
+        },
+        /**
+         * This API returns a single identity using the Identity ID.
+         * @summary Identity Details
+         * @param {string} identityId Identity Id
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        getIdentity: async (identityId: string, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'identityId' is not null or undefined
+            assertParamExists('getIdentity', 'identityId', identityId)
+            const localVarPath = `/identities/{id}`
+                .replace(`{${"identityId"}}`, encodeURIComponent(String(identityId)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...axiosOptions};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication oauth2 required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "oauth2", [], configuration)
+
+            // authentication oauth2 required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "oauth2", [], configuration)
+
+
+    
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                axiosOptions: localVarRequestOptions,
+            };
+        },
+        /**
+         * This API returns a list of identities.
+         * @summary List Identities
+         * @param {string} [filters] Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters)  Filtering is supported for the following fields and operators:  **id**: *eq, in*  **name**: *eq, sw*  **alias**: *eq, sw*  **firstname**: *eq, sw*  **lastname**: *eq, sw*  **email**: *eq, sw*  **cloudStatus**: *eq*  **processingState**: *eq*  **correlated**: *eq*  **protected**: *eq*
+         * @param {string} [sorters] Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters/#sorting-results)  Sorting is supported for the following fields: **name, alias, cloudStatus**
+         * @param {'CORRELATED_ONLY' | 'NONE'} [defaultFilter] Adds additional filter to filters query parameter.  CORRELATED_ONLY adds correlated&#x3D;true and returns only identities that are correlated.  NONE does not add any and returns all identities that satisfy filters query parameter.
+         * @param {boolean} [count] If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+         * @param {number} [limit] Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+         * @param {number} [offset] Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        listIdentities: async (filters?: string, sorters?: string, defaultFilter?: 'CORRELATED_ONLY' | 'NONE', count?: boolean, limit?: number, offset?: number, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            const localVarPath = `/identities`;
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...axiosOptions};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication oauth2 required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "oauth2", [], configuration)
+
+            // authentication oauth2 required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "oauth2", [], configuration)
+
+            if (filters !== undefined) {
+                localVarQueryParameter['filters'] = filters;
+            }
+
+            if (sorters !== undefined) {
+                localVarQueryParameter['sorters'] = sorters;
+            }
+
+            if (defaultFilter !== undefined) {
+                localVarQueryParameter['defaultFilter'] = defaultFilter;
+            }
+
+            if (count !== undefined) {
+                localVarQueryParameter['count'] = count;
+            }
+
+            if (limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+
+            if (offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+
+
+    
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                axiosOptions: localVarRequestOptions,
+            };
+        },
+        /**
          * This end-point performs attribute synchronization for a selected identity. The endpoint can be called once in 10 seconds per identity. A token with ORG_ADMIN or API authority is required to call this API.
          * @summary Attribute synchronization for single identity.
          * @param {string} identityId The Identity id
@@ -37120,6 +37511,55 @@ export const IdentitiesBetaApiFp = function(configuration?: Configuration) {
     const localVarAxiosParamCreator = IdentitiesBetaApiAxiosParamCreator(configuration)
     return {
         /**
+         * This API returns successful response if the requested identity exists and not found error if it doesn`t.
+         * @summary Check if identity exists
+         * @param {string} identityId Identity Id
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        async checkIdentityExists(identityId: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.checkIdentityExists(identityId, axiosOptions);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * The API returns successful response if the requested identity was deleted.
+         * @summary Deletes an identity.
+         * @param {string} identityId Identity Id
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        async deleteIdentity(identityId: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.deleteIdentity(identityId, axiosOptions);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * This API returns a single identity using the Identity ID.
+         * @summary Identity Details
+         * @param {string} identityId Identity Id
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        async getIdentity(identityId: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<IdentityBeta>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getIdentity(identityId, axiosOptions);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * This API returns a list of identities.
+         * @summary List Identities
+         * @param {string} [filters] Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters)  Filtering is supported for the following fields and operators:  **id**: *eq, in*  **name**: *eq, sw*  **alias**: *eq, sw*  **firstname**: *eq, sw*  **lastname**: *eq, sw*  **email**: *eq, sw*  **cloudStatus**: *eq*  **processingState**: *eq*  **correlated**: *eq*  **protected**: *eq*
+         * @param {string} [sorters] Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters/#sorting-results)  Sorting is supported for the following fields: **name, alias, cloudStatus**
+         * @param {'CORRELATED_ONLY' | 'NONE'} [defaultFilter] Adds additional filter to filters query parameter.  CORRELATED_ONLY adds correlated&#x3D;true and returns only identities that are correlated.  NONE does not add any and returns all identities that satisfy filters query parameter.
+         * @param {boolean} [count] If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+         * @param {number} [limit] Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+         * @param {number} [offset] Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        async listIdentities(filters?: string, sorters?: string, defaultFilter?: 'CORRELATED_ONLY' | 'NONE', count?: boolean, limit?: number, offset?: number, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<IdentityBeta>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.listIdentities(filters, sorters, defaultFilter, count, limit, offset, axiosOptions);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
          * This end-point performs attribute synchronization for a selected identity. The endpoint can be called once in 10 seconds per identity. A token with ORG_ADMIN or API authority is required to call this API.
          * @summary Attribute synchronization for single identity.
          * @param {string} identityId The Identity id
@@ -37141,6 +37581,51 @@ export const IdentitiesBetaApiFactory = function (configuration?: Configuration,
     const localVarFp = IdentitiesBetaApiFp(configuration)
     return {
         /**
+         * This API returns successful response if the requested identity exists and not found error if it doesn`t.
+         * @summary Check if identity exists
+         * @param {string} identityId Identity Id
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        checkIdentityExists(identityId: string, axiosOptions?: any): AxiosPromise<void> {
+            return localVarFp.checkIdentityExists(identityId, axiosOptions).then((request) => request(axios, basePath));
+        },
+        /**
+         * The API returns successful response if the requested identity was deleted.
+         * @summary Deletes an identity.
+         * @param {string} identityId Identity Id
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        deleteIdentity(identityId: string, axiosOptions?: any): AxiosPromise<void> {
+            return localVarFp.deleteIdentity(identityId, axiosOptions).then((request) => request(axios, basePath));
+        },
+        /**
+         * This API returns a single identity using the Identity ID.
+         * @summary Identity Details
+         * @param {string} identityId Identity Id
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        getIdentity(identityId: string, axiosOptions?: any): AxiosPromise<IdentityBeta> {
+            return localVarFp.getIdentity(identityId, axiosOptions).then((request) => request(axios, basePath));
+        },
+        /**
+         * This API returns a list of identities.
+         * @summary List Identities
+         * @param {string} [filters] Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters)  Filtering is supported for the following fields and operators:  **id**: *eq, in*  **name**: *eq, sw*  **alias**: *eq, sw*  **firstname**: *eq, sw*  **lastname**: *eq, sw*  **email**: *eq, sw*  **cloudStatus**: *eq*  **processingState**: *eq*  **correlated**: *eq*  **protected**: *eq*
+         * @param {string} [sorters] Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters/#sorting-results)  Sorting is supported for the following fields: **name, alias, cloudStatus**
+         * @param {'CORRELATED_ONLY' | 'NONE'} [defaultFilter] Adds additional filter to filters query parameter.  CORRELATED_ONLY adds correlated&#x3D;true and returns only identities that are correlated.  NONE does not add any and returns all identities that satisfy filters query parameter.
+         * @param {boolean} [count] If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+         * @param {number} [limit] Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+         * @param {number} [offset] Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        listIdentities(filters?: string, sorters?: string, defaultFilter?: 'CORRELATED_ONLY' | 'NONE', count?: boolean, limit?: number, offset?: number, axiosOptions?: any): AxiosPromise<Array<IdentityBeta>> {
+            return localVarFp.listIdentities(filters, sorters, defaultFilter, count, limit, offset, axiosOptions).then((request) => request(axios, basePath));
+        },
+        /**
          * This end-point performs attribute synchronization for a selected identity. The endpoint can be called once in 10 seconds per identity. A token with ORG_ADMIN or API authority is required to call this API.
          * @summary Attribute synchronization for single identity.
          * @param {string} identityId The Identity id
@@ -37152,6 +37637,97 @@ export const IdentitiesBetaApiFactory = function (configuration?: Configuration,
         },
     };
 };
+
+/**
+ * Request parameters for checkIdentityExists operation in IdentitiesBetaApi.
+ * @export
+ * @interface IdentitiesBetaApiCheckIdentityExistsRequest
+ */
+export interface IdentitiesBetaApiCheckIdentityExistsRequest {
+    /**
+     * Identity Id
+     * @type {string}
+     * @memberof IdentitiesBetaApiCheckIdentityExists
+     */
+    readonly identityId: string
+}
+
+/**
+ * Request parameters for deleteIdentity operation in IdentitiesBetaApi.
+ * @export
+ * @interface IdentitiesBetaApiDeleteIdentityRequest
+ */
+export interface IdentitiesBetaApiDeleteIdentityRequest {
+    /**
+     * Identity Id
+     * @type {string}
+     * @memberof IdentitiesBetaApiDeleteIdentity
+     */
+    readonly identityId: string
+}
+
+/**
+ * Request parameters for getIdentity operation in IdentitiesBetaApi.
+ * @export
+ * @interface IdentitiesBetaApiGetIdentityRequest
+ */
+export interface IdentitiesBetaApiGetIdentityRequest {
+    /**
+     * Identity Id
+     * @type {string}
+     * @memberof IdentitiesBetaApiGetIdentity
+     */
+    readonly identityId: string
+}
+
+/**
+ * Request parameters for listIdentities operation in IdentitiesBetaApi.
+ * @export
+ * @interface IdentitiesBetaApiListIdentitiesRequest
+ */
+export interface IdentitiesBetaApiListIdentitiesRequest {
+    /**
+     * Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters)  Filtering is supported for the following fields and operators:  **id**: *eq, in*  **name**: *eq, sw*  **alias**: *eq, sw*  **firstname**: *eq, sw*  **lastname**: *eq, sw*  **email**: *eq, sw*  **cloudStatus**: *eq*  **processingState**: *eq*  **correlated**: *eq*  **protected**: *eq*
+     * @type {string}
+     * @memberof IdentitiesBetaApiListIdentities
+     */
+    readonly filters?: string
+
+    /**
+     * Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters/#sorting-results)  Sorting is supported for the following fields: **name, alias, cloudStatus**
+     * @type {string}
+     * @memberof IdentitiesBetaApiListIdentities
+     */
+    readonly sorters?: string
+
+    /**
+     * Adds additional filter to filters query parameter.  CORRELATED_ONLY adds correlated&#x3D;true and returns only identities that are correlated.  NONE does not add any and returns all identities that satisfy filters query parameter.
+     * @type {'CORRELATED_ONLY' | 'NONE'}
+     * @memberof IdentitiesBetaApiListIdentities
+     */
+    readonly defaultFilter?: 'CORRELATED_ONLY' | 'NONE'
+
+    /**
+     * If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+     * @type {boolean}
+     * @memberof IdentitiesBetaApiListIdentities
+     */
+    readonly count?: boolean
+
+    /**
+     * Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+     * @type {number}
+     * @memberof IdentitiesBetaApiListIdentities
+     */
+    readonly limit?: number
+
+    /**
+     * Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+     * @type {number}
+     * @memberof IdentitiesBetaApiListIdentities
+     */
+    readonly offset?: number
+}
 
 /**
  * Request parameters for synchronizeAttributesForIdentity operation in IdentitiesBetaApi.
@@ -37174,6 +37750,54 @@ export interface IdentitiesBetaApiSynchronizeAttributesForIdentityRequest {
  * @extends {BaseAPI}
  */
 export class IdentitiesBetaApi extends BaseAPI {
+    /**
+     * This API returns successful response if the requested identity exists and not found error if it doesn`t.
+     * @summary Check if identity exists
+     * @param {IdentitiesBetaApiCheckIdentityExistsRequest} requestParameters Request parameters.
+     * @param {*} [axiosOptions] Override http request option.
+     * @throws {RequiredError}
+     * @memberof IdentitiesBetaApi
+     */
+    public checkIdentityExists(requestParameters: IdentitiesBetaApiCheckIdentityExistsRequest, axiosOptions?: AxiosRequestConfig) {
+        return IdentitiesBetaApiFp(this.configuration).checkIdentityExists(requestParameters.identityId, axiosOptions).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * The API returns successful response if the requested identity was deleted.
+     * @summary Deletes an identity.
+     * @param {IdentitiesBetaApiDeleteIdentityRequest} requestParameters Request parameters.
+     * @param {*} [axiosOptions] Override http request option.
+     * @throws {RequiredError}
+     * @memberof IdentitiesBetaApi
+     */
+    public deleteIdentity(requestParameters: IdentitiesBetaApiDeleteIdentityRequest, axiosOptions?: AxiosRequestConfig) {
+        return IdentitiesBetaApiFp(this.configuration).deleteIdentity(requestParameters.identityId, axiosOptions).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * This API returns a single identity using the Identity ID.
+     * @summary Identity Details
+     * @param {IdentitiesBetaApiGetIdentityRequest} requestParameters Request parameters.
+     * @param {*} [axiosOptions] Override http request option.
+     * @throws {RequiredError}
+     * @memberof IdentitiesBetaApi
+     */
+    public getIdentity(requestParameters: IdentitiesBetaApiGetIdentityRequest, axiosOptions?: AxiosRequestConfig) {
+        return IdentitiesBetaApiFp(this.configuration).getIdentity(requestParameters.identityId, axiosOptions).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * This API returns a list of identities.
+     * @summary List Identities
+     * @param {IdentitiesBetaApiListIdentitiesRequest} requestParameters Request parameters.
+     * @param {*} [axiosOptions] Override http request option.
+     * @throws {RequiredError}
+     * @memberof IdentitiesBetaApi
+     */
+    public listIdentities(requestParameters: IdentitiesBetaApiListIdentitiesRequest = {}, axiosOptions?: AxiosRequestConfig) {
+        return IdentitiesBetaApiFp(this.configuration).listIdentities(requestParameters.filters, requestParameters.sorters, requestParameters.defaultFilter, requestParameters.count, requestParameters.limit, requestParameters.offset, axiosOptions).then((request) => request(this.axios, this.basePath));
+    }
+
     /**
      * This end-point performs attribute synchronization for a selected identity. The endpoint can be called once in 10 seconds per identity. A token with ORG_ADMIN or API authority is required to call this API.
      * @summary Attribute synchronization for single identity.
@@ -39885,6 +40509,148 @@ export class IdentityProfilesBetaApi extends BaseAPI {
      */
     public updateIdentityProfile(requestParameters: IdentityProfilesBetaApiUpdateIdentityProfileRequest, axiosOptions?: AxiosRequestConfig) {
         return IdentityProfilesBetaApiFp(this.configuration).updateIdentityProfile(requestParameters.identityProfileId, requestParameters.jsonPatchOperationBeta, axiosOptions).then((request) => request(this.axios, this.basePath));
+    }
+}
+
+
+/**
+ * InternalUseOnlyBetaApi - axios parameter creator
+ * @export
+ */
+export const InternalUseOnlyBetaApiAxiosParamCreator = function (configuration?: Configuration) {
+    return {
+        /**
+         * Allows updating individual fields on an Identity using the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard. This endpoint is internal only and not intended to be moved to V3. When HEAD and DELETE endpoints are moved to V3 we will need to separate this entity and keep PATCH in beta only.
+         * @summary Update an Identity
+         * @param {string} identityId The ID of the identity being modified.
+         * @param {Array<object>} requestBody A list of identity update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard. The following fields are patchable: * internalCloudStatus
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        patchIdentity: async (identityId: string, requestBody: Array<object>, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'identityId' is not null or undefined
+            assertParamExists('patchIdentity', 'identityId', identityId)
+            // verify required parameter 'requestBody' is not null or undefined
+            assertParamExists('patchIdentity', 'requestBody', requestBody)
+            const localVarPath = `/identities/{id}`
+                .replace(`{${"identityId"}}`, encodeURIComponent(String(identityId)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'PATCH', ...baseOptions, ...axiosOptions};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication oauth2 required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "oauth2", [], configuration)
+
+            // authentication oauth2 required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "oauth2", [], configuration)
+
+
+    
+            localVarHeaderParameter['Content-Type'] = 'application/json-patch+json';
+
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
+            localVarRequestOptions.data = serializeDataIfNeeded(requestBody, localVarRequestOptions, configuration)
+
+            return {
+                url: toPathString(localVarUrlObj),
+                axiosOptions: localVarRequestOptions,
+            };
+        },
+    }
+};
+
+/**
+ * InternalUseOnlyBetaApi - functional programming interface
+ * @export
+ */
+export const InternalUseOnlyBetaApiFp = function(configuration?: Configuration) {
+    const localVarAxiosParamCreator = InternalUseOnlyBetaApiAxiosParamCreator(configuration)
+    return {
+        /**
+         * Allows updating individual fields on an Identity using the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard. This endpoint is internal only and not intended to be moved to V3. When HEAD and DELETE endpoints are moved to V3 we will need to separate this entity and keep PATCH in beta only.
+         * @summary Update an Identity
+         * @param {string} identityId The ID of the identity being modified.
+         * @param {Array<object>} requestBody A list of identity update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard. The following fields are patchable: * internalCloudStatus
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        async patchIdentity(identityId: string, requestBody: Array<object>, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InternalIdentityDtoBeta>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.patchIdentity(identityId, requestBody, axiosOptions);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+    }
+};
+
+/**
+ * InternalUseOnlyBetaApi - factory interface
+ * @export
+ */
+export const InternalUseOnlyBetaApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
+    const localVarFp = InternalUseOnlyBetaApiFp(configuration)
+    return {
+        /**
+         * Allows updating individual fields on an Identity using the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard. This endpoint is internal only and not intended to be moved to V3. When HEAD and DELETE endpoints are moved to V3 we will need to separate this entity and keep PATCH in beta only.
+         * @summary Update an Identity
+         * @param {string} identityId The ID of the identity being modified.
+         * @param {Array<object>} requestBody A list of identity update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard. The following fields are patchable: * internalCloudStatus
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        patchIdentity(identityId: string, requestBody: Array<object>, axiosOptions?: any): AxiosPromise<InternalIdentityDtoBeta> {
+            return localVarFp.patchIdentity(identityId, requestBody, axiosOptions).then((request) => request(axios, basePath));
+        },
+    };
+};
+
+/**
+ * Request parameters for patchIdentity operation in InternalUseOnlyBetaApi.
+ * @export
+ * @interface InternalUseOnlyBetaApiPatchIdentityRequest
+ */
+export interface InternalUseOnlyBetaApiPatchIdentityRequest {
+    /**
+     * The ID of the identity being modified.
+     * @type {string}
+     * @memberof InternalUseOnlyBetaApiPatchIdentity
+     */
+    readonly identityId: string
+
+    /**
+     * A list of identity update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard. The following fields are patchable: * internalCloudStatus
+     * @type {Array<object>}
+     * @memberof InternalUseOnlyBetaApiPatchIdentity
+     */
+    readonly requestBody: Array<object>
+}
+
+/**
+ * InternalUseOnlyBetaApi - object-oriented interface
+ * @export
+ * @class InternalUseOnlyBetaApi
+ * @extends {BaseAPI}
+ */
+export class InternalUseOnlyBetaApi extends BaseAPI {
+    /**
+     * Allows updating individual fields on an Identity using the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard. This endpoint is internal only and not intended to be moved to V3. When HEAD and DELETE endpoints are moved to V3 we will need to separate this entity and keep PATCH in beta only.
+     * @summary Update an Identity
+     * @param {InternalUseOnlyBetaApiPatchIdentityRequest} requestParameters Request parameters.
+     * @param {*} [axiosOptions] Override http request option.
+     * @throws {RequiredError}
+     * @memberof InternalUseOnlyBetaApi
+     */
+    public patchIdentity(requestParameters: InternalUseOnlyBetaApiPatchIdentityRequest, axiosOptions?: AxiosRequestConfig) {
+        return InternalUseOnlyBetaApiFp(this.configuration).patchIdentity(requestParameters.identityId, requestParameters.requestBody, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 }
 
