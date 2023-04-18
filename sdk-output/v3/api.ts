@@ -9994,6 +9994,37 @@ export interface PasswordInfoQueryDTO {
 /**
  * 
  * @export
+ * @interface PasswordOrgConfig
+ */
+export interface PasswordOrgConfig {
+    /**
+     * Indicator whether custom password instructions feature is enabled. The default value is false.
+     * @type {boolean}
+     * @memberof PasswordOrgConfig
+     */
+    'customInstructionsEnabled'?: boolean;
+    /**
+     * Indicator whether \"digit token\" feature is enabled. The default value is false.
+     * @type {boolean}
+     * @memberof PasswordOrgConfig
+     */
+    'digitTokenEnabled'?: boolean;
+    /**
+     * The duration of \"digit token\" in minutes. The default value is 5.
+     * @type {number}
+     * @memberof PasswordOrgConfig
+     */
+    'digitTokenDurationMinutes'?: number;
+    /**
+     * The length of \"digit token\". The default value is 6.
+     * @type {number}
+     * @memberof PasswordOrgConfig
+     */
+    'digitTokenLength'?: number;
+}
+/**
+ * 
+ * @export
  * @interface PasswordStatus
  */
 export interface PasswordStatus {
@@ -25228,6 +25259,294 @@ export class OAuthClientsApi extends BaseAPI {
      */
     public patchOauthClient(requestParameters: OAuthClientsApiPatchOauthClientRequest, axiosOptions?: AxiosRequestConfig) {
         return OAuthClientsApiFp(this.configuration).patchOauthClient(requestParameters.id, requestParameters.jsonPatchOperation, axiosOptions).then((request) => request(this.axios, this.basePath));
+    }
+}
+
+
+/**
+ * PasswordConfigurationApi - axios parameter creator
+ * @export
+ */
+export const PasswordConfigurationApiAxiosParamCreator = function (configuration?: Configuration) {
+    return {
+        /**
+         * This API creates the password org config. Unspecified fields will use default value. Requires ORG_ADMIN, API role or authorization scope of \'idn:password-org-config:write\'
+         * @summary Create Password Org Config
+         * @param {PasswordOrgConfig} passwordOrgConfig 
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        createPasswordOrgConfig: async (passwordOrgConfig: PasswordOrgConfig, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'passwordOrgConfig' is not null or undefined
+            assertParamExists('createPasswordOrgConfig', 'passwordOrgConfig', passwordOrgConfig)
+            const localVarPath = `/password-org-config`;
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'POST', ...baseOptions, ...axiosOptions};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication oauth2 required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "oauth2", [], configuration)
+
+            // authentication oauth2 required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "oauth2", [], configuration)
+
+
+    
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
+            localVarRequestOptions.data = serializeDataIfNeeded(passwordOrgConfig, localVarRequestOptions, configuration)
+
+            return {
+                url: toPathString(localVarUrlObj),
+                axiosOptions: localVarRequestOptions,
+            };
+        },
+        /**
+         * This API returns the password org config . Requires ORG_ADMIN, API role or authorization scope of \'idn:password-org-config:read\'
+         * @summary Get Password Org Config
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        getPasswordOrgConfig: async (axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            const localVarPath = `/password-org-config`;
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...axiosOptions};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication oauth2 required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "oauth2", [], configuration)
+
+            // authentication oauth2 required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "oauth2", [], configuration)
+
+
+    
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                axiosOptions: localVarRequestOptions,
+            };
+        },
+        /**
+         * This API updates the password org config for specified fields. Other fields will keep original value. Requires ORG_ADMIN, API role or authorization scope of \'idn:password-org-config:write\'
+         * @summary Update Password Org Config
+         * @param {PasswordOrgConfig} passwordOrgConfig 
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        updatePasswordOrgConfig: async (passwordOrgConfig: PasswordOrgConfig, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'passwordOrgConfig' is not null or undefined
+            assertParamExists('updatePasswordOrgConfig', 'passwordOrgConfig', passwordOrgConfig)
+            const localVarPath = `/password-org-config`;
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'PUT', ...baseOptions, ...axiosOptions};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication oauth2 required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "oauth2", [], configuration)
+
+            // authentication oauth2 required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "oauth2", [], configuration)
+
+
+    
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
+            localVarRequestOptions.data = serializeDataIfNeeded(passwordOrgConfig, localVarRequestOptions, configuration)
+
+            return {
+                url: toPathString(localVarUrlObj),
+                axiosOptions: localVarRequestOptions,
+            };
+        },
+    }
+};
+
+/**
+ * PasswordConfigurationApi - functional programming interface
+ * @export
+ */
+export const PasswordConfigurationApiFp = function(configuration?: Configuration) {
+    const localVarAxiosParamCreator = PasswordConfigurationApiAxiosParamCreator(configuration)
+    return {
+        /**
+         * This API creates the password org config. Unspecified fields will use default value. Requires ORG_ADMIN, API role or authorization scope of \'idn:password-org-config:write\'
+         * @summary Create Password Org Config
+         * @param {PasswordOrgConfig} passwordOrgConfig 
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        async createPasswordOrgConfig(passwordOrgConfig: PasswordOrgConfig, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<PasswordOrgConfig>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.createPasswordOrgConfig(passwordOrgConfig, axiosOptions);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * This API returns the password org config . Requires ORG_ADMIN, API role or authorization scope of \'idn:password-org-config:read\'
+         * @summary Get Password Org Config
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        async getPasswordOrgConfig(axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<PasswordOrgConfig>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getPasswordOrgConfig(axiosOptions);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * This API updates the password org config for specified fields. Other fields will keep original value. Requires ORG_ADMIN, API role or authorization scope of \'idn:password-org-config:write\'
+         * @summary Update Password Org Config
+         * @param {PasswordOrgConfig} passwordOrgConfig 
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        async updatePasswordOrgConfig(passwordOrgConfig: PasswordOrgConfig, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<PasswordOrgConfig>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.updatePasswordOrgConfig(passwordOrgConfig, axiosOptions);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+    }
+};
+
+/**
+ * PasswordConfigurationApi - factory interface
+ * @export
+ */
+export const PasswordConfigurationApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
+    const localVarFp = PasswordConfigurationApiFp(configuration)
+    return {
+        /**
+         * This API creates the password org config. Unspecified fields will use default value. Requires ORG_ADMIN, API role or authorization scope of \'idn:password-org-config:write\'
+         * @summary Create Password Org Config
+         * @param {PasswordOrgConfig} passwordOrgConfig 
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        createPasswordOrgConfig(passwordOrgConfig: PasswordOrgConfig, axiosOptions?: any): AxiosPromise<PasswordOrgConfig> {
+            return localVarFp.createPasswordOrgConfig(passwordOrgConfig, axiosOptions).then((request) => request(axios, basePath));
+        },
+        /**
+         * This API returns the password org config . Requires ORG_ADMIN, API role or authorization scope of \'idn:password-org-config:read\'
+         * @summary Get Password Org Config
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        getPasswordOrgConfig(axiosOptions?: any): AxiosPromise<PasswordOrgConfig> {
+            return localVarFp.getPasswordOrgConfig(axiosOptions).then((request) => request(axios, basePath));
+        },
+        /**
+         * This API updates the password org config for specified fields. Other fields will keep original value. Requires ORG_ADMIN, API role or authorization scope of \'idn:password-org-config:write\'
+         * @summary Update Password Org Config
+         * @param {PasswordOrgConfig} passwordOrgConfig 
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        updatePasswordOrgConfig(passwordOrgConfig: PasswordOrgConfig, axiosOptions?: any): AxiosPromise<PasswordOrgConfig> {
+            return localVarFp.updatePasswordOrgConfig(passwordOrgConfig, axiosOptions).then((request) => request(axios, basePath));
+        },
+    };
+};
+
+/**
+ * Request parameters for createPasswordOrgConfig operation in PasswordConfigurationApi.
+ * @export
+ * @interface PasswordConfigurationApiCreatePasswordOrgConfigRequest
+ */
+export interface PasswordConfigurationApiCreatePasswordOrgConfigRequest {
+    /**
+     * 
+     * @type {PasswordOrgConfig}
+     * @memberof PasswordConfigurationApiCreatePasswordOrgConfig
+     */
+    readonly passwordOrgConfig: PasswordOrgConfig
+}
+
+/**
+ * Request parameters for updatePasswordOrgConfig operation in PasswordConfigurationApi.
+ * @export
+ * @interface PasswordConfigurationApiUpdatePasswordOrgConfigRequest
+ */
+export interface PasswordConfigurationApiUpdatePasswordOrgConfigRequest {
+    /**
+     * 
+     * @type {PasswordOrgConfig}
+     * @memberof PasswordConfigurationApiUpdatePasswordOrgConfig
+     */
+    readonly passwordOrgConfig: PasswordOrgConfig
+}
+
+/**
+ * PasswordConfigurationApi - object-oriented interface
+ * @export
+ * @class PasswordConfigurationApi
+ * @extends {BaseAPI}
+ */
+export class PasswordConfigurationApi extends BaseAPI {
+    /**
+     * This API creates the password org config. Unspecified fields will use default value. Requires ORG_ADMIN, API role or authorization scope of \'idn:password-org-config:write\'
+     * @summary Create Password Org Config
+     * @param {PasswordConfigurationApiCreatePasswordOrgConfigRequest} requestParameters Request parameters.
+     * @param {*} [axiosOptions] Override http request option.
+     * @throws {RequiredError}
+     * @memberof PasswordConfigurationApi
+     */
+    public createPasswordOrgConfig(requestParameters: PasswordConfigurationApiCreatePasswordOrgConfigRequest, axiosOptions?: AxiosRequestConfig) {
+        return PasswordConfigurationApiFp(this.configuration).createPasswordOrgConfig(requestParameters.passwordOrgConfig, axiosOptions).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * This API returns the password org config . Requires ORG_ADMIN, API role or authorization scope of \'idn:password-org-config:read\'
+     * @summary Get Password Org Config
+     * @param {*} [axiosOptions] Override http request option.
+     * @throws {RequiredError}
+     * @memberof PasswordConfigurationApi
+     */
+    public getPasswordOrgConfig(axiosOptions?: AxiosRequestConfig) {
+        return PasswordConfigurationApiFp(this.configuration).getPasswordOrgConfig(axiosOptions).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * This API updates the password org config for specified fields. Other fields will keep original value. Requires ORG_ADMIN, API role or authorization scope of \'idn:password-org-config:write\'
+     * @summary Update Password Org Config
+     * @param {PasswordConfigurationApiUpdatePasswordOrgConfigRequest} requestParameters Request parameters.
+     * @param {*} [axiosOptions] Override http request option.
+     * @throws {RequiredError}
+     * @memberof PasswordConfigurationApi
+     */
+    public updatePasswordOrgConfig(requestParameters: PasswordConfigurationApiUpdatePasswordOrgConfigRequest, axiosOptions?: AxiosRequestConfig) {
+        return PasswordConfigurationApiFp(this.configuration).updatePasswordOrgConfig(requestParameters.passwordOrgConfig, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 }
 
