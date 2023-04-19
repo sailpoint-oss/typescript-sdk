@@ -8156,7 +8156,7 @@ export interface IdentityListItemBeta {
      * @type {string}
      * @memberof IdentityListItemBeta
      */
-    'deletedDate'?: string;
+    'deletedDate'?: string | null;
 }
 /**
  * 
@@ -8888,25 +8888,6 @@ export interface ImportSpConfigRequestBeta {
      * @memberof ImportSpConfigRequestBeta
      */
     'options'?: ImportOptionsBeta;
-}
-/**
- * 
- * @export
- * @interface InternalIdentityDtoBeta
- */
-export interface InternalIdentityDtoBeta {
-    /**
-     * The identity ID
-     * @type {string}
-     * @memberof InternalIdentityDtoBeta
-     */
-    'id': string;
-    /**
-     * Internal cloud status of identity.
-     * @type {string}
-     * @memberof InternalIdentityDtoBeta
-     */
-    'internalCloudStatus': string;
 }
 /**
  * 
@@ -37265,48 +37246,6 @@ export class IAIRoleMiningBetaApi extends BaseAPI {
 export const IdentitiesBetaApiAxiosParamCreator = function (configuration?: Configuration) {
     return {
         /**
-         * This API returns successful response if the requested identity exists and not found error if it doesn`t.
-         * @summary Check if identity exists
-         * @param {string} identityId Identity Id
-         * @param {*} [axiosOptions] Override http request option.
-         * @throws {RequiredError}
-         */
-        checkIdentityExists: async (identityId: string, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
-            // verify required parameter 'identityId' is not null or undefined
-            assertParamExists('checkIdentityExists', 'identityId', identityId)
-            const localVarPath = `/identities/{id}`
-                .replace(`{${"identityId"}}`, encodeURIComponent(String(identityId)));
-            // use dummy base URL string because the URL constructor only accepts absolute URLs.
-            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
-            let baseOptions;
-            if (configuration) {
-                baseOptions = configuration.baseOptions;
-            }
-
-            const localVarRequestOptions = { method: 'HEAD', ...baseOptions, ...axiosOptions};
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-
-            // authentication oauth2 required
-            // oauth required
-            await setOAuthToObject(localVarHeaderParameter, "oauth2", [], configuration)
-
-            // authentication oauth2 required
-            // oauth required
-            await setOAuthToObject(localVarHeaderParameter, "oauth2", [], configuration)
-
-
-    
-            setSearchParams(localVarUrlObj, localVarQueryParameter);
-            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
-            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
-
-            return {
-                url: toPathString(localVarUrlObj),
-                axiosOptions: localVarRequestOptions,
-            };
-        },
-        /**
          * The API returns successful response if the requested identity was deleted.
          * @summary Deletes an identity.
          * @param {string} identityId Identity Id
@@ -37511,17 +37450,6 @@ export const IdentitiesBetaApiFp = function(configuration?: Configuration) {
     const localVarAxiosParamCreator = IdentitiesBetaApiAxiosParamCreator(configuration)
     return {
         /**
-         * This API returns successful response if the requested identity exists and not found error if it doesn`t.
-         * @summary Check if identity exists
-         * @param {string} identityId Identity Id
-         * @param {*} [axiosOptions] Override http request option.
-         * @throws {RequiredError}
-         */
-        async checkIdentityExists(identityId: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.checkIdentityExists(identityId, axiosOptions);
-            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
-        },
-        /**
          * The API returns successful response if the requested identity was deleted.
          * @summary Deletes an identity.
          * @param {string} identityId Identity Id
@@ -37581,16 +37509,6 @@ export const IdentitiesBetaApiFactory = function (configuration?: Configuration,
     const localVarFp = IdentitiesBetaApiFp(configuration)
     return {
         /**
-         * This API returns successful response if the requested identity exists and not found error if it doesn`t.
-         * @summary Check if identity exists
-         * @param {string} identityId Identity Id
-         * @param {*} [axiosOptions] Override http request option.
-         * @throws {RequiredError}
-         */
-        checkIdentityExists(identityId: string, axiosOptions?: any): AxiosPromise<void> {
-            return localVarFp.checkIdentityExists(identityId, axiosOptions).then((request) => request(axios, basePath));
-        },
-        /**
          * The API returns successful response if the requested identity was deleted.
          * @summary Deletes an identity.
          * @param {string} identityId Identity Id
@@ -37637,20 +37555,6 @@ export const IdentitiesBetaApiFactory = function (configuration?: Configuration,
         },
     };
 };
-
-/**
- * Request parameters for checkIdentityExists operation in IdentitiesBetaApi.
- * @export
- * @interface IdentitiesBetaApiCheckIdentityExistsRequest
- */
-export interface IdentitiesBetaApiCheckIdentityExistsRequest {
-    /**
-     * Identity Id
-     * @type {string}
-     * @memberof IdentitiesBetaApiCheckIdentityExists
-     */
-    readonly identityId: string
-}
 
 /**
  * Request parameters for deleteIdentity operation in IdentitiesBetaApi.
@@ -37750,18 +37654,6 @@ export interface IdentitiesBetaApiSynchronizeAttributesForIdentityRequest {
  * @extends {BaseAPI}
  */
 export class IdentitiesBetaApi extends BaseAPI {
-    /**
-     * This API returns successful response if the requested identity exists and not found error if it doesn`t.
-     * @summary Check if identity exists
-     * @param {IdentitiesBetaApiCheckIdentityExistsRequest} requestParameters Request parameters.
-     * @param {*} [axiosOptions] Override http request option.
-     * @throws {RequiredError}
-     * @memberof IdentitiesBetaApi
-     */
-    public checkIdentityExists(requestParameters: IdentitiesBetaApiCheckIdentityExistsRequest, axiosOptions?: AxiosRequestConfig) {
-        return IdentitiesBetaApiFp(this.configuration).checkIdentityExists(requestParameters.identityId, axiosOptions).then((request) => request(this.axios, this.basePath));
-    }
-
     /**
      * The API returns successful response if the requested identity was deleted.
      * @summary Deletes an identity.
@@ -37967,6 +37859,48 @@ export const IdentityHistoryBetaApiAxiosParamCreator = function (configuration?:
             };
         },
         /**
+         * This method retrieves a specified identity Requires authorization scope of \'idn:identity-history:read\'
+         * @summary Get latest snapshot of identity
+         * @param {string} id The identity id
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        getHistoricalIdentity: async (id: string, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'id' is not null or undefined
+            assertParamExists('getHistoricalIdentity', 'id', id)
+            const localVarPath = `/historical-identities/{id}`
+                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...axiosOptions};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication oauth2 required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "oauth2", [], configuration)
+
+            // authentication oauth2 required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "oauth2", [], configuration)
+
+
+    
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                axiosOptions: localVarRequestOptions,
+            };
+        },
+        /**
          * This method retrieves all access events for the identity Requires authorization scope of \'idn:identity-history:read\' 
          * @summary Lists all events for the given identity
          * @param {string} id The identity id
@@ -38026,48 +37960,6 @@ export const IdentityHistoryBetaApiAxiosParamCreator = function (configuration?:
             if (count !== undefined) {
                 localVarQueryParameter['count'] = count;
             }
-
-
-    
-            setSearchParams(localVarUrlObj, localVarQueryParameter);
-            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
-            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
-
-            return {
-                url: toPathString(localVarUrlObj),
-                axiosOptions: localVarRequestOptions,
-            };
-        },
-        /**
-         * This method retrieves a specified identity Requires authorization scope of \'idn:identity-history:read\' 
-         * @summary Gets the most recent snapshot of a specific identity
-         * @param {string} id The identity id
-         * @param {*} [axiosOptions] Override http request option.
-         * @throws {RequiredError}
-         */
-        getIdentity: async (id: string, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
-            // verify required parameter 'id' is not null or undefined
-            assertParamExists('getIdentity', 'id', id)
-            const localVarPath = `/historical-identities/{id}`
-                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
-            // use dummy base URL string because the URL constructor only accepts absolute URLs.
-            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
-            let baseOptions;
-            if (configuration) {
-                baseOptions = configuration.baseOptions;
-            }
-
-            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...axiosOptions};
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-
-            // authentication oauth2 required
-            // oauth required
-            await setOAuthToObject(localVarHeaderParameter, "oauth2", [], configuration)
-
-            // authentication oauth2 required
-            // oauth required
-            await setOAuthToObject(localVarHeaderParameter, "oauth2", [], configuration)
 
 
     
@@ -38241,7 +38133,7 @@ export const IdentityHistoryBetaApiAxiosParamCreator = function (configuration?:
             };
         },
         /**
-         * This gets the list of identities for the customer. This list end point does not support count=true request param. The total  count of identities would never be returned even if the count param is specified in the request Requires authorization scope of \'idn:identity-history:read\' 
+         * This gets the list of identities for the customer. This list end point does not support count=true request param. The total  count of identities would never be returned even if the count param is specified in the request Requires authorization scope of \'idn:identity-history:read\'
          * @summary Lists all the identities
          * @param {string} [startsWithQuery] This param is used for starts-with search for first, last and display name of the identity
          * @param {boolean} [isDeleted] Indicates if we want to only list down deleted identities or not.
@@ -38251,7 +38143,7 @@ export const IdentityHistoryBetaApiAxiosParamCreator = function (configuration?:
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        listIdentities: async (startsWithQuery?: string, isDeleted?: boolean, isActive?: boolean, limit?: number, offset?: number, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        listHistoricalIdentities: async (startsWithQuery?: string, isDeleted?: boolean, isActive?: boolean, limit?: number, offset?: number, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             const localVarPath = `/historical-identities`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -38514,6 +38406,17 @@ export const IdentityHistoryBetaApiFp = function(configuration?: Configuration) 
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
+         * This method retrieves a specified identity Requires authorization scope of \'idn:identity-history:read\'
+         * @summary Get latest snapshot of identity
+         * @param {string} id The identity id
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        async getHistoricalIdentity(id: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<IdentityHistoryResponseBeta>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getHistoricalIdentity(id, axiosOptions);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
          * This method retrieves all access events for the identity Requires authorization scope of \'idn:identity-history:read\' 
          * @summary Lists all events for the given identity
          * @param {string} id The identity id
@@ -38528,17 +38431,6 @@ export const IdentityHistoryBetaApiFp = function(configuration?: Configuration) 
          */
         async getHistoricalIdentityEvents(id: string, from?: string, eventTypes?: Array<string>, accessItemTypes?: Array<string>, limit?: number, offset?: number, count?: boolean, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<GetHistoricalIdentityEvents200ResponseInnerBeta>>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getHistoricalIdentityEvents(id, from, eventTypes, accessItemTypes, limit, offset, count, axiosOptions);
-            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
-        },
-        /**
-         * This method retrieves a specified identity Requires authorization scope of \'idn:identity-history:read\' 
-         * @summary Gets the most recent snapshot of a specific identity
-         * @param {string} id The identity id
-         * @param {*} [axiosOptions] Override http request option.
-         * @throws {RequiredError}
-         */
-        async getIdentity(id: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<IdentityHistoryResponseBeta>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.getIdentity(id, axiosOptions);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
@@ -38582,7 +38474,7 @@ export const IdentityHistoryBetaApiFp = function(configuration?: Configuration) 
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
-         * This gets the list of identities for the customer. This list end point does not support count=true request param. The total  count of identities would never be returned even if the count param is specified in the request Requires authorization scope of \'idn:identity-history:read\' 
+         * This gets the list of identities for the customer. This list end point does not support count=true request param. The total  count of identities would never be returned even if the count param is specified in the request Requires authorization scope of \'idn:identity-history:read\'
          * @summary Lists all the identities
          * @param {string} [startsWithQuery] This param is used for starts-with search for first, last and display name of the identity
          * @param {boolean} [isDeleted] Indicates if we want to only list down deleted identities or not.
@@ -38592,8 +38484,8 @@ export const IdentityHistoryBetaApiFp = function(configuration?: Configuration) 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async listIdentities(startsWithQuery?: string, isDeleted?: boolean, isActive?: boolean, limit?: number, offset?: number, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<IdentityListItemBeta>>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.listIdentities(startsWithQuery, isDeleted, isActive, limit, offset, axiosOptions);
+        async listHistoricalIdentities(startsWithQuery?: string, isDeleted?: boolean, isActive?: boolean, limit?: number, offset?: number, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<IdentityListItemBeta>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.listHistoricalIdentities(startsWithQuery, isDeleted, isActive, limit, offset, axiosOptions);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
@@ -38681,6 +38573,16 @@ export const IdentityHistoryBetaApiFactory = function (configuration?: Configura
             return localVarFp.compareIdentitySnapshotsAccessType(id, accessType, accessAssociated, snapshot1, snapshot2, limit, offset, count, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
+         * This method retrieves a specified identity Requires authorization scope of \'idn:identity-history:read\'
+         * @summary Get latest snapshot of identity
+         * @param {string} id The identity id
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        getHistoricalIdentity(id: string, axiosOptions?: any): AxiosPromise<IdentityHistoryResponseBeta> {
+            return localVarFp.getHistoricalIdentity(id, axiosOptions).then((request) => request(axios, basePath));
+        },
+        /**
          * This method retrieves all access events for the identity Requires authorization scope of \'idn:identity-history:read\' 
          * @summary Lists all events for the given identity
          * @param {string} id The identity id
@@ -38695,16 +38597,6 @@ export const IdentityHistoryBetaApiFactory = function (configuration?: Configura
          */
         getHistoricalIdentityEvents(id: string, from?: string, eventTypes?: Array<string>, accessItemTypes?: Array<string>, limit?: number, offset?: number, count?: boolean, axiosOptions?: any): AxiosPromise<Array<GetHistoricalIdentityEvents200ResponseInnerBeta>> {
             return localVarFp.getHistoricalIdentityEvents(id, from, eventTypes, accessItemTypes, limit, offset, count, axiosOptions).then((request) => request(axios, basePath));
-        },
-        /**
-         * This method retrieves a specified identity Requires authorization scope of \'idn:identity-history:read\' 
-         * @summary Gets the most recent snapshot of a specific identity
-         * @param {string} id The identity id
-         * @param {*} [axiosOptions] Override http request option.
-         * @throws {RequiredError}
-         */
-        getIdentity(id: string, axiosOptions?: any): AxiosPromise<IdentityHistoryResponseBeta> {
-            return localVarFp.getIdentity(id, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * This method retrieves a specified identity snapshot at a given date Requires authorization scope of \'idn:identity-history:read\' 
@@ -38744,7 +38636,7 @@ export const IdentityHistoryBetaApiFactory = function (configuration?: Configura
             return localVarFp.getIdentityStartDate(id, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
-         * This gets the list of identities for the customer. This list end point does not support count=true request param. The total  count of identities would never be returned even if the count param is specified in the request Requires authorization scope of \'idn:identity-history:read\' 
+         * This gets the list of identities for the customer. This list end point does not support count=true request param. The total  count of identities would never be returned even if the count param is specified in the request Requires authorization scope of \'idn:identity-history:read\'
          * @summary Lists all the identities
          * @param {string} [startsWithQuery] This param is used for starts-with search for first, last and display name of the identity
          * @param {boolean} [isDeleted] Indicates if we want to only list down deleted identities or not.
@@ -38754,8 +38646,8 @@ export const IdentityHistoryBetaApiFactory = function (configuration?: Configura
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        listIdentities(startsWithQuery?: string, isDeleted?: boolean, isActive?: boolean, limit?: number, offset?: number, axiosOptions?: any): AxiosPromise<Array<IdentityListItemBeta>> {
-            return localVarFp.listIdentities(startsWithQuery, isDeleted, isActive, limit, offset, axiosOptions).then((request) => request(axios, basePath));
+        listHistoricalIdentities(startsWithQuery?: string, isDeleted?: boolean, isActive?: boolean, limit?: number, offset?: number, axiosOptions?: any): AxiosPromise<Array<IdentityListItemBeta>> {
+            return localVarFp.listHistoricalIdentities(startsWithQuery, isDeleted, isActive, limit, offset, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * This method retrieves a list of access item for the identity filtered by the access item type Requires authorization scope of \'idn:identity-history:read\' 
@@ -38918,6 +38810,20 @@ export interface IdentityHistoryBetaApiCompareIdentitySnapshotsAccessTypeRequest
 }
 
 /**
+ * Request parameters for getHistoricalIdentity operation in IdentityHistoryBetaApi.
+ * @export
+ * @interface IdentityHistoryBetaApiGetHistoricalIdentityRequest
+ */
+export interface IdentityHistoryBetaApiGetHistoricalIdentityRequest {
+    /**
+     * The identity id
+     * @type {string}
+     * @memberof IdentityHistoryBetaApiGetHistoricalIdentity
+     */
+    readonly id: string
+}
+
+/**
  * Request parameters for getHistoricalIdentityEvents operation in IdentityHistoryBetaApi.
  * @export
  * @interface IdentityHistoryBetaApiGetHistoricalIdentityEventsRequest
@@ -38971,20 +38877,6 @@ export interface IdentityHistoryBetaApiGetHistoricalIdentityEventsRequest {
      * @memberof IdentityHistoryBetaApiGetHistoricalIdentityEvents
      */
     readonly count?: boolean
-}
-
-/**
- * Request parameters for getIdentity operation in IdentityHistoryBetaApi.
- * @export
- * @interface IdentityHistoryBetaApiGetIdentityRequest
- */
-export interface IdentityHistoryBetaApiGetIdentityRequest {
-    /**
-     * The identity id
-     * @type {string}
-     * @memberof IdentityHistoryBetaApiGetIdentity
-     */
-    readonly id: string
 }
 
 /**
@@ -39079,43 +38971,43 @@ export interface IdentityHistoryBetaApiGetIdentityStartDateRequest {
 }
 
 /**
- * Request parameters for listIdentities operation in IdentityHistoryBetaApi.
+ * Request parameters for listHistoricalIdentities operation in IdentityHistoryBetaApi.
  * @export
- * @interface IdentityHistoryBetaApiListIdentitiesRequest
+ * @interface IdentityHistoryBetaApiListHistoricalIdentitiesRequest
  */
-export interface IdentityHistoryBetaApiListIdentitiesRequest {
+export interface IdentityHistoryBetaApiListHistoricalIdentitiesRequest {
     /**
      * This param is used for starts-with search for first, last and display name of the identity
      * @type {string}
-     * @memberof IdentityHistoryBetaApiListIdentities
+     * @memberof IdentityHistoryBetaApiListHistoricalIdentities
      */
     readonly startsWithQuery?: string
 
     /**
      * Indicates if we want to only list down deleted identities or not.
      * @type {boolean}
-     * @memberof IdentityHistoryBetaApiListIdentities
+     * @memberof IdentityHistoryBetaApiListHistoricalIdentities
      */
     readonly isDeleted?: boolean
 
     /**
      * Indicates if we want to only list active or inactive identities.
      * @type {boolean}
-     * @memberof IdentityHistoryBetaApiListIdentities
+     * @memberof IdentityHistoryBetaApiListHistoricalIdentities
      */
     readonly isActive?: boolean
 
     /**
      * Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
      * @type {number}
-     * @memberof IdentityHistoryBetaApiListIdentities
+     * @memberof IdentityHistoryBetaApiListHistoricalIdentities
      */
     readonly limit?: number
 
     /**
      * Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
      * @type {number}
-     * @memberof IdentityHistoryBetaApiListIdentities
+     * @memberof IdentityHistoryBetaApiListHistoricalIdentities
      */
     readonly offset?: number
 }
@@ -39250,6 +39142,18 @@ export class IdentityHistoryBetaApi extends BaseAPI {
     }
 
     /**
+     * This method retrieves a specified identity Requires authorization scope of \'idn:identity-history:read\'
+     * @summary Get latest snapshot of identity
+     * @param {IdentityHistoryBetaApiGetHistoricalIdentityRequest} requestParameters Request parameters.
+     * @param {*} [axiosOptions] Override http request option.
+     * @throws {RequiredError}
+     * @memberof IdentityHistoryBetaApi
+     */
+    public getHistoricalIdentity(requestParameters: IdentityHistoryBetaApiGetHistoricalIdentityRequest, axiosOptions?: AxiosRequestConfig) {
+        return IdentityHistoryBetaApiFp(this.configuration).getHistoricalIdentity(requestParameters.id, axiosOptions).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
      * This method retrieves all access events for the identity Requires authorization scope of \'idn:identity-history:read\' 
      * @summary Lists all events for the given identity
      * @param {IdentityHistoryBetaApiGetHistoricalIdentityEventsRequest} requestParameters Request parameters.
@@ -39259,18 +39163,6 @@ export class IdentityHistoryBetaApi extends BaseAPI {
      */
     public getHistoricalIdentityEvents(requestParameters: IdentityHistoryBetaApiGetHistoricalIdentityEventsRequest, axiosOptions?: AxiosRequestConfig) {
         return IdentityHistoryBetaApiFp(this.configuration).getHistoricalIdentityEvents(requestParameters.id, requestParameters.from, requestParameters.eventTypes, requestParameters.accessItemTypes, requestParameters.limit, requestParameters.offset, requestParameters.count, axiosOptions).then((request) => request(this.axios, this.basePath));
-    }
-
-    /**
-     * This method retrieves a specified identity Requires authorization scope of \'idn:identity-history:read\' 
-     * @summary Gets the most recent snapshot of a specific identity
-     * @param {IdentityHistoryBetaApiGetIdentityRequest} requestParameters Request parameters.
-     * @param {*} [axiosOptions] Override http request option.
-     * @throws {RequiredError}
-     * @memberof IdentityHistoryBetaApi
-     */
-    public getIdentity(requestParameters: IdentityHistoryBetaApiGetIdentityRequest, axiosOptions?: AxiosRequestConfig) {
-        return IdentityHistoryBetaApiFp(this.configuration).getIdentity(requestParameters.id, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -39310,15 +39202,15 @@ export class IdentityHistoryBetaApi extends BaseAPI {
     }
 
     /**
-     * This gets the list of identities for the customer. This list end point does not support count=true request param. The total  count of identities would never be returned even if the count param is specified in the request Requires authorization scope of \'idn:identity-history:read\' 
+     * This gets the list of identities for the customer. This list end point does not support count=true request param. The total  count of identities would never be returned even if the count param is specified in the request Requires authorization scope of \'idn:identity-history:read\'
      * @summary Lists all the identities
-     * @param {IdentityHistoryBetaApiListIdentitiesRequest} requestParameters Request parameters.
+     * @param {IdentityHistoryBetaApiListHistoricalIdentitiesRequest} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
      * @memberof IdentityHistoryBetaApi
      */
-    public listIdentities(requestParameters: IdentityHistoryBetaApiListIdentitiesRequest = {}, axiosOptions?: AxiosRequestConfig) {
-        return IdentityHistoryBetaApiFp(this.configuration).listIdentities(requestParameters.startsWithQuery, requestParameters.isDeleted, requestParameters.isActive, requestParameters.limit, requestParameters.offset, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public listHistoricalIdentities(requestParameters: IdentityHistoryBetaApiListHistoricalIdentitiesRequest = {}, axiosOptions?: AxiosRequestConfig) {
+        return IdentityHistoryBetaApiFp(this.configuration).listHistoricalIdentities(requestParameters.startsWithQuery, requestParameters.isDeleted, requestParameters.isActive, requestParameters.limit, requestParameters.offset, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -40509,148 +40401,6 @@ export class IdentityProfilesBetaApi extends BaseAPI {
      */
     public updateIdentityProfile(requestParameters: IdentityProfilesBetaApiUpdateIdentityProfileRequest, axiosOptions?: AxiosRequestConfig) {
         return IdentityProfilesBetaApiFp(this.configuration).updateIdentityProfile(requestParameters.identityProfileId, requestParameters.jsonPatchOperationBeta, axiosOptions).then((request) => request(this.axios, this.basePath));
-    }
-}
-
-
-/**
- * InternalUseOnlyBetaApi - axios parameter creator
- * @export
- */
-export const InternalUseOnlyBetaApiAxiosParamCreator = function (configuration?: Configuration) {
-    return {
-        /**
-         * Allows updating individual fields on an Identity using the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard. This endpoint is internal only and not intended to be moved to V3. When HEAD and DELETE endpoints are moved to V3 we will need to separate this entity and keep PATCH in beta only.
-         * @summary Update an Identity
-         * @param {string} identityId The ID of the identity being modified.
-         * @param {Array<object>} requestBody A list of identity update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard. The following fields are patchable: * internalCloudStatus
-         * @param {*} [axiosOptions] Override http request option.
-         * @throws {RequiredError}
-         */
-        patchIdentity: async (identityId: string, requestBody: Array<object>, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
-            // verify required parameter 'identityId' is not null or undefined
-            assertParamExists('patchIdentity', 'identityId', identityId)
-            // verify required parameter 'requestBody' is not null or undefined
-            assertParamExists('patchIdentity', 'requestBody', requestBody)
-            const localVarPath = `/identities/{id}`
-                .replace(`{${"identityId"}}`, encodeURIComponent(String(identityId)));
-            // use dummy base URL string because the URL constructor only accepts absolute URLs.
-            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
-            let baseOptions;
-            if (configuration) {
-                baseOptions = configuration.baseOptions;
-            }
-
-            const localVarRequestOptions = { method: 'PATCH', ...baseOptions, ...axiosOptions};
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-
-            // authentication oauth2 required
-            // oauth required
-            await setOAuthToObject(localVarHeaderParameter, "oauth2", [], configuration)
-
-            // authentication oauth2 required
-            // oauth required
-            await setOAuthToObject(localVarHeaderParameter, "oauth2", [], configuration)
-
-
-    
-            localVarHeaderParameter['Content-Type'] = 'application/json-patch+json';
-
-            setSearchParams(localVarUrlObj, localVarQueryParameter);
-            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
-            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(requestBody, localVarRequestOptions, configuration)
-
-            return {
-                url: toPathString(localVarUrlObj),
-                axiosOptions: localVarRequestOptions,
-            };
-        },
-    }
-};
-
-/**
- * InternalUseOnlyBetaApi - functional programming interface
- * @export
- */
-export const InternalUseOnlyBetaApiFp = function(configuration?: Configuration) {
-    const localVarAxiosParamCreator = InternalUseOnlyBetaApiAxiosParamCreator(configuration)
-    return {
-        /**
-         * Allows updating individual fields on an Identity using the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard. This endpoint is internal only and not intended to be moved to V3. When HEAD and DELETE endpoints are moved to V3 we will need to separate this entity and keep PATCH in beta only.
-         * @summary Update an Identity
-         * @param {string} identityId The ID of the identity being modified.
-         * @param {Array<object>} requestBody A list of identity update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard. The following fields are patchable: * internalCloudStatus
-         * @param {*} [axiosOptions] Override http request option.
-         * @throws {RequiredError}
-         */
-        async patchIdentity(identityId: string, requestBody: Array<object>, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<InternalIdentityDtoBeta>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.patchIdentity(identityId, requestBody, axiosOptions);
-            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
-        },
-    }
-};
-
-/**
- * InternalUseOnlyBetaApi - factory interface
- * @export
- */
-export const InternalUseOnlyBetaApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
-    const localVarFp = InternalUseOnlyBetaApiFp(configuration)
-    return {
-        /**
-         * Allows updating individual fields on an Identity using the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard. This endpoint is internal only and not intended to be moved to V3. When HEAD and DELETE endpoints are moved to V3 we will need to separate this entity and keep PATCH in beta only.
-         * @summary Update an Identity
-         * @param {string} identityId The ID of the identity being modified.
-         * @param {Array<object>} requestBody A list of identity update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard. The following fields are patchable: * internalCloudStatus
-         * @param {*} [axiosOptions] Override http request option.
-         * @throws {RequiredError}
-         */
-        patchIdentity(identityId: string, requestBody: Array<object>, axiosOptions?: any): AxiosPromise<InternalIdentityDtoBeta> {
-            return localVarFp.patchIdentity(identityId, requestBody, axiosOptions).then((request) => request(axios, basePath));
-        },
-    };
-};
-
-/**
- * Request parameters for patchIdentity operation in InternalUseOnlyBetaApi.
- * @export
- * @interface InternalUseOnlyBetaApiPatchIdentityRequest
- */
-export interface InternalUseOnlyBetaApiPatchIdentityRequest {
-    /**
-     * The ID of the identity being modified.
-     * @type {string}
-     * @memberof InternalUseOnlyBetaApiPatchIdentity
-     */
-    readonly identityId: string
-
-    /**
-     * A list of identity update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard. The following fields are patchable: * internalCloudStatus
-     * @type {Array<object>}
-     * @memberof InternalUseOnlyBetaApiPatchIdentity
-     */
-    readonly requestBody: Array<object>
-}
-
-/**
- * InternalUseOnlyBetaApi - object-oriented interface
- * @export
- * @class InternalUseOnlyBetaApi
- * @extends {BaseAPI}
- */
-export class InternalUseOnlyBetaApi extends BaseAPI {
-    /**
-     * Allows updating individual fields on an Identity using the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard. This endpoint is internal only and not intended to be moved to V3. When HEAD and DELETE endpoints are moved to V3 we will need to separate this entity and keep PATCH in beta only.
-     * @summary Update an Identity
-     * @param {InternalUseOnlyBetaApiPatchIdentityRequest} requestParameters Request parameters.
-     * @param {*} [axiosOptions] Override http request option.
-     * @throws {RequiredError}
-     * @memberof InternalUseOnlyBetaApi
-     */
-    public patchIdentity(requestParameters: InternalUseOnlyBetaApiPatchIdentityRequest, axiosOptions?: AxiosRequestConfig) {
-        return InternalUseOnlyBetaApiFp(this.configuration).patchIdentity(requestParameters.identityId, requestParameters.requestBody, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 }
 
