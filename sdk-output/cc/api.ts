@@ -209,12 +209,14 @@ export const AccountsCCApiAxiosParamCreator = function (configuration?: Configur
         /**
          * 
          * @summary Remove Account
-         * @param {string} [id] 
+         * @param {string} id 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        removeAccount: async (id?: string, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
-            const localVarPath = `/cc/api/account/remove/:id`
+        removeAccount: async (id: string, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'id' is not null or undefined
+            assertParamExists('removeAccount', 'id', id)
+            const localVarPath = `/cc/api/account/remove/{id}`
                 .replace(`{${"id"}}`, encodeURIComponent(String(id)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -269,11 +271,11 @@ export const AccountsCCApiFp = function(configuration?: Configuration) {
         /**
          * 
          * @summary Remove Account
-         * @param {string} [id] 
+         * @param {string} id 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async removeAccount(id?: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
+        async removeAccount(id: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.removeAccount(id, axiosOptions);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -299,11 +301,11 @@ export const AccountsCCApiFactory = function (configuration?: Configuration, bas
         /**
          * 
          * @summary Remove Account
-         * @param {string} [id] 
+         * @param {string} id 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        removeAccount(id?: string, axiosOptions?: any): AxiosPromise<void> {
+        removeAccount(id: string, axiosOptions?: any): AxiosPromise<void> {
             return localVarFp.removeAccount(id, axiosOptions).then((request) => request(axios, basePath));
         },
     };
@@ -320,7 +322,7 @@ export interface AccountsCCApiRemoveAccountRequest {
      * @type {string}
      * @memberof AccountsCCApiRemoveAccount
      */
-    readonly id?: string
+    readonly id: string
 }
 
 /**
@@ -349,7 +351,7 @@ export class AccountsCCApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof AccountsCCApi
      */
-    public removeAccount(requestParameters: AccountsCCApiRemoveAccountRequest = {}, axiosOptions?: AxiosRequestConfig) {
+    public removeAccount(requestParameters: AccountsCCApiRemoveAccountRequest, axiosOptions?: AxiosRequestConfig) {
         return AccountsCCApiFp(this.configuration).removeAccount(requestParameters.id, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 }
@@ -406,12 +408,14 @@ export const ApplicationsCCApiAxiosParamCreator = function (configuration?: Conf
         /**
          * 
          * @summary Delete Application
-         * @param {string} [id] 
+         * @param {string} id 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        deleteApplication: async (id?: string, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
-            const localVarPath = `/cc/api/app/delete/:id`
+        deleteApplication: async (id: string, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'id' is not null or undefined
+            assertParamExists('deleteApplication', 'id', id)
+            const localVarPath = `/cc/api/app/delete/{id}`
                 .replace(`{${"id"}}`, encodeURIComponent(String(id)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -446,12 +450,14 @@ export const ApplicationsCCApiAxiosParamCreator = function (configuration?: Conf
         /**
          * 
          * @summary Get Single Application
-         * @param {string} [id] 
+         * @param {string} id 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        getApplication: async (id?: string, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
-            const localVarPath = `/cc/api/app/get/:id`
+        getApplication: async (id: string, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'id' is not null or undefined
+            assertParamExists('getApplication', 'id', id)
+            const localVarPath = `/cc/api/app/get/{id}`
                 .replace(`{${"id"}}`, encodeURIComponent(String(id)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -486,12 +492,14 @@ export const ApplicationsCCApiAxiosParamCreator = function (configuration?: Conf
         /**
          * 
          * @summary Get Access Profiles for Application
-         * @param {string} [id] 
+         * @param {string} id 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        getApplicationAccessProfiles: async (id?: string, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
-            const localVarPath = `/cc/api/app/getAccessProfiles/:id`
+        getApplicationAccessProfiles: async (id: string, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'id' is not null or undefined
+            assertParamExists('getApplicationAccessProfiles', 'id', id)
+            const localVarPath = `/cc/api/app/getAccessProfiles/{id}`
                 .replace(`{${"id"}}`, encodeURIComponent(String(id)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -522,7 +530,7 @@ export const ApplicationsCCApiAxiosParamCreator = function (configuration?: Conf
          * @throws {RequiredError}
          */
         listApplications: async (axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
-            const localVarPath = `/cc/api/app`;
+            const localVarPath = `/cc/api/app/list`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -556,13 +564,15 @@ export const ApplicationsCCApiAxiosParamCreator = function (configuration?: Conf
         /**
          * 
          * @summary Update Application
-         * @param {string} [id] 
+         * @param {string} id 
          * @param {UpdateApplicationRequestCC} [updateApplicationRequestCC] 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        updateApplication: async (id?: string, updateApplicationRequestCC?: UpdateApplicationRequestCC, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
-            const localVarPath = `/cc/api/app/update/:id`
+        updateApplication: async (id: string, updateApplicationRequestCC?: UpdateApplicationRequestCC, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'id' is not null or undefined
+            assertParamExists('updateApplication', 'id', id)
+            const localVarPath = `/cc/api/app/update/{id}`
                 .replace(`{${"id"}}`, encodeURIComponent(String(id)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -621,33 +631,33 @@ export const ApplicationsCCApiFp = function(configuration?: Configuration) {
         /**
          * 
          * @summary Delete Application
-         * @param {string} [id] 
+         * @param {string} id 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async deleteApplication(id?: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
+        async deleteApplication(id: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.deleteApplication(id, axiosOptions);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
          * 
          * @summary Get Single Application
-         * @param {string} [id] 
+         * @param {string} id 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async getApplication(id?: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
+        async getApplication(id: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getApplication(id, axiosOptions);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
          * 
          * @summary Get Access Profiles for Application
-         * @param {string} [id] 
+         * @param {string} id 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async getApplicationAccessProfiles(id?: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
+        async getApplicationAccessProfiles(id: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getApplicationAccessProfiles(id, axiosOptions);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -664,12 +674,12 @@ export const ApplicationsCCApiFp = function(configuration?: Configuration) {
         /**
          * 
          * @summary Update Application
-         * @param {string} [id] 
+         * @param {string} id 
          * @param {UpdateApplicationRequestCC} [updateApplicationRequestCC] 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async updateApplication(id?: string, updateApplicationRequestCC?: UpdateApplicationRequestCC, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
+        async updateApplication(id: string, updateApplicationRequestCC?: UpdateApplicationRequestCC, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.updateApplication(id, updateApplicationRequestCC, axiosOptions);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -696,31 +706,31 @@ export const ApplicationsCCApiFactory = function (configuration?: Configuration,
         /**
          * 
          * @summary Delete Application
-         * @param {string} [id] 
+         * @param {string} id 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        deleteApplication(id?: string, axiosOptions?: any): AxiosPromise<void> {
+        deleteApplication(id: string, axiosOptions?: any): AxiosPromise<void> {
             return localVarFp.deleteApplication(id, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * 
          * @summary Get Single Application
-         * @param {string} [id] 
+         * @param {string} id 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        getApplication(id?: string, axiosOptions?: any): AxiosPromise<void> {
+        getApplication(id: string, axiosOptions?: any): AxiosPromise<void> {
             return localVarFp.getApplication(id, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * 
          * @summary Get Access Profiles for Application
-         * @param {string} [id] 
+         * @param {string} id 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        getApplicationAccessProfiles(id?: string, axiosOptions?: any): AxiosPromise<void> {
+        getApplicationAccessProfiles(id: string, axiosOptions?: any): AxiosPromise<void> {
             return localVarFp.getApplicationAccessProfiles(id, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
@@ -735,12 +745,12 @@ export const ApplicationsCCApiFactory = function (configuration?: Configuration,
         /**
          * 
          * @summary Update Application
-         * @param {string} [id] 
+         * @param {string} id 
          * @param {UpdateApplicationRequestCC} [updateApplicationRequestCC] 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        updateApplication(id?: string, updateApplicationRequestCC?: UpdateApplicationRequestCC, axiosOptions?: any): AxiosPromise<void> {
+        updateApplication(id: string, updateApplicationRequestCC?: UpdateApplicationRequestCC, axiosOptions?: any): AxiosPromise<void> {
             return localVarFp.updateApplication(id, updateApplicationRequestCC, axiosOptions).then((request) => request(axios, basePath));
         },
     };
@@ -771,7 +781,7 @@ export interface ApplicationsCCApiDeleteApplicationRequest {
      * @type {string}
      * @memberof ApplicationsCCApiDeleteApplication
      */
-    readonly id?: string
+    readonly id: string
 }
 
 /**
@@ -785,7 +795,7 @@ export interface ApplicationsCCApiGetApplicationRequest {
      * @type {string}
      * @memberof ApplicationsCCApiGetApplication
      */
-    readonly id?: string
+    readonly id: string
 }
 
 /**
@@ -799,7 +809,7 @@ export interface ApplicationsCCApiGetApplicationAccessProfilesRequest {
      * @type {string}
      * @memberof ApplicationsCCApiGetApplicationAccessProfiles
      */
-    readonly id?: string
+    readonly id: string
 }
 
 /**
@@ -813,7 +823,7 @@ export interface ApplicationsCCApiUpdateApplicationRequest {
      * @type {string}
      * @memberof ApplicationsCCApiUpdateApplication
      */
-    readonly id?: string
+    readonly id: string
 
     /**
      * 
@@ -850,7 +860,7 @@ export class ApplicationsCCApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof ApplicationsCCApi
      */
-    public deleteApplication(requestParameters: ApplicationsCCApiDeleteApplicationRequest = {}, axiosOptions?: AxiosRequestConfig) {
+    public deleteApplication(requestParameters: ApplicationsCCApiDeleteApplicationRequest, axiosOptions?: AxiosRequestConfig) {
         return ApplicationsCCApiFp(this.configuration).deleteApplication(requestParameters.id, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
@@ -862,7 +872,7 @@ export class ApplicationsCCApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof ApplicationsCCApi
      */
-    public getApplication(requestParameters: ApplicationsCCApiGetApplicationRequest = {}, axiosOptions?: AxiosRequestConfig) {
+    public getApplication(requestParameters: ApplicationsCCApiGetApplicationRequest, axiosOptions?: AxiosRequestConfig) {
         return ApplicationsCCApiFp(this.configuration).getApplication(requestParameters.id, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
@@ -874,7 +884,7 @@ export class ApplicationsCCApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof ApplicationsCCApi
      */
-    public getApplicationAccessProfiles(requestParameters: ApplicationsCCApiGetApplicationAccessProfilesRequest = {}, axiosOptions?: AxiosRequestConfig) {
+    public getApplicationAccessProfiles(requestParameters: ApplicationsCCApiGetApplicationAccessProfilesRequest, axiosOptions?: AxiosRequestConfig) {
         return ApplicationsCCApiFp(this.configuration).getApplicationAccessProfiles(requestParameters.id, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
@@ -897,7 +907,7 @@ export class ApplicationsCCApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof ApplicationsCCApi
      */
-    public updateApplication(requestParameters: ApplicationsCCApiUpdateApplicationRequest = {}, axiosOptions?: AxiosRequestConfig) {
+    public updateApplication(requestParameters: ApplicationsCCApiUpdateApplicationRequest, axiosOptions?: AxiosRequestConfig) {
         return ApplicationsCCApiFp(this.configuration).updateApplication(requestParameters.id, requestParameters.updateApplicationRequestCC, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 }
