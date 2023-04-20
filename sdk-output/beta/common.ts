@@ -135,6 +135,7 @@ export const createRequestFunction = function (axiosArgs: RequestArgs, globalAxi
     return <T = unknown, R = AxiosResponse<T>>(axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
         axiosRetry(globalAxios, configuration.retriesConfig)
         axiosArgs.axiosOptions.headers['X-SailPoint-SDK'] = 'typescript-1.0.2'
+        axiosArgs.axiosOptions.headers['User-Agent'] = 'OpenAPI-Generator/1.0.2/ts'
         const axiosRequestArgs = {...axiosArgs.axiosOptions, url: (configuration?.basePathBeta || basePath) + axiosArgs.url};
         return axios.request<T, R>(axiosRequestArgs);
     };
