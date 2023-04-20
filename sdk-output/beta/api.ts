@@ -34268,13 +34268,14 @@ export class IAIOutliersBetaApi extends BaseAPI {
 export const IAIPeerGroupStrategiesBetaApiAxiosParamCreator = function (configuration?: Configuration) {
     return {
         /**
-         * This API will be used by Identity Governance systems to identify identities that are not included in an organization\'s peer groups. By default, 250 identities are returned. You can specify between 1 and 1000 number of identities that can be returned.
+         * -- Deprecated : See \'IAI Outliers\' This API will be used by Identity Governance systems to identify identities that are not included in an organization\'s peer groups. By default, 250 identities are returned. You can specify between 1 and 1000 number of identities that can be returned.
          * @summary Identity Outliers List
          * @param {string} strategy The strategy used to create peer groups. Currently, \&#39;entitlement\&#39; is supported.
          * @param {number} [limit] Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
          * @param {number} [offset] Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
          * @param {boolean} [count] If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
          * @param {*} [axiosOptions] Override http request option.
+         * @deprecated
          * @throws {RequiredError}
          */
         getPeerGroupOutliers: async (strategy: string, limit?: number, offset?: number, count?: boolean, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
@@ -34335,13 +34336,14 @@ export const IAIPeerGroupStrategiesBetaApiFp = function(configuration?: Configur
     const localVarAxiosParamCreator = IAIPeerGroupStrategiesBetaApiAxiosParamCreator(configuration)
     return {
         /**
-         * This API will be used by Identity Governance systems to identify identities that are not included in an organization\'s peer groups. By default, 250 identities are returned. You can specify between 1 and 1000 number of identities that can be returned.
+         * -- Deprecated : See \'IAI Outliers\' This API will be used by Identity Governance systems to identify identities that are not included in an organization\'s peer groups. By default, 250 identities are returned. You can specify between 1 and 1000 number of identities that can be returned.
          * @summary Identity Outliers List
          * @param {string} strategy The strategy used to create peer groups. Currently, \&#39;entitlement\&#39; is supported.
          * @param {number} [limit] Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
          * @param {number} [offset] Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
          * @param {boolean} [count] If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
          * @param {*} [axiosOptions] Override http request option.
+         * @deprecated
          * @throws {RequiredError}
          */
         async getPeerGroupOutliers(strategy: string, limit?: number, offset?: number, count?: boolean, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<PeerGroupMemberBeta>>> {
@@ -34359,13 +34361,14 @@ export const IAIPeerGroupStrategiesBetaApiFactory = function (configuration?: Co
     const localVarFp = IAIPeerGroupStrategiesBetaApiFp(configuration)
     return {
         /**
-         * This API will be used by Identity Governance systems to identify identities that are not included in an organization\'s peer groups. By default, 250 identities are returned. You can specify between 1 and 1000 number of identities that can be returned.
+         * -- Deprecated : See \'IAI Outliers\' This API will be used by Identity Governance systems to identify identities that are not included in an organization\'s peer groups. By default, 250 identities are returned. You can specify between 1 and 1000 number of identities that can be returned.
          * @summary Identity Outliers List
          * @param {string} strategy The strategy used to create peer groups. Currently, \&#39;entitlement\&#39; is supported.
          * @param {number} [limit] Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
          * @param {number} [offset] Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
          * @param {boolean} [count] If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
          * @param {*} [axiosOptions] Override http request option.
+         * @deprecated
          * @throws {RequiredError}
          */
         getPeerGroupOutliers(strategy: string, limit?: number, offset?: number, count?: boolean, axiosOptions?: any): AxiosPromise<Array<PeerGroupMemberBeta>> {
@@ -34417,10 +34420,11 @@ export interface IAIPeerGroupStrategiesBetaApiGetPeerGroupOutliersRequest {
  */
 export class IAIPeerGroupStrategiesBetaApi extends BaseAPI {
     /**
-     * This API will be used by Identity Governance systems to identify identities that are not included in an organization\'s peer groups. By default, 250 identities are returned. You can specify between 1 and 1000 number of identities that can be returned.
+     * -- Deprecated : See \'IAI Outliers\' This API will be used by Identity Governance systems to identify identities that are not included in an organization\'s peer groups. By default, 250 identities are returned. You can specify between 1 and 1000 number of identities that can be returned.
      * @summary Identity Outliers List
      * @param {IAIPeerGroupStrategiesBetaApiGetPeerGroupOutliersRequest} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
+     * @deprecated
      * @throws {RequiredError}
      * @memberof IAIPeerGroupStrategiesBetaApi
      */
