@@ -9429,7 +9429,7 @@ export interface ManagedClientStatusAggResponseBeta {
      * @type {ManagedClientTypeBeta}
      * @memberof ManagedClientStatusAggResponseBeta
      */
-    'type': ManagedClientTypeBeta;
+    'type': ManagedClientTypeBeta | null;
     /**
      * timestamp on the Client Status update
      * @type {string}
@@ -9460,7 +9460,7 @@ export interface ManagedClientStatusBeta {
      * @type {ManagedClientTypeBeta}
      * @memberof ManagedClientStatusBeta
      */
-    'type': ManagedClientTypeBeta;
+    'type': ManagedClientTypeBeta | null;
     /**
      * timestamp on the Client Status update
      * @type {string}
@@ -9496,7 +9496,8 @@ export type ManagedClientStatusEnumBeta = typeof ManagedClientStatusEnumBeta[key
 export const ManagedClientTypeBeta = {
     Ccg: 'CCG',
     Va: 'VA',
-    Internal: 'INTERNAL'
+    Internal: 'INTERNAL',
+    Null: 'null'
 } as const;
 
 export type ManagedClientTypeBeta = typeof ManagedClientTypeBeta[keyof typeof ManagedClientTypeBeta];
@@ -9519,7 +9520,7 @@ export interface ManagedClusterAttributesBeta {
      * @type {string}
      * @memberof ManagedClusterAttributesBeta
      */
-    'keystore'?: string;
+    'keystore'?: string | null;
 }
 /**
  * Managed Cluster
@@ -9592,7 +9593,7 @@ export interface ManagedClusterBeta {
      * @type {ManagedClientTypeBeta}
      * @memberof ManagedClusterBeta
      */
-    'clientType': ManagedClientTypeBeta;
+    'clientType': ManagedClientTypeBeta | null;
     /**
      * CCG version used by the ManagedCluster
      * @type {string}
@@ -9610,7 +9611,7 @@ export interface ManagedClusterBeta {
      * @type {ClientLogConfigurationBeta}
      * @memberof ManagedClusterBeta
      */
-    'logConfiguration'?: ClientLogConfigurationBeta;
+    'logConfiguration'?: ClientLogConfigurationBeta | null;
     /**
      * Whether or not the cluster is operational or not
      * @type {boolean}
@@ -9628,19 +9629,19 @@ export interface ManagedClusterBeta {
      * @type {string}
      * @memberof ManagedClusterBeta
      */
-    'publicKeyCertificate'?: string;
+    'publicKeyCertificate'?: string | null;
     /**
      * Public key thumbprint
      * @type {string}
      * @memberof ManagedClusterBeta
      */
-    'publicKeyThumbprint'?: string;
+    'publicKeyThumbprint'?: string | null;
     /**
      * Public key
      * @type {string}
      * @memberof ManagedClusterBeta
      */
-    'publicKey'?: string;
+    'publicKey'?: string | null;
     /**
      * Key describing any immediate cluster alerts
      * @type {string}
@@ -9677,19 +9678,19 @@ export interface ManagedClusterKeyPairBeta {
      * @type {string}
      * @memberof ManagedClusterKeyPairBeta
      */
-    'publicKey'?: string;
+    'publicKey'?: string | null;
     /**
      * ManagedCluster publicKeyThumbprint
      * @type {string}
      * @memberof ManagedClusterKeyPairBeta
      */
-    'publicKeyThumbprint'?: string;
+    'publicKeyThumbprint'?: string | null;
     /**
      * ManagedCluster publicKeyCertificate
      * @type {string}
      * @memberof ManagedClusterKeyPairBeta
      */
-    'publicKeyCertificate'?: string;
+    'publicKeyCertificate'?: string | null;
 }
 /**
  * Managed Cluster key pair for Cluster
