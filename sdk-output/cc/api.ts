@@ -80,6 +80,585 @@ export interface CreateConnectorRequestCC {
 /**
  * 
  * @export
+ * @interface GetIdentity200ResponseAuthCC
+ */
+export interface GetIdentity200ResponseAuthCC {
+    /**
+     * 
+     * @type {string}
+     * @memberof GetIdentity200ResponseAuthCC
+     */
+    'service'?: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof GetIdentity200ResponseAuthCC
+     */
+    'encryption'?: string;
+}
+/**
+ * 
+ * @export
+ * @interface GetIdentity200ResponseCC
+ */
+export interface GetIdentity200ResponseCC {
+    /**
+     * 
+     * @type {string}
+     * @memberof GetIdentity200ResponseCC
+     */
+    'id'?: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof GetIdentity200ResponseCC
+     */
+    'alias'?: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof GetIdentity200ResponseCC
+     */
+    'uid'?: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof GetIdentity200ResponseCC
+     */
+    'name'?: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof GetIdentity200ResponseCC
+     */
+    'displayName'?: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof GetIdentity200ResponseCC
+     */
+    'uuid'?: string;
+    /**
+     * 
+     * @type {object}
+     * @memberof GetIdentity200ResponseCC
+     */
+    'encryptionKey'?: object;
+    /**
+     * 
+     * @type {object}
+     * @memberof GetIdentity200ResponseCC
+     */
+    'encryptionCheck'?: object;
+    /**
+     * 
+     * @type {string}
+     * @memberof GetIdentity200ResponseCC
+     */
+    'status'?: string;
+    /**
+     * 
+     * @type {boolean}
+     * @memberof GetIdentity200ResponseCC
+     */
+    'pending'?: boolean;
+    /**
+     * 
+     * @type {boolean}
+     * @memberof GetIdentity200ResponseCC
+     */
+    'passwordResetSinceLastLogin'?: boolean;
+    /**
+     * 
+     * @type {object}
+     * @memberof GetIdentity200ResponseCC
+     */
+    'usageCertAttested'?: object;
+    /**
+     * 
+     * @type {object}
+     * @memberof GetIdentity200ResponseCC
+     */
+    'userFlags'?: object;
+    /**
+     * 
+     * @type {boolean}
+     * @memberof GetIdentity200ResponseCC
+     */
+    'enabled'?: boolean;
+    /**
+     * 
+     * @type {string}
+     * @memberof GetIdentity200ResponseCC
+     */
+    'altAuthVia'?: string;
+    /**
+     * 
+     * @type {object}
+     * @memberof GetIdentity200ResponseCC
+     */
+    'altAuthViaIntegrationData'?: object;
+    /**
+     * 
+     * @type {number}
+     * @memberof GetIdentity200ResponseCC
+     */
+    'kbaAnswers'?: number;
+    /**
+     * 
+     * @type {boolean}
+     * @memberof GetIdentity200ResponseCC
+     */
+    'disablePasswordReset'?: boolean;
+    /**
+     * 
+     * @type {object}
+     * @memberof GetIdentity200ResponseCC
+     */
+    'ptaSourceId'?: object;
+    /**
+     * 
+     * @type {boolean}
+     * @memberof GetIdentity200ResponseCC
+     */
+    'supportsPasswordPush'?: boolean;
+    /**
+     * 
+     * @type {object}
+     * @memberof GetIdentity200ResponseCC
+     */
+    'attributes'?: object;
+    /**
+     * 
+     * @type {string}
+     * @memberof GetIdentity200ResponseCC
+     */
+    'externalId'?: string;
+    /**
+     * 
+     * @type {Array<object>}
+     * @memberof GetIdentity200ResponseCC
+     */
+    'role'?: Array<object>;
+    /**
+     * 
+     * @type {object}
+     * @memberof GetIdentity200ResponseCC
+     */
+    'phone'?: object;
+    /**
+     * 
+     * @type {string}
+     * @memberof GetIdentity200ResponseCC
+     */
+    'email'?: string;
+    /**
+     * 
+     * @type {object}
+     * @memberof GetIdentity200ResponseCC
+     */
+    'personalEmail'?: object;
+    /**
+     * 
+     * @type {object}
+     * @memberof GetIdentity200ResponseCC
+     */
+    'employeeNumber'?: object;
+    /**
+     * 
+     * @type {number}
+     * @memberof GetIdentity200ResponseCC
+     */
+    'riskScore'?: number;
+    /**
+     * 
+     * @type {object}
+     * @memberof GetIdentity200ResponseCC
+     */
+    'featureFlags'?: object;
+    /**
+     * 
+     * @type {Array<string>}
+     * @memberof GetIdentity200ResponseCC
+     */
+    'feature'?: Array<string>;
+    /**
+     * 
+     * @type {string}
+     * @memberof GetIdentity200ResponseCC
+     */
+    'orgEncryptionKey'?: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof GetIdentity200ResponseCC
+     */
+    'orgEncryptionKeyId'?: string;
+    /**
+     * 
+     * @type {object}
+     * @memberof GetIdentity200ResponseCC
+     */
+    'meta'?: object;
+    /**
+     * 
+     * @type {GetIdentity200ResponseOrgCC}
+     * @memberof GetIdentity200ResponseCC
+     */
+    'org'?: GetIdentity200ResponseOrgCC;
+    /**
+     * 
+     * @type {boolean}
+     * @memberof GetIdentity200ResponseCC
+     */
+    'stepUpAuth'?: boolean;
+    /**
+     * 
+     * @type {boolean}
+     * @memberof GetIdentity200ResponseCC
+     */
+    'bxInstallPrompted'?: boolean;
+    /**
+     * 
+     * @type {boolean}
+     * @memberof GetIdentity200ResponseCC
+     */
+    'federatedLogin'?: boolean;
+    /**
+     * 
+     * @type {GetIdentity200ResponseAuthCC}
+     * @memberof GetIdentity200ResponseCC
+     */
+    'auth'?: GetIdentity200ResponseAuthCC;
+    /**
+     * 
+     * @type {boolean}
+     * @memberof GetIdentity200ResponseCC
+     */
+    'onNetwork'?: boolean;
+    /**
+     * 
+     * @type {boolean}
+     * @memberof GetIdentity200ResponseCC
+     */
+    'onTrustedGeo'?: boolean;
+    /**
+     * 
+     * @type {string}
+     * @memberof GetIdentity200ResponseCC
+     */
+    'loginUrl'?: string;
+}
+/**
+ * 
+ * @export
+ * @interface GetIdentity200ResponseOrgCC
+ */
+export interface GetIdentity200ResponseOrgCC {
+    /**
+     * 
+     * @type {string}
+     * @memberof GetIdentity200ResponseOrgCC
+     */
+    'name'?: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof GetIdentity200ResponseOrgCC
+     */
+    'scriptName'?: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof GetIdentity200ResponseOrgCC
+     */
+    'mode'?: string;
+    /**
+     * 
+     * @type {number}
+     * @memberof GetIdentity200ResponseOrgCC
+     */
+    'numQuestions'?: number;
+    /**
+     * 
+     * @type {string}
+     * @memberof GetIdentity200ResponseOrgCC
+     */
+    'status'?: string;
+    /**
+     * 
+     * @type {number}
+     * @memberof GetIdentity200ResponseOrgCC
+     */
+    'maxRegisteredUsers'?: number;
+    /**
+     * 
+     * @type {string}
+     * @memberof GetIdentity200ResponseOrgCC
+     */
+    'pod'?: string;
+    /**
+     * 
+     * @type {boolean}
+     * @memberof GetIdentity200ResponseOrgCC
+     */
+    'pwdResetPersonalPhone'?: boolean;
+    /**
+     * 
+     * @type {boolean}
+     * @memberof GetIdentity200ResponseOrgCC
+     */
+    'pwdResetPersonalEmail'?: boolean;
+    /**
+     * 
+     * @type {boolean}
+     * @memberof GetIdentity200ResponseOrgCC
+     */
+    'pwdResetKba'?: boolean;
+    /**
+     * 
+     * @type {boolean}
+     * @memberof GetIdentity200ResponseOrgCC
+     */
+    'pwdResetEmail'?: boolean;
+    /**
+     * 
+     * @type {boolean}
+     * @memberof GetIdentity200ResponseOrgCC
+     */
+    'pwdResetDuo'?: boolean;
+    /**
+     * 
+     * @type {boolean}
+     * @memberof GetIdentity200ResponseOrgCC
+     */
+    'pwdResetPhoneMask'?: boolean;
+    /**
+     * 
+     * @type {object}
+     * @memberof GetIdentity200ResponseOrgCC
+     */
+    'authErrorText'?: object;
+    /**
+     * 
+     * @type {boolean}
+     * @memberof GetIdentity200ResponseOrgCC
+     */
+    'strongAuthKba'?: boolean;
+    /**
+     * 
+     * @type {boolean}
+     * @memberof GetIdentity200ResponseOrgCC
+     */
+    'strongAuthPersonalPhone'?: boolean;
+    /**
+     * 
+     * @type {boolean}
+     * @memberof GetIdentity200ResponseOrgCC
+     */
+    'strongAuthPersonalEmail'?: boolean;
+    /**
+     * 
+     * @type {Array<object>}
+     * @memberof GetIdentity200ResponseOrgCC
+     */
+    'integrations'?: Array<object>;
+    /**
+     * 
+     * @type {string}
+     * @memberof GetIdentity200ResponseOrgCC
+     */
+    'productName'?: string;
+    /**
+     * 
+     * @type {number}
+     * @memberof GetIdentity200ResponseOrgCC
+     */
+    'kbaReqForAuthn'?: number;
+    /**
+     * 
+     * @type {number}
+     * @memberof GetIdentity200ResponseOrgCC
+     */
+    'kbaReqAnswers'?: number;
+    /**
+     * 
+     * @type {number}
+     * @memberof GetIdentity200ResponseOrgCC
+     */
+    'lockoutAttemptThreshold'?: number;
+    /**
+     * 
+     * @type {number}
+     * @memberof GetIdentity200ResponseOrgCC
+     */
+    'lockoutTimeMinutes'?: number;
+    /**
+     * 
+     * @type {boolean}
+     * @memberof GetIdentity200ResponseOrgCC
+     */
+    'usageCertRequired'?: boolean;
+    /**
+     * 
+     * @type {boolean}
+     * @memberof GetIdentity200ResponseOrgCC
+     */
+    'adminStrongAuthRequired'?: boolean;
+    /**
+     * 
+     * @type {boolean}
+     * @memberof GetIdentity200ResponseOrgCC
+     */
+    'enableExternalPasswordChange'?: boolean;
+    /**
+     * 
+     * @type {boolean}
+     * @memberof GetIdentity200ResponseOrgCC
+     */
+    'enablePasswordReplay'?: boolean;
+    /**
+     * 
+     * @type {boolean}
+     * @memberof GetIdentity200ResponseOrgCC
+     */
+    'enableAutomaticPasswordReplay'?: boolean;
+    /**
+     * 
+     * @type {boolean}
+     * @memberof GetIdentity200ResponseOrgCC
+     */
+    'notifyAuthenticationSettingChange'?: boolean;
+    /**
+     * 
+     * @type {object}
+     * @memberof GetIdentity200ResponseOrgCC
+     */
+    'netmasks'?: object;
+    /**
+     * 
+     * @type {object}
+     * @memberof GetIdentity200ResponseOrgCC
+     */
+    'countryCodes'?: object;
+    /**
+     * 
+     * @type {boolean}
+     * @memberof GetIdentity200ResponseOrgCC
+     */
+    'whiteList'?: boolean;
+    /**
+     * 
+     * @type {object}
+     * @memberof GetIdentity200ResponseOrgCC
+     */
+    'usernameEmptyText'?: object;
+    /**
+     * 
+     * @type {object}
+     * @memberof GetIdentity200ResponseOrgCC
+     */
+    'usernameLabel'?: object;
+    /**
+     * 
+     * @type {boolean}
+     * @memberof GetIdentity200ResponseOrgCC
+     */
+    'enableAutomationGeneration'?: boolean;
+    /**
+     * 
+     * @type {boolean}
+     * @memberof GetIdentity200ResponseOrgCC
+     */
+    'emailTestMode'?: boolean;
+    /**
+     * 
+     * @type {string}
+     * @memberof GetIdentity200ResponseOrgCC
+     */
+    'emailTestAddress'?: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof GetIdentity200ResponseOrgCC
+     */
+    'orgType'?: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof GetIdentity200ResponseOrgCC
+     */
+    'passwordReplayState'?: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof GetIdentity200ResponseOrgCC
+     */
+    'systemNotificationConfig'?: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof GetIdentity200ResponseOrgCC
+     */
+    'redirectPatterns'?: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof GetIdentity200ResponseOrgCC
+     */
+    'maxClusterDebugHours'?: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof GetIdentity200ResponseOrgCC
+     */
+    'brandName'?: string;
+    /**
+     * 
+     * @type {object}
+     * @memberof GetIdentity200ResponseOrgCC
+     */
+    'logo'?: object;
+    /**
+     * 
+     * @type {object}
+     * @memberof GetIdentity200ResponseOrgCC
+     */
+    'emailFromAddress'?: object;
+    /**
+     * 
+     * @type {object}
+     * @memberof GetIdentity200ResponseOrgCC
+     */
+    'standardLogoUrl'?: object;
+    /**
+     * 
+     * @type {object}
+     * @memberof GetIdentity200ResponseOrgCC
+     */
+    'narrowLogoUrl'?: object;
+    /**
+     * 
+     * @type {string}
+     * @memberof GetIdentity200ResponseOrgCC
+     */
+    'actionButtonColor'?: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof GetIdentity200ResponseOrgCC
+     */
+    'activeLinkColor'?: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof GetIdentity200ResponseOrgCC
+     */
+    'navigationColor'?: string;
+}
+/**
+ * 
+ * @export
  * @interface ImportConnectorConfigRequestCC
  */
 export interface ImportConnectorConfigRequestCC {
@@ -89,6 +668,425 @@ export interface ImportConnectorConfigRequestCC {
      * @memberof ImportConnectorConfigRequestCC
      */
     'file'?: any;
+}
+/**
+ * 
+ * @export
+ * @interface ListApplications200ResponseInnerAccountServicePoliciesInnerCC
+ */
+export interface ListApplications200ResponseInnerAccountServicePoliciesInnerCC {
+    /**
+     * 
+     * @type {string}
+     * @memberof ListApplications200ResponseInnerAccountServicePoliciesInnerCC
+     */
+    'policyId'?: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof ListApplications200ResponseInnerAccountServicePoliciesInnerCC
+     */
+    'policyName'?: string;
+    /**
+     * 
+     * @type {object}
+     * @memberof ListApplications200ResponseInnerAccountServicePoliciesInnerCC
+     */
+    'selectors'?: object;
+}
+/**
+ * 
+ * @export
+ * @interface ListApplications200ResponseInnerAppProfilesInnerCC
+ */
+export interface ListApplications200ResponseInnerAppProfilesInnerCC {
+    /**
+     * 
+     * @type {number}
+     * @memberof ListApplications200ResponseInnerAppProfilesInnerCC
+     */
+    'id'?: number;
+    /**
+     * 
+     * @type {string}
+     * @memberof ListApplications200ResponseInnerAppProfilesInnerCC
+     */
+    'filename'?: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof ListApplications200ResponseInnerAppProfilesInnerCC
+     */
+    'createdBy'?: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof ListApplications200ResponseInnerAppProfilesInnerCC
+     */
+    'dateCreated'?: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof ListApplications200ResponseInnerAppProfilesInnerCC
+     */
+    'xsdVersion'?: string;
+}
+/**
+ * 
+ * @export
+ * @interface ListApplications200ResponseInnerCC
+ */
+export interface ListApplications200ResponseInnerCC {
+    /**
+     * 
+     * @type {string}
+     * @memberof ListApplications200ResponseInnerCC
+     */
+    'id'?: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof ListApplications200ResponseInnerCC
+     */
+    'appId'?: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof ListApplications200ResponseInnerCC
+     */
+    'serviceId'?: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof ListApplications200ResponseInnerCC
+     */
+    'serviceAppId'?: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof ListApplications200ResponseInnerCC
+     */
+    'name'?: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof ListApplications200ResponseInnerCC
+     */
+    'description'?: string;
+    /**
+     * 
+     * @type {boolean}
+     * @memberof ListApplications200ResponseInnerCC
+     */
+    'appCenterEnabled'?: boolean;
+    /**
+     * 
+     * @type {boolean}
+     * @memberof ListApplications200ResponseInnerCC
+     */
+    'provisionRequestEnabled'?: boolean;
+    /**
+     * 
+     * @type {string}
+     * @memberof ListApplications200ResponseInnerCC
+     */
+    'controlType'?: string;
+    /**
+     * 
+     * @type {boolean}
+     * @memberof ListApplications200ResponseInnerCC
+     */
+    'mobile'?: boolean;
+    /**
+     * 
+     * @type {boolean}
+     * @memberof ListApplications200ResponseInnerCC
+     */
+    'privateApp'?: boolean;
+    /**
+     * 
+     * @type {string}
+     * @memberof ListApplications200ResponseInnerCC
+     */
+    'scriptName'?: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof ListApplications200ResponseInnerCC
+     */
+    'status'?: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof ListApplications200ResponseInnerCC
+     */
+    'icon'?: string;
+    /**
+     * 
+     * @type {ListApplications200ResponseInnerHealthCC}
+     * @memberof ListApplications200ResponseInnerCC
+     */
+    'health'?: ListApplications200ResponseInnerHealthCC;
+    /**
+     * 
+     * @type {boolean}
+     * @memberof ListApplications200ResponseInnerCC
+     */
+    'enableSso'?: boolean;
+    /**
+     * 
+     * @type {string}
+     * @memberof ListApplications200ResponseInnerCC
+     */
+    'ssoMethod'?: string;
+    /**
+     * 
+     * @type {boolean}
+     * @memberof ListApplications200ResponseInnerCC
+     */
+    'hasLinks'?: boolean;
+    /**
+     * 
+     * @type {boolean}
+     * @memberof ListApplications200ResponseInnerCC
+     */
+    'hasAutomations'?: boolean;
+    /**
+     * 
+     * @type {object}
+     * @memberof ListApplications200ResponseInnerCC
+     */
+    'stepUpAuthData'?: object;
+    /**
+     * 
+     * @type {string}
+     * @memberof ListApplications200ResponseInnerCC
+     */
+    'stepUpAuthType'?: string;
+    /**
+     * 
+     * @type {boolean}
+     * @memberof ListApplications200ResponseInnerCC
+     */
+    'usageAnalytics'?: boolean;
+    /**
+     * 
+     * @type {boolean}
+     * @memberof ListApplications200ResponseInnerCC
+     */
+    'usageCertRequired'?: boolean;
+    /**
+     * 
+     * @type {object}
+     * @memberof ListApplications200ResponseInnerCC
+     */
+    'usageCertText'?: object;
+    /**
+     * 
+     * @type {boolean}
+     * @memberof ListApplications200ResponseInnerCC
+     */
+    'launchpadEnabled'?: boolean;
+    /**
+     * 
+     * @type {boolean}
+     * @memberof ListApplications200ResponseInnerCC
+     */
+    'passwordManaged'?: boolean;
+    /**
+     * 
+     * @type {ListApplications200ResponseInnerOwnerCC}
+     * @memberof ListApplications200ResponseInnerCC
+     */
+    'owner'?: ListApplications200ResponseInnerOwnerCC;
+    /**
+     * 
+     * @type {number}
+     * @memberof ListApplications200ResponseInnerCC
+     */
+    'dateCreated'?: number;
+    /**
+     * 
+     * @type {number}
+     * @memberof ListApplications200ResponseInnerCC
+     */
+    'lastUpdated'?: number;
+    /**
+     * 
+     * @type {object}
+     * @memberof ListApplications200ResponseInnerCC
+     */
+    'defaultAccessProfile'?: object;
+    /**
+     * 
+     * @type {string}
+     * @memberof ListApplications200ResponseInnerCC
+     */
+    'service'?: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof ListApplications200ResponseInnerCC
+     */
+    'selectedSsoMethod'?: string;
+    /**
+     * 
+     * @type {number}
+     * @memberof ListApplications200ResponseInnerCC
+     */
+    'supportedSsoMethods'?: number;
+    /**
+     * 
+     * @type {object}
+     * @memberof ListApplications200ResponseInnerCC
+     */
+    'offNetworkBlockedRoles'?: object;
+    /**
+     * 
+     * @type {string}
+     * @memberof ListApplications200ResponseInnerCC
+     */
+    'supportedOffNetwork'?: string;
+    /**
+     * 
+     * @type {number}
+     * @memberof ListApplications200ResponseInnerCC
+     */
+    'accountServiceId'?: number;
+    /**
+     * 
+     * @type {number}
+     * @memberof ListApplications200ResponseInnerCC
+     */
+    'launcherCount'?: number;
+    /**
+     * 
+     * @type {string}
+     * @memberof ListApplications200ResponseInnerCC
+     */
+    'accountServiceName'?: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof ListApplications200ResponseInnerCC
+     */
+    'accountServiceExternalId'?: string;
+    /**
+     * 
+     * @type {boolean}
+     * @memberof ListApplications200ResponseInnerCC
+     */
+    'accountServiceMatchAllAccounts'?: boolean;
+    /**
+     * 
+     * @type {string}
+     * @memberof ListApplications200ResponseInnerCC
+     */
+    'externalId'?: string;
+    /**
+     * 
+     * @type {boolean}
+     * @memberof ListApplications200ResponseInnerCC
+     */
+    'accountServiceUseForPasswordManagement'?: boolean;
+    /**
+     * 
+     * @type {string}
+     * @memberof ListApplications200ResponseInnerCC
+     */
+    'accountServicePolicyId'?: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof ListApplications200ResponseInnerCC
+     */
+    'accountServicePolicyName'?: string;
+    /**
+     * 
+     * @type {boolean}
+     * @memberof ListApplications200ResponseInnerCC
+     */
+    'requireStrongAuthn'?: boolean;
+    /**
+     * 
+     * @type {Array<ListApplications200ResponseInnerAccountServicePoliciesInnerCC>}
+     * @memberof ListApplications200ResponseInnerCC
+     */
+    'accountServicePolicies'?: Array<ListApplications200ResponseInnerAccountServicePoliciesInnerCC>;
+    /**
+     * 
+     * @type {string}
+     * @memberof ListApplications200ResponseInnerCC
+     */
+    'xsdVersion'?: string;
+    /**
+     * 
+     * @type {Array<ListApplications200ResponseInnerAppProfilesInnerCC>}
+     * @memberof ListApplications200ResponseInnerCC
+     */
+    'appProfiles'?: Array<ListApplications200ResponseInnerAppProfilesInnerCC>;
+    /**
+     * 
+     * @type {number}
+     * @memberof ListApplications200ResponseInnerCC
+     */
+    'passwordServiceId'?: number;
+    /**
+     * 
+     * @type {object}
+     * @memberof ListApplications200ResponseInnerCC
+     */
+    'accessProfileIds'?: object;
+}
+/**
+ * 
+ * @export
+ * @interface ListApplications200ResponseInnerHealthCC
+ */
+export interface ListApplications200ResponseInnerHealthCC {
+    /**
+     * 
+     * @type {string}
+     * @memberof ListApplications200ResponseInnerHealthCC
+     */
+    'status'?: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof ListApplications200ResponseInnerHealthCC
+     */
+    'lastChanged'?: string;
+    /**
+     * 
+     * @type {number}
+     * @memberof ListApplications200ResponseInnerHealthCC
+     */
+    'since'?: number;
+    /**
+     * 
+     * @type {boolean}
+     * @memberof ListApplications200ResponseInnerHealthCC
+     */
+    'healthy'?: boolean;
+}
+/**
+ * 
+ * @export
+ * @interface ListApplications200ResponseInnerOwnerCC
+ */
+export interface ListApplications200ResponseInnerOwnerCC {
+    /**
+     * 
+     * @type {string}
+     * @memberof ListApplications200ResponseInnerOwnerCC
+     */
+    'id'?: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof ListApplications200ResponseInnerOwnerCC
+     */
+    'name'?: string;
 }
 /**
  * 
@@ -646,7 +1644,7 @@ export const ApplicationsCCApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async getApplication(id: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
+        async getApplication(id: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ListApplications200ResponseInnerCC>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getApplication(id, axiosOptions);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -667,7 +1665,7 @@ export const ApplicationsCCApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async listApplications(axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
+        async listApplications(axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<ListApplications200ResponseInnerCC>>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.listApplications(axiosOptions);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -720,7 +1718,7 @@ export const ApplicationsCCApiFactory = function (configuration?: Configuration,
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        getApplication(id: string, axiosOptions?: any): AxiosPromise<void> {
+        getApplication(id: string, axiosOptions?: any): AxiosPromise<ListApplications200ResponseInnerCC> {
             return localVarFp.getApplication(id, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
@@ -739,7 +1737,7 @@ export const ApplicationsCCApiFactory = function (configuration?: Configuration,
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        listApplications(axiosOptions?: any): AxiosPromise<void> {
+        listApplications(axiosOptions?: any): AxiosPromise<Array<ListApplications200ResponseInnerCC>> {
             return localVarFp.listApplications(axiosOptions).then((request) => request(axios, basePath));
         },
         /**
@@ -1917,6 +2915,48 @@ export const UserCCApiAxiosParamCreator = function (configuration?: Configuratio
     return {
         /**
          * 
+         * @summary Get Single Identity
+         * @param {string} id 
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        getIdentity: async (id: string, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'id' is not null or undefined
+            assertParamExists('getIdentity', 'id', id)
+            const localVarPath = `/cc/api/user/get/{id}`
+                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...axiosOptions};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication oauth2 required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "oauth2", [], configuration)
+
+            // authentication oauth2 required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "oauth2", [], configuration)
+
+
+    
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                axiosOptions: localVarRequestOptions,
+            };
+        },
+        /**
+         * 
          * @summary Update User Permissions
          * @param {UpdateUserPermissionsRequestCC} [updateUserPermissionsRequestCC] 
          * @param {*} [axiosOptions] Override http request option.
@@ -1969,6 +3009,17 @@ export const UserCCApiFp = function(configuration?: Configuration) {
     return {
         /**
          * 
+         * @summary Get Single Identity
+         * @param {string} id 
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        async getIdentity(id: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<GetIdentity200ResponseCC>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getIdentity(id, axiosOptions);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * 
          * @summary Update User Permissions
          * @param {UpdateUserPermissionsRequestCC} [updateUserPermissionsRequestCC] 
          * @param {*} [axiosOptions] Override http request option.
@@ -1990,6 +3041,16 @@ export const UserCCApiFactory = function (configuration?: Configuration, basePat
     return {
         /**
          * 
+         * @summary Get Single Identity
+         * @param {string} id 
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        getIdentity(id: string, axiosOptions?: any): AxiosPromise<GetIdentity200ResponseCC> {
+            return localVarFp.getIdentity(id, axiosOptions).then((request) => request(axios, basePath));
+        },
+        /**
+         * 
          * @summary Update User Permissions
          * @param {UpdateUserPermissionsRequestCC} [updateUserPermissionsRequestCC] 
          * @param {*} [axiosOptions] Override http request option.
@@ -2000,6 +3061,20 @@ export const UserCCApiFactory = function (configuration?: Configuration, basePat
         },
     };
 };
+
+/**
+ * Request parameters for getIdentity operation in UserCCApi.
+ * @export
+ * @interface UserCCApiGetIdentityRequest
+ */
+export interface UserCCApiGetIdentityRequest {
+    /**
+     * 
+     * @type {string}
+     * @memberof UserCCApiGetIdentity
+     */
+    readonly id: string
+}
 
 /**
  * Request parameters for updateUserPermissions operation in UserCCApi.
@@ -2022,6 +3097,18 @@ export interface UserCCApiUpdateUserPermissionsRequest {
  * @extends {BaseAPI}
  */
 export class UserCCApi extends BaseAPI {
+    /**
+     * 
+     * @summary Get Single Identity
+     * @param {UserCCApiGetIdentityRequest} requestParameters Request parameters.
+     * @param {*} [axiosOptions] Override http request option.
+     * @throws {RequiredError}
+     * @memberof UserCCApi
+     */
+    public getIdentity(requestParameters: UserCCApiGetIdentityRequest, axiosOptions?: AxiosRequestConfig) {
+        return UserCCApiFp(this.configuration).getIdentity(requestParameters.id, axiosOptions).then((request) => request(this.axios, this.basePath));
+    }
+
     /**
      * 
      * @summary Update User Permissions
