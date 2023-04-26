@@ -2689,7 +2689,7 @@ export interface ArgumentBeta {
      * @type {string}
      * @memberof ArgumentBeta
      */
-    'type'?: string;
+    'type'?: string | null;
 }
 /**
  * Specification of source attribute sync mapping configuration for an identity attribute
@@ -4723,7 +4723,7 @@ export interface ConnectorRuleCreateRequestBeta {
      * @type {object}
      * @memberof ConnectorRuleCreateRequestBeta
      */
-    'attributes'?: object;
+    'attributes'?: object | null;
 }
 
 export const ConnectorRuleCreateRequestBetaTypeEnum = {
@@ -4769,7 +4769,7 @@ export interface ConnectorRuleCreateRequestSignatureBeta {
      * @type {ArgumentBeta}
      * @memberof ConnectorRuleCreateRequestSignatureBeta
      */
-    'output'?: ArgumentBeta;
+    'output'?: ArgumentBeta | null;
 }
 /**
  * 
@@ -4794,7 +4794,7 @@ export interface ConnectorRuleResponseAllOfBeta {
      * @type {string}
      * @memberof ConnectorRuleResponseAllOfBeta
      */
-    'modified'?: string;
+    'modified'?: string | null;
 }
 /**
  * ConnectorRuleResponse
@@ -4837,7 +4837,7 @@ export interface ConnectorRuleResponseBeta {
      * @type {object}
      * @memberof ConnectorRuleResponseBeta
      */
-    'attributes'?: object;
+    'attributes'?: object | null;
     /**
      * the ID of the rule
      * @type {string}
@@ -4855,7 +4855,7 @@ export interface ConnectorRuleResponseBeta {
      * @type {string}
      * @memberof ConnectorRuleResponseBeta
      */
-    'modified'?: string;
+    'modified'?: string | null;
 }
 
 export const ConnectorRuleResponseBetaTypeEnum = {
@@ -4944,7 +4944,7 @@ export interface ConnectorRuleUpdateRequestBeta {
      * @type {object}
      * @memberof ConnectorRuleUpdateRequestBeta
      */
-    'attributes'?: object;
+    'attributes'?: object | null;
 }
 
 export const ConnectorRuleUpdateRequestBetaTypeEnum = {
@@ -6734,10 +6734,10 @@ export interface FullAccountBeta {
     'identityId'?: string;
     /**
      * A map containing attributes associated with the account
-     * @type {object}
+     * @type {{ [key: string]: any; }}
      * @memberof FullAccountBeta
      */
-    'attributes'?: object;
+    'attributes'?: { [key: string]: any; };
     /**
      * Whether this account belongs to an authoritative source
      * @type {boolean}
@@ -7536,13 +7536,13 @@ export interface HttpConfigBeta {
      * @type {BasicAuthConfigBeta}
      * @memberof HttpConfigBeta
      */
-    'basicAuthConfig'?: BasicAuthConfigBeta;
+    'basicAuthConfig'?: BasicAuthConfigBeta | null;
     /**
      * 
      * @type {BearerTokenAuthConfigBeta}
      * @memberof HttpConfigBeta
      */
-    'bearerTokenAuthConfig'?: BearerTokenAuthConfigBeta;
+    'bearerTokenAuthConfig'?: BearerTokenAuthConfigBeta | null;
 }
 /**
  * HTTP response modes, i.e. SYNC, ASYNC, or DYNAMIC.
@@ -8417,7 +8417,7 @@ export interface IdentityProfileAllOfBeta {
      * @type {string}
      * @memberof IdentityProfileAllOfBeta
      */
-    'description'?: string;
+    'description'?: string | null;
     /**
      * 
      * @type {IdentityProfileAllOfOwnerBeta}
@@ -8459,7 +8459,7 @@ export interface IdentityProfileAllOfBeta {
      * @type {IdentityExceptionReportReferenceBeta}
      * @memberof IdentityProfileAllOfBeta
      */
-    'identityExceptionReportReference'?: IdentityExceptionReportReferenceBeta;
+    'identityExceptionReportReference'?: IdentityExceptionReportReferenceBeta | null;
     /**
      * Indicates the value of requiresPeriodicRefresh attribute for the Identity Profile.
      * @type {boolean}
@@ -8534,7 +8534,7 @@ export interface IdentityProfileBeta {
      * @type {string}
      * @memberof IdentityProfileBeta
      */
-    'description'?: string;
+    'description'?: string | null;
     /**
      * 
      * @type {IdentityProfileAllOfOwnerBeta}
@@ -8576,7 +8576,7 @@ export interface IdentityProfileBeta {
      * @type {IdentityExceptionReportReferenceBeta}
      * @memberof IdentityProfileBeta
      */
-    'identityExceptionReportReference'?: IdentityExceptionReportReferenceBeta;
+    'identityExceptionReportReference'?: IdentityExceptionReportReferenceBeta | null;
     /**
      * Indicates the value of requiresPeriodicRefresh attribute for the Identity Profile.
      * @type {boolean}
@@ -9198,10 +9198,10 @@ export interface ListAccessProfiles429ResponseBeta {
     'message'?: object;
 }
 /**
- * @type ListAccounts200ResponseInnerBeta
+ * @type ListAccounts200ResponseBeta
  * @export
  */
-export type ListAccounts200ResponseInnerBeta = FullAccountBeta | SlimAccountBeta;
+export type ListAccounts200ResponseBeta = Array<FullAccountBeta> | Array<SlimAccountBeta>;
 
 /**
  * 
@@ -16253,10 +16253,10 @@ export interface SlimAccountAllOfBeta {
     'identityId'?: string;
     /**
      * A map containing attributes associated with the account
-     * @type {object}
+     * @type {{ [key: string]: any; }}
      * @memberof SlimAccountAllOfBeta
      */
-    'attributes'?: object;
+    'attributes'?: { [key: string]: any; };
 }
 /**
  * 
@@ -16350,10 +16350,10 @@ export interface SlimAccountBeta {
     'identityId'?: string;
     /**
      * A map containing attributes associated with the account
-     * @type {object}
+     * @type {{ [key: string]: any; }}
      * @memberof SlimAccountBeta
      */
-    'attributes'?: object;
+    'attributes'?: { [key: string]: any; };
 }
 /**
  * 
@@ -17882,17 +17882,17 @@ export interface SpConfigObjectBeta {
      */
     'resolveByIdUrl'?: SpConfigUrlBeta;
     /**
+     * Url and query parameters to be used to resolve this type of object by name.
+     * @type {Array<SpConfigUrlBeta>}
+     * @memberof SpConfigObjectBeta
+     */
+    'resolveByNameUrl'?: Array<SpConfigUrlBeta>;
+    /**
      * 
      * @type {SpConfigUrlBeta}
      * @memberof SpConfigObjectBeta
      */
-    'resolveByNameUrl'?: SpConfigUrlBeta;
-    /**
-     * Url to export this type of object.
-     * @type {string}
-     * @memberof SpConfigObjectBeta
-     */
-    'exportUrl'?: string;
+    'exportUrl'?: SpConfigUrlBeta;
     /**
      * Rights needed by the invoker of sp-config/export in order to export this type of object.
      * @type {string}
@@ -17906,11 +17906,11 @@ export interface SpConfigObjectBeta {
      */
     'exportLimit'?: number;
     /**
-     * Url to import this type of object.
-     * @type {string}
+     * 
+     * @type {SpConfigUrlBeta}
      * @memberof SpConfigObjectBeta
      */
-    'importUrl'?: string;
+    'importUrl'?: SpConfigUrlBeta;
     /**
      * Rights needed by the invoker of sp-config/import in order to import this type of object.
      * @type {string}
@@ -18277,7 +18277,10 @@ export interface SubscriptionPutRequestBeta {
 
 export const SubscriptionTypeBeta = {
     Http: 'HTTP',
-    Eventbridge: 'EVENTBRIDGE'
+    Eventbridge: 'EVENTBRIDGE',
+    Inline: 'INLINE',
+    Script: 'SCRIPT',
+    Workflow: 'WORKFLOW'
 } as const;
 
 export type SubscriptionTypeBeta = typeof SubscriptionTypeBeta[keyof typeof SubscriptionTypeBeta];
@@ -18631,10 +18634,10 @@ export interface TransformBeta {
     'type': string;
     /**
      * Meta-data about the transform. Values in this list are specific to the type of transform to be executed.
-     * @type {{ [key: string]: any; }}
+     * @type {object}
      * @memberof TransformBeta
      */
-    'attributes': { [key: string]: any; };
+    'attributes': object | null;
     /**
      * Indicates whether this is an internal SailPoint-created transform or a customer-created transform
      * @type {boolean}
@@ -18682,10 +18685,10 @@ export interface TransformDefinitionBeta {
     'type'?: string;
     /**
      * Arbitrary key-value pairs to store any metadata for the object
-     * @type {{ [key: string]: object; }}
+     * @type {{ [key: string]: any; }}
      * @memberof TransformDefinitionBeta
      */
-    'attributes'?: { [key: string]: object; };
+    'attributes'?: { [key: string]: any; } | null;
 }
 /**
  * 
@@ -26297,7 +26300,7 @@ export const AccountsBetaApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async listAccounts(detailLevel?: 'SLIM' | 'FULL', limit?: number, offset?: number, count?: boolean, filters?: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<ListAccounts200ResponseInnerBeta>>> {
+        async listAccounts(detailLevel?: 'SLIM' | 'FULL', limit?: number, offset?: number, count?: boolean, filters?: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ListAccounts200ResponseBeta>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.listAccounts(detailLevel, limit, offset, count, filters, axiosOptions);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -26474,7 +26477,7 @@ export const AccountsBetaApiFactory = function (configuration?: Configuration, b
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        listAccounts(detailLevel?: 'SLIM' | 'FULL', limit?: number, offset?: number, count?: boolean, filters?: string, axiosOptions?: any): AxiosPromise<Array<ListAccounts200ResponseInnerBeta>> {
+        listAccounts(detailLevel?: 'SLIM' | 'FULL', limit?: number, offset?: number, count?: boolean, filters?: string, axiosOptions?: any): AxiosPromise<ListAccounts200ResponseBeta> {
             return localVarFp.listAccounts(detailLevel, limit, offset, count, filters, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
@@ -39501,7 +39504,7 @@ export const IdentityProfilesBetaApiAxiosParamCreator = function (configuration?
         },
         /**
          * This returns the default identity attribute config A token with ORG_ADMIN authority is required to call this API to get the default identity attribute config.
-         * @summary Gets the default identity attribute config
+         * @summary Default identity attribute config
          * @param {string} identityProfileId The Identity Profile ID
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
@@ -39692,7 +39695,7 @@ export const IdentityProfilesBetaApiAxiosParamCreator = function (configuration?
         },
         /**
          * This refreshes all identities under the profile A token with ORG_ADMIN authority is required to call this API to refresh identities under this Identity Profile.
-         * @summary Refreshes all the identities under this profile
+         * @summary Refreshes all identities under profile
          * @param {string} identityProfileId The Identity Profile ID to be refreshed
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
@@ -39851,7 +39854,7 @@ export const IdentityProfilesBetaApiFp = function(configuration?: Configuration)
         },
         /**
          * This returns the default identity attribute config A token with ORG_ADMIN authority is required to call this API to get the default identity attribute config.
-         * @summary Gets the default identity attribute config
+         * @summary Default identity attribute config
          * @param {string} identityProfileId The Identity Profile ID
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
@@ -39899,7 +39902,7 @@ export const IdentityProfilesBetaApiFp = function(configuration?: Configuration)
         },
         /**
          * This refreshes all identities under the profile A token with ORG_ADMIN authority is required to call this API to refresh identities under this Identity Profile.
-         * @summary Refreshes all the identities under this profile
+         * @summary Refreshes all identities under profile
          * @param {string} identityProfileId The Identity Profile ID to be refreshed
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
@@ -39986,7 +39989,7 @@ export const IdentityProfilesBetaApiFactory = function (configuration?: Configur
         },
         /**
          * This returns the default identity attribute config A token with ORG_ADMIN authority is required to call this API to get the default identity attribute config.
-         * @summary Gets the default identity attribute config
+         * @summary Default identity attribute config
          * @param {string} identityProfileId The Identity Profile ID
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
@@ -40030,7 +40033,7 @@ export const IdentityProfilesBetaApiFactory = function (configuration?: Configur
         },
         /**
          * This refreshes all identities under the profile A token with ORG_ADMIN authority is required to call this API to refresh identities under this Identity Profile.
-         * @summary Refreshes all the identities under this profile
+         * @summary Refreshes all identities under profile
          * @param {string} identityProfileId The Identity Profile ID to be refreshed
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
@@ -40338,7 +40341,7 @@ export class IdentityProfilesBetaApi extends BaseAPI {
 
     /**
      * This returns the default identity attribute config A token with ORG_ADMIN authority is required to call this API to get the default identity attribute config.
-     * @summary Gets the default identity attribute config
+     * @summary Default identity attribute config
      * @param {IdentityProfilesBetaApiGetDefaultIdentityAttributeConfigRequest} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
@@ -40386,7 +40389,7 @@ export class IdentityProfilesBetaApi extends BaseAPI {
 
     /**
      * This refreshes all identities under the profile A token with ORG_ADMIN authority is required to call this API to refresh identities under this Identity Profile.
-     * @summary Refreshes all the identities under this profile
+     * @summary Refreshes all identities under profile
      * @param {IdentityProfilesBetaApiRefreshIdentityProfileRequest} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
@@ -40675,7 +40678,7 @@ export const MFAConfigurationBetaApiAxiosParamCreator = function (configuration?
     return {
         /**
          * This API returns the configuration of a given MFA method. A token with ORG_ADMIN authority is required to call this API.
-         * @summary Get configuration of a MFA method
+         * @summary Configuration of a MFA method
          * @param {string} method The name of the MFA method. The currently supported method name is okta-verify.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
@@ -40717,7 +40720,7 @@ export const MFAConfigurationBetaApiAxiosParamCreator = function (configuration?
         },
         /**
          * This API sets the configuration of a given MFA method. A token with ORG_ADMIN authority is required to call this API.
-         * @summary Set configuration of a MFA method
+         * @summary Set MFA method configuration
          * @param {string} method The name of the MFA method. The currently supported method name is okta-verify.
          * @param {MfaConfigBeta} mfaConfigBeta 
          * @param {*} [axiosOptions] Override http request option.
@@ -40765,7 +40768,7 @@ export const MFAConfigurationBetaApiAxiosParamCreator = function (configuration?
         },
         /**
          * This API validates that the configuration is valid and will properly authenticate with the MFA provider identified by the method path parameter. A token with ORG_ADMIN authority is required to call this API.
-         * @summary Test configuration of a MFA method
+         * @summary MFA method\'s test configuration
          * @param {string} method The name of the MFA method. The currently supported method name is okta-verify.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
@@ -40817,7 +40820,7 @@ export const MFAConfigurationBetaApiFp = function(configuration?: Configuration)
     return {
         /**
          * This API returns the configuration of a given MFA method. A token with ORG_ADMIN authority is required to call this API.
-         * @summary Get configuration of a MFA method
+         * @summary Configuration of a MFA method
          * @param {string} method The name of the MFA method. The currently supported method name is okta-verify.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
@@ -40828,7 +40831,7 @@ export const MFAConfigurationBetaApiFp = function(configuration?: Configuration)
         },
         /**
          * This API sets the configuration of a given MFA method. A token with ORG_ADMIN authority is required to call this API.
-         * @summary Set configuration of a MFA method
+         * @summary Set MFA method configuration
          * @param {string} method The name of the MFA method. The currently supported method name is okta-verify.
          * @param {MfaConfigBeta} mfaConfigBeta 
          * @param {*} [axiosOptions] Override http request option.
@@ -40840,7 +40843,7 @@ export const MFAConfigurationBetaApiFp = function(configuration?: Configuration)
         },
         /**
          * This API validates that the configuration is valid and will properly authenticate with the MFA provider identified by the method path parameter. A token with ORG_ADMIN authority is required to call this API.
-         * @summary Test configuration of a MFA method
+         * @summary MFA method\'s test configuration
          * @param {string} method The name of the MFA method. The currently supported method name is okta-verify.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
@@ -40861,7 +40864,7 @@ export const MFAConfigurationBetaApiFactory = function (configuration?: Configur
     return {
         /**
          * This API returns the configuration of a given MFA method. A token with ORG_ADMIN authority is required to call this API.
-         * @summary Get configuration of a MFA method
+         * @summary Configuration of a MFA method
          * @param {string} method The name of the MFA method. The currently supported method name is okta-verify.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
@@ -40871,7 +40874,7 @@ export const MFAConfigurationBetaApiFactory = function (configuration?: Configur
         },
         /**
          * This API sets the configuration of a given MFA method. A token with ORG_ADMIN authority is required to call this API.
-         * @summary Set configuration of a MFA method
+         * @summary Set MFA method configuration
          * @param {string} method The name of the MFA method. The currently supported method name is okta-verify.
          * @param {MfaConfigBeta} mfaConfigBeta 
          * @param {*} [axiosOptions] Override http request option.
@@ -40882,7 +40885,7 @@ export const MFAConfigurationBetaApiFactory = function (configuration?: Configur
         },
         /**
          * This API validates that the configuration is valid and will properly authenticate with the MFA provider identified by the method path parameter. A token with ORG_ADMIN authority is required to call this API.
-         * @summary Test configuration of a MFA method
+         * @summary MFA method\'s test configuration
          * @param {string} method The name of the MFA method. The currently supported method name is okta-verify.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
@@ -40951,7 +40954,7 @@ export interface MFAConfigurationBetaApiTestMFAConfigRequest {
 export class MFAConfigurationBetaApi extends BaseAPI {
     /**
      * This API returns the configuration of a given MFA method. A token with ORG_ADMIN authority is required to call this API.
-     * @summary Get configuration of a MFA method
+     * @summary Configuration of a MFA method
      * @param {MFAConfigurationBetaApiGetMFAConfigRequest} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
@@ -40963,7 +40966,7 @@ export class MFAConfigurationBetaApi extends BaseAPI {
 
     /**
      * This API sets the configuration of a given MFA method. A token with ORG_ADMIN authority is required to call this API.
-     * @summary Set configuration of a MFA method
+     * @summary Set MFA method configuration
      * @param {MFAConfigurationBetaApiSetMFAConfigRequest} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
@@ -40975,7 +40978,7 @@ export class MFAConfigurationBetaApi extends BaseAPI {
 
     /**
      * This API validates that the configuration is valid and will properly authenticate with the MFA provider identified by the method path parameter. A token with ORG_ADMIN authority is required to call this API.
-     * @summary Test configuration of a MFA method
+     * @summary MFA method\'s test configuration
      * @param {MFAConfigurationBetaApiTestMFAConfigRequest} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
@@ -40995,7 +40998,7 @@ export const ManagedClientsBetaApiAxiosParamCreator = function (configuration?: 
     return {
         /**
          * Retrieve Managed Client Status by ID.
-         * @summary Get a specified Managed Client Status.
+         * @summary Specified Managed Client Status.
          * @param {string} id ID of the Managed Client Status to get
          * @param {ManagedClientTypeBeta} type Type of the Managed Client Status to get
          * @param {*} [axiosOptions] Override http request option.
@@ -41044,7 +41047,7 @@ export const ManagedClientsBetaApiAxiosParamCreator = function (configuration?: 
         },
         /**
          * Update a status detail passed in from the client
-         * @summary Handle a status request from a client
+         * @summary Handle status request from client
          * @param {string} id ID of the Managed Client Status to update
          * @param {ManagedClientStatusBeta} managedClientStatusBeta 
          * @param {*} [axiosOptions] Override http request option.
@@ -41102,7 +41105,7 @@ export const ManagedClientsBetaApiFp = function(configuration?: Configuration) {
     return {
         /**
          * Retrieve Managed Client Status by ID.
-         * @summary Get a specified Managed Client Status.
+         * @summary Specified Managed Client Status.
          * @param {string} id ID of the Managed Client Status to get
          * @param {ManagedClientTypeBeta} type Type of the Managed Client Status to get
          * @param {*} [axiosOptions] Override http request option.
@@ -41114,7 +41117,7 @@ export const ManagedClientsBetaApiFp = function(configuration?: Configuration) {
         },
         /**
          * Update a status detail passed in from the client
-         * @summary Handle a status request from a client
+         * @summary Handle status request from client
          * @param {string} id ID of the Managed Client Status to update
          * @param {ManagedClientStatusBeta} managedClientStatusBeta 
          * @param {*} [axiosOptions] Override http request option.
@@ -41136,7 +41139,7 @@ export const ManagedClientsBetaApiFactory = function (configuration?: Configurat
     return {
         /**
          * Retrieve Managed Client Status by ID.
-         * @summary Get a specified Managed Client Status.
+         * @summary Specified Managed Client Status.
          * @param {string} id ID of the Managed Client Status to get
          * @param {ManagedClientTypeBeta} type Type of the Managed Client Status to get
          * @param {*} [axiosOptions] Override http request option.
@@ -41147,7 +41150,7 @@ export const ManagedClientsBetaApiFactory = function (configuration?: Configurat
         },
         /**
          * Update a status detail passed in from the client
-         * @summary Handle a status request from a client
+         * @summary Handle status request from client
          * @param {string} id ID of the Managed Client Status to update
          * @param {ManagedClientStatusBeta} managedClientStatusBeta 
          * @param {*} [axiosOptions] Override http request option.
@@ -41210,7 +41213,7 @@ export interface ManagedClientsBetaApiUpdateManagedClientStatusRequest {
 export class ManagedClientsBetaApi extends BaseAPI {
     /**
      * Retrieve Managed Client Status by ID.
-     * @summary Get a specified Managed Client Status.
+     * @summary Specified Managed Client Status.
      * @param {ManagedClientsBetaApiGetManagedClientStatusRequest} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
@@ -41222,7 +41225,7 @@ export class ManagedClientsBetaApi extends BaseAPI {
 
     /**
      * Update a status detail passed in from the client
-     * @summary Handle a status request from a client
+     * @summary Handle status request from client
      * @param {ManagedClientsBetaApiUpdateManagedClientStatusRequest} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
@@ -41873,8 +41876,8 @@ export const NonEmployeeLifecycleManagementBetaApiAxiosParamCreator = function (
             };
         },
         /**
-         * This API creates a new schema attribute for Non-Employee Source. The schema technical name must be unique in the source. Attempts to create a schema attribute with an existing name will result in a \"400.1.409 Reference conflict\" response. At most, 10 custom attributes can be created per schema. Attempts to create more than 10 will result in a \"400.1.4 Limit violation\" response. Request requires a security scope of: \'idn:nesr:create\'
-         * @summary Create a new Schema Attribute for Non-Employee Source
+         * This API creates a new schema attribute for Non-Employee Source. The schema technical name must be unique in the source. Attempts to create a schema attribute with an existing name will result in a \"400.1.409 Reference conflict\" response. At most, 10 custom attributes can be created per schema. Attempts to create more than 10 will result in a \"400.1.4 Limit violation\" response.
+         * @summary Create Non-Employee Source Schema Attribute
          * @param {string} sourceId The Source id
          * @param {NonEmployeeSchemaAttributeBodyBeta} nonEmployeeSchemaAttributeBodyBeta 
          * @param {*} [axiosOptions] Override http request option.
@@ -41921,7 +41924,7 @@ export const NonEmployeeLifecycleManagementBetaApiAxiosParamCreator = function (
             };
         },
         /**
-         * This request will delete a non-employee record. Request will require the following security scope: \'idn:nesr:delete\'
+         * This request will delete a non-employee record.
          * @summary Delete Non-Employee Record
          * @param {string} id Non-Employee record id (UUID)
          * @param {*} [axiosOptions] Override http request option.
@@ -42007,7 +42010,7 @@ export const NonEmployeeLifecycleManagementBetaApiAxiosParamCreator = function (
             };
         },
         /**
-         * This request will delete a non-employee request.   Request will require the following scope: \'idn:nesr:delete\'
+         * This request will delete a non-employee request.
          * @summary Delete Non-Employee Request
          * @param {string} id Non-Employee request id in the UUID format
          * @param {*} [axiosOptions] Override http request option.
@@ -42049,8 +42052,8 @@ export const NonEmployeeLifecycleManagementBetaApiAxiosParamCreator = function (
             };
         },
         /**
-         * This end-point deletes a specific schema attribute for a non-employee source.  Request will require a security scope of:  \'idn:nesr:delete\' 
-         * @summary Delete a Schema Attribute for Non-Employee Source
+         * This end-point deletes a specific schema attribute for a non-employee source. 
+         * @summary Delete Non-Employee Source\'s Schema Attribute
          * @param {string} attributeId The Schema Attribute Id (UUID)
          * @param {string} sourceId The Source id
          * @param {*} [axiosOptions] Override http request option.
@@ -42095,7 +42098,7 @@ export const NonEmployeeLifecycleManagementBetaApiAxiosParamCreator = function (
             };
         },
         /**
-         * This request will delete a non-employee source. Request will require the following security scope: \'idn:nesr:delete\'
+         * This request will delete a non-employee source.
          * @summary Delete Non-Employee Source
          * @param {string} sourceId Source Id
          * @param {*} [axiosOptions] Override http request option.
@@ -42137,8 +42140,8 @@ export const NonEmployeeLifecycleManagementBetaApiAxiosParamCreator = function (
             };
         },
         /**
-         * This end-point deletes all custom schema attributes for a non-employee source. Request requires a security scope of: \'idn:nesr:delete\'
-         * @summary Delete all custom schema attributes for Non-Employee Source
+         * This end-point deletes all custom schema attributes for a non-employee source.
+         * @summary Delete all custom schema attributes
          * @param {string} sourceId The Source id
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
@@ -42179,7 +42182,7 @@ export const NonEmployeeLifecycleManagementBetaApiAxiosParamCreator = function (
             };
         },
         /**
-         * This requests a CSV download for all non-employees from a provided source. Request will need the following security scope: \'idn:nesr:read\'
+         * This requests a CSV download for all non-employees from a provided source.
          * @summary Exports Non-Employee Records to CSV
          * @param {string} id Source Id (UUID)
          * @param {*} [axiosOptions] Override http request option.
@@ -42352,8 +42355,8 @@ export const NonEmployeeLifecycleManagementBetaApiAxiosParamCreator = function (
             };
         },
         /**
-         * The nonEmployeeBulkUploadStatus API returns the status of the newest bulk upload job for the specified source.  Request will need the following scope:  \'idn:nesr:read\' 
-         * @summary Obtain the status of bulk upload on the source
+         * The nonEmployeeBulkUploadStatus API returns the status of the newest bulk upload job for the specified source. 
+         * @summary Bulk upload status on source
          * @param {string} id Source ID (UUID)
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
@@ -42394,7 +42397,7 @@ export const NonEmployeeLifecycleManagementBetaApiAxiosParamCreator = function (
             };
         },
         /**
-         * This gets a non-employee record. Request will require the following scope: \'idn:nesr:read\'
+         * This gets a non-employee record.
          * @summary Get a Non-Employee Record
          * @param {string} id Non-Employee record id (UUID)
          * @param {*} [axiosOptions] Override http request option.
@@ -42971,8 +42974,8 @@ export const NonEmployeeLifecycleManagementBetaApiAxiosParamCreator = function (
             };
         },
         /**
-         * This end-point patches a specific schema attribute for a non-employee SourceId.  Request will require a security scope of:  \'idn:nesr:update\' 
-         * @summary Patch a Schema Attribute for Non-Employee Source
+         * This end-point patches a specific schema attribute for a non-employee SourceId. 
+         * @summary Patch Non-Employee Source\'s Schema Attribute
          * @param {string} attributeId The Schema Attribute Id (UUID)
          * @param {string} sourceId The Source id
          * @param {Array<JsonPatchOperationBeta>} jsonPatchOperationBeta A list of schema attribute update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard. The following properties are allowed for update \&#39;:\&#39; \&#39;label\&#39;, \&#39;helpText\&#39;, \&#39;placeholder\&#39;, \&#39;required\&#39;.
@@ -43023,7 +43026,7 @@ export const NonEmployeeLifecycleManagementBetaApiAxiosParamCreator = function (
             };
         },
         /**
-         * patch a non-employee source. (Partial Update)  Patchable field: **name, description, approvers, accountManagers** Request will require the following security scope: \'idn:nesr:update\'
+         * patch a non-employee source. (Partial Update)  Patchable field: **name, description, approvers, accountManagers**
          * @summary Patch a Non-Employee Source
          * @param {string} sourceId Source Id
          * @param {Array<JsonPatchOperationBeta>} jsonPatchOperationBeta A list of non-employee source update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.
@@ -43275,8 +43278,8 @@ export const NonEmployeeLifecycleManagementBetaApiFp = function(configuration?: 
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
-         * This API creates a new schema attribute for Non-Employee Source. The schema technical name must be unique in the source. Attempts to create a schema attribute with an existing name will result in a \"400.1.409 Reference conflict\" response. At most, 10 custom attributes can be created per schema. Attempts to create more than 10 will result in a \"400.1.4 Limit violation\" response. Request requires a security scope of: \'idn:nesr:create\'
-         * @summary Create a new Schema Attribute for Non-Employee Source
+         * This API creates a new schema attribute for Non-Employee Source. The schema technical name must be unique in the source. Attempts to create a schema attribute with an existing name will result in a \"400.1.409 Reference conflict\" response. At most, 10 custom attributes can be created per schema. Attempts to create more than 10 will result in a \"400.1.4 Limit violation\" response.
+         * @summary Create Non-Employee Source Schema Attribute
          * @param {string} sourceId The Source id
          * @param {NonEmployeeSchemaAttributeBodyBeta} nonEmployeeSchemaAttributeBodyBeta 
          * @param {*} [axiosOptions] Override http request option.
@@ -43287,7 +43290,7 @@ export const NonEmployeeLifecycleManagementBetaApiFp = function(configuration?: 
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
-         * This request will delete a non-employee record. Request will require the following security scope: \'idn:nesr:delete\'
+         * This request will delete a non-employee record.
          * @summary Delete Non-Employee Record
          * @param {string} id Non-Employee record id (UUID)
          * @param {*} [axiosOptions] Override http request option.
@@ -43309,7 +43312,7 @@ export const NonEmployeeLifecycleManagementBetaApiFp = function(configuration?: 
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
-         * This request will delete a non-employee request.   Request will require the following scope: \'idn:nesr:delete\'
+         * This request will delete a non-employee request.
          * @summary Delete Non-Employee Request
          * @param {string} id Non-Employee request id in the UUID format
          * @param {*} [axiosOptions] Override http request option.
@@ -43320,8 +43323,8 @@ export const NonEmployeeLifecycleManagementBetaApiFp = function(configuration?: 
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
-         * This end-point deletes a specific schema attribute for a non-employee source.  Request will require a security scope of:  \'idn:nesr:delete\' 
-         * @summary Delete a Schema Attribute for Non-Employee Source
+         * This end-point deletes a specific schema attribute for a non-employee source. 
+         * @summary Delete Non-Employee Source\'s Schema Attribute
          * @param {string} attributeId The Schema Attribute Id (UUID)
          * @param {string} sourceId The Source id
          * @param {*} [axiosOptions] Override http request option.
@@ -43332,7 +43335,7 @@ export const NonEmployeeLifecycleManagementBetaApiFp = function(configuration?: 
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
-         * This request will delete a non-employee source. Request will require the following security scope: \'idn:nesr:delete\'
+         * This request will delete a non-employee source.
          * @summary Delete Non-Employee Source
          * @param {string} sourceId Source Id
          * @param {*} [axiosOptions] Override http request option.
@@ -43343,8 +43346,8 @@ export const NonEmployeeLifecycleManagementBetaApiFp = function(configuration?: 
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
-         * This end-point deletes all custom schema attributes for a non-employee source. Request requires a security scope of: \'idn:nesr:delete\'
-         * @summary Delete all custom schema attributes for Non-Employee Source
+         * This end-point deletes all custom schema attributes for a non-employee source.
+         * @summary Delete all custom schema attributes
          * @param {string} sourceId The Source id
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
@@ -43354,7 +43357,7 @@ export const NonEmployeeLifecycleManagementBetaApiFp = function(configuration?: 
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
-         * This requests a CSV download for all non-employees from a provided source. Request will need the following security scope: \'idn:nesr:read\'
+         * This requests a CSV download for all non-employees from a provided source.
          * @summary Exports Non-Employee Records to CSV
          * @param {string} id Source Id (UUID)
          * @param {*} [axiosOptions] Override http request option.
@@ -43399,8 +43402,8 @@ export const NonEmployeeLifecycleManagementBetaApiFp = function(configuration?: 
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
-         * The nonEmployeeBulkUploadStatus API returns the status of the newest bulk upload job for the specified source.  Request will need the following scope:  \'idn:nesr:read\' 
-         * @summary Obtain the status of bulk upload on the source
+         * The nonEmployeeBulkUploadStatus API returns the status of the newest bulk upload job for the specified source. 
+         * @summary Bulk upload status on source
          * @param {string} id Source ID (UUID)
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
@@ -43410,7 +43413,7 @@ export const NonEmployeeLifecycleManagementBetaApiFp = function(configuration?: 
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
-         * This gets a non-employee record. Request will require the following scope: \'idn:nesr:read\'
+         * This gets a non-employee record.
          * @summary Get a Non-Employee Record
          * @param {string} id Non-Employee record id (UUID)
          * @param {*} [axiosOptions] Override http request option.
@@ -43552,8 +43555,8 @@ export const NonEmployeeLifecycleManagementBetaApiFp = function(configuration?: 
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
-         * This end-point patches a specific schema attribute for a non-employee SourceId.  Request will require a security scope of:  \'idn:nesr:update\' 
-         * @summary Patch a Schema Attribute for Non-Employee Source
+         * This end-point patches a specific schema attribute for a non-employee SourceId. 
+         * @summary Patch Non-Employee Source\'s Schema Attribute
          * @param {string} attributeId The Schema Attribute Id (UUID)
          * @param {string} sourceId The Source id
          * @param {Array<JsonPatchOperationBeta>} jsonPatchOperationBeta A list of schema attribute update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard. The following properties are allowed for update \&#39;:\&#39; \&#39;label\&#39;, \&#39;helpText\&#39;, \&#39;placeholder\&#39;, \&#39;required\&#39;.
@@ -43565,7 +43568,7 @@ export const NonEmployeeLifecycleManagementBetaApiFp = function(configuration?: 
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
-         * patch a non-employee source. (Partial Update)  Patchable field: **name, description, approvers, accountManagers** Request will require the following security scope: \'idn:nesr:update\'
+         * patch a non-employee source. (Partial Update)  Patchable field: **name, description, approvers, accountManagers**
          * @summary Patch a Non-Employee Source
          * @param {string} sourceId Source Id
          * @param {Array<JsonPatchOperationBeta>} jsonPatchOperationBeta A list of non-employee source update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.
@@ -43664,8 +43667,8 @@ export const NonEmployeeLifecycleManagementBetaApiFactory = function (configurat
             return localVarFp.createNonEmployeeSource(nonEmployeeSourceRequestBodyBeta, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
-         * This API creates a new schema attribute for Non-Employee Source. The schema technical name must be unique in the source. Attempts to create a schema attribute with an existing name will result in a \"400.1.409 Reference conflict\" response. At most, 10 custom attributes can be created per schema. Attempts to create more than 10 will result in a \"400.1.4 Limit violation\" response. Request requires a security scope of: \'idn:nesr:create\'
-         * @summary Create a new Schema Attribute for Non-Employee Source
+         * This API creates a new schema attribute for Non-Employee Source. The schema technical name must be unique in the source. Attempts to create a schema attribute with an existing name will result in a \"400.1.409 Reference conflict\" response. At most, 10 custom attributes can be created per schema. Attempts to create more than 10 will result in a \"400.1.4 Limit violation\" response.
+         * @summary Create Non-Employee Source Schema Attribute
          * @param {string} sourceId The Source id
          * @param {NonEmployeeSchemaAttributeBodyBeta} nonEmployeeSchemaAttributeBodyBeta 
          * @param {*} [axiosOptions] Override http request option.
@@ -43675,7 +43678,7 @@ export const NonEmployeeLifecycleManagementBetaApiFactory = function (configurat
             return localVarFp.createNonEmployeeSourceSchemaAttributes(sourceId, nonEmployeeSchemaAttributeBodyBeta, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
-         * This request will delete a non-employee record. Request will require the following security scope: \'idn:nesr:delete\'
+         * This request will delete a non-employee record.
          * @summary Delete Non-Employee Record
          * @param {string} id Non-Employee record id (UUID)
          * @param {*} [axiosOptions] Override http request option.
@@ -43695,7 +43698,7 @@ export const NonEmployeeLifecycleManagementBetaApiFactory = function (configurat
             return localVarFp.deleteNonEmployeeRecordInBulk(deleteNonEmployeeRecordInBulkRequestBeta, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
-         * This request will delete a non-employee request.   Request will require the following scope: \'idn:nesr:delete\'
+         * This request will delete a non-employee request.
          * @summary Delete Non-Employee Request
          * @param {string} id Non-Employee request id in the UUID format
          * @param {*} [axiosOptions] Override http request option.
@@ -43705,8 +43708,8 @@ export const NonEmployeeLifecycleManagementBetaApiFactory = function (configurat
             return localVarFp.deleteNonEmployeeRequest(id, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
-         * This end-point deletes a specific schema attribute for a non-employee source.  Request will require a security scope of:  \'idn:nesr:delete\' 
-         * @summary Delete a Schema Attribute for Non-Employee Source
+         * This end-point deletes a specific schema attribute for a non-employee source. 
+         * @summary Delete Non-Employee Source\'s Schema Attribute
          * @param {string} attributeId The Schema Attribute Id (UUID)
          * @param {string} sourceId The Source id
          * @param {*} [axiosOptions] Override http request option.
@@ -43716,7 +43719,7 @@ export const NonEmployeeLifecycleManagementBetaApiFactory = function (configurat
             return localVarFp.deleteNonEmployeeSchemaAttribute(attributeId, sourceId, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
-         * This request will delete a non-employee source. Request will require the following security scope: \'idn:nesr:delete\'
+         * This request will delete a non-employee source.
          * @summary Delete Non-Employee Source
          * @param {string} sourceId Source Id
          * @param {*} [axiosOptions] Override http request option.
@@ -43726,8 +43729,8 @@ export const NonEmployeeLifecycleManagementBetaApiFactory = function (configurat
             return localVarFp.deleteNonEmployeeSource(sourceId, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
-         * This end-point deletes all custom schema attributes for a non-employee source. Request requires a security scope of: \'idn:nesr:delete\'
-         * @summary Delete all custom schema attributes for Non-Employee Source
+         * This end-point deletes all custom schema attributes for a non-employee source.
+         * @summary Delete all custom schema attributes
          * @param {string} sourceId The Source id
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
@@ -43736,7 +43739,7 @@ export const NonEmployeeLifecycleManagementBetaApiFactory = function (configurat
             return localVarFp.deleteNonEmployeeSourceSchemaAttributes(sourceId, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
-         * This requests a CSV download for all non-employees from a provided source. Request will need the following security scope: \'idn:nesr:read\'
+         * This requests a CSV download for all non-employees from a provided source.
          * @summary Exports Non-Employee Records to CSV
          * @param {string} id Source Id (UUID)
          * @param {*} [axiosOptions] Override http request option.
@@ -43777,8 +43780,8 @@ export const NonEmployeeLifecycleManagementBetaApiFactory = function (configurat
             return localVarFp.getNonEmployeeApprovalSummary(requestedFor, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
-         * The nonEmployeeBulkUploadStatus API returns the status of the newest bulk upload job for the specified source.  Request will need the following scope:  \'idn:nesr:read\' 
-         * @summary Obtain the status of bulk upload on the source
+         * The nonEmployeeBulkUploadStatus API returns the status of the newest bulk upload job for the specified source. 
+         * @summary Bulk upload status on source
          * @param {string} id Source ID (UUID)
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
@@ -43787,7 +43790,7 @@ export const NonEmployeeLifecycleManagementBetaApiFactory = function (configurat
             return localVarFp.getNonEmployeeBulkUploadStatus(id, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
-         * This gets a non-employee record. Request will require the following scope: \'idn:nesr:read\'
+         * This gets a non-employee record.
          * @summary Get a Non-Employee Record
          * @param {string} id Non-Employee record id (UUID)
          * @param {*} [axiosOptions] Override http request option.
@@ -43918,8 +43921,8 @@ export const NonEmployeeLifecycleManagementBetaApiFactory = function (configurat
             return localVarFp.patchNonEmployeeRecord(id, jsonPatchOperationBeta, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
-         * This end-point patches a specific schema attribute for a non-employee SourceId.  Request will require a security scope of:  \'idn:nesr:update\' 
-         * @summary Patch a Schema Attribute for Non-Employee Source
+         * This end-point patches a specific schema attribute for a non-employee SourceId. 
+         * @summary Patch Non-Employee Source\'s Schema Attribute
          * @param {string} attributeId The Schema Attribute Id (UUID)
          * @param {string} sourceId The Source id
          * @param {Array<JsonPatchOperationBeta>} jsonPatchOperationBeta A list of schema attribute update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard. The following properties are allowed for update \&#39;:\&#39; \&#39;label\&#39;, \&#39;helpText\&#39;, \&#39;placeholder\&#39;, \&#39;required\&#39;.
@@ -43930,7 +43933,7 @@ export const NonEmployeeLifecycleManagementBetaApiFactory = function (configurat
             return localVarFp.patchNonEmployeeSchemaAttribute(attributeId, sourceId, jsonPatchOperationBeta, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
-         * patch a non-employee source. (Partial Update)  Patchable field: **name, description, approvers, accountManagers** Request will require the following security scope: \'idn:nesr:update\'
+         * patch a non-employee source. (Partial Update)  Patchable field: **name, description, approvers, accountManagers**
          * @summary Patch a Non-Employee Source
          * @param {string} sourceId Source Id
          * @param {Array<JsonPatchOperationBeta>} jsonPatchOperationBeta A list of non-employee source update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.
@@ -44697,8 +44700,8 @@ export class NonEmployeeLifecycleManagementBetaApi extends BaseAPI {
     }
 
     /**
-     * This API creates a new schema attribute for Non-Employee Source. The schema technical name must be unique in the source. Attempts to create a schema attribute with an existing name will result in a \"400.1.409 Reference conflict\" response. At most, 10 custom attributes can be created per schema. Attempts to create more than 10 will result in a \"400.1.4 Limit violation\" response. Request requires a security scope of: \'idn:nesr:create\'
-     * @summary Create a new Schema Attribute for Non-Employee Source
+     * This API creates a new schema attribute for Non-Employee Source. The schema technical name must be unique in the source. Attempts to create a schema attribute with an existing name will result in a \"400.1.409 Reference conflict\" response. At most, 10 custom attributes can be created per schema. Attempts to create more than 10 will result in a \"400.1.4 Limit violation\" response.
+     * @summary Create Non-Employee Source Schema Attribute
      * @param {NonEmployeeLifecycleManagementBetaApiCreateNonEmployeeSourceSchemaAttributesRequest} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
@@ -44709,7 +44712,7 @@ export class NonEmployeeLifecycleManagementBetaApi extends BaseAPI {
     }
 
     /**
-     * This request will delete a non-employee record. Request will require the following security scope: \'idn:nesr:delete\'
+     * This request will delete a non-employee record.
      * @summary Delete Non-Employee Record
      * @param {NonEmployeeLifecycleManagementBetaApiDeleteNonEmployeeRecordRequest} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
@@ -44733,7 +44736,7 @@ export class NonEmployeeLifecycleManagementBetaApi extends BaseAPI {
     }
 
     /**
-     * This request will delete a non-employee request.   Request will require the following scope: \'idn:nesr:delete\'
+     * This request will delete a non-employee request.
      * @summary Delete Non-Employee Request
      * @param {NonEmployeeLifecycleManagementBetaApiDeleteNonEmployeeRequestRequest} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
@@ -44745,8 +44748,8 @@ export class NonEmployeeLifecycleManagementBetaApi extends BaseAPI {
     }
 
     /**
-     * This end-point deletes a specific schema attribute for a non-employee source.  Request will require a security scope of:  \'idn:nesr:delete\' 
-     * @summary Delete a Schema Attribute for Non-Employee Source
+     * This end-point deletes a specific schema attribute for a non-employee source. 
+     * @summary Delete Non-Employee Source\'s Schema Attribute
      * @param {NonEmployeeLifecycleManagementBetaApiDeleteNonEmployeeSchemaAttributeRequest} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
@@ -44757,7 +44760,7 @@ export class NonEmployeeLifecycleManagementBetaApi extends BaseAPI {
     }
 
     /**
-     * This request will delete a non-employee source. Request will require the following security scope: \'idn:nesr:delete\'
+     * This request will delete a non-employee source.
      * @summary Delete Non-Employee Source
      * @param {NonEmployeeLifecycleManagementBetaApiDeleteNonEmployeeSourceRequest} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
@@ -44769,8 +44772,8 @@ export class NonEmployeeLifecycleManagementBetaApi extends BaseAPI {
     }
 
     /**
-     * This end-point deletes all custom schema attributes for a non-employee source. Request requires a security scope of: \'idn:nesr:delete\'
-     * @summary Delete all custom schema attributes for Non-Employee Source
+     * This end-point deletes all custom schema attributes for a non-employee source.
+     * @summary Delete all custom schema attributes
      * @param {NonEmployeeLifecycleManagementBetaApiDeleteNonEmployeeSourceSchemaAttributesRequest} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
@@ -44781,7 +44784,7 @@ export class NonEmployeeLifecycleManagementBetaApi extends BaseAPI {
     }
 
     /**
-     * This requests a CSV download for all non-employees from a provided source. Request will need the following security scope: \'idn:nesr:read\'
+     * This requests a CSV download for all non-employees from a provided source.
      * @summary Exports Non-Employee Records to CSV
      * @param {NonEmployeeLifecycleManagementBetaApiExportNonEmployeeRecordsRequest} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
@@ -44829,8 +44832,8 @@ export class NonEmployeeLifecycleManagementBetaApi extends BaseAPI {
     }
 
     /**
-     * The nonEmployeeBulkUploadStatus API returns the status of the newest bulk upload job for the specified source.  Request will need the following scope:  \'idn:nesr:read\' 
-     * @summary Obtain the status of bulk upload on the source
+     * The nonEmployeeBulkUploadStatus API returns the status of the newest bulk upload job for the specified source. 
+     * @summary Bulk upload status on source
      * @param {NonEmployeeLifecycleManagementBetaApiGetNonEmployeeBulkUploadStatusRequest} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
@@ -44841,7 +44844,7 @@ export class NonEmployeeLifecycleManagementBetaApi extends BaseAPI {
     }
 
     /**
-     * This gets a non-employee record. Request will require the following scope: \'idn:nesr:read\'
+     * This gets a non-employee record.
      * @summary Get a Non-Employee Record
      * @param {NonEmployeeLifecycleManagementBetaApiGetNonEmployeeRecordRequest} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
@@ -44973,8 +44976,8 @@ export class NonEmployeeLifecycleManagementBetaApi extends BaseAPI {
     }
 
     /**
-     * This end-point patches a specific schema attribute for a non-employee SourceId.  Request will require a security scope of:  \'idn:nesr:update\' 
-     * @summary Patch a Schema Attribute for Non-Employee Source
+     * This end-point patches a specific schema attribute for a non-employee SourceId. 
+     * @summary Patch Non-Employee Source\'s Schema Attribute
      * @param {NonEmployeeLifecycleManagementBetaApiPatchNonEmployeeSchemaAttributeRequest} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
@@ -44985,7 +44988,7 @@ export class NonEmployeeLifecycleManagementBetaApi extends BaseAPI {
     }
 
     /**
-     * patch a non-employee source. (Partial Update)  Patchable field: **name, description, approvers, accountManagers** Request will require the following security scope: \'idn:nesr:update\'
+     * patch a non-employee source. (Partial Update)  Patchable field: **name, description, approvers, accountManagers**
      * @summary Patch a Non-Employee Source
      * @param {NonEmployeeLifecycleManagementBetaApiPatchNonEmployeeSourceRequest} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
@@ -50643,7 +50646,7 @@ export const RolesBetaApiAxiosParamCreator = function (configuration?: Configura
         },
         /**
          * 
-         * @summary Get a list of Identities assigned a Role
+         * @summary Identities assigned a Role
          * @param {string} id ID of the Role for which the assigned Identities are to be listed
          * @param {number} [limit] Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
          * @param {number} [offset] Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
@@ -50879,7 +50882,7 @@ export const RolesBetaApiFp = function(configuration?: Configuration) {
         },
         /**
          * 
-         * @summary Get a list of Identities assigned a Role
+         * @summary Identities assigned a Role
          * @param {string} id ID of the Role for which the assigned Identities are to be listed
          * @param {number} [limit] Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
          * @param {number} [offset] Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
@@ -50965,7 +50968,7 @@ export const RolesBetaApiFactory = function (configuration?: Configuration, base
         },
         /**
          * 
-         * @summary Get a list of Identities assigned a Role
+         * @summary Identities assigned a Role
          * @param {string} id ID of the Role for which the assigned Identities are to be listed
          * @param {number} [limit] Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
          * @param {number} [offset] Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
@@ -51229,7 +51232,7 @@ export class RolesBetaApi extends BaseAPI {
 
     /**
      * 
-     * @summary Get a list of Identities assigned a Role
+     * @summary Identities assigned a Role
      * @param {RolesBetaApiGetRoleAssignedIdentitiesRequest} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
@@ -52959,7 +52962,7 @@ export class SODViolationsBetaApi extends BaseAPI {
 export const SPConfigBetaApiAxiosParamCreator = function (configuration?: Configuration) {
     return {
         /**
-         * This post will export objects from the tenant to a JSON configuration file. Request will need one of the following security scopes: - sp:config:read - sp:config:manage
+         * This post will export objects from the tenant to a JSON configuration file.
          * @summary Initiates Configuration Objects Export Job.
          * @param {ExportPayloadBeta} exportPayloadBeta Export options control what will be included in the export.
          * @param {*} [axiosOptions] Override http request option.
@@ -53230,7 +53233,7 @@ export const SPConfigBetaApiAxiosParamCreator = function (configuration?: Config
             };
         },
         /**
-         * This gets the list of object configurations which are known to the tenant export/import service. Object configurations that contain \"importUrl\" and \"exportUrl\" are available for export/import. Request will need one of the following security scopes: - sp:config:read - sp:config:manage
+         * This gets the list of object configurations which are known to the tenant export/import service. Object configurations that contain \"importUrl\" and \"exportUrl\" are available for export/import.
          * @summary Get Config Object details
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
@@ -53278,7 +53281,7 @@ export const SPConfigBetaApiFp = function(configuration?: Configuration) {
     const localVarAxiosParamCreator = SPConfigBetaApiAxiosParamCreator(configuration)
     return {
         /**
-         * This post will export objects from the tenant to a JSON configuration file. Request will need one of the following security scopes: - sp:config:read - sp:config:manage
+         * This post will export objects from the tenant to a JSON configuration file.
          * @summary Initiates Configuration Objects Export Job.
          * @param {ExportPayloadBeta} exportPayloadBeta Export options control what will be included in the export.
          * @param {*} [axiosOptions] Override http request option.
@@ -53346,7 +53349,7 @@ export const SPConfigBetaApiFp = function(configuration?: Configuration) {
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
-         * This gets the list of object configurations which are known to the tenant export/import service. Object configurations that contain \"importUrl\" and \"exportUrl\" are available for export/import. Request will need one of the following security scopes: - sp:config:read - sp:config:manage
+         * This gets the list of object configurations which are known to the tenant export/import service. Object configurations that contain \"importUrl\" and \"exportUrl\" are available for export/import.
          * @summary Get Config Object details
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
@@ -53366,7 +53369,7 @@ export const SPConfigBetaApiFactory = function (configuration?: Configuration, b
     const localVarFp = SPConfigBetaApiFp(configuration)
     return {
         /**
-         * This post will export objects from the tenant to a JSON configuration file. Request will need one of the following security scopes: - sp:config:read - sp:config:manage
+         * This post will export objects from the tenant to a JSON configuration file.
          * @summary Initiates Configuration Objects Export Job.
          * @param {ExportPayloadBeta} exportPayloadBeta Export options control what will be included in the export.
          * @param {*} [axiosOptions] Override http request option.
@@ -53428,7 +53431,7 @@ export const SPConfigBetaApiFactory = function (configuration?: Configuration, b
             return localVarFp.importSpConfigJobStatus(id, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
-         * This gets the list of object configurations which are known to the tenant export/import service. Object configurations that contain \"importUrl\" and \"exportUrl\" are available for export/import. Request will need one of the following security scopes: - sp:config:read - sp:config:manage
+         * This gets the list of object configurations which are known to the tenant export/import service. Object configurations that contain \"importUrl\" and \"exportUrl\" are available for export/import.
          * @summary Get Config Object details
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
@@ -53545,7 +53548,7 @@ export interface SPConfigBetaApiImportSpConfigJobStatusRequest {
  */
 export class SPConfigBetaApi extends BaseAPI {
     /**
-     * This post will export objects from the tenant to a JSON configuration file. Request will need one of the following security scopes: - sp:config:read - sp:config:manage
+     * This post will export objects from the tenant to a JSON configuration file.
      * @summary Initiates Configuration Objects Export Job.
      * @param {SPConfigBetaApiExportSpConfigRequest} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
@@ -53617,7 +53620,7 @@ export class SPConfigBetaApi extends BaseAPI {
     }
 
     /**
-     * This gets the list of object configurations which are known to the tenant export/import service. Object configurations that contain \"importUrl\" and \"exportUrl\" are available for export/import. Request will need one of the following security scopes: - sp:config:read - sp:config:manage
+     * This gets the list of object configurations which are known to the tenant export/import service. Object configurations that contain \"importUrl\" and \"exportUrl\" are available for export/import.
      * @summary Get Config Object details
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
@@ -54645,7 +54648,7 @@ export const ServiceDeskIntegrationBetaApiAxiosParamCreator = function (configur
     return {
         /**
          * Create a new Service Desk Integrations.  A token with Org Admin or Service Desk Admin authority is required to access this endpoint.
-         * @summary Create a new Service Desk integration
+         * @summary Create new Service Desk integration
          * @param {ServiceDeskIntegrationDtoBeta} serviceDeskIntegrationDtoBeta The specifics of a new integration to create
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
@@ -54689,7 +54692,7 @@ export const ServiceDeskIntegrationBetaApiAxiosParamCreator = function (configur
         },
         /**
          * Delete an existing Service Desk integration by ID.  A token with Org Admin or Service Desk Admin authority is required to access this endpoint.
-         * @summary Delete a Service Desk integration by ID
+         * @summary Delete a Service Desk integration
          * @param {string} id ID of Service Desk integration to delete
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
@@ -54731,7 +54734,7 @@ export const ServiceDeskIntegrationBetaApiAxiosParamCreator = function (configur
         },
         /**
          * Get an existing Service Desk integration by ID.  A token with Org Admin or Service Desk Admin authority is required to access this endpoint.
-         * @summary Get a Service Desk integration by ID
+         * @summary Get a Service Desk integration
          * @param {string} id ID of the Service Desk integration to get
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
@@ -54916,7 +54919,7 @@ export const ServiceDeskIntegrationBetaApiAxiosParamCreator = function (configur
         },
         /**
          * Get the time check configuration of queued SDIM tickets.  A token with Org Admin or Service Desk Admin authority is required to access this endpoint.
-         * @summary Get the time check configuration of queued SDIM tickets
+         * @summary Get the time check configuration
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
@@ -54954,7 +54957,7 @@ export const ServiceDeskIntegrationBetaApiAxiosParamCreator = function (configur
         },
         /**
          * Update an existing ServiceDeskIntegration by ID with a PATCH request.
-         * @summary Service Desk Integration Update - PATCH
+         * @summary Service Desk Integration Update PATCH
          * @param {string} id ID of the Service Desk integration to update
          * @param {JsonPatchBeta} jsonPatchBeta A list of SDIM update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.  PATCH can only be applied to the following fields:   *   \&quot;beforeProvisioningRule\&quot;  A 403 Forbidden Error indicates that you attempted to PATCH a field that is not allowed. 
          * @param {*} [axiosOptions] Override http request option.
@@ -55002,7 +55005,7 @@ export const ServiceDeskIntegrationBetaApiAxiosParamCreator = function (configur
         },
         /**
          * Update an existing Service Desk integration by ID with updated value in JSON form as the request body.  A token with Org Admin or Service Desk Admin authority is required to access this endpoint.
-         * @summary Update a Service Desk integration by ID
+         * @summary Update a Service Desk integration
          * @param {string} id ID of the Service Desk integration to update
          * @param {ServiceDeskIntegrationDtoBeta} serviceDeskIntegrationDtoBeta The specifics of the integration to update
          * @param {*} [axiosOptions] Override http request option.
@@ -55050,7 +55053,7 @@ export const ServiceDeskIntegrationBetaApiAxiosParamCreator = function (configur
         },
         /**
          * Update the time check configuration of queued SDIM tickets.  A token with Org Admin or Service Desk Admin authority is required to access this endpoint.
-         * @summary Update the time check configuration of queued SDIM tickets
+         * @summary Update the time check configuration
          * @param {QueuedCheckConfigDetailsBeta} queuedCheckConfigDetailsBeta the modified time check configuration
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
@@ -55104,7 +55107,7 @@ export const ServiceDeskIntegrationBetaApiFp = function(configuration?: Configur
     return {
         /**
          * Create a new Service Desk Integrations.  A token with Org Admin or Service Desk Admin authority is required to access this endpoint.
-         * @summary Create a new Service Desk integration
+         * @summary Create new Service Desk integration
          * @param {ServiceDeskIntegrationDtoBeta} serviceDeskIntegrationDtoBeta The specifics of a new integration to create
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
@@ -55115,7 +55118,7 @@ export const ServiceDeskIntegrationBetaApiFp = function(configuration?: Configur
         },
         /**
          * Delete an existing Service Desk integration by ID.  A token with Org Admin or Service Desk Admin authority is required to access this endpoint.
-         * @summary Delete a Service Desk integration by ID
+         * @summary Delete a Service Desk integration
          * @param {string} id ID of Service Desk integration to delete
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
@@ -55126,7 +55129,7 @@ export const ServiceDeskIntegrationBetaApiFp = function(configuration?: Configur
         },
         /**
          * Get an existing Service Desk integration by ID.  A token with Org Admin or Service Desk Admin authority is required to access this endpoint.
-         * @summary Get a Service Desk integration by ID
+         * @summary Get a Service Desk integration
          * @param {string} id ID of the Service Desk integration to get
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
@@ -55173,7 +55176,7 @@ export const ServiceDeskIntegrationBetaApiFp = function(configuration?: Configur
         },
         /**
          * Get the time check configuration of queued SDIM tickets.  A token with Org Admin or Service Desk Admin authority is required to access this endpoint.
-         * @summary Get the time check configuration of queued SDIM tickets
+         * @summary Get the time check configuration
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
@@ -55183,7 +55186,7 @@ export const ServiceDeskIntegrationBetaApiFp = function(configuration?: Configur
         },
         /**
          * Update an existing ServiceDeskIntegration by ID with a PATCH request.
-         * @summary Service Desk Integration Update - PATCH
+         * @summary Service Desk Integration Update PATCH
          * @param {string} id ID of the Service Desk integration to update
          * @param {JsonPatchBeta} jsonPatchBeta A list of SDIM update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.  PATCH can only be applied to the following fields:   *   \&quot;beforeProvisioningRule\&quot;  A 403 Forbidden Error indicates that you attempted to PATCH a field that is not allowed. 
          * @param {*} [axiosOptions] Override http request option.
@@ -55195,7 +55198,7 @@ export const ServiceDeskIntegrationBetaApiFp = function(configuration?: Configur
         },
         /**
          * Update an existing Service Desk integration by ID with updated value in JSON form as the request body.  A token with Org Admin or Service Desk Admin authority is required to access this endpoint.
-         * @summary Update a Service Desk integration by ID
+         * @summary Update a Service Desk integration
          * @param {string} id ID of the Service Desk integration to update
          * @param {ServiceDeskIntegrationDtoBeta} serviceDeskIntegrationDtoBeta The specifics of the integration to update
          * @param {*} [axiosOptions] Override http request option.
@@ -55207,7 +55210,7 @@ export const ServiceDeskIntegrationBetaApiFp = function(configuration?: Configur
         },
         /**
          * Update the time check configuration of queued SDIM tickets.  A token with Org Admin or Service Desk Admin authority is required to access this endpoint.
-         * @summary Update the time check configuration of queued SDIM tickets
+         * @summary Update the time check configuration
          * @param {QueuedCheckConfigDetailsBeta} queuedCheckConfigDetailsBeta the modified time check configuration
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
@@ -55228,7 +55231,7 @@ export const ServiceDeskIntegrationBetaApiFactory = function (configuration?: Co
     return {
         /**
          * Create a new Service Desk Integrations.  A token with Org Admin or Service Desk Admin authority is required to access this endpoint.
-         * @summary Create a new Service Desk integration
+         * @summary Create new Service Desk integration
          * @param {ServiceDeskIntegrationDtoBeta} serviceDeskIntegrationDtoBeta The specifics of a new integration to create
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
@@ -55238,7 +55241,7 @@ export const ServiceDeskIntegrationBetaApiFactory = function (configuration?: Co
         },
         /**
          * Delete an existing Service Desk integration by ID.  A token with Org Admin or Service Desk Admin authority is required to access this endpoint.
-         * @summary Delete a Service Desk integration by ID
+         * @summary Delete a Service Desk integration
          * @param {string} id ID of Service Desk integration to delete
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
@@ -55248,7 +55251,7 @@ export const ServiceDeskIntegrationBetaApiFactory = function (configuration?: Co
         },
         /**
          * Get an existing Service Desk integration by ID.  A token with Org Admin or Service Desk Admin authority is required to access this endpoint.
-         * @summary Get a Service Desk integration by ID
+         * @summary Get a Service Desk integration
          * @param {string} id ID of the Service Desk integration to get
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
@@ -55291,7 +55294,7 @@ export const ServiceDeskIntegrationBetaApiFactory = function (configuration?: Co
         },
         /**
          * Get the time check configuration of queued SDIM tickets.  A token with Org Admin or Service Desk Admin authority is required to access this endpoint.
-         * @summary Get the time check configuration of queued SDIM tickets
+         * @summary Get the time check configuration
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
@@ -55300,7 +55303,7 @@ export const ServiceDeskIntegrationBetaApiFactory = function (configuration?: Co
         },
         /**
          * Update an existing ServiceDeskIntegration by ID with a PATCH request.
-         * @summary Service Desk Integration Update - PATCH
+         * @summary Service Desk Integration Update PATCH
          * @param {string} id ID of the Service Desk integration to update
          * @param {JsonPatchBeta} jsonPatchBeta A list of SDIM update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.  PATCH can only be applied to the following fields:   *   \&quot;beforeProvisioningRule\&quot;  A 403 Forbidden Error indicates that you attempted to PATCH a field that is not allowed. 
          * @param {*} [axiosOptions] Override http request option.
@@ -55311,7 +55314,7 @@ export const ServiceDeskIntegrationBetaApiFactory = function (configuration?: Co
         },
         /**
          * Update an existing Service Desk integration by ID with updated value in JSON form as the request body.  A token with Org Admin or Service Desk Admin authority is required to access this endpoint.
-         * @summary Update a Service Desk integration by ID
+         * @summary Update a Service Desk integration
          * @param {string} id ID of the Service Desk integration to update
          * @param {ServiceDeskIntegrationDtoBeta} serviceDeskIntegrationDtoBeta The specifics of the integration to update
          * @param {*} [axiosOptions] Override http request option.
@@ -55322,7 +55325,7 @@ export const ServiceDeskIntegrationBetaApiFactory = function (configuration?: Co
         },
         /**
          * Update the time check configuration of queued SDIM tickets.  A token with Org Admin or Service Desk Admin authority is required to access this endpoint.
-         * @summary Update the time check configuration of queued SDIM tickets
+         * @summary Update the time check configuration
          * @param {QueuedCheckConfigDetailsBeta} queuedCheckConfigDetailsBeta the modified time check configuration
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
@@ -55496,7 +55499,7 @@ export interface ServiceDeskIntegrationBetaApiUpdateStatusCheckDetailsRequest {
 export class ServiceDeskIntegrationBetaApi extends BaseAPI {
     /**
      * Create a new Service Desk Integrations.  A token with Org Admin or Service Desk Admin authority is required to access this endpoint.
-     * @summary Create a new Service Desk integration
+     * @summary Create new Service Desk integration
      * @param {ServiceDeskIntegrationBetaApiCreateServiceDeskIntegrationRequest} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
@@ -55508,7 +55511,7 @@ export class ServiceDeskIntegrationBetaApi extends BaseAPI {
 
     /**
      * Delete an existing Service Desk integration by ID.  A token with Org Admin or Service Desk Admin authority is required to access this endpoint.
-     * @summary Delete a Service Desk integration by ID
+     * @summary Delete a Service Desk integration
      * @param {ServiceDeskIntegrationBetaApiDeleteServiceDeskIntegrationRequest} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
@@ -55520,7 +55523,7 @@ export class ServiceDeskIntegrationBetaApi extends BaseAPI {
 
     /**
      * Get an existing Service Desk integration by ID.  A token with Org Admin or Service Desk Admin authority is required to access this endpoint.
-     * @summary Get a Service Desk integration by ID
+     * @summary Get a Service Desk integration
      * @param {ServiceDeskIntegrationBetaApiGetServiceDeskIntegrationRequest} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
@@ -55567,7 +55570,7 @@ export class ServiceDeskIntegrationBetaApi extends BaseAPI {
 
     /**
      * Get the time check configuration of queued SDIM tickets.  A token with Org Admin or Service Desk Admin authority is required to access this endpoint.
-     * @summary Get the time check configuration of queued SDIM tickets
+     * @summary Get the time check configuration
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
      * @memberof ServiceDeskIntegrationBetaApi
@@ -55578,7 +55581,7 @@ export class ServiceDeskIntegrationBetaApi extends BaseAPI {
 
     /**
      * Update an existing ServiceDeskIntegration by ID with a PATCH request.
-     * @summary Service Desk Integration Update - PATCH
+     * @summary Service Desk Integration Update PATCH
      * @param {ServiceDeskIntegrationBetaApiPatchServiceDeskIntegrationRequest} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
@@ -55590,7 +55593,7 @@ export class ServiceDeskIntegrationBetaApi extends BaseAPI {
 
     /**
      * Update an existing Service Desk integration by ID with updated value in JSON form as the request body.  A token with Org Admin or Service Desk Admin authority is required to access this endpoint.
-     * @summary Update a Service Desk integration by ID
+     * @summary Update a Service Desk integration
      * @param {ServiceDeskIntegrationBetaApiUpdateServiceDeskIntegrationRequest} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
@@ -55602,7 +55605,7 @@ export class ServiceDeskIntegrationBetaApi extends BaseAPI {
 
     /**
      * Update the time check configuration of queued SDIM tickets.  A token with Org Admin or Service Desk Admin authority is required to access this endpoint.
-     * @summary Update the time check configuration of queued SDIM tickets
+     * @summary Update the time check configuration
      * @param {ServiceDeskIntegrationBetaApiUpdateStatusCheckDetailsRequest} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
@@ -56408,7 +56411,7 @@ export const SourcesBetaApiAxiosParamCreator = function (configuration?: Configu
         },
         /**
          * Retrieves a sample of data returned from account and group aggregation requests. A token with ORG_ADMIN authority is required to call this API.
-         * @summary Peek resource objects from the source connector
+         * @summary Peek source connector\'s resource objects
          * @param {string} sourceId The ID of the Source
          * @param {ResourceObjectsRequestBeta} resourceObjectsRequestBeta 
          * @param {*} [axiosOptions] Override http request option.
@@ -56456,7 +56459,7 @@ export const SourcesBetaApiAxiosParamCreator = function (configuration?: Configu
         },
         /**
          * This endpoint validates that the cluster being used by the source is reachable from IdentityNow. A token with ORG_ADMIN authority is required to call this API.
-         * @summary Ping cluster for the source connector
+         * @summary Ping cluster for source connector
          * @param {string} sourceId The ID of the Source
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
@@ -56740,7 +56743,7 @@ export const SourcesBetaApiAxiosParamCreator = function (configuration?: Configu
         },
         /**
          * This endpoint performs a more detailed validation of the source\'s configuration that can take longer than the lighter weight credential validation performed by the checkConnection API. A token with ORG_ADMIN authority is required to call this API.
-         * @summary Test configuration for the source connector
+         * @summary Test configuration for source connector
          * @param {string} sourceId The ID of the Source
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
@@ -56782,7 +56785,7 @@ export const SourcesBetaApiAxiosParamCreator = function (configuration?: Configu
         },
         /**
          * This endpoint validates that the configured credentials are valid and will properly authenticate with the source identified by the sourceId path parameter. A token with ORG_ADMIN authority is required to call this API.
-         * @summary Check connection for the source connector.
+         * @summary Check connection for source connector.
          * @param {string} sourceId The ID of the Source.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
@@ -57437,7 +57440,7 @@ export const SourcesBetaApiFp = function(configuration?: Configuration) {
         },
         /**
          * Retrieves a sample of data returned from account and group aggregation requests. A token with ORG_ADMIN authority is required to call this API.
-         * @summary Peek resource objects from the source connector
+         * @summary Peek source connector\'s resource objects
          * @param {string} sourceId The ID of the Source
          * @param {ResourceObjectsRequestBeta} resourceObjectsRequestBeta 
          * @param {*} [axiosOptions] Override http request option.
@@ -57449,7 +57452,7 @@ export const SourcesBetaApiFp = function(configuration?: Configuration) {
         },
         /**
          * This endpoint validates that the cluster being used by the source is reachable from IdentityNow. A token with ORG_ADMIN authority is required to call this API.
-         * @summary Ping cluster for the source connector
+         * @summary Ping cluster for source connector
          * @param {string} sourceId The ID of the Source
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
@@ -57521,7 +57524,7 @@ export const SourcesBetaApiFp = function(configuration?: Configuration) {
         },
         /**
          * This endpoint performs a more detailed validation of the source\'s configuration that can take longer than the lighter weight credential validation performed by the checkConnection API. A token with ORG_ADMIN authority is required to call this API.
-         * @summary Test configuration for the source connector
+         * @summary Test configuration for source connector
          * @param {string} sourceId The ID of the Source
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
@@ -57532,7 +57535,7 @@ export const SourcesBetaApiFp = function(configuration?: Configuration) {
         },
         /**
          * This endpoint validates that the configured credentials are valid and will properly authenticate with the source identified by the sourceId path parameter. A token with ORG_ADMIN authority is required to call this API.
-         * @summary Check connection for the source connector.
+         * @summary Check connection for source connector.
          * @param {string} sourceId The ID of the Source.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
@@ -57835,7 +57838,7 @@ export const SourcesBetaApiFactory = function (configuration?: Configuration, ba
         },
         /**
          * Retrieves a sample of data returned from account and group aggregation requests. A token with ORG_ADMIN authority is required to call this API.
-         * @summary Peek resource objects from the source connector
+         * @summary Peek source connector\'s resource objects
          * @param {string} sourceId The ID of the Source
          * @param {ResourceObjectsRequestBeta} resourceObjectsRequestBeta 
          * @param {*} [axiosOptions] Override http request option.
@@ -57846,7 +57849,7 @@ export const SourcesBetaApiFactory = function (configuration?: Configuration, ba
         },
         /**
          * This endpoint validates that the cluster being used by the source is reachable from IdentityNow. A token with ORG_ADMIN authority is required to call this API.
-         * @summary Ping cluster for the source connector
+         * @summary Ping cluster for source connector
          * @param {string} sourceId The ID of the Source
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
@@ -57912,7 +57915,7 @@ export const SourcesBetaApiFactory = function (configuration?: Configuration, ba
         },
         /**
          * This endpoint performs a more detailed validation of the source\'s configuration that can take longer than the lighter weight credential validation performed by the checkConnection API. A token with ORG_ADMIN authority is required to call this API.
-         * @summary Test configuration for the source connector
+         * @summary Test configuration for source connector
          * @param {string} sourceId The ID of the Source
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
@@ -57922,7 +57925,7 @@ export const SourcesBetaApiFactory = function (configuration?: Configuration, ba
         },
         /**
          * This endpoint validates that the configured credentials are valid and will properly authenticate with the source identified by the sourceId path parameter. A token with ORG_ADMIN authority is required to call this API.
-         * @summary Check connection for the source connector.
+         * @summary Check connection for source connector.
          * @param {string} sourceId The ID of the Source.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
@@ -58921,7 +58924,7 @@ export class SourcesBetaApi extends BaseAPI {
 
     /**
      * Retrieves a sample of data returned from account and group aggregation requests. A token with ORG_ADMIN authority is required to call this API.
-     * @summary Peek resource objects from the source connector
+     * @summary Peek source connector\'s resource objects
      * @param {SourcesBetaApiPeekResourceObjectsRequest} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
@@ -58933,7 +58936,7 @@ export class SourcesBetaApi extends BaseAPI {
 
     /**
      * This endpoint validates that the cluster being used by the source is reachable from IdentityNow. A token with ORG_ADMIN authority is required to call this API.
-     * @summary Ping cluster for the source connector
+     * @summary Ping cluster for source connector
      * @param {SourcesBetaApiPingClusterRequest} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
@@ -59005,7 +59008,7 @@ export class SourcesBetaApi extends BaseAPI {
 
     /**
      * This endpoint performs a more detailed validation of the source\'s configuration that can take longer than the lighter weight credential validation performed by the checkConnection API. A token with ORG_ADMIN authority is required to call this API.
-     * @summary Test configuration for the source connector
+     * @summary Test configuration for source connector
      * @param {SourcesBetaApiTestSourceConfigurationRequest} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
@@ -59017,7 +59020,7 @@ export class SourcesBetaApi extends BaseAPI {
 
     /**
      * This endpoint validates that the configured credentials are valid and will properly authenticate with the source identified by the sourceId path parameter. A token with ORG_ADMIN authority is required to call this API.
-     * @summary Check connection for the source connector.
+     * @summary Check connection for source connector.
      * @param {SourcesBetaApiTestSourceConnectionRequest} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}

@@ -30118,7 +30118,7 @@ export const ServiceDeskIntegrationApiAxiosParamCreator = function (configuratio
     return {
         /**
          * Create a new Service Desk Integrations.  A token with Org Admin or Service Desk Admin authority is required to access this endpoint.
-         * @summary Create a new Service Desk integration
+         * @summary Create new Service Desk integration
          * @param {ServiceDeskIntegrationDto} serviceDeskIntegrationDto The specifics of a new integration to create
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
@@ -30162,7 +30162,7 @@ export const ServiceDeskIntegrationApiAxiosParamCreator = function (configuratio
         },
         /**
          * Delete an existing Service Desk integration by ID.  A token with Org Admin or Service Desk Admin authority is required to access this endpoint.
-         * @summary Delete a Service Desk integration by ID
+         * @summary Delete a Service Desk integration
          * @param {string} id ID of Service Desk integration to delete
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
@@ -30204,7 +30204,7 @@ export const ServiceDeskIntegrationApiAxiosParamCreator = function (configuratio
         },
         /**
          * Get an existing Service Desk integration by ID.  A token with Org Admin or Service Desk Admin authority is required to access this endpoint.
-         * @summary Get a Service Desk integration by ID
+         * @summary Get a Service Desk integration
          * @param {string} id ID of the Service Desk integration to get
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
@@ -30389,7 +30389,7 @@ export const ServiceDeskIntegrationApiAxiosParamCreator = function (configuratio
         },
         /**
          * Get the time check configuration of queued SDIM tickets.  A token with Org Admin or Service Desk Admin authority is required to access this endpoint.
-         * @summary Get the time check configuration of queued SDIM tickets
+         * @summary Get the time check configuration
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
@@ -30427,7 +30427,7 @@ export const ServiceDeskIntegrationApiAxiosParamCreator = function (configuratio
         },
         /**
          * Update an existing ServiceDeskIntegration by ID with a PATCH request.
-         * @summary Service Desk Integration Update - PATCH
+         * @summary Service Desk Integration Update PATCH
          * @param {string} id ID of the Service Desk integration to update
          * @param {JsonPatch} jsonPatch A list of SDIM update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.  PATCH can only be applied to the following fields:   *   \&quot;beforeProvisioningRule\&quot;  A 403 Forbidden Error indicates that you attempted to PATCH a field that is not allowed. 
          * @param {*} [axiosOptions] Override http request option.
@@ -30475,7 +30475,7 @@ export const ServiceDeskIntegrationApiAxiosParamCreator = function (configuratio
         },
         /**
          * Update an existing Service Desk integration by ID with updated value in JSON form as the request body.  A token with Org Admin or Service Desk Admin authority is required to access this endpoint.
-         * @summary Update a Service Desk integration by ID
+         * @summary Update a Service Desk integration
          * @param {string} id ID of the Service Desk integration to update
          * @param {ServiceDeskIntegrationDto} serviceDeskIntegrationDto The specifics of the integration to update
          * @param {*} [axiosOptions] Override http request option.
@@ -30523,7 +30523,7 @@ export const ServiceDeskIntegrationApiAxiosParamCreator = function (configuratio
         },
         /**
          * Update the time check configuration of queued SDIM tickets.  A token with Org Admin or Service Desk Admin authority is required to access this endpoint.
-         * @summary Update the time check configuration of queued SDIM tickets
+         * @summary Update the time check configuration
          * @param {QueuedCheckConfigDetails} queuedCheckConfigDetails the modified time check configuration
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
@@ -30577,7 +30577,7 @@ export const ServiceDeskIntegrationApiFp = function(configuration?: Configuratio
     return {
         /**
          * Create a new Service Desk Integrations.  A token with Org Admin or Service Desk Admin authority is required to access this endpoint.
-         * @summary Create a new Service Desk integration
+         * @summary Create new Service Desk integration
          * @param {ServiceDeskIntegrationDto} serviceDeskIntegrationDto The specifics of a new integration to create
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
@@ -30588,7 +30588,7 @@ export const ServiceDeskIntegrationApiFp = function(configuration?: Configuratio
         },
         /**
          * Delete an existing Service Desk integration by ID.  A token with Org Admin or Service Desk Admin authority is required to access this endpoint.
-         * @summary Delete a Service Desk integration by ID
+         * @summary Delete a Service Desk integration
          * @param {string} id ID of Service Desk integration to delete
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
@@ -30599,7 +30599,7 @@ export const ServiceDeskIntegrationApiFp = function(configuration?: Configuratio
         },
         /**
          * Get an existing Service Desk integration by ID.  A token with Org Admin or Service Desk Admin authority is required to access this endpoint.
-         * @summary Get a Service Desk integration by ID
+         * @summary Get a Service Desk integration
          * @param {string} id ID of the Service Desk integration to get
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
@@ -30646,7 +30646,7 @@ export const ServiceDeskIntegrationApiFp = function(configuration?: Configuratio
         },
         /**
          * Get the time check configuration of queued SDIM tickets.  A token with Org Admin or Service Desk Admin authority is required to access this endpoint.
-         * @summary Get the time check configuration of queued SDIM tickets
+         * @summary Get the time check configuration
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
@@ -30656,7 +30656,7 @@ export const ServiceDeskIntegrationApiFp = function(configuration?: Configuratio
         },
         /**
          * Update an existing ServiceDeskIntegration by ID with a PATCH request.
-         * @summary Service Desk Integration Update - PATCH
+         * @summary Service Desk Integration Update PATCH
          * @param {string} id ID of the Service Desk integration to update
          * @param {JsonPatch} jsonPatch A list of SDIM update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.  PATCH can only be applied to the following fields:   *   \&quot;beforeProvisioningRule\&quot;  A 403 Forbidden Error indicates that you attempted to PATCH a field that is not allowed. 
          * @param {*} [axiosOptions] Override http request option.
@@ -30668,7 +30668,7 @@ export const ServiceDeskIntegrationApiFp = function(configuration?: Configuratio
         },
         /**
          * Update an existing Service Desk integration by ID with updated value in JSON form as the request body.  A token with Org Admin or Service Desk Admin authority is required to access this endpoint.
-         * @summary Update a Service Desk integration by ID
+         * @summary Update a Service Desk integration
          * @param {string} id ID of the Service Desk integration to update
          * @param {ServiceDeskIntegrationDto} serviceDeskIntegrationDto The specifics of the integration to update
          * @param {*} [axiosOptions] Override http request option.
@@ -30680,7 +30680,7 @@ export const ServiceDeskIntegrationApiFp = function(configuration?: Configuratio
         },
         /**
          * Update the time check configuration of queued SDIM tickets.  A token with Org Admin or Service Desk Admin authority is required to access this endpoint.
-         * @summary Update the time check configuration of queued SDIM tickets
+         * @summary Update the time check configuration
          * @param {QueuedCheckConfigDetails} queuedCheckConfigDetails the modified time check configuration
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
@@ -30701,7 +30701,7 @@ export const ServiceDeskIntegrationApiFactory = function (configuration?: Config
     return {
         /**
          * Create a new Service Desk Integrations.  A token with Org Admin or Service Desk Admin authority is required to access this endpoint.
-         * @summary Create a new Service Desk integration
+         * @summary Create new Service Desk integration
          * @param {ServiceDeskIntegrationDto} serviceDeskIntegrationDto The specifics of a new integration to create
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
@@ -30711,7 +30711,7 @@ export const ServiceDeskIntegrationApiFactory = function (configuration?: Config
         },
         /**
          * Delete an existing Service Desk integration by ID.  A token with Org Admin or Service Desk Admin authority is required to access this endpoint.
-         * @summary Delete a Service Desk integration by ID
+         * @summary Delete a Service Desk integration
          * @param {string} id ID of Service Desk integration to delete
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
@@ -30721,7 +30721,7 @@ export const ServiceDeskIntegrationApiFactory = function (configuration?: Config
         },
         /**
          * Get an existing Service Desk integration by ID.  A token with Org Admin or Service Desk Admin authority is required to access this endpoint.
-         * @summary Get a Service Desk integration by ID
+         * @summary Get a Service Desk integration
          * @param {string} id ID of the Service Desk integration to get
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
@@ -30764,7 +30764,7 @@ export const ServiceDeskIntegrationApiFactory = function (configuration?: Config
         },
         /**
          * Get the time check configuration of queued SDIM tickets.  A token with Org Admin or Service Desk Admin authority is required to access this endpoint.
-         * @summary Get the time check configuration of queued SDIM tickets
+         * @summary Get the time check configuration
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
@@ -30773,7 +30773,7 @@ export const ServiceDeskIntegrationApiFactory = function (configuration?: Config
         },
         /**
          * Update an existing ServiceDeskIntegration by ID with a PATCH request.
-         * @summary Service Desk Integration Update - PATCH
+         * @summary Service Desk Integration Update PATCH
          * @param {string} id ID of the Service Desk integration to update
          * @param {JsonPatch} jsonPatch A list of SDIM update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.  PATCH can only be applied to the following fields:   *   \&quot;beforeProvisioningRule\&quot;  A 403 Forbidden Error indicates that you attempted to PATCH a field that is not allowed. 
          * @param {*} [axiosOptions] Override http request option.
@@ -30784,7 +30784,7 @@ export const ServiceDeskIntegrationApiFactory = function (configuration?: Config
         },
         /**
          * Update an existing Service Desk integration by ID with updated value in JSON form as the request body.  A token with Org Admin or Service Desk Admin authority is required to access this endpoint.
-         * @summary Update a Service Desk integration by ID
+         * @summary Update a Service Desk integration
          * @param {string} id ID of the Service Desk integration to update
          * @param {ServiceDeskIntegrationDto} serviceDeskIntegrationDto The specifics of the integration to update
          * @param {*} [axiosOptions] Override http request option.
@@ -30795,7 +30795,7 @@ export const ServiceDeskIntegrationApiFactory = function (configuration?: Config
         },
         /**
          * Update the time check configuration of queued SDIM tickets.  A token with Org Admin or Service Desk Admin authority is required to access this endpoint.
-         * @summary Update the time check configuration of queued SDIM tickets
+         * @summary Update the time check configuration
          * @param {QueuedCheckConfigDetails} queuedCheckConfigDetails the modified time check configuration
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
@@ -30969,7 +30969,7 @@ export interface ServiceDeskIntegrationApiUpdateStatusCheckDetailsRequest {
 export class ServiceDeskIntegrationApi extends BaseAPI {
     /**
      * Create a new Service Desk Integrations.  A token with Org Admin or Service Desk Admin authority is required to access this endpoint.
-     * @summary Create a new Service Desk integration
+     * @summary Create new Service Desk integration
      * @param {ServiceDeskIntegrationApiCreateServiceDeskIntegrationRequest} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
@@ -30981,7 +30981,7 @@ export class ServiceDeskIntegrationApi extends BaseAPI {
 
     /**
      * Delete an existing Service Desk integration by ID.  A token with Org Admin or Service Desk Admin authority is required to access this endpoint.
-     * @summary Delete a Service Desk integration by ID
+     * @summary Delete a Service Desk integration
      * @param {ServiceDeskIntegrationApiDeleteServiceDeskIntegrationRequest} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
@@ -30993,7 +30993,7 @@ export class ServiceDeskIntegrationApi extends BaseAPI {
 
     /**
      * Get an existing Service Desk integration by ID.  A token with Org Admin or Service Desk Admin authority is required to access this endpoint.
-     * @summary Get a Service Desk integration by ID
+     * @summary Get a Service Desk integration
      * @param {ServiceDeskIntegrationApiGetServiceDeskIntegrationRequest} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
@@ -31040,7 +31040,7 @@ export class ServiceDeskIntegrationApi extends BaseAPI {
 
     /**
      * Get the time check configuration of queued SDIM tickets.  A token with Org Admin or Service Desk Admin authority is required to access this endpoint.
-     * @summary Get the time check configuration of queued SDIM tickets
+     * @summary Get the time check configuration
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
      * @memberof ServiceDeskIntegrationApi
@@ -31051,7 +31051,7 @@ export class ServiceDeskIntegrationApi extends BaseAPI {
 
     /**
      * Update an existing ServiceDeskIntegration by ID with a PATCH request.
-     * @summary Service Desk Integration Update - PATCH
+     * @summary Service Desk Integration Update PATCH
      * @param {ServiceDeskIntegrationApiPatchServiceDeskIntegrationRequest} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
@@ -31063,7 +31063,7 @@ export class ServiceDeskIntegrationApi extends BaseAPI {
 
     /**
      * Update an existing Service Desk integration by ID with updated value in JSON form as the request body.  A token with Org Admin or Service Desk Admin authority is required to access this endpoint.
-     * @summary Update a Service Desk integration by ID
+     * @summary Update a Service Desk integration
      * @param {ServiceDeskIntegrationApiUpdateServiceDeskIntegrationRequest} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
@@ -31075,7 +31075,7 @@ export class ServiceDeskIntegrationApi extends BaseAPI {
 
     /**
      * Update the time check configuration of queued SDIM tickets.  A token with Org Admin or Service Desk Admin authority is required to access this endpoint.
-     * @summary Update the time check configuration of queued SDIM tickets
+     * @summary Update the time check configuration
      * @param {ServiceDeskIntegrationApiUpdateStatusCheckDetailsRequest} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
@@ -32147,7 +32147,7 @@ export const SourcesApiAxiosParamCreator = function (configuration?: Configurati
             };
         },
         /**
-         * This API uploads a source schema template file to configure a source\'s account attributes.  To retrieve the file to modify and upload, log into Identity Now.   Click **Admin** -> **Connections** -> **Sources** -> **`<SourceName>`** -> **Import Data** -> **Account Schema** -> **Options** -> **Download Schema**  >**NOTE: This API is designated only for Delimited File sources.**
+         * This API uploads a source schema template file to configure a source\'s account attributes.  To retrieve the file to modify and upload, log into Identity Now.   Click **Admin** -> **Connections** -> **Sources** -> **`{SourceName}`** -> **Import Data** -> **Account Schema** -> **Options** -> **Download Schema**  >**NOTE: This API is designated only for Delimited File sources.**
          * @summary Uploads source accounts schema template
          * @param {string} id The Source id
          * @param {any} [file] 
@@ -32249,7 +32249,7 @@ export const SourcesApiAxiosParamCreator = function (configuration?: Configurati
             };
         },
         /**
-         * This API uploads a source schema template file to configure a source\'s entitlement attributes.  To retrieve the file to modify and upload, log into Identity Now.   Click **Admin** -> **Connections** -> **Sources** -> **`<SourceName>`** -> **Import Data** -> **Import Entitlements** -> **Download**  >**NOTE: This API is designated only for Delimited File sources.**
+         * This API uploads a source schema template file to configure a source\'s entitlement attributes.  To retrieve the file to modify and upload, log into Identity Now.   Click **Admin** -> **Connections** -> **Sources** -> **`{SourceName}`** -> **Import Data** -> **Import Entitlements** -> **Download**  >**NOTE: This API is designated only for Delimited File sources.**
          * @summary Uploads source entitlements schema template
          * @param {string} id The Source id
          * @param {string} [schemaName] Name of entitlement schema
@@ -32582,7 +32582,7 @@ export const SourcesApiFp = function(configuration?: Configuration) {
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
-         * This API uploads a source schema template file to configure a source\'s account attributes.  To retrieve the file to modify and upload, log into Identity Now.   Click **Admin** -> **Connections** -> **Sources** -> **`<SourceName>`** -> **Import Data** -> **Account Schema** -> **Options** -> **Download Schema**  >**NOTE: This API is designated only for Delimited File sources.**
+         * This API uploads a source schema template file to configure a source\'s account attributes.  To retrieve the file to modify and upload, log into Identity Now.   Click **Admin** -> **Connections** -> **Sources** -> **`{SourceName}`** -> **Import Data** -> **Account Schema** -> **Options** -> **Download Schema**  >**NOTE: This API is designated only for Delimited File sources.**
          * @summary Uploads source accounts schema template
          * @param {string} id The Source id
          * @param {any} [file] 
@@ -32606,7 +32606,7 @@ export const SourcesApiFp = function(configuration?: Configuration) {
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
-         * This API uploads a source schema template file to configure a source\'s entitlement attributes.  To retrieve the file to modify and upload, log into Identity Now.   Click **Admin** -> **Connections** -> **Sources** -> **`<SourceName>`** -> **Import Data** -> **Import Entitlements** -> **Download**  >**NOTE: This API is designated only for Delimited File sources.**
+         * This API uploads a source schema template file to configure a source\'s entitlement attributes.  To retrieve the file to modify and upload, log into Identity Now.   Click **Admin** -> **Connections** -> **Sources** -> **`{SourceName}`** -> **Import Data** -> **Import Entitlements** -> **Download**  >**NOTE: This API is designated only for Delimited File sources.**
          * @summary Uploads source entitlements schema template
          * @param {string} id The Source id
          * @param {string} [schemaName] Name of entitlement schema
@@ -32874,7 +32874,7 @@ export const SourcesApiFactory = function (configuration?: Configuration, basePa
             return localVarFp.updateSourceSchema(sourceId, schemaId, jsonPatchOperation, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
-         * This API uploads a source schema template file to configure a source\'s account attributes.  To retrieve the file to modify and upload, log into Identity Now.   Click **Admin** -> **Connections** -> **Sources** -> **`<SourceName>`** -> **Import Data** -> **Account Schema** -> **Options** -> **Download Schema**  >**NOTE: This API is designated only for Delimited File sources.**
+         * This API uploads a source schema template file to configure a source\'s account attributes.  To retrieve the file to modify and upload, log into Identity Now.   Click **Admin** -> **Connections** -> **Sources** -> **`{SourceName}`** -> **Import Data** -> **Account Schema** -> **Options** -> **Download Schema**  >**NOTE: This API is designated only for Delimited File sources.**
          * @summary Uploads source accounts schema template
          * @param {string} id The Source id
          * @param {any} [file] 
@@ -32896,7 +32896,7 @@ export const SourcesApiFactory = function (configuration?: Configuration, basePa
             return localVarFp.uploadSourceConnectorFile(sourceId, file, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
-         * This API uploads a source schema template file to configure a source\'s entitlement attributes.  To retrieve the file to modify and upload, log into Identity Now.   Click **Admin** -> **Connections** -> **Sources** -> **`<SourceName>`** -> **Import Data** -> **Import Entitlements** -> **Download**  >**NOTE: This API is designated only for Delimited File sources.**
+         * This API uploads a source schema template file to configure a source\'s entitlement attributes.  To retrieve the file to modify and upload, log into Identity Now.   Click **Admin** -> **Connections** -> **Sources** -> **`{SourceName}`** -> **Import Data** -> **Import Entitlements** -> **Download**  >**NOTE: This API is designated only for Delimited File sources.**
          * @summary Uploads source entitlements schema template
          * @param {string} id The Source id
          * @param {string} [schemaName] Name of entitlement schema
@@ -33735,7 +33735,7 @@ export class SourcesApi extends BaseAPI {
     }
 
     /**
-     * This API uploads a source schema template file to configure a source\'s account attributes.  To retrieve the file to modify and upload, log into Identity Now.   Click **Admin** -> **Connections** -> **Sources** -> **`<SourceName>`** -> **Import Data** -> **Account Schema** -> **Options** -> **Download Schema**  >**NOTE: This API is designated only for Delimited File sources.**
+     * This API uploads a source schema template file to configure a source\'s account attributes.  To retrieve the file to modify and upload, log into Identity Now.   Click **Admin** -> **Connections** -> **Sources** -> **`{SourceName}`** -> **Import Data** -> **Account Schema** -> **Options** -> **Download Schema**  >**NOTE: This API is designated only for Delimited File sources.**
      * @summary Uploads source accounts schema template
      * @param {SourcesApiUploadSourceAccountsSchemaRequest} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
@@ -33759,7 +33759,7 @@ export class SourcesApi extends BaseAPI {
     }
 
     /**
-     * This API uploads a source schema template file to configure a source\'s entitlement attributes.  To retrieve the file to modify and upload, log into Identity Now.   Click **Admin** -> **Connections** -> **Sources** -> **`<SourceName>`** -> **Import Data** -> **Import Entitlements** -> **Download**  >**NOTE: This API is designated only for Delimited File sources.**
+     * This API uploads a source schema template file to configure a source\'s entitlement attributes.  To retrieve the file to modify and upload, log into Identity Now.   Click **Admin** -> **Connections** -> **Sources** -> **`{SourceName}`** -> **Import Data** -> **Import Entitlements** -> **Download**  >**NOTE: This API is designated only for Delimited File sources.**
      * @summary Uploads source entitlements schema template
      * @param {SourcesApiUploadSourceEntitlementsSchemaRequest} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
