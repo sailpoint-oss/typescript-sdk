@@ -14031,7 +14031,7 @@ export interface Source {
      */
     'features'?: Array<SourceFeature>;
     /**
-     * Specifies the type of system being managed e.g. Active Directory, Workday, etc..
+     * Specifies the type of system being managed e.g. Active Directory, Workday, etc.. If you are creating a Delimited File source, you must set the `provisionasCsv` query parameter to `true`. 
      * @type {string}
      * @memberof Source
      */
@@ -14294,7 +14294,7 @@ export interface SourceHealthDto {
      */
     'id'?: string;
     /**
-     * Specifies the type of system being managed e.g. Active Directory, Workday, etc..
+     * Specifies the type of system being managed e.g. Active Directory, Workday, etc.. If you are creating a Delimited File source, you must set the `provisionasCsv` query parameter to `true`. 
      * @type {string}
      * @memberof SourceHealthDto
      */
@@ -31145,7 +31145,7 @@ export const SourcesApiAxiosParamCreator = function (configuration?: Configurati
          * This creates a specific source with a full source JSON representation. Any passwords are submitted as plain-text and encrypted upon receipt in IdentityNow. A token with ORG_ADMIN, SOURCE_ADMIN, or SOURCE_SUBADMIN authority is required to call this API.
          * @summary Creates a source in IdentityNow.
          * @param {Source} source 
-         * @param {boolean} [provisionAsCsv] Configures the source as a DelimitedFile type of source.
+         * @param {boolean} [provisionAsCsv] If this parameter is &#x60;true&#x60;, it configures the source as a Delimited File (CSV) source. Setting this to &#x60;true&#x60; will automatically set the &#x60;type&#x60; of the source to &#x60;DelimitedFile&#x60;.  You must use this query parameter to create a Delimited File source as you would in the UI.  If you don\&#39;t set this query parameter and you attempt to set the &#x60;type&#x60; attribute directly, the request won\&#39;t correctly generate the source.  
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
@@ -32330,7 +32330,7 @@ export const SourcesApiFp = function(configuration?: Configuration) {
          * This creates a specific source with a full source JSON representation. Any passwords are submitted as plain-text and encrypted upon receipt in IdentityNow. A token with ORG_ADMIN, SOURCE_ADMIN, or SOURCE_SUBADMIN authority is required to call this API.
          * @summary Creates a source in IdentityNow.
          * @param {Source} source 
-         * @param {boolean} [provisionAsCsv] Configures the source as a DelimitedFile type of source.
+         * @param {boolean} [provisionAsCsv] If this parameter is &#x60;true&#x60;, it configures the source as a Delimited File (CSV) source. Setting this to &#x60;true&#x60; will automatically set the &#x60;type&#x60; of the source to &#x60;DelimitedFile&#x60;.  You must use this query parameter to create a Delimited File source as you would in the UI.  If you don\&#39;t set this query parameter and you attempt to set the &#x60;type&#x60; attribute directly, the request won\&#39;t correctly generate the source.  
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
@@ -32643,7 +32643,7 @@ export const SourcesApiFactory = function (configuration?: Configuration, basePa
          * This creates a specific source with a full source JSON representation. Any passwords are submitted as plain-text and encrypted upon receipt in IdentityNow. A token with ORG_ADMIN, SOURCE_ADMIN, or SOURCE_SUBADMIN authority is required to call this API.
          * @summary Creates a source in IdentityNow.
          * @param {Source} source 
-         * @param {boolean} [provisionAsCsv] Configures the source as a DelimitedFile type of source.
+         * @param {boolean} [provisionAsCsv] If this parameter is &#x60;true&#x60;, it configures the source as a Delimited File (CSV) source. Setting this to &#x60;true&#x60; will automatically set the &#x60;type&#x60; of the source to &#x60;DelimitedFile&#x60;.  You must use this query parameter to create a Delimited File source as you would in the UI.  If you don\&#39;t set this query parameter and you attempt to set the &#x60;type&#x60; attribute directly, the request won\&#39;t correctly generate the source.  
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
@@ -32945,7 +32945,7 @@ export interface SourcesApiCreateSourceRequest {
     readonly source: Source
 
     /**
-     * Configures the source as a DelimitedFile type of source.
+     * If this parameter is &#x60;true&#x60;, it configures the source as a Delimited File (CSV) source. Setting this to &#x60;true&#x60; will automatically set the &#x60;type&#x60; of the source to &#x60;DelimitedFile&#x60;.  You must use this query parameter to create a Delimited File source as you would in the UI.  If you don\&#39;t set this query parameter and you attempt to set the &#x60;type&#x60; attribute directly, the request won\&#39;t correctly generate the source.  
      * @type {boolean}
      * @memberof SourcesApiCreateSource
      */
