@@ -14035,6 +14035,19 @@ export interface RoleBeta {
     'segments'?: Array<string> | null;
 }
 /**
+ * 
+ * @export
+ * @interface RoleBulkDeleteRequestBeta
+ */
+export interface RoleBulkDeleteRequestBeta {
+    /**
+     * List of IDs of Roles to be deleted.
+     * @type {Array<string>}
+     * @memberof RoleBulkDeleteRequestBeta
+     */
+    'roleIds': Array<string>;
+}
+/**
  * Refers to a specific Identity attribute, Account attibute, or Entitlement used in Role membership criteria
  * @export
  * @interface RoleCriteriaKeyBeta
@@ -50517,6 +50530,50 @@ export class RoleInsightsBetaApi extends BaseAPI {
 export const RolesBetaApiAxiosParamCreator = function (configuration?: Configuration) {
     return {
         /**
+         * This API initiates a bulk deletion of one or more Roles.  A token with API, ORG_ADMIN, ROLE_ADMIN, or ROLE_SUBADMIN authority is required to call this API. In addition, a token with ROLE_SUBADMIN authority may only call this API if all Roles included in the request are associated to Sources with management workgroups of which the ROLE_SUBADMIN is a member.
+         * @summary Delete Role(s)
+         * @param {RoleBulkDeleteRequestBeta} roleBulkDeleteRequestBeta 
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        bulkDeleteRoles: async (roleBulkDeleteRequestBeta: RoleBulkDeleteRequestBeta, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'roleBulkDeleteRequestBeta' is not null or undefined
+            assertParamExists('bulkDeleteRoles', 'roleBulkDeleteRequestBeta', roleBulkDeleteRequestBeta)
+            const localVarPath = `/roles/bulk-delete`;
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'POST', ...baseOptions, ...axiosOptions};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication oauth2 required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "oauth2", [], configuration)
+
+            // authentication oauth2 required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "oauth2", [], configuration)
+
+
+    
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
+            localVarRequestOptions.data = serializeDataIfNeeded(roleBulkDeleteRequestBeta, localVarRequestOptions, configuration)
+
+            return {
+                url: toPathString(localVarUrlObj),
+                axiosOptions: localVarRequestOptions,
+            };
+        },
+        /**
          * This API creates a Role. There is a soft limit of 800 roles per org in IdentityNow.  You will receive an error if you attempt to add more than 800 roles via the API or the UI.  If you need to add roles above this limit, please create a support ticket. A token with API, ORG_ADMIN, ROLE_ADMIN, or ROLE_SUBADMIN authority is required to call this API. In addition, a ROLE_SUBADMIN may not create a Role including an Access Profile if that Access Profile is associated with a Source with which the ROLE_SUBADMIN is not themselves associated. The maximum supported length for the description field is 2000 characters. Longer descriptions will be preserved for existing roles, however, any new roles as well as any updates to existing descriptions will be limited to 2000 characters.
          * @summary Create a Role
          * @param {RoleBeta} roleBeta 
@@ -50848,6 +50905,17 @@ export const RolesBetaApiFp = function(configuration?: Configuration) {
     const localVarAxiosParamCreator = RolesBetaApiAxiosParamCreator(configuration)
     return {
         /**
+         * This API initiates a bulk deletion of one or more Roles.  A token with API, ORG_ADMIN, ROLE_ADMIN, or ROLE_SUBADMIN authority is required to call this API. In addition, a token with ROLE_SUBADMIN authority may only call this API if all Roles included in the request are associated to Sources with management workgroups of which the ROLE_SUBADMIN is a member.
+         * @summary Delete Role(s)
+         * @param {RoleBulkDeleteRequestBeta} roleBulkDeleteRequestBeta 
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        async bulkDeleteRoles(roleBulkDeleteRequestBeta: RoleBulkDeleteRequestBeta, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<BaseReferenceDtoBeta>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.bulkDeleteRoles(roleBulkDeleteRequestBeta, axiosOptions);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
          * This API creates a Role. There is a soft limit of 800 roles per org in IdentityNow.  You will receive an error if you attempt to add more than 800 roles via the API or the UI.  If you need to add roles above this limit, please create a support ticket. A token with API, ORG_ADMIN, ROLE_ADMIN, or ROLE_SUBADMIN authority is required to call this API. In addition, a ROLE_SUBADMIN may not create a Role including an Access Profile if that Access Profile is associated with a Source with which the ROLE_SUBADMIN is not themselves associated. The maximum supported length for the description field is 2000 characters. Longer descriptions will be preserved for existing roles, however, any new roles as well as any updates to existing descriptions will be limited to 2000 characters.
          * @summary Create a Role
          * @param {RoleBeta} roleBeta 
@@ -50937,6 +51005,16 @@ export const RolesBetaApiFactory = function (configuration?: Configuration, base
     const localVarFp = RolesBetaApiFp(configuration)
     return {
         /**
+         * This API initiates a bulk deletion of one or more Roles.  A token with API, ORG_ADMIN, ROLE_ADMIN, or ROLE_SUBADMIN authority is required to call this API. In addition, a token with ROLE_SUBADMIN authority may only call this API if all Roles included in the request are associated to Sources with management workgroups of which the ROLE_SUBADMIN is a member.
+         * @summary Delete Role(s)
+         * @param {RoleBulkDeleteRequestBeta} roleBulkDeleteRequestBeta 
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        bulkDeleteRoles(roleBulkDeleteRequestBeta: RoleBulkDeleteRequestBeta, axiosOptions?: any): AxiosPromise<BaseReferenceDtoBeta> {
+            return localVarFp.bulkDeleteRoles(roleBulkDeleteRequestBeta, axiosOptions).then((request) => request(axios, basePath));
+        },
+        /**
          * This API creates a Role. There is a soft limit of 800 roles per org in IdentityNow.  You will receive an error if you attempt to add more than 800 roles via the API or the UI.  If you need to add roles above this limit, please create a support ticket. A token with API, ORG_ADMIN, ROLE_ADMIN, or ROLE_SUBADMIN authority is required to call this API. In addition, a ROLE_SUBADMIN may not create a Role including an Access Profile if that Access Profile is associated with a Source with which the ROLE_SUBADMIN is not themselves associated. The maximum supported length for the description field is 2000 characters. Longer descriptions will be preserved for existing roles, however, any new roles as well as any updates to existing descriptions will be limited to 2000 characters.
          * @summary Create a Role
          * @param {RoleBeta} roleBeta 
@@ -51011,6 +51089,20 @@ export const RolesBetaApiFactory = function (configuration?: Configuration, base
         },
     };
 };
+
+/**
+ * Request parameters for bulkDeleteRoles operation in RolesBetaApi.
+ * @export
+ * @interface RolesBetaApiBulkDeleteRolesRequest
+ */
+export interface RolesBetaApiBulkDeleteRolesRequest {
+    /**
+     * 
+     * @type {RoleBulkDeleteRequestBeta}
+     * @memberof RolesBetaApiBulkDeleteRoles
+     */
+    readonly roleBulkDeleteRequestBeta: RoleBulkDeleteRequestBeta
+}
 
 /**
  * Request parameters for createRole operation in RolesBetaApi.
@@ -51194,6 +51286,18 @@ export interface RolesBetaApiPatchRoleRequest {
  * @extends {BaseAPI}
  */
 export class RolesBetaApi extends BaseAPI {
+    /**
+     * This API initiates a bulk deletion of one or more Roles.  A token with API, ORG_ADMIN, ROLE_ADMIN, or ROLE_SUBADMIN authority is required to call this API. In addition, a token with ROLE_SUBADMIN authority may only call this API if all Roles included in the request are associated to Sources with management workgroups of which the ROLE_SUBADMIN is a member.
+     * @summary Delete Role(s)
+     * @param {RolesBetaApiBulkDeleteRolesRequest} requestParameters Request parameters.
+     * @param {*} [axiosOptions] Override http request option.
+     * @throws {RequiredError}
+     * @memberof RolesBetaApi
+     */
+    public bulkDeleteRoles(requestParameters: RolesBetaApiBulkDeleteRolesRequest, axiosOptions?: AxiosRequestConfig) {
+        return RolesBetaApiFp(this.configuration).bulkDeleteRoles(requestParameters.roleBulkDeleteRequestBeta, axiosOptions).then((request) => request(this.axios, this.basePath));
+    }
+
     /**
      * This API creates a Role. There is a soft limit of 800 roles per org in IdentityNow.  You will receive an error if you attempt to add more than 800 roles via the API or the UI.  If you need to add roles above this limit, please create a support ticket. A token with API, ORG_ADMIN, ROLE_ADMIN, or ROLE_SUBADMIN authority is required to call this API. In addition, a ROLE_SUBADMIN may not create a Role including an Access Profile if that Access Profile is associated with a Source with which the ROLE_SUBADMIN is not themselves associated. The maximum supported length for the description field is 2000 characters. Longer descriptions will be preserved for existing roles, however, any new roles as well as any updates to existing descriptions will be limited to 2000 characters.
      * @summary Create a Role
