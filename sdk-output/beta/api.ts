@@ -55740,7 +55740,7 @@ export class ServiceDeskIntegrationBetaApi extends BaseAPI {
 export const SourcesBetaApiAxiosParamCreator = function (configuration?: Configuration) {
     return {
         /**
-         * This API generates a create policy/template based on field value transforms. This API is intended for use when setting up JDBC Provisioning type sources, but it will also work on other source types. A token with ORG_ADMIN authority is required to call this API.
+         * This API generates a create policy/template based on field value transforms. This API is intended for use when setting up JDBC Provisioning type sources, but it will also work on other source types. Transforms can be used in the provisioning policy to create a new attribute that you only need during provisioning. Refer to [Transforms in Provisioning Policies](https://developer.sailpoint.com/idn/docs/transforms/guides/transforms-in-provisioning-policies) for more information. A token with ORG_ADMIN authority is required to call this API.
          * @summary Create Provisioning Policy
          * @param {string} sourceId The Source id
          * @param {ProvisioningPolicyDtoBeta} provisioningPolicyDtoBeta 
@@ -56616,7 +56616,7 @@ export const SourcesBetaApiAxiosParamCreator = function (configuration?: Configu
             };
         },
         /**
-         * This end-point updates the provisioning policy with the specified usage on the specified source in IdentityNow. A token with API, ORG_ADMIN, SOURCE_ADMIN, or SOURCE_SUBADMIN authority is required to call this API.
+         * This end-point updates the provisioning policy with the specified usage on the specified source in IdentityNow. Transforms can be used in the provisioning policy to create a new attribute that you only need during provisioning. Refer to [Transforms in Provisioning Policies](https://developer.sailpoint.com/idn/docs/transforms/guides/transforms-in-provisioning-policies) for more information. A token with API, ORG_ADMIN, SOURCE_ADMIN, or SOURCE_SUBADMIN authority is required to call this API.
          * @summary Update Provisioning Policy by UsageType
          * @param {string} sourceId The Source ID.
          * @param {UsageTypeBeta} usageType The type of ProvisioningPolicy usage.
@@ -56990,7 +56990,7 @@ export const SourcesBetaApiAxiosParamCreator = function (configuration?: Configu
             };
         },
         /**
-         * This API selectively updates an existing Provisioning Policy using a JSONPatch payload. A token with API, ORG_ADMIN, SOURCE_ADMIN, or SOURCE_SUBADMIN authority is required to call this API.
+         * This API selectively updates an existing Provisioning Policy using a JSONPatch payload. Transforms can be used in the provisioning policy to create a new attribute that you only need during provisioning. Refer to [Transforms in Provisioning Policies](https://developer.sailpoint.com/idn/docs/transforms/guides/transforms-in-provisioning-policies) for more information. A token with API, ORG_ADMIN, SOURCE_ADMIN, or SOURCE_SUBADMIN authority is required to call this API.
          * @summary Partial update of Provisioning Policy
          * @param {string} sourceId The Source id.
          * @param {UsageTypeBeta} usageType The type of ProvisioningPolicy usage.
@@ -57354,7 +57354,7 @@ export const SourcesBetaApiFp = function(configuration?: Configuration) {
     const localVarAxiosParamCreator = SourcesBetaApiAxiosParamCreator(configuration)
     return {
         /**
-         * This API generates a create policy/template based on field value transforms. This API is intended for use when setting up JDBC Provisioning type sources, but it will also work on other source types. A token with ORG_ADMIN authority is required to call this API.
+         * This API generates a create policy/template based on field value transforms. This API is intended for use when setting up JDBC Provisioning type sources, but it will also work on other source types. Transforms can be used in the provisioning policy to create a new attribute that you only need during provisioning. Refer to [Transforms in Provisioning Policies](https://developer.sailpoint.com/idn/docs/transforms/guides/transforms-in-provisioning-policies) for more information. A token with ORG_ADMIN authority is required to call this API.
          * @summary Create Provisioning Policy
          * @param {string} sourceId The Source id
          * @param {ProvisioningPolicyDtoBeta} provisioningPolicyDtoBeta 
@@ -57578,7 +57578,7 @@ export const SourcesBetaApiFp = function(configuration?: Configuration) {
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
-         * This end-point updates the provisioning policy with the specified usage on the specified source in IdentityNow. A token with API, ORG_ADMIN, SOURCE_ADMIN, or SOURCE_SUBADMIN authority is required to call this API.
+         * This end-point updates the provisioning policy with the specified usage on the specified source in IdentityNow. Transforms can be used in the provisioning policy to create a new attribute that you only need during provisioning. Refer to [Transforms in Provisioning Policies](https://developer.sailpoint.com/idn/docs/transforms/guides/transforms-in-provisioning-policies) for more information. A token with API, ORG_ADMIN, SOURCE_ADMIN, or SOURCE_SUBADMIN authority is required to call this API.
          * @summary Update Provisioning Policy by UsageType
          * @param {string} sourceId The Source ID.
          * @param {UsageTypeBeta} usageType The type of ProvisioningPolicy usage.
@@ -57673,7 +57673,7 @@ export const SourcesBetaApiFp = function(configuration?: Configuration) {
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
-         * This API selectively updates an existing Provisioning Policy using a JSONPatch payload. A token with API, ORG_ADMIN, SOURCE_ADMIN, or SOURCE_SUBADMIN authority is required to call this API.
+         * This API selectively updates an existing Provisioning Policy using a JSONPatch payload. Transforms can be used in the provisioning policy to create a new attribute that you only need during provisioning. Refer to [Transforms in Provisioning Policies](https://developer.sailpoint.com/idn/docs/transforms/guides/transforms-in-provisioning-policies) for more information. A token with API, ORG_ADMIN, SOURCE_ADMIN, or SOURCE_SUBADMIN authority is required to call this API.
          * @summary Partial update of Provisioning Policy
          * @param {string} sourceId The Source id.
          * @param {UsageTypeBeta} usageType The type of ProvisioningPolicy usage.
@@ -57769,7 +57769,7 @@ export const SourcesBetaApiFactory = function (configuration?: Configuration, ba
     const localVarFp = SourcesBetaApiFp(configuration)
     return {
         /**
-         * This API generates a create policy/template based on field value transforms. This API is intended for use when setting up JDBC Provisioning type sources, but it will also work on other source types. A token with ORG_ADMIN authority is required to call this API.
+         * This API generates a create policy/template based on field value transforms. This API is intended for use when setting up JDBC Provisioning type sources, but it will also work on other source types. Transforms can be used in the provisioning policy to create a new attribute that you only need during provisioning. Refer to [Transforms in Provisioning Policies](https://developer.sailpoint.com/idn/docs/transforms/guides/transforms-in-provisioning-policies) for more information. A token with ORG_ADMIN authority is required to call this API.
          * @summary Create Provisioning Policy
          * @param {string} sourceId The Source id
          * @param {ProvisioningPolicyDtoBeta} provisioningPolicyDtoBeta 
@@ -57974,7 +57974,7 @@ export const SourcesBetaApiFactory = function (configuration?: Configuration, ba
             return localVarFp.pingCluster(sourceId, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
-         * This end-point updates the provisioning policy with the specified usage on the specified source in IdentityNow. A token with API, ORG_ADMIN, SOURCE_ADMIN, or SOURCE_SUBADMIN authority is required to call this API.
+         * This end-point updates the provisioning policy with the specified usage on the specified source in IdentityNow. Transforms can be used in the provisioning policy to create a new attribute that you only need during provisioning. Refer to [Transforms in Provisioning Policies](https://developer.sailpoint.com/idn/docs/transforms/guides/transforms-in-provisioning-policies) for more information. A token with API, ORG_ADMIN, SOURCE_ADMIN, or SOURCE_SUBADMIN authority is required to call this API.
          * @summary Update Provisioning Policy by UsageType
          * @param {string} sourceId The Source ID.
          * @param {UsageTypeBeta} usageType The type of ProvisioningPolicy usage.
@@ -58061,7 +58061,7 @@ export const SourcesBetaApiFactory = function (configuration?: Configuration, ba
             return localVarFp.updateProvisioningPoliciesInBulk(sourceId, provisioningPolicyDtoBeta, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
-         * This API selectively updates an existing Provisioning Policy using a JSONPatch payload. A token with API, ORG_ADMIN, SOURCE_ADMIN, or SOURCE_SUBADMIN authority is required to call this API.
+         * This API selectively updates an existing Provisioning Policy using a JSONPatch payload. Transforms can be used in the provisioning policy to create a new attribute that you only need during provisioning. Refer to [Transforms in Provisioning Policies](https://developer.sailpoint.com/idn/docs/transforms/guides/transforms-in-provisioning-policies) for more information. A token with API, ORG_ADMIN, SOURCE_ADMIN, or SOURCE_SUBADMIN authority is required to call this API.
          * @summary Partial update of Provisioning Policy
          * @param {string} sourceId The Source id.
          * @param {UsageTypeBeta} usageType The type of ProvisioningPolicy usage.
@@ -58836,7 +58836,7 @@ export interface SourcesBetaApiUploadSourceEntitlementsSchemaRequest {
  */
 export class SourcesBetaApi extends BaseAPI {
     /**
-     * This API generates a create policy/template based on field value transforms. This API is intended for use when setting up JDBC Provisioning type sources, but it will also work on other source types. A token with ORG_ADMIN authority is required to call this API.
+     * This API generates a create policy/template based on field value transforms. This API is intended for use when setting up JDBC Provisioning type sources, but it will also work on other source types. Transforms can be used in the provisioning policy to create a new attribute that you only need during provisioning. Refer to [Transforms in Provisioning Policies](https://developer.sailpoint.com/idn/docs/transforms/guides/transforms-in-provisioning-policies) for more information. A token with ORG_ADMIN authority is required to call this API.
      * @summary Create Provisioning Policy
      * @param {SourcesBetaApiCreateProvisioningPolicyRequest} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
@@ -59063,7 +59063,7 @@ export class SourcesBetaApi extends BaseAPI {
     }
 
     /**
-     * This end-point updates the provisioning policy with the specified usage on the specified source in IdentityNow. A token with API, ORG_ADMIN, SOURCE_ADMIN, or SOURCE_SUBADMIN authority is required to call this API.
+     * This end-point updates the provisioning policy with the specified usage on the specified source in IdentityNow. Transforms can be used in the provisioning policy to create a new attribute that you only need during provisioning. Refer to [Transforms in Provisioning Policies](https://developer.sailpoint.com/idn/docs/transforms/guides/transforms-in-provisioning-policies) for more information. A token with API, ORG_ADMIN, SOURCE_ADMIN, or SOURCE_SUBADMIN authority is required to call this API.
      * @summary Update Provisioning Policy by UsageType
      * @param {SourcesBetaApiPutProvisioningPolicyRequest} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
@@ -59159,7 +59159,7 @@ export class SourcesBetaApi extends BaseAPI {
     }
 
     /**
-     * This API selectively updates an existing Provisioning Policy using a JSONPatch payload. A token with API, ORG_ADMIN, SOURCE_ADMIN, or SOURCE_SUBADMIN authority is required to call this API.
+     * This API selectively updates an existing Provisioning Policy using a JSONPatch payload. Transforms can be used in the provisioning policy to create a new attribute that you only need during provisioning. Refer to [Transforms in Provisioning Policies](https://developer.sailpoint.com/idn/docs/transforms/guides/transforms-in-provisioning-policies) for more information. A token with API, ORG_ADMIN, SOURCE_ADMIN, or SOURCE_SUBADMIN authority is required to call this API.
      * @summary Partial update of Provisioning Policy
      * @param {SourcesBetaApiUpdateProvisioningPolicyRequest} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
