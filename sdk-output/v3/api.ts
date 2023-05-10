@@ -6071,6 +6071,45 @@ export interface ExpansionItem {
 /**
  * 
  * @export
+ * @interface Expression
+ */
+export interface Expression {
+    /**
+     * Operator for the expression
+     * @type {string}
+     * @memberof Expression
+     */
+    'operator'?: ExpressionOperatorEnum;
+    /**
+     * Name for the attribute
+     * @type {string}
+     * @memberof Expression
+     */
+    'attribute'?: string;
+    /**
+     * 
+     * @type {Value}
+     * @memberof Expression
+     */
+    'value'?: Value;
+    /**
+     * List of expressions
+     * @type {Array<Value>}
+     * @memberof Expression
+     */
+    'children'?: Array<Value>;
+}
+
+export const ExpressionOperatorEnum = {
+    And: 'AND',
+    Equals: 'EQUALS'
+} as const;
+
+export type ExpressionOperatorEnum = typeof ExpressionOperatorEnum[keyof typeof ExpressionOperatorEnum];
+
+/**
+ * 
+ * @export
  * @interface FieldDetailsDto
  */
 export interface FieldDetailsDto {
@@ -13501,6 +13540,61 @@ export interface SectionDetailsAllOf {
 /**
  * 
  * @export
+ * @interface Segment
+ */
+export interface Segment {
+    /**
+     * The id of the Segment.
+     * @type {string}
+     * @memberof Segment
+     */
+    'id'?: string;
+    /**
+     * Segment Business Name
+     * @type {string}
+     * @memberof Segment
+     */
+    'name'?: string;
+    /**
+     * The time when this Segment is created
+     * @type {string}
+     * @memberof Segment
+     */
+    'created'?: string;
+    /**
+     * The time when this Segment is modified
+     * @type {string}
+     * @memberof Segment
+     */
+    'modified'?: string;
+    /**
+     * Optional description of the Segment
+     * @type {string}
+     * @memberof Segment
+     */
+    'description'?: string;
+    /**
+     * 
+     * @type {OwnerReference}
+     * @memberof Segment
+     */
+    'owner'?: OwnerReference;
+    /**
+     * 
+     * @type {VisibilityCriteria}
+     * @memberof Segment
+     */
+    'visibilityCriteria'?: VisibilityCriteria;
+    /**
+     * Whether the Segment is currently active. Inactive segments have no effect.
+     * @type {boolean}
+     * @memberof Segment
+     */
+    'active'?: boolean;
+}
+/**
+ * 
+ * @export
  * @interface Selector
  */
 export interface Selector {
@@ -14974,6 +15068,38 @@ export const UsageType = {
 export type UsageType = typeof UsageType[keyof typeof UsageType];
 
 
+/**
+ * 
+ * @export
+ * @interface Value
+ */
+export interface Value {
+    /**
+     * The type of attribute value
+     * @type {string}
+     * @memberof Value
+     */
+    'type'?: string;
+    /**
+     * The attribute value
+     * @type {string}
+     * @memberof Value
+     */
+    'value'?: string;
+}
+/**
+ * 
+ * @export
+ * @interface VisibilityCriteria
+ */
+export interface VisibilityCriteria {
+    /**
+     * 
+     * @type {Expression}
+     * @memberof VisibilityCriteria
+     */
+    'expression'?: Expression;
+}
 /**
  * The state of a work item
  * @export
@@ -30118,6 +30244,535 @@ export class SearchApi extends BaseAPI {
      */
     public searchPost(requestParameters: SearchApiSearchPostRequest, axiosOptions?: AxiosRequestConfig) {
         return SearchApiFp(this.configuration).searchPost(requestParameters.search, requestParameters.offset, requestParameters.limit, requestParameters.count, axiosOptions).then((request) => request(this.axios, this.basePath));
+    }
+}
+
+
+/**
+ * SegmentsApi - axios parameter creator
+ * @export
+ */
+export const SegmentsApiAxiosParamCreator = function (configuration?: Configuration) {
+    return {
+        /**
+         * This API creates a segment.  Note that segment definitions may take time to propagate to all identities.  A token with ORG_ADMIN or API authority is required to call this API.
+         * @summary Create Segment
+         * @param {Segment} segment 
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        createSegment: async (segment: Segment, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'segment' is not null or undefined
+            assertParamExists('createSegment', 'segment', segment)
+            const localVarPath = `/segments`;
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'POST', ...baseOptions, ...axiosOptions};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication oauth2 required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "oauth2", [], configuration)
+
+            // authentication oauth2 required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "oauth2", [], configuration)
+
+
+    
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
+            localVarRequestOptions.data = serializeDataIfNeeded(segment, localVarRequestOptions, configuration)
+
+            return {
+                url: toPathString(localVarUrlObj),
+                axiosOptions: localVarRequestOptions,
+            };
+        },
+        /**
+         * This API deletes the segment specified by the given ID.  Note that segment deletion may take some time to become effective.  A token with ORG_ADMIN or API authority is required to call this API.
+         * @summary Delete Segment by ID
+         * @param {string} id The ID of the Segment to delete.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        deleteSegment: async (id: string, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'id' is not null or undefined
+            assertParamExists('deleteSegment', 'id', id)
+            const localVarPath = `/segments/{id}`
+                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'DELETE', ...baseOptions, ...axiosOptions};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication oauth2 required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "oauth2", [], configuration)
+
+            // authentication oauth2 required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "oauth2", [], configuration)
+
+
+    
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                axiosOptions: localVarRequestOptions,
+            };
+        },
+        /**
+         * This API returns the segment specified by the given ID.  A token with ORG_ADMIN or API authority is required to call this API.
+         * @summary Get a Segment by ID
+         * @param {string} id The ID of the Segment to retrieve.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        getSegment: async (id: string, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'id' is not null or undefined
+            assertParamExists('getSegment', 'id', id)
+            const localVarPath = `/segments/{id}`
+                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...axiosOptions};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication oauth2 required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "oauth2", [], configuration)
+
+            // authentication oauth2 required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "oauth2", [], configuration)
+
+
+    
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                axiosOptions: localVarRequestOptions,
+            };
+        },
+        /**
+         * This API returns a list of all segments. A token with ORG_ADMIN or API authority is required to call this API.
+         * @summary List Segments
+         * @param {number} [limit] Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+         * @param {number} [offset] Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+         * @param {boolean} [count] If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        listSegments: async (limit?: number, offset?: number, count?: boolean, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            const localVarPath = `/segments`;
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...axiosOptions};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication oauth2 required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "oauth2", [], configuration)
+
+            // authentication oauth2 required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "oauth2", [], configuration)
+
+            if (limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+
+            if (offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+
+            if (count !== undefined) {
+                localVarQueryParameter['count'] = count;
+            }
+
+
+    
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                axiosOptions: localVarRequestOptions,
+            };
+        },
+        /**
+         * Allows updating Segment fields using the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.  Note that changes to a segment may take some time to propagate to all identities, and that segments will have no effect if segmentation is not enabled for your org.  A token with ORG_ADMIN or API authority is required to call this API.
+         * @summary Update a Segment
+         * @param {string} id The ID of the Segment being modified.
+         * @param {Array<object>} requestBody A list of Segment update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.   The following fields are patchable: * name * description * owner * visibilityCriteria * active 
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        patchSegment: async (id: string, requestBody: Array<object>, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'id' is not null or undefined
+            assertParamExists('patchSegment', 'id', id)
+            // verify required parameter 'requestBody' is not null or undefined
+            assertParamExists('patchSegment', 'requestBody', requestBody)
+            const localVarPath = `/segments/{id}`
+                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'PATCH', ...baseOptions, ...axiosOptions};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication oauth2 required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "oauth2", [], configuration)
+
+            // authentication oauth2 required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "oauth2", [], configuration)
+
+
+    
+            localVarHeaderParameter['Content-Type'] = 'application/json-patch+json';
+
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
+            localVarRequestOptions.data = serializeDataIfNeeded(requestBody, localVarRequestOptions, configuration)
+
+            return {
+                url: toPathString(localVarUrlObj),
+                axiosOptions: localVarRequestOptions,
+            };
+        },
+    }
+};
+
+/**
+ * SegmentsApi - functional programming interface
+ * @export
+ */
+export const SegmentsApiFp = function(configuration?: Configuration) {
+    const localVarAxiosParamCreator = SegmentsApiAxiosParamCreator(configuration)
+    return {
+        /**
+         * This API creates a segment.  Note that segment definitions may take time to propagate to all identities.  A token with ORG_ADMIN or API authority is required to call this API.
+         * @summary Create Segment
+         * @param {Segment} segment 
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        async createSegment(segment: Segment, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Segment>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.createSegment(segment, axiosOptions);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * This API deletes the segment specified by the given ID.  Note that segment deletion may take some time to become effective.  A token with ORG_ADMIN or API authority is required to call this API.
+         * @summary Delete Segment by ID
+         * @param {string} id The ID of the Segment to delete.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        async deleteSegment(id: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.deleteSegment(id, axiosOptions);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * This API returns the segment specified by the given ID.  A token with ORG_ADMIN or API authority is required to call this API.
+         * @summary Get a Segment by ID
+         * @param {string} id The ID of the Segment to retrieve.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        async getSegment(id: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Segment>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getSegment(id, axiosOptions);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * This API returns a list of all segments. A token with ORG_ADMIN or API authority is required to call this API.
+         * @summary List Segments
+         * @param {number} [limit] Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+         * @param {number} [offset] Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+         * @param {boolean} [count] If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        async listSegments(limit?: number, offset?: number, count?: boolean, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Segment>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.listSegments(limit, offset, count, axiosOptions);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * Allows updating Segment fields using the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.  Note that changes to a segment may take some time to propagate to all identities, and that segments will have no effect if segmentation is not enabled for your org.  A token with ORG_ADMIN or API authority is required to call this API.
+         * @summary Update a Segment
+         * @param {string} id The ID of the Segment being modified.
+         * @param {Array<object>} requestBody A list of Segment update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.   The following fields are patchable: * name * description * owner * visibilityCriteria * active 
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        async patchSegment(id: string, requestBody: Array<object>, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Segment>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.patchSegment(id, requestBody, axiosOptions);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+    }
+};
+
+/**
+ * SegmentsApi - factory interface
+ * @export
+ */
+export const SegmentsApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
+    const localVarFp = SegmentsApiFp(configuration)
+    return {
+        /**
+         * This API creates a segment.  Note that segment definitions may take time to propagate to all identities.  A token with ORG_ADMIN or API authority is required to call this API.
+         * @summary Create Segment
+         * @param {Segment} segment 
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        createSegment(segment: Segment, axiosOptions?: any): AxiosPromise<Segment> {
+            return localVarFp.createSegment(segment, axiosOptions).then((request) => request(axios, basePath));
+        },
+        /**
+         * This API deletes the segment specified by the given ID.  Note that segment deletion may take some time to become effective.  A token with ORG_ADMIN or API authority is required to call this API.
+         * @summary Delete Segment by ID
+         * @param {string} id The ID of the Segment to delete.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        deleteSegment(id: string, axiosOptions?: any): AxiosPromise<void> {
+            return localVarFp.deleteSegment(id, axiosOptions).then((request) => request(axios, basePath));
+        },
+        /**
+         * This API returns the segment specified by the given ID.  A token with ORG_ADMIN or API authority is required to call this API.
+         * @summary Get a Segment by ID
+         * @param {string} id The ID of the Segment to retrieve.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        getSegment(id: string, axiosOptions?: any): AxiosPromise<Segment> {
+            return localVarFp.getSegment(id, axiosOptions).then((request) => request(axios, basePath));
+        },
+        /**
+         * This API returns a list of all segments. A token with ORG_ADMIN or API authority is required to call this API.
+         * @summary List Segments
+         * @param {number} [limit] Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+         * @param {number} [offset] Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+         * @param {boolean} [count] If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        listSegments(limit?: number, offset?: number, count?: boolean, axiosOptions?: any): AxiosPromise<Array<Segment>> {
+            return localVarFp.listSegments(limit, offset, count, axiosOptions).then((request) => request(axios, basePath));
+        },
+        /**
+         * Allows updating Segment fields using the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.  Note that changes to a segment may take some time to propagate to all identities, and that segments will have no effect if segmentation is not enabled for your org.  A token with ORG_ADMIN or API authority is required to call this API.
+         * @summary Update a Segment
+         * @param {string} id The ID of the Segment being modified.
+         * @param {Array<object>} requestBody A list of Segment update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.   The following fields are patchable: * name * description * owner * visibilityCriteria * active 
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        patchSegment(id: string, requestBody: Array<object>, axiosOptions?: any): AxiosPromise<Segment> {
+            return localVarFp.patchSegment(id, requestBody, axiosOptions).then((request) => request(axios, basePath));
+        },
+    };
+};
+
+/**
+ * Request parameters for createSegment operation in SegmentsApi.
+ * @export
+ * @interface SegmentsApiCreateSegmentRequest
+ */
+export interface SegmentsApiCreateSegmentRequest {
+    /**
+     * 
+     * @type {Segment}
+     * @memberof SegmentsApiCreateSegment
+     */
+    readonly segment: Segment
+}
+
+/**
+ * Request parameters for deleteSegment operation in SegmentsApi.
+ * @export
+ * @interface SegmentsApiDeleteSegmentRequest
+ */
+export interface SegmentsApiDeleteSegmentRequest {
+    /**
+     * The ID of the Segment to delete.
+     * @type {string}
+     * @memberof SegmentsApiDeleteSegment
+     */
+    readonly id: string
+}
+
+/**
+ * Request parameters for getSegment operation in SegmentsApi.
+ * @export
+ * @interface SegmentsApiGetSegmentRequest
+ */
+export interface SegmentsApiGetSegmentRequest {
+    /**
+     * The ID of the Segment to retrieve.
+     * @type {string}
+     * @memberof SegmentsApiGetSegment
+     */
+    readonly id: string
+}
+
+/**
+ * Request parameters for listSegments operation in SegmentsApi.
+ * @export
+ * @interface SegmentsApiListSegmentsRequest
+ */
+export interface SegmentsApiListSegmentsRequest {
+    /**
+     * Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+     * @type {number}
+     * @memberof SegmentsApiListSegments
+     */
+    readonly limit?: number
+
+    /**
+     * Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+     * @type {number}
+     * @memberof SegmentsApiListSegments
+     */
+    readonly offset?: number
+
+    /**
+     * If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+     * @type {boolean}
+     * @memberof SegmentsApiListSegments
+     */
+    readonly count?: boolean
+}
+
+/**
+ * Request parameters for patchSegment operation in SegmentsApi.
+ * @export
+ * @interface SegmentsApiPatchSegmentRequest
+ */
+export interface SegmentsApiPatchSegmentRequest {
+    /**
+     * The ID of the Segment being modified.
+     * @type {string}
+     * @memberof SegmentsApiPatchSegment
+     */
+    readonly id: string
+
+    /**
+     * A list of Segment update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.   The following fields are patchable: * name * description * owner * visibilityCriteria * active 
+     * @type {Array<object>}
+     * @memberof SegmentsApiPatchSegment
+     */
+    readonly requestBody: Array<object>
+}
+
+/**
+ * SegmentsApi - object-oriented interface
+ * @export
+ * @class SegmentsApi
+ * @extends {BaseAPI}
+ */
+export class SegmentsApi extends BaseAPI {
+    /**
+     * This API creates a segment.  Note that segment definitions may take time to propagate to all identities.  A token with ORG_ADMIN or API authority is required to call this API.
+     * @summary Create Segment
+     * @param {SegmentsApiCreateSegmentRequest} requestParameters Request parameters.
+     * @param {*} [axiosOptions] Override http request option.
+     * @throws {RequiredError}
+     * @memberof SegmentsApi
+     */
+    public createSegment(requestParameters: SegmentsApiCreateSegmentRequest, axiosOptions?: AxiosRequestConfig) {
+        return SegmentsApiFp(this.configuration).createSegment(requestParameters.segment, axiosOptions).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * This API deletes the segment specified by the given ID.  Note that segment deletion may take some time to become effective.  A token with ORG_ADMIN or API authority is required to call this API.
+     * @summary Delete Segment by ID
+     * @param {SegmentsApiDeleteSegmentRequest} requestParameters Request parameters.
+     * @param {*} [axiosOptions] Override http request option.
+     * @throws {RequiredError}
+     * @memberof SegmentsApi
+     */
+    public deleteSegment(requestParameters: SegmentsApiDeleteSegmentRequest, axiosOptions?: AxiosRequestConfig) {
+        return SegmentsApiFp(this.configuration).deleteSegment(requestParameters.id, axiosOptions).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * This API returns the segment specified by the given ID.  A token with ORG_ADMIN or API authority is required to call this API.
+     * @summary Get a Segment by ID
+     * @param {SegmentsApiGetSegmentRequest} requestParameters Request parameters.
+     * @param {*} [axiosOptions] Override http request option.
+     * @throws {RequiredError}
+     * @memberof SegmentsApi
+     */
+    public getSegment(requestParameters: SegmentsApiGetSegmentRequest, axiosOptions?: AxiosRequestConfig) {
+        return SegmentsApiFp(this.configuration).getSegment(requestParameters.id, axiosOptions).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * This API returns a list of all segments. A token with ORG_ADMIN or API authority is required to call this API.
+     * @summary List Segments
+     * @param {SegmentsApiListSegmentsRequest} requestParameters Request parameters.
+     * @param {*} [axiosOptions] Override http request option.
+     * @throws {RequiredError}
+     * @memberof SegmentsApi
+     */
+    public listSegments(requestParameters: SegmentsApiListSegmentsRequest = {}, axiosOptions?: AxiosRequestConfig) {
+        return SegmentsApiFp(this.configuration).listSegments(requestParameters.limit, requestParameters.offset, requestParameters.count, axiosOptions).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Allows updating Segment fields using the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.  Note that changes to a segment may take some time to propagate to all identities, and that segments will have no effect if segmentation is not enabled for your org.  A token with ORG_ADMIN or API authority is required to call this API.
+     * @summary Update a Segment
+     * @param {SegmentsApiPatchSegmentRequest} requestParameters Request parameters.
+     * @param {*} [axiosOptions] Override http request option.
+     * @throws {RequiredError}
+     * @memberof SegmentsApi
+     */
+    public patchSegment(requestParameters: SegmentsApiPatchSegmentRequest, axiosOptions?: AxiosRequestConfig) {
+        return SegmentsApiFp(this.configuration).patchSegment(requestParameters.id, requestParameters.requestBody, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 }
 
