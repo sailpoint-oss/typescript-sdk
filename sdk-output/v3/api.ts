@@ -80,6 +80,57 @@ export interface AccessAllOf {
 /**
  * 
  * @export
+ * @interface AccessCriteria
+ */
+export interface AccessCriteria {
+    /**
+     * Business name for the access construct list
+     * @type {string}
+     * @memberof AccessCriteria
+     */
+    'name'?: string;
+    /**
+     * List of criteria. There is a min of 1 and max of 50 items in the list.
+     * @type {Array<AccessCriteriaCriteriaListInner>}
+     * @memberof AccessCriteria
+     */
+    'criteriaList'?: Array<AccessCriteriaCriteriaListInner>;
+}
+/**
+ * 
+ * @export
+ * @interface AccessCriteriaCriteriaListInner
+ */
+export interface AccessCriteriaCriteriaListInner {
+    /**
+     * Type of the propery to which this reference applies to
+     * @type {string}
+     * @memberof AccessCriteriaCriteriaListInner
+     */
+    'type'?: AccessCriteriaCriteriaListInnerTypeEnum;
+    /**
+     * ID of the object to which this reference applies to
+     * @type {string}
+     * @memberof AccessCriteriaCriteriaListInner
+     */
+    'id'?: string;
+    /**
+     * Human-readable display name of the object to which this reference applies to
+     * @type {string}
+     * @memberof AccessCriteriaCriteriaListInner
+     */
+    'name'?: string;
+}
+
+export const AccessCriteriaCriteriaListInnerTypeEnum = {
+    Entitlement: 'ENTITLEMENT'
+} as const;
+
+export type AccessCriteriaCriteriaListInnerTypeEnum = typeof AccessCriteriaCriteriaListInnerTypeEnum[keyof typeof AccessCriteriaCriteriaListInnerTypeEnum];
+
+/**
+ * 
+ * @export
  * @interface AccessProfile
  */
 export interface AccessProfile {
@@ -3582,6 +3633,39 @@ export type BucketType = typeof BucketType[keyof typeof BucketType];
 /**
  * 
  * @export
+ * @interface BulkTaggedObject
+ */
+export interface BulkTaggedObject {
+    /**
+     * 
+     * @type {Array<TaggedObjectDto>}
+     * @memberof BulkTaggedObject
+     */
+    'objectRefs'?: Array<TaggedObjectDto>;
+    /**
+     * Label to be applied to an Object
+     * @type {Array<string>}
+     * @memberof BulkTaggedObject
+     */
+    'tags'?: Array<string>;
+    /**
+     * If APPEND, tags are appended to the list of tags for the object. A 400 error is returned if this would add duplicate tags to the object.  If MERGE, tags are merged with the existing tags. Duplicate tags are silently ignored.
+     * @type {string}
+     * @memberof BulkTaggedObject
+     */
+    'operation'?: BulkTaggedObjectOperationEnum;
+}
+
+export const BulkTaggedObjectOperationEnum = {
+    Append: 'APPEND',
+    Merge: 'MERGE'
+} as const;
+
+export type BulkTaggedObjectOperationEnum = typeof BulkTaggedObjectOperationEnum[keyof typeof BulkTaggedObjectOperationEnum];
+
+/**
+ * 
+ * @export
  * @interface Campaign
  */
 export interface Campaign {
@@ -4295,6 +4379,25 @@ export interface Conditional {
      * @memberof Conditional
      */
     'input'?: { [key: string]: any; };
+}
+/**
+ * 
+ * @export
+ * @interface ConflictingAccessCriteria
+ */
+export interface ConflictingAccessCriteria {
+    /**
+     * 
+     * @type {AccessCriteria}
+     * @memberof ConflictingAccessCriteria
+     */
+    'leftCriteria'?: AccessCriteria;
+    /**
+     * 
+     * @type {AccessCriteria}
+     * @memberof ConflictingAccessCriteria
+     */
+    'rightCriteria'?: AccessCriteria;
 }
 /**
  * 
@@ -13938,6 +14041,135 @@ export interface SodExemptCriteria {
     'name'?: string;
 }
 /**
+ * 
+ * @export
+ * @interface SodPolicy
+ */
+export interface SodPolicy {
+    /**
+     * Policy id
+     * @type {string}
+     * @memberof SodPolicy
+     */
+    'id'?: string;
+    /**
+     * Policy Business Name
+     * @type {string}
+     * @memberof SodPolicy
+     */
+    'name'?: string;
+    /**
+     * The time when this SOD policy is created.
+     * @type {string}
+     * @memberof SodPolicy
+     */
+    'created'?: string;
+    /**
+     * The time when this SOD policy is modified.
+     * @type {string}
+     * @memberof SodPolicy
+     */
+    'modified'?: string;
+    /**
+     * Optional description of the SOD policy
+     * @type {string}
+     * @memberof SodPolicy
+     */
+    'description'?: string | null;
+    /**
+     * 
+     * @type {BaseReferenceDto}
+     * @memberof SodPolicy
+     */
+    'ownerRef'?: BaseReferenceDto;
+    /**
+     * Optional External Policy Reference
+     * @type {string}
+     * @memberof SodPolicy
+     */
+    'externalPolicyReference'?: string | null;
+    /**
+     * Search query of the SOD policy
+     * @type {string}
+     * @memberof SodPolicy
+     */
+    'policyQuery'?: string;
+    /**
+     * Optional compensating controls(Mitigating Controls)
+     * @type {string}
+     * @memberof SodPolicy
+     */
+    'compensatingControls'?: string | null;
+    /**
+     * Optional correction advice
+     * @type {string}
+     * @memberof SodPolicy
+     */
+    'correctionAdvice'?: string | null;
+    /**
+     * whether the policy is enforced or not
+     * @type {string}
+     * @memberof SodPolicy
+     */
+    'state'?: SodPolicyStateEnum;
+    /**
+     * tags for this policy object
+     * @type {Array<string>}
+     * @memberof SodPolicy
+     */
+    'tags'?: Array<string>;
+    /**
+     * Policy\'s creator ID
+     * @type {string}
+     * @memberof SodPolicy
+     */
+    'creatorId'?: string;
+    /**
+     * Policy\'s modifier ID
+     * @type {string}
+     * @memberof SodPolicy
+     */
+    'modifierId'?: string | null;
+    /**
+     * 
+     * @type {ViolationOwnerAssignmentConfig}
+     * @memberof SodPolicy
+     */
+    'violationOwnerAssignmentConfig'?: ViolationOwnerAssignmentConfig;
+    /**
+     * defines whether a policy has been scheduled or not
+     * @type {boolean}
+     * @memberof SodPolicy
+     */
+    'scheduled'?: boolean;
+    /**
+     * whether a policy is query based or conflicting access based
+     * @type {string}
+     * @memberof SodPolicy
+     */
+    'type'?: SodPolicyTypeEnum;
+    /**
+     * 
+     * @type {ConflictingAccessCriteria}
+     * @memberof SodPolicy
+     */
+    'conflictingAccessCriteria'?: ConflictingAccessCriteria;
+}
+
+export const SodPolicyStateEnum = {
+    Enforced: 'ENFORCED',
+    NotEnforced: 'NOT_ENFORCED'
+} as const;
+
+export type SodPolicyStateEnum = typeof SodPolicyStateEnum[keyof typeof SodPolicyStateEnum];
+export const SodPolicyTypeEnum = {
+    General: 'GENERAL',
+    ConflictingAccessBased: 'CONFLICTING_ACCESS_BASED'
+} as const;
+
+export type SodPolicyTypeEnum = typeof SodPolicyTypeEnum[keyof typeof SodPolicyTypeEnum];
+
+/**
  * The inner object representing the completed SOD Violation check
  * @export
  * @interface SodViolationCheckResult
@@ -14805,6 +15037,50 @@ export interface Substring {
     'input'?: { [key: string]: any; };
 }
 /**
+ * 
+ * @export
+ * @interface TaggedObject
+ */
+export interface TaggedObject {
+    /**
+     * 
+     * @type {TaggedObjectDto}
+     * @memberof TaggedObject
+     */
+    'objectRef'?: TaggedObjectDto;
+    /**
+     * Labels to be applied to an Object
+     * @type {Array<string>}
+     * @memberof TaggedObject
+     */
+    'tags'?: Array<string>;
+}
+/**
+ * 
+ * @export
+ * @interface TaggedObjectDto
+ */
+export interface TaggedObjectDto {
+    /**
+     * 
+     * @type {DtoType}
+     * @memberof TaggedObjectDto
+     */
+    'type'?: DtoType;
+    /**
+     * ID of the object to which this reference applies
+     * @type {string}
+     * @memberof TaggedObjectDto
+     */
+    'id'?: string;
+    /**
+     * Human-readable display name of the object to which this reference applies
+     * @type {string}
+     * @memberof TaggedObjectDto
+     */
+    'name'?: string | null;
+}
+/**
  * The representation of an internally- or customer-defined transform.
  * @export
  * @interface Transform
@@ -15087,6 +15363,33 @@ export interface Value {
      */
     'value'?: string;
 }
+/**
+ * 
+ * @export
+ * @interface ViolationOwnerAssignmentConfig
+ */
+export interface ViolationOwnerAssignmentConfig {
+    /**
+     * Details about the violations owner. MANAGER - identity\'s manager STATIC - Governance Group or Identity
+     * @type {string}
+     * @memberof ViolationOwnerAssignmentConfig
+     */
+    'assignmentRule'?: ViolationOwnerAssignmentConfigAssignmentRuleEnum;
+    /**
+     * 
+     * @type {BaseReferenceDto}
+     * @memberof ViolationOwnerAssignmentConfig
+     */
+    'ownerRef'?: BaseReferenceDto;
+}
+
+export const ViolationOwnerAssignmentConfigAssignmentRuleEnum = {
+    Manager: 'MANAGER',
+    Static: 'STATIC'
+} as const;
+
+export type ViolationOwnerAssignmentConfigAssignmentRuleEnum = typeof ViolationOwnerAssignmentConfigAssignmentRuleEnum[keyof typeof ViolationOwnerAssignmentConfigAssignmentRuleEnum];
+
 /**
  * 
  * @export
@@ -28458,6 +28761,267 @@ export class RolesApi extends BaseAPI {
 
 
 /**
+ * SODPolicyApi - axios parameter creator
+ * @export
+ */
+export const SODPolicyApiAxiosParamCreator = function (configuration?: Configuration) {
+    return {
+        /**
+         * This creates both General and Conflicting Access Based policy, with a limit of 50 entitlements for each (left & right) criteria for Conflicting Access Based SOD policy. Requires role of ORG_ADMIN.
+         * @summary Create SOD policy
+         * @param {SodPolicy} sodPolicy 
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        createSodPolicy: async (sodPolicy: SodPolicy, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'sodPolicy' is not null or undefined
+            assertParamExists('createSodPolicy', 'sodPolicy', sodPolicy)
+            const localVarPath = `/sod-policies`;
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'POST', ...baseOptions, ...axiosOptions};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication oauth2 required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "oauth2", [], configuration)
+
+            // authentication oauth2 required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "oauth2", [], configuration)
+
+
+    
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
+            localVarRequestOptions.data = serializeDataIfNeeded(sodPolicy, localVarRequestOptions, configuration)
+
+            return {
+                url: toPathString(localVarUrlObj),
+                axiosOptions: localVarRequestOptions,
+            };
+        },
+        /**
+         * This gets list of all SOD policies. Requires role of ORG_ADMIN
+         * @summary List SOD policies
+         * @param {number} [limit] Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+         * @param {number} [offset] Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+         * @param {boolean} [count] If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+         * @param {string} [filters] Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq*  **name**: *eq*  **state**: *eq*
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        listSodPolicies: async (limit?: number, offset?: number, count?: boolean, filters?: string, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            const localVarPath = `/sod-policies`;
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...axiosOptions};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication oauth2 required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "oauth2", [], configuration)
+
+            // authentication oauth2 required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "oauth2", [], configuration)
+
+            if (limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+
+            if (offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+
+            if (count !== undefined) {
+                localVarQueryParameter['count'] = count;
+            }
+
+            if (filters !== undefined) {
+                localVarQueryParameter['filters'] = filters;
+            }
+
+
+    
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                axiosOptions: localVarRequestOptions,
+            };
+        },
+    }
+};
+
+/**
+ * SODPolicyApi - functional programming interface
+ * @export
+ */
+export const SODPolicyApiFp = function(configuration?: Configuration) {
+    const localVarAxiosParamCreator = SODPolicyApiAxiosParamCreator(configuration)
+    return {
+        /**
+         * This creates both General and Conflicting Access Based policy, with a limit of 50 entitlements for each (left & right) criteria for Conflicting Access Based SOD policy. Requires role of ORG_ADMIN.
+         * @summary Create SOD policy
+         * @param {SodPolicy} sodPolicy 
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        async createSodPolicy(sodPolicy: SodPolicy, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SodPolicy>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.createSodPolicy(sodPolicy, axiosOptions);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * This gets list of all SOD policies. Requires role of ORG_ADMIN
+         * @summary List SOD policies
+         * @param {number} [limit] Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+         * @param {number} [offset] Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+         * @param {boolean} [count] If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+         * @param {string} [filters] Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq*  **name**: *eq*  **state**: *eq*
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        async listSodPolicies(limit?: number, offset?: number, count?: boolean, filters?: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<SodPolicy>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.listSodPolicies(limit, offset, count, filters, axiosOptions);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+    }
+};
+
+/**
+ * SODPolicyApi - factory interface
+ * @export
+ */
+export const SODPolicyApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
+    const localVarFp = SODPolicyApiFp(configuration)
+    return {
+        /**
+         * This creates both General and Conflicting Access Based policy, with a limit of 50 entitlements for each (left & right) criteria for Conflicting Access Based SOD policy. Requires role of ORG_ADMIN.
+         * @summary Create SOD policy
+         * @param {SodPolicy} sodPolicy 
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        createSodPolicy(sodPolicy: SodPolicy, axiosOptions?: any): AxiosPromise<SodPolicy> {
+            return localVarFp.createSodPolicy(sodPolicy, axiosOptions).then((request) => request(axios, basePath));
+        },
+        /**
+         * This gets list of all SOD policies. Requires role of ORG_ADMIN
+         * @summary List SOD policies
+         * @param {number} [limit] Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+         * @param {number} [offset] Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+         * @param {boolean} [count] If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+         * @param {string} [filters] Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq*  **name**: *eq*  **state**: *eq*
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        listSodPolicies(limit?: number, offset?: number, count?: boolean, filters?: string, axiosOptions?: any): AxiosPromise<Array<SodPolicy>> {
+            return localVarFp.listSodPolicies(limit, offset, count, filters, axiosOptions).then((request) => request(axios, basePath));
+        },
+    };
+};
+
+/**
+ * Request parameters for createSodPolicy operation in SODPolicyApi.
+ * @export
+ * @interface SODPolicyApiCreateSodPolicyRequest
+ */
+export interface SODPolicyApiCreateSodPolicyRequest {
+    /**
+     * 
+     * @type {SodPolicy}
+     * @memberof SODPolicyApiCreateSodPolicy
+     */
+    readonly sodPolicy: SodPolicy
+}
+
+/**
+ * Request parameters for listSodPolicies operation in SODPolicyApi.
+ * @export
+ * @interface SODPolicyApiListSodPoliciesRequest
+ */
+export interface SODPolicyApiListSodPoliciesRequest {
+    /**
+     * Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+     * @type {number}
+     * @memberof SODPolicyApiListSodPolicies
+     */
+    readonly limit?: number
+
+    /**
+     * Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+     * @type {number}
+     * @memberof SODPolicyApiListSodPolicies
+     */
+    readonly offset?: number
+
+    /**
+     * If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+     * @type {boolean}
+     * @memberof SODPolicyApiListSodPolicies
+     */
+    readonly count?: boolean
+
+    /**
+     * Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq*  **name**: *eq*  **state**: *eq*
+     * @type {string}
+     * @memberof SODPolicyApiListSodPolicies
+     */
+    readonly filters?: string
+}
+
+/**
+ * SODPolicyApi - object-oriented interface
+ * @export
+ * @class SODPolicyApi
+ * @extends {BaseAPI}
+ */
+export class SODPolicyApi extends BaseAPI {
+    /**
+     * This creates both General and Conflicting Access Based policy, with a limit of 50 entitlements for each (left & right) criteria for Conflicting Access Based SOD policy. Requires role of ORG_ADMIN.
+     * @summary Create SOD policy
+     * @param {SODPolicyApiCreateSodPolicyRequest} requestParameters Request parameters.
+     * @param {*} [axiosOptions] Override http request option.
+     * @throws {RequiredError}
+     * @memberof SODPolicyApi
+     */
+    public createSodPolicy(requestParameters: SODPolicyApiCreateSodPolicyRequest, axiosOptions?: AxiosRequestConfig) {
+        return SODPolicyApiFp(this.configuration).createSodPolicy(requestParameters.sodPolicy, axiosOptions).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * This gets list of all SOD policies. Requires role of ORG_ADMIN
+     * @summary List SOD policies
+     * @param {SODPolicyApiListSodPoliciesRequest} requestParameters Request parameters.
+     * @param {*} [axiosOptions] Override http request option.
+     * @throws {RequiredError}
+     * @memberof SODPolicyApi
+     */
+    public listSodPolicies(requestParameters: SODPolicyApiListSodPoliciesRequest = {}, axiosOptions?: AxiosRequestConfig) {
+        return SODPolicyApiFp(this.configuration).listSodPolicies(requestParameters.limit, requestParameters.offset, requestParameters.count, requestParameters.filters, axiosOptions).then((request) => request(this.axios, this.basePath));
+    }
+}
+
+
+/**
  * SavedSearchApi - axios parameter creator
  * @export
  */
@@ -34435,6 +34999,915 @@ export class SourcesApi extends BaseAPI {
      */
     public uploadSourceEntitlementsSchema(requestParameters: SourcesApiUploadSourceEntitlementsSchemaRequest, axiosOptions?: AxiosRequestConfig) {
         return SourcesApiFp(this.configuration).uploadSourceEntitlementsSchema(requestParameters.id, requestParameters.schemaName, requestParameters.file, axiosOptions).then((request) => request(this.axios, this.basePath));
+    }
+}
+
+
+/**
+ * TaggedObjectsApi - axios parameter creator
+ * @export
+ */
+export const TaggedObjectsApiAxiosParamCreator = function (configuration?: Configuration) {
+    return {
+        /**
+         * This deletes a tagged object for the specified type.
+         * @summary Delete Tagged Object
+         * @param {'ROLE' | 'IDENTITY' | 'SOD_POLICY'} type The type of tagged object to delete.
+         * @param {string} id The ID of the object reference to delete.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        deleteTaggedObject: async (type: 'ROLE' | 'IDENTITY' | 'SOD_POLICY', id: string, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'type' is not null or undefined
+            assertParamExists('deleteTaggedObject', 'type', type)
+            // verify required parameter 'id' is not null or undefined
+            assertParamExists('deleteTaggedObject', 'id', id)
+            const localVarPath = `/tagged-objects/{type}/{id}`
+                .replace(`{${"type"}}`, encodeURIComponent(String(type)))
+                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'DELETE', ...baseOptions, ...axiosOptions};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication oauth2 required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "oauth2", [], configuration)
+
+            // authentication oauth2 required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "oauth2", [], configuration)
+
+
+    
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                axiosOptions: localVarRequestOptions,
+            };
+        },
+        /**
+         * This API removes tags from multiple objects.  A token with API, CERT_ADMIN, ORG_ADMIN, REPORT_ADMIN, ROLE_ADMIN, ROLE_SUBADMIN, SOURCE_ADMIN, or SOURCE_SUBADMIN authority is required to call this API.
+         * @summary Remove Tags from Multiple Objects
+         * @param {BulkTaggedObject} bulkTaggedObject Supported object types are ROLE, IDENTITY and SOD_POLICY.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        deleteTagsToManyObject: async (bulkTaggedObject: BulkTaggedObject, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'bulkTaggedObject' is not null or undefined
+            assertParamExists('deleteTagsToManyObject', 'bulkTaggedObject', bulkTaggedObject)
+            const localVarPath = `/tagged-objects/bulk-remove`;
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'POST', ...baseOptions, ...axiosOptions};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication oauth2 required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "oauth2", [], configuration)
+
+            // authentication oauth2 required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "oauth2", [], configuration)
+
+
+    
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
+            localVarRequestOptions.data = serializeDataIfNeeded(bulkTaggedObject, localVarRequestOptions, configuration)
+
+            return {
+                url: toPathString(localVarUrlObj),
+                axiosOptions: localVarRequestOptions,
+            };
+        },
+        /**
+         * This gets a tagged object for the specified type.
+         * @summary Get Tagged Object
+         * @param {'ROLE' | 'IDENTITY' | 'SOD_POLICY'} type The type of tagged object to retrieve.
+         * @param {string} id The ID of the object reference to retrieve.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        getTaggedObject: async (type: 'ROLE' | 'IDENTITY' | 'SOD_POLICY', id: string, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'type' is not null or undefined
+            assertParamExists('getTaggedObject', 'type', type)
+            // verify required parameter 'id' is not null or undefined
+            assertParamExists('getTaggedObject', 'id', id)
+            const localVarPath = `/tagged-objects/{type}/{id}`
+                .replace(`{${"type"}}`, encodeURIComponent(String(type)))
+                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...axiosOptions};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication oauth2 required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "oauth2", [], configuration)
+
+            // authentication oauth2 required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "oauth2", [], configuration)
+
+
+    
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                axiosOptions: localVarRequestOptions,
+            };
+        },
+        /**
+         * This API returns a list of all tagged objects.  Any authenticated token may be used to call this API.
+         * @summary List Tagged Objects
+         * @param {number} [limit] Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+         * @param {number} [offset] Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+         * @param {boolean} [count] If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+         * @param {string} [filters] Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **objectRef.id**: *eq, in*  **objectRef.type**: *eq, in*  **tagName**: *eq, in*
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        listTaggedObjects: async (limit?: number, offset?: number, count?: boolean, filters?: string, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            const localVarPath = `/tagged-objects`;
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...axiosOptions};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication oauth2 required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "oauth2", [], configuration)
+
+            // authentication oauth2 required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "oauth2", [], configuration)
+
+            if (limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+
+            if (offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+
+            if (count !== undefined) {
+                localVarQueryParameter['count'] = count;
+            }
+
+            if (filters !== undefined) {
+                localVarQueryParameter['filters'] = filters;
+            }
+
+
+    
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                axiosOptions: localVarRequestOptions,
+            };
+        },
+        /**
+         * This API returns a list of all tagged objects by type.  Any authenticated token may be used to call this API.
+         * @summary List Tagged Objects
+         * @param {'ROLE' | 'IDENTITY' | 'SOD_POLICY'} type The type of tagged object to retrieve.
+         * @param {number} [limit] Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+         * @param {number} [offset] Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+         * @param {boolean} [count] If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+         * @param {string} [filters] Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **objectRef.id**: *eq*  **objectRef.type**: *eq*
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        listTaggedObjectsByType: async (type: 'ROLE' | 'IDENTITY' | 'SOD_POLICY', limit?: number, offset?: number, count?: boolean, filters?: string, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'type' is not null or undefined
+            assertParamExists('listTaggedObjectsByType', 'type', type)
+            const localVarPath = `/tagged-objects/{type}`
+                .replace(`{${"type"}}`, encodeURIComponent(String(type)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...axiosOptions};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication oauth2 required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "oauth2", [], configuration)
+
+            // authentication oauth2 required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "oauth2", [], configuration)
+
+            if (limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+
+            if (offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+
+            if (count !== undefined) {
+                localVarQueryParameter['count'] = count;
+            }
+
+            if (filters !== undefined) {
+                localVarQueryParameter['filters'] = filters;
+            }
+
+
+    
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                axiosOptions: localVarRequestOptions,
+            };
+        },
+        /**
+         * This updates a tagged object for the specified type.
+         * @summary Update Tagged Object
+         * @param {'ROLE' | 'IDENTITY' | 'SOD_POLICY'} type The type of tagged object to update.
+         * @param {string} id The ID of the object reference to update.
+         * @param {TaggedObject} taggedObject 
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        putTaggedObject: async (type: 'ROLE' | 'IDENTITY' | 'SOD_POLICY', id: string, taggedObject: TaggedObject, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'type' is not null or undefined
+            assertParamExists('putTaggedObject', 'type', type)
+            // verify required parameter 'id' is not null or undefined
+            assertParamExists('putTaggedObject', 'id', id)
+            // verify required parameter 'taggedObject' is not null or undefined
+            assertParamExists('putTaggedObject', 'taggedObject', taggedObject)
+            const localVarPath = `/tagged-objects/{type}/{id}`
+                .replace(`{${"type"}}`, encodeURIComponent(String(type)))
+                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'PUT', ...baseOptions, ...axiosOptions};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication oauth2 required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "oauth2", [], configuration)
+
+            // authentication oauth2 required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "oauth2", [], configuration)
+
+
+    
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
+            localVarRequestOptions.data = serializeDataIfNeeded(taggedObject, localVarRequestOptions, configuration)
+
+            return {
+                url: toPathString(localVarUrlObj),
+                axiosOptions: localVarRequestOptions,
+            };
+        },
+        /**
+         * This adds a tag to an object.  Any authenticated token may be used to call this API.
+         * @summary Add Tag to Object
+         * @param {TaggedObject} taggedObject 
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        setTagToObject: async (taggedObject: TaggedObject, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'taggedObject' is not null or undefined
+            assertParamExists('setTagToObject', 'taggedObject', taggedObject)
+            const localVarPath = `/tagged-objects`;
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'POST', ...baseOptions, ...axiosOptions};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication oauth2 required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "oauth2", [], configuration)
+
+            // authentication oauth2 required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "oauth2", [], configuration)
+
+
+    
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
+            localVarRequestOptions.data = serializeDataIfNeeded(taggedObject, localVarRequestOptions, configuration)
+
+            return {
+                url: toPathString(localVarUrlObj),
+                axiosOptions: localVarRequestOptions,
+            };
+        },
+        /**
+         * This API adds tags to multiple objects.  A token with API, CERT_ADMIN, ORG_ADMIN, REPORT_ADMIN, ROLE_ADMIN, ROLE_SUBADMIN, SOURCE_ADMIN, or SOURCE_SUBADMIN authority is required to call this API.
+         * @summary Tag Multiple Objects
+         * @param {BulkTaggedObject} bulkTaggedObject Supported object types are ROLE, IDENTITY and SOD_POLICY.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        setTagsToManyObjects: async (bulkTaggedObject: BulkTaggedObject, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'bulkTaggedObject' is not null or undefined
+            assertParamExists('setTagsToManyObjects', 'bulkTaggedObject', bulkTaggedObject)
+            const localVarPath = `/tagged-objects/bulk-add`;
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'POST', ...baseOptions, ...axiosOptions};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication oauth2 required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "oauth2", [], configuration)
+
+            // authentication oauth2 required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "oauth2", [], configuration)
+
+
+    
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
+            localVarRequestOptions.data = serializeDataIfNeeded(bulkTaggedObject, localVarRequestOptions, configuration)
+
+            return {
+                url: toPathString(localVarUrlObj),
+                axiosOptions: localVarRequestOptions,
+            };
+        },
+    }
+};
+
+/**
+ * TaggedObjectsApi - functional programming interface
+ * @export
+ */
+export const TaggedObjectsApiFp = function(configuration?: Configuration) {
+    const localVarAxiosParamCreator = TaggedObjectsApiAxiosParamCreator(configuration)
+    return {
+        /**
+         * This deletes a tagged object for the specified type.
+         * @summary Delete Tagged Object
+         * @param {'ROLE' | 'IDENTITY' | 'SOD_POLICY'} type The type of tagged object to delete.
+         * @param {string} id The ID of the object reference to delete.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        async deleteTaggedObject(type: 'ROLE' | 'IDENTITY' | 'SOD_POLICY', id: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.deleteTaggedObject(type, id, axiosOptions);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * This API removes tags from multiple objects.  A token with API, CERT_ADMIN, ORG_ADMIN, REPORT_ADMIN, ROLE_ADMIN, ROLE_SUBADMIN, SOURCE_ADMIN, or SOURCE_SUBADMIN authority is required to call this API.
+         * @summary Remove Tags from Multiple Objects
+         * @param {BulkTaggedObject} bulkTaggedObject Supported object types are ROLE, IDENTITY and SOD_POLICY.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        async deleteTagsToManyObject(bulkTaggedObject: BulkTaggedObject, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.deleteTagsToManyObject(bulkTaggedObject, axiosOptions);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * This gets a tagged object for the specified type.
+         * @summary Get Tagged Object
+         * @param {'ROLE' | 'IDENTITY' | 'SOD_POLICY'} type The type of tagged object to retrieve.
+         * @param {string} id The ID of the object reference to retrieve.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        async getTaggedObject(type: 'ROLE' | 'IDENTITY' | 'SOD_POLICY', id: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<TaggedObject>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getTaggedObject(type, id, axiosOptions);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * This API returns a list of all tagged objects.  Any authenticated token may be used to call this API.
+         * @summary List Tagged Objects
+         * @param {number} [limit] Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+         * @param {number} [offset] Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+         * @param {boolean} [count] If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+         * @param {string} [filters] Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **objectRef.id**: *eq, in*  **objectRef.type**: *eq, in*  **tagName**: *eq, in*
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        async listTaggedObjects(limit?: number, offset?: number, count?: boolean, filters?: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<TaggedObject>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.listTaggedObjects(limit, offset, count, filters, axiosOptions);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * This API returns a list of all tagged objects by type.  Any authenticated token may be used to call this API.
+         * @summary List Tagged Objects
+         * @param {'ROLE' | 'IDENTITY' | 'SOD_POLICY'} type The type of tagged object to retrieve.
+         * @param {number} [limit] Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+         * @param {number} [offset] Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+         * @param {boolean} [count] If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+         * @param {string} [filters] Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **objectRef.id**: *eq*  **objectRef.type**: *eq*
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        async listTaggedObjectsByType(type: 'ROLE' | 'IDENTITY' | 'SOD_POLICY', limit?: number, offset?: number, count?: boolean, filters?: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<TaggedObject>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.listTaggedObjectsByType(type, limit, offset, count, filters, axiosOptions);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * This updates a tagged object for the specified type.
+         * @summary Update Tagged Object
+         * @param {'ROLE' | 'IDENTITY' | 'SOD_POLICY'} type The type of tagged object to update.
+         * @param {string} id The ID of the object reference to update.
+         * @param {TaggedObject} taggedObject 
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        async putTaggedObject(type: 'ROLE' | 'IDENTITY' | 'SOD_POLICY', id: string, taggedObject: TaggedObject, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<TaggedObject>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.putTaggedObject(type, id, taggedObject, axiosOptions);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * This adds a tag to an object.  Any authenticated token may be used to call this API.
+         * @summary Add Tag to Object
+         * @param {TaggedObject} taggedObject 
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        async setTagToObject(taggedObject: TaggedObject, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<TaggedObject>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.setTagToObject(taggedObject, axiosOptions);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * This API adds tags to multiple objects.  A token with API, CERT_ADMIN, ORG_ADMIN, REPORT_ADMIN, ROLE_ADMIN, ROLE_SUBADMIN, SOURCE_ADMIN, or SOURCE_SUBADMIN authority is required to call this API.
+         * @summary Tag Multiple Objects
+         * @param {BulkTaggedObject} bulkTaggedObject Supported object types are ROLE, IDENTITY and SOD_POLICY.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        async setTagsToManyObjects(bulkTaggedObject: BulkTaggedObject, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<BulkTaggedObject>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.setTagsToManyObjects(bulkTaggedObject, axiosOptions);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+    }
+};
+
+/**
+ * TaggedObjectsApi - factory interface
+ * @export
+ */
+export const TaggedObjectsApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
+    const localVarFp = TaggedObjectsApiFp(configuration)
+    return {
+        /**
+         * This deletes a tagged object for the specified type.
+         * @summary Delete Tagged Object
+         * @param {'ROLE' | 'IDENTITY' | 'SOD_POLICY'} type The type of tagged object to delete.
+         * @param {string} id The ID of the object reference to delete.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        deleteTaggedObject(type: 'ROLE' | 'IDENTITY' | 'SOD_POLICY', id: string, axiosOptions?: any): AxiosPromise<void> {
+            return localVarFp.deleteTaggedObject(type, id, axiosOptions).then((request) => request(axios, basePath));
+        },
+        /**
+         * This API removes tags from multiple objects.  A token with API, CERT_ADMIN, ORG_ADMIN, REPORT_ADMIN, ROLE_ADMIN, ROLE_SUBADMIN, SOURCE_ADMIN, or SOURCE_SUBADMIN authority is required to call this API.
+         * @summary Remove Tags from Multiple Objects
+         * @param {BulkTaggedObject} bulkTaggedObject Supported object types are ROLE, IDENTITY and SOD_POLICY.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        deleteTagsToManyObject(bulkTaggedObject: BulkTaggedObject, axiosOptions?: any): AxiosPromise<void> {
+            return localVarFp.deleteTagsToManyObject(bulkTaggedObject, axiosOptions).then((request) => request(axios, basePath));
+        },
+        /**
+         * This gets a tagged object for the specified type.
+         * @summary Get Tagged Object
+         * @param {'ROLE' | 'IDENTITY' | 'SOD_POLICY'} type The type of tagged object to retrieve.
+         * @param {string} id The ID of the object reference to retrieve.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        getTaggedObject(type: 'ROLE' | 'IDENTITY' | 'SOD_POLICY', id: string, axiosOptions?: any): AxiosPromise<TaggedObject> {
+            return localVarFp.getTaggedObject(type, id, axiosOptions).then((request) => request(axios, basePath));
+        },
+        /**
+         * This API returns a list of all tagged objects.  Any authenticated token may be used to call this API.
+         * @summary List Tagged Objects
+         * @param {number} [limit] Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+         * @param {number} [offset] Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+         * @param {boolean} [count] If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+         * @param {string} [filters] Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **objectRef.id**: *eq, in*  **objectRef.type**: *eq, in*  **tagName**: *eq, in*
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        listTaggedObjects(limit?: number, offset?: number, count?: boolean, filters?: string, axiosOptions?: any): AxiosPromise<Array<TaggedObject>> {
+            return localVarFp.listTaggedObjects(limit, offset, count, filters, axiosOptions).then((request) => request(axios, basePath));
+        },
+        /**
+         * This API returns a list of all tagged objects by type.  Any authenticated token may be used to call this API.
+         * @summary List Tagged Objects
+         * @param {'ROLE' | 'IDENTITY' | 'SOD_POLICY'} type The type of tagged object to retrieve.
+         * @param {number} [limit] Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+         * @param {number} [offset] Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+         * @param {boolean} [count] If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+         * @param {string} [filters] Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **objectRef.id**: *eq*  **objectRef.type**: *eq*
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        listTaggedObjectsByType(type: 'ROLE' | 'IDENTITY' | 'SOD_POLICY', limit?: number, offset?: number, count?: boolean, filters?: string, axiosOptions?: any): AxiosPromise<Array<TaggedObject>> {
+            return localVarFp.listTaggedObjectsByType(type, limit, offset, count, filters, axiosOptions).then((request) => request(axios, basePath));
+        },
+        /**
+         * This updates a tagged object for the specified type.
+         * @summary Update Tagged Object
+         * @param {'ROLE' | 'IDENTITY' | 'SOD_POLICY'} type The type of tagged object to update.
+         * @param {string} id The ID of the object reference to update.
+         * @param {TaggedObject} taggedObject 
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        putTaggedObject(type: 'ROLE' | 'IDENTITY' | 'SOD_POLICY', id: string, taggedObject: TaggedObject, axiosOptions?: any): AxiosPromise<TaggedObject> {
+            return localVarFp.putTaggedObject(type, id, taggedObject, axiosOptions).then((request) => request(axios, basePath));
+        },
+        /**
+         * This adds a tag to an object.  Any authenticated token may be used to call this API.
+         * @summary Add Tag to Object
+         * @param {TaggedObject} taggedObject 
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        setTagToObject(taggedObject: TaggedObject, axiosOptions?: any): AxiosPromise<TaggedObject> {
+            return localVarFp.setTagToObject(taggedObject, axiosOptions).then((request) => request(axios, basePath));
+        },
+        /**
+         * This API adds tags to multiple objects.  A token with API, CERT_ADMIN, ORG_ADMIN, REPORT_ADMIN, ROLE_ADMIN, ROLE_SUBADMIN, SOURCE_ADMIN, or SOURCE_SUBADMIN authority is required to call this API.
+         * @summary Tag Multiple Objects
+         * @param {BulkTaggedObject} bulkTaggedObject Supported object types are ROLE, IDENTITY and SOD_POLICY.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        setTagsToManyObjects(bulkTaggedObject: BulkTaggedObject, axiosOptions?: any): AxiosPromise<BulkTaggedObject> {
+            return localVarFp.setTagsToManyObjects(bulkTaggedObject, axiosOptions).then((request) => request(axios, basePath));
+        },
+    };
+};
+
+/**
+ * Request parameters for deleteTaggedObject operation in TaggedObjectsApi.
+ * @export
+ * @interface TaggedObjectsApiDeleteTaggedObjectRequest
+ */
+export interface TaggedObjectsApiDeleteTaggedObjectRequest {
+    /**
+     * The type of tagged object to delete.
+     * @type {'ROLE' | 'IDENTITY' | 'SOD_POLICY'}
+     * @memberof TaggedObjectsApiDeleteTaggedObject
+     */
+    readonly type: 'ROLE' | 'IDENTITY' | 'SOD_POLICY'
+
+    /**
+     * The ID of the object reference to delete.
+     * @type {string}
+     * @memberof TaggedObjectsApiDeleteTaggedObject
+     */
+    readonly id: string
+}
+
+/**
+ * Request parameters for deleteTagsToManyObject operation in TaggedObjectsApi.
+ * @export
+ * @interface TaggedObjectsApiDeleteTagsToManyObjectRequest
+ */
+export interface TaggedObjectsApiDeleteTagsToManyObjectRequest {
+    /**
+     * Supported object types are ROLE, IDENTITY and SOD_POLICY.
+     * @type {BulkTaggedObject}
+     * @memberof TaggedObjectsApiDeleteTagsToManyObject
+     */
+    readonly bulkTaggedObject: BulkTaggedObject
+}
+
+/**
+ * Request parameters for getTaggedObject operation in TaggedObjectsApi.
+ * @export
+ * @interface TaggedObjectsApiGetTaggedObjectRequest
+ */
+export interface TaggedObjectsApiGetTaggedObjectRequest {
+    /**
+     * The type of tagged object to retrieve.
+     * @type {'ROLE' | 'IDENTITY' | 'SOD_POLICY'}
+     * @memberof TaggedObjectsApiGetTaggedObject
+     */
+    readonly type: 'ROLE' | 'IDENTITY' | 'SOD_POLICY'
+
+    /**
+     * The ID of the object reference to retrieve.
+     * @type {string}
+     * @memberof TaggedObjectsApiGetTaggedObject
+     */
+    readonly id: string
+}
+
+/**
+ * Request parameters for listTaggedObjects operation in TaggedObjectsApi.
+ * @export
+ * @interface TaggedObjectsApiListTaggedObjectsRequest
+ */
+export interface TaggedObjectsApiListTaggedObjectsRequest {
+    /**
+     * Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+     * @type {number}
+     * @memberof TaggedObjectsApiListTaggedObjects
+     */
+    readonly limit?: number
+
+    /**
+     * Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+     * @type {number}
+     * @memberof TaggedObjectsApiListTaggedObjects
+     */
+    readonly offset?: number
+
+    /**
+     * If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+     * @type {boolean}
+     * @memberof TaggedObjectsApiListTaggedObjects
+     */
+    readonly count?: boolean
+
+    /**
+     * Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **objectRef.id**: *eq, in*  **objectRef.type**: *eq, in*  **tagName**: *eq, in*
+     * @type {string}
+     * @memberof TaggedObjectsApiListTaggedObjects
+     */
+    readonly filters?: string
+}
+
+/**
+ * Request parameters for listTaggedObjectsByType operation in TaggedObjectsApi.
+ * @export
+ * @interface TaggedObjectsApiListTaggedObjectsByTypeRequest
+ */
+export interface TaggedObjectsApiListTaggedObjectsByTypeRequest {
+    /**
+     * The type of tagged object to retrieve.
+     * @type {'ROLE' | 'IDENTITY' | 'SOD_POLICY'}
+     * @memberof TaggedObjectsApiListTaggedObjectsByType
+     */
+    readonly type: 'ROLE' | 'IDENTITY' | 'SOD_POLICY'
+
+    /**
+     * Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+     * @type {number}
+     * @memberof TaggedObjectsApiListTaggedObjectsByType
+     */
+    readonly limit?: number
+
+    /**
+     * Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+     * @type {number}
+     * @memberof TaggedObjectsApiListTaggedObjectsByType
+     */
+    readonly offset?: number
+
+    /**
+     * If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+     * @type {boolean}
+     * @memberof TaggedObjectsApiListTaggedObjectsByType
+     */
+    readonly count?: boolean
+
+    /**
+     * Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **objectRef.id**: *eq*  **objectRef.type**: *eq*
+     * @type {string}
+     * @memberof TaggedObjectsApiListTaggedObjectsByType
+     */
+    readonly filters?: string
+}
+
+/**
+ * Request parameters for putTaggedObject operation in TaggedObjectsApi.
+ * @export
+ * @interface TaggedObjectsApiPutTaggedObjectRequest
+ */
+export interface TaggedObjectsApiPutTaggedObjectRequest {
+    /**
+     * The type of tagged object to update.
+     * @type {'ROLE' | 'IDENTITY' | 'SOD_POLICY'}
+     * @memberof TaggedObjectsApiPutTaggedObject
+     */
+    readonly type: 'ROLE' | 'IDENTITY' | 'SOD_POLICY'
+
+    /**
+     * The ID of the object reference to update.
+     * @type {string}
+     * @memberof TaggedObjectsApiPutTaggedObject
+     */
+    readonly id: string
+
+    /**
+     * 
+     * @type {TaggedObject}
+     * @memberof TaggedObjectsApiPutTaggedObject
+     */
+    readonly taggedObject: TaggedObject
+}
+
+/**
+ * Request parameters for setTagToObject operation in TaggedObjectsApi.
+ * @export
+ * @interface TaggedObjectsApiSetTagToObjectRequest
+ */
+export interface TaggedObjectsApiSetTagToObjectRequest {
+    /**
+     * 
+     * @type {TaggedObject}
+     * @memberof TaggedObjectsApiSetTagToObject
+     */
+    readonly taggedObject: TaggedObject
+}
+
+/**
+ * Request parameters for setTagsToManyObjects operation in TaggedObjectsApi.
+ * @export
+ * @interface TaggedObjectsApiSetTagsToManyObjectsRequest
+ */
+export interface TaggedObjectsApiSetTagsToManyObjectsRequest {
+    /**
+     * Supported object types are ROLE, IDENTITY and SOD_POLICY.
+     * @type {BulkTaggedObject}
+     * @memberof TaggedObjectsApiSetTagsToManyObjects
+     */
+    readonly bulkTaggedObject: BulkTaggedObject
+}
+
+/**
+ * TaggedObjectsApi - object-oriented interface
+ * @export
+ * @class TaggedObjectsApi
+ * @extends {BaseAPI}
+ */
+export class TaggedObjectsApi extends BaseAPI {
+    /**
+     * This deletes a tagged object for the specified type.
+     * @summary Delete Tagged Object
+     * @param {TaggedObjectsApiDeleteTaggedObjectRequest} requestParameters Request parameters.
+     * @param {*} [axiosOptions] Override http request option.
+     * @throws {RequiredError}
+     * @memberof TaggedObjectsApi
+     */
+    public deleteTaggedObject(requestParameters: TaggedObjectsApiDeleteTaggedObjectRequest, axiosOptions?: AxiosRequestConfig) {
+        return TaggedObjectsApiFp(this.configuration).deleteTaggedObject(requestParameters.type, requestParameters.id, axiosOptions).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * This API removes tags from multiple objects.  A token with API, CERT_ADMIN, ORG_ADMIN, REPORT_ADMIN, ROLE_ADMIN, ROLE_SUBADMIN, SOURCE_ADMIN, or SOURCE_SUBADMIN authority is required to call this API.
+     * @summary Remove Tags from Multiple Objects
+     * @param {TaggedObjectsApiDeleteTagsToManyObjectRequest} requestParameters Request parameters.
+     * @param {*} [axiosOptions] Override http request option.
+     * @throws {RequiredError}
+     * @memberof TaggedObjectsApi
+     */
+    public deleteTagsToManyObject(requestParameters: TaggedObjectsApiDeleteTagsToManyObjectRequest, axiosOptions?: AxiosRequestConfig) {
+        return TaggedObjectsApiFp(this.configuration).deleteTagsToManyObject(requestParameters.bulkTaggedObject, axiosOptions).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * This gets a tagged object for the specified type.
+     * @summary Get Tagged Object
+     * @param {TaggedObjectsApiGetTaggedObjectRequest} requestParameters Request parameters.
+     * @param {*} [axiosOptions] Override http request option.
+     * @throws {RequiredError}
+     * @memberof TaggedObjectsApi
+     */
+    public getTaggedObject(requestParameters: TaggedObjectsApiGetTaggedObjectRequest, axiosOptions?: AxiosRequestConfig) {
+        return TaggedObjectsApiFp(this.configuration).getTaggedObject(requestParameters.type, requestParameters.id, axiosOptions).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * This API returns a list of all tagged objects.  Any authenticated token may be used to call this API.
+     * @summary List Tagged Objects
+     * @param {TaggedObjectsApiListTaggedObjectsRequest} requestParameters Request parameters.
+     * @param {*} [axiosOptions] Override http request option.
+     * @throws {RequiredError}
+     * @memberof TaggedObjectsApi
+     */
+    public listTaggedObjects(requestParameters: TaggedObjectsApiListTaggedObjectsRequest = {}, axiosOptions?: AxiosRequestConfig) {
+        return TaggedObjectsApiFp(this.configuration).listTaggedObjects(requestParameters.limit, requestParameters.offset, requestParameters.count, requestParameters.filters, axiosOptions).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * This API returns a list of all tagged objects by type.  Any authenticated token may be used to call this API.
+     * @summary List Tagged Objects
+     * @param {TaggedObjectsApiListTaggedObjectsByTypeRequest} requestParameters Request parameters.
+     * @param {*} [axiosOptions] Override http request option.
+     * @throws {RequiredError}
+     * @memberof TaggedObjectsApi
+     */
+    public listTaggedObjectsByType(requestParameters: TaggedObjectsApiListTaggedObjectsByTypeRequest, axiosOptions?: AxiosRequestConfig) {
+        return TaggedObjectsApiFp(this.configuration).listTaggedObjectsByType(requestParameters.type, requestParameters.limit, requestParameters.offset, requestParameters.count, requestParameters.filters, axiosOptions).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * This updates a tagged object for the specified type.
+     * @summary Update Tagged Object
+     * @param {TaggedObjectsApiPutTaggedObjectRequest} requestParameters Request parameters.
+     * @param {*} [axiosOptions] Override http request option.
+     * @throws {RequiredError}
+     * @memberof TaggedObjectsApi
+     */
+    public putTaggedObject(requestParameters: TaggedObjectsApiPutTaggedObjectRequest, axiosOptions?: AxiosRequestConfig) {
+        return TaggedObjectsApiFp(this.configuration).putTaggedObject(requestParameters.type, requestParameters.id, requestParameters.taggedObject, axiosOptions).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * This adds a tag to an object.  Any authenticated token may be used to call this API.
+     * @summary Add Tag to Object
+     * @param {TaggedObjectsApiSetTagToObjectRequest} requestParameters Request parameters.
+     * @param {*} [axiosOptions] Override http request option.
+     * @throws {RequiredError}
+     * @memberof TaggedObjectsApi
+     */
+    public setTagToObject(requestParameters: TaggedObjectsApiSetTagToObjectRequest, axiosOptions?: AxiosRequestConfig) {
+        return TaggedObjectsApiFp(this.configuration).setTagToObject(requestParameters.taggedObject, axiosOptions).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * This API adds tags to multiple objects.  A token with API, CERT_ADMIN, ORG_ADMIN, REPORT_ADMIN, ROLE_ADMIN, ROLE_SUBADMIN, SOURCE_ADMIN, or SOURCE_SUBADMIN authority is required to call this API.
+     * @summary Tag Multiple Objects
+     * @param {TaggedObjectsApiSetTagsToManyObjectsRequest} requestParameters Request parameters.
+     * @param {*} [axiosOptions] Override http request option.
+     * @throws {RequiredError}
+     * @memberof TaggedObjectsApi
+     */
+    public setTagsToManyObjects(requestParameters: TaggedObjectsApiSetTagsToManyObjectsRequest, axiosOptions?: AxiosRequestConfig) {
+        return TaggedObjectsApiFp(this.configuration).setTagsToManyObjects(requestParameters.bulkTaggedObject, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 }
 
