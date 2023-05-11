@@ -9210,10 +9210,10 @@ export interface ListAccessProfiles429ResponseBeta {
     'message'?: object;
 }
 /**
- * @type ListAccounts200ResponseBeta
+ * @type ListAccounts200ResponseInnerBeta
  * @export
  */
-export type ListAccounts200ResponseBeta = Array<FullAccountBeta> | Array<SlimAccountBeta>;
+export type ListAccounts200ResponseInnerBeta = FullAccountBeta | SlimAccountBeta;
 
 /**
  * 
@@ -26325,7 +26325,7 @@ export const AccountsBetaApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async listAccounts(detailLevel?: 'SLIM' | 'FULL', limit?: number, offset?: number, count?: boolean, filters?: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ListAccounts200ResponseBeta>> {
+        async listAccounts(detailLevel?: 'SLIM' | 'FULL', limit?: number, offset?: number, count?: boolean, filters?: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<ListAccounts200ResponseInnerBeta>>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.listAccounts(detailLevel, limit, offset, count, filters, axiosOptions);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -26502,7 +26502,7 @@ export const AccountsBetaApiFactory = function (configuration?: Configuration, b
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        listAccounts(detailLevel?: 'SLIM' | 'FULL', limit?: number, offset?: number, count?: boolean, filters?: string, axiosOptions?: any): AxiosPromise<ListAccounts200ResponseBeta> {
+        listAccounts(detailLevel?: 'SLIM' | 'FULL', limit?: number, offset?: number, count?: boolean, filters?: string, axiosOptions?: any): AxiosPromise<Array<ListAccounts200ResponseInnerBeta>> {
             return localVarFp.listAccounts(detailLevel, limit, offset, count, filters, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
