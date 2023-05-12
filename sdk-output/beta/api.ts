@@ -41520,11 +41520,11 @@ export const ManagedClustersBetaApiAxiosParamCreator = function (configuration?:
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        updateClientLogConfiguration: async (id: string, clientLogConfigurationBeta: ClientLogConfigurationBeta, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        putClientLogConfiguration: async (id: string, clientLogConfigurationBeta: ClientLogConfigurationBeta, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'id' is not null or undefined
-            assertParamExists('updateClientLogConfiguration', 'id', id)
+            assertParamExists('putClientLogConfiguration', 'id', id)
             // verify required parameter 'clientLogConfigurationBeta' is not null or undefined
-            assertParamExists('updateClientLogConfiguration', 'clientLogConfigurationBeta', clientLogConfigurationBeta)
+            assertParamExists('putClientLogConfiguration', 'clientLogConfigurationBeta', clientLogConfigurationBeta)
             const localVarPath = `/managed-clusters/{id}/log-config`
                 .replace(`{${"id"}}`, encodeURIComponent(String(id)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
@@ -41577,7 +41577,7 @@ export const ManagedClustersBetaApiFp = function(configuration?: Configuration) 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async getClientLogConfiguration(id: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<ClientLogConfigurationBeta>>> {
+        async getClientLogConfiguration(id: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ClientLogConfigurationBeta>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getClientLogConfiguration(id, axiosOptions);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -41614,8 +41614,8 @@ export const ManagedClustersBetaApiFp = function(configuration?: Configuration) 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async updateClientLogConfiguration(id: string, clientLogConfigurationBeta: ClientLogConfigurationBeta, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ClientLogConfigurationBeta>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.updateClientLogConfiguration(id, clientLogConfigurationBeta, axiosOptions);
+        async putClientLogConfiguration(id: string, clientLogConfigurationBeta: ClientLogConfigurationBeta, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ClientLogConfigurationBeta>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.putClientLogConfiguration(id, clientLogConfigurationBeta, axiosOptions);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
     }
@@ -41635,7 +41635,7 @@ export const ManagedClustersBetaApiFactory = function (configuration?: Configura
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        getClientLogConfiguration(id: string, axiosOptions?: any): AxiosPromise<Array<ClientLogConfigurationBeta>> {
+        getClientLogConfiguration(id: string, axiosOptions?: any): AxiosPromise<ClientLogConfigurationBeta> {
             return localVarFp.getClientLogConfiguration(id, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
@@ -41669,8 +41669,8 @@ export const ManagedClustersBetaApiFactory = function (configuration?: Configura
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        updateClientLogConfiguration(id: string, clientLogConfigurationBeta: ClientLogConfigurationBeta, axiosOptions?: any): AxiosPromise<ClientLogConfigurationBeta> {
-            return localVarFp.updateClientLogConfiguration(id, clientLogConfigurationBeta, axiosOptions).then((request) => request(axios, basePath));
+        putClientLogConfiguration(id: string, clientLogConfigurationBeta: ClientLogConfigurationBeta, axiosOptions?: any): AxiosPromise<ClientLogConfigurationBeta> {
+            return localVarFp.putClientLogConfiguration(id, clientLogConfigurationBeta, axiosOptions).then((request) => request(axios, basePath));
         },
     };
 };
@@ -41739,22 +41739,22 @@ export interface ManagedClustersBetaApiGetManagedClustersRequest {
 }
 
 /**
- * Request parameters for updateClientLogConfiguration operation in ManagedClustersBetaApi.
+ * Request parameters for putClientLogConfiguration operation in ManagedClustersBetaApi.
  * @export
- * @interface ManagedClustersBetaApiUpdateClientLogConfigurationRequest
+ * @interface ManagedClustersBetaApiPutClientLogConfigurationRequest
  */
-export interface ManagedClustersBetaApiUpdateClientLogConfigurationRequest {
+export interface ManagedClustersBetaApiPutClientLogConfigurationRequest {
     /**
      * ID of ManagedCluster to update log configuration for
      * @type {string}
-     * @memberof ManagedClustersBetaApiUpdateClientLogConfiguration
+     * @memberof ManagedClustersBetaApiPutClientLogConfiguration
      */
     readonly id: string
 
     /**
      * ClientLogConfiguration for given ManagedCluster
      * @type {ClientLogConfigurationBeta}
-     * @memberof ManagedClustersBetaApiUpdateClientLogConfiguration
+     * @memberof ManagedClustersBetaApiPutClientLogConfiguration
      */
     readonly clientLogConfigurationBeta: ClientLogConfigurationBeta
 }
@@ -41805,13 +41805,13 @@ export class ManagedClustersBetaApi extends BaseAPI {
     /**
      * Update managed cluster\'s log configuration
      * @summary Update managed cluster\'s log configuration
-     * @param {ManagedClustersBetaApiUpdateClientLogConfigurationRequest} requestParameters Request parameters.
+     * @param {ManagedClustersBetaApiPutClientLogConfigurationRequest} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
      * @memberof ManagedClustersBetaApi
      */
-    public updateClientLogConfiguration(requestParameters: ManagedClustersBetaApiUpdateClientLogConfigurationRequest, axiosOptions?: AxiosRequestConfig) {
-        return ManagedClustersBetaApiFp(this.configuration).updateClientLogConfiguration(requestParameters.id, requestParameters.clientLogConfigurationBeta, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public putClientLogConfiguration(requestParameters: ManagedClustersBetaApiPutClientLogConfigurationRequest, axiosOptions?: AxiosRequestConfig) {
+        return ManagedClustersBetaApiFp(this.configuration).putClientLogConfiguration(requestParameters.id, requestParameters.clientLogConfigurationBeta, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 }
 
