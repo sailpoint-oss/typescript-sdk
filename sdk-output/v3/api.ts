@@ -7767,6 +7767,19 @@ export interface IdentitySummary {
     'completed'?: boolean;
 }
 /**
+ * 
+ * @export
+ * @interface ImportNonEmployeeRecordsInBulkRequest
+ */
+export interface ImportNonEmployeeRecordsInBulkRequest {
+    /**
+     * 
+     * @type {any}
+     * @memberof ImportNonEmployeeRecordsInBulkRequest
+     */
+    'data': any;
+}
+/**
  * Enum representing the currently supported indices. Additional values may be added in the future without notice.
  * @export
  * @enum {string}
@@ -15348,19 +15361,6 @@ export interface UpdatePasswordDictionaryRequest {
 /**
  * 
  * @export
- * @interface UploadNonEmployeeRecordsInBulkRequest
- */
-export interface UploadNonEmployeeRecordsInBulkRequest {
-    /**
-     * 
-     * @type {string}
-     * @memberof UploadNonEmployeeRecordsInBulkRequest
-     */
-    'data': string;
-}
-/**
- * 
- * @export
  * @interface Upper
  */
 export interface Upper {
@@ -22882,6 +22882,59 @@ export const NonEmployeeLifecycleManagementApiAxiosParamCreator = function (conf
             };
         },
         /**
+         * This post will import, or update, Non-Employee records found in the CSV. Requires role context of `idn:nesr:create`
+         * @summary Imports, or Updates, Non-Employee Records
+         * @param {string} id Source Id (UUID)
+         * @param {any} data 
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        importNonEmployeeRecordsInBulk: async (id: string, data: any, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'id' is not null or undefined
+            assertParamExists('importNonEmployeeRecordsInBulk', 'id', id)
+            // verify required parameter 'data' is not null or undefined
+            assertParamExists('importNonEmployeeRecordsInBulk', 'data', data)
+            const localVarPath = `/non-employee-sources/{id}/non-employee-bulk-upload`
+                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'POST', ...baseOptions, ...axiosOptions};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            const localVarFormParams = new ((configuration && configuration.formDataCtor) || FormData)();
+
+            // authentication oauth2 required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "oauth2", [], configuration)
+
+            // authentication oauth2 required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "oauth2", [], configuration)
+
+
+            if (data !== undefined) { 
+                localVarFormParams.append('data', data as any);
+            }
+    
+    
+            localVarHeaderParameter['Content-Type'] = 'multipart/form-data';
+    
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
+            localVarRequestOptions.data = localVarFormParams;
+
+            return {
+                url: toPathString(localVarUrlObj),
+                axiosOptions: localVarRequestOptions,
+            };
+        },
+        /**
          * This gets a list of non-employee approval requests. There are two contextual uses for this endpoint:   1. The user has the role context of `idn:nesr:read`, in which case they can list the approvals for any approver.   2. The user owns the requested approval.
          * @summary Get List of Non-Employee Approval Requests
          * @param {string} [requestedFor] The identity for whom the request was made. *me* indicates the current user.
@@ -23396,59 +23449,6 @@ export const NonEmployeeLifecycleManagementApiAxiosParamCreator = function (conf
                 axiosOptions: localVarRequestOptions,
             };
         },
-        /**
-         * This post will import, or update, Non-Employee records found in the CSV. Requires role context of `idn:nesr:create`
-         * @summary Imports, or Updates, Non-Employee Records
-         * @param {string} id Source Id (UUID)
-         * @param {string} data 
-         * @param {*} [axiosOptions] Override http request option.
-         * @throws {RequiredError}
-         */
-        uploadNonEmployeeRecordsInBulk: async (id: string, data: string, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
-            // verify required parameter 'id' is not null or undefined
-            assertParamExists('uploadNonEmployeeRecordsInBulk', 'id', id)
-            // verify required parameter 'data' is not null or undefined
-            assertParamExists('uploadNonEmployeeRecordsInBulk', 'data', data)
-            const localVarPath = `/non-employee-sources/{id}/non-employee-bulk-upload`
-                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
-            // use dummy base URL string because the URL constructor only accepts absolute URLs.
-            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
-            let baseOptions;
-            if (configuration) {
-                baseOptions = configuration.baseOptions;
-            }
-
-            const localVarRequestOptions = { method: 'POST', ...baseOptions, ...axiosOptions};
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-            const localVarFormParams = new ((configuration && configuration.formDataCtor) || FormData)();
-
-            // authentication oauth2 required
-            // oauth required
-            await setOAuthToObject(localVarHeaderParameter, "oauth2", [], configuration)
-
-            // authentication oauth2 required
-            // oauth required
-            await setOAuthToObject(localVarHeaderParameter, "oauth2", [], configuration)
-
-
-            if (data !== undefined) { 
-                localVarFormParams.append('data', data as any);
-            }
-    
-    
-            localVarHeaderParameter['Content-Type'] = 'multipart/form-data';
-    
-            setSearchParams(localVarUrlObj, localVarQueryParameter);
-            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
-            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
-            localVarRequestOptions.data = localVarFormParams;
-
-            return {
-                url: toPathString(localVarUrlObj),
-                axiosOptions: localVarRequestOptions,
-            };
-        },
     }
 };
 
@@ -23707,6 +23707,18 @@ export const NonEmployeeLifecycleManagementApiFp = function(configuration?: Conf
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
+         * This post will import, or update, Non-Employee records found in the CSV. Requires role context of `idn:nesr:create`
+         * @summary Imports, or Updates, Non-Employee Records
+         * @param {string} id Source Id (UUID)
+         * @param {any} data 
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        async importNonEmployeeRecordsInBulk(id: string, data: any, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<NonEmployeeBulkUploadJob>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.importNonEmployeeRecordsInBulk(id, data, axiosOptions);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
          * This gets a list of non-employee approval requests. There are two contextual uses for this endpoint:   1. The user has the role context of `idn:nesr:read`, in which case they can list the approvals for any approver.   2. The user owns the requested approval.
          * @summary Get List of Non-Employee Approval Requests
          * @param {string} [requestedFor] The identity for whom the request was made. *me* indicates the current user.
@@ -23828,18 +23840,6 @@ export const NonEmployeeLifecycleManagementApiFp = function(configuration?: Conf
          */
         async updateNonEmployeeRecord(id: string, nonEmployeeRequestBody: NonEmployeeRequestBody, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<NonEmployeeRecord>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.updateNonEmployeeRecord(id, nonEmployeeRequestBody, axiosOptions);
-            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
-        },
-        /**
-         * This post will import, or update, Non-Employee records found in the CSV. Requires role context of `idn:nesr:create`
-         * @summary Imports, or Updates, Non-Employee Records
-         * @param {string} id Source Id (UUID)
-         * @param {string} data 
-         * @param {*} [axiosOptions] Override http request option.
-         * @throws {RequiredError}
-         */
-        async uploadNonEmployeeRecordsInBulk(id: string, data: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<NonEmployeeBulkUploadJob>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.uploadNonEmployeeRecordsInBulk(id, data, axiosOptions);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
     }
@@ -24078,6 +24078,17 @@ export const NonEmployeeLifecycleManagementApiFactory = function (configuration?
             return localVarFp.getNonEmployeeSourceSchemaAttributes(sourceId, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
+         * This post will import, or update, Non-Employee records found in the CSV. Requires role context of `idn:nesr:create`
+         * @summary Imports, or Updates, Non-Employee Records
+         * @param {string} id Source Id (UUID)
+         * @param {any} data 
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        importNonEmployeeRecordsInBulk(id: string, data: any, axiosOptions?: any): AxiosPromise<NonEmployeeBulkUploadJob> {
+            return localVarFp.importNonEmployeeRecordsInBulk(id, data, axiosOptions).then((request) => request(axios, basePath));
+        },
+        /**
          * This gets a list of non-employee approval requests. There are two contextual uses for this endpoint:   1. The user has the role context of `idn:nesr:read`, in which case they can list the approvals for any approver.   2. The user owns the requested approval.
          * @summary Get List of Non-Employee Approval Requests
          * @param {string} [requestedFor] The identity for whom the request was made. *me* indicates the current user.
@@ -24191,17 +24202,6 @@ export const NonEmployeeLifecycleManagementApiFactory = function (configuration?
          */
         updateNonEmployeeRecord(id: string, nonEmployeeRequestBody: NonEmployeeRequestBody, axiosOptions?: any): AxiosPromise<NonEmployeeRecord> {
             return localVarFp.updateNonEmployeeRecord(id, nonEmployeeRequestBody, axiosOptions).then((request) => request(axios, basePath));
-        },
-        /**
-         * This post will import, or update, Non-Employee records found in the CSV. Requires role context of `idn:nesr:create`
-         * @summary Imports, or Updates, Non-Employee Records
-         * @param {string} id Source Id (UUID)
-         * @param {string} data 
-         * @param {*} [axiosOptions] Override http request option.
-         * @throws {RequiredError}
-         */
-        uploadNonEmployeeRecordsInBulk(id: string, data: string, axiosOptions?: any): AxiosPromise<NonEmployeeBulkUploadJob> {
-            return localVarFp.uploadNonEmployeeRecordsInBulk(id, data, axiosOptions).then((request) => request(axios, basePath));
         },
     };
 };
@@ -24550,6 +24550,27 @@ export interface NonEmployeeLifecycleManagementApiGetNonEmployeeSourceSchemaAttr
 }
 
 /**
+ * Request parameters for importNonEmployeeRecordsInBulk operation in NonEmployeeLifecycleManagementApi.
+ * @export
+ * @interface NonEmployeeLifecycleManagementApiImportNonEmployeeRecordsInBulkRequest
+ */
+export interface NonEmployeeLifecycleManagementApiImportNonEmployeeRecordsInBulkRequest {
+    /**
+     * Source Id (UUID)
+     * @type {string}
+     * @memberof NonEmployeeLifecycleManagementApiImportNonEmployeeRecordsInBulk
+     */
+    readonly id: string
+
+    /**
+     * 
+     * @type {any}
+     * @memberof NonEmployeeLifecycleManagementApiImportNonEmployeeRecordsInBulk
+     */
+    readonly data: any
+}
+
+/**
  * Request parameters for listNonEmployeeApprovals operation in NonEmployeeLifecycleManagementApi.
  * @export
  * @interface NonEmployeeLifecycleManagementApiListNonEmployeeApprovalsRequest
@@ -24851,27 +24872,6 @@ export interface NonEmployeeLifecycleManagementApiUpdateNonEmployeeRecordRequest
 }
 
 /**
- * Request parameters for uploadNonEmployeeRecordsInBulk operation in NonEmployeeLifecycleManagementApi.
- * @export
- * @interface NonEmployeeLifecycleManagementApiUploadNonEmployeeRecordsInBulkRequest
- */
-export interface NonEmployeeLifecycleManagementApiUploadNonEmployeeRecordsInBulkRequest {
-    /**
-     * Source Id (UUID)
-     * @type {string}
-     * @memberof NonEmployeeLifecycleManagementApiUploadNonEmployeeRecordsInBulk
-     */
-    readonly id: string
-
-    /**
-     * 
-     * @type {string}
-     * @memberof NonEmployeeLifecycleManagementApiUploadNonEmployeeRecordsInBulk
-     */
-    readonly data: string
-}
-
-/**
  * NonEmployeeLifecycleManagementApi - object-oriented interface
  * @export
  * @class NonEmployeeLifecycleManagementApi
@@ -25143,6 +25143,18 @@ export class NonEmployeeLifecycleManagementApi extends BaseAPI {
     }
 
     /**
+     * This post will import, or update, Non-Employee records found in the CSV. Requires role context of `idn:nesr:create`
+     * @summary Imports, or Updates, Non-Employee Records
+     * @param {NonEmployeeLifecycleManagementApiImportNonEmployeeRecordsInBulkRequest} requestParameters Request parameters.
+     * @param {*} [axiosOptions] Override http request option.
+     * @throws {RequiredError}
+     * @memberof NonEmployeeLifecycleManagementApi
+     */
+    public importNonEmployeeRecordsInBulk(requestParameters: NonEmployeeLifecycleManagementApiImportNonEmployeeRecordsInBulkRequest, axiosOptions?: AxiosRequestConfig) {
+        return NonEmployeeLifecycleManagementApiFp(this.configuration).importNonEmployeeRecordsInBulk(requestParameters.id, requestParameters.data, axiosOptions).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
      * This gets a list of non-employee approval requests. There are two contextual uses for this endpoint:   1. The user has the role context of `idn:nesr:read`, in which case they can list the approvals for any approver.   2. The user owns the requested approval.
      * @summary Get List of Non-Employee Approval Requests
      * @param {NonEmployeeLifecycleManagementApiListNonEmployeeApprovalsRequest} requestParameters Request parameters.
@@ -25248,18 +25260,6 @@ export class NonEmployeeLifecycleManagementApi extends BaseAPI {
      */
     public updateNonEmployeeRecord(requestParameters: NonEmployeeLifecycleManagementApiUpdateNonEmployeeRecordRequest, axiosOptions?: AxiosRequestConfig) {
         return NonEmployeeLifecycleManagementApiFp(this.configuration).updateNonEmployeeRecord(requestParameters.id, requestParameters.nonEmployeeRequestBody, axiosOptions).then((request) => request(this.axios, this.basePath));
-    }
-
-    /**
-     * This post will import, or update, Non-Employee records found in the CSV. Requires role context of `idn:nesr:create`
-     * @summary Imports, or Updates, Non-Employee Records
-     * @param {NonEmployeeLifecycleManagementApiUploadNonEmployeeRecordsInBulkRequest} requestParameters Request parameters.
-     * @param {*} [axiosOptions] Override http request option.
-     * @throws {RequiredError}
-     * @memberof NonEmployeeLifecycleManagementApi
-     */
-    public uploadNonEmployeeRecordsInBulk(requestParameters: NonEmployeeLifecycleManagementApiUploadNonEmployeeRecordsInBulkRequest, axiosOptions?: AxiosRequestConfig) {
-        return NonEmployeeLifecycleManagementApiFp(this.configuration).uploadNonEmployeeRecordsInBulk(requestParameters.id, requestParameters.data, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 }
 
