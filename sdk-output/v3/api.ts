@@ -28811,6 +28811,95 @@ export const SODPolicyApiAxiosParamCreator = function (configuration?: Configura
             };
         },
         /**
+         * This deletes a specified SOD policy. Requires role of ORG_ADMIN.
+         * @summary Delete SOD policy by ID
+         * @param {string} id The ID of the SOD Policy to delete.
+         * @param {boolean} [logical] Indicates whether this is a soft delete (logical true) or a hard delete.  Soft delete marks the policy as deleted and just save it with this status. It could be fully deleted or recovered further.  Hard delete vise versa permanently delete SOD request during this call.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        deleteSodPolicy: async (id: string, logical?: boolean, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'id' is not null or undefined
+            assertParamExists('deleteSodPolicy', 'id', id)
+            const localVarPath = `/sod-policies/{id}`
+                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'DELETE', ...baseOptions, ...axiosOptions};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication oauth2 required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "oauth2", [], configuration)
+
+            // authentication oauth2 required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "oauth2", [], configuration)
+
+            if (logical !== undefined) {
+                localVarQueryParameter['logical'] = logical;
+            }
+
+
+    
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                axiosOptions: localVarRequestOptions,
+            };
+        },
+        /**
+         * This gets specified SOD policy. Requires role of ORG_ADMIN.
+         * @summary Get SOD policy by ID
+         * @param {string} id The ID of the SOD Policy to retrieve.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        getSodPolicy: async (id: string, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'id' is not null or undefined
+            assertParamExists('getSodPolicy', 'id', id)
+            const localVarPath = `/sod-policies/{id}`
+                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...axiosOptions};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication oauth2 required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "oauth2", [], configuration)
+
+            // authentication oauth2 required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "oauth2", [], configuration)
+
+
+    
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                axiosOptions: localVarRequestOptions,
+            };
+        },
+        /**
          * This gets list of all SOD policies. Requires role of ORG_ADMIN
          * @summary List SOD policies
          * @param {number} [limit] Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
@@ -28868,6 +28957,102 @@ export const SODPolicyApiAxiosParamCreator = function (configuration?: Configura
                 axiosOptions: localVarRequestOptions,
             };
         },
+        /**
+         * Allows updating SOD Policy fields other than [\"id\",\"created\",\"creatorId\",\"policyQuery\",\"type\"] using the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard. Requires role of ORG_ADMIN. This endpoint can only patch CONFLICTING_ACCESS_BASED type policies. Do not use this endpoint to patch general policies - doing so will build an API exception. 
+         * @summary Patch SOD policy by ID
+         * @param {string} id The ID of the SOD policy being modified.
+         * @param {Array<JsonPatchOperation>} jsonPatchOperation A list of SOD Policy update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.  The following fields are patchable: * name * description * ownerRef * externalPolicyReference * compensatingControls * correctionAdvice * state * tags * violationOwnerAssignmentConfig * scheduled * conflictingAccessCriteria 
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        patchSodPolicy: async (id: string, jsonPatchOperation: Array<JsonPatchOperation>, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'id' is not null or undefined
+            assertParamExists('patchSodPolicy', 'id', id)
+            // verify required parameter 'jsonPatchOperation' is not null or undefined
+            assertParamExists('patchSodPolicy', 'jsonPatchOperation', jsonPatchOperation)
+            const localVarPath = `/sod-policies/{id}`
+                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'PATCH', ...baseOptions, ...axiosOptions};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication oauth2 required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "oauth2", [], configuration)
+
+            // authentication oauth2 required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "oauth2", [], configuration)
+
+
+    
+            localVarHeaderParameter['Content-Type'] = 'application/json-patch+json';
+
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
+            localVarRequestOptions.data = serializeDataIfNeeded(jsonPatchOperation, localVarRequestOptions, configuration)
+
+            return {
+                url: toPathString(localVarUrlObj),
+                axiosOptions: localVarRequestOptions,
+            };
+        },
+        /**
+         * This updates a specified SOD policy. Requires role of ORG_ADMIN.
+         * @summary Update SOD policy by ID
+         * @param {string} id The ID of the SOD policy to update.
+         * @param {SodPolicy} sodPolicy 
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        setSodPolicy: async (id: string, sodPolicy: SodPolicy, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'id' is not null or undefined
+            assertParamExists('setSodPolicy', 'id', id)
+            // verify required parameter 'sodPolicy' is not null or undefined
+            assertParamExists('setSodPolicy', 'sodPolicy', sodPolicy)
+            const localVarPath = `/sod-policies/{id}`
+                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'PUT', ...baseOptions, ...axiosOptions};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication oauth2 required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "oauth2", [], configuration)
+
+            // authentication oauth2 required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "oauth2", [], configuration)
+
+
+    
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
+            localVarRequestOptions.data = serializeDataIfNeeded(sodPolicy, localVarRequestOptions, configuration)
+
+            return {
+                url: toPathString(localVarUrlObj),
+                axiosOptions: localVarRequestOptions,
+            };
+        },
     }
 };
 
@@ -28890,6 +29075,29 @@ export const SODPolicyApiFp = function(configuration?: Configuration) {
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
+         * This deletes a specified SOD policy. Requires role of ORG_ADMIN.
+         * @summary Delete SOD policy by ID
+         * @param {string} id The ID of the SOD Policy to delete.
+         * @param {boolean} [logical] Indicates whether this is a soft delete (logical true) or a hard delete.  Soft delete marks the policy as deleted and just save it with this status. It could be fully deleted or recovered further.  Hard delete vise versa permanently delete SOD request during this call.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        async deleteSodPolicy(id: string, logical?: boolean, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.deleteSodPolicy(id, logical, axiosOptions);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * This gets specified SOD policy. Requires role of ORG_ADMIN.
+         * @summary Get SOD policy by ID
+         * @param {string} id The ID of the SOD Policy to retrieve.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        async getSodPolicy(id: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SodPolicy>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getSodPolicy(id, axiosOptions);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
          * This gets list of all SOD policies. Requires role of ORG_ADMIN
          * @summary List SOD policies
          * @param {number} [limit] Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
@@ -28901,6 +29109,30 @@ export const SODPolicyApiFp = function(configuration?: Configuration) {
          */
         async listSodPolicies(limit?: number, offset?: number, count?: boolean, filters?: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<SodPolicy>>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.listSodPolicies(limit, offset, count, filters, axiosOptions);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * Allows updating SOD Policy fields other than [\"id\",\"created\",\"creatorId\",\"policyQuery\",\"type\"] using the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard. Requires role of ORG_ADMIN. This endpoint can only patch CONFLICTING_ACCESS_BASED type policies. Do not use this endpoint to patch general policies - doing so will build an API exception. 
+         * @summary Patch SOD policy by ID
+         * @param {string} id The ID of the SOD policy being modified.
+         * @param {Array<JsonPatchOperation>} jsonPatchOperation A list of SOD Policy update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.  The following fields are patchable: * name * description * ownerRef * externalPolicyReference * compensatingControls * correctionAdvice * state * tags * violationOwnerAssignmentConfig * scheduled * conflictingAccessCriteria 
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        async patchSodPolicy(id: string, jsonPatchOperation: Array<JsonPatchOperation>, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SodPolicy>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.patchSodPolicy(id, jsonPatchOperation, axiosOptions);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * This updates a specified SOD policy. Requires role of ORG_ADMIN.
+         * @summary Update SOD policy by ID
+         * @param {string} id The ID of the SOD policy to update.
+         * @param {SodPolicy} sodPolicy 
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        async setSodPolicy(id: string, sodPolicy: SodPolicy, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SodPolicy>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.setSodPolicy(id, sodPolicy, axiosOptions);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
     }
@@ -28924,6 +29156,27 @@ export const SODPolicyApiFactory = function (configuration?: Configuration, base
             return localVarFp.createSodPolicy(sodPolicy, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
+         * This deletes a specified SOD policy. Requires role of ORG_ADMIN.
+         * @summary Delete SOD policy by ID
+         * @param {string} id The ID of the SOD Policy to delete.
+         * @param {boolean} [logical] Indicates whether this is a soft delete (logical true) or a hard delete.  Soft delete marks the policy as deleted and just save it with this status. It could be fully deleted or recovered further.  Hard delete vise versa permanently delete SOD request during this call.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        deleteSodPolicy(id: string, logical?: boolean, axiosOptions?: any): AxiosPromise<void> {
+            return localVarFp.deleteSodPolicy(id, logical, axiosOptions).then((request) => request(axios, basePath));
+        },
+        /**
+         * This gets specified SOD policy. Requires role of ORG_ADMIN.
+         * @summary Get SOD policy by ID
+         * @param {string} id The ID of the SOD Policy to retrieve.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        getSodPolicy(id: string, axiosOptions?: any): AxiosPromise<SodPolicy> {
+            return localVarFp.getSodPolicy(id, axiosOptions).then((request) => request(axios, basePath));
+        },
+        /**
          * This gets list of all SOD policies. Requires role of ORG_ADMIN
          * @summary List SOD policies
          * @param {number} [limit] Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
@@ -28935,6 +29188,28 @@ export const SODPolicyApiFactory = function (configuration?: Configuration, base
          */
         listSodPolicies(limit?: number, offset?: number, count?: boolean, filters?: string, axiosOptions?: any): AxiosPromise<Array<SodPolicy>> {
             return localVarFp.listSodPolicies(limit, offset, count, filters, axiosOptions).then((request) => request(axios, basePath));
+        },
+        /**
+         * Allows updating SOD Policy fields other than [\"id\",\"created\",\"creatorId\",\"policyQuery\",\"type\"] using the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard. Requires role of ORG_ADMIN. This endpoint can only patch CONFLICTING_ACCESS_BASED type policies. Do not use this endpoint to patch general policies - doing so will build an API exception. 
+         * @summary Patch SOD policy by ID
+         * @param {string} id The ID of the SOD policy being modified.
+         * @param {Array<JsonPatchOperation>} jsonPatchOperation A list of SOD Policy update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.  The following fields are patchable: * name * description * ownerRef * externalPolicyReference * compensatingControls * correctionAdvice * state * tags * violationOwnerAssignmentConfig * scheduled * conflictingAccessCriteria 
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        patchSodPolicy(id: string, jsonPatchOperation: Array<JsonPatchOperation>, axiosOptions?: any): AxiosPromise<SodPolicy> {
+            return localVarFp.patchSodPolicy(id, jsonPatchOperation, axiosOptions).then((request) => request(axios, basePath));
+        },
+        /**
+         * This updates a specified SOD policy. Requires role of ORG_ADMIN.
+         * @summary Update SOD policy by ID
+         * @param {string} id The ID of the SOD policy to update.
+         * @param {SodPolicy} sodPolicy 
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        setSodPolicy(id: string, sodPolicy: SodPolicy, axiosOptions?: any): AxiosPromise<SodPolicy> {
+            return localVarFp.setSodPolicy(id, sodPolicy, axiosOptions).then((request) => request(axios, basePath));
         },
     };
 };
@@ -28951,6 +29226,41 @@ export interface SODPolicyApiCreateSodPolicyRequest {
      * @memberof SODPolicyApiCreateSodPolicy
      */
     readonly sodPolicy: SodPolicy
+}
+
+/**
+ * Request parameters for deleteSodPolicy operation in SODPolicyApi.
+ * @export
+ * @interface SODPolicyApiDeleteSodPolicyRequest
+ */
+export interface SODPolicyApiDeleteSodPolicyRequest {
+    /**
+     * The ID of the SOD Policy to delete.
+     * @type {string}
+     * @memberof SODPolicyApiDeleteSodPolicy
+     */
+    readonly id: string
+
+    /**
+     * Indicates whether this is a soft delete (logical true) or a hard delete.  Soft delete marks the policy as deleted and just save it with this status. It could be fully deleted or recovered further.  Hard delete vise versa permanently delete SOD request during this call.
+     * @type {boolean}
+     * @memberof SODPolicyApiDeleteSodPolicy
+     */
+    readonly logical?: boolean
+}
+
+/**
+ * Request parameters for getSodPolicy operation in SODPolicyApi.
+ * @export
+ * @interface SODPolicyApiGetSodPolicyRequest
+ */
+export interface SODPolicyApiGetSodPolicyRequest {
+    /**
+     * The ID of the SOD Policy to retrieve.
+     * @type {string}
+     * @memberof SODPolicyApiGetSodPolicy
+     */
+    readonly id: string
 }
 
 /**
@@ -28989,6 +29299,48 @@ export interface SODPolicyApiListSodPoliciesRequest {
 }
 
 /**
+ * Request parameters for patchSodPolicy operation in SODPolicyApi.
+ * @export
+ * @interface SODPolicyApiPatchSodPolicyRequest
+ */
+export interface SODPolicyApiPatchSodPolicyRequest {
+    /**
+     * The ID of the SOD policy being modified.
+     * @type {string}
+     * @memberof SODPolicyApiPatchSodPolicy
+     */
+    readonly id: string
+
+    /**
+     * A list of SOD Policy update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.  The following fields are patchable: * name * description * ownerRef * externalPolicyReference * compensatingControls * correctionAdvice * state * tags * violationOwnerAssignmentConfig * scheduled * conflictingAccessCriteria 
+     * @type {Array<JsonPatchOperation>}
+     * @memberof SODPolicyApiPatchSodPolicy
+     */
+    readonly jsonPatchOperation: Array<JsonPatchOperation>
+}
+
+/**
+ * Request parameters for setSodPolicy operation in SODPolicyApi.
+ * @export
+ * @interface SODPolicyApiSetSodPolicyRequest
+ */
+export interface SODPolicyApiSetSodPolicyRequest {
+    /**
+     * The ID of the SOD policy to update.
+     * @type {string}
+     * @memberof SODPolicyApiSetSodPolicy
+     */
+    readonly id: string
+
+    /**
+     * 
+     * @type {SodPolicy}
+     * @memberof SODPolicyApiSetSodPolicy
+     */
+    readonly sodPolicy: SodPolicy
+}
+
+/**
  * SODPolicyApi - object-oriented interface
  * @export
  * @class SODPolicyApi
@@ -29008,6 +29360,30 @@ export class SODPolicyApi extends BaseAPI {
     }
 
     /**
+     * This deletes a specified SOD policy. Requires role of ORG_ADMIN.
+     * @summary Delete SOD policy by ID
+     * @param {SODPolicyApiDeleteSodPolicyRequest} requestParameters Request parameters.
+     * @param {*} [axiosOptions] Override http request option.
+     * @throws {RequiredError}
+     * @memberof SODPolicyApi
+     */
+    public deleteSodPolicy(requestParameters: SODPolicyApiDeleteSodPolicyRequest, axiosOptions?: AxiosRequestConfig) {
+        return SODPolicyApiFp(this.configuration).deleteSodPolicy(requestParameters.id, requestParameters.logical, axiosOptions).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * This gets specified SOD policy. Requires role of ORG_ADMIN.
+     * @summary Get SOD policy by ID
+     * @param {SODPolicyApiGetSodPolicyRequest} requestParameters Request parameters.
+     * @param {*} [axiosOptions] Override http request option.
+     * @throws {RequiredError}
+     * @memberof SODPolicyApi
+     */
+    public getSodPolicy(requestParameters: SODPolicyApiGetSodPolicyRequest, axiosOptions?: AxiosRequestConfig) {
+        return SODPolicyApiFp(this.configuration).getSodPolicy(requestParameters.id, axiosOptions).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
      * This gets list of all SOD policies. Requires role of ORG_ADMIN
      * @summary List SOD policies
      * @param {SODPolicyApiListSodPoliciesRequest} requestParameters Request parameters.
@@ -29017,6 +29393,30 @@ export class SODPolicyApi extends BaseAPI {
      */
     public listSodPolicies(requestParameters: SODPolicyApiListSodPoliciesRequest = {}, axiosOptions?: AxiosRequestConfig) {
         return SODPolicyApiFp(this.configuration).listSodPolicies(requestParameters.limit, requestParameters.offset, requestParameters.count, requestParameters.filters, axiosOptions).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Allows updating SOD Policy fields other than [\"id\",\"created\",\"creatorId\",\"policyQuery\",\"type\"] using the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard. Requires role of ORG_ADMIN. This endpoint can only patch CONFLICTING_ACCESS_BASED type policies. Do not use this endpoint to patch general policies - doing so will build an API exception. 
+     * @summary Patch SOD policy by ID
+     * @param {SODPolicyApiPatchSodPolicyRequest} requestParameters Request parameters.
+     * @param {*} [axiosOptions] Override http request option.
+     * @throws {RequiredError}
+     * @memberof SODPolicyApi
+     */
+    public patchSodPolicy(requestParameters: SODPolicyApiPatchSodPolicyRequest, axiosOptions?: AxiosRequestConfig) {
+        return SODPolicyApiFp(this.configuration).patchSodPolicy(requestParameters.id, requestParameters.jsonPatchOperation, axiosOptions).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * This updates a specified SOD policy. Requires role of ORG_ADMIN.
+     * @summary Update SOD policy by ID
+     * @param {SODPolicyApiSetSodPolicyRequest} requestParameters Request parameters.
+     * @param {*} [axiosOptions] Override http request option.
+     * @throws {RequiredError}
+     * @memberof SODPolicyApi
+     */
+    public setSodPolicy(requestParameters: SODPolicyApiSetSodPolicyRequest, axiosOptions?: AxiosRequestConfig) {
+        return SODPolicyApiFp(this.configuration).setSodPolicy(requestParameters.id, requestParameters.sodPolicy, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 }
 
