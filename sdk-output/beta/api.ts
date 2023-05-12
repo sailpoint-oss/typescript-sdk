@@ -5097,6 +5097,31 @@ export type CorrelatedGovernanceEventBetaTypeEnum = typeof CorrelatedGovernanceE
 /**
  * 
  * @export
+ * @interface CreateDomainDkim405ResponseBeta
+ */
+export interface CreateDomainDkim405ResponseBeta {
+    /**
+     * A message describing the error
+     * @type {object}
+     * @memberof CreateDomainDkim405ResponseBeta
+     */
+    'errorName'?: object;
+    /**
+     * Description of the error
+     * @type {object}
+     * @memberof CreateDomainDkim405ResponseBeta
+     */
+    'errorMessage'?: object;
+    /**
+     * Unique tracking id for the error.
+     * @type {string}
+     * @memberof CreateDomainDkim405ResponseBeta
+     */
+    'trackingId'?: string;
+}
+/**
+ * 
+ * @export
  * @interface CreateOAuthClientRequestBeta
  */
 export interface CreateOAuthClientRequestBeta {
@@ -5519,48 +5544,91 @@ export const DeleteSource202ResponseBetaTypeEnum = {
 export type DeleteSource202ResponseBetaTypeEnum = typeof DeleteSource202ResponseBetaTypeEnum[keyof typeof DeleteSource202ResponseBetaTypeEnum];
 
 /**
- * DKIM attributes for a domain / identity
+ * DKIM attributes for a domain or identity
  * @export
- * @interface DkimAttributesDtoBeta
+ * @interface DkimAttributesBeta
  */
-export interface DkimAttributesDtoBeta {
+export interface DkimAttributesBeta {
+    /**
+     * UUID associated with domain to be verified
+     * @type {string}
+     * @memberof DkimAttributesBeta
+     */
+    'id'?: string;
     /**
      * The identity or domain address
      * @type {string}
-     * @memberof DkimAttributesDtoBeta
+     * @memberof DkimAttributesBeta
      */
     'address'?: string;
     /**
      * Whether or not DKIM has been enabled for this domain / identity
      * @type {boolean}
-     * @memberof DkimAttributesDtoBeta
+     * @memberof DkimAttributesBeta
      */
     'dkimEnabled'?: boolean;
     /**
      * The tokens to be added to a DNS for verification
      * @type {Array<string>}
-     * @memberof DkimAttributesDtoBeta
+     * @memberof DkimAttributesBeta
      */
     'dkimTokens'?: Array<string>;
     /**
      * The current status if the domain /identity has been verified. Ie Success, Failed, Pending
      * @type {string}
-     * @memberof DkimAttributesDtoBeta
+     * @memberof DkimAttributesBeta
      */
     'dkimVerificationStatus'?: string;
 }
 /**
  * 
  * @export
- * @interface DomainAddressDtoBeta
+ * @interface DomainAddressBeta
  */
-export interface DomainAddressDtoBeta {
+export interface DomainAddressBeta {
     /**
      * A domain address
      * @type {string}
-     * @memberof DomainAddressDtoBeta
+     * @memberof DomainAddressBeta
      */
     'domain'?: string;
+}
+/**
+ * Domain status DTO containing everything required to verify via DKIM
+ * @export
+ * @interface DomainStatusDtoBeta
+ */
+export interface DomainStatusDtoBeta {
+    /**
+     * New UUID associated with domain to be verified
+     * @type {string}
+     * @memberof DomainStatusDtoBeta
+     */
+    'id'?: string;
+    /**
+     * A domain address
+     * @type {string}
+     * @memberof DomainStatusDtoBeta
+     */
+    'domain'?: string;
+    /**
+     * DKIM is enabled for this domain
+     * @type {object}
+     * @memberof DomainStatusDtoBeta
+     */
+    'dkimEnabled'?: object;
+    /**
+     * DKIM tokens required for authentication
+     * @type {Array<string>}
+     * @memberof DomainStatusDtoBeta
+     */
+    'dkimTokens'?: Array<string>;
+    /**
+     * Status of DKIM authentication
+     * @type {string}
+     * @memberof DomainStatusDtoBeta
+     */
+    'dkimVerificationStatus'?: string;
 }
 /**
  * An enumeration of the types of DTOs supported within the IdentityNow infrastructure.
@@ -9321,6 +9389,65 @@ export interface LocalizedMessageBeta {
      * @memberof LocalizedMessageBeta
      */
     'message': string;
+}
+/**
+ * MAIL FROM attributes for a domain / identity
+ * @export
+ * @interface MailFromAttributesBeta
+ */
+export interface MailFromAttributesBeta {
+    /**
+     * The identity or domain address
+     * @type {string}
+     * @memberof MailFromAttributesBeta
+     */
+    'id'?: string;
+    /**
+     * MX record that is required in customer\'s DNS to allow the domain to receive bounce and complaint notifications that email providers send you
+     * @type {string}
+     * @memberof MailFromAttributesBeta
+     */
+    'mxRecord'?: string;
+    /**
+     * TXT record that is required in customer\'s DNS in order to prove that Amazon SES is authorized to send email from your domain
+     * @type {string}
+     * @memberof MailFromAttributesBeta
+     */
+    'txtRecord'?: string;
+    /**
+     * The current status of the MAIL FROM verification
+     * @type {string}
+     * @memberof MailFromAttributesBeta
+     */
+    'mailFromDomainStatus'?: MailFromAttributesBetaMailFromDomainStatusEnum;
+}
+
+export const MailFromAttributesBetaMailFromDomainStatusEnum = {
+    Pending: 'PENDING',
+    Success: 'SUCCESS',
+    Failed: 'FAILED'
+} as const;
+
+export type MailFromAttributesBetaMailFromDomainStatusEnum = typeof MailFromAttributesBetaMailFromDomainStatusEnum[keyof typeof MailFromAttributesBetaMailFromDomainStatusEnum];
+
+/**
+ * MAIL FROM attributes for a domain / identity
+ * @export
+ * @interface MailFromAttributesDtoBeta
+ */
+export interface MailFromAttributesDtoBeta {
+    /**
+     * The identity or domain address
+     * @type {string}
+     * @memberof MailFromAttributesDtoBeta
+     */
+    'identity'?: string;
+    /**
+     * The new MAIL FROM domain of the identity. Must be a subdomain of the identity.
+     * @type {string}
+     * @memberof MailFromAttributesDtoBeta
+     */
+    'mailFromDomain'?: string;
 }
 /**
  * Managed Client
@@ -21818,31 +21945,6 @@ export interface ValueBeta {
      * @memberof ValueBeta
      */
     'value'?: string;
-}
-/**
- * 
- * @export
- * @interface VerifyDomainDkim405ResponseBeta
- */
-export interface VerifyDomainDkim405ResponseBeta {
-    /**
-     * A message describing the error
-     * @type {object}
-     * @memberof VerifyDomainDkim405ResponseBeta
-     */
-    'errorName'?: object;
-    /**
-     * Description of the error
-     * @type {object}
-     * @memberof VerifyDomainDkim405ResponseBeta
-     */
-    'errorMessage'?: object;
-    /**
-     * Unique tracking id for the error.
-     * @type {string}
-     * @memberof VerifyDomainDkim405ResponseBeta
-     */
-    'trackingId'?: string;
 }
 /**
  * 
@@ -45069,6 +45171,50 @@ export class NonEmployeeLifecycleManagementBetaApi extends BaseAPI {
 export const NotificationsBetaApiAxiosParamCreator = function (configuration?: Configuration) {
     return {
         /**
+         * Create a domain to be verified via DKIM (DomainKeys Identified Mail)
+         * @summary Verify domain address via DKIM
+         * @param {DomainAddressBeta} domainAddressBeta 
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        createDomainDkim: async (domainAddressBeta: DomainAddressBeta, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'domainAddressBeta' is not null or undefined
+            assertParamExists('createDomainDkim', 'domainAddressBeta', domainAddressBeta)
+            const localVarPath = `/verified-domains`;
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'POST', ...baseOptions, ...axiosOptions};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication oauth2 required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "oauth2", [], configuration)
+
+            // authentication oauth2 required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "oauth2", [], configuration)
+
+
+    
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
+            localVarRequestOptions.data = serializeDataIfNeeded(domainAddressBeta, localVarRequestOptions, configuration)
+
+            return {
+                url: toPathString(localVarUrlObj),
+                axiosOptions: localVarRequestOptions,
+            };
+        },
+        /**
          * This creates a template for your site.   You can also use this endpoint to update a template.  First, copy the response body from the [get notification template endpoint](https://developer.sailpoint.com/idn/api/beta/get-notification-template) for a template you wish to update and paste it into the request body for this endpoint.   Modify the fields you want to change and submit the POST request when ready.
          * @summary Create Notification Template
          * @param {TemplateDtoBeta} templateDtoBeta 
@@ -45243,16 +45389,13 @@ export const NotificationsBetaApiAxiosParamCreator = function (configuration?: C
             };
         },
         /**
-         * Retrieve DKIM (DomainKeys Identified Mail) attributes from a list of identities. Limit retrieval of 100 identities per call
+         * Retrieve DKIM (DomainKeys Identified Mail) attributes for all your tenants\' AWS SES identities. Limits retrieval to 100 identities per call.
          * @summary Get DKIM Attributes
-         * @param {string} identities Returns the DKIM attributes for each of the given identities
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        getDkimAttributes: async (identities: string, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
-            // verify required parameter 'identities' is not null or undefined
-            assertParamExists('getDkimAttributes', 'identities', identities)
-            const localVarPath = `/dkim-attributes/{identities}`;
+        getDkimAttributes: async (axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            const localVarPath = `/verified-domains`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -45272,8 +45415,49 @@ export const NotificationsBetaApiAxiosParamCreator = function (configuration?: C
             // oauth required
             await setOAuthToObject(localVarHeaderParameter, "oauth2", [], configuration)
 
-            if (identities !== undefined) {
-                localVarQueryParameter['identities'] = identities;
+
+    
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                axiosOptions: localVarRequestOptions,
+            };
+        },
+        /**
+         * Retrieve MAIL FROM attributes for a given AWS SES identity.
+         * @summary Get MAIL FROM Attributes
+         * @param {string} id Returns the MX and TXT record to be put in your DNS, as well as the MAIL FROM domain status
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        getMailFromAttributes: async (id: string, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'id' is not null or undefined
+            assertParamExists('getMailFromAttributes', 'id', id)
+            const localVarPath = `/mail-from-attribute/{id}`;
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...axiosOptions};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication oauth2 required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "oauth2", [], configuration)
+
+            // authentication oauth2 required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "oauth2", [], configuration)
+
+            if (id !== undefined) {
+                localVarQueryParameter['id'] = id;
             }
 
 
@@ -45579,6 +45763,50 @@ export const NotificationsBetaApiAxiosParamCreator = function (configuration?: C
             };
         },
         /**
+         * Change the MAIL FROM domain of an AWS SES email identity and provide the MX and TXT records to be placed in the caller\'s DNS
+         * @summary Change MAIL FROM domain
+         * @param {MailFromAttributesDtoBeta} mailFromAttributesDtoBeta 
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        putMailFromAttributes: async (mailFromAttributesDtoBeta: MailFromAttributesDtoBeta, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'mailFromAttributesDtoBeta' is not null or undefined
+            assertParamExists('putMailFromAttributes', 'mailFromAttributesDtoBeta', mailFromAttributesDtoBeta)
+            const localVarPath = `/mail-from-attributes`;
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'PUT', ...baseOptions, ...axiosOptions};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication oauth2 required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "oauth2", [], configuration)
+
+            // authentication oauth2 required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "oauth2", [], configuration)
+
+
+    
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
+            localVarRequestOptions.data = serializeDataIfNeeded(mailFromAttributesDtoBeta, localVarRequestOptions, configuration)
+
+            return {
+                url: toPathString(localVarUrlObj),
+                axiosOptions: localVarRequestOptions,
+            };
+        },
+        /**
          * In the notification world, a notification flows through these salient stages -   1. Interest matching,   2. Preferences   3. Template Rendering.   The default notification preferences make up a part of the second stage, along with user preferences (which is a future goal). The expectation is for  admins to be able to set default preferences for their org, like opting in to or out of certain notifications, and configuring future preferences as  we tack on more features. The key in the Dto is not necessary but if it is provided and doesn\'t match the key in the URI, then a 400 will be thrown.  Request will require the following legacy roles:  ORG_ADMIN and API
          * @summary Overwrite the preferences for the given notification key.
          * @param {string} key The notification key.
@@ -45670,50 +45898,6 @@ export const NotificationsBetaApiAxiosParamCreator = function (configuration?: C
                 axiosOptions: localVarRequestOptions,
             };
         },
-        /**
-         * Create a domain to be verified via DKIM (DomainKeys Identified Mail)
-         * @summary Verify domain address via DKIM
-         * @param {DomainAddressDtoBeta} domainAddressDtoBeta 
-         * @param {*} [axiosOptions] Override http request option.
-         * @throws {RequiredError}
-         */
-        verifyDomainDkim: async (domainAddressDtoBeta: DomainAddressDtoBeta, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
-            // verify required parameter 'domainAddressDtoBeta' is not null or undefined
-            assertParamExists('verifyDomainDkim', 'domainAddressDtoBeta', domainAddressDtoBeta)
-            const localVarPath = `/verify-domain-dkim`;
-            // use dummy base URL string because the URL constructor only accepts absolute URLs.
-            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
-            let baseOptions;
-            if (configuration) {
-                baseOptions = configuration.baseOptions;
-            }
-
-            const localVarRequestOptions = { method: 'POST', ...baseOptions, ...axiosOptions};
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-
-            // authentication oauth2 required
-            // oauth required
-            await setOAuthToObject(localVarHeaderParameter, "oauth2", [], configuration)
-
-            // authentication oauth2 required
-            // oauth required
-            await setOAuthToObject(localVarHeaderParameter, "oauth2", [], configuration)
-
-
-    
-            localVarHeaderParameter['Content-Type'] = 'application/json';
-
-            setSearchParams(localVarUrlObj, localVarQueryParameter);
-            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
-            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(domainAddressDtoBeta, localVarRequestOptions, configuration)
-
-            return {
-                url: toPathString(localVarUrlObj),
-                axiosOptions: localVarRequestOptions,
-            };
-        },
     }
 };
 
@@ -45724,6 +45908,17 @@ export const NotificationsBetaApiAxiosParamCreator = function (configuration?: C
 export const NotificationsBetaApiFp = function(configuration?: Configuration) {
     const localVarAxiosParamCreator = NotificationsBetaApiAxiosParamCreator(configuration)
     return {
+        /**
+         * Create a domain to be verified via DKIM (DomainKeys Identified Mail)
+         * @summary Verify domain address via DKIM
+         * @param {DomainAddressBeta} domainAddressBeta 
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        async createDomainDkim(domainAddressBeta: DomainAddressBeta, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<DomainStatusDtoBeta>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.createDomainDkim(domainAddressBeta, axiosOptions);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
         /**
          * This creates a template for your site.   You can also use this endpoint to update a template.  First, copy the response body from the [get notification template endpoint](https://developer.sailpoint.com/idn/api/beta/get-notification-template) for a template you wish to update and paste it into the request body for this endpoint.   Modify the fields you want to change and submit the POST request when ready.
          * @summary Create Notification Template
@@ -45769,14 +45964,24 @@ export const NotificationsBetaApiFp = function(configuration?: Configuration) {
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
-         * Retrieve DKIM (DomainKeys Identified Mail) attributes from a list of identities. Limit retrieval of 100 identities per call
+         * Retrieve DKIM (DomainKeys Identified Mail) attributes for all your tenants\' AWS SES identities. Limits retrieval to 100 identities per call.
          * @summary Get DKIM Attributes
-         * @param {string} identities Returns the DKIM attributes for each of the given identities
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async getDkimAttributes(identities: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<DkimAttributesDtoBeta>>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.getDkimAttributes(identities, axiosOptions);
+        async getDkimAttributes(axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<DkimAttributesBeta>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getDkimAttributes(axiosOptions);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * Retrieve MAIL FROM attributes for a given AWS SES identity.
+         * @summary Get MAIL FROM Attributes
+         * @param {string} id Returns the MX and TXT record to be put in your DNS, as well as the MAIL FROM domain status
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        async getMailFromAttributes(id: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<MailFromAttributesBeta>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getMailFromAttributes(id, axiosOptions);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
@@ -45853,6 +46058,17 @@ export const NotificationsBetaApiFp = function(configuration?: Configuration) {
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
+         * Change the MAIL FROM domain of an AWS SES email identity and provide the MX and TXT records to be placed in the caller\'s DNS
+         * @summary Change MAIL FROM domain
+         * @param {MailFromAttributesDtoBeta} mailFromAttributesDtoBeta 
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        async putMailFromAttributes(mailFromAttributesDtoBeta: MailFromAttributesDtoBeta, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<MailFromAttributesBeta>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.putMailFromAttributes(mailFromAttributesDtoBeta, axiosOptions);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
          * In the notification world, a notification flows through these salient stages -   1. Interest matching,   2. Preferences   3. Template Rendering.   The default notification preferences make up a part of the second stage, along with user preferences (which is a future goal). The expectation is for  admins to be able to set default preferences for their org, like opting in to or out of certain notifications, and configuring future preferences as  we tack on more features. The key in the Dto is not necessary but if it is provided and doesn\'t match the key in the URI, then a 400 will be thrown.  Request will require the following legacy roles:  ORG_ADMIN and API
          * @summary Overwrite the preferences for the given notification key.
          * @param {string} key The notification key.
@@ -45875,17 +46091,6 @@ export const NotificationsBetaApiFp = function(configuration?: Configuration) {
             const localVarAxiosArgs = await localVarAxiosParamCreator.sendTestNotification(sendTestNotificationRequestDtoBeta, axiosOptions);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
-        /**
-         * Create a domain to be verified via DKIM (DomainKeys Identified Mail)
-         * @summary Verify domain address via DKIM
-         * @param {DomainAddressDtoBeta} domainAddressDtoBeta 
-         * @param {*} [axiosOptions] Override http request option.
-         * @throws {RequiredError}
-         */
-        async verifyDomainDkim(domainAddressDtoBeta: DomainAddressDtoBeta, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<string>>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.verifyDomainDkim(domainAddressDtoBeta, axiosOptions);
-            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
-        },
     }
 };
 
@@ -45896,6 +46101,16 @@ export const NotificationsBetaApiFp = function(configuration?: Configuration) {
 export const NotificationsBetaApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
     const localVarFp = NotificationsBetaApiFp(configuration)
     return {
+        /**
+         * Create a domain to be verified via DKIM (DomainKeys Identified Mail)
+         * @summary Verify domain address via DKIM
+         * @param {DomainAddressBeta} domainAddressBeta 
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        createDomainDkim(domainAddressBeta: DomainAddressBeta, axiosOptions?: any): AxiosPromise<DomainStatusDtoBeta> {
+            return localVarFp.createDomainDkim(domainAddressBeta, axiosOptions).then((request) => request(axios, basePath));
+        },
         /**
          * This creates a template for your site.   You can also use this endpoint to update a template.  First, copy the response body from the [get notification template endpoint](https://developer.sailpoint.com/idn/api/beta/get-notification-template) for a template you wish to update and paste it into the request body for this endpoint.   Modify the fields you want to change and submit the POST request when ready.
          * @summary Create Notification Template
@@ -45937,14 +46152,23 @@ export const NotificationsBetaApiFactory = function (configuration?: Configurati
             return localVarFp.deleteVerifiedFromAddress(id, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
-         * Retrieve DKIM (DomainKeys Identified Mail) attributes from a list of identities. Limit retrieval of 100 identities per call
+         * Retrieve DKIM (DomainKeys Identified Mail) attributes for all your tenants\' AWS SES identities. Limits retrieval to 100 identities per call.
          * @summary Get DKIM Attributes
-         * @param {string} identities Returns the DKIM attributes for each of the given identities
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        getDkimAttributes(identities: string, axiosOptions?: any): AxiosPromise<Array<DkimAttributesDtoBeta>> {
-            return localVarFp.getDkimAttributes(identities, axiosOptions).then((request) => request(axios, basePath));
+        getDkimAttributes(axiosOptions?: any): AxiosPromise<Array<DkimAttributesBeta>> {
+            return localVarFp.getDkimAttributes(axiosOptions).then((request) => request(axios, basePath));
+        },
+        /**
+         * Retrieve MAIL FROM attributes for a given AWS SES identity.
+         * @summary Get MAIL FROM Attributes
+         * @param {string} id Returns the MX and TXT record to be put in your DNS, as well as the MAIL FROM domain status
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        getMailFromAttributes(id: string, axiosOptions?: any): AxiosPromise<MailFromAttributesBeta> {
+            return localVarFp.getMailFromAttributes(id, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * Returns the notification preferences for tenant.  Note that if the key doesn\'t exist, then a 404 will be returned. Request will require the following legacy roles:  ORG_ADMIN and API
@@ -46014,6 +46238,16 @@ export const NotificationsBetaApiFactory = function (configuration?: Configurati
             return localVarFp.listNotificationTemplates(limit, offset, filters, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
+         * Change the MAIL FROM domain of an AWS SES email identity and provide the MX and TXT records to be placed in the caller\'s DNS
+         * @summary Change MAIL FROM domain
+         * @param {MailFromAttributesDtoBeta} mailFromAttributesDtoBeta 
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        putMailFromAttributes(mailFromAttributesDtoBeta: MailFromAttributesDtoBeta, axiosOptions?: any): AxiosPromise<MailFromAttributesBeta> {
+            return localVarFp.putMailFromAttributes(mailFromAttributesDtoBeta, axiosOptions).then((request) => request(axios, basePath));
+        },
+        /**
          * In the notification world, a notification flows through these salient stages -   1. Interest matching,   2. Preferences   3. Template Rendering.   The default notification preferences make up a part of the second stage, along with user preferences (which is a future goal). The expectation is for  admins to be able to set default preferences for their org, like opting in to or out of certain notifications, and configuring future preferences as  we tack on more features. The key in the Dto is not necessary but if it is provided and doesn\'t match the key in the URI, then a 400 will be thrown.  Request will require the following legacy roles:  ORG_ADMIN and API
          * @summary Overwrite the preferences for the given notification key.
          * @param {string} key The notification key.
@@ -46034,18 +46268,22 @@ export const NotificationsBetaApiFactory = function (configuration?: Configurati
         sendTestNotification(sendTestNotificationRequestDtoBeta: SendTestNotificationRequestDtoBeta, axiosOptions?: any): AxiosPromise<void> {
             return localVarFp.sendTestNotification(sendTestNotificationRequestDtoBeta, axiosOptions).then((request) => request(axios, basePath));
         },
-        /**
-         * Create a domain to be verified via DKIM (DomainKeys Identified Mail)
-         * @summary Verify domain address via DKIM
-         * @param {DomainAddressDtoBeta} domainAddressDtoBeta 
-         * @param {*} [axiosOptions] Override http request option.
-         * @throws {RequiredError}
-         */
-        verifyDomainDkim(domainAddressDtoBeta: DomainAddressDtoBeta, axiosOptions?: any): AxiosPromise<Array<string>> {
-            return localVarFp.verifyDomainDkim(domainAddressDtoBeta, axiosOptions).then((request) => request(axios, basePath));
-        },
     };
 };
+
+/**
+ * Request parameters for createDomainDkim operation in NotificationsBetaApi.
+ * @export
+ * @interface NotificationsBetaApiCreateDomainDkimRequest
+ */
+export interface NotificationsBetaApiCreateDomainDkimRequest {
+    /**
+     * 
+     * @type {DomainAddressBeta}
+     * @memberof NotificationsBetaApiCreateDomainDkim
+     */
+    readonly domainAddressBeta: DomainAddressBeta
+}
 
 /**
  * Request parameters for createNotificationTemplate operation in NotificationsBetaApi.
@@ -46104,17 +46342,17 @@ export interface NotificationsBetaApiDeleteVerifiedFromAddressRequest {
 }
 
 /**
- * Request parameters for getDkimAttributes operation in NotificationsBetaApi.
+ * Request parameters for getMailFromAttributes operation in NotificationsBetaApi.
  * @export
- * @interface NotificationsBetaApiGetDkimAttributesRequest
+ * @interface NotificationsBetaApiGetMailFromAttributesRequest
  */
-export interface NotificationsBetaApiGetDkimAttributesRequest {
+export interface NotificationsBetaApiGetMailFromAttributesRequest {
     /**
-     * Returns the DKIM attributes for each of the given identities
+     * Returns the MX and TXT record to be put in your DNS, as well as the MAIL FROM domain status
      * @type {string}
-     * @memberof NotificationsBetaApiGetDkimAttributes
+     * @memberof NotificationsBetaApiGetMailFromAttributes
      */
-    readonly identities: string
+    readonly id: string
 }
 
 /**
@@ -46244,6 +46482,20 @@ export interface NotificationsBetaApiListNotificationTemplatesRequest {
 }
 
 /**
+ * Request parameters for putMailFromAttributes operation in NotificationsBetaApi.
+ * @export
+ * @interface NotificationsBetaApiPutMailFromAttributesRequest
+ */
+export interface NotificationsBetaApiPutMailFromAttributesRequest {
+    /**
+     * 
+     * @type {MailFromAttributesDtoBeta}
+     * @memberof NotificationsBetaApiPutMailFromAttributes
+     */
+    readonly mailFromAttributesDtoBeta: MailFromAttributesDtoBeta
+}
+
+/**
  * Request parameters for putNotificationPreference operation in NotificationsBetaApi.
  * @export
  * @interface NotificationsBetaApiPutNotificationPreferenceRequest
@@ -46279,26 +46531,24 @@ export interface NotificationsBetaApiSendTestNotificationRequest {
 }
 
 /**
- * Request parameters for verifyDomainDkim operation in NotificationsBetaApi.
- * @export
- * @interface NotificationsBetaApiVerifyDomainDkimRequest
- */
-export interface NotificationsBetaApiVerifyDomainDkimRequest {
-    /**
-     * 
-     * @type {DomainAddressDtoBeta}
-     * @memberof NotificationsBetaApiVerifyDomainDkim
-     */
-    readonly domainAddressDtoBeta: DomainAddressDtoBeta
-}
-
-/**
  * NotificationsBetaApi - object-oriented interface
  * @export
  * @class NotificationsBetaApi
  * @extends {BaseAPI}
  */
 export class NotificationsBetaApi extends BaseAPI {
+    /**
+     * Create a domain to be verified via DKIM (DomainKeys Identified Mail)
+     * @summary Verify domain address via DKIM
+     * @param {NotificationsBetaApiCreateDomainDkimRequest} requestParameters Request parameters.
+     * @param {*} [axiosOptions] Override http request option.
+     * @throws {RequiredError}
+     * @memberof NotificationsBetaApi
+     */
+    public createDomainDkim(requestParameters: NotificationsBetaApiCreateDomainDkimRequest, axiosOptions?: AxiosRequestConfig) {
+        return NotificationsBetaApiFp(this.configuration).createDomainDkim(requestParameters.domainAddressBeta, axiosOptions).then((request) => request(this.axios, this.basePath));
+    }
+
     /**
      * This creates a template for your site.   You can also use this endpoint to update a template.  First, copy the response body from the [get notification template endpoint](https://developer.sailpoint.com/idn/api/beta/get-notification-template) for a template you wish to update and paste it into the request body for this endpoint.   Modify the fields you want to change and submit the POST request when ready.
      * @summary Create Notification Template
@@ -46348,15 +46598,26 @@ export class NotificationsBetaApi extends BaseAPI {
     }
 
     /**
-     * Retrieve DKIM (DomainKeys Identified Mail) attributes from a list of identities. Limit retrieval of 100 identities per call
+     * Retrieve DKIM (DomainKeys Identified Mail) attributes for all your tenants\' AWS SES identities. Limits retrieval to 100 identities per call.
      * @summary Get DKIM Attributes
-     * @param {NotificationsBetaApiGetDkimAttributesRequest} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
      * @memberof NotificationsBetaApi
      */
-    public getDkimAttributes(requestParameters: NotificationsBetaApiGetDkimAttributesRequest, axiosOptions?: AxiosRequestConfig) {
-        return NotificationsBetaApiFp(this.configuration).getDkimAttributes(requestParameters.identities, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public getDkimAttributes(axiosOptions?: AxiosRequestConfig) {
+        return NotificationsBetaApiFp(this.configuration).getDkimAttributes(axiosOptions).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Retrieve MAIL FROM attributes for a given AWS SES identity.
+     * @summary Get MAIL FROM Attributes
+     * @param {NotificationsBetaApiGetMailFromAttributesRequest} requestParameters Request parameters.
+     * @param {*} [axiosOptions] Override http request option.
+     * @throws {RequiredError}
+     * @memberof NotificationsBetaApi
+     */
+    public getMailFromAttributes(requestParameters: NotificationsBetaApiGetMailFromAttributesRequest, axiosOptions?: AxiosRequestConfig) {
+        return NotificationsBetaApiFp(this.configuration).getMailFromAttributes(requestParameters.id, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -46431,6 +46692,18 @@ export class NotificationsBetaApi extends BaseAPI {
     }
 
     /**
+     * Change the MAIL FROM domain of an AWS SES email identity and provide the MX and TXT records to be placed in the caller\'s DNS
+     * @summary Change MAIL FROM domain
+     * @param {NotificationsBetaApiPutMailFromAttributesRequest} requestParameters Request parameters.
+     * @param {*} [axiosOptions] Override http request option.
+     * @throws {RequiredError}
+     * @memberof NotificationsBetaApi
+     */
+    public putMailFromAttributes(requestParameters: NotificationsBetaApiPutMailFromAttributesRequest, axiosOptions?: AxiosRequestConfig) {
+        return NotificationsBetaApiFp(this.configuration).putMailFromAttributes(requestParameters.mailFromAttributesDtoBeta, axiosOptions).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
      * In the notification world, a notification flows through these salient stages -   1. Interest matching,   2. Preferences   3. Template Rendering.   The default notification preferences make up a part of the second stage, along with user preferences (which is a future goal). The expectation is for  admins to be able to set default preferences for their org, like opting in to or out of certain notifications, and configuring future preferences as  we tack on more features. The key in the Dto is not necessary but if it is provided and doesn\'t match the key in the URI, then a 400 will be thrown.  Request will require the following legacy roles:  ORG_ADMIN and API
      * @summary Overwrite the preferences for the given notification key.
      * @param {NotificationsBetaApiPutNotificationPreferenceRequest} requestParameters Request parameters.
@@ -46452,18 +46725,6 @@ export class NotificationsBetaApi extends BaseAPI {
      */
     public sendTestNotification(requestParameters: NotificationsBetaApiSendTestNotificationRequest, axiosOptions?: AxiosRequestConfig) {
         return NotificationsBetaApiFp(this.configuration).sendTestNotification(requestParameters.sendTestNotificationRequestDtoBeta, axiosOptions).then((request) => request(this.axios, this.basePath));
-    }
-
-    /**
-     * Create a domain to be verified via DKIM (DomainKeys Identified Mail)
-     * @summary Verify domain address via DKIM
-     * @param {NotificationsBetaApiVerifyDomainDkimRequest} requestParameters Request parameters.
-     * @param {*} [axiosOptions] Override http request option.
-     * @throws {RequiredError}
-     * @memberof NotificationsBetaApi
-     */
-    public verifyDomainDkim(requestParameters: NotificationsBetaApiVerifyDomainDkimRequest, axiosOptions?: AxiosRequestConfig) {
-        return NotificationsBetaApiFp(this.configuration).verifyDomainDkim(requestParameters.domainAddressDtoBeta, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 }
 
