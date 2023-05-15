@@ -3003,6 +3003,67 @@ export interface ApprovalSummary {
     'rejected'?: number;
 }
 /**
+ * An object containing the details of an ARM risk listing of the SOD violation reasons detected by this check.
+ * @export
+ * @interface ArmRisk
+ */
+export interface ArmRisk {
+    /**
+     * Risk Name
+     * @type {string}
+     * @memberof ArmRisk
+     */
+    'name'?: string;
+    /**
+     * Description
+     * @type {string}
+     * @memberof ArmRisk
+     */
+    'description'?: string;
+    /**
+     * List of risk owners\' SAP usernames
+     * @type {Array<string>}
+     * @memberof ArmRisk
+     */
+    'owners'?: Array<string>;
+    /**
+     * URL to \"what if\" details in ARM
+     * @type {string}
+     * @memberof ArmRisk
+     */
+    'externalReference'?: string;
+    /**
+     * Risk Rating
+     * @type {string}
+     * @memberof ArmRisk
+     */
+    'rating'?: string;
+    /**
+     * A map from business function codes to \"Left side\" or \"Right side\"
+     * @type {{ [key: string]: string; }}
+     * @memberof ArmRisk
+     */
+    'businessFunctions'?: { [key: string]: string; };
+    /**
+     * List of risk approvers\' SAP usernames
+     * @type {Array<string>}
+     * @memberof ArmRisk
+     */
+    'approvers'?: Array<string>;
+    /**
+     * What was done to mitigate risks
+     * @type {string}
+     * @memberof ArmRisk
+     */
+    'mitigatingControls'?: string;
+    /**
+     * Recommendation on how to resolve risk
+     * @type {string}
+     * @memberof ArmRisk
+     */
+    'correctionAdvice'?: string;
+}
+/**
  * 
  * @export
  * @interface AttributeDefinition
@@ -6119,6 +6180,107 @@ export interface EventDocument {
     'technicalName'?: string;
 }
 /**
+ * 
+ * @export
+ * @interface ExceptionAccessCriteria
+ */
+export interface ExceptionAccessCriteria {
+    /**
+     * 
+     * @type {ExceptionCriteria}
+     * @memberof ExceptionAccessCriteria
+     */
+    'leftCriteria'?: ExceptionCriteria;
+    /**
+     * 
+     * @type {ExceptionCriteria}
+     * @memberof ExceptionAccessCriteria
+     */
+    'rightCriteria'?: ExceptionCriteria;
+}
+/**
+ * 
+ * @export
+ * @interface ExceptionCriteria
+ */
+export interface ExceptionCriteria {
+    /**
+     * List of exception criteria. There is a min of 1 and max of 50 items in the list.
+     * @type {Array<ExceptionCriteriaCriteriaListInner>}
+     * @memberof ExceptionCriteria
+     */
+    'criteriaList'?: Array<ExceptionCriteriaCriteriaListInner>;
+}
+/**
+ * Access reference with addition of boolean existing flag to indicate whether the access was extant
+ * @export
+ * @interface ExceptionCriteriaAccess
+ */
+export interface ExceptionCriteriaAccess {
+    /**
+     * 
+     * @type {DtoType}
+     * @memberof ExceptionCriteriaAccess
+     */
+    'type'?: DtoType;
+    /**
+     * ID of the object to which this reference applies
+     * @type {string}
+     * @memberof ExceptionCriteriaAccess
+     */
+    'id'?: string;
+    /**
+     * Human-readable display name of the object to which this reference applies
+     * @type {string}
+     * @memberof ExceptionCriteriaAccess
+     */
+    'name'?: string;
+    /**
+     * Whether the subject identity already had that access or not
+     * @type {boolean}
+     * @memberof ExceptionCriteriaAccess
+     */
+    'existing'?: boolean;
+}
+/**
+ * The types of objects supported for SOD violations
+ * @export
+ * @interface ExceptionCriteriaCriteriaListInner
+ */
+export interface ExceptionCriteriaCriteriaListInner {
+    /**
+     * The type of object that is referenced
+     * @type {object}
+     * @memberof ExceptionCriteriaCriteriaListInner
+     */
+    'type'?: ExceptionCriteriaCriteriaListInnerTypeEnum;
+    /**
+     * ID of the object to which this reference applies
+     * @type {string}
+     * @memberof ExceptionCriteriaCriteriaListInner
+     */
+    'id'?: string;
+    /**
+     * Human-readable display name of the object to which this reference applies
+     * @type {string}
+     * @memberof ExceptionCriteriaCriteriaListInner
+     */
+    'name'?: string;
+    /**
+     * Whether the subject identity already had that access or not
+     * @type {boolean}
+     * @memberof ExceptionCriteriaCriteriaListInner
+     */
+    'existing'?: boolean;
+}
+
+export const ExceptionCriteriaCriteriaListInnerTypeEnum = {
+    Entitlement: 'ENTITLEMENT'
+} as const;
+
+export type ExceptionCriteriaCriteriaListInnerTypeEnum = typeof ExceptionCriteriaCriteriaListInnerTypeEnum[keyof typeof ExceptionCriteriaCriteriaListInnerTypeEnum];
+
+/**
  * The current state of execution.
  * @export
  * @enum {string}
@@ -7766,6 +7928,82 @@ export interface IdentitySummary {
      */
     'completed'?: boolean;
 }
+/**
+ * An identity with a set of access to be added
+ * @export
+ * @interface IdentityWithNewAccess
+ */
+export interface IdentityWithNewAccess {
+    /**
+     * Identity id to be checked.
+     * @type {string}
+     * @memberof IdentityWithNewAccess
+     */
+    'identityId': string;
+    /**
+     * The list of ENTITLEMENTs to consider for calculating possible violations in a preventive check.
+     * @type {Array<IdentityWithNewAccessAccessRefsInner>}
+     * @memberof IdentityWithNewAccess
+     */
+    'accessRefs': Array<IdentityWithNewAccessAccessRefsInner>;
+}
+/**
+ * An identity with a set of access to be added
+ * @export
+ * @interface IdentityWithNewAccess1
+ */
+export interface IdentityWithNewAccess1 {
+    /**
+     * Set of identity id\'s to be checked.
+     * @type {string}
+     * @memberof IdentityWithNewAccess1
+     */
+    'identityId': string;
+    /**
+     * The bundle of access profiles to be added to the identities specified. All references must be ENTITLEMENT type.
+     * @type {Array<BaseReferenceDto>}
+     * @memberof IdentityWithNewAccess1
+     */
+    'accessRefs': Array<BaseReferenceDto>;
+    /**
+     * Arbitrary key-value pairs. They will never be processed by the IdentityNow system but will be returned on completion of the violation check.
+     * @type {{ [key: string]: string; }}
+     * @memberof IdentityWithNewAccess1
+     */
+    'clientMetadata'?: { [key: string]: string; };
+}
+/**
+ * The types of objects supported for SOD violations
+ * @export
+ * @interface IdentityWithNewAccessAccessRefsInner
+ */
+export interface IdentityWithNewAccessAccessRefsInner {
+    /**
+     * The type of object that is referenced
+     * @type {object}
+     * @memberof IdentityWithNewAccessAccessRefsInner
+     */
+    'type'?: IdentityWithNewAccessAccessRefsInnerTypeEnum;
+    /**
+     * ID of the object to which this reference applies
+     * @type {string}
+     * @memberof IdentityWithNewAccessAccessRefsInner
+     */
+    'id'?: string;
+    /**
+     * Human-readable display name of the object to which this reference applies
+     * @type {string}
+     * @memberof IdentityWithNewAccessAccessRefsInner
+     */
+    'name'?: string;
+}
+
+export const IdentityWithNewAccessAccessRefsInnerTypeEnum = {
+    Entitlement: 'ENTITLEMENT'
+} as const;
+
+export type IdentityWithNewAccessAccessRefsInnerTypeEnum = typeof IdentityWithNewAccessAccessRefsInnerTypeEnum[keyof typeof IdentityWithNewAccessAccessRefsInnerTypeEnum];
+
 /**
  * 
  * @export
@@ -10857,6 +11095,25 @@ export interface PublicIdentityConfig {
      * @memberof PublicIdentityConfig
      */
     'modifiedBy'?: IdentityReference | null;
+}
+/**
+ * Arm Data for the org configuration.
+ * @export
+ * @interface PublicOrgConfigArmData
+ */
+export interface PublicOrgConfigArmData {
+    /**
+     * ARM Customer ID
+     * @type {string}
+     * @memberof PublicOrgConfigArmData
+     */
+    'armCustomerId'?: string | null;
+    /**
+     * ARM SSO URL
+     * @type {string}
+     * @memberof PublicOrgConfigArmData
+     */
+    'armSsoUrl'?: string | null;
 }
 /**
  * Query parameters used to construct an Elasticsearch query object.
@@ -14312,6 +14569,25 @@ export interface SodPolicySchedule {
     'modifierId'?: string;
 }
 /**
+ * An object referencing an SOD violation check
+ * @export
+ * @interface SodViolationCheck
+ */
+export interface SodViolationCheck {
+    /**
+     * The id of the original request
+     * @type {string}
+     * @memberof SodViolationCheck
+     */
+    'requestId': string;
+    /**
+     * The date-time when this request was created.
+     * @type {string}
+     * @memberof SodViolationCheck
+     */
+    'created'?: string;
+}
+/**
  * The inner object representing the completed SOD Violation check
  * @export
  * @interface SodViolationCheckResult
@@ -15495,6 +15771,76 @@ export interface Value {
 /**
  * 
  * @export
+ * @interface ViolationContext
+ */
+export interface ViolationContext {
+    /**
+     * 
+     * @type {ViolationContextPolicy}
+     * @memberof ViolationContext
+     */
+    'policy'?: ViolationContextPolicy;
+    /**
+     * 
+     * @type {ExceptionAccessCriteria}
+     * @memberof ViolationContext
+     */
+    'conflictingAccessCriteria'?: ExceptionAccessCriteria;
+}
+/**
+ * The types of objects supported for SOD violations
+ * @export
+ * @interface ViolationContextPolicy
+ */
+export interface ViolationContextPolicy {
+    /**
+     * The type of object that is referenced
+     * @type {object}
+     * @memberof ViolationContextPolicy
+     */
+    'type'?: ViolationContextPolicyTypeEnum;
+    /**
+     * ID of the object to which this reference applies
+     * @type {string}
+     * @memberof ViolationContextPolicy
+     */
+    'id'?: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof ViolationContextPolicy
+     */
+    'name'?: string;
+}
+
+export const ViolationContextPolicyTypeEnum = {
+    Entitlement: 'ENTITLEMENT'
+} as const;
+
+export type ViolationContextPolicyTypeEnum = typeof ViolationContextPolicyTypeEnum[keyof typeof ViolationContextPolicyTypeEnum];
+
+/**
+ * 
+ * @export
+ * @interface ViolationContextPolicyAllOf
+ */
+export interface ViolationContextPolicyAllOf {
+    /**
+     * 
+     * @type {string}
+     * @memberof ViolationContextPolicyAllOf
+     */
+    'type'?: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof ViolationContextPolicyAllOf
+     */
+    'name'?: string;
+}
+/**
+ * 
+ * @export
  * @interface ViolationOwnerAssignmentConfig
  */
 export interface ViolationOwnerAssignmentConfig {
@@ -15519,6 +15865,19 @@ export const ViolationOwnerAssignmentConfigAssignmentRuleEnum = {
 
 export type ViolationOwnerAssignmentConfigAssignmentRuleEnum = typeof ViolationOwnerAssignmentConfigAssignmentRuleEnum[keyof typeof ViolationOwnerAssignmentConfigAssignmentRuleEnum];
 
+/**
+ * An object containing a listing of the SOD violation reasons detected by this check.
+ * @export
+ * @interface ViolationPrediction
+ */
+export interface ViolationPrediction {
+    /**
+     * List of Violation Contexts
+     * @type {Array<ViolationContext>}
+     * @memberof ViolationPrediction
+     */
+    'violationContexts'?: Array<ViolationContext>;
+}
 /**
  * 
  * @export
@@ -29029,6 +29388,48 @@ export const SODPolicyApiAxiosParamCreator = function (configuration?: Configura
             };
         },
         /**
+         * This API gets the specified ARM risk.  Any authenticated token can call this API.
+         * @summary Gets the specified ARM risk.
+         * @param {string} id The composite ID of the ARM Risk. It should consist of a jobId, rulebookId, and a riskCode; each separated by a \&quot;!\&quot;
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        getArmRiskById: async (id: string, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'id' is not null or undefined
+            assertParamExists('getArmRiskById', 'id', id)
+            const localVarPath = `/sod-risks/risks/{id}`
+                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...axiosOptions};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication oauth2 required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "oauth2", [], configuration)
+
+            // authentication oauth2 required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "oauth2", [], configuration)
+
+
+    
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                axiosOptions: localVarRequestOptions,
+            };
+        },
+        /**
          * This gets specified SOD policy. Requires role of ORG_ADMIN.
          * @summary Get SOD policy by ID
          * @param {string} id The ID of the SOD Policy to retrieve.
@@ -29485,6 +29886,17 @@ export const SODPolicyApiFp = function(configuration?: Configuration) {
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
+         * This API gets the specified ARM risk.  Any authenticated token can call this API.
+         * @summary Gets the specified ARM risk.
+         * @param {string} id The composite ID of the ARM Risk. It should consist of a jobId, rulebookId, and a riskCode; each separated by a \&quot;!\&quot;
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        async getArmRiskById(id: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ArmRisk>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getArmRiskById(id, axiosOptions);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
          * This gets specified SOD policy. Requires role of ORG_ADMIN.
          * @summary Get SOD policy by ID
          * @param {string} id The ID of the SOD Policy to retrieve.
@@ -29631,6 +30043,16 @@ export const SODPolicyApiFactory = function (configuration?: Configuration, base
             return localVarFp.deleteSodPolicySchedule(id, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
+         * This API gets the specified ARM risk.  Any authenticated token can call this API.
+         * @summary Gets the specified ARM risk.
+         * @param {string} id The composite ID of the ARM Risk. It should consist of a jobId, rulebookId, and a riskCode; each separated by a \&quot;!\&quot;
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        getArmRiskById(id: string, axiosOptions?: any): AxiosPromise<ArmRisk> {
+            return localVarFp.getArmRiskById(id, axiosOptions).then((request) => request(axios, basePath));
+        },
+        /**
          * This gets specified SOD policy. Requires role of ORG_ADMIN.
          * @summary Get SOD policy by ID
          * @param {string} id The ID of the SOD Policy to retrieve.
@@ -29774,6 +30196,20 @@ export interface SODPolicyApiDeleteSodPolicyScheduleRequest {
      * The ID of the SOD policy the schedule must be deleted for.
      * @type {string}
      * @memberof SODPolicyApiDeleteSodPolicySchedule
+     */
+    readonly id: string
+}
+
+/**
+ * Request parameters for getArmRiskById operation in SODPolicyApi.
+ * @export
+ * @interface SODPolicyApiGetArmRiskByIdRequest
+ */
+export interface SODPolicyApiGetArmRiskByIdRequest {
+    /**
+     * The composite ID of the ARM Risk. It should consist of a jobId, rulebookId, and a riskCode; each separated by a \&quot;!\&quot;
+     * @type {string}
+     * @memberof SODPolicyApiGetArmRiskById
      */
     readonly id: string
 }
@@ -29990,6 +30426,18 @@ export class SODPolicyApi extends BaseAPI {
     }
 
     /**
+     * This API gets the specified ARM risk.  Any authenticated token can call this API.
+     * @summary Gets the specified ARM risk.
+     * @param {SODPolicyApiGetArmRiskByIdRequest} requestParameters Request parameters.
+     * @param {*} [axiosOptions] Override http request option.
+     * @throws {RequiredError}
+     * @memberof SODPolicyApi
+     */
+    public getArmRiskById(requestParameters: SODPolicyApiGetArmRiskByIdRequest, axiosOptions?: AxiosRequestConfig) {
+        return SODPolicyApiFp(this.configuration).getArmRiskById(requestParameters.id, axiosOptions).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
      * This gets specified SOD policy. Requires role of ORG_ADMIN.
      * @summary Get SOD policy by ID
      * @param {SODPolicyApiGetSodPolicyRequest} requestParameters Request parameters.
@@ -30095,6 +30543,294 @@ export class SODPolicyApi extends BaseAPI {
      */
     public startSodPolicy(requestParameters: SODPolicyApiStartSodPolicyRequest, axiosOptions?: AxiosRequestConfig) {
         return SODPolicyApiFp(this.configuration).startSodPolicy(requestParameters.id, axiosOptions).then((request) => request(this.axios, this.basePath));
+    }
+}
+
+
+/**
+ * SODViolationsApi - axios parameter creator
+ * @export
+ */
+export const SODViolationsApiAxiosParamCreator = function (configuration?: Configuration) {
+    return {
+        /**
+         * This API expose just the ARM config from Tenaya (Org Config Service) for UI.
+         * @summary Expose just the ARM config
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        getArmConfig: async (axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            const localVarPath = `/sod-violations/config`;
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...axiosOptions};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication oauth2 required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "oauth2", [], configuration)
+
+            // authentication oauth2 required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "oauth2", [], configuration)
+
+
+    
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                axiosOptions: localVarRequestOptions,
+            };
+        },
+        /**
+         * This API is used to check if granting some additional accesses would cause the subject to be in violation of any SOD policies. Returns the violations that would be caused.  A token with ORG_ADMIN or API authority is required to call this API.
+         * @summary Predict SOD violations for identity.
+         * @param {IdentityWithNewAccess} identityWithNewAccess 
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        startPredictSodViolations: async (identityWithNewAccess: IdentityWithNewAccess, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'identityWithNewAccess' is not null or undefined
+            assertParamExists('startPredictSodViolations', 'identityWithNewAccess', identityWithNewAccess)
+            const localVarPath = `/sod-violations/predict`;
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'POST', ...baseOptions, ...axiosOptions};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication oauth2 required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "oauth2", [], configuration)
+
+            // authentication oauth2 required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "oauth2", [], configuration)
+
+
+    
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
+            localVarRequestOptions.data = serializeDataIfNeeded(identityWithNewAccess, localVarRequestOptions, configuration)
+
+            return {
+                url: toPathString(localVarUrlObj),
+                axiosOptions: localVarRequestOptions,
+            };
+        },
+        /**
+         * This API initiates a SOD policy verification asynchronously.  A token with ORG_ADMIN authority is required to call this API.
+         * @summary Check SOD violations
+         * @param {IdentityWithNewAccess1} identityWithNewAccess1 
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        startViolationCheck: async (identityWithNewAccess1: IdentityWithNewAccess1, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'identityWithNewAccess1' is not null or undefined
+            assertParamExists('startViolationCheck', 'identityWithNewAccess1', identityWithNewAccess1)
+            const localVarPath = `/sod-violations/check`;
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'POST', ...baseOptions, ...axiosOptions};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication oauth2 required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "oauth2", [], configuration)
+
+            // authentication oauth2 required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "oauth2", [], configuration)
+
+
+    
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
+            localVarRequestOptions.data = serializeDataIfNeeded(identityWithNewAccess1, localVarRequestOptions, configuration)
+
+            return {
+                url: toPathString(localVarUrlObj),
+                axiosOptions: localVarRequestOptions,
+            };
+        },
+    }
+};
+
+/**
+ * SODViolationsApi - functional programming interface
+ * @export
+ */
+export const SODViolationsApiFp = function(configuration?: Configuration) {
+    const localVarAxiosParamCreator = SODViolationsApiAxiosParamCreator(configuration)
+    return {
+        /**
+         * This API expose just the ARM config from Tenaya (Org Config Service) for UI.
+         * @summary Expose just the ARM config
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        async getArmConfig(axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<PublicOrgConfigArmData>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getArmConfig(axiosOptions);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * This API is used to check if granting some additional accesses would cause the subject to be in violation of any SOD policies. Returns the violations that would be caused.  A token with ORG_ADMIN or API authority is required to call this API.
+         * @summary Predict SOD violations for identity.
+         * @param {IdentityWithNewAccess} identityWithNewAccess 
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        async startPredictSodViolations(identityWithNewAccess: IdentityWithNewAccess, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ViolationPrediction>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.startPredictSodViolations(identityWithNewAccess, axiosOptions);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * This API initiates a SOD policy verification asynchronously.  A token with ORG_ADMIN authority is required to call this API.
+         * @summary Check SOD violations
+         * @param {IdentityWithNewAccess1} identityWithNewAccess1 
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        async startViolationCheck(identityWithNewAccess1: IdentityWithNewAccess1, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SodViolationCheck>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.startViolationCheck(identityWithNewAccess1, axiosOptions);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+    }
+};
+
+/**
+ * SODViolationsApi - factory interface
+ * @export
+ */
+export const SODViolationsApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
+    const localVarFp = SODViolationsApiFp(configuration)
+    return {
+        /**
+         * This API expose just the ARM config from Tenaya (Org Config Service) for UI.
+         * @summary Expose just the ARM config
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        getArmConfig(axiosOptions?: any): AxiosPromise<PublicOrgConfigArmData> {
+            return localVarFp.getArmConfig(axiosOptions).then((request) => request(axios, basePath));
+        },
+        /**
+         * This API is used to check if granting some additional accesses would cause the subject to be in violation of any SOD policies. Returns the violations that would be caused.  A token with ORG_ADMIN or API authority is required to call this API.
+         * @summary Predict SOD violations for identity.
+         * @param {IdentityWithNewAccess} identityWithNewAccess 
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        startPredictSodViolations(identityWithNewAccess: IdentityWithNewAccess, axiosOptions?: any): AxiosPromise<ViolationPrediction> {
+            return localVarFp.startPredictSodViolations(identityWithNewAccess, axiosOptions).then((request) => request(axios, basePath));
+        },
+        /**
+         * This API initiates a SOD policy verification asynchronously.  A token with ORG_ADMIN authority is required to call this API.
+         * @summary Check SOD violations
+         * @param {IdentityWithNewAccess1} identityWithNewAccess1 
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        startViolationCheck(identityWithNewAccess1: IdentityWithNewAccess1, axiosOptions?: any): AxiosPromise<SodViolationCheck> {
+            return localVarFp.startViolationCheck(identityWithNewAccess1, axiosOptions).then((request) => request(axios, basePath));
+        },
+    };
+};
+
+/**
+ * Request parameters for startPredictSodViolations operation in SODViolationsApi.
+ * @export
+ * @interface SODViolationsApiStartPredictSodViolationsRequest
+ */
+export interface SODViolationsApiStartPredictSodViolationsRequest {
+    /**
+     * 
+     * @type {IdentityWithNewAccess}
+     * @memberof SODViolationsApiStartPredictSodViolations
+     */
+    readonly identityWithNewAccess: IdentityWithNewAccess
+}
+
+/**
+ * Request parameters for startViolationCheck operation in SODViolationsApi.
+ * @export
+ * @interface SODViolationsApiStartViolationCheckRequest
+ */
+export interface SODViolationsApiStartViolationCheckRequest {
+    /**
+     * 
+     * @type {IdentityWithNewAccess1}
+     * @memberof SODViolationsApiStartViolationCheck
+     */
+    readonly identityWithNewAccess1: IdentityWithNewAccess1
+}
+
+/**
+ * SODViolationsApi - object-oriented interface
+ * @export
+ * @class SODViolationsApi
+ * @extends {BaseAPI}
+ */
+export class SODViolationsApi extends BaseAPI {
+    /**
+     * This API expose just the ARM config from Tenaya (Org Config Service) for UI.
+     * @summary Expose just the ARM config
+     * @param {*} [axiosOptions] Override http request option.
+     * @throws {RequiredError}
+     * @memberof SODViolationsApi
+     */
+    public getArmConfig(axiosOptions?: AxiosRequestConfig) {
+        return SODViolationsApiFp(this.configuration).getArmConfig(axiosOptions).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * This API is used to check if granting some additional accesses would cause the subject to be in violation of any SOD policies. Returns the violations that would be caused.  A token with ORG_ADMIN or API authority is required to call this API.
+     * @summary Predict SOD violations for identity.
+     * @param {SODViolationsApiStartPredictSodViolationsRequest} requestParameters Request parameters.
+     * @param {*} [axiosOptions] Override http request option.
+     * @throws {RequiredError}
+     * @memberof SODViolationsApi
+     */
+    public startPredictSodViolations(requestParameters: SODViolationsApiStartPredictSodViolationsRequest, axiosOptions?: AxiosRequestConfig) {
+        return SODViolationsApiFp(this.configuration).startPredictSodViolations(requestParameters.identityWithNewAccess, axiosOptions).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * This API initiates a SOD policy verification asynchronously.  A token with ORG_ADMIN authority is required to call this API.
+     * @summary Check SOD violations
+     * @param {SODViolationsApiStartViolationCheckRequest} requestParameters Request parameters.
+     * @param {*} [axiosOptions] Override http request option.
+     * @throws {RequiredError}
+     * @memberof SODViolationsApi
+     */
+    public startViolationCheck(requestParameters: SODViolationsApiStartViolationCheckRequest, axiosOptions?: AxiosRequestConfig) {
+        return SODViolationsApiFp(this.configuration).startViolationCheck(requestParameters.identityWithNewAccess1, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 }
 
