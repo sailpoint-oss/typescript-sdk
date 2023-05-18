@@ -8244,6 +8244,19 @@ export interface JsonPatchOperationValue {
 export interface JsonPatchOperationValueAnyOfInner {
 }
 /**
+ * Type of key exchange.
+ * @export
+ * @enum {string}
+ */
+
+export const KeyExchangeServiceTarget = {
+    Arm: 'ARM'
+} as const;
+
+export type KeyExchangeServiceTarget = typeof KeyExchangeServiceTarget[keyof typeof KeyExchangeServiceTarget];
+
+
+/**
  * 
  * @export
  * @interface LeftPad
@@ -11207,6 +11220,19 @@ export interface PublicIdentityConfig {
      * @memberof PublicIdentityConfig
      */
     'modifiedBy'?: IdentityReference | null;
+}
+/**
+ * 
+ * @export
+ * @interface PublicKey
+ */
+export interface PublicKey {
+    /**
+     * ARM Public Key used to encrypt username and password credentials sent to ARM
+     * @type {string}
+     * @memberof PublicKey
+     */
+    'value'?: string;
 }
 /**
  * Arm Data for the org configuration.
@@ -30148,6 +30174,48 @@ export const SODPolicyApiAxiosParamCreator = function (configuration?: Configura
             };
         },
         /**
+         * This API returns public key to encrypt ARM auth blob.
+         * @summary Get ARM public key
+         * @param {KeyExchangeServiceTarget} id The target for public key
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        getArmPublicKey: async (id: KeyExchangeServiceTarget, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'id' is not null or undefined
+            assertParamExists('getArmPublicKey', 'id', id)
+            const localVarPath = `/sod-config/public-keys/target`
+                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...axiosOptions};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication oauth2 required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "oauth2", [], configuration)
+
+            // authentication oauth2 required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "oauth2", [], configuration)
+
+
+    
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                axiosOptions: localVarRequestOptions,
+            };
+        },
+        /**
          * This API gets the specified ARM risk.  Any authenticated token can call this API.
          * @summary Gets the specified ARM risk.
          * @param {string} id The composite ID of the ARM Risk. It should consist of a jobId, rulebookId, and a riskCode; each separated by a \&quot;!\&quot;
@@ -30686,6 +30754,48 @@ export const SODPolicyApiAxiosParamCreator = function (configuration?: Configura
             };
         },
         /**
+         * Runs the scheduled report for the policy retrieved by passed policy ID.  The report schedule is fetched from the policy retrieved by ID.
+         * @summary Evaluate one policy by ID
+         * @param {string} id The SOD policy ID to run.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        startEvaluateSodPolicy: async (id: string, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'id' is not null or undefined
+            assertParamExists('startEvaluateSodPolicy', 'id', id)
+            const localVarPath = `/sod-policies/{id}/evaluate`
+                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'POST', ...baseOptions, ...axiosOptions};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication oauth2 required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "oauth2", [], configuration)
+
+            // authentication oauth2 required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "oauth2", [], configuration)
+
+
+    
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                axiosOptions: localVarRequestOptions,
+            };
+        },
+        /**
          * Runs multi-policy report for the org. If a policy reports more than 5000 violations, the report mentions that the violation limit was exceeded for that policy. If the request is empty, the report runs for all policies. Otherwise, the report runs for only the filtered policy list provided.
          * @summary Runs all policies for org
          * @param {MultiPolicyRequest} [multiPolicyRequest] 
@@ -30811,6 +30921,17 @@ export const SODPolicyApiFp = function(configuration?: Configuration) {
          */
         async deleteSodPolicySchedule(id: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.deleteSodPolicySchedule(id, axiosOptions);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * This API returns public key to encrypt ARM auth blob.
+         * @summary Get ARM public key
+         * @param {KeyExchangeServiceTarget} id The target for public key
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        async getArmPublicKey(id: KeyExchangeServiceTarget, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<PublicKey>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getArmPublicKey(id, axiosOptions);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
@@ -30952,6 +31073,17 @@ export const SODPolicyApiFp = function(configuration?: Configuration) {
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
+         * Runs the scheduled report for the policy retrieved by passed policy ID.  The report schedule is fetched from the policy retrieved by ID.
+         * @summary Evaluate one policy by ID
+         * @param {string} id The SOD policy ID to run.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        async startEvaluateSodPolicy(id: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ReportResultReference>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.startEvaluateSodPolicy(id, axiosOptions);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
          * Runs multi-policy report for the org. If a policy reports more than 5000 violations, the report mentions that the violation limit was exceeded for that policy. If the request is empty, the report runs for all policies. Otherwise, the report runs for only the filtered policy list provided.
          * @summary Runs all policies for org
          * @param {MultiPolicyRequest} [multiPolicyRequest] 
@@ -31013,6 +31145,16 @@ export const SODPolicyApiFactory = function (configuration?: Configuration, base
          */
         deleteSodPolicySchedule(id: string, axiosOptions?: any): AxiosPromise<void> {
             return localVarFp.deleteSodPolicySchedule(id, axiosOptions).then((request) => request(axios, basePath));
+        },
+        /**
+         * This API returns public key to encrypt ARM auth blob.
+         * @summary Get ARM public key
+         * @param {KeyExchangeServiceTarget} id The target for public key
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        getArmPublicKey(id: KeyExchangeServiceTarget, axiosOptions?: any): AxiosPromise<PublicKey> {
+            return localVarFp.getArmPublicKey(id, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * This API gets the specified ARM risk.  Any authenticated token can call this API.
@@ -31141,6 +31283,16 @@ export const SODPolicyApiFactory = function (configuration?: Configuration, base
             return localVarFp.setSodPolicy(id, sodPolicy, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
+         * Runs the scheduled report for the policy retrieved by passed policy ID.  The report schedule is fetched from the policy retrieved by ID.
+         * @summary Evaluate one policy by ID
+         * @param {string} id The SOD policy ID to run.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        startEvaluateSodPolicy(id: string, axiosOptions?: any): AxiosPromise<ReportResultReference> {
+            return localVarFp.startEvaluateSodPolicy(id, axiosOptions).then((request) => request(axios, basePath));
+        },
+        /**
          * Runs multi-policy report for the org. If a policy reports more than 5000 violations, the report mentions that the violation limit was exceeded for that policy. If the request is empty, the report runs for all policies. Otherwise, the report runs for only the filtered policy list provided.
          * @summary Runs all policies for org
          * @param {MultiPolicyRequest} [multiPolicyRequest] 
@@ -31210,6 +31362,20 @@ export interface SODPolicyApiDeleteSodPolicyScheduleRequest {
      * @memberof SODPolicyApiDeleteSodPolicySchedule
      */
     readonly id: string
+}
+
+/**
+ * Request parameters for getArmPublicKey operation in SODPolicyApi.
+ * @export
+ * @interface SODPolicyApiGetArmPublicKeyRequest
+ */
+export interface SODPolicyApiGetArmPublicKeyRequest {
+    /**
+     * The target for public key
+     * @type {KeyExchangeServiceTarget}
+     * @memberof SODPolicyApiGetArmPublicKey
+     */
+    readonly id: KeyExchangeServiceTarget
 }
 
 /**
@@ -31416,6 +31582,20 @@ export interface SODPolicyApiSetSodPolicyRequest {
 }
 
 /**
+ * Request parameters for startEvaluateSodPolicy operation in SODPolicyApi.
+ * @export
+ * @interface SODPolicyApiStartEvaluateSodPolicyRequest
+ */
+export interface SODPolicyApiStartEvaluateSodPolicyRequest {
+    /**
+     * The SOD policy ID to run.
+     * @type {string}
+     * @memberof SODPolicyApiStartEvaluateSodPolicy
+     */
+    readonly id: string
+}
+
+/**
  * Request parameters for startSodAllPoliciesForOrg operation in SODPolicyApi.
  * @export
  * @interface SODPolicyApiStartSodAllPoliciesForOrgRequest
@@ -31484,6 +31664,18 @@ export class SODPolicyApi extends BaseAPI {
      */
     public deleteSodPolicySchedule(requestParameters: SODPolicyApiDeleteSodPolicyScheduleRequest, axiosOptions?: AxiosRequestConfig) {
         return SODPolicyApiFp(this.configuration).deleteSodPolicySchedule(requestParameters.id, axiosOptions).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * This API returns public key to encrypt ARM auth blob.
+     * @summary Get ARM public key
+     * @param {SODPolicyApiGetArmPublicKeyRequest} requestParameters Request parameters.
+     * @param {*} [axiosOptions] Override http request option.
+     * @throws {RequiredError}
+     * @memberof SODPolicyApi
+     */
+    public getArmPublicKey(requestParameters: SODPolicyApiGetArmPublicKeyRequest, axiosOptions?: AxiosRequestConfig) {
+        return SODPolicyApiFp(this.configuration).getArmPublicKey(requestParameters.id, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -31627,6 +31819,18 @@ export class SODPolicyApi extends BaseAPI {
      */
     public setSodPolicy(requestParameters: SODPolicyApiSetSodPolicyRequest, axiosOptions?: AxiosRequestConfig) {
         return SODPolicyApiFp(this.configuration).setSodPolicy(requestParameters.id, requestParameters.sodPolicy, axiosOptions).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Runs the scheduled report for the policy retrieved by passed policy ID.  The report schedule is fetched from the policy retrieved by ID.
+     * @summary Evaluate one policy by ID
+     * @param {SODPolicyApiStartEvaluateSodPolicyRequest} requestParameters Request parameters.
+     * @param {*} [axiosOptions] Override http request option.
+     * @throws {RequiredError}
+     * @memberof SODPolicyApi
+     */
+    public startEvaluateSodPolicy(requestParameters: SODPolicyApiStartEvaluateSodPolicyRequest, axiosOptions?: AxiosRequestConfig) {
+        return SODPolicyApiFp(this.configuration).startEvaluateSodPolicy(requestParameters.id, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
