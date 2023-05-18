@@ -3694,6 +3694,19 @@ export type BucketType = typeof BucketType[keyof typeof BucketType];
 /**
  * 
  * @export
+ * @interface BulkCreate
+ */
+export interface BulkCreate {
+    /**
+     * Count of the exceptions
+     * @type {string}
+     * @memberof BulkCreate
+     */
+    'exceptionCount'?: string;
+}
+/**
+ * 
+ * @export
  * @interface BulkTaggedObject
  */
 export interface BulkTaggedObject {
@@ -6353,6 +6366,19 @@ export const ExceptionCriteriaCriteriaListInnerTypeEnum = {
 
 export type ExceptionCriteriaCriteriaListInnerTypeEnum = typeof ExceptionCriteriaCriteriaListInnerTypeEnum[keyof typeof ExceptionCriteriaCriteriaListInnerTypeEnum];
 
+/**
+ * 
+ * @export
+ * @interface ExceptionList
+ */
+export interface ExceptionList {
+    /**
+     * List of exceptions.
+     * @type {Array<Exception>}
+     * @memberof ExceptionList
+     */
+    'exceptions'?: Array<Exception>;
+}
 /**
  * The current state of execution.
  * @export
@@ -29341,6 +29367,50 @@ export class RolesApi extends BaseAPI {
 export const SODExceptionApiAxiosParamCreator = function (configuration?: Configuration) {
     return {
         /**
+         * This API creates SOD exceptions in bulk.
+         * @summary Create SOD exceptions in bulk
+         * @param {ExceptionList} exceptionList 
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        createBulkSodExceptions: async (exceptionList: ExceptionList, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'exceptionList' is not null or undefined
+            assertParamExists('createBulkSodExceptions', 'exceptionList', exceptionList)
+            const localVarPath = `/sod-exceptions/bulk-create`;
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'POST', ...baseOptions, ...axiosOptions};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication oauth2 required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "oauth2", [], configuration)
+
+            // authentication oauth2 required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "oauth2", [], configuration)
+
+
+    
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
+            localVarRequestOptions.data = serializeDataIfNeeded(exceptionList, localVarRequestOptions, configuration)
+
+            return {
+                url: toPathString(localVarUrlObj),
+                axiosOptions: localVarRequestOptions,
+            };
+        },
+        /**
          * This API creates a SOD exception.  A token with API authority is required to call this API.
          * @summary Create SOD exception
          * @param {Exception} exception 
@@ -29590,6 +29660,17 @@ export const SODExceptionApiFp = function(configuration?: Configuration) {
     const localVarAxiosParamCreator = SODExceptionApiAxiosParamCreator(configuration)
     return {
         /**
+         * This API creates SOD exceptions in bulk.
+         * @summary Create SOD exceptions in bulk
+         * @param {ExceptionList} exceptionList 
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        async createBulkSodExceptions(exceptionList: ExceptionList, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<BulkCreate>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.createBulkSodExceptions(exceptionList, axiosOptions);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
          * This API creates a SOD exception.  A token with API authority is required to call this API.
          * @summary Create SOD exception
          * @param {Exception} exception 
@@ -29660,6 +29741,16 @@ export const SODExceptionApiFactory = function (configuration?: Configuration, b
     const localVarFp = SODExceptionApiFp(configuration)
     return {
         /**
+         * This API creates SOD exceptions in bulk.
+         * @summary Create SOD exceptions in bulk
+         * @param {ExceptionList} exceptionList 
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        createBulkSodExceptions(exceptionList: ExceptionList, axiosOptions?: any): AxiosPromise<BulkCreate> {
+            return localVarFp.createBulkSodExceptions(exceptionList, axiosOptions).then((request) => request(axios, basePath));
+        },
+        /**
          * This API creates a SOD exception.  A token with API authority is required to call this API.
          * @summary Create SOD exception
          * @param {Exception} exception 
@@ -29716,6 +29807,20 @@ export const SODExceptionApiFactory = function (configuration?: Configuration, b
         },
     };
 };
+
+/**
+ * Request parameters for createBulkSodExceptions operation in SODExceptionApi.
+ * @export
+ * @interface SODExceptionApiCreateBulkSodExceptionsRequest
+ */
+export interface SODExceptionApiCreateBulkSodExceptionsRequest {
+    /**
+     * 
+     * @type {ExceptionList}
+     * @memberof SODExceptionApiCreateBulkSodExceptions
+     */
+    readonly exceptionList: ExceptionList
+}
 
 /**
  * Request parameters for createSodException operation in SODExceptionApi.
@@ -29829,6 +29934,18 @@ export interface SODExceptionApiPatchExceptionByIdRequest {
  * @extends {BaseAPI}
  */
 export class SODExceptionApi extends BaseAPI {
+    /**
+     * This API creates SOD exceptions in bulk.
+     * @summary Create SOD exceptions in bulk
+     * @param {SODExceptionApiCreateBulkSodExceptionsRequest} requestParameters Request parameters.
+     * @param {*} [axiosOptions] Override http request option.
+     * @throws {RequiredError}
+     * @memberof SODExceptionApi
+     */
+    public createBulkSodExceptions(requestParameters: SODExceptionApiCreateBulkSodExceptionsRequest, axiosOptions?: AxiosRequestConfig) {
+        return SODExceptionApiFp(this.configuration).createBulkSodExceptions(requestParameters.exceptionList, axiosOptions).then((request) => request(this.axios, this.basePath));
+    }
+
     /**
      * This API creates a SOD exception.  A token with API authority is required to call this API.
      * @summary Create SOD exception
