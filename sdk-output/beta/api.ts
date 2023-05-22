@@ -7856,6 +7856,12 @@ export interface IdentityBeta {
      * @memberof IdentityBeta
      */
     'attributes'?: object;
+    /**
+     * 
+     * @type {LifecycleStateDtoBeta}
+     * @memberof IdentityBeta
+     */
+    'lifecycleState'?: LifecycleStateDtoBeta;
 }
 
 export const IdentityBetaProcessingStateEnum = {
@@ -8091,6 +8097,12 @@ export interface IdentityDtoBeta {
      * @memberof IdentityDtoBeta
      */
     'attributes'?: object;
+    /**
+     * 
+     * @type {LifecycleStateDtoBeta}
+     * @memberof IdentityDtoBeta
+     */
+    'lifecycleState'?: LifecycleStateDtoBeta;
 }
 
 export const IdentityDtoBetaProcessingStateEnum = {
@@ -9263,6 +9275,25 @@ export interface LifecycleStateBeta {
      * @memberof LifecycleStateBeta
      */
     'accessProfileIds'?: Array<string>;
+}
+/**
+ * 
+ * @export
+ * @interface LifecycleStateDtoBeta
+ */
+export interface LifecycleStateDtoBeta {
+    /**
+     * The name of the lifecycle state
+     * @type {string}
+     * @memberof LifecycleStateDtoBeta
+     */
+    'stateName': string;
+    /**
+     * Whether the lifecycle state has been manually or automatically set
+     * @type {boolean}
+     * @memberof LifecycleStateDtoBeta
+     */
+    'manuallyUpdated': boolean;
 }
 /**
  * 
