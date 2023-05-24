@@ -20017,7 +20017,7 @@ export const CertificationSummariesApiAxiosParamCreator = function (configuratio
             assertParamExists('getIdentitySummary', 'id', id)
             // verify required parameter 'identitySummaryId' is not null or undefined
             assertParamExists('getIdentitySummary', 'identitySummaryId', identitySummaryId)
-            const localVarPath = `/certifications/{id}/identity-summary/{identitySummaryId}`
+            const localVarPath = `/certifications/{id}/identity-summaries/{identitySummaryId}`
                 .replace(`{${"id"}}`, encodeURIComponent(String(id)))
                 .replace(`{${"identitySummaryId"}}`, encodeURIComponent(String(identitySummaryId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
