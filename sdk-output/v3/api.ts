@@ -80,6 +80,46 @@ export interface AccessAllOf {
 /**
  * 
  * @export
+ * @interface AccessConstraint
+ */
+export interface AccessConstraint {
+    /**
+     * Type of Access
+     * @type {string}
+     * @memberof AccessConstraint
+     */
+    'type': AccessConstraintTypeEnum;
+    /**
+     * Must be set only if operator is SELECTED.
+     * @type {Array<string>}
+     * @memberof AccessConstraint
+     */
+    'ids'?: Array<string>;
+    /**
+     * Used to determine whether the scope of the campaign should be reduced for selected ids or all.
+     * @type {string}
+     * @memberof AccessConstraint
+     */
+    'operator': AccessConstraintOperatorEnum;
+}
+
+export const AccessConstraintTypeEnum = {
+    Entitlement: 'ENTITLEMENT',
+    AccessProfile: 'ACCESS_PROFILE',
+    Role: 'ROLE'
+} as const;
+
+export type AccessConstraintTypeEnum = typeof AccessConstraintTypeEnum[keyof typeof AccessConstraintTypeEnum];
+export const AccessConstraintOperatorEnum = {
+    All: 'ALL',
+    Selected: 'SELECTED'
+} as const;
+
+export type AccessConstraintOperatorEnum = typeof AccessConstraintOperatorEnum[keyof typeof AccessConstraintOperatorEnum];
+
+/**
+ * 
+ * @export
  * @interface AccessCriteria
  */
 export interface AccessCriteria {
@@ -3744,49 +3784,473 @@ export type BulkTaggedObjectOperationEnum = typeof BulkTaggedObjectOperationEnum
  */
 export interface Campaign {
     /**
-     * The unique ID of the campaign.
+     * Id of the campaign
      * @type {string}
      * @memberof Campaign
      */
-    'id': string;
+    'id'?: string;
     /**
-     * The name of the campaign.
+     * The campaign name. If this object is part of a template, special formatting applies; see the `/campaign-templates/{id}/generate` endpoint documentation for details.
      * @type {string}
      * @memberof Campaign
      */
     'name': string;
     /**
-     * The type of object that is being referenced.
+     * The campaign description. If this object is part of a template, special formatting applies; see the `/campaign-templates/{id}/generate` endpoint documentation for details.
+     * @type {string}
+     * @memberof Campaign
+     */
+    'description': string;
+    /**
+     * The campaign\'s completion deadline.
+     * @type {string}
+     * @memberof Campaign
+     */
+    'deadline'?: string;
+    /**
+     * The type of campaign. Could be extended in the future.
      * @type {string}
      * @memberof Campaign
      */
     'type': CampaignTypeEnum;
     /**
-     * The type of the campaign.
-     * @type {string}
+     * Enables email notification for this campaign
+     * @type {boolean}
      * @memberof Campaign
      */
-    'campaignType': CampaignCampaignTypeEnum;
+    'emailNotificationEnabled'?: boolean;
     /**
-     * The description of the campaign set by the admin who created it.
+     * Allows auto revoke for this campaign
+     * @type {boolean}
+     * @memberof Campaign
+     */
+    'autoRevokeAllowed'?: boolean;
+    /**
+     * Enables IAI for this campaign. Accepts true even if the IAI product feature is off. If IAI is turned off then campaigns generated from this template will indicate false. The real value will then be returned if IAI is ever enabled for the org in the future.
+     * @type {boolean}
+     * @memberof Campaign
+     */
+    'recommendationsEnabled'?: boolean;
+    /**
+     * The campaign\'s current status.
      * @type {string}
      * @memberof Campaign
      */
-    'description': string | null;
+    'status'?: CampaignStatusEnum;
+    /**
+     * The correlatedStatus of the campaign. Only SOURCE_OWNER campaigns can be Uncorrelated. An Uncorrelated certification campaign only includes Uncorrelated identities (An identity is uncorrelated if it has no accounts on an authoritative source).
+     * @type {object}
+     * @memberof Campaign
+     */
+    'correlatedStatus'?: CampaignCorrelatedStatusEnum;
+    /**
+     * Created time of the campaign
+     * @type {string}
+     * @memberof Campaign
+     */
+    'created'?: string;
+    /**
+     * Modified time of the campaign
+     * @type {string}
+     * @memberof Campaign
+     */
+    'modified'?: string;
+    /**
+     * 
+     * @type {CampaignAllOfFilter}
+     * @memberof Campaign
+     */
+    'filter'?: CampaignAllOfFilter;
+    /**
+     * Determines if comments on sunset date changes are required.
+     * @type {boolean}
+     * @memberof Campaign
+     */
+    'sunsetCommentsRequired'?: boolean;
+    /**
+     * 
+     * @type {CampaignAllOfSourceOwnerCampaignInfo}
+     * @memberof Campaign
+     */
+    'sourceOwnerCampaignInfo'?: CampaignAllOfSourceOwnerCampaignInfo;
+    /**
+     * 
+     * @type {CampaignAllOfSearchCampaignInfo}
+     * @memberof Campaign
+     */
+    'searchCampaignInfo'?: CampaignAllOfSearchCampaignInfo;
+    /**
+     * 
+     * @type {CampaignAllOfRoleCompositionCampaignInfo}
+     * @memberof Campaign
+     */
+    'roleCompositionCampaignInfo'?: CampaignAllOfRoleCompositionCampaignInfo;
+    /**
+     * A list of errors and warnings that have accumulated.
+     * @type {Array<CampaignAlert>}
+     * @memberof Campaign
+     */
+    'alerts'?: Array<CampaignAlert>;
+    /**
+     * The total number of certifications in this campaign.
+     * @type {number}
+     * @memberof Campaign
+     */
+    'totalCertifications'?: number;
+    /**
+     * The number of completed certifications in this campaign.
+     * @type {number}
+     * @memberof Campaign
+     */
+    'completedCertifications'?: number;
+    /**
+     * A list of sources in the campaign that contain \\\"orphan entitlements\\\" (entitlements without a corresponding Managed Attribute). An empty list indicates the campaign has no orphan entitlements. Null indicates there may be unknown orphan entitlements in the campaign (the campaign was created before this feature was implemented).
+     * @type {Array<CampaignAllOfSourcesWithOrphanEntitlements>}
+     * @memberof Campaign
+     */
+    'sourcesWithOrphanEntitlements'?: Array<CampaignAllOfSourcesWithOrphanEntitlements>;
 }
 
 export const CampaignTypeEnum = {
-    Campaign: 'CAMPAIGN'
+    Manager: 'MANAGER',
+    SourceOwner: 'SOURCE_OWNER',
+    Search: 'SEARCH',
+    RoleComposition: 'ROLE_COMPOSITION'
 } as const;
 
 export type CampaignTypeEnum = typeof CampaignTypeEnum[keyof typeof CampaignTypeEnum];
-export const CampaignCampaignTypeEnum = {
-    Manager: 'MANAGER',
-    SourceOwner: 'SOURCE_OWNER',
-    Search: 'SEARCH'
+export const CampaignStatusEnum = {
+    Pending: 'PENDING',
+    Staged: 'STAGED',
+    Canceling: 'CANCELING',
+    Activating: 'ACTIVATING',
+    Active: 'ACTIVE',
+    Completing: 'COMPLETING',
+    Completed: 'COMPLETED',
+    Error: 'ERROR',
+    Archived: 'ARCHIVED'
 } as const;
 
-export type CampaignCampaignTypeEnum = typeof CampaignCampaignTypeEnum[keyof typeof CampaignCampaignTypeEnum];
+export type CampaignStatusEnum = typeof CampaignStatusEnum[keyof typeof CampaignStatusEnum];
+export const CampaignCorrelatedStatusEnum = {
+    Correlated: 'CORRELATED',
+    Uncorrelated: 'UNCORRELATED'
+} as const;
+
+export type CampaignCorrelatedStatusEnum = typeof CampaignCorrelatedStatusEnum[keyof typeof CampaignCorrelatedStatusEnum];
+
+/**
+ * 
+ * @export
+ * @interface CampaignAlert
+ */
+export interface CampaignAlert {
+    /**
+     * Denotes the level of the message
+     * @type {string}
+     * @memberof CampaignAlert
+     */
+    'level'?: CampaignAlertLevelEnum;
+    /**
+     * 
+     * @type {Array<ErrorMessageDto>}
+     * @memberof CampaignAlert
+     */
+    'localizations'?: Array<ErrorMessageDto>;
+}
+
+export const CampaignAlertLevelEnum = {
+    Error: 'ERROR',
+    Warn: 'WARN',
+    Info: 'INFO'
+} as const;
+
+export type CampaignAlertLevelEnum = typeof CampaignAlertLevelEnum[keyof typeof CampaignAlertLevelEnum];
+
+/**
+ * 
+ * @export
+ * @interface CampaignAllOf
+ */
+export interface CampaignAllOf {
+    /**
+     * Created time of the campaign
+     * @type {string}
+     * @memberof CampaignAllOf
+     */
+    'created'?: string;
+    /**
+     * Modified time of the campaign
+     * @type {string}
+     * @memberof CampaignAllOf
+     */
+    'modified'?: string;
+    /**
+     * The correlatedStatus of the campaign. Only SOURCE_OWNER campaigns can be Uncorrelated. An Uncorrelated certification campaign only includes Uncorrelated identities (An identity is uncorrelated if it has no accounts on an authoritative source).
+     * @type {object}
+     * @memberof CampaignAllOf
+     */
+    'correlatedStatus'?: CampaignAllOfCorrelatedStatusEnum;
+    /**
+     * 
+     * @type {CampaignAllOfFilter}
+     * @memberof CampaignAllOf
+     */
+    'filter'?: CampaignAllOfFilter;
+    /**
+     * Determines if comments on sunset date changes are required.
+     * @type {boolean}
+     * @memberof CampaignAllOf
+     */
+    'sunsetCommentsRequired'?: boolean;
+    /**
+     * 
+     * @type {CampaignAllOfSourceOwnerCampaignInfo}
+     * @memberof CampaignAllOf
+     */
+    'sourceOwnerCampaignInfo'?: CampaignAllOfSourceOwnerCampaignInfo;
+    /**
+     * 
+     * @type {CampaignAllOfSearchCampaignInfo}
+     * @memberof CampaignAllOf
+     */
+    'searchCampaignInfo'?: CampaignAllOfSearchCampaignInfo;
+    /**
+     * 
+     * @type {CampaignAllOfRoleCompositionCampaignInfo}
+     * @memberof CampaignAllOf
+     */
+    'roleCompositionCampaignInfo'?: CampaignAllOfRoleCompositionCampaignInfo;
+    /**
+     * A list of errors and warnings that have accumulated.
+     * @type {Array<CampaignAlert>}
+     * @memberof CampaignAllOf
+     */
+    'alerts'?: Array<CampaignAlert>;
+    /**
+     * The total number of certifications in this campaign.
+     * @type {number}
+     * @memberof CampaignAllOf
+     */
+    'totalCertifications'?: number;
+    /**
+     * The number of completed certifications in this campaign.
+     * @type {number}
+     * @memberof CampaignAllOf
+     */
+    'completedCertifications'?: number;
+    /**
+     * A list of sources in the campaign that contain \\\"orphan entitlements\\\" (entitlements without a corresponding Managed Attribute). An empty list indicates the campaign has no orphan entitlements. Null indicates there may be unknown orphan entitlements in the campaign (the campaign was created before this feature was implemented).
+     * @type {Array<CampaignAllOfSourcesWithOrphanEntitlements>}
+     * @memberof CampaignAllOf
+     */
+    'sourcesWithOrphanEntitlements'?: Array<CampaignAllOfSourcesWithOrphanEntitlements>;
+}
+
+export const CampaignAllOfCorrelatedStatusEnum = {
+    Correlated: 'CORRELATED',
+    Uncorrelated: 'UNCORRELATED'
+} as const;
+
+export type CampaignAllOfCorrelatedStatusEnum = typeof CampaignAllOfCorrelatedStatusEnum[keyof typeof CampaignAllOfCorrelatedStatusEnum];
+
+/**
+ * Determines which items will be included in this campaign. The default campaign filter is used if this field is left blank.
+ * @export
+ * @interface CampaignAllOfFilter
+ */
+export interface CampaignAllOfFilter {
+    /**
+     * The ID of whatever type of filter is being used.
+     * @type {string}
+     * @memberof CampaignAllOfFilter
+     */
+    'id'?: string;
+    /**
+     * Type of the filter
+     * @type {string}
+     * @memberof CampaignAllOfFilter
+     */
+    'type'?: CampaignAllOfFilterTypeEnum;
+    /**
+     * Name of the filter
+     * @type {string}
+     * @memberof CampaignAllOfFilter
+     */
+    'name'?: string;
+}
+
+export const CampaignAllOfFilterTypeEnum = {
+    CampaignFilter: 'CAMPAIGN_FILTER',
+    Rule: 'RULE'
+} as const;
+
+export type CampaignAllOfFilterTypeEnum = typeof CampaignAllOfFilterTypeEnum[keyof typeof CampaignAllOfFilterTypeEnum];
+
+/**
+ * Optional configuration options for role composition campaigns.
+ * @export
+ * @interface CampaignAllOfRoleCompositionCampaignInfo
+ */
+export interface CampaignAllOfRoleCompositionCampaignInfo {
+    /**
+     * If specified, this identity or governance group will be the reviewer for all certifications in this campaign. The allowed DTO types are IDENTITY and GOVERNANCE_GROUP
+     * @type {BaseReferenceDto & object}
+     * @memberof CampaignAllOfRoleCompositionCampaignInfo
+     */
+    'reviewer'?: BaseReferenceDto & object;
+    /**
+     * Optional list of roles to include in this campaign. Only one of `roleIds` and `query` may be set; if neither are set, all roles are included.
+     * @type {Array<string>}
+     * @memberof CampaignAllOfRoleCompositionCampaignInfo
+     */
+    'roleIds'?: Array<string>;
+    /**
+     * 
+     * @type {CampaignAllOfRoleCompositionCampaignInfoRemediatorRef}
+     * @memberof CampaignAllOfRoleCompositionCampaignInfo
+     */
+    'remediatorRef': CampaignAllOfRoleCompositionCampaignInfoRemediatorRef;
+    /**
+     * Optional search query to scope this campaign to a set of roles. Only one of `roleIds` and `query` may be set; if neither are set, all roles are included.
+     * @type {string}
+     * @memberof CampaignAllOfRoleCompositionCampaignInfo
+     */
+    'query'?: string;
+    /**
+     * Describes this role composition campaign. Intended for storing the query used, and possibly the number of roles selected/available.
+     * @type {string}
+     * @memberof CampaignAllOfRoleCompositionCampaignInfo
+     */
+    'description'?: string;
+}
+/**
+ * This determines who remediation tasks will be assigned to. Remediation tasks are created for each revoke decision on items in the campaign. The only legal remediator type is \'IDENTITY\', and the chosen identity must be a Role Admin or Org Admin.
+ * @export
+ * @interface CampaignAllOfRoleCompositionCampaignInfoRemediatorRef
+ */
+export interface CampaignAllOfRoleCompositionCampaignInfoRemediatorRef {
+    /**
+     * Legal Remediator Type
+     * @type {string}
+     * @memberof CampaignAllOfRoleCompositionCampaignInfoRemediatorRef
+     */
+    'type': CampaignAllOfRoleCompositionCampaignInfoRemediatorRefTypeEnum;
+    /**
+     * The ID of the remediator.
+     * @type {string}
+     * @memberof CampaignAllOfRoleCompositionCampaignInfoRemediatorRef
+     */
+    'id': string;
+    /**
+     * The name of the remediator.
+     * @type {string}
+     * @memberof CampaignAllOfRoleCompositionCampaignInfoRemediatorRef
+     */
+    'name'?: string;
+}
+
+export const CampaignAllOfRoleCompositionCampaignInfoRemediatorRefTypeEnum = {
+    Identity: 'IDENTITY'
+} as const;
+
+export type CampaignAllOfRoleCompositionCampaignInfoRemediatorRefTypeEnum = typeof CampaignAllOfRoleCompositionCampaignInfoRemediatorRefTypeEnum[keyof typeof CampaignAllOfRoleCompositionCampaignInfoRemediatorRefTypeEnum];
+
+/**
+ * Must be set only if the campaign type is SEARCH.
+ * @export
+ * @interface CampaignAllOfSearchCampaignInfo
+ */
+export interface CampaignAllOfSearchCampaignInfo {
+    /**
+     * The type of search campaign represented.
+     * @type {string}
+     * @memberof CampaignAllOfSearchCampaignInfo
+     */
+    'type': CampaignAllOfSearchCampaignInfoTypeEnum;
+    /**
+     * Describes this search campaign. Intended for storing the query used, and possibly the number of identities selected/available.
+     * @type {string}
+     * @memberof CampaignAllOfSearchCampaignInfo
+     */
+    'description'?: string;
+    /**
+     * If specified, this identity or governance group will be the reviewer for all certifications in this campaign. The allowed DTO types are IDENTITY and GOVERNANCE_GROUP
+     * @type {BaseReferenceDto & object}
+     * @memberof CampaignAllOfSearchCampaignInfo
+     */
+    'reviewer'?: BaseReferenceDto & object;
+    /**
+     * The scope for the campaign. The campaign will cover identities returned by the query and identities that have access items returned by the query. One of `query` or `identityIds` must be set.
+     * @type {string}
+     * @memberof CampaignAllOfSearchCampaignInfo
+     */
+    'query'?: string;
+    /**
+     * A direct list of identities to include in this campaign. One of `identityIds` or `query` must be set.
+     * @type {Array<string>}
+     * @memberof CampaignAllOfSearchCampaignInfo
+     */
+    'identityIds'?: Array<string>;
+    /**
+     * Further reduces the scope of the campaign by excluding identities (from `query` or `identityIds`) that do not have this access.
+     * @type {Array<AccessConstraint>}
+     * @memberof CampaignAllOfSearchCampaignInfo
+     */
+    'accessConstraints'?: Array<AccessConstraint>;
+}
+
+export const CampaignAllOfSearchCampaignInfoTypeEnum = {
+    Identity: 'IDENTITY',
+    Access: 'ACCESS'
+} as const;
+
+export type CampaignAllOfSearchCampaignInfoTypeEnum = typeof CampaignAllOfSearchCampaignInfoTypeEnum[keyof typeof CampaignAllOfSearchCampaignInfoTypeEnum];
+
+/**
+ * Must be set only if the campaign type is SOURCE_OWNER.
+ * @export
+ * @interface CampaignAllOfSourceOwnerCampaignInfo
+ */
+export interface CampaignAllOfSourceOwnerCampaignInfo {
+    /**
+     * The list of sources to be included in the campaign.
+     * @type {Array<string>}
+     * @memberof CampaignAllOfSourceOwnerCampaignInfo
+     */
+    'sourceIds'?: Array<string>;
+}
+/**
+ * 
+ * @export
+ * @interface CampaignAllOfSourcesWithOrphanEntitlements
+ */
+export interface CampaignAllOfSourcesWithOrphanEntitlements {
+    /**
+     * Id of the source
+     * @type {string}
+     * @memberof CampaignAllOfSourcesWithOrphanEntitlements
+     */
+    'id'?: string;
+    /**
+     * Type
+     * @type {string}
+     * @memberof CampaignAllOfSourcesWithOrphanEntitlements
+     */
+    'type'?: CampaignAllOfSourcesWithOrphanEntitlementsTypeEnum;
+    /**
+     * Name of the source
+     * @type {string}
+     * @memberof CampaignAllOfSourcesWithOrphanEntitlements
+     */
+    'name'?: string;
+}
+
+export const CampaignAllOfSourcesWithOrphanEntitlementsTypeEnum = {
+    Source: 'SOURCE'
+} as const;
+
+export type CampaignAllOfSourcesWithOrphanEntitlementsTypeEnum = typeof CampaignAllOfSourcesWithOrphanEntitlementsTypeEnum[keyof typeof CampaignAllOfSourcesWithOrphanEntitlementsTypeEnum];
 
 /**
  * 
@@ -11842,13 +12306,13 @@ export interface RequestabilityForRole {
      * @type {boolean}
      * @memberof RequestabilityForRole
      */
-    'commentsRequired'?: boolean;
+    'commentsRequired'?: boolean | null;
     /**
      * Whether an approver must provide comments when denying the request
      * @type {boolean}
      * @memberof RequestabilityForRole
      */
-    'denialCommentsRequired'?: boolean;
+    'denialCommentsRequired'?: boolean | null;
     /**
      * List describing the steps in approving the request
      * @type {Array<ApprovalSchemeForRole>}
@@ -12592,6 +13056,18 @@ export type ReviewerTypeEnum = typeof ReviewerTypeEnum[keyof typeof ReviewerType
  */
 export interface Revocability {
     /**
+     * Whether the requester of the containing object must provide comments justifying the request
+     * @type {boolean}
+     * @memberof Revocability
+     */
+    'commentsRequired'?: boolean | null;
+    /**
+     * Whether an approver must provide comments when denying the request
+     * @type {boolean}
+     * @memberof Revocability
+     */
+    'denialCommentsRequired'?: boolean | null;
+    /**
      * List describing the steps in approving the revocation request
      * @type {Array<AccessProfileApprovalScheme>}
      * @memberof Revocability
@@ -12690,13 +13166,13 @@ export interface Role {
      */
     'legacyMembershipInfo'?: { [key: string]: any; } | null;
     /**
-     * Whether the Role is enabled or not. This field is false by default.
+     * Whether the Role is enabled or not.
      * @type {boolean}
      * @memberof Role
      */
     'enabled'?: boolean;
     /**
-     * Whether the Role can be the target of Access Requests. This field is false by default.
+     * Whether the Role can be the target of access requests.
      * @type {boolean}
      * @memberof Role
      */
@@ -14485,6 +14961,102 @@ export interface SetLifecycleStateRequest {
      */
     'lifecycleStateId'?: string;
 }
+/**
+ * 
+ * @export
+ * @interface SlimCampaign
+ */
+export interface SlimCampaign {
+    /**
+     * Id of the campaign
+     * @type {string}
+     * @memberof SlimCampaign
+     */
+    'id'?: string;
+    /**
+     * The campaign name. If this object is part of a template, special formatting applies; see the `/campaign-templates/{id}/generate` endpoint documentation for details.
+     * @type {string}
+     * @memberof SlimCampaign
+     */
+    'name': string;
+    /**
+     * The campaign description. If this object is part of a template, special formatting applies; see the `/campaign-templates/{id}/generate` endpoint documentation for details.
+     * @type {string}
+     * @memberof SlimCampaign
+     */
+    'description': string;
+    /**
+     * The campaign\'s completion deadline.
+     * @type {string}
+     * @memberof SlimCampaign
+     */
+    'deadline'?: string;
+    /**
+     * The type of campaign. Could be extended in the future.
+     * @type {string}
+     * @memberof SlimCampaign
+     */
+    'type': SlimCampaignTypeEnum;
+    /**
+     * Enables email notification for this campaign
+     * @type {boolean}
+     * @memberof SlimCampaign
+     */
+    'emailNotificationEnabled'?: boolean;
+    /**
+     * Allows auto revoke for this campaign
+     * @type {boolean}
+     * @memberof SlimCampaign
+     */
+    'autoRevokeAllowed'?: boolean;
+    /**
+     * Enables IAI for this campaign. Accepts true even if the IAI product feature is off. If IAI is turned off then campaigns generated from this template will indicate false. The real value will then be returned if IAI is ever enabled for the org in the future.
+     * @type {boolean}
+     * @memberof SlimCampaign
+     */
+    'recommendationsEnabled'?: boolean;
+    /**
+     * The campaign\'s current status.
+     * @type {string}
+     * @memberof SlimCampaign
+     */
+    'status'?: SlimCampaignStatusEnum;
+    /**
+     * The correlatedStatus of the campaign. Only SOURCE_OWNER campaigns can be Uncorrelated. An Uncorrelated certification campaign only includes Uncorrelated identities (An identity is uncorrelated if it has no accounts on an authoritative source).
+     * @type {string}
+     * @memberof SlimCampaign
+     */
+    'correlatedStatus'?: SlimCampaignCorrelatedStatusEnum;
+}
+
+export const SlimCampaignTypeEnum = {
+    Manager: 'MANAGER',
+    SourceOwner: 'SOURCE_OWNER',
+    Search: 'SEARCH',
+    RoleComposition: 'ROLE_COMPOSITION'
+} as const;
+
+export type SlimCampaignTypeEnum = typeof SlimCampaignTypeEnum[keyof typeof SlimCampaignTypeEnum];
+export const SlimCampaignStatusEnum = {
+    Pending: 'PENDING',
+    Staged: 'STAGED',
+    Canceling: 'CANCELING',
+    Activating: 'ACTIVATING',
+    Active: 'ACTIVE',
+    Completing: 'COMPLETING',
+    Completed: 'COMPLETED',
+    Error: 'ERROR',
+    Archived: 'ARCHIVED'
+} as const;
+
+export type SlimCampaignStatusEnum = typeof SlimCampaignStatusEnum[keyof typeof SlimCampaignStatusEnum];
+export const SlimCampaignCorrelatedStatusEnum = {
+    Correlated: 'CORRELATED',
+    Uncorrelated: 'UNCORRELATED'
+} as const;
+
+export type SlimCampaignCorrelatedStatusEnum = typeof SlimCampaignCorrelatedStatusEnum[keyof typeof SlimCampaignCorrelatedStatusEnum];
+
 /**
  * Details of the Entitlement criteria
  * @export
@@ -19809,6 +20381,224 @@ export class AccountsApi extends BaseAPI {
      */
     public updateAccount(requestParameters: AccountsApiUpdateAccountRequest, axiosOptions?: AxiosRequestConfig) {
         return AccountsApiFp(this.configuration).updateAccount(requestParameters.id, requestParameters.jsonPatchOperation, axiosOptions).then((request) => request(this.axios, this.basePath));
+    }
+}
+
+
+/**
+ * CertificationCampaignsApi - axios parameter creator
+ * @export
+ */
+export const CertificationCampaignsApiAxiosParamCreator = function (configuration?: Configuration) {
+    return {
+        /**
+         * Creates a new Certification Campaign with the information provided in the request body.
+         * @summary Create a campaign
+         * @param {Campaign} campaign 
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        createCampaign: async (campaign: Campaign, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'campaign' is not null or undefined
+            assertParamExists('createCampaign', 'campaign', campaign)
+            const localVarPath = `/campaigns`;
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'POST', ...baseOptions, ...axiosOptions};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication oauth2 required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "oauth2", [], configuration)
+
+            // authentication oauth2 required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "oauth2", [], configuration)
+
+
+    
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
+            localVarRequestOptions.data = serializeDataIfNeeded(campaign, localVarRequestOptions, configuration)
+
+            return {
+                url: toPathString(localVarUrlObj),
+                axiosOptions: localVarRequestOptions,
+            };
+        },
+        /**
+         * Retrieves information for an existing campaign using the campaign\'s ID. Authorized callers must be a reviewer for this campaign, an ORG_ADMIN, or a CERT_ADMIN.
+         * @summary Get a campaign
+         * @param {string} id The ID of the campaign to be retrieved
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        getCampaign: async (id: string, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'id' is not null or undefined
+            assertParamExists('getCampaign', 'id', id)
+            const localVarPath = `/campaigns/{id}`
+                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...axiosOptions};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication oauth2 required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "oauth2", [], configuration)
+
+            // authentication oauth2 required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "oauth2", [], configuration)
+
+
+    
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                axiosOptions: localVarRequestOptions,
+            };
+        },
+    }
+};
+
+/**
+ * CertificationCampaignsApi - functional programming interface
+ * @export
+ */
+export const CertificationCampaignsApiFp = function(configuration?: Configuration) {
+    const localVarAxiosParamCreator = CertificationCampaignsApiAxiosParamCreator(configuration)
+    return {
+        /**
+         * Creates a new Certification Campaign with the information provided in the request body.
+         * @summary Create a campaign
+         * @param {Campaign} campaign 
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        async createCampaign(campaign: Campaign, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Campaign>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.createCampaign(campaign, axiosOptions);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * Retrieves information for an existing campaign using the campaign\'s ID. Authorized callers must be a reviewer for this campaign, an ORG_ADMIN, or a CERT_ADMIN.
+         * @summary Get a campaign
+         * @param {string} id The ID of the campaign to be retrieved
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        async getCampaign(id: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SlimCampaign>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getCampaign(id, axiosOptions);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+    }
+};
+
+/**
+ * CertificationCampaignsApi - factory interface
+ * @export
+ */
+export const CertificationCampaignsApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
+    const localVarFp = CertificationCampaignsApiFp(configuration)
+    return {
+        /**
+         * Creates a new Certification Campaign with the information provided in the request body.
+         * @summary Create a campaign
+         * @param {Campaign} campaign 
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        createCampaign(campaign: Campaign, axiosOptions?: any): AxiosPromise<Campaign> {
+            return localVarFp.createCampaign(campaign, axiosOptions).then((request) => request(axios, basePath));
+        },
+        /**
+         * Retrieves information for an existing campaign using the campaign\'s ID. Authorized callers must be a reviewer for this campaign, an ORG_ADMIN, or a CERT_ADMIN.
+         * @summary Get a campaign
+         * @param {string} id The ID of the campaign to be retrieved
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        getCampaign(id: string, axiosOptions?: any): AxiosPromise<SlimCampaign> {
+            return localVarFp.getCampaign(id, axiosOptions).then((request) => request(axios, basePath));
+        },
+    };
+};
+
+/**
+ * Request parameters for createCampaign operation in CertificationCampaignsApi.
+ * @export
+ * @interface CertificationCampaignsApiCreateCampaignRequest
+ */
+export interface CertificationCampaignsApiCreateCampaignRequest {
+    /**
+     * 
+     * @type {Campaign}
+     * @memberof CertificationCampaignsApiCreateCampaign
+     */
+    readonly campaign: Campaign
+}
+
+/**
+ * Request parameters for getCampaign operation in CertificationCampaignsApi.
+ * @export
+ * @interface CertificationCampaignsApiGetCampaignRequest
+ */
+export interface CertificationCampaignsApiGetCampaignRequest {
+    /**
+     * The ID of the campaign to be retrieved
+     * @type {string}
+     * @memberof CertificationCampaignsApiGetCampaign
+     */
+    readonly id: string
+}
+
+/**
+ * CertificationCampaignsApi - object-oriented interface
+ * @export
+ * @class CertificationCampaignsApi
+ * @extends {BaseAPI}
+ */
+export class CertificationCampaignsApi extends BaseAPI {
+    /**
+     * Creates a new Certification Campaign with the information provided in the request body.
+     * @summary Create a campaign
+     * @param {CertificationCampaignsApiCreateCampaignRequest} requestParameters Request parameters.
+     * @param {*} [axiosOptions] Override http request option.
+     * @throws {RequiredError}
+     * @memberof CertificationCampaignsApi
+     */
+    public createCampaign(requestParameters: CertificationCampaignsApiCreateCampaignRequest, axiosOptions?: AxiosRequestConfig) {
+        return CertificationCampaignsApiFp(this.configuration).createCampaign(requestParameters.campaign, axiosOptions).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Retrieves information for an existing campaign using the campaign\'s ID. Authorized callers must be a reviewer for this campaign, an ORG_ADMIN, or a CERT_ADMIN.
+     * @summary Get a campaign
+     * @param {CertificationCampaignsApiGetCampaignRequest} requestParameters Request parameters.
+     * @param {*} [axiosOptions] Override http request option.
+     * @throws {RequiredError}
+     * @memberof CertificationCampaignsApi
+     */
+    public getCampaign(requestParameters: CertificationCampaignsApiGetCampaignRequest, axiosOptions?: AxiosRequestConfig) {
+        return CertificationCampaignsApiFp(this.configuration).getCampaign(requestParameters.id, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 }
 

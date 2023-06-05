@@ -2907,6 +2907,37 @@ export interface AttributesChangedBeta {
     'dt'?: string;
 }
 /**
+ * Audit details for the reassignment configuration of an identity
+ * @export
+ * @interface AuditDetailsBeta
+ */
+export interface AuditDetailsBeta {
+    /**
+     * Initial date and time when the record was created
+     * @type {string}
+     * @memberof AuditDetailsBeta
+     */
+    'created'?: string;
+    /**
+     * 
+     * @type {Identity1Beta}
+     * @memberof AuditDetailsBeta
+     */
+    'createdBy'?: Identity1Beta;
+    /**
+     * Last modified date and time for the record
+     * @type {string}
+     * @memberof AuditDetailsBeta
+     */
+    'modified'?: string;
+    /**
+     * 
+     * @type {Identity1Beta}
+     * @memberof AuditDetailsBeta
+     */
+    'modifiedBy'?: Identity1Beta;
+}
+/**
  * 
  * @export
  * @interface BaseCommonDto1Beta
@@ -4627,6 +4658,158 @@ export interface ConfigObjectBeta {
     'object'?: { [key: string]: any; };
 }
 /**
+ * Type of Reassignment Configuration.
+ * @export
+ * @interface ConfigTypeBeta
+ */
+export interface ConfigTypeBeta {
+    /**
+     * 
+     * @type {ConfigTypeEnumBeta}
+     * @memberof ConfigTypeBeta
+     */
+    'internalName'?: ConfigTypeEnumBeta;
+    /**
+     * Human readable display name of the type to be shown on UI
+     * @type {string}
+     * @memberof ConfigTypeBeta
+     */
+    'displayName'?: string;
+    /**
+     * Description of the type of work to be reassigned, displayed by the UI.
+     * @type {string}
+     * @memberof ConfigTypeBeta
+     */
+    'description'?: string;
+}
+/**
+ * Enum list of valid work types that can be selected for a Reassignment Configuration
+ * @export
+ * @enum {string}
+ */
+
+export const ConfigTypeEnumBeta = {
+    AccessRequests: 'accessRequests',
+    Certifications: 'certifications',
+    ManualTasks: 'manualTasks'
+} as const;
+
+export type ConfigTypeEnumBeta = typeof ConfigTypeEnumBeta[keyof typeof ConfigTypeEnumBeta];
+
+
+/**
+ * The request body of Reassignment Configuration Details for a specific identity and config type
+ * @export
+ * @interface ConfigurationDetailsResponseBeta
+ */
+export interface ConfigurationDetailsResponseBeta {
+    /**
+     * 
+     * @type {ConfigTypeEnumBeta}
+     * @memberof ConfigurationDetailsResponseBeta
+     */
+    'configType'?: ConfigTypeEnumBeta;
+    /**
+     * 
+     * @type {Identity1Beta}
+     * @memberof ConfigurationDetailsResponseBeta
+     */
+    'targetIdentity'?: Identity1Beta;
+    /**
+     * The date from which to start reassigning work items
+     * @type {string}
+     * @memberof ConfigurationDetailsResponseBeta
+     */
+    'startDate'?: string;
+    /**
+     * The date from which to stop reassigning work items.  If this is an empty string it indicates a permanent reassignment.
+     * @type {string}
+     * @memberof ConfigurationDetailsResponseBeta
+     */
+    'endDate'?: string;
+    /**
+     * 
+     * @type {AuditDetailsBeta}
+     * @memberof ConfigurationDetailsResponseBeta
+     */
+    'auditDetails'?: AuditDetailsBeta;
+}
+/**
+ * The request body for creation or update of a Reassignment Configuration for a single identity and work type
+ * @export
+ * @interface ConfigurationItemRequestBeta
+ */
+export interface ConfigurationItemRequestBeta {
+    /**
+     * The identity id to reassign an item from
+     * @type {string}
+     * @memberof ConfigurationItemRequestBeta
+     */
+    'reassignedFromId'?: string;
+    /**
+     * The identity id to reassign an item to
+     * @type {string}
+     * @memberof ConfigurationItemRequestBeta
+     */
+    'reassignedToId'?: string;
+    /**
+     * 
+     * @type {ConfigTypeEnumBeta}
+     * @memberof ConfigurationItemRequestBeta
+     */
+    'configType'?: ConfigTypeEnumBeta;
+    /**
+     * The date from which to start reassigning work items
+     * @type {string}
+     * @memberof ConfigurationItemRequestBeta
+     */
+    'startDate'?: string;
+    /**
+     * The date from which to stop reassigning work items.  If this is an null string it indicates a permanent reassignment.
+     * @type {string}
+     * @memberof ConfigurationItemRequestBeta
+     */
+    'endDate'?: string | null;
+}
+/**
+ * The response body of a Reassignment Configuration for a single identity
+ * @export
+ * @interface ConfigurationItemResponseBeta
+ */
+export interface ConfigurationItemResponseBeta {
+    /**
+     * 
+     * @type {Identity1Beta}
+     * @memberof ConfigurationItemResponseBeta
+     */
+    'identity'?: Identity1Beta;
+    /**
+     * Details of how work should be reassigned for an Identity
+     * @type {Array<ConfigurationDetailsResponseBeta>}
+     * @memberof ConfigurationItemResponseBeta
+     */
+    'configDetails'?: Array<ConfigurationDetailsResponseBeta>;
+}
+/**
+ * The response body of a Reassignment Configuration for a single identity
+ * @export
+ * @interface ConfigurationResponseBeta
+ */
+export interface ConfigurationResponseBeta {
+    /**
+     * 
+     * @type {Identity1Beta}
+     * @memberof ConfigurationResponseBeta
+     */
+    'identity'?: Identity1Beta;
+    /**
+     * Details of how work should be reassigned for an Identity
+     * @type {Array<ConfigurationDetailsResponseBeta>}
+     * @memberof ConfigurationResponseBeta
+     */
+    'configDetails'?: Array<ConfigurationDetailsResponseBeta>;
+}
+/**
  * 
  * @export
  * @interface ConflictingAccessCriteriaBeta
@@ -6078,6 +6261,25 @@ export interface ErrorResponseDtoBeta {
      * @memberof ErrorResponseDtoBeta
      */
     'causes'?: Array<ErrorMessageDtoBeta>;
+}
+/**
+ * The response body for Evaluate Reassignment Configuration
+ * @export
+ * @interface EvaluateResponseBeta
+ */
+export interface EvaluateResponseBeta {
+    /**
+     * The Identity ID which should be the recipient of any work items sent to a specific identity & work type
+     * @type {string}
+     * @memberof EvaluateResponseBeta
+     */
+    'reassignToId'?: string;
+    /**
+     * List of Reassignments found by looking up the next `TargetIdentity` in a ReassignmentConfiguration
+     * @type {Array<LookupStepBeta>}
+     * @memberof EvaluateResponseBeta
+     */
+    'lookupTrail'?: Array<LookupStepBeta>;
 }
 /**
  * 
@@ -7651,6 +7853,25 @@ export interface IdentitiesAccountsBulkRequestBeta {
      * @memberof IdentitiesAccountsBulkRequestBeta
      */
     'identityIds'?: Array<string>;
+}
+/**
+ * The definition of an Identity according to the Reassignment Configuration service
+ * @export
+ * @interface Identity1Beta
+ */
+export interface Identity1Beta {
+    /**
+     * The ID of the object
+     * @type {string}
+     * @memberof Identity1Beta
+     */
+    'id'?: string;
+    /**
+     * Human-readable display name of the object
+     * @type {string}
+     * @memberof Identity1Beta
+     */
+    'name'?: string;
 }
 /**
  * Defines all the identity attribute mapping configurations. This defines how to generate or collect data for each identity attributes in identity refresh process.
@@ -9420,6 +9641,31 @@ export interface LocalizedMessageBeta {
      * @memberof LocalizedMessageBeta
      */
     'message': string;
+}
+/**
+ * The definition of an Identity according to the Reassignment Configuration service
+ * @export
+ * @interface LookupStepBeta
+ */
+export interface LookupStepBeta {
+    /**
+     * The ID of the Identity who work is reassigned to
+     * @type {string}
+     * @memberof LookupStepBeta
+     */
+    'reassignedToId'?: string;
+    /**
+     * The ID of the Identity who work is reassigned from
+     * @type {string}
+     * @memberof LookupStepBeta
+     */
+    'reassignedFromId'?: string;
+    /**
+     * 
+     * @type {ReassignmentTypeEnumBeta}
+     * @memberof LookupStepBeta
+     */
+    'reassignmentType'?: ReassignmentTypeEnumBeta;
 }
 /**
  * MAIL FROM attributes for a domain / identity
@@ -13049,6 +13295,22 @@ export type ReassignmentTypeBeta = typeof ReassignmentTypeBeta[keyof typeof Reas
 
 
 /**
+ * Enum list containing types of Reassignment that can be found in the evaluate response.
+ * @export
+ * @enum {string}
+ */
+
+export const ReassignmentTypeEnumBeta = {
+    ManualReassignment: 'MANUAL_REASSIGNMENT,',
+    AutomaticReassignment: 'AUTOMATIC_REASSIGNMENT,',
+    AutoEscalation: 'AUTO_ESCALATION,',
+    SelfReviewDelegation: 'SELF_REVIEW_DELEGATION'
+} as const;
+
+export type ReassignmentTypeEnumBeta = typeof ReassignmentTypeEnumBeta[keyof typeof ReassignmentTypeEnumBeta];
+
+
+/**
  * 
  * @export
  * @interface RecommendationConfigDtoBeta
@@ -13549,13 +13811,13 @@ export interface RequestabilityForRoleBeta {
      * @type {boolean}
      * @memberof RequestabilityForRoleBeta
      */
-    'commentsRequired'?: boolean;
+    'commentsRequired'?: boolean | null;
     /**
      * Whether an approver must provide comments when denying the request
      * @type {boolean}
      * @memberof RequestabilityForRoleBeta
      */
-    'denialCommentsRequired'?: boolean;
+    'denialCommentsRequired'?: boolean | null;
     /**
      * List describing the steps in approving the request
      * @type {Array<ApprovalSchemeForRoleBeta>}
@@ -14106,6 +14368,18 @@ export type ReviewerBetaTypeEnum = typeof ReviewerBetaTypeEnum[keyof typeof Revi
  */
 export interface RevocabilityBeta {
     /**
+     * Whether the requester of the containing object must provide comments justifying the request
+     * @type {boolean}
+     * @memberof RevocabilityBeta
+     */
+    'commentsRequired'?: boolean | null;
+    /**
+     * Whether an approver must provide comments when denying the request
+     * @type {boolean}
+     * @memberof RevocabilityBeta
+     */
+    'denialCommentsRequired'?: boolean | null;
+    /**
      * List describing the steps in approving the revocation request
      * @type {Array<AccessProfileApprovalSchemeBeta>}
      * @memberof RevocabilityBeta
@@ -14187,13 +14461,13 @@ export interface RoleBeta {
      */
     'legacyMembershipInfo'?: { [key: string]: any; } | null;
     /**
-     * Whether the Role is enabled or not. This field is false by default.
+     * Whether the Role is enabled or not.
      * @type {boolean}
      * @memberof RoleBeta
      */
     'enabled'?: boolean;
     /**
-     * Whether the Role can be the target of Access Requests. This field is false by default.
+     * Whether the Role can be the target of access requests.
      * @type {boolean}
      * @memberof RoleBeta
      */
@@ -18722,6 +18996,51 @@ export const TemplateDtoDefaultBetaMediumEnum = {
 export type TemplateDtoDefaultBetaMediumEnum = typeof TemplateDtoDefaultBetaMediumEnum[keyof typeof TemplateDtoDefaultBetaMediumEnum];
 
 /**
+ * Details of any tenant-wide Reassignment Configurations (eg. enabled/disabled)
+ * @export
+ * @interface TenantConfigurationDetailsBeta
+ */
+export interface TenantConfigurationDetailsBeta {
+    /**
+     * Flag to determine if Reassignment Configuration is enabled or disabled for a tenant.  When this flag is set to true, Reassignment Configuration is disabled.
+     * @type {boolean}
+     * @memberof TenantConfigurationDetailsBeta
+     */
+    'disabled'?: boolean | null;
+}
+/**
+ * Tenant-wide Reassignment Configuration settings
+ * @export
+ * @interface TenantConfigurationRequestBeta
+ */
+export interface TenantConfigurationRequestBeta {
+    /**
+     * 
+     * @type {TenantConfigurationDetailsBeta}
+     * @memberof TenantConfigurationRequestBeta
+     */
+    'configDetails'?: TenantConfigurationDetailsBeta;
+}
+/**
+ * Tenant-wide Reassignment Configuration settings
+ * @export
+ * @interface TenantConfigurationResponseBeta
+ */
+export interface TenantConfigurationResponseBeta {
+    /**
+     * 
+     * @type {AuditDetailsBeta}
+     * @memberof TenantConfigurationResponseBeta
+     */
+    'auditDetails'?: AuditDetailsBeta;
+    /**
+     * 
+     * @type {TenantConfigurationDetailsBeta}
+     * @memberof TenantConfigurationResponseBeta
+     */
+    'configDetails'?: TenantConfigurationDetailsBeta;
+}
+/**
  * 
  * @export
  * @interface TestExternalExecuteWorkflow200ResponseBeta
@@ -22311,6 +22630,21 @@ export interface WorkItemsSummaryBeta {
      */
     'total'?: number;
 }
+/**
+ * Enum list of valid work types that can be selected for a Reassignment Configuration
+ * @export
+ * @enum {string}
+ */
+
+export const WorkTypeEnumBeta = {
+    AccessRequests: 'accessRequests',
+    Certifications: 'certifications',
+    ManualTasks: 'manualTasks'
+} as const;
+
+export type WorkTypeEnumBeta = typeof WorkTypeEnumBeta[keyof typeof WorkTypeEnumBeta];
+
+
 /**
  * 
  * @export
@@ -27270,6 +27604,7 @@ export const CertificationCampaignsBetaApiAxiosParamCreator = function (configur
          * @summary Create a campaign
          * @param {CampaignBeta} campaignBeta 
          * @param {*} [axiosOptions] Override http request option.
+         * @deprecated
          * @throws {RequiredError}
          */
         createCampaign: async (campaignBeta: CampaignBeta, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
@@ -27596,6 +27931,7 @@ export const CertificationCampaignsBetaApiAxiosParamCreator = function (configur
          * @summary Get a campaign
          * @param {string} id The ID of the campaign to be retrieved
          * @param {*} [axiosOptions] Override http request option.
+         * @deprecated
          * @throws {RequiredError}
          */
         getCampaign: async (id: string, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
@@ -28221,6 +28557,7 @@ export const CertificationCampaignsBetaApiFp = function(configuration?: Configur
          * @summary Create a campaign
          * @param {CampaignBeta} campaignBeta 
          * @param {*} [axiosOptions] Override http request option.
+         * @deprecated
          * @throws {RequiredError}
          */
         async createCampaign(campaignBeta: CampaignBeta, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<CampaignBeta>> {
@@ -28303,6 +28640,7 @@ export const CertificationCampaignsBetaApiFp = function(configuration?: Configur
          * @summary Get a campaign
          * @param {string} id The ID of the campaign to be retrieved
          * @param {*} [axiosOptions] Override http request option.
+         * @deprecated
          * @throws {RequiredError}
          */
         async getCampaign(id: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SlimcampaignBeta>> {
@@ -28486,6 +28824,7 @@ export const CertificationCampaignsBetaApiFactory = function (configuration?: Co
          * @summary Create a campaign
          * @param {CampaignBeta} campaignBeta 
          * @param {*} [axiosOptions] Override http request option.
+         * @deprecated
          * @throws {RequiredError}
          */
         createCampaign(campaignBeta: CampaignBeta, axiosOptions?: any): AxiosPromise<CampaignBeta> {
@@ -28561,6 +28900,7 @@ export const CertificationCampaignsBetaApiFactory = function (configuration?: Co
          * @summary Get a campaign
          * @param {string} id The ID of the campaign to be retrieved
          * @param {*} [axiosOptions] Override http request option.
+         * @deprecated
          * @throws {RequiredError}
          */
         getCampaign(id: string, axiosOptions?: any): AxiosPromise<SlimcampaignBeta> {
@@ -29139,6 +29479,7 @@ export class CertificationCampaignsBetaApi extends BaseAPI {
      * @summary Create a campaign
      * @param {CertificationCampaignsBetaApiCreateCampaignRequest} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
+     * @deprecated
      * @throws {RequiredError}
      * @memberof CertificationCampaignsBetaApi
      */
@@ -29223,6 +29564,7 @@ export class CertificationCampaignsBetaApi extends BaseAPI {
      * @summary Get a campaign
      * @param {CertificationCampaignsBetaApiGetCampaignRequest} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
+     * @deprecated
      * @throws {RequiredError}
      * @memberof CertificationCampaignsBetaApi
      */
@@ -63500,6 +63842,828 @@ export class WorkItemsBetaApi extends BaseAPI {
      */
     public submitAccountSelection(requestParameters: WorkItemsBetaApiSubmitAccountSelectionRequest, axiosOptions?: AxiosRequestConfig) {
         return WorkItemsBetaApiFp(this.configuration).submitAccountSelection(requestParameters.id, requestParameters.requestBody, axiosOptions).then((request) => request(this.axios, this.basePath));
+    }
+}
+
+
+/**
+ * WorkReassignmentBetaApi - axios parameter creator
+ * @export
+ */
+export const WorkReassignmentBetaApiAxiosParamCreator = function (configuration?: Configuration) {
+    return {
+        /**
+         * Creates a new Reassignment Configuration for the specified identity.
+         * @summary Create a Reassignment Configuration
+         * @param {ConfigurationItemRequestBeta} configurationItemRequestBeta 
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        createReassignmentConfiguration: async (configurationItemRequestBeta: ConfigurationItemRequestBeta, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'configurationItemRequestBeta' is not null or undefined
+            assertParamExists('createReassignmentConfiguration', 'configurationItemRequestBeta', configurationItemRequestBeta)
+            const localVarPath = `/reassignment-configurations`;
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'POST', ...baseOptions, ...axiosOptions};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication oauth2 required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "oauth2", [], configuration)
+
+            // authentication oauth2 required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "oauth2", [], configuration)
+
+
+    
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
+            localVarRequestOptions.data = serializeDataIfNeeded(configurationItemRequestBeta, localVarRequestOptions, configuration)
+
+            return {
+                url: toPathString(localVarUrlObj),
+                axiosOptions: localVarRequestOptions,
+            };
+        },
+        /**
+         * Deletes all Reassignment Configuration for the specified identity
+         * @summary Delete Reassignment Configuration
+         * @param {string} identityId unique identity id
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        deleteReassignmentConfiguration: async (identityId: string, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'identityId' is not null or undefined
+            assertParamExists('deleteReassignmentConfiguration', 'identityId', identityId)
+            const localVarPath = `/reassignment-configurations/{identityId}`
+                .replace(`{${"identityId"}}`, encodeURIComponent(String(identityId)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'DELETE', ...baseOptions, ...axiosOptions};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication oauth2 required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "oauth2", [], configuration)
+
+            // authentication oauth2 required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "oauth2", [], configuration)
+
+
+    
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                axiosOptions: localVarRequestOptions,
+            };
+        },
+        /**
+         * Evaluates the Reassignment Configuration for an `Identity` to determine if work items for the specified type should be reassigned. If a valid Reassignment Configuration is found for the identity & work type, then a lookup is initiated which recursively fetches the Reassignment Configuration for the next `TargetIdentity` until no more results are found or a max depth of 5. That lookup trail is provided in the response and the final reassigned identity in the lookup list is returned as the `reassignToId` property. If no Reassignment Configuration is found for the specified identity & config type then the requested Identity ID will be used as the `reassignToId` value and the lookupTrail node will be empty.
+         * @summary Evaluate Reassignment Configuration
+         * @param {string} identityId unique identity id
+         * @param {WorkTypeEnumBeta} configType Reassignment work type
+         * @param {Array<string>} [exclusionFilters] Exclusion filters that disable parts of the reassignment evaluation. Possible values are listed below: - &#x60;SELF_REVIEW_DELEGATION&#x60;: This will exclude delegations of self-review reassignments
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        getEvaluateReassignmentConfiguration: async (identityId: string, configType: WorkTypeEnumBeta, exclusionFilters?: Array<string>, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'identityId' is not null or undefined
+            assertParamExists('getEvaluateReassignmentConfiguration', 'identityId', identityId)
+            // verify required parameter 'configType' is not null or undefined
+            assertParamExists('getEvaluateReassignmentConfiguration', 'configType', configType)
+            const localVarPath = `/reassignment-configurations/{identityId}/evaluate/{configType}`
+                .replace(`{${"identityId"}}`, encodeURIComponent(String(identityId)))
+                .replace(`{${"configType"}}`, encodeURIComponent(String(configType)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...axiosOptions};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication oauth2 required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "oauth2", [], configuration)
+
+            // authentication oauth2 required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "oauth2", [], configuration)
+
+            if (exclusionFilters) {
+                localVarQueryParameter['exclusionFilters'] = exclusionFilters.join(COLLECTION_FORMATS.csv);
+            }
+
+
+    
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                axiosOptions: localVarRequestOptions,
+            };
+        },
+        /**
+         * Gets a collection of types which are available in the Reassignment Configuration UI.
+         * @summary List Reassignment Config Types
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        getReassignmentConfigTypes: async (axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            const localVarPath = `/reassignment-configurations/types`;
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...axiosOptions};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication oauth2 required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "oauth2", [], configuration)
+
+            // authentication oauth2 required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "oauth2", [], configuration)
+
+
+    
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                axiosOptions: localVarRequestOptions,
+            };
+        },
+        /**
+         * Gets the Reassignment Configuration for an identity.
+         * @summary Get Reassignment Configuration
+         * @param {string} identityId unique identity id
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        getReassignmentConfiguration: async (identityId: string, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'identityId' is not null or undefined
+            assertParamExists('getReassignmentConfiguration', 'identityId', identityId)
+            const localVarPath = `/reassignment-configurations/{identityId}`
+                .replace(`{${"identityId"}}`, encodeURIComponent(String(identityId)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...axiosOptions};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication oauth2 required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "oauth2", [], configuration)
+
+            // authentication oauth2 required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "oauth2", [], configuration)
+
+
+    
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                axiosOptions: localVarRequestOptions,
+            };
+        },
+        /**
+         * Gets the global Reassignment Configuration settings for the requestor\'s tenant.
+         * @summary Get Tenant-wide Reassignment Configuration settings
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        getTenantConfigConfiguration: async (axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            const localVarPath = `/reassignment-configurations/tenant-config`;
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...axiosOptions};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication oauth2 required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "oauth2", [], configuration)
+
+            // authentication oauth2 required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "oauth2", [], configuration)
+
+
+    
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                axiosOptions: localVarRequestOptions,
+            };
+        },
+        /**
+         * Gets all Reassignment configuration for the current org.
+         * @summary List Reassignment Configurations
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        listReassignmentConfigurations: async (axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            const localVarPath = `/reassignment-configurations`;
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...axiosOptions};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication oauth2 required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "oauth2", [], configuration)
+
+            // authentication oauth2 required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "oauth2", [], configuration)
+
+
+    
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                axiosOptions: localVarRequestOptions,
+            };
+        },
+        /**
+         * Replaces existing Reassignment configuration for an identity with the newly provided configuration.
+         * @summary Update Reassignment Configuration
+         * @param {string} identityId unique identity id
+         * @param {ConfigurationItemRequestBeta} configurationItemRequestBeta 
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        putReassignmentConfig: async (identityId: string, configurationItemRequestBeta: ConfigurationItemRequestBeta, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'identityId' is not null or undefined
+            assertParamExists('putReassignmentConfig', 'identityId', identityId)
+            // verify required parameter 'configurationItemRequestBeta' is not null or undefined
+            assertParamExists('putReassignmentConfig', 'configurationItemRequestBeta', configurationItemRequestBeta)
+            const localVarPath = `/reassignment-configurations/{identityId}`
+                .replace(`{${"identityId"}}`, encodeURIComponent(String(identityId)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'PUT', ...baseOptions, ...axiosOptions};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication oauth2 required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "oauth2", [], configuration)
+
+            // authentication oauth2 required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "oauth2", [], configuration)
+
+
+    
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
+            localVarRequestOptions.data = serializeDataIfNeeded(configurationItemRequestBeta, localVarRequestOptions, configuration)
+
+            return {
+                url: toPathString(localVarUrlObj),
+                axiosOptions: localVarRequestOptions,
+            };
+        },
+        /**
+         * Replaces existing Tenant-wide Reassignment Configuration settings with the newly provided settings.
+         * @summary Update Tenant-wide Reassignment Configuration settings
+         * @param {TenantConfigurationRequestBeta} tenantConfigurationRequestBeta 
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        putTenantConfiguration: async (tenantConfigurationRequestBeta: TenantConfigurationRequestBeta, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'tenantConfigurationRequestBeta' is not null or undefined
+            assertParamExists('putTenantConfiguration', 'tenantConfigurationRequestBeta', tenantConfigurationRequestBeta)
+            const localVarPath = `/reassignment-configurations/tenant-config`;
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'PUT', ...baseOptions, ...axiosOptions};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication oauth2 required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "oauth2", [], configuration)
+
+            // authentication oauth2 required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "oauth2", [], configuration)
+
+
+    
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
+            localVarRequestOptions.data = serializeDataIfNeeded(tenantConfigurationRequestBeta, localVarRequestOptions, configuration)
+
+            return {
+                url: toPathString(localVarUrlObj),
+                axiosOptions: localVarRequestOptions,
+            };
+        },
+    }
+};
+
+/**
+ * WorkReassignmentBetaApi - functional programming interface
+ * @export
+ */
+export const WorkReassignmentBetaApiFp = function(configuration?: Configuration) {
+    const localVarAxiosParamCreator = WorkReassignmentBetaApiAxiosParamCreator(configuration)
+    return {
+        /**
+         * Creates a new Reassignment Configuration for the specified identity.
+         * @summary Create a Reassignment Configuration
+         * @param {ConfigurationItemRequestBeta} configurationItemRequestBeta 
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        async createReassignmentConfiguration(configurationItemRequestBeta: ConfigurationItemRequestBeta, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ConfigurationItemResponseBeta>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.createReassignmentConfiguration(configurationItemRequestBeta, axiosOptions);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * Deletes all Reassignment Configuration for the specified identity
+         * @summary Delete Reassignment Configuration
+         * @param {string} identityId unique identity id
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        async deleteReassignmentConfiguration(identityId: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.deleteReassignmentConfiguration(identityId, axiosOptions);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * Evaluates the Reassignment Configuration for an `Identity` to determine if work items for the specified type should be reassigned. If a valid Reassignment Configuration is found for the identity & work type, then a lookup is initiated which recursively fetches the Reassignment Configuration for the next `TargetIdentity` until no more results are found or a max depth of 5. That lookup trail is provided in the response and the final reassigned identity in the lookup list is returned as the `reassignToId` property. If no Reassignment Configuration is found for the specified identity & config type then the requested Identity ID will be used as the `reassignToId` value and the lookupTrail node will be empty.
+         * @summary Evaluate Reassignment Configuration
+         * @param {string} identityId unique identity id
+         * @param {WorkTypeEnumBeta} configType Reassignment work type
+         * @param {Array<string>} [exclusionFilters] Exclusion filters that disable parts of the reassignment evaluation. Possible values are listed below: - &#x60;SELF_REVIEW_DELEGATION&#x60;: This will exclude delegations of self-review reassignments
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        async getEvaluateReassignmentConfiguration(identityId: string, configType: WorkTypeEnumBeta, exclusionFilters?: Array<string>, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<EvaluateResponseBeta>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getEvaluateReassignmentConfiguration(identityId, configType, exclusionFilters, axiosOptions);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * Gets a collection of types which are available in the Reassignment Configuration UI.
+         * @summary List Reassignment Config Types
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        async getReassignmentConfigTypes(axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<ConfigTypeBeta>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getReassignmentConfigTypes(axiosOptions);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * Gets the Reassignment Configuration for an identity.
+         * @summary Get Reassignment Configuration
+         * @param {string} identityId unique identity id
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        async getReassignmentConfiguration(identityId: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ConfigurationResponseBeta>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getReassignmentConfiguration(identityId, axiosOptions);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * Gets the global Reassignment Configuration settings for the requestor\'s tenant.
+         * @summary Get Tenant-wide Reassignment Configuration settings
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        async getTenantConfigConfiguration(axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<TenantConfigurationResponseBeta>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getTenantConfigConfiguration(axiosOptions);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * Gets all Reassignment configuration for the current org.
+         * @summary List Reassignment Configurations
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        async listReassignmentConfigurations(axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<ConfigurationResponseBeta>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.listReassignmentConfigurations(axiosOptions);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * Replaces existing Reassignment configuration for an identity with the newly provided configuration.
+         * @summary Update Reassignment Configuration
+         * @param {string} identityId unique identity id
+         * @param {ConfigurationItemRequestBeta} configurationItemRequestBeta 
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        async putReassignmentConfig(identityId: string, configurationItemRequestBeta: ConfigurationItemRequestBeta, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ConfigurationItemResponseBeta>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.putReassignmentConfig(identityId, configurationItemRequestBeta, axiosOptions);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * Replaces existing Tenant-wide Reassignment Configuration settings with the newly provided settings.
+         * @summary Update Tenant-wide Reassignment Configuration settings
+         * @param {TenantConfigurationRequestBeta} tenantConfigurationRequestBeta 
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        async putTenantConfiguration(tenantConfigurationRequestBeta: TenantConfigurationRequestBeta, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<TenantConfigurationResponseBeta>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.putTenantConfiguration(tenantConfigurationRequestBeta, axiosOptions);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+    }
+};
+
+/**
+ * WorkReassignmentBetaApi - factory interface
+ * @export
+ */
+export const WorkReassignmentBetaApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
+    const localVarFp = WorkReassignmentBetaApiFp(configuration)
+    return {
+        /**
+         * Creates a new Reassignment Configuration for the specified identity.
+         * @summary Create a Reassignment Configuration
+         * @param {ConfigurationItemRequestBeta} configurationItemRequestBeta 
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        createReassignmentConfiguration(configurationItemRequestBeta: ConfigurationItemRequestBeta, axiosOptions?: any): AxiosPromise<ConfigurationItemResponseBeta> {
+            return localVarFp.createReassignmentConfiguration(configurationItemRequestBeta, axiosOptions).then((request) => request(axios, basePath));
+        },
+        /**
+         * Deletes all Reassignment Configuration for the specified identity
+         * @summary Delete Reassignment Configuration
+         * @param {string} identityId unique identity id
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        deleteReassignmentConfiguration(identityId: string, axiosOptions?: any): AxiosPromise<void> {
+            return localVarFp.deleteReassignmentConfiguration(identityId, axiosOptions).then((request) => request(axios, basePath));
+        },
+        /**
+         * Evaluates the Reassignment Configuration for an `Identity` to determine if work items for the specified type should be reassigned. If a valid Reassignment Configuration is found for the identity & work type, then a lookup is initiated which recursively fetches the Reassignment Configuration for the next `TargetIdentity` until no more results are found or a max depth of 5. That lookup trail is provided in the response and the final reassigned identity in the lookup list is returned as the `reassignToId` property. If no Reassignment Configuration is found for the specified identity & config type then the requested Identity ID will be used as the `reassignToId` value and the lookupTrail node will be empty.
+         * @summary Evaluate Reassignment Configuration
+         * @param {string} identityId unique identity id
+         * @param {WorkTypeEnumBeta} configType Reassignment work type
+         * @param {Array<string>} [exclusionFilters] Exclusion filters that disable parts of the reassignment evaluation. Possible values are listed below: - &#x60;SELF_REVIEW_DELEGATION&#x60;: This will exclude delegations of self-review reassignments
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        getEvaluateReassignmentConfiguration(identityId: string, configType: WorkTypeEnumBeta, exclusionFilters?: Array<string>, axiosOptions?: any): AxiosPromise<Array<EvaluateResponseBeta>> {
+            return localVarFp.getEvaluateReassignmentConfiguration(identityId, configType, exclusionFilters, axiosOptions).then((request) => request(axios, basePath));
+        },
+        /**
+         * Gets a collection of types which are available in the Reassignment Configuration UI.
+         * @summary List Reassignment Config Types
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        getReassignmentConfigTypes(axiosOptions?: any): AxiosPromise<Array<ConfigTypeBeta>> {
+            return localVarFp.getReassignmentConfigTypes(axiosOptions).then((request) => request(axios, basePath));
+        },
+        /**
+         * Gets the Reassignment Configuration for an identity.
+         * @summary Get Reassignment Configuration
+         * @param {string} identityId unique identity id
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        getReassignmentConfiguration(identityId: string, axiosOptions?: any): AxiosPromise<ConfigurationResponseBeta> {
+            return localVarFp.getReassignmentConfiguration(identityId, axiosOptions).then((request) => request(axios, basePath));
+        },
+        /**
+         * Gets the global Reassignment Configuration settings for the requestor\'s tenant.
+         * @summary Get Tenant-wide Reassignment Configuration settings
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        getTenantConfigConfiguration(axiosOptions?: any): AxiosPromise<TenantConfigurationResponseBeta> {
+            return localVarFp.getTenantConfigConfiguration(axiosOptions).then((request) => request(axios, basePath));
+        },
+        /**
+         * Gets all Reassignment configuration for the current org.
+         * @summary List Reassignment Configurations
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        listReassignmentConfigurations(axiosOptions?: any): AxiosPromise<Array<ConfigurationResponseBeta>> {
+            return localVarFp.listReassignmentConfigurations(axiosOptions).then((request) => request(axios, basePath));
+        },
+        /**
+         * Replaces existing Reassignment configuration for an identity with the newly provided configuration.
+         * @summary Update Reassignment Configuration
+         * @param {string} identityId unique identity id
+         * @param {ConfigurationItemRequestBeta} configurationItemRequestBeta 
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        putReassignmentConfig(identityId: string, configurationItemRequestBeta: ConfigurationItemRequestBeta, axiosOptions?: any): AxiosPromise<ConfigurationItemResponseBeta> {
+            return localVarFp.putReassignmentConfig(identityId, configurationItemRequestBeta, axiosOptions).then((request) => request(axios, basePath));
+        },
+        /**
+         * Replaces existing Tenant-wide Reassignment Configuration settings with the newly provided settings.
+         * @summary Update Tenant-wide Reassignment Configuration settings
+         * @param {TenantConfigurationRequestBeta} tenantConfigurationRequestBeta 
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        putTenantConfiguration(tenantConfigurationRequestBeta: TenantConfigurationRequestBeta, axiosOptions?: any): AxiosPromise<TenantConfigurationResponseBeta> {
+            return localVarFp.putTenantConfiguration(tenantConfigurationRequestBeta, axiosOptions).then((request) => request(axios, basePath));
+        },
+    };
+};
+
+/**
+ * Request parameters for createReassignmentConfiguration operation in WorkReassignmentBetaApi.
+ * @export
+ * @interface WorkReassignmentBetaApiCreateReassignmentConfigurationRequest
+ */
+export interface WorkReassignmentBetaApiCreateReassignmentConfigurationRequest {
+    /**
+     * 
+     * @type {ConfigurationItemRequestBeta}
+     * @memberof WorkReassignmentBetaApiCreateReassignmentConfiguration
+     */
+    readonly configurationItemRequestBeta: ConfigurationItemRequestBeta
+}
+
+/**
+ * Request parameters for deleteReassignmentConfiguration operation in WorkReassignmentBetaApi.
+ * @export
+ * @interface WorkReassignmentBetaApiDeleteReassignmentConfigurationRequest
+ */
+export interface WorkReassignmentBetaApiDeleteReassignmentConfigurationRequest {
+    /**
+     * unique identity id
+     * @type {string}
+     * @memberof WorkReassignmentBetaApiDeleteReassignmentConfiguration
+     */
+    readonly identityId: string
+}
+
+/**
+ * Request parameters for getEvaluateReassignmentConfiguration operation in WorkReassignmentBetaApi.
+ * @export
+ * @interface WorkReassignmentBetaApiGetEvaluateReassignmentConfigurationRequest
+ */
+export interface WorkReassignmentBetaApiGetEvaluateReassignmentConfigurationRequest {
+    /**
+     * unique identity id
+     * @type {string}
+     * @memberof WorkReassignmentBetaApiGetEvaluateReassignmentConfiguration
+     */
+    readonly identityId: string
+
+    /**
+     * Reassignment work type
+     * @type {WorkTypeEnumBeta}
+     * @memberof WorkReassignmentBetaApiGetEvaluateReassignmentConfiguration
+     */
+    readonly configType: WorkTypeEnumBeta
+
+    /**
+     * Exclusion filters that disable parts of the reassignment evaluation. Possible values are listed below: - &#x60;SELF_REVIEW_DELEGATION&#x60;: This will exclude delegations of self-review reassignments
+     * @type {Array<string>}
+     * @memberof WorkReassignmentBetaApiGetEvaluateReassignmentConfiguration
+     */
+    readonly exclusionFilters?: Array<string>
+}
+
+/**
+ * Request parameters for getReassignmentConfiguration operation in WorkReassignmentBetaApi.
+ * @export
+ * @interface WorkReassignmentBetaApiGetReassignmentConfigurationRequest
+ */
+export interface WorkReassignmentBetaApiGetReassignmentConfigurationRequest {
+    /**
+     * unique identity id
+     * @type {string}
+     * @memberof WorkReassignmentBetaApiGetReassignmentConfiguration
+     */
+    readonly identityId: string
+}
+
+/**
+ * Request parameters for putReassignmentConfig operation in WorkReassignmentBetaApi.
+ * @export
+ * @interface WorkReassignmentBetaApiPutReassignmentConfigRequest
+ */
+export interface WorkReassignmentBetaApiPutReassignmentConfigRequest {
+    /**
+     * unique identity id
+     * @type {string}
+     * @memberof WorkReassignmentBetaApiPutReassignmentConfig
+     */
+    readonly identityId: string
+
+    /**
+     * 
+     * @type {ConfigurationItemRequestBeta}
+     * @memberof WorkReassignmentBetaApiPutReassignmentConfig
+     */
+    readonly configurationItemRequestBeta: ConfigurationItemRequestBeta
+}
+
+/**
+ * Request parameters for putTenantConfiguration operation in WorkReassignmentBetaApi.
+ * @export
+ * @interface WorkReassignmentBetaApiPutTenantConfigurationRequest
+ */
+export interface WorkReassignmentBetaApiPutTenantConfigurationRequest {
+    /**
+     * 
+     * @type {TenantConfigurationRequestBeta}
+     * @memberof WorkReassignmentBetaApiPutTenantConfiguration
+     */
+    readonly tenantConfigurationRequestBeta: TenantConfigurationRequestBeta
+}
+
+/**
+ * WorkReassignmentBetaApi - object-oriented interface
+ * @export
+ * @class WorkReassignmentBetaApi
+ * @extends {BaseAPI}
+ */
+export class WorkReassignmentBetaApi extends BaseAPI {
+    /**
+     * Creates a new Reassignment Configuration for the specified identity.
+     * @summary Create a Reassignment Configuration
+     * @param {WorkReassignmentBetaApiCreateReassignmentConfigurationRequest} requestParameters Request parameters.
+     * @param {*} [axiosOptions] Override http request option.
+     * @throws {RequiredError}
+     * @memberof WorkReassignmentBetaApi
+     */
+    public createReassignmentConfiguration(requestParameters: WorkReassignmentBetaApiCreateReassignmentConfigurationRequest, axiosOptions?: AxiosRequestConfig) {
+        return WorkReassignmentBetaApiFp(this.configuration).createReassignmentConfiguration(requestParameters.configurationItemRequestBeta, axiosOptions).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Deletes all Reassignment Configuration for the specified identity
+     * @summary Delete Reassignment Configuration
+     * @param {WorkReassignmentBetaApiDeleteReassignmentConfigurationRequest} requestParameters Request parameters.
+     * @param {*} [axiosOptions] Override http request option.
+     * @throws {RequiredError}
+     * @memberof WorkReassignmentBetaApi
+     */
+    public deleteReassignmentConfiguration(requestParameters: WorkReassignmentBetaApiDeleteReassignmentConfigurationRequest, axiosOptions?: AxiosRequestConfig) {
+        return WorkReassignmentBetaApiFp(this.configuration).deleteReassignmentConfiguration(requestParameters.identityId, axiosOptions).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Evaluates the Reassignment Configuration for an `Identity` to determine if work items for the specified type should be reassigned. If a valid Reassignment Configuration is found for the identity & work type, then a lookup is initiated which recursively fetches the Reassignment Configuration for the next `TargetIdentity` until no more results are found or a max depth of 5. That lookup trail is provided in the response and the final reassigned identity in the lookup list is returned as the `reassignToId` property. If no Reassignment Configuration is found for the specified identity & config type then the requested Identity ID will be used as the `reassignToId` value and the lookupTrail node will be empty.
+     * @summary Evaluate Reassignment Configuration
+     * @param {WorkReassignmentBetaApiGetEvaluateReassignmentConfigurationRequest} requestParameters Request parameters.
+     * @param {*} [axiosOptions] Override http request option.
+     * @throws {RequiredError}
+     * @memberof WorkReassignmentBetaApi
+     */
+    public getEvaluateReassignmentConfiguration(requestParameters: WorkReassignmentBetaApiGetEvaluateReassignmentConfigurationRequest, axiosOptions?: AxiosRequestConfig) {
+        return WorkReassignmentBetaApiFp(this.configuration).getEvaluateReassignmentConfiguration(requestParameters.identityId, requestParameters.configType, requestParameters.exclusionFilters, axiosOptions).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Gets a collection of types which are available in the Reassignment Configuration UI.
+     * @summary List Reassignment Config Types
+     * @param {*} [axiosOptions] Override http request option.
+     * @throws {RequiredError}
+     * @memberof WorkReassignmentBetaApi
+     */
+    public getReassignmentConfigTypes(axiosOptions?: AxiosRequestConfig) {
+        return WorkReassignmentBetaApiFp(this.configuration).getReassignmentConfigTypes(axiosOptions).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Gets the Reassignment Configuration for an identity.
+     * @summary Get Reassignment Configuration
+     * @param {WorkReassignmentBetaApiGetReassignmentConfigurationRequest} requestParameters Request parameters.
+     * @param {*} [axiosOptions] Override http request option.
+     * @throws {RequiredError}
+     * @memberof WorkReassignmentBetaApi
+     */
+    public getReassignmentConfiguration(requestParameters: WorkReassignmentBetaApiGetReassignmentConfigurationRequest, axiosOptions?: AxiosRequestConfig) {
+        return WorkReassignmentBetaApiFp(this.configuration).getReassignmentConfiguration(requestParameters.identityId, axiosOptions).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Gets the global Reassignment Configuration settings for the requestor\'s tenant.
+     * @summary Get Tenant-wide Reassignment Configuration settings
+     * @param {*} [axiosOptions] Override http request option.
+     * @throws {RequiredError}
+     * @memberof WorkReassignmentBetaApi
+     */
+    public getTenantConfigConfiguration(axiosOptions?: AxiosRequestConfig) {
+        return WorkReassignmentBetaApiFp(this.configuration).getTenantConfigConfiguration(axiosOptions).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Gets all Reassignment configuration for the current org.
+     * @summary List Reassignment Configurations
+     * @param {*} [axiosOptions] Override http request option.
+     * @throws {RequiredError}
+     * @memberof WorkReassignmentBetaApi
+     */
+    public listReassignmentConfigurations(axiosOptions?: AxiosRequestConfig) {
+        return WorkReassignmentBetaApiFp(this.configuration).listReassignmentConfigurations(axiosOptions).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Replaces existing Reassignment configuration for an identity with the newly provided configuration.
+     * @summary Update Reassignment Configuration
+     * @param {WorkReassignmentBetaApiPutReassignmentConfigRequest} requestParameters Request parameters.
+     * @param {*} [axiosOptions] Override http request option.
+     * @throws {RequiredError}
+     * @memberof WorkReassignmentBetaApi
+     */
+    public putReassignmentConfig(requestParameters: WorkReassignmentBetaApiPutReassignmentConfigRequest, axiosOptions?: AxiosRequestConfig) {
+        return WorkReassignmentBetaApiFp(this.configuration).putReassignmentConfig(requestParameters.identityId, requestParameters.configurationItemRequestBeta, axiosOptions).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Replaces existing Tenant-wide Reassignment Configuration settings with the newly provided settings.
+     * @summary Update Tenant-wide Reassignment Configuration settings
+     * @param {WorkReassignmentBetaApiPutTenantConfigurationRequest} requestParameters Request parameters.
+     * @param {*} [axiosOptions] Override http request option.
+     * @throws {RequiredError}
+     * @memberof WorkReassignmentBetaApi
+     */
+    public putTenantConfiguration(requestParameters: WorkReassignmentBetaApiPutTenantConfigurationRequest, axiosOptions?: AxiosRequestConfig) {
+        return WorkReassignmentBetaApiFp(this.configuration).putTenantConfiguration(requestParameters.tenantConfigurationRequestBeta, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 }
 
