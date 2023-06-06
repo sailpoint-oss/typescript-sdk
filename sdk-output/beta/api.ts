@@ -6463,20 +6463,34 @@ export interface ExportOptionsBeta {
 }
 
 export const ExportOptionsBetaExcludeTypesEnum = {
-    Source: 'SOURCE',
+    AccessProfile: 'ACCESS_PROFILE',
+    AuthOrg: 'AUTH_ORG',
+    FormDefinition: 'FORM_DEFINITION',
+    GovernanceGroup: 'GOVERNANCE_GROUP',
+    IdentityProfile: 'IDENTITY_PROFILE',
+    NotificationTemplate: 'NOTIFICATION_TEMPLATE',
+    PublicIdentitiesConfig: 'PUBLIC_IDENTITIES_CONFIG',
+    Role: 'ROLE',
     Rule: 'RULE',
-    TriggerSubscription: 'TRIGGER_SUBSCRIPTION',
+    Source: 'SOURCE',
     Transform: 'TRANSFORM',
-    IdentityProfile: 'IDENTITY_PROFILE'
+    TriggerSubscription: 'TRIGGER_SUBSCRIPTION'
 } as const;
 
 export type ExportOptionsBetaExcludeTypesEnum = typeof ExportOptionsBetaExcludeTypesEnum[keyof typeof ExportOptionsBetaExcludeTypesEnum];
 export const ExportOptionsBetaIncludeTypesEnum = {
-    Source: 'SOURCE',
+    AccessProfile: 'ACCESS_PROFILE',
+    AuthOrg: 'AUTH_ORG',
+    FormDefinition: 'FORM_DEFINITION',
+    GovernanceGroup: 'GOVERNANCE_GROUP',
+    IdentityProfile: 'IDENTITY_PROFILE',
+    NotificationTemplate: 'NOTIFICATION_TEMPLATE',
+    PublicIdentitiesConfig: 'PUBLIC_IDENTITIES_CONFIG',
+    Role: 'ROLE',
     Rule: 'RULE',
-    TriggerSubscription: 'TRIGGER_SUBSCRIPTION',
+    Source: 'SOURCE',
     Transform: 'TRANSFORM',
-    IdentityProfile: 'IDENTITY_PROFILE'
+    TriggerSubscription: 'TRIGGER_SUBSCRIPTION'
 } as const;
 
 export type ExportOptionsBetaIncludeTypesEnum = typeof ExportOptionsBetaIncludeTypesEnum[keyof typeof ExportOptionsBetaIncludeTypesEnum];
@@ -6514,20 +6528,34 @@ export interface ExportPayloadBeta {
 }
 
 export const ExportPayloadBetaExcludeTypesEnum = {
-    Source: 'SOURCE',
+    AccessProfile: 'ACCESS_PROFILE',
+    AuthOrg: 'AUTH_ORG',
+    FormDefinition: 'FORM_DEFINITION',
+    GovernanceGroup: 'GOVERNANCE_GROUP',
+    IdentityProfile: 'IDENTITY_PROFILE',
+    NotificationTemplate: 'NOTIFICATION_TEMPLATE',
+    PublicIdentitiesConfig: 'PUBLIC_IDENTITIES_CONFIG',
+    Role: 'ROLE',
     Rule: 'RULE',
-    TriggerSubscription: 'TRIGGER_SUBSCRIPTION',
+    Source: 'SOURCE',
     Transform: 'TRANSFORM',
-    IdentityProfile: 'IDENTITY_PROFILE'
+    TriggerSubscription: 'TRIGGER_SUBSCRIPTION'
 } as const;
 
 export type ExportPayloadBetaExcludeTypesEnum = typeof ExportPayloadBetaExcludeTypesEnum[keyof typeof ExportPayloadBetaExcludeTypesEnum];
 export const ExportPayloadBetaIncludeTypesEnum = {
-    Source: 'SOURCE',
+    AccessProfile: 'ACCESS_PROFILE',
+    AuthOrg: 'AUTH_ORG',
+    FormDefinition: 'FORM_DEFINITION',
+    GovernanceGroup: 'GOVERNANCE_GROUP',
+    IdentityProfile: 'IDENTITY_PROFILE',
+    NotificationTemplate: 'NOTIFICATION_TEMPLATE',
+    PublicIdentitiesConfig: 'PUBLIC_IDENTITIES_CONFIG',
+    Role: 'ROLE',
     Rule: 'RULE',
-    TriggerSubscription: 'TRIGGER_SUBSCRIPTION',
+    Source: 'SOURCE',
     Transform: 'TRANSFORM',
-    IdentityProfile: 'IDENTITY_PROFILE'
+    TriggerSubscription: 'TRIGGER_SUBSCRIPTION'
 } as const;
 
 export type ExportPayloadBetaIncludeTypesEnum = typeof ExportPayloadBetaIncludeTypesEnum[keyof typeof ExportPayloadBetaIncludeTypesEnum];
@@ -55709,7 +55737,7 @@ export const ServiceDeskIntegrationBetaApiAxiosParamCreator = function (configur
          * Update an existing ServiceDeskIntegration by ID with a PATCH request.
          * @summary Service Desk Integration Update PATCH
          * @param {string} id ID of the Service Desk integration to update
-         * @param {JsonPatchBeta} jsonPatchBeta A list of SDIM update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.  PATCH can only be applied to the following fields:   *   \&quot;beforeProvisioningRule\&quot;  A 403 Forbidden Error indicates that you attempted to PATCH a field that is not allowed. 
+         * @param {JsonPatchBeta} jsonPatchBeta A list of SDIM update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.  PATCH can only be applied to the following fields:   * &#x60;beforeProvisioningRule&#x60;   * &#x60;description&#x60;   * &#x60;ownerRef&#x60;  A 403 Forbidden Error indicates that you attempted to PATCH a field that is not allowed. 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
@@ -55761,11 +55789,11 @@ export const ServiceDeskIntegrationBetaApiAxiosParamCreator = function (configur
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        updateServiceDeskIntegration: async (id: string, serviceDeskIntegrationDtoBeta: ServiceDeskIntegrationDtoBeta, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        putServiceDeskIntegration: async (id: string, serviceDeskIntegrationDtoBeta: ServiceDeskIntegrationDtoBeta, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'id' is not null or undefined
-            assertParamExists('updateServiceDeskIntegration', 'id', id)
+            assertParamExists('putServiceDeskIntegration', 'id', id)
             // verify required parameter 'serviceDeskIntegrationDtoBeta' is not null or undefined
-            assertParamExists('updateServiceDeskIntegration', 'serviceDeskIntegrationDtoBeta', serviceDeskIntegrationDtoBeta)
+            assertParamExists('putServiceDeskIntegration', 'serviceDeskIntegrationDtoBeta', serviceDeskIntegrationDtoBeta)
             const localVarPath = `/service-desk-integrations/{id}`
                 .replace(`{${"id"}}`, encodeURIComponent(String(id)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
@@ -55938,7 +55966,7 @@ export const ServiceDeskIntegrationBetaApiFp = function(configuration?: Configur
          * Update an existing ServiceDeskIntegration by ID with a PATCH request.
          * @summary Service Desk Integration Update PATCH
          * @param {string} id ID of the Service Desk integration to update
-         * @param {JsonPatchBeta} jsonPatchBeta A list of SDIM update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.  PATCH can only be applied to the following fields:   *   \&quot;beforeProvisioningRule\&quot;  A 403 Forbidden Error indicates that you attempted to PATCH a field that is not allowed. 
+         * @param {JsonPatchBeta} jsonPatchBeta A list of SDIM update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.  PATCH can only be applied to the following fields:   * &#x60;beforeProvisioningRule&#x60;   * &#x60;description&#x60;   * &#x60;ownerRef&#x60;  A 403 Forbidden Error indicates that you attempted to PATCH a field that is not allowed. 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
@@ -55954,8 +55982,8 @@ export const ServiceDeskIntegrationBetaApiFp = function(configuration?: Configur
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async updateServiceDeskIntegration(id: string, serviceDeskIntegrationDtoBeta: ServiceDeskIntegrationDtoBeta, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ServiceDeskIntegrationDtoBeta>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.updateServiceDeskIntegration(id, serviceDeskIntegrationDtoBeta, axiosOptions);
+        async putServiceDeskIntegration(id: string, serviceDeskIntegrationDtoBeta: ServiceDeskIntegrationDtoBeta, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ServiceDeskIntegrationDtoBeta>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.putServiceDeskIntegration(id, serviceDeskIntegrationDtoBeta, axiosOptions);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
@@ -56055,7 +56083,7 @@ export const ServiceDeskIntegrationBetaApiFactory = function (configuration?: Co
          * Update an existing ServiceDeskIntegration by ID with a PATCH request.
          * @summary Service Desk Integration Update PATCH
          * @param {string} id ID of the Service Desk integration to update
-         * @param {JsonPatchBeta} jsonPatchBeta A list of SDIM update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.  PATCH can only be applied to the following fields:   *   \&quot;beforeProvisioningRule\&quot;  A 403 Forbidden Error indicates that you attempted to PATCH a field that is not allowed. 
+         * @param {JsonPatchBeta} jsonPatchBeta A list of SDIM update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.  PATCH can only be applied to the following fields:   * &#x60;beforeProvisioningRule&#x60;   * &#x60;description&#x60;   * &#x60;ownerRef&#x60;  A 403 Forbidden Error indicates that you attempted to PATCH a field that is not allowed. 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
@@ -56070,8 +56098,8 @@ export const ServiceDeskIntegrationBetaApiFactory = function (configuration?: Co
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        updateServiceDeskIntegration(id: string, serviceDeskIntegrationDtoBeta: ServiceDeskIntegrationDtoBeta, axiosOptions?: any): AxiosPromise<ServiceDeskIntegrationDtoBeta> {
-            return localVarFp.updateServiceDeskIntegration(id, serviceDeskIntegrationDtoBeta, axiosOptions).then((request) => request(axios, basePath));
+        putServiceDeskIntegration(id: string, serviceDeskIntegrationDtoBeta: ServiceDeskIntegrationDtoBeta, axiosOptions?: any): AxiosPromise<ServiceDeskIntegrationDtoBeta> {
+            return localVarFp.putServiceDeskIntegration(id, serviceDeskIntegrationDtoBeta, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * Update the time check configuration of queued SDIM tickets.  A token with Org Admin or Service Desk Admin authority is required to access this endpoint.
@@ -56198,7 +56226,7 @@ export interface ServiceDeskIntegrationBetaApiPatchServiceDeskIntegrationRequest
     readonly id: string
 
     /**
-     * A list of SDIM update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.  PATCH can only be applied to the following fields:   *   \&quot;beforeProvisioningRule\&quot;  A 403 Forbidden Error indicates that you attempted to PATCH a field that is not allowed. 
+     * A list of SDIM update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.  PATCH can only be applied to the following fields:   * &#x60;beforeProvisioningRule&#x60;   * &#x60;description&#x60;   * &#x60;ownerRef&#x60;  A 403 Forbidden Error indicates that you attempted to PATCH a field that is not allowed. 
      * @type {JsonPatchBeta}
      * @memberof ServiceDeskIntegrationBetaApiPatchServiceDeskIntegration
      */
@@ -56206,22 +56234,22 @@ export interface ServiceDeskIntegrationBetaApiPatchServiceDeskIntegrationRequest
 }
 
 /**
- * Request parameters for updateServiceDeskIntegration operation in ServiceDeskIntegrationBetaApi.
+ * Request parameters for putServiceDeskIntegration operation in ServiceDeskIntegrationBetaApi.
  * @export
- * @interface ServiceDeskIntegrationBetaApiUpdateServiceDeskIntegrationRequest
+ * @interface ServiceDeskIntegrationBetaApiPutServiceDeskIntegrationRequest
  */
-export interface ServiceDeskIntegrationBetaApiUpdateServiceDeskIntegrationRequest {
+export interface ServiceDeskIntegrationBetaApiPutServiceDeskIntegrationRequest {
     /**
      * ID of the Service Desk integration to update
      * @type {string}
-     * @memberof ServiceDeskIntegrationBetaApiUpdateServiceDeskIntegration
+     * @memberof ServiceDeskIntegrationBetaApiPutServiceDeskIntegration
      */
     readonly id: string
 
     /**
      * The specifics of the integration to update
      * @type {ServiceDeskIntegrationDtoBeta}
-     * @memberof ServiceDeskIntegrationBetaApiUpdateServiceDeskIntegration
+     * @memberof ServiceDeskIntegrationBetaApiPutServiceDeskIntegration
      */
     readonly serviceDeskIntegrationDtoBeta: ServiceDeskIntegrationDtoBeta
 }
@@ -56344,13 +56372,13 @@ export class ServiceDeskIntegrationBetaApi extends BaseAPI {
     /**
      * Update an existing Service Desk integration by ID with updated value in JSON form as the request body.  A token with Org Admin or Service Desk Admin authority is required to access this endpoint.
      * @summary Update a Service Desk integration
-     * @param {ServiceDeskIntegrationBetaApiUpdateServiceDeskIntegrationRequest} requestParameters Request parameters.
+     * @param {ServiceDeskIntegrationBetaApiPutServiceDeskIntegrationRequest} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
      * @memberof ServiceDeskIntegrationBetaApi
      */
-    public updateServiceDeskIntegration(requestParameters: ServiceDeskIntegrationBetaApiUpdateServiceDeskIntegrationRequest, axiosOptions?: AxiosRequestConfig) {
-        return ServiceDeskIntegrationBetaApiFp(this.configuration).updateServiceDeskIntegration(requestParameters.id, requestParameters.serviceDeskIntegrationDtoBeta, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public putServiceDeskIntegration(requestParameters: ServiceDeskIntegrationBetaApiPutServiceDeskIntegrationRequest, axiosOptions?: AxiosRequestConfig) {
+        return ServiceDeskIntegrationBetaApiFp(this.configuration).putServiceDeskIntegration(requestParameters.id, requestParameters.serviceDeskIntegrationDtoBeta, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**

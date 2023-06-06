@@ -35576,7 +35576,7 @@ export const ServiceDeskIntegrationApiAxiosParamCreator = function (configuratio
          * Update an existing ServiceDeskIntegration by ID with a PATCH request.
          * @summary Service Desk Integration Update PATCH
          * @param {string} id ID of the Service Desk integration to update
-         * @param {JsonPatch} jsonPatch A list of SDIM update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.  PATCH can only be applied to the following fields:   *   \&quot;beforeProvisioningRule\&quot;  A 403 Forbidden Error indicates that you attempted to PATCH a field that is not allowed. 
+         * @param {JsonPatch} jsonPatch A list of SDIM update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.  PATCH can only be applied to the following fields:   * &#x60;beforeProvisioningRule&#x60;   * &#x60;description&#x60;   * &#x60;ownerRef&#x60;  A 403 Forbidden Error indicates that you attempted to PATCH a field that is not allowed. 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
@@ -35628,11 +35628,11 @@ export const ServiceDeskIntegrationApiAxiosParamCreator = function (configuratio
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        updateServiceDeskIntegration: async (id: string, serviceDeskIntegrationDto: ServiceDeskIntegrationDto, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        putServiceDeskIntegration: async (id: string, serviceDeskIntegrationDto: ServiceDeskIntegrationDto, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'id' is not null or undefined
-            assertParamExists('updateServiceDeskIntegration', 'id', id)
+            assertParamExists('putServiceDeskIntegration', 'id', id)
             // verify required parameter 'serviceDeskIntegrationDto' is not null or undefined
-            assertParamExists('updateServiceDeskIntegration', 'serviceDeskIntegrationDto', serviceDeskIntegrationDto)
+            assertParamExists('putServiceDeskIntegration', 'serviceDeskIntegrationDto', serviceDeskIntegrationDto)
             const localVarPath = `/service-desk-integrations/{id}`
                 .replace(`{${"id"}}`, encodeURIComponent(String(id)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
@@ -35805,7 +35805,7 @@ export const ServiceDeskIntegrationApiFp = function(configuration?: Configuratio
          * Update an existing ServiceDeskIntegration by ID with a PATCH request.
          * @summary Service Desk Integration Update PATCH
          * @param {string} id ID of the Service Desk integration to update
-         * @param {JsonPatch} jsonPatch A list of SDIM update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.  PATCH can only be applied to the following fields:   *   \&quot;beforeProvisioningRule\&quot;  A 403 Forbidden Error indicates that you attempted to PATCH a field that is not allowed. 
+         * @param {JsonPatch} jsonPatch A list of SDIM update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.  PATCH can only be applied to the following fields:   * &#x60;beforeProvisioningRule&#x60;   * &#x60;description&#x60;   * &#x60;ownerRef&#x60;  A 403 Forbidden Error indicates that you attempted to PATCH a field that is not allowed. 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
@@ -35821,8 +35821,8 @@ export const ServiceDeskIntegrationApiFp = function(configuration?: Configuratio
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async updateServiceDeskIntegration(id: string, serviceDeskIntegrationDto: ServiceDeskIntegrationDto, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ServiceDeskIntegrationDto>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.updateServiceDeskIntegration(id, serviceDeskIntegrationDto, axiosOptions);
+        async putServiceDeskIntegration(id: string, serviceDeskIntegrationDto: ServiceDeskIntegrationDto, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ServiceDeskIntegrationDto>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.putServiceDeskIntegration(id, serviceDeskIntegrationDto, axiosOptions);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
@@ -35922,7 +35922,7 @@ export const ServiceDeskIntegrationApiFactory = function (configuration?: Config
          * Update an existing ServiceDeskIntegration by ID with a PATCH request.
          * @summary Service Desk Integration Update PATCH
          * @param {string} id ID of the Service Desk integration to update
-         * @param {JsonPatch} jsonPatch A list of SDIM update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.  PATCH can only be applied to the following fields:   *   \&quot;beforeProvisioningRule\&quot;  A 403 Forbidden Error indicates that you attempted to PATCH a field that is not allowed. 
+         * @param {JsonPatch} jsonPatch A list of SDIM update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.  PATCH can only be applied to the following fields:   * &#x60;beforeProvisioningRule&#x60;   * &#x60;description&#x60;   * &#x60;ownerRef&#x60;  A 403 Forbidden Error indicates that you attempted to PATCH a field that is not allowed. 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
@@ -35937,8 +35937,8 @@ export const ServiceDeskIntegrationApiFactory = function (configuration?: Config
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        updateServiceDeskIntegration(id: string, serviceDeskIntegrationDto: ServiceDeskIntegrationDto, axiosOptions?: any): AxiosPromise<ServiceDeskIntegrationDto> {
-            return localVarFp.updateServiceDeskIntegration(id, serviceDeskIntegrationDto, axiosOptions).then((request) => request(axios, basePath));
+        putServiceDeskIntegration(id: string, serviceDeskIntegrationDto: ServiceDeskIntegrationDto, axiosOptions?: any): AxiosPromise<ServiceDeskIntegrationDto> {
+            return localVarFp.putServiceDeskIntegration(id, serviceDeskIntegrationDto, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * Update the time check configuration of queued SDIM tickets.  A token with Org Admin or Service Desk Admin authority is required to access this endpoint.
@@ -36065,7 +36065,7 @@ export interface ServiceDeskIntegrationApiPatchServiceDeskIntegrationRequest {
     readonly id: string
 
     /**
-     * A list of SDIM update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.  PATCH can only be applied to the following fields:   *   \&quot;beforeProvisioningRule\&quot;  A 403 Forbidden Error indicates that you attempted to PATCH a field that is not allowed. 
+     * A list of SDIM update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.  PATCH can only be applied to the following fields:   * &#x60;beforeProvisioningRule&#x60;   * &#x60;description&#x60;   * &#x60;ownerRef&#x60;  A 403 Forbidden Error indicates that you attempted to PATCH a field that is not allowed. 
      * @type {JsonPatch}
      * @memberof ServiceDeskIntegrationApiPatchServiceDeskIntegration
      */
@@ -36073,22 +36073,22 @@ export interface ServiceDeskIntegrationApiPatchServiceDeskIntegrationRequest {
 }
 
 /**
- * Request parameters for updateServiceDeskIntegration operation in ServiceDeskIntegrationApi.
+ * Request parameters for putServiceDeskIntegration operation in ServiceDeskIntegrationApi.
  * @export
- * @interface ServiceDeskIntegrationApiUpdateServiceDeskIntegrationRequest
+ * @interface ServiceDeskIntegrationApiPutServiceDeskIntegrationRequest
  */
-export interface ServiceDeskIntegrationApiUpdateServiceDeskIntegrationRequest {
+export interface ServiceDeskIntegrationApiPutServiceDeskIntegrationRequest {
     /**
      * ID of the Service Desk integration to update
      * @type {string}
-     * @memberof ServiceDeskIntegrationApiUpdateServiceDeskIntegration
+     * @memberof ServiceDeskIntegrationApiPutServiceDeskIntegration
      */
     readonly id: string
 
     /**
      * The specifics of the integration to update
      * @type {ServiceDeskIntegrationDto}
-     * @memberof ServiceDeskIntegrationApiUpdateServiceDeskIntegration
+     * @memberof ServiceDeskIntegrationApiPutServiceDeskIntegration
      */
     readonly serviceDeskIntegrationDto: ServiceDeskIntegrationDto
 }
@@ -36211,13 +36211,13 @@ export class ServiceDeskIntegrationApi extends BaseAPI {
     /**
      * Update an existing Service Desk integration by ID with updated value in JSON form as the request body.  A token with Org Admin or Service Desk Admin authority is required to access this endpoint.
      * @summary Update a Service Desk integration
-     * @param {ServiceDeskIntegrationApiUpdateServiceDeskIntegrationRequest} requestParameters Request parameters.
+     * @param {ServiceDeskIntegrationApiPutServiceDeskIntegrationRequest} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
      * @memberof ServiceDeskIntegrationApi
      */
-    public updateServiceDeskIntegration(requestParameters: ServiceDeskIntegrationApiUpdateServiceDeskIntegrationRequest, axiosOptions?: AxiosRequestConfig) {
-        return ServiceDeskIntegrationApiFp(this.configuration).updateServiceDeskIntegration(requestParameters.id, requestParameters.serviceDeskIntegrationDto, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public putServiceDeskIntegration(requestParameters: ServiceDeskIntegrationApiPutServiceDeskIntegrationRequest, axiosOptions?: AxiosRequestConfig) {
+        return ServiceDeskIntegrationApiFp(this.configuration).putServiceDeskIntegration(requestParameters.id, requestParameters.serviceDeskIntegrationDto, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
