@@ -19213,7 +19213,7 @@ export class AccountActivitiesApi extends BaseAPI {
 export const AccountsApiAxiosParamCreator = function (configuration?: Configuration) {
     return {
         /**
-         * This API submits an account creation task and returns the task ID.   A token with ORG_ADMIN authority is required to call this API.
+         * This API submits an account creation task and returns the task ID.   The `sourceId` where this account will be created must be included in the `attributes` object. A token with ORG_ADMIN authority is required to call this API.
          * @summary Create Account
          * @param {AccountAttributesCreate} accountAttributesCreate 
          * @param {*} [axiosOptions] Override http request option.
@@ -19500,10 +19500,11 @@ export const AccountsApiAxiosParamCreator = function (configuration?: Configurat
          * @param {number} [offset] Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
          * @param {boolean} [count] If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
          * @param {string} [filters] Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, in*  **identityId**: *eq*  **name**: *eq, in*  **nativeIdentity**: *eq, in*  **sourceId**: *eq, in*  **uncorrelated**: *eq*
+         * @param {string} [sorters] Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **id**, **name**, **created**, **modified**
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        listAccounts: async (limit?: number, offset?: number, count?: boolean, filters?: string, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        listAccounts: async (limit?: number, offset?: number, count?: boolean, filters?: string, sorters?: string, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             const localVarPath = `/accounts`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -19538,6 +19539,10 @@ export const AccountsApiAxiosParamCreator = function (configuration?: Configurat
 
             if (filters !== undefined) {
                 localVarQueryParameter['filters'] = filters;
+            }
+
+            if (sorters !== undefined) {
+                localVarQueryParameter['sorters'] = sorters;
             }
 
 
@@ -19748,7 +19753,7 @@ export const AccountsApiFp = function(configuration?: Configuration) {
     const localVarAxiosParamCreator = AccountsApiAxiosParamCreator(configuration)
     return {
         /**
-         * This API submits an account creation task and returns the task ID.   A token with ORG_ADMIN authority is required to call this API.
+         * This API submits an account creation task and returns the task ID.   The `sourceId` where this account will be created must be included in the `attributes` object. A token with ORG_ADMIN authority is required to call this API.
          * @summary Create Account
          * @param {AccountAttributesCreate} accountAttributesCreate 
          * @param {*} [axiosOptions] Override http request option.
@@ -19825,11 +19830,12 @@ export const AccountsApiFp = function(configuration?: Configuration) {
          * @param {number} [offset] Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
          * @param {boolean} [count] If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
          * @param {string} [filters] Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, in*  **identityId**: *eq*  **name**: *eq, in*  **nativeIdentity**: *eq, in*  **sourceId**: *eq, in*  **uncorrelated**: *eq*
+         * @param {string} [sorters] Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **id**, **name**, **created**, **modified**
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async listAccounts(limit?: number, offset?: number, count?: boolean, filters?: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Account>>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.listAccounts(limit, offset, count, filters, axiosOptions);
+        async listAccounts(limit?: number, offset?: number, count?: boolean, filters?: string, sorters?: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Account>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.listAccounts(limit, offset, count, filters, sorters, axiosOptions);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
@@ -19890,7 +19896,7 @@ export const AccountsApiFactory = function (configuration?: Configuration, baseP
     const localVarFp = AccountsApiFp(configuration)
     return {
         /**
-         * This API submits an account creation task and returns the task ID.   A token with ORG_ADMIN authority is required to call this API.
+         * This API submits an account creation task and returns the task ID.   The `sourceId` where this account will be created must be included in the `attributes` object. A token with ORG_ADMIN authority is required to call this API.
          * @summary Create Account
          * @param {AccountAttributesCreate} accountAttributesCreate 
          * @param {*} [axiosOptions] Override http request option.
@@ -19961,11 +19967,12 @@ export const AccountsApiFactory = function (configuration?: Configuration, baseP
          * @param {number} [offset] Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
          * @param {boolean} [count] If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
          * @param {string} [filters] Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, in*  **identityId**: *eq*  **name**: *eq, in*  **nativeIdentity**: *eq, in*  **sourceId**: *eq, in*  **uncorrelated**: *eq*
+         * @param {string} [sorters] Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **id**, **name**, **created**, **modified**
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        listAccounts(limit?: number, offset?: number, count?: boolean, filters?: string, axiosOptions?: any): AxiosPromise<Array<Account>> {
-            return localVarFp.listAccounts(limit, offset, count, filters, axiosOptions).then((request) => request(axios, basePath));
+        listAccounts(limit?: number, offset?: number, count?: boolean, filters?: string, sorters?: string, axiosOptions?: any): AxiosPromise<Array<Account>> {
+            return localVarFp.listAccounts(limit, offset, count, filters, sorters, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * This API submits an account update task and returns the task ID.   A token with ORG_ADMIN authority is required to call this API. >**NOTE: The PUT Account API is designated only for Delimited File sources.**
@@ -20165,6 +20172,13 @@ export interface AccountsApiListAccountsRequest {
      * @memberof AccountsApiListAccounts
      */
     readonly filters?: string
+
+    /**
+     * Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **id**, **name**, **created**, **modified**
+     * @type {string}
+     * @memberof AccountsApiListAccounts
+     */
+    readonly sorters?: string
 }
 
 /**
@@ -20252,7 +20266,7 @@ export interface AccountsApiUpdateAccountRequest {
  */
 export class AccountsApi extends BaseAPI {
     /**
-     * This API submits an account creation task and returns the task ID.   A token with ORG_ADMIN authority is required to call this API.
+     * This API submits an account creation task and returns the task ID.   The `sourceId` where this account will be created must be included in the `attributes` object. A token with ORG_ADMIN authority is required to call this API.
      * @summary Create Account
      * @param {AccountsApiCreateAccountRequest} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
@@ -20332,7 +20346,7 @@ export class AccountsApi extends BaseAPI {
      * @memberof AccountsApi
      */
     public listAccounts(requestParameters: AccountsApiListAccountsRequest = {}, axiosOptions?: AxiosRequestConfig) {
-        return AccountsApiFp(this.configuration).listAccounts(requestParameters.limit, requestParameters.offset, requestParameters.count, requestParameters.filters, axiosOptions).then((request) => request(this.axios, this.basePath));
+        return AccountsApiFp(this.configuration).listAccounts(requestParameters.limit, requestParameters.offset, requestParameters.count, requestParameters.filters, requestParameters.sorters, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
