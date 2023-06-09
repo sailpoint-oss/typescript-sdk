@@ -17202,7 +17202,7 @@ export interface SodPolicyBeta {
      * @type {string}
      * @memberof SodPolicyBeta
      */
-    'description'?: string;
+    'description'?: string | null;
     /**
      * 
      * @type {BaseReferenceDto1Beta}
@@ -17214,7 +17214,7 @@ export interface SodPolicyBeta {
      * @type {string}
      * @memberof SodPolicyBeta
      */
-    'externalPolicyReference'?: string;
+    'externalPolicyReference'?: string | null;
     /**
      * Search query of the SOD policy
      * @type {string}
@@ -17226,13 +17226,13 @@ export interface SodPolicyBeta {
      * @type {string}
      * @memberof SodPolicyBeta
      */
-    'compensatingControls'?: string;
+    'compensatingControls'?: string | null;
     /**
      * Optional correction advice
      * @type {string}
      * @memberof SodPolicyBeta
      */
-    'correctionAdvice'?: string;
+    'correctionAdvice'?: string | null;
     /**
      * whether the policy is enforced or not
      * @type {string}
@@ -17277,10 +17277,10 @@ export interface SodPolicyBeta {
     'type'?: SodPolicyBetaTypeEnum;
     /**
      * 
-     * @type {ConflictingAccessCriteriaBeta}
+     * @type {SodPolicyConflictingAccessCriteriaBeta}
      * @memberof SodPolicyBeta
      */
-    'conflictingAccessCriteria'?: ConflictingAccessCriteriaBeta;
+    'conflictingAccessCriteria'?: SodPolicyConflictingAccessCriteriaBeta;
 }
 
 export const SodPolicyBetaStateEnum = {
@@ -17296,6 +17296,25 @@ export const SodPolicyBetaTypeEnum = {
 
 export type SodPolicyBetaTypeEnum = typeof SodPolicyBetaTypeEnum[keyof typeof SodPolicyBetaTypeEnum];
 
+/**
+ * 
+ * @export
+ * @interface SodPolicyConflictingAccessCriteriaBeta
+ */
+export interface SodPolicyConflictingAccessCriteriaBeta {
+    /**
+     * 
+     * @type {AccessCriteriaBeta}
+     * @memberof SodPolicyConflictingAccessCriteriaBeta
+     */
+    'leftCriteria'?: AccessCriteriaBeta;
+    /**
+     * 
+     * @type {AccessCriteriaBeta}
+     * @memberof SodPolicyConflictingAccessCriteriaBeta
+     */
+    'rightCriteria'?: AccessCriteriaBeta;
+}
 /**
  * 
  * @export
@@ -22570,19 +22589,45 @@ export interface ViolationOwnerAssignmentConfigBeta {
     'assignmentRule'?: ViolationOwnerAssignmentConfigBetaAssignmentRuleEnum;
     /**
      * 
-     * @type {BaseReferenceDto1Beta}
+     * @type {ViolationOwnerAssignmentConfigOwnerRefBeta}
      * @memberof ViolationOwnerAssignmentConfigBeta
      */
-    'ownerRef'?: BaseReferenceDto1Beta;
+    'ownerRef'?: ViolationOwnerAssignmentConfigOwnerRefBeta;
 }
 
 export const ViolationOwnerAssignmentConfigBetaAssignmentRuleEnum = {
     Manager: 'MANAGER',
-    Static: 'STATIC'
+    Static: 'STATIC',
+    Null: 'null'
 } as const;
 
 export type ViolationOwnerAssignmentConfigBetaAssignmentRuleEnum = typeof ViolationOwnerAssignmentConfigBetaAssignmentRuleEnum[keyof typeof ViolationOwnerAssignmentConfigBetaAssignmentRuleEnum];
 
+/**
+ * 
+ * @export
+ * @interface ViolationOwnerAssignmentConfigOwnerRefBeta
+ */
+export interface ViolationOwnerAssignmentConfigOwnerRefBeta {
+    /**
+     * 
+     * @type {DtoTypeBeta}
+     * @memberof ViolationOwnerAssignmentConfigOwnerRefBeta
+     */
+    'type'?: DtoTypeBeta;
+    /**
+     * ID of the object to which this reference applies
+     * @type {string}
+     * @memberof ViolationOwnerAssignmentConfigOwnerRefBeta
+     */
+    'id'?: string;
+    /**
+     * Human-readable display name of the object to which this reference applies
+     * @type {string}
+     * @memberof ViolationOwnerAssignmentConfigOwnerRefBeta
+     */
+    'name'?: string;
+}
 /**
  * An object containing a listing of the SOD violation reasons detected by this check.
  * @export
