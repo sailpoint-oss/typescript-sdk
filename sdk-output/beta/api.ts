@@ -3334,6 +3334,12 @@ export interface CampaignBeta {
      * @memberof CampaignBeta
      */
     'sourcesWithOrphanEntitlements'?: Array<FullcampaignAllOfSourcesWithOrphanEntitlementsBeta>;
+    /**
+     * Determines whether comments are required for decisions during certification reviews. You can require comments for all decisions, revoke-only decisions, or no decisions. By default, comments are not required for decisions.
+     * @type {string}
+     * @memberof CampaignBeta
+     */
+    'mandatoryCommentRequirement'?: CampaignBetaMandatoryCommentRequirementEnum;
 }
 
 export const CampaignBetaTypeEnum = {
@@ -3363,6 +3369,13 @@ export const CampaignBetaCorrelatedStatusEnum = {
 } as const;
 
 export type CampaignBetaCorrelatedStatusEnum = typeof CampaignBetaCorrelatedStatusEnum[keyof typeof CampaignBetaCorrelatedStatusEnum];
+export const CampaignBetaMandatoryCommentRequirementEnum = {
+    AllDecisions: 'ALL_DECISIONS',
+    RevokeOnlyDecisions: 'REVOKE_ONLY_DECISIONS',
+    NoDecisions: 'NO_DECISIONS'
+} as const;
+
+export type CampaignBetaMandatoryCommentRequirementEnum = typeof CampaignBetaMandatoryCommentRequirementEnum[keyof typeof CampaignBetaMandatoryCommentRequirementEnum];
 
 /**
  * 
@@ -3426,6 +3439,18 @@ export interface CampaignReferenceBeta {
      * @memberof CampaignReferenceBeta
      */
     'description': string | null;
+    /**
+     * The correlatedStatus of the campaign. Only SOURCE_OWNER campaigns can be Uncorrelated. An Uncorrelated certification campaign only includes Uncorrelated identities (An identity is uncorrelated if it has no accounts on an authoritative source).
+     * @type {object}
+     * @memberof CampaignReferenceBeta
+     */
+    'correlatedStatus': CampaignReferenceBetaCorrelatedStatusEnum;
+    /**
+     * Determines whether comments are required for decisions during certification reviews. You can require comments for all decisions, revoke-only decisions, or no decisions. By default, comments are not required for decisions.
+     * @type {string}
+     * @memberof CampaignReferenceBeta
+     */
+    'mandatoryCommentRequirement': CampaignReferenceBetaMandatoryCommentRequirementEnum;
 }
 
 export const CampaignReferenceBetaTypeEnum = {
@@ -3440,6 +3465,19 @@ export const CampaignReferenceBetaCampaignTypeEnum = {
 } as const;
 
 export type CampaignReferenceBetaCampaignTypeEnum = typeof CampaignReferenceBetaCampaignTypeEnum[keyof typeof CampaignReferenceBetaCampaignTypeEnum];
+export const CampaignReferenceBetaCorrelatedStatusEnum = {
+    Correlated: 'CORRELATED',
+    Uncorrelated: 'UNCORRELATED'
+} as const;
+
+export type CampaignReferenceBetaCorrelatedStatusEnum = typeof CampaignReferenceBetaCorrelatedStatusEnum[keyof typeof CampaignReferenceBetaCorrelatedStatusEnum];
+export const CampaignReferenceBetaMandatoryCommentRequirementEnum = {
+    AllDecisions: 'ALL_DECISIONS',
+    RevokeOnlyDecisions: 'REVOKE_ONLY_DECISIONS',
+    NoDecisions: 'NO_DECISIONS'
+} as const;
+
+export type CampaignReferenceBetaMandatoryCommentRequirementEnum = typeof CampaignReferenceBetaMandatoryCommentRequirementEnum[keyof typeof CampaignReferenceBetaMandatoryCommentRequirementEnum];
 
 /**
  * 
@@ -3900,12 +3938,6 @@ export interface CertificationReferenceBeta {
      */
     'type'?: CertificationReferenceBetaTypeEnum;
     /**
-     * The correlatedStatus of the campaign. Only SOURCE_OWNER campaigns can be Uncorrelated. An Uncorrelated certification campaign only includes Uncorrelated identities (An identity is uncorrelated if it has no accounts on an authoritative source).
-     * @type {object}
-     * @memberof CertificationReferenceBeta
-     */
-    'correlatedStatus'?: CertificationReferenceBetaCorrelatedStatusEnum;
-    /**
      * ID of the object to which this reference applies
      * @type {string}
      * @memberof CertificationReferenceBeta
@@ -3930,12 +3962,6 @@ export const CertificationReferenceBetaTypeEnum = {
 } as const;
 
 export type CertificationReferenceBetaTypeEnum = typeof CertificationReferenceBetaTypeEnum[keyof typeof CertificationReferenceBetaTypeEnum];
-export const CertificationReferenceBetaCorrelatedStatusEnum = {
-    Correlated: 'CORRELATED',
-    Uncorrelated: 'UNCORRELATED'
-} as const;
-
-export type CertificationReferenceBetaCorrelatedStatusEnum = typeof CertificationReferenceBetaCorrelatedStatusEnum[keyof typeof CertificationReferenceBetaCorrelatedStatusEnum];
 
 /**
  * 
@@ -7179,6 +7205,12 @@ export interface FullcampaignAllOfBeta {
      * @memberof FullcampaignAllOfBeta
      */
     'sourcesWithOrphanEntitlements'?: Array<FullcampaignAllOfSourcesWithOrphanEntitlementsBeta>;
+    /**
+     * Determines whether comments are required for decisions during certification reviews. You can require comments for all decisions, revoke-only decisions, or no decisions. By default, comments are not required for decisions.
+     * @type {string}
+     * @memberof FullcampaignAllOfBeta
+     */
+    'mandatoryCommentRequirement'?: FullcampaignAllOfBetaMandatoryCommentRequirementEnum;
 }
 
 export const FullcampaignAllOfBetaCorrelatedStatusEnum = {
@@ -7187,6 +7219,13 @@ export const FullcampaignAllOfBetaCorrelatedStatusEnum = {
 } as const;
 
 export type FullcampaignAllOfBetaCorrelatedStatusEnum = typeof FullcampaignAllOfBetaCorrelatedStatusEnum[keyof typeof FullcampaignAllOfBetaCorrelatedStatusEnum];
+export const FullcampaignAllOfBetaMandatoryCommentRequirementEnum = {
+    AllDecisions: 'ALL_DECISIONS',
+    RevokeOnlyDecisions: 'REVOKE_ONLY_DECISIONS',
+    NoDecisions: 'NO_DECISIONS'
+} as const;
+
+export type FullcampaignAllOfBetaMandatoryCommentRequirementEnum = typeof FullcampaignAllOfBetaMandatoryCommentRequirementEnum[keyof typeof FullcampaignAllOfBetaMandatoryCommentRequirementEnum];
 
 /**
  * Determines which items will be included in this campaign. The default campaign filter is used if this field is left blank.
@@ -7518,6 +7557,12 @@ export interface FullcampaignBeta {
      * @memberof FullcampaignBeta
      */
     'sourcesWithOrphanEntitlements'?: Array<FullcampaignAllOfSourcesWithOrphanEntitlementsBeta>;
+    /**
+     * Determines whether comments are required for decisions during certification reviews. You can require comments for all decisions, revoke-only decisions, or no decisions. By default, comments are not required for decisions.
+     * @type {string}
+     * @memberof FullcampaignBeta
+     */
+    'mandatoryCommentRequirement'?: FullcampaignBetaMandatoryCommentRequirementEnum;
 }
 
 export const FullcampaignBetaTypeEnum = {
@@ -7547,6 +7592,13 @@ export const FullcampaignBetaCorrelatedStatusEnum = {
 } as const;
 
 export type FullcampaignBetaCorrelatedStatusEnum = typeof FullcampaignBetaCorrelatedStatusEnum[keyof typeof FullcampaignBetaCorrelatedStatusEnum];
+export const FullcampaignBetaMandatoryCommentRequirementEnum = {
+    AllDecisions: 'ALL_DECISIONS',
+    RevokeOnlyDecisions: 'REVOKE_ONLY_DECISIONS',
+    NoDecisions: 'NO_DECISIONS'
+} as const;
+
+export type FullcampaignBetaMandatoryCommentRequirementEnum = typeof FullcampaignBetaMandatoryCommentRequirementEnum[keyof typeof FullcampaignBetaMandatoryCommentRequirementEnum];
 
 /**
  * @type GetActiveCampaigns200ResponseInnerBeta

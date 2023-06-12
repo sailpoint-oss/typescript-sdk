@@ -3909,6 +3909,12 @@ export interface Campaign {
      * @memberof Campaign
      */
     'sourcesWithOrphanEntitlements'?: Array<CampaignAllOfSourcesWithOrphanEntitlements>;
+    /**
+     * Determines whether comments are required for decisions during certification reviews. You can require comments for all decisions, revoke-only decisions, or no decisions. By default, comments are not required for decisions.
+     * @type {string}
+     * @memberof Campaign
+     */
+    'mandatoryCommentRequirement'?: CampaignMandatoryCommentRequirementEnum;
 }
 
 export const CampaignTypeEnum = {
@@ -3938,6 +3944,13 @@ export const CampaignCorrelatedStatusEnum = {
 } as const;
 
 export type CampaignCorrelatedStatusEnum = typeof CampaignCorrelatedStatusEnum[keyof typeof CampaignCorrelatedStatusEnum];
+export const CampaignMandatoryCommentRequirementEnum = {
+    AllDecisions: 'ALL_DECISIONS',
+    RevokeOnlyDecisions: 'REVOKE_ONLY_DECISIONS',
+    NoDecisions: 'NO_DECISIONS'
+} as const;
+
+export type CampaignMandatoryCommentRequirementEnum = typeof CampaignMandatoryCommentRequirementEnum[keyof typeof CampaignMandatoryCommentRequirementEnum];
 
 /**
  * 
@@ -4045,6 +4058,12 @@ export interface CampaignAllOf {
      * @memberof CampaignAllOf
      */
     'sourcesWithOrphanEntitlements'?: Array<CampaignAllOfSourcesWithOrphanEntitlements>;
+    /**
+     * Determines whether comments are required for decisions during certification reviews. You can require comments for all decisions, revoke-only decisions, or no decisions. By default, comments are not required for decisions.
+     * @type {string}
+     * @memberof CampaignAllOf
+     */
+    'mandatoryCommentRequirement'?: CampaignAllOfMandatoryCommentRequirementEnum;
 }
 
 export const CampaignAllOfCorrelatedStatusEnum = {
@@ -4053,6 +4072,13 @@ export const CampaignAllOfCorrelatedStatusEnum = {
 } as const;
 
 export type CampaignAllOfCorrelatedStatusEnum = typeof CampaignAllOfCorrelatedStatusEnum[keyof typeof CampaignAllOfCorrelatedStatusEnum];
+export const CampaignAllOfMandatoryCommentRequirementEnum = {
+    AllDecisions: 'ALL_DECISIONS',
+    RevokeOnlyDecisions: 'REVOKE_ONLY_DECISIONS',
+    NoDecisions: 'NO_DECISIONS'
+} as const;
+
+export type CampaignAllOfMandatoryCommentRequirementEnum = typeof CampaignAllOfMandatoryCommentRequirementEnum[keyof typeof CampaignAllOfMandatoryCommentRequirementEnum];
 
 /**
  * Determines which items will be included in this campaign. The default campaign filter is used if this field is left blank.
@@ -4288,6 +4314,18 @@ export interface CampaignReference {
      * @memberof CampaignReference
      */
     'description': string | null;
+    /**
+     * The correlatedStatus of the campaign. Only SOURCE_OWNER campaigns can be Uncorrelated. An Uncorrelated certification campaign only includes Uncorrelated identities (An identity is uncorrelated if it has no accounts on an authoritative source).
+     * @type {object}
+     * @memberof CampaignReference
+     */
+    'correlatedStatus': CampaignReferenceCorrelatedStatusEnum;
+    /**
+     * Determines whether comments are required for decisions during certification reviews. You can require comments for all decisions, revoke-only decisions, or no decisions. By default, comments are not required for decisions.
+     * @type {string}
+     * @memberof CampaignReference
+     */
+    'mandatoryCommentRequirement': CampaignReferenceMandatoryCommentRequirementEnum;
 }
 
 export const CampaignReferenceTypeEnum = {
@@ -4302,6 +4340,19 @@ export const CampaignReferenceCampaignTypeEnum = {
 } as const;
 
 export type CampaignReferenceCampaignTypeEnum = typeof CampaignReferenceCampaignTypeEnum[keyof typeof CampaignReferenceCampaignTypeEnum];
+export const CampaignReferenceCorrelatedStatusEnum = {
+    Correlated: 'CORRELATED',
+    Uncorrelated: 'UNCORRELATED'
+} as const;
+
+export type CampaignReferenceCorrelatedStatusEnum = typeof CampaignReferenceCorrelatedStatusEnum[keyof typeof CampaignReferenceCorrelatedStatusEnum];
+export const CampaignReferenceMandatoryCommentRequirementEnum = {
+    AllDecisions: 'ALL_DECISIONS',
+    RevokeOnlyDecisions: 'REVOKE_ONLY_DECISIONS',
+    NoDecisions: 'NO_DECISIONS'
+} as const;
+
+export type CampaignReferenceMandatoryCommentRequirementEnum = typeof CampaignReferenceMandatoryCommentRequirementEnum[keyof typeof CampaignReferenceMandatoryCommentRequirementEnum];
 
 /**
  * Request body payload for cancel access request endpoint.
