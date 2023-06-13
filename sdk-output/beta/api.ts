@@ -10149,6 +10149,7 @@ export const ManagedClientTypeBeta = {
     Ccg: 'CCG',
     Va: 'VA',
     Internal: 'INTERNAL',
+    IiqHarvester: 'IIQ_HARVESTER',
     Null: 'null'
 } as const;
 
