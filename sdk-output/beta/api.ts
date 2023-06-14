@@ -4743,9 +4743,9 @@ export interface ConfigTypeBeta {
  */
 
 export const ConfigTypeEnumBeta = {
-    AccessRequests: 'accessRequests',
-    Certifications: 'certifications',
-    ManualTasks: 'manualTasks'
+    AccessRequests: 'ACCESS_REQUESTS',
+    Certifications: 'CERTIFICATIONS',
+    ManualTasks: 'MANUAL_TASKS'
 } as const;
 
 export type ConfigTypeEnumBeta = typeof ConfigTypeEnumBeta[keyof typeof ConfigTypeEnumBeta];
@@ -22918,21 +22918,6 @@ export interface WorkItemsSummaryBeta {
      */
     'total'?: number;
 }
-/**
- * Enum list of valid work types that can be selected for a Reassignment Configuration
- * @export
- * @enum {string}
- */
-
-export const WorkTypeEnumBeta = {
-    AccessRequests: 'accessRequests',
-    Certifications: 'certifications',
-    ManualTasks: 'manualTasks'
-} as const;
-
-export type WorkTypeEnumBeta = typeof WorkTypeEnumBeta[keyof typeof WorkTypeEnumBeta];
-
-
 /**
  * 
  * @export
@@ -64335,12 +64320,12 @@ export const WorkReassignmentBetaApiAxiosParamCreator = function (configuration?
          * Evaluates the Reassignment Configuration for an `Identity` to determine if work items for the specified type should be reassigned. If a valid Reassignment Configuration is found for the identity & work type, then a lookup is initiated which recursively fetches the Reassignment Configuration for the next `TargetIdentity` until no more results are found or a max depth of 5. That lookup trail is provided in the response and the final reassigned identity in the lookup list is returned as the `reassignToId` property. If no Reassignment Configuration is found for the specified identity & config type then the requested Identity ID will be used as the `reassignToId` value and the lookupTrail node will be empty.
          * @summary Evaluate Reassignment Configuration
          * @param {string} identityId unique identity id
-         * @param {WorkTypeEnumBeta} configType Reassignment work type
+         * @param {ConfigTypeEnumBeta} configType Reassignment work type
          * @param {Array<string>} [exclusionFilters] Exclusion filters that disable parts of the reassignment evaluation. Possible values are listed below: - &#x60;SELF_REVIEW_DELEGATION&#x60;: This will exclude delegations of self-review reassignments
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        getEvaluateReassignmentConfiguration: async (identityId: string, configType: WorkTypeEnumBeta, exclusionFilters?: Array<string>, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        getEvaluateReassignmentConfiguration: async (identityId: string, configType: ConfigTypeEnumBeta, exclusionFilters?: Array<string>, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'identityId' is not null or undefined
             assertParamExists('getEvaluateReassignmentConfiguration', 'identityId', identityId)
             // verify required parameter 'configType' is not null or undefined
@@ -64666,12 +64651,12 @@ export const WorkReassignmentBetaApiFp = function(configuration?: Configuration)
          * Evaluates the Reassignment Configuration for an `Identity` to determine if work items for the specified type should be reassigned. If a valid Reassignment Configuration is found for the identity & work type, then a lookup is initiated which recursively fetches the Reassignment Configuration for the next `TargetIdentity` until no more results are found or a max depth of 5. That lookup trail is provided in the response and the final reassigned identity in the lookup list is returned as the `reassignToId` property. If no Reassignment Configuration is found for the specified identity & config type then the requested Identity ID will be used as the `reassignToId` value and the lookupTrail node will be empty.
          * @summary Evaluate Reassignment Configuration
          * @param {string} identityId unique identity id
-         * @param {WorkTypeEnumBeta} configType Reassignment work type
+         * @param {ConfigTypeEnumBeta} configType Reassignment work type
          * @param {Array<string>} [exclusionFilters] Exclusion filters that disable parts of the reassignment evaluation. Possible values are listed below: - &#x60;SELF_REVIEW_DELEGATION&#x60;: This will exclude delegations of self-review reassignments
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async getEvaluateReassignmentConfiguration(identityId: string, configType: WorkTypeEnumBeta, exclusionFilters?: Array<string>, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<EvaluateResponseBeta>>> {
+        async getEvaluateReassignmentConfiguration(identityId: string, configType: ConfigTypeEnumBeta, exclusionFilters?: Array<string>, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<EvaluateResponseBeta>>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getEvaluateReassignmentConfiguration(identityId, configType, exclusionFilters, axiosOptions);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -64773,12 +64758,12 @@ export const WorkReassignmentBetaApiFactory = function (configuration?: Configur
          * Evaluates the Reassignment Configuration for an `Identity` to determine if work items for the specified type should be reassigned. If a valid Reassignment Configuration is found for the identity & work type, then a lookup is initiated which recursively fetches the Reassignment Configuration for the next `TargetIdentity` until no more results are found or a max depth of 5. That lookup trail is provided in the response and the final reassigned identity in the lookup list is returned as the `reassignToId` property. If no Reassignment Configuration is found for the specified identity & config type then the requested Identity ID will be used as the `reassignToId` value and the lookupTrail node will be empty.
          * @summary Evaluate Reassignment Configuration
          * @param {string} identityId unique identity id
-         * @param {WorkTypeEnumBeta} configType Reassignment work type
+         * @param {ConfigTypeEnumBeta} configType Reassignment work type
          * @param {Array<string>} [exclusionFilters] Exclusion filters that disable parts of the reassignment evaluation. Possible values are listed below: - &#x60;SELF_REVIEW_DELEGATION&#x60;: This will exclude delegations of self-review reassignments
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        getEvaluateReassignmentConfiguration(identityId: string, configType: WorkTypeEnumBeta, exclusionFilters?: Array<string>, axiosOptions?: any): AxiosPromise<Array<EvaluateResponseBeta>> {
+        getEvaluateReassignmentConfiguration(identityId: string, configType: ConfigTypeEnumBeta, exclusionFilters?: Array<string>, axiosOptions?: any): AxiosPromise<Array<EvaluateResponseBeta>> {
             return localVarFp.getEvaluateReassignmentConfiguration(identityId, configType, exclusionFilters, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
@@ -64885,10 +64870,10 @@ export interface WorkReassignmentBetaApiGetEvaluateReassignmentConfigurationRequ
 
     /**
      * Reassignment work type
-     * @type {WorkTypeEnumBeta}
+     * @type {ConfigTypeEnumBeta}
      * @memberof WorkReassignmentBetaApiGetEvaluateReassignmentConfiguration
      */
-    readonly configType: WorkTypeEnumBeta
+    readonly configType: ConfigTypeEnumBeta
 
     /**
      * Exclusion filters that disable parts of the reassignment evaluation. Possible values are listed below: - &#x60;SELF_REVIEW_DELEGATION&#x60;: This will exclude delegations of self-review reassignments
