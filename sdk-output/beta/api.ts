@@ -5725,6 +5725,38 @@ export type CustomPasswordInstructionBetaPageIdEnum = typeof CustomPasswordInstr
 /**
  * 
  * @export
+ * @interface Delete202ResponseBeta
+ */
+export interface Delete202ResponseBeta {
+    /**
+     * The type of object being referenced
+     * @type {string}
+     * @memberof Delete202ResponseBeta
+     */
+    'type'?: Delete202ResponseBetaTypeEnum;
+    /**
+     * ID of the task result
+     * @type {string}
+     * @memberof Delete202ResponseBeta
+     */
+    'id'?: string;
+    /**
+     * Human-readable display name of the task result (should be null/empty)
+     * @type {string}
+     * @memberof Delete202ResponseBeta
+     */
+    'name'?: string;
+}
+
+export const Delete202ResponseBetaTypeEnum = {
+    TaskResult: 'TASK_RESULT'
+} as const;
+
+export type Delete202ResponseBetaTypeEnum = typeof Delete202ResponseBetaTypeEnum[keyof typeof Delete202ResponseBetaTypeEnum];
+
+/**
+ * 
+ * @export
  * @interface DeleteCampaignsRequestBeta
  */
 export interface DeleteCampaignsRequestBeta {
@@ -5748,38 +5780,6 @@ export interface DeleteNonEmployeeRecordInBulkRequestBeta {
      */
     'ids': Array<string>;
 }
-/**
- * 
- * @export
- * @interface DeleteSource202ResponseBeta
- */
-export interface DeleteSource202ResponseBeta {
-    /**
-     * The type of object being referenced
-     * @type {string}
-     * @memberof DeleteSource202ResponseBeta
-     */
-    'type'?: DeleteSource202ResponseBetaTypeEnum;
-    /**
-     * ID of the task result
-     * @type {string}
-     * @memberof DeleteSource202ResponseBeta
-     */
-    'id'?: string;
-    /**
-     * Human-readable display name of the task result (should be null/empty)
-     * @type {string}
-     * @memberof DeleteSource202ResponseBeta
-     */
-    'name'?: string;
-}
-
-export const DeleteSource202ResponseBetaTypeEnum = {
-    TaskResult: 'TASK_RESULT'
-} as const;
-
-export type DeleteSource202ResponseBetaTypeEnum = typeof DeleteSource202ResponseBetaTypeEnum[keyof typeof DeleteSource202ResponseBetaTypeEnum];
-
 /**
  * DKIM attributes for a domain or identity
  * @export
@@ -52755,7 +52755,7 @@ export const SODPolicyBetaApiAxiosParamCreator = function (configuration?: Confi
         getSodViolationReportRunStatus: async (reportResultId: string, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'reportResultId' is not null or undefined
             assertParamExists('getSodViolationReportRunStatus', 'reportResultId', reportResultId)
-            const localVarPath = `/sod-violation-report-status/{reportResultId}`
+            const localVarPath = `/sod-policies/sod-violation-report-status/{reportResultId}`
                 .replace(`{${"reportResultId"}}`, encodeURIComponent(String(reportResultId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -56752,6 +56752,48 @@ export class ServiceDeskIntegrationBetaApi extends BaseAPI {
 export const SourcesBetaApiAxiosParamCreator = function (configuration?: Configuration) {
     return {
         /**
+         * This end-point deletes a specific source in IdentityNow. A token with ORG_ADMIN, SOURCE_ADMIN, or SOURCE_SUBADMIN authority is required to call this API. All of accounts on the source will be removed first, then the source will be deleted. Actual status of task execution can be retrieved via method GET `/task-status/{id}`
+         * @summary Delete Source by ID
+         * @param {string} id The Source ID
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        _delete: async (id: string, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'id' is not null or undefined
+            assertParamExists('_delete', 'id', id)
+            const localVarPath = `/sources/{id}`
+                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'DELETE', ...baseOptions, ...axiosOptions};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication oauth2 required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "oauth2", [], configuration)
+
+            // authentication oauth2 required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "oauth2", [], configuration)
+
+
+    
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                axiosOptions: localVarRequestOptions,
+            };
+        },
+        /**
          * This API generates a create policy/template based on field value transforms. This API is intended for use when setting up JDBC Provisioning type sources, but it will also work on other source types. Transforms can be used in the provisioning policy to create a new attribute that you only need during provisioning. Refer to [Transforms in Provisioning Policies](https://developer.sailpoint.com/idn/docs/transforms/guides/transforms-in-provisioning-policies) for more information. A token with ORG_ADMIN authority is required to call this API.
          * @summary Create Provisioning Policy
          * @param {string} sourceId The Source id
@@ -56943,48 +56985,6 @@ export const SourcesBetaApiAxiosParamCreator = function (configuration?: Configu
             };
         },
         /**
-         * This end-point deletes a specific source in IdentityNow. A token with ORG_ADMIN, SOURCE_ADMIN, or SOURCE_SUBADMIN authority is required to call this API. All of accounts on the source will be removed first, then the source will be deleted. Actual status of task execution can be retrieved via method GET `/task-status/{id}`
-         * @summary Delete Source by ID
-         * @param {string} id The Source ID
-         * @param {*} [axiosOptions] Override http request option.
-         * @throws {RequiredError}
-         */
-        deleteSource: async (id: string, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
-            // verify required parameter 'id' is not null or undefined
-            assertParamExists('deleteSource', 'id', id)
-            const localVarPath = `/sources/{id}`
-                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
-            // use dummy base URL string because the URL constructor only accepts absolute URLs.
-            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
-            let baseOptions;
-            if (configuration) {
-                baseOptions = configuration.baseOptions;
-            }
-
-            const localVarRequestOptions = { method: 'DELETE', ...baseOptions, ...axiosOptions};
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-
-            // authentication oauth2 required
-            // oauth required
-            await setOAuthToObject(localVarHeaderParameter, "oauth2", [], configuration)
-
-            // authentication oauth2 required
-            // oauth required
-            await setOAuthToObject(localVarHeaderParameter, "oauth2", [], configuration)
-
-
-    
-            setSearchParams(localVarUrlObj, localVarQueryParameter);
-            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
-            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
-
-            return {
-                url: toPathString(localVarUrlObj),
-                axiosOptions: localVarRequestOptions,
-            };
-        },
-        /**
          * 
          * @summary Delete Source Schema by ID
          * @param {string} sourceId The Source ID.
@@ -57018,95 +57018,6 @@ export const SourcesBetaApiAxiosParamCreator = function (configuration?: Configu
             // authentication oauth2 required
             // oauth required
             await setOAuthToObject(localVarHeaderParameter, "oauth2", [], configuration)
-
-
-    
-            setSearchParams(localVarUrlObj, localVarQueryParameter);
-            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
-            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
-
-            return {
-                url: toPathString(localVarUrlObj),
-                axiosOptions: localVarRequestOptions,
-            };
-        },
-        /**
-         * 
-         * @summary Downloads source accounts schema template
-         * @param {string} id The Source id
-         * @param {*} [axiosOptions] Override http request option.
-         * @throws {RequiredError}
-         */
-        downloadSourceAccountsSchema: async (id: string, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
-            // verify required parameter 'id' is not null or undefined
-            assertParamExists('downloadSourceAccountsSchema', 'id', id)
-            const localVarPath = `/sources/{id}/schemas/accounts`
-                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
-            // use dummy base URL string because the URL constructor only accepts absolute URLs.
-            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
-            let baseOptions;
-            if (configuration) {
-                baseOptions = configuration.baseOptions;
-            }
-
-            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...axiosOptions};
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-
-            // authentication oauth2 required
-            // oauth required
-            await setOAuthToObject(localVarHeaderParameter, "oauth2", [], configuration)
-
-            // authentication oauth2 required
-            // oauth required
-            await setOAuthToObject(localVarHeaderParameter, "oauth2", [], configuration)
-
-
-    
-            setSearchParams(localVarUrlObj, localVarQueryParameter);
-            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
-            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
-
-            return {
-                url: toPathString(localVarUrlObj),
-                axiosOptions: localVarRequestOptions,
-            };
-        },
-        /**
-         * 
-         * @summary Downloads source entitlements schema template
-         * @param {string} id The Source id
-         * @param {string} [schemaName] Name of entitlement schema
-         * @param {*} [axiosOptions] Override http request option.
-         * @throws {RequiredError}
-         */
-        downloadSourceEntitlementsSchema: async (id: string, schemaName?: string, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
-            // verify required parameter 'id' is not null or undefined
-            assertParamExists('downloadSourceEntitlementsSchema', 'id', id)
-            const localVarPath = `/sources/{id}/schemas/entitlements`
-                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
-            // use dummy base URL string because the URL constructor only accepts absolute URLs.
-            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
-            let baseOptions;
-            if (configuration) {
-                baseOptions = configuration.baseOptions;
-            }
-
-            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...axiosOptions};
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-
-            // authentication oauth2 required
-            // oauth required
-            await setOAuthToObject(localVarHeaderParameter, "oauth2", [], configuration)
-
-            // authentication oauth2 required
-            // oauth required
-            await setOAuthToObject(localVarHeaderParameter, "oauth2", [], configuration)
-
-            if (schemaName !== undefined) {
-                localVarQueryParameter['schemaName'] = schemaName;
-            }
 
 
     
@@ -57176,6 +57087,48 @@ export const SourcesBetaApiAxiosParamCreator = function (configuration?: Configu
             // verify required parameter 'id' is not null or undefined
             assertParamExists('getSource', 'id', id)
             const localVarPath = `/sources/{id}`
+                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...axiosOptions};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication oauth2 required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "oauth2", [], configuration)
+
+            // authentication oauth2 required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "oauth2", [], configuration)
+
+
+    
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                axiosOptions: localVarRequestOptions,
+            };
+        },
+        /**
+         * 
+         * @summary Downloads source accounts schema template
+         * @param {string} id The Source id
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        getSourceAccountsSchema: async (id: string, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'id' is not null or undefined
+            assertParamExists('getSourceAccountsSchema', 'id', id)
+            const localVarPath = `/sources/{id}/schemas/accounts`
                 .replace(`{${"id"}}`, encodeURIComponent(String(id)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -57335,6 +57288,53 @@ export const SourcesBetaApiAxiosParamCreator = function (configuration?: Configu
             };
         },
         /**
+         * 
+         * @summary Downloads source entitlements schema template
+         * @param {string} id The Source id
+         * @param {string} [schemaName] Name of entitlement schema
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        getSourceEntitlementsSchema: async (id: string, schemaName?: string, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'id' is not null or undefined
+            assertParamExists('getSourceEntitlementsSchema', 'id', id)
+            const localVarPath = `/sources/{id}/schemas/entitlements`
+                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...axiosOptions};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication oauth2 required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "oauth2", [], configuration)
+
+            // authentication oauth2 required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "oauth2", [], configuration)
+
+            if (schemaName !== undefined) {
+                localVarQueryParameter['schemaName'] = schemaName;
+            }
+
+
+    
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                axiosOptions: localVarRequestOptions,
+            };
+        },
+        /**
          * Get the Source Schema by ID in IdentityNow. 
          * @summary Get Source Schema by ID
          * @param {string} sourceId The Source ID.
@@ -57374,6 +57374,164 @@ export const SourcesBetaApiAxiosParamCreator = function (configuration?: Configu
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                axiosOptions: localVarRequestOptions,
+            };
+        },
+        /**
+         * This API uploads a source schema template file to configure a source\'s account attributes.
+         * @summary Uploads source accounts schema template
+         * @param {string} id The Source id
+         * @param {any} [file] 
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        importSourceAccountsSchema: async (id: string, file?: any, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'id' is not null or undefined
+            assertParamExists('importSourceAccountsSchema', 'id', id)
+            const localVarPath = `/sources/{id}/schemas/accounts`
+                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'POST', ...baseOptions, ...axiosOptions};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            const localVarFormParams = new ((configuration && configuration.formDataCtor) || FormData)();
+
+            // authentication oauth2 required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "oauth2", [], configuration)
+
+            // authentication oauth2 required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "oauth2", [], configuration)
+
+
+            if (file !== undefined) { 
+                localVarFormParams.append('file', file as any);
+            }
+    
+    
+            localVarHeaderParameter['Content-Type'] = 'multipart/form-data';
+    
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
+            localVarRequestOptions.data = localVarFormParams;
+
+            return {
+                url: toPathString(localVarUrlObj),
+                axiosOptions: localVarRequestOptions,
+            };
+        },
+        /**
+         * This uploads a supplemental source connector file (like jdbc driver jars) to a source\'s S3 bucket. This also sends ETS and Audit events. A token with ORG_ADMIN authority is required to call this API.
+         * @summary Upload connector file to source
+         * @param {string} sourceId The Source id
+         * @param {any} [file] 
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        importSourceConnectorFile: async (sourceId: string, file?: any, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'sourceId' is not null or undefined
+            assertParamExists('importSourceConnectorFile', 'sourceId', sourceId)
+            const localVarPath = `/sources/{sourceId}/upload-connector-file`
+                .replace(`{${"sourceId"}}`, encodeURIComponent(String(sourceId)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'POST', ...baseOptions, ...axiosOptions};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            const localVarFormParams = new ((configuration && configuration.formDataCtor) || FormData)();
+
+            // authentication oauth2 required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "oauth2", [], configuration)
+
+            // authentication oauth2 required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "oauth2", [], configuration)
+
+
+            if (file !== undefined) { 
+                localVarFormParams.append('file', file as any);
+            }
+    
+    
+            localVarHeaderParameter['Content-Type'] = 'multipart/form-data';
+    
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
+            localVarRequestOptions.data = localVarFormParams;
+
+            return {
+                url: toPathString(localVarUrlObj),
+                axiosOptions: localVarRequestOptions,
+            };
+        },
+        /**
+         * This API uploads a source schema template file to configure a source\'s entitlement attributes.
+         * @summary Uploads source entitlements schema template
+         * @param {string} id The Source id
+         * @param {string} [schemaName] Name of entitlement schema
+         * @param {any} [file] 
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        importSourceEntitlementsSchema: async (id: string, schemaName?: string, file?: any, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'id' is not null or undefined
+            assertParamExists('importSourceEntitlementsSchema', 'id', id)
+            const localVarPath = `/sources/{id}/schemas/entitlements`
+                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'POST', ...baseOptions, ...axiosOptions};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            const localVarFormParams = new ((configuration && configuration.formDataCtor) || FormData)();
+
+            // authentication oauth2 required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "oauth2", [], configuration)
+
+            // authentication oauth2 required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "oauth2", [], configuration)
+
+            if (schemaName !== undefined) {
+                localVarQueryParameter['schemaName'] = schemaName;
+            }
+
+
+            if (file !== undefined) { 
+                localVarFormParams.append('file', file as any);
+            }
+    
+    
+            localVarHeaderParameter['Content-Type'] = 'multipart/form-data';
+    
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
+            localVarRequestOptions.data = localVarFormParams;
 
             return {
                 url: toPathString(localVarUrlObj),
@@ -57475,8 +57633,8 @@ export const SourcesBetaApiAxiosParamCreator = function (configuration?: Configu
          * @param {number} [limit] Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
          * @param {number} [offset] Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
          * @param {boolean} [count] If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
-         * @param {string} [filters] Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, in*  **name**: *co, eq, in, sw*  **type**: *eq, in*  **owner.id**: *eq, in*  **features**: *ca, co*  **created**: *eq*  **modified**: *eq*  **managementWorkgroup.id**: *eq*  **description**: *eq*  **authoritative**: *eq*  **healthy**: *eq*  **status**: *eq, in*  **connectionType**: *eq*  **connectorName**: *eq*
-         * @param {string} [sorters] Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **type, created, modified, name, owner.name, healthy, status**
+         * @param {string} [filters] Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results) Filtering is supported for the following fields and operators:   **id**: *eq, in*   **name**: *co, eq, in, sw*   **type**: *eq, in*   **owner.id**: *eq, in*   **features**: *ca, co*   **created**: *eq*   **modified**: *eq*   **managementWorkgroup.id**: *eq*   **description**: *eq*   **authoritative**: *eq*   **healthy**: *eq*   **status**: *eq, in*   **connectionType**: *eq*   **connectorName**: *eq*
+         * @param {string} [sorters] Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results) Sorting is supported for the following fields: **type, created, modified, name, owner.name, healthy, status**
          * @param {string} [forSubadmin] Filter the returned list of sources for the identity specified by the parameter, which is the id of an identity with the role SOURCE_SUBADMIN. By convention, the value **me** indicates the identity id of the current user. Subadmins may only view Sources which they are able to administer; all other Sources will be filtered out when this parameter is set. If the current user is a SOURCE_SUBADMIN but fails to pass a valid value for this parameter, a 403 Forbidden is returned.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
@@ -58054,7 +58212,7 @@ export const SourcesBetaApiAxiosParamCreator = function (configuration?: Configu
             };
         },
         /**
-         * This API partially updates a source in IdentityNow, using a list of patch operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.  Some fields are immutable and cannot be changed, such as:  * id * type * authoritative * created * modified * connector * connectorClass * passwordPolicies  Attempts to modify these fields will result in a 400 error.  A token with ORG_ADMIN, SOURCE_ADMIN, SOURCE_SUBADMIN, or API authority is required to call this API. 
+         * This API partially updates a source in IdentityNow, using a list of patch operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.  Some fields are immutable and cannot be changed, such as: * id * type * authoritative * created * modified * connector * connectorClass * passwordPolicies  Attempts to modify these fields will result in a 400 error.  A token with ORG_ADMIN, SOURCE_ADMIN, SOURCE_SUBADMIN, or API authority is required to call this API. 
          * @summary Update Source (Partial)
          * @param {string} id The Source id
          * @param {Array<JsonPatchOperationBeta>} jsonPatchOperationBeta A list of account update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard. Any password changes are submitted as plain-text and encrypted upon receipt in IdentityNow.
@@ -58197,164 +58355,6 @@ export const SourcesBetaApiAxiosParamCreator = function (configuration?: Configu
                 axiosOptions: localVarRequestOptions,
             };
         },
-        /**
-         * This API uploads a source schema template file to configure a source\'s account attributes.
-         * @summary Uploads source accounts schema template
-         * @param {string} id The Source id
-         * @param {any} [file] 
-         * @param {*} [axiosOptions] Override http request option.
-         * @throws {RequiredError}
-         */
-        uploadSourceAccountsSchema: async (id: string, file?: any, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
-            // verify required parameter 'id' is not null or undefined
-            assertParamExists('uploadSourceAccountsSchema', 'id', id)
-            const localVarPath = `/sources/{id}/schemas/accounts`
-                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
-            // use dummy base URL string because the URL constructor only accepts absolute URLs.
-            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
-            let baseOptions;
-            if (configuration) {
-                baseOptions = configuration.baseOptions;
-            }
-
-            const localVarRequestOptions = { method: 'POST', ...baseOptions, ...axiosOptions};
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-            const localVarFormParams = new ((configuration && configuration.formDataCtor) || FormData)();
-
-            // authentication oauth2 required
-            // oauth required
-            await setOAuthToObject(localVarHeaderParameter, "oauth2", [], configuration)
-
-            // authentication oauth2 required
-            // oauth required
-            await setOAuthToObject(localVarHeaderParameter, "oauth2", [], configuration)
-
-
-            if (file !== undefined) { 
-                localVarFormParams.append('file', file as any);
-            }
-    
-    
-            localVarHeaderParameter['Content-Type'] = 'multipart/form-data';
-    
-            setSearchParams(localVarUrlObj, localVarQueryParameter);
-            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
-            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
-            localVarRequestOptions.data = localVarFormParams;
-
-            return {
-                url: toPathString(localVarUrlObj),
-                axiosOptions: localVarRequestOptions,
-            };
-        },
-        /**
-         * This uploads a supplemental source connector file (like jdbc driver jars) to a source\'s S3 bucket. This also sends ETS and Audit events. A token with ORG_ADMIN authority is required to call this API.
-         * @summary Upload connector file to source
-         * @param {string} sourceId The Source id
-         * @param {any} [file] 
-         * @param {*} [axiosOptions] Override http request option.
-         * @throws {RequiredError}
-         */
-        uploadSourceConnectorFile: async (sourceId: string, file?: any, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
-            // verify required parameter 'sourceId' is not null or undefined
-            assertParamExists('uploadSourceConnectorFile', 'sourceId', sourceId)
-            const localVarPath = `/sources/{sourceId}/upload-connector-file`
-                .replace(`{${"sourceId"}}`, encodeURIComponent(String(sourceId)));
-            // use dummy base URL string because the URL constructor only accepts absolute URLs.
-            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
-            let baseOptions;
-            if (configuration) {
-                baseOptions = configuration.baseOptions;
-            }
-
-            const localVarRequestOptions = { method: 'POST', ...baseOptions, ...axiosOptions};
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-            const localVarFormParams = new ((configuration && configuration.formDataCtor) || FormData)();
-
-            // authentication oauth2 required
-            // oauth required
-            await setOAuthToObject(localVarHeaderParameter, "oauth2", [], configuration)
-
-            // authentication oauth2 required
-            // oauth required
-            await setOAuthToObject(localVarHeaderParameter, "oauth2", [], configuration)
-
-
-            if (file !== undefined) { 
-                localVarFormParams.append('file', file as any);
-            }
-    
-    
-            localVarHeaderParameter['Content-Type'] = 'multipart/form-data';
-    
-            setSearchParams(localVarUrlObj, localVarQueryParameter);
-            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
-            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
-            localVarRequestOptions.data = localVarFormParams;
-
-            return {
-                url: toPathString(localVarUrlObj),
-                axiosOptions: localVarRequestOptions,
-            };
-        },
-        /**
-         * This API uploads a source schema template file to configure a source\'s entitlement attributes.
-         * @summary Uploads source entitlements schema template
-         * @param {string} id The Source id
-         * @param {string} [schemaName] Name of entitlement schema
-         * @param {any} [file] 
-         * @param {*} [axiosOptions] Override http request option.
-         * @throws {RequiredError}
-         */
-        uploadSourceEntitlementsSchema: async (id: string, schemaName?: string, file?: any, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
-            // verify required parameter 'id' is not null or undefined
-            assertParamExists('uploadSourceEntitlementsSchema', 'id', id)
-            const localVarPath = `/sources/{id}/schemas/entitlements`
-                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
-            // use dummy base URL string because the URL constructor only accepts absolute URLs.
-            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
-            let baseOptions;
-            if (configuration) {
-                baseOptions = configuration.baseOptions;
-            }
-
-            const localVarRequestOptions = { method: 'POST', ...baseOptions, ...axiosOptions};
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-            const localVarFormParams = new ((configuration && configuration.formDataCtor) || FormData)();
-
-            // authentication oauth2 required
-            // oauth required
-            await setOAuthToObject(localVarHeaderParameter, "oauth2", [], configuration)
-
-            // authentication oauth2 required
-            // oauth required
-            await setOAuthToObject(localVarHeaderParameter, "oauth2", [], configuration)
-
-            if (schemaName !== undefined) {
-                localVarQueryParameter['schemaName'] = schemaName;
-            }
-
-
-            if (file !== undefined) { 
-                localVarFormParams.append('file', file as any);
-            }
-    
-    
-            localVarHeaderParameter['Content-Type'] = 'multipart/form-data';
-    
-            setSearchParams(localVarUrlObj, localVarQueryParameter);
-            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
-            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
-            localVarRequestOptions.data = localVarFormParams;
-
-            return {
-                url: toPathString(localVarUrlObj),
-                axiosOptions: localVarRequestOptions,
-            };
-        },
     }
 };
 
@@ -58365,6 +58365,17 @@ export const SourcesBetaApiAxiosParamCreator = function (configuration?: Configu
 export const SourcesBetaApiFp = function(configuration?: Configuration) {
     const localVarAxiosParamCreator = SourcesBetaApiAxiosParamCreator(configuration)
     return {
+        /**
+         * This end-point deletes a specific source in IdentityNow. A token with ORG_ADMIN, SOURCE_ADMIN, or SOURCE_SUBADMIN authority is required to call this API. All of accounts on the source will be removed first, then the source will be deleted. Actual status of task execution can be retrieved via method GET `/task-status/{id}`
+         * @summary Delete Source by ID
+         * @param {string} id The Source ID
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        async _delete(id: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Delete202ResponseBeta>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator._delete(id, axiosOptions);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
         /**
          * This API generates a create policy/template based on field value transforms. This API is intended for use when setting up JDBC Provisioning type sources, but it will also work on other source types. Transforms can be used in the provisioning policy to create a new attribute that you only need during provisioning. Refer to [Transforms in Provisioning Policies](https://developer.sailpoint.com/idn/docs/transforms/guides/transforms-in-provisioning-policies) for more information. A token with ORG_ADMIN authority is required to call this API.
          * @summary Create Provisioning Policy
@@ -58414,17 +58425,6 @@ export const SourcesBetaApiFp = function(configuration?: Configuration) {
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
-         * This end-point deletes a specific source in IdentityNow. A token with ORG_ADMIN, SOURCE_ADMIN, or SOURCE_SUBADMIN authority is required to call this API. All of accounts on the source will be removed first, then the source will be deleted. Actual status of task execution can be retrieved via method GET `/task-status/{id}`
-         * @summary Delete Source by ID
-         * @param {string} id The Source ID
-         * @param {*} [axiosOptions] Override http request option.
-         * @throws {RequiredError}
-         */
-        async deleteSource(id: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<DeleteSource202ResponseBeta>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.deleteSource(id, axiosOptions);
-            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
-        },
-        /**
          * 
          * @summary Delete Source Schema by ID
          * @param {string} sourceId The Source ID.
@@ -58434,29 +58434,6 @@ export const SourcesBetaApiFp = function(configuration?: Configuration) {
          */
         async deleteSourceSchema(sourceId: string, schemaId: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.deleteSourceSchema(sourceId, schemaId, axiosOptions);
-            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
-        },
-        /**
-         * 
-         * @summary Downloads source accounts schema template
-         * @param {string} id The Source id
-         * @param {*} [axiosOptions] Override http request option.
-         * @throws {RequiredError}
-         */
-        async downloadSourceAccountsSchema(id: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.downloadSourceAccountsSchema(id, axiosOptions);
-            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
-        },
-        /**
-         * 
-         * @summary Downloads source entitlements schema template
-         * @param {string} id The Source id
-         * @param {string} [schemaName] Name of entitlement schema
-         * @param {*} [axiosOptions] Override http request option.
-         * @throws {RequiredError}
-         */
-        async downloadSourceEntitlementsSchema(id: string, schemaName?: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.downloadSourceEntitlementsSchema(id, schemaName, axiosOptions);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
@@ -58480,6 +58457,17 @@ export const SourcesBetaApiFp = function(configuration?: Configuration) {
          */
         async getSource(id: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SourceBeta>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getSource(id, axiosOptions);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * 
+         * @summary Downloads source accounts schema template
+         * @param {string} id The Source id
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        async getSourceAccountsSchema(id: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getSourceAccountsSchema(id, axiosOptions);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
@@ -58516,6 +58504,18 @@ export const SourcesBetaApiFp = function(configuration?: Configuration) {
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
+         * 
+         * @summary Downloads source entitlements schema template
+         * @param {string} id The Source id
+         * @param {string} [schemaName] Name of entitlement schema
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        async getSourceEntitlementsSchema(id: string, schemaName?: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getSourceEntitlementsSchema(id, schemaName, axiosOptions);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
          * Get the Source Schema by ID in IdentityNow. 
          * @summary Get Source Schema by ID
          * @param {string} sourceId The Source ID.
@@ -58525,6 +58525,43 @@ export const SourcesBetaApiFp = function(configuration?: Configuration) {
          */
         async getSourceSchema(sourceId: string, schemaId: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SchemaBeta>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getSourceSchema(sourceId, schemaId, axiosOptions);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * This API uploads a source schema template file to configure a source\'s account attributes.
+         * @summary Uploads source accounts schema template
+         * @param {string} id The Source id
+         * @param {any} [file] 
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        async importSourceAccountsSchema(id: string, file?: any, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SchemaBeta>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.importSourceAccountsSchema(id, file, axiosOptions);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * This uploads a supplemental source connector file (like jdbc driver jars) to a source\'s S3 bucket. This also sends ETS and Audit events. A token with ORG_ADMIN authority is required to call this API.
+         * @summary Upload connector file to source
+         * @param {string} sourceId The Source id
+         * @param {any} [file] 
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        async importSourceConnectorFile(sourceId: string, file?: any, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SourceBeta>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.importSourceConnectorFile(sourceId, file, axiosOptions);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * This API uploads a source schema template file to configure a source\'s entitlement attributes.
+         * @summary Uploads source entitlements schema template
+         * @param {string} id The Source id
+         * @param {string} [schemaName] Name of entitlement schema
+         * @param {any} [file] 
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        async importSourceEntitlementsSchema(id: string, schemaName?: string, file?: any, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SchemaBeta>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.importSourceEntitlementsSchema(id, schemaName, file, axiosOptions);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
@@ -58556,8 +58593,8 @@ export const SourcesBetaApiFp = function(configuration?: Configuration) {
          * @param {number} [limit] Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
          * @param {number} [offset] Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
          * @param {boolean} [count] If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
-         * @param {string} [filters] Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, in*  **name**: *co, eq, in, sw*  **type**: *eq, in*  **owner.id**: *eq, in*  **features**: *ca, co*  **created**: *eq*  **modified**: *eq*  **managementWorkgroup.id**: *eq*  **description**: *eq*  **authoritative**: *eq*  **healthy**: *eq*  **status**: *eq, in*  **connectionType**: *eq*  **connectorName**: *eq*
-         * @param {string} [sorters] Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **type, created, modified, name, owner.name, healthy, status**
+         * @param {string} [filters] Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results) Filtering is supported for the following fields and operators:   **id**: *eq, in*   **name**: *co, eq, in, sw*   **type**: *eq, in*   **owner.id**: *eq, in*   **features**: *ca, co*   **created**: *eq*   **modified**: *eq*   **managementWorkgroup.id**: *eq*   **description**: *eq*   **authoritative**: *eq*   **healthy**: *eq*   **status**: *eq, in*   **connectionType**: *eq*   **connectorName**: *eq*
+         * @param {string} [sorters] Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results) Sorting is supported for the following fields: **type, created, modified, name, owner.name, healthy, status**
          * @param {string} [forSubadmin] Filter the returned list of sources for the identity specified by the parameter, which is the id of an identity with the role SOURCE_SUBADMIN. By convention, the value **me** indicates the identity id of the current user. Subadmins may only view Sources which they are able to administer; all other Sources will be filtered out when this parameter is set. If the current user is a SOURCE_SUBADMIN but fails to pass a valid value for this parameter, a 403 Forbidden is returned.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
@@ -58698,7 +58735,7 @@ export const SourcesBetaApiFp = function(configuration?: Configuration) {
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
-         * This API partially updates a source in IdentityNow, using a list of patch operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.  Some fields are immutable and cannot be changed, such as:  * id * type * authoritative * created * modified * connector * connectorClass * passwordPolicies  Attempts to modify these fields will result in a 400 error.  A token with ORG_ADMIN, SOURCE_ADMIN, SOURCE_SUBADMIN, or API authority is required to call this API. 
+         * This API partially updates a source in IdentityNow, using a list of patch operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.  Some fields are immutable and cannot be changed, such as: * id * type * authoritative * created * modified * connector * connectorClass * passwordPolicies  Attempts to modify these fields will result in a 400 error.  A token with ORG_ADMIN, SOURCE_ADMIN, SOURCE_SUBADMIN, or API authority is required to call this API. 
          * @summary Update Source (Partial)
          * @param {string} id The Source id
          * @param {Array<JsonPatchOperationBeta>} jsonPatchOperationBeta A list of account update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard. Any password changes are submitted as plain-text and encrypted upon receipt in IdentityNow.
@@ -58733,43 +58770,6 @@ export const SourcesBetaApiFp = function(configuration?: Configuration) {
             const localVarAxiosArgs = await localVarAxiosParamCreator.updateSourceSchema(sourceId, schemaId, jsonPatchOperationBeta, axiosOptions);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
-        /**
-         * This API uploads a source schema template file to configure a source\'s account attributes.
-         * @summary Uploads source accounts schema template
-         * @param {string} id The Source id
-         * @param {any} [file] 
-         * @param {*} [axiosOptions] Override http request option.
-         * @throws {RequiredError}
-         */
-        async uploadSourceAccountsSchema(id: string, file?: any, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SchemaBeta>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.uploadSourceAccountsSchema(id, file, axiosOptions);
-            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
-        },
-        /**
-         * This uploads a supplemental source connector file (like jdbc driver jars) to a source\'s S3 bucket. This also sends ETS and Audit events. A token with ORG_ADMIN authority is required to call this API.
-         * @summary Upload connector file to source
-         * @param {string} sourceId The Source id
-         * @param {any} [file] 
-         * @param {*} [axiosOptions] Override http request option.
-         * @throws {RequiredError}
-         */
-        async uploadSourceConnectorFile(sourceId: string, file?: any, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SourceBeta>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.uploadSourceConnectorFile(sourceId, file, axiosOptions);
-            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
-        },
-        /**
-         * This API uploads a source schema template file to configure a source\'s entitlement attributes.
-         * @summary Uploads source entitlements schema template
-         * @param {string} id The Source id
-         * @param {string} [schemaName] Name of entitlement schema
-         * @param {any} [file] 
-         * @param {*} [axiosOptions] Override http request option.
-         * @throws {RequiredError}
-         */
-        async uploadSourceEntitlementsSchema(id: string, schemaName?: string, file?: any, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SchemaBeta>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.uploadSourceEntitlementsSchema(id, schemaName, file, axiosOptions);
-            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
-        },
     }
 };
 
@@ -58780,6 +58780,16 @@ export const SourcesBetaApiFp = function(configuration?: Configuration) {
 export const SourcesBetaApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
     const localVarFp = SourcesBetaApiFp(configuration)
     return {
+        /**
+         * This end-point deletes a specific source in IdentityNow. A token with ORG_ADMIN, SOURCE_ADMIN, or SOURCE_SUBADMIN authority is required to call this API. All of accounts on the source will be removed first, then the source will be deleted. Actual status of task execution can be retrieved via method GET `/task-status/{id}`
+         * @summary Delete Source by ID
+         * @param {string} id The Source ID
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        _delete(id: string, axiosOptions?: any): AxiosPromise<Delete202ResponseBeta> {
+            return localVarFp._delete(id, axiosOptions).then((request) => request(axios, basePath));
+        },
         /**
          * This API generates a create policy/template based on field value transforms. This API is intended for use when setting up JDBC Provisioning type sources, but it will also work on other source types. Transforms can be used in the provisioning policy to create a new attribute that you only need during provisioning. Refer to [Transforms in Provisioning Policies](https://developer.sailpoint.com/idn/docs/transforms/guides/transforms-in-provisioning-policies) for more information. A token with ORG_ADMIN authority is required to call this API.
          * @summary Create Provisioning Policy
@@ -58825,16 +58835,6 @@ export const SourcesBetaApiFactory = function (configuration?: Configuration, ba
             return localVarFp.deleteProvisioningPolicy(sourceId, usageType, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
-         * This end-point deletes a specific source in IdentityNow. A token with ORG_ADMIN, SOURCE_ADMIN, or SOURCE_SUBADMIN authority is required to call this API. All of accounts on the source will be removed first, then the source will be deleted. Actual status of task execution can be retrieved via method GET `/task-status/{id}`
-         * @summary Delete Source by ID
-         * @param {string} id The Source ID
-         * @param {*} [axiosOptions] Override http request option.
-         * @throws {RequiredError}
-         */
-        deleteSource(id: string, axiosOptions?: any): AxiosPromise<DeleteSource202ResponseBeta> {
-            return localVarFp.deleteSource(id, axiosOptions).then((request) => request(axios, basePath));
-        },
-        /**
          * 
          * @summary Delete Source Schema by ID
          * @param {string} sourceId The Source ID.
@@ -58844,27 +58844,6 @@ export const SourcesBetaApiFactory = function (configuration?: Configuration, ba
          */
         deleteSourceSchema(sourceId: string, schemaId: string, axiosOptions?: any): AxiosPromise<void> {
             return localVarFp.deleteSourceSchema(sourceId, schemaId, axiosOptions).then((request) => request(axios, basePath));
-        },
-        /**
-         * 
-         * @summary Downloads source accounts schema template
-         * @param {string} id The Source id
-         * @param {*} [axiosOptions] Override http request option.
-         * @throws {RequiredError}
-         */
-        downloadSourceAccountsSchema(id: string, axiosOptions?: any): AxiosPromise<void> {
-            return localVarFp.downloadSourceAccountsSchema(id, axiosOptions).then((request) => request(axios, basePath));
-        },
-        /**
-         * 
-         * @summary Downloads source entitlements schema template
-         * @param {string} id The Source id
-         * @param {string} [schemaName] Name of entitlement schema
-         * @param {*} [axiosOptions] Override http request option.
-         * @throws {RequiredError}
-         */
-        downloadSourceEntitlementsSchema(id: string, schemaName?: string, axiosOptions?: any): AxiosPromise<void> {
-            return localVarFp.downloadSourceEntitlementsSchema(id, schemaName, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * This end-point retrieves the ProvisioningPolicy with the specified usage on the specified Source in IdentityNow. A token with API, ORG_ADMIN, SOURCE_ADMIN, or SOURCE_SUBADMIN authority is required to call this API.
@@ -58886,6 +58865,16 @@ export const SourcesBetaApiFactory = function (configuration?: Configuration, ba
          */
         getSource(id: string, axiosOptions?: any): AxiosPromise<SourceBeta> {
             return localVarFp.getSource(id, axiosOptions).then((request) => request(axios, basePath));
+        },
+        /**
+         * 
+         * @summary Downloads source accounts schema template
+         * @param {string} id The Source id
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        getSourceAccountsSchema(id: string, axiosOptions?: any): AxiosPromise<void> {
+            return localVarFp.getSourceAccountsSchema(id, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * This API returns the existing attribute synchronization configuration for a source specified by the given ID. The response contains all attributes, regardless of whether they enabled or not. A token with ORG_ADMIN authority is required to call this API.
@@ -58918,6 +58907,17 @@ export const SourcesBetaApiFactory = function (configuration?: Configuration, ba
             return localVarFp.getSourceEntitlementRequestConfig(axiosOptions).then((request) => request(axios, basePath));
         },
         /**
+         * 
+         * @summary Downloads source entitlements schema template
+         * @param {string} id The Source id
+         * @param {string} [schemaName] Name of entitlement schema
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        getSourceEntitlementsSchema(id: string, schemaName?: string, axiosOptions?: any): AxiosPromise<void> {
+            return localVarFp.getSourceEntitlementsSchema(id, schemaName, axiosOptions).then((request) => request(axios, basePath));
+        },
+        /**
          * Get the Source Schema by ID in IdentityNow. 
          * @summary Get Source Schema by ID
          * @param {string} sourceId The Source ID.
@@ -58927,6 +58927,40 @@ export const SourcesBetaApiFactory = function (configuration?: Configuration, ba
          */
         getSourceSchema(sourceId: string, schemaId: string, axiosOptions?: any): AxiosPromise<SchemaBeta> {
             return localVarFp.getSourceSchema(sourceId, schemaId, axiosOptions).then((request) => request(axios, basePath));
+        },
+        /**
+         * This API uploads a source schema template file to configure a source\'s account attributes.
+         * @summary Uploads source accounts schema template
+         * @param {string} id The Source id
+         * @param {any} [file] 
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        importSourceAccountsSchema(id: string, file?: any, axiosOptions?: any): AxiosPromise<SchemaBeta> {
+            return localVarFp.importSourceAccountsSchema(id, file, axiosOptions).then((request) => request(axios, basePath));
+        },
+        /**
+         * This uploads a supplemental source connector file (like jdbc driver jars) to a source\'s S3 bucket. This also sends ETS and Audit events. A token with ORG_ADMIN authority is required to call this API.
+         * @summary Upload connector file to source
+         * @param {string} sourceId The Source id
+         * @param {any} [file] 
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        importSourceConnectorFile(sourceId: string, file?: any, axiosOptions?: any): AxiosPromise<SourceBeta> {
+            return localVarFp.importSourceConnectorFile(sourceId, file, axiosOptions).then((request) => request(axios, basePath));
+        },
+        /**
+         * This API uploads a source schema template file to configure a source\'s entitlement attributes.
+         * @summary Uploads source entitlements schema template
+         * @param {string} id The Source id
+         * @param {string} [schemaName] Name of entitlement schema
+         * @param {any} [file] 
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        importSourceEntitlementsSchema(id: string, schemaName?: string, file?: any, axiosOptions?: any): AxiosPromise<SchemaBeta> {
+            return localVarFp.importSourceEntitlementsSchema(id, schemaName, file, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * This end-point lists all the ProvisioningPolicies in IdentityNow. A token with API, or ORG_ADMIN authority is required to call this API.
@@ -58955,8 +58989,8 @@ export const SourcesBetaApiFactory = function (configuration?: Configuration, ba
          * @param {number} [limit] Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
          * @param {number} [offset] Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
          * @param {boolean} [count] If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
-         * @param {string} [filters] Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, in*  **name**: *co, eq, in, sw*  **type**: *eq, in*  **owner.id**: *eq, in*  **features**: *ca, co*  **created**: *eq*  **modified**: *eq*  **managementWorkgroup.id**: *eq*  **description**: *eq*  **authoritative**: *eq*  **healthy**: *eq*  **status**: *eq, in*  **connectionType**: *eq*  **connectorName**: *eq*
-         * @param {string} [sorters] Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **type, created, modified, name, owner.name, healthy, status**
+         * @param {string} [filters] Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results) Filtering is supported for the following fields and operators:   **id**: *eq, in*   **name**: *co, eq, in, sw*   **type**: *eq, in*   **owner.id**: *eq, in*   **features**: *ca, co*   **created**: *eq*   **modified**: *eq*   **managementWorkgroup.id**: *eq*   **description**: *eq*   **authoritative**: *eq*   **healthy**: *eq*   **status**: *eq, in*   **connectionType**: *eq*   **connectorName**: *eq*
+         * @param {string} [sorters] Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results) Sorting is supported for the following fields: **type, created, modified, name, owner.name, healthy, status**
          * @param {string} [forSubadmin] Filter the returned list of sources for the identity specified by the parameter, which is the id of an identity with the role SOURCE_SUBADMIN. By convention, the value **me** indicates the identity id of the current user. Subadmins may only view Sources which they are able to administer; all other Sources will be filtered out when this parameter is set. If the current user is a SOURCE_SUBADMIN but fails to pass a valid value for this parameter, a 403 Forbidden is returned.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
@@ -59085,7 +59119,7 @@ export const SourcesBetaApiFactory = function (configuration?: Configuration, ba
             return localVarFp.updateProvisioningPolicy(sourceId, usageType, jsonPatchOperationBeta, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
-         * This API partially updates a source in IdentityNow, using a list of patch operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.  Some fields are immutable and cannot be changed, such as:  * id * type * authoritative * created * modified * connector * connectorClass * passwordPolicies  Attempts to modify these fields will result in a 400 error.  A token with ORG_ADMIN, SOURCE_ADMIN, SOURCE_SUBADMIN, or API authority is required to call this API. 
+         * This API partially updates a source in IdentityNow, using a list of patch operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.  Some fields are immutable and cannot be changed, such as: * id * type * authoritative * created * modified * connector * connectorClass * passwordPolicies  Attempts to modify these fields will result in a 400 error.  A token with ORG_ADMIN, SOURCE_ADMIN, SOURCE_SUBADMIN, or API authority is required to call this API. 
          * @summary Update Source (Partial)
          * @param {string} id The Source id
          * @param {Array<JsonPatchOperationBeta>} jsonPatchOperationBeta A list of account update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard. Any password changes are submitted as plain-text and encrypted upon receipt in IdentityNow.
@@ -59117,42 +59151,22 @@ export const SourcesBetaApiFactory = function (configuration?: Configuration, ba
         updateSourceSchema(sourceId: string, schemaId: string, jsonPatchOperationBeta: Array<JsonPatchOperationBeta>, axiosOptions?: any): AxiosPromise<SchemaBeta> {
             return localVarFp.updateSourceSchema(sourceId, schemaId, jsonPatchOperationBeta, axiosOptions).then((request) => request(axios, basePath));
         },
-        /**
-         * This API uploads a source schema template file to configure a source\'s account attributes.
-         * @summary Uploads source accounts schema template
-         * @param {string} id The Source id
-         * @param {any} [file] 
-         * @param {*} [axiosOptions] Override http request option.
-         * @throws {RequiredError}
-         */
-        uploadSourceAccountsSchema(id: string, file?: any, axiosOptions?: any): AxiosPromise<SchemaBeta> {
-            return localVarFp.uploadSourceAccountsSchema(id, file, axiosOptions).then((request) => request(axios, basePath));
-        },
-        /**
-         * This uploads a supplemental source connector file (like jdbc driver jars) to a source\'s S3 bucket. This also sends ETS and Audit events. A token with ORG_ADMIN authority is required to call this API.
-         * @summary Upload connector file to source
-         * @param {string} sourceId The Source id
-         * @param {any} [file] 
-         * @param {*} [axiosOptions] Override http request option.
-         * @throws {RequiredError}
-         */
-        uploadSourceConnectorFile(sourceId: string, file?: any, axiosOptions?: any): AxiosPromise<SourceBeta> {
-            return localVarFp.uploadSourceConnectorFile(sourceId, file, axiosOptions).then((request) => request(axios, basePath));
-        },
-        /**
-         * This API uploads a source schema template file to configure a source\'s entitlement attributes.
-         * @summary Uploads source entitlements schema template
-         * @param {string} id The Source id
-         * @param {string} [schemaName] Name of entitlement schema
-         * @param {any} [file] 
-         * @param {*} [axiosOptions] Override http request option.
-         * @throws {RequiredError}
-         */
-        uploadSourceEntitlementsSchema(id: string, schemaName?: string, file?: any, axiosOptions?: any): AxiosPromise<SchemaBeta> {
-            return localVarFp.uploadSourceEntitlementsSchema(id, schemaName, file, axiosOptions).then((request) => request(axios, basePath));
-        },
     };
 };
+
+/**
+ * Request parameters for _delete operation in SourcesBetaApi.
+ * @export
+ * @interface SourcesBetaApiDeleteRequest
+ */
+export interface SourcesBetaApiDeleteRequest {
+    /**
+     * The Source ID
+     * @type {string}
+     * @memberof SourcesBetaApiDelete
+     */
+    readonly id: string
+}
 
 /**
  * Request parameters for createProvisioningPolicy operation in SourcesBetaApi.
@@ -59239,20 +59253,6 @@ export interface SourcesBetaApiDeleteProvisioningPolicyRequest {
 }
 
 /**
- * Request parameters for deleteSource operation in SourcesBetaApi.
- * @export
- * @interface SourcesBetaApiDeleteSourceRequest
- */
-export interface SourcesBetaApiDeleteSourceRequest {
-    /**
-     * The Source ID
-     * @type {string}
-     * @memberof SourcesBetaApiDeleteSource
-     */
-    readonly id: string
-}
-
-/**
  * Request parameters for deleteSourceSchema operation in SourcesBetaApi.
  * @export
  * @interface SourcesBetaApiDeleteSourceSchemaRequest
@@ -59271,41 +59271,6 @@ export interface SourcesBetaApiDeleteSourceSchemaRequest {
      * @memberof SourcesBetaApiDeleteSourceSchema
      */
     readonly schemaId: string
-}
-
-/**
- * Request parameters for downloadSourceAccountsSchema operation in SourcesBetaApi.
- * @export
- * @interface SourcesBetaApiDownloadSourceAccountsSchemaRequest
- */
-export interface SourcesBetaApiDownloadSourceAccountsSchemaRequest {
-    /**
-     * The Source id
-     * @type {string}
-     * @memberof SourcesBetaApiDownloadSourceAccountsSchema
-     */
-    readonly id: string
-}
-
-/**
- * Request parameters for downloadSourceEntitlementsSchema operation in SourcesBetaApi.
- * @export
- * @interface SourcesBetaApiDownloadSourceEntitlementsSchemaRequest
- */
-export interface SourcesBetaApiDownloadSourceEntitlementsSchemaRequest {
-    /**
-     * The Source id
-     * @type {string}
-     * @memberof SourcesBetaApiDownloadSourceEntitlementsSchema
-     */
-    readonly id: string
-
-    /**
-     * Name of entitlement schema
-     * @type {string}
-     * @memberof SourcesBetaApiDownloadSourceEntitlementsSchema
-     */
-    readonly schemaName?: string
 }
 
 /**
@@ -59339,6 +59304,20 @@ export interface SourcesBetaApiGetSourceRequest {
      * The Source ID
      * @type {string}
      * @memberof SourcesBetaApiGetSource
+     */
+    readonly id: string
+}
+
+/**
+ * Request parameters for getSourceAccountsSchema operation in SourcesBetaApi.
+ * @export
+ * @interface SourcesBetaApiGetSourceAccountsSchemaRequest
+ */
+export interface SourcesBetaApiGetSourceAccountsSchemaRequest {
+    /**
+     * The Source id
+     * @type {string}
+     * @memberof SourcesBetaApiGetSourceAccountsSchema
      */
     readonly id: string
 }
@@ -59379,6 +59358,27 @@ export interface SourcesBetaApiGetSourceConfigRequest {
 }
 
 /**
+ * Request parameters for getSourceEntitlementsSchema operation in SourcesBetaApi.
+ * @export
+ * @interface SourcesBetaApiGetSourceEntitlementsSchemaRequest
+ */
+export interface SourcesBetaApiGetSourceEntitlementsSchemaRequest {
+    /**
+     * The Source id
+     * @type {string}
+     * @memberof SourcesBetaApiGetSourceEntitlementsSchema
+     */
+    readonly id: string
+
+    /**
+     * Name of entitlement schema
+     * @type {string}
+     * @memberof SourcesBetaApiGetSourceEntitlementsSchema
+     */
+    readonly schemaName?: string
+}
+
+/**
  * Request parameters for getSourceSchema operation in SourcesBetaApi.
  * @export
  * @interface SourcesBetaApiGetSourceSchemaRequest
@@ -59397,6 +59397,76 @@ export interface SourcesBetaApiGetSourceSchemaRequest {
      * @memberof SourcesBetaApiGetSourceSchema
      */
     readonly schemaId: string
+}
+
+/**
+ * Request parameters for importSourceAccountsSchema operation in SourcesBetaApi.
+ * @export
+ * @interface SourcesBetaApiImportSourceAccountsSchemaRequest
+ */
+export interface SourcesBetaApiImportSourceAccountsSchemaRequest {
+    /**
+     * The Source id
+     * @type {string}
+     * @memberof SourcesBetaApiImportSourceAccountsSchema
+     */
+    readonly id: string
+
+    /**
+     * 
+     * @type {any}
+     * @memberof SourcesBetaApiImportSourceAccountsSchema
+     */
+    readonly file?: any
+}
+
+/**
+ * Request parameters for importSourceConnectorFile operation in SourcesBetaApi.
+ * @export
+ * @interface SourcesBetaApiImportSourceConnectorFileRequest
+ */
+export interface SourcesBetaApiImportSourceConnectorFileRequest {
+    /**
+     * The Source id
+     * @type {string}
+     * @memberof SourcesBetaApiImportSourceConnectorFile
+     */
+    readonly sourceId: string
+
+    /**
+     * 
+     * @type {any}
+     * @memberof SourcesBetaApiImportSourceConnectorFile
+     */
+    readonly file?: any
+}
+
+/**
+ * Request parameters for importSourceEntitlementsSchema operation in SourcesBetaApi.
+ * @export
+ * @interface SourcesBetaApiImportSourceEntitlementsSchemaRequest
+ */
+export interface SourcesBetaApiImportSourceEntitlementsSchemaRequest {
+    /**
+     * The Source id
+     * @type {string}
+     * @memberof SourcesBetaApiImportSourceEntitlementsSchema
+     */
+    readonly id: string
+
+    /**
+     * Name of entitlement schema
+     * @type {string}
+     * @memberof SourcesBetaApiImportSourceEntitlementsSchema
+     */
+    readonly schemaName?: string
+
+    /**
+     * 
+     * @type {any}
+     * @memberof SourcesBetaApiImportSourceEntitlementsSchema
+     */
+    readonly file?: any
 }
 
 /**
@@ -59462,14 +59532,14 @@ export interface SourcesBetaApiListSourcesRequest {
     readonly count?: boolean
 
     /**
-     * Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, in*  **name**: *co, eq, in, sw*  **type**: *eq, in*  **owner.id**: *eq, in*  **features**: *ca, co*  **created**: *eq*  **modified**: *eq*  **managementWorkgroup.id**: *eq*  **description**: *eq*  **authoritative**: *eq*  **healthy**: *eq*  **status**: *eq, in*  **connectionType**: *eq*  **connectorName**: *eq*
+     * Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results) Filtering is supported for the following fields and operators:   **id**: *eq, in*   **name**: *co, eq, in, sw*   **type**: *eq, in*   **owner.id**: *eq, in*   **features**: *ca, co*   **created**: *eq*   **modified**: *eq*   **managementWorkgroup.id**: *eq*   **description**: *eq*   **authoritative**: *eq*   **healthy**: *eq*   **status**: *eq, in*   **connectionType**: *eq*   **connectorName**: *eq*
      * @type {string}
      * @memberof SourcesBetaApiListSources
      */
     readonly filters?: string
 
     /**
-     * Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **type, created, modified, name, owner.name, healthy, status**
+     * Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results) Sorting is supported for the following fields: **type, created, modified, name, owner.name, healthy, status**
      * @type {string}
      * @memberof SourcesBetaApiListSources
      */
@@ -59771,82 +59841,24 @@ export interface SourcesBetaApiUpdateSourceSchemaRequest {
 }
 
 /**
- * Request parameters for uploadSourceAccountsSchema operation in SourcesBetaApi.
- * @export
- * @interface SourcesBetaApiUploadSourceAccountsSchemaRequest
- */
-export interface SourcesBetaApiUploadSourceAccountsSchemaRequest {
-    /**
-     * The Source id
-     * @type {string}
-     * @memberof SourcesBetaApiUploadSourceAccountsSchema
-     */
-    readonly id: string
-
-    /**
-     * 
-     * @type {any}
-     * @memberof SourcesBetaApiUploadSourceAccountsSchema
-     */
-    readonly file?: any
-}
-
-/**
- * Request parameters for uploadSourceConnectorFile operation in SourcesBetaApi.
- * @export
- * @interface SourcesBetaApiUploadSourceConnectorFileRequest
- */
-export interface SourcesBetaApiUploadSourceConnectorFileRequest {
-    /**
-     * The Source id
-     * @type {string}
-     * @memberof SourcesBetaApiUploadSourceConnectorFile
-     */
-    readonly sourceId: string
-
-    /**
-     * 
-     * @type {any}
-     * @memberof SourcesBetaApiUploadSourceConnectorFile
-     */
-    readonly file?: any
-}
-
-/**
- * Request parameters for uploadSourceEntitlementsSchema operation in SourcesBetaApi.
- * @export
- * @interface SourcesBetaApiUploadSourceEntitlementsSchemaRequest
- */
-export interface SourcesBetaApiUploadSourceEntitlementsSchemaRequest {
-    /**
-     * The Source id
-     * @type {string}
-     * @memberof SourcesBetaApiUploadSourceEntitlementsSchema
-     */
-    readonly id: string
-
-    /**
-     * Name of entitlement schema
-     * @type {string}
-     * @memberof SourcesBetaApiUploadSourceEntitlementsSchema
-     */
-    readonly schemaName?: string
-
-    /**
-     * 
-     * @type {any}
-     * @memberof SourcesBetaApiUploadSourceEntitlementsSchema
-     */
-    readonly file?: any
-}
-
-/**
  * SourcesBetaApi - object-oriented interface
  * @export
  * @class SourcesBetaApi
  * @extends {BaseAPI}
  */
 export class SourcesBetaApi extends BaseAPI {
+    /**
+     * This end-point deletes a specific source in IdentityNow. A token with ORG_ADMIN, SOURCE_ADMIN, or SOURCE_SUBADMIN authority is required to call this API. All of accounts on the source will be removed first, then the source will be deleted. Actual status of task execution can be retrieved via method GET `/task-status/{id}`
+     * @summary Delete Source by ID
+     * @param {SourcesBetaApiDeleteRequest} requestParameters Request parameters.
+     * @param {*} [axiosOptions] Override http request option.
+     * @throws {RequiredError}
+     * @memberof SourcesBetaApi
+     */
+    public _delete(requestParameters: SourcesBetaApiDeleteRequest, axiosOptions?: AxiosRequestConfig) {
+        return SourcesBetaApiFp(this.configuration)._delete(requestParameters.id, axiosOptions).then((request) => request(this.axios, this.basePath));
+    }
+
     /**
      * This API generates a create policy/template based on field value transforms. This API is intended for use when setting up JDBC Provisioning type sources, but it will also work on other source types. Transforms can be used in the provisioning policy to create a new attribute that you only need during provisioning. Refer to [Transforms in Provisioning Policies](https://developer.sailpoint.com/idn/docs/transforms/guides/transforms-in-provisioning-policies) for more information. A token with ORG_ADMIN authority is required to call this API.
      * @summary Create Provisioning Policy
@@ -59896,18 +59908,6 @@ export class SourcesBetaApi extends BaseAPI {
     }
 
     /**
-     * This end-point deletes a specific source in IdentityNow. A token with ORG_ADMIN, SOURCE_ADMIN, or SOURCE_SUBADMIN authority is required to call this API. All of accounts on the source will be removed first, then the source will be deleted. Actual status of task execution can be retrieved via method GET `/task-status/{id}`
-     * @summary Delete Source by ID
-     * @param {SourcesBetaApiDeleteSourceRequest} requestParameters Request parameters.
-     * @param {*} [axiosOptions] Override http request option.
-     * @throws {RequiredError}
-     * @memberof SourcesBetaApi
-     */
-    public deleteSource(requestParameters: SourcesBetaApiDeleteSourceRequest, axiosOptions?: AxiosRequestConfig) {
-        return SourcesBetaApiFp(this.configuration).deleteSource(requestParameters.id, axiosOptions).then((request) => request(this.axios, this.basePath));
-    }
-
-    /**
      * 
      * @summary Delete Source Schema by ID
      * @param {SourcesBetaApiDeleteSourceSchemaRequest} requestParameters Request parameters.
@@ -59917,30 +59917,6 @@ export class SourcesBetaApi extends BaseAPI {
      */
     public deleteSourceSchema(requestParameters: SourcesBetaApiDeleteSourceSchemaRequest, axiosOptions?: AxiosRequestConfig) {
         return SourcesBetaApiFp(this.configuration).deleteSourceSchema(requestParameters.sourceId, requestParameters.schemaId, axiosOptions).then((request) => request(this.axios, this.basePath));
-    }
-
-    /**
-     * 
-     * @summary Downloads source accounts schema template
-     * @param {SourcesBetaApiDownloadSourceAccountsSchemaRequest} requestParameters Request parameters.
-     * @param {*} [axiosOptions] Override http request option.
-     * @throws {RequiredError}
-     * @memberof SourcesBetaApi
-     */
-    public downloadSourceAccountsSchema(requestParameters: SourcesBetaApiDownloadSourceAccountsSchemaRequest, axiosOptions?: AxiosRequestConfig) {
-        return SourcesBetaApiFp(this.configuration).downloadSourceAccountsSchema(requestParameters.id, axiosOptions).then((request) => request(this.axios, this.basePath));
-    }
-
-    /**
-     * 
-     * @summary Downloads source entitlements schema template
-     * @param {SourcesBetaApiDownloadSourceEntitlementsSchemaRequest} requestParameters Request parameters.
-     * @param {*} [axiosOptions] Override http request option.
-     * @throws {RequiredError}
-     * @memberof SourcesBetaApi
-     */
-    public downloadSourceEntitlementsSchema(requestParameters: SourcesBetaApiDownloadSourceEntitlementsSchemaRequest, axiosOptions?: AxiosRequestConfig) {
-        return SourcesBetaApiFp(this.configuration).downloadSourceEntitlementsSchema(requestParameters.id, requestParameters.schemaName, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -59965,6 +59941,18 @@ export class SourcesBetaApi extends BaseAPI {
      */
     public getSource(requestParameters: SourcesBetaApiGetSourceRequest, axiosOptions?: AxiosRequestConfig) {
         return SourcesBetaApiFp(this.configuration).getSource(requestParameters.id, axiosOptions).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * 
+     * @summary Downloads source accounts schema template
+     * @param {SourcesBetaApiGetSourceAccountsSchemaRequest} requestParameters Request parameters.
+     * @param {*} [axiosOptions] Override http request option.
+     * @throws {RequiredError}
+     * @memberof SourcesBetaApi
+     */
+    public getSourceAccountsSchema(requestParameters: SourcesBetaApiGetSourceAccountsSchemaRequest, axiosOptions?: AxiosRequestConfig) {
+        return SourcesBetaApiFp(this.configuration).getSourceAccountsSchema(requestParameters.id, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -60003,6 +59991,18 @@ export class SourcesBetaApi extends BaseAPI {
     }
 
     /**
+     * 
+     * @summary Downloads source entitlements schema template
+     * @param {SourcesBetaApiGetSourceEntitlementsSchemaRequest} requestParameters Request parameters.
+     * @param {*} [axiosOptions] Override http request option.
+     * @throws {RequiredError}
+     * @memberof SourcesBetaApi
+     */
+    public getSourceEntitlementsSchema(requestParameters: SourcesBetaApiGetSourceEntitlementsSchemaRequest, axiosOptions?: AxiosRequestConfig) {
+        return SourcesBetaApiFp(this.configuration).getSourceEntitlementsSchema(requestParameters.id, requestParameters.schemaName, axiosOptions).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
      * Get the Source Schema by ID in IdentityNow. 
      * @summary Get Source Schema by ID
      * @param {SourcesBetaApiGetSourceSchemaRequest} requestParameters Request parameters.
@@ -60012,6 +60012,42 @@ export class SourcesBetaApi extends BaseAPI {
      */
     public getSourceSchema(requestParameters: SourcesBetaApiGetSourceSchemaRequest, axiosOptions?: AxiosRequestConfig) {
         return SourcesBetaApiFp(this.configuration).getSourceSchema(requestParameters.sourceId, requestParameters.schemaId, axiosOptions).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * This API uploads a source schema template file to configure a source\'s account attributes.
+     * @summary Uploads source accounts schema template
+     * @param {SourcesBetaApiImportSourceAccountsSchemaRequest} requestParameters Request parameters.
+     * @param {*} [axiosOptions] Override http request option.
+     * @throws {RequiredError}
+     * @memberof SourcesBetaApi
+     */
+    public importSourceAccountsSchema(requestParameters: SourcesBetaApiImportSourceAccountsSchemaRequest, axiosOptions?: AxiosRequestConfig) {
+        return SourcesBetaApiFp(this.configuration).importSourceAccountsSchema(requestParameters.id, requestParameters.file, axiosOptions).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * This uploads a supplemental source connector file (like jdbc driver jars) to a source\'s S3 bucket. This also sends ETS and Audit events. A token with ORG_ADMIN authority is required to call this API.
+     * @summary Upload connector file to source
+     * @param {SourcesBetaApiImportSourceConnectorFileRequest} requestParameters Request parameters.
+     * @param {*} [axiosOptions] Override http request option.
+     * @throws {RequiredError}
+     * @memberof SourcesBetaApi
+     */
+    public importSourceConnectorFile(requestParameters: SourcesBetaApiImportSourceConnectorFileRequest, axiosOptions?: AxiosRequestConfig) {
+        return SourcesBetaApiFp(this.configuration).importSourceConnectorFile(requestParameters.sourceId, requestParameters.file, axiosOptions).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * This API uploads a source schema template file to configure a source\'s entitlement attributes.
+     * @summary Uploads source entitlements schema template
+     * @param {SourcesBetaApiImportSourceEntitlementsSchemaRequest} requestParameters Request parameters.
+     * @param {*} [axiosOptions] Override http request option.
+     * @throws {RequiredError}
+     * @memberof SourcesBetaApi
+     */
+    public importSourceEntitlementsSchema(requestParameters: SourcesBetaApiImportSourceEntitlementsSchemaRequest, axiosOptions?: AxiosRequestConfig) {
+        return SourcesBetaApiFp(this.configuration).importSourceEntitlementsSchema(requestParameters.id, requestParameters.schemaName, requestParameters.file, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -60183,7 +60219,7 @@ export class SourcesBetaApi extends BaseAPI {
     }
 
     /**
-     * This API partially updates a source in IdentityNow, using a list of patch operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.  Some fields are immutable and cannot be changed, such as:  * id * type * authoritative * created * modified * connector * connectorClass * passwordPolicies  Attempts to modify these fields will result in a 400 error.  A token with ORG_ADMIN, SOURCE_ADMIN, SOURCE_SUBADMIN, or API authority is required to call this API. 
+     * This API partially updates a source in IdentityNow, using a list of patch operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.  Some fields are immutable and cannot be changed, such as: * id * type * authoritative * created * modified * connector * connectorClass * passwordPolicies  Attempts to modify these fields will result in a 400 error.  A token with ORG_ADMIN, SOURCE_ADMIN, SOURCE_SUBADMIN, or API authority is required to call this API. 
      * @summary Update Source (Partial)
      * @param {SourcesBetaApiUpdateSourceRequest} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
@@ -60216,42 +60252,6 @@ export class SourcesBetaApi extends BaseAPI {
      */
     public updateSourceSchema(requestParameters: SourcesBetaApiUpdateSourceSchemaRequest, axiosOptions?: AxiosRequestConfig) {
         return SourcesBetaApiFp(this.configuration).updateSourceSchema(requestParameters.sourceId, requestParameters.schemaId, requestParameters.jsonPatchOperationBeta, axiosOptions).then((request) => request(this.axios, this.basePath));
-    }
-
-    /**
-     * This API uploads a source schema template file to configure a source\'s account attributes.
-     * @summary Uploads source accounts schema template
-     * @param {SourcesBetaApiUploadSourceAccountsSchemaRequest} requestParameters Request parameters.
-     * @param {*} [axiosOptions] Override http request option.
-     * @throws {RequiredError}
-     * @memberof SourcesBetaApi
-     */
-    public uploadSourceAccountsSchema(requestParameters: SourcesBetaApiUploadSourceAccountsSchemaRequest, axiosOptions?: AxiosRequestConfig) {
-        return SourcesBetaApiFp(this.configuration).uploadSourceAccountsSchema(requestParameters.id, requestParameters.file, axiosOptions).then((request) => request(this.axios, this.basePath));
-    }
-
-    /**
-     * This uploads a supplemental source connector file (like jdbc driver jars) to a source\'s S3 bucket. This also sends ETS and Audit events. A token with ORG_ADMIN authority is required to call this API.
-     * @summary Upload connector file to source
-     * @param {SourcesBetaApiUploadSourceConnectorFileRequest} requestParameters Request parameters.
-     * @param {*} [axiosOptions] Override http request option.
-     * @throws {RequiredError}
-     * @memberof SourcesBetaApi
-     */
-    public uploadSourceConnectorFile(requestParameters: SourcesBetaApiUploadSourceConnectorFileRequest, axiosOptions?: AxiosRequestConfig) {
-        return SourcesBetaApiFp(this.configuration).uploadSourceConnectorFile(requestParameters.sourceId, requestParameters.file, axiosOptions).then((request) => request(this.axios, this.basePath));
-    }
-
-    /**
-     * This API uploads a source schema template file to configure a source\'s entitlement attributes.
-     * @summary Uploads source entitlements schema template
-     * @param {SourcesBetaApiUploadSourceEntitlementsSchemaRequest} requestParameters Request parameters.
-     * @param {*} [axiosOptions] Override http request option.
-     * @throws {RequiredError}
-     * @memberof SourcesBetaApi
-     */
-    public uploadSourceEntitlementsSchema(requestParameters: SourcesBetaApiUploadSourceEntitlementsSchemaRequest, axiosOptions?: AxiosRequestConfig) {
-        return SourcesBetaApiFp(this.configuration).uploadSourceEntitlementsSchema(requestParameters.id, requestParameters.schemaName, requestParameters.file, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 }
 
