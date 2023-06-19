@@ -6043,6 +6043,18 @@ export interface EntitlementBeta {
      */
     'name'?: string;
     /**
+     * Time when the entitlement was created
+     * @type {string}
+     * @memberof EntitlementBeta
+     */
+    'created'?: string;
+    /**
+     * Time when the entitlement was last modified
+     * @type {string}
+     * @memberof EntitlementBeta
+     */
+    'modified'?: string;
+    /**
      * The entitlement attribute name
      * @type {string}
      * @memberof EntitlementBeta
@@ -6061,12 +6073,6 @@ export interface EntitlementBeta {
      */
     'sourceSchemaObjectType'?: string;
     /**
-     * The description of the entitlement
-     * @type {string}
-     * @memberof EntitlementBeta
-     */
-    'description'?: string;
-    /**
      * True if the entitlement is privileged
      * @type {boolean}
      * @memberof EntitlementBeta
@@ -6079,17 +6085,23 @@ export interface EntitlementBeta {
      */
     'cloudGoverned'?: boolean;
     /**
-     * Time when the entitlement was created
+     * The description of the entitlement
      * @type {string}
      * @memberof EntitlementBeta
      */
-    'created'?: string;
+    'description'?: string;
     /**
-     * Time when the entitlement was last modified
-     * @type {string}
+     * True if the entitlement is requestable
+     * @type {boolean}
      * @memberof EntitlementBeta
      */
-    'modified'?: string;
+    'requestable'?: boolean;
+    /**
+     * A map of free-form key-value pairs from the source system
+     * @type {{ [key: string]: any; }}
+     * @memberof EntitlementBeta
+     */
+    'attributes'?: { [key: string]: any; };
     /**
      * 
      * @type {EntitlementSourceBeta}
@@ -6097,11 +6109,17 @@ export interface EntitlementBeta {
      */
     'source'?: EntitlementSourceBeta;
     /**
-     * A map of free-form key-value pairs from the source system
-     * @type {{ [key: string]: any; }}
+     * 
+     * @type {OwnerReferenceDtoBeta}
      * @memberof EntitlementBeta
      */
-    'attributes'?: { [key: string]: any; };
+    'owner'?: OwnerReferenceDtoBeta;
+    /**
+     * 
+     * @type {Array<PermissionDtoBeta>}
+     * @memberof EntitlementBeta
+     */
+    'directPermissions'?: Array<PermissionDtoBeta>;
     /**
      * List of IDs of segments, if any, to which this Entitlement is assigned.
      * @type {Array<string>}
@@ -6110,16 +6128,10 @@ export interface EntitlementBeta {
     'segments'?: Array<string> | null;
     /**
      * 
-     * @type {Array<PermissionDtoBeta>}
+     * @type {ManuallyUpdatedFieldsDTOBeta}
      * @memberof EntitlementBeta
      */
-    'directPermissions'?: Array<PermissionDtoBeta>;
-    /**
-     * 
-     * @type {OwnerReferenceDtoBeta}
-     * @memberof EntitlementBeta
-     */
-    'owner'?: OwnerReferenceDtoBeta;
+    'manuallyUpdatedFields'?: ManuallyUpdatedFieldsDTOBeta;
 }
 /**
  * 
@@ -10477,6 +10489,25 @@ export const ManualWorkItemStateBeta = {
 export type ManualWorkItemStateBeta = typeof ManualWorkItemStateBeta[keyof typeof ManualWorkItemStateBeta];
 
 
+/**
+ * 
+ * @export
+ * @interface ManuallyUpdatedFieldsDTOBeta
+ */
+export interface ManuallyUpdatedFieldsDTOBeta {
+    /**
+     * True if the entitlements name was updated manually via entitlement import csv or patch endpoint.  False means that property value has not been change after first entitlement aggregation. Field refers to [Entitlement response schema](https://developer.sailpoint.com/idn/api/beta/get-entitlement) > `name` property.
+     * @type {boolean}
+     * @memberof ManuallyUpdatedFieldsDTOBeta
+     */
+    'DISPLAY_NAME'?: boolean;
+    /**
+     * True if the entitlement description was updated manually via entitlement import csv or patch endpoint.  False means that property value has not been change after first entitlement aggregation. Field refers to [Entitlement response schema](https://developer.sailpoint.com/idn/api/beta/get-entitlement) > `description` property.
+     * @type {boolean}
+     * @memberof ManuallyUpdatedFieldsDTOBeta
+     */
+    'DESCRIPTION'?: boolean;
+}
 /**
  * 
  * @export
