@@ -215,7 +215,7 @@ export interface AccessProfile {
      * @type {OwnerReference}
      * @memberof AccessProfile
      */
-    'owner': OwnerReference;
+    'owner': OwnerReference | null;
     /**
      * 
      * @type {AccessProfileSourceRef}
@@ -5694,6 +5694,7 @@ export const DtoType = {
     Rule: 'RULE',
     SodPolicy: 'SOD_POLICY',
     Source: 'SOURCE',
+    Tag: 'TAG',
     TagCategory: 'TAG_CATEGORY',
     TaskResult: 'TASK_RESULT',
     ReportResult: 'REPORT_RESULT',
@@ -6877,7 +6878,7 @@ export interface Expression {
      * @type {Array<Value>}
      * @memberof Expression
      */
-    'children'?: Array<Value>;
+    'children'?: Array<Value> | null;
 }
 
 export const ExpressionOperatorEnum = {
@@ -13098,7 +13099,7 @@ export interface Role {
      * @type {OwnerReference}
      * @memberof Role
      */
-    'owner': OwnerReference;
+    'owner': OwnerReference | null;
     /**
      * 
      * @type {Array<AccessProfileRef>}
@@ -14585,7 +14586,7 @@ export interface Segment {
      * @type {OwnerReference}
      * @memberof Segment
      */
-    'owner'?: OwnerReference;
+    'owner'?: OwnerReference | null;
     /**
      * 
      * @type {VisibilityCriteria}

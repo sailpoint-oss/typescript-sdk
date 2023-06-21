@@ -575,7 +575,7 @@ export interface AccessProfileBeta {
      * @type {OwnerReferenceBeta}
      * @memberof AccessProfileBeta
      */
-    'owner': OwnerReferenceBeta;
+    'owner': OwnerReferenceBeta | null;
     /**
      * 
      * @type {AccessProfileSourceRefBeta}
@@ -5895,6 +5895,7 @@ export const DtoTypeBeta = {
     Rule: 'RULE',
     SodPolicy: 'SOD_POLICY',
     Source: 'SOURCE',
+    Tag: 'TAG',
     TagCategory: 'TAG_CATEGORY',
     TaskResult: 'TASK_RESULT',
     ReportResult: 'REPORT_RESULT',
@@ -14709,7 +14710,7 @@ export interface RoleBeta {
      * @type {OwnerReferenceBeta}
      * @memberof RoleBeta
      */
-    'owner': OwnerReferenceBeta;
+    'owner': OwnerReferenceBeta | null;
     /**
      * 
      * @type {Array<AccessProfileRefBeta>}
@@ -16587,7 +16588,7 @@ export interface SegmentBeta {
      * @type {OwnerReferenceBeta}
      * @memberof SegmentBeta
      */
-    'owner'?: OwnerReferenceBeta;
+    'owner'?: OwnerReferenceBeta | null;
     /**
      * 
      * @type {VisibilityCriteriaBeta}
