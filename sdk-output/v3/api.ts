@@ -3094,67 +3094,6 @@ export interface ApprovalSummary {
     'rejected'?: number;
 }
 /**
- * An object containing the details of an ARM risk listing of the SOD violation reasons detected by this check.
- * @export
- * @interface ArmRisk
- */
-export interface ArmRisk {
-    /**
-     * Risk Name
-     * @type {string}
-     * @memberof ArmRisk
-     */
-    'name'?: string;
-    /**
-     * Description
-     * @type {string}
-     * @memberof ArmRisk
-     */
-    'description'?: string;
-    /**
-     * List of risk owners\' SAP usernames
-     * @type {Array<string>}
-     * @memberof ArmRisk
-     */
-    'owners'?: Array<string>;
-    /**
-     * URL to \"what if\" details in ARM
-     * @type {string}
-     * @memberof ArmRisk
-     */
-    'externalReference'?: string;
-    /**
-     * Risk Rating
-     * @type {string}
-     * @memberof ArmRisk
-     */
-    'rating'?: string;
-    /**
-     * A map from business function codes to \"Left side\" or \"Right side\"
-     * @type {{ [key: string]: string; }}
-     * @memberof ArmRisk
-     */
-    'businessFunctions'?: { [key: string]: string; };
-    /**
-     * List of risk approvers\' SAP usernames
-     * @type {Array<string>}
-     * @memberof ArmRisk
-     */
-    'approvers'?: Array<string>;
-    /**
-     * What was done to mitigate risks
-     * @type {string}
-     * @memberof ArmRisk
-     */
-    'mitigatingControls'?: string;
-    /**
-     * Recommendation on how to resolve risk
-     * @type {string}
-     * @memberof ArmRisk
-     */
-    'correctionAdvice'?: string;
-}
-/**
  * 
  * @export
  * @interface AttributeDefinition
@@ -8801,19 +8740,6 @@ export interface JsonPatchOperationValue {
 export interface JsonPatchOperationValueAnyOfInner {
 }
 /**
- * Type of key exchange.
- * @export
- * @enum {string}
- */
-
-export const KeyExchangeServiceTarget = {
-    Arm: 'ARM'
-} as const;
-
-export type KeyExchangeServiceTarget = typeof KeyExchangeServiceTarget[keyof typeof KeyExchangeServiceTarget];
-
-
-/**
  * 
  * @export
  * @interface LeftPad
@@ -11777,38 +11703,6 @@ export interface PublicIdentityConfig {
      * @memberof PublicIdentityConfig
      */
     'modifiedBy'?: IdentityReference | null;
-}
-/**
- * 
- * @export
- * @interface PublicKey
- */
-export interface PublicKey {
-    /**
-     * ARM Public Key used to encrypt username and password credentials sent to ARM
-     * @type {string}
-     * @memberof PublicKey
-     */
-    'value'?: string;
-}
-/**
- * Arm Data for the org configuration.
- * @export
- * @interface PublicOrgConfigArmData
- */
-export interface PublicOrgConfigArmData {
-    /**
-     * ARM Customer ID
-     * @type {string}
-     * @memberof PublicOrgConfigArmData
-     */
-    'armCustomerId'?: string | null;
-    /**
-     * ARM SSO URL
-     * @type {string}
-     * @memberof PublicOrgConfigArmData
-     */
-    'armSsoUrl'?: string | null;
 }
 /**
  * Query parameters used to construct an Elasticsearch query object.
@@ -30757,90 +30651,6 @@ export const SODPolicyApiAxiosParamCreator = function (configuration?: Configura
             };
         },
         /**
-         * This API returns public key to encrypt ARM auth blob.
-         * @summary Get ARM public key
-         * @param {KeyExchangeServiceTarget} id The target for public key
-         * @param {*} [axiosOptions] Override http request option.
-         * @throws {RequiredError}
-         */
-        getArmPublicKey: async (id: KeyExchangeServiceTarget, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
-            // verify required parameter 'id' is not null or undefined
-            assertParamExists('getArmPublicKey', 'id', id)
-            const localVarPath = `/sod-config/public-keys/target`
-                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
-            // use dummy base URL string because the URL constructor only accepts absolute URLs.
-            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
-            let baseOptions;
-            if (configuration) {
-                baseOptions = configuration.baseOptions;
-            }
-
-            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...axiosOptions};
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-
-            // authentication oauth2 required
-            // oauth required
-            await setOAuthToObject(localVarHeaderParameter, "oauth2", [], configuration)
-
-            // authentication oauth2 required
-            // oauth required
-            await setOAuthToObject(localVarHeaderParameter, "oauth2", [], configuration)
-
-
-    
-            setSearchParams(localVarUrlObj, localVarQueryParameter);
-            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
-            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
-
-            return {
-                url: toPathString(localVarUrlObj),
-                axiosOptions: localVarRequestOptions,
-            };
-        },
-        /**
-         * This API gets the specified ARM risk.  Any authenticated token can call this API.
-         * @summary Gets the specified ARM risk.
-         * @param {string} id The composite ID of the ARM Risk. It should consist of a jobId, rulebookId, and a riskCode; each separated by a \&quot;!\&quot;
-         * @param {*} [axiosOptions] Override http request option.
-         * @throws {RequiredError}
-         */
-        getArmRiskById: async (id: string, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
-            // verify required parameter 'id' is not null or undefined
-            assertParamExists('getArmRiskById', 'id', id)
-            const localVarPath = `/sod-risks/risks/{id}`
-                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
-            // use dummy base URL string because the URL constructor only accepts absolute URLs.
-            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
-            let baseOptions;
-            if (configuration) {
-                baseOptions = configuration.baseOptions;
-            }
-
-            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...axiosOptions};
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-
-            // authentication oauth2 required
-            // oauth required
-            await setOAuthToObject(localVarHeaderParameter, "oauth2", [], configuration)
-
-            // authentication oauth2 required
-            // oauth required
-            await setOAuthToObject(localVarHeaderParameter, "oauth2", [], configuration)
-
-
-    
-            setSearchParams(localVarUrlObj, localVarQueryParameter);
-            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
-            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
-
-            return {
-                url: toPathString(localVarUrlObj),
-                axiosOptions: localVarRequestOptions,
-            };
-        },
-        /**
          * This allows to download a specified named violation report for a given report reference.
          * @summary Download custom violation report
          * @param {string} reportResultId The ID of the report reference to download.
@@ -31507,28 +31317,6 @@ export const SODPolicyApiFp = function(configuration?: Configuration) {
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
-         * This API returns public key to encrypt ARM auth blob.
-         * @summary Get ARM public key
-         * @param {KeyExchangeServiceTarget} id The target for public key
-         * @param {*} [axiosOptions] Override http request option.
-         * @throws {RequiredError}
-         */
-        async getArmPublicKey(id: KeyExchangeServiceTarget, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<PublicKey>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.getArmPublicKey(id, axiosOptions);
-            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
-        },
-        /**
-         * This API gets the specified ARM risk.  Any authenticated token can call this API.
-         * @summary Gets the specified ARM risk.
-         * @param {string} id The composite ID of the ARM Risk. It should consist of a jobId, rulebookId, and a riskCode; each separated by a \&quot;!\&quot;
-         * @param {*} [axiosOptions] Override http request option.
-         * @throws {RequiredError}
-         */
-        async getArmRiskById(id: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ArmRisk>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.getArmRiskById(id, axiosOptions);
-            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
-        },
-        /**
          * This allows to download a specified named violation report for a given report reference.
          * @summary Download custom violation report
          * @param {string} reportResultId The ID of the report reference to download.
@@ -31730,26 +31518,6 @@ export const SODPolicyApiFactory = function (configuration?: Configuration, base
             return localVarFp.deleteSodPolicySchedule(id, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
-         * This API returns public key to encrypt ARM auth blob.
-         * @summary Get ARM public key
-         * @param {KeyExchangeServiceTarget} id The target for public key
-         * @param {*} [axiosOptions] Override http request option.
-         * @throws {RequiredError}
-         */
-        getArmPublicKey(id: KeyExchangeServiceTarget, axiosOptions?: any): AxiosPromise<PublicKey> {
-            return localVarFp.getArmPublicKey(id, axiosOptions).then((request) => request(axios, basePath));
-        },
-        /**
-         * This API gets the specified ARM risk.  Any authenticated token can call this API.
-         * @summary Gets the specified ARM risk.
-         * @param {string} id The composite ID of the ARM Risk. It should consist of a jobId, rulebookId, and a riskCode; each separated by a \&quot;!\&quot;
-         * @param {*} [axiosOptions] Override http request option.
-         * @throws {RequiredError}
-         */
-        getArmRiskById(id: string, axiosOptions?: any): AxiosPromise<ArmRisk> {
-            return localVarFp.getArmRiskById(id, axiosOptions).then((request) => request(axios, basePath));
-        },
-        /**
          * This allows to download a specified named violation report for a given report reference.
          * @summary Download custom violation report
          * @param {string} reportResultId The ID of the report reference to download.
@@ -31943,34 +31711,6 @@ export interface SODPolicyApiDeleteSodPolicyScheduleRequest {
      * The ID of the SOD policy the schedule must be deleted for.
      * @type {string}
      * @memberof SODPolicyApiDeleteSodPolicySchedule
-     */
-    readonly id: string
-}
-
-/**
- * Request parameters for getArmPublicKey operation in SODPolicyApi.
- * @export
- * @interface SODPolicyApiGetArmPublicKeyRequest
- */
-export interface SODPolicyApiGetArmPublicKeyRequest {
-    /**
-     * The target for public key
-     * @type {KeyExchangeServiceTarget}
-     * @memberof SODPolicyApiGetArmPublicKey
-     */
-    readonly id: KeyExchangeServiceTarget
-}
-
-/**
- * Request parameters for getArmRiskById operation in SODPolicyApi.
- * @export
- * @interface SODPolicyApiGetArmRiskByIdRequest
- */
-export interface SODPolicyApiGetArmRiskByIdRequest {
-    /**
-     * The composite ID of the ARM Risk. It should consist of a jobId, rulebookId, and a riskCode; each separated by a \&quot;!\&quot;
-     * @type {string}
-     * @memberof SODPolicyApiGetArmRiskById
      */
     readonly id: string
 }
@@ -32250,30 +31990,6 @@ export class SODPolicyApi extends BaseAPI {
     }
 
     /**
-     * This API returns public key to encrypt ARM auth blob.
-     * @summary Get ARM public key
-     * @param {SODPolicyApiGetArmPublicKeyRequest} requestParameters Request parameters.
-     * @param {*} [axiosOptions] Override http request option.
-     * @throws {RequiredError}
-     * @memberof SODPolicyApi
-     */
-    public getArmPublicKey(requestParameters: SODPolicyApiGetArmPublicKeyRequest, axiosOptions?: AxiosRequestConfig) {
-        return SODPolicyApiFp(this.configuration).getArmPublicKey(requestParameters.id, axiosOptions).then((request) => request(this.axios, this.basePath));
-    }
-
-    /**
-     * This API gets the specified ARM risk.  Any authenticated token can call this API.
-     * @summary Gets the specified ARM risk.
-     * @param {SODPolicyApiGetArmRiskByIdRequest} requestParameters Request parameters.
-     * @param {*} [axiosOptions] Override http request option.
-     * @throws {RequiredError}
-     * @memberof SODPolicyApi
-     */
-    public getArmRiskById(requestParameters: SODPolicyApiGetArmRiskByIdRequest, axiosOptions?: AxiosRequestConfig) {
-        return SODPolicyApiFp(this.configuration).getArmRiskById(requestParameters.id, axiosOptions).then((request) => request(this.axios, this.basePath));
-    }
-
-    /**
      * This allows to download a specified named violation report for a given report reference.
      * @summary Download custom violation report
      * @param {SODPolicyApiGetCustomViolationReportRequest} requestParameters Request parameters.
@@ -32449,44 +32165,6 @@ export class SODPolicyApi extends BaseAPI {
 export const SODViolationsApiAxiosParamCreator = function (configuration?: Configuration) {
     return {
         /**
-         * This API expose just the ARM config from Tenaya (Org Config Service) for UI.
-         * @summary Expose just the ARM config
-         * @param {*} [axiosOptions] Override http request option.
-         * @throws {RequiredError}
-         */
-        getArmConfig: async (axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
-            const localVarPath = `/sod-violations/config`;
-            // use dummy base URL string because the URL constructor only accepts absolute URLs.
-            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
-            let baseOptions;
-            if (configuration) {
-                baseOptions = configuration.baseOptions;
-            }
-
-            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...axiosOptions};
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-
-            // authentication oauth2 required
-            // oauth required
-            await setOAuthToObject(localVarHeaderParameter, "oauth2", [], configuration)
-
-            // authentication oauth2 required
-            // oauth required
-            await setOAuthToObject(localVarHeaderParameter, "oauth2", [], configuration)
-
-
-    
-            setSearchParams(localVarUrlObj, localVarQueryParameter);
-            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
-            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
-
-            return {
-                url: toPathString(localVarUrlObj),
-                axiosOptions: localVarRequestOptions,
-            };
-        },
-        /**
          * This API is used to check if granting some additional accesses would cause the subject to be in violation of any SOD policies. Returns the violations that would be caused.  A token with ORG_ADMIN or API authority is required to call this API.
          * @summary Predict SOD violations for identity.
          * @param {IdentityWithNewAccess} identityWithNewAccess 
@@ -32585,16 +32263,6 @@ export const SODViolationsApiFp = function(configuration?: Configuration) {
     const localVarAxiosParamCreator = SODViolationsApiAxiosParamCreator(configuration)
     return {
         /**
-         * This API expose just the ARM config from Tenaya (Org Config Service) for UI.
-         * @summary Expose just the ARM config
-         * @param {*} [axiosOptions] Override http request option.
-         * @throws {RequiredError}
-         */
-        async getArmConfig(axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<PublicOrgConfigArmData>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.getArmConfig(axiosOptions);
-            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
-        },
-        /**
          * This API is used to check if granting some additional accesses would cause the subject to be in violation of any SOD policies. Returns the violations that would be caused.  A token with ORG_ADMIN or API authority is required to call this API.
          * @summary Predict SOD violations for identity.
          * @param {IdentityWithNewAccess} identityWithNewAccess 
@@ -32626,15 +32294,6 @@ export const SODViolationsApiFp = function(configuration?: Configuration) {
 export const SODViolationsApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
     const localVarFp = SODViolationsApiFp(configuration)
     return {
-        /**
-         * This API expose just the ARM config from Tenaya (Org Config Service) for UI.
-         * @summary Expose just the ARM config
-         * @param {*} [axiosOptions] Override http request option.
-         * @throws {RequiredError}
-         */
-        getArmConfig(axiosOptions?: any): AxiosPromise<PublicOrgConfigArmData> {
-            return localVarFp.getArmConfig(axiosOptions).then((request) => request(axios, basePath));
-        },
         /**
          * This API is used to check if granting some additional accesses would cause the subject to be in violation of any SOD policies. Returns the violations that would be caused.  A token with ORG_ADMIN or API authority is required to call this API.
          * @summary Predict SOD violations for identity.
@@ -32693,17 +32352,6 @@ export interface SODViolationsApiStartViolationCheckRequest {
  * @extends {BaseAPI}
  */
 export class SODViolationsApi extends BaseAPI {
-    /**
-     * This API expose just the ARM config from Tenaya (Org Config Service) for UI.
-     * @summary Expose just the ARM config
-     * @param {*} [axiosOptions] Override http request option.
-     * @throws {RequiredError}
-     * @memberof SODViolationsApi
-     */
-    public getArmConfig(axiosOptions?: AxiosRequestConfig) {
-        return SODViolationsApiFp(this.configuration).getArmConfig(axiosOptions).then((request) => request(this.axios, this.basePath));
-    }
-
     /**
      * This API is used to check if granting some additional accesses would cause the subject to be in violation of any SOD policies. Returns the violations that would be caused.  A token with ORG_ADMIN or API authority is required to call this API.
      * @summary Predict SOD violations for identity.
