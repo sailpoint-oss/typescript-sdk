@@ -2331,6 +2331,57 @@ export interface AccountsAsyncResult {
     'id': string;
 }
 /**
+ * 
+ * @export
+ * @interface AdminReviewReassign
+ */
+export interface AdminReviewReassign {
+    /**
+     * List of certification IDs to reassign
+     * @type {Array<string>}
+     * @memberof AdminReviewReassign
+     */
+    'certificationIds'?: Array<string>;
+    /**
+     * 
+     * @type {AdminReviewReassignReassignTo}
+     * @memberof AdminReviewReassign
+     */
+    'reassignTo'?: AdminReviewReassignReassignTo;
+    /**
+     * Comment to explain why the certification was reassigned
+     * @type {string}
+     * @memberof AdminReviewReassign
+     */
+    'reason'?: string;
+}
+/**
+ * 
+ * @export
+ * @interface AdminReviewReassignReassignTo
+ */
+export interface AdminReviewReassignReassignTo {
+    /**
+     * The identity ID to which the review is being assigned.
+     * @type {string}
+     * @memberof AdminReviewReassignReassignTo
+     */
+    'id'?: string;
+    /**
+     * The type of the ID provided.
+     * @type {string}
+     * @memberof AdminReviewReassignReassignTo
+     */
+    'type'?: AdminReviewReassignReassignToTypeEnum;
+}
+
+export const AdminReviewReassignReassignToTypeEnum = {
+    Identity: 'IDENTITY'
+} as const;
+
+export type AdminReviewReassignReassignToTypeEnum = typeof AdminReviewReassignReassignToTypeEnum[keyof typeof AdminReviewReassignReassignToTypeEnum];
+
+/**
  * Aggregation
  * @export
  * @interface Aggregation
@@ -4591,6 +4642,89 @@ export const CertificationReferenceTypeEnum = {
 } as const;
 
 export type CertificationReferenceTypeEnum = typeof CertificationReferenceTypeEnum[keyof typeof CertificationReferenceTypeEnum];
+
+/**
+ * 
+ * @export
+ * @interface CertificationTask
+ */
+export interface CertificationTask {
+    /**
+     * The ID of the certification task.
+     * @type {string}
+     * @memberof CertificationTask
+     */
+    'id'?: string;
+    /**
+     * The type of the certification task. More values may be added in the future.
+     * @type {string}
+     * @memberof CertificationTask
+     */
+    'type'?: CertificationTaskTypeEnum;
+    /**
+     * The type of item that is being operated on by this task whose ID is stored in the targetId field.
+     * @type {string}
+     * @memberof CertificationTask
+     */
+    'targetType'?: CertificationTaskTargetTypeEnum;
+    /**
+     * The ID of the item being operated on by this task.
+     * @type {string}
+     * @memberof CertificationTask
+     */
+    'targetId'?: string;
+    /**
+     * The status of the task.
+     * @type {string}
+     * @memberof CertificationTask
+     */
+    'status'?: CertificationTaskStatusEnum;
+    /**
+     * 
+     * @type {Array<ErrorMessageDto>}
+     * @memberof CertificationTask
+     */
+    'errors'?: Array<ErrorMessageDto>;
+    /**
+     * Reassignment trails that lead to self certification identity
+     * @type {Array<ReassignmentTrailDTO>}
+     * @memberof CertificationTask
+     */
+    'reassignmentTrailDTOs'?: Array<ReassignmentTrailDTO>;
+    /**
+     * The date and time on which this task was created.
+     * @type {string}
+     * @memberof CertificationTask
+     */
+    'created'?: string;
+}
+
+export const CertificationTaskTypeEnum = {
+    Reassign: 'REASSIGN',
+    AdminReassign: 'ADMIN_REASSIGN',
+    CompleteCertification: 'COMPLETE_CERTIFICATION',
+    FinishCertification: 'FINISH_CERTIFICATION',
+    CompleteCampaign: 'COMPLETE_CAMPAIGN',
+    ActivateCampaign: 'ACTIVATE_CAMPAIGN',
+    CampaignCreate: 'CAMPAIGN_CREATE',
+    CampaignDelete: 'CAMPAIGN_DELETE'
+} as const;
+
+export type CertificationTaskTypeEnum = typeof CertificationTaskTypeEnum[keyof typeof CertificationTaskTypeEnum];
+export const CertificationTaskTargetTypeEnum = {
+    Certification: 'CERTIFICATION',
+    Campaign: 'CAMPAIGN'
+} as const;
+
+export type CertificationTaskTargetTypeEnum = typeof CertificationTaskTargetTypeEnum[keyof typeof CertificationTaskTargetTypeEnum];
+export const CertificationTaskStatusEnum = {
+    Queued: 'QUEUED',
+    InProgress: 'IN_PROGRESS',
+    Success: 'SUCCESS',
+    Error: 'ERROR'
+} as const;
+
+export type CertificationTaskStatusEnum = typeof CertificationTaskStatusEnum[keyof typeof CertificationTaskStatusEnum];
 
 /**
  * Type of an API Client indicating public or confidentials use
@@ -11898,6 +12032,31 @@ export const ReassignmentReferenceTypeEnum = {
 
 export type ReassignmentReferenceTypeEnum = typeof ReassignmentReferenceTypeEnum[keyof typeof ReassignmentReferenceTypeEnum];
 
+/**
+ * 
+ * @export
+ * @interface ReassignmentTrailDTO
+ */
+export interface ReassignmentTrailDTO {
+    /**
+     * The ID of previous owner identity.
+     * @type {string}
+     * @memberof ReassignmentTrailDTO
+     */
+    'previousOwner'?: string;
+    /**
+     * The ID of new owner identity.
+     * @type {string}
+     * @memberof ReassignmentTrailDTO
+     */
+    'newOwner'?: string;
+    /**
+     * The type of reassignment.
+     * @type {string}
+     * @memberof ReassignmentTrailDTO
+     */
+    'reassignmentType'?: string;
+}
 /**
  * The approval reassignment type.  * MANUAL_REASSIGNMENT: An approval with this reassignment type has been specifically reassigned by the approval task\'s owner, from their queue to someone else\'s.  * AUTOMATIC_REASSIGNMENT: An approval with this reassignment type has been automatically reassigned from another approver\'s queue, according to that approver\'s reassignment configuration. The approver\'s reassignment configuration may be set up to automatically reassign approval tasks for a defined (or possibly open-ended) period of time. * AUTO_ESCALATION: An approval with this reassignment type has been automatically reassigned from another approver\'s queue, according to the request\'s escalation configuration. For more information about escalation configuration, refer to [Setting Global Reminders and Escalation Policies](https://documentation.sailpoint.com/saas/help/requests/config_emails.html). * SELF_REVIEW_DELEGATION: An approval with this reassignment type has been automatically reassigned by the system to prevent self-review. This helps prevent situations like a requester being tasked with approving their own request. For more information about preventing self-review, refer to [Self-review Prevention](https://documentation.sailpoint.com/saas/help/users/work_reassignment.html#self-review-prevention) and [Preventing Self-approval](https://documentation.sailpoint.com/saas/help/requests/config_ap_roles.html#preventing-self-approval).
  * @export
@@ -20489,6 +20648,54 @@ export const CertificationCampaignsApiAxiosParamCreator = function (configuratio
                 axiosOptions: localVarRequestOptions,
             };
         },
+        /**
+         * This API reassigns the specified certifications from one identity to another. A token with ORG_ADMIN or CERT_ADMIN authority is required to call this API.
+         * @summary Reassign Certifications
+         * @param {string} id The certification campaign ID
+         * @param {AdminReviewReassign} adminReviewReassign 
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        move: async (id: string, adminReviewReassign: AdminReviewReassign, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'id' is not null or undefined
+            assertParamExists('move', 'id', id)
+            // verify required parameter 'adminReviewReassign' is not null or undefined
+            assertParamExists('move', 'adminReviewReassign', adminReviewReassign)
+            const localVarPath = `/campaigns/{id}/reassign`
+                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'POST', ...baseOptions, ...axiosOptions};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication oauth2 required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "oauth2", [], configuration)
+
+            // authentication oauth2 required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "oauth2", [], configuration)
+
+
+    
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
+            localVarRequestOptions.data = serializeDataIfNeeded(adminReviewReassign, localVarRequestOptions, configuration)
+
+            return {
+                url: toPathString(localVarUrlObj),
+                axiosOptions: localVarRequestOptions,
+            };
+        },
     }
 };
 
@@ -20521,6 +20728,18 @@ export const CertificationCampaignsApiFp = function(configuration?: Configuratio
             const localVarAxiosArgs = await localVarAxiosParamCreator.getCampaign(id, axiosOptions);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
+        /**
+         * This API reassigns the specified certifications from one identity to another. A token with ORG_ADMIN or CERT_ADMIN authority is required to call this API.
+         * @summary Reassign Certifications
+         * @param {string} id The certification campaign ID
+         * @param {AdminReviewReassign} adminReviewReassign 
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        async move(id: string, adminReviewReassign: AdminReviewReassign, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<CertificationTask>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.move(id, adminReviewReassign, axiosOptions);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
     }
 };
 
@@ -20550,6 +20769,17 @@ export const CertificationCampaignsApiFactory = function (configuration?: Config
          */
         getCampaign(id: string, axiosOptions?: any): AxiosPromise<SlimCampaign> {
             return localVarFp.getCampaign(id, axiosOptions).then((request) => request(axios, basePath));
+        },
+        /**
+         * This API reassigns the specified certifications from one identity to another. A token with ORG_ADMIN or CERT_ADMIN authority is required to call this API.
+         * @summary Reassign Certifications
+         * @param {string} id The certification campaign ID
+         * @param {AdminReviewReassign} adminReviewReassign 
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        move(id: string, adminReviewReassign: AdminReviewReassign, axiosOptions?: any): AxiosPromise<CertificationTask> {
+            return localVarFp.move(id, adminReviewReassign, axiosOptions).then((request) => request(axios, basePath));
         },
     };
 };
@@ -20583,6 +20813,27 @@ export interface CertificationCampaignsApiGetCampaignRequest {
 }
 
 /**
+ * Request parameters for move operation in CertificationCampaignsApi.
+ * @export
+ * @interface CertificationCampaignsApiMoveRequest
+ */
+export interface CertificationCampaignsApiMoveRequest {
+    /**
+     * The certification campaign ID
+     * @type {string}
+     * @memberof CertificationCampaignsApiMove
+     */
+    readonly id: string
+
+    /**
+     * 
+     * @type {AdminReviewReassign}
+     * @memberof CertificationCampaignsApiMove
+     */
+    readonly adminReviewReassign: AdminReviewReassign
+}
+
+/**
  * CertificationCampaignsApi - object-oriented interface
  * @export
  * @class CertificationCampaignsApi
@@ -20611,6 +20862,18 @@ export class CertificationCampaignsApi extends BaseAPI {
      */
     public getCampaign(requestParameters: CertificationCampaignsApiGetCampaignRequest, axiosOptions?: AxiosRequestConfig) {
         return CertificationCampaignsApiFp(this.configuration).getCampaign(requestParameters.id, axiosOptions).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * This API reassigns the specified certifications from one identity to another. A token with ORG_ADMIN or CERT_ADMIN authority is required to call this API.
+     * @summary Reassign Certifications
+     * @param {CertificationCampaignsApiMoveRequest} requestParameters Request parameters.
+     * @param {*} [axiosOptions] Override http request option.
+     * @throws {RequiredError}
+     * @memberof CertificationCampaignsApi
+     */
+    public move(requestParameters: CertificationCampaignsApiMoveRequest, axiosOptions?: AxiosRequestConfig) {
+        return CertificationCampaignsApiFp(this.configuration).move(requestParameters.id, requestParameters.adminReviewReassign, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 }
 
