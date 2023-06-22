@@ -162,7 +162,7 @@ export class Configuration {
         
     }
 
-    private getParams(): ConfigurationParameters {
+    private getHomeParams(): ConfigurationParameters {
         const config: ConfigurationParameters = {}
         try {
             const homeDir = os.homedir()
@@ -172,17 +172,57 @@ export class Configuration {
                 config.baseurl = doc.environments[doc.activeenvironment].baseurl
                 config.clientId = doc.environments[doc.activeenvironment].pat.clientid
                 config.clientSecret = doc.environments[doc.activeenvironment].pat.clientsecret
+                config.tokenUrl = config.baseurl + '/oauth/token'
             }   
         } catch (error) {
-            console.log('unable to find config file')
+            console.log('unable to find config file in home directory')
         }
-        config.baseurl = process.env["SAIL_BASE_URL"] ? process.env["SAIL_BASE_URL"] : config.baseurl
-        config.clientId = process.env["SAIL_CLIENT_ID"] ? process.env["SAIL_CLIENT_ID"] : config.clientId
-        config.clientSecret = process.env["SAIL_CLIENT_SECRET"] ? process.env["SAIL_CLIENT_SECRET"] : config.clientSecret
+        return config
+    }
+
+    private getLocalParams(): ConfigurationParameters {
+        const config: ConfigurationParameters = {}
+        try {
+            const configPath = './config.json'
+            const jsonString = fs.readFileSync(configPath, 'utf-8');
+            const jsonData = JSON.parse(jsonString);
+            config.baseurl = jsonData.BaseURL
+            config.clientId = jsonData.ClientId
+            config.clientSecret = jsonData.ClientSecret
+            config.tokenUrl = config.baseurl + '/oauth/token'
+        } catch (error) {
+            console.log('unable to find config file in local directory')
+        }
+        return config
+    }
+
+    private getEnvParams(): ConfigurationParameters {
+        const config: ConfigurationParameters = {}
+        config.baseurl = process.env["SAIL_BASE_URL"] ? process.env["SAIL_BASE_URL"] : ""
+        config.clientId = process.env["SAIL_CLIENT_ID"] ? process.env["SAIL_CLIENT_ID"] : ""
+        config.clientSecret = process.env["SAIL_CLIENT_SECRET"] ? process.env["SAIL_CLIENT_SECRET"] : ""
 
         config.tokenUrl = config.baseurl + '/oauth/token'
 
         return config
+    }
+
+    private getParams(): ConfigurationParameters {
+        const envConfig = this.getEnvParams()
+        if (envConfig.baseurl) {
+            return envConfig
+        }
+        const localConfig = this.getLocalParams()
+        if (localConfig.baseurl) {
+            return localConfig
+        }
+        const homeConfig = this.getHomeParams()
+        if (homeConfig.baseurl) {
+            console.log("Configuration file found in home directory, this approach of loading configuration will be deprecated in future releases, please upgrade the CLI and use the new 'sail sdk init config' command to create a local configuration file")
+            return homeConfig
+        }
+        return {}
+
     }
 
     private async getAccessToken(url: string): Promise<string> {
