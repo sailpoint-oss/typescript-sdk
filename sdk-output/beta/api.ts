@@ -12463,6 +12463,43 @@ export const OutlierSummaryBetaTypeEnum = {
 export type OutlierSummaryBetaTypeEnum = typeof OutlierSummaryBetaTypeEnum[keyof typeof OutlierSummaryBetaTypeEnum];
 
 /**
+ * 
+ * @export
+ * @interface OwnerBeta
+ */
+export interface OwnerBeta {
+    /**
+     * 
+     * @type {DtoTypeBeta}
+     * @memberof OwnerBeta
+     */
+    'type'?: DtoTypeBeta;
+    /**
+     * ID of the object to which this reference applies
+     * @type {string}
+     * @memberof OwnerBeta
+     */
+    'id'?: string;
+    /**
+     * Human-readable name of the owner
+     * @type {string}
+     * @memberof OwnerBeta
+     */
+    'name'?: string;
+    /**
+     * Human-readable display name of the owner
+     * @type {string}
+     * @memberof OwnerBeta
+     */
+    'displayName'?: string;
+    /**
+     * Email ID of the owner
+     * @type {string}
+     * @memberof OwnerBeta
+     */
+    'emailAddress'?: string;
+}
+/**
  * The owner of this object.
  * @export
  * @interface OwnerReferenceBeta
@@ -23519,6 +23556,43 @@ export const WorkflowTriggerBetaTypeEnum = {
 
 export type WorkflowTriggerBetaTypeEnum = typeof WorkflowTriggerBetaTypeEnum[keyof typeof WorkflowTriggerBetaTypeEnum];
 
+/**
+ * 
+ * @export
+ * @interface WorkgroupDtoBeta
+ */
+export interface WorkgroupDtoBeta {
+    /**
+     * 
+     * @type {OwnerBeta}
+     * @memberof WorkgroupDtoBeta
+     */
+    'owner'?: OwnerBeta;
+    /**
+     * ID of the object to which this reference applies
+     * @type {string}
+     * @memberof WorkgroupDtoBeta
+     */
+    'id'?: string;
+    /**
+     * Description of the Governance Group
+     * @type {string}
+     * @memberof WorkgroupDtoBeta
+     */
+    'description'?: string;
+    /**
+     * Number of members in the Governance Group.
+     * @type {number}
+     * @memberof WorkgroupDtoBeta
+     */
+    'memberCount'?: number;
+    /**
+     * Number of connections in the Governance Group.
+     * @type {number}
+     * @memberof WorkgroupDtoBeta
+     */
+    'connectionCount'?: number;
+}
 
 /**
  * AccessProfilesBetaApi - axios parameter creator
@@ -32746,6 +32820,267 @@ export class EntitlementsBetaApi extends BaseAPI {
      */
     public updateEntitlementsInBulk(requestParameters: EntitlementsBetaApiUpdateEntitlementsInBulkRequest, axiosOptions?: AxiosRequestConfig) {
         return EntitlementsBetaApiFp(this.configuration).updateEntitlementsInBulk(requestParameters.entitlementBulkUpdateRequestBeta, axiosOptions).then((request) => request(this.axios, this.basePath));
+    }
+}
+
+
+/**
+ * GovernanceGroupsBetaApi - axios parameter creator
+ * @export
+ */
+export const GovernanceGroupsBetaApiAxiosParamCreator = function (configuration?: Configuration) {
+    return {
+        /**
+         * This API creates a new Governance Group.
+         * @summary Create a new Governance Group.
+         * @param {WorkgroupDtoBeta} workgroupDtoBeta 
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        createWorkgroup: async (workgroupDtoBeta: WorkgroupDtoBeta, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'workgroupDtoBeta' is not null or undefined
+            assertParamExists('createWorkgroup', 'workgroupDtoBeta', workgroupDtoBeta)
+            const localVarPath = `/workgroups`;
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'POST', ...baseOptions, ...axiosOptions};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication oauth2 required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "oauth2", [], configuration)
+
+            // authentication oauth2 required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "oauth2", [], configuration)
+
+
+    
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
+            localVarRequestOptions.data = serializeDataIfNeeded(workgroupDtoBeta, localVarRequestOptions, configuration)
+
+            return {
+                url: toPathString(localVarUrlObj),
+                axiosOptions: localVarRequestOptions,
+            };
+        },
+        /**
+         * This API returns list of Governance Groups
+         * @summary List Governance Groups
+         * @param {number} [offset] Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+         * @param {number} [limit] Note that for this API the maximum value for limit is 50. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+         * @param {boolean} [count] If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+         * @param {string} [sorters] Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results) Sorting is supported for the following fields: **name, created, modified**
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        listWorkgroups: async (offset?: number, limit?: number, count?: boolean, sorters?: string, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            const localVarPath = `/workgroups`;
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...axiosOptions};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication oauth2 required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "oauth2", [], configuration)
+
+            // authentication oauth2 required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "oauth2", [], configuration)
+
+            if (offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+
+            if (limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+
+            if (count !== undefined) {
+                localVarQueryParameter['count'] = count;
+            }
+
+            if (sorters !== undefined) {
+                localVarQueryParameter['sorters'] = sorters;
+            }
+
+
+    
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                axiosOptions: localVarRequestOptions,
+            };
+        },
+    }
+};
+
+/**
+ * GovernanceGroupsBetaApi - functional programming interface
+ * @export
+ */
+export const GovernanceGroupsBetaApiFp = function(configuration?: Configuration) {
+    const localVarAxiosParamCreator = GovernanceGroupsBetaApiAxiosParamCreator(configuration)
+    return {
+        /**
+         * This API creates a new Governance Group.
+         * @summary Create a new Governance Group.
+         * @param {WorkgroupDtoBeta} workgroupDtoBeta 
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        async createWorkgroup(workgroupDtoBeta: WorkgroupDtoBeta, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<WorkgroupDtoBeta>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.createWorkgroup(workgroupDtoBeta, axiosOptions);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * This API returns list of Governance Groups
+         * @summary List Governance Groups
+         * @param {number} [offset] Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+         * @param {number} [limit] Note that for this API the maximum value for limit is 50. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+         * @param {boolean} [count] If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+         * @param {string} [sorters] Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results) Sorting is supported for the following fields: **name, created, modified**
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        async listWorkgroups(offset?: number, limit?: number, count?: boolean, sorters?: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<WorkgroupDtoBeta>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.listWorkgroups(offset, limit, count, sorters, axiosOptions);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+    }
+};
+
+/**
+ * GovernanceGroupsBetaApi - factory interface
+ * @export
+ */
+export const GovernanceGroupsBetaApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
+    const localVarFp = GovernanceGroupsBetaApiFp(configuration)
+    return {
+        /**
+         * This API creates a new Governance Group.
+         * @summary Create a new Governance Group.
+         * @param {WorkgroupDtoBeta} workgroupDtoBeta 
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        createWorkgroup(workgroupDtoBeta: WorkgroupDtoBeta, axiosOptions?: any): AxiosPromise<WorkgroupDtoBeta> {
+            return localVarFp.createWorkgroup(workgroupDtoBeta, axiosOptions).then((request) => request(axios, basePath));
+        },
+        /**
+         * This API returns list of Governance Groups
+         * @summary List Governance Groups
+         * @param {number} [offset] Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+         * @param {number} [limit] Note that for this API the maximum value for limit is 50. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+         * @param {boolean} [count] If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+         * @param {string} [sorters] Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results) Sorting is supported for the following fields: **name, created, modified**
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        listWorkgroups(offset?: number, limit?: number, count?: boolean, sorters?: string, axiosOptions?: any): AxiosPromise<Array<WorkgroupDtoBeta>> {
+            return localVarFp.listWorkgroups(offset, limit, count, sorters, axiosOptions).then((request) => request(axios, basePath));
+        },
+    };
+};
+
+/**
+ * Request parameters for createWorkgroup operation in GovernanceGroupsBetaApi.
+ * @export
+ * @interface GovernanceGroupsBetaApiCreateWorkgroupRequest
+ */
+export interface GovernanceGroupsBetaApiCreateWorkgroupRequest {
+    /**
+     * 
+     * @type {WorkgroupDtoBeta}
+     * @memberof GovernanceGroupsBetaApiCreateWorkgroup
+     */
+    readonly workgroupDtoBeta: WorkgroupDtoBeta
+}
+
+/**
+ * Request parameters for listWorkgroups operation in GovernanceGroupsBetaApi.
+ * @export
+ * @interface GovernanceGroupsBetaApiListWorkgroupsRequest
+ */
+export interface GovernanceGroupsBetaApiListWorkgroupsRequest {
+    /**
+     * Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+     * @type {number}
+     * @memberof GovernanceGroupsBetaApiListWorkgroups
+     */
+    readonly offset?: number
+
+    /**
+     * Note that for this API the maximum value for limit is 50. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+     * @type {number}
+     * @memberof GovernanceGroupsBetaApiListWorkgroups
+     */
+    readonly limit?: number
+
+    /**
+     * If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+     * @type {boolean}
+     * @memberof GovernanceGroupsBetaApiListWorkgroups
+     */
+    readonly count?: boolean
+
+    /**
+     * Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results) Sorting is supported for the following fields: **name, created, modified**
+     * @type {string}
+     * @memberof GovernanceGroupsBetaApiListWorkgroups
+     */
+    readonly sorters?: string
+}
+
+/**
+ * GovernanceGroupsBetaApi - object-oriented interface
+ * @export
+ * @class GovernanceGroupsBetaApi
+ * @extends {BaseAPI}
+ */
+export class GovernanceGroupsBetaApi extends BaseAPI {
+    /**
+     * This API creates a new Governance Group.
+     * @summary Create a new Governance Group.
+     * @param {GovernanceGroupsBetaApiCreateWorkgroupRequest} requestParameters Request parameters.
+     * @param {*} [axiosOptions] Override http request option.
+     * @throws {RequiredError}
+     * @memberof GovernanceGroupsBetaApi
+     */
+    public createWorkgroup(requestParameters: GovernanceGroupsBetaApiCreateWorkgroupRequest, axiosOptions?: AxiosRequestConfig) {
+        return GovernanceGroupsBetaApiFp(this.configuration).createWorkgroup(requestParameters.workgroupDtoBeta, axiosOptions).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * This API returns list of Governance Groups
+     * @summary List Governance Groups
+     * @param {GovernanceGroupsBetaApiListWorkgroupsRequest} requestParameters Request parameters.
+     * @param {*} [axiosOptions] Override http request option.
+     * @throws {RequiredError}
+     * @memberof GovernanceGroupsBetaApi
+     */
+    public listWorkgroups(requestParameters: GovernanceGroupsBetaApiListWorkgroupsRequest = {}, axiosOptions?: AxiosRequestConfig) {
+        return GovernanceGroupsBetaApiFp(this.configuration).listWorkgroups(requestParameters.offset, requestParameters.limit, requestParameters.count, requestParameters.sorters, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 }
 
