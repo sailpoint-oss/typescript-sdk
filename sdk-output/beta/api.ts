@@ -6531,33 +6531,51 @@ export interface ExportOptionsBeta {
 
 export const ExportOptionsBetaExcludeTypesEnum = {
     AccessProfile: 'ACCESS_PROFILE',
+    AccessRequestConfig: 'ACCESS_REQUEST_CONFIG',
+    AttrSyncSourceConfig: 'ATTR_SYNC_SOURCE_CONFIG',
     AuthOrg: 'AUTH_ORG',
+    CampaignFilter: 'CAMPAIGN_FILTER',
     FormDefinition: 'FORM_DEFINITION',
     GovernanceGroup: 'GOVERNANCE_GROUP',
     IdentityProfile: 'IDENTITY_PROFILE',
+    LifecycleState: 'LIFECYCLE_STATE',
     NotificationTemplate: 'NOTIFICATION_TEMPLATE',
+    PasswordPolicy: 'PASSWORD_POLICY',
+    PasswordSyncGroup: 'PASSWORD_SYNC_GROUP',
     PublicIdentitiesConfig: 'PUBLIC_IDENTITIES_CONFIG',
     Role: 'ROLE',
     Rule: 'RULE',
+    ServiceDeskIntegration: 'SERVICE_DESK_INTEGRATION',
+    SodPolicy: 'SOD_POLICY',
     Source: 'SOURCE',
     Transform: 'TRANSFORM',
-    TriggerSubscription: 'TRIGGER_SUBSCRIPTION'
+    TriggerSubscription: 'TRIGGER_SUBSCRIPTION',
+    Workflows: 'WORKFLOWS'
 } as const;
 
 export type ExportOptionsBetaExcludeTypesEnum = typeof ExportOptionsBetaExcludeTypesEnum[keyof typeof ExportOptionsBetaExcludeTypesEnum];
 export const ExportOptionsBetaIncludeTypesEnum = {
     AccessProfile: 'ACCESS_PROFILE',
+    AccessRequestConfig: 'ACCESS_REQUEST_CONFIG',
+    AttrSyncSourceConfig: 'ATTR_SYNC_SOURCE_CONFIG',
     AuthOrg: 'AUTH_ORG',
+    CampaignFilter: 'CAMPAIGN_FILTER',
     FormDefinition: 'FORM_DEFINITION',
     GovernanceGroup: 'GOVERNANCE_GROUP',
     IdentityProfile: 'IDENTITY_PROFILE',
+    LifecycleState: 'LIFECYCLE_STATE',
     NotificationTemplate: 'NOTIFICATION_TEMPLATE',
+    PasswordPolicy: 'PASSWORD_POLICY',
+    PasswordSyncGroup: 'PASSWORD_SYNC_GROUP',
     PublicIdentitiesConfig: 'PUBLIC_IDENTITIES_CONFIG',
     Role: 'ROLE',
     Rule: 'RULE',
+    ServiceDeskIntegration: 'SERVICE_DESK_INTEGRATION',
+    SodPolicy: 'SOD_POLICY',
     Source: 'SOURCE',
     Transform: 'TRANSFORM',
-    TriggerSubscription: 'TRIGGER_SUBSCRIPTION'
+    TriggerSubscription: 'TRIGGER_SUBSCRIPTION',
+    Workflows: 'WORKFLOWS'
 } as const;
 
 export type ExportOptionsBetaIncludeTypesEnum = typeof ExportOptionsBetaIncludeTypesEnum[keyof typeof ExportOptionsBetaIncludeTypesEnum];
@@ -6596,33 +6614,51 @@ export interface ExportPayloadBeta {
 
 export const ExportPayloadBetaExcludeTypesEnum = {
     AccessProfile: 'ACCESS_PROFILE',
+    AccessRequestConfig: 'ACCESS_REQUEST_CONFIG',
+    AttrSyncSourceConfig: 'ATTR_SYNC_SOURCE_CONFIG',
     AuthOrg: 'AUTH_ORG',
+    CampaignFilter: 'CAMPAIGN_FILTER',
     FormDefinition: 'FORM_DEFINITION',
     GovernanceGroup: 'GOVERNANCE_GROUP',
     IdentityProfile: 'IDENTITY_PROFILE',
+    LifecycleState: 'LIFECYCLE_STATE',
     NotificationTemplate: 'NOTIFICATION_TEMPLATE',
+    PasswordPolicy: 'PASSWORD_POLICY',
+    PasswordSyncGroup: 'PASSWORD_SYNC_GROUP',
     PublicIdentitiesConfig: 'PUBLIC_IDENTITIES_CONFIG',
     Role: 'ROLE',
     Rule: 'RULE',
+    ServiceDeskIntegration: 'SERVICE_DESK_INTEGRATION',
+    SodPolicy: 'SOD_POLICY',
     Source: 'SOURCE',
     Transform: 'TRANSFORM',
-    TriggerSubscription: 'TRIGGER_SUBSCRIPTION'
+    TriggerSubscription: 'TRIGGER_SUBSCRIPTION',
+    Workflows: 'WORKFLOWS'
 } as const;
 
 export type ExportPayloadBetaExcludeTypesEnum = typeof ExportPayloadBetaExcludeTypesEnum[keyof typeof ExportPayloadBetaExcludeTypesEnum];
 export const ExportPayloadBetaIncludeTypesEnum = {
     AccessProfile: 'ACCESS_PROFILE',
+    AccessRequestConfig: 'ACCESS_REQUEST_CONFIG',
+    AttrSyncSourceConfig: 'ATTR_SYNC_SOURCE_CONFIG',
     AuthOrg: 'AUTH_ORG',
+    CampaignFilter: 'CAMPAIGN_FILTER',
     FormDefinition: 'FORM_DEFINITION',
     GovernanceGroup: 'GOVERNANCE_GROUP',
     IdentityProfile: 'IDENTITY_PROFILE',
+    LifecycleState: 'LIFECYCLE_STATE',
     NotificationTemplate: 'NOTIFICATION_TEMPLATE',
+    PasswordPolicy: 'PASSWORD_POLICY',
+    PasswordSyncGroup: 'PASSWORD_SYNC_GROUP',
     PublicIdentitiesConfig: 'PUBLIC_IDENTITIES_CONFIG',
     Role: 'ROLE',
     Rule: 'RULE',
+    ServiceDeskIntegration: 'SERVICE_DESK_INTEGRATION',
+    SodPolicy: 'SOD_POLICY',
     Source: 'SOURCE',
     Transform: 'TRANSFORM',
-    TriggerSubscription: 'TRIGGER_SUBSCRIPTION'
+    TriggerSubscription: 'TRIGGER_SUBSCRIPTION',
+    Workflows: 'WORKFLOWS'
 } as const;
 
 export type ExportPayloadBetaIncludeTypesEnum = typeof ExportPayloadBetaIncludeTypesEnum[keyof typeof ExportPayloadBetaIncludeTypesEnum];
@@ -9291,13 +9327,13 @@ export interface ImportOptionsBeta {
      * @type {Array<string>}
      * @memberof ImportOptionsBeta
      */
-    'excludeTypes'?: Array<string>;
+    'excludeTypes'?: Array<ImportOptionsBetaExcludeTypesEnum>;
     /**
      * Object type names to be included in an sp-config export command. IncludeTypes takes precedence over excludeTypes.
      * @type {Array<string>}
      * @memberof ImportOptionsBeta
      */
-    'includeTypes'?: Array<string>;
+    'includeTypes'?: Array<ImportOptionsBetaIncludeTypesEnum>;
     /**
      * Additional options targeting specific objects related to each item in the includeTypes field
      * @type {{ [key: string]: ObjectExportImportOptionsBeta; }}
@@ -9317,6 +9353,26 @@ export interface ImportOptionsBeta {
      */
     'excludeBackup'?: boolean;
 }
+
+export const ImportOptionsBetaExcludeTypesEnum = {
+    IdentityProfile: 'IDENTITY_PROFILE',
+    Rule: 'RULE',
+    Source: 'SOURCE',
+    Transform: 'TRANSFORM',
+    TriggerSubscription: 'TRIGGER_SUBSCRIPTION'
+} as const;
+
+export type ImportOptionsBetaExcludeTypesEnum = typeof ImportOptionsBetaExcludeTypesEnum[keyof typeof ImportOptionsBetaExcludeTypesEnum];
+export const ImportOptionsBetaIncludeTypesEnum = {
+    IdentityProfile: 'IDENTITY_PROFILE',
+    Rule: 'RULE',
+    Source: 'SOURCE',
+    Transform: 'TRANSFORM',
+    TriggerSubscription: 'TRIGGER_SUBSCRIPTION'
+} as const;
+
+export type ImportOptionsBetaIncludeTypesEnum = typeof ImportOptionsBetaIncludeTypesEnum[keyof typeof ImportOptionsBetaIncludeTypesEnum];
+
 /**
  * 
  * @export
