@@ -19752,7 +19752,7 @@ export const AccountsApiAxiosParamCreator = function (configuration?: Configurat
             };
         },
         /**
-         * Use this API to modify the following fields: * `identityId`  * `manuallyCorrelated`  >**NOTE: All other fields can not be modified.**  The request must provide a JSONPatch payload.  A token with ORG_ADMIN authority is required to call this API.
+         * Use this API to modify the following fields: * `identityId`  * `manuallyCorrelated`  >**NOTE: All other fields cannot be modified.**  The request must provide a JSONPatch payload.  A token with ORG_ADMIN authority is required to call this API.
          * @summary Update Account
          * @param {string} id The account ID
          * @param {Array<JsonPatchOperation>} jsonPatchOperation A list of account update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.
@@ -19931,7 +19931,7 @@ export const AccountsApiFp = function(configuration?: Configuration) {
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
-         * Use this API to modify the following fields: * `identityId`  * `manuallyCorrelated`  >**NOTE: All other fields can not be modified.**  The request must provide a JSONPatch payload.  A token with ORG_ADMIN authority is required to call this API.
+         * Use this API to modify the following fields: * `identityId`  * `manuallyCorrelated`  >**NOTE: All other fields cannot be modified.**  The request must provide a JSONPatch payload.  A token with ORG_ADMIN authority is required to call this API.
          * @summary Update Account
          * @param {string} id The account ID
          * @param {Array<JsonPatchOperation>} jsonPatchOperation A list of account update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.
@@ -20064,7 +20064,7 @@ export const AccountsApiFactory = function (configuration?: Configuration, baseP
             return localVarFp.unlockAccount(id, accountUnlockRequest, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
-         * Use this API to modify the following fields: * `identityId`  * `manuallyCorrelated`  >**NOTE: All other fields can not be modified.**  The request must provide a JSONPatch payload.  A token with ORG_ADMIN authority is required to call this API.
+         * Use this API to modify the following fields: * `identityId`  * `manuallyCorrelated`  >**NOTE: All other fields cannot be modified.**  The request must provide a JSONPatch payload.  A token with ORG_ADMIN authority is required to call this API.
          * @summary Update Account
          * @param {string} id The account ID
          * @param {Array<JsonPatchOperation>} jsonPatchOperation A list of account update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.
@@ -20443,7 +20443,7 @@ export class AccountsApi extends BaseAPI {
     }
 
     /**
-     * Use this API to modify the following fields: * `identityId`  * `manuallyCorrelated`  >**NOTE: All other fields can not be modified.**  The request must provide a JSONPatch payload.  A token with ORG_ADMIN authority is required to call this API.
+     * Use this API to modify the following fields: * `identityId`  * `manuallyCorrelated`  >**NOTE: All other fields cannot be modified.**  The request must provide a JSONPatch payload.  A token with ORG_ADMIN authority is required to call this API.
      * @summary Update Account
      * @param {AccountsApiUpdateAccountRequest} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
@@ -32430,7 +32430,7 @@ export const SavedSearchApiAxiosParamCreator = function (configuration?: Configu
         },
         /**
          * Deletes the specified saved search. 
-         * @summary Delete a document by ID
+         * @summary Delete document by ID
          * @param {string} id ID of the requested document.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
@@ -32520,7 +32520,7 @@ export const SavedSearchApiAxiosParamCreator = function (configuration?: Configu
         },
         /**
          * Returns the specified saved search. 
-         * @summary Return a saved search by ID
+         * @summary Return saved search by ID
          * @param {string} id ID of the requested document.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
@@ -32619,18 +32619,18 @@ export const SavedSearchApiAxiosParamCreator = function (configuration?: Configu
             };
         },
         /**
-         * Updates an existing saved search. 
+         * Updates an existing saved search.   >**NOTE: You cannot update the `owner` of the saved search.** 
          * @summary Updates an existing saved search 
          * @param {string} id ID of the requested document.
          * @param {SavedSearch} savedSearch The saved search to persist.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        updateSavedSearch: async (id: string, savedSearch: SavedSearch, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        putSavedSearch: async (id: string, savedSearch: SavedSearch, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'id' is not null or undefined
-            assertParamExists('updateSavedSearch', 'id', id)
+            assertParamExists('putSavedSearch', 'id', id)
             // verify required parameter 'savedSearch' is not null or undefined
-            assertParamExists('updateSavedSearch', 'savedSearch', savedSearch)
+            assertParamExists('putSavedSearch', 'savedSearch', savedSearch)
             const localVarPath = `/saved-searches/{id}`
                 .replace(`{${"id"}}`, encodeURIComponent(String(id)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
@@ -32689,7 +32689,7 @@ export const SavedSearchApiFp = function(configuration?: Configuration) {
         },
         /**
          * Deletes the specified saved search. 
-         * @summary Delete a document by ID
+         * @summary Delete document by ID
          * @param {string} id ID of the requested document.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
@@ -32712,7 +32712,7 @@ export const SavedSearchApiFp = function(configuration?: Configuration) {
         },
         /**
          * Returns the specified saved search. 
-         * @summary Return a saved search by ID
+         * @summary Return saved search by ID
          * @param {string} id ID of the requested document.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
@@ -32736,15 +32736,15 @@ export const SavedSearchApiFp = function(configuration?: Configuration) {
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
-         * Updates an existing saved search. 
+         * Updates an existing saved search.   >**NOTE: You cannot update the `owner` of the saved search.** 
          * @summary Updates an existing saved search 
          * @param {string} id ID of the requested document.
          * @param {SavedSearch} savedSearch The saved search to persist.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async updateSavedSearch(id: string, savedSearch: SavedSearch, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SavedSearch>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.updateSavedSearch(id, savedSearch, axiosOptions);
+        async putSavedSearch(id: string, savedSearch: SavedSearch, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SavedSearch>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.putSavedSearch(id, savedSearch, axiosOptions);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
     }
@@ -32769,7 +32769,7 @@ export const SavedSearchApiFactory = function (configuration?: Configuration, ba
         },
         /**
          * Deletes the specified saved search. 
-         * @summary Delete a document by ID
+         * @summary Delete document by ID
          * @param {string} id ID of the requested document.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
@@ -32790,7 +32790,7 @@ export const SavedSearchApiFactory = function (configuration?: Configuration, ba
         },
         /**
          * Returns the specified saved search. 
-         * @summary Return a saved search by ID
+         * @summary Return saved search by ID
          * @param {string} id ID of the requested document.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
@@ -32812,15 +32812,15 @@ export const SavedSearchApiFactory = function (configuration?: Configuration, ba
             return localVarFp.listSavedSearches(offset, limit, count, filters, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
-         * Updates an existing saved search. 
+         * Updates an existing saved search.   >**NOTE: You cannot update the `owner` of the saved search.** 
          * @summary Updates an existing saved search 
          * @param {string} id ID of the requested document.
          * @param {SavedSearch} savedSearch The saved search to persist.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        updateSavedSearch(id: string, savedSearch: SavedSearch, axiosOptions?: any): AxiosPromise<SavedSearch> {
-            return localVarFp.updateSavedSearch(id, savedSearch, axiosOptions).then((request) => request(axios, basePath));
+        putSavedSearch(id: string, savedSearch: SavedSearch, axiosOptions?: any): AxiosPromise<SavedSearch> {
+            return localVarFp.putSavedSearch(id, savedSearch, axiosOptions).then((request) => request(axios, basePath));
         },
     };
 };
@@ -32924,22 +32924,22 @@ export interface SavedSearchApiListSavedSearchesRequest {
 }
 
 /**
- * Request parameters for updateSavedSearch operation in SavedSearchApi.
+ * Request parameters for putSavedSearch operation in SavedSearchApi.
  * @export
- * @interface SavedSearchApiUpdateSavedSearchRequest
+ * @interface SavedSearchApiPutSavedSearchRequest
  */
-export interface SavedSearchApiUpdateSavedSearchRequest {
+export interface SavedSearchApiPutSavedSearchRequest {
     /**
      * ID of the requested document.
      * @type {string}
-     * @memberof SavedSearchApiUpdateSavedSearch
+     * @memberof SavedSearchApiPutSavedSearch
      */
     readonly id: string
 
     /**
      * The saved search to persist.
      * @type {SavedSearch}
-     * @memberof SavedSearchApiUpdateSavedSearch
+     * @memberof SavedSearchApiPutSavedSearch
      */
     readonly savedSearch: SavedSearch
 }
@@ -32965,7 +32965,7 @@ export class SavedSearchApi extends BaseAPI {
 
     /**
      * Deletes the specified saved search. 
-     * @summary Delete a document by ID
+     * @summary Delete document by ID
      * @param {SavedSearchApiDeleteSavedSearchRequest} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
@@ -32989,7 +32989,7 @@ export class SavedSearchApi extends BaseAPI {
 
     /**
      * Returns the specified saved search. 
-     * @summary Return a saved search by ID
+     * @summary Return saved search by ID
      * @param {SavedSearchApiGetSavedSearchRequest} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
@@ -33012,15 +33012,15 @@ export class SavedSearchApi extends BaseAPI {
     }
 
     /**
-     * Updates an existing saved search. 
+     * Updates an existing saved search.   >**NOTE: You cannot update the `owner` of the saved search.** 
      * @summary Updates an existing saved search 
-     * @param {SavedSearchApiUpdateSavedSearchRequest} requestParameters Request parameters.
+     * @param {SavedSearchApiPutSavedSearchRequest} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
      * @memberof SavedSearchApi
      */
-    public updateSavedSearch(requestParameters: SavedSearchApiUpdateSavedSearchRequest, axiosOptions?: AxiosRequestConfig) {
-        return SavedSearchApiFp(this.configuration).updateSavedSearch(requestParameters.id, requestParameters.savedSearch, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public putSavedSearch(requestParameters: SavedSearchApiPutSavedSearchRequest, axiosOptions?: AxiosRequestConfig) {
+        return SavedSearchApiFp(this.configuration).putSavedSearch(requestParameters.id, requestParameters.savedSearch, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 }
 
