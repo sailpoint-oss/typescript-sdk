@@ -1110,6 +1110,68 @@ export interface LoadAccountsRequestCC {
 /**
  * 
  * @export
+ * @interface RefreshIdentitiesRequestCC
+ */
+export interface RefreshIdentitiesRequestCC {
+    /**
+     * Defines the identity or identities which this refresh applies to. The filter must use searchable identity attributes. If the filter cannot be understood or parsed, all identities will be refreshed. 
+     * @type {string}
+     * @memberof RefreshIdentitiesRequestCC
+     */
+    'filter'?: string;
+    /**
+     * 
+     * @type {RefreshIdentitiesRequestRefreshArgsCC}
+     * @memberof RefreshIdentitiesRequestCC
+     */
+    'refreshArgs'?: RefreshIdentitiesRequestRefreshArgsCC;
+}
+/**
+ * 
+ * @export
+ * @interface RefreshIdentitiesRequestRefreshArgsCC
+ */
+export interface RefreshIdentitiesRequestRefreshArgsCC {
+    /**
+     * This will refresh entitlement, role, and access profile calculations.
+     * @type {boolean}
+     * @memberof RefreshIdentitiesRequestRefreshArgsCC
+     */
+    'correlateEntitlements'?: boolean;
+    /**
+     * This will calculate identity attributes.
+     * @type {boolean}
+     * @memberof RefreshIdentitiesRequestRefreshArgsCC
+     */
+    'promoteAttributes'?: boolean;
+    /**
+     * This recalculates manager correlation and manager status. Note: This is computationally expensive to run. 
+     * @type {boolean}
+     * @memberof RefreshIdentitiesRequestRefreshArgsCC
+     */
+    'refreshManagerStatus'?: boolean;
+    /**
+     * Enables attribute synchronization.
+     * @type {boolean}
+     * @memberof RefreshIdentitiesRequestRefreshArgsCC
+     */
+    'synchronizeAttributes'?: boolean;
+    /**
+     * Option that will enable deletion of an identity objects if there are no account objects. Note: This is not typically used in IdentityNow, except by guidance from SailPoint. 
+     * @type {boolean}
+     * @memberof RefreshIdentitiesRequestRefreshArgsCC
+     */
+    'pruneIdentities'?: boolean;
+    /**
+     * Enables provisioning of role assignments with entitlements that are not currently fulfilled.
+     * @type {boolean}
+     * @memberof RefreshIdentitiesRequestRefreshArgsCC
+     */
+    'provision'?: boolean;
+}
+/**
+ * 
+ * @export
  * @interface UpdateApplicationRequestCC
  */
 export interface UpdateApplicationRequestCC {
@@ -2776,11 +2838,11 @@ export const SystemCCApiAxiosParamCreator = function (configuration?: Configurat
          * This kicks off an identity refresh for a specified set of identity attributes.  This can be a long running process.  IdentityNow has pre-scheduled versions of this task at set intervals and events already, so only run this when directed by SailPoint.  _Note: If the identities specified by the filter do not exist, a full identity refresh will be run.  Use with caution._  Refresh Arguments:  | Key                   | Description                                        | |-----------------------|----------------------------------------------------| | correlateEntitlements | Analyzes entitlements, access profiles, and roles. | | promoteAttributes     | Calculates identity attributes.                    | | refreshManagerStatus  | Calculates manager correlation and manager status. | | synchronizeAttributes | Performs attribute sync provisioning.              | | pruneIdentities       | Removes any identities which don\'t have accounts.  | | provision             | Provisions any assigned roles or access profiles.  |
          * @summary Refresh Identities
          * @param {string} [contentType] 
-         * @param {string} [body] 
+         * @param {RefreshIdentitiesRequestCC} [refreshIdentitiesRequestCC] 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        refreshIdentities: async (contentType?: string, body?: string, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        refreshIdentities: async (contentType?: string, refreshIdentitiesRequestCC?: RefreshIdentitiesRequestCC, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             const localVarPath = `/cc/api/system/refreshIdentities`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -2812,7 +2874,7 @@ export const SystemCCApiAxiosParamCreator = function (configuration?: Configurat
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(body, localVarRequestOptions, configuration)
+            localVarRequestOptions.data = serializeDataIfNeeded(refreshIdentitiesRequestCC, localVarRequestOptions, configuration)
 
             return {
                 url: toPathString(localVarUrlObj),
@@ -2833,12 +2895,12 @@ export const SystemCCApiFp = function(configuration?: Configuration) {
          * This kicks off an identity refresh for a specified set of identity attributes.  This can be a long running process.  IdentityNow has pre-scheduled versions of this task at set intervals and events already, so only run this when directed by SailPoint.  _Note: If the identities specified by the filter do not exist, a full identity refresh will be run.  Use with caution._  Refresh Arguments:  | Key                   | Description                                        | |-----------------------|----------------------------------------------------| | correlateEntitlements | Analyzes entitlements, access profiles, and roles. | | promoteAttributes     | Calculates identity attributes.                    | | refreshManagerStatus  | Calculates manager correlation and manager status. | | synchronizeAttributes | Performs attribute sync provisioning.              | | pruneIdentities       | Removes any identities which don\'t have accounts.  | | provision             | Provisions any assigned roles or access profiles.  |
          * @summary Refresh Identities
          * @param {string} [contentType] 
-         * @param {string} [body] 
+         * @param {RefreshIdentitiesRequestCC} [refreshIdentitiesRequestCC] 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async refreshIdentities(contentType?: string, body?: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.refreshIdentities(contentType, body, axiosOptions);
+        async refreshIdentities(contentType?: string, refreshIdentitiesRequestCC?: RefreshIdentitiesRequestCC, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.refreshIdentities(contentType, refreshIdentitiesRequestCC, axiosOptions);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
     }
@@ -2855,12 +2917,12 @@ export const SystemCCApiFactory = function (configuration?: Configuration, baseP
          * This kicks off an identity refresh for a specified set of identity attributes.  This can be a long running process.  IdentityNow has pre-scheduled versions of this task at set intervals and events already, so only run this when directed by SailPoint.  _Note: If the identities specified by the filter do not exist, a full identity refresh will be run.  Use with caution._  Refresh Arguments:  | Key                   | Description                                        | |-----------------------|----------------------------------------------------| | correlateEntitlements | Analyzes entitlements, access profiles, and roles. | | promoteAttributes     | Calculates identity attributes.                    | | refreshManagerStatus  | Calculates manager correlation and manager status. | | synchronizeAttributes | Performs attribute sync provisioning.              | | pruneIdentities       | Removes any identities which don\'t have accounts.  | | provision             | Provisions any assigned roles or access profiles.  |
          * @summary Refresh Identities
          * @param {string} [contentType] 
-         * @param {string} [body] 
+         * @param {RefreshIdentitiesRequestCC} [refreshIdentitiesRequestCC] 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        refreshIdentities(contentType?: string, body?: string, axiosOptions?: any): AxiosPromise<void> {
-            return localVarFp.refreshIdentities(contentType, body, axiosOptions).then((request) => request(axios, basePath));
+        refreshIdentities(contentType?: string, refreshIdentitiesRequestCC?: RefreshIdentitiesRequestCC, axiosOptions?: any): AxiosPromise<void> {
+            return localVarFp.refreshIdentities(contentType, refreshIdentitiesRequestCC, axiosOptions).then((request) => request(axios, basePath));
         },
     };
 };
@@ -2880,10 +2942,10 @@ export interface SystemCCApiRefreshIdentitiesRequest {
 
     /**
      * 
-     * @type {string}
+     * @type {RefreshIdentitiesRequestCC}
      * @memberof SystemCCApiRefreshIdentities
      */
-    readonly body?: string
+    readonly refreshIdentitiesRequestCC?: RefreshIdentitiesRequestCC
 }
 
 /**
@@ -2902,7 +2964,7 @@ export class SystemCCApi extends BaseAPI {
      * @memberof SystemCCApi
      */
     public refreshIdentities(requestParameters: SystemCCApiRefreshIdentitiesRequest = {}, axiosOptions?: AxiosRequestConfig) {
-        return SystemCCApiFp(this.configuration).refreshIdentities(requestParameters.contentType, requestParameters.body, axiosOptions).then((request) => request(this.axios, this.basePath));
+        return SystemCCApiFp(this.configuration).refreshIdentities(requestParameters.contentType, requestParameters.refreshIdentitiesRequestCC, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 }
 
