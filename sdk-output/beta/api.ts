@@ -32000,10 +32000,12 @@ export const EntitlementsBetaApiAxiosParamCreator = function (configuration?: Co
          * @param {number} [limit] Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
          * @param {number} [offset] Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
          * @param {boolean} [count] If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+         * @param {string} [sorters] Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results) Sorting is supported for the following fields: **id, name, created, modified, type, attribute, value, source.id**
+         * @param {string} [filters] Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results) Filtering is supported for the following fields and operators:  **id**: *eq, in*  **name**: *eq, in, sw*  **type**: *eq, in*  **attribute**: *eq, in*  **value**: *eq, in, sw*  **source.id**: *eq, in*  **requestable**: *eq* **created**: *gt, lt, ge, le* **modified**: *gt, lt, ge, le*
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        listEntitlementChildren: async (id: string, limit?: number, offset?: number, count?: boolean, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        listEntitlementChildren: async (id: string, limit?: number, offset?: number, count?: boolean, sorters?: string, filters?: string, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'id' is not null or undefined
             assertParamExists('listEntitlementChildren', 'id', id)
             const localVarPath = `/entitlements/{id}/children`
@@ -32039,6 +32041,14 @@ export const EntitlementsBetaApiAxiosParamCreator = function (configuration?: Co
                 localVarQueryParameter['count'] = count;
             }
 
+            if (sorters !== undefined) {
+                localVarQueryParameter['sorters'] = sorters;
+            }
+
+            if (filters !== undefined) {
+                localVarQueryParameter['filters'] = filters;
+            }
+
 
     
             setSearchParams(localVarUrlObj, localVarQueryParameter);
@@ -32057,10 +32067,12 @@ export const EntitlementsBetaApiAxiosParamCreator = function (configuration?: Co
          * @param {number} [limit] Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
          * @param {number} [offset] Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
          * @param {boolean} [count] If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+         * @param {string} [sorters] Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results) Sorting is supported for the following fields: **id, name, created, modified, type, attribute, value, source.id**
+         * @param {string} [filters] Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results) Filtering is supported for the following fields and operators:  **id**: *eq, in*  **name**: *eq, in, sw*  **type**: *eq, in*  **attribute**: *eq, in*  **value**: *eq, in, sw*  **source.id**: *eq, in*  **requestable**: *eq* **created**: *gt, lt, ge, le* **modified**: *gt, lt, ge, le*
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        listEntitlementParents: async (id: string, limit?: number, offset?: number, count?: boolean, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        listEntitlementParents: async (id: string, limit?: number, offset?: number, count?: boolean, sorters?: string, filters?: string, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'id' is not null or undefined
             assertParamExists('listEntitlementParents', 'id', id)
             const localVarPath = `/entitlements/{id}/parents`
@@ -32094,6 +32106,14 @@ export const EntitlementsBetaApiAxiosParamCreator = function (configuration?: Co
 
             if (count !== undefined) {
                 localVarQueryParameter['count'] = count;
+            }
+
+            if (sorters !== undefined) {
+                localVarQueryParameter['sorters'] = sorters;
+            }
+
+            if (filters !== undefined) {
+                localVarQueryParameter['filters'] = filters;
             }
 
 
@@ -32191,7 +32211,7 @@ export const EntitlementsBetaApiAxiosParamCreator = function (configuration?: Co
             };
         },
         /**
-         * This API updates an existing entitlement using [JSON Patch](https://tools.ietf.org/html/rfc6902) syntax.  The following fields are patchable: **requestable**, **privileged**, **segments**, **owner**.  When you\'re patching owner, only owner type and owner id must be provided. Owner name is optional, and it won\'t be modified. If the owner name is provided, it should correspond to the real name. The only owner type currently supported is IDENTITY.  A token with ORG_ADMIN or SOURCE_ADMIN authority is required to call this API.
+         * This API updates an existing entitlement using [JSON Patch](https://tools.ietf.org/html/rfc6902) syntax.  The following fields are patchable: **requestable**, **privileged**, **segments**, **owner**, **name**, **description**.  When you\'re patching owner, only owner type and owner id must be provided. Owner name is optional, and it won\'t be modified. If the owner name is provided, it should correspond to the real name. The only owner type currently supported is IDENTITY.  A token with ORG_ADMIN or SOURCE_ADMIN authority is required to call this API.
          * @summary Patch an entitlement
          * @param {string} id ID of the entitlement to patch
          * @param {Array<JsonPatchOperationBeta>} [jsonPatchOperationBeta] 
@@ -32367,11 +32387,13 @@ export const EntitlementsBetaApiFp = function(configuration?: Configuration) {
          * @param {number} [limit] Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
          * @param {number} [offset] Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
          * @param {boolean} [count] If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+         * @param {string} [sorters] Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results) Sorting is supported for the following fields: **id, name, created, modified, type, attribute, value, source.id**
+         * @param {string} [filters] Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results) Filtering is supported for the following fields and operators:  **id**: *eq, in*  **name**: *eq, in, sw*  **type**: *eq, in*  **attribute**: *eq, in*  **value**: *eq, in, sw*  **source.id**: *eq, in*  **requestable**: *eq* **created**: *gt, lt, ge, le* **modified**: *gt, lt, ge, le*
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async listEntitlementChildren(id: string, limit?: number, offset?: number, count?: boolean, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<EntitlementBeta>>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.listEntitlementChildren(id, limit, offset, count, axiosOptions);
+        async listEntitlementChildren(id: string, limit?: number, offset?: number, count?: boolean, sorters?: string, filters?: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<EntitlementBeta>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.listEntitlementChildren(id, limit, offset, count, sorters, filters, axiosOptions);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
@@ -32381,11 +32403,13 @@ export const EntitlementsBetaApiFp = function(configuration?: Configuration) {
          * @param {number} [limit] Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
          * @param {number} [offset] Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
          * @param {boolean} [count] If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+         * @param {string} [sorters] Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results) Sorting is supported for the following fields: **id, name, created, modified, type, attribute, value, source.id**
+         * @param {string} [filters] Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results) Filtering is supported for the following fields and operators:  **id**: *eq, in*  **name**: *eq, in, sw*  **type**: *eq, in*  **attribute**: *eq, in*  **value**: *eq, in, sw*  **source.id**: *eq, in*  **requestable**: *eq* **created**: *gt, lt, ge, le* **modified**: *gt, lt, ge, le*
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async listEntitlementParents(id: string, limit?: number, offset?: number, count?: boolean, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<EntitlementBeta>>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.listEntitlementParents(id, limit, offset, count, axiosOptions);
+        async listEntitlementParents(id: string, limit?: number, offset?: number, count?: boolean, sorters?: string, filters?: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<EntitlementBeta>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.listEntitlementParents(id, limit, offset, count, sorters, filters, axiosOptions);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
@@ -32408,7 +32432,7 @@ export const EntitlementsBetaApiFp = function(configuration?: Configuration) {
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
-         * This API updates an existing entitlement using [JSON Patch](https://tools.ietf.org/html/rfc6902) syntax.  The following fields are patchable: **requestable**, **privileged**, **segments**, **owner**.  When you\'re patching owner, only owner type and owner id must be provided. Owner name is optional, and it won\'t be modified. If the owner name is provided, it should correspond to the real name. The only owner type currently supported is IDENTITY.  A token with ORG_ADMIN or SOURCE_ADMIN authority is required to call this API.
+         * This API updates an existing entitlement using [JSON Patch](https://tools.ietf.org/html/rfc6902) syntax.  The following fields are patchable: **requestable**, **privileged**, **segments**, **owner**, **name**, **description**.  When you\'re patching owner, only owner type and owner id must be provided. Owner name is optional, and it won\'t be modified. If the owner name is provided, it should correspond to the real name. The only owner type currently supported is IDENTITY.  A token with ORG_ADMIN or SOURCE_ADMIN authority is required to call this API.
          * @summary Patch an entitlement
          * @param {string} id ID of the entitlement to patch
          * @param {Array<JsonPatchOperationBeta>} [jsonPatchOperationBeta] 
@@ -32479,11 +32503,13 @@ export const EntitlementsBetaApiFactory = function (configuration?: Configuratio
          * @param {number} [limit] Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
          * @param {number} [offset] Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
          * @param {boolean} [count] If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+         * @param {string} [sorters] Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results) Sorting is supported for the following fields: **id, name, created, modified, type, attribute, value, source.id**
+         * @param {string} [filters] Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results) Filtering is supported for the following fields and operators:  **id**: *eq, in*  **name**: *eq, in, sw*  **type**: *eq, in*  **attribute**: *eq, in*  **value**: *eq, in, sw*  **source.id**: *eq, in*  **requestable**: *eq* **created**: *gt, lt, ge, le* **modified**: *gt, lt, ge, le*
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        listEntitlementChildren(id: string, limit?: number, offset?: number, count?: boolean, axiosOptions?: any): AxiosPromise<Array<EntitlementBeta>> {
-            return localVarFp.listEntitlementChildren(id, limit, offset, count, axiosOptions).then((request) => request(axios, basePath));
+        listEntitlementChildren(id: string, limit?: number, offset?: number, count?: boolean, sorters?: string, filters?: string, axiosOptions?: any): AxiosPromise<Array<EntitlementBeta>> {
+            return localVarFp.listEntitlementChildren(id, limit, offset, count, sorters, filters, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * This API returns a list of all parent entitlements of a given entitlement.
@@ -32492,11 +32518,13 @@ export const EntitlementsBetaApiFactory = function (configuration?: Configuratio
          * @param {number} [limit] Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
          * @param {number} [offset] Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
          * @param {boolean} [count] If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+         * @param {string} [sorters] Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results) Sorting is supported for the following fields: **id, name, created, modified, type, attribute, value, source.id**
+         * @param {string} [filters] Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results) Filtering is supported for the following fields and operators:  **id**: *eq, in*  **name**: *eq, in, sw*  **type**: *eq, in*  **attribute**: *eq, in*  **value**: *eq, in, sw*  **source.id**: *eq, in*  **requestable**: *eq* **created**: *gt, lt, ge, le* **modified**: *gt, lt, ge, le*
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        listEntitlementParents(id: string, limit?: number, offset?: number, count?: boolean, axiosOptions?: any): AxiosPromise<Array<EntitlementBeta>> {
-            return localVarFp.listEntitlementParents(id, limit, offset, count, axiosOptions).then((request) => request(axios, basePath));
+        listEntitlementParents(id: string, limit?: number, offset?: number, count?: boolean, sorters?: string, filters?: string, axiosOptions?: any): AxiosPromise<Array<EntitlementBeta>> {
+            return localVarFp.listEntitlementParents(id, limit, offset, count, sorters, filters, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * This API returns a list of entitlements.  This API can be used in one of the two following ways: either getting entitlements for a specific **account-id**, or getting via use of **filters** (those two options are exclusive).  Any authenticated token can call this API.
@@ -32517,7 +32545,7 @@ export const EntitlementsBetaApiFactory = function (configuration?: Configuratio
             return localVarFp.listEntitlements(accountId, segmentedForIdentity, forSegmentIds, includeUnsegmented, offset, limit, count, sorters, filters, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
-         * This API updates an existing entitlement using [JSON Patch](https://tools.ietf.org/html/rfc6902) syntax.  The following fields are patchable: **requestable**, **privileged**, **segments**, **owner**.  When you\'re patching owner, only owner type and owner id must be provided. Owner name is optional, and it won\'t be modified. If the owner name is provided, it should correspond to the real name. The only owner type currently supported is IDENTITY.  A token with ORG_ADMIN or SOURCE_ADMIN authority is required to call this API.
+         * This API updates an existing entitlement using [JSON Patch](https://tools.ietf.org/html/rfc6902) syntax.  The following fields are patchable: **requestable**, **privileged**, **segments**, **owner**, **name**, **description**.  When you\'re patching owner, only owner type and owner id must be provided. Owner name is optional, and it won\'t be modified. If the owner name is provided, it should correspond to the real name. The only owner type currently supported is IDENTITY.  A token with ORG_ADMIN or SOURCE_ADMIN authority is required to call this API.
          * @summary Patch an entitlement
          * @param {string} id ID of the entitlement to patch
          * @param {Array<JsonPatchOperationBeta>} [jsonPatchOperationBeta] 
@@ -32612,6 +32640,20 @@ export interface EntitlementsBetaApiListEntitlementChildrenRequest {
      * @memberof EntitlementsBetaApiListEntitlementChildren
      */
     readonly count?: boolean
+
+    /**
+     * Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results) Sorting is supported for the following fields: **id, name, created, modified, type, attribute, value, source.id**
+     * @type {string}
+     * @memberof EntitlementsBetaApiListEntitlementChildren
+     */
+    readonly sorters?: string
+
+    /**
+     * Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results) Filtering is supported for the following fields and operators:  **id**: *eq, in*  **name**: *eq, in, sw*  **type**: *eq, in*  **attribute**: *eq, in*  **value**: *eq, in, sw*  **source.id**: *eq, in*  **requestable**: *eq* **created**: *gt, lt, ge, le* **modified**: *gt, lt, ge, le*
+     * @type {string}
+     * @memberof EntitlementsBetaApiListEntitlementChildren
+     */
+    readonly filters?: string
 }
 
 /**
@@ -32647,6 +32689,20 @@ export interface EntitlementsBetaApiListEntitlementParentsRequest {
      * @memberof EntitlementsBetaApiListEntitlementParents
      */
     readonly count?: boolean
+
+    /**
+     * Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results) Sorting is supported for the following fields: **id, name, created, modified, type, attribute, value, source.id**
+     * @type {string}
+     * @memberof EntitlementsBetaApiListEntitlementParents
+     */
+    readonly sorters?: string
+
+    /**
+     * Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results) Filtering is supported for the following fields and operators:  **id**: *eq, in*  **name**: *eq, in, sw*  **type**: *eq, in*  **attribute**: *eq, in*  **value**: *eq, in, sw*  **source.id**: *eq, in*  **requestable**: *eq* **created**: *gt, lt, ge, le* **modified**: *gt, lt, ge, le*
+     * @type {string}
+     * @memberof EntitlementsBetaApiListEntitlementParents
+     */
+    readonly filters?: string
 }
 
 /**
@@ -32815,7 +32871,7 @@ export class EntitlementsBetaApi extends BaseAPI {
      * @memberof EntitlementsBetaApi
      */
     public listEntitlementChildren(requestParameters: EntitlementsBetaApiListEntitlementChildrenRequest, axiosOptions?: AxiosRequestConfig) {
-        return EntitlementsBetaApiFp(this.configuration).listEntitlementChildren(requestParameters.id, requestParameters.limit, requestParameters.offset, requestParameters.count, axiosOptions).then((request) => request(this.axios, this.basePath));
+        return EntitlementsBetaApiFp(this.configuration).listEntitlementChildren(requestParameters.id, requestParameters.limit, requestParameters.offset, requestParameters.count, requestParameters.sorters, requestParameters.filters, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -32827,7 +32883,7 @@ export class EntitlementsBetaApi extends BaseAPI {
      * @memberof EntitlementsBetaApi
      */
     public listEntitlementParents(requestParameters: EntitlementsBetaApiListEntitlementParentsRequest, axiosOptions?: AxiosRequestConfig) {
-        return EntitlementsBetaApiFp(this.configuration).listEntitlementParents(requestParameters.id, requestParameters.limit, requestParameters.offset, requestParameters.count, axiosOptions).then((request) => request(this.axios, this.basePath));
+        return EntitlementsBetaApiFp(this.configuration).listEntitlementParents(requestParameters.id, requestParameters.limit, requestParameters.offset, requestParameters.count, requestParameters.sorters, requestParameters.filters, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -32843,7 +32899,7 @@ export class EntitlementsBetaApi extends BaseAPI {
     }
 
     /**
-     * This API updates an existing entitlement using [JSON Patch](https://tools.ietf.org/html/rfc6902) syntax.  The following fields are patchable: **requestable**, **privileged**, **segments**, **owner**.  When you\'re patching owner, only owner type and owner id must be provided. Owner name is optional, and it won\'t be modified. If the owner name is provided, it should correspond to the real name. The only owner type currently supported is IDENTITY.  A token with ORG_ADMIN or SOURCE_ADMIN authority is required to call this API.
+     * This API updates an existing entitlement using [JSON Patch](https://tools.ietf.org/html/rfc6902) syntax.  The following fields are patchable: **requestable**, **privileged**, **segments**, **owner**, **name**, **description**.  When you\'re patching owner, only owner type and owner id must be provided. Owner name is optional, and it won\'t be modified. If the owner name is provided, it should correspond to the real name. The only owner type currently supported is IDENTITY.  A token with ORG_ADMIN or SOURCE_ADMIN authority is required to call this API.
      * @summary Patch an entitlement
      * @param {EntitlementsBetaApiPatchEntitlementRequest} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
