@@ -32987,6 +32987,48 @@ export const GovernanceGroupsBetaApiAxiosParamCreator = function (configuration?
             };
         },
         /**
+         * This API returns an Governance Groups by its ID.
+         * @summary Get an Governance Groups
+         * @param {string} id ID of the Governance Groups
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        getWorkgroup: async (id: string, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'id' is not null or undefined
+            assertParamExists('getWorkgroup', 'id', id)
+            const localVarPath = `/workgroups/{id}`
+                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...axiosOptions};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication oauth2 required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "oauth2", [], configuration)
+
+            // authentication oauth2 required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "oauth2", [], configuration)
+
+
+    
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                axiosOptions: localVarRequestOptions,
+            };
+        },
+        /**
          * This API returns list of Governance Groups
          * @summary List Governance Groups
          * @param {number} [offset] Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
@@ -33066,6 +33108,17 @@ export const GovernanceGroupsBetaApiFp = function(configuration?: Configuration)
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
+         * This API returns an Governance Groups by its ID.
+         * @summary Get an Governance Groups
+         * @param {string} id ID of the Governance Groups
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        async getWorkgroup(id: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<WorkgroupDtoBeta>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getWorkgroup(id, axiosOptions);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
          * This API returns list of Governance Groups
          * @summary List Governance Groups
          * @param {number} [offset] Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
@@ -33100,6 +33153,16 @@ export const GovernanceGroupsBetaApiFactory = function (configuration?: Configur
             return localVarFp.createWorkgroup(workgroupDtoBeta, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
+         * This API returns an Governance Groups by its ID.
+         * @summary Get an Governance Groups
+         * @param {string} id ID of the Governance Groups
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        getWorkgroup(id: string, axiosOptions?: any): AxiosPromise<WorkgroupDtoBeta> {
+            return localVarFp.getWorkgroup(id, axiosOptions).then((request) => request(axios, basePath));
+        },
+        /**
          * This API returns list of Governance Groups
          * @summary List Governance Groups
          * @param {number} [offset] Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
@@ -33127,6 +33190,20 @@ export interface GovernanceGroupsBetaApiCreateWorkgroupRequest {
      * @memberof GovernanceGroupsBetaApiCreateWorkgroup
      */
     readonly workgroupDtoBeta: WorkgroupDtoBeta
+}
+
+/**
+ * Request parameters for getWorkgroup operation in GovernanceGroupsBetaApi.
+ * @export
+ * @interface GovernanceGroupsBetaApiGetWorkgroupRequest
+ */
+export interface GovernanceGroupsBetaApiGetWorkgroupRequest {
+    /**
+     * ID of the Governance Groups
+     * @type {string}
+     * @memberof GovernanceGroupsBetaApiGetWorkgroup
+     */
+    readonly id: string
 }
 
 /**
@@ -33181,6 +33258,18 @@ export class GovernanceGroupsBetaApi extends BaseAPI {
      */
     public createWorkgroup(requestParameters: GovernanceGroupsBetaApiCreateWorkgroupRequest, axiosOptions?: AxiosRequestConfig) {
         return GovernanceGroupsBetaApiFp(this.configuration).createWorkgroup(requestParameters.workgroupDtoBeta, axiosOptions).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * This API returns an Governance Groups by its ID.
+     * @summary Get an Governance Groups
+     * @param {GovernanceGroupsBetaApiGetWorkgroupRequest} requestParameters Request parameters.
+     * @param {*} [axiosOptions] Override http request option.
+     * @throws {RequiredError}
+     * @memberof GovernanceGroupsBetaApi
+     */
+    public getWorkgroup(requestParameters: GovernanceGroupsBetaApiGetWorkgroupRequest, axiosOptions?: AxiosRequestConfig) {
+        return GovernanceGroupsBetaApiFp(this.configuration).getWorkgroup(requestParameters.id, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
