@@ -2333,6 +2333,19 @@ export interface AccountsAsyncResult {
 /**
  * 
  * @export
+ * @interface ActivateCampaignOptions
+ */
+export interface ActivateCampaignOptions {
+    /**
+     * The timezone must be in a valid ISO 8601 format. Timezones in ISO 8601 are represented as UTC (represented as \'Z\') or as an offset from UTC. The offset format can be +/-hh:mm, +/-hhmm, or +/-hh.
+     * @type {string}
+     * @memberof ActivateCampaignOptions
+     */
+    'timeZone'?: string;
+}
+/**
+ * 
+ * @export
  * @interface AdminReviewReassign
  */
 export interface AdminReviewReassign {
@@ -20664,6 +20677,52 @@ export const CertificationCampaignsApiAxiosParamCreator = function (configuratio
                 axiosOptions: localVarRequestOptions,
             };
         },
+        /**
+         * Submits a job to activate the campaign with the given Id. The campaign must be staged. Requires roles of CERT_ADMIN and ORG_ADMIN
+         * @summary Activate a Campaign
+         * @param {string} id The campaign id
+         * @param {ActivateCampaignOptions} [activateCampaignOptions] Optional. If no timezone is specified, the standard UTC timezone is used (i.e. UTC+00:00). Although this can take any timezone, the intended value is the caller\&#39;s timezone. The activation time calculated from the given timezone may cause the campaign deadline time to be modified, but it will remain within the original date. The timezone must be in a valid ISO 8601 format.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        startCampaign: async (id: string, activateCampaignOptions?: ActivateCampaignOptions, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'id' is not null or undefined
+            assertParamExists('startCampaign', 'id', id)
+            const localVarPath = `/campaigns/{id}/activate`
+                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'POST', ...baseOptions, ...axiosOptions};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication oauth2 required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "oauth2", [], configuration)
+
+            // authentication oauth2 required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "oauth2", [], configuration)
+
+
+    
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
+            localVarRequestOptions.data = serializeDataIfNeeded(activateCampaignOptions, localVarRequestOptions, configuration)
+
+            return {
+                url: toPathString(localVarUrlObj),
+                axiosOptions: localVarRequestOptions,
+            };
+        },
     }
 };
 
@@ -20724,6 +20783,18 @@ export const CertificationCampaignsApiFp = function(configuration?: Configuratio
             const localVarAxiosArgs = await localVarAxiosParamCreator.move(id, adminReviewReassign, axiosOptions);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
+        /**
+         * Submits a job to activate the campaign with the given Id. The campaign must be staged. Requires roles of CERT_ADMIN and ORG_ADMIN
+         * @summary Activate a Campaign
+         * @param {string} id The campaign id
+         * @param {ActivateCampaignOptions} [activateCampaignOptions] Optional. If no timezone is specified, the standard UTC timezone is used (i.e. UTC+00:00). Although this can take any timezone, the intended value is the caller\&#39;s timezone. The activation time calculated from the given timezone may cause the campaign deadline time to be modified, but it will remain within the original date. The timezone must be in a valid ISO 8601 format.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        async startCampaign(id: string, activateCampaignOptions?: ActivateCampaignOptions, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<object>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.startCampaign(id, activateCampaignOptions, axiosOptions);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
     }
 };
 
@@ -20779,6 +20850,17 @@ export const CertificationCampaignsApiFactory = function (configuration?: Config
          */
         move(id: string, adminReviewReassign: AdminReviewReassign, axiosOptions?: any): AxiosPromise<CertificationTask> {
             return localVarFp.move(id, adminReviewReassign, axiosOptions).then((request) => request(axios, basePath));
+        },
+        /**
+         * Submits a job to activate the campaign with the given Id. The campaign must be staged. Requires roles of CERT_ADMIN and ORG_ADMIN
+         * @summary Activate a Campaign
+         * @param {string} id The campaign id
+         * @param {ActivateCampaignOptions} [activateCampaignOptions] Optional. If no timezone is specified, the standard UTC timezone is used (i.e. UTC+00:00). Although this can take any timezone, the intended value is the caller\&#39;s timezone. The activation time calculated from the given timezone may cause the campaign deadline time to be modified, but it will remain within the original date. The timezone must be in a valid ISO 8601 format.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        startCampaign(id: string, activateCampaignOptions?: ActivateCampaignOptions, axiosOptions?: any): AxiosPromise<object> {
+            return localVarFp.startCampaign(id, activateCampaignOptions, axiosOptions).then((request) => request(axios, basePath));
         },
     };
 };
@@ -20882,6 +20964,27 @@ export interface CertificationCampaignsApiMoveRequest {
 }
 
 /**
+ * Request parameters for startCampaign operation in CertificationCampaignsApi.
+ * @export
+ * @interface CertificationCampaignsApiStartCampaignRequest
+ */
+export interface CertificationCampaignsApiStartCampaignRequest {
+    /**
+     * The campaign id
+     * @type {string}
+     * @memberof CertificationCampaignsApiStartCampaign
+     */
+    readonly id: string
+
+    /**
+     * Optional. If no timezone is specified, the standard UTC timezone is used (i.e. UTC+00:00). Although this can take any timezone, the intended value is the caller\&#39;s timezone. The activation time calculated from the given timezone may cause the campaign deadline time to be modified, but it will remain within the original date. The timezone must be in a valid ISO 8601 format.
+     * @type {ActivateCampaignOptions}
+     * @memberof CertificationCampaignsApiStartCampaign
+     */
+    readonly activateCampaignOptions?: ActivateCampaignOptions
+}
+
+/**
  * CertificationCampaignsApi - object-oriented interface
  * @export
  * @class CertificationCampaignsApi
@@ -20934,6 +21037,18 @@ export class CertificationCampaignsApi extends BaseAPI {
      */
     public move(requestParameters: CertificationCampaignsApiMoveRequest, axiosOptions?: AxiosRequestConfig) {
         return CertificationCampaignsApiFp(this.configuration).move(requestParameters.id, requestParameters.adminReviewReassign, axiosOptions).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Submits a job to activate the campaign with the given Id. The campaign must be staged. Requires roles of CERT_ADMIN and ORG_ADMIN
+     * @summary Activate a Campaign
+     * @param {CertificationCampaignsApiStartCampaignRequest} requestParameters Request parameters.
+     * @param {*} [axiosOptions] Override http request option.
+     * @throws {RequiredError}
+     * @memberof CertificationCampaignsApi
+     */
+    public startCampaign(requestParameters: CertificationCampaignsApiStartCampaignRequest, axiosOptions?: AxiosRequestConfig) {
+        return CertificationCampaignsApiFp(this.configuration).startCampaign(requestParameters.id, requestParameters.activateCampaignOptions, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 }
 
