@@ -9966,11 +9966,17 @@ export interface LookupStepBeta {
  */
 export interface MailFromAttributesBeta {
     /**
-     * The identity or domain address
+     * The email identity
      * @type {string}
      * @memberof MailFromAttributesBeta
      */
-    'id'?: string;
+    'identity'?: string;
+    /**
+     * The name of a domain that an email identity uses as a custom MAIL FROM domain
+     * @type {string}
+     * @memberof MailFromAttributesBeta
+     */
+    'mailFromDomain'?: string;
     /**
      * MX record that is required in customer\'s DNS to allow the domain to receive bounce and complaint notifications that email providers send you
      * @type {string}
@@ -46763,7 +46769,7 @@ export const NotificationsBetaApiAxiosParamCreator = function (configuration?: C
         getMailFromAttributes: async (id: string, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'id' is not null or undefined
             assertParamExists('getMailFromAttributes', 'id', id)
-            const localVarPath = `/mail-from-attribute/{id}`;
+            const localVarPath = `/mail-from-attributes/{identity}`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
