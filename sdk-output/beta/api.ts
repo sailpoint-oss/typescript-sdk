@@ -6365,7 +6365,7 @@ export interface EventAttributesBeta {
      * @type {string}
      * @memberof EventAttributesBeta
      */
-    'filter'?: string;
+    'filter.$'?: string;
 }
 /**
  * 
@@ -6702,6 +6702,25 @@ export const ExpressionBetaOperatorEnum = {
 
 export type ExpressionBetaOperatorEnum = typeof ExpressionBetaOperatorEnum[keyof typeof ExpressionBetaOperatorEnum];
 
+/**
+ * 
+ * @export
+ * @interface ExternalAttributesBeta
+ */
+export interface ExternalAttributesBeta {
+    /**
+     * A unique name for the external trigger
+     * @type {string}
+     * @memberof ExternalAttributesBeta
+     */
+    'name': string;
+    /**
+     * Additonal context about the external trigger
+     * @type {string}
+     * @memberof ExternalAttributesBeta
+     */
+    'description'?: string;
+}
 /**
  * 
  * @export
@@ -23584,12 +23603,42 @@ export interface WorkflowOAuthClientBeta {
     'url'?: string;
 }
 /**
- * @type WorkflowTriggerAttributesBeta
  * Workflow Trigger Attributes.
  * @export
+ * @interface WorkflowTriggerAttributesBeta
  */
-export type WorkflowTriggerAttributesBeta = EventAttributesBeta | ScheduledAttributesBeta;
-
+export interface WorkflowTriggerAttributesBeta {
+    /**
+     * The unique ID of the trigger
+     * @type {string}
+     * @memberof WorkflowTriggerAttributesBeta
+     */
+    'id': string;
+    /**
+     * JSON path expression that will limit which events the trigger will fire on
+     * @type {string}
+     * @memberof WorkflowTriggerAttributesBeta
+     */
+    'filter.$'?: string;
+    /**
+     * A unique name for the external trigger
+     * @type {string}
+     * @memberof WorkflowTriggerAttributesBeta
+     */
+    'name': string;
+    /**
+     * Additonal context about the external trigger
+     * @type {string}
+     * @memberof WorkflowTriggerAttributesBeta
+     */
+    'description'?: string;
+    /**
+     * A valid CRON expression
+     * @type {string}
+     * @memberof WorkflowTriggerAttributesBeta
+     */
+    'cronString': string;
+}
 /**
  * The trigger that starts the workflow
  * @export
@@ -23598,7 +23647,7 @@ export type WorkflowTriggerAttributesBeta = EventAttributesBeta | ScheduledAttri
 export interface WorkflowTriggerBeta {
     /**
      * The trigger type
-     * @type {object}
+     * @type {string}
      * @memberof WorkflowTriggerBeta
      */
     'type': WorkflowTriggerBetaTypeEnum;
