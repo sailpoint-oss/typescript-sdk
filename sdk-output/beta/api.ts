@@ -4687,6 +4687,111 @@ export type CompletionStatusBeta = typeof CompletionStatusBeta[keyof typeof Comp
 
 
 /**
+ * ConditionEffect is the effect produced by a condition
+ * @export
+ * @interface ConditionEffectBeta
+ */
+export interface ConditionEffectBeta {
+    /**
+     * Config is a arbitrary map that holds a configuration based on EffectType
+     * @type {{ [key: string]: object; }}
+     * @memberof ConditionEffectBeta
+     */
+    'config'?: { [key: string]: object; };
+    /**
+     * EffectType is the type of effect to perform when the conditions are evaluated for this logic block HIDE ConditionEffectTypeHide  ConditionEffectTypeHide disables validations SHOW ConditionEffectTypeShow  ConditionEffectTypeShow enables validations DISABLE ConditionEffectTypeDisable  ConditionEffectTypeDisable disables validations ENABLE ConditionEffectTypeEnable  ConditionEffectTypeEnable enables validations REQUIRE ConditionEffectTypeRequire OPTIONAL ConditionEffectTypeOptional SUBMIT_MESSAGE ConditionEffectTypeSubmitMessage SUBMIT_NOTIFICATION ConditionEffectTypeSubmitNotification SET_DEFAULT_VALUE ConditionEffectTypeSetDefaultValue  ConditionEffectTypeSetDefaultValue is ignored on purpose
+     * @type {string}
+     * @memberof ConditionEffectBeta
+     */
+    'effectType'?: ConditionEffectBetaEffectTypeEnum;
+}
+
+export const ConditionEffectBetaEffectTypeEnum = {
+    Hide: 'HIDE',
+    Show: 'SHOW',
+    Disable: 'DISABLE',
+    Enable: 'ENABLE',
+    Require: 'REQUIRE',
+    Optional: 'OPTIONAL',
+    SubmitMessage: 'SUBMIT_MESSAGE',
+    SubmitNotification: 'SUBMIT_NOTIFICATION',
+    SetDefaultValue: 'SET_DEFAULT_VALUE'
+} as const;
+
+export type ConditionEffectBetaEffectTypeEnum = typeof ConditionEffectBetaEffectTypeEnum[keyof typeof ConditionEffectBetaEffectTypeEnum];
+
+/**
+ * 
+ * @export
+ * @interface ConditionRuleBeta
+ */
+export interface ConditionRuleBeta {
+    /**
+     * Operator is a ConditionRuleComparisonOperatorType value EQ ConditionRuleComparisonOperatorTypeEquals  ConditionRuleComparisonOperatorTypeEquals is a comparison operator, the source and target are compared for equality NE ConditionRuleComparisonOperatorTypeNotEquals  ConditionRuleComparisonOperatorTypeNotEquals is a comparison operator, the source and target are compared for the opposite of equality CO ConditionRuleComparisonOperatorTypeContains  ConditionRuleComparisonOperatorTypeContains is a comparison operator, the source is searched to see if it contains the value NOT_CO ConditionRuleComparisonOperatorTypeNotContains IN ConditionRuleComparisonOperatorTypeIncludes  ConditionRuleComparisonOperatorTypeIncludes is a comparison operator, the source will be searched if it equals any of the values NOT_IN ConditionRuleComparisonOperatorTypeNotIncludes EM ConditionRuleComparisonOperatorTypeEmpty NOT_EM ConditionRuleComparisonOperatorTypeNotEmpty SW ConditionRuleComparisonOperatorTypeStartsWith  ConditionRuleComparisonOperatorTypeStartsWith checks if a string starts with another substring of the same string, this operator is case-sensitive NOT_SW ConditionRuleComparisonOperatorTypeNotStartsWith EW ConditionRuleComparisonOperatorTypeEndsWith  ConditionRuleComparisonOperatorTypeEndsWith checks if a string ends with another substring of the same string, this operator is case-sensitive NOT_EW ConditionRuleComparisonOperatorTypeNotEndsWith
+     * @type {string}
+     * @memberof ConditionRuleBeta
+     */
+    'operator'?: ConditionRuleBetaOperatorEnum;
+    /**
+     * Source, if the sourceType is ConditionRuleSourceTypeInput then the source type is the name of the form input to accept. While if the sourceType is ConditionRuleSourceTypeElement then source is the name of a technical key of an element to retrieve its value
+     * @type {string}
+     * @memberof ConditionRuleBeta
+     */
+    'source'?: string;
+    /**
+     * SourceType defines what type of object is being selected. Either a reference to a form input (by input name), or a form element (by technical key) INPUT ConditionRuleSourceTypeInput ELEMENT ConditionRuleSourceTypeElement
+     * @type {string}
+     * @memberof ConditionRuleBeta
+     */
+    'sourceType'?: ConditionRuleBetaSourceTypeEnum;
+    /**
+     * Value is the value based on the ValueType
+     * @type {object}
+     * @memberof ConditionRuleBeta
+     */
+    'value'?: object;
+    /**
+     * ValueType is a ConditionRuleValueType type STRING ConditionRuleValueTypeString  ConditionRuleValueTypeString the value field is a static string STRING_LIST ConditionRuleValueTypeStringList  ConditionRuleValueTypeStringList the value field is an array of string values INPUT ConditionRuleValueTypeInput  ConditionRuleValueTypeInput the value field is a reference to a form input by ELEMENT ConditionRuleValueTypeElement  ConditionRuleValueTypeElement the value field is a reference to form element (by technical key) LIST ConditionRuleValueTypeList BOOLEAN ConditionRuleValueTypeBoolean
+     * @type {string}
+     * @memberof ConditionRuleBeta
+     */
+    'valueType'?: ConditionRuleBetaValueTypeEnum;
+}
+
+export const ConditionRuleBetaOperatorEnum = {
+    Eq: 'EQ',
+    Ne: 'NE',
+    Co: 'CO',
+    NotCo: 'NOT_CO',
+    In: 'IN',
+    NotIn: 'NOT_IN',
+    Em: 'EM',
+    NotEm: 'NOT_EM',
+    Sw: 'SW',
+    NotSw: 'NOT_SW',
+    Ew: 'EW',
+    NotEw: 'NOT_EW'
+} as const;
+
+export type ConditionRuleBetaOperatorEnum = typeof ConditionRuleBetaOperatorEnum[keyof typeof ConditionRuleBetaOperatorEnum];
+export const ConditionRuleBetaSourceTypeEnum = {
+    Input: 'INPUT',
+    Element: 'ELEMENT'
+} as const;
+
+export type ConditionRuleBetaSourceTypeEnum = typeof ConditionRuleBetaSourceTypeEnum[keyof typeof ConditionRuleBetaSourceTypeEnum];
+export const ConditionRuleBetaValueTypeEnum = {
+    String: 'STRING',
+    StringList: 'STRING_LIST',
+    Input: 'INPUT',
+    Element: 'ELEMENT',
+    List: 'LIST',
+    Boolean: 'BOOLEAN'
+} as const;
+
+export type ConditionRuleBetaValueTypeEnum = typeof ConditionRuleBetaValueTypeEnum[keyof typeof ConditionRuleBetaValueTypeEnum];
+
+/**
  * Config export and import format for individual object configurations.
  * @export
  * @interface ConfigObjectBeta
@@ -5356,6 +5461,121 @@ export interface CreateDomainDkim405ResponseBeta {
      */
     'trackingId'?: string;
 }
+/**
+ * 
+ * @export
+ * @interface CreateFormDefinitionRequestBeta
+ */
+export interface CreateFormDefinitionRequestBeta {
+    /**
+     * Description is the form definition description
+     * @type {string}
+     * @memberof CreateFormDefinitionRequestBeta
+     */
+    'description'?: string;
+    /**
+     * FormConditions is the conditional logic that modify the form dynamically modify the form as the recipient is interacting out the form
+     * @type {Array<FormConditionBeta>}
+     * @memberof CreateFormDefinitionRequestBeta
+     */
+    'formConditions'?: Array<FormConditionBeta>;
+    /**
+     * FormElements is a list of nested form elements
+     * @type {Array<FormElementBeta>}
+     * @memberof CreateFormDefinitionRequestBeta
+     */
+    'formElements'?: Array<FormElementBeta>;
+    /**
+     * FormInput is a list of form inputs that are required when creating a form-instance object
+     * @type {Array<FormDefinitionInputBeta>}
+     * @memberof CreateFormDefinitionRequestBeta
+     */
+    'formInput'?: Array<FormDefinitionInputBeta>;
+    /**
+     * Name is the form definition name
+     * @type {string}
+     * @memberof CreateFormDefinitionRequestBeta
+     */
+    'name': string;
+    /**
+     * 
+     * @type {FormOwnerBeta}
+     * @memberof CreateFormDefinitionRequestBeta
+     */
+    'owner': FormOwnerBeta;
+    /**
+     * UsedBy is a list of objects where when any system uses a particular form it reaches out to the form service to record it is currently being used
+     * @type {Array<FormUsedByBeta>}
+     * @memberof CreateFormDefinitionRequestBeta
+     */
+    'usedBy'?: Array<FormUsedByBeta>;
+}
+/**
+ * 
+ * @export
+ * @interface CreateFormInstanceRequestBeta
+ */
+export interface CreateFormInstanceRequestBeta {
+    /**
+     * 
+     * @type {FormInstanceCreatedByBeta}
+     * @memberof CreateFormInstanceRequestBeta
+     */
+    'createdBy': FormInstanceCreatedByBeta;
+    /**
+     * Expire is required
+     * @type {string}
+     * @memberof CreateFormInstanceRequestBeta
+     */
+    'expire': string;
+    /**
+     * FormDefinitionID is the id of the form definition that created this form
+     * @type {string}
+     * @memberof CreateFormInstanceRequestBeta
+     */
+    'formDefinitionId': string;
+    /**
+     * FormInput is an object of form input labels to value
+     * @type {{ [key: string]: object; }}
+     * @memberof CreateFormInstanceRequestBeta
+     */
+    'formInput'?: { [key: string]: object; };
+    /**
+     * Recipients is required
+     * @type {Array<FormInstanceRecipientBeta>}
+     * @memberof CreateFormInstanceRequestBeta
+     */
+    'recipients': Array<FormInstanceRecipientBeta>;
+    /**
+     * StandAloneForm is a boolean flag to indicate if this form should be available for users to complete via the standalone form UI or should this only be available to be completed by as an embedded form
+     * @type {boolean}
+     * @memberof CreateFormInstanceRequestBeta
+     */
+    'standAloneForm'?: boolean;
+    /**
+     * State is required, if not present initial state is FormInstanceStateAssigned ASSIGNED FormInstanceStateAssigned IN_PROGRESS FormInstanceStateInProgress SUBMITTED FormInstanceStateSubmitted COMPLETED FormInstanceStateCompleted CANCELLED FormInstanceStateCancelled
+     * @type {string}
+     * @memberof CreateFormInstanceRequestBeta
+     */
+    'state'?: CreateFormInstanceRequestBetaStateEnum;
+    /**
+     * TTL an epoch timestamp in seconds, it most be in seconds or dynamodb will ignore it SEE: https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/time-to-live-ttl-before-you-start.html
+     * @type {number}
+     * @memberof CreateFormInstanceRequestBeta
+     */
+    'ttl'?: number;
+}
+
+export const CreateFormInstanceRequestBetaStateEnum = {
+    Assigned: 'ASSIGNED',
+    InProgress: 'IN_PROGRESS',
+    Submitted: 'SUBMITTED',
+    Completed: 'COMPLETED',
+    Cancelled: 'CANCELLED'
+} as const;
+
+export type CreateFormInstanceRequestBetaStateEnum = typeof CreateFormInstanceRequestBetaStateEnum[keyof typeof CreateFormInstanceRequestBetaStateEnum];
+
 /**
  * 
  * @export
@@ -6276,6 +6496,56 @@ export interface EntityCreatedByDTOBeta {
 /**
  * 
  * @export
+ * @interface ErrorBeta
+ */
+export interface ErrorBeta {
+    /**
+     * DetailCode is the text of the status code returned
+     * @type {string}
+     * @memberof ErrorBeta
+     */
+    'detailCode'?: string;
+    /**
+     * 
+     * @type {Array<ErrorMessageBeta>}
+     * @memberof ErrorBeta
+     */
+    'messages'?: Array<ErrorMessageBeta>;
+    /**
+     * TrackingID is the request tracking unique identifier
+     * @type {string}
+     * @memberof ErrorBeta
+     */
+    'trackingId'?: string;
+}
+/**
+ * 
+ * @export
+ * @interface ErrorMessageBeta
+ */
+export interface ErrorMessageBeta {
+    /**
+     * Locale is the current Locale
+     * @type {string}
+     * @memberof ErrorMessageBeta
+     */
+    'locale'?: string;
+    /**
+     * LocaleOrigin holds possible values of how the locale was selected
+     * @type {string}
+     * @memberof ErrorMessageBeta
+     */
+    'localeOrigin'?: string;
+    /**
+     * Text is the actual text of the error message
+     * @type {string}
+     * @memberof ErrorMessageBeta
+     */
+    'text'?: string;
+}
+/**
+ * 
+ * @export
  * @interface ErrorMessageDtoBeta
  */
 export interface ErrorMessageDtoBeta {
@@ -6484,6 +6754,31 @@ export const ExecutionStatusBeta = {
 export type ExecutionStatusBeta = typeof ExecutionStatusBeta[keyof typeof ExecutionStatusBeta];
 
 
+/**
+ * 
+ * @export
+ * @interface ExportFormDefinitionsByTenant200ResponseInnerBeta
+ */
+export interface ExportFormDefinitionsByTenant200ResponseInnerBeta {
+    /**
+     * 
+     * @type {FormDefinitionResponseBeta}
+     * @memberof ExportFormDefinitionsByTenant200ResponseInnerBeta
+     */
+    'object'?: FormDefinitionResponseBeta;
+    /**
+     * 
+     * @type {string}
+     * @memberof ExportFormDefinitionsByTenant200ResponseInnerBeta
+     */
+    'self'?: string;
+    /**
+     * 
+     * @type {number}
+     * @memberof ExportFormDefinitionsByTenant200ResponseInnerBeta
+     */
+    'version'?: number;
+}
 /**
  * 
  * @export
@@ -6918,6 +7213,207 @@ export interface FormBeta {
     'sections'?: SectionDetailsBeta;
 }
 /**
+ * FormCondition represent a form conditional
+ * @export
+ * @interface FormConditionBeta
+ */
+export interface FormConditionBeta {
+    /**
+     * Effects is a list of effects
+     * @type {Array<ConditionEffectBeta>}
+     * @memberof FormConditionBeta
+     */
+    'effects'?: Array<ConditionEffectBeta>;
+    /**
+     * RuleOperator is a ConditionRuleLogicalOperatorType value AND ConditionRuleLogicalOperatorTypeAnd OR ConditionRuleLogicalOperatorTypeOr
+     * @type {string}
+     * @memberof FormConditionBeta
+     */
+    'ruleOperator'?: FormConditionBetaRuleOperatorEnum;
+    /**
+     * Rules is a list of rules
+     * @type {Array<ConditionRuleBeta>}
+     * @memberof FormConditionBeta
+     */
+    'rules'?: Array<ConditionRuleBeta>;
+}
+
+export const FormConditionBetaRuleOperatorEnum = {
+    And: 'AND',
+    Or: 'OR'
+} as const;
+
+export type FormConditionBetaRuleOperatorEnum = typeof FormConditionBetaRuleOperatorEnum[keyof typeof FormConditionBetaRuleOperatorEnum];
+
+/**
+ * 
+ * @export
+ * @interface FormDefinitionDynamicSchemaRequestAttributesBeta
+ */
+export interface FormDefinitionDynamicSchemaRequestAttributesBeta {
+    /**
+     * FormDefinitionID is a unique guid identifying this form definition
+     * @type {string}
+     * @memberof FormDefinitionDynamicSchemaRequestAttributesBeta
+     */
+    'formDefinitionId'?: string;
+}
+/**
+ * 
+ * @export
+ * @interface FormDefinitionDynamicSchemaRequestBeta
+ */
+export interface FormDefinitionDynamicSchemaRequestBeta {
+    /**
+     * 
+     * @type {FormDefinitionDynamicSchemaRequestAttributesBeta}
+     * @memberof FormDefinitionDynamicSchemaRequestBeta
+     */
+    'attributes'?: FormDefinitionDynamicSchemaRequestAttributesBeta;
+    /**
+     * Description is the form definition dynamic schema description text
+     * @type {string}
+     * @memberof FormDefinitionDynamicSchemaRequestBeta
+     */
+    'description'?: string;
+    /**
+     * ID is a unique identifier
+     * @type {string}
+     * @memberof FormDefinitionDynamicSchemaRequestBeta
+     */
+    'id'?: string;
+    /**
+     * Type is the form definition dynamic schema type
+     * @type {string}
+     * @memberof FormDefinitionDynamicSchemaRequestBeta
+     */
+    'type'?: string;
+    /**
+     * VersionNumber is the form definition dynamic schema version number
+     * @type {number}
+     * @memberof FormDefinitionDynamicSchemaRequestBeta
+     */
+    'versionNumber'?: number;
+}
+/**
+ * 
+ * @export
+ * @interface FormDefinitionDynamicSchemaResponseBeta
+ */
+export interface FormDefinitionDynamicSchemaResponseBeta {
+    /**
+     * OutputSchema holds a JSON schema generated dynamically
+     * @type {{ [key: string]: object; }}
+     * @memberof FormDefinitionDynamicSchemaResponseBeta
+     */
+    'outputSchema'?: { [key: string]: object; };
+}
+/**
+ * 
+ * @export
+ * @interface FormDefinitionInputBeta
+ */
+export interface FormDefinitionInputBeta {
+    /**
+     * Description is the description for this form input value
+     * @type {string}
+     * @memberof FormDefinitionInputBeta
+     */
+    'description'?: string;
+    /**
+     * ID is a unique identifier
+     * @type {string}
+     * @memberof FormDefinitionInputBeta
+     */
+    'id'?: string;
+    /**
+     * Label is the name for this form input value
+     * @type {string}
+     * @memberof FormDefinitionInputBeta
+     */
+    'label'?: string;
+    /**
+     * Type is a FormDefinitionInputType value STRING FormDefinitionInputTypeString
+     * @type {string}
+     * @memberof FormDefinitionInputBeta
+     */
+    'type'?: FormDefinitionInputBetaTypeEnum;
+}
+
+export const FormDefinitionInputBetaTypeEnum = {
+    String: 'STRING'
+} as const;
+
+export type FormDefinitionInputBetaTypeEnum = typeof FormDefinitionInputBetaTypeEnum[keyof typeof FormDefinitionInputBetaTypeEnum];
+
+/**
+ * 
+ * @export
+ * @interface FormDefinitionResponseBeta
+ */
+export interface FormDefinitionResponseBeta {
+    /**
+     * Created is the date the form definition was created
+     * @type {string}
+     * @memberof FormDefinitionResponseBeta
+     */
+    'created'?: string;
+    /**
+     * Description is the form definition description
+     * @type {string}
+     * @memberof FormDefinitionResponseBeta
+     */
+    'description'?: string;
+    /**
+     * FormConditions is the conditional logic that modify the form dynamically modify the form as the recipient is interacting out the form
+     * @type {Array<FormConditionBeta>}
+     * @memberof FormDefinitionResponseBeta
+     */
+    'formConditions'?: Array<FormConditionBeta>;
+    /**
+     * FormElements is a list of nested form elements
+     * @type {Array<FormElementBeta>}
+     * @memberof FormDefinitionResponseBeta
+     */
+    'formElements'?: Array<FormElementBeta>;
+    /**
+     * FormInput is a list of form inputs that are required when creating a form-instance object
+     * @type {Array<FormDefinitionInputBeta>}
+     * @memberof FormDefinitionResponseBeta
+     */
+    'formInput'?: Array<FormDefinitionInputBeta>;
+    /**
+     * FormDefinitionID is a unique guid identifying this form definition
+     * @type {string}
+     * @memberof FormDefinitionResponseBeta
+     */
+    'id'?: string;
+    /**
+     * Modified is the last date the form definition was modified
+     * @type {string}
+     * @memberof FormDefinitionResponseBeta
+     */
+    'modified'?: string;
+    /**
+     * Name is the form definition name
+     * @type {string}
+     * @memberof FormDefinitionResponseBeta
+     */
+    'name'?: string;
+    /**
+     * 
+     * @type {FormOwnerBeta}
+     * @memberof FormDefinitionResponseBeta
+     */
+    'owner'?: FormOwnerBeta;
+    /**
+     * UsedBy is a list of objects where when any system uses a particular form it reaches out to the form service to record it is currently being used
+     * @type {Array<FormUsedByBeta>}
+     * @memberof FormDefinitionResponseBeta
+     */
+    'usedBy'?: Array<FormUsedByBeta>;
+}
+/**
  * 
  * @export
  * @interface FormDetailsBeta
@@ -6963,6 +7459,364 @@ export interface FormDetailsBeta {
 /**
  * 
  * @export
+ * @interface FormElementBeta
+ */
+export interface FormElementBeta {
+    /**
+     * Config is a config object
+     * @type {{ [key: string]: object; }}
+     * @memberof FormElementBeta
+     */
+    'config'?: { [key: string]: object; };
+    /**
+     * ElementType is a FormElementType value TEXT FormElementTypeText TOGGLE FormElementTypeToggle TEXTAREA FormElementTypeTextArea HIDDEN FormElementTypeHidden PHONE FormElementTypePhone EMAIL FormElementTypeEmail SELECT FormElementTypeSelect DATE FormElementTypeDate SECTION FormElementTypeSection COLUMNS FormElementTypeColumns
+     * @type {string}
+     * @memberof FormElementBeta
+     */
+    'elementType'?: FormElementBetaElementTypeEnum;
+    /**
+     * ID is a form element identifier
+     * @type {string}
+     * @memberof FormElementBeta
+     */
+    'id'?: string;
+    /**
+     * Key is the technical key
+     * @type {string}
+     * @memberof FormElementBeta
+     */
+    'key'?: string;
+    /**
+     * FormElementValidationsSet is a set of FormElementValidation items
+     * @type {object}
+     * @memberof FormElementBeta
+     */
+    'validations'?: object;
+}
+
+export const FormElementBetaElementTypeEnum = {
+    Text: 'TEXT',
+    Toggle: 'TOGGLE',
+    Textarea: 'TEXTAREA',
+    Hidden: 'HIDDEN',
+    Phone: 'PHONE',
+    Email: 'EMAIL',
+    Select: 'SELECT',
+    Date: 'DATE',
+    Section: 'SECTION',
+    Columns: 'COLUMNS'
+} as const;
+
+export type FormElementBetaElementTypeEnum = typeof FormElementBetaElementTypeEnum[keyof typeof FormElementBetaElementTypeEnum];
+
+/**
+ * 
+ * @export
+ * @interface FormElementDataSourceConfigOptionsBeta
+ */
+export interface FormElementDataSourceConfigOptionsBeta {
+    /**
+     * Label is the main label to display to the user when selecting this option
+     * @type {string}
+     * @memberof FormElementDataSourceConfigOptionsBeta
+     */
+    'label'?: string;
+    /**
+     * SubLabel is the sub label to display below the label in diminutive styling to help describe or identify this option
+     * @type {string}
+     * @memberof FormElementDataSourceConfigOptionsBeta
+     */
+    'subLabel'?: string;
+    /**
+     * Value is the value to save as an entry when the user selects this option
+     * @type {string}
+     * @memberof FormElementDataSourceConfigOptionsBeta
+     */
+    'value'?: string;
+}
+/**
+ * 
+ * @export
+ * @interface FormElementDynamicDataSourceBeta
+ */
+export interface FormElementDynamicDataSourceBeta {
+    /**
+     * 
+     * @type {FormElementDynamicDataSourceConfigBeta}
+     * @memberof FormElementDynamicDataSourceBeta
+     */
+    'config'?: FormElementDynamicDataSourceConfigBeta;
+    /**
+     * DataSourceType is a FormElementDataSourceType value STATIC FormElementDataSourceTypeStatic INTERNAL FormElementDataSourceTypeInternal SEARCH FormElementDataSourceTypeSearch
+     * @type {string}
+     * @memberof FormElementDynamicDataSourceBeta
+     */
+    'dataSourceType'?: FormElementDynamicDataSourceBetaDataSourceTypeEnum;
+}
+
+export const FormElementDynamicDataSourceBetaDataSourceTypeEnum = {
+    Static: 'STATIC',
+    Internal: 'INTERNAL',
+    Search: 'SEARCH'
+} as const;
+
+export type FormElementDynamicDataSourceBetaDataSourceTypeEnum = typeof FormElementDynamicDataSourceBetaDataSourceTypeEnum[keyof typeof FormElementDynamicDataSourceBetaDataSourceTypeEnum];
+
+/**
+ * 
+ * @export
+ * @interface FormElementDynamicDataSourceConfigBeta
+ */
+export interface FormElementDynamicDataSourceConfigBeta {
+    /**
+     * AggregationBucketField is the aggregation bucket field name
+     * @type {string}
+     * @memberof FormElementDynamicDataSourceConfigBeta
+     */
+    'aggregationBucketField'?: string;
+    /**
+     * Indices is a list of indices to use
+     * @type {Array<string>}
+     * @memberof FormElementDynamicDataSourceConfigBeta
+     */
+    'indices'?: Array<FormElementDynamicDataSourceConfigBetaIndicesEnum>;
+    /**
+     * ObjectType is a PreDefinedSelectOption value IDENTITY PreDefinedSelectOptionIdentity ACCESS_PROFILE PreDefinedSelectOptionAccessProfile SOURCES PreDefinedSelectOptionSources ROLE PreDefinedSelectOptionRole ENTITLEMENT PreDefinedSelectOptionEntitlement
+     * @type {string}
+     * @memberof FormElementDynamicDataSourceConfigBeta
+     */
+    'objectType'?: FormElementDynamicDataSourceConfigBetaObjectTypeEnum;
+    /**
+     * Query is a text
+     * @type {string}
+     * @memberof FormElementDynamicDataSourceConfigBeta
+     */
+    'query'?: string;
+}
+
+export const FormElementDynamicDataSourceConfigBetaIndicesEnum = {
+    Accessprofiles: 'accessprofiles',
+    Accountactivities: 'accountactivities',
+    Entitlements: 'entitlements',
+    Identities: 'identities',
+    Events: 'events',
+    Roles: 'roles',
+    Star: '*'
+} as const;
+
+export type FormElementDynamicDataSourceConfigBetaIndicesEnum = typeof FormElementDynamicDataSourceConfigBetaIndicesEnum[keyof typeof FormElementDynamicDataSourceConfigBetaIndicesEnum];
+export const FormElementDynamicDataSourceConfigBetaObjectTypeEnum = {
+    Identity: 'IDENTITY',
+    AccessProfile: 'ACCESS_PROFILE',
+    Sources: 'SOURCES',
+    Role: 'ROLE',
+    Entitlement: 'ENTITLEMENT'
+} as const;
+
+export type FormElementDynamicDataSourceConfigBetaObjectTypeEnum = typeof FormElementDynamicDataSourceConfigBetaObjectTypeEnum[keyof typeof FormElementDynamicDataSourceConfigBetaObjectTypeEnum];
+
+/**
+ * 
+ * @export
+ * @interface FormElementPreviewRequestBeta
+ */
+export interface FormElementPreviewRequestBeta {
+    /**
+     * 
+     * @type {FormElementDynamicDataSourceBeta}
+     * @memberof FormElementPreviewRequestBeta
+     */
+    'dataSource'?: FormElementDynamicDataSourceBeta;
+}
+/**
+ * 
+ * @export
+ * @interface FormErrorBeta
+ */
+export interface FormErrorBeta {
+    /**
+     * Key is the technical key
+     * @type {string}
+     * @memberof FormErrorBeta
+     */
+    'key'?: string;
+    /**
+     * Messages is a list of web.ErrorMessage items
+     * @type {Array<ErrorMessageBeta>}
+     * @memberof FormErrorBeta
+     */
+    'messages'?: Array<ErrorMessageBeta>;
+    /**
+     * Value is the value associated with a Key
+     * @type {object}
+     * @memberof FormErrorBeta
+     */
+    'value'?: object;
+}
+/**
+ * 
+ * @export
+ * @interface FormInstanceCreatedByBeta
+ */
+export interface FormInstanceCreatedByBeta {
+    /**
+     * ID is a unique identifier
+     * @type {string}
+     * @memberof FormInstanceCreatedByBeta
+     */
+    'id'?: string;
+    /**
+     * Type is a form instance created by type enum value WORKFLOW_EXECUTION FormInstanceCreatedByTypeWorkflowExecution SOURCE FormInstanceCreatedByTypeSource
+     * @type {string}
+     * @memberof FormInstanceCreatedByBeta
+     */
+    'type'?: FormInstanceCreatedByBetaTypeEnum;
+}
+
+export const FormInstanceCreatedByBetaTypeEnum = {
+    WorkflowExecution: 'WORKFLOW_EXECUTION',
+    Source: 'SOURCE'
+} as const;
+
+export type FormInstanceCreatedByBetaTypeEnum = typeof FormInstanceCreatedByBetaTypeEnum[keyof typeof FormInstanceCreatedByBetaTypeEnum];
+
+/**
+ * 
+ * @export
+ * @interface FormInstanceRecipientBeta
+ */
+export interface FormInstanceRecipientBeta {
+    /**
+     * ID is a unique identifier
+     * @type {string}
+     * @memberof FormInstanceRecipientBeta
+     */
+    'id'?: string;
+    /**
+     * Type is a FormInstanceRecipientType value IDENTITY FormInstanceRecipientIdentity
+     * @type {string}
+     * @memberof FormInstanceRecipientBeta
+     */
+    'type'?: FormInstanceRecipientBetaTypeEnum;
+}
+
+export const FormInstanceRecipientBetaTypeEnum = {
+    Identity: 'IDENTITY'
+} as const;
+
+export type FormInstanceRecipientBetaTypeEnum = typeof FormInstanceRecipientBetaTypeEnum[keyof typeof FormInstanceRecipientBetaTypeEnum];
+
+/**
+ * 
+ * @export
+ * @interface FormInstanceResponseBeta
+ */
+export interface FormInstanceResponseBeta {
+    /**
+     * Created is the date the form instance was assigned
+     * @type {string}
+     * @memberof FormInstanceResponseBeta
+     */
+    'created'?: string;
+    /**
+     * 
+     * @type {FormInstanceCreatedByBeta}
+     * @memberof FormInstanceResponseBeta
+     */
+    'createdBy'?: FormInstanceCreatedByBeta;
+    /**
+     * Expire is the maximum amount of time that a form can be in progress. After this time is reached then the form will be moved to a CANCELED state automatically. The user will no longer be able to complete the submission. When a form instance is expires an audit log will be generated for that record
+     * @type {string}
+     * @memberof FormInstanceResponseBeta
+     */
+    'expire'?: string;
+    /**
+     * FormConditions is the conditional logic that modify the form dynamically modify the form as the recipient is interacting out the form
+     * @type {Array<FormConditionBeta>}
+     * @memberof FormInstanceResponseBeta
+     */
+    'formConditions'?: Array<FormConditionBeta>;
+    /**
+     * FormData is the data provided by the form on submit. The data is in a key -> value map
+     * @type {{ [key: string]: object; }}
+     * @memberof FormInstanceResponseBeta
+     */
+    'formData'?: { [key: string]: object; };
+    /**
+     * FormDefinitionID is the id of the form definition that created this form
+     * @type {string}
+     * @memberof FormInstanceResponseBeta
+     */
+    'formDefinitionId'?: string;
+    /**
+     * FormElements is the configuration of the form, this would be a repeat of the fields from the form-config
+     * @type {Array<FormElementBeta>}
+     * @memberof FormInstanceResponseBeta
+     */
+    'formElements'?: Array<FormElementBeta>;
+    /**
+     * FormErrors is an array of form validation errors from the last time the form instance was transitioned to the SUBMITTED state. If the form instance had validation errors then it would be moved to the IN PROGRESS state where the client can retrieve these errors
+     * @type {Array<FormErrorBeta>}
+     * @memberof FormInstanceResponseBeta
+     */
+    'formErrors'?: Array<FormErrorBeta>;
+    /**
+     * FormInput is an object of form input labels to value
+     * @type {{ [key: string]: object; }}
+     * @memberof FormInstanceResponseBeta
+     */
+    'formInput'?: { [key: string]: object; };
+    /**
+     * FormInstanceID is a unique guid identifying this form instance
+     * @type {string}
+     * @memberof FormInstanceResponseBeta
+     */
+    'id'?: string;
+    /**
+     * Modified is the last date the form instance was modified
+     * @type {string}
+     * @memberof FormInstanceResponseBeta
+     */
+    'modified'?: string;
+    /**
+     * Recipients references to the recipient of a form. The recipients are those who are responsible for filling out a form and completing it
+     * @type {Array<FormInstanceRecipientBeta>}
+     * @memberof FormInstanceResponseBeta
+     */
+    'recipients'?: Array<FormInstanceRecipientBeta>;
+    /**
+     * StandAloneForm is a boolean flag to indicate if this form should be available for users to complete via the standalone form UI or should this only be available to be completed by as an embedded form
+     * @type {boolean}
+     * @memberof FormInstanceResponseBeta
+     */
+    'standAloneForm'?: boolean;
+    /**
+     * StandAloneFormURL is the URL where this form may be completed by the designated recipients using the standalone form UI
+     * @type {string}
+     * @memberof FormInstanceResponseBeta
+     */
+    'standAloneFormUrl'?: string;
+    /**
+     * State the state of the form instance ASSIGNED FormInstanceStateAssigned IN_PROGRESS FormInstanceStateInProgress SUBMITTED FormInstanceStateSubmitted COMPLETED FormInstanceStateCompleted CANCELLED FormInstanceStateCancelled
+     * @type {string}
+     * @memberof FormInstanceResponseBeta
+     */
+    'state'?: FormInstanceResponseBetaStateEnum;
+}
+
+export const FormInstanceResponseBetaStateEnum = {
+    Assigned: 'ASSIGNED',
+    InProgress: 'IN_PROGRESS',
+    Submitted: 'SUBMITTED',
+    Completed: 'COMPLETED',
+    Cancelled: 'CANCELLED'
+} as const;
+
+export type FormInstanceResponseBetaStateEnum = typeof FormInstanceResponseBetaStateEnum[keyof typeof FormInstanceResponseBetaStateEnum];
+
+/**
+ * 
+ * @export
  * @interface FormItemBeta
  */
 export interface FormItemBeta {
@@ -6986,6 +7840,59 @@ export interface FormItemDetailsBeta {
      */
     'name'?: string;
 }
+/**
+ * 
+ * @export
+ * @interface FormOwnerBeta
+ */
+export interface FormOwnerBeta {
+    /**
+     * ID is a unique identifier
+     * @type {string}
+     * @memberof FormOwnerBeta
+     */
+    'id'?: string;
+    /**
+     * Type is a FormOwnerType value IDENTITY FormOwnerTypeIdentity
+     * @type {string}
+     * @memberof FormOwnerBeta
+     */
+    'type'?: FormOwnerBetaTypeEnum;
+}
+
+export const FormOwnerBetaTypeEnum = {
+    Identity: 'IDENTITY'
+} as const;
+
+export type FormOwnerBetaTypeEnum = typeof FormOwnerBetaTypeEnum[keyof typeof FormOwnerBetaTypeEnum];
+
+/**
+ * 
+ * @export
+ * @interface FormUsedByBeta
+ */
+export interface FormUsedByBeta {
+    /**
+     * ID is a unique identifier
+     * @type {string}
+     * @memberof FormUsedByBeta
+     */
+    'id'?: string;
+    /**
+     * Type is a FormUsedByType value WORKFLOW FormUsedByTypeWorkflow SOURCE FormUsedByTypeSource
+     * @type {string}
+     * @memberof FormUsedByBeta
+     */
+    'type'?: FormUsedByBetaTypeEnum;
+}
+
+export const FormUsedByBetaTypeEnum = {
+    Workflow: 'WORKFLOW',
+    Source: 'SOURCE'
+} as const;
+
+export type FormUsedByBetaTypeEnum = typeof FormUsedByBetaTypeEnum[keyof typeof FormUsedByBetaTypeEnum];
+
 /**
  * 
  * @export
@@ -9287,6 +10194,62 @@ export interface IdentityWithNewAccessBeta {
 /**
  * 
  * @export
+ * @interface ImportFormDefinitions202ResponseBeta
+ */
+export interface ImportFormDefinitions202ResponseBeta {
+    /**
+     * 
+     * @type {Array<ImportFormDefinitions202ResponseErrorsInnerBeta>}
+     * @memberof ImportFormDefinitions202ResponseBeta
+     */
+    'errors'?: Array<ImportFormDefinitions202ResponseErrorsInnerBeta>;
+    /**
+     * 
+     * @type {Array<ExportFormDefinitionsByTenant200ResponseInnerBeta>}
+     * @memberof ImportFormDefinitions202ResponseBeta
+     */
+    'importedObjects'?: Array<ExportFormDefinitionsByTenant200ResponseInnerBeta>;
+    /**
+     * 
+     * @type {Array<ImportFormDefinitions202ResponseErrorsInnerBeta>}
+     * @memberof ImportFormDefinitions202ResponseBeta
+     */
+    'infos'?: Array<ImportFormDefinitions202ResponseErrorsInnerBeta>;
+    /**
+     * 
+     * @type {Array<ImportFormDefinitions202ResponseErrorsInnerBeta>}
+     * @memberof ImportFormDefinitions202ResponseBeta
+     */
+    'warnings'?: Array<ImportFormDefinitions202ResponseErrorsInnerBeta>;
+}
+/**
+ * 
+ * @export
+ * @interface ImportFormDefinitions202ResponseErrorsInnerBeta
+ */
+export interface ImportFormDefinitions202ResponseErrorsInnerBeta {
+    /**
+     * 
+     * @type {{ [key: string]: object; }}
+     * @memberof ImportFormDefinitions202ResponseErrorsInnerBeta
+     */
+    'detail'?: { [key: string]: object; };
+    /**
+     * 
+     * @type {string}
+     * @memberof ImportFormDefinitions202ResponseErrorsInnerBeta
+     */
+    'key'?: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof ImportFormDefinitions202ResponseErrorsInnerBeta
+     */
+    'text'?: string;
+}
+/**
+ * 
+ * @export
  * @interface ImportNonEmployeeRecordsInBulkRequestBeta
  */
 export interface ImportNonEmployeeRecordsInBulkRequestBeta {
@@ -9877,11 +10840,75 @@ export interface ListCompleteWorkflowLibrary200ResponseInnerBeta {
     'inputExample'?: object | null;
 }
 /**
+ * 
+ * @export
+ * @interface ListFormDefinitionsByTenantResponseBeta
+ */
+export interface ListFormDefinitionsByTenantResponseBeta {
+    /**
+     * Count number of Results
+     * @type {number}
+     * @memberof ListFormDefinitionsByTenantResponseBeta
+     */
+    'count'?: number;
+    /**
+     * Results holds a list of FormDefinitionResponse items
+     * @type {Array<FormDefinitionResponseBeta>}
+     * @memberof ListFormDefinitionsByTenantResponseBeta
+     */
+    'results'?: Array<FormDefinitionResponseBeta>;
+}
+/**
+ * 
+ * @export
+ * @interface ListFormElementDataByElementIDResponseBeta
+ */
+export interface ListFormElementDataByElementIDResponseBeta {
+    /**
+     * Results holds a list of FormElementDataSourceConfigOptions items
+     * @type {Array<FormElementDataSourceConfigOptionsBeta>}
+     * @memberof ListFormElementDataByElementIDResponseBeta
+     */
+    'results'?: Array<FormElementDataSourceConfigOptionsBeta>;
+}
+/**
+ * 
+ * @export
+ * @interface ListFormInstancesByTenantResponseBeta
+ */
+export interface ListFormInstancesByTenantResponseBeta {
+    /**
+     * Count number of Results
+     * @type {number}
+     * @memberof ListFormInstancesByTenantResponseBeta
+     */
+    'count'?: number;
+    /**
+     * Results holds a list of FormInstanceResponse items
+     * @type {Array<FormInstanceResponseBeta>}
+     * @memberof ListFormInstancesByTenantResponseBeta
+     */
+    'results'?: Array<FormInstanceResponseBeta>;
+}
+/**
  * @type ListIdentityAccessItems200ResponseInnerBeta
  * @export
  */
 export type ListIdentityAccessItems200ResponseInnerBeta = AccessItemAccessProfileResponseBeta | AccessItemAccountResponseBeta | AccessItemAppResponseBeta | AccessItemEntitlementResponseBeta | AccessItemRoleResponseBeta;
 
+/**
+ * 
+ * @export
+ * @interface ListPredefinedSelectOptionsResponseBeta
+ */
+export interface ListPredefinedSelectOptionsResponseBeta {
+    /**
+     * Results holds a list of PreDefinedSelectOption items
+     * @type {Array<string>}
+     * @memberof ListPredefinedSelectOptionsResponseBeta
+     */
+    'results'?: Array<string>;
+}
 /**
  * An indicator of how the locale was selected. *DEFAULT* means the locale is the system default. *REQUEST* means the locale was selected from the request context (i.e., best match based on the *Accept-Language* header). Additional values may be added in the future without notice.
  * @export
@@ -13199,6 +14226,19 @@ export interface PreferencesDtoBeta {
      * @memberof PreferencesDtoBeta
      */
     'modified'?: string;
+}
+/**
+ * PreviewDataSourceResponse is the response sent by /form-definitions/{formDefinitionID}/data-source endpoint
+ * @export
+ * @interface PreviewDataSourceResponseBeta
+ */
+export interface PreviewDataSourceResponseBeta {
+    /**
+     * Results holds a list of FormElementDataSourceConfigOptions items
+     * @type {Array<FormElementDataSourceConfigOptionsBeta>}
+     * @memberof PreviewDataSourceResponseBeta
+     */
+    'results'?: Array<FormElementDataSourceConfigOptionsBeta>;
 }
 /**
  * 
@@ -16544,6 +17584,37 @@ export interface SearchAttributeConfigBeta {
      * @memberof SearchAttributeConfigBeta
      */
     'applicationAttributes'?: object;
+}
+/**
+ * 
+ * @export
+ * @interface SearchFormDefinitionsByTenant400ResponseBeta
+ */
+export interface SearchFormDefinitionsByTenant400ResponseBeta {
+    /**
+     * 
+     * @type {string}
+     * @memberof SearchFormDefinitionsByTenant400ResponseBeta
+     */
+    'detailCode'?: string;
+    /**
+     * 
+     * @type {Array<ErrorMessageBeta>}
+     * @memberof SearchFormDefinitionsByTenant400ResponseBeta
+     */
+    'messages'?: Array<ErrorMessageBeta>;
+    /**
+     * 
+     * @type {number}
+     * @memberof SearchFormDefinitionsByTenant400ResponseBeta
+     */
+    'statusCode'?: number;
+    /**
+     * 
+     * @type {string}
+     * @memberof SearchFormDefinitionsByTenant400ResponseBeta
+     */
+    'trackingId'?: string;
 }
 /**
  * 
@@ -31543,6 +32614,1545 @@ export class ConnectorsBetaApi extends BaseAPI {
      */
     public getConnectorList(requestParameters: ConnectorsBetaApiGetConnectorListRequest = {}, axiosOptions?: AxiosRequestConfig) {
         return ConnectorsBetaApiFp(this.configuration).getConnectorList(requestParameters.filters, requestParameters.limit, requestParameters.offset, requestParameters.count, requestParameters.locale, axiosOptions).then((request) => request(this.axios, this.basePath));
+    }
+}
+
+
+/**
+ * CustomFormsBetaApi - axios parameter creator
+ * @export
+ */
+export const CustomFormsBetaApiAxiosParamCreator = function (configuration?: Configuration) {
+    return {
+        /**
+         * 
+         * @summary Creates a form definition.
+         * @param {CreateFormDefinitionRequestBeta} [body] Body is the request payload to create form definition request
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        createFormDefinition: async (body?: CreateFormDefinitionRequestBeta, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            const localVarPath = `/form-definitions`;
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'POST', ...baseOptions, ...axiosOptions};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication oauth2 required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "oauth2", [], configuration)
+
+            // authentication oauth2 required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "oauth2", [], configuration)
+
+
+    
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
+            localVarRequestOptions.data = serializeDataIfNeeded(body, localVarRequestOptions, configuration)
+
+            return {
+                url: toPathString(localVarUrlObj),
+                axiosOptions: localVarRequestOptions,
+            };
+        },
+        /**
+         * 
+         * @summary Generate JSON Schema dynamically.
+         * @param {FormDefinitionDynamicSchemaRequestBeta} [body] Body is the request payload to create a form definition dynamic schema
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        createFormDefinitionDynamicSchema: async (body?: FormDefinitionDynamicSchemaRequestBeta, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            const localVarPath = `/form-definitions/forms-action-dynamic-schema`;
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'POST', ...baseOptions, ...axiosOptions};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication oauth2 required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "oauth2", [], configuration)
+
+            // authentication oauth2 required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "oauth2", [], configuration)
+
+
+    
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
+            localVarRequestOptions.data = serializeDataIfNeeded(body, localVarRequestOptions, configuration)
+
+            return {
+                url: toPathString(localVarUrlObj),
+                axiosOptions: localVarRequestOptions,
+            };
+        },
+        /**
+         * 
+         * @summary Creates a form instance.
+         * @param {CreateFormInstanceRequestBeta} [body] Body is the request payload to create a form instance
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        createFormInstance: async (body?: CreateFormInstanceRequestBeta, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            const localVarPath = `/form-instances`;
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'POST', ...baseOptions, ...axiosOptions};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication oauth2 required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "oauth2", [], configuration)
+
+            // authentication oauth2 required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "oauth2", [], configuration)
+
+
+    
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
+            localVarRequestOptions.data = serializeDataIfNeeded(body, localVarRequestOptions, configuration)
+
+            return {
+                url: toPathString(localVarUrlObj),
+                axiosOptions: localVarRequestOptions,
+            };
+        },
+        /**
+         * Parameter `{formDefinitionID}` should match a form definition ID.
+         * @summary Deletes a form definition.
+         * @param {string} formDefinitionID Form definition ID
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        deleteFormDefinition: async (formDefinitionID: string, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'formDefinitionID' is not null or undefined
+            assertParamExists('deleteFormDefinition', 'formDefinitionID', formDefinitionID)
+            const localVarPath = `/form-definitions/{formDefinitionID}`
+                .replace(`{${"formDefinitionID"}}`, encodeURIComponent(String(formDefinitionID)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'DELETE', ...baseOptions, ...axiosOptions};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication oauth2 required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "oauth2", [], configuration)
+
+            // authentication oauth2 required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "oauth2", [], configuration)
+
+
+    
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                axiosOptions: localVarRequestOptions,
+            };
+        },
+        /**
+         * No parameters required.
+         * @summary List form definitions by tenant.
+         * @param {number} [offset] Offset  Integer specifying the offset of the first result from the beginning of the collection. The standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#paginating-results). The offset value is record-based, not page-based, and the index starts at 0.
+         * @param {number} [limit] Limit  Integer specifying the maximum number of records to return in a single API call. The standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#paginating-results). If it is not specified, a default limit is used.
+         * @param {string} [filters] Filters  Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results) Filtering is supported for the following fields and operators: &lt;b&gt;name&lt;/b&gt;: &lt;i&gt;eq, gt, sw, in&lt;/i&gt; &lt;b&gt;description&lt;/b&gt;: &lt;i&gt;eq, gt, sw, in&lt;/i&gt; &lt;b&gt;created&lt;/b&gt;: &lt;i&gt;eq, gt, sw, in&lt;/i&gt; &lt;b&gt;modified&lt;/b&gt;: &lt;i&gt;eq, gt, sw, in&lt;/i&gt;
+         * @param {string} [sorters] Sorters  Item will be sorted in the returned array if the sorters expression evaluates to true for that item. The standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters/#sorting-results). Sorting is supported for the following fields: &lt;b&gt;name&lt;/b&gt; &lt;b&gt;description&lt;/b&gt; &lt;b&gt;created&lt;/b&gt; &lt;b&gt;modified&lt;/b&gt;
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        exportFormDefinitionsByTenant: async (offset?: number, limit?: number, filters?: string, sorters?: string, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            const localVarPath = `/form-definitions/export`;
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...axiosOptions};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication oauth2 required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "oauth2", [], configuration)
+
+            // authentication oauth2 required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "oauth2", [], configuration)
+
+            if (offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+
+            if (limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+
+            if (filters !== undefined) {
+                localVarQueryParameter['filters'] = filters;
+            }
+
+            if (sorters !== undefined) {
+                localVarQueryParameter['sorters'] = sorters;
+            }
+
+
+    
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                axiosOptions: localVarRequestOptions,
+            };
+        },
+        /**
+         * Parameter `{formDefinitionID}` should match a form definition ID.
+         * @summary Return a form definition.
+         * @param {string} formDefinitionID Form definition ID
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        getFormDefinitionByKey: async (formDefinitionID: string, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'formDefinitionID' is not null or undefined
+            assertParamExists('getFormDefinitionByKey', 'formDefinitionID', formDefinitionID)
+            const localVarPath = `/form-definitions/{formDefinitionID}`
+                .replace(`{${"formDefinitionID"}}`, encodeURIComponent(String(formDefinitionID)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...axiosOptions};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication oauth2 required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "oauth2", [], configuration)
+
+            // authentication oauth2 required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "oauth2", [], configuration)
+
+
+    
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                axiosOptions: localVarRequestOptions,
+            };
+        },
+        /**
+         * Parameter `{formInstanceID}` should match a form instance ID.
+         * @summary Returns a form instance.
+         * @param {string} formInstanceID Form instance ID
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        getFormInstanceByKey: async (formInstanceID: string, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'formInstanceID' is not null or undefined
+            assertParamExists('getFormInstanceByKey', 'formInstanceID', formInstanceID)
+            const localVarPath = `/form-instances/{formInstanceID}`
+                .replace(`{${"formInstanceID"}}`, encodeURIComponent(String(formInstanceID)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...axiosOptions};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication oauth2 required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "oauth2", [], configuration)
+
+            // authentication oauth2 required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "oauth2", [], configuration)
+
+
+    
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                axiosOptions: localVarRequestOptions,
+            };
+        },
+        /**
+         * 
+         * @summary Import form definitions from export.
+         * @param {Array<ExportFormDefinitionsByTenant200ResponseInnerBeta>} [body] Body is the request payload to import form definitions
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        importFormDefinitions: async (body?: Array<ExportFormDefinitionsByTenant200ResponseInnerBeta>, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            const localVarPath = `/form-definitions/import`;
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'POST', ...baseOptions, ...axiosOptions};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication oauth2 required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "oauth2", [], configuration)
+
+            // authentication oauth2 required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "oauth2", [], configuration)
+
+
+    
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
+            localVarRequestOptions.data = serializeDataIfNeeded(body, localVarRequestOptions, configuration)
+
+            return {
+                url: toPathString(localVarUrlObj),
+                axiosOptions: localVarRequestOptions,
+            };
+        },
+        /**
+         * Parameter `{formDefinitionID}` should match a form definition ID.
+         * @summary Patch a form definition.
+         * @param {string} formDefinitionID Form definition ID
+         * @param {Array<{ [key: string]: object; }>} [body] Body is the request payload to patch a form definition, check: https://jsonpatch.com
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        patchFormDefinition: async (formDefinitionID: string, body?: Array<{ [key: string]: object; }>, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'formDefinitionID' is not null or undefined
+            assertParamExists('patchFormDefinition', 'formDefinitionID', formDefinitionID)
+            const localVarPath = `/form-definitions/{formDefinitionID}`
+                .replace(`{${"formDefinitionID"}}`, encodeURIComponent(String(formDefinitionID)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'PATCH', ...baseOptions, ...axiosOptions};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication oauth2 required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "oauth2", [], configuration)
+
+            // authentication oauth2 required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "oauth2", [], configuration)
+
+
+    
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
+            localVarRequestOptions.data = serializeDataIfNeeded(body, localVarRequestOptions, configuration)
+
+            return {
+                url: toPathString(localVarUrlObj),
+                axiosOptions: localVarRequestOptions,
+            };
+        },
+        /**
+         * Parameter `{formInstanceID}` should match a form instance ID.
+         * @summary Patch a form instance.
+         * @param {string} formInstanceID Form instance ID
+         * @param {Array<{ [key: string]: object; }>} [body] Body is the request payload to patch a form instance, check: https://jsonpatch.com
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        patchFormInstance: async (formInstanceID: string, body?: Array<{ [key: string]: object; }>, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'formInstanceID' is not null or undefined
+            assertParamExists('patchFormInstance', 'formInstanceID', formInstanceID)
+            const localVarPath = `/form-instances/{formInstanceID}`
+                .replace(`{${"formInstanceID"}}`, encodeURIComponent(String(formInstanceID)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'PATCH', ...baseOptions, ...axiosOptions};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication oauth2 required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "oauth2", [], configuration)
+
+            // authentication oauth2 required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "oauth2", [], configuration)
+
+
+    
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
+            localVarRequestOptions.data = serializeDataIfNeeded(body, localVarRequestOptions, configuration)
+
+            return {
+                url: toPathString(localVarUrlObj),
+                axiosOptions: localVarRequestOptions,
+            };
+        },
+        /**
+         * No parameters required.
+         * @summary Export form definitions by tenant.
+         * @param {number} [offset] Offset  Integer specifying the offset of the first result from the beginning of the collection. The standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#paginating-results). The offset value is record-based, not page-based, and the index starts at 0.
+         * @param {number} [limit] Limit  Integer specifying the maximum number of records to return in a single API call. The standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#paginating-results). If it is not specified, a default limit is used.
+         * @param {string} [filters] Filters  Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results) Filtering is supported for the following fields and operators: &lt;b&gt;name&lt;/b&gt;: &lt;i&gt;eq, gt, sw, in&lt;/i&gt; &lt;b&gt;description&lt;/b&gt;: &lt;i&gt;eq, gt, sw, in&lt;/i&gt; &lt;b&gt;created&lt;/b&gt;: &lt;i&gt;eq, gt, sw, in&lt;/i&gt; &lt;b&gt;modified&lt;/b&gt;: &lt;i&gt;eq, gt, sw, in&lt;/i&gt;
+         * @param {string} [sorters] Sorters  Item will be sorted in the returned array if the sorters expression evaluates to true for that item. The standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters/#sorting-results). Sorting is supported for the following fields: &lt;b&gt;name&lt;/b&gt; &lt;b&gt;description&lt;/b&gt; &lt;b&gt;created&lt;/b&gt; &lt;b&gt;modified&lt;/b&gt;
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        searchFormDefinitionsByTenant: async (offset?: number, limit?: number, filters?: string, sorters?: string, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            const localVarPath = `/form-definitions`;
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...axiosOptions};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication oauth2 required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "oauth2", [], configuration)
+
+            // authentication oauth2 required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "oauth2", [], configuration)
+
+            if (offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+
+            if (limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+
+            if (filters !== undefined) {
+                localVarQueryParameter['filters'] = filters;
+            }
+
+            if (sorters !== undefined) {
+                localVarQueryParameter['sorters'] = sorters;
+            }
+
+
+    
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                axiosOptions: localVarRequestOptions,
+            };
+        },
+        /**
+         * Parameter `{formInstanceID}` should match a form instance ID. Parameter `{formElementID}` should match a form element ID at the data source configuration.
+         * @summary Retrieves dynamic data by element.
+         * @param {string} formInstanceID Form instance ID
+         * @param {string} formElementID Form element ID
+         * @param {number} [limit] Limit  Integer specifying the maximum number of records to return in a single API call. The standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#paginating-results). If it is not specified, a default limit is used.
+         * @param {string} [filters] Filters  Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results) Filtering is supported for the following fields and operators: &lt;b&gt;value&lt;/b&gt;: &lt;i&gt;eq, ne, in&lt;/i&gt; &lt;b&gt;label&lt;/b&gt;: &lt;i&gt;eq, ne, in&lt;/i&gt; &lt;b&gt;subLabel&lt;/b&gt;: &lt;i&gt;eq, ne, in&lt;/i&gt;
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        searchFormElementDataByElementID: async (formInstanceID: string, formElementID: string, limit?: number, filters?: string, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'formInstanceID' is not null or undefined
+            assertParamExists('searchFormElementDataByElementID', 'formInstanceID', formInstanceID)
+            // verify required parameter 'formElementID' is not null or undefined
+            assertParamExists('searchFormElementDataByElementID', 'formElementID', formElementID)
+            const localVarPath = `/form-instances/{formInstanceID}/data-source/{formElementID}`
+                .replace(`{${"formInstanceID"}}`, encodeURIComponent(String(formInstanceID)))
+                .replace(`{${"formElementID"}}`, encodeURIComponent(String(formElementID)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...axiosOptions};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication oauth2 required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "oauth2", [], configuration)
+
+            // authentication oauth2 required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "oauth2", [], configuration)
+
+            if (limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+
+            if (filters !== undefined) {
+                localVarQueryParameter['filters'] = filters;
+            }
+
+
+    
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                axiosOptions: localVarRequestOptions,
+            };
+        },
+        /**
+         * No parameters required.
+         * @summary List form instances by tenant.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        searchFormInstancesByTenant: async (axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            const localVarPath = `/form-instances`;
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...axiosOptions};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication oauth2 required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "oauth2", [], configuration)
+
+            // authentication oauth2 required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "oauth2", [], configuration)
+
+
+    
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                axiosOptions: localVarRequestOptions,
+            };
+        },
+        /**
+         * No parameters required.
+         * @summary List predefined select options.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        searchPreDefinedSelectOptions: async (axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            const localVarPath = `/predefined-select-options`;
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...axiosOptions};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication oauth2 required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "oauth2", [], configuration)
+
+            // authentication oauth2 required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "oauth2", [], configuration)
+
+
+    
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                axiosOptions: localVarRequestOptions,
+            };
+        },
+        /**
+         * 
+         * @summary Preview form definition data source.
+         * @param {string} formDefinitionID Form definition ID
+         * @param {number} [limit] Limit  Integer specifying the maximum number of records to return in a single API call. The standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#paginating-results). If it is not specified, a default limit is used.
+         * @param {string} [filters] Filters  Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results) Filtering is supported for the following fields and operators: &lt;b&gt;value&lt;/b&gt;: &lt;i&gt;eq, gt, sw, in&lt;/i&gt; &lt;b&gt;label&lt;/b&gt;: &lt;i&gt;eq, gt, sw, in&lt;/i&gt; &lt;b&gt;subLabel&lt;/b&gt;: &lt;i&gt;eq, gt, sw, in&lt;/i&gt;
+         * @param {string} [query] Query  String specifying to query against
+         * @param {FormElementPreviewRequestBeta} [formElementPreviewRequestBeta] Body is the request payload to create a form definition dynamic schema
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        showPreviewDataSource: async (formDefinitionID: string, limit?: number, filters?: string, query?: string, formElementPreviewRequestBeta?: FormElementPreviewRequestBeta, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'formDefinitionID' is not null or undefined
+            assertParamExists('showPreviewDataSource', 'formDefinitionID', formDefinitionID)
+            const localVarPath = `/form-definitions/{formDefinitionID}/data-source`
+                .replace(`{${"formDefinitionID"}}`, encodeURIComponent(String(formDefinitionID)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'POST', ...baseOptions, ...axiosOptions};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication oauth2 required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "oauth2", [], configuration)
+
+            // authentication oauth2 required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "oauth2", [], configuration)
+
+            if (limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+
+            if (filters !== undefined) {
+                localVarQueryParameter['filters'] = filters;
+            }
+
+            if (query !== undefined) {
+                localVarQueryParameter['query'] = query;
+            }
+
+
+    
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
+            localVarRequestOptions.data = serializeDataIfNeeded(formElementPreviewRequestBeta, localVarRequestOptions, configuration)
+
+            return {
+                url: toPathString(localVarUrlObj),
+                axiosOptions: localVarRequestOptions,
+            };
+        },
+    }
+};
+
+/**
+ * CustomFormsBetaApi - functional programming interface
+ * @export
+ */
+export const CustomFormsBetaApiFp = function(configuration?: Configuration) {
+    const localVarAxiosParamCreator = CustomFormsBetaApiAxiosParamCreator(configuration)
+    return {
+        /**
+         * 
+         * @summary Creates a form definition.
+         * @param {CreateFormDefinitionRequestBeta} [body] Body is the request payload to create form definition request
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        async createFormDefinition(body?: CreateFormDefinitionRequestBeta, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<FormDefinitionResponseBeta>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.createFormDefinition(body, axiosOptions);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * 
+         * @summary Generate JSON Schema dynamically.
+         * @param {FormDefinitionDynamicSchemaRequestBeta} [body] Body is the request payload to create a form definition dynamic schema
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        async createFormDefinitionDynamicSchema(body?: FormDefinitionDynamicSchemaRequestBeta, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<FormDefinitionDynamicSchemaResponseBeta>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.createFormDefinitionDynamicSchema(body, axiosOptions);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * 
+         * @summary Creates a form instance.
+         * @param {CreateFormInstanceRequestBeta} [body] Body is the request payload to create a form instance
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        async createFormInstance(body?: CreateFormInstanceRequestBeta, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<FormInstanceResponseBeta>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.createFormInstance(body, axiosOptions);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * Parameter `{formDefinitionID}` should match a form definition ID.
+         * @summary Deletes a form definition.
+         * @param {string} formDefinitionID Form definition ID
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        async deleteFormDefinition(formDefinitionID: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<object>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.deleteFormDefinition(formDefinitionID, axiosOptions);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * No parameters required.
+         * @summary List form definitions by tenant.
+         * @param {number} [offset] Offset  Integer specifying the offset of the first result from the beginning of the collection. The standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#paginating-results). The offset value is record-based, not page-based, and the index starts at 0.
+         * @param {number} [limit] Limit  Integer specifying the maximum number of records to return in a single API call. The standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#paginating-results). If it is not specified, a default limit is used.
+         * @param {string} [filters] Filters  Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results) Filtering is supported for the following fields and operators: &lt;b&gt;name&lt;/b&gt;: &lt;i&gt;eq, gt, sw, in&lt;/i&gt; &lt;b&gt;description&lt;/b&gt;: &lt;i&gt;eq, gt, sw, in&lt;/i&gt; &lt;b&gt;created&lt;/b&gt;: &lt;i&gt;eq, gt, sw, in&lt;/i&gt; &lt;b&gt;modified&lt;/b&gt;: &lt;i&gt;eq, gt, sw, in&lt;/i&gt;
+         * @param {string} [sorters] Sorters  Item will be sorted in the returned array if the sorters expression evaluates to true for that item. The standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters/#sorting-results). Sorting is supported for the following fields: &lt;b&gt;name&lt;/b&gt; &lt;b&gt;description&lt;/b&gt; &lt;b&gt;created&lt;/b&gt; &lt;b&gt;modified&lt;/b&gt;
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        async exportFormDefinitionsByTenant(offset?: number, limit?: number, filters?: string, sorters?: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<ExportFormDefinitionsByTenant200ResponseInnerBeta>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.exportFormDefinitionsByTenant(offset, limit, filters, sorters, axiosOptions);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * Parameter `{formDefinitionID}` should match a form definition ID.
+         * @summary Return a form definition.
+         * @param {string} formDefinitionID Form definition ID
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        async getFormDefinitionByKey(formDefinitionID: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<FormDefinitionResponseBeta>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getFormDefinitionByKey(formDefinitionID, axiosOptions);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * Parameter `{formInstanceID}` should match a form instance ID.
+         * @summary Returns a form instance.
+         * @param {string} formInstanceID Form instance ID
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        async getFormInstanceByKey(formInstanceID: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<FormInstanceResponseBeta>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getFormInstanceByKey(formInstanceID, axiosOptions);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * 
+         * @summary Import form definitions from export.
+         * @param {Array<ExportFormDefinitionsByTenant200ResponseInnerBeta>} [body] Body is the request payload to import form definitions
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        async importFormDefinitions(body?: Array<ExportFormDefinitionsByTenant200ResponseInnerBeta>, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ImportFormDefinitions202ResponseBeta>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.importFormDefinitions(body, axiosOptions);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * Parameter `{formDefinitionID}` should match a form definition ID.
+         * @summary Patch a form definition.
+         * @param {string} formDefinitionID Form definition ID
+         * @param {Array<{ [key: string]: object; }>} [body] Body is the request payload to patch a form definition, check: https://jsonpatch.com
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        async patchFormDefinition(formDefinitionID: string, body?: Array<{ [key: string]: object; }>, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<FormDefinitionResponseBeta>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.patchFormDefinition(formDefinitionID, body, axiosOptions);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * Parameter `{formInstanceID}` should match a form instance ID.
+         * @summary Patch a form instance.
+         * @param {string} formInstanceID Form instance ID
+         * @param {Array<{ [key: string]: object; }>} [body] Body is the request payload to patch a form instance, check: https://jsonpatch.com
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        async patchFormInstance(formInstanceID: string, body?: Array<{ [key: string]: object; }>, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<FormInstanceResponseBeta>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.patchFormInstance(formInstanceID, body, axiosOptions);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * No parameters required.
+         * @summary Export form definitions by tenant.
+         * @param {number} [offset] Offset  Integer specifying the offset of the first result from the beginning of the collection. The standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#paginating-results). The offset value is record-based, not page-based, and the index starts at 0.
+         * @param {number} [limit] Limit  Integer specifying the maximum number of records to return in a single API call. The standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#paginating-results). If it is not specified, a default limit is used.
+         * @param {string} [filters] Filters  Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results) Filtering is supported for the following fields and operators: &lt;b&gt;name&lt;/b&gt;: &lt;i&gt;eq, gt, sw, in&lt;/i&gt; &lt;b&gt;description&lt;/b&gt;: &lt;i&gt;eq, gt, sw, in&lt;/i&gt; &lt;b&gt;created&lt;/b&gt;: &lt;i&gt;eq, gt, sw, in&lt;/i&gt; &lt;b&gt;modified&lt;/b&gt;: &lt;i&gt;eq, gt, sw, in&lt;/i&gt;
+         * @param {string} [sorters] Sorters  Item will be sorted in the returned array if the sorters expression evaluates to true for that item. The standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters/#sorting-results). Sorting is supported for the following fields: &lt;b&gt;name&lt;/b&gt; &lt;b&gt;description&lt;/b&gt; &lt;b&gt;created&lt;/b&gt; &lt;b&gt;modified&lt;/b&gt;
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        async searchFormDefinitionsByTenant(offset?: number, limit?: number, filters?: string, sorters?: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ListFormDefinitionsByTenantResponseBeta>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.searchFormDefinitionsByTenant(offset, limit, filters, sorters, axiosOptions);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * Parameter `{formInstanceID}` should match a form instance ID. Parameter `{formElementID}` should match a form element ID at the data source configuration.
+         * @summary Retrieves dynamic data by element.
+         * @param {string} formInstanceID Form instance ID
+         * @param {string} formElementID Form element ID
+         * @param {number} [limit] Limit  Integer specifying the maximum number of records to return in a single API call. The standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#paginating-results). If it is not specified, a default limit is used.
+         * @param {string} [filters] Filters  Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results) Filtering is supported for the following fields and operators: &lt;b&gt;value&lt;/b&gt;: &lt;i&gt;eq, ne, in&lt;/i&gt; &lt;b&gt;label&lt;/b&gt;: &lt;i&gt;eq, ne, in&lt;/i&gt; &lt;b&gt;subLabel&lt;/b&gt;: &lt;i&gt;eq, ne, in&lt;/i&gt;
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        async searchFormElementDataByElementID(formInstanceID: string, formElementID: string, limit?: number, filters?: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ListFormElementDataByElementIDResponseBeta>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.searchFormElementDataByElementID(formInstanceID, formElementID, limit, filters, axiosOptions);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * No parameters required.
+         * @summary List form instances by tenant.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        async searchFormInstancesByTenant(axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ListFormInstancesByTenantResponseBeta>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.searchFormInstancesByTenant(axiosOptions);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * No parameters required.
+         * @summary List predefined select options.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        async searchPreDefinedSelectOptions(axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ListPredefinedSelectOptionsResponseBeta>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.searchPreDefinedSelectOptions(axiosOptions);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * 
+         * @summary Preview form definition data source.
+         * @param {string} formDefinitionID Form definition ID
+         * @param {number} [limit] Limit  Integer specifying the maximum number of records to return in a single API call. The standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#paginating-results). If it is not specified, a default limit is used.
+         * @param {string} [filters] Filters  Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results) Filtering is supported for the following fields and operators: &lt;b&gt;value&lt;/b&gt;: &lt;i&gt;eq, gt, sw, in&lt;/i&gt; &lt;b&gt;label&lt;/b&gt;: &lt;i&gt;eq, gt, sw, in&lt;/i&gt; &lt;b&gt;subLabel&lt;/b&gt;: &lt;i&gt;eq, gt, sw, in&lt;/i&gt;
+         * @param {string} [query] Query  String specifying to query against
+         * @param {FormElementPreviewRequestBeta} [formElementPreviewRequestBeta] Body is the request payload to create a form definition dynamic schema
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        async showPreviewDataSource(formDefinitionID: string, limit?: number, filters?: string, query?: string, formElementPreviewRequestBeta?: FormElementPreviewRequestBeta, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<PreviewDataSourceResponseBeta>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.showPreviewDataSource(formDefinitionID, limit, filters, query, formElementPreviewRequestBeta, axiosOptions);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+    }
+};
+
+/**
+ * CustomFormsBetaApi - factory interface
+ * @export
+ */
+export const CustomFormsBetaApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
+    const localVarFp = CustomFormsBetaApiFp(configuration)
+    return {
+        /**
+         * 
+         * @summary Creates a form definition.
+         * @param {CreateFormDefinitionRequestBeta} [body] Body is the request payload to create form definition request
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        createFormDefinition(body?: CreateFormDefinitionRequestBeta, axiosOptions?: any): AxiosPromise<FormDefinitionResponseBeta> {
+            return localVarFp.createFormDefinition(body, axiosOptions).then((request) => request(axios, basePath));
+        },
+        /**
+         * 
+         * @summary Generate JSON Schema dynamically.
+         * @param {FormDefinitionDynamicSchemaRequestBeta} [body] Body is the request payload to create a form definition dynamic schema
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        createFormDefinitionDynamicSchema(body?: FormDefinitionDynamicSchemaRequestBeta, axiosOptions?: any): AxiosPromise<FormDefinitionDynamicSchemaResponseBeta> {
+            return localVarFp.createFormDefinitionDynamicSchema(body, axiosOptions).then((request) => request(axios, basePath));
+        },
+        /**
+         * 
+         * @summary Creates a form instance.
+         * @param {CreateFormInstanceRequestBeta} [body] Body is the request payload to create a form instance
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        createFormInstance(body?: CreateFormInstanceRequestBeta, axiosOptions?: any): AxiosPromise<FormInstanceResponseBeta> {
+            return localVarFp.createFormInstance(body, axiosOptions).then((request) => request(axios, basePath));
+        },
+        /**
+         * Parameter `{formDefinitionID}` should match a form definition ID.
+         * @summary Deletes a form definition.
+         * @param {string} formDefinitionID Form definition ID
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        deleteFormDefinition(formDefinitionID: string, axiosOptions?: any): AxiosPromise<object> {
+            return localVarFp.deleteFormDefinition(formDefinitionID, axiosOptions).then((request) => request(axios, basePath));
+        },
+        /**
+         * No parameters required.
+         * @summary List form definitions by tenant.
+         * @param {number} [offset] Offset  Integer specifying the offset of the first result from the beginning of the collection. The standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#paginating-results). The offset value is record-based, not page-based, and the index starts at 0.
+         * @param {number} [limit] Limit  Integer specifying the maximum number of records to return in a single API call. The standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#paginating-results). If it is not specified, a default limit is used.
+         * @param {string} [filters] Filters  Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results) Filtering is supported for the following fields and operators: &lt;b&gt;name&lt;/b&gt;: &lt;i&gt;eq, gt, sw, in&lt;/i&gt; &lt;b&gt;description&lt;/b&gt;: &lt;i&gt;eq, gt, sw, in&lt;/i&gt; &lt;b&gt;created&lt;/b&gt;: &lt;i&gt;eq, gt, sw, in&lt;/i&gt; &lt;b&gt;modified&lt;/b&gt;: &lt;i&gt;eq, gt, sw, in&lt;/i&gt;
+         * @param {string} [sorters] Sorters  Item will be sorted in the returned array if the sorters expression evaluates to true for that item. The standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters/#sorting-results). Sorting is supported for the following fields: &lt;b&gt;name&lt;/b&gt; &lt;b&gt;description&lt;/b&gt; &lt;b&gt;created&lt;/b&gt; &lt;b&gt;modified&lt;/b&gt;
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        exportFormDefinitionsByTenant(offset?: number, limit?: number, filters?: string, sorters?: string, axiosOptions?: any): AxiosPromise<Array<ExportFormDefinitionsByTenant200ResponseInnerBeta>> {
+            return localVarFp.exportFormDefinitionsByTenant(offset, limit, filters, sorters, axiosOptions).then((request) => request(axios, basePath));
+        },
+        /**
+         * Parameter `{formDefinitionID}` should match a form definition ID.
+         * @summary Return a form definition.
+         * @param {string} formDefinitionID Form definition ID
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        getFormDefinitionByKey(formDefinitionID: string, axiosOptions?: any): AxiosPromise<FormDefinitionResponseBeta> {
+            return localVarFp.getFormDefinitionByKey(formDefinitionID, axiosOptions).then((request) => request(axios, basePath));
+        },
+        /**
+         * Parameter `{formInstanceID}` should match a form instance ID.
+         * @summary Returns a form instance.
+         * @param {string} formInstanceID Form instance ID
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        getFormInstanceByKey(formInstanceID: string, axiosOptions?: any): AxiosPromise<FormInstanceResponseBeta> {
+            return localVarFp.getFormInstanceByKey(formInstanceID, axiosOptions).then((request) => request(axios, basePath));
+        },
+        /**
+         * 
+         * @summary Import form definitions from export.
+         * @param {Array<ExportFormDefinitionsByTenant200ResponseInnerBeta>} [body] Body is the request payload to import form definitions
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        importFormDefinitions(body?: Array<ExportFormDefinitionsByTenant200ResponseInnerBeta>, axiosOptions?: any): AxiosPromise<ImportFormDefinitions202ResponseBeta> {
+            return localVarFp.importFormDefinitions(body, axiosOptions).then((request) => request(axios, basePath));
+        },
+        /**
+         * Parameter `{formDefinitionID}` should match a form definition ID.
+         * @summary Patch a form definition.
+         * @param {string} formDefinitionID Form definition ID
+         * @param {Array<{ [key: string]: object; }>} [body] Body is the request payload to patch a form definition, check: https://jsonpatch.com
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        patchFormDefinition(formDefinitionID: string, body?: Array<{ [key: string]: object; }>, axiosOptions?: any): AxiosPromise<FormDefinitionResponseBeta> {
+            return localVarFp.patchFormDefinition(formDefinitionID, body, axiosOptions).then((request) => request(axios, basePath));
+        },
+        /**
+         * Parameter `{formInstanceID}` should match a form instance ID.
+         * @summary Patch a form instance.
+         * @param {string} formInstanceID Form instance ID
+         * @param {Array<{ [key: string]: object; }>} [body] Body is the request payload to patch a form instance, check: https://jsonpatch.com
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        patchFormInstance(formInstanceID: string, body?: Array<{ [key: string]: object; }>, axiosOptions?: any): AxiosPromise<FormInstanceResponseBeta> {
+            return localVarFp.patchFormInstance(formInstanceID, body, axiosOptions).then((request) => request(axios, basePath));
+        },
+        /**
+         * No parameters required.
+         * @summary Export form definitions by tenant.
+         * @param {number} [offset] Offset  Integer specifying the offset of the first result from the beginning of the collection. The standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#paginating-results). The offset value is record-based, not page-based, and the index starts at 0.
+         * @param {number} [limit] Limit  Integer specifying the maximum number of records to return in a single API call. The standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#paginating-results). If it is not specified, a default limit is used.
+         * @param {string} [filters] Filters  Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results) Filtering is supported for the following fields and operators: &lt;b&gt;name&lt;/b&gt;: &lt;i&gt;eq, gt, sw, in&lt;/i&gt; &lt;b&gt;description&lt;/b&gt;: &lt;i&gt;eq, gt, sw, in&lt;/i&gt; &lt;b&gt;created&lt;/b&gt;: &lt;i&gt;eq, gt, sw, in&lt;/i&gt; &lt;b&gt;modified&lt;/b&gt;: &lt;i&gt;eq, gt, sw, in&lt;/i&gt;
+         * @param {string} [sorters] Sorters  Item will be sorted in the returned array if the sorters expression evaluates to true for that item. The standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters/#sorting-results). Sorting is supported for the following fields: &lt;b&gt;name&lt;/b&gt; &lt;b&gt;description&lt;/b&gt; &lt;b&gt;created&lt;/b&gt; &lt;b&gt;modified&lt;/b&gt;
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        searchFormDefinitionsByTenant(offset?: number, limit?: number, filters?: string, sorters?: string, axiosOptions?: any): AxiosPromise<ListFormDefinitionsByTenantResponseBeta> {
+            return localVarFp.searchFormDefinitionsByTenant(offset, limit, filters, sorters, axiosOptions).then((request) => request(axios, basePath));
+        },
+        /**
+         * Parameter `{formInstanceID}` should match a form instance ID. Parameter `{formElementID}` should match a form element ID at the data source configuration.
+         * @summary Retrieves dynamic data by element.
+         * @param {string} formInstanceID Form instance ID
+         * @param {string} formElementID Form element ID
+         * @param {number} [limit] Limit  Integer specifying the maximum number of records to return in a single API call. The standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#paginating-results). If it is not specified, a default limit is used.
+         * @param {string} [filters] Filters  Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results) Filtering is supported for the following fields and operators: &lt;b&gt;value&lt;/b&gt;: &lt;i&gt;eq, ne, in&lt;/i&gt; &lt;b&gt;label&lt;/b&gt;: &lt;i&gt;eq, ne, in&lt;/i&gt; &lt;b&gt;subLabel&lt;/b&gt;: &lt;i&gt;eq, ne, in&lt;/i&gt;
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        searchFormElementDataByElementID(formInstanceID: string, formElementID: string, limit?: number, filters?: string, axiosOptions?: any): AxiosPromise<ListFormElementDataByElementIDResponseBeta> {
+            return localVarFp.searchFormElementDataByElementID(formInstanceID, formElementID, limit, filters, axiosOptions).then((request) => request(axios, basePath));
+        },
+        /**
+         * No parameters required.
+         * @summary List form instances by tenant.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        searchFormInstancesByTenant(axiosOptions?: any): AxiosPromise<ListFormInstancesByTenantResponseBeta> {
+            return localVarFp.searchFormInstancesByTenant(axiosOptions).then((request) => request(axios, basePath));
+        },
+        /**
+         * No parameters required.
+         * @summary List predefined select options.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        searchPreDefinedSelectOptions(axiosOptions?: any): AxiosPromise<ListPredefinedSelectOptionsResponseBeta> {
+            return localVarFp.searchPreDefinedSelectOptions(axiosOptions).then((request) => request(axios, basePath));
+        },
+        /**
+         * 
+         * @summary Preview form definition data source.
+         * @param {string} formDefinitionID Form definition ID
+         * @param {number} [limit] Limit  Integer specifying the maximum number of records to return in a single API call. The standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#paginating-results). If it is not specified, a default limit is used.
+         * @param {string} [filters] Filters  Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results) Filtering is supported for the following fields and operators: &lt;b&gt;value&lt;/b&gt;: &lt;i&gt;eq, gt, sw, in&lt;/i&gt; &lt;b&gt;label&lt;/b&gt;: &lt;i&gt;eq, gt, sw, in&lt;/i&gt; &lt;b&gt;subLabel&lt;/b&gt;: &lt;i&gt;eq, gt, sw, in&lt;/i&gt;
+         * @param {string} [query] Query  String specifying to query against
+         * @param {FormElementPreviewRequestBeta} [formElementPreviewRequestBeta] Body is the request payload to create a form definition dynamic schema
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        showPreviewDataSource(formDefinitionID: string, limit?: number, filters?: string, query?: string, formElementPreviewRequestBeta?: FormElementPreviewRequestBeta, axiosOptions?: any): AxiosPromise<PreviewDataSourceResponseBeta> {
+            return localVarFp.showPreviewDataSource(formDefinitionID, limit, filters, query, formElementPreviewRequestBeta, axiosOptions).then((request) => request(axios, basePath));
+        },
+    };
+};
+
+/**
+ * Request parameters for createFormDefinition operation in CustomFormsBetaApi.
+ * @export
+ * @interface CustomFormsBetaApiCreateFormDefinitionRequest
+ */
+export interface CustomFormsBetaApiCreateFormDefinitionRequest {
+    /**
+     * Body is the request payload to create form definition request
+     * @type {CreateFormDefinitionRequestBeta}
+     * @memberof CustomFormsBetaApiCreateFormDefinition
+     */
+    readonly body?: CreateFormDefinitionRequestBeta
+}
+
+/**
+ * Request parameters for createFormDefinitionDynamicSchema operation in CustomFormsBetaApi.
+ * @export
+ * @interface CustomFormsBetaApiCreateFormDefinitionDynamicSchemaRequest
+ */
+export interface CustomFormsBetaApiCreateFormDefinitionDynamicSchemaRequest {
+    /**
+     * Body is the request payload to create a form definition dynamic schema
+     * @type {FormDefinitionDynamicSchemaRequestBeta}
+     * @memberof CustomFormsBetaApiCreateFormDefinitionDynamicSchema
+     */
+    readonly body?: FormDefinitionDynamicSchemaRequestBeta
+}
+
+/**
+ * Request parameters for createFormInstance operation in CustomFormsBetaApi.
+ * @export
+ * @interface CustomFormsBetaApiCreateFormInstanceRequest
+ */
+export interface CustomFormsBetaApiCreateFormInstanceRequest {
+    /**
+     * Body is the request payload to create a form instance
+     * @type {CreateFormInstanceRequestBeta}
+     * @memberof CustomFormsBetaApiCreateFormInstance
+     */
+    readonly body?: CreateFormInstanceRequestBeta
+}
+
+/**
+ * Request parameters for deleteFormDefinition operation in CustomFormsBetaApi.
+ * @export
+ * @interface CustomFormsBetaApiDeleteFormDefinitionRequest
+ */
+export interface CustomFormsBetaApiDeleteFormDefinitionRequest {
+    /**
+     * Form definition ID
+     * @type {string}
+     * @memberof CustomFormsBetaApiDeleteFormDefinition
+     */
+    readonly formDefinitionID: string
+}
+
+/**
+ * Request parameters for exportFormDefinitionsByTenant operation in CustomFormsBetaApi.
+ * @export
+ * @interface CustomFormsBetaApiExportFormDefinitionsByTenantRequest
+ */
+export interface CustomFormsBetaApiExportFormDefinitionsByTenantRequest {
+    /**
+     * Offset  Integer specifying the offset of the first result from the beginning of the collection. The standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#paginating-results). The offset value is record-based, not page-based, and the index starts at 0.
+     * @type {number}
+     * @memberof CustomFormsBetaApiExportFormDefinitionsByTenant
+     */
+    readonly offset?: number
+
+    /**
+     * Limit  Integer specifying the maximum number of records to return in a single API call. The standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#paginating-results). If it is not specified, a default limit is used.
+     * @type {number}
+     * @memberof CustomFormsBetaApiExportFormDefinitionsByTenant
+     */
+    readonly limit?: number
+
+    /**
+     * Filters  Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results) Filtering is supported for the following fields and operators: &lt;b&gt;name&lt;/b&gt;: &lt;i&gt;eq, gt, sw, in&lt;/i&gt; &lt;b&gt;description&lt;/b&gt;: &lt;i&gt;eq, gt, sw, in&lt;/i&gt; &lt;b&gt;created&lt;/b&gt;: &lt;i&gt;eq, gt, sw, in&lt;/i&gt; &lt;b&gt;modified&lt;/b&gt;: &lt;i&gt;eq, gt, sw, in&lt;/i&gt;
+     * @type {string}
+     * @memberof CustomFormsBetaApiExportFormDefinitionsByTenant
+     */
+    readonly filters?: string
+
+    /**
+     * Sorters  Item will be sorted in the returned array if the sorters expression evaluates to true for that item. The standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters/#sorting-results). Sorting is supported for the following fields: &lt;b&gt;name&lt;/b&gt; &lt;b&gt;description&lt;/b&gt; &lt;b&gt;created&lt;/b&gt; &lt;b&gt;modified&lt;/b&gt;
+     * @type {string}
+     * @memberof CustomFormsBetaApiExportFormDefinitionsByTenant
+     */
+    readonly sorters?: string
+}
+
+/**
+ * Request parameters for getFormDefinitionByKey operation in CustomFormsBetaApi.
+ * @export
+ * @interface CustomFormsBetaApiGetFormDefinitionByKeyRequest
+ */
+export interface CustomFormsBetaApiGetFormDefinitionByKeyRequest {
+    /**
+     * Form definition ID
+     * @type {string}
+     * @memberof CustomFormsBetaApiGetFormDefinitionByKey
+     */
+    readonly formDefinitionID: string
+}
+
+/**
+ * Request parameters for getFormInstanceByKey operation in CustomFormsBetaApi.
+ * @export
+ * @interface CustomFormsBetaApiGetFormInstanceByKeyRequest
+ */
+export interface CustomFormsBetaApiGetFormInstanceByKeyRequest {
+    /**
+     * Form instance ID
+     * @type {string}
+     * @memberof CustomFormsBetaApiGetFormInstanceByKey
+     */
+    readonly formInstanceID: string
+}
+
+/**
+ * Request parameters for importFormDefinitions operation in CustomFormsBetaApi.
+ * @export
+ * @interface CustomFormsBetaApiImportFormDefinitionsRequest
+ */
+export interface CustomFormsBetaApiImportFormDefinitionsRequest {
+    /**
+     * Body is the request payload to import form definitions
+     * @type {Array<ExportFormDefinitionsByTenant200ResponseInnerBeta>}
+     * @memberof CustomFormsBetaApiImportFormDefinitions
+     */
+    readonly body?: Array<ExportFormDefinitionsByTenant200ResponseInnerBeta>
+}
+
+/**
+ * Request parameters for patchFormDefinition operation in CustomFormsBetaApi.
+ * @export
+ * @interface CustomFormsBetaApiPatchFormDefinitionRequest
+ */
+export interface CustomFormsBetaApiPatchFormDefinitionRequest {
+    /**
+     * Form definition ID
+     * @type {string}
+     * @memberof CustomFormsBetaApiPatchFormDefinition
+     */
+    readonly formDefinitionID: string
+
+    /**
+     * Body is the request payload to patch a form definition, check: https://jsonpatch.com
+     * @type {Array<{ [key: string]: object; }>}
+     * @memberof CustomFormsBetaApiPatchFormDefinition
+     */
+    readonly body?: Array<{ [key: string]: object; }>
+}
+
+/**
+ * Request parameters for patchFormInstance operation in CustomFormsBetaApi.
+ * @export
+ * @interface CustomFormsBetaApiPatchFormInstanceRequest
+ */
+export interface CustomFormsBetaApiPatchFormInstanceRequest {
+    /**
+     * Form instance ID
+     * @type {string}
+     * @memberof CustomFormsBetaApiPatchFormInstance
+     */
+    readonly formInstanceID: string
+
+    /**
+     * Body is the request payload to patch a form instance, check: https://jsonpatch.com
+     * @type {Array<{ [key: string]: object; }>}
+     * @memberof CustomFormsBetaApiPatchFormInstance
+     */
+    readonly body?: Array<{ [key: string]: object; }>
+}
+
+/**
+ * Request parameters for searchFormDefinitionsByTenant operation in CustomFormsBetaApi.
+ * @export
+ * @interface CustomFormsBetaApiSearchFormDefinitionsByTenantRequest
+ */
+export interface CustomFormsBetaApiSearchFormDefinitionsByTenantRequest {
+    /**
+     * Offset  Integer specifying the offset of the first result from the beginning of the collection. The standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#paginating-results). The offset value is record-based, not page-based, and the index starts at 0.
+     * @type {number}
+     * @memberof CustomFormsBetaApiSearchFormDefinitionsByTenant
+     */
+    readonly offset?: number
+
+    /**
+     * Limit  Integer specifying the maximum number of records to return in a single API call. The standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#paginating-results). If it is not specified, a default limit is used.
+     * @type {number}
+     * @memberof CustomFormsBetaApiSearchFormDefinitionsByTenant
+     */
+    readonly limit?: number
+
+    /**
+     * Filters  Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results) Filtering is supported for the following fields and operators: &lt;b&gt;name&lt;/b&gt;: &lt;i&gt;eq, gt, sw, in&lt;/i&gt; &lt;b&gt;description&lt;/b&gt;: &lt;i&gt;eq, gt, sw, in&lt;/i&gt; &lt;b&gt;created&lt;/b&gt;: &lt;i&gt;eq, gt, sw, in&lt;/i&gt; &lt;b&gt;modified&lt;/b&gt;: &lt;i&gt;eq, gt, sw, in&lt;/i&gt;
+     * @type {string}
+     * @memberof CustomFormsBetaApiSearchFormDefinitionsByTenant
+     */
+    readonly filters?: string
+
+    /**
+     * Sorters  Item will be sorted in the returned array if the sorters expression evaluates to true for that item. The standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters/#sorting-results). Sorting is supported for the following fields: &lt;b&gt;name&lt;/b&gt; &lt;b&gt;description&lt;/b&gt; &lt;b&gt;created&lt;/b&gt; &lt;b&gt;modified&lt;/b&gt;
+     * @type {string}
+     * @memberof CustomFormsBetaApiSearchFormDefinitionsByTenant
+     */
+    readonly sorters?: string
+}
+
+/**
+ * Request parameters for searchFormElementDataByElementID operation in CustomFormsBetaApi.
+ * @export
+ * @interface CustomFormsBetaApiSearchFormElementDataByElementIDRequest
+ */
+export interface CustomFormsBetaApiSearchFormElementDataByElementIDRequest {
+    /**
+     * Form instance ID
+     * @type {string}
+     * @memberof CustomFormsBetaApiSearchFormElementDataByElementID
+     */
+    readonly formInstanceID: string
+
+    /**
+     * Form element ID
+     * @type {string}
+     * @memberof CustomFormsBetaApiSearchFormElementDataByElementID
+     */
+    readonly formElementID: string
+
+    /**
+     * Limit  Integer specifying the maximum number of records to return in a single API call. The standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#paginating-results). If it is not specified, a default limit is used.
+     * @type {number}
+     * @memberof CustomFormsBetaApiSearchFormElementDataByElementID
+     */
+    readonly limit?: number
+
+    /**
+     * Filters  Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results) Filtering is supported for the following fields and operators: &lt;b&gt;value&lt;/b&gt;: &lt;i&gt;eq, ne, in&lt;/i&gt; &lt;b&gt;label&lt;/b&gt;: &lt;i&gt;eq, ne, in&lt;/i&gt; &lt;b&gt;subLabel&lt;/b&gt;: &lt;i&gt;eq, ne, in&lt;/i&gt;
+     * @type {string}
+     * @memberof CustomFormsBetaApiSearchFormElementDataByElementID
+     */
+    readonly filters?: string
+}
+
+/**
+ * Request parameters for showPreviewDataSource operation in CustomFormsBetaApi.
+ * @export
+ * @interface CustomFormsBetaApiShowPreviewDataSourceRequest
+ */
+export interface CustomFormsBetaApiShowPreviewDataSourceRequest {
+    /**
+     * Form definition ID
+     * @type {string}
+     * @memberof CustomFormsBetaApiShowPreviewDataSource
+     */
+    readonly formDefinitionID: string
+
+    /**
+     * Limit  Integer specifying the maximum number of records to return in a single API call. The standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#paginating-results). If it is not specified, a default limit is used.
+     * @type {number}
+     * @memberof CustomFormsBetaApiShowPreviewDataSource
+     */
+    readonly limit?: number
+
+    /**
+     * Filters  Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results) Filtering is supported for the following fields and operators: &lt;b&gt;value&lt;/b&gt;: &lt;i&gt;eq, gt, sw, in&lt;/i&gt; &lt;b&gt;label&lt;/b&gt;: &lt;i&gt;eq, gt, sw, in&lt;/i&gt; &lt;b&gt;subLabel&lt;/b&gt;: &lt;i&gt;eq, gt, sw, in&lt;/i&gt;
+     * @type {string}
+     * @memberof CustomFormsBetaApiShowPreviewDataSource
+     */
+    readonly filters?: string
+
+    /**
+     * Query  String specifying to query against
+     * @type {string}
+     * @memberof CustomFormsBetaApiShowPreviewDataSource
+     */
+    readonly query?: string
+
+    /**
+     * Body is the request payload to create a form definition dynamic schema
+     * @type {FormElementPreviewRequestBeta}
+     * @memberof CustomFormsBetaApiShowPreviewDataSource
+     */
+    readonly formElementPreviewRequestBeta?: FormElementPreviewRequestBeta
+}
+
+/**
+ * CustomFormsBetaApi - object-oriented interface
+ * @export
+ * @class CustomFormsBetaApi
+ * @extends {BaseAPI}
+ */
+export class CustomFormsBetaApi extends BaseAPI {
+    /**
+     * 
+     * @summary Creates a form definition.
+     * @param {CustomFormsBetaApiCreateFormDefinitionRequest} requestParameters Request parameters.
+     * @param {*} [axiosOptions] Override http request option.
+     * @throws {RequiredError}
+     * @memberof CustomFormsBetaApi
+     */
+    public createFormDefinition(requestParameters: CustomFormsBetaApiCreateFormDefinitionRequest = {}, axiosOptions?: AxiosRequestConfig) {
+        return CustomFormsBetaApiFp(this.configuration).createFormDefinition(requestParameters.body, axiosOptions).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * 
+     * @summary Generate JSON Schema dynamically.
+     * @param {CustomFormsBetaApiCreateFormDefinitionDynamicSchemaRequest} requestParameters Request parameters.
+     * @param {*} [axiosOptions] Override http request option.
+     * @throws {RequiredError}
+     * @memberof CustomFormsBetaApi
+     */
+    public createFormDefinitionDynamicSchema(requestParameters: CustomFormsBetaApiCreateFormDefinitionDynamicSchemaRequest = {}, axiosOptions?: AxiosRequestConfig) {
+        return CustomFormsBetaApiFp(this.configuration).createFormDefinitionDynamicSchema(requestParameters.body, axiosOptions).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * 
+     * @summary Creates a form instance.
+     * @param {CustomFormsBetaApiCreateFormInstanceRequest} requestParameters Request parameters.
+     * @param {*} [axiosOptions] Override http request option.
+     * @throws {RequiredError}
+     * @memberof CustomFormsBetaApi
+     */
+    public createFormInstance(requestParameters: CustomFormsBetaApiCreateFormInstanceRequest = {}, axiosOptions?: AxiosRequestConfig) {
+        return CustomFormsBetaApiFp(this.configuration).createFormInstance(requestParameters.body, axiosOptions).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Parameter `{formDefinitionID}` should match a form definition ID.
+     * @summary Deletes a form definition.
+     * @param {CustomFormsBetaApiDeleteFormDefinitionRequest} requestParameters Request parameters.
+     * @param {*} [axiosOptions] Override http request option.
+     * @throws {RequiredError}
+     * @memberof CustomFormsBetaApi
+     */
+    public deleteFormDefinition(requestParameters: CustomFormsBetaApiDeleteFormDefinitionRequest, axiosOptions?: AxiosRequestConfig) {
+        return CustomFormsBetaApiFp(this.configuration).deleteFormDefinition(requestParameters.formDefinitionID, axiosOptions).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * No parameters required.
+     * @summary List form definitions by tenant.
+     * @param {CustomFormsBetaApiExportFormDefinitionsByTenantRequest} requestParameters Request parameters.
+     * @param {*} [axiosOptions] Override http request option.
+     * @throws {RequiredError}
+     * @memberof CustomFormsBetaApi
+     */
+    public exportFormDefinitionsByTenant(requestParameters: CustomFormsBetaApiExportFormDefinitionsByTenantRequest = {}, axiosOptions?: AxiosRequestConfig) {
+        return CustomFormsBetaApiFp(this.configuration).exportFormDefinitionsByTenant(requestParameters.offset, requestParameters.limit, requestParameters.filters, requestParameters.sorters, axiosOptions).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Parameter `{formDefinitionID}` should match a form definition ID.
+     * @summary Return a form definition.
+     * @param {CustomFormsBetaApiGetFormDefinitionByKeyRequest} requestParameters Request parameters.
+     * @param {*} [axiosOptions] Override http request option.
+     * @throws {RequiredError}
+     * @memberof CustomFormsBetaApi
+     */
+    public getFormDefinitionByKey(requestParameters: CustomFormsBetaApiGetFormDefinitionByKeyRequest, axiosOptions?: AxiosRequestConfig) {
+        return CustomFormsBetaApiFp(this.configuration).getFormDefinitionByKey(requestParameters.formDefinitionID, axiosOptions).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Parameter `{formInstanceID}` should match a form instance ID.
+     * @summary Returns a form instance.
+     * @param {CustomFormsBetaApiGetFormInstanceByKeyRequest} requestParameters Request parameters.
+     * @param {*} [axiosOptions] Override http request option.
+     * @throws {RequiredError}
+     * @memberof CustomFormsBetaApi
+     */
+    public getFormInstanceByKey(requestParameters: CustomFormsBetaApiGetFormInstanceByKeyRequest, axiosOptions?: AxiosRequestConfig) {
+        return CustomFormsBetaApiFp(this.configuration).getFormInstanceByKey(requestParameters.formInstanceID, axiosOptions).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * 
+     * @summary Import form definitions from export.
+     * @param {CustomFormsBetaApiImportFormDefinitionsRequest} requestParameters Request parameters.
+     * @param {*} [axiosOptions] Override http request option.
+     * @throws {RequiredError}
+     * @memberof CustomFormsBetaApi
+     */
+    public importFormDefinitions(requestParameters: CustomFormsBetaApiImportFormDefinitionsRequest = {}, axiosOptions?: AxiosRequestConfig) {
+        return CustomFormsBetaApiFp(this.configuration).importFormDefinitions(requestParameters.body, axiosOptions).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Parameter `{formDefinitionID}` should match a form definition ID.
+     * @summary Patch a form definition.
+     * @param {CustomFormsBetaApiPatchFormDefinitionRequest} requestParameters Request parameters.
+     * @param {*} [axiosOptions] Override http request option.
+     * @throws {RequiredError}
+     * @memberof CustomFormsBetaApi
+     */
+    public patchFormDefinition(requestParameters: CustomFormsBetaApiPatchFormDefinitionRequest, axiosOptions?: AxiosRequestConfig) {
+        return CustomFormsBetaApiFp(this.configuration).patchFormDefinition(requestParameters.formDefinitionID, requestParameters.body, axiosOptions).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Parameter `{formInstanceID}` should match a form instance ID.
+     * @summary Patch a form instance.
+     * @param {CustomFormsBetaApiPatchFormInstanceRequest} requestParameters Request parameters.
+     * @param {*} [axiosOptions] Override http request option.
+     * @throws {RequiredError}
+     * @memberof CustomFormsBetaApi
+     */
+    public patchFormInstance(requestParameters: CustomFormsBetaApiPatchFormInstanceRequest, axiosOptions?: AxiosRequestConfig) {
+        return CustomFormsBetaApiFp(this.configuration).patchFormInstance(requestParameters.formInstanceID, requestParameters.body, axiosOptions).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * No parameters required.
+     * @summary Export form definitions by tenant.
+     * @param {CustomFormsBetaApiSearchFormDefinitionsByTenantRequest} requestParameters Request parameters.
+     * @param {*} [axiosOptions] Override http request option.
+     * @throws {RequiredError}
+     * @memberof CustomFormsBetaApi
+     */
+    public searchFormDefinitionsByTenant(requestParameters: CustomFormsBetaApiSearchFormDefinitionsByTenantRequest = {}, axiosOptions?: AxiosRequestConfig) {
+        return CustomFormsBetaApiFp(this.configuration).searchFormDefinitionsByTenant(requestParameters.offset, requestParameters.limit, requestParameters.filters, requestParameters.sorters, axiosOptions).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Parameter `{formInstanceID}` should match a form instance ID. Parameter `{formElementID}` should match a form element ID at the data source configuration.
+     * @summary Retrieves dynamic data by element.
+     * @param {CustomFormsBetaApiSearchFormElementDataByElementIDRequest} requestParameters Request parameters.
+     * @param {*} [axiosOptions] Override http request option.
+     * @throws {RequiredError}
+     * @memberof CustomFormsBetaApi
+     */
+    public searchFormElementDataByElementID(requestParameters: CustomFormsBetaApiSearchFormElementDataByElementIDRequest, axiosOptions?: AxiosRequestConfig) {
+        return CustomFormsBetaApiFp(this.configuration).searchFormElementDataByElementID(requestParameters.formInstanceID, requestParameters.formElementID, requestParameters.limit, requestParameters.filters, axiosOptions).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * No parameters required.
+     * @summary List form instances by tenant.
+     * @param {*} [axiosOptions] Override http request option.
+     * @throws {RequiredError}
+     * @memberof CustomFormsBetaApi
+     */
+    public searchFormInstancesByTenant(axiosOptions?: AxiosRequestConfig) {
+        return CustomFormsBetaApiFp(this.configuration).searchFormInstancesByTenant(axiosOptions).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * No parameters required.
+     * @summary List predefined select options.
+     * @param {*} [axiosOptions] Override http request option.
+     * @throws {RequiredError}
+     * @memberof CustomFormsBetaApi
+     */
+    public searchPreDefinedSelectOptions(axiosOptions?: AxiosRequestConfig) {
+        return CustomFormsBetaApiFp(this.configuration).searchPreDefinedSelectOptions(axiosOptions).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * 
+     * @summary Preview form definition data source.
+     * @param {CustomFormsBetaApiShowPreviewDataSourceRequest} requestParameters Request parameters.
+     * @param {*} [axiosOptions] Override http request option.
+     * @throws {RequiredError}
+     * @memberof CustomFormsBetaApi
+     */
+    public showPreviewDataSource(requestParameters: CustomFormsBetaApiShowPreviewDataSourceRequest, axiosOptions?: AxiosRequestConfig) {
+        return CustomFormsBetaApiFp(this.configuration).showPreviewDataSource(requestParameters.formDefinitionID, requestParameters.limit, requestParameters.filters, requestParameters.query, requestParameters.formElementPreviewRequestBeta, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 }
 
