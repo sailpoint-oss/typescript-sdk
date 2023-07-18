@@ -28656,6 +28656,55 @@ export const CertificationCampaignsBetaApiAxiosParamCreator = function (configur
             };
         },
         /**
+         * This API reassigns the specified certifications from one identity to another. A token with ORG_ADMIN or CERT_ADMIN authority is required to call this API.
+         * @summary Reassign Certifications
+         * @param {string} id The certification campaign ID
+         * @param {AdminReviewReassignBeta} adminReviewReassignBeta 
+         * @param {*} [axiosOptions] Override http request option.
+         * @deprecated
+         * @throws {RequiredError}
+         */
+        move: async (id: string, adminReviewReassignBeta: AdminReviewReassignBeta, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'id' is not null or undefined
+            assertParamExists('move', 'id', id)
+            // verify required parameter 'adminReviewReassignBeta' is not null or undefined
+            assertParamExists('move', 'adminReviewReassignBeta', adminReviewReassignBeta)
+            const localVarPath = `/campaigns/{id}/reassign`
+                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'POST', ...baseOptions, ...axiosOptions};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication oauth2 required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "oauth2", [], configuration)
+
+            // authentication oauth2 required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "oauth2", [], configuration)
+
+
+    
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
+            localVarRequestOptions.data = serializeDataIfNeeded(adminReviewReassignBeta, localVarRequestOptions, configuration)
+
+            return {
+                url: toPathString(localVarUrlObj),
+                axiosOptions: localVarRequestOptions,
+            };
+        },
+        /**
          * Allows updating individual fields on a campaign template using the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.
          * @summary Update a Campaign Template
          * @param {string} id The ID of the campaign template being modified.
@@ -28697,54 +28746,6 @@ export const CertificationCampaignsBetaApiAxiosParamCreator = function (configur
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
             localVarRequestOptions.data = serializeDataIfNeeded(requestBody, localVarRequestOptions, configuration)
-
-            return {
-                url: toPathString(localVarUrlObj),
-                axiosOptions: localVarRequestOptions,
-            };
-        },
-        /**
-         * This API reassigns the specified certifications from one identity to another. A token with ORG_ADMIN or CERT_ADMIN authority is required to call this API.
-         * @summary Reassign Certifications
-         * @param {string} id The certification campaign ID
-         * @param {AdminReviewReassignBeta} adminReviewReassignBeta 
-         * @param {*} [axiosOptions] Override http request option.
-         * @throws {RequiredError}
-         */
-        reassignCampaign: async (id: string, adminReviewReassignBeta: AdminReviewReassignBeta, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
-            // verify required parameter 'id' is not null or undefined
-            assertParamExists('reassignCampaign', 'id', id)
-            // verify required parameter 'adminReviewReassignBeta' is not null or undefined
-            assertParamExists('reassignCampaign', 'adminReviewReassignBeta', adminReviewReassignBeta)
-            const localVarPath = `/campaigns/{id}/reassign`
-                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
-            // use dummy base URL string because the URL constructor only accepts absolute URLs.
-            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
-            let baseOptions;
-            if (configuration) {
-                baseOptions = configuration.baseOptions;
-            }
-
-            const localVarRequestOptions = { method: 'POST', ...baseOptions, ...axiosOptions};
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-
-            // authentication oauth2 required
-            // oauth required
-            await setOAuthToObject(localVarHeaderParameter, "oauth2", [], configuration)
-
-            // authentication oauth2 required
-            // oauth required
-            await setOAuthToObject(localVarHeaderParameter, "oauth2", [], configuration)
-
-
-    
-            localVarHeaderParameter['Content-Type'] = 'application/json';
-
-            setSearchParams(localVarUrlObj, localVarQueryParameter);
-            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
-            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(adminReviewReassignBeta, localVarRequestOptions, configuration)
 
             return {
                 url: toPathString(localVarUrlObj),
@@ -29201,6 +29202,19 @@ export const CertificationCampaignsBetaApiFp = function(configuration?: Configur
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
+         * This API reassigns the specified certifications from one identity to another. A token with ORG_ADMIN or CERT_ADMIN authority is required to call this API.
+         * @summary Reassign Certifications
+         * @param {string} id The certification campaign ID
+         * @param {AdminReviewReassignBeta} adminReviewReassignBeta 
+         * @param {*} [axiosOptions] Override http request option.
+         * @deprecated
+         * @throws {RequiredError}
+         */
+        async move(id: string, adminReviewReassignBeta: AdminReviewReassignBeta, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<CertificationTaskBeta>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.move(id, adminReviewReassignBeta, axiosOptions);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
          * Allows updating individual fields on a campaign template using the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.
          * @summary Update a Campaign Template
          * @param {string} id The ID of the campaign template being modified.
@@ -29210,18 +29224,6 @@ export const CertificationCampaignsBetaApiFp = function(configuration?: Configur
          */
         async patchCampaignTemplate(id: string, requestBody: Array<object>, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<CampaignTemplateBeta>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.patchCampaignTemplate(id, requestBody, axiosOptions);
-            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
-        },
-        /**
-         * This API reassigns the specified certifications from one identity to another. A token with ORG_ADMIN or CERT_ADMIN authority is required to call this API.
-         * @summary Reassign Certifications
-         * @param {string} id The certification campaign ID
-         * @param {AdminReviewReassignBeta} adminReviewReassignBeta 
-         * @param {*} [axiosOptions] Override http request option.
-         * @throws {RequiredError}
-         */
-        async reassignCampaign(id: string, adminReviewReassignBeta: AdminReviewReassignBeta, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<CertificationTaskBeta>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.reassignCampaign(id, adminReviewReassignBeta, axiosOptions);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
@@ -29458,6 +29460,18 @@ export const CertificationCampaignsBetaApiFactory = function (configuration?: Co
             return localVarFp.listCampaignTemplates(limit, offset, count, sorters, filters, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
+         * This API reassigns the specified certifications from one identity to another. A token with ORG_ADMIN or CERT_ADMIN authority is required to call this API.
+         * @summary Reassign Certifications
+         * @param {string} id The certification campaign ID
+         * @param {AdminReviewReassignBeta} adminReviewReassignBeta 
+         * @param {*} [axiosOptions] Override http request option.
+         * @deprecated
+         * @throws {RequiredError}
+         */
+        move(id: string, adminReviewReassignBeta: AdminReviewReassignBeta, axiosOptions?: any): AxiosPromise<CertificationTaskBeta> {
+            return localVarFp.move(id, adminReviewReassignBeta, axiosOptions).then((request) => request(axios, basePath));
+        },
+        /**
          * Allows updating individual fields on a campaign template using the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.
          * @summary Update a Campaign Template
          * @param {string} id The ID of the campaign template being modified.
@@ -29467,17 +29481,6 @@ export const CertificationCampaignsBetaApiFactory = function (configuration?: Co
          */
         patchCampaignTemplate(id: string, requestBody: Array<object>, axiosOptions?: any): AxiosPromise<CampaignTemplateBeta> {
             return localVarFp.patchCampaignTemplate(id, requestBody, axiosOptions).then((request) => request(axios, basePath));
-        },
-        /**
-         * This API reassigns the specified certifications from one identity to another. A token with ORG_ADMIN or CERT_ADMIN authority is required to call this API.
-         * @summary Reassign Certifications
-         * @param {string} id The certification campaign ID
-         * @param {AdminReviewReassignBeta} adminReviewReassignBeta 
-         * @param {*} [axiosOptions] Override http request option.
-         * @throws {RequiredError}
-         */
-        reassignCampaign(id: string, adminReviewReassignBeta: AdminReviewReassignBeta, axiosOptions?: any): AxiosPromise<CertificationTaskBeta> {
-            return localVarFp.reassignCampaign(id, adminReviewReassignBeta, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * Kicks off remediation scan task for a certification campaign. Requires roles of CERT_ADMIN and ORG_ADMIN
@@ -29800,6 +29803,27 @@ export interface CertificationCampaignsBetaApiListCampaignTemplatesRequest {
 }
 
 /**
+ * Request parameters for move operation in CertificationCampaignsBetaApi.
+ * @export
+ * @interface CertificationCampaignsBetaApiMoveRequest
+ */
+export interface CertificationCampaignsBetaApiMoveRequest {
+    /**
+     * The certification campaign ID
+     * @type {string}
+     * @memberof CertificationCampaignsBetaApiMove
+     */
+    readonly id: string
+
+    /**
+     * 
+     * @type {AdminReviewReassignBeta}
+     * @memberof CertificationCampaignsBetaApiMove
+     */
+    readonly adminReviewReassignBeta: AdminReviewReassignBeta
+}
+
+/**
  * Request parameters for patchCampaignTemplate operation in CertificationCampaignsBetaApi.
  * @export
  * @interface CertificationCampaignsBetaApiPatchCampaignTemplateRequest
@@ -29818,27 +29842,6 @@ export interface CertificationCampaignsBetaApiPatchCampaignTemplateRequest {
      * @memberof CertificationCampaignsBetaApiPatchCampaignTemplate
      */
     readonly requestBody: Array<object>
-}
-
-/**
- * Request parameters for reassignCampaign operation in CertificationCampaignsBetaApi.
- * @export
- * @interface CertificationCampaignsBetaApiReassignCampaignRequest
- */
-export interface CertificationCampaignsBetaApiReassignCampaignRequest {
-    /**
-     * The certification campaign ID
-     * @type {string}
-     * @memberof CertificationCampaignsBetaApiReassignCampaign
-     */
-    readonly id: string
-
-    /**
-     * 
-     * @type {AdminReviewReassignBeta}
-     * @memberof CertificationCampaignsBetaApiReassignCampaign
-     */
-    readonly adminReviewReassignBeta: AdminReviewReassignBeta
 }
 
 /**
@@ -30131,6 +30134,19 @@ export class CertificationCampaignsBetaApi extends BaseAPI {
     }
 
     /**
+     * This API reassigns the specified certifications from one identity to another. A token with ORG_ADMIN or CERT_ADMIN authority is required to call this API.
+     * @summary Reassign Certifications
+     * @param {CertificationCampaignsBetaApiMoveRequest} requestParameters Request parameters.
+     * @param {*} [axiosOptions] Override http request option.
+     * @deprecated
+     * @throws {RequiredError}
+     * @memberof CertificationCampaignsBetaApi
+     */
+    public move(requestParameters: CertificationCampaignsBetaApiMoveRequest, axiosOptions?: AxiosRequestConfig) {
+        return CertificationCampaignsBetaApiFp(this.configuration).move(requestParameters.id, requestParameters.adminReviewReassignBeta, axiosOptions).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
      * Allows updating individual fields on a campaign template using the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.
      * @summary Update a Campaign Template
      * @param {CertificationCampaignsBetaApiPatchCampaignTemplateRequest} requestParameters Request parameters.
@@ -30140,18 +30156,6 @@ export class CertificationCampaignsBetaApi extends BaseAPI {
      */
     public patchCampaignTemplate(requestParameters: CertificationCampaignsBetaApiPatchCampaignTemplateRequest, axiosOptions?: AxiosRequestConfig) {
         return CertificationCampaignsBetaApiFp(this.configuration).patchCampaignTemplate(requestParameters.id, requestParameters.requestBody, axiosOptions).then((request) => request(this.axios, this.basePath));
-    }
-
-    /**
-     * This API reassigns the specified certifications from one identity to another. A token with ORG_ADMIN or CERT_ADMIN authority is required to call this API.
-     * @summary Reassign Certifications
-     * @param {CertificationCampaignsBetaApiReassignCampaignRequest} requestParameters Request parameters.
-     * @param {*} [axiosOptions] Override http request option.
-     * @throws {RequiredError}
-     * @memberof CertificationCampaignsBetaApi
-     */
-    public reassignCampaign(requestParameters: CertificationCampaignsBetaApiReassignCampaignRequest, axiosOptions?: AxiosRequestConfig) {
-        return CertificationCampaignsBetaApiFp(this.configuration).reassignCampaign(requestParameters.id, requestParameters.adminReviewReassignBeta, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
