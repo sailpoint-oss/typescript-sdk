@@ -874,23 +874,145 @@ export interface AccessRequestDynamicApproverBeta {
     'accessRequestId': string;
     /**
      * 
-     * @type {TriggerInputAccessRequestDynamicApproverRequestedForBeta}
+     * @type {AccessRequestDynamicApproverRequestedForBeta}
      * @memberof AccessRequestDynamicApproverBeta
      */
-    'requestedFor': TriggerInputAccessRequestDynamicApproverRequestedForBeta;
+    'requestedFor': AccessRequestDynamicApproverRequestedForBeta;
     /**
      * The access items that are being requested.
-     * @type {Array<TriggerInputAccessRequestDynamicApproverRequestedItemsInnerBeta>}
+     * @type {Array<AccessRequestDynamicApproverRequestedItemsInnerBeta>}
      * @memberof AccessRequestDynamicApproverBeta
      */
-    'requestedItems': Array<TriggerInputAccessRequestDynamicApproverRequestedItemsInnerBeta>;
+    'requestedItems': Array<AccessRequestDynamicApproverRequestedItemsInnerBeta>;
     /**
      * 
-     * @type {TriggerInputAccessRequestDynamicApproverRequestedByBeta}
+     * @type {AccessRequestDynamicApproverRequestedByBeta}
      * @memberof AccessRequestDynamicApproverBeta
      */
-    'requestedBy': TriggerInputAccessRequestDynamicApproverRequestedByBeta;
+    'requestedBy': AccessRequestDynamicApproverRequestedByBeta;
 }
+/**
+ * The identity that initiated the access request.
+ * @export
+ * @interface AccessRequestDynamicApproverRequestedByBeta
+ */
+export interface AccessRequestDynamicApproverRequestedByBeta {
+    /**
+     * The type of object that is referenced
+     * @type {object}
+     * @memberof AccessRequestDynamicApproverRequestedByBeta
+     */
+    'type'?: AccessRequestDynamicApproverRequestedByBetaTypeEnum;
+    /**
+     * ID of the object to which this reference applies
+     * @type {string}
+     * @memberof AccessRequestDynamicApproverRequestedByBeta
+     */
+    'id'?: string;
+    /**
+     * Human-readable display name of the object to which this reference applies
+     * @type {string}
+     * @memberof AccessRequestDynamicApproverRequestedByBeta
+     */
+    'name'?: string;
+}
+
+export const AccessRequestDynamicApproverRequestedByBetaTypeEnum = {
+    Identity: 'IDENTITY'
+} as const;
+
+export type AccessRequestDynamicApproverRequestedByBetaTypeEnum = typeof AccessRequestDynamicApproverRequestedByBetaTypeEnum[keyof typeof AccessRequestDynamicApproverRequestedByBetaTypeEnum];
+
+/**
+ * The identity for whom the access is requested for.
+ * @export
+ * @interface AccessRequestDynamicApproverRequestedForBeta
+ */
+export interface AccessRequestDynamicApproverRequestedForBeta {
+    /**
+     * The type of object that is referenced
+     * @type {object}
+     * @memberof AccessRequestDynamicApproverRequestedForBeta
+     */
+    'type'?: AccessRequestDynamicApproverRequestedForBetaTypeEnum;
+    /**
+     * ID of the object to which this reference applies
+     * @type {string}
+     * @memberof AccessRequestDynamicApproverRequestedForBeta
+     */
+    'id'?: string;
+    /**
+     * Human-readable display name of the object to which this reference applies
+     * @type {string}
+     * @memberof AccessRequestDynamicApproverRequestedForBeta
+     */
+    'name'?: string;
+}
+
+export const AccessRequestDynamicApproverRequestedForBetaTypeEnum = {
+    Identity: 'IDENTITY'
+} as const;
+
+export type AccessRequestDynamicApproverRequestedForBetaTypeEnum = typeof AccessRequestDynamicApproverRequestedForBetaTypeEnum[keyof typeof AccessRequestDynamicApproverRequestedForBetaTypeEnum];
+
+/**
+ * 
+ * @export
+ * @interface AccessRequestDynamicApproverRequestedItemsInnerBeta
+ */
+export interface AccessRequestDynamicApproverRequestedItemsInnerBeta {
+    /**
+     * The unique ID of the access item.
+     * @type {string}
+     * @memberof AccessRequestDynamicApproverRequestedItemsInnerBeta
+     */
+    'id': string;
+    /**
+     * Human friendly name of the access item.
+     * @type {string}
+     * @memberof AccessRequestDynamicApproverRequestedItemsInnerBeta
+     */
+    'name': string;
+    /**
+     * Extended description of the access item.
+     * @type {string}
+     * @memberof AccessRequestDynamicApproverRequestedItemsInnerBeta
+     */
+    'description'?: string | null;
+    /**
+     * The type of access item being requested.
+     * @type {object}
+     * @memberof AccessRequestDynamicApproverRequestedItemsInnerBeta
+     */
+    'type': AccessRequestDynamicApproverRequestedItemsInnerBetaTypeEnum;
+    /**
+     * Grant or revoke the access item
+     * @type {object}
+     * @memberof AccessRequestDynamicApproverRequestedItemsInnerBeta
+     */
+    'operation': AccessRequestDynamicApproverRequestedItemsInnerBetaOperationEnum;
+    /**
+     * A comment from the requestor on why the access is needed.
+     * @type {string}
+     * @memberof AccessRequestDynamicApproverRequestedItemsInnerBeta
+     */
+    'comment'?: string | null;
+}
+
+export const AccessRequestDynamicApproverRequestedItemsInnerBetaTypeEnum = {
+    AccessProfile: 'ACCESS_PROFILE',
+    Role: 'ROLE',
+    Entitlement: 'ENTITLEMENT'
+} as const;
+
+export type AccessRequestDynamicApproverRequestedItemsInnerBetaTypeEnum = typeof AccessRequestDynamicApproverRequestedItemsInnerBetaTypeEnum[keyof typeof AccessRequestDynamicApproverRequestedItemsInnerBetaTypeEnum];
+export const AccessRequestDynamicApproverRequestedItemsInnerBetaOperationEnum = {
+    Add: 'Add',
+    Remove: 'Remove'
+} as const;
+
+export type AccessRequestDynamicApproverRequestedItemsInnerBetaOperationEnum = typeof AccessRequestDynamicApproverRequestedItemsInnerBetaOperationEnum[keyof typeof AccessRequestDynamicApproverRequestedItemsInnerBetaOperationEnum];
+
 /**
  * 
  * @export
@@ -1073,23 +1195,228 @@ export interface AccessRequestPostApprovalBeta {
     'accessRequestId': string;
     /**
      * 
-     * @type {TriggerInputAccessRequestPostApprovalRequestedForBeta}
+     * @type {AccessRequestPostApprovalRequestedForBeta}
      * @memberof AccessRequestPostApprovalBeta
      */
-    'requestedFor': TriggerInputAccessRequestPostApprovalRequestedForBeta;
+    'requestedFor': AccessRequestPostApprovalRequestedForBeta;
     /**
      * Details on the outcome of each access item.
-     * @type {Array<TriggerInputAccessRequestPostApprovalRequestedItemsStatusInnerBeta>}
+     * @type {Array<AccessRequestPostApprovalRequestedItemsStatusInnerBeta>}
      * @memberof AccessRequestPostApprovalBeta
      */
-    'requestedItemsStatus': Array<TriggerInputAccessRequestPostApprovalRequestedItemsStatusInnerBeta>;
+    'requestedItemsStatus': Array<AccessRequestPostApprovalRequestedItemsStatusInnerBeta>;
     /**
      * 
-     * @type {TriggerInputAccessRequestPostApprovalRequestedByBeta}
+     * @type {AccessRequestPostApprovalRequestedByBeta}
      * @memberof AccessRequestPostApprovalBeta
      */
-    'requestedBy': TriggerInputAccessRequestPostApprovalRequestedByBeta;
+    'requestedBy': AccessRequestPostApprovalRequestedByBeta;
 }
+/**
+ * The identity that initiated the access request.
+ * @export
+ * @interface AccessRequestPostApprovalRequestedByBeta
+ */
+export interface AccessRequestPostApprovalRequestedByBeta {
+    /**
+     * The type of object that is referenced
+     * @type {object}
+     * @memberof AccessRequestPostApprovalRequestedByBeta
+     */
+    'type': AccessRequestPostApprovalRequestedByBetaTypeEnum;
+    /**
+     * ID of the object to which this reference applies
+     * @type {string}
+     * @memberof AccessRequestPostApprovalRequestedByBeta
+     */
+    'id': string;
+    /**
+     * Human-readable display name of the object to which this reference applies
+     * @type {string}
+     * @memberof AccessRequestPostApprovalRequestedByBeta
+     */
+    'name': string;
+}
+
+export const AccessRequestPostApprovalRequestedByBetaTypeEnum = {
+    Identity: 'IDENTITY'
+} as const;
+
+export type AccessRequestPostApprovalRequestedByBetaTypeEnum = typeof AccessRequestPostApprovalRequestedByBetaTypeEnum[keyof typeof AccessRequestPostApprovalRequestedByBetaTypeEnum];
+
+/**
+ * The identity who the access request is for.
+ * @export
+ * @interface AccessRequestPostApprovalRequestedForBeta
+ */
+export interface AccessRequestPostApprovalRequestedForBeta {
+    /**
+     * The type of object that is referenced
+     * @type {object}
+     * @memberof AccessRequestPostApprovalRequestedForBeta
+     */
+    'type': AccessRequestPostApprovalRequestedForBetaTypeEnum;
+    /**
+     * ID of the object to which this reference applies
+     * @type {string}
+     * @memberof AccessRequestPostApprovalRequestedForBeta
+     */
+    'id': string;
+    /**
+     * Human-readable display name of the object to which this reference applies
+     * @type {string}
+     * @memberof AccessRequestPostApprovalRequestedForBeta
+     */
+    'name': string;
+}
+
+export const AccessRequestPostApprovalRequestedForBetaTypeEnum = {
+    Identity: 'IDENTITY'
+} as const;
+
+export type AccessRequestPostApprovalRequestedForBetaTypeEnum = typeof AccessRequestPostApprovalRequestedForBetaTypeEnum[keyof typeof AccessRequestPostApprovalRequestedForBetaTypeEnum];
+
+/**
+ * The identity of the approver.
+ * @export
+ * @interface AccessRequestPostApprovalRequestedItemsStatusInnerApprovalInfoInnerApproverBeta
+ */
+export interface AccessRequestPostApprovalRequestedItemsStatusInnerApprovalInfoInnerApproverBeta {
+    /**
+     * The type of object that is referenced
+     * @type {object}
+     * @memberof AccessRequestPostApprovalRequestedItemsStatusInnerApprovalInfoInnerApproverBeta
+     */
+    'type': AccessRequestPostApprovalRequestedItemsStatusInnerApprovalInfoInnerApproverBetaTypeEnum;
+    /**
+     * ID of the object to which this reference applies
+     * @type {string}
+     * @memberof AccessRequestPostApprovalRequestedItemsStatusInnerApprovalInfoInnerApproverBeta
+     */
+    'id': string;
+    /**
+     * Human-readable display name of the object to which this reference applies
+     * @type {string}
+     * @memberof AccessRequestPostApprovalRequestedItemsStatusInnerApprovalInfoInnerApproverBeta
+     */
+    'name': string;
+}
+
+export const AccessRequestPostApprovalRequestedItemsStatusInnerApprovalInfoInnerApproverBetaTypeEnum = {
+    Identity: 'IDENTITY'
+} as const;
+
+export type AccessRequestPostApprovalRequestedItemsStatusInnerApprovalInfoInnerApproverBetaTypeEnum = typeof AccessRequestPostApprovalRequestedItemsStatusInnerApprovalInfoInnerApproverBetaTypeEnum[keyof typeof AccessRequestPostApprovalRequestedItemsStatusInnerApprovalInfoInnerApproverBetaTypeEnum];
+
+/**
+ * 
+ * @export
+ * @interface AccessRequestPostApprovalRequestedItemsStatusInnerApprovalInfoInnerBeta
+ */
+export interface AccessRequestPostApprovalRequestedItemsStatusInnerApprovalInfoInnerBeta {
+    /**
+     * A comment left by the approver.
+     * @type {string}
+     * @memberof AccessRequestPostApprovalRequestedItemsStatusInnerApprovalInfoInnerBeta
+     */
+    'approvalComment'?: string | null;
+    /**
+     * The final decision of the approver.
+     * @type {object}
+     * @memberof AccessRequestPostApprovalRequestedItemsStatusInnerApprovalInfoInnerBeta
+     */
+    'approvalDecision': AccessRequestPostApprovalRequestedItemsStatusInnerApprovalInfoInnerBetaApprovalDecisionEnum;
+    /**
+     * The name of the approver
+     * @type {string}
+     * @memberof AccessRequestPostApprovalRequestedItemsStatusInnerApprovalInfoInnerBeta
+     */
+    'approverName': string;
+    /**
+     * 
+     * @type {AccessRequestPostApprovalRequestedItemsStatusInnerApprovalInfoInnerApproverBeta}
+     * @memberof AccessRequestPostApprovalRequestedItemsStatusInnerApprovalInfoInnerBeta
+     */
+    'approver': AccessRequestPostApprovalRequestedItemsStatusInnerApprovalInfoInnerApproverBeta;
+}
+
+export const AccessRequestPostApprovalRequestedItemsStatusInnerApprovalInfoInnerBetaApprovalDecisionEnum = {
+    Approved: 'APPROVED',
+    Denied: 'DENIED'
+} as const;
+
+export type AccessRequestPostApprovalRequestedItemsStatusInnerApprovalInfoInnerBetaApprovalDecisionEnum = typeof AccessRequestPostApprovalRequestedItemsStatusInnerApprovalInfoInnerBetaApprovalDecisionEnum[keyof typeof AccessRequestPostApprovalRequestedItemsStatusInnerApprovalInfoInnerBetaApprovalDecisionEnum];
+
+/**
+ * 
+ * @export
+ * @interface AccessRequestPostApprovalRequestedItemsStatusInnerBeta
+ */
+export interface AccessRequestPostApprovalRequestedItemsStatusInnerBeta {
+    /**
+     * The unique ID of the access item being requested.
+     * @type {string}
+     * @memberof AccessRequestPostApprovalRequestedItemsStatusInnerBeta
+     */
+    'id': string;
+    /**
+     * The human friendly name of the access item.
+     * @type {string}
+     * @memberof AccessRequestPostApprovalRequestedItemsStatusInnerBeta
+     */
+    'name': string;
+    /**
+     * Detailed description of the access item.
+     * @type {string}
+     * @memberof AccessRequestPostApprovalRequestedItemsStatusInnerBeta
+     */
+    'description'?: string | null;
+    /**
+     * The type of access item.
+     * @type {object}
+     * @memberof AccessRequestPostApprovalRequestedItemsStatusInnerBeta
+     */
+    'type': AccessRequestPostApprovalRequestedItemsStatusInnerBetaTypeEnum;
+    /**
+     * The action to perform on the access item.
+     * @type {object}
+     * @memberof AccessRequestPostApprovalRequestedItemsStatusInnerBeta
+     */
+    'operation': AccessRequestPostApprovalRequestedItemsStatusInnerBetaOperationEnum;
+    /**
+     * A comment from the identity requesting the access.
+     * @type {string}
+     * @memberof AccessRequestPostApprovalRequestedItemsStatusInnerBeta
+     */
+    'comment'?: string | null;
+    /**
+     * Additional customer defined metadata about the access item.
+     * @type {{ [key: string]: any; }}
+     * @memberof AccessRequestPostApprovalRequestedItemsStatusInnerBeta
+     */
+    'clientMetadata'?: { [key: string]: any; } | null;
+    /**
+     * A list of one or more approvers for the access request.
+     * @type {Array<AccessRequestPostApprovalRequestedItemsStatusInnerApprovalInfoInnerBeta>}
+     * @memberof AccessRequestPostApprovalRequestedItemsStatusInnerBeta
+     */
+    'approvalInfo': Array<AccessRequestPostApprovalRequestedItemsStatusInnerApprovalInfoInnerBeta>;
+}
+
+export const AccessRequestPostApprovalRequestedItemsStatusInnerBetaTypeEnum = {
+    AccessProfile: 'ACCESS_PROFILE',
+    Role: 'ROLE',
+    Entitlement: 'ENTITLEMENT'
+} as const;
+
+export type AccessRequestPostApprovalRequestedItemsStatusInnerBetaTypeEnum = typeof AccessRequestPostApprovalRequestedItemsStatusInnerBetaTypeEnum[keyof typeof AccessRequestPostApprovalRequestedItemsStatusInnerBetaTypeEnum];
+export const AccessRequestPostApprovalRequestedItemsStatusInnerBetaOperationEnum = {
+    Add: 'Add',
+    Remove: 'Remove'
+} as const;
+
+export type AccessRequestPostApprovalRequestedItemsStatusInnerBetaOperationEnum = typeof AccessRequestPostApprovalRequestedItemsStatusInnerBetaOperationEnum[keyof typeof AccessRequestPostApprovalRequestedItemsStatusInnerBetaOperationEnum];
+
 /**
  * 
  * @export
@@ -1129,23 +1456,81 @@ export interface AccessRequestPreApprovalBeta {
     'accessRequestId': string;
     /**
      * 
-     * @type {TriggerInputAccessRequestPostApprovalRequestedForBeta}
+     * @type {AccessRequestPostApprovalRequestedForBeta}
      * @memberof AccessRequestPreApprovalBeta
      */
-    'requestedFor': TriggerInputAccessRequestPostApprovalRequestedForBeta;
+    'requestedFor': AccessRequestPostApprovalRequestedForBeta;
     /**
      * Details of the access items being requested.
-     * @type {Array<TriggerInputAccessRequestPreApprovalRequestedItemsInnerBeta>}
+     * @type {Array<AccessRequestPreApprovalRequestedItemsInnerBeta>}
      * @memberof AccessRequestPreApprovalBeta
      */
-    'requestedItems': Array<TriggerInputAccessRequestPreApprovalRequestedItemsInnerBeta>;
+    'requestedItems': Array<AccessRequestPreApprovalRequestedItemsInnerBeta>;
     /**
      * 
-     * @type {TriggerInputAccessRequestPostApprovalRequestedByBeta}
+     * @type {AccessRequestPostApprovalRequestedByBeta}
      * @memberof AccessRequestPreApprovalBeta
      */
-    'requestedBy': TriggerInputAccessRequestPostApprovalRequestedByBeta;
+    'requestedBy': AccessRequestPostApprovalRequestedByBeta;
 }
+/**
+ * 
+ * @export
+ * @interface AccessRequestPreApprovalRequestedItemsInnerBeta
+ */
+export interface AccessRequestPreApprovalRequestedItemsInnerBeta {
+    /**
+     * The unique ID of the access item being requested.
+     * @type {string}
+     * @memberof AccessRequestPreApprovalRequestedItemsInnerBeta
+     */
+    'id': string;
+    /**
+     * The human friendly name of the access item.
+     * @type {string}
+     * @memberof AccessRequestPreApprovalRequestedItemsInnerBeta
+     */
+    'name': string;
+    /**
+     * Detailed description of the access item.
+     * @type {string}
+     * @memberof AccessRequestPreApprovalRequestedItemsInnerBeta
+     */
+    'description'?: string | null;
+    /**
+     * The type of access item.
+     * @type {object}
+     * @memberof AccessRequestPreApprovalRequestedItemsInnerBeta
+     */
+    'type': AccessRequestPreApprovalRequestedItemsInnerBetaTypeEnum;
+    /**
+     * The action to perform on the access item.
+     * @type {object}
+     * @memberof AccessRequestPreApprovalRequestedItemsInnerBeta
+     */
+    'operation': AccessRequestPreApprovalRequestedItemsInnerBetaOperationEnum;
+    /**
+     * A comment from the identity requesting the access.
+     * @type {string}
+     * @memberof AccessRequestPreApprovalRequestedItemsInnerBeta
+     */
+    'comment'?: string | null;
+}
+
+export const AccessRequestPreApprovalRequestedItemsInnerBetaTypeEnum = {
+    AccessProfile: 'ACCESS_PROFILE',
+    Role: 'ROLE',
+    Entitlement: 'ENTITLEMENT'
+} as const;
+
+export type AccessRequestPreApprovalRequestedItemsInnerBetaTypeEnum = typeof AccessRequestPreApprovalRequestedItemsInnerBetaTypeEnum[keyof typeof AccessRequestPreApprovalRequestedItemsInnerBetaTypeEnum];
+export const AccessRequestPreApprovalRequestedItemsInnerBetaOperationEnum = {
+    Add: 'Add',
+    Remove: 'Remove'
+} as const;
+
+export type AccessRequestPreApprovalRequestedItemsInnerBetaOperationEnum = typeof AccessRequestPreApprovalRequestedItemsInnerBetaOperationEnum[keyof typeof AccessRequestPreApprovalRequestedItemsInnerBetaOperationEnum];
+
 /**
  * 
  * @export
@@ -1589,10 +1974,10 @@ export type AccountAggregationBetaStatusEnum = typeof AccountAggregationBetaStat
 export interface AccountAggregationCompletedBeta {
     /**
      * 
-     * @type {TriggerInputAccountAggregationCompletedSourceBeta}
+     * @type {AccountAggregationCompletedSourceBeta}
      * @memberof AccountAggregationCompletedBeta
      */
-    'source': TriggerInputAccountAggregationCompletedSourceBeta;
+    'source': AccountAggregationCompletedSourceBeta;
     /**
      * The overall status of the aggregation.
      * @type {object}
@@ -1625,10 +2010,10 @@ export interface AccountAggregationCompletedBeta {
     'warnings': Array<string> | null;
     /**
      * 
-     * @type {TriggerInputAccountAggregationCompletedStatsBeta}
+     * @type {AccountAggregationCompletedStatsBeta}
      * @memberof AccountAggregationCompletedBeta
      */
-    'stats': TriggerInputAccountAggregationCompletedStatsBeta;
+    'stats': AccountAggregationCompletedStatsBeta;
 }
 
 export const AccountAggregationCompletedBetaStatusEnum = {
@@ -1639,6 +2024,75 @@ export const AccountAggregationCompletedBetaStatusEnum = {
 
 export type AccountAggregationCompletedBetaStatusEnum = typeof AccountAggregationCompletedBetaStatusEnum[keyof typeof AccountAggregationCompletedBetaStatusEnum];
 
+/**
+ * The source from which the accounts were aggregated.
+ * @export
+ * @interface AccountAggregationCompletedSourceBeta
+ */
+export interface AccountAggregationCompletedSourceBeta {
+    /**
+     * The type of object that is referenced
+     * @type {object}
+     * @memberof AccountAggregationCompletedSourceBeta
+     */
+    'type': AccountAggregationCompletedSourceBetaTypeEnum;
+    /**
+     * ID of the object to which this reference applies
+     * @type {string}
+     * @memberof AccountAggregationCompletedSourceBeta
+     */
+    'id': string;
+    /**
+     * Human-readable display name of the object to which this reference applies
+     * @type {string}
+     * @memberof AccountAggregationCompletedSourceBeta
+     */
+    'name': string;
+}
+
+export const AccountAggregationCompletedSourceBetaTypeEnum = {
+    Source: 'SOURCE'
+} as const;
+
+export type AccountAggregationCompletedSourceBetaTypeEnum = typeof AccountAggregationCompletedSourceBetaTypeEnum[keyof typeof AccountAggregationCompletedSourceBetaTypeEnum];
+
+/**
+ * Overall statistics about the account aggregation.
+ * @export
+ * @interface AccountAggregationCompletedStatsBeta
+ */
+export interface AccountAggregationCompletedStatsBeta {
+    /**
+     * The number of accounts which were scanned / iterated over.
+     * @type {number}
+     * @memberof AccountAggregationCompletedStatsBeta
+     */
+    'scanned': number;
+    /**
+     * The number of accounts which existed before, but had no changes.
+     * @type {number}
+     * @memberof AccountAggregationCompletedStatsBeta
+     */
+    'unchanged': number;
+    /**
+     * The number of accounts which existed before, but had changes.
+     * @type {number}
+     * @memberof AccountAggregationCompletedStatsBeta
+     */
+    'changed': number;
+    /**
+     * The number of accounts which are new - have not existed before.
+     * @type {number}
+     * @memberof AccountAggregationCompletedStatsBeta
+     */
+    'added': number;
+    /**
+     * The number accounts which existed before, but no longer exist (thus getting removed).
+     * @type {number}
+     * @memberof AccountAggregationCompletedStatsBeta
+     */
+    'removed': number;
+}
 /**
  * 
  * @export
@@ -1787,6 +2241,50 @@ export interface AccountAttributesBeta {
     'attributes': object;
 }
 /**
+ * Details of the account where the attributes changed.
+ * @export
+ * @interface AccountAttributesChangedAccountBeta
+ */
+export interface AccountAttributesChangedAccountBeta {
+    /**
+     * SailPoint generated unique identifier.
+     * @type {string}
+     * @memberof AccountAttributesChangedAccountBeta
+     */
+    'id': string;
+    /**
+     * The source\'s unique identifier for the account. UUID is generated by the source system.
+     * @type {string}
+     * @memberof AccountAttributesChangedAccountBeta
+     */
+    'uuid': string | null;
+    /**
+     * Name of the account.
+     * @type {string}
+     * @memberof AccountAttributesChangedAccountBeta
+     */
+    'name': string;
+    /**
+     * Unique ID of the account on the source.
+     * @type {string}
+     * @memberof AccountAttributesChangedAccountBeta
+     */
+    'nativeIdentity': string;
+    /**
+     * The type of the account
+     * @type {object}
+     * @memberof AccountAttributesChangedAccountBeta
+     */
+    'type': AccountAttributesChangedAccountBetaTypeEnum;
+}
+
+export const AccountAttributesChangedAccountBetaTypeEnum = {
+    Account: 'ACCOUNT'
+} as const;
+
+export type AccountAttributesChangedAccountBetaTypeEnum = typeof AccountAttributesChangedAccountBetaTypeEnum[keyof typeof AccountAttributesChangedAccountBetaTypeEnum];
+
+/**
  * 
  * @export
  * @interface AccountAttributesChangedBeta
@@ -1794,29 +2292,132 @@ export interface AccountAttributesBeta {
 export interface AccountAttributesChangedBeta {
     /**
      * 
-     * @type {TriggerInputAccountAttributesChangedIdentityBeta}
+     * @type {AccountAttributesChangedIdentityBeta}
      * @memberof AccountAttributesChangedBeta
      */
-    'identity': TriggerInputAccountAttributesChangedIdentityBeta;
+    'identity': AccountAttributesChangedIdentityBeta;
     /**
      * 
-     * @type {TriggerInputAccountAttributesChangedSourceBeta}
+     * @type {AccountAttributesChangedSourceBeta}
      * @memberof AccountAttributesChangedBeta
      */
-    'source': TriggerInputAccountAttributesChangedSourceBeta;
+    'source': AccountAttributesChangedSourceBeta;
     /**
      * 
-     * @type {TriggerInputAccountAttributesChangedAccountBeta}
+     * @type {AccountAttributesChangedAccountBeta}
      * @memberof AccountAttributesChangedBeta
      */
-    'account': TriggerInputAccountAttributesChangedAccountBeta;
+    'account': AccountAttributesChangedAccountBeta;
     /**
      * A list of attributes that changed.
-     * @type {Array<TriggerInputAccountAttributesChangedChangesInnerBeta>}
+     * @type {Array<AccountAttributesChangedChangesInnerBeta>}
      * @memberof AccountAttributesChangedBeta
      */
-    'changes': Array<TriggerInputAccountAttributesChangedChangesInnerBeta>;
+    'changes': Array<AccountAttributesChangedChangesInnerBeta>;
 }
+/**
+ * 
+ * @export
+ * @interface AccountAttributesChangedChangesInnerBeta
+ */
+export interface AccountAttributesChangedChangesInnerBeta {
+    /**
+     * The name of the attribute.
+     * @type {string}
+     * @memberof AccountAttributesChangedChangesInnerBeta
+     */
+    'attribute': string;
+    /**
+     * 
+     * @type {AccountAttributesChangedChangesInnerOldValueBeta}
+     * @memberof AccountAttributesChangedChangesInnerBeta
+     */
+    'oldValue': AccountAttributesChangedChangesInnerOldValueBeta | null;
+    /**
+     * 
+     * @type {AccountAttributesChangedChangesInnerNewValueBeta}
+     * @memberof AccountAttributesChangedChangesInnerBeta
+     */
+    'newValue': AccountAttributesChangedChangesInnerNewValueBeta | null;
+}
+/**
+ * @type AccountAttributesChangedChangesInnerNewValueBeta
+ * The new value of the attribute.
+ * @export
+ */
+export type AccountAttributesChangedChangesInnerNewValueBeta = Array<string> | boolean | string;
+
+/**
+ * @type AccountAttributesChangedChangesInnerOldValueBeta
+ * The previous value of the attribute.
+ * @export
+ */
+export type AccountAttributesChangedChangesInnerOldValueBeta = Array<string> | boolean | string;
+
+/**
+ * The identity whose account attributes changed.
+ * @export
+ * @interface AccountAttributesChangedIdentityBeta
+ */
+export interface AccountAttributesChangedIdentityBeta {
+    /**
+     * The type of object that is referenced
+     * @type {object}
+     * @memberof AccountAttributesChangedIdentityBeta
+     */
+    'type': AccountAttributesChangedIdentityBetaTypeEnum;
+    /**
+     * ID of the object to which this reference applies
+     * @type {string}
+     * @memberof AccountAttributesChangedIdentityBeta
+     */
+    'id': string;
+    /**
+     * Human-readable display name of the object to which this reference applies
+     * @type {string}
+     * @memberof AccountAttributesChangedIdentityBeta
+     */
+    'name': string;
+}
+
+export const AccountAttributesChangedIdentityBetaTypeEnum = {
+    Identity: 'IDENTITY'
+} as const;
+
+export type AccountAttributesChangedIdentityBetaTypeEnum = typeof AccountAttributesChangedIdentityBetaTypeEnum[keyof typeof AccountAttributesChangedIdentityBetaTypeEnum];
+
+/**
+ * The source that contains the account.
+ * @export
+ * @interface AccountAttributesChangedSourceBeta
+ */
+export interface AccountAttributesChangedSourceBeta {
+    /**
+     * ID of the object to which this reference applies
+     * @type {string}
+     * @memberof AccountAttributesChangedSourceBeta
+     */
+    'id': string;
+    /**
+     * The type of object that is referenced
+     * @type {string}
+     * @memberof AccountAttributesChangedSourceBeta
+     */
+    'type': AccountAttributesChangedSourceBetaTypeEnum;
+    /**
+     * Human-readable display name of the object to which this reference applies
+     * @type {string}
+     * @memberof AccountAttributesChangedSourceBeta
+     */
+    'name': string;
+}
+
+export const AccountAttributesChangedSourceBetaTypeEnum = {
+    Source: 'SOURCE'
+} as const;
+
+export type AccountAttributesChangedSourceBetaTypeEnum = typeof AccountAttributesChangedSourceBetaTypeEnum[keyof typeof AccountAttributesChangedSourceBetaTypeEnum];
+
 /**
  * The schema attribute values for the account
  * @export
@@ -1961,6 +2562,50 @@ export interface AccountBeta {
     'hasEntitlements': boolean;
 }
 /**
+ * The account that was correlated.
+ * @export
+ * @interface AccountCorrelatedAccountBeta
+ */
+export interface AccountCorrelatedAccountBeta {
+    /**
+     * The type of object that is referenced
+     * @type {object}
+     * @memberof AccountCorrelatedAccountBeta
+     */
+    'type': AccountCorrelatedAccountBetaTypeEnum;
+    /**
+     * Unique ID of the account on the source.
+     * @type {string}
+     * @memberof AccountCorrelatedAccountBeta
+     */
+    'nativeIdentity': string;
+    /**
+     * The source\'s unique identifier for the account. UUID is generated by the source system.
+     * @type {string}
+     * @memberof AccountCorrelatedAccountBeta
+     */
+    'uuid'?: string | null;
+    /**
+     * ID of the object to which this reference applies
+     * @type {string}
+     * @memberof AccountCorrelatedAccountBeta
+     */
+    'id': string;
+    /**
+     * Human-readable display name of the object to which this reference applies
+     * @type {string}
+     * @memberof AccountCorrelatedAccountBeta
+     */
+    'name': string;
+}
+
+export const AccountCorrelatedAccountBetaTypeEnum = {
+    Account: 'ACCOUNT'
+} as const;
+
+export type AccountCorrelatedAccountBetaTypeEnum = typeof AccountCorrelatedAccountBetaTypeEnum[keyof typeof AccountCorrelatedAccountBetaTypeEnum];
+
+/**
  * 
  * @export
  * @interface AccountCorrelatedBeta
@@ -1968,22 +2613,22 @@ export interface AccountBeta {
 export interface AccountCorrelatedBeta {
     /**
      * 
-     * @type {TriggerInputAccountCorrelatedIdentityBeta}
+     * @type {AccountCorrelatedIdentityBeta}
      * @memberof AccountCorrelatedBeta
      */
-    'identity': TriggerInputAccountCorrelatedIdentityBeta;
+    'identity': AccountCorrelatedIdentityBeta;
     /**
      * 
-     * @type {TriggerInputAccountCorrelatedSourceBeta}
+     * @type {AccountCorrelatedSourceBeta}
      * @memberof AccountCorrelatedBeta
      */
-    'source': TriggerInputAccountCorrelatedSourceBeta;
+    'source': AccountCorrelatedSourceBeta;
     /**
      * 
-     * @type {TriggerInputAccountCorrelatedAccountBeta}
+     * @type {AccountCorrelatedAccountBeta}
      * @memberof AccountCorrelatedBeta
      */
-    'account': TriggerInputAccountCorrelatedAccountBeta;
+    'account': AccountCorrelatedAccountBeta;
     /**
      * The attributes associated with the account.  Attributes are unique per source.
      * @type {{ [key: string]: any; }}
@@ -1997,6 +2642,70 @@ export interface AccountCorrelatedBeta {
      */
     'entitlementCount'?: number;
 }
+/**
+ * The identity that the account correlated with.
+ * @export
+ * @interface AccountCorrelatedIdentityBeta
+ */
+export interface AccountCorrelatedIdentityBeta {
+    /**
+     * The type of object that is referenced
+     * @type {object}
+     * @memberof AccountCorrelatedIdentityBeta
+     */
+    'type': AccountCorrelatedIdentityBetaTypeEnum;
+    /**
+     * ID of the object to which this reference applies
+     * @type {string}
+     * @memberof AccountCorrelatedIdentityBeta
+     */
+    'id': string;
+    /**
+     * Human-readable display name of the object to which this reference applies
+     * @type {string}
+     * @memberof AccountCorrelatedIdentityBeta
+     */
+    'name': string;
+}
+
+export const AccountCorrelatedIdentityBetaTypeEnum = {
+    Identity: 'IDENTITY'
+} as const;
+
+export type AccountCorrelatedIdentityBetaTypeEnum = typeof AccountCorrelatedIdentityBetaTypeEnum[keyof typeof AccountCorrelatedIdentityBetaTypeEnum];
+
+/**
+ * The source from which the account came from.
+ * @export
+ * @interface AccountCorrelatedSourceBeta
+ */
+export interface AccountCorrelatedSourceBeta {
+    /**
+     * ID of the object to which this reference applies
+     * @type {string}
+     * @memberof AccountCorrelatedSourceBeta
+     */
+    'id': string;
+    /**
+     * The type of object that is referenced
+     * @type {string}
+     * @memberof AccountCorrelatedSourceBeta
+     */
+    'type': AccountCorrelatedSourceBetaTypeEnum;
+    /**
+     * Human-readable display name of the object to which this reference applies
+     * @type {string}
+     * @memberof AccountCorrelatedSourceBeta
+     */
+    'name': string;
+}
+
+export const AccountCorrelatedSourceBetaTypeEnum = {
+    Source: 'SOURCE'
+} as const;
+
+export type AccountCorrelatedSourceBetaTypeEnum = typeof AccountCorrelatedSourceBetaTypeEnum[keyof typeof AccountCorrelatedSourceBetaTypeEnum];
+
 /**
  * If an account activity item is associated with an access request, captures details of that request.
  * @export
@@ -2163,6 +2872,50 @@ export interface AccountToggleRequestBeta {
     'forceProvisioning'?: boolean;
 }
 /**
+ * The account that was uncorrelated.
+ * @export
+ * @interface AccountUncorrelatedAccountBeta
+ */
+export interface AccountUncorrelatedAccountBeta {
+    /**
+     * The type of object that is referenced
+     * @type {object}
+     * @memberof AccountUncorrelatedAccountBeta
+     */
+    'type': AccountUncorrelatedAccountBetaTypeEnum;
+    /**
+     * Unique ID of the account on the source.
+     * @type {string}
+     * @memberof AccountUncorrelatedAccountBeta
+     */
+    'nativeIdentity': string;
+    /**
+     * The source\'s unique identifier for the account. UUID is generated by the source system.
+     * @type {string}
+     * @memberof AccountUncorrelatedAccountBeta
+     */
+    'uuid'?: string | null;
+    /**
+     * ID of the object to which this reference applies
+     * @type {string}
+     * @memberof AccountUncorrelatedAccountBeta
+     */
+    'id': string;
+    /**
+     * Human-readable display name of the object to which this reference applies
+     * @type {string}
+     * @memberof AccountUncorrelatedAccountBeta
+     */
+    'name': string;
+}
+
+export const AccountUncorrelatedAccountBetaTypeEnum = {
+    Account: 'ACCOUNT'
+} as const;
+
+export type AccountUncorrelatedAccountBetaTypeEnum = typeof AccountUncorrelatedAccountBetaTypeEnum[keyof typeof AccountUncorrelatedAccountBetaTypeEnum];
+
+/**
  * 
  * @export
  * @interface AccountUncorrelatedBeta
@@ -2170,22 +2923,22 @@ export interface AccountToggleRequestBeta {
 export interface AccountUncorrelatedBeta {
     /**
      * 
-     * @type {TriggerInputAccountUncorrelatedIdentityBeta}
+     * @type {AccountUncorrelatedIdentityBeta}
      * @memberof AccountUncorrelatedBeta
      */
-    'identity': TriggerInputAccountUncorrelatedIdentityBeta;
+    'identity': AccountUncorrelatedIdentityBeta;
     /**
      * 
-     * @type {TriggerInputAccountUncorrelatedSourceBeta}
+     * @type {AccountUncorrelatedSourceBeta}
      * @memberof AccountUncorrelatedBeta
      */
-    'source': TriggerInputAccountUncorrelatedSourceBeta;
+    'source': AccountUncorrelatedSourceBeta;
     /**
      * 
-     * @type {TriggerInputAccountUncorrelatedAccountBeta}
+     * @type {AccountUncorrelatedAccountBeta}
      * @memberof AccountUncorrelatedBeta
      */
-    'account': TriggerInputAccountUncorrelatedAccountBeta;
+    'account': AccountUncorrelatedAccountBeta;
     /**
      * The number of entitlements associated with this account.
      * @type {number}
@@ -2193,6 +2946,70 @@ export interface AccountUncorrelatedBeta {
      */
     'entitlementCount'?: number;
 }
+/**
+ * The identity that the account uncorrelated with.
+ * @export
+ * @interface AccountUncorrelatedIdentityBeta
+ */
+export interface AccountUncorrelatedIdentityBeta {
+    /**
+     * The type of object that is referenced
+     * @type {object}
+     * @memberof AccountUncorrelatedIdentityBeta
+     */
+    'type': AccountUncorrelatedIdentityBetaTypeEnum;
+    /**
+     * ID of the object to which this reference applies
+     * @type {string}
+     * @memberof AccountUncorrelatedIdentityBeta
+     */
+    'id': string;
+    /**
+     * Human-readable display name of the object to which this reference applies
+     * @type {string}
+     * @memberof AccountUncorrelatedIdentityBeta
+     */
+    'name': string;
+}
+
+export const AccountUncorrelatedIdentityBetaTypeEnum = {
+    Identity: 'IDENTITY'
+} as const;
+
+export type AccountUncorrelatedIdentityBetaTypeEnum = typeof AccountUncorrelatedIdentityBetaTypeEnum[keyof typeof AccountUncorrelatedIdentityBetaTypeEnum];
+
+/**
+ * The source from which the account came from.
+ * @export
+ * @interface AccountUncorrelatedSourceBeta
+ */
+export interface AccountUncorrelatedSourceBeta {
+    /**
+     * The type of object that is referenced
+     * @type {object}
+     * @memberof AccountUncorrelatedSourceBeta
+     */
+    'type': AccountUncorrelatedSourceBetaTypeEnum;
+    /**
+     * ID of the object to which this reference applies
+     * @type {string}
+     * @memberof AccountUncorrelatedSourceBeta
+     */
+    'id': string;
+    /**
+     * Human-readable display name of the object to which this reference applies
+     * @type {string}
+     * @memberof AccountUncorrelatedSourceBeta
+     */
+    'name': string;
+}
+
+export const AccountUncorrelatedSourceBetaTypeEnum = {
+    Source: 'SOURCE'
+} as const;
+
+export type AccountUncorrelatedSourceBetaTypeEnum = typeof AccountUncorrelatedSourceBetaTypeEnum[keyof typeof AccountUncorrelatedSourceBetaTypeEnum];
+
 /**
  * Request used for account unlock
  * @export
@@ -2239,10 +3056,10 @@ export interface AccountsAsyncResultBeta {
 export interface AccountsCollectedForAggregationBeta {
     /**
      * 
-     * @type {TriggerInputAccountsCollectedForAggregationSourceBeta}
+     * @type {AccountsCollectedForAggregationSourceBeta}
      * @memberof AccountsCollectedForAggregationBeta
      */
-    'source': TriggerInputAccountsCollectedForAggregationSourceBeta;
+    'source': AccountsCollectedForAggregationSourceBeta;
     /**
      * The overall status of the collection.
      * @type {object}
@@ -2275,10 +3092,10 @@ export interface AccountsCollectedForAggregationBeta {
     'warnings': Array<string> | null;
     /**
      * 
-     * @type {TriggerInputAccountsCollectedForAggregationStatsBeta}
+     * @type {AccountsCollectedForAggregationStatsBeta}
      * @memberof AccountsCollectedForAggregationBeta
      */
-    'stats': TriggerInputAccountsCollectedForAggregationStatsBeta;
+    'stats': AccountsCollectedForAggregationStatsBeta;
 }
 
 export const AccountsCollectedForAggregationBetaStatusEnum = {
@@ -2289,6 +3106,75 @@ export const AccountsCollectedForAggregationBetaStatusEnum = {
 
 export type AccountsCollectedForAggregationBetaStatusEnum = typeof AccountsCollectedForAggregationBetaStatusEnum[keyof typeof AccountsCollectedForAggregationBetaStatusEnum];
 
+/**
+ * Reference to the source that has been aggregated.
+ * @export
+ * @interface AccountsCollectedForAggregationSourceBeta
+ */
+export interface AccountsCollectedForAggregationSourceBeta {
+    /**
+     * ID of the object to which this reference applies
+     * @type {string}
+     * @memberof AccountsCollectedForAggregationSourceBeta
+     */
+    'id': string;
+    /**
+     * The type of object that is referenced
+     * @type {string}
+     * @memberof AccountsCollectedForAggregationSourceBeta
+     */
+    'type': AccountsCollectedForAggregationSourceBetaTypeEnum;
+    /**
+     * Human-readable display name of the object to which this reference applies
+     * @type {string}
+     * @memberof AccountsCollectedForAggregationSourceBeta
+     */
+    'name': string;
+}
+
+export const AccountsCollectedForAggregationSourceBetaTypeEnum = {
+    Source: 'SOURCE'
+} as const;
+
+export type AccountsCollectedForAggregationSourceBetaTypeEnum = typeof AccountsCollectedForAggregationSourceBetaTypeEnum[keyof typeof AccountsCollectedForAggregationSourceBetaTypeEnum];
+
+/**
+ * Overall statistics about the account collection.
+ * @export
+ * @interface AccountsCollectedForAggregationStatsBeta
+ */
+export interface AccountsCollectedForAggregationStatsBeta {
+    /**
+     * The number of accounts which were scanned / iterated over.
+     * @type {number}
+     * @memberof AccountsCollectedForAggregationStatsBeta
+     */
+    'scanned': number;
+    /**
+     * The number of accounts which existed before, but had no changes.
+     * @type {number}
+     * @memberof AccountsCollectedForAggregationStatsBeta
+     */
+    'unchanged': number;
+    /**
+     * The number of accounts which existed before, but had changes.
+     * @type {number}
+     * @memberof AccountsCollectedForAggregationStatsBeta
+     */
+    'changed': number;
+    /**
+     * The number of accounts which are new - have not existed before.
+     * @type {number}
+     * @memberof AccountsCollectedForAggregationStatsBeta
+     */
+    'added': number;
+    /**
+     * The number accounts which existed before, but no longer exist (thus getting removed).
+     * @type {number}
+     * @memberof AccountsCollectedForAggregationStatsBeta
+     */
+    'removed': number;
+}
 /**
  * 
  * @export
@@ -3169,10 +4055,111 @@ export type BulkTaggedObjectBetaOperationEnum = typeof BulkTaggedObjectBetaOpera
 export interface CampaignActivatedBeta {
     /**
      * 
-     * @type {TriggerInputCampaignActivatedCampaignBeta}
+     * @type {CampaignActivatedCampaignBeta}
      * @memberof CampaignActivatedBeta
      */
-    'campaign': TriggerInputCampaignActivatedCampaignBeta;
+    'campaign': CampaignActivatedCampaignBeta;
+}
+/**
+ * Details about the certification campaign that was activated.
+ * @export
+ * @interface CampaignActivatedCampaignBeta
+ */
+export interface CampaignActivatedCampaignBeta {
+    /**
+     * Unique ID for the campaign.
+     * @type {string}
+     * @memberof CampaignActivatedCampaignBeta
+     */
+    'id': string;
+    /**
+     * The human friendly name of the campaign.
+     * @type {string}
+     * @memberof CampaignActivatedCampaignBeta
+     */
+    'name': string;
+    /**
+     * Extended description of the campaign.
+     * @type {string}
+     * @memberof CampaignActivatedCampaignBeta
+     */
+    'description': string;
+    /**
+     * The date and time the campaign was created.
+     * @type {string}
+     * @memberof CampaignActivatedCampaignBeta
+     */
+    'created': string;
+    /**
+     * The date and time the campaign was last modified.
+     * @type {string}
+     * @memberof CampaignActivatedCampaignBeta
+     */
+    'modified'?: string | null;
+    /**
+     * The date and time the campaign is due.
+     * @type {string}
+     * @memberof CampaignActivatedCampaignBeta
+     */
+    'deadline': string;
+    /**
+     * The type of campaign.
+     * @type {object}
+     * @memberof CampaignActivatedCampaignBeta
+     */
+    'type': CampaignActivatedCampaignBetaTypeEnum;
+    /**
+     * 
+     * @type {CampaignActivatedCampaignCampaignOwnerBeta}
+     * @memberof CampaignActivatedCampaignBeta
+     */
+    'campaignOwner': CampaignActivatedCampaignCampaignOwnerBeta;
+    /**
+     * The current status of the campaign.
+     * @type {object}
+     * @memberof CampaignActivatedCampaignBeta
+     */
+    'status': CampaignActivatedCampaignBetaStatusEnum;
+}
+
+export const CampaignActivatedCampaignBetaTypeEnum = {
+    Manager: 'MANAGER',
+    SourceOwner: 'SOURCE_OWNER',
+    Search: 'SEARCH',
+    RoleComposition: 'ROLE_COMPOSITION'
+} as const;
+
+export type CampaignActivatedCampaignBetaTypeEnum = typeof CampaignActivatedCampaignBetaTypeEnum[keyof typeof CampaignActivatedCampaignBetaTypeEnum];
+export const CampaignActivatedCampaignBetaStatusEnum = {
+    Active: 'ACTIVE'
+} as const;
+
+export type CampaignActivatedCampaignBetaStatusEnum = typeof CampaignActivatedCampaignBetaStatusEnum[keyof typeof CampaignActivatedCampaignBetaStatusEnum];
+
+/**
+ * Details of the identity that owns the campaign.
+ * @export
+ * @interface CampaignActivatedCampaignCampaignOwnerBeta
+ */
+export interface CampaignActivatedCampaignCampaignOwnerBeta {
+    /**
+     * The unique ID of the identity.
+     * @type {string}
+     * @memberof CampaignActivatedCampaignCampaignOwnerBeta
+     */
+    'id': string;
+    /**
+     * The human friendly name of the identity.
+     * @type {string}
+     * @memberof CampaignActivatedCampaignCampaignOwnerBeta
+     */
+    'displayName': string;
+    /**
+     * The primary email address of the identity.
+     * @type {string}
+     * @memberof CampaignActivatedCampaignCampaignOwnerBeta
+     */
+    'email': string;
 }
 /**
  * 
@@ -3385,11 +4372,87 @@ export type CampaignBetaMandatoryCommentRequirementEnum = typeof CampaignBetaMan
 export interface CampaignEndedBeta {
     /**
      * 
-     * @type {TriggerInputCampaignEndedCampaignBeta}
+     * @type {CampaignEndedCampaignBeta}
      * @memberof CampaignEndedBeta
      */
-    'campaign': TriggerInputCampaignEndedCampaignBeta;
+    'campaign': CampaignEndedCampaignBeta;
 }
+/**
+ * Details about the certification campaign that ended.
+ * @export
+ * @interface CampaignEndedCampaignBeta
+ */
+export interface CampaignEndedCampaignBeta {
+    /**
+     * Unique ID for the campaign.
+     * @type {string}
+     * @memberof CampaignEndedCampaignBeta
+     */
+    'id': string;
+    /**
+     * The human friendly name of the campaign.
+     * @type {string}
+     * @memberof CampaignEndedCampaignBeta
+     */
+    'name': string;
+    /**
+     * Extended description of the campaign.
+     * @type {string}
+     * @memberof CampaignEndedCampaignBeta
+     */
+    'description': string;
+    /**
+     * The date and time the campaign was created.
+     * @type {string}
+     * @memberof CampaignEndedCampaignBeta
+     */
+    'created': string;
+    /**
+     * The date and time the campaign was last modified.
+     * @type {string}
+     * @memberof CampaignEndedCampaignBeta
+     */
+    'modified'?: string | null;
+    /**
+     * The date and time the campaign is due.
+     * @type {string}
+     * @memberof CampaignEndedCampaignBeta
+     */
+    'deadline': string;
+    /**
+     * The type of campaign.
+     * @type {object}
+     * @memberof CampaignEndedCampaignBeta
+     */
+    'type': CampaignEndedCampaignBetaTypeEnum;
+    /**
+     * 
+     * @type {CampaignActivatedCampaignCampaignOwnerBeta}
+     * @memberof CampaignEndedCampaignBeta
+     */
+    'campaignOwner': CampaignActivatedCampaignCampaignOwnerBeta;
+    /**
+     * The current status of the campaign.
+     * @type {object}
+     * @memberof CampaignEndedCampaignBeta
+     */
+    'status': CampaignEndedCampaignBetaStatusEnum;
+}
+
+export const CampaignEndedCampaignBetaTypeEnum = {
+    Manager: 'MANAGER',
+    SourceOwner: 'SOURCE_OWNER',
+    Search: 'SEARCH',
+    RoleComposition: 'ROLE_COMPOSITION'
+} as const;
+
+export type CampaignEndedCampaignBetaTypeEnum = typeof CampaignEndedCampaignBetaTypeEnum[keyof typeof CampaignEndedCampaignBetaTypeEnum];
+export const CampaignEndedCampaignBetaStatusEnum = {
+    Completed: 'COMPLETED'
+} as const;
+
+export type CampaignEndedCampaignBetaStatusEnum = typeof CampaignEndedCampaignBetaStatusEnum[keyof typeof CampaignEndedCampaignBetaStatusEnum];
+
 /**
  * 
  * @export
@@ -3398,10 +4461,113 @@ export interface CampaignEndedBeta {
 export interface CampaignGeneratedBeta {
     /**
      * 
-     * @type {TriggerInputCampaignGeneratedCampaignBeta}
+     * @type {CampaignGeneratedCampaignBeta}
      * @memberof CampaignGeneratedBeta
      */
-    'campaign': TriggerInputCampaignGeneratedCampaignBeta;
+    'campaign': CampaignGeneratedCampaignBeta;
+}
+/**
+ * Details about the campaign that was generated.
+ * @export
+ * @interface CampaignGeneratedCampaignBeta
+ */
+export interface CampaignGeneratedCampaignBeta {
+    /**
+     * The unique ID of the campaign.
+     * @type {string}
+     * @memberof CampaignGeneratedCampaignBeta
+     */
+    'id': string;
+    /**
+     * Human friendly name of the campaign.
+     * @type {string}
+     * @memberof CampaignGeneratedCampaignBeta
+     */
+    'name': string;
+    /**
+     * Extended description of the campaign.
+     * @type {string}
+     * @memberof CampaignGeneratedCampaignBeta
+     */
+    'description': string;
+    /**
+     * The date and time the campaign was created.
+     * @type {string}
+     * @memberof CampaignGeneratedCampaignBeta
+     */
+    'created': string;
+    /**
+     * The date and time the campaign was last modified.
+     * @type {string}
+     * @memberof CampaignGeneratedCampaignBeta
+     */
+    'modified'?: string | null;
+    /**
+     * The date and time when the campaign must be finished by.
+     * @type {string}
+     * @memberof CampaignGeneratedCampaignBeta
+     */
+    'deadline'?: string | null;
+    /**
+     * The type of campaign that was generated.
+     * @type {object}
+     * @memberof CampaignGeneratedCampaignBeta
+     */
+    'type': CampaignGeneratedCampaignBetaTypeEnum;
+    /**
+     * 
+     * @type {CampaignGeneratedCampaignCampaignOwnerBeta}
+     * @memberof CampaignGeneratedCampaignBeta
+     */
+    'campaignOwner': CampaignGeneratedCampaignCampaignOwnerBeta;
+    /**
+     * The current status of the campaign.
+     * @type {object}
+     * @memberof CampaignGeneratedCampaignBeta
+     */
+    'status': CampaignGeneratedCampaignBetaStatusEnum;
+}
+
+export const CampaignGeneratedCampaignBetaTypeEnum = {
+    Manager: 'MANAGER',
+    SourceOwner: 'SOURCE_OWNER',
+    Search: 'SEARCH',
+    RoleComposition: 'ROLE_COMPOSITION'
+} as const;
+
+export type CampaignGeneratedCampaignBetaTypeEnum = typeof CampaignGeneratedCampaignBetaTypeEnum[keyof typeof CampaignGeneratedCampaignBetaTypeEnum];
+export const CampaignGeneratedCampaignBetaStatusEnum = {
+    Staged: 'STAGED',
+    Activating: 'ACTIVATING',
+    Active: 'ACTIVE'
+} as const;
+
+export type CampaignGeneratedCampaignBetaStatusEnum = typeof CampaignGeneratedCampaignBetaStatusEnum[keyof typeof CampaignGeneratedCampaignBetaStatusEnum];
+
+/**
+ * The identity that owns the campaign.
+ * @export
+ * @interface CampaignGeneratedCampaignCampaignOwnerBeta
+ */
+export interface CampaignGeneratedCampaignCampaignOwnerBeta {
+    /**
+     * The unique ID of the identity.
+     * @type {string}
+     * @memberof CampaignGeneratedCampaignCampaignOwnerBeta
+     */
+    'id': string;
+    /**
+     * The display name of the identity.
+     * @type {string}
+     * @memberof CampaignGeneratedCampaignCampaignOwnerBeta
+     */
+    'displayName': string;
+    /**
+     * The primary email address of the identity.
+     * @type {string}
+     * @memberof CampaignGeneratedCampaignCampaignOwnerBeta
+     */
+    'email': string;
 }
 /**
  * 
@@ -3971,10 +5137,119 @@ export type CertificationReferenceBetaTypeEnum = typeof CertificationReferenceBe
 export interface CertificationSignedOffBeta {
     /**
      * 
-     * @type {TriggerInputCertificationSignedOffCertificationBeta}
+     * @type {CertificationSignedOffCertificationBeta}
      * @memberof CertificationSignedOffBeta
      */
-    'certification': TriggerInputCertificationSignedOffCertificationBeta;
+    'certification': CertificationSignedOffCertificationBeta;
+}
+/**
+ * The certification campaign that was signed off on.
+ * @export
+ * @interface CertificationSignedOffCertificationBeta
+ */
+export interface CertificationSignedOffCertificationBeta {
+    /**
+     * Unique ID of the certification.
+     * @type {string}
+     * @memberof CertificationSignedOffCertificationBeta
+     */
+    'id': string;
+    /**
+     * The name of the certification.
+     * @type {string}
+     * @memberof CertificationSignedOffCertificationBeta
+     */
+    'name': string;
+    /**
+     * The date and time the certification was created.
+     * @type {string}
+     * @memberof CertificationSignedOffCertificationBeta
+     */
+    'created': string;
+    /**
+     * The date and time the certification was last modified.
+     * @type {string}
+     * @memberof CertificationSignedOffCertificationBeta
+     */
+    'modified'?: string | null;
+    /**
+     * 
+     * @type {CampaignReferenceBeta}
+     * @memberof CertificationSignedOffCertificationBeta
+     */
+    'campaignRef': CampaignReferenceBeta;
+    /**
+     * 
+     * @type {CertificationPhaseBeta}
+     * @memberof CertificationSignedOffCertificationBeta
+     */
+    'phase': CertificationPhaseBeta;
+    /**
+     * The due date of the certification.
+     * @type {string}
+     * @memberof CertificationSignedOffCertificationBeta
+     */
+    'due': string;
+    /**
+     * The date the reviewer signed off on the certification.
+     * @type {string}
+     * @memberof CertificationSignedOffCertificationBeta
+     */
+    'signed': string;
+    /**
+     * 
+     * @type {ReviewerBeta}
+     * @memberof CertificationSignedOffCertificationBeta
+     */
+    'reviewer': ReviewerBeta;
+    /**
+     * 
+     * @type {ReassignmentBeta}
+     * @memberof CertificationSignedOffCertificationBeta
+     */
+    'reassignment'?: ReassignmentBeta;
+    /**
+     * Indicates it the certification has any errors.
+     * @type {boolean}
+     * @memberof CertificationSignedOffCertificationBeta
+     */
+    'hasErrors': boolean;
+    /**
+     * A message indicating what the error is.
+     * @type {string}
+     * @memberof CertificationSignedOffCertificationBeta
+     */
+    'errorMessage'?: string | null;
+    /**
+     * Indicates if all certification decisions have been made.
+     * @type {boolean}
+     * @memberof CertificationSignedOffCertificationBeta
+     */
+    'completed': boolean;
+    /**
+     * The number of approve/revoke/acknowledge decisions that have been made by the reviewer.
+     * @type {number}
+     * @memberof CertificationSignedOffCertificationBeta
+     */
+    'decisionsMade': number;
+    /**
+     * The total number of approve/revoke/acknowledge decisions for the certification.
+     * @type {number}
+     * @memberof CertificationSignedOffCertificationBeta
+     */
+    'decisionsTotal': number;
+    /**
+     * The number of entities (identities, access profiles, roles, etc.) for which all decisions have been made and are complete.
+     * @type {number}
+     * @memberof CertificationSignedOffCertificationBeta
+     */
+    'entitiesCompleted': number;
+    /**
+     * The total number of entities (identities, access profiles, roles, etc.) in the certification, both complete and incomplete.
+     * @type {number}
+     * @memberof CertificationSignedOffCertificationBeta
+     */
+    'entitiesTotal': number;
 }
 /**
  * 
@@ -6619,6 +7894,25 @@ export interface EvaluateResponseBeta {
     'lookupTrail'?: Array<LookupStepBeta>;
 }
 /**
+ * Attributes related to an IdentityNow ETS event
+ * @export
+ * @interface EventAttributesBeta
+ */
+export interface EventAttributesBeta {
+    /**
+     * The unique ID of the trigger
+     * @type {string}
+     * @memberof EventAttributesBeta
+     */
+    'id': string;
+    /**
+     * JSON path expression that will limit which events the trigger will fire on
+     * @type {string}
+     * @memberof EventAttributesBeta
+     */
+    'filter.$'?: string;
+}
+/**
  * 
  * @export
  * @interface EventBridgeConfigBeta
@@ -6978,6 +8272,25 @@ export const ExpressionBetaOperatorEnum = {
 
 export type ExpressionBetaOperatorEnum = typeof ExpressionBetaOperatorEnum[keyof typeof ExpressionBetaOperatorEnum];
 
+/**
+ * Attributes related to an external trigger
+ * @export
+ * @interface ExternalAttributesBeta
+ */
+export interface ExternalAttributesBeta {
+    /**
+     * A unique name for the external trigger
+     * @type {string}
+     * @memberof ExternalAttributesBeta
+     */
+    'name': string;
+    /**
+     * Additonal context about the external trigger
+     * @type {string}
+     * @memberof ExternalAttributesBeta
+     */
+    'description'?: string;
+}
 /**
  * 
  * @export
@@ -9033,17 +10346,94 @@ export interface IdentityAttributeTransformBeta {
 export interface IdentityAttributesChangedBeta {
     /**
      * 
-     * @type {TriggerInputIdentityAttributesChangedIdentityBeta}
+     * @type {IdentityAttributesChangedIdentityBeta}
      * @memberof IdentityAttributesChangedBeta
      */
-    'identity': TriggerInputIdentityAttributesChangedIdentityBeta;
+    'identity': IdentityAttributesChangedIdentityBeta;
     /**
      * A list of one or more identity attributes that changed on the identity.
-     * @type {Array<TriggerInputIdentityAttributesChangedChangesInnerBeta>}
+     * @type {Array<IdentityAttributesChangedChangesInnerBeta>}
      * @memberof IdentityAttributesChangedBeta
      */
-    'changes': Array<TriggerInputIdentityAttributesChangedChangesInnerBeta>;
+    'changes': Array<IdentityAttributesChangedChangesInnerBeta>;
 }
+/**
+ * 
+ * @export
+ * @interface IdentityAttributesChangedChangesInnerBeta
+ */
+export interface IdentityAttributesChangedChangesInnerBeta {
+    /**
+     * The name of the identity attribute that changed.
+     * @type {string}
+     * @memberof IdentityAttributesChangedChangesInnerBeta
+     */
+    'attribute': string;
+    /**
+     * 
+     * @type {IdentityAttributesChangedChangesInnerOldValueBeta}
+     * @memberof IdentityAttributesChangedChangesInnerBeta
+     */
+    'oldValue'?: IdentityAttributesChangedChangesInnerOldValueBeta | null;
+    /**
+     * 
+     * @type {IdentityAttributesChangedChangesInnerNewValueBeta}
+     * @memberof IdentityAttributesChangedChangesInnerBeta
+     */
+    'newValue'?: IdentityAttributesChangedChangesInnerNewValueBeta;
+}
+/**
+ * @type IdentityAttributesChangedChangesInnerNewValueBeta
+ * The value of the identity attribute after it changed.
+ * @export
+ */
+export type IdentityAttributesChangedChangesInnerNewValueBeta = Array<string> | boolean | string | { [key: string]: IdentityAttributesChangedChangesInnerOldValueOneOfValueBeta; };
+
+/**
+ * @type IdentityAttributesChangedChangesInnerOldValueBeta
+ * The value of the identity attribute before it changed.
+ * @export
+ */
+export type IdentityAttributesChangedChangesInnerOldValueBeta = Array<string> | boolean | string | { [key: string]: IdentityAttributesChangedChangesInnerOldValueOneOfValueBeta; };
+
+/**
+ * @type IdentityAttributesChangedChangesInnerOldValueOneOfValueBeta
+ * @export
+ */
+export type IdentityAttributesChangedChangesInnerOldValueOneOfValueBeta = boolean | number | string;
+
+/**
+ * The identity who\'s attributes changed.
+ * @export
+ * @interface IdentityAttributesChangedIdentityBeta
+ */
+export interface IdentityAttributesChangedIdentityBeta {
+    /**
+     * The type of object that is referenced
+     * @type {object}
+     * @memberof IdentityAttributesChangedIdentityBeta
+     */
+    'type': IdentityAttributesChangedIdentityBetaTypeEnum;
+    /**
+     * ID of the object to which this reference applies
+     * @type {string}
+     * @memberof IdentityAttributesChangedIdentityBeta
+     */
+    'id': string;
+    /**
+     * Human-readable display name of the object to which this reference applies
+     * @type {string}
+     * @memberof IdentityAttributesChangedIdentityBeta
+     */
+    'name': string;
+}
+
+export const IdentityAttributesChangedIdentityBetaTypeEnum = {
+    Identity: 'IDENTITY'
+} as const;
+
+export type IdentityAttributesChangedIdentityBetaTypeEnum = typeof IdentityAttributesChangedIdentityBetaTypeEnum[keyof typeof IdentityAttributesChangedIdentityBetaTypeEnum];
+
 /**
  * 
  * @export
@@ -9279,10 +10669,10 @@ export interface IdentityCompareResponseBeta {
 export interface IdentityCreatedBeta {
     /**
      * 
-     * @type {TriggerInputIdentityCreatedIdentityBeta}
+     * @type {IdentityCreatedIdentityBeta}
      * @memberof IdentityCreatedBeta
      */
-    'identity': TriggerInputIdentityCreatedIdentityBeta;
+    'identity': IdentityCreatedIdentityBeta;
     /**
      * The attributes assigned to the identity.  Attributes are determined by the identity profile.
      * @type {{ [key: string]: any; }}
@@ -9291,6 +10681,38 @@ export interface IdentityCreatedBeta {
     'attributes': { [key: string]: any; };
 }
 /**
+ * The identity that was created.
+ * @export
+ * @interface IdentityCreatedIdentityBeta
+ */
+export interface IdentityCreatedIdentityBeta {
+    /**
+     * The type of object that is referenced
+     * @type {object}
+     * @memberof IdentityCreatedIdentityBeta
+     */
+    'type': IdentityCreatedIdentityBetaTypeEnum;
+    /**
+     * ID of the object to which this reference applies
+     * @type {string}
+     * @memberof IdentityCreatedIdentityBeta
+     */
+    'id': string;
+    /**
+     * Human-readable display name of the object to which this reference applies
+     * @type {string}
+     * @memberof IdentityCreatedIdentityBeta
+     */
+    'name': string;
+}
+
+export const IdentityCreatedIdentityBetaTypeEnum = {
+    Identity: 'IDENTITY'
+} as const;
+
+export type IdentityCreatedIdentityBetaTypeEnum = typeof IdentityCreatedIdentityBetaTypeEnum[keyof typeof IdentityCreatedIdentityBetaTypeEnum];
+
+/**
  * 
  * @export
  * @interface IdentityDeletedBeta
@@ -9298,10 +10720,10 @@ export interface IdentityCreatedBeta {
 export interface IdentityDeletedBeta {
     /**
      * 
-     * @type {TriggerInputIdentityDeletedIdentityBeta}
+     * @type {IdentityDeletedIdentityBeta}
      * @memberof IdentityDeletedBeta
      */
-    'identity': TriggerInputIdentityDeletedIdentityBeta;
+    'identity': IdentityDeletedIdentityBeta;
     /**
      * The attributes assigned to the identity.  Attributes are determined by the identity profile.
      * @type {{ [key: string]: any; }}
@@ -9309,6 +10731,38 @@ export interface IdentityDeletedBeta {
      */
     'attributes': { [key: string]: any; };
 }
+/**
+ * The identity that was deleted.
+ * @export
+ * @interface IdentityDeletedIdentityBeta
+ */
+export interface IdentityDeletedIdentityBeta {
+    /**
+     * The type of object that is referenced
+     * @type {object}
+     * @memberof IdentityDeletedIdentityBeta
+     */
+    'type': IdentityDeletedIdentityBetaTypeEnum;
+    /**
+     * ID of the object to which this reference applies
+     * @type {string}
+     * @memberof IdentityDeletedIdentityBeta
+     */
+    'id': string;
+    /**
+     * Human-readable display name of the object to which this reference applies
+     * @type {string}
+     * @memberof IdentityDeletedIdentityBeta
+     */
+    'name': string;
+}
+
+export const IdentityDeletedIdentityBetaTypeEnum = {
+    Identity: 'IDENTITY'
+} as const;
+
+export type IdentityDeletedIdentityBetaTypeEnum = typeof IdentityDeletedIdentityBetaTypeEnum[keyof typeof IdentityDeletedIdentityBetaTypeEnum];
+
 /**
  * 
  * @export
@@ -14256,6 +15710,130 @@ export interface ProcessIdentitiesRequestBeta {
 /**
  * 
  * @export
+ * @interface ProvisioningCompletedAccountRequestsInnerAttributeRequestsInnerBeta
+ */
+export interface ProvisioningCompletedAccountRequestsInnerAttributeRequestsInnerBeta {
+    /**
+     * The name of the attribute being provisioned.
+     * @type {string}
+     * @memberof ProvisioningCompletedAccountRequestsInnerAttributeRequestsInnerBeta
+     */
+    'attributeName': string;
+    /**
+     * The value of the attribute being provisioned.
+     * @type {string}
+     * @memberof ProvisioningCompletedAccountRequestsInnerAttributeRequestsInnerBeta
+     */
+    'attributeValue'?: string | null;
+    /**
+     * The operation to handle the attribute.
+     * @type {object}
+     * @memberof ProvisioningCompletedAccountRequestsInnerAttributeRequestsInnerBeta
+     */
+    'operation': ProvisioningCompletedAccountRequestsInnerAttributeRequestsInnerBetaOperationEnum;
+}
+
+export const ProvisioningCompletedAccountRequestsInnerAttributeRequestsInnerBetaOperationEnum = {
+    Add: 'Add',
+    Set: 'Set',
+    Remove: 'Remove'
+} as const;
+
+export type ProvisioningCompletedAccountRequestsInnerAttributeRequestsInnerBetaOperationEnum = typeof ProvisioningCompletedAccountRequestsInnerAttributeRequestsInnerBetaOperationEnum[keyof typeof ProvisioningCompletedAccountRequestsInnerAttributeRequestsInnerBetaOperationEnum];
+
+/**
+ * 
+ * @export
+ * @interface ProvisioningCompletedAccountRequestsInnerBeta
+ */
+export interface ProvisioningCompletedAccountRequestsInnerBeta {
+    /**
+     * 
+     * @type {ProvisioningCompletedAccountRequestsInnerSourceBeta}
+     * @memberof ProvisioningCompletedAccountRequestsInnerBeta
+     */
+    'source': ProvisioningCompletedAccountRequestsInnerSourceBeta;
+    /**
+     * The unique idenfier of the account being provisioned.
+     * @type {string}
+     * @memberof ProvisioningCompletedAccountRequestsInnerBeta
+     */
+    'accountId'?: string;
+    /**
+     * The provisioning operation; typically Create, Modify, Enable, Disable, Unlock, or Delete.
+     * @type {string}
+     * @memberof ProvisioningCompletedAccountRequestsInnerBeta
+     */
+    'accountOperation': string;
+    /**
+     * The overall result of the provisioning transaction; this could be success, pending, failed, etc.
+     * @type {object}
+     * @memberof ProvisioningCompletedAccountRequestsInnerBeta
+     */
+    'provisioningResult': ProvisioningCompletedAccountRequestsInnerBetaProvisioningResultEnum;
+    /**
+     * The name of the provisioning channel selected; this could be the same as the source, or could be a Service Desk Integration Module (SDIM).
+     * @type {string}
+     * @memberof ProvisioningCompletedAccountRequestsInnerBeta
+     */
+    'provisioningTarget': string;
+    /**
+     * A reference to a tracking number, if this is sent to a Service Desk Integration Module (SDIM).
+     * @type {string}
+     * @memberof ProvisioningCompletedAccountRequestsInnerBeta
+     */
+    'ticketId'?: string | null;
+    /**
+     * A list of attributes as part of the provisioning transaction.
+     * @type {Array<ProvisioningCompletedAccountRequestsInnerAttributeRequestsInnerBeta>}
+     * @memberof ProvisioningCompletedAccountRequestsInnerBeta
+     */
+    'attributeRequests'?: Array<ProvisioningCompletedAccountRequestsInnerAttributeRequestsInnerBeta> | null;
+}
+
+export const ProvisioningCompletedAccountRequestsInnerBetaProvisioningResultEnum = {
+    Success: 'SUCCESS',
+    Pending: 'PENDING',
+    Failed: 'FAILED'
+} as const;
+
+export type ProvisioningCompletedAccountRequestsInnerBetaProvisioningResultEnum = typeof ProvisioningCompletedAccountRequestsInnerBetaProvisioningResultEnum[keyof typeof ProvisioningCompletedAccountRequestsInnerBetaProvisioningResultEnum];
+
+/**
+ * Reference to the source being provisioned against.
+ * @export
+ * @interface ProvisioningCompletedAccountRequestsInnerSourceBeta
+ */
+export interface ProvisioningCompletedAccountRequestsInnerSourceBeta {
+    /**
+     * ID of the object to which this reference applies
+     * @type {string}
+     * @memberof ProvisioningCompletedAccountRequestsInnerSourceBeta
+     */
+    'id': string;
+    /**
+     * The type of object that is referenced
+     * @type {string}
+     * @memberof ProvisioningCompletedAccountRequestsInnerSourceBeta
+     */
+    'type': ProvisioningCompletedAccountRequestsInnerSourceBetaTypeEnum;
+    /**
+     * Human-readable display name of the object to which this reference applies
+     * @type {string}
+     * @memberof ProvisioningCompletedAccountRequestsInnerSourceBeta
+     */
+    'name': string;
+}
+
+export const ProvisioningCompletedAccountRequestsInnerSourceBetaTypeEnum = {
+    Source: 'SOURCE'
+} as const;
+
+export type ProvisioningCompletedAccountRequestsInnerSourceBetaTypeEnum = typeof ProvisioningCompletedAccountRequestsInnerSourceBetaTypeEnum[keyof typeof ProvisioningCompletedAccountRequestsInnerSourceBetaTypeEnum];
+
+/**
+ * 
+ * @export
  * @interface ProvisioningCompletedBeta
  */
 export interface ProvisioningCompletedBeta {
@@ -14291,23 +15869,87 @@ export interface ProvisioningCompletedBeta {
     'warnings'?: Array<string> | null;
     /**
      * 
-     * @type {TriggerInputProvisioningCompletedRecipientBeta}
+     * @type {ProvisioningCompletedRecipientBeta}
      * @memberof ProvisioningCompletedBeta
      */
-    'recipient': TriggerInputProvisioningCompletedRecipientBeta;
+    'recipient': ProvisioningCompletedRecipientBeta;
     /**
      * 
-     * @type {TriggerInputProvisioningCompletedRequesterBeta}
+     * @type {ProvisioningCompletedRequesterBeta}
      * @memberof ProvisioningCompletedBeta
      */
-    'requester'?: TriggerInputProvisioningCompletedRequesterBeta | null;
+    'requester'?: ProvisioningCompletedRequesterBeta | null;
     /**
      * A list of provisioning instructions to perform on an account-by-account basis.
-     * @type {Array<TriggerInputProvisioningCompletedAccountRequestsInnerBeta>}
+     * @type {Array<ProvisioningCompletedAccountRequestsInnerBeta>}
      * @memberof ProvisioningCompletedBeta
      */
-    'accountRequests': Array<TriggerInputProvisioningCompletedAccountRequestsInnerBeta>;
+    'accountRequests': Array<ProvisioningCompletedAccountRequestsInnerBeta>;
 }
+/**
+ * Reference to the identity who is the target of the provisioning request.
+ * @export
+ * @interface ProvisioningCompletedRecipientBeta
+ */
+export interface ProvisioningCompletedRecipientBeta {
+    /**
+     * The type of object that is referenced
+     * @type {object}
+     * @memberof ProvisioningCompletedRecipientBeta
+     */
+    'type': ProvisioningCompletedRecipientBetaTypeEnum;
+    /**
+     * ID of the object to which this reference applies
+     * @type {string}
+     * @memberof ProvisioningCompletedRecipientBeta
+     */
+    'id': string;
+    /**
+     * Human-readable display name of the object to which this reference applies
+     * @type {string}
+     * @memberof ProvisioningCompletedRecipientBeta
+     */
+    'name': string;
+}
+
+export const ProvisioningCompletedRecipientBetaTypeEnum = {
+    Identity: 'IDENTITY'
+} as const;
+
+export type ProvisioningCompletedRecipientBetaTypeEnum = typeof ProvisioningCompletedRecipientBetaTypeEnum[keyof typeof ProvisioningCompletedRecipientBetaTypeEnum];
+
+/**
+ * Reference to the identity (if any) who submitted the provisioning request.
+ * @export
+ * @interface ProvisioningCompletedRequesterBeta
+ */
+export interface ProvisioningCompletedRequesterBeta {
+    /**
+     * The type of object that is referenced
+     * @type {object}
+     * @memberof ProvisioningCompletedRequesterBeta
+     */
+    'type': ProvisioningCompletedRequesterBetaTypeEnum;
+    /**
+     * ID of the object to which this reference applies
+     * @type {string}
+     * @memberof ProvisioningCompletedRequesterBeta
+     */
+    'id': string;
+    /**
+     * Human-readable display name of the object to which this reference applies
+     * @type {string}
+     * @memberof ProvisioningCompletedRequesterBeta
+     */
+    'name': string;
+}
+
+export const ProvisioningCompletedRequesterBetaTypeEnum = {
+    Identity: 'IDENTITY'
+} as const;
+
+export type ProvisioningCompletedRequesterBetaTypeEnum = typeof ProvisioningCompletedRequesterBetaTypeEnum[keyof typeof ProvisioningCompletedRequesterBetaTypeEnum];
+
 /**
  * Specification of a Service Desk integration provisioning configuration.
  * @export
@@ -17214,16 +18856,116 @@ export interface SavedSearchCompleteBeta {
     'searchName': string;
     /**
      * 
-     * @type {TriggerInputSavedSearchCompleteSearchResultsBeta}
+     * @type {SavedSearchCompleteSearchResultsBeta}
      * @memberof SavedSearchCompleteBeta
      */
-    'searchResults': TriggerInputSavedSearchCompleteSearchResultsBeta;
+    'searchResults': SavedSearchCompleteSearchResultsBeta;
     /**
      * The Amazon S3 URL to download the report from.
      * @type {string}
      * @memberof SavedSearchCompleteBeta
      */
     'signedS3Url': string;
+}
+/**
+ * A table of accounts that match the search criteria.
+ * @export
+ * @interface SavedSearchCompleteSearchResultsAccountBeta
+ */
+export interface SavedSearchCompleteSearchResultsAccountBeta {
+    /**
+     * The number of rows in the table.
+     * @type {string}
+     * @memberof SavedSearchCompleteSearchResultsAccountBeta
+     */
+    'count': string;
+    /**
+     * The type of object represented in the table.
+     * @type {string}
+     * @memberof SavedSearchCompleteSearchResultsAccountBeta
+     */
+    'noun': string;
+    /**
+     * A sample of the data in the table.
+     * @type {Array<Array<string>>}
+     * @memberof SavedSearchCompleteSearchResultsAccountBeta
+     */
+    'preview': Array<Array<string>>;
+}
+/**
+ * A preview of the search results for each object type. This includes a count as well as headers, and the first several rows of data, per object type.
+ * @export
+ * @interface SavedSearchCompleteSearchResultsBeta
+ */
+export interface SavedSearchCompleteSearchResultsBeta {
+    /**
+     * 
+     * @type {SavedSearchCompleteSearchResultsAccountBeta}
+     * @memberof SavedSearchCompleteSearchResultsBeta
+     */
+    'Account'?: SavedSearchCompleteSearchResultsAccountBeta | null;
+    /**
+     * 
+     * @type {SavedSearchCompleteSearchResultsEntitlementBeta}
+     * @memberof SavedSearchCompleteSearchResultsBeta
+     */
+    'Entitlement'?: SavedSearchCompleteSearchResultsEntitlementBeta | null;
+    /**
+     * 
+     * @type {SavedSearchCompleteSearchResultsIdentityBeta}
+     * @memberof SavedSearchCompleteSearchResultsBeta
+     */
+    'Identity'?: SavedSearchCompleteSearchResultsIdentityBeta | null;
+}
+/**
+ * A table of entitlements that match the search criteria.
+ * @export
+ * @interface SavedSearchCompleteSearchResultsEntitlementBeta
+ */
+export interface SavedSearchCompleteSearchResultsEntitlementBeta {
+    /**
+     * The number of rows in the table.
+     * @type {string}
+     * @memberof SavedSearchCompleteSearchResultsEntitlementBeta
+     */
+    'count': string;
+    /**
+     * The type of object represented in the table.
+     * @type {string}
+     * @memberof SavedSearchCompleteSearchResultsEntitlementBeta
+     */
+    'noun': string;
+    /**
+     * A sample of the data in the table.
+     * @type {Array<Array<string>>}
+     * @memberof SavedSearchCompleteSearchResultsEntitlementBeta
+     */
+    'preview': Array<Array<string>>;
+}
+/**
+ * A table of identities that match the search criteria.
+ * @export
+ * @interface SavedSearchCompleteSearchResultsIdentityBeta
+ */
+export interface SavedSearchCompleteSearchResultsIdentityBeta {
+    /**
+     * The number of rows in the table.
+     * @type {string}
+     * @memberof SavedSearchCompleteSearchResultsIdentityBeta
+     */
+    'count': string;
+    /**
+     * The type of object represented in the table.
+     * @type {string}
+     * @memberof SavedSearchCompleteSearchResultsIdentityBeta
+     */
+    'noun': string;
+    /**
+     * A sample of the data in the table.
+     * @type {Array<Array<string>>}
+     * @memberof SavedSearchCompleteSearchResultsIdentityBeta
+     */
+    'preview': Array<Array<string>>;
 }
 /**
  * The schedule information.
@@ -17481,6 +19223,19 @@ export const ScheduleTypeBeta = {
 export type ScheduleTypeBeta = typeof ScheduleTypeBeta[keyof typeof ScheduleTypeBeta];
 
 
+/**
+ * Attributes related to a scheduled trigger
+ * @export
+ * @interface ScheduledAttributesBeta
+ */
+export interface ScheduledAttributesBeta {
+    /**
+     * A valid CRON expression
+     * @type {string}
+     * @memberof ScheduledAttributesBeta
+     */
+    'cronString': string;
+}
 /**
  * 
  * @export
@@ -19201,6 +20956,38 @@ export interface SourceCodeBeta {
     'script': string;
 }
 /**
+ * The identity that created the source.
+ * @export
+ * @interface SourceCreatedActorBeta
+ */
+export interface SourceCreatedActorBeta {
+    /**
+     * The type of object that is referenced
+     * @type {object}
+     * @memberof SourceCreatedActorBeta
+     */
+    'type': SourceCreatedActorBetaTypeEnum;
+    /**
+     * ID of the object to which this reference applies
+     * @type {string}
+     * @memberof SourceCreatedActorBeta
+     */
+    'id': string;
+    /**
+     * Human-readable display name of the object to which this reference applies
+     * @type {string}
+     * @memberof SourceCreatedActorBeta
+     */
+    'name': string;
+}
+
+export const SourceCreatedActorBetaTypeEnum = {
+    Identity: 'IDENTITY'
+} as const;
+
+export type SourceCreatedActorBetaTypeEnum = typeof SourceCreatedActorBetaTypeEnum[keyof typeof SourceCreatedActorBetaTypeEnum];
+
+/**
  * 
  * @export
  * @interface SourceCreatedBeta
@@ -19238,11 +21025,43 @@ export interface SourceCreatedBeta {
     'connector': string;
     /**
      * 
-     * @type {TriggerInputSourceCreatedActorBeta}
+     * @type {SourceCreatedActorBeta}
      * @memberof SourceCreatedBeta
      */
-    'actor': TriggerInputSourceCreatedActorBeta;
+    'actor': SourceCreatedActorBeta;
 }
+/**
+ * The identity that deleted the source.
+ * @export
+ * @interface SourceDeletedActorBeta
+ */
+export interface SourceDeletedActorBeta {
+    /**
+     * The type of object that is referenced
+     * @type {object}
+     * @memberof SourceDeletedActorBeta
+     */
+    'type': SourceDeletedActorBetaTypeEnum;
+    /**
+     * ID of the object to which this reference applies
+     * @type {string}
+     * @memberof SourceDeletedActorBeta
+     */
+    'id': string;
+    /**
+     * Human-readable display name of the object to which this reference applies
+     * @type {string}
+     * @memberof SourceDeletedActorBeta
+     */
+    'name': string;
+}
+
+export const SourceDeletedActorBetaTypeEnum = {
+    Identity: 'IDENTITY'
+} as const;
+
+export type SourceDeletedActorBetaTypeEnum = typeof SourceDeletedActorBetaTypeEnum[keyof typeof SourceDeletedActorBetaTypeEnum];
+
 /**
  * 
  * @export
@@ -19281,10 +21100,10 @@ export interface SourceDeletedBeta {
     'connector': string;
     /**
      * 
-     * @type {TriggerInputSourceDeletedActorBeta}
+     * @type {SourceDeletedActorBeta}
      * @memberof SourceDeletedBeta
      */
-    'actor': TriggerInputSourceDeletedActorBeta;
+    'actor': SourceDeletedActorBeta;
 }
 /**
  * Entitlement Request Configuration
@@ -19552,6 +21371,38 @@ export interface SourceSyncPayloadBeta {
     'dataJson': string;
 }
 /**
+ * The identity or system that performed the update.
+ * @export
+ * @interface SourceUpdatedActorBeta
+ */
+export interface SourceUpdatedActorBeta {
+    /**
+     * The type of object that is referenced
+     * @type {object}
+     * @memberof SourceUpdatedActorBeta
+     */
+    'type': SourceUpdatedActorBetaTypeEnum;
+    /**
+     * ID of the object to which this reference applies
+     * @type {string}
+     * @memberof SourceUpdatedActorBeta
+     */
+    'id'?: string;
+    /**
+     * Human-readable display name of the object to which this reference applies
+     * @type {string}
+     * @memberof SourceUpdatedActorBeta
+     */
+    'name': string;
+}
+
+export const SourceUpdatedActorBetaTypeEnum = {
+    Identity: 'IDENTITY'
+} as const;
+
+export type SourceUpdatedActorBetaTypeEnum = typeof SourceUpdatedActorBetaTypeEnum[keyof typeof SourceUpdatedActorBetaTypeEnum];
+
+/**
  * 
  * @export
  * @interface SourceUpdatedBeta
@@ -19589,10 +21440,10 @@ export interface SourceUpdatedBeta {
     'connector': string;
     /**
      * 
-     * @type {TriggerInputSourceUpdatedActorBeta}
+     * @type {SourceUpdatedActorBeta}
      * @memberof SourceUpdatedBeta
      */
-    'actor': TriggerInputSourceUpdatedActorBeta;
+    'actor': SourceUpdatedActorBeta;
 }
 /**
  * Response model for config export download response.
@@ -20720,2815 +22571,6 @@ export type TriggerExampleInputBeta = AccessRequestDynamicApproverBeta | AccessR
 export type TriggerExampleOutputBeta = AccessRequestDynamicApprover1Beta | AccessRequestPreApproval1Beta;
 
 /**
- * 
- * @export
- * @interface TriggerInputAccessRequestDynamicApproverBeta
- */
-export interface TriggerInputAccessRequestDynamicApproverBeta {
-    /**
-     * The unique ID of the access request object. Can be used with the [access request status endpoint](https://developer.sailpoint.com/idn/api/beta/list-access-request-status) to get the status of the request. 
-     * @type {string}
-     * @memberof TriggerInputAccessRequestDynamicApproverBeta
-     */
-    'accessRequestId': string;
-    /**
-     * 
-     * @type {TriggerInputAccessRequestDynamicApproverRequestedForBeta}
-     * @memberof TriggerInputAccessRequestDynamicApproverBeta
-     */
-    'requestedFor': TriggerInputAccessRequestDynamicApproverRequestedForBeta;
-    /**
-     * The access items that are being requested.
-     * @type {Array<TriggerInputAccessRequestDynamicApproverRequestedItemsInnerBeta>}
-     * @memberof TriggerInputAccessRequestDynamicApproverBeta
-     */
-    'requestedItems': Array<TriggerInputAccessRequestDynamicApproverRequestedItemsInnerBeta>;
-    /**
-     * 
-     * @type {TriggerInputAccessRequestDynamicApproverRequestedByBeta}
-     * @memberof TriggerInputAccessRequestDynamicApproverBeta
-     */
-    'requestedBy': TriggerInputAccessRequestDynamicApproverRequestedByBeta;
-}
-/**
- * The identity that initiated the access request.
- * @export
- * @interface TriggerInputAccessRequestDynamicApproverRequestedByBeta
- */
-export interface TriggerInputAccessRequestDynamicApproverRequestedByBeta {
-    /**
-     * The type of object that is referenced
-     * @type {object}
-     * @memberof TriggerInputAccessRequestDynamicApproverRequestedByBeta
-     */
-    'type'?: TriggerInputAccessRequestDynamicApproverRequestedByBetaTypeEnum;
-    /**
-     * ID of the object to which this reference applies
-     * @type {string}
-     * @memberof TriggerInputAccessRequestDynamicApproverRequestedByBeta
-     */
-    'id'?: string;
-    /**
-     * Human-readable display name of the object to which this reference applies
-     * @type {string}
-     * @memberof TriggerInputAccessRequestDynamicApproverRequestedByBeta
-     */
-    'name'?: string;
-}
-
-export const TriggerInputAccessRequestDynamicApproverRequestedByBetaTypeEnum = {
-    Identity: 'IDENTITY'
-} as const;
-
-export type TriggerInputAccessRequestDynamicApproverRequestedByBetaTypeEnum = typeof TriggerInputAccessRequestDynamicApproverRequestedByBetaTypeEnum[keyof typeof TriggerInputAccessRequestDynamicApproverRequestedByBetaTypeEnum];
-
-/**
- * The identity for whom the access is requested for.
- * @export
- * @interface TriggerInputAccessRequestDynamicApproverRequestedForBeta
- */
-export interface TriggerInputAccessRequestDynamicApproverRequestedForBeta {
-    /**
-     * The type of object that is referenced
-     * @type {object}
-     * @memberof TriggerInputAccessRequestDynamicApproverRequestedForBeta
-     */
-    'type'?: TriggerInputAccessRequestDynamicApproverRequestedForBetaTypeEnum;
-    /**
-     * ID of the object to which this reference applies
-     * @type {string}
-     * @memberof TriggerInputAccessRequestDynamicApproverRequestedForBeta
-     */
-    'id'?: string;
-    /**
-     * Human-readable display name of the object to which this reference applies
-     * @type {string}
-     * @memberof TriggerInputAccessRequestDynamicApproverRequestedForBeta
-     */
-    'name'?: string;
-}
-
-export const TriggerInputAccessRequestDynamicApproverRequestedForBetaTypeEnum = {
-    Identity: 'IDENTITY'
-} as const;
-
-export type TriggerInputAccessRequestDynamicApproverRequestedForBetaTypeEnum = typeof TriggerInputAccessRequestDynamicApproverRequestedForBetaTypeEnum[keyof typeof TriggerInputAccessRequestDynamicApproverRequestedForBetaTypeEnum];
-
-/**
- * 
- * @export
- * @interface TriggerInputAccessRequestDynamicApproverRequestedItemsInnerBeta
- */
-export interface TriggerInputAccessRequestDynamicApproverRequestedItemsInnerBeta {
-    /**
-     * The unique ID of the access item.
-     * @type {string}
-     * @memberof TriggerInputAccessRequestDynamicApproverRequestedItemsInnerBeta
-     */
-    'id': string;
-    /**
-     * Human friendly name of the access item.
-     * @type {string}
-     * @memberof TriggerInputAccessRequestDynamicApproverRequestedItemsInnerBeta
-     */
-    'name': string;
-    /**
-     * Extended description of the access item.
-     * @type {string}
-     * @memberof TriggerInputAccessRequestDynamicApproverRequestedItemsInnerBeta
-     */
-    'description'?: string | null;
-    /**
-     * The type of access item being requested.
-     * @type {object}
-     * @memberof TriggerInputAccessRequestDynamicApproverRequestedItemsInnerBeta
-     */
-    'type': TriggerInputAccessRequestDynamicApproverRequestedItemsInnerBetaTypeEnum;
-    /**
-     * Grant or revoke the access item
-     * @type {object}
-     * @memberof TriggerInputAccessRequestDynamicApproverRequestedItemsInnerBeta
-     */
-    'operation': TriggerInputAccessRequestDynamicApproverRequestedItemsInnerBetaOperationEnum;
-    /**
-     * A comment from the requestor on why the access is needed.
-     * @type {string}
-     * @memberof TriggerInputAccessRequestDynamicApproverRequestedItemsInnerBeta
-     */
-    'comment'?: string | null;
-}
-
-export const TriggerInputAccessRequestDynamicApproverRequestedItemsInnerBetaTypeEnum = {
-    AccessProfile: 'ACCESS_PROFILE',
-    Role: 'ROLE',
-    Entitlement: 'ENTITLEMENT'
-} as const;
-
-export type TriggerInputAccessRequestDynamicApproverRequestedItemsInnerBetaTypeEnum = typeof TriggerInputAccessRequestDynamicApproverRequestedItemsInnerBetaTypeEnum[keyof typeof TriggerInputAccessRequestDynamicApproverRequestedItemsInnerBetaTypeEnum];
-export const TriggerInputAccessRequestDynamicApproverRequestedItemsInnerBetaOperationEnum = {
-    Add: 'Add',
-    Remove: 'Remove'
-} as const;
-
-export type TriggerInputAccessRequestDynamicApproverRequestedItemsInnerBetaOperationEnum = typeof TriggerInputAccessRequestDynamicApproverRequestedItemsInnerBetaOperationEnum[keyof typeof TriggerInputAccessRequestDynamicApproverRequestedItemsInnerBetaOperationEnum];
-
-/**
- * 
- * @export
- * @interface TriggerInputAccessRequestPostApprovalBeta
- */
-export interface TriggerInputAccessRequestPostApprovalBeta {
-    /**
-     * The unique ID of the access request.
-     * @type {string}
-     * @memberof TriggerInputAccessRequestPostApprovalBeta
-     */
-    'accessRequestId': string;
-    /**
-     * 
-     * @type {TriggerInputAccessRequestPostApprovalRequestedForBeta}
-     * @memberof TriggerInputAccessRequestPostApprovalBeta
-     */
-    'requestedFor': TriggerInputAccessRequestPostApprovalRequestedForBeta;
-    /**
-     * Details on the outcome of each access item.
-     * @type {Array<TriggerInputAccessRequestPostApprovalRequestedItemsStatusInnerBeta>}
-     * @memberof TriggerInputAccessRequestPostApprovalBeta
-     */
-    'requestedItemsStatus': Array<TriggerInputAccessRequestPostApprovalRequestedItemsStatusInnerBeta>;
-    /**
-     * 
-     * @type {TriggerInputAccessRequestPostApprovalRequestedByBeta}
-     * @memberof TriggerInputAccessRequestPostApprovalBeta
-     */
-    'requestedBy': TriggerInputAccessRequestPostApprovalRequestedByBeta;
-}
-/**
- * The identity that initiated the access request.
- * @export
- * @interface TriggerInputAccessRequestPostApprovalRequestedByBeta
- */
-export interface TriggerInputAccessRequestPostApprovalRequestedByBeta {
-    /**
-     * The type of object that is referenced
-     * @type {object}
-     * @memberof TriggerInputAccessRequestPostApprovalRequestedByBeta
-     */
-    'type': TriggerInputAccessRequestPostApprovalRequestedByBetaTypeEnum;
-    /**
-     * ID of the object to which this reference applies
-     * @type {string}
-     * @memberof TriggerInputAccessRequestPostApprovalRequestedByBeta
-     */
-    'id': string;
-    /**
-     * Human-readable display name of the object to which this reference applies
-     * @type {string}
-     * @memberof TriggerInputAccessRequestPostApprovalRequestedByBeta
-     */
-    'name': string;
-}
-
-export const TriggerInputAccessRequestPostApprovalRequestedByBetaTypeEnum = {
-    Identity: 'IDENTITY'
-} as const;
-
-export type TriggerInputAccessRequestPostApprovalRequestedByBetaTypeEnum = typeof TriggerInputAccessRequestPostApprovalRequestedByBetaTypeEnum[keyof typeof TriggerInputAccessRequestPostApprovalRequestedByBetaTypeEnum];
-
-/**
- * The identity who the access request is for.
- * @export
- * @interface TriggerInputAccessRequestPostApprovalRequestedForBeta
- */
-export interface TriggerInputAccessRequestPostApprovalRequestedForBeta {
-    /**
-     * The type of object that is referenced
-     * @type {object}
-     * @memberof TriggerInputAccessRequestPostApprovalRequestedForBeta
-     */
-    'type': TriggerInputAccessRequestPostApprovalRequestedForBetaTypeEnum;
-    /**
-     * ID of the object to which this reference applies
-     * @type {string}
-     * @memberof TriggerInputAccessRequestPostApprovalRequestedForBeta
-     */
-    'id': string;
-    /**
-     * Human-readable display name of the object to which this reference applies
-     * @type {string}
-     * @memberof TriggerInputAccessRequestPostApprovalRequestedForBeta
-     */
-    'name': string;
-}
-
-export const TriggerInputAccessRequestPostApprovalRequestedForBetaTypeEnum = {
-    Identity: 'IDENTITY'
-} as const;
-
-export type TriggerInputAccessRequestPostApprovalRequestedForBetaTypeEnum = typeof TriggerInputAccessRequestPostApprovalRequestedForBetaTypeEnum[keyof typeof TriggerInputAccessRequestPostApprovalRequestedForBetaTypeEnum];
-
-/**
- * The identity of the approver.
- * @export
- * @interface TriggerInputAccessRequestPostApprovalRequestedItemsStatusInnerApprovalInfoInnerApproverBeta
- */
-export interface TriggerInputAccessRequestPostApprovalRequestedItemsStatusInnerApprovalInfoInnerApproverBeta {
-    /**
-     * The type of object that is referenced
-     * @type {object}
-     * @memberof TriggerInputAccessRequestPostApprovalRequestedItemsStatusInnerApprovalInfoInnerApproverBeta
-     */
-    'type': TriggerInputAccessRequestPostApprovalRequestedItemsStatusInnerApprovalInfoInnerApproverBetaTypeEnum;
-    /**
-     * ID of the object to which this reference applies
-     * @type {string}
-     * @memberof TriggerInputAccessRequestPostApprovalRequestedItemsStatusInnerApprovalInfoInnerApproverBeta
-     */
-    'id': string;
-    /**
-     * Human-readable display name of the object to which this reference applies
-     * @type {string}
-     * @memberof TriggerInputAccessRequestPostApprovalRequestedItemsStatusInnerApprovalInfoInnerApproverBeta
-     */
-    'name': string;
-}
-
-export const TriggerInputAccessRequestPostApprovalRequestedItemsStatusInnerApprovalInfoInnerApproverBetaTypeEnum = {
-    Identity: 'IDENTITY'
-} as const;
-
-export type TriggerInputAccessRequestPostApprovalRequestedItemsStatusInnerApprovalInfoInnerApproverBetaTypeEnum = typeof TriggerInputAccessRequestPostApprovalRequestedItemsStatusInnerApprovalInfoInnerApproverBetaTypeEnum[keyof typeof TriggerInputAccessRequestPostApprovalRequestedItemsStatusInnerApprovalInfoInnerApproverBetaTypeEnum];
-
-/**
- * 
- * @export
- * @interface TriggerInputAccessRequestPostApprovalRequestedItemsStatusInnerApprovalInfoInnerBeta
- */
-export interface TriggerInputAccessRequestPostApprovalRequestedItemsStatusInnerApprovalInfoInnerBeta {
-    /**
-     * A comment left by the approver.
-     * @type {string}
-     * @memberof TriggerInputAccessRequestPostApprovalRequestedItemsStatusInnerApprovalInfoInnerBeta
-     */
-    'approvalComment'?: string | null;
-    /**
-     * The final decision of the approver.
-     * @type {object}
-     * @memberof TriggerInputAccessRequestPostApprovalRequestedItemsStatusInnerApprovalInfoInnerBeta
-     */
-    'approvalDecision': TriggerInputAccessRequestPostApprovalRequestedItemsStatusInnerApprovalInfoInnerBetaApprovalDecisionEnum;
-    /**
-     * The name of the approver
-     * @type {string}
-     * @memberof TriggerInputAccessRequestPostApprovalRequestedItemsStatusInnerApprovalInfoInnerBeta
-     */
-    'approverName': string;
-    /**
-     * 
-     * @type {TriggerInputAccessRequestPostApprovalRequestedItemsStatusInnerApprovalInfoInnerApproverBeta}
-     * @memberof TriggerInputAccessRequestPostApprovalRequestedItemsStatusInnerApprovalInfoInnerBeta
-     */
-    'approver': TriggerInputAccessRequestPostApprovalRequestedItemsStatusInnerApprovalInfoInnerApproverBeta;
-}
-
-export const TriggerInputAccessRequestPostApprovalRequestedItemsStatusInnerApprovalInfoInnerBetaApprovalDecisionEnum = {
-    Approved: 'APPROVED',
-    Denied: 'DENIED'
-} as const;
-
-export type TriggerInputAccessRequestPostApprovalRequestedItemsStatusInnerApprovalInfoInnerBetaApprovalDecisionEnum = typeof TriggerInputAccessRequestPostApprovalRequestedItemsStatusInnerApprovalInfoInnerBetaApprovalDecisionEnum[keyof typeof TriggerInputAccessRequestPostApprovalRequestedItemsStatusInnerApprovalInfoInnerBetaApprovalDecisionEnum];
-
-/**
- * 
- * @export
- * @interface TriggerInputAccessRequestPostApprovalRequestedItemsStatusInnerBeta
- */
-export interface TriggerInputAccessRequestPostApprovalRequestedItemsStatusInnerBeta {
-    /**
-     * The unique ID of the access item being requested.
-     * @type {string}
-     * @memberof TriggerInputAccessRequestPostApprovalRequestedItemsStatusInnerBeta
-     */
-    'id': string;
-    /**
-     * The human friendly name of the access item.
-     * @type {string}
-     * @memberof TriggerInputAccessRequestPostApprovalRequestedItemsStatusInnerBeta
-     */
-    'name': string;
-    /**
-     * Detailed description of the access item.
-     * @type {string}
-     * @memberof TriggerInputAccessRequestPostApprovalRequestedItemsStatusInnerBeta
-     */
-    'description'?: string | null;
-    /**
-     * The type of access item.
-     * @type {object}
-     * @memberof TriggerInputAccessRequestPostApprovalRequestedItemsStatusInnerBeta
-     */
-    'type': TriggerInputAccessRequestPostApprovalRequestedItemsStatusInnerBetaTypeEnum;
-    /**
-     * The action to perform on the access item.
-     * @type {object}
-     * @memberof TriggerInputAccessRequestPostApprovalRequestedItemsStatusInnerBeta
-     */
-    'operation': TriggerInputAccessRequestPostApprovalRequestedItemsStatusInnerBetaOperationEnum;
-    /**
-     * A comment from the identity requesting the access.
-     * @type {string}
-     * @memberof TriggerInputAccessRequestPostApprovalRequestedItemsStatusInnerBeta
-     */
-    'comment'?: string | null;
-    /**
-     * Additional customer defined metadata about the access item.
-     * @type {{ [key: string]: any; }}
-     * @memberof TriggerInputAccessRequestPostApprovalRequestedItemsStatusInnerBeta
-     */
-    'clientMetadata'?: { [key: string]: any; } | null;
-    /**
-     * A list of one or more approvers for the access request.
-     * @type {Array<TriggerInputAccessRequestPostApprovalRequestedItemsStatusInnerApprovalInfoInnerBeta>}
-     * @memberof TriggerInputAccessRequestPostApprovalRequestedItemsStatusInnerBeta
-     */
-    'approvalInfo': Array<TriggerInputAccessRequestPostApprovalRequestedItemsStatusInnerApprovalInfoInnerBeta>;
-}
-
-export const TriggerInputAccessRequestPostApprovalRequestedItemsStatusInnerBetaTypeEnum = {
-    AccessProfile: 'ACCESS_PROFILE',
-    Role: 'ROLE',
-    Entitlement: 'ENTITLEMENT'
-} as const;
-
-export type TriggerInputAccessRequestPostApprovalRequestedItemsStatusInnerBetaTypeEnum = typeof TriggerInputAccessRequestPostApprovalRequestedItemsStatusInnerBetaTypeEnum[keyof typeof TriggerInputAccessRequestPostApprovalRequestedItemsStatusInnerBetaTypeEnum];
-export const TriggerInputAccessRequestPostApprovalRequestedItemsStatusInnerBetaOperationEnum = {
-    Add: 'Add',
-    Remove: 'Remove'
-} as const;
-
-export type TriggerInputAccessRequestPostApprovalRequestedItemsStatusInnerBetaOperationEnum = typeof TriggerInputAccessRequestPostApprovalRequestedItemsStatusInnerBetaOperationEnum[keyof typeof TriggerInputAccessRequestPostApprovalRequestedItemsStatusInnerBetaOperationEnum];
-
-/**
- * 
- * @export
- * @interface TriggerInputAccessRequestPreApprovalBeta
- */
-export interface TriggerInputAccessRequestPreApprovalBeta {
-    /**
-     * The unique ID of the access request.
-     * @type {string}
-     * @memberof TriggerInputAccessRequestPreApprovalBeta
-     */
-    'accessRequestId': string;
-    /**
-     * 
-     * @type {TriggerInputAccessRequestPostApprovalRequestedForBeta}
-     * @memberof TriggerInputAccessRequestPreApprovalBeta
-     */
-    'requestedFor': TriggerInputAccessRequestPostApprovalRequestedForBeta;
-    /**
-     * Details of the access items being requested.
-     * @type {Array<TriggerInputAccessRequestPreApprovalRequestedItemsInnerBeta>}
-     * @memberof TriggerInputAccessRequestPreApprovalBeta
-     */
-    'requestedItems': Array<TriggerInputAccessRequestPreApprovalRequestedItemsInnerBeta>;
-    /**
-     * 
-     * @type {TriggerInputAccessRequestPostApprovalRequestedByBeta}
-     * @memberof TriggerInputAccessRequestPreApprovalBeta
-     */
-    'requestedBy': TriggerInputAccessRequestPostApprovalRequestedByBeta;
-}
-/**
- * 
- * @export
- * @interface TriggerInputAccessRequestPreApprovalRequestedItemsInnerBeta
- */
-export interface TriggerInputAccessRequestPreApprovalRequestedItemsInnerBeta {
-    /**
-     * The unique ID of the access item being requested.
-     * @type {string}
-     * @memberof TriggerInputAccessRequestPreApprovalRequestedItemsInnerBeta
-     */
-    'id': string;
-    /**
-     * The human friendly name of the access item.
-     * @type {string}
-     * @memberof TriggerInputAccessRequestPreApprovalRequestedItemsInnerBeta
-     */
-    'name': string;
-    /**
-     * Detailed description of the access item.
-     * @type {string}
-     * @memberof TriggerInputAccessRequestPreApprovalRequestedItemsInnerBeta
-     */
-    'description'?: string | null;
-    /**
-     * The type of access item.
-     * @type {object}
-     * @memberof TriggerInputAccessRequestPreApprovalRequestedItemsInnerBeta
-     */
-    'type': TriggerInputAccessRequestPreApprovalRequestedItemsInnerBetaTypeEnum;
-    /**
-     * The action to perform on the access item.
-     * @type {object}
-     * @memberof TriggerInputAccessRequestPreApprovalRequestedItemsInnerBeta
-     */
-    'operation': TriggerInputAccessRequestPreApprovalRequestedItemsInnerBetaOperationEnum;
-    /**
-     * A comment from the identity requesting the access.
-     * @type {string}
-     * @memberof TriggerInputAccessRequestPreApprovalRequestedItemsInnerBeta
-     */
-    'comment'?: string | null;
-}
-
-export const TriggerInputAccessRequestPreApprovalRequestedItemsInnerBetaTypeEnum = {
-    AccessProfile: 'ACCESS_PROFILE',
-    Role: 'ROLE',
-    Entitlement: 'ENTITLEMENT'
-} as const;
-
-export type TriggerInputAccessRequestPreApprovalRequestedItemsInnerBetaTypeEnum = typeof TriggerInputAccessRequestPreApprovalRequestedItemsInnerBetaTypeEnum[keyof typeof TriggerInputAccessRequestPreApprovalRequestedItemsInnerBetaTypeEnum];
-export const TriggerInputAccessRequestPreApprovalRequestedItemsInnerBetaOperationEnum = {
-    Add: 'Add',
-    Remove: 'Remove'
-} as const;
-
-export type TriggerInputAccessRequestPreApprovalRequestedItemsInnerBetaOperationEnum = typeof TriggerInputAccessRequestPreApprovalRequestedItemsInnerBetaOperationEnum[keyof typeof TriggerInputAccessRequestPreApprovalRequestedItemsInnerBetaOperationEnum];
-
-/**
- * 
- * @export
- * @interface TriggerInputAccountAggregationCompletedBeta
- */
-export interface TriggerInputAccountAggregationCompletedBeta {
-    /**
-     * 
-     * @type {TriggerInputAccountAggregationCompletedSourceBeta}
-     * @memberof TriggerInputAccountAggregationCompletedBeta
-     */
-    'source': TriggerInputAccountAggregationCompletedSourceBeta;
-    /**
-     * The overall status of the aggregation.
-     * @type {object}
-     * @memberof TriggerInputAccountAggregationCompletedBeta
-     */
-    'status': TriggerInputAccountAggregationCompletedBetaStatusEnum;
-    /**
-     * The date and time when the account aggregation started.
-     * @type {string}
-     * @memberof TriggerInputAccountAggregationCompletedBeta
-     */
-    'started': string;
-    /**
-     * The date and time when the account aggregation finished.
-     * @type {string}
-     * @memberof TriggerInputAccountAggregationCompletedBeta
-     */
-    'completed': string;
-    /**
-     * A list of errors that occurred during the aggregation.
-     * @type {Array<string>}
-     * @memberof TriggerInputAccountAggregationCompletedBeta
-     */
-    'errors': Array<string> | null;
-    /**
-     * A list of warnings that occurred during the aggregation.
-     * @type {Array<string>}
-     * @memberof TriggerInputAccountAggregationCompletedBeta
-     */
-    'warnings': Array<string> | null;
-    /**
-     * 
-     * @type {TriggerInputAccountAggregationCompletedStatsBeta}
-     * @memberof TriggerInputAccountAggregationCompletedBeta
-     */
-    'stats': TriggerInputAccountAggregationCompletedStatsBeta;
-}
-
-export const TriggerInputAccountAggregationCompletedBetaStatusEnum = {
-    Success: 'Success',
-    Failed: 'Failed',
-    Terminated: 'Terminated'
-} as const;
-
-export type TriggerInputAccountAggregationCompletedBetaStatusEnum = typeof TriggerInputAccountAggregationCompletedBetaStatusEnum[keyof typeof TriggerInputAccountAggregationCompletedBetaStatusEnum];
-
-/**
- * The source from which the accounts were aggregated.
- * @export
- * @interface TriggerInputAccountAggregationCompletedSourceBeta
- */
-export interface TriggerInputAccountAggregationCompletedSourceBeta {
-    /**
-     * The type of object that is referenced
-     * @type {object}
-     * @memberof TriggerInputAccountAggregationCompletedSourceBeta
-     */
-    'type': TriggerInputAccountAggregationCompletedSourceBetaTypeEnum;
-    /**
-     * ID of the object to which this reference applies
-     * @type {string}
-     * @memberof TriggerInputAccountAggregationCompletedSourceBeta
-     */
-    'id': string;
-    /**
-     * Human-readable display name of the object to which this reference applies
-     * @type {string}
-     * @memberof TriggerInputAccountAggregationCompletedSourceBeta
-     */
-    'name': string;
-}
-
-export const TriggerInputAccountAggregationCompletedSourceBetaTypeEnum = {
-    Source: 'SOURCE'
-} as const;
-
-export type TriggerInputAccountAggregationCompletedSourceBetaTypeEnum = typeof TriggerInputAccountAggregationCompletedSourceBetaTypeEnum[keyof typeof TriggerInputAccountAggregationCompletedSourceBetaTypeEnum];
-
-/**
- * Overall statistics about the account aggregation.
- * @export
- * @interface TriggerInputAccountAggregationCompletedStatsBeta
- */
-export interface TriggerInputAccountAggregationCompletedStatsBeta {
-    /**
-     * The number of accounts which were scanned / iterated over.
-     * @type {number}
-     * @memberof TriggerInputAccountAggregationCompletedStatsBeta
-     */
-    'scanned': number;
-    /**
-     * The number of accounts which existed before, but had no changes.
-     * @type {number}
-     * @memberof TriggerInputAccountAggregationCompletedStatsBeta
-     */
-    'unchanged': number;
-    /**
-     * The number of accounts which existed before, but had changes.
-     * @type {number}
-     * @memberof TriggerInputAccountAggregationCompletedStatsBeta
-     */
-    'changed': number;
-    /**
-     * The number of accounts which are new - have not existed before.
-     * @type {number}
-     * @memberof TriggerInputAccountAggregationCompletedStatsBeta
-     */
-    'added': number;
-    /**
-     * The number accounts which existed before, but no longer exist (thus getting removed).
-     * @type {number}
-     * @memberof TriggerInputAccountAggregationCompletedStatsBeta
-     */
-    'removed': number;
-}
-/**
- * Details of the account where the attributes changed.
- * @export
- * @interface TriggerInputAccountAttributesChangedAccountBeta
- */
-export interface TriggerInputAccountAttributesChangedAccountBeta {
-    /**
-     * SailPoint generated unique identifier.
-     * @type {string}
-     * @memberof TriggerInputAccountAttributesChangedAccountBeta
-     */
-    'id': string;
-    /**
-     * The source\'s unique identifier for the account. UUID is generated by the source system.
-     * @type {string}
-     * @memberof TriggerInputAccountAttributesChangedAccountBeta
-     */
-    'uuid': string | null;
-    /**
-     * Name of the account.
-     * @type {string}
-     * @memberof TriggerInputAccountAttributesChangedAccountBeta
-     */
-    'name': string;
-    /**
-     * Unique ID of the account on the source.
-     * @type {string}
-     * @memberof TriggerInputAccountAttributesChangedAccountBeta
-     */
-    'nativeIdentity': string;
-    /**
-     * The type of the account
-     * @type {object}
-     * @memberof TriggerInputAccountAttributesChangedAccountBeta
-     */
-    'type': TriggerInputAccountAttributesChangedAccountBetaTypeEnum;
-}
-
-export const TriggerInputAccountAttributesChangedAccountBetaTypeEnum = {
-    Account: 'ACCOUNT'
-} as const;
-
-export type TriggerInputAccountAttributesChangedAccountBetaTypeEnum = typeof TriggerInputAccountAttributesChangedAccountBetaTypeEnum[keyof typeof TriggerInputAccountAttributesChangedAccountBetaTypeEnum];
-
-/**
- * 
- * @export
- * @interface TriggerInputAccountAttributesChangedBeta
- */
-export interface TriggerInputAccountAttributesChangedBeta {
-    /**
-     * 
-     * @type {TriggerInputAccountAttributesChangedIdentityBeta}
-     * @memberof TriggerInputAccountAttributesChangedBeta
-     */
-    'identity': TriggerInputAccountAttributesChangedIdentityBeta;
-    /**
-     * 
-     * @type {TriggerInputAccountAttributesChangedSourceBeta}
-     * @memberof TriggerInputAccountAttributesChangedBeta
-     */
-    'source': TriggerInputAccountAttributesChangedSourceBeta;
-    /**
-     * 
-     * @type {TriggerInputAccountAttributesChangedAccountBeta}
-     * @memberof TriggerInputAccountAttributesChangedBeta
-     */
-    'account': TriggerInputAccountAttributesChangedAccountBeta;
-    /**
-     * A list of attributes that changed.
-     * @type {Array<TriggerInputAccountAttributesChangedChangesInnerBeta>}
-     * @memberof TriggerInputAccountAttributesChangedBeta
-     */
-    'changes': Array<TriggerInputAccountAttributesChangedChangesInnerBeta>;
-}
-/**
- * 
- * @export
- * @interface TriggerInputAccountAttributesChangedChangesInnerBeta
- */
-export interface TriggerInputAccountAttributesChangedChangesInnerBeta {
-    /**
-     * The name of the attribute.
-     * @type {string}
-     * @memberof TriggerInputAccountAttributesChangedChangesInnerBeta
-     */
-    'attribute': string;
-    /**
-     * 
-     * @type {TriggerInputAccountAttributesChangedChangesInnerOldValueBeta}
-     * @memberof TriggerInputAccountAttributesChangedChangesInnerBeta
-     */
-    'oldValue': TriggerInputAccountAttributesChangedChangesInnerOldValueBeta | null;
-    /**
-     * 
-     * @type {TriggerInputAccountAttributesChangedChangesInnerNewValueBeta}
-     * @memberof TriggerInputAccountAttributesChangedChangesInnerBeta
-     */
-    'newValue': TriggerInputAccountAttributesChangedChangesInnerNewValueBeta | null;
-}
-/**
- * @type TriggerInputAccountAttributesChangedChangesInnerNewValueBeta
- * The new value of the attribute.
- * @export
- */
-export type TriggerInputAccountAttributesChangedChangesInnerNewValueBeta = Array<string> | boolean | string;
-
-/**
- * @type TriggerInputAccountAttributesChangedChangesInnerOldValueBeta
- * The previous value of the attribute.
- * @export
- */
-export type TriggerInputAccountAttributesChangedChangesInnerOldValueBeta = Array<string> | boolean | string;
-
-/**
- * The identity whose account attributes changed.
- * @export
- * @interface TriggerInputAccountAttributesChangedIdentityBeta
- */
-export interface TriggerInputAccountAttributesChangedIdentityBeta {
-    /**
-     * The type of object that is referenced
-     * @type {object}
-     * @memberof TriggerInputAccountAttributesChangedIdentityBeta
-     */
-    'type': TriggerInputAccountAttributesChangedIdentityBetaTypeEnum;
-    /**
-     * ID of the object to which this reference applies
-     * @type {string}
-     * @memberof TriggerInputAccountAttributesChangedIdentityBeta
-     */
-    'id': string;
-    /**
-     * Human-readable display name of the object to which this reference applies
-     * @type {string}
-     * @memberof TriggerInputAccountAttributesChangedIdentityBeta
-     */
-    'name': string;
-}
-
-export const TriggerInputAccountAttributesChangedIdentityBetaTypeEnum = {
-    Identity: 'IDENTITY'
-} as const;
-
-export type TriggerInputAccountAttributesChangedIdentityBetaTypeEnum = typeof TriggerInputAccountAttributesChangedIdentityBetaTypeEnum[keyof typeof TriggerInputAccountAttributesChangedIdentityBetaTypeEnum];
-
-/**
- * The source that contains the account.
- * @export
- * @interface TriggerInputAccountAttributesChangedSourceBeta
- */
-export interface TriggerInputAccountAttributesChangedSourceBeta {
-    /**
-     * ID of the object to which this reference applies
-     * @type {string}
-     * @memberof TriggerInputAccountAttributesChangedSourceBeta
-     */
-    'id': string;
-    /**
-     * The type of object that is referenced
-     * @type {string}
-     * @memberof TriggerInputAccountAttributesChangedSourceBeta
-     */
-    'type': TriggerInputAccountAttributesChangedSourceBetaTypeEnum;
-    /**
-     * Human-readable display name of the object to which this reference applies
-     * @type {string}
-     * @memberof TriggerInputAccountAttributesChangedSourceBeta
-     */
-    'name': string;
-}
-
-export const TriggerInputAccountAttributesChangedSourceBetaTypeEnum = {
-    Source: 'SOURCE'
-} as const;
-
-export type TriggerInputAccountAttributesChangedSourceBetaTypeEnum = typeof TriggerInputAccountAttributesChangedSourceBetaTypeEnum[keyof typeof TriggerInputAccountAttributesChangedSourceBetaTypeEnum];
-
-/**
- * The account that was correlated.
- * @export
- * @interface TriggerInputAccountCorrelatedAccountBeta
- */
-export interface TriggerInputAccountCorrelatedAccountBeta {
-    /**
-     * The type of object that is referenced
-     * @type {object}
-     * @memberof TriggerInputAccountCorrelatedAccountBeta
-     */
-    'type': TriggerInputAccountCorrelatedAccountBetaTypeEnum;
-    /**
-     * Unique ID of the account on the source.
-     * @type {string}
-     * @memberof TriggerInputAccountCorrelatedAccountBeta
-     */
-    'nativeIdentity': string;
-    /**
-     * The source\'s unique identifier for the account. UUID is generated by the source system.
-     * @type {string}
-     * @memberof TriggerInputAccountCorrelatedAccountBeta
-     */
-    'uuid'?: string | null;
-    /**
-     * ID of the object to which this reference applies
-     * @type {string}
-     * @memberof TriggerInputAccountCorrelatedAccountBeta
-     */
-    'id': string;
-    /**
-     * Human-readable display name of the object to which this reference applies
-     * @type {string}
-     * @memberof TriggerInputAccountCorrelatedAccountBeta
-     */
-    'name': string;
-}
-
-export const TriggerInputAccountCorrelatedAccountBetaTypeEnum = {
-    Account: 'ACCOUNT'
-} as const;
-
-export type TriggerInputAccountCorrelatedAccountBetaTypeEnum = typeof TriggerInputAccountCorrelatedAccountBetaTypeEnum[keyof typeof TriggerInputAccountCorrelatedAccountBetaTypeEnum];
-
-/**
- * 
- * @export
- * @interface TriggerInputAccountCorrelatedBeta
- */
-export interface TriggerInputAccountCorrelatedBeta {
-    /**
-     * 
-     * @type {TriggerInputAccountCorrelatedIdentityBeta}
-     * @memberof TriggerInputAccountCorrelatedBeta
-     */
-    'identity': TriggerInputAccountCorrelatedIdentityBeta;
-    /**
-     * 
-     * @type {TriggerInputAccountCorrelatedSourceBeta}
-     * @memberof TriggerInputAccountCorrelatedBeta
-     */
-    'source': TriggerInputAccountCorrelatedSourceBeta;
-    /**
-     * 
-     * @type {TriggerInputAccountCorrelatedAccountBeta}
-     * @memberof TriggerInputAccountCorrelatedBeta
-     */
-    'account': TriggerInputAccountCorrelatedAccountBeta;
-    /**
-     * The attributes associated with the account.  Attributes are unique per source.
-     * @type {{ [key: string]: any; }}
-     * @memberof TriggerInputAccountCorrelatedBeta
-     */
-    'attributes': { [key: string]: any; };
-    /**
-     * The number of entitlements associated with this account.
-     * @type {number}
-     * @memberof TriggerInputAccountCorrelatedBeta
-     */
-    'entitlementCount'?: number;
-}
-/**
- * The identity that the account correlated with.
- * @export
- * @interface TriggerInputAccountCorrelatedIdentityBeta
- */
-export interface TriggerInputAccountCorrelatedIdentityBeta {
-    /**
-     * The type of object that is referenced
-     * @type {object}
-     * @memberof TriggerInputAccountCorrelatedIdentityBeta
-     */
-    'type': TriggerInputAccountCorrelatedIdentityBetaTypeEnum;
-    /**
-     * ID of the object to which this reference applies
-     * @type {string}
-     * @memberof TriggerInputAccountCorrelatedIdentityBeta
-     */
-    'id': string;
-    /**
-     * Human-readable display name of the object to which this reference applies
-     * @type {string}
-     * @memberof TriggerInputAccountCorrelatedIdentityBeta
-     */
-    'name': string;
-}
-
-export const TriggerInputAccountCorrelatedIdentityBetaTypeEnum = {
-    Identity: 'IDENTITY'
-} as const;
-
-export type TriggerInputAccountCorrelatedIdentityBetaTypeEnum = typeof TriggerInputAccountCorrelatedIdentityBetaTypeEnum[keyof typeof TriggerInputAccountCorrelatedIdentityBetaTypeEnum];
-
-/**
- * The source from which the account came from.
- * @export
- * @interface TriggerInputAccountCorrelatedSourceBeta
- */
-export interface TriggerInputAccountCorrelatedSourceBeta {
-    /**
-     * ID of the object to which this reference applies
-     * @type {string}
-     * @memberof TriggerInputAccountCorrelatedSourceBeta
-     */
-    'id': string;
-    /**
-     * The type of object that is referenced
-     * @type {string}
-     * @memberof TriggerInputAccountCorrelatedSourceBeta
-     */
-    'type': TriggerInputAccountCorrelatedSourceBetaTypeEnum;
-    /**
-     * Human-readable display name of the object to which this reference applies
-     * @type {string}
-     * @memberof TriggerInputAccountCorrelatedSourceBeta
-     */
-    'name': string;
-}
-
-export const TriggerInputAccountCorrelatedSourceBetaTypeEnum = {
-    Source: 'SOURCE'
-} as const;
-
-export type TriggerInputAccountCorrelatedSourceBetaTypeEnum = typeof TriggerInputAccountCorrelatedSourceBetaTypeEnum[keyof typeof TriggerInputAccountCorrelatedSourceBetaTypeEnum];
-
-/**
- * The account that was uncorrelated.
- * @export
- * @interface TriggerInputAccountUncorrelatedAccountBeta
- */
-export interface TriggerInputAccountUncorrelatedAccountBeta {
-    /**
-     * The type of object that is referenced
-     * @type {object}
-     * @memberof TriggerInputAccountUncorrelatedAccountBeta
-     */
-    'type': TriggerInputAccountUncorrelatedAccountBetaTypeEnum;
-    /**
-     * Unique ID of the account on the source.
-     * @type {string}
-     * @memberof TriggerInputAccountUncorrelatedAccountBeta
-     */
-    'nativeIdentity': string;
-    /**
-     * The source\'s unique identifier for the account. UUID is generated by the source system.
-     * @type {string}
-     * @memberof TriggerInputAccountUncorrelatedAccountBeta
-     */
-    'uuid'?: string | null;
-    /**
-     * ID of the object to which this reference applies
-     * @type {string}
-     * @memberof TriggerInputAccountUncorrelatedAccountBeta
-     */
-    'id': string;
-    /**
-     * Human-readable display name of the object to which this reference applies
-     * @type {string}
-     * @memberof TriggerInputAccountUncorrelatedAccountBeta
-     */
-    'name': string;
-}
-
-export const TriggerInputAccountUncorrelatedAccountBetaTypeEnum = {
-    Account: 'ACCOUNT'
-} as const;
-
-export type TriggerInputAccountUncorrelatedAccountBetaTypeEnum = typeof TriggerInputAccountUncorrelatedAccountBetaTypeEnum[keyof typeof TriggerInputAccountUncorrelatedAccountBetaTypeEnum];
-
-/**
- * 
- * @export
- * @interface TriggerInputAccountUncorrelatedBeta
- */
-export interface TriggerInputAccountUncorrelatedBeta {
-    /**
-     * 
-     * @type {TriggerInputAccountUncorrelatedIdentityBeta}
-     * @memberof TriggerInputAccountUncorrelatedBeta
-     */
-    'identity': TriggerInputAccountUncorrelatedIdentityBeta;
-    /**
-     * 
-     * @type {TriggerInputAccountUncorrelatedSourceBeta}
-     * @memberof TriggerInputAccountUncorrelatedBeta
-     */
-    'source': TriggerInputAccountUncorrelatedSourceBeta;
-    /**
-     * 
-     * @type {TriggerInputAccountUncorrelatedAccountBeta}
-     * @memberof TriggerInputAccountUncorrelatedBeta
-     */
-    'account': TriggerInputAccountUncorrelatedAccountBeta;
-    /**
-     * The number of entitlements associated with this account.
-     * @type {number}
-     * @memberof TriggerInputAccountUncorrelatedBeta
-     */
-    'entitlementCount'?: number;
-}
-/**
- * The identity that the account uncorrelated with.
- * @export
- * @interface TriggerInputAccountUncorrelatedIdentityBeta
- */
-export interface TriggerInputAccountUncorrelatedIdentityBeta {
-    /**
-     * The type of object that is referenced
-     * @type {object}
-     * @memberof TriggerInputAccountUncorrelatedIdentityBeta
-     */
-    'type': TriggerInputAccountUncorrelatedIdentityBetaTypeEnum;
-    /**
-     * ID of the object to which this reference applies
-     * @type {string}
-     * @memberof TriggerInputAccountUncorrelatedIdentityBeta
-     */
-    'id': string;
-    /**
-     * Human-readable display name of the object to which this reference applies
-     * @type {string}
-     * @memberof TriggerInputAccountUncorrelatedIdentityBeta
-     */
-    'name': string;
-}
-
-export const TriggerInputAccountUncorrelatedIdentityBetaTypeEnum = {
-    Identity: 'IDENTITY'
-} as const;
-
-export type TriggerInputAccountUncorrelatedIdentityBetaTypeEnum = typeof TriggerInputAccountUncorrelatedIdentityBetaTypeEnum[keyof typeof TriggerInputAccountUncorrelatedIdentityBetaTypeEnum];
-
-/**
- * The source from which the account came from.
- * @export
- * @interface TriggerInputAccountUncorrelatedSourceBeta
- */
-export interface TriggerInputAccountUncorrelatedSourceBeta {
-    /**
-     * The type of object that is referenced
-     * @type {object}
-     * @memberof TriggerInputAccountUncorrelatedSourceBeta
-     */
-    'type': TriggerInputAccountUncorrelatedSourceBetaTypeEnum;
-    /**
-     * ID of the object to which this reference applies
-     * @type {string}
-     * @memberof TriggerInputAccountUncorrelatedSourceBeta
-     */
-    'id': string;
-    /**
-     * Human-readable display name of the object to which this reference applies
-     * @type {string}
-     * @memberof TriggerInputAccountUncorrelatedSourceBeta
-     */
-    'name': string;
-}
-
-export const TriggerInputAccountUncorrelatedSourceBetaTypeEnum = {
-    Source: 'SOURCE'
-} as const;
-
-export type TriggerInputAccountUncorrelatedSourceBetaTypeEnum = typeof TriggerInputAccountUncorrelatedSourceBetaTypeEnum[keyof typeof TriggerInputAccountUncorrelatedSourceBetaTypeEnum];
-
-/**
- * 
- * @export
- * @interface TriggerInputAccountsCollectedForAggregationBeta
- */
-export interface TriggerInputAccountsCollectedForAggregationBeta {
-    /**
-     * 
-     * @type {TriggerInputAccountsCollectedForAggregationSourceBeta}
-     * @memberof TriggerInputAccountsCollectedForAggregationBeta
-     */
-    'source': TriggerInputAccountsCollectedForAggregationSourceBeta;
-    /**
-     * The overall status of the collection.
-     * @type {object}
-     * @memberof TriggerInputAccountsCollectedForAggregationBeta
-     */
-    'status': TriggerInputAccountsCollectedForAggregationBetaStatusEnum;
-    /**
-     * The date and time when the account collection started.
-     * @type {string}
-     * @memberof TriggerInputAccountsCollectedForAggregationBeta
-     */
-    'started': string;
-    /**
-     * The date and time when the account collection finished.
-     * @type {string}
-     * @memberof TriggerInputAccountsCollectedForAggregationBeta
-     */
-    'completed': string;
-    /**
-     * A list of errors that occurred during the collection.
-     * @type {Array<string>}
-     * @memberof TriggerInputAccountsCollectedForAggregationBeta
-     */
-    'errors': Array<string> | null;
-    /**
-     * A list of warnings that occurred during the collection.
-     * @type {Array<string>}
-     * @memberof TriggerInputAccountsCollectedForAggregationBeta
-     */
-    'warnings': Array<string> | null;
-    /**
-     * 
-     * @type {TriggerInputAccountsCollectedForAggregationStatsBeta}
-     * @memberof TriggerInputAccountsCollectedForAggregationBeta
-     */
-    'stats': TriggerInputAccountsCollectedForAggregationStatsBeta;
-}
-
-export const TriggerInputAccountsCollectedForAggregationBetaStatusEnum = {
-    Success: 'Success',
-    Failed: 'Failed',
-    Terminated: 'Terminated'
-} as const;
-
-export type TriggerInputAccountsCollectedForAggregationBetaStatusEnum = typeof TriggerInputAccountsCollectedForAggregationBetaStatusEnum[keyof typeof TriggerInputAccountsCollectedForAggregationBetaStatusEnum];
-
-/**
- * Reference to the source that has been aggregated.
- * @export
- * @interface TriggerInputAccountsCollectedForAggregationSourceBeta
- */
-export interface TriggerInputAccountsCollectedForAggregationSourceBeta {
-    /**
-     * ID of the object to which this reference applies
-     * @type {string}
-     * @memberof TriggerInputAccountsCollectedForAggregationSourceBeta
-     */
-    'id': string;
-    /**
-     * The type of object that is referenced
-     * @type {string}
-     * @memberof TriggerInputAccountsCollectedForAggregationSourceBeta
-     */
-    'type': TriggerInputAccountsCollectedForAggregationSourceBetaTypeEnum;
-    /**
-     * Human-readable display name of the object to which this reference applies
-     * @type {string}
-     * @memberof TriggerInputAccountsCollectedForAggregationSourceBeta
-     */
-    'name': string;
-}
-
-export const TriggerInputAccountsCollectedForAggregationSourceBetaTypeEnum = {
-    Source: 'SOURCE'
-} as const;
-
-export type TriggerInputAccountsCollectedForAggregationSourceBetaTypeEnum = typeof TriggerInputAccountsCollectedForAggregationSourceBetaTypeEnum[keyof typeof TriggerInputAccountsCollectedForAggregationSourceBetaTypeEnum];
-
-/**
- * Overall statistics about the account collection.
- * @export
- * @interface TriggerInputAccountsCollectedForAggregationStatsBeta
- */
-export interface TriggerInputAccountsCollectedForAggregationStatsBeta {
-    /**
-     * The number of accounts which were scanned / iterated over.
-     * @type {number}
-     * @memberof TriggerInputAccountsCollectedForAggregationStatsBeta
-     */
-    'scanned': number;
-    /**
-     * The number of accounts which existed before, but had no changes.
-     * @type {number}
-     * @memberof TriggerInputAccountsCollectedForAggregationStatsBeta
-     */
-    'unchanged': number;
-    /**
-     * The number of accounts which existed before, but had changes.
-     * @type {number}
-     * @memberof TriggerInputAccountsCollectedForAggregationStatsBeta
-     */
-    'changed': number;
-    /**
-     * The number of accounts which are new - have not existed before.
-     * @type {number}
-     * @memberof TriggerInputAccountsCollectedForAggregationStatsBeta
-     */
-    'added': number;
-    /**
-     * The number accounts which existed before, but no longer exist (thus getting removed).
-     * @type {number}
-     * @memberof TriggerInputAccountsCollectedForAggregationStatsBeta
-     */
-    'removed': number;
-}
-/**
- * 
- * @export
- * @interface TriggerInputCampaignActivatedBeta
- */
-export interface TriggerInputCampaignActivatedBeta {
-    /**
-     * 
-     * @type {TriggerInputCampaignActivatedCampaignBeta}
-     * @memberof TriggerInputCampaignActivatedBeta
-     */
-    'campaign': TriggerInputCampaignActivatedCampaignBeta;
-}
-/**
- * Details about the certification campaign that was activated.
- * @export
- * @interface TriggerInputCampaignActivatedCampaignBeta
- */
-export interface TriggerInputCampaignActivatedCampaignBeta {
-    /**
-     * Unique ID for the campaign.
-     * @type {string}
-     * @memberof TriggerInputCampaignActivatedCampaignBeta
-     */
-    'id': string;
-    /**
-     * The human friendly name of the campaign.
-     * @type {string}
-     * @memberof TriggerInputCampaignActivatedCampaignBeta
-     */
-    'name': string;
-    /**
-     * Extended description of the campaign.
-     * @type {string}
-     * @memberof TriggerInputCampaignActivatedCampaignBeta
-     */
-    'description': string;
-    /**
-     * The date and time the campaign was created.
-     * @type {string}
-     * @memberof TriggerInputCampaignActivatedCampaignBeta
-     */
-    'created': string;
-    /**
-     * The date and time the campaign was last modified.
-     * @type {string}
-     * @memberof TriggerInputCampaignActivatedCampaignBeta
-     */
-    'modified'?: string | null;
-    /**
-     * The date and time the campaign is due.
-     * @type {string}
-     * @memberof TriggerInputCampaignActivatedCampaignBeta
-     */
-    'deadline': string;
-    /**
-     * The type of campaign.
-     * @type {object}
-     * @memberof TriggerInputCampaignActivatedCampaignBeta
-     */
-    'type': TriggerInputCampaignActivatedCampaignBetaTypeEnum;
-    /**
-     * 
-     * @type {TriggerInputCampaignActivatedCampaignCampaignOwnerBeta}
-     * @memberof TriggerInputCampaignActivatedCampaignBeta
-     */
-    'campaignOwner': TriggerInputCampaignActivatedCampaignCampaignOwnerBeta;
-    /**
-     * The current status of the campaign.
-     * @type {object}
-     * @memberof TriggerInputCampaignActivatedCampaignBeta
-     */
-    'status': TriggerInputCampaignActivatedCampaignBetaStatusEnum;
-}
-
-export const TriggerInputCampaignActivatedCampaignBetaTypeEnum = {
-    Manager: 'MANAGER',
-    SourceOwner: 'SOURCE_OWNER',
-    Search: 'SEARCH',
-    RoleComposition: 'ROLE_COMPOSITION'
-} as const;
-
-export type TriggerInputCampaignActivatedCampaignBetaTypeEnum = typeof TriggerInputCampaignActivatedCampaignBetaTypeEnum[keyof typeof TriggerInputCampaignActivatedCampaignBetaTypeEnum];
-export const TriggerInputCampaignActivatedCampaignBetaStatusEnum = {
-    Active: 'ACTIVE'
-} as const;
-
-export type TriggerInputCampaignActivatedCampaignBetaStatusEnum = typeof TriggerInputCampaignActivatedCampaignBetaStatusEnum[keyof typeof TriggerInputCampaignActivatedCampaignBetaStatusEnum];
-
-/**
- * Details of the identity that owns the campaign.
- * @export
- * @interface TriggerInputCampaignActivatedCampaignCampaignOwnerBeta
- */
-export interface TriggerInputCampaignActivatedCampaignCampaignOwnerBeta {
-    /**
-     * The unique ID of the identity.
-     * @type {string}
-     * @memberof TriggerInputCampaignActivatedCampaignCampaignOwnerBeta
-     */
-    'id': string;
-    /**
-     * The human friendly name of the identity.
-     * @type {string}
-     * @memberof TriggerInputCampaignActivatedCampaignCampaignOwnerBeta
-     */
-    'displayName': string;
-    /**
-     * The primary email address of the identity.
-     * @type {string}
-     * @memberof TriggerInputCampaignActivatedCampaignCampaignOwnerBeta
-     */
-    'email': string;
-}
-/**
- * 
- * @export
- * @interface TriggerInputCampaignEndedBeta
- */
-export interface TriggerInputCampaignEndedBeta {
-    /**
-     * 
-     * @type {TriggerInputCampaignEndedCampaignBeta}
-     * @memberof TriggerInputCampaignEndedBeta
-     */
-    'campaign': TriggerInputCampaignEndedCampaignBeta;
-}
-/**
- * Details about the certification campaign that ended.
- * @export
- * @interface TriggerInputCampaignEndedCampaignBeta
- */
-export interface TriggerInputCampaignEndedCampaignBeta {
-    /**
-     * Unique ID for the campaign.
-     * @type {string}
-     * @memberof TriggerInputCampaignEndedCampaignBeta
-     */
-    'id': string;
-    /**
-     * The human friendly name of the campaign.
-     * @type {string}
-     * @memberof TriggerInputCampaignEndedCampaignBeta
-     */
-    'name': string;
-    /**
-     * Extended description of the campaign.
-     * @type {string}
-     * @memberof TriggerInputCampaignEndedCampaignBeta
-     */
-    'description': string;
-    /**
-     * The date and time the campaign was created.
-     * @type {string}
-     * @memberof TriggerInputCampaignEndedCampaignBeta
-     */
-    'created': string;
-    /**
-     * The date and time the campaign was last modified.
-     * @type {string}
-     * @memberof TriggerInputCampaignEndedCampaignBeta
-     */
-    'modified'?: string | null;
-    /**
-     * The date and time the campaign is due.
-     * @type {string}
-     * @memberof TriggerInputCampaignEndedCampaignBeta
-     */
-    'deadline': string;
-    /**
-     * The type of campaign.
-     * @type {object}
-     * @memberof TriggerInputCampaignEndedCampaignBeta
-     */
-    'type': TriggerInputCampaignEndedCampaignBetaTypeEnum;
-    /**
-     * 
-     * @type {TriggerInputCampaignActivatedCampaignCampaignOwnerBeta}
-     * @memberof TriggerInputCampaignEndedCampaignBeta
-     */
-    'campaignOwner': TriggerInputCampaignActivatedCampaignCampaignOwnerBeta;
-    /**
-     * The current status of the campaign.
-     * @type {object}
-     * @memberof TriggerInputCampaignEndedCampaignBeta
-     */
-    'status': TriggerInputCampaignEndedCampaignBetaStatusEnum;
-}
-
-export const TriggerInputCampaignEndedCampaignBetaTypeEnum = {
-    Manager: 'MANAGER',
-    SourceOwner: 'SOURCE_OWNER',
-    Search: 'SEARCH',
-    RoleComposition: 'ROLE_COMPOSITION'
-} as const;
-
-export type TriggerInputCampaignEndedCampaignBetaTypeEnum = typeof TriggerInputCampaignEndedCampaignBetaTypeEnum[keyof typeof TriggerInputCampaignEndedCampaignBetaTypeEnum];
-export const TriggerInputCampaignEndedCampaignBetaStatusEnum = {
-    Completed: 'COMPLETED'
-} as const;
-
-export type TriggerInputCampaignEndedCampaignBetaStatusEnum = typeof TriggerInputCampaignEndedCampaignBetaStatusEnum[keyof typeof TriggerInputCampaignEndedCampaignBetaStatusEnum];
-
-/**
- * 
- * @export
- * @interface TriggerInputCampaignGeneratedBeta
- */
-export interface TriggerInputCampaignGeneratedBeta {
-    /**
-     * 
-     * @type {TriggerInputCampaignGeneratedCampaignBeta}
-     * @memberof TriggerInputCampaignGeneratedBeta
-     */
-    'campaign': TriggerInputCampaignGeneratedCampaignBeta;
-}
-/**
- * Details about the campaign that was generated.
- * @export
- * @interface TriggerInputCampaignGeneratedCampaignBeta
- */
-export interface TriggerInputCampaignGeneratedCampaignBeta {
-    /**
-     * The unique ID of the campaign.
-     * @type {string}
-     * @memberof TriggerInputCampaignGeneratedCampaignBeta
-     */
-    'id': string;
-    /**
-     * Human friendly name of the campaign.
-     * @type {string}
-     * @memberof TriggerInputCampaignGeneratedCampaignBeta
-     */
-    'name': string;
-    /**
-     * Extended description of the campaign.
-     * @type {string}
-     * @memberof TriggerInputCampaignGeneratedCampaignBeta
-     */
-    'description': string;
-    /**
-     * The date and time the campaign was created.
-     * @type {string}
-     * @memberof TriggerInputCampaignGeneratedCampaignBeta
-     */
-    'created': string;
-    /**
-     * The date and time the campaign was last modified.
-     * @type {string}
-     * @memberof TriggerInputCampaignGeneratedCampaignBeta
-     */
-    'modified'?: string | null;
-    /**
-     * The date and time when the campaign must be finished by.
-     * @type {string}
-     * @memberof TriggerInputCampaignGeneratedCampaignBeta
-     */
-    'deadline'?: string | null;
-    /**
-     * The type of campaign that was generated.
-     * @type {object}
-     * @memberof TriggerInputCampaignGeneratedCampaignBeta
-     */
-    'type': TriggerInputCampaignGeneratedCampaignBetaTypeEnum;
-    /**
-     * 
-     * @type {TriggerInputCampaignGeneratedCampaignCampaignOwnerBeta}
-     * @memberof TriggerInputCampaignGeneratedCampaignBeta
-     */
-    'campaignOwner': TriggerInputCampaignGeneratedCampaignCampaignOwnerBeta;
-    /**
-     * The current status of the campaign.
-     * @type {object}
-     * @memberof TriggerInputCampaignGeneratedCampaignBeta
-     */
-    'status': TriggerInputCampaignGeneratedCampaignBetaStatusEnum;
-}
-
-export const TriggerInputCampaignGeneratedCampaignBetaTypeEnum = {
-    Manager: 'MANAGER',
-    SourceOwner: 'SOURCE_OWNER',
-    Search: 'SEARCH',
-    RoleComposition: 'ROLE_COMPOSITION'
-} as const;
-
-export type TriggerInputCampaignGeneratedCampaignBetaTypeEnum = typeof TriggerInputCampaignGeneratedCampaignBetaTypeEnum[keyof typeof TriggerInputCampaignGeneratedCampaignBetaTypeEnum];
-export const TriggerInputCampaignGeneratedCampaignBetaStatusEnum = {
-    Staged: 'STAGED',
-    Activating: 'ACTIVATING',
-    Active: 'ACTIVE'
-} as const;
-
-export type TriggerInputCampaignGeneratedCampaignBetaStatusEnum = typeof TriggerInputCampaignGeneratedCampaignBetaStatusEnum[keyof typeof TriggerInputCampaignGeneratedCampaignBetaStatusEnum];
-
-/**
- * The identity that owns the campaign.
- * @export
- * @interface TriggerInputCampaignGeneratedCampaignCampaignOwnerBeta
- */
-export interface TriggerInputCampaignGeneratedCampaignCampaignOwnerBeta {
-    /**
-     * The unique ID of the identity.
-     * @type {string}
-     * @memberof TriggerInputCampaignGeneratedCampaignCampaignOwnerBeta
-     */
-    'id': string;
-    /**
-     * The display name of the identity.
-     * @type {string}
-     * @memberof TriggerInputCampaignGeneratedCampaignCampaignOwnerBeta
-     */
-    'displayName': string;
-    /**
-     * The primary email address of the identity.
-     * @type {string}
-     * @memberof TriggerInputCampaignGeneratedCampaignCampaignOwnerBeta
-     */
-    'email': string;
-}
-/**
- * 
- * @export
- * @interface TriggerInputCertificationSignedOffBeta
- */
-export interface TriggerInputCertificationSignedOffBeta {
-    /**
-     * 
-     * @type {TriggerInputCertificationSignedOffCertificationBeta}
-     * @memberof TriggerInputCertificationSignedOffBeta
-     */
-    'certification': TriggerInputCertificationSignedOffCertificationBeta;
-}
-/**
- * The certification campaign that was signed off on.
- * @export
- * @interface TriggerInputCertificationSignedOffCertificationBeta
- */
-export interface TriggerInputCertificationSignedOffCertificationBeta {
-    /**
-     * Unique ID of the certification.
-     * @type {string}
-     * @memberof TriggerInputCertificationSignedOffCertificationBeta
-     */
-    'id': string;
-    /**
-     * The name of the certification.
-     * @type {string}
-     * @memberof TriggerInputCertificationSignedOffCertificationBeta
-     */
-    'name': string;
-    /**
-     * The date and time the certification was created.
-     * @type {string}
-     * @memberof TriggerInputCertificationSignedOffCertificationBeta
-     */
-    'created': string;
-    /**
-     * The date and time the certification was last modified.
-     * @type {string}
-     * @memberof TriggerInputCertificationSignedOffCertificationBeta
-     */
-    'modified'?: string | null;
-    /**
-     * 
-     * @type {CampaignReferenceBeta}
-     * @memberof TriggerInputCertificationSignedOffCertificationBeta
-     */
-    'campaignRef': CampaignReferenceBeta;
-    /**
-     * 
-     * @type {CertificationPhaseBeta}
-     * @memberof TriggerInputCertificationSignedOffCertificationBeta
-     */
-    'phase': CertificationPhaseBeta;
-    /**
-     * The due date of the certification.
-     * @type {string}
-     * @memberof TriggerInputCertificationSignedOffCertificationBeta
-     */
-    'due': string;
-    /**
-     * The date the reviewer signed off on the certification.
-     * @type {string}
-     * @memberof TriggerInputCertificationSignedOffCertificationBeta
-     */
-    'signed': string;
-    /**
-     * 
-     * @type {ReviewerBeta}
-     * @memberof TriggerInputCertificationSignedOffCertificationBeta
-     */
-    'reviewer': ReviewerBeta;
-    /**
-     * 
-     * @type {ReassignmentBeta}
-     * @memberof TriggerInputCertificationSignedOffCertificationBeta
-     */
-    'reassignment'?: ReassignmentBeta;
-    /**
-     * Indicates it the certification has any errors.
-     * @type {boolean}
-     * @memberof TriggerInputCertificationSignedOffCertificationBeta
-     */
-    'hasErrors': boolean;
-    /**
-     * A message indicating what the error is.
-     * @type {string}
-     * @memberof TriggerInputCertificationSignedOffCertificationBeta
-     */
-    'errorMessage'?: string | null;
-    /**
-     * Indicates if all certification decisions have been made.
-     * @type {boolean}
-     * @memberof TriggerInputCertificationSignedOffCertificationBeta
-     */
-    'completed': boolean;
-    /**
-     * The number of approve/revoke/acknowledge decisions that have been made by the reviewer.
-     * @type {number}
-     * @memberof TriggerInputCertificationSignedOffCertificationBeta
-     */
-    'decisionsMade': number;
-    /**
-     * The total number of approve/revoke/acknowledge decisions for the certification.
-     * @type {number}
-     * @memberof TriggerInputCertificationSignedOffCertificationBeta
-     */
-    'decisionsTotal': number;
-    /**
-     * The number of entities (identities, access profiles, roles, etc.) for which all decisions have been made and are complete.
-     * @type {number}
-     * @memberof TriggerInputCertificationSignedOffCertificationBeta
-     */
-    'entitiesCompleted': number;
-    /**
-     * The total number of entities (identities, access profiles, roles, etc.) in the certification, both complete and incomplete.
-     * @type {number}
-     * @memberof TriggerInputCertificationSignedOffCertificationBeta
-     */
-    'entitiesTotal': number;
-}
-/**
- * 
- * @export
- * @interface TriggerInputIdentityAttributesChangedBeta
- */
-export interface TriggerInputIdentityAttributesChangedBeta {
-    /**
-     * 
-     * @type {TriggerInputIdentityAttributesChangedIdentityBeta}
-     * @memberof TriggerInputIdentityAttributesChangedBeta
-     */
-    'identity': TriggerInputIdentityAttributesChangedIdentityBeta;
-    /**
-     * A list of one or more identity attributes that changed on the identity.
-     * @type {Array<TriggerInputIdentityAttributesChangedChangesInnerBeta>}
-     * @memberof TriggerInputIdentityAttributesChangedBeta
-     */
-    'changes': Array<TriggerInputIdentityAttributesChangedChangesInnerBeta>;
-}
-/**
- * 
- * @export
- * @interface TriggerInputIdentityAttributesChangedChangesInnerBeta
- */
-export interface TriggerInputIdentityAttributesChangedChangesInnerBeta {
-    /**
-     * The name of the identity attribute that changed.
-     * @type {string}
-     * @memberof TriggerInputIdentityAttributesChangedChangesInnerBeta
-     */
-    'attribute': string;
-    /**
-     * 
-     * @type {TriggerInputIdentityAttributesChangedChangesInnerOldValueBeta}
-     * @memberof TriggerInputIdentityAttributesChangedChangesInnerBeta
-     */
-    'oldValue'?: TriggerInputIdentityAttributesChangedChangesInnerOldValueBeta | null;
-    /**
-     * 
-     * @type {TriggerInputIdentityAttributesChangedChangesInnerNewValueBeta}
-     * @memberof TriggerInputIdentityAttributesChangedChangesInnerBeta
-     */
-    'newValue'?: TriggerInputIdentityAttributesChangedChangesInnerNewValueBeta;
-}
-/**
- * @type TriggerInputIdentityAttributesChangedChangesInnerNewValueBeta
- * The value of the identity attribute after it changed.
- * @export
- */
-export type TriggerInputIdentityAttributesChangedChangesInnerNewValueBeta = Array<string> | boolean | string | { [key: string]: TriggerInputIdentityAttributesChangedChangesInnerOldValueOneOfValueBeta; };
-
-/**
- * @type TriggerInputIdentityAttributesChangedChangesInnerOldValueBeta
- * The value of the identity attribute before it changed.
- * @export
- */
-export type TriggerInputIdentityAttributesChangedChangesInnerOldValueBeta = Array<string> | boolean | string | { [key: string]: TriggerInputIdentityAttributesChangedChangesInnerOldValueOneOfValueBeta; };
-
-/**
- * @type TriggerInputIdentityAttributesChangedChangesInnerOldValueOneOfValueBeta
- * @export
- */
-export type TriggerInputIdentityAttributesChangedChangesInnerOldValueOneOfValueBeta = boolean | number | string;
-
-/**
- * The identity who\'s attributes changed.
- * @export
- * @interface TriggerInputIdentityAttributesChangedIdentityBeta
- */
-export interface TriggerInputIdentityAttributesChangedIdentityBeta {
-    /**
-     * The type of object that is referenced
-     * @type {object}
-     * @memberof TriggerInputIdentityAttributesChangedIdentityBeta
-     */
-    'type': TriggerInputIdentityAttributesChangedIdentityBetaTypeEnum;
-    /**
-     * ID of the object to which this reference applies
-     * @type {string}
-     * @memberof TriggerInputIdentityAttributesChangedIdentityBeta
-     */
-    'id': string;
-    /**
-     * Human-readable display name of the object to which this reference applies
-     * @type {string}
-     * @memberof TriggerInputIdentityAttributesChangedIdentityBeta
-     */
-    'name': string;
-}
-
-export const TriggerInputIdentityAttributesChangedIdentityBetaTypeEnum = {
-    Identity: 'IDENTITY'
-} as const;
-
-export type TriggerInputIdentityAttributesChangedIdentityBetaTypeEnum = typeof TriggerInputIdentityAttributesChangedIdentityBetaTypeEnum[keyof typeof TriggerInputIdentityAttributesChangedIdentityBetaTypeEnum];
-
-/**
- * 
- * @export
- * @interface TriggerInputIdentityCreatedBeta
- */
-export interface TriggerInputIdentityCreatedBeta {
-    /**
-     * 
-     * @type {TriggerInputIdentityCreatedIdentityBeta}
-     * @memberof TriggerInputIdentityCreatedBeta
-     */
-    'identity': TriggerInputIdentityCreatedIdentityBeta;
-    /**
-     * The attributes assigned to the identity.  Attributes are determined by the identity profile.
-     * @type {{ [key: string]: any; }}
-     * @memberof TriggerInputIdentityCreatedBeta
-     */
-    'attributes': { [key: string]: any; };
-}
-/**
- * The identity that was created.
- * @export
- * @interface TriggerInputIdentityCreatedIdentityBeta
- */
-export interface TriggerInputIdentityCreatedIdentityBeta {
-    /**
-     * The type of object that is referenced
-     * @type {object}
-     * @memberof TriggerInputIdentityCreatedIdentityBeta
-     */
-    'type': TriggerInputIdentityCreatedIdentityBetaTypeEnum;
-    /**
-     * ID of the object to which this reference applies
-     * @type {string}
-     * @memberof TriggerInputIdentityCreatedIdentityBeta
-     */
-    'id': string;
-    /**
-     * Human-readable display name of the object to which this reference applies
-     * @type {string}
-     * @memberof TriggerInputIdentityCreatedIdentityBeta
-     */
-    'name': string;
-}
-
-export const TriggerInputIdentityCreatedIdentityBetaTypeEnum = {
-    Identity: 'IDENTITY'
-} as const;
-
-export type TriggerInputIdentityCreatedIdentityBetaTypeEnum = typeof TriggerInputIdentityCreatedIdentityBetaTypeEnum[keyof typeof TriggerInputIdentityCreatedIdentityBetaTypeEnum];
-
-/**
- * 
- * @export
- * @interface TriggerInputIdentityDeletedBeta
- */
-export interface TriggerInputIdentityDeletedBeta {
-    /**
-     * 
-     * @type {TriggerInputIdentityDeletedIdentityBeta}
-     * @memberof TriggerInputIdentityDeletedBeta
-     */
-    'identity': TriggerInputIdentityDeletedIdentityBeta;
-    /**
-     * The attributes assigned to the identity.  Attributes are determined by the identity profile.
-     * @type {{ [key: string]: any; }}
-     * @memberof TriggerInputIdentityDeletedBeta
-     */
-    'attributes': { [key: string]: any; };
-}
-/**
- * The identity that was deleted.
- * @export
- * @interface TriggerInputIdentityDeletedIdentityBeta
- */
-export interface TriggerInputIdentityDeletedIdentityBeta {
-    /**
-     * The type of object that is referenced
-     * @type {object}
-     * @memberof TriggerInputIdentityDeletedIdentityBeta
-     */
-    'type': TriggerInputIdentityDeletedIdentityBetaTypeEnum;
-    /**
-     * ID of the object to which this reference applies
-     * @type {string}
-     * @memberof TriggerInputIdentityDeletedIdentityBeta
-     */
-    'id': string;
-    /**
-     * Human-readable display name of the object to which this reference applies
-     * @type {string}
-     * @memberof TriggerInputIdentityDeletedIdentityBeta
-     */
-    'name': string;
-}
-
-export const TriggerInputIdentityDeletedIdentityBetaTypeEnum = {
-    Identity: 'IDENTITY'
-} as const;
-
-export type TriggerInputIdentityDeletedIdentityBetaTypeEnum = typeof TriggerInputIdentityDeletedIdentityBetaTypeEnum[keyof typeof TriggerInputIdentityDeletedIdentityBetaTypeEnum];
-
-/**
- * 
- * @export
- * @interface TriggerInputProvisioningCompletedAccountRequestsInnerAttributeRequestsInnerBeta
- */
-export interface TriggerInputProvisioningCompletedAccountRequestsInnerAttributeRequestsInnerBeta {
-    /**
-     * The name of the attribute being provisioned.
-     * @type {string}
-     * @memberof TriggerInputProvisioningCompletedAccountRequestsInnerAttributeRequestsInnerBeta
-     */
-    'attributeName': string;
-    /**
-     * The value of the attribute being provisioned.
-     * @type {string}
-     * @memberof TriggerInputProvisioningCompletedAccountRequestsInnerAttributeRequestsInnerBeta
-     */
-    'attributeValue'?: string | null;
-    /**
-     * The operation to handle the attribute.
-     * @type {object}
-     * @memberof TriggerInputProvisioningCompletedAccountRequestsInnerAttributeRequestsInnerBeta
-     */
-    'operation': TriggerInputProvisioningCompletedAccountRequestsInnerAttributeRequestsInnerBetaOperationEnum;
-}
-
-export const TriggerInputProvisioningCompletedAccountRequestsInnerAttributeRequestsInnerBetaOperationEnum = {
-    Add: 'Add',
-    Set: 'Set',
-    Remove: 'Remove'
-} as const;
-
-export type TriggerInputProvisioningCompletedAccountRequestsInnerAttributeRequestsInnerBetaOperationEnum = typeof TriggerInputProvisioningCompletedAccountRequestsInnerAttributeRequestsInnerBetaOperationEnum[keyof typeof TriggerInputProvisioningCompletedAccountRequestsInnerAttributeRequestsInnerBetaOperationEnum];
-
-/**
- * 
- * @export
- * @interface TriggerInputProvisioningCompletedAccountRequestsInnerBeta
- */
-export interface TriggerInputProvisioningCompletedAccountRequestsInnerBeta {
-    /**
-     * 
-     * @type {TriggerInputProvisioningCompletedAccountRequestsInnerSourceBeta}
-     * @memberof TriggerInputProvisioningCompletedAccountRequestsInnerBeta
-     */
-    'source': TriggerInputProvisioningCompletedAccountRequestsInnerSourceBeta;
-    /**
-     * The unique idenfier of the account being provisioned.
-     * @type {string}
-     * @memberof TriggerInputProvisioningCompletedAccountRequestsInnerBeta
-     */
-    'accountId'?: string;
-    /**
-     * The provisioning operation; typically Create, Modify, Enable, Disable, Unlock, or Delete.
-     * @type {string}
-     * @memberof TriggerInputProvisioningCompletedAccountRequestsInnerBeta
-     */
-    'accountOperation': string;
-    /**
-     * The overall result of the provisioning transaction; this could be success, pending, failed, etc.
-     * @type {object}
-     * @memberof TriggerInputProvisioningCompletedAccountRequestsInnerBeta
-     */
-    'provisioningResult': TriggerInputProvisioningCompletedAccountRequestsInnerBetaProvisioningResultEnum;
-    /**
-     * The name of the provisioning channel selected; this could be the same as the source, or could be a Service Desk Integration Module (SDIM).
-     * @type {string}
-     * @memberof TriggerInputProvisioningCompletedAccountRequestsInnerBeta
-     */
-    'provisioningTarget': string;
-    /**
-     * A reference to a tracking number, if this is sent to a Service Desk Integration Module (SDIM).
-     * @type {string}
-     * @memberof TriggerInputProvisioningCompletedAccountRequestsInnerBeta
-     */
-    'ticketId'?: string | null;
-    /**
-     * A list of attributes as part of the provisioning transaction.
-     * @type {Array<TriggerInputProvisioningCompletedAccountRequestsInnerAttributeRequestsInnerBeta>}
-     * @memberof TriggerInputProvisioningCompletedAccountRequestsInnerBeta
-     */
-    'attributeRequests'?: Array<TriggerInputProvisioningCompletedAccountRequestsInnerAttributeRequestsInnerBeta> | null;
-}
-
-export const TriggerInputProvisioningCompletedAccountRequestsInnerBetaProvisioningResultEnum = {
-    Success: 'SUCCESS',
-    Pending: 'PENDING',
-    Failed: 'FAILED'
-} as const;
-
-export type TriggerInputProvisioningCompletedAccountRequestsInnerBetaProvisioningResultEnum = typeof TriggerInputProvisioningCompletedAccountRequestsInnerBetaProvisioningResultEnum[keyof typeof TriggerInputProvisioningCompletedAccountRequestsInnerBetaProvisioningResultEnum];
-
-/**
- * Reference to the source being provisioned against.
- * @export
- * @interface TriggerInputProvisioningCompletedAccountRequestsInnerSourceBeta
- */
-export interface TriggerInputProvisioningCompletedAccountRequestsInnerSourceBeta {
-    /**
-     * ID of the object to which this reference applies
-     * @type {string}
-     * @memberof TriggerInputProvisioningCompletedAccountRequestsInnerSourceBeta
-     */
-    'id': string;
-    /**
-     * The type of object that is referenced
-     * @type {string}
-     * @memberof TriggerInputProvisioningCompletedAccountRequestsInnerSourceBeta
-     */
-    'type': TriggerInputProvisioningCompletedAccountRequestsInnerSourceBetaTypeEnum;
-    /**
-     * Human-readable display name of the object to which this reference applies
-     * @type {string}
-     * @memberof TriggerInputProvisioningCompletedAccountRequestsInnerSourceBeta
-     */
-    'name': string;
-}
-
-export const TriggerInputProvisioningCompletedAccountRequestsInnerSourceBetaTypeEnum = {
-    Source: 'SOURCE'
-} as const;
-
-export type TriggerInputProvisioningCompletedAccountRequestsInnerSourceBetaTypeEnum = typeof TriggerInputProvisioningCompletedAccountRequestsInnerSourceBetaTypeEnum[keyof typeof TriggerInputProvisioningCompletedAccountRequestsInnerSourceBetaTypeEnum];
-
-/**
- * 
- * @export
- * @interface TriggerInputProvisioningCompletedBeta
- */
-export interface TriggerInputProvisioningCompletedBeta {
-    /**
-     * The reference number of the provisioning request. Useful for tracking status in the Account Activity search interface.
-     * @type {string}
-     * @memberof TriggerInputProvisioningCompletedBeta
-     */
-    'trackingNumber': string;
-    /**
-     * One or more sources that the provisioning transaction(s) were done against.  Sources are comma separated.
-     * @type {string}
-     * @memberof TriggerInputProvisioningCompletedBeta
-     */
-    'sources': string;
-    /**
-     * Origin of where the provisioning request came from.
-     * @type {string}
-     * @memberof TriggerInputProvisioningCompletedBeta
-     */
-    'action'?: string | null;
-    /**
-     * A list of any accumulated error messages that occurred during provisioning.
-     * @type {Array<string>}
-     * @memberof TriggerInputProvisioningCompletedBeta
-     */
-    'errors'?: Array<string> | null;
-    /**
-     * A list of any accumulated warning messages that occurred during provisioning.
-     * @type {Array<string>}
-     * @memberof TriggerInputProvisioningCompletedBeta
-     */
-    'warnings'?: Array<string> | null;
-    /**
-     * 
-     * @type {TriggerInputProvisioningCompletedRecipientBeta}
-     * @memberof TriggerInputProvisioningCompletedBeta
-     */
-    'recipient': TriggerInputProvisioningCompletedRecipientBeta;
-    /**
-     * 
-     * @type {TriggerInputProvisioningCompletedRequesterBeta}
-     * @memberof TriggerInputProvisioningCompletedBeta
-     */
-    'requester'?: TriggerInputProvisioningCompletedRequesterBeta | null;
-    /**
-     * A list of provisioning instructions to perform on an account-by-account basis.
-     * @type {Array<TriggerInputProvisioningCompletedAccountRequestsInnerBeta>}
-     * @memberof TriggerInputProvisioningCompletedBeta
-     */
-    'accountRequests': Array<TriggerInputProvisioningCompletedAccountRequestsInnerBeta>;
-}
-/**
- * Reference to the identity who is the target of the provisioning request.
- * @export
- * @interface TriggerInputProvisioningCompletedRecipientBeta
- */
-export interface TriggerInputProvisioningCompletedRecipientBeta {
-    /**
-     * The type of object that is referenced
-     * @type {object}
-     * @memberof TriggerInputProvisioningCompletedRecipientBeta
-     */
-    'type': TriggerInputProvisioningCompletedRecipientBetaTypeEnum;
-    /**
-     * ID of the object to which this reference applies
-     * @type {string}
-     * @memberof TriggerInputProvisioningCompletedRecipientBeta
-     */
-    'id': string;
-    /**
-     * Human-readable display name of the object to which this reference applies
-     * @type {string}
-     * @memberof TriggerInputProvisioningCompletedRecipientBeta
-     */
-    'name': string;
-}
-
-export const TriggerInputProvisioningCompletedRecipientBetaTypeEnum = {
-    Identity: 'IDENTITY'
-} as const;
-
-export type TriggerInputProvisioningCompletedRecipientBetaTypeEnum = typeof TriggerInputProvisioningCompletedRecipientBetaTypeEnum[keyof typeof TriggerInputProvisioningCompletedRecipientBetaTypeEnum];
-
-/**
- * Reference to the identity (if any) who submitted the provisioning request.
- * @export
- * @interface TriggerInputProvisioningCompletedRequesterBeta
- */
-export interface TriggerInputProvisioningCompletedRequesterBeta {
-    /**
-     * The type of object that is referenced
-     * @type {object}
-     * @memberof TriggerInputProvisioningCompletedRequesterBeta
-     */
-    'type': TriggerInputProvisioningCompletedRequesterBetaTypeEnum;
-    /**
-     * ID of the object to which this reference applies
-     * @type {string}
-     * @memberof TriggerInputProvisioningCompletedRequesterBeta
-     */
-    'id': string;
-    /**
-     * Human-readable display name of the object to which this reference applies
-     * @type {string}
-     * @memberof TriggerInputProvisioningCompletedRequesterBeta
-     */
-    'name': string;
-}
-
-export const TriggerInputProvisioningCompletedRequesterBetaTypeEnum = {
-    Identity: 'IDENTITY'
-} as const;
-
-export type TriggerInputProvisioningCompletedRequesterBetaTypeEnum = typeof TriggerInputProvisioningCompletedRequesterBetaTypeEnum[keyof typeof TriggerInputProvisioningCompletedRequesterBetaTypeEnum];
-
-/**
- * 
- * @export
- * @interface TriggerInputSavedSearchCompleteBeta
- */
-export interface TriggerInputSavedSearchCompleteBeta {
-    /**
-     * A name for the report file.
-     * @type {string}
-     * @memberof TriggerInputSavedSearchCompleteBeta
-     */
-    'fileName': string;
-    /**
-     * The email address of the identity that owns the saved search.
-     * @type {string}
-     * @memberof TriggerInputSavedSearchCompleteBeta
-     */
-    'ownerEmail': string;
-    /**
-     * The name of the identity that owns the saved search.
-     * @type {string}
-     * @memberof TriggerInputSavedSearchCompleteBeta
-     */
-    'ownerName': string;
-    /**
-     * The search query that was used to generate the report.
-     * @type {string}
-     * @memberof TriggerInputSavedSearchCompleteBeta
-     */
-    'query': string;
-    /**
-     * The name of the saved search.
-     * @type {string}
-     * @memberof TriggerInputSavedSearchCompleteBeta
-     */
-    'searchName': string;
-    /**
-     * 
-     * @type {TriggerInputSavedSearchCompleteSearchResultsBeta}
-     * @memberof TriggerInputSavedSearchCompleteBeta
-     */
-    'searchResults': TriggerInputSavedSearchCompleteSearchResultsBeta;
-    /**
-     * The Amazon S3 URL to download the report from.
-     * @type {string}
-     * @memberof TriggerInputSavedSearchCompleteBeta
-     */
-    'signedS3Url': string;
-}
-/**
- * A table of accounts that match the search criteria.
- * @export
- * @interface TriggerInputSavedSearchCompleteSearchResultsAccountBeta
- */
-export interface TriggerInputSavedSearchCompleteSearchResultsAccountBeta {
-    /**
-     * The number of rows in the table.
-     * @type {string}
-     * @memberof TriggerInputSavedSearchCompleteSearchResultsAccountBeta
-     */
-    'count': string;
-    /**
-     * The type of object represented in the table.
-     * @type {string}
-     * @memberof TriggerInputSavedSearchCompleteSearchResultsAccountBeta
-     */
-    'noun': string;
-    /**
-     * A sample of the data in the table.
-     * @type {Array<Array<string>>}
-     * @memberof TriggerInputSavedSearchCompleteSearchResultsAccountBeta
-     */
-    'preview': Array<Array<string>>;
-}
-/**
- * A preview of the search results for each object type. This includes a count as well as headers, and the first several rows of data, per object type.
- * @export
- * @interface TriggerInputSavedSearchCompleteSearchResultsBeta
- */
-export interface TriggerInputSavedSearchCompleteSearchResultsBeta {
-    /**
-     * 
-     * @type {TriggerInputSavedSearchCompleteSearchResultsAccountBeta}
-     * @memberof TriggerInputSavedSearchCompleteSearchResultsBeta
-     */
-    'Account'?: TriggerInputSavedSearchCompleteSearchResultsAccountBeta | null;
-    /**
-     * 
-     * @type {TriggerInputSavedSearchCompleteSearchResultsEntitlementBeta}
-     * @memberof TriggerInputSavedSearchCompleteSearchResultsBeta
-     */
-    'Entitlement'?: TriggerInputSavedSearchCompleteSearchResultsEntitlementBeta | null;
-    /**
-     * 
-     * @type {TriggerInputSavedSearchCompleteSearchResultsIdentityBeta}
-     * @memberof TriggerInputSavedSearchCompleteSearchResultsBeta
-     */
-    'Identity'?: TriggerInputSavedSearchCompleteSearchResultsIdentityBeta | null;
-}
-/**
- * A table of entitlements that match the search criteria.
- * @export
- * @interface TriggerInputSavedSearchCompleteSearchResultsEntitlementBeta
- */
-export interface TriggerInputSavedSearchCompleteSearchResultsEntitlementBeta {
-    /**
-     * The number of rows in the table.
-     * @type {string}
-     * @memberof TriggerInputSavedSearchCompleteSearchResultsEntitlementBeta
-     */
-    'count': string;
-    /**
-     * The type of object represented in the table.
-     * @type {string}
-     * @memberof TriggerInputSavedSearchCompleteSearchResultsEntitlementBeta
-     */
-    'noun': string;
-    /**
-     * A sample of the data in the table.
-     * @type {Array<Array<string>>}
-     * @memberof TriggerInputSavedSearchCompleteSearchResultsEntitlementBeta
-     */
-    'preview': Array<Array<string>>;
-}
-/**
- * A table of identities that match the search criteria.
- * @export
- * @interface TriggerInputSavedSearchCompleteSearchResultsIdentityBeta
- */
-export interface TriggerInputSavedSearchCompleteSearchResultsIdentityBeta {
-    /**
-     * The number of rows in the table.
-     * @type {string}
-     * @memberof TriggerInputSavedSearchCompleteSearchResultsIdentityBeta
-     */
-    'count': string;
-    /**
-     * The type of object represented in the table.
-     * @type {string}
-     * @memberof TriggerInputSavedSearchCompleteSearchResultsIdentityBeta
-     */
-    'noun': string;
-    /**
-     * A sample of the data in the table.
-     * @type {Array<Array<string>>}
-     * @memberof TriggerInputSavedSearchCompleteSearchResultsIdentityBeta
-     */
-    'preview': Array<Array<string>>;
-}
-/**
- * 
- * @export
- * @interface TriggerInputSourceAccountCreatedBeta
- */
-export interface TriggerInputSourceAccountCreatedBeta {
-    /**
-     * Source unique identifier for the identity. UUID is generated by the source system.
-     * @type {string}
-     * @memberof TriggerInputSourceAccountCreatedBeta
-     */
-    'uuid'?: string;
-    /**
-     * SailPoint generated unique identifier.
-     * @type {string}
-     * @memberof TriggerInputSourceAccountCreatedBeta
-     */
-    'id': string;
-    /**
-     * Unique ID of the account on the source.
-     * @type {string}
-     * @memberof TriggerInputSourceAccountCreatedBeta
-     */
-    'nativeIdentifier': string;
-    /**
-     * The ID of the source.
-     * @type {string}
-     * @memberof TriggerInputSourceAccountCreatedBeta
-     */
-    'sourceId': string;
-    /**
-     * The name of the source.
-     * @type {string}
-     * @memberof TriggerInputSourceAccountCreatedBeta
-     */
-    'sourceName': string;
-    /**
-     * The ID of the identity that is corellated with this account.
-     * @type {string}
-     * @memberof TriggerInputSourceAccountCreatedBeta
-     */
-    'identityId': string;
-    /**
-     * The name of the identity that is corellated with this account.
-     * @type {string}
-     * @memberof TriggerInputSourceAccountCreatedBeta
-     */
-    'identityName': string;
-    /**
-     * The attributes of the account. The contents of attributes depends on the account schema for the source.
-     * @type {{ [key: string]: any; }}
-     * @memberof TriggerInputSourceAccountCreatedBeta
-     */
-    'attributes': { [key: string]: any; };
-}
-/**
- * 
- * @export
- * @interface TriggerInputSourceAccountDeletedBeta
- */
-export interface TriggerInputSourceAccountDeletedBeta {
-    /**
-     * Source unique identifier for the identity. UUID is generated by the source system.
-     * @type {string}
-     * @memberof TriggerInputSourceAccountDeletedBeta
-     */
-    'uuid'?: string;
-    /**
-     * SailPoint generated unique identifier.
-     * @type {string}
-     * @memberof TriggerInputSourceAccountDeletedBeta
-     */
-    'id': string;
-    /**
-     * Unique ID of the account on the source.
-     * @type {string}
-     * @memberof TriggerInputSourceAccountDeletedBeta
-     */
-    'nativeIdentifier': string;
-    /**
-     * The ID of the source.
-     * @type {string}
-     * @memberof TriggerInputSourceAccountDeletedBeta
-     */
-    'sourceId': string;
-    /**
-     * The name of the source.
-     * @type {string}
-     * @memberof TriggerInputSourceAccountDeletedBeta
-     */
-    'sourceName': string;
-    /**
-     * The ID of the identity that is corellated with this account.
-     * @type {string}
-     * @memberof TriggerInputSourceAccountDeletedBeta
-     */
-    'identityId': string;
-    /**
-     * The name of the identity that is corellated with this account.
-     * @type {string}
-     * @memberof TriggerInputSourceAccountDeletedBeta
-     */
-    'identityName': string;
-    /**
-     * The attributes of the account. The contents of attributes depends on the account schema for the source.
-     * @type {{ [key: string]: any; }}
-     * @memberof TriggerInputSourceAccountDeletedBeta
-     */
-    'attributes': { [key: string]: any; };
-}
-/**
- * 
- * @export
- * @interface TriggerInputSourceAccountUpdatedBeta
- */
-export interface TriggerInputSourceAccountUpdatedBeta {
-    /**
-     * Source unique identifier for the identity. UUID is generated by the source system.
-     * @type {string}
-     * @memberof TriggerInputSourceAccountUpdatedBeta
-     */
-    'uuid'?: string;
-    /**
-     * SailPoint generated unique identifier.
-     * @type {string}
-     * @memberof TriggerInputSourceAccountUpdatedBeta
-     */
-    'id': string;
-    /**
-     * Unique ID of the account on the source.
-     * @type {string}
-     * @memberof TriggerInputSourceAccountUpdatedBeta
-     */
-    'nativeIdentifier': string;
-    /**
-     * The ID of the source.
-     * @type {string}
-     * @memberof TriggerInputSourceAccountUpdatedBeta
-     */
-    'sourceId': string;
-    /**
-     * The name of the source.
-     * @type {string}
-     * @memberof TriggerInputSourceAccountUpdatedBeta
-     */
-    'sourceName': string;
-    /**
-     * The ID of the identity that is corellated with this account.
-     * @type {string}
-     * @memberof TriggerInputSourceAccountUpdatedBeta
-     */
-    'identityId': string;
-    /**
-     * The name of the identity that is corellated with this account.
-     * @type {string}
-     * @memberof TriggerInputSourceAccountUpdatedBeta
-     */
-    'identityName': string;
-    /**
-     * The attributes of the account. The contents of attributes depends on the account schema for the source.
-     * @type {{ [key: string]: any; }}
-     * @memberof TriggerInputSourceAccountUpdatedBeta
-     */
-    'attributes': { [key: string]: any; };
-}
-/**
- * The identity that created the source.
- * @export
- * @interface TriggerInputSourceCreatedActorBeta
- */
-export interface TriggerInputSourceCreatedActorBeta {
-    /**
-     * The type of object that is referenced
-     * @type {object}
-     * @memberof TriggerInputSourceCreatedActorBeta
-     */
-    'type': TriggerInputSourceCreatedActorBetaTypeEnum;
-    /**
-     * ID of the object to which this reference applies
-     * @type {string}
-     * @memberof TriggerInputSourceCreatedActorBeta
-     */
-    'id': string;
-    /**
-     * Human-readable display name of the object to which this reference applies
-     * @type {string}
-     * @memberof TriggerInputSourceCreatedActorBeta
-     */
-    'name': string;
-}
-
-export const TriggerInputSourceCreatedActorBetaTypeEnum = {
-    Identity: 'IDENTITY'
-} as const;
-
-export type TriggerInputSourceCreatedActorBetaTypeEnum = typeof TriggerInputSourceCreatedActorBetaTypeEnum[keyof typeof TriggerInputSourceCreatedActorBetaTypeEnum];
-
-/**
- * 
- * @export
- * @interface TriggerInputSourceCreatedBeta
- */
-export interface TriggerInputSourceCreatedBeta {
-    /**
-     * The unique ID of the source.
-     * @type {string}
-     * @memberof TriggerInputSourceCreatedBeta
-     */
-    'id': string;
-    /**
-     * Human friendly name of the source.
-     * @type {string}
-     * @memberof TriggerInputSourceCreatedBeta
-     */
-    'name': string;
-    /**
-     * The connection type.
-     * @type {string}
-     * @memberof TriggerInputSourceCreatedBeta
-     */
-    'type': string;
-    /**
-     * The date and time the source was created.
-     * @type {string}
-     * @memberof TriggerInputSourceCreatedBeta
-     */
-    'created': string;
-    /**
-     * The connector type used to connect to the source.
-     * @type {string}
-     * @memberof TriggerInputSourceCreatedBeta
-     */
-    'connector': string;
-    /**
-     * 
-     * @type {TriggerInputSourceCreatedActorBeta}
-     * @memberof TriggerInputSourceCreatedBeta
-     */
-    'actor': TriggerInputSourceCreatedActorBeta;
-}
-/**
- * The identity that deleted the source.
- * @export
- * @interface TriggerInputSourceDeletedActorBeta
- */
-export interface TriggerInputSourceDeletedActorBeta {
-    /**
-     * The type of object that is referenced
-     * @type {object}
-     * @memberof TriggerInputSourceDeletedActorBeta
-     */
-    'type': TriggerInputSourceDeletedActorBetaTypeEnum;
-    /**
-     * ID of the object to which this reference applies
-     * @type {string}
-     * @memberof TriggerInputSourceDeletedActorBeta
-     */
-    'id': string;
-    /**
-     * Human-readable display name of the object to which this reference applies
-     * @type {string}
-     * @memberof TriggerInputSourceDeletedActorBeta
-     */
-    'name': string;
-}
-
-export const TriggerInputSourceDeletedActorBetaTypeEnum = {
-    Identity: 'IDENTITY'
-} as const;
-
-export type TriggerInputSourceDeletedActorBetaTypeEnum = typeof TriggerInputSourceDeletedActorBetaTypeEnum[keyof typeof TriggerInputSourceDeletedActorBetaTypeEnum];
-
-/**
- * 
- * @export
- * @interface TriggerInputSourceDeletedBeta
- */
-export interface TriggerInputSourceDeletedBeta {
-    /**
-     * The unique ID of the source.
-     * @type {string}
-     * @memberof TriggerInputSourceDeletedBeta
-     */
-    'id': string;
-    /**
-     * Human friendly name of the source.
-     * @type {string}
-     * @memberof TriggerInputSourceDeletedBeta
-     */
-    'name': string;
-    /**
-     * The connection type.
-     * @type {string}
-     * @memberof TriggerInputSourceDeletedBeta
-     */
-    'type': string;
-    /**
-     * The date and time the source was deleted.
-     * @type {string}
-     * @memberof TriggerInputSourceDeletedBeta
-     */
-    'deleted': string;
-    /**
-     * The connector type used to connect to the source.
-     * @type {string}
-     * @memberof TriggerInputSourceDeletedBeta
-     */
-    'connector': string;
-    /**
-     * 
-     * @type {TriggerInputSourceDeletedActorBeta}
-     * @memberof TriggerInputSourceDeletedBeta
-     */
-    'actor': TriggerInputSourceDeletedActorBeta;
-}
-/**
- * The identity or system that performed the update.
- * @export
- * @interface TriggerInputSourceUpdatedActorBeta
- */
-export interface TriggerInputSourceUpdatedActorBeta {
-    /**
-     * The type of object that is referenced
-     * @type {object}
-     * @memberof TriggerInputSourceUpdatedActorBeta
-     */
-    'type': TriggerInputSourceUpdatedActorBetaTypeEnum;
-    /**
-     * ID of the object to which this reference applies
-     * @type {string}
-     * @memberof TriggerInputSourceUpdatedActorBeta
-     */
-    'id'?: string;
-    /**
-     * Human-readable display name of the object to which this reference applies
-     * @type {string}
-     * @memberof TriggerInputSourceUpdatedActorBeta
-     */
-    'name': string;
-}
-
-export const TriggerInputSourceUpdatedActorBetaTypeEnum = {
-    Identity: 'IDENTITY'
-} as const;
-
-export type TriggerInputSourceUpdatedActorBetaTypeEnum = typeof TriggerInputSourceUpdatedActorBetaTypeEnum[keyof typeof TriggerInputSourceUpdatedActorBetaTypeEnum];
-
-/**
- * 
- * @export
- * @interface TriggerInputSourceUpdatedBeta
- */
-export interface TriggerInputSourceUpdatedBeta {
-    /**
-     * The unique ID of the source.
-     * @type {string}
-     * @memberof TriggerInputSourceUpdatedBeta
-     */
-    'id': string;
-    /**
-     * The user friendly name of the source.
-     * @type {string}
-     * @memberof TriggerInputSourceUpdatedBeta
-     */
-    'name': string;
-    /**
-     * The connection type of the source.
-     * @type {string}
-     * @memberof TriggerInputSourceUpdatedBeta
-     */
-    'type': string;
-    /**
-     * The date and time the source was modified.
-     * @type {string}
-     * @memberof TriggerInputSourceUpdatedBeta
-     */
-    'modified': string;
-    /**
-     * The connector type used to connect to the source.
-     * @type {string}
-     * @memberof TriggerInputSourceUpdatedBeta
-     */
-    'connector': string;
-    /**
-     * 
-     * @type {TriggerInputSourceUpdatedActorBeta}
-     * @memberof TriggerInputSourceUpdatedBeta
-     */
-    'actor': TriggerInputSourceUpdatedActorBeta;
-}
-/**
- * Details about the `CLUSTER` or `SOURCE` that initiated this event.
- * @export
- * @interface TriggerInputVAClusterStatusChangeEventApplicationBeta
- */
-export interface TriggerInputVAClusterStatusChangeEventApplicationBeta {
-    /**
-     * The GUID of the application
-     * @type {string}
-     * @memberof TriggerInputVAClusterStatusChangeEventApplicationBeta
-     */
-    'id': string;
-    /**
-     * The name of the application
-     * @type {string}
-     * @memberof TriggerInputVAClusterStatusChangeEventApplicationBeta
-     */
-    'name': string;
-    /**
-     * Custom map of attributes for a source.  This will only be populated if type is `SOURCE` and the source has a proxy.
-     * @type {{ [key: string]: any; }}
-     * @memberof TriggerInputVAClusterStatusChangeEventApplicationBeta
-     */
-    'attributes': { [key: string]: any; } | null;
-}
-/**
- * 
- * @export
- * @interface TriggerInputVAClusterStatusChangeEventBeta
- */
-export interface TriggerInputVAClusterStatusChangeEventBeta {
-    /**
-     * The date and time the status change occurred.
-     * @type {string}
-     * @memberof TriggerInputVAClusterStatusChangeEventBeta
-     */
-    'created': string;
-    /**
-     * The type of the object that initiated this event.
-     * @type {object}
-     * @memberof TriggerInputVAClusterStatusChangeEventBeta
-     */
-    'type': TriggerInputVAClusterStatusChangeEventBetaTypeEnum;
-    /**
-     * 
-     * @type {TriggerInputVAClusterStatusChangeEventApplicationBeta}
-     * @memberof TriggerInputVAClusterStatusChangeEventBeta
-     */
-    'application': TriggerInputVAClusterStatusChangeEventApplicationBeta;
-    /**
-     * 
-     * @type {TriggerInputVAClusterStatusChangeEventHealthCheckResultBeta}
-     * @memberof TriggerInputVAClusterStatusChangeEventBeta
-     */
-    'healthCheckResult': TriggerInputVAClusterStatusChangeEventHealthCheckResultBeta;
-    /**
-     * 
-     * @type {TriggerInputVAClusterStatusChangeEventPreviousHealthCheckResultBeta}
-     * @memberof TriggerInputVAClusterStatusChangeEventBeta
-     */
-    'previousHealthCheckResult': TriggerInputVAClusterStatusChangeEventPreviousHealthCheckResultBeta;
-}
-
-export const TriggerInputVAClusterStatusChangeEventBetaTypeEnum = {
-    Source: 'SOURCE',
-    Cluster: 'CLUSTER'
-} as const;
-
-export type TriggerInputVAClusterStatusChangeEventBetaTypeEnum = typeof TriggerInputVAClusterStatusChangeEventBetaTypeEnum[keyof typeof TriggerInputVAClusterStatusChangeEventBetaTypeEnum];
-
-/**
- * The results of the most recent health check.
- * @export
- * @interface TriggerInputVAClusterStatusChangeEventHealthCheckResultBeta
- */
-export interface TriggerInputVAClusterStatusChangeEventHealthCheckResultBeta {
-    /**
-     * Detailed message of the result of the health check.
-     * @type {string}
-     * @memberof TriggerInputVAClusterStatusChangeEventHealthCheckResultBeta
-     */
-    'message': string;
-    /**
-     * The type of the health check result.
-     * @type {string}
-     * @memberof TriggerInputVAClusterStatusChangeEventHealthCheckResultBeta
-     */
-    'resultType': string;
-    /**
-     * The status of the health check.
-     * @type {object}
-     * @memberof TriggerInputVAClusterStatusChangeEventHealthCheckResultBeta
-     */
-    'status': TriggerInputVAClusterStatusChangeEventHealthCheckResultBetaStatusEnum;
-}
-
-export const TriggerInputVAClusterStatusChangeEventHealthCheckResultBetaStatusEnum = {
-    Succeeded: 'Succeeded',
-    Failed: 'Failed'
-} as const;
-
-export type TriggerInputVAClusterStatusChangeEventHealthCheckResultBetaStatusEnum = typeof TriggerInputVAClusterStatusChangeEventHealthCheckResultBetaStatusEnum[keyof typeof TriggerInputVAClusterStatusChangeEventHealthCheckResultBetaStatusEnum];
-
-/**
- * The results of the last health check.
- * @export
- * @interface TriggerInputVAClusterStatusChangeEventPreviousHealthCheckResultBeta
- */
-export interface TriggerInputVAClusterStatusChangeEventPreviousHealthCheckResultBeta {
-    /**
-     * Detailed message of the result of the health check.
-     * @type {string}
-     * @memberof TriggerInputVAClusterStatusChangeEventPreviousHealthCheckResultBeta
-     */
-    'message': string;
-    /**
-     * The type of the health check result.
-     * @type {string}
-     * @memberof TriggerInputVAClusterStatusChangeEventPreviousHealthCheckResultBeta
-     */
-    'resultType': string;
-    /**
-     * The status of the health check.
-     * @type {object}
-     * @memberof TriggerInputVAClusterStatusChangeEventPreviousHealthCheckResultBeta
-     */
-    'status': TriggerInputVAClusterStatusChangeEventPreviousHealthCheckResultBetaStatusEnum;
-}
-
-export const TriggerInputVAClusterStatusChangeEventPreviousHealthCheckResultBetaStatusEnum = {
-    Succeeded: 'Succeeded',
-    Failed: 'Failed'
-} as const;
-
-export type TriggerInputVAClusterStatusChangeEventPreviousHealthCheckResultBetaStatusEnum = typeof TriggerInputVAClusterStatusChangeEventPreviousHealthCheckResultBetaStatusEnum[keyof typeof TriggerInputVAClusterStatusChangeEventPreviousHealthCheckResultBetaStatusEnum];
-
-/**
- * 
- * @export
- * @interface TriggerOutputAccessRequestDynamicApproverBeta
- */
-export interface TriggerOutputAccessRequestDynamicApproverBeta {
-    /**
-     * The unique ID of the identity to add to the approver list for the access request.
-     * @type {string}
-     * @memberof TriggerOutputAccessRequestDynamicApproverBeta
-     */
-    'id': string;
-    /**
-     * The name of the identity to add to the approver list for the access request.
-     * @type {string}
-     * @memberof TriggerOutputAccessRequestDynamicApproverBeta
-     */
-    'name': string;
-    /**
-     * The type of object being referenced.
-     * @type {object}
-     * @memberof TriggerOutputAccessRequestDynamicApproverBeta
-     */
-    'type': TriggerOutputAccessRequestDynamicApproverBetaTypeEnum;
-}
-
-export const TriggerOutputAccessRequestDynamicApproverBetaTypeEnum = {
-    Identity: 'IDENTITY',
-    GovernanceGroup: 'GOVERNANCE_GROUP'
-} as const;
-
-export type TriggerOutputAccessRequestDynamicApproverBetaTypeEnum = typeof TriggerOutputAccessRequestDynamicApproverBetaTypeEnum[keyof typeof TriggerOutputAccessRequestDynamicApproverBetaTypeEnum];
-
-/**
- * 
- * @export
- * @interface TriggerOutputAccessRequestPreApprovalBeta
- */
-export interface TriggerOutputAccessRequestPreApprovalBeta {
-    /**
-     * Whether or not to approve the access request.
-     * @type {boolean}
-     * @memberof TriggerOutputAccessRequestPreApprovalBeta
-     */
-    'approved': boolean;
-    /**
-     * A comment about the decision to approve or deny the request.
-     * @type {string}
-     * @memberof TriggerOutputAccessRequestPreApprovalBeta
-     */
-    'comment': string;
-    /**
-     * The name of the entity that approved or denied the request.
-     * @type {string}
-     * @memberof TriggerOutputAccessRequestPreApprovalBeta
-     */
-    'approver': string;
-}
-/**
  * The type of trigger.
  * @export
  * @enum {string}
@@ -23633,6 +22675,31 @@ export interface V3ConnectorDtoBeta {
     'status'?: string;
 }
 /**
+ * Details about the `CLUSTER` or `SOURCE` that initiated this event.
+ * @export
+ * @interface VAClusterStatusChangeEventApplicationBeta
+ */
+export interface VAClusterStatusChangeEventApplicationBeta {
+    /**
+     * The GUID of the application
+     * @type {string}
+     * @memberof VAClusterStatusChangeEventApplicationBeta
+     */
+    'id': string;
+    /**
+     * The name of the application
+     * @type {string}
+     * @memberof VAClusterStatusChangeEventApplicationBeta
+     */
+    'name': string;
+    /**
+     * Custom map of attributes for a source.  This will only be populated if type is `SOURCE` and the source has a proxy.
+     * @type {{ [key: string]: any; }}
+     * @memberof VAClusterStatusChangeEventApplicationBeta
+     */
+    'attributes': { [key: string]: any; } | null;
+}
+/**
  * 
  * @export
  * @interface VAClusterStatusChangeEventBeta
@@ -23652,22 +22719,22 @@ export interface VAClusterStatusChangeEventBeta {
     'type': VAClusterStatusChangeEventBetaTypeEnum;
     /**
      * 
-     * @type {TriggerInputVAClusterStatusChangeEventApplicationBeta}
+     * @type {VAClusterStatusChangeEventApplicationBeta}
      * @memberof VAClusterStatusChangeEventBeta
      */
-    'application': TriggerInputVAClusterStatusChangeEventApplicationBeta;
+    'application': VAClusterStatusChangeEventApplicationBeta;
     /**
      * 
-     * @type {TriggerInputVAClusterStatusChangeEventHealthCheckResultBeta}
+     * @type {VAClusterStatusChangeEventHealthCheckResultBeta}
      * @memberof VAClusterStatusChangeEventBeta
      */
-    'healthCheckResult': TriggerInputVAClusterStatusChangeEventHealthCheckResultBeta;
+    'healthCheckResult': VAClusterStatusChangeEventHealthCheckResultBeta;
     /**
      * 
-     * @type {TriggerInputVAClusterStatusChangeEventPreviousHealthCheckResultBeta}
+     * @type {VAClusterStatusChangeEventPreviousHealthCheckResultBeta}
      * @memberof VAClusterStatusChangeEventBeta
      */
-    'previousHealthCheckResult': TriggerInputVAClusterStatusChangeEventPreviousHealthCheckResultBeta;
+    'previousHealthCheckResult': VAClusterStatusChangeEventPreviousHealthCheckResultBeta;
 }
 
 export const VAClusterStatusChangeEventBetaTypeEnum = {
@@ -23676,6 +22743,72 @@ export const VAClusterStatusChangeEventBetaTypeEnum = {
 } as const;
 
 export type VAClusterStatusChangeEventBetaTypeEnum = typeof VAClusterStatusChangeEventBetaTypeEnum[keyof typeof VAClusterStatusChangeEventBetaTypeEnum];
+
+/**
+ * The results of the most recent health check.
+ * @export
+ * @interface VAClusterStatusChangeEventHealthCheckResultBeta
+ */
+export interface VAClusterStatusChangeEventHealthCheckResultBeta {
+    /**
+     * Detailed message of the result of the health check.
+     * @type {string}
+     * @memberof VAClusterStatusChangeEventHealthCheckResultBeta
+     */
+    'message': string;
+    /**
+     * The type of the health check result.
+     * @type {string}
+     * @memberof VAClusterStatusChangeEventHealthCheckResultBeta
+     */
+    'resultType': string;
+    /**
+     * The status of the health check.
+     * @type {object}
+     * @memberof VAClusterStatusChangeEventHealthCheckResultBeta
+     */
+    'status': VAClusterStatusChangeEventHealthCheckResultBetaStatusEnum;
+}
+
+export const VAClusterStatusChangeEventHealthCheckResultBetaStatusEnum = {
+    Succeeded: 'Succeeded',
+    Failed: 'Failed'
+} as const;
+
+export type VAClusterStatusChangeEventHealthCheckResultBetaStatusEnum = typeof VAClusterStatusChangeEventHealthCheckResultBetaStatusEnum[keyof typeof VAClusterStatusChangeEventHealthCheckResultBetaStatusEnum];
+
+/**
+ * The results of the last health check.
+ * @export
+ * @interface VAClusterStatusChangeEventPreviousHealthCheckResultBeta
+ */
+export interface VAClusterStatusChangeEventPreviousHealthCheckResultBeta {
+    /**
+     * Detailed message of the result of the health check.
+     * @type {string}
+     * @memberof VAClusterStatusChangeEventPreviousHealthCheckResultBeta
+     */
+    'message': string;
+    /**
+     * The type of the health check result.
+     * @type {string}
+     * @memberof VAClusterStatusChangeEventPreviousHealthCheckResultBeta
+     */
+    'resultType': string;
+    /**
+     * The status of the health check.
+     * @type {object}
+     * @memberof VAClusterStatusChangeEventPreviousHealthCheckResultBeta
+     */
+    'status': VAClusterStatusChangeEventPreviousHealthCheckResultBetaStatusEnum;
+}
+
+export const VAClusterStatusChangeEventPreviousHealthCheckResultBetaStatusEnum = {
+    Succeeded: 'Succeeded',
+    Failed: 'Failed'
+} as const;
+
+export type VAClusterStatusChangeEventPreviousHealthCheckResultBetaStatusEnum = typeof VAClusterStatusChangeEventPreviousHealthCheckResultBetaStatusEnum[keyof typeof VAClusterStatusChangeEventPreviousHealthCheckResultBetaStatusEnum];
 
 /**
  * 
@@ -24623,6 +23756,43 @@ export interface WorkflowOAuthClientBeta {
     'url'?: string;
 }
 /**
+ * Workflow Trigger Attributes.
+ * @export
+ * @interface WorkflowTriggerAttributesBeta
+ */
+export interface WorkflowTriggerAttributesBeta {
+    /**
+     * The unique ID of the trigger
+     * @type {string}
+     * @memberof WorkflowTriggerAttributesBeta
+     */
+    'id': string;
+    /**
+     * JSON path expression that will limit which events the trigger will fire on
+     * @type {string}
+     * @memberof WorkflowTriggerAttributesBeta
+     */
+    'filter.$'?: string;
+    /**
+     * A unique name for the external trigger
+     * @type {string}
+     * @memberof WorkflowTriggerAttributesBeta
+     */
+    'name': string;
+    /**
+     * Additonal context about the external trigger
+     * @type {string}
+     * @memberof WorkflowTriggerAttributesBeta
+     */
+    'description'?: string;
+    /**
+     * A valid CRON expression
+     * @type {string}
+     * @memberof WorkflowTriggerAttributesBeta
+     */
+    'cronString': string;
+}
+/**
  * The trigger that starts the workflow
  * @export
  * @interface WorkflowTriggerBeta
@@ -24635,11 +23805,11 @@ export interface WorkflowTriggerBeta {
      */
     'type': WorkflowTriggerBetaTypeEnum;
     /**
-     * Workflow Trigger Attributes.
-     * @type {object}
+     * 
+     * @type {WorkflowTriggerAttributesBeta}
      * @memberof WorkflowTriggerBeta
      */
-    'attributes': object;
+    'attributes': WorkflowTriggerAttributesBeta;
 }
 
 export const WorkflowTriggerBetaTypeEnum = {
