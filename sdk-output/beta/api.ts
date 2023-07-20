@@ -23382,18 +23382,18 @@ export interface WorkflowBodyBeta {
 export interface WorkflowBodyOwnerBeta {
     /**
      * The type of object that is referenced
-     * @type {object}
+     * @type {string}
      * @memberof WorkflowBodyOwnerBeta
      */
     'type'?: WorkflowBodyOwnerBetaTypeEnum;
     /**
-     * ID of the object to which this reference applies
+     * The unique ID of the object
      * @type {string}
      * @memberof WorkflowBodyOwnerBeta
      */
     'id'?: string;
     /**
-     * Human-readable display name of the object to which this reference applies
+     * The name of the object
      * @type {string}
      * @memberof WorkflowBodyOwnerBeta
      */
