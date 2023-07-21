@@ -32397,7 +32397,7 @@ export const CustomFormsBetaApiAxiosParamCreator = function (configuration?: Con
          * @throws {RequiredError}
          */
         searchPreDefinedSelectOptions: async (axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
-            const localVarPath = `/predefined-select-options`;
+            const localVarPath = `/form-definitions/predefined-select-options`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -56417,8 +56417,8 @@ export class SODViolationsBetaApi extends BaseAPI {
 export const SPConfigBetaApiAxiosParamCreator = function (configuration?: Configuration) {
     return {
         /**
-         * This post will export objects from the tenant to a JSON configuration file.
-         * @summary Initiates Configuration Objects Export Job.
+         * This post will export objects from the tenant to a JSON configuration file. For more information about the object types that currently support export functionality, refer to [SaaS Configuration](https://developer.sailpoint.com/idn/docs/saas-configuration/#supported-objects).
+         * @summary Initiates configuration objects export job
          * @param {ExportPayloadBeta} exportPayloadBeta Export options control what will be included in the export.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
@@ -56461,15 +56461,15 @@ export const SPConfigBetaApiAxiosParamCreator = function (configuration?: Config
             };
         },
         /**
-         * This gets export file resulting from the export job with the requested id and downloads it to a file. Request will need one of the following security scopes: - sp:config:read - sp:config:manage
-         * @summary Download Result of Export Job
-         * @param {string} id The ID of the export job for which the results will be downloaded.
+         * This endpoint gets the export file resulting from the export job with the requested `id` and downloads it to a file. The request will need one of the following security scopes: - sp:config:read - sp:config:manage
+         * @summary Download export job result.
+         * @param {string} id The ID of the export job whose results will be downloaded.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        exportSpConfigDownload: async (id: string, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        getSpConfigExport: async (id: string, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'id' is not null or undefined
-            assertParamExists('exportSpConfigDownload', 'id', id)
+            assertParamExists('getSpConfigExport', 'id', id)
             const localVarPath = `/sp-config/export/{id}/download`
                 .replace(`{${"id"}}`, encodeURIComponent(String(id)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
@@ -56503,15 +56503,15 @@ export const SPConfigBetaApiAxiosParamCreator = function (configuration?: Config
             };
         },
         /**
-         * This gets the status of the export job identified by the id parameter. Request will need one of the following security scopes: - sp:config:read - sp:config:manage
-         * @summary Get Status of Export Job
-         * @param {string} id The ID of the export job for which status will be returned.
+         * This gets the status of the export job identified by the `id` parameter. The request will need one of the following security scopes: - sp:config:read - sp:config:manage
+         * @summary Get export job status
+         * @param {string} id The ID of the export job whose status will be returned.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        exportSpConfigJobStatus: async (id: string, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        getSpConfigExportStatus: async (id: string, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'id' is not null or undefined
-            assertParamExists('exportSpConfigJobStatus', 'id', id)
+            assertParamExists('getSpConfigExportStatus', 'id', id)
             const localVarPath = `/sp-config/export/{id}`
                 .replace(`{${"id"}}`, encodeURIComponent(String(id)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
@@ -56545,10 +56545,94 @@ export const SPConfigBetaApiAxiosParamCreator = function (configuration?: Config
             };
         },
         /**
-         * This post will import objects from a JSON configuration file into a tenant. By default, every import will first export all existing objects supported by sp-config as a backup before the import is attempted. The backup is provided so that the state of the configuration prior to the import is available for inspection or restore if needed. The backup can be skipped by setting \"excludeBackup\" to true in the import options. If a backup is performed, the id of the backup will be provided in the ImportResult as the \"exportJobId\". This can be downloaded  using the /sp-config/export/{exportJobId}/download endpoint. You cannot currently import from the Non-Employee Lifecycle Management (NELM) source. You cannot use this endpoint to back up or store NELM data.  Request will need the following security scope: - sp:config:manage
-         * @summary Initiates Configuration Objects Import Job.
+         * This gets import file resulting from the import job with the requested id and downloads it to a file. The downloaded file will contain the results of the import operation, including any error, warning or informational messages associated with the import. The request will need the following security scope: - sp:config:manage
+         * @summary Download import job result
+         * @param {string} id The ID of the import job whose results will be downloaded.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        getSpConfigImport: async (id: string, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'id' is not null or undefined
+            assertParamExists('getSpConfigImport', 'id', id)
+            const localVarPath = `/sp-config/import/{id}/download`
+                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...axiosOptions};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication oauth2 required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "oauth2", [], configuration)
+
+            // authentication oauth2 required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "oauth2", [], configuration)
+
+
+    
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                axiosOptions: localVarRequestOptions,
+            };
+        },
+        /**
+         * This gets the status of the import job identified by the `id` parameter. For more information about the object types that currently support import functionality, refer to [SaaS Configuration](https://developer.sailpoint.com/idn/docs/saas-configuration/#supported-objects). The request will need the following security scope: - sp:config:manage
+         * @summary Get import job status
+         * @param {string} id The ID of the import job whose status will be returned.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        getSpConfigImportStatus: async (id: string, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'id' is not null or undefined
+            assertParamExists('getSpConfigImportStatus', 'id', id)
+            const localVarPath = `/sp-config/import/{id}`
+                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...axiosOptions};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication oauth2 required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "oauth2", [], configuration)
+
+            // authentication oauth2 required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "oauth2", [], configuration)
+
+
+    
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                axiosOptions: localVarRequestOptions,
+            };
+        },
+        /**
+         * This post will import objects from a JSON configuration file into a tenant. By default, every import will first export all existing objects supported by sp-config as a backup before the import is attempted. The backup is provided so that the state of the configuration prior to the import is available for inspection or restore if needed. The backup can be skipped by setting \"excludeBackup\" to true in the import options. If a backup is performed, the id of the backup will be provided in the ImportResult as the \"exportJobId\". This can be downloaded  using the /sp-config/export/{exportJobId}/download endpoint. You cannot currently import from the Non-Employee Lifecycle Management (NELM) source. You cannot use this endpoint to back up or store NELM data.  For more information about the object types that currently support import functionality, refer to [SaaS Configuration](https://developer.sailpoint.com/idn/docs/saas-configuration/#supported-objects). The request will need the following security scope: - sp:config:manage
+         * @summary Initiates configuration objects import job
          * @param {any} data JSON file containing the objects to be imported.
-         * @param {boolean} [preview] This option is intended to give the user information about how an import operation would proceed, without having any affect on the target tenant. If true, no objects will be imported. Instead, the import process will pre-process the import file and attempt to resolve references within imported objects. The import result file will contain messages pertaining to how specific references were resolved, any errors associated with the preprocessing, and messages indicating which objects would be imported.
+         * @param {boolean} [preview] This option is intended to give the user information about how an import operation would proceed, without having any effect on the target tenant. If this parameter is \&quot;true\&quot;, no objects will be imported. Instead, the import process will pre-process the import file and attempt to resolve references within imported objects. The import result file will contain messages pertaining to how specific references were resolved, any errors associated with the preprocessing, and messages indicating which objects would be imported.
          * @param {ImportOptionsBeta} [options] 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
@@ -56604,92 +56688,8 @@ export const SPConfigBetaApiAxiosParamCreator = function (configuration?: Config
             };
         },
         /**
-         * This gets import file resulting from the import job with the requested id and downloads it to a file. The downloaded file will contain the results of the import operation, including any error, warning or informational messages associated with the import. Request will need the following security scope: - sp:config:manage
-         * @summary Download Result of Import Job
-         * @param {string} id The ID of the import job for which the results will be downloaded.
-         * @param {*} [axiosOptions] Override http request option.
-         * @throws {RequiredError}
-         */
-        importSpConfigDownload: async (id: string, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
-            // verify required parameter 'id' is not null or undefined
-            assertParamExists('importSpConfigDownload', 'id', id)
-            const localVarPath = `/sp-config/import/{id}/download`
-                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
-            // use dummy base URL string because the URL constructor only accepts absolute URLs.
-            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
-            let baseOptions;
-            if (configuration) {
-                baseOptions = configuration.baseOptions;
-            }
-
-            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...axiosOptions};
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-
-            // authentication oauth2 required
-            // oauth required
-            await setOAuthToObject(localVarHeaderParameter, "oauth2", [], configuration)
-
-            // authentication oauth2 required
-            // oauth required
-            await setOAuthToObject(localVarHeaderParameter, "oauth2", [], configuration)
-
-
-    
-            setSearchParams(localVarUrlObj, localVarQueryParameter);
-            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
-            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
-
-            return {
-                url: toPathString(localVarUrlObj),
-                axiosOptions: localVarRequestOptions,
-            };
-        },
-        /**
-         * This gets the status of the import job identified by the id parameter. Request will need the following security scope: - sp:config:manage
-         * @summary Get Status of Import Job
-         * @param {string} id The ID of the import job for which status will be returned.
-         * @param {*} [axiosOptions] Override http request option.
-         * @throws {RequiredError}
-         */
-        importSpConfigJobStatus: async (id: string, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
-            // verify required parameter 'id' is not null or undefined
-            assertParamExists('importSpConfigJobStatus', 'id', id)
-            const localVarPath = `/sp-config/import/{id}`
-                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
-            // use dummy base URL string because the URL constructor only accepts absolute URLs.
-            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
-            let baseOptions;
-            if (configuration) {
-                baseOptions = configuration.baseOptions;
-            }
-
-            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...axiosOptions};
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-
-            // authentication oauth2 required
-            // oauth required
-            await setOAuthToObject(localVarHeaderParameter, "oauth2", [], configuration)
-
-            // authentication oauth2 required
-            // oauth required
-            await setOAuthToObject(localVarHeaderParameter, "oauth2", [], configuration)
-
-
-    
-            setSearchParams(localVarUrlObj, localVarQueryParameter);
-            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
-            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
-
-            return {
-                url: toPathString(localVarUrlObj),
-                axiosOptions: localVarRequestOptions,
-            };
-        },
-        /**
          * This gets the list of object configurations which are known to the tenant export/import service. Object configurations that contain \"importUrl\" and \"exportUrl\" are available for export/import.
-         * @summary Get Config Object details
+         * @summary Get config object details
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
@@ -56736,8 +56736,8 @@ export const SPConfigBetaApiFp = function(configuration?: Configuration) {
     const localVarAxiosParamCreator = SPConfigBetaApiAxiosParamCreator(configuration)
     return {
         /**
-         * This post will export objects from the tenant to a JSON configuration file.
-         * @summary Initiates Configuration Objects Export Job.
+         * This post will export objects from the tenant to a JSON configuration file. For more information about the object types that currently support export functionality, refer to [SaaS Configuration](https://developer.sailpoint.com/idn/docs/saas-configuration/#supported-objects).
+         * @summary Initiates configuration objects export job
          * @param {ExportPayloadBeta} exportPayloadBeta Export options control what will be included in the export.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
@@ -56747,32 +56747,54 @@ export const SPConfigBetaApiFp = function(configuration?: Configuration) {
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
-         * This gets export file resulting from the export job with the requested id and downloads it to a file. Request will need one of the following security scopes: - sp:config:read - sp:config:manage
-         * @summary Download Result of Export Job
-         * @param {string} id The ID of the export job for which the results will be downloaded.
+         * This endpoint gets the export file resulting from the export job with the requested `id` and downloads it to a file. The request will need one of the following security scopes: - sp:config:read - sp:config:manage
+         * @summary Download export job result.
+         * @param {string} id The ID of the export job whose results will be downloaded.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async exportSpConfigDownload(id: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SpConfigExportResultsBeta>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.exportSpConfigDownload(id, axiosOptions);
+        async getSpConfigExport(id: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SpConfigExportResultsBeta>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getSpConfigExport(id, axiosOptions);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
-         * This gets the status of the export job identified by the id parameter. Request will need one of the following security scopes: - sp:config:read - sp:config:manage
-         * @summary Get Status of Export Job
-         * @param {string} id The ID of the export job for which status will be returned.
+         * This gets the status of the export job identified by the `id` parameter. The request will need one of the following security scopes: - sp:config:read - sp:config:manage
+         * @summary Get export job status
+         * @param {string} id The ID of the export job whose status will be returned.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async exportSpConfigJobStatus(id: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SpConfigJobBeta>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.exportSpConfigJobStatus(id, axiosOptions);
+        async getSpConfigExportStatus(id: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SpConfigJobBeta>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getSpConfigExportStatus(id, axiosOptions);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
-         * This post will import objects from a JSON configuration file into a tenant. By default, every import will first export all existing objects supported by sp-config as a backup before the import is attempted. The backup is provided so that the state of the configuration prior to the import is available for inspection or restore if needed. The backup can be skipped by setting \"excludeBackup\" to true in the import options. If a backup is performed, the id of the backup will be provided in the ImportResult as the \"exportJobId\". This can be downloaded  using the /sp-config/export/{exportJobId}/download endpoint. You cannot currently import from the Non-Employee Lifecycle Management (NELM) source. You cannot use this endpoint to back up or store NELM data.  Request will need the following security scope: - sp:config:manage
-         * @summary Initiates Configuration Objects Import Job.
+         * This gets import file resulting from the import job with the requested id and downloads it to a file. The downloaded file will contain the results of the import operation, including any error, warning or informational messages associated with the import. The request will need the following security scope: - sp:config:manage
+         * @summary Download import job result
+         * @param {string} id The ID of the import job whose results will be downloaded.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        async getSpConfigImport(id: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SpConfigImportResultsBeta>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getSpConfigImport(id, axiosOptions);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * This gets the status of the import job identified by the `id` parameter. For more information about the object types that currently support import functionality, refer to [SaaS Configuration](https://developer.sailpoint.com/idn/docs/saas-configuration/#supported-objects). The request will need the following security scope: - sp:config:manage
+         * @summary Get import job status
+         * @param {string} id The ID of the import job whose status will be returned.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        async getSpConfigImportStatus(id: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SpConfigJobBeta>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getSpConfigImportStatus(id, axiosOptions);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * This post will import objects from a JSON configuration file into a tenant. By default, every import will first export all existing objects supported by sp-config as a backup before the import is attempted. The backup is provided so that the state of the configuration prior to the import is available for inspection or restore if needed. The backup can be skipped by setting \"excludeBackup\" to true in the import options. If a backup is performed, the id of the backup will be provided in the ImportResult as the \"exportJobId\". This can be downloaded  using the /sp-config/export/{exportJobId}/download endpoint. You cannot currently import from the Non-Employee Lifecycle Management (NELM) source. You cannot use this endpoint to back up or store NELM data.  For more information about the object types that currently support import functionality, refer to [SaaS Configuration](https://developer.sailpoint.com/idn/docs/saas-configuration/#supported-objects). The request will need the following security scope: - sp:config:manage
+         * @summary Initiates configuration objects import job
          * @param {any} data JSON file containing the objects to be imported.
-         * @param {boolean} [preview] This option is intended to give the user information about how an import operation would proceed, without having any affect on the target tenant. If true, no objects will be imported. Instead, the import process will pre-process the import file and attempt to resolve references within imported objects. The import result file will contain messages pertaining to how specific references were resolved, any errors associated with the preprocessing, and messages indicating which objects would be imported.
+         * @param {boolean} [preview] This option is intended to give the user information about how an import operation would proceed, without having any effect on the target tenant. If this parameter is \&quot;true\&quot;, no objects will be imported. Instead, the import process will pre-process the import file and attempt to resolve references within imported objects. The import result file will contain messages pertaining to how specific references were resolved, any errors associated with the preprocessing, and messages indicating which objects would be imported.
          * @param {ImportOptionsBeta} [options] 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
@@ -56782,30 +56804,8 @@ export const SPConfigBetaApiFp = function(configuration?: Configuration) {
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
-         * This gets import file resulting from the import job with the requested id and downloads it to a file. The downloaded file will contain the results of the import operation, including any error, warning or informational messages associated with the import. Request will need the following security scope: - sp:config:manage
-         * @summary Download Result of Import Job
-         * @param {string} id The ID of the import job for which the results will be downloaded.
-         * @param {*} [axiosOptions] Override http request option.
-         * @throws {RequiredError}
-         */
-        async importSpConfigDownload(id: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SpConfigImportResultsBeta>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.importSpConfigDownload(id, axiosOptions);
-            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
-        },
-        /**
-         * This gets the status of the import job identified by the id parameter. Request will need the following security scope: - sp:config:manage
-         * @summary Get Status of Import Job
-         * @param {string} id The ID of the import job for which status will be returned.
-         * @param {*} [axiosOptions] Override http request option.
-         * @throws {RequiredError}
-         */
-        async importSpConfigJobStatus(id: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SpConfigJobBeta>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.importSpConfigJobStatus(id, axiosOptions);
-            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
-        },
-        /**
          * This gets the list of object configurations which are known to the tenant export/import service. Object configurations that contain \"importUrl\" and \"exportUrl\" are available for export/import.
-         * @summary Get Config Object details
+         * @summary Get config object details
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
@@ -56824,8 +56824,8 @@ export const SPConfigBetaApiFactory = function (configuration?: Configuration, b
     const localVarFp = SPConfigBetaApiFp(configuration)
     return {
         /**
-         * This post will export objects from the tenant to a JSON configuration file.
-         * @summary Initiates Configuration Objects Export Job.
+         * This post will export objects from the tenant to a JSON configuration file. For more information about the object types that currently support export functionality, refer to [SaaS Configuration](https://developer.sailpoint.com/idn/docs/saas-configuration/#supported-objects).
+         * @summary Initiates configuration objects export job
          * @param {ExportPayloadBeta} exportPayloadBeta Export options control what will be included in the export.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
@@ -56834,30 +56834,50 @@ export const SPConfigBetaApiFactory = function (configuration?: Configuration, b
             return localVarFp.exportSpConfig(exportPayloadBeta, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
-         * This gets export file resulting from the export job with the requested id and downloads it to a file. Request will need one of the following security scopes: - sp:config:read - sp:config:manage
-         * @summary Download Result of Export Job
-         * @param {string} id The ID of the export job for which the results will be downloaded.
+         * This endpoint gets the export file resulting from the export job with the requested `id` and downloads it to a file. The request will need one of the following security scopes: - sp:config:read - sp:config:manage
+         * @summary Download export job result.
+         * @param {string} id The ID of the export job whose results will be downloaded.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        exportSpConfigDownload(id: string, axiosOptions?: any): AxiosPromise<SpConfigExportResultsBeta> {
-            return localVarFp.exportSpConfigDownload(id, axiosOptions).then((request) => request(axios, basePath));
+        getSpConfigExport(id: string, axiosOptions?: any): AxiosPromise<SpConfigExportResultsBeta> {
+            return localVarFp.getSpConfigExport(id, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
-         * This gets the status of the export job identified by the id parameter. Request will need one of the following security scopes: - sp:config:read - sp:config:manage
-         * @summary Get Status of Export Job
-         * @param {string} id The ID of the export job for which status will be returned.
+         * This gets the status of the export job identified by the `id` parameter. The request will need one of the following security scopes: - sp:config:read - sp:config:manage
+         * @summary Get export job status
+         * @param {string} id The ID of the export job whose status will be returned.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        exportSpConfigJobStatus(id: string, axiosOptions?: any): AxiosPromise<SpConfigJobBeta> {
-            return localVarFp.exportSpConfigJobStatus(id, axiosOptions).then((request) => request(axios, basePath));
+        getSpConfigExportStatus(id: string, axiosOptions?: any): AxiosPromise<SpConfigJobBeta> {
+            return localVarFp.getSpConfigExportStatus(id, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
-         * This post will import objects from a JSON configuration file into a tenant. By default, every import will first export all existing objects supported by sp-config as a backup before the import is attempted. The backup is provided so that the state of the configuration prior to the import is available for inspection or restore if needed. The backup can be skipped by setting \"excludeBackup\" to true in the import options. If a backup is performed, the id of the backup will be provided in the ImportResult as the \"exportJobId\". This can be downloaded  using the /sp-config/export/{exportJobId}/download endpoint. You cannot currently import from the Non-Employee Lifecycle Management (NELM) source. You cannot use this endpoint to back up or store NELM data.  Request will need the following security scope: - sp:config:manage
-         * @summary Initiates Configuration Objects Import Job.
+         * This gets import file resulting from the import job with the requested id and downloads it to a file. The downloaded file will contain the results of the import operation, including any error, warning or informational messages associated with the import. The request will need the following security scope: - sp:config:manage
+         * @summary Download import job result
+         * @param {string} id The ID of the import job whose results will be downloaded.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        getSpConfigImport(id: string, axiosOptions?: any): AxiosPromise<SpConfigImportResultsBeta> {
+            return localVarFp.getSpConfigImport(id, axiosOptions).then((request) => request(axios, basePath));
+        },
+        /**
+         * This gets the status of the import job identified by the `id` parameter. For more information about the object types that currently support import functionality, refer to [SaaS Configuration](https://developer.sailpoint.com/idn/docs/saas-configuration/#supported-objects). The request will need the following security scope: - sp:config:manage
+         * @summary Get import job status
+         * @param {string} id The ID of the import job whose status will be returned.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        getSpConfigImportStatus(id: string, axiosOptions?: any): AxiosPromise<SpConfigJobBeta> {
+            return localVarFp.getSpConfigImportStatus(id, axiosOptions).then((request) => request(axios, basePath));
+        },
+        /**
+         * This post will import objects from a JSON configuration file into a tenant. By default, every import will first export all existing objects supported by sp-config as a backup before the import is attempted. The backup is provided so that the state of the configuration prior to the import is available for inspection or restore if needed. The backup can be skipped by setting \"excludeBackup\" to true in the import options. If a backup is performed, the id of the backup will be provided in the ImportResult as the \"exportJobId\". This can be downloaded  using the /sp-config/export/{exportJobId}/download endpoint. You cannot currently import from the Non-Employee Lifecycle Management (NELM) source. You cannot use this endpoint to back up or store NELM data.  For more information about the object types that currently support import functionality, refer to [SaaS Configuration](https://developer.sailpoint.com/idn/docs/saas-configuration/#supported-objects). The request will need the following security scope: - sp:config:manage
+         * @summary Initiates configuration objects import job
          * @param {any} data JSON file containing the objects to be imported.
-         * @param {boolean} [preview] This option is intended to give the user information about how an import operation would proceed, without having any affect on the target tenant. If true, no objects will be imported. Instead, the import process will pre-process the import file and attempt to resolve references within imported objects. The import result file will contain messages pertaining to how specific references were resolved, any errors associated with the preprocessing, and messages indicating which objects would be imported.
+         * @param {boolean} [preview] This option is intended to give the user information about how an import operation would proceed, without having any effect on the target tenant. If this parameter is \&quot;true\&quot;, no objects will be imported. Instead, the import process will pre-process the import file and attempt to resolve references within imported objects. The import result file will contain messages pertaining to how specific references were resolved, any errors associated with the preprocessing, and messages indicating which objects would be imported.
          * @param {ImportOptionsBeta} [options] 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
@@ -56866,28 +56886,8 @@ export const SPConfigBetaApiFactory = function (configuration?: Configuration, b
             return localVarFp.importSpConfig(data, preview, options, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
-         * This gets import file resulting from the import job with the requested id and downloads it to a file. The downloaded file will contain the results of the import operation, including any error, warning or informational messages associated with the import. Request will need the following security scope: - sp:config:manage
-         * @summary Download Result of Import Job
-         * @param {string} id The ID of the import job for which the results will be downloaded.
-         * @param {*} [axiosOptions] Override http request option.
-         * @throws {RequiredError}
-         */
-        importSpConfigDownload(id: string, axiosOptions?: any): AxiosPromise<SpConfigImportResultsBeta> {
-            return localVarFp.importSpConfigDownload(id, axiosOptions).then((request) => request(axios, basePath));
-        },
-        /**
-         * This gets the status of the import job identified by the id parameter. Request will need the following security scope: - sp:config:manage
-         * @summary Get Status of Import Job
-         * @param {string} id The ID of the import job for which status will be returned.
-         * @param {*} [axiosOptions] Override http request option.
-         * @throws {RequiredError}
-         */
-        importSpConfigJobStatus(id: string, axiosOptions?: any): AxiosPromise<SpConfigJobBeta> {
-            return localVarFp.importSpConfigJobStatus(id, axiosOptions).then((request) => request(axios, basePath));
-        },
-        /**
          * This gets the list of object configurations which are known to the tenant export/import service. Object configurations that contain \"importUrl\" and \"exportUrl\" are available for export/import.
-         * @summary Get Config Object details
+         * @summary Get config object details
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
@@ -56912,29 +56912,57 @@ export interface SPConfigBetaApiExportSpConfigRequest {
 }
 
 /**
- * Request parameters for exportSpConfigDownload operation in SPConfigBetaApi.
+ * Request parameters for getSpConfigExport operation in SPConfigBetaApi.
  * @export
- * @interface SPConfigBetaApiExportSpConfigDownloadRequest
+ * @interface SPConfigBetaApiGetSpConfigExportRequest
  */
-export interface SPConfigBetaApiExportSpConfigDownloadRequest {
+export interface SPConfigBetaApiGetSpConfigExportRequest {
     /**
-     * The ID of the export job for which the results will be downloaded.
+     * The ID of the export job whose results will be downloaded.
      * @type {string}
-     * @memberof SPConfigBetaApiExportSpConfigDownload
+     * @memberof SPConfigBetaApiGetSpConfigExport
      */
     readonly id: string
 }
 
 /**
- * Request parameters for exportSpConfigJobStatus operation in SPConfigBetaApi.
+ * Request parameters for getSpConfigExportStatus operation in SPConfigBetaApi.
  * @export
- * @interface SPConfigBetaApiExportSpConfigJobStatusRequest
+ * @interface SPConfigBetaApiGetSpConfigExportStatusRequest
  */
-export interface SPConfigBetaApiExportSpConfigJobStatusRequest {
+export interface SPConfigBetaApiGetSpConfigExportStatusRequest {
     /**
-     * The ID of the export job for which status will be returned.
+     * The ID of the export job whose status will be returned.
      * @type {string}
-     * @memberof SPConfigBetaApiExportSpConfigJobStatus
+     * @memberof SPConfigBetaApiGetSpConfigExportStatus
+     */
+    readonly id: string
+}
+
+/**
+ * Request parameters for getSpConfigImport operation in SPConfigBetaApi.
+ * @export
+ * @interface SPConfigBetaApiGetSpConfigImportRequest
+ */
+export interface SPConfigBetaApiGetSpConfigImportRequest {
+    /**
+     * The ID of the import job whose results will be downloaded.
+     * @type {string}
+     * @memberof SPConfigBetaApiGetSpConfigImport
+     */
+    readonly id: string
+}
+
+/**
+ * Request parameters for getSpConfigImportStatus operation in SPConfigBetaApi.
+ * @export
+ * @interface SPConfigBetaApiGetSpConfigImportStatusRequest
+ */
+export interface SPConfigBetaApiGetSpConfigImportStatusRequest {
+    /**
+     * The ID of the import job whose status will be returned.
+     * @type {string}
+     * @memberof SPConfigBetaApiGetSpConfigImportStatus
      */
     readonly id: string
 }
@@ -56953,7 +56981,7 @@ export interface SPConfigBetaApiImportSpConfigRequest {
     readonly data: any
 
     /**
-     * This option is intended to give the user information about how an import operation would proceed, without having any affect on the target tenant. If true, no objects will be imported. Instead, the import process will pre-process the import file and attempt to resolve references within imported objects. The import result file will contain messages pertaining to how specific references were resolved, any errors associated with the preprocessing, and messages indicating which objects would be imported.
+     * This option is intended to give the user information about how an import operation would proceed, without having any effect on the target tenant. If this parameter is \&quot;true\&quot;, no objects will be imported. Instead, the import process will pre-process the import file and attempt to resolve references within imported objects. The import result file will contain messages pertaining to how specific references were resolved, any errors associated with the preprocessing, and messages indicating which objects would be imported.
      * @type {boolean}
      * @memberof SPConfigBetaApiImportSpConfig
      */
@@ -56968,34 +56996,6 @@ export interface SPConfigBetaApiImportSpConfigRequest {
 }
 
 /**
- * Request parameters for importSpConfigDownload operation in SPConfigBetaApi.
- * @export
- * @interface SPConfigBetaApiImportSpConfigDownloadRequest
- */
-export interface SPConfigBetaApiImportSpConfigDownloadRequest {
-    /**
-     * The ID of the import job for which the results will be downloaded.
-     * @type {string}
-     * @memberof SPConfigBetaApiImportSpConfigDownload
-     */
-    readonly id: string
-}
-
-/**
- * Request parameters for importSpConfigJobStatus operation in SPConfigBetaApi.
- * @export
- * @interface SPConfigBetaApiImportSpConfigJobStatusRequest
- */
-export interface SPConfigBetaApiImportSpConfigJobStatusRequest {
-    /**
-     * The ID of the import job for which status will be returned.
-     * @type {string}
-     * @memberof SPConfigBetaApiImportSpConfigJobStatus
-     */
-    readonly id: string
-}
-
-/**
  * SPConfigBetaApi - object-oriented interface
  * @export
  * @class SPConfigBetaApi
@@ -57003,8 +57003,8 @@ export interface SPConfigBetaApiImportSpConfigJobStatusRequest {
  */
 export class SPConfigBetaApi extends BaseAPI {
     /**
-     * This post will export objects from the tenant to a JSON configuration file.
-     * @summary Initiates Configuration Objects Export Job.
+     * This post will export objects from the tenant to a JSON configuration file. For more information about the object types that currently support export functionality, refer to [SaaS Configuration](https://developer.sailpoint.com/idn/docs/saas-configuration/#supported-objects).
+     * @summary Initiates configuration objects export job
      * @param {SPConfigBetaApiExportSpConfigRequest} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
@@ -57015,32 +57015,56 @@ export class SPConfigBetaApi extends BaseAPI {
     }
 
     /**
-     * This gets export file resulting from the export job with the requested id and downloads it to a file. Request will need one of the following security scopes: - sp:config:read - sp:config:manage
-     * @summary Download Result of Export Job
-     * @param {SPConfigBetaApiExportSpConfigDownloadRequest} requestParameters Request parameters.
+     * This endpoint gets the export file resulting from the export job with the requested `id` and downloads it to a file. The request will need one of the following security scopes: - sp:config:read - sp:config:manage
+     * @summary Download export job result.
+     * @param {SPConfigBetaApiGetSpConfigExportRequest} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
      * @memberof SPConfigBetaApi
      */
-    public exportSpConfigDownload(requestParameters: SPConfigBetaApiExportSpConfigDownloadRequest, axiosOptions?: AxiosRequestConfig) {
-        return SPConfigBetaApiFp(this.configuration).exportSpConfigDownload(requestParameters.id, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public getSpConfigExport(requestParameters: SPConfigBetaApiGetSpConfigExportRequest, axiosOptions?: AxiosRequestConfig) {
+        return SPConfigBetaApiFp(this.configuration).getSpConfigExport(requestParameters.id, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
-     * This gets the status of the export job identified by the id parameter. Request will need one of the following security scopes: - sp:config:read - sp:config:manage
-     * @summary Get Status of Export Job
-     * @param {SPConfigBetaApiExportSpConfigJobStatusRequest} requestParameters Request parameters.
+     * This gets the status of the export job identified by the `id` parameter. The request will need one of the following security scopes: - sp:config:read - sp:config:manage
+     * @summary Get export job status
+     * @param {SPConfigBetaApiGetSpConfigExportStatusRequest} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
      * @memberof SPConfigBetaApi
      */
-    public exportSpConfigJobStatus(requestParameters: SPConfigBetaApiExportSpConfigJobStatusRequest, axiosOptions?: AxiosRequestConfig) {
-        return SPConfigBetaApiFp(this.configuration).exportSpConfigJobStatus(requestParameters.id, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public getSpConfigExportStatus(requestParameters: SPConfigBetaApiGetSpConfigExportStatusRequest, axiosOptions?: AxiosRequestConfig) {
+        return SPConfigBetaApiFp(this.configuration).getSpConfigExportStatus(requestParameters.id, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
-     * This post will import objects from a JSON configuration file into a tenant. By default, every import will first export all existing objects supported by sp-config as a backup before the import is attempted. The backup is provided so that the state of the configuration prior to the import is available for inspection or restore if needed. The backup can be skipped by setting \"excludeBackup\" to true in the import options. If a backup is performed, the id of the backup will be provided in the ImportResult as the \"exportJobId\". This can be downloaded  using the /sp-config/export/{exportJobId}/download endpoint. You cannot currently import from the Non-Employee Lifecycle Management (NELM) source. You cannot use this endpoint to back up or store NELM data.  Request will need the following security scope: - sp:config:manage
-     * @summary Initiates Configuration Objects Import Job.
+     * This gets import file resulting from the import job with the requested id and downloads it to a file. The downloaded file will contain the results of the import operation, including any error, warning or informational messages associated with the import. The request will need the following security scope: - sp:config:manage
+     * @summary Download import job result
+     * @param {SPConfigBetaApiGetSpConfigImportRequest} requestParameters Request parameters.
+     * @param {*} [axiosOptions] Override http request option.
+     * @throws {RequiredError}
+     * @memberof SPConfigBetaApi
+     */
+    public getSpConfigImport(requestParameters: SPConfigBetaApiGetSpConfigImportRequest, axiosOptions?: AxiosRequestConfig) {
+        return SPConfigBetaApiFp(this.configuration).getSpConfigImport(requestParameters.id, axiosOptions).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * This gets the status of the import job identified by the `id` parameter. For more information about the object types that currently support import functionality, refer to [SaaS Configuration](https://developer.sailpoint.com/idn/docs/saas-configuration/#supported-objects). The request will need the following security scope: - sp:config:manage
+     * @summary Get import job status
+     * @param {SPConfigBetaApiGetSpConfigImportStatusRequest} requestParameters Request parameters.
+     * @param {*} [axiosOptions] Override http request option.
+     * @throws {RequiredError}
+     * @memberof SPConfigBetaApi
+     */
+    public getSpConfigImportStatus(requestParameters: SPConfigBetaApiGetSpConfigImportStatusRequest, axiosOptions?: AxiosRequestConfig) {
+        return SPConfigBetaApiFp(this.configuration).getSpConfigImportStatus(requestParameters.id, axiosOptions).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * This post will import objects from a JSON configuration file into a tenant. By default, every import will first export all existing objects supported by sp-config as a backup before the import is attempted. The backup is provided so that the state of the configuration prior to the import is available for inspection or restore if needed. The backup can be skipped by setting \"excludeBackup\" to true in the import options. If a backup is performed, the id of the backup will be provided in the ImportResult as the \"exportJobId\". This can be downloaded  using the /sp-config/export/{exportJobId}/download endpoint. You cannot currently import from the Non-Employee Lifecycle Management (NELM) source. You cannot use this endpoint to back up or store NELM data.  For more information about the object types that currently support import functionality, refer to [SaaS Configuration](https://developer.sailpoint.com/idn/docs/saas-configuration/#supported-objects). The request will need the following security scope: - sp:config:manage
+     * @summary Initiates configuration objects import job
      * @param {SPConfigBetaApiImportSpConfigRequest} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
@@ -57051,32 +57075,8 @@ export class SPConfigBetaApi extends BaseAPI {
     }
 
     /**
-     * This gets import file resulting from the import job with the requested id and downloads it to a file. The downloaded file will contain the results of the import operation, including any error, warning or informational messages associated with the import. Request will need the following security scope: - sp:config:manage
-     * @summary Download Result of Import Job
-     * @param {SPConfigBetaApiImportSpConfigDownloadRequest} requestParameters Request parameters.
-     * @param {*} [axiosOptions] Override http request option.
-     * @throws {RequiredError}
-     * @memberof SPConfigBetaApi
-     */
-    public importSpConfigDownload(requestParameters: SPConfigBetaApiImportSpConfigDownloadRequest, axiosOptions?: AxiosRequestConfig) {
-        return SPConfigBetaApiFp(this.configuration).importSpConfigDownload(requestParameters.id, axiosOptions).then((request) => request(this.axios, this.basePath));
-    }
-
-    /**
-     * This gets the status of the import job identified by the id parameter. Request will need the following security scope: - sp:config:manage
-     * @summary Get Status of Import Job
-     * @param {SPConfigBetaApiImportSpConfigJobStatusRequest} requestParameters Request parameters.
-     * @param {*} [axiosOptions] Override http request option.
-     * @throws {RequiredError}
-     * @memberof SPConfigBetaApi
-     */
-    public importSpConfigJobStatus(requestParameters: SPConfigBetaApiImportSpConfigJobStatusRequest, axiosOptions?: AxiosRequestConfig) {
-        return SPConfigBetaApiFp(this.configuration).importSpConfigJobStatus(requestParameters.id, axiosOptions).then((request) => request(this.axios, this.basePath));
-    }
-
-    /**
      * This gets the list of object configurations which are known to the tenant export/import service. Object configurations that contain \"importUrl\" and \"exportUrl\" are available for export/import.
-     * @summary Get Config Object details
+     * @summary Get config object details
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
      * @memberof SPConfigBetaApi
