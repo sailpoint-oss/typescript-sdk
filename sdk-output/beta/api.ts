@@ -22836,11 +22836,23 @@ export interface ValidateFilterInputDtoBeta {
  */
 export interface ValidateFilterOutputDtoBeta {
     /**
-     * True if specified filter expression is valid against the input, false otherwise.
+     * When this field is true, the filter expression is valid against the input.
      * @type {boolean}
      * @memberof ValidateFilterOutputDtoBeta
      */
     'isValid'?: boolean;
+    /**
+     * When this field is true, the filter expression is using a valid JSON path.
+     * @type {boolean}
+     * @memberof ValidateFilterOutputDtoBeta
+     */
+    'isValidJSONPath'?: boolean;
+    /**
+     * When this field is true, the filter expression is using an existing path.
+     * @type {boolean}
+     * @memberof ValidateFilterOutputDtoBeta
+     */
+    'isPathExist'?: boolean;
 }
 /**
  * 
@@ -64469,6 +64481,50 @@ export const TriggersBetaApiAxiosParamCreator = function (configuration?: Config
             };
         },
         /**
+         * Validates a JSONPath filter expression against a provided mock input. Request requires a security scope of: 
+         * @summary Validate a Subscription Filter
+         * @param {ValidateFilterInputDtoBeta} validateFilterInputDtoBeta 
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        testSubscriptionFilter: async (validateFilterInputDtoBeta: ValidateFilterInputDtoBeta, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'validateFilterInputDtoBeta' is not null or undefined
+            assertParamExists('testSubscriptionFilter', 'validateFilterInputDtoBeta', validateFilterInputDtoBeta)
+            const localVarPath = `/trigger-subscriptions/validate-filter`;
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'POST', ...baseOptions, ...axiosOptions};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication oauth2 required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "oauth2", [], configuration)
+
+            // authentication oauth2 required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "oauth2", [], configuration)
+
+
+    
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
+            localVarRequestOptions.data = serializeDataIfNeeded(validateFilterInputDtoBeta, localVarRequestOptions, configuration)
+
+            return {
+                url: toPathString(localVarUrlObj),
+                axiosOptions: localVarRequestOptions,
+            };
+        },
+        /**
          * This API updates a trigger subscription in IdentityNow, using a full object representation. In other words, the existing   Subscription is completely replaced. The following fields are immutable:     * id    * triggerId     Attempts to modify these fields result in 400.
          * @summary Update a Subscription
          * @param {string} id Subscription ID
@@ -64510,50 +64566,6 @@ export const TriggersBetaApiAxiosParamCreator = function (configuration?: Config
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
             localVarRequestOptions.data = serializeDataIfNeeded(subscriptionPutRequestBeta, localVarRequestOptions, configuration)
-
-            return {
-                url: toPathString(localVarUrlObj),
-                axiosOptions: localVarRequestOptions,
-            };
-        },
-        /**
-         * Validates a JSONPath filter expression against a provided mock input. Request requires a security scope of: 
-         * @summary Validate a Subscription Filter
-         * @param {ValidateFilterInputDtoBeta} validateFilterInputDtoBeta 
-         * @param {*} [axiosOptions] Override http request option.
-         * @throws {RequiredError}
-         */
-        validateSubscriptionFilter: async (validateFilterInputDtoBeta: ValidateFilterInputDtoBeta, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
-            // verify required parameter 'validateFilterInputDtoBeta' is not null or undefined
-            assertParamExists('validateSubscriptionFilter', 'validateFilterInputDtoBeta', validateFilterInputDtoBeta)
-            const localVarPath = `/trigger-subscriptions/validate-filter`;
-            // use dummy base URL string because the URL constructor only accepts absolute URLs.
-            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
-            let baseOptions;
-            if (configuration) {
-                baseOptions = configuration.baseOptions;
-            }
-
-            const localVarRequestOptions = { method: 'POST', ...baseOptions, ...axiosOptions};
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-
-            // authentication oauth2 required
-            // oauth required
-            await setOAuthToObject(localVarHeaderParameter, "oauth2", [], configuration)
-
-            // authentication oauth2 required
-            // oauth required
-            await setOAuthToObject(localVarHeaderParameter, "oauth2", [], configuration)
-
-
-    
-            localVarHeaderParameter['Content-Type'] = 'application/json';
-
-            setSearchParams(localVarUrlObj, localVarQueryParameter);
-            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
-            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(validateFilterInputDtoBeta, localVarRequestOptions, configuration)
 
             return {
                 url: toPathString(localVarUrlObj),
@@ -64673,6 +64685,17 @@ export const TriggersBetaApiFp = function(configuration?: Configuration) {
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
+         * Validates a JSONPath filter expression against a provided mock input. Request requires a security scope of: 
+         * @summary Validate a Subscription Filter
+         * @param {ValidateFilterInputDtoBeta} validateFilterInputDtoBeta 
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        async testSubscriptionFilter(validateFilterInputDtoBeta: ValidateFilterInputDtoBeta, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ValidateFilterOutputDtoBeta>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.testSubscriptionFilter(validateFilterInputDtoBeta, axiosOptions);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
          * This API updates a trigger subscription in IdentityNow, using a full object representation. In other words, the existing   Subscription is completely replaced. The following fields are immutable:     * id    * triggerId     Attempts to modify these fields result in 400.
          * @summary Update a Subscription
          * @param {string} id Subscription ID
@@ -64682,17 +64705,6 @@ export const TriggersBetaApiFp = function(configuration?: Configuration) {
          */
         async updateSubscription(id: string, subscriptionPutRequestBeta: SubscriptionPutRequestBeta, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SubscriptionBeta>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.updateSubscription(id, subscriptionPutRequestBeta, axiosOptions);
-            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
-        },
-        /**
-         * Validates a JSONPath filter expression against a provided mock input. Request requires a security scope of: 
-         * @summary Validate a Subscription Filter
-         * @param {ValidateFilterInputDtoBeta} validateFilterInputDtoBeta 
-         * @param {*} [axiosOptions] Override http request option.
-         * @throws {RequiredError}
-         */
-        async validateSubscriptionFilter(validateFilterInputDtoBeta: ValidateFilterInputDtoBeta, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ValidateFilterOutputDtoBeta>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.validateSubscriptionFilter(validateFilterInputDtoBeta, axiosOptions);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
     }
@@ -64800,6 +64812,16 @@ export const TriggersBetaApiFactory = function (configuration?: Configuration, b
             return localVarFp.startTestTriggerInvocation(testInvocationBeta, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
+         * Validates a JSONPath filter expression against a provided mock input. Request requires a security scope of: 
+         * @summary Validate a Subscription Filter
+         * @param {ValidateFilterInputDtoBeta} validateFilterInputDtoBeta 
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        testSubscriptionFilter(validateFilterInputDtoBeta: ValidateFilterInputDtoBeta, axiosOptions?: any): AxiosPromise<ValidateFilterOutputDtoBeta> {
+            return localVarFp.testSubscriptionFilter(validateFilterInputDtoBeta, axiosOptions).then((request) => request(axios, basePath));
+        },
+        /**
          * This API updates a trigger subscription in IdentityNow, using a full object representation. In other words, the existing   Subscription is completely replaced. The following fields are immutable:     * id    * triggerId     Attempts to modify these fields result in 400.
          * @summary Update a Subscription
          * @param {string} id Subscription ID
@@ -64809,16 +64831,6 @@ export const TriggersBetaApiFactory = function (configuration?: Configuration, b
          */
         updateSubscription(id: string, subscriptionPutRequestBeta: SubscriptionPutRequestBeta, axiosOptions?: any): AxiosPromise<SubscriptionBeta> {
             return localVarFp.updateSubscription(id, subscriptionPutRequestBeta, axiosOptions).then((request) => request(axios, basePath));
-        },
-        /**
-         * Validates a JSONPath filter expression against a provided mock input. Request requires a security scope of: 
-         * @summary Validate a Subscription Filter
-         * @param {ValidateFilterInputDtoBeta} validateFilterInputDtoBeta 
-         * @param {*} [axiosOptions] Override http request option.
-         * @throws {RequiredError}
-         */
-        validateSubscriptionFilter(validateFilterInputDtoBeta: ValidateFilterInputDtoBeta, axiosOptions?: any): AxiosPromise<ValidateFilterOutputDtoBeta> {
-            return localVarFp.validateSubscriptionFilter(validateFilterInputDtoBeta, axiosOptions).then((request) => request(axios, basePath));
         },
     };
 };
@@ -65034,6 +65046,20 @@ export interface TriggersBetaApiStartTestTriggerInvocationRequest {
 }
 
 /**
+ * Request parameters for testSubscriptionFilter operation in TriggersBetaApi.
+ * @export
+ * @interface TriggersBetaApiTestSubscriptionFilterRequest
+ */
+export interface TriggersBetaApiTestSubscriptionFilterRequest {
+    /**
+     * 
+     * @type {ValidateFilterInputDtoBeta}
+     * @memberof TriggersBetaApiTestSubscriptionFilter
+     */
+    readonly validateFilterInputDtoBeta: ValidateFilterInputDtoBeta
+}
+
+/**
  * Request parameters for updateSubscription operation in TriggersBetaApi.
  * @export
  * @interface TriggersBetaApiUpdateSubscriptionRequest
@@ -65052,20 +65078,6 @@ export interface TriggersBetaApiUpdateSubscriptionRequest {
      * @memberof TriggersBetaApiUpdateSubscription
      */
     readonly subscriptionPutRequestBeta: SubscriptionPutRequestBeta
-}
-
-/**
- * Request parameters for validateSubscriptionFilter operation in TriggersBetaApi.
- * @export
- * @interface TriggersBetaApiValidateSubscriptionFilterRequest
- */
-export interface TriggersBetaApiValidateSubscriptionFilterRequest {
-    /**
-     * 
-     * @type {ValidateFilterInputDtoBeta}
-     * @memberof TriggersBetaApiValidateSubscriptionFilter
-     */
-    readonly validateFilterInputDtoBeta: ValidateFilterInputDtoBeta
 }
 
 /**
@@ -65172,6 +65184,18 @@ export class TriggersBetaApi extends BaseAPI {
     }
 
     /**
+     * Validates a JSONPath filter expression against a provided mock input. Request requires a security scope of: 
+     * @summary Validate a Subscription Filter
+     * @param {TriggersBetaApiTestSubscriptionFilterRequest} requestParameters Request parameters.
+     * @param {*} [axiosOptions] Override http request option.
+     * @throws {RequiredError}
+     * @memberof TriggersBetaApi
+     */
+    public testSubscriptionFilter(requestParameters: TriggersBetaApiTestSubscriptionFilterRequest, axiosOptions?: AxiosRequestConfig) {
+        return TriggersBetaApiFp(this.configuration).testSubscriptionFilter(requestParameters.validateFilterInputDtoBeta, axiosOptions).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
      * This API updates a trigger subscription in IdentityNow, using a full object representation. In other words, the existing   Subscription is completely replaced. The following fields are immutable:     * id    * triggerId     Attempts to modify these fields result in 400.
      * @summary Update a Subscription
      * @param {TriggersBetaApiUpdateSubscriptionRequest} requestParameters Request parameters.
@@ -65181,18 +65205,6 @@ export class TriggersBetaApi extends BaseAPI {
      */
     public updateSubscription(requestParameters: TriggersBetaApiUpdateSubscriptionRequest, axiosOptions?: AxiosRequestConfig) {
         return TriggersBetaApiFp(this.configuration).updateSubscription(requestParameters.id, requestParameters.subscriptionPutRequestBeta, axiosOptions).then((request) => request(this.axios, this.basePath));
-    }
-
-    /**
-     * Validates a JSONPath filter expression against a provided mock input. Request requires a security scope of: 
-     * @summary Validate a Subscription Filter
-     * @param {TriggersBetaApiValidateSubscriptionFilterRequest} requestParameters Request parameters.
-     * @param {*} [axiosOptions] Override http request option.
-     * @throws {RequiredError}
-     * @memberof TriggersBetaApi
-     */
-    public validateSubscriptionFilter(requestParameters: TriggersBetaApiValidateSubscriptionFilterRequest, axiosOptions?: AxiosRequestConfig) {
-        return TriggersBetaApiFp(this.configuration).validateSubscriptionFilter(requestParameters.validateFilterInputDtoBeta, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 }
 
