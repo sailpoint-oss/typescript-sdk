@@ -845,7 +845,7 @@ export interface AccessRequestItem {
      */
     'clientMetadata'?: { [key: string]: string; };
     /**
-     * The date the role or access profile is no longer assigned to the specified identity. * Specify a date in the future. * The current SLA for the deprovisioning is 24 hours. * This date can be modified to either extend or decrease the duration of access item assignments for the specified identity. * Currently it is not supported for entitlements. * If sunset date for role or access profile specified, removeDate cannot be established. This rule doesn\'t apply for entitlements. 
+     * The date the role or access profile is no longer assigned to the specified identity. * Specify a date in the future. * The current SLA for the deprovisioning is 24 hours. * This date can be modified to either extend or decrease the duration of access item assignments for the specified identity. * Currently it is not supported for entitlements. 
      * @type {string}
      * @memberof AccessRequestItem
      */
