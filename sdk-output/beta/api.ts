@@ -23768,42 +23768,12 @@ export interface WorkflowOAuthClientBeta {
     'url'?: string;
 }
 /**
+ * @type WorkflowTriggerAttributesBeta
  * Workflow Trigger Attributes.
  * @export
- * @interface WorkflowTriggerAttributesBeta
  */
-export interface WorkflowTriggerAttributesBeta {
-    /**
-     * The unique ID of the trigger
-     * @type {string}
-     * @memberof WorkflowTriggerAttributesBeta
-     */
-    'id': string;
-    /**
-     * JSON path expression that will limit which events the trigger will fire on
-     * @type {string}
-     * @memberof WorkflowTriggerAttributesBeta
-     */
-    'filter.$'?: string;
-    /**
-     * A unique name for the external trigger
-     * @type {string}
-     * @memberof WorkflowTriggerAttributesBeta
-     */
-    'name': string;
-    /**
-     * Additonal context about the external trigger
-     * @type {string}
-     * @memberof WorkflowTriggerAttributesBeta
-     */
-    'description'?: string;
-    /**
-     * A valid CRON expression
-     * @type {string}
-     * @memberof WorkflowTriggerAttributesBeta
-     */
-    'cronString': string;
-}
+export type WorkflowTriggerAttributesBeta = EventAttributesBeta | ExternalAttributesBeta | ScheduledAttributesBeta;
+
 /**
  * The trigger that starts the workflow
  * @export
