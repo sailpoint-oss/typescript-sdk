@@ -38971,7 +38971,7 @@ export const TaggedObjectsApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async setTagToObject(taggedObject: TaggedObject, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<TaggedObject>> {
+        async setTagToObject(taggedObject: TaggedObject, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.setTagToObject(taggedObject, axiosOptions);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -39074,7 +39074,7 @@ export const TaggedObjectsApiFactory = function (configuration?: Configuration, 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        setTagToObject(taggedObject: TaggedObject, axiosOptions?: any): AxiosPromise<TaggedObject> {
+        setTagToObject(taggedObject: TaggedObject, axiosOptions?: any): AxiosPromise<void> {
             return localVarFp.setTagToObject(taggedObject, axiosOptions).then((request) => request(axios, basePath));
         },
         /**

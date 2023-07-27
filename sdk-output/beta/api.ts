@@ -62572,50 +62572,6 @@ export class SourcesBetaApi extends BaseAPI {
 export const TaggedObjectsBetaApiAxiosParamCreator = function (configuration?: Configuration) {
     return {
         /**
-         * This adds a tag to an object.  Any authenticated token may be used to call this API.
-         * @summary Add Tag to Object
-         * @param {TaggedObjectBeta} taggedObjectBeta 
-         * @param {*} [axiosOptions] Override http request option.
-         * @throws {RequiredError}
-         */
-        addTagToObject: async (taggedObjectBeta: TaggedObjectBeta, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
-            // verify required parameter 'taggedObjectBeta' is not null or undefined
-            assertParamExists('addTagToObject', 'taggedObjectBeta', taggedObjectBeta)
-            const localVarPath = `/tagged-objects`;
-            // use dummy base URL string because the URL constructor only accepts absolute URLs.
-            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
-            let baseOptions;
-            if (configuration) {
-                baseOptions = configuration.baseOptions;
-            }
-
-            const localVarRequestOptions = { method: 'POST', ...baseOptions, ...axiosOptions};
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-
-            // authentication oauth2 required
-            // oauth required
-            await setOAuthToObject(localVarHeaderParameter, "oauth2", [], configuration)
-
-            // authentication oauth2 required
-            // oauth required
-            await setOAuthToObject(localVarHeaderParameter, "oauth2", [], configuration)
-
-
-    
-            localVarHeaderParameter['Content-Type'] = 'application/json';
-
-            setSearchParams(localVarUrlObj, localVarQueryParameter);
-            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
-            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(taggedObjectBeta, localVarRequestOptions, configuration)
-
-            return {
-                url: toPathString(localVarUrlObj),
-                axiosOptions: localVarRequestOptions,
-            };
-        },
-        /**
          * This API adds tags to multiple objects.  A token with API, CERT_ADMIN, ORG_ADMIN, REPORT_ADMIN, ROLE_ADMIN, ROLE_SUBADMIN, SOURCE_ADMIN, or SOURCE_SUBADMIN authority is required to call this API.
          * @summary Tag Multiple Objects
          * @param {BulkTaggedObjectBeta} bulkTaggedObjectBeta Supported object types are ROLE, IDENTITY and SOD_POLICY.
@@ -62916,6 +62872,50 @@ export const TaggedObjectsBetaApiAxiosParamCreator = function (configuration?: C
             };
         },
         /**
+         * This adds a tag to an object.  Any authenticated token may be used to call this API.
+         * @summary Add Tag to Object
+         * @param {TaggedObjectBeta} taggedObjectBeta 
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        setTagToObject: async (taggedObjectBeta: TaggedObjectBeta, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'taggedObjectBeta' is not null or undefined
+            assertParamExists('setTagToObject', 'taggedObjectBeta', taggedObjectBeta)
+            const localVarPath = `/tagged-objects`;
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'POST', ...baseOptions, ...axiosOptions};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication oauth2 required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "oauth2", [], configuration)
+
+            // authentication oauth2 required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "oauth2", [], configuration)
+
+
+    
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
+            localVarRequestOptions.data = serializeDataIfNeeded(taggedObjectBeta, localVarRequestOptions, configuration)
+
+            return {
+                url: toPathString(localVarUrlObj),
+                axiosOptions: localVarRequestOptions,
+            };
+        },
+        /**
          * This updates a tagged object for the specified type.
          * @summary Update Tagged Object
          * @param {'ROLE' | 'IDENTITY' | 'SOD_POLICY'} type The type of tagged object to update.
@@ -62977,17 +62977,6 @@ export const TaggedObjectsBetaApiAxiosParamCreator = function (configuration?: C
 export const TaggedObjectsBetaApiFp = function(configuration?: Configuration) {
     const localVarAxiosParamCreator = TaggedObjectsBetaApiAxiosParamCreator(configuration)
     return {
-        /**
-         * This adds a tag to an object.  Any authenticated token may be used to call this API.
-         * @summary Add Tag to Object
-         * @param {TaggedObjectBeta} taggedObjectBeta 
-         * @param {*} [axiosOptions] Override http request option.
-         * @throws {RequiredError}
-         */
-        async addTagToObject(taggedObjectBeta: TaggedObjectBeta, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<TaggedObjectBeta>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.addTagToObject(taggedObjectBeta, axiosOptions);
-            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
-        },
         /**
          * This API adds tags to multiple objects.  A token with API, CERT_ADMIN, ORG_ADMIN, REPORT_ADMIN, ROLE_ADMIN, ROLE_SUBADMIN, SOURCE_ADMIN, or SOURCE_SUBADMIN authority is required to call this API.
          * @summary Tag Multiple Objects
@@ -63064,6 +63053,17 @@ export const TaggedObjectsBetaApiFp = function(configuration?: Configuration) {
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
+         * This adds a tag to an object.  Any authenticated token may be used to call this API.
+         * @summary Add Tag to Object
+         * @param {TaggedObjectBeta} taggedObjectBeta 
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        async setTagToObject(taggedObjectBeta: TaggedObjectBeta, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.setTagToObject(taggedObjectBeta, axiosOptions);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
          * This updates a tagged object for the specified type.
          * @summary Update Tagged Object
          * @param {'ROLE' | 'IDENTITY' | 'SOD_POLICY'} type The type of tagged object to update.
@@ -63086,16 +63086,6 @@ export const TaggedObjectsBetaApiFp = function(configuration?: Configuration) {
 export const TaggedObjectsBetaApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
     const localVarFp = TaggedObjectsBetaApiFp(configuration)
     return {
-        /**
-         * This adds a tag to an object.  Any authenticated token may be used to call this API.
-         * @summary Add Tag to Object
-         * @param {TaggedObjectBeta} taggedObjectBeta 
-         * @param {*} [axiosOptions] Override http request option.
-         * @throws {RequiredError}
-         */
-        addTagToObject(taggedObjectBeta: TaggedObjectBeta, axiosOptions?: any): AxiosPromise<TaggedObjectBeta> {
-            return localVarFp.addTagToObject(taggedObjectBeta, axiosOptions).then((request) => request(axios, basePath));
-        },
         /**
          * This API adds tags to multiple objects.  A token with API, CERT_ADMIN, ORG_ADMIN, REPORT_ADMIN, ROLE_ADMIN, ROLE_SUBADMIN, SOURCE_ADMIN, or SOURCE_SUBADMIN authority is required to call this API.
          * @summary Tag Multiple Objects
@@ -63166,6 +63156,16 @@ export const TaggedObjectsBetaApiFactory = function (configuration?: Configurati
             return localVarFp.removeTagsToManyObject(bulkTaggedObjectBeta, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
+         * This adds a tag to an object.  Any authenticated token may be used to call this API.
+         * @summary Add Tag to Object
+         * @param {TaggedObjectBeta} taggedObjectBeta 
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        setTagToObject(taggedObjectBeta: TaggedObjectBeta, axiosOptions?: any): AxiosPromise<void> {
+            return localVarFp.setTagToObject(taggedObjectBeta, axiosOptions).then((request) => request(axios, basePath));
+        },
+        /**
          * This updates a tagged object for the specified type.
          * @summary Update Tagged Object
          * @param {'ROLE' | 'IDENTITY' | 'SOD_POLICY'} type The type of tagged object to update.
@@ -63179,20 +63179,6 @@ export const TaggedObjectsBetaApiFactory = function (configuration?: Configurati
         },
     };
 };
-
-/**
- * Request parameters for addTagToObject operation in TaggedObjectsBetaApi.
- * @export
- * @interface TaggedObjectsBetaApiAddTagToObjectRequest
- */
-export interface TaggedObjectsBetaApiAddTagToObjectRequest {
-    /**
-     * 
-     * @type {TaggedObjectBeta}
-     * @memberof TaggedObjectsBetaApiAddTagToObject
-     */
-    readonly taggedObjectBeta: TaggedObjectBeta
-}
 
 /**
  * Request parameters for addTagsToManyObjects operation in TaggedObjectsBetaApi.
@@ -63342,6 +63328,20 @@ export interface TaggedObjectsBetaApiRemoveTagsToManyObjectRequest {
 }
 
 /**
+ * Request parameters for setTagToObject operation in TaggedObjectsBetaApi.
+ * @export
+ * @interface TaggedObjectsBetaApiSetTagToObjectRequest
+ */
+export interface TaggedObjectsBetaApiSetTagToObjectRequest {
+    /**
+     * 
+     * @type {TaggedObjectBeta}
+     * @memberof TaggedObjectsBetaApiSetTagToObject
+     */
+    readonly taggedObjectBeta: TaggedObjectBeta
+}
+
+/**
  * Request parameters for updateTaggedObject operation in TaggedObjectsBetaApi.
  * @export
  * @interface TaggedObjectsBetaApiUpdateTaggedObjectRequest
@@ -63376,18 +63376,6 @@ export interface TaggedObjectsBetaApiUpdateTaggedObjectRequest {
  * @extends {BaseAPI}
  */
 export class TaggedObjectsBetaApi extends BaseAPI {
-    /**
-     * This adds a tag to an object.  Any authenticated token may be used to call this API.
-     * @summary Add Tag to Object
-     * @param {TaggedObjectsBetaApiAddTagToObjectRequest} requestParameters Request parameters.
-     * @param {*} [axiosOptions] Override http request option.
-     * @throws {RequiredError}
-     * @memberof TaggedObjectsBetaApi
-     */
-    public addTagToObject(requestParameters: TaggedObjectsBetaApiAddTagToObjectRequest, axiosOptions?: AxiosRequestConfig) {
-        return TaggedObjectsBetaApiFp(this.configuration).addTagToObject(requestParameters.taggedObjectBeta, axiosOptions).then((request) => request(this.axios, this.basePath));
-    }
-
     /**
      * This API adds tags to multiple objects.  A token with API, CERT_ADMIN, ORG_ADMIN, REPORT_ADMIN, ROLE_ADMIN, ROLE_SUBADMIN, SOURCE_ADMIN, or SOURCE_SUBADMIN authority is required to call this API.
      * @summary Tag Multiple Objects
@@ -63458,6 +63446,18 @@ export class TaggedObjectsBetaApi extends BaseAPI {
      */
     public removeTagsToManyObject(requestParameters: TaggedObjectsBetaApiRemoveTagsToManyObjectRequest, axiosOptions?: AxiosRequestConfig) {
         return TaggedObjectsBetaApiFp(this.configuration).removeTagsToManyObject(requestParameters.bulkTaggedObjectBeta, axiosOptions).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * This adds a tag to an object.  Any authenticated token may be used to call this API.
+     * @summary Add Tag to Object
+     * @param {TaggedObjectsBetaApiSetTagToObjectRequest} requestParameters Request parameters.
+     * @param {*} [axiosOptions] Override http request option.
+     * @throws {RequiredError}
+     * @memberof TaggedObjectsBetaApi
+     */
+    public setTagToObject(requestParameters: TaggedObjectsBetaApiSetTagToObjectRequest, axiosOptions?: AxiosRequestConfig) {
+        return TaggedObjectsBetaApiFp(this.configuration).setTagToObject(requestParameters.taggedObjectBeta, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
