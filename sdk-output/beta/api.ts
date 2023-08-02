@@ -8107,6 +8107,7 @@ export const ExportOptionsBetaExcludeTypesEnum = {
     CampaignFilter: 'CAMPAIGN_FILTER',
     FormDefinition: 'FORM_DEFINITION',
     GovernanceGroup: 'GOVERNANCE_GROUP',
+    IdentityObjectConfig: 'IDENTITY_OBJECT_CONFIG',
     IdentityProfile: 'IDENTITY_PROFILE',
     LifecycleState: 'LIFECYCLE_STATE',
     NotificationTemplate: 'NOTIFICATION_TEMPLATE',
@@ -8120,7 +8121,7 @@ export const ExportOptionsBetaExcludeTypesEnum = {
     Source: 'SOURCE',
     Transform: 'TRANSFORM',
     TriggerSubscription: 'TRIGGER_SUBSCRIPTION',
-    Workflow: 'WORKFLOW'
+    Workflows: 'WORKFLOWS'
 } as const;
 
 export type ExportOptionsBetaExcludeTypesEnum = typeof ExportOptionsBetaExcludeTypesEnum[keyof typeof ExportOptionsBetaExcludeTypesEnum];
@@ -8132,6 +8133,7 @@ export const ExportOptionsBetaIncludeTypesEnum = {
     CampaignFilter: 'CAMPAIGN_FILTER',
     FormDefinition: 'FORM_DEFINITION',
     GovernanceGroup: 'GOVERNANCE_GROUP',
+    IdentityObjectConfig: 'IDENTITY_OBJECT_CONFIG',
     IdentityProfile: 'IDENTITY_PROFILE',
     LifecycleState: 'LIFECYCLE_STATE',
     NotificationTemplate: 'NOTIFICATION_TEMPLATE',
@@ -8145,7 +8147,7 @@ export const ExportOptionsBetaIncludeTypesEnum = {
     Source: 'SOURCE',
     Transform: 'TRANSFORM',
     TriggerSubscription: 'TRIGGER_SUBSCRIPTION',
-    Workflow: 'WORKFLOW'
+    Workflows: 'WORKFLOWS'
 } as const;
 
 export type ExportOptionsBetaIncludeTypesEnum = typeof ExportOptionsBetaIncludeTypesEnum[keyof typeof ExportOptionsBetaIncludeTypesEnum];
@@ -8190,6 +8192,7 @@ export const ExportPayloadBetaExcludeTypesEnum = {
     CampaignFilter: 'CAMPAIGN_FILTER',
     FormDefinition: 'FORM_DEFINITION',
     GovernanceGroup: 'GOVERNANCE_GROUP',
+    IdentityObjectConfig: 'IDENTITY_OBJECT_CONFIG',
     IdentityProfile: 'IDENTITY_PROFILE',
     LifecycleState: 'LIFECYCLE_STATE',
     NotificationTemplate: 'NOTIFICATION_TEMPLATE',
@@ -8203,7 +8206,7 @@ export const ExportPayloadBetaExcludeTypesEnum = {
     Source: 'SOURCE',
     Transform: 'TRANSFORM',
     TriggerSubscription: 'TRIGGER_SUBSCRIPTION',
-    Workflow: 'WORKFLOW'
+    Workflows: 'WORKFLOWS'
 } as const;
 
 export type ExportPayloadBetaExcludeTypesEnum = typeof ExportPayloadBetaExcludeTypesEnum[keyof typeof ExportPayloadBetaExcludeTypesEnum];
@@ -8215,6 +8218,7 @@ export const ExportPayloadBetaIncludeTypesEnum = {
     CampaignFilter: 'CAMPAIGN_FILTER',
     FormDefinition: 'FORM_DEFINITION',
     GovernanceGroup: 'GOVERNANCE_GROUP',
+    IdentityObjectConfig: 'IDENTITY_OBJECT_CONFIG',
     IdentityProfile: 'IDENTITY_PROFILE',
     LifecycleState: 'LIFECYCLE_STATE',
     NotificationTemplate: 'NOTIFICATION_TEMPLATE',
@@ -8228,7 +8232,7 @@ export const ExportPayloadBetaIncludeTypesEnum = {
     Source: 'SOURCE',
     Transform: 'TRANSFORM',
     TriggerSubscription: 'TRIGGER_SUBSCRIPTION',
-    Workflow: 'WORKFLOW'
+    Workflows: 'WORKFLOWS'
 } as const;
 
 export type ExportPayloadBetaIncludeTypesEnum = typeof ExportPayloadBetaIncludeTypesEnum[keyof typeof ExportPayloadBetaIncludeTypesEnum];
@@ -11753,6 +11757,7 @@ export interface ImportOptionsBeta {
 }
 
 export const ImportOptionsBetaExcludeTypesEnum = {
+    IdentityObjectConfig: 'IDENTITY_OBJECT_CONFIG',
     IdentityProfile: 'IDENTITY_PROFILE',
     Rule: 'RULE',
     Source: 'SOURCE',
@@ -11762,6 +11767,7 @@ export const ImportOptionsBetaExcludeTypesEnum = {
 
 export type ImportOptionsBetaExcludeTypesEnum = typeof ImportOptionsBetaExcludeTypesEnum[keyof typeof ImportOptionsBetaExcludeTypesEnum];
 export const ImportOptionsBetaIncludeTypesEnum = {
+    IdentityObjectConfig: 'IDENTITY_OBJECT_CONFIG',
     IdentityProfile: 'IDENTITY_PROFILE',
     Rule: 'RULE',
     Source: 'SOURCE',
