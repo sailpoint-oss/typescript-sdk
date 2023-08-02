@@ -5785,7 +5785,8 @@ export const DtoType = {
     TaskResult: 'TASK_RESULT',
     ReportResult: 'REPORT_RESULT',
     SodViolation: 'SOD_VIOLATION',
-    AccountActivity: 'ACCOUNT_ACTIVITY'
+    AccountActivity: 'ACCOUNT_ACTIVITY',
+    Workgroup: 'WORKGROUP'
 } as const;
 
 export type DtoType = typeof DtoType[keyof typeof DtoType];
