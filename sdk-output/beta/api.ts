@@ -14996,6 +14996,58 @@ export type OutlierSummaryBetaTypeEnum = typeof OutlierSummaryBetaTypeEnum[keyof
 /**
  * 
  * @export
+ * @interface OutliersContributingFeatureAccessItemsBeta
+ */
+export interface OutliersContributingFeatureAccessItemsBeta {
+    /**
+     * The ID of the access item
+     * @type {string}
+     * @memberof OutliersContributingFeatureAccessItemsBeta
+     */
+    'id'?: string;
+    /**
+     * the display name of the access item
+     * @type {string}
+     * @memberof OutliersContributingFeatureAccessItemsBeta
+     */
+    'displayName'?: string;
+    /**
+     * Description of the access item.
+     * @type {string}
+     * @memberof OutliersContributingFeatureAccessItemsBeta
+     */
+    'description'?: string;
+    /**
+     * The type of the access item.
+     * @type {string}
+     * @memberof OutliersContributingFeatureAccessItemsBeta
+     */
+    'accessType'?: OutliersContributingFeatureAccessItemsBetaAccessTypeEnum;
+    /**
+     * the associated source name if it exists
+     * @type {string}
+     * @memberof OutliersContributingFeatureAccessItemsBeta
+     */
+    'sourceName'?: string;
+    /**
+     * rarest access
+     * @type {boolean}
+     * @memberof OutliersContributingFeatureAccessItemsBeta
+     */
+    'extremelyRare'?: boolean;
+}
+
+export const OutliersContributingFeatureAccessItemsBetaAccessTypeEnum = {
+    Entitlement: 'ENTITLEMENT',
+    AccessProfile: 'ACCESS_PROFILE',
+    Role: 'ROLE'
+} as const;
+
+export type OutliersContributingFeatureAccessItemsBetaAccessTypeEnum = typeof OutliersContributingFeatureAccessItemsBetaAccessTypeEnum[keyof typeof OutliersContributingFeatureAccessItemsBetaAccessTypeEnum];
+
+/**
+ * 
+ * @export
  * @interface OwnerBeta
  */
 export interface OwnerBeta {
@@ -36838,6 +36890,77 @@ export const IAIOutliersBetaApiAxiosParamCreator = function (configuration?: Con
             };
         },
         /**
+         * This API returns a list of the enriched access items associated with each feature filtered by the access item type  The object contains: accessItemId, display name (translated text or message key), description (translated text or message key), accessType, sourceName, extremelyRare Requires authorization scope of \'iai:outliers-management:read\'
+         * @summary Gets a list of access items associated with each identity outlier contributing feature
+         * @param {string} outlierId The outlier id
+         * @param {string} contributingFeatureId The contributing feature id
+         * @param {number} [limit] Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+         * @param {number} [offset] Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+         * @param {boolean} [count] If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+         * @param {string} [accessType] The type of access item for the identity outlier contributing feature. If not provided, it returns all
+         * @param {string} [sorters] Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results) Sorting is supported for the following fields: **displayName**
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        listOutliersContributingFeatureAccessItems: async (outlierId: string, contributingFeatureId: string, limit?: number, offset?: number, count?: boolean, accessType?: string, sorters?: string, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'outlierId' is not null or undefined
+            assertParamExists('listOutliersContributingFeatureAccessItems', 'outlierId', outlierId)
+            // verify required parameter 'contributingFeatureId' is not null or undefined
+            assertParamExists('listOutliersContributingFeatureAccessItems', 'contributingFeatureId', contributingFeatureId)
+            const localVarPath = `/outliers/{outlierId}/feature-details/{contributingFeatureId}/access-items`
+                .replace(`{${"outlierId"}}`, encodeURIComponent(String(outlierId)))
+                .replace(`{${"contributingFeatureId"}}`, encodeURIComponent(String(contributingFeatureId)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...axiosOptions};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication oauth2 required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "oauth2", [], configuration)
+
+            // authentication oauth2 required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "oauth2", [], configuration)
+
+            if (limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+
+            if (offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+
+            if (count !== undefined) {
+                localVarQueryParameter['count'] = count;
+            }
+
+            if (accessType !== undefined) {
+                localVarQueryParameter['accessType'] = accessType;
+            }
+
+            if (sorters !== undefined) {
+                localVarQueryParameter['sorters'] = sorters;
+            }
+
+
+    
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                axiosOptions: localVarRequestOptions,
+            };
+        },
+        /**
          * This API receives a list of IdentityIDs in the request, changes the outliers to be un-ignored--returning a 204 if successful. Requires authorization scope of \'iai:outliers-management:update\'
          * @summary IAI Identity Outliers Unignore
          * @param {Array<string>} requestBody 
@@ -36972,6 +37095,23 @@ export const IAIOutliersBetaApiFp = function(configuration?: Configuration) {
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
+         * This API returns a list of the enriched access items associated with each feature filtered by the access item type  The object contains: accessItemId, display name (translated text or message key), description (translated text or message key), accessType, sourceName, extremelyRare Requires authorization scope of \'iai:outliers-management:read\'
+         * @summary Gets a list of access items associated with each identity outlier contributing feature
+         * @param {string} outlierId The outlier id
+         * @param {string} contributingFeatureId The contributing feature id
+         * @param {number} [limit] Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+         * @param {number} [offset] Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+         * @param {boolean} [count] If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+         * @param {string} [accessType] The type of access item for the identity outlier contributing feature. If not provided, it returns all
+         * @param {string} [sorters] Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results) Sorting is supported for the following fields: **displayName**
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        async listOutliersContributingFeatureAccessItems(outlierId: string, contributingFeatureId: string, limit?: number, offset?: number, count?: boolean, accessType?: string, sorters?: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<OutliersContributingFeatureAccessItemsBeta>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.listOutliersContributingFeatureAccessItems(outlierId, contributingFeatureId, limit, offset, count, accessType, sorters, axiosOptions);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
          * This API receives a list of IdentityIDs in the request, changes the outliers to be un-ignored--returning a 204 if successful. Requires authorization scope of \'iai:outliers-management:update\'
          * @summary IAI Identity Outliers Unignore
          * @param {Array<string>} requestBody 
@@ -37065,6 +37205,22 @@ export const IAIOutliersBetaApiFactory = function (configuration?: Configuration
          */
         ignoreIdentityOutliers(requestBody: Array<string>, axiosOptions?: any): AxiosPromise<void> {
             return localVarFp.ignoreIdentityOutliers(requestBody, axiosOptions).then((request) => request(axios, basePath));
+        },
+        /**
+         * This API returns a list of the enriched access items associated with each feature filtered by the access item type  The object contains: accessItemId, display name (translated text or message key), description (translated text or message key), accessType, sourceName, extremelyRare Requires authorization scope of \'iai:outliers-management:read\'
+         * @summary Gets a list of access items associated with each identity outlier contributing feature
+         * @param {string} outlierId The outlier id
+         * @param {string} contributingFeatureId The contributing feature id
+         * @param {number} [limit] Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+         * @param {number} [offset] Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+         * @param {boolean} [count] If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+         * @param {string} [accessType] The type of access item for the identity outlier contributing feature. If not provided, it returns all
+         * @param {string} [sorters] Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results) Sorting is supported for the following fields: **displayName**
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        listOutliersContributingFeatureAccessItems(outlierId: string, contributingFeatureId: string, limit?: number, offset?: number, count?: boolean, accessType?: string, sorters?: string, axiosOptions?: any): AxiosPromise<Array<OutliersContributingFeatureAccessItemsBeta>> {
+            return localVarFp.listOutliersContributingFeatureAccessItems(outlierId, contributingFeatureId, limit, offset, count, accessType, sorters, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * This API receives a list of IdentityIDs in the request, changes the outliers to be un-ignored--returning a 204 if successful. Requires authorization scope of \'iai:outliers-management:update\'
@@ -37262,6 +37418,62 @@ export interface IAIOutliersBetaApiIgnoreIdentityOutliersRequest {
 }
 
 /**
+ * Request parameters for listOutliersContributingFeatureAccessItems operation in IAIOutliersBetaApi.
+ * @export
+ * @interface IAIOutliersBetaApiListOutliersContributingFeatureAccessItemsRequest
+ */
+export interface IAIOutliersBetaApiListOutliersContributingFeatureAccessItemsRequest {
+    /**
+     * The outlier id
+     * @type {string}
+     * @memberof IAIOutliersBetaApiListOutliersContributingFeatureAccessItems
+     */
+    readonly outlierId: string
+
+    /**
+     * The contributing feature id
+     * @type {string}
+     * @memberof IAIOutliersBetaApiListOutliersContributingFeatureAccessItems
+     */
+    readonly contributingFeatureId: string
+
+    /**
+     * Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+     * @type {number}
+     * @memberof IAIOutliersBetaApiListOutliersContributingFeatureAccessItems
+     */
+    readonly limit?: number
+
+    /**
+     * Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+     * @type {number}
+     * @memberof IAIOutliersBetaApiListOutliersContributingFeatureAccessItems
+     */
+    readonly offset?: number
+
+    /**
+     * If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+     * @type {boolean}
+     * @memberof IAIOutliersBetaApiListOutliersContributingFeatureAccessItems
+     */
+    readonly count?: boolean
+
+    /**
+     * The type of access item for the identity outlier contributing feature. If not provided, it returns all
+     * @type {string}
+     * @memberof IAIOutliersBetaApiListOutliersContributingFeatureAccessItems
+     */
+    readonly accessType?: string
+
+    /**
+     * Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results) Sorting is supported for the following fields: **displayName**
+     * @type {string}
+     * @memberof IAIOutliersBetaApiListOutliersContributingFeatureAccessItems
+     */
+    readonly sorters?: string
+}
+
+/**
  * Request parameters for unIgnoreIdentityOutliers operation in IAIOutliersBetaApi.
  * @export
  * @interface IAIOutliersBetaApiUnIgnoreIdentityOutliersRequest
@@ -37352,6 +37564,18 @@ export class IAIOutliersBetaApi extends BaseAPI {
      */
     public ignoreIdentityOutliers(requestParameters: IAIOutliersBetaApiIgnoreIdentityOutliersRequest, axiosOptions?: AxiosRequestConfig) {
         return IAIOutliersBetaApiFp(this.configuration).ignoreIdentityOutliers(requestParameters.requestBody, axiosOptions).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * This API returns a list of the enriched access items associated with each feature filtered by the access item type  The object contains: accessItemId, display name (translated text or message key), description (translated text or message key), accessType, sourceName, extremelyRare Requires authorization scope of \'iai:outliers-management:read\'
+     * @summary Gets a list of access items associated with each identity outlier contributing feature
+     * @param {IAIOutliersBetaApiListOutliersContributingFeatureAccessItemsRequest} requestParameters Request parameters.
+     * @param {*} [axiosOptions] Override http request option.
+     * @throws {RequiredError}
+     * @memberof IAIOutliersBetaApi
+     */
+    public listOutliersContributingFeatureAccessItems(requestParameters: IAIOutliersBetaApiListOutliersContributingFeatureAccessItemsRequest, axiosOptions?: AxiosRequestConfig) {
+        return IAIOutliersBetaApiFp(this.configuration).listOutliersContributingFeatureAccessItems(requestParameters.outlierId, requestParameters.contributingFeatureId, requestParameters.limit, requestParameters.offset, requestParameters.count, requestParameters.accessType, requestParameters.sorters, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
