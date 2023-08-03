@@ -11777,6 +11777,7 @@ export interface QueryResultFilter {
 export const QueryType = {
     Dsl: 'DSL',
     Sailpoint: 'SAILPOINT',
+    Text: 'TEXT',
     Typeahead: 'TYPEAHEAD'
 } as const;
 
@@ -14283,6 +14284,12 @@ export interface Search {
     'queryDsl'?: object;
     /**
      * 
+     * @type {TextQuery}
+     * @memberof Search
+     */
+    'textQuery'?: TextQuery;
+    /**
+     * 
      * @type {TypeAheadQuery}
      * @memberof Search
      */
@@ -16252,6 +16259,37 @@ export interface TaggedObjectDto {
      * @memberof TaggedObjectDto
      */
     'name'?: string | null;
+}
+/**
+ * Query parameters used to construct an Elasticsearch text query object.
+ * @export
+ * @interface TextQuery
+ */
+export interface TextQuery {
+    /**
+     * Words or characters that specify a particular thing to be searched for.
+     * @type {Array<string>}
+     * @memberof TextQuery
+     */
+    'terms': Array<string>;
+    /**
+     * The fields to be searched.
+     * @type {Array<string>}
+     * @memberof TextQuery
+     */
+    'fields': Array<string>;
+    /**
+     * Indicates if a match was found.
+     * @type {boolean}
+     * @memberof TextQuery
+     */
+    'matchAny'?: boolean;
+    /**
+     * Indicates if the search contained a field.
+     * @type {boolean}
+     * @memberof TextQuery
+     */
+    'contains'?: boolean;
 }
 /**
  * The representation of an internally- or customer-defined transform.
