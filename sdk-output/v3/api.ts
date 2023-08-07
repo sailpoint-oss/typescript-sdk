@@ -16279,13 +16279,13 @@ export interface TextQuery {
      */
     'fields': Array<string>;
     /**
-     * Indicates if a match was found.
+     * Indicates that at least one of the terms must be found in the specified fields;  otherwise, all terms must be found.
      * @type {boolean}
      * @memberof TextQuery
      */
     'matchAny'?: boolean;
     /**
-     * Indicates if the search contained a field.
+     * Indicates that the terms can be located anywhere in the specified fields;  otherwise, the fields must begin with the terms.
      * @type {boolean}
      * @memberof TextQuery
      */
