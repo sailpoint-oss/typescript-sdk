@@ -10237,6 +10237,44 @@ export interface Identity1Beta {
     'name'?: string;
 }
 /**
+ * 
+ * @export
+ * @interface IdentityAssociationDetailsAssociationDetailsInnerBeta
+ */
+export interface IdentityAssociationDetailsAssociationDetailsInnerBeta {
+    /**
+     * association type with the identity
+     * @type {string}
+     * @memberof IdentityAssociationDetailsAssociationDetailsInnerBeta
+     */
+    'associationType'?: string;
+    /**
+     * the specific resource this identity has ownership on
+     * @type {Array<IdentityEntitiesBeta>}
+     * @memberof IdentityAssociationDetailsAssociationDetailsInnerBeta
+     */
+    'entities'?: Array<IdentityEntitiesBeta>;
+}
+/**
+ * 
+ * @export
+ * @interface IdentityAssociationDetailsBeta
+ */
+export interface IdentityAssociationDetailsBeta {
+    /**
+     * any additional context information of the http call result
+     * @type {string}
+     * @memberof IdentityAssociationDetailsBeta
+     */
+    'message'?: string;
+    /**
+     * list of all the resource associations for the identity
+     * @type {Array<IdentityAssociationDetailsAssociationDetailsInnerBeta>}
+     * @memberof IdentityAssociationDetailsBeta
+     */
+    'associationDetails'?: Array<IdentityAssociationDetailsAssociationDetailsInnerBeta>;
+}
+/**
  * Defines all the identity attribute mapping configurations. This defines how to generate or collect data for each identity attributes in identity refresh process.
  * @export
  * @interface IdentityAttributeConfig1Beta
@@ -10851,6 +10889,44 @@ export const IdentityDtoBetaIdentityStatusEnum = {
 
 export type IdentityDtoBetaIdentityStatusEnum = typeof IdentityDtoBetaIdentityStatusEnum[keyof typeof IdentityDtoBetaIdentityStatusEnum];
 
+/**
+ * 
+ * @export
+ * @interface IdentityEntitiesBeta
+ */
+export interface IdentityEntitiesBeta {
+    /**
+     * 
+     * @type {IdentityEntitiesIdentityEntityBeta}
+     * @memberof IdentityEntitiesBeta
+     */
+    'identityEntity'?: IdentityEntitiesIdentityEntityBeta;
+}
+/**
+ * 
+ * @export
+ * @interface IdentityEntitiesIdentityEntityBeta
+ */
+export interface IdentityEntitiesIdentityEntityBeta {
+    /**
+     * id of the resource to which the identity is associated
+     * @type {string}
+     * @memberof IdentityEntitiesIdentityEntityBeta
+     */
+    'id'?: string;
+    /**
+     * name of the resource to which the identity is associated
+     * @type {string}
+     * @memberof IdentityEntitiesIdentityEntityBeta
+     */
+    'name'?: string;
+    /**
+     * type of the resource to which the identity is associated
+     * @type {string}
+     * @memberof IdentityEntitiesIdentityEntityBeta
+     */
+    'type'?: string;
+}
 /**
  * 
  * @export
