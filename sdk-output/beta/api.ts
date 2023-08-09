@@ -36969,7 +36969,7 @@ export const IAIOutliersBetaApiAxiosParamCreator = function (configuration?: Con
          * This API returns a list of the enriched access items associated with each feature filtered by the access item type  The object contains: accessItemId, display name (translated text or message key), description (translated text or message key), accessType, sourceName, extremelyRare Requires authorization scope of \'iai:outliers-management:read\'
          * @summary Gets a list of access items associated with each identity outlier contributing feature
          * @param {string} outlierId The outlier id
-         * @param {string} contributingFeatureId The contributing feature id
+         * @param {'radical_entitlement_count' | 'entitlement_count' | 'max_jaccard_similarity' | 'mean_max_bundle_concurrency' | 'single_entitlement_bundle_count' | 'peerless_score'} contributingFeatureName The name of contributing feature
          * @param {number} [limit] Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
          * @param {number} [offset] Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
          * @param {boolean} [count] If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
@@ -36978,14 +36978,14 @@ export const IAIOutliersBetaApiAxiosParamCreator = function (configuration?: Con
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        listOutliersContributingFeatureAccessItems: async (outlierId: string, contributingFeatureId: string, limit?: number, offset?: number, count?: boolean, accessType?: string, sorters?: string, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        listOutliersContributingFeatureAccessItems: async (outlierId: string, contributingFeatureName: 'radical_entitlement_count' | 'entitlement_count' | 'max_jaccard_similarity' | 'mean_max_bundle_concurrency' | 'single_entitlement_bundle_count' | 'peerless_score', limit?: number, offset?: number, count?: boolean, accessType?: string, sorters?: string, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'outlierId' is not null or undefined
             assertParamExists('listOutliersContributingFeatureAccessItems', 'outlierId', outlierId)
-            // verify required parameter 'contributingFeatureId' is not null or undefined
-            assertParamExists('listOutliersContributingFeatureAccessItems', 'contributingFeatureId', contributingFeatureId)
-            const localVarPath = `/outliers/{outlierId}/feature-details/{contributingFeatureId}/access-items`
+            // verify required parameter 'contributingFeatureName' is not null or undefined
+            assertParamExists('listOutliersContributingFeatureAccessItems', 'contributingFeatureName', contributingFeatureName)
+            const localVarPath = `/outliers/{outlierId}/feature-details/{contributingFeatureName}/access-items`
                 .replace(`{${"outlierId"}}`, encodeURIComponent(String(outlierId)))
-                .replace(`{${"contributingFeatureId"}}`, encodeURIComponent(String(contributingFeatureId)));
+                .replace(`{${"contributingFeatureName"}}`, encodeURIComponent(String(contributingFeatureName)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -37174,7 +37174,7 @@ export const IAIOutliersBetaApiFp = function(configuration?: Configuration) {
          * This API returns a list of the enriched access items associated with each feature filtered by the access item type  The object contains: accessItemId, display name (translated text or message key), description (translated text or message key), accessType, sourceName, extremelyRare Requires authorization scope of \'iai:outliers-management:read\'
          * @summary Gets a list of access items associated with each identity outlier contributing feature
          * @param {string} outlierId The outlier id
-         * @param {string} contributingFeatureId The contributing feature id
+         * @param {'radical_entitlement_count' | 'entitlement_count' | 'max_jaccard_similarity' | 'mean_max_bundle_concurrency' | 'single_entitlement_bundle_count' | 'peerless_score'} contributingFeatureName The name of contributing feature
          * @param {number} [limit] Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
          * @param {number} [offset] Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
          * @param {boolean} [count] If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
@@ -37183,8 +37183,8 @@ export const IAIOutliersBetaApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async listOutliersContributingFeatureAccessItems(outlierId: string, contributingFeatureId: string, limit?: number, offset?: number, count?: boolean, accessType?: string, sorters?: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<OutliersContributingFeatureAccessItemsBeta>>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.listOutliersContributingFeatureAccessItems(outlierId, contributingFeatureId, limit, offset, count, accessType, sorters, axiosOptions);
+        async listOutliersContributingFeatureAccessItems(outlierId: string, contributingFeatureName: 'radical_entitlement_count' | 'entitlement_count' | 'max_jaccard_similarity' | 'mean_max_bundle_concurrency' | 'single_entitlement_bundle_count' | 'peerless_score', limit?: number, offset?: number, count?: boolean, accessType?: string, sorters?: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<OutliersContributingFeatureAccessItemsBeta>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.listOutliersContributingFeatureAccessItems(outlierId, contributingFeatureName, limit, offset, count, accessType, sorters, axiosOptions);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
@@ -37286,7 +37286,7 @@ export const IAIOutliersBetaApiFactory = function (configuration?: Configuration
          * This API returns a list of the enriched access items associated with each feature filtered by the access item type  The object contains: accessItemId, display name (translated text or message key), description (translated text or message key), accessType, sourceName, extremelyRare Requires authorization scope of \'iai:outliers-management:read\'
          * @summary Gets a list of access items associated with each identity outlier contributing feature
          * @param {string} outlierId The outlier id
-         * @param {string} contributingFeatureId The contributing feature id
+         * @param {'radical_entitlement_count' | 'entitlement_count' | 'max_jaccard_similarity' | 'mean_max_bundle_concurrency' | 'single_entitlement_bundle_count' | 'peerless_score'} contributingFeatureName The name of contributing feature
          * @param {number} [limit] Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
          * @param {number} [offset] Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
          * @param {boolean} [count] If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
@@ -37295,8 +37295,8 @@ export const IAIOutliersBetaApiFactory = function (configuration?: Configuration
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        listOutliersContributingFeatureAccessItems(outlierId: string, contributingFeatureId: string, limit?: number, offset?: number, count?: boolean, accessType?: string, sorters?: string, axiosOptions?: any): AxiosPromise<Array<OutliersContributingFeatureAccessItemsBeta>> {
-            return localVarFp.listOutliersContributingFeatureAccessItems(outlierId, contributingFeatureId, limit, offset, count, accessType, sorters, axiosOptions).then((request) => request(axios, basePath));
+        listOutliersContributingFeatureAccessItems(outlierId: string, contributingFeatureName: 'radical_entitlement_count' | 'entitlement_count' | 'max_jaccard_similarity' | 'mean_max_bundle_concurrency' | 'single_entitlement_bundle_count' | 'peerless_score', limit?: number, offset?: number, count?: boolean, accessType?: string, sorters?: string, axiosOptions?: any): AxiosPromise<Array<OutliersContributingFeatureAccessItemsBeta>> {
+            return localVarFp.listOutliersContributingFeatureAccessItems(outlierId, contributingFeatureName, limit, offset, count, accessType, sorters, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * This API receives a list of IdentityIDs in the request, changes the outliers to be un-ignored--returning a 204 if successful. Requires authorization scope of \'iai:outliers-management:update\'
@@ -37507,11 +37507,11 @@ export interface IAIOutliersBetaApiListOutliersContributingFeatureAccessItemsReq
     readonly outlierId: string
 
     /**
-     * The contributing feature id
-     * @type {string}
+     * The name of contributing feature
+     * @type {'radical_entitlement_count' | 'entitlement_count' | 'max_jaccard_similarity' | 'mean_max_bundle_concurrency' | 'single_entitlement_bundle_count' | 'peerless_score'}
      * @memberof IAIOutliersBetaApiListOutliersContributingFeatureAccessItems
      */
-    readonly contributingFeatureId: string
+    readonly contributingFeatureName: 'radical_entitlement_count' | 'entitlement_count' | 'max_jaccard_similarity' | 'mean_max_bundle_concurrency' | 'single_entitlement_bundle_count' | 'peerless_score'
 
     /**
      * Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
@@ -37651,7 +37651,7 @@ export class IAIOutliersBetaApi extends BaseAPI {
      * @memberof IAIOutliersBetaApi
      */
     public listOutliersContributingFeatureAccessItems(requestParameters: IAIOutliersBetaApiListOutliersContributingFeatureAccessItemsRequest, axiosOptions?: AxiosRequestConfig) {
-        return IAIOutliersBetaApiFp(this.configuration).listOutliersContributingFeatureAccessItems(requestParameters.outlierId, requestParameters.contributingFeatureId, requestParameters.limit, requestParameters.offset, requestParameters.count, requestParameters.accessType, requestParameters.sorters, axiosOptions).then((request) => request(this.axios, this.basePath));
+        return IAIOutliersBetaApiFp(this.configuration).listOutliersContributingFeatureAccessItems(requestParameters.outlierId, requestParameters.contributingFeatureName, requestParameters.limit, requestParameters.offset, requestParameters.count, requestParameters.accessType, requestParameters.sorters, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
