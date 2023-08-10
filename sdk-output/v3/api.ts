@@ -2828,7 +2828,7 @@ export interface ApprovalForwardHistory {
  */
 export interface ApprovalItemDetails {
     /**
-     * ID of the approval item
+     * The approval item\'s ID
      * @type {string}
      * @memberof ApprovalItemDetails
      */
@@ -2840,29 +2840,29 @@ export interface ApprovalItemDetails {
      */
     'account'?: string;
     /**
-     * The name the application/source
+     * The name of the application/source
      * @type {string}
      * @memberof ApprovalItemDetails
      */
     'application'?: string;
     /**
-     * The name of the attribute
+     * The attribute\'s name
      * @type {string}
      * @memberof ApprovalItemDetails
      */
-    'attributeName'?: string;
+    'name'?: string;
     /**
-     * The operation of the attribute
+     * The attribute\'s operation
      * @type {string}
      * @memberof ApprovalItemDetails
      */
-    'attributeOperation'?: string;
+    'operation'?: string;
     /**
-     * The value of the attribute
+     * The attribute\'s value
      * @type {string}
      * @memberof ApprovalItemDetails
      */
-    'attributeValue'?: string;
+    'value'?: string;
     /**
      * 
      * @type {WorkItemState}
@@ -2877,7 +2877,7 @@ export interface ApprovalItemDetails {
  */
 export interface ApprovalItems {
     /**
-     * ID of the approval item
+     * The approval item\'s ID
      * @type {string}
      * @memberof ApprovalItems
      */
@@ -2889,29 +2889,29 @@ export interface ApprovalItems {
      */
     'account'?: string;
     /**
-     * The name the application/source
+     * The name of the application/source
      * @type {string}
      * @memberof ApprovalItems
      */
     'application'?: string;
     /**
-     * The name of the attribute
+     * The attribute\'s name
      * @type {string}
      * @memberof ApprovalItems
      */
-    'attributeName'?: string;
+    'name'?: string;
     /**
-     * The operation of the attribute
+     * The attribute\'s operation
      * @type {string}
      * @memberof ApprovalItems
      */
-    'attributeOperation'?: string;
+    'operation'?: string;
     /**
-     * The value of the attribute
+     * The attribute\'s value
      * @type {string}
      * @memberof ApprovalItems
      */
-    'attributeValue'?: string;
+    'value'?: string;
     /**
      * 
      * @type {WorkItemState}
@@ -12470,15 +12470,14 @@ export type RequestableObjectRequestStatus = typeof RequestableObjectRequestStat
 
 
 /**
- * Enum represented the currently supported requestable object types. Additional values may be added in the future without notice.
+ * The currently supported requestable object types. 
  * @export
  * @enum {string}
  */
 
 export const RequestableObjectType = {
     AccessProfile: 'ACCESS_PROFILE',
-    Role: 'ROLE',
-    Entitlement: 'ENTITLEMENT'
+    Role: 'ROLE'
 } as const;
 
 export type RequestableObjectType = typeof RequestableObjectType[keyof typeof RequestableObjectType];
@@ -18484,7 +18483,7 @@ export const AccessRequestsApiAxiosParamCreator = function (configuration?: Conf
             };
         },
         /**
-         * This submits the access request into IdentityNow, where it will follow any IdentityNow approval processes.  Access requests are processed asynchronously by IdentityNow.  A success response from this endpoint means the request has been submitted to IDN and is queued for processing.  Because this endpoint is asynchronous, it will not return an error if you submit duplicate access requests in quick succession, or you submit an access request for access that is already in progress, approved, or rejected. It is best practice to check for any existing access requests that reference the same access items before submitting a new access request.  This can be accomplished by using the [access request status](https://developer.sailpoint.com/idn/api/v3/list-access-request-status) or the [pending access request approvals](https://developer.sailpoint.com/idn/api/v3/list-pending-approvals) endpoints.  You can also use the [search API](https://developer.sailpoint.com/idn/api/v3/search) to check the existing access items that an identity has before submitting an access request to ensure you are not requesting access that is already granted.  There are two types of access request:  __GRANT_ACCESS__ * Can be requested for multiple identities in a single request. * Supports self request and request on behalf of other users, see \'/beta/access-request-config\' endpoint for request configuration options.   * Allows any authenticated token (except API) to call this endpoint to request to grant access to themselves. Depending on the configuration, a user can request access for others. * Roles, Access Profiles and Entitlements can be requested. * While requesting entitlements, maximum of 25 entitlements and 10 recipients are allowed in a request.   __REVOKE_ACCESS__ * Can only be requested for a single identity at a time. * Does not support self request. Only manager can request to revoke access for their directly managed employees. * If removeDate is specified, then the access will be removed on that date and time only for Roles and Access Profiles. Entitlements are currently unsupported for removeDate. * Roles, Access Profiles, and Entitlements can be requested for revocation. * Revoke requests for entitlements are limited to 1 entitlement per access request currently. * [Roles, Access Profiles] RemoveData can be specified only if access don\'t have a sunset date. * Allows a manager to request to revoke access for direct employees. A token with ORG_ADMIN authority can also request to revoke access from anyone.  NOTE: There is no indication to the approver in the IdentityNow UI that the approval request is for a revoke action. Take this into consideration when calling this API.  A token with API authority cannot be used to call this endpoint.  
+         * This submits the access request into IdentityNow, where it will follow any IdentityNow approval processes.  Access requests are processed asynchronously by IdentityNow.  A success response from this endpoint means the request has been submitted to IDN and is queued for processing.  Because this endpoint is asynchronous, it will not return an error if you submit duplicate access requests in quick succession, or you submit an access request for access that is already in progress, approved, or rejected. It is best practice to check for any existing access requests that reference the same access items before submitting a new access request.  This can be accomplished by using the [access request status](https://developer.sailpoint.com/idn/api/v3/list-access-request-status) or the [pending access request approvals](https://developer.sailpoint.com/idn/api/v3/list-pending-approvals) endpoints.  You can also use the [search API](https://developer.sailpoint.com/idn/api/v3/search) to check the existing access items that an identity has before submitting an access request to ensure you are not requesting access that is already granted.  There are two types of access request:  __GRANT_ACCESS__ * Can be requested for multiple identities in a single request. * Supports self request and request on behalf of other users. Refer to the [Get Access Request Configuration](https://developer.sailpoint.com/idn/api/v3/get-access-request-config) endpoint for request configuration options.   * Allows any authenticated token (except API) to call this endpoint to request to grant access to themselves. Depending on the configuration, a user can request access for others. * Roles, Access Profiles and Entitlements can be requested. * While requesting entitlements, maximum of 25 entitlements and 10 recipients are allowed in a request.   __REVOKE_ACCESS__ * Can only be requested for a single identity at a time. * Does not support self request. Only manager can request to revoke access for their directly managed employees. * If removeDate is specified, then the access will be removed on that date and time only for Roles and Access Profiles. Entitlements are currently unsupported for removeDate. * Roles, Access Profiles, and Entitlements can be requested for revocation. * Revoke requests for entitlements are limited to 1 entitlement per access request currently. * [Roles, Access Profiles] RemoveData can be specified only if access don\'t have a sunset date. * Allows a manager to request to revoke access for direct employees. A token with ORG_ADMIN authority can also request to revoke access from anyone.  NOTE: There is no indication to the approver in the IdentityNow UI that the approval request is for a revoke action. Take this into consideration when calling this API.  A token with API authority cannot be used to call this endpoint.  
          * @summary Submit an Access Request
          * @param {AccessRequest} accessRequest 
          * @param {*} [axiosOptions] Override http request option.
@@ -18709,7 +18708,7 @@ export const AccessRequestsApiFp = function(configuration?: Configuration) {
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
-         * This submits the access request into IdentityNow, where it will follow any IdentityNow approval processes.  Access requests are processed asynchronously by IdentityNow.  A success response from this endpoint means the request has been submitted to IDN and is queued for processing.  Because this endpoint is asynchronous, it will not return an error if you submit duplicate access requests in quick succession, or you submit an access request for access that is already in progress, approved, or rejected. It is best practice to check for any existing access requests that reference the same access items before submitting a new access request.  This can be accomplished by using the [access request status](https://developer.sailpoint.com/idn/api/v3/list-access-request-status) or the [pending access request approvals](https://developer.sailpoint.com/idn/api/v3/list-pending-approvals) endpoints.  You can also use the [search API](https://developer.sailpoint.com/idn/api/v3/search) to check the existing access items that an identity has before submitting an access request to ensure you are not requesting access that is already granted.  There are two types of access request:  __GRANT_ACCESS__ * Can be requested for multiple identities in a single request. * Supports self request and request on behalf of other users, see \'/beta/access-request-config\' endpoint for request configuration options.   * Allows any authenticated token (except API) to call this endpoint to request to grant access to themselves. Depending on the configuration, a user can request access for others. * Roles, Access Profiles and Entitlements can be requested. * While requesting entitlements, maximum of 25 entitlements and 10 recipients are allowed in a request.   __REVOKE_ACCESS__ * Can only be requested for a single identity at a time. * Does not support self request. Only manager can request to revoke access for their directly managed employees. * If removeDate is specified, then the access will be removed on that date and time only for Roles and Access Profiles. Entitlements are currently unsupported for removeDate. * Roles, Access Profiles, and Entitlements can be requested for revocation. * Revoke requests for entitlements are limited to 1 entitlement per access request currently. * [Roles, Access Profiles] RemoveData can be specified only if access don\'t have a sunset date. * Allows a manager to request to revoke access for direct employees. A token with ORG_ADMIN authority can also request to revoke access from anyone.  NOTE: There is no indication to the approver in the IdentityNow UI that the approval request is for a revoke action. Take this into consideration when calling this API.  A token with API authority cannot be used to call this endpoint.  
+         * This submits the access request into IdentityNow, where it will follow any IdentityNow approval processes.  Access requests are processed asynchronously by IdentityNow.  A success response from this endpoint means the request has been submitted to IDN and is queued for processing.  Because this endpoint is asynchronous, it will not return an error if you submit duplicate access requests in quick succession, or you submit an access request for access that is already in progress, approved, or rejected. It is best practice to check for any existing access requests that reference the same access items before submitting a new access request.  This can be accomplished by using the [access request status](https://developer.sailpoint.com/idn/api/v3/list-access-request-status) or the [pending access request approvals](https://developer.sailpoint.com/idn/api/v3/list-pending-approvals) endpoints.  You can also use the [search API](https://developer.sailpoint.com/idn/api/v3/search) to check the existing access items that an identity has before submitting an access request to ensure you are not requesting access that is already granted.  There are two types of access request:  __GRANT_ACCESS__ * Can be requested for multiple identities in a single request. * Supports self request and request on behalf of other users. Refer to the [Get Access Request Configuration](https://developer.sailpoint.com/idn/api/v3/get-access-request-config) endpoint for request configuration options.   * Allows any authenticated token (except API) to call this endpoint to request to grant access to themselves. Depending on the configuration, a user can request access for others. * Roles, Access Profiles and Entitlements can be requested. * While requesting entitlements, maximum of 25 entitlements and 10 recipients are allowed in a request.   __REVOKE_ACCESS__ * Can only be requested for a single identity at a time. * Does not support self request. Only manager can request to revoke access for their directly managed employees. * If removeDate is specified, then the access will be removed on that date and time only for Roles and Access Profiles. Entitlements are currently unsupported for removeDate. * Roles, Access Profiles, and Entitlements can be requested for revocation. * Revoke requests for entitlements are limited to 1 entitlement per access request currently. * [Roles, Access Profiles] RemoveData can be specified only if access don\'t have a sunset date. * Allows a manager to request to revoke access for direct employees. A token with ORG_ADMIN authority can also request to revoke access from anyone.  NOTE: There is no indication to the approver in the IdentityNow UI that the approval request is for a revoke action. Take this into consideration when calling this API.  A token with API authority cannot be used to call this endpoint.  
          * @summary Submit an Access Request
          * @param {AccessRequest} accessRequest 
          * @param {*} [axiosOptions] Override http request option.
@@ -18779,7 +18778,7 @@ export const AccessRequestsApiFactory = function (configuration?: Configuration,
             return localVarFp.cancelAccessRequest(cancelAccessRequest, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
-         * This submits the access request into IdentityNow, where it will follow any IdentityNow approval processes.  Access requests are processed asynchronously by IdentityNow.  A success response from this endpoint means the request has been submitted to IDN and is queued for processing.  Because this endpoint is asynchronous, it will not return an error if you submit duplicate access requests in quick succession, or you submit an access request for access that is already in progress, approved, or rejected. It is best practice to check for any existing access requests that reference the same access items before submitting a new access request.  This can be accomplished by using the [access request status](https://developer.sailpoint.com/idn/api/v3/list-access-request-status) or the [pending access request approvals](https://developer.sailpoint.com/idn/api/v3/list-pending-approvals) endpoints.  You can also use the [search API](https://developer.sailpoint.com/idn/api/v3/search) to check the existing access items that an identity has before submitting an access request to ensure you are not requesting access that is already granted.  There are two types of access request:  __GRANT_ACCESS__ * Can be requested for multiple identities in a single request. * Supports self request and request on behalf of other users, see \'/beta/access-request-config\' endpoint for request configuration options.   * Allows any authenticated token (except API) to call this endpoint to request to grant access to themselves. Depending on the configuration, a user can request access for others. * Roles, Access Profiles and Entitlements can be requested. * While requesting entitlements, maximum of 25 entitlements and 10 recipients are allowed in a request.   __REVOKE_ACCESS__ * Can only be requested for a single identity at a time. * Does not support self request. Only manager can request to revoke access for their directly managed employees. * If removeDate is specified, then the access will be removed on that date and time only for Roles and Access Profiles. Entitlements are currently unsupported for removeDate. * Roles, Access Profiles, and Entitlements can be requested for revocation. * Revoke requests for entitlements are limited to 1 entitlement per access request currently. * [Roles, Access Profiles] RemoveData can be specified only if access don\'t have a sunset date. * Allows a manager to request to revoke access for direct employees. A token with ORG_ADMIN authority can also request to revoke access from anyone.  NOTE: There is no indication to the approver in the IdentityNow UI that the approval request is for a revoke action. Take this into consideration when calling this API.  A token with API authority cannot be used to call this endpoint.  
+         * This submits the access request into IdentityNow, where it will follow any IdentityNow approval processes.  Access requests are processed asynchronously by IdentityNow.  A success response from this endpoint means the request has been submitted to IDN and is queued for processing.  Because this endpoint is asynchronous, it will not return an error if you submit duplicate access requests in quick succession, or you submit an access request for access that is already in progress, approved, or rejected. It is best practice to check for any existing access requests that reference the same access items before submitting a new access request.  This can be accomplished by using the [access request status](https://developer.sailpoint.com/idn/api/v3/list-access-request-status) or the [pending access request approvals](https://developer.sailpoint.com/idn/api/v3/list-pending-approvals) endpoints.  You can also use the [search API](https://developer.sailpoint.com/idn/api/v3/search) to check the existing access items that an identity has before submitting an access request to ensure you are not requesting access that is already granted.  There are two types of access request:  __GRANT_ACCESS__ * Can be requested for multiple identities in a single request. * Supports self request and request on behalf of other users. Refer to the [Get Access Request Configuration](https://developer.sailpoint.com/idn/api/v3/get-access-request-config) endpoint for request configuration options.   * Allows any authenticated token (except API) to call this endpoint to request to grant access to themselves. Depending on the configuration, a user can request access for others. * Roles, Access Profiles and Entitlements can be requested. * While requesting entitlements, maximum of 25 entitlements and 10 recipients are allowed in a request.   __REVOKE_ACCESS__ * Can only be requested for a single identity at a time. * Does not support self request. Only manager can request to revoke access for their directly managed employees. * If removeDate is specified, then the access will be removed on that date and time only for Roles and Access Profiles. Entitlements are currently unsupported for removeDate. * Roles, Access Profiles, and Entitlements can be requested for revocation. * Revoke requests for entitlements are limited to 1 entitlement per access request currently. * [Roles, Access Profiles] RemoveData can be specified only if access don\'t have a sunset date. * Allows a manager to request to revoke access for direct employees. A token with ORG_ADMIN authority can also request to revoke access from anyone.  NOTE: There is no indication to the approver in the IdentityNow UI that the approval request is for a revoke action. Take this into consideration when calling this API.  A token with API authority cannot be used to call this endpoint.  
          * @summary Submit an Access Request
          * @param {AccessRequest} accessRequest 
          * @param {*} [axiosOptions] Override http request option.
@@ -18952,7 +18951,7 @@ export class AccessRequestsApi extends BaseAPI {
     }
 
     /**
-     * This submits the access request into IdentityNow, where it will follow any IdentityNow approval processes.  Access requests are processed asynchronously by IdentityNow.  A success response from this endpoint means the request has been submitted to IDN and is queued for processing.  Because this endpoint is asynchronous, it will not return an error if you submit duplicate access requests in quick succession, or you submit an access request for access that is already in progress, approved, or rejected. It is best practice to check for any existing access requests that reference the same access items before submitting a new access request.  This can be accomplished by using the [access request status](https://developer.sailpoint.com/idn/api/v3/list-access-request-status) or the [pending access request approvals](https://developer.sailpoint.com/idn/api/v3/list-pending-approvals) endpoints.  You can also use the [search API](https://developer.sailpoint.com/idn/api/v3/search) to check the existing access items that an identity has before submitting an access request to ensure you are not requesting access that is already granted.  There are two types of access request:  __GRANT_ACCESS__ * Can be requested for multiple identities in a single request. * Supports self request and request on behalf of other users, see \'/beta/access-request-config\' endpoint for request configuration options.   * Allows any authenticated token (except API) to call this endpoint to request to grant access to themselves. Depending on the configuration, a user can request access for others. * Roles, Access Profiles and Entitlements can be requested. * While requesting entitlements, maximum of 25 entitlements and 10 recipients are allowed in a request.   __REVOKE_ACCESS__ * Can only be requested for a single identity at a time. * Does not support self request. Only manager can request to revoke access for their directly managed employees. * If removeDate is specified, then the access will be removed on that date and time only for Roles and Access Profiles. Entitlements are currently unsupported for removeDate. * Roles, Access Profiles, and Entitlements can be requested for revocation. * Revoke requests for entitlements are limited to 1 entitlement per access request currently. * [Roles, Access Profiles] RemoveData can be specified only if access don\'t have a sunset date. * Allows a manager to request to revoke access for direct employees. A token with ORG_ADMIN authority can also request to revoke access from anyone.  NOTE: There is no indication to the approver in the IdentityNow UI that the approval request is for a revoke action. Take this into consideration when calling this API.  A token with API authority cannot be used to call this endpoint.  
+     * This submits the access request into IdentityNow, where it will follow any IdentityNow approval processes.  Access requests are processed asynchronously by IdentityNow.  A success response from this endpoint means the request has been submitted to IDN and is queued for processing.  Because this endpoint is asynchronous, it will not return an error if you submit duplicate access requests in quick succession, or you submit an access request for access that is already in progress, approved, or rejected. It is best practice to check for any existing access requests that reference the same access items before submitting a new access request.  This can be accomplished by using the [access request status](https://developer.sailpoint.com/idn/api/v3/list-access-request-status) or the [pending access request approvals](https://developer.sailpoint.com/idn/api/v3/list-pending-approvals) endpoints.  You can also use the [search API](https://developer.sailpoint.com/idn/api/v3/search) to check the existing access items that an identity has before submitting an access request to ensure you are not requesting access that is already granted.  There are two types of access request:  __GRANT_ACCESS__ * Can be requested for multiple identities in a single request. * Supports self request and request on behalf of other users. Refer to the [Get Access Request Configuration](https://developer.sailpoint.com/idn/api/v3/get-access-request-config) endpoint for request configuration options.   * Allows any authenticated token (except API) to call this endpoint to request to grant access to themselves. Depending on the configuration, a user can request access for others. * Roles, Access Profiles and Entitlements can be requested. * While requesting entitlements, maximum of 25 entitlements and 10 recipients are allowed in a request.   __REVOKE_ACCESS__ * Can only be requested for a single identity at a time. * Does not support self request. Only manager can request to revoke access for their directly managed employees. * If removeDate is specified, then the access will be removed on that date and time only for Roles and Access Profiles. Entitlements are currently unsupported for removeDate. * Roles, Access Profiles, and Entitlements can be requested for revocation. * Revoke requests for entitlements are limited to 1 entitlement per access request currently. * [Roles, Access Profiles] RemoveData can be specified only if access don\'t have a sunset date. * Allows a manager to request to revoke access for direct employees. A token with ORG_ADMIN authority can also request to revoke access from anyone.  NOTE: There is no indication to the approver in the IdentityNow UI that the approval request is for a revoke action. Take this into consideration when calling this API.  A token with API authority cannot be used to call this endpoint.  
      * @summary Submit an Access Request
      * @param {AccessRequestsApiCreateAccessRequestRequest} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
@@ -27616,7 +27615,7 @@ export class OAuthClientsApi extends BaseAPI {
 export const PasswordConfigurationApiAxiosParamCreator = function (configuration?: Configuration) {
     return {
         /**
-         * This API creates the password org config. Unspecified fields will use default value. Requires ORG_ADMIN, API role or authorization scope of \'idn:password-org-config:write\'
+         * This API creates the password org config. Unspecified fields will use default value. To be able to use the custom password instructions, you must set the `customInstructionsEnabled` field to \"true\". Requires ORG_ADMIN, API role or authorization scope of \'idn:password-org-config:write\'
          * @summary Create Password Org Config
          * @param {PasswordOrgConfig} passwordOrgConfig 
          * @param {*} [axiosOptions] Override http request option.
@@ -27698,15 +27697,15 @@ export const PasswordConfigurationApiAxiosParamCreator = function (configuration
             };
         },
         /**
-         * This API updates the password org config for specified fields. Other fields will keep original value. Requires ORG_ADMIN, API role or authorization scope of \'idn:password-org-config:write\'
+         * This API updates the password org config for specified fields. Other fields will keep original value. You must set the `customInstructionsEnabled` field to \"true\" to be able to use custom password instructions.  Requires ORG_ADMIN, API role or authorization scope of \'idn:password-org-config:write\'
          * @summary Update Password Org Config
          * @param {PasswordOrgConfig} passwordOrgConfig 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        updatePasswordOrgConfig: async (passwordOrgConfig: PasswordOrgConfig, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        putPasswordOrgConfig: async (passwordOrgConfig: PasswordOrgConfig, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'passwordOrgConfig' is not null or undefined
-            assertParamExists('updatePasswordOrgConfig', 'passwordOrgConfig', passwordOrgConfig)
+            assertParamExists('putPasswordOrgConfig', 'passwordOrgConfig', passwordOrgConfig)
             const localVarPath = `/password-org-config`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -27752,7 +27751,7 @@ export const PasswordConfigurationApiFp = function(configuration?: Configuration
     const localVarAxiosParamCreator = PasswordConfigurationApiAxiosParamCreator(configuration)
     return {
         /**
-         * This API creates the password org config. Unspecified fields will use default value. Requires ORG_ADMIN, API role or authorization scope of \'idn:password-org-config:write\'
+         * This API creates the password org config. Unspecified fields will use default value. To be able to use the custom password instructions, you must set the `customInstructionsEnabled` field to \"true\". Requires ORG_ADMIN, API role or authorization scope of \'idn:password-org-config:write\'
          * @summary Create Password Org Config
          * @param {PasswordOrgConfig} passwordOrgConfig 
          * @param {*} [axiosOptions] Override http request option.
@@ -27773,14 +27772,14 @@ export const PasswordConfigurationApiFp = function(configuration?: Configuration
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
-         * This API updates the password org config for specified fields. Other fields will keep original value. Requires ORG_ADMIN, API role or authorization scope of \'idn:password-org-config:write\'
+         * This API updates the password org config for specified fields. Other fields will keep original value. You must set the `customInstructionsEnabled` field to \"true\" to be able to use custom password instructions.  Requires ORG_ADMIN, API role or authorization scope of \'idn:password-org-config:write\'
          * @summary Update Password Org Config
          * @param {PasswordOrgConfig} passwordOrgConfig 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async updatePasswordOrgConfig(passwordOrgConfig: PasswordOrgConfig, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<PasswordOrgConfig>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.updatePasswordOrgConfig(passwordOrgConfig, axiosOptions);
+        async putPasswordOrgConfig(passwordOrgConfig: PasswordOrgConfig, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<PasswordOrgConfig>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.putPasswordOrgConfig(passwordOrgConfig, axiosOptions);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
     }
@@ -27794,7 +27793,7 @@ export const PasswordConfigurationApiFactory = function (configuration?: Configu
     const localVarFp = PasswordConfigurationApiFp(configuration)
     return {
         /**
-         * This API creates the password org config. Unspecified fields will use default value. Requires ORG_ADMIN, API role or authorization scope of \'idn:password-org-config:write\'
+         * This API creates the password org config. Unspecified fields will use default value. To be able to use the custom password instructions, you must set the `customInstructionsEnabled` field to \"true\". Requires ORG_ADMIN, API role or authorization scope of \'idn:password-org-config:write\'
          * @summary Create Password Org Config
          * @param {PasswordOrgConfig} passwordOrgConfig 
          * @param {*} [axiosOptions] Override http request option.
@@ -27813,14 +27812,14 @@ export const PasswordConfigurationApiFactory = function (configuration?: Configu
             return localVarFp.getPasswordOrgConfig(axiosOptions).then((request) => request(axios, basePath));
         },
         /**
-         * This API updates the password org config for specified fields. Other fields will keep original value. Requires ORG_ADMIN, API role or authorization scope of \'idn:password-org-config:write\'
+         * This API updates the password org config for specified fields. Other fields will keep original value. You must set the `customInstructionsEnabled` field to \"true\" to be able to use custom password instructions.  Requires ORG_ADMIN, API role or authorization scope of \'idn:password-org-config:write\'
          * @summary Update Password Org Config
          * @param {PasswordOrgConfig} passwordOrgConfig 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        updatePasswordOrgConfig(passwordOrgConfig: PasswordOrgConfig, axiosOptions?: any): AxiosPromise<PasswordOrgConfig> {
-            return localVarFp.updatePasswordOrgConfig(passwordOrgConfig, axiosOptions).then((request) => request(axios, basePath));
+        putPasswordOrgConfig(passwordOrgConfig: PasswordOrgConfig, axiosOptions?: any): AxiosPromise<PasswordOrgConfig> {
+            return localVarFp.putPasswordOrgConfig(passwordOrgConfig, axiosOptions).then((request) => request(axios, basePath));
         },
     };
 };
@@ -27840,15 +27839,15 @@ export interface PasswordConfigurationApiCreatePasswordOrgConfigRequest {
 }
 
 /**
- * Request parameters for updatePasswordOrgConfig operation in PasswordConfigurationApi.
+ * Request parameters for putPasswordOrgConfig operation in PasswordConfigurationApi.
  * @export
- * @interface PasswordConfigurationApiUpdatePasswordOrgConfigRequest
+ * @interface PasswordConfigurationApiPutPasswordOrgConfigRequest
  */
-export interface PasswordConfigurationApiUpdatePasswordOrgConfigRequest {
+export interface PasswordConfigurationApiPutPasswordOrgConfigRequest {
     /**
      * 
      * @type {PasswordOrgConfig}
-     * @memberof PasswordConfigurationApiUpdatePasswordOrgConfig
+     * @memberof PasswordConfigurationApiPutPasswordOrgConfig
      */
     readonly passwordOrgConfig: PasswordOrgConfig
 }
@@ -27861,7 +27860,7 @@ export interface PasswordConfigurationApiUpdatePasswordOrgConfigRequest {
  */
 export class PasswordConfigurationApi extends BaseAPI {
     /**
-     * This API creates the password org config. Unspecified fields will use default value. Requires ORG_ADMIN, API role or authorization scope of \'idn:password-org-config:write\'
+     * This API creates the password org config. Unspecified fields will use default value. To be able to use the custom password instructions, you must set the `customInstructionsEnabled` field to \"true\". Requires ORG_ADMIN, API role or authorization scope of \'idn:password-org-config:write\'
      * @summary Create Password Org Config
      * @param {PasswordConfigurationApiCreatePasswordOrgConfigRequest} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
@@ -27884,15 +27883,15 @@ export class PasswordConfigurationApi extends BaseAPI {
     }
 
     /**
-     * This API updates the password org config for specified fields. Other fields will keep original value. Requires ORG_ADMIN, API role or authorization scope of \'idn:password-org-config:write\'
+     * This API updates the password org config for specified fields. Other fields will keep original value. You must set the `customInstructionsEnabled` field to \"true\" to be able to use custom password instructions.  Requires ORG_ADMIN, API role or authorization scope of \'idn:password-org-config:write\'
      * @summary Update Password Org Config
-     * @param {PasswordConfigurationApiUpdatePasswordOrgConfigRequest} requestParameters Request parameters.
+     * @param {PasswordConfigurationApiPutPasswordOrgConfigRequest} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
      * @memberof PasswordConfigurationApi
      */
-    public updatePasswordOrgConfig(requestParameters: PasswordConfigurationApiUpdatePasswordOrgConfigRequest, axiosOptions?: AxiosRequestConfig) {
-        return PasswordConfigurationApiFp(this.configuration).updatePasswordOrgConfig(requestParameters.passwordOrgConfig, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public putPasswordOrgConfig(requestParameters: PasswordConfigurationApiPutPasswordOrgConfigRequest, axiosOptions?: AxiosRequestConfig) {
+        return PasswordConfigurationApiFp(this.configuration).putPasswordOrgConfig(requestParameters.passwordOrgConfig, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 }
 
@@ -30003,7 +30002,7 @@ export class RequestableObjectsApi extends BaseAPI {
 export const RolesApiAxiosParamCreator = function (configuration?: Configuration) {
     return {
         /**
-         * This API creates a Role. There is a soft limit of 800 roles per org in IdentityNow.  You will receive an error if you attempt to add more than 800 roles via the API or the UI.  If you need to add roles above this limit, please create a support ticket. A token with API, ORG_ADMIN, ROLE_ADMIN, or ROLE_SUBADMIN authority is required to call this API. In addition, a ROLE_SUBADMIN may not create a Role including an Access Profile if that Access Profile is associated with a Source with which the ROLE_SUBADMIN is not themselves associated. The maximum supported length for the description field is 2000 characters. Longer descriptions will be preserved for existing roles, however, any new roles as well as any updates to existing descriptions will be limited to 2000 characters.
+         * This API creates a role. You must have a token with API, ORG_ADMIN, ROLE_ADMIN, or ROLE_SUBADMIN authority to call this API.  In addition, a ROLE_SUBADMIN may not create a role including an access profile if that access profile is associated with a source the ROLE_SUBADMIN is not associated with themselves.  The maximum supported length for the description field is 2000 characters. Longer descriptions will be preserved for existing roles. However, any new roles as well as any updates to existing descriptions will be limited to 2000 characters.
          * @summary Create a Role
          * @param {Role} role 
          * @param {*} [axiosOptions] Override http request option.
@@ -30292,7 +30291,7 @@ export const RolesApiFp = function(configuration?: Configuration) {
     const localVarAxiosParamCreator = RolesApiAxiosParamCreator(configuration)
     return {
         /**
-         * This API creates a Role. There is a soft limit of 800 roles per org in IdentityNow.  You will receive an error if you attempt to add more than 800 roles via the API or the UI.  If you need to add roles above this limit, please create a support ticket. A token with API, ORG_ADMIN, ROLE_ADMIN, or ROLE_SUBADMIN authority is required to call this API. In addition, a ROLE_SUBADMIN may not create a Role including an Access Profile if that Access Profile is associated with a Source with which the ROLE_SUBADMIN is not themselves associated. The maximum supported length for the description field is 2000 characters. Longer descriptions will be preserved for existing roles, however, any new roles as well as any updates to existing descriptions will be limited to 2000 characters.
+         * This API creates a role. You must have a token with API, ORG_ADMIN, ROLE_ADMIN, or ROLE_SUBADMIN authority to call this API.  In addition, a ROLE_SUBADMIN may not create a role including an access profile if that access profile is associated with a source the ROLE_SUBADMIN is not associated with themselves.  The maximum supported length for the description field is 2000 characters. Longer descriptions will be preserved for existing roles. However, any new roles as well as any updates to existing descriptions will be limited to 2000 characters.
          * @summary Create a Role
          * @param {Role} role 
          * @param {*} [axiosOptions] Override http request option.
@@ -30370,7 +30369,7 @@ export const RolesApiFactory = function (configuration?: Configuration, basePath
     const localVarFp = RolesApiFp(configuration)
     return {
         /**
-         * This API creates a Role. There is a soft limit of 800 roles per org in IdentityNow.  You will receive an error if you attempt to add more than 800 roles via the API or the UI.  If you need to add roles above this limit, please create a support ticket. A token with API, ORG_ADMIN, ROLE_ADMIN, or ROLE_SUBADMIN authority is required to call this API. In addition, a ROLE_SUBADMIN may not create a Role including an Access Profile if that Access Profile is associated with a Source with which the ROLE_SUBADMIN is not themselves associated. The maximum supported length for the description field is 2000 characters. Longer descriptions will be preserved for existing roles, however, any new roles as well as any updates to existing descriptions will be limited to 2000 characters.
+         * This API creates a role. You must have a token with API, ORG_ADMIN, ROLE_ADMIN, or ROLE_SUBADMIN authority to call this API.  In addition, a ROLE_SUBADMIN may not create a role including an access profile if that access profile is associated with a source the ROLE_SUBADMIN is not associated with themselves.  The maximum supported length for the description field is 2000 characters. Longer descriptions will be preserved for existing roles. However, any new roles as well as any updates to existing descriptions will be limited to 2000 characters.
          * @summary Create a Role
          * @param {Role} role 
          * @param {*} [axiosOptions] Override http request option.
@@ -30604,7 +30603,7 @@ export interface RolesApiPatchRoleRequest {
  */
 export class RolesApi extends BaseAPI {
     /**
-     * This API creates a Role. There is a soft limit of 800 roles per org in IdentityNow.  You will receive an error if you attempt to add more than 800 roles via the API or the UI.  If you need to add roles above this limit, please create a support ticket. A token with API, ORG_ADMIN, ROLE_ADMIN, or ROLE_SUBADMIN authority is required to call this API. In addition, a ROLE_SUBADMIN may not create a Role including an Access Profile if that Access Profile is associated with a Source with which the ROLE_SUBADMIN is not themselves associated. The maximum supported length for the description field is 2000 characters. Longer descriptions will be preserved for existing roles, however, any new roles as well as any updates to existing descriptions will be limited to 2000 characters.
+     * This API creates a role. You must have a token with API, ORG_ADMIN, ROLE_ADMIN, or ROLE_SUBADMIN authority to call this API.  In addition, a ROLE_SUBADMIN may not create a role including an access profile if that access profile is associated with a source the ROLE_SUBADMIN is not associated with themselves.  The maximum supported length for the description field is 2000 characters. Longer descriptions will be preserved for existing roles. However, any new roles as well as any updates to existing descriptions will be limited to 2000 characters.
      * @summary Create a Role
      * @param {RolesApiCreateRoleRequest} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
