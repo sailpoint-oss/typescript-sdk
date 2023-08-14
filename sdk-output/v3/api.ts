@@ -2938,7 +2938,7 @@ export interface ApprovalReminderAndEscalationConfig {
      */
     'daysBetweenReminders'?: number;
     /**
-     * Maximum number of reminder notification to send to the reviewer before approval escalation.
+     * Maximum number of reminder notification to send to the reviewer before approval escalation. This will only be a positive number.
      * @type {number}
      * @memberof ApprovalReminderAndEscalationConfig
      */
