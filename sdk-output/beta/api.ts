@@ -14954,6 +14954,12 @@ export type OutlierBetaUnignoreTypeEnum = typeof OutlierBetaUnignoreTypeEnum[key
  */
 export interface OutlierContributingFeatureBeta {
     /**
+     * Contributing feature id
+     * @type {string}
+     * @memberof OutlierContributingFeatureBeta
+     */
+    'id'?: string;
+    /**
      * The name of the feature
      * @type {string}
      * @memberof OutlierContributingFeatureBeta
@@ -15011,6 +15017,80 @@ export type OutlierContributingFeatureBetaValueTypeEnum = typeof OutlierContribu
  */
 export type OutlierContributingFeatureValueBeta = number;
 
+/**
+ * 
+ * @export
+ * @interface OutlierFeatureSummaryBeta
+ */
+export interface OutlierFeatureSummaryBeta {
+    /**
+     * Contributing feature name
+     * @type {string}
+     * @memberof OutlierFeatureSummaryBeta
+     */
+    'contributingFeatureName'?: string;
+    /**
+     * Identity display name
+     * @type {string}
+     * @memberof OutlierFeatureSummaryBeta
+     */
+    'identityOutlierDisplayName'?: string;
+    /**
+     * 
+     * @type {Array<OutlierFeatureSummaryOutlierFeatureDisplayValuesInnerBeta>}
+     * @memberof OutlierFeatureSummaryBeta
+     */
+    'outlierFeatureDisplayValues'?: Array<OutlierFeatureSummaryOutlierFeatureDisplayValuesInnerBeta>;
+    /**
+     * Definition of the feature
+     * @type {string}
+     * @memberof OutlierFeatureSummaryBeta
+     */
+    'featureDefinition'?: string;
+    /**
+     * Detailed explanation of the feature
+     * @type {string}
+     * @memberof OutlierFeatureSummaryBeta
+     */
+    'featureExplanation'?: string;
+    /**
+     * outlier\'s peer identity display name
+     * @type {string}
+     * @memberof OutlierFeatureSummaryBeta
+     */
+    'peerDisplayName'?: string;
+    /**
+     * outlier\'s peer identity id
+     * @type {string}
+     * @memberof OutlierFeatureSummaryBeta
+     */
+    'peerIdentityId'?: string;
+    /**
+     * Access Item reference
+     * @type {object}
+     * @memberof OutlierFeatureSummaryBeta
+     */
+    'accessItemReference'?: object;
+}
+/**
+ * 
+ * @export
+ * @interface OutlierFeatureSummaryOutlierFeatureDisplayValuesInnerBeta
+ */
+export interface OutlierFeatureSummaryOutlierFeatureDisplayValuesInnerBeta {
+    /**
+     * display name
+     * @type {string}
+     * @memberof OutlierFeatureSummaryOutlierFeatureDisplayValuesInnerBeta
+     */
+    'displayName'?: string;
+    /**
+     * value
+     * @type {string}
+     * @memberof OutlierFeatureSummaryOutlierFeatureDisplayValuesInnerBeta
+     */
+    'value'?: string;
+}
 /**
  * 
  * @export
@@ -36854,6 +36934,48 @@ export const IAIOutliersBetaApiAxiosParamCreator = function (configuration?: Con
             };
         },
         /**
+         * This API returns a summary of a contributing feature for an identity outlier. The object contains: contributing feature name (translated text or message key), identity outlier display name, feature values, feature definition and explanation (translated text or message key), peer display name and identityId, access item reference, translation messages object Requires authorization scope of \'iai:outliers-management:read\'
+         * @summary Get identity outlier contibuting feature summary
+         * @param {string} outlierFeatureId Contributing feature id
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        getOutlierContributingFeatureSummary: async (outlierFeatureId: string, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'outlierFeatureId' is not null or undefined
+            assertParamExists('getOutlierContributingFeatureSummary', 'outlierFeatureId', outlierFeatureId)
+            const localVarPath = `/outlier-feature-summaries/{outlierFeatureId}`
+                .replace(`{${"outlierFeatureId"}}`, encodeURIComponent(String(outlierFeatureId)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...axiosOptions};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication oauth2 required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "oauth2", [], configuration)
+
+            // authentication oauth2 required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "oauth2", [], configuration)
+
+
+    
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                axiosOptions: localVarRequestOptions,
+            };
+        },
+        /**
          * This API returns a list of contributing feature objects for a single outlier. The object contains: feature name, feature value type, value, importance, display name (translated text or message key), description (translated text or message key), translation messages object Requires authorization scope of \'iai:outliers-management:read\'
          * @summary Get identity outlier\'s contibuting features
          * @param {string} outlierId The outlier id
@@ -37143,6 +37265,17 @@ export const IAIOutliersBetaApiFp = function(configuration?: Configuration) {
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
+         * This API returns a summary of a contributing feature for an identity outlier. The object contains: contributing feature name (translated text or message key), identity outlier display name, feature values, feature definition and explanation (translated text or message key), peer display name and identityId, access item reference, translation messages object Requires authorization scope of \'iai:outliers-management:read\'
+         * @summary Get identity outlier contibuting feature summary
+         * @param {string} outlierFeatureId Contributing feature id
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        async getOutlierContributingFeatureSummary(outlierFeatureId: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<OutlierFeatureSummaryBeta>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getOutlierContributingFeatureSummary(outlierFeatureId, axiosOptions);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
          * This API returns a list of contributing feature objects for a single outlier. The object contains: feature name, feature value type, value, importance, display name (translated text or message key), description (translated text or message key), translation messages object Requires authorization scope of \'iai:outliers-management:read\'
          * @summary Get identity outlier\'s contibuting features
          * @param {string} outlierId The outlier id
@@ -37255,6 +37388,16 @@ export const IAIOutliersBetaApiFactory = function (configuration?: Configuration
          */
         getLatestIdentityOutlierSnapshots(type?: 'LOW_SIMILARITY' | 'STRUCTURAL', axiosOptions?: any): AxiosPromise<Array<LatestOutlierSummaryBeta>> {
             return localVarFp.getLatestIdentityOutlierSnapshots(type, axiosOptions).then((request) => request(axios, basePath));
+        },
+        /**
+         * This API returns a summary of a contributing feature for an identity outlier. The object contains: contributing feature name (translated text or message key), identity outlier display name, feature values, feature definition and explanation (translated text or message key), peer display name and identityId, access item reference, translation messages object Requires authorization scope of \'iai:outliers-management:read\'
+         * @summary Get identity outlier contibuting feature summary
+         * @param {string} outlierFeatureId Contributing feature id
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        getOutlierContributingFeatureSummary(outlierFeatureId: string, axiosOptions?: any): AxiosPromise<OutlierFeatureSummaryBeta> {
+            return localVarFp.getOutlierContributingFeatureSummary(outlierFeatureId, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * This API returns a list of contributing feature objects for a single outlier. The object contains: feature name, feature value type, value, importance, display name (translated text or message key), description (translated text or message key), translation messages object Requires authorization scope of \'iai:outliers-management:read\'
@@ -37427,6 +37570,20 @@ export interface IAIOutliersBetaApiGetLatestIdentityOutlierSnapshotsRequest {
      * @memberof IAIOutliersBetaApiGetLatestIdentityOutlierSnapshots
      */
     readonly type?: 'LOW_SIMILARITY' | 'STRUCTURAL'
+}
+
+/**
+ * Request parameters for getOutlierContributingFeatureSummary operation in IAIOutliersBetaApi.
+ * @export
+ * @interface IAIOutliersBetaApiGetOutlierContributingFeatureSummaryRequest
+ */
+export interface IAIOutliersBetaApiGetOutlierContributingFeatureSummaryRequest {
+    /**
+     * Contributing feature id
+     * @type {string}
+     * @memberof IAIOutliersBetaApiGetOutlierContributingFeatureSummary
+     */
+    readonly outlierFeatureId: string
 }
 
 /**
@@ -37615,6 +37772,18 @@ export class IAIOutliersBetaApi extends BaseAPI {
      */
     public getLatestIdentityOutlierSnapshots(requestParameters: IAIOutliersBetaApiGetLatestIdentityOutlierSnapshotsRequest = {}, axiosOptions?: AxiosRequestConfig) {
         return IAIOutliersBetaApiFp(this.configuration).getLatestIdentityOutlierSnapshots(requestParameters.type, axiosOptions).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * This API returns a summary of a contributing feature for an identity outlier. The object contains: contributing feature name (translated text or message key), identity outlier display name, feature values, feature definition and explanation (translated text or message key), peer display name and identityId, access item reference, translation messages object Requires authorization scope of \'iai:outliers-management:read\'
+     * @summary Get identity outlier contibuting feature summary
+     * @param {IAIOutliersBetaApiGetOutlierContributingFeatureSummaryRequest} requestParameters Request parameters.
+     * @param {*} [axiosOptions] Override http request option.
+     * @throws {RequiredError}
+     * @memberof IAIOutliersBetaApi
+     */
+    public getOutlierContributingFeatureSummary(requestParameters: IAIOutliersBetaApiGetOutlierContributingFeatureSummaryRequest, axiosOptions?: AxiosRequestConfig) {
+        return IAIOutliersBetaApiFp(this.configuration).getOutlierContributingFeatureSummary(requestParameters.outlierFeatureId, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
