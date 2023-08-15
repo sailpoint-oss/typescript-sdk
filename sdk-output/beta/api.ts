@@ -43356,16 +43356,16 @@ export const IdentityProfilesBetaApiAxiosParamCreator = function (configuration?
             };
         },
         /**
-         * This refreshes all identities under the profile A token with ORG_ADMIN authority is required to call this API to refresh identities under this Identity Profile.
-         * @summary Refreshes all identities under profile
-         * @param {string} identityProfileId The Identity Profile ID to be refreshed
+         * Process identities under the profile  A token with ORG_ADMIN authority is required to call this API.
+         * @summary Process identities under profile
+         * @param {string} identityProfileId The Identity Profile ID to be processed
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        refreshIdentityProfile: async (identityProfileId: string, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        syncIdentityProfile: async (identityProfileId: string, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'identityProfileId' is not null or undefined
-            assertParamExists('refreshIdentityProfile', 'identityProfileId', identityProfileId)
-            const localVarPath = `/identity-profiles/{identity-profile-id}/refresh-identities`
+            assertParamExists('syncIdentityProfile', 'identityProfileId', identityProfileId)
+            const localVarPath = `/identity-profiles/{identity-profile-id}/process-identities`
                 .replace(`{${"identity-profile-id"}}`, encodeURIComponent(String(identityProfileId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -43563,14 +43563,14 @@ export const IdentityProfilesBetaApiFp = function(configuration?: Configuration)
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
-         * This refreshes all identities under the profile A token with ORG_ADMIN authority is required to call this API to refresh identities under this Identity Profile.
-         * @summary Refreshes all identities under profile
-         * @param {string} identityProfileId The Identity Profile ID to be refreshed
+         * Process identities under the profile  A token with ORG_ADMIN authority is required to call this API.
+         * @summary Process identities under profile
+         * @param {string} identityProfileId The Identity Profile ID to be processed
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async refreshIdentityProfile(identityProfileId: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<object>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.refreshIdentityProfile(identityProfileId, axiosOptions);
+        async syncIdentityProfile(identityProfileId: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<object>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.syncIdentityProfile(identityProfileId, axiosOptions);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
@@ -43694,14 +43694,14 @@ export const IdentityProfilesBetaApiFactory = function (configuration?: Configur
             return localVarFp.listIdentityProfiles(limit, offset, count, filters, sorters, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
-         * This refreshes all identities under the profile A token with ORG_ADMIN authority is required to call this API to refresh identities under this Identity Profile.
-         * @summary Refreshes all identities under profile
-         * @param {string} identityProfileId The Identity Profile ID to be refreshed
+         * Process identities under the profile  A token with ORG_ADMIN authority is required to call this API.
+         * @summary Process identities under profile
+         * @param {string} identityProfileId The Identity Profile ID to be processed
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        refreshIdentityProfile(identityProfileId: string, axiosOptions?: any): AxiosPromise<object> {
-            return localVarFp.refreshIdentityProfile(identityProfileId, axiosOptions).then((request) => request(axios, basePath));
+        syncIdentityProfile(identityProfileId: string, axiosOptions?: any): AxiosPromise<object> {
+            return localVarFp.syncIdentityProfile(identityProfileId, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * This updates the specified Identity Profile. A token with ORG_ADMIN authority is required to call this API to update the Identity Profile. Some fields of the Schema cannot be updated. These fields are listed below. * id * name * created * modified
@@ -43900,15 +43900,15 @@ export interface IdentityProfilesBetaApiListIdentityProfilesRequest {
 }
 
 /**
- * Request parameters for refreshIdentityProfile operation in IdentityProfilesBetaApi.
+ * Request parameters for syncIdentityProfile operation in IdentityProfilesBetaApi.
  * @export
- * @interface IdentityProfilesBetaApiRefreshIdentityProfileRequest
+ * @interface IdentityProfilesBetaApiSyncIdentityProfileRequest
  */
-export interface IdentityProfilesBetaApiRefreshIdentityProfileRequest {
+export interface IdentityProfilesBetaApiSyncIdentityProfileRequest {
     /**
-     * The Identity Profile ID to be refreshed
+     * The Identity Profile ID to be processed
      * @type {string}
-     * @memberof IdentityProfilesBetaApiRefreshIdentityProfile
+     * @memberof IdentityProfilesBetaApiSyncIdentityProfile
      */
     readonly identityProfileId: string
 }
@@ -44050,15 +44050,15 @@ export class IdentityProfilesBetaApi extends BaseAPI {
     }
 
     /**
-     * This refreshes all identities under the profile A token with ORG_ADMIN authority is required to call this API to refresh identities under this Identity Profile.
-     * @summary Refreshes all identities under profile
-     * @param {IdentityProfilesBetaApiRefreshIdentityProfileRequest} requestParameters Request parameters.
+     * Process identities under the profile  A token with ORG_ADMIN authority is required to call this API.
+     * @summary Process identities under profile
+     * @param {IdentityProfilesBetaApiSyncIdentityProfileRequest} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
      * @memberof IdentityProfilesBetaApi
      */
-    public refreshIdentityProfile(requestParameters: IdentityProfilesBetaApiRefreshIdentityProfileRequest, axiosOptions?: AxiosRequestConfig) {
-        return IdentityProfilesBetaApiFp(this.configuration).refreshIdentityProfile(requestParameters.identityProfileId, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public syncIdentityProfile(requestParameters: IdentityProfilesBetaApiSyncIdentityProfileRequest, axiosOptions?: AxiosRequestConfig) {
+        return IdentityProfilesBetaApiFp(this.configuration).syncIdentityProfile(requestParameters.identityProfileId, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**

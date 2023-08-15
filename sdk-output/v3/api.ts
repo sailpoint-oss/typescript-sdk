@@ -22710,6 +22710,48 @@ export const IdentityProfilesApiAxiosParamCreator = function (configuration?: Co
                 axiosOptions: localVarRequestOptions,
             };
         },
+        /**
+         * Process identities under the profile  A token with ORG_ADMIN authority is required to call this API.
+         * @summary Process identities under profile
+         * @param {string} identityProfileId The Identity Profile ID to be processed
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        syncIdentityProfile: async (identityProfileId: string, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'identityProfileId' is not null or undefined
+            assertParamExists('syncIdentityProfile', 'identityProfileId', identityProfileId)
+            const localVarPath = `/identity-profiles/{identity-profile-id}/process-identities`
+                .replace(`{${"identity-profile-id"}}`, encodeURIComponent(String(identityProfileId)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'POST', ...baseOptions, ...axiosOptions};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication oauth2 required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "oauth2", [], configuration)
+
+            // authentication oauth2 required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "oauth2", [], configuration)
+
+
+    
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                axiosOptions: localVarRequestOptions,
+            };
+        },
     }
 };
 
@@ -22783,6 +22825,17 @@ export const IdentityProfilesApiFp = function(configuration?: Configuration) {
             const localVarAxiosArgs = await localVarAxiosParamCreator.listIdentityProfiles(limit, offset, count, filters, sorters, axiosOptions);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
+        /**
+         * Process identities under the profile  A token with ORG_ADMIN authority is required to call this API.
+         * @summary Process identities under profile
+         * @param {string} identityProfileId The Identity Profile ID to be processed
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        async syncIdentityProfile(identityProfileId: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<object>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.syncIdentityProfile(identityProfileId, axiosOptions);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
     }
 };
 
@@ -22850,6 +22903,16 @@ export const IdentityProfilesApiFactory = function (configuration?: Configuratio
          */
         listIdentityProfiles(limit?: number, offset?: number, count?: boolean, filters?: string, sorters?: string, axiosOptions?: any): AxiosPromise<Array<IdentityProfile>> {
             return localVarFp.listIdentityProfiles(limit, offset, count, filters, sorters, axiosOptions).then((request) => request(axios, basePath));
+        },
+        /**
+         * Process identities under the profile  A token with ORG_ADMIN authority is required to call this API.
+         * @summary Process identities under profile
+         * @param {string} identityProfileId The Identity Profile ID to be processed
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        syncIdentityProfile(identityProfileId: string, axiosOptions?: any): AxiosPromise<object> {
+            return localVarFp.syncIdentityProfile(identityProfileId, axiosOptions).then((request) => request(axios, basePath));
         },
     };
 };
@@ -22981,6 +23044,20 @@ export interface IdentityProfilesApiListIdentityProfilesRequest {
 }
 
 /**
+ * Request parameters for syncIdentityProfile operation in IdentityProfilesApi.
+ * @export
+ * @interface IdentityProfilesApiSyncIdentityProfileRequest
+ */
+export interface IdentityProfilesApiSyncIdentityProfileRequest {
+    /**
+     * The Identity Profile ID to be processed
+     * @type {string}
+     * @memberof IdentityProfilesApiSyncIdentityProfile
+     */
+    readonly identityProfileId: string
+}
+
+/**
  * IdentityProfilesApi - object-oriented interface
  * @export
  * @class IdentityProfilesApi
@@ -23045,6 +23122,18 @@ export class IdentityProfilesApi extends BaseAPI {
      */
     public listIdentityProfiles(requestParameters: IdentityProfilesApiListIdentityProfilesRequest = {}, axiosOptions?: AxiosRequestConfig) {
         return IdentityProfilesApiFp(this.configuration).listIdentityProfiles(requestParameters.limit, requestParameters.offset, requestParameters.count, requestParameters.filters, requestParameters.sorters, axiosOptions).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Process identities under the profile  A token with ORG_ADMIN authority is required to call this API.
+     * @summary Process identities under profile
+     * @param {IdentityProfilesApiSyncIdentityProfileRequest} requestParameters Request parameters.
+     * @param {*} [axiosOptions] Override http request option.
+     * @throws {RequiredError}
+     * @memberof IdentityProfilesApi
+     */
+    public syncIdentityProfile(requestParameters: IdentityProfilesApiSyncIdentityProfileRequest, axiosOptions?: AxiosRequestConfig) {
+        return IdentityProfilesApiFp(this.configuration).syncIdentityProfile(requestParameters.identityProfileId, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 }
 
