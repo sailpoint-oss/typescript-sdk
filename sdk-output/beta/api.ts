@@ -16987,7 +16987,7 @@ export const ReportResultReferenceBetaStatusEnum = {
 export type ReportResultReferenceBetaStatusEnum = typeof ReportResultReferenceBetaStatusEnum[keyof typeof ReportResultReferenceBetaStatusEnum];
 
 /**
- * 
+ * type of a Report
  * @export
  * @enum {string}
  */
@@ -28782,6 +28782,7 @@ export const CertificationCampaignsBetaApiAxiosParamCreator = function (configur
          * @summary Get Campaign Reports
          * @param {string} id The ID of the campaign for which reports are being fetched.
          * @param {*} [axiosOptions] Override http request option.
+         * @deprecated
          * @throws {RequiredError}
          */
         getCampaignReports: async (id: string, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
@@ -29497,6 +29498,7 @@ export const CertificationCampaignsBetaApiFp = function(configuration?: Configur
          * @summary Get Campaign Reports
          * @param {string} id The ID of the campaign for which reports are being fetched.
          * @param {*} [axiosOptions] Override http request option.
+         * @deprecated
          * @throws {RequiredError}
          */
         async getCampaignReports(id: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<CampaignReportBeta>>> {
@@ -29760,6 +29762,7 @@ export const CertificationCampaignsBetaApiFactory = function (configuration?: Co
          * @summary Get Campaign Reports
          * @param {string} id The ID of the campaign for which reports are being fetched.
          * @param {*} [axiosOptions] Override http request option.
+         * @deprecated
          * @throws {RequiredError}
          */
         getCampaignReports(id: string, axiosOptions?: any): AxiosPromise<Array<CampaignReportBeta>> {
@@ -30428,6 +30431,7 @@ export class CertificationCampaignsBetaApi extends BaseAPI {
      * @summary Get Campaign Reports
      * @param {CertificationCampaignsBetaApiGetCampaignReportsRequest} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
+     * @deprecated
      * @throws {RequiredError}
      * @memberof CertificationCampaignsBetaApi
      */

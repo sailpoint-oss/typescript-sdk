@@ -4345,6 +4345,80 @@ export const CampaignReferenceMandatoryCommentRequirementEnum = {
 export type CampaignReferenceMandatoryCommentRequirementEnum = typeof CampaignReferenceMandatoryCommentRequirementEnum[keyof typeof CampaignReferenceMandatoryCommentRequirementEnum];
 
 /**
+ * 
+ * @export
+ * @interface CampaignReport
+ */
+export interface CampaignReport {
+    /**
+     * 
+     * @type {DtoType}
+     * @memberof CampaignReport
+     */
+    'type'?: DtoType;
+    /**
+     * ID of the object to which this reference applies
+     * @type {string}
+     * @memberof CampaignReport
+     */
+    'id'?: string;
+    /**
+     * Human-readable display name of the object to which this reference applies
+     * @type {string}
+     * @memberof CampaignReport
+     */
+    'name'?: string;
+    /**
+     * Status of a violation report
+     * @type {string}
+     * @memberof CampaignReport
+     */
+    'status'?: CampaignReportStatusEnum;
+    /**
+     * 
+     * @type {ReportType}
+     * @memberof CampaignReport
+     */
+    'reportType': ReportType;
+    /**
+     * The most recent date and time this report was run
+     * @type {string}
+     * @memberof CampaignReport
+     */
+    'lastRunAt'?: string;
+}
+
+export const CampaignReportStatusEnum = {
+    Success: 'SUCCESS',
+    Warning: 'WARNING',
+    Error: 'ERROR',
+    Terminated: 'TERMINATED',
+    TempError: 'TEMP_ERROR',
+    Pending: 'PENDING'
+} as const;
+
+export type CampaignReportStatusEnum = typeof CampaignReportStatusEnum[keyof typeof CampaignReportStatusEnum];
+
+/**
+ * 
+ * @export
+ * @interface CampaignReportAllOf
+ */
+export interface CampaignReportAllOf {
+    /**
+     * 
+     * @type {ReportType}
+     * @memberof CampaignReportAllOf
+     */
+    'reportType'?: ReportType;
+    /**
+     * The most recent date and time this report was run
+     * @type {string}
+     * @memberof CampaignReportAllOf
+     */
+    'lastRunAt'?: string;
+}
+/**
  * Request body payload for cancel access request endpoint.
  * @export
  * @interface CancelAccessRequest
@@ -12277,6 +12351,22 @@ export const ReportResultReferenceAllOfStatusEnum = {
 } as const;
 
 export type ReportResultReferenceAllOfStatusEnum = typeof ReportResultReferenceAllOfStatusEnum[keyof typeof ReportResultReferenceAllOfStatusEnum];
+
+/**
+ * type of a Report
+ * @export
+ * @enum {string}
+ */
+
+export const ReportType = {
+    CampaignCompositionReport: 'CAMPAIGN_COMPOSITION_REPORT',
+    CampaignRemediationStatusReport: 'CAMPAIGN_REMEDIATION_STATUS_REPORT',
+    CampaignStatusReport: 'CAMPAIGN_STATUS_REPORT',
+    CertificationSignoffReport: 'CERTIFICATION_SIGNOFF_REPORT'
+} as const;
+
+export type ReportType = typeof ReportType[keyof typeof ReportType];
+
 
 /**
  * 
@@ -20668,6 +20758,48 @@ export const CertificationCampaignsApiAxiosParamCreator = function (configuratio
             };
         },
         /**
+         * Fetches all reports for a certification campaign by campaign ID. Requires roles of CERT_ADMIN, DASHBOARD, ORG_ADMIN and REPORT_ADMIN
+         * @summary Get Campaign Reports
+         * @param {string} campaignId The ID of the campaign for which reports are being fetched.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        getCampaignReports: async (campaignId: string, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'campaignId' is not null or undefined
+            assertParamExists('getCampaignReports', 'campaignId', campaignId)
+            const localVarPath = `/campaigns/{id}/reports`
+                .replace(`{${"campaignId"}}`, encodeURIComponent(String(campaignId)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...axiosOptions};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication oauth2 required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "oauth2", [], configuration)
+
+            // authentication oauth2 required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "oauth2", [], configuration)
+
+
+    
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                axiosOptions: localVarRequestOptions,
+            };
+        },
+        /**
          * This API reassigns the specified certifications from one identity to another. A token with ORG_ADMIN or CERT_ADMIN authority is required to call this API.
          * @summary Reassign Certifications
          * @param {string} id The certification campaign ID
@@ -20810,6 +20942,17 @@ export const CertificationCampaignsApiFp = function(configuration?: Configuratio
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
+         * Fetches all reports for a certification campaign by campaign ID. Requires roles of CERT_ADMIN, DASHBOARD, ORG_ADMIN and REPORT_ADMIN
+         * @summary Get Campaign Reports
+         * @param {string} campaignId The ID of the campaign for which reports are being fetched.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        async getCampaignReports(campaignId: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<CampaignReport>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getCampaignReports(campaignId, axiosOptions);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
          * This API reassigns the specified certifications from one identity to another. A token with ORG_ADMIN or CERT_ADMIN authority is required to call this API.
          * @summary Reassign Certifications
          * @param {string} id The certification campaign ID
@@ -20877,6 +21020,16 @@ export const CertificationCampaignsApiFactory = function (configuration?: Config
          */
         getCampaign(id: string, axiosOptions?: any): AxiosPromise<SlimCampaign> {
             return localVarFp.getCampaign(id, axiosOptions).then((request) => request(axios, basePath));
+        },
+        /**
+         * Fetches all reports for a certification campaign by campaign ID. Requires roles of CERT_ADMIN, DASHBOARD, ORG_ADMIN and REPORT_ADMIN
+         * @summary Get Campaign Reports
+         * @param {string} campaignId The ID of the campaign for which reports are being fetched.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        getCampaignReports(campaignId: string, axiosOptions?: any): AxiosPromise<Array<CampaignReport>> {
+            return localVarFp.getCampaignReports(campaignId, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * This API reassigns the specified certifications from one identity to another. A token with ORG_ADMIN or CERT_ADMIN authority is required to call this API.
@@ -20981,6 +21134,20 @@ export interface CertificationCampaignsApiGetCampaignRequest {
 }
 
 /**
+ * Request parameters for getCampaignReports operation in CertificationCampaignsApi.
+ * @export
+ * @interface CertificationCampaignsApiGetCampaignReportsRequest
+ */
+export interface CertificationCampaignsApiGetCampaignReportsRequest {
+    /**
+     * The ID of the campaign for which reports are being fetched.
+     * @type {string}
+     * @memberof CertificationCampaignsApiGetCampaignReports
+     */
+    readonly campaignId: string
+}
+
+/**
  * Request parameters for move operation in CertificationCampaignsApi.
  * @export
  * @interface CertificationCampaignsApiMoveRequest
@@ -21063,6 +21230,18 @@ export class CertificationCampaignsApi extends BaseAPI {
      */
     public getCampaign(requestParameters: CertificationCampaignsApiGetCampaignRequest, axiosOptions?: AxiosRequestConfig) {
         return CertificationCampaignsApiFp(this.configuration).getCampaign(requestParameters.id, axiosOptions).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Fetches all reports for a certification campaign by campaign ID. Requires roles of CERT_ADMIN, DASHBOARD, ORG_ADMIN and REPORT_ADMIN
+     * @summary Get Campaign Reports
+     * @param {CertificationCampaignsApiGetCampaignReportsRequest} requestParameters Request parameters.
+     * @param {*} [axiosOptions] Override http request option.
+     * @throws {RequiredError}
+     * @memberof CertificationCampaignsApi
+     */
+    public getCampaignReports(requestParameters: CertificationCampaignsApiGetCampaignReportsRequest, axiosOptions?: AxiosRequestConfig) {
+        return CertificationCampaignsApiFp(this.configuration).getCampaignReports(requestParameters.campaignId, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
