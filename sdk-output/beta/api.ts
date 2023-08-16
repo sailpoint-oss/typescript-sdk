@@ -3735,7 +3735,7 @@ export interface AttributeDefinitionBeta {
      */
     'isEntitlement'?: boolean;
     /**
-     * Flag indicating whether or not the attribute represents a group. This can only be `true` if `isEntitlement` is also `true` **and** there is a schema defined for the attribute.. 
+     * Flag indicating whether or not the attribute represents a group. This can only be `true` if `isEntitlement` is also `true` **and** there is a schema defined for the attribute. 
      * @type {boolean}
      * @memberof AttributeDefinitionBeta
      */
@@ -4838,7 +4838,7 @@ export type CampaignTemplateOwnerRefBetaTypeEnum = typeof CampaignTemplateOwnerR
  */
 export interface CancelAccessRequestBeta {
     /**
-     * ID of the account activity object corresponding to the access request.
+     * This refers to the identityRequestId. To successfully cancel an access request, you must provide the identityRequestId.
      * @type {string}
      * @memberof CancelAccessRequestBeta
      */

@@ -4425,7 +4425,7 @@ export interface CampaignReportAllOf {
  */
 export interface CancelAccessRequest {
     /**
-     * ID of the account activity object corresponding to the access request.
+     * This refers to the identityRequestId. To successfully cancel an access request, you must provide the identityRequestId.
      * @type {string}
      * @memberof CancelAccessRequest
      */
