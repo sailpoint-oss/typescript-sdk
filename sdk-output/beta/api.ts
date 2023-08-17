@@ -29333,6 +29333,7 @@ export const CertificationCampaignsBetaApiAxiosParamCreator = function (configur
          * @param {string} id The ID of the campaign template being modified.
          * @param {Array<object>} requestBody A list of campaign update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard. The fields that can be patched differ based on the status of the campaign.  In the *STAGED* status, the following fields can be patched: * name * description * recommendationsEnabled * deadline * emailNotificationEnabled * autoRevokeAllowed  In the *ACTIVE* status, the following fields can be patched: * deadline 
          * @param {*} [axiosOptions] Override http request option.
+         * @deprecated
          * @throws {RequiredError}
          */
         updateCampaign: async (id: string, requestBody: Array<object>, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
@@ -29642,6 +29643,7 @@ export const CertificationCampaignsBetaApiFp = function(configuration?: Configur
          * @param {string} id The ID of the campaign template being modified.
          * @param {Array<object>} requestBody A list of campaign update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard. The fields that can be patched differ based on the status of the campaign.  In the *STAGED* status, the following fields can be patched: * name * description * recommendationsEnabled * deadline * emailNotificationEnabled * autoRevokeAllowed  In the *ACTIVE* status, the following fields can be patched: * deadline 
          * @param {*} [axiosOptions] Override http request option.
+         * @deprecated
          * @throws {RequiredError}
          */
         async updateCampaign(id: string, requestBody: Array<object>, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SlimcampaignBeta>> {
@@ -29894,6 +29896,7 @@ export const CertificationCampaignsBetaApiFactory = function (configuration?: Co
          * @param {string} id The ID of the campaign template being modified.
          * @param {Array<object>} requestBody A list of campaign update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard. The fields that can be patched differ based on the status of the campaign.  In the *STAGED* status, the following fields can be patched: * name * description * recommendationsEnabled * deadline * emailNotificationEnabled * autoRevokeAllowed  In the *ACTIVE* status, the following fields can be patched: * deadline 
          * @param {*} [axiosOptions] Override http request option.
+         * @deprecated
          * @throws {RequiredError}
          */
         updateCampaign(id: string, requestBody: Array<object>, axiosOptions?: any): AxiosPromise<SlimcampaignBeta> {
@@ -30577,6 +30580,7 @@ export class CertificationCampaignsBetaApi extends BaseAPI {
      * @summary Update a Campaign
      * @param {CertificationCampaignsBetaApiUpdateCampaignRequest} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
+     * @deprecated
      * @throws {RequiredError}
      * @memberof CertificationCampaignsBetaApi
      */

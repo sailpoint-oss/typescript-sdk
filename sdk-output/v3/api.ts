@@ -20893,6 +20893,54 @@ export const CertificationCampaignsApiAxiosParamCreator = function (configuratio
                 axiosOptions: localVarRequestOptions,
             };
         },
+        /**
+         * Allows updating individual fields on a campaign using the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.
+         * @summary Update a Campaign
+         * @param {string} id The ID of the campaign template being modified.
+         * @param {Array<JsonPatchOperation>} jsonPatchOperation A list of campaign update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard. The fields that can be patched differ based on the status of the campaign.  In the *STAGED* status, the following fields can be patched: * name * description * recommendationsEnabled * deadline * emailNotificationEnabled * autoRevokeAllowed  In the *ACTIVE* status, the following fields can be patched: * deadline 
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        updateCampaign: async (id: string, jsonPatchOperation: Array<JsonPatchOperation>, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'id' is not null or undefined
+            assertParamExists('updateCampaign', 'id', id)
+            // verify required parameter 'jsonPatchOperation' is not null or undefined
+            assertParamExists('updateCampaign', 'jsonPatchOperation', jsonPatchOperation)
+            const localVarPath = `/campaigns/{id}`
+                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'PATCH', ...baseOptions, ...axiosOptions};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication oauth2 required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "oauth2", [], configuration)
+
+            // authentication oauth2 required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "oauth2", [], configuration)
+
+
+    
+            localVarHeaderParameter['Content-Type'] = 'application/json-patch+json';
+
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
+            localVarRequestOptions.data = serializeDataIfNeeded(jsonPatchOperation, localVarRequestOptions, configuration)
+
+            return {
+                url: toPathString(localVarUrlObj),
+                axiosOptions: localVarRequestOptions,
+            };
+        },
     }
 };
 
@@ -20976,6 +21024,18 @@ export const CertificationCampaignsApiFp = function(configuration?: Configuratio
             const localVarAxiosArgs = await localVarAxiosParamCreator.startCampaign(id, activateCampaignOptions, axiosOptions);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
+        /**
+         * Allows updating individual fields on a campaign using the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.
+         * @summary Update a Campaign
+         * @param {string} id The ID of the campaign template being modified.
+         * @param {Array<JsonPatchOperation>} jsonPatchOperation A list of campaign update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard. The fields that can be patched differ based on the status of the campaign.  In the *STAGED* status, the following fields can be patched: * name * description * recommendationsEnabled * deadline * emailNotificationEnabled * autoRevokeAllowed  In the *ACTIVE* status, the following fields can be patched: * deadline 
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        async updateCampaign(id: string, jsonPatchOperation: Array<JsonPatchOperation>, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SlimCampaign>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.updateCampaign(id, jsonPatchOperation, axiosOptions);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
     }
 };
 
@@ -21052,6 +21112,17 @@ export const CertificationCampaignsApiFactory = function (configuration?: Config
          */
         startCampaign(id: string, activateCampaignOptions?: ActivateCampaignOptions, axiosOptions?: any): AxiosPromise<object> {
             return localVarFp.startCampaign(id, activateCampaignOptions, axiosOptions).then((request) => request(axios, basePath));
+        },
+        /**
+         * Allows updating individual fields on a campaign using the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.
+         * @summary Update a Campaign
+         * @param {string} id The ID of the campaign template being modified.
+         * @param {Array<JsonPatchOperation>} jsonPatchOperation A list of campaign update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard. The fields that can be patched differ based on the status of the campaign.  In the *STAGED* status, the following fields can be patched: * name * description * recommendationsEnabled * deadline * emailNotificationEnabled * autoRevokeAllowed  In the *ACTIVE* status, the following fields can be patched: * deadline 
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        updateCampaign(id: string, jsonPatchOperation: Array<JsonPatchOperation>, axiosOptions?: any): AxiosPromise<SlimCampaign> {
+            return localVarFp.updateCampaign(id, jsonPatchOperation, axiosOptions).then((request) => request(axios, basePath));
         },
     };
 };
@@ -21190,6 +21261,27 @@ export interface CertificationCampaignsApiStartCampaignRequest {
 }
 
 /**
+ * Request parameters for updateCampaign operation in CertificationCampaignsApi.
+ * @export
+ * @interface CertificationCampaignsApiUpdateCampaignRequest
+ */
+export interface CertificationCampaignsApiUpdateCampaignRequest {
+    /**
+     * The ID of the campaign template being modified.
+     * @type {string}
+     * @memberof CertificationCampaignsApiUpdateCampaign
+     */
+    readonly id: string
+
+    /**
+     * A list of campaign update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard. The fields that can be patched differ based on the status of the campaign.  In the *STAGED* status, the following fields can be patched: * name * description * recommendationsEnabled * deadline * emailNotificationEnabled * autoRevokeAllowed  In the *ACTIVE* status, the following fields can be patched: * deadline 
+     * @type {Array<JsonPatchOperation>}
+     * @memberof CertificationCampaignsApiUpdateCampaign
+     */
+    readonly jsonPatchOperation: Array<JsonPatchOperation>
+}
+
+/**
  * CertificationCampaignsApi - object-oriented interface
  * @export
  * @class CertificationCampaignsApi
@@ -21266,6 +21358,18 @@ export class CertificationCampaignsApi extends BaseAPI {
      */
     public startCampaign(requestParameters: CertificationCampaignsApiStartCampaignRequest, axiosOptions?: AxiosRequestConfig) {
         return CertificationCampaignsApiFp(this.configuration).startCampaign(requestParameters.id, requestParameters.activateCampaignOptions, axiosOptions).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Allows updating individual fields on a campaign using the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.
+     * @summary Update a Campaign
+     * @param {CertificationCampaignsApiUpdateCampaignRequest} requestParameters Request parameters.
+     * @param {*} [axiosOptions] Override http request option.
+     * @throws {RequiredError}
+     * @memberof CertificationCampaignsApi
+     */
+    public updateCampaign(requestParameters: CertificationCampaignsApiUpdateCampaignRequest, axiosOptions?: AxiosRequestConfig) {
+        return CertificationCampaignsApiFp(this.configuration).updateCampaign(requestParameters.id, requestParameters.jsonPatchOperation, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 }
 
