@@ -18796,6 +18796,55 @@ export type RoleMiningRoleTypeBeta = typeof RoleMiningRoleTypeBeta[keyof typeof 
 /**
  * 
  * @export
+ * @interface RoleMiningSessionDraftRoleDtoBeta
+ */
+export interface RoleMiningSessionDraftRoleDtoBeta {
+    /**
+     * Draft role description
+     * @type {string}
+     * @memberof RoleMiningSessionDraftRoleDtoBeta
+     */
+    'description'?: string;
+    /**
+     * The list of identities for this role mining session.
+     * @type {Array<string>}
+     * @memberof RoleMiningSessionDraftRoleDtoBeta
+     */
+    'identityIds'?: Array<string>;
+    /**
+     * The list of entitlement ids for this role mining session.
+     * @type {Array<string>}
+     * @memberof RoleMiningSessionDraftRoleDtoBeta
+     */
+    'entitlementIds'?: Array<string>;
+    /**
+     * The list of excluded entitlement ids.
+     * @type {Array<string>}
+     * @memberof RoleMiningSessionDraftRoleDtoBeta
+     */
+    'excludedEntitlements'?: Array<string>;
+    /**
+     * Last modified date
+     * @type {string}
+     * @memberof RoleMiningSessionDraftRoleDtoBeta
+     */
+    'modified'?: string;
+    /**
+     * Name of the draft role
+     * @type {string}
+     * @memberof RoleMiningSessionDraftRoleDtoBeta
+     */
+    'name'?: string;
+    /**
+     * 
+     * @type {RoleMiningRoleTypeBeta}
+     * @memberof RoleMiningSessionDraftRoleDtoBeta
+     */
+    'type'?: RoleMiningRoleTypeBeta;
+}
+/**
+ * 
+ * @export
  * @interface RoleMiningSessionDtoBeta
  */
 export interface RoleMiningSessionDtoBeta {
@@ -18920,6 +18969,18 @@ export interface RoleMiningSessionParametersDtoBeta {
      * @memberof RoleMiningSessionParametersDtoBeta
      */
     'type'?: RoleMiningRoleTypeBeta;
+    /**
+     * 
+     * @type {RoleMiningSessionStatusBeta}
+     * @memberof RoleMiningSessionParametersDtoBeta
+     */
+    'state'?: RoleMiningSessionStatusBeta;
+    /**
+     * 
+     * @type {RoleMiningSessionScopingMethodBeta}
+     * @memberof RoleMiningSessionParametersDtoBeta
+     */
+    'scopingMethod'?: RoleMiningSessionScopingMethodBeta;
 }
 /**
  * 
@@ -19018,6 +19079,19 @@ export interface RoleMiningSessionScopeBeta {
      * @memberof RoleMiningSessionScopeBeta
      */
     'attributeFilterCriteria'?: Array<object>;
+}
+/**
+ * 
+ * @export
+ * @interface RoleMiningSessionScopingMethodBeta
+ */
+export interface RoleMiningSessionScopingMethodBeta {
+    /**
+     * The scoping method used in the current role mining session. Can be one of these states - MANUAL|AUTO_RM
+     * @type {string}
+     * @memberof RoleMiningSessionScopingMethodBeta
+     */
+    'state'?: string;
 }
 /**
  * 
@@ -39351,6 +39425,73 @@ export const IAIRoleMiningBetaApiAxiosParamCreator = function (configuration?: C
             };
         },
         /**
+         * This method returns all saved potential roles (draft roles) for a role mining session.
+         * @summary Retrieves all draft roles
+         * @param {string} sessionId The role mining session id
+         * @param {string} [sorters] Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters/) Sorting is supported for the following fields: **modified**
+         * @param {string} [filters] Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters/) Filtering is supported for the following fields and operators: **description**: *sw, co* **name**: *eq, sw, co* **type**: *eq*
+         * @param {number} [offset] Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+         * @param {number} [limit] Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+         * @param {boolean} [count] If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        getSavedRoles: async (sessionId: string, sorters?: string, filters?: string, offset?: number, limit?: number, count?: boolean, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'sessionId' is not null or undefined
+            assertParamExists('getSavedRoles', 'sessionId', sessionId)
+            const localVarPath = `/role-mining-sessions/{sessionId}/potential-roles/draft-roles`
+                .replace(`{${"sessionId"}}`, encodeURIComponent(String(sessionId)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...axiosOptions};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication oauth2 required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "oauth2", [], configuration)
+
+            // authentication oauth2 required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "oauth2", [], configuration)
+
+            if (sorters !== undefined) {
+                localVarQueryParameter['sorters'] = sorters;
+            }
+
+            if (filters !== undefined) {
+                localVarQueryParameter['filters'] = filters;
+            }
+
+            if (offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+
+            if (limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+
+            if (count !== undefined) {
+                localVarQueryParameter['count'] = count;
+            }
+
+
+    
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                axiosOptions: localVarRequestOptions,
+            };
+        },
+        /**
          * The method updates an existing potential role using.  The following fields can be modified:  * `description`  * `name`  * `saved`   >**NOTE: All other fields cannot be modified.** 
          * @summary Update a potential role
          * @param {string} sessionId The role mining session id
@@ -39735,6 +39876,22 @@ export const IAIRoleMiningBetaApiFp = function(configuration?: Configuration) {
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
+         * This method returns all saved potential roles (draft roles) for a role mining session.
+         * @summary Retrieves all draft roles
+         * @param {string} sessionId The role mining session id
+         * @param {string} [sorters] Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters/) Sorting is supported for the following fields: **modified**
+         * @param {string} [filters] Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters/) Filtering is supported for the following fields and operators: **description**: *sw, co* **name**: *eq, sw, co* **type**: *eq*
+         * @param {number} [offset] Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+         * @param {number} [limit] Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+         * @param {boolean} [count] If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        async getSavedRoles(sessionId: string, sorters?: string, filters?: string, offset?: number, limit?: number, count?: boolean, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<RoleMiningSessionDraftRoleDtoBeta>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getSavedRoles(sessionId, sorters, filters, offset, limit, count, axiosOptions);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
          * The method updates an existing potential role using.  The following fields can be modified:  * `description`  * `name`  * `saved`   >**NOTE: All other fields cannot be modified.** 
          * @summary Update a potential role
          * @param {string} sessionId The role mining session id
@@ -39987,6 +40144,21 @@ export const IAIRoleMiningBetaApiFactory = function (configuration?: Configurati
          */
         getRoleMiningSessions(filters?: string, sorters?: string, offset?: number, limit?: number, count?: boolean, axiosOptions?: any): AxiosPromise<Array<RoleMiningSessionDtoBeta>> {
             return localVarFp.getRoleMiningSessions(filters, sorters, offset, limit, count, axiosOptions).then((request) => request(axios, basePath));
+        },
+        /**
+         * This method returns all saved potential roles (draft roles) for a role mining session.
+         * @summary Retrieves all draft roles
+         * @param {string} sessionId The role mining session id
+         * @param {string} [sorters] Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters/) Sorting is supported for the following fields: **modified**
+         * @param {string} [filters] Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters/) Filtering is supported for the following fields and operators: **description**: *sw, co* **name**: *eq, sw, co* **type**: *eq*
+         * @param {number} [offset] Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+         * @param {number} [limit] Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+         * @param {boolean} [count] If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        getSavedRoles(sessionId: string, sorters?: string, filters?: string, offset?: number, limit?: number, count?: boolean, axiosOptions?: any): AxiosPromise<Array<RoleMiningSessionDraftRoleDtoBeta>> {
+            return localVarFp.getSavedRoles(sessionId, sorters, filters, offset, limit, count, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * The method updates an existing potential role using.  The following fields can be modified:  * `description`  * `name`  * `saved`   >**NOTE: All other fields cannot be modified.** 
@@ -40573,6 +40745,55 @@ export interface IAIRoleMiningBetaApiGetRoleMiningSessionsRequest {
 }
 
 /**
+ * Request parameters for getSavedRoles operation in IAIRoleMiningBetaApi.
+ * @export
+ * @interface IAIRoleMiningBetaApiGetSavedRolesRequest
+ */
+export interface IAIRoleMiningBetaApiGetSavedRolesRequest {
+    /**
+     * The role mining session id
+     * @type {string}
+     * @memberof IAIRoleMiningBetaApiGetSavedRoles
+     */
+    readonly sessionId: string
+
+    /**
+     * Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters/) Sorting is supported for the following fields: **modified**
+     * @type {string}
+     * @memberof IAIRoleMiningBetaApiGetSavedRoles
+     */
+    readonly sorters?: string
+
+    /**
+     * Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters/) Filtering is supported for the following fields and operators: **description**: *sw, co* **name**: *eq, sw, co* **type**: *eq*
+     * @type {string}
+     * @memberof IAIRoleMiningBetaApiGetSavedRoles
+     */
+    readonly filters?: string
+
+    /**
+     * Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+     * @type {number}
+     * @memberof IAIRoleMiningBetaApiGetSavedRoles
+     */
+    readonly offset?: number
+
+    /**
+     * Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+     * @type {number}
+     * @memberof IAIRoleMiningBetaApiGetSavedRoles
+     */
+    readonly limit?: number
+
+    /**
+     * If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+     * @type {boolean}
+     * @memberof IAIRoleMiningBetaApiGetSavedRoles
+     */
+    readonly count?: boolean
+}
+
+/**
  * Request parameters for patchPotentialRole operation in IAIRoleMiningBetaApi.
  * @export
  * @interface IAIRoleMiningBetaApiPatchPotentialRoleRequest
@@ -40846,6 +41067,18 @@ export class IAIRoleMiningBetaApi extends BaseAPI {
      */
     public getRoleMiningSessions(requestParameters: IAIRoleMiningBetaApiGetRoleMiningSessionsRequest = {}, axiosOptions?: AxiosRequestConfig) {
         return IAIRoleMiningBetaApiFp(this.configuration).getRoleMiningSessions(requestParameters.filters, requestParameters.sorters, requestParameters.offset, requestParameters.limit, requestParameters.count, axiosOptions).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * This method returns all saved potential roles (draft roles) for a role mining session.
+     * @summary Retrieves all draft roles
+     * @param {IAIRoleMiningBetaApiGetSavedRolesRequest} requestParameters Request parameters.
+     * @param {*} [axiosOptions] Override http request option.
+     * @throws {RequiredError}
+     * @memberof IAIRoleMiningBetaApi
+     */
+    public getSavedRoles(requestParameters: IAIRoleMiningBetaApiGetSavedRolesRequest, axiosOptions?: AxiosRequestConfig) {
+        return IAIRoleMiningBetaApiFp(this.configuration).getSavedRoles(requestParameters.sessionId, requestParameters.sorters, requestParameters.filters, requestParameters.offset, requestParameters.limit, requestParameters.count, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
