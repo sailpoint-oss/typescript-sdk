@@ -16350,6 +16350,66 @@ export interface TaggedObjectDto {
     'name'?: string | null;
 }
 /**
+ * 
+ * @export
+ * @interface TaskResultSimplified
+ */
+export interface TaskResultSimplified {
+    /**
+     * Task identifier
+     * @type {string}
+     * @memberof TaskResultSimplified
+     */
+    'id'?: string;
+    /**
+     * Task name
+     * @type {string}
+     * @memberof TaskResultSimplified
+     */
+    'name'?: string;
+    /**
+     * Task description
+     * @type {string}
+     * @memberof TaskResultSimplified
+     */
+    'description'?: string;
+    /**
+     * User or process who launched the task
+     * @type {string}
+     * @memberof TaskResultSimplified
+     */
+    'launcher'?: string;
+    /**
+     * Date time of completion
+     * @type {string}
+     * @memberof TaskResultSimplified
+     */
+    'completed'?: string;
+    /**
+     * Date time when the task was launched
+     * @type {string}
+     * @memberof TaskResultSimplified
+     */
+    'launched'?: string;
+    /**
+     * Task result status
+     * @type {string}
+     * @memberof TaskResultSimplified
+     */
+    'completionStatus'?: TaskResultSimplifiedCompletionStatusEnum;
+}
+
+export const TaskResultSimplifiedCompletionStatusEnum = {
+    Success: 'Success',
+    Warning: 'Warning',
+    Error: 'Error',
+    Terminated: 'Terminated',
+    TempError: 'TempError'
+} as const;
+
+export type TaskResultSimplifiedCompletionStatusEnum = typeof TaskResultSimplifiedCompletionStatusEnum[keyof typeof TaskResultSimplifiedCompletionStatusEnum];
+
+/**
  * Query parameters used to construct an Elasticsearch text query object.
  * @export
  * @interface TextQuery
@@ -22740,6 +22800,92 @@ export class CertificationsApi extends BaseAPI {
 export const IdentityProfilesApiAxiosParamCreator = function (configuration?: Configuration) {
     return {
         /**
+         * This deletes an Identity Profile based on ID.  On success, this endpoint will return a reference to the bulk delete task result.  A token with ORG_ADMIN authority is required to call this API.  The following rights are required to access this endpoint: idn:identity-profile:delete
+         * @summary Delete an Identity Profile
+         * @param {string} identityProfileId The Identity Profile ID.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        deleteIdentityProfile: async (identityProfileId: string, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'identityProfileId' is not null or undefined
+            assertParamExists('deleteIdentityProfile', 'identityProfileId', identityProfileId)
+            const localVarPath = `/identity-profiles/{identity-profile-id}`
+                .replace(`{${"identity-profile-id"}}`, encodeURIComponent(String(identityProfileId)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'DELETE', ...baseOptions, ...axiosOptions};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication oauth2 required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "oauth2", [], configuration)
+
+            // authentication oauth2 required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "oauth2", [], configuration)
+
+
+    
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                axiosOptions: localVarRequestOptions,
+            };
+        },
+        /**
+         * This deletes multiple Identity Profiles via a list of supplied IDs.  On success, this endpoint will return a reference to the bulk delete task result.  A token with ORG_ADMIN authority is required to call this API.  The following rights are required to access this endpoint: idn:identity-profile:delete
+         * @summary Delete Identity Profiles
+         * @param {Array<string>} requestBody Identity Profile bulk delete request body.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        deleteIdentityProfiles: async (requestBody: Array<string>, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'requestBody' is not null or undefined
+            assertParamExists('deleteIdentityProfiles', 'requestBody', requestBody)
+            const localVarPath = `/identity-profiles/bulk-delete`;
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'POST', ...baseOptions, ...axiosOptions};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication oauth2 required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "oauth2", [], configuration)
+
+            // authentication oauth2 required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "oauth2", [], configuration)
+
+
+    
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
+            localVarRequestOptions.data = serializeDataIfNeeded(requestBody, localVarRequestOptions, configuration)
+
+            return {
+                url: toPathString(localVarUrlObj),
+                axiosOptions: localVarRequestOptions,
+            };
+        },
+        /**
          * This exports existing identity profiles in the format specified by the sp-config service.
          * @summary Export Identity Profiles
          * @param {number} [limit] Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
@@ -23046,6 +23192,28 @@ export const IdentityProfilesApiFp = function(configuration?: Configuration) {
     const localVarAxiosParamCreator = IdentityProfilesApiAxiosParamCreator(configuration)
     return {
         /**
+         * This deletes an Identity Profile based on ID.  On success, this endpoint will return a reference to the bulk delete task result.  A token with ORG_ADMIN authority is required to call this API.  The following rights are required to access this endpoint: idn:identity-profile:delete
+         * @summary Delete an Identity Profile
+         * @param {string} identityProfileId The Identity Profile ID.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        async deleteIdentityProfile(identityProfileId: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<TaskResultSimplified>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.deleteIdentityProfile(identityProfileId, axiosOptions);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * This deletes multiple Identity Profiles via a list of supplied IDs.  On success, this endpoint will return a reference to the bulk delete task result.  A token with ORG_ADMIN authority is required to call this API.  The following rights are required to access this endpoint: idn:identity-profile:delete
+         * @summary Delete Identity Profiles
+         * @param {Array<string>} requestBody Identity Profile bulk delete request body.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        async deleteIdentityProfiles(requestBody: Array<string>, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<TaskResultSimplified>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.deleteIdentityProfiles(requestBody, axiosOptions);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
          * This exports existing identity profiles in the format specified by the sp-config service.
          * @summary Export Identity Profiles
          * @param {number} [limit] Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
@@ -23130,6 +23298,26 @@ export const IdentityProfilesApiFactory = function (configuration?: Configuratio
     const localVarFp = IdentityProfilesApiFp(configuration)
     return {
         /**
+         * This deletes an Identity Profile based on ID.  On success, this endpoint will return a reference to the bulk delete task result.  A token with ORG_ADMIN authority is required to call this API.  The following rights are required to access this endpoint: idn:identity-profile:delete
+         * @summary Delete an Identity Profile
+         * @param {string} identityProfileId The Identity Profile ID.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        deleteIdentityProfile(identityProfileId: string, axiosOptions?: any): AxiosPromise<TaskResultSimplified> {
+            return localVarFp.deleteIdentityProfile(identityProfileId, axiosOptions).then((request) => request(axios, basePath));
+        },
+        /**
+         * This deletes multiple Identity Profiles via a list of supplied IDs.  On success, this endpoint will return a reference to the bulk delete task result.  A token with ORG_ADMIN authority is required to call this API.  The following rights are required to access this endpoint: idn:identity-profile:delete
+         * @summary Delete Identity Profiles
+         * @param {Array<string>} requestBody Identity Profile bulk delete request body.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        deleteIdentityProfiles(requestBody: Array<string>, axiosOptions?: any): AxiosPromise<TaskResultSimplified> {
+            return localVarFp.deleteIdentityProfiles(requestBody, axiosOptions).then((request) => request(axios, basePath));
+        },
+        /**
          * This exports existing identity profiles in the format specified by the sp-config service.
          * @summary Export Identity Profiles
          * @param {number} [limit] Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
@@ -23199,6 +23387,34 @@ export const IdentityProfilesApiFactory = function (configuration?: Configuratio
         },
     };
 };
+
+/**
+ * Request parameters for deleteIdentityProfile operation in IdentityProfilesApi.
+ * @export
+ * @interface IdentityProfilesApiDeleteIdentityProfileRequest
+ */
+export interface IdentityProfilesApiDeleteIdentityProfileRequest {
+    /**
+     * The Identity Profile ID.
+     * @type {string}
+     * @memberof IdentityProfilesApiDeleteIdentityProfile
+     */
+    readonly identityProfileId: string
+}
+
+/**
+ * Request parameters for deleteIdentityProfiles operation in IdentityProfilesApi.
+ * @export
+ * @interface IdentityProfilesApiDeleteIdentityProfilesRequest
+ */
+export interface IdentityProfilesApiDeleteIdentityProfilesRequest {
+    /**
+     * Identity Profile bulk delete request body.
+     * @type {Array<string>}
+     * @memberof IdentityProfilesApiDeleteIdentityProfiles
+     */
+    readonly requestBody: Array<string>
+}
 
 /**
  * Request parameters for exportIdentityProfiles operation in IdentityProfilesApi.
@@ -23347,6 +23563,30 @@ export interface IdentityProfilesApiSyncIdentityProfileRequest {
  * @extends {BaseAPI}
  */
 export class IdentityProfilesApi extends BaseAPI {
+    /**
+     * This deletes an Identity Profile based on ID.  On success, this endpoint will return a reference to the bulk delete task result.  A token with ORG_ADMIN authority is required to call this API.  The following rights are required to access this endpoint: idn:identity-profile:delete
+     * @summary Delete an Identity Profile
+     * @param {IdentityProfilesApiDeleteIdentityProfileRequest} requestParameters Request parameters.
+     * @param {*} [axiosOptions] Override http request option.
+     * @throws {RequiredError}
+     * @memberof IdentityProfilesApi
+     */
+    public deleteIdentityProfile(requestParameters: IdentityProfilesApiDeleteIdentityProfileRequest, axiosOptions?: AxiosRequestConfig) {
+        return IdentityProfilesApiFp(this.configuration).deleteIdentityProfile(requestParameters.identityProfileId, axiosOptions).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * This deletes multiple Identity Profiles via a list of supplied IDs.  On success, this endpoint will return a reference to the bulk delete task result.  A token with ORG_ADMIN authority is required to call this API.  The following rights are required to access this endpoint: idn:identity-profile:delete
+     * @summary Delete Identity Profiles
+     * @param {IdentityProfilesApiDeleteIdentityProfilesRequest} requestParameters Request parameters.
+     * @param {*} [axiosOptions] Override http request option.
+     * @throws {RequiredError}
+     * @memberof IdentityProfilesApi
+     */
+    public deleteIdentityProfiles(requestParameters: IdentityProfilesApiDeleteIdentityProfilesRequest, axiosOptions?: AxiosRequestConfig) {
+        return IdentityProfilesApiFp(this.configuration).deleteIdentityProfiles(requestParameters.requestBody, axiosOptions).then((request) => request(this.axios, this.basePath));
+    }
+
     /**
      * This exports existing identity profiles in the format specified by the sp-config service.
      * @summary Export Identity Profiles

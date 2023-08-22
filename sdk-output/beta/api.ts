@@ -22269,6 +22269,66 @@ export interface TaggedObjectBeta {
 /**
  * 
  * @export
+ * @interface TaskResultSimplifiedBeta
+ */
+export interface TaskResultSimplifiedBeta {
+    /**
+     * Task identifier
+     * @type {string}
+     * @memberof TaskResultSimplifiedBeta
+     */
+    'id'?: string;
+    /**
+     * Task name
+     * @type {string}
+     * @memberof TaskResultSimplifiedBeta
+     */
+    'name'?: string;
+    /**
+     * Task description
+     * @type {string}
+     * @memberof TaskResultSimplifiedBeta
+     */
+    'description'?: string;
+    /**
+     * User or process who launched the task
+     * @type {string}
+     * @memberof TaskResultSimplifiedBeta
+     */
+    'launcher'?: string;
+    /**
+     * Date time of completion
+     * @type {string}
+     * @memberof TaskResultSimplifiedBeta
+     */
+    'completed'?: string;
+    /**
+     * Date time when the task was launched
+     * @type {string}
+     * @memberof TaskResultSimplifiedBeta
+     */
+    'launched'?: string;
+    /**
+     * Task result status
+     * @type {string}
+     * @memberof TaskResultSimplifiedBeta
+     */
+    'completionStatus'?: TaskResultSimplifiedBetaCompletionStatusEnum;
+}
+
+export const TaskResultSimplifiedBetaCompletionStatusEnum = {
+    Success: 'Success',
+    Warning: 'Warning',
+    Error: 'Error',
+    Terminated: 'Terminated',
+    TempError: 'TempError'
+} as const;
+
+export type TaskResultSimplifiedBetaCompletionStatusEnum = typeof TaskResultSimplifiedBetaCompletionStatusEnum[keyof typeof TaskResultSimplifiedBetaCompletionStatusEnum];
+
+/**
+ * 
+ * @export
  * @interface TemplateBulkDeleteDtoBeta
  */
 export interface TemplateBulkDeleteDtoBeta {
@@ -42980,7 +43040,7 @@ export const IdentityProfilesBetaApiAxiosParamCreator = function (configuration?
             };
         },
         /**
-         * This deletes an Identity Profile based on ID. A token with ORG_ADMIN authority is required to call this API to delete an Identity Profile.
+         * This deletes an Identity Profile based on ID.  On success, this endpoint will return a reference to the bulk delete task result.  A token with ORG_ADMIN authority is required to call this API.  The following rights are required to access this endpoint: idn:identity-profile:delete
          * @summary Delete an Identity Profile
          * @param {string} identityProfileId The Identity Profile ID.
          * @param {*} [axiosOptions] Override http request option.
@@ -43022,7 +43082,7 @@ export const IdentityProfilesBetaApiAxiosParamCreator = function (configuration?
             };
         },
         /**
-         * This deletes multiple Identity Profiles via a list of supplied IDs. On success, this endpoint will return a reference to the bulk delete task result. A token with ORG_ADMIN authority is required to call this API to delete a list of Identity Profiles.
+         * This deletes multiple Identity Profiles via a list of supplied IDs.  On success, this endpoint will return a reference to the bulk delete task result.  A token with ORG_ADMIN authority is required to call this API.  The following rights are required to access this endpoint: idn:identity-profile:delete
          * @summary Delete Identity Profiles
          * @param {Array<string>} requestBody Identity Profile bulk delete request body.
          * @param {*} [axiosOptions] Override http request option.
@@ -43475,24 +43535,24 @@ export const IdentityProfilesBetaApiFp = function(configuration?: Configuration)
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
-         * This deletes an Identity Profile based on ID. A token with ORG_ADMIN authority is required to call this API to delete an Identity Profile.
+         * This deletes an Identity Profile based on ID.  On success, this endpoint will return a reference to the bulk delete task result.  A token with ORG_ADMIN authority is required to call this API.  The following rights are required to access this endpoint: idn:identity-profile:delete
          * @summary Delete an Identity Profile
          * @param {string} identityProfileId The Identity Profile ID.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async deleteIdentityProfile(identityProfileId: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<BaseReferenceDtoBeta>> {
+        async deleteIdentityProfile(identityProfileId: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<TaskResultSimplifiedBeta>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.deleteIdentityProfile(identityProfileId, axiosOptions);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
-         * This deletes multiple Identity Profiles via a list of supplied IDs. On success, this endpoint will return a reference to the bulk delete task result. A token with ORG_ADMIN authority is required to call this API to delete a list of Identity Profiles.
+         * This deletes multiple Identity Profiles via a list of supplied IDs.  On success, this endpoint will return a reference to the bulk delete task result.  A token with ORG_ADMIN authority is required to call this API.  The following rights are required to access this endpoint: idn:identity-profile:delete
          * @summary Delete Identity Profiles
          * @param {Array<string>} requestBody Identity Profile bulk delete request body.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async deleteIdentityProfiles(requestBody: Array<string>, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<BaseReferenceDto1Beta>> {
+        async deleteIdentityProfiles(requestBody: Array<string>, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<TaskResultSimplifiedBeta>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.deleteIdentityProfiles(requestBody, axiosOptions);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -43614,23 +43674,23 @@ export const IdentityProfilesBetaApiFactory = function (configuration?: Configur
             return localVarFp.createIdentityProfile(identityProfileBeta, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
-         * This deletes an Identity Profile based on ID. A token with ORG_ADMIN authority is required to call this API to delete an Identity Profile.
+         * This deletes an Identity Profile based on ID.  On success, this endpoint will return a reference to the bulk delete task result.  A token with ORG_ADMIN authority is required to call this API.  The following rights are required to access this endpoint: idn:identity-profile:delete
          * @summary Delete an Identity Profile
          * @param {string} identityProfileId The Identity Profile ID.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        deleteIdentityProfile(identityProfileId: string, axiosOptions?: any): AxiosPromise<BaseReferenceDtoBeta> {
+        deleteIdentityProfile(identityProfileId: string, axiosOptions?: any): AxiosPromise<TaskResultSimplifiedBeta> {
             return localVarFp.deleteIdentityProfile(identityProfileId, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
-         * This deletes multiple Identity Profiles via a list of supplied IDs. On success, this endpoint will return a reference to the bulk delete task result. A token with ORG_ADMIN authority is required to call this API to delete a list of Identity Profiles.
+         * This deletes multiple Identity Profiles via a list of supplied IDs.  On success, this endpoint will return a reference to the bulk delete task result.  A token with ORG_ADMIN authority is required to call this API.  The following rights are required to access this endpoint: idn:identity-profile:delete
          * @summary Delete Identity Profiles
          * @param {Array<string>} requestBody Identity Profile bulk delete request body.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        deleteIdentityProfiles(requestBody: Array<string>, axiosOptions?: any): AxiosPromise<BaseReferenceDto1Beta> {
+        deleteIdentityProfiles(requestBody: Array<string>, axiosOptions?: any): AxiosPromise<TaskResultSimplifiedBeta> {
             return localVarFp.deleteIdentityProfiles(requestBody, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
@@ -43962,7 +44022,7 @@ export class IdentityProfilesBetaApi extends BaseAPI {
     }
 
     /**
-     * This deletes an Identity Profile based on ID. A token with ORG_ADMIN authority is required to call this API to delete an Identity Profile.
+     * This deletes an Identity Profile based on ID.  On success, this endpoint will return a reference to the bulk delete task result.  A token with ORG_ADMIN authority is required to call this API.  The following rights are required to access this endpoint: idn:identity-profile:delete
      * @summary Delete an Identity Profile
      * @param {IdentityProfilesBetaApiDeleteIdentityProfileRequest} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
@@ -43974,7 +44034,7 @@ export class IdentityProfilesBetaApi extends BaseAPI {
     }
 
     /**
-     * This deletes multiple Identity Profiles via a list of supplied IDs. On success, this endpoint will return a reference to the bulk delete task result. A token with ORG_ADMIN authority is required to call this API to delete a list of Identity Profiles.
+     * This deletes multiple Identity Profiles via a list of supplied IDs.  On success, this endpoint will return a reference to the bulk delete task result.  A token with ORG_ADMIN authority is required to call this API.  The following rights are required to access this endpoint: idn:identity-profile:delete
      * @summary Delete Identity Profiles
      * @param {IdentityProfilesBetaApiDeleteIdentityProfilesRequest} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
