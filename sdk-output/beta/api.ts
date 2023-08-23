@@ -15090,7 +15090,21 @@ export interface OutlierFeatureSummaryOutlierFeatureDisplayValuesInnerBeta {
      * @memberof OutlierFeatureSummaryOutlierFeatureDisplayValuesInnerBeta
      */
     'value'?: string;
+    /**
+     * The data type of the value field
+     * @type {string}
+     * @memberof OutlierFeatureSummaryOutlierFeatureDisplayValuesInnerBeta
+     */
+    'valueType'?: OutlierFeatureSummaryOutlierFeatureDisplayValuesInnerBetaValueTypeEnum;
 }
+
+export const OutlierFeatureSummaryOutlierFeatureDisplayValuesInnerBetaValueTypeEnum = {
+    Integer: 'INTEGER',
+    Float: 'FLOAT'
+} as const;
+
+export type OutlierFeatureSummaryOutlierFeatureDisplayValuesInnerBetaValueTypeEnum = typeof OutlierFeatureSummaryOutlierFeatureDisplayValuesInnerBetaValueTypeEnum[keyof typeof OutlierFeatureSummaryOutlierFeatureDisplayValuesInnerBetaValueTypeEnum];
+
 /**
  * 
  * @export
