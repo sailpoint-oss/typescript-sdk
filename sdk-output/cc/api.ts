@@ -1247,13 +1247,13 @@ export const AccountsCCApiAxiosParamCreator = function (configuration?: Configur
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
 
-            // authentication oauth2 required
+            // authentication UserContextAuth required
             // oauth required
-            await setOAuthToObject(localVarHeaderParameter, "oauth2", [], configuration)
+            await setOAuthToObject(localVarHeaderParameter, "UserContextAuth", [], configuration)
 
-            // authentication oauth2 required
+            // authentication UserContextAuth required
             // oauth required
-            await setOAuthToObject(localVarHeaderParameter, "oauth2", [], configuration)
+            await setOAuthToObject(localVarHeaderParameter, "UserContextAuth", [], configuration)
 
 
     
@@ -1289,13 +1289,13 @@ export const AccountsCCApiAxiosParamCreator = function (configuration?: Configur
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
 
-            // authentication oauth2 required
+            // authentication UserContextAuth required
             // oauth required
-            await setOAuthToObject(localVarHeaderParameter, "oauth2", [], configuration)
+            await setOAuthToObject(localVarHeaderParameter, "UserContextAuth", [], configuration)
 
-            // authentication oauth2 required
+            // authentication UserContextAuth required
             // oauth required
-            await setOAuthToObject(localVarHeaderParameter, "oauth2", [], configuration)
+            await setOAuthToObject(localVarHeaderParameter, "UserContextAuth", [], configuration)
 
 
     
@@ -1443,13 +1443,13 @@ export const ApplicationsCCApiAxiosParamCreator = function (configuration?: Conf
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
 
-            // authentication oauth2 required
+            // authentication UserContextAuth required
             // oauth required
-            await setOAuthToObject(localVarHeaderParameter, "oauth2", [], configuration)
+            await setOAuthToObject(localVarHeaderParameter, "UserContextAuth", [], configuration)
 
-            // authentication oauth2 required
+            // authentication UserContextAuth required
             // oauth required
-            await setOAuthToObject(localVarHeaderParameter, "oauth2", [], configuration)
+            await setOAuthToObject(localVarHeaderParameter, "UserContextAuth", [], configuration)
 
 
     
@@ -1488,13 +1488,13 @@ export const ApplicationsCCApiAxiosParamCreator = function (configuration?: Conf
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
 
-            // authentication oauth2 required
+            // authentication UserContextAuth required
             // oauth required
-            await setOAuthToObject(localVarHeaderParameter, "oauth2", [], configuration)
+            await setOAuthToObject(localVarHeaderParameter, "UserContextAuth", [], configuration)
 
-            // authentication oauth2 required
+            // authentication UserContextAuth required
             // oauth required
-            await setOAuthToObject(localVarHeaderParameter, "oauth2", [], configuration)
+            await setOAuthToObject(localVarHeaderParameter, "UserContextAuth", [], configuration)
 
 
     
@@ -1530,13 +1530,13 @@ export const ApplicationsCCApiAxiosParamCreator = function (configuration?: Conf
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
 
-            // authentication oauth2 required
+            // authentication UserContextAuth required
             // oauth required
-            await setOAuthToObject(localVarHeaderParameter, "oauth2", [], configuration)
+            await setOAuthToObject(localVarHeaderParameter, "UserContextAuth", [], configuration)
 
-            // authentication oauth2 required
+            // authentication UserContextAuth required
             // oauth required
-            await setOAuthToObject(localVarHeaderParameter, "oauth2", [], configuration)
+            await setOAuthToObject(localVarHeaderParameter, "UserContextAuth", [], configuration)
 
 
     
@@ -1602,13 +1602,13 @@ export const ApplicationsCCApiAxiosParamCreator = function (configuration?: Conf
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
 
-            // authentication oauth2 required
+            // authentication UserContextAuth required
             // oauth required
-            await setOAuthToObject(localVarHeaderParameter, "oauth2", [], configuration)
+            await setOAuthToObject(localVarHeaderParameter, "UserContextAuth", [], configuration)
 
-            // authentication oauth2 required
+            // authentication UserContextAuth required
             // oauth required
-            await setOAuthToObject(localVarHeaderParameter, "oauth2", [], configuration)
+            await setOAuthToObject(localVarHeaderParameter, "UserContextAuth", [], configuration)
 
 
     
@@ -1645,13 +1645,13 @@ export const ApplicationsCCApiAxiosParamCreator = function (configuration?: Conf
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
 
-            // authentication oauth2 required
+            // authentication UserContextAuth required
             // oauth required
-            await setOAuthToObject(localVarHeaderParameter, "oauth2", [], configuration)
+            await setOAuthToObject(localVarHeaderParameter, "UserContextAuth", [], configuration)
 
-            // authentication oauth2 required
+            // authentication UserContextAuth required
             // oauth required
-            await setOAuthToObject(localVarHeaderParameter, "oauth2", [], configuration)
+            await setOAuthToObject(localVarHeaderParameter, "UserContextAuth", [], configuration)
 
 
     
@@ -2005,13 +2005,13 @@ export const ConnectorsCCApiAxiosParamCreator = function (configuration?: Config
             const localVarQueryParameter = {} as any;
             const localVarFormParams = new URLSearchParams();
 
-            // authentication oauth2 required
+            // authentication UserContextAuth required
             // oauth required
-            await setOAuthToObject(localVarHeaderParameter, "oauth2", [], configuration)
+            await setOAuthToObject(localVarHeaderParameter, "UserContextAuth", [], configuration)
 
-            // authentication oauth2 required
+            // authentication UserContextAuth required
             // oauth required
-            await setOAuthToObject(localVarHeaderParameter, "oauth2", [], configuration)
+            await setOAuthToObject(localVarHeaderParameter, "UserContextAuth", [], configuration)
 
             if (contentType !== undefined && contentType !== null) {
                 localVarHeaderParameter['Content-Type'] = String(contentType);
@@ -2074,13 +2074,13 @@ export const ConnectorsCCApiAxiosParamCreator = function (configuration?: Config
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
 
-            // authentication oauth2 required
+            // authentication UserContextAuth required
             // oauth required
-            await setOAuthToObject(localVarHeaderParameter, "oauth2", [], configuration)
+            await setOAuthToObject(localVarHeaderParameter, "UserContextAuth", [], configuration)
 
-            // authentication oauth2 required
+            // authentication UserContextAuth required
             // oauth required
-            await setOAuthToObject(localVarHeaderParameter, "oauth2", [], configuration)
+            await setOAuthToObject(localVarHeaderParameter, "UserContextAuth", [], configuration)
 
 
     
@@ -2116,13 +2116,13 @@ export const ConnectorsCCApiAxiosParamCreator = function (configuration?: Config
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
 
-            // authentication oauth2 required
+            // authentication UserContextAuth required
             // oauth required
-            await setOAuthToObject(localVarHeaderParameter, "oauth2", [], configuration)
+            await setOAuthToObject(localVarHeaderParameter, "UserContextAuth", [], configuration)
 
-            // authentication oauth2 required
+            // authentication UserContextAuth required
             // oauth required
-            await setOAuthToObject(localVarHeaderParameter, "oauth2", [], configuration)
+            await setOAuthToObject(localVarHeaderParameter, "UserContextAuth", [], configuration)
 
 
     
@@ -2160,13 +2160,13 @@ export const ConnectorsCCApiAxiosParamCreator = function (configuration?: Config
             const localVarQueryParameter = {} as any;
             const localVarFormParams = new ((configuration && configuration.formDataCtor) || FormData)();
 
-            // authentication oauth2 required
+            // authentication UserContextAuth required
             // oauth required
-            await setOAuthToObject(localVarHeaderParameter, "oauth2", [], configuration)
+            await setOAuthToObject(localVarHeaderParameter, "UserContextAuth", [], configuration)
 
-            // authentication oauth2 required
+            // authentication UserContextAuth required
             // oauth required
-            await setOAuthToObject(localVarHeaderParameter, "oauth2", [], configuration)
+            await setOAuthToObject(localVarHeaderParameter, "UserContextAuth", [], configuration)
 
 
             if (file !== undefined) { 
@@ -2205,13 +2205,13 @@ export const ConnectorsCCApiAxiosParamCreator = function (configuration?: Config
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
 
-            // authentication oauth2 required
+            // authentication UserContextAuth required
             // oauth required
-            await setOAuthToObject(localVarHeaderParameter, "oauth2", [], configuration)
+            await setOAuthToObject(localVarHeaderParameter, "UserContextAuth", [], configuration)
 
-            // authentication oauth2 required
+            // authentication UserContextAuth required
             // oauth required
-            await setOAuthToObject(localVarHeaderParameter, "oauth2", [], configuration)
+            await setOAuthToObject(localVarHeaderParameter, "UserContextAuth", [], configuration)
 
 
     
@@ -2557,13 +2557,13 @@ export const SourcesAccountsCCApiAxiosParamCreator = function (configuration?: C
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
 
-            // authentication oauth2 required
+            // authentication UserContextAuth required
             // oauth required
-            await setOAuthToObject(localVarHeaderParameter, "oauth2", [], configuration)
+            await setOAuthToObject(localVarHeaderParameter, "UserContextAuth", [], configuration)
 
-            // authentication oauth2 required
+            // authentication UserContextAuth required
             // oauth required
-            await setOAuthToObject(localVarHeaderParameter, "oauth2", [], configuration)
+            await setOAuthToObject(localVarHeaderParameter, "UserContextAuth", [], configuration)
 
 
     
@@ -2688,13 +2688,13 @@ export const SourcesAggregationCCApiAxiosParamCreator = function (configuration?
             const localVarQueryParameter = {} as any;
             const localVarFormParams = new ((configuration && configuration.formDataCtor) || FormData)();
 
-            // authentication oauth2 required
+            // authentication UserContextAuth required
             // oauth required
-            await setOAuthToObject(localVarHeaderParameter, "oauth2", [], configuration)
+            await setOAuthToObject(localVarHeaderParameter, "UserContextAuth", [], configuration)
 
-            // authentication oauth2 required
+            // authentication UserContextAuth required
             // oauth required
-            await setOAuthToObject(localVarHeaderParameter, "oauth2", [], configuration)
+            await setOAuthToObject(localVarHeaderParameter, "UserContextAuth", [], configuration)
 
             if (contentType !== undefined && contentType !== null) {
                 localVarHeaderParameter['Content-Type'] = String(contentType);
@@ -2855,13 +2855,13 @@ export const SystemCCApiAxiosParamCreator = function (configuration?: Configurat
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
 
-            // authentication oauth2 required
+            // authentication UserContextAuth required
             // oauth required
-            await setOAuthToObject(localVarHeaderParameter, "oauth2", [], configuration)
+            await setOAuthToObject(localVarHeaderParameter, "UserContextAuth", [], configuration)
 
-            // authentication oauth2 required
+            // authentication UserContextAuth required
             // oauth required
-            await setOAuthToObject(localVarHeaderParameter, "oauth2", [], configuration)
+            await setOAuthToObject(localVarHeaderParameter, "UserContextAuth", [], configuration)
 
             if (contentType !== undefined && contentType !== null) {
                 localVarHeaderParameter['Content-Type'] = String(contentType);
@@ -2998,13 +2998,13 @@ export const UserCCApiAxiosParamCreator = function (configuration?: Configuratio
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
 
-            // authentication oauth2 required
+            // authentication UserContextAuth required
             // oauth required
-            await setOAuthToObject(localVarHeaderParameter, "oauth2", [], configuration)
+            await setOAuthToObject(localVarHeaderParameter, "UserContextAuth", [], configuration)
 
-            // authentication oauth2 required
+            // authentication UserContextAuth required
             // oauth required
-            await setOAuthToObject(localVarHeaderParameter, "oauth2", [], configuration)
+            await setOAuthToObject(localVarHeaderParameter, "UserContextAuth", [], configuration)
 
 
     
@@ -3037,13 +3037,13 @@ export const UserCCApiAxiosParamCreator = function (configuration?: Configuratio
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
 
-            // authentication oauth2 required
+            // authentication UserContextAuth required
             // oauth required
-            await setOAuthToObject(localVarHeaderParameter, "oauth2", [], configuration)
+            await setOAuthToObject(localVarHeaderParameter, "UserContextAuth", [], configuration)
 
-            // authentication oauth2 required
+            // authentication UserContextAuth required
             // oauth required
-            await setOAuthToObject(localVarHeaderParameter, "oauth2", [], configuration)
+            await setOAuthToObject(localVarHeaderParameter, "UserContextAuth", [], configuration)
 
 
     
