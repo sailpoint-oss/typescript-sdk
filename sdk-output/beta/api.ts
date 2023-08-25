@@ -58345,7 +58345,7 @@ export class SearchAttributeConfigurationBetaApi extends BaseAPI {
 export const SegmentsBetaApiAxiosParamCreator = function (configuration?: Configuration) {
     return {
         /**
-         * This API creates a segment.  Note that segment definitions may take time to propagate to all identities.  A token with ORG_ADMIN or API authority is required to call this API.
+         * This API creates a segment.  >**Note:** Segment definitions may take time to propagate to all identities. A token with ORG_ADMIN or API authority is required to call this API.
          * @summary Create Segment
          * @param {SegmentBeta} segmentBeta 
          * @param {*} [axiosOptions] Override http request option.
@@ -58389,9 +58389,9 @@ export const SegmentsBetaApiAxiosParamCreator = function (configuration?: Config
             };
         },
         /**
-         * This API deletes the segment specified by the given ID.  Note that segment deletion may take some time to become effective.  A token with ORG_ADMIN or API authority is required to call this API.
+         * This API deletes the segment specified by the given ID. >**Note:** Segment deletion may take some time to go into effect.  A token with ORG_ADMIN or API authority is required to call this API.
          * @summary Delete Segment by ID
-         * @param {string} id The ID of the Segment to delete.
+         * @param {string} id The segment ID to delete.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
@@ -58431,9 +58431,9 @@ export const SegmentsBetaApiAxiosParamCreator = function (configuration?: Config
             };
         },
         /**
-         * This API returns the segment specified by the given ID.  A token with ORG_ADMIN or API authority is required to call this API.
-         * @summary Get a Segment by its ID
-         * @param {string} id The ID of the Segment to retrieve.
+         * This API returns the segment specified by the given ID. A token with ORG_ADMIN or API authority is required to call this API.
+         * @summary Get Segment by ID
+         * @param {string} id The segment ID to retrieve.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
@@ -58526,10 +58526,10 @@ export const SegmentsBetaApiAxiosParamCreator = function (configuration?: Config
             };
         },
         /**
-         * Allows updating Segment fields using the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.  Note that changes to a segment may take some time to propagate to all identities, and that segments will have no effect if segmentation is not enabled for your org.  A token with ORG_ADMIN or API authority is required to call this API.
-         * @summary Update a Segment
-         * @param {string} id The ID of the Segment being modified.
-         * @param {Array<object>} requestBody A list of Segment update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.   The following fields are patchable: * name * description * owner * visibilityCriteria * active 
+         * Use this API to update segment fields by using the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard. >**Note:** Changes to a segment may take some time to propagate to all identities. A token with ORG_ADMIN or API authority is required to call this API.
+         * @summary Update Segment
+         * @param {string} id The segment ID to modify.
+         * @param {Array<object>} requestBody A list of segment update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.  The following fields are patchable: * name * description * owner * visibilityCriteria * active 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
@@ -58584,7 +58584,7 @@ export const SegmentsBetaApiFp = function(configuration?: Configuration) {
     const localVarAxiosParamCreator = SegmentsBetaApiAxiosParamCreator(configuration)
     return {
         /**
-         * This API creates a segment.  Note that segment definitions may take time to propagate to all identities.  A token with ORG_ADMIN or API authority is required to call this API.
+         * This API creates a segment.  >**Note:** Segment definitions may take time to propagate to all identities. A token with ORG_ADMIN or API authority is required to call this API.
          * @summary Create Segment
          * @param {SegmentBeta} segmentBeta 
          * @param {*} [axiosOptions] Override http request option.
@@ -58595,9 +58595,9 @@ export const SegmentsBetaApiFp = function(configuration?: Configuration) {
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
-         * This API deletes the segment specified by the given ID.  Note that segment deletion may take some time to become effective.  A token with ORG_ADMIN or API authority is required to call this API.
+         * This API deletes the segment specified by the given ID. >**Note:** Segment deletion may take some time to go into effect.  A token with ORG_ADMIN or API authority is required to call this API.
          * @summary Delete Segment by ID
-         * @param {string} id The ID of the Segment to delete.
+         * @param {string} id The segment ID to delete.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
@@ -58606,9 +58606,9 @@ export const SegmentsBetaApiFp = function(configuration?: Configuration) {
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
-         * This API returns the segment specified by the given ID.  A token with ORG_ADMIN or API authority is required to call this API.
-         * @summary Get a Segment by its ID
-         * @param {string} id The ID of the Segment to retrieve.
+         * This API returns the segment specified by the given ID. A token with ORG_ADMIN or API authority is required to call this API.
+         * @summary Get Segment by ID
+         * @param {string} id The segment ID to retrieve.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
@@ -58630,10 +58630,10 @@ export const SegmentsBetaApiFp = function(configuration?: Configuration) {
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
-         * Allows updating Segment fields using the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.  Note that changes to a segment may take some time to propagate to all identities, and that segments will have no effect if segmentation is not enabled for your org.  A token with ORG_ADMIN or API authority is required to call this API.
-         * @summary Update a Segment
-         * @param {string} id The ID of the Segment being modified.
-         * @param {Array<object>} requestBody A list of Segment update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.   The following fields are patchable: * name * description * owner * visibilityCriteria * active 
+         * Use this API to update segment fields by using the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard. >**Note:** Changes to a segment may take some time to propagate to all identities. A token with ORG_ADMIN or API authority is required to call this API.
+         * @summary Update Segment
+         * @param {string} id The segment ID to modify.
+         * @param {Array<object>} requestBody A list of segment update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.  The following fields are patchable: * name * description * owner * visibilityCriteria * active 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
@@ -58652,7 +58652,7 @@ export const SegmentsBetaApiFactory = function (configuration?: Configuration, b
     const localVarFp = SegmentsBetaApiFp(configuration)
     return {
         /**
-         * This API creates a segment.  Note that segment definitions may take time to propagate to all identities.  A token with ORG_ADMIN or API authority is required to call this API.
+         * This API creates a segment.  >**Note:** Segment definitions may take time to propagate to all identities. A token with ORG_ADMIN or API authority is required to call this API.
          * @summary Create Segment
          * @param {SegmentBeta} segmentBeta 
          * @param {*} [axiosOptions] Override http request option.
@@ -58662,9 +58662,9 @@ export const SegmentsBetaApiFactory = function (configuration?: Configuration, b
             return localVarFp.createSegment(segmentBeta, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
-         * This API deletes the segment specified by the given ID.  Note that segment deletion may take some time to become effective.  A token with ORG_ADMIN or API authority is required to call this API.
+         * This API deletes the segment specified by the given ID. >**Note:** Segment deletion may take some time to go into effect.  A token with ORG_ADMIN or API authority is required to call this API.
          * @summary Delete Segment by ID
-         * @param {string} id The ID of the Segment to delete.
+         * @param {string} id The segment ID to delete.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
@@ -58672,9 +58672,9 @@ export const SegmentsBetaApiFactory = function (configuration?: Configuration, b
             return localVarFp.deleteSegment(id, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
-         * This API returns the segment specified by the given ID.  A token with ORG_ADMIN or API authority is required to call this API.
-         * @summary Get a Segment by its ID
-         * @param {string} id The ID of the Segment to retrieve.
+         * This API returns the segment specified by the given ID. A token with ORG_ADMIN or API authority is required to call this API.
+         * @summary Get Segment by ID
+         * @param {string} id The segment ID to retrieve.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
@@ -58694,10 +58694,10 @@ export const SegmentsBetaApiFactory = function (configuration?: Configuration, b
             return localVarFp.listSegments(limit, offset, count, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
-         * Allows updating Segment fields using the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.  Note that changes to a segment may take some time to propagate to all identities, and that segments will have no effect if segmentation is not enabled for your org.  A token with ORG_ADMIN or API authority is required to call this API.
-         * @summary Update a Segment
-         * @param {string} id The ID of the Segment being modified.
-         * @param {Array<object>} requestBody A list of Segment update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.   The following fields are patchable: * name * description * owner * visibilityCriteria * active 
+         * Use this API to update segment fields by using the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard. >**Note:** Changes to a segment may take some time to propagate to all identities. A token with ORG_ADMIN or API authority is required to call this API.
+         * @summary Update Segment
+         * @param {string} id The segment ID to modify.
+         * @param {Array<object>} requestBody A list of segment update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.  The following fields are patchable: * name * description * owner * visibilityCriteria * active 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
@@ -58728,7 +58728,7 @@ export interface SegmentsBetaApiCreateSegmentRequest {
  */
 export interface SegmentsBetaApiDeleteSegmentRequest {
     /**
-     * The ID of the Segment to delete.
+     * The segment ID to delete.
      * @type {string}
      * @memberof SegmentsBetaApiDeleteSegment
      */
@@ -58742,7 +58742,7 @@ export interface SegmentsBetaApiDeleteSegmentRequest {
  */
 export interface SegmentsBetaApiGetSegmentRequest {
     /**
-     * The ID of the Segment to retrieve.
+     * The segment ID to retrieve.
      * @type {string}
      * @memberof SegmentsBetaApiGetSegment
      */
@@ -58784,14 +58784,14 @@ export interface SegmentsBetaApiListSegmentsRequest {
  */
 export interface SegmentsBetaApiPatchSegmentRequest {
     /**
-     * The ID of the Segment being modified.
+     * The segment ID to modify.
      * @type {string}
      * @memberof SegmentsBetaApiPatchSegment
      */
     readonly id: string
 
     /**
-     * A list of Segment update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.   The following fields are patchable: * name * description * owner * visibilityCriteria * active 
+     * A list of segment update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.  The following fields are patchable: * name * description * owner * visibilityCriteria * active 
      * @type {Array<object>}
      * @memberof SegmentsBetaApiPatchSegment
      */
@@ -58806,7 +58806,7 @@ export interface SegmentsBetaApiPatchSegmentRequest {
  */
 export class SegmentsBetaApi extends BaseAPI {
     /**
-     * This API creates a segment.  Note that segment definitions may take time to propagate to all identities.  A token with ORG_ADMIN or API authority is required to call this API.
+     * This API creates a segment.  >**Note:** Segment definitions may take time to propagate to all identities. A token with ORG_ADMIN or API authority is required to call this API.
      * @summary Create Segment
      * @param {SegmentsBetaApiCreateSegmentRequest} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
@@ -58818,7 +58818,7 @@ export class SegmentsBetaApi extends BaseAPI {
     }
 
     /**
-     * This API deletes the segment specified by the given ID.  Note that segment deletion may take some time to become effective.  A token with ORG_ADMIN or API authority is required to call this API.
+     * This API deletes the segment specified by the given ID. >**Note:** Segment deletion may take some time to go into effect.  A token with ORG_ADMIN or API authority is required to call this API.
      * @summary Delete Segment by ID
      * @param {SegmentsBetaApiDeleteSegmentRequest} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
@@ -58830,8 +58830,8 @@ export class SegmentsBetaApi extends BaseAPI {
     }
 
     /**
-     * This API returns the segment specified by the given ID.  A token with ORG_ADMIN or API authority is required to call this API.
-     * @summary Get a Segment by its ID
+     * This API returns the segment specified by the given ID. A token with ORG_ADMIN or API authority is required to call this API.
+     * @summary Get Segment by ID
      * @param {SegmentsBetaApiGetSegmentRequest} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
@@ -58854,8 +58854,8 @@ export class SegmentsBetaApi extends BaseAPI {
     }
 
     /**
-     * Allows updating Segment fields using the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.  Note that changes to a segment may take some time to propagate to all identities, and that segments will have no effect if segmentation is not enabled for your org.  A token with ORG_ADMIN or API authority is required to call this API.
-     * @summary Update a Segment
+     * Use this API to update segment fields by using the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard. >**Note:** Changes to a segment may take some time to propagate to all identities. A token with ORG_ADMIN or API authority is required to call this API.
+     * @summary Update Segment
      * @param {SegmentsBetaApiPatchSegmentRequest} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
