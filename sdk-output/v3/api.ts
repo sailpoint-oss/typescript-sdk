@@ -4271,6 +4271,27 @@ export type CampaignAllOfSourcesWithOrphanEntitlementsTypeEnum = typeof Campaign
 /**
  * 
  * @export
+ * @interface CampaignCompleteOptions
+ */
+export interface CampaignCompleteOptions {
+    /**
+     * Determines whether to auto-approve(APPROVE) or auto-revoke(REVOKE) upon campaign completion.
+     * @type {string}
+     * @memberof CampaignCompleteOptions
+     */
+    'autoCompleteAction'?: CampaignCompleteOptionsAutoCompleteActionEnum;
+}
+
+export const CampaignCompleteOptionsAutoCompleteActionEnum = {
+    Approve: 'APPROVE',
+    Revoke: 'REVOKE'
+} as const;
+
+export type CampaignCompleteOptionsAutoCompleteActionEnum = typeof CampaignCompleteOptionsAutoCompleteActionEnum[keyof typeof CampaignCompleteOptionsAutoCompleteActionEnum];
+
+/**
+ * 
+ * @export
  * @interface CampaignReference
  */
 export interface CampaignReference {
@@ -20664,6 +20685,52 @@ export class AccountsApi extends BaseAPI {
 export const CertificationCampaignsApiAxiosParamCreator = function (configuration?: Configuration) {
     return {
         /**
+         * :::caution  This endpoint will run successfully for any campaigns that are **past due**.  This endpoint will return a content error if the campaign is **not past due**.  :::  Completes a certification campaign. This is provided to admins so that they can complete a certification even if all items have not been completed.  Requires roles of CERT_ADMIN and ORG_ADMIN 
+         * @summary Complete a Campaign
+         * @param {string} id The campaign id
+         * @param {CampaignCompleteOptions} [campaignCompleteOptions] Optional. Default behavior is for the campaign to auto-approve upon completion, unless autoCompleteAction&#x3D;REVOKE
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        completeCampaign: async (id: string, campaignCompleteOptions?: CampaignCompleteOptions, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'id' is not null or undefined
+            assertParamExists('completeCampaign', 'id', id)
+            const localVarPath = `/campaigns/{id}/complete`
+                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'POST', ...baseOptions, ...axiosOptions};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication UserContextAuth required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "UserContextAuth", [], configuration)
+
+            // authentication UserContextAuth required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "UserContextAuth", [], configuration)
+
+
+    
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
+            localVarRequestOptions.data = serializeDataIfNeeded(campaignCompleteOptions, localVarRequestOptions, configuration)
+
+            return {
+                url: toPathString(localVarUrlObj),
+                axiosOptions: localVarRequestOptions,
+            };
+        },
+        /**
          * Creates a new Certification Campaign with the information provided in the request body.
          * @summary Create a campaign
          * @param {Campaign} campaign 
@@ -21012,6 +21079,18 @@ export const CertificationCampaignsApiFp = function(configuration?: Configuratio
     const localVarAxiosParamCreator = CertificationCampaignsApiAxiosParamCreator(configuration)
     return {
         /**
+         * :::caution  This endpoint will run successfully for any campaigns that are **past due**.  This endpoint will return a content error if the campaign is **not past due**.  :::  Completes a certification campaign. This is provided to admins so that they can complete a certification even if all items have not been completed.  Requires roles of CERT_ADMIN and ORG_ADMIN 
+         * @summary Complete a Campaign
+         * @param {string} id The campaign id
+         * @param {CampaignCompleteOptions} [campaignCompleteOptions] Optional. Default behavior is for the campaign to auto-approve upon completion, unless autoCompleteAction&#x3D;REVOKE
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        async completeCampaign(id: string, campaignCompleteOptions?: CampaignCompleteOptions, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<object>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.completeCampaign(id, campaignCompleteOptions, axiosOptions);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
          * Creates a new Certification Campaign with the information provided in the request body.
          * @summary Create a campaign
          * @param {Campaign} campaign 
@@ -21107,6 +21186,17 @@ export const CertificationCampaignsApiFactory = function (configuration?: Config
     const localVarFp = CertificationCampaignsApiFp(configuration)
     return {
         /**
+         * :::caution  This endpoint will run successfully for any campaigns that are **past due**.  This endpoint will return a content error if the campaign is **not past due**.  :::  Completes a certification campaign. This is provided to admins so that they can complete a certification even if all items have not been completed.  Requires roles of CERT_ADMIN and ORG_ADMIN 
+         * @summary Complete a Campaign
+         * @param {string} id The campaign id
+         * @param {CampaignCompleteOptions} [campaignCompleteOptions] Optional. Default behavior is for the campaign to auto-approve upon completion, unless autoCompleteAction&#x3D;REVOKE
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        completeCampaign(id: string, campaignCompleteOptions?: CampaignCompleteOptions, axiosOptions?: any): AxiosPromise<object> {
+            return localVarFp.completeCampaign(id, campaignCompleteOptions, axiosOptions).then((request) => request(axios, basePath));
+        },
+        /**
          * Creates a new Certification Campaign with the information provided in the request body.
          * @summary Create a campaign
          * @param {Campaign} campaign 
@@ -21186,6 +21276,27 @@ export const CertificationCampaignsApiFactory = function (configuration?: Config
         },
     };
 };
+
+/**
+ * Request parameters for completeCampaign operation in CertificationCampaignsApi.
+ * @export
+ * @interface CertificationCampaignsApiCompleteCampaignRequest
+ */
+export interface CertificationCampaignsApiCompleteCampaignRequest {
+    /**
+     * The campaign id
+     * @type {string}
+     * @memberof CertificationCampaignsApiCompleteCampaign
+     */
+    readonly id: string
+
+    /**
+     * Optional. Default behavior is for the campaign to auto-approve upon completion, unless autoCompleteAction&#x3D;REVOKE
+     * @type {CampaignCompleteOptions}
+     * @memberof CertificationCampaignsApiCompleteCampaign
+     */
+    readonly campaignCompleteOptions?: CampaignCompleteOptions
+}
 
 /**
  * Request parameters for createCampaign operation in CertificationCampaignsApi.
@@ -21348,6 +21459,18 @@ export interface CertificationCampaignsApiUpdateCampaignRequest {
  * @extends {BaseAPI}
  */
 export class CertificationCampaignsApi extends BaseAPI {
+    /**
+     * :::caution  This endpoint will run successfully for any campaigns that are **past due**.  This endpoint will return a content error if the campaign is **not past due**.  :::  Completes a certification campaign. This is provided to admins so that they can complete a certification even if all items have not been completed.  Requires roles of CERT_ADMIN and ORG_ADMIN 
+     * @summary Complete a Campaign
+     * @param {CertificationCampaignsApiCompleteCampaignRequest} requestParameters Request parameters.
+     * @param {*} [axiosOptions] Override http request option.
+     * @throws {RequiredError}
+     * @memberof CertificationCampaignsApi
+     */
+    public completeCampaign(requestParameters: CertificationCampaignsApiCompleteCampaignRequest, axiosOptions?: AxiosRequestConfig) {
+        return CertificationCampaignsApiFp(this.configuration).completeCampaign(requestParameters.id, requestParameters.campaignCompleteOptions, axiosOptions).then((request) => request(this.axios, this.basePath));
+    }
+
     /**
      * Creates a new Certification Campaign with the information provided in the request body.
      * @summary Create a campaign

@@ -28514,6 +28514,7 @@ export const CertificationCampaignsBetaApiAxiosParamCreator = function (configur
          * @param {string} id The campaign id
          * @param {CompleteCampaignOptionsBeta} [completeCampaignOptionsBeta] Optional. Default behavior is for the campaign to auto-approve upon completion, unless autoCompleteAction&#x3D;REVOKE
          * @param {*} [axiosOptions] Override http request option.
+         * @deprecated
          * @throws {RequiredError}
          */
         completeCampaign: async (id: string, completeCampaignOptionsBeta?: CompleteCampaignOptionsBeta, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
@@ -29540,6 +29541,7 @@ export const CertificationCampaignsBetaApiFp = function(configuration?: Configur
          * @param {string} id The campaign id
          * @param {CompleteCampaignOptionsBeta} [completeCampaignOptionsBeta] Optional. Default behavior is for the campaign to auto-approve upon completion, unless autoCompleteAction&#x3D;REVOKE
          * @param {*} [axiosOptions] Override http request option.
+         * @deprecated
          * @throws {RequiredError}
          */
         async completeCampaign(id: string, completeCampaignOptionsBeta?: CompleteCampaignOptionsBeta, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<object>> {
@@ -29814,6 +29816,7 @@ export const CertificationCampaignsBetaApiFactory = function (configuration?: Co
          * @param {string} id The campaign id
          * @param {CompleteCampaignOptionsBeta} [completeCampaignOptionsBeta] Optional. Default behavior is for the campaign to auto-approve upon completion, unless autoCompleteAction&#x3D;REVOKE
          * @param {*} [axiosOptions] Override http request option.
+         * @deprecated
          * @throws {RequiredError}
          */
         completeCampaign(id: string, completeCampaignOptionsBeta?: CompleteCampaignOptionsBeta, axiosOptions?: any): AxiosPromise<object> {
@@ -30471,6 +30474,7 @@ export class CertificationCampaignsBetaApi extends BaseAPI {
      * @summary Complete a Campaign
      * @param {CertificationCampaignsBetaApiCompleteCampaignRequest} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
+     * @deprecated
      * @throws {RequiredError}
      * @memberof CertificationCampaignsBetaApi
      */
