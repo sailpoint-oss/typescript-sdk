@@ -3231,6 +3231,115 @@ export interface AttributeRequest {
 /**
  * 
  * @export
+ * @interface AuthUser
+ */
+export interface AuthUser {
+    /**
+     * Tenant name.
+     * @type {string}
+     * @memberof AuthUser
+     */
+    'tenant'?: string;
+    /**
+     * Identity ID.
+     * @type {string}
+     * @memberof AuthUser
+     */
+    'id'?: string;
+    /**
+     * Identity unique identitifier.
+     * @type {string}
+     * @memberof AuthUser
+     */
+    'uid'?: string;
+    /**
+     * ID of the auth profile associated with this auth user.
+     * @type {string}
+     * @memberof AuthUser
+     */
+    'profile'?: string;
+    /**
+     * Auth user employee number.
+     * @type {string}
+     * @memberof AuthUser
+     */
+    'identificationNumber'?: string;
+    /**
+     * Auth user\'s email.
+     * @type {string}
+     * @memberof AuthUser
+     */
+    'email'?: string;
+    /**
+     * Auth user\'s phone number.
+     * @type {string}
+     * @memberof AuthUser
+     */
+    'phone'?: string;
+    /**
+     * Auth user\'s work phone number.
+     * @type {string}
+     * @memberof AuthUser
+     */
+    'workPhone'?: string;
+    /**
+     * Auth user\'s personal email.
+     * @type {string}
+     * @memberof AuthUser
+     */
+    'personalEmail'?: string;
+    /**
+     * Auth user\'s first name.
+     * @type {string}
+     * @memberof AuthUser
+     */
+    'firstname'?: string;
+    /**
+     * Auth user\'s last name.
+     * @type {string}
+     * @memberof AuthUser
+     */
+    'lastname'?: string;
+    /**
+     * Auth user\'s name in displayed format.
+     * @type {string}
+     * @memberof AuthUser
+     */
+    'displayName'?: string;
+    /**
+     * Auth user\'s alias.
+     * @type {string}
+     * @memberof AuthUser
+     */
+    'alias'?: string;
+    /**
+     * the date of last password change
+     * @type {string}
+     * @memberof AuthUser
+     */
+    'lastPasswordChangeDate'?: string;
+    /**
+     * Timestamp of the last login (long type value).
+     * @type {number}
+     * @memberof AuthUser
+     */
+    'lastLoginTimestamp'?: number;
+    /**
+     * Timestamp of the current login (long type value).
+     * @type {number}
+     * @memberof AuthUser
+     */
+    'currentLoginTimestamp'?: number;
+    /**
+     * Array of capabilities for this auth user.
+     * @type {Array<string>}
+     * @memberof AuthUser
+     */
+    'capabilities'?: Array<string>;
+}
+/**
+ * 
+ * @export
  * @interface Base64Decode
  */
 export interface Base64Decode {
@@ -20699,6 +20808,237 @@ export class AccountsApi extends BaseAPI {
      */
     public updateAccount(requestParameters: AccountsApiUpdateAccountRequest, axiosOptions?: AxiosRequestConfig) {
         return AccountsApiFp(this.configuration).updateAccount(requestParameters.id, requestParameters.jsonPatchOperation, axiosOptions).then((request) => request(this.axios, this.basePath));
+    }
+}
+
+
+/**
+ * AuthUserApi - axios parameter creator
+ * @export
+ */
+export const AuthUserApiAxiosParamCreator = function (configuration?: Configuration) {
+    return {
+        /**
+         * This API returns the specified user\'s authentication system details. Requires security scope of:  \'sp:auth-user:read\'
+         * @summary Auth User Details
+         * @param {string} id Identity ID
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        getAuthUser: async (id: string, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'id' is not null or undefined
+            assertParamExists('getAuthUser', 'id', id)
+            const localVarPath = `/auth-users/{id}`
+                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...axiosOptions};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication UserContextAuth required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "UserContextAuth", [], configuration)
+
+            // authentication UserContextAuth required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "UserContextAuth", [], configuration)
+
+
+    
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                axiosOptions: localVarRequestOptions,
+            };
+        },
+        /**
+         * Update an existing user in the authentication system with a PATCH request.
+         * @summary Auth User Update
+         * @param {string} id Identity ID
+         * @param {Array<JsonPatchOperation>} jsonPatchOperation A list of auth user update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.  PATCH can only be applied to the following fields:   *   \&quot;capabilities\&quot;  A list of valid capabilities can be found using the GET ams/v3/authorization/authorization-capabilities/ endpoint. Capabilities can only be patched if they are administrator assignable, as indicated by the \&#39;adminAssignable\&#39; field from the output of list authorization-capabilities. Capabilities that have a legacy group (\&#39;legacyGroup\&#39; field) need to be patched using the legacyGroup name (e.g. \&#39;ORG_ADMIN\&#39;). Capabilities that are adminAssignable but do not have a legacyGroup can be patched using the ams id (e.g. \&#39;cam:new-role\&#39;).  A 400.1.1 Illegal update attempt detail code indicates that you attempted to PATCH a field that is not allowed.  Requires security scope of \&#39;sp:auth-user:update\&#39; 
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        patchAuthUser: async (id: string, jsonPatchOperation: Array<JsonPatchOperation>, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'id' is not null or undefined
+            assertParamExists('patchAuthUser', 'id', id)
+            // verify required parameter 'jsonPatchOperation' is not null or undefined
+            assertParamExists('patchAuthUser', 'jsonPatchOperation', jsonPatchOperation)
+            const localVarPath = `/auth-users/{id}`
+                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'PATCH', ...baseOptions, ...axiosOptions};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication UserContextAuth required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "UserContextAuth", [], configuration)
+
+            // authentication UserContextAuth required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "UserContextAuth", [], configuration)
+
+
+    
+            localVarHeaderParameter['Content-Type'] = 'application/json-patch+json';
+
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
+            localVarRequestOptions.data = serializeDataIfNeeded(jsonPatchOperation, localVarRequestOptions, configuration)
+
+            return {
+                url: toPathString(localVarUrlObj),
+                axiosOptions: localVarRequestOptions,
+            };
+        },
+    }
+};
+
+/**
+ * AuthUserApi - functional programming interface
+ * @export
+ */
+export const AuthUserApiFp = function(configuration?: Configuration) {
+    const localVarAxiosParamCreator = AuthUserApiAxiosParamCreator(configuration)
+    return {
+        /**
+         * This API returns the specified user\'s authentication system details. Requires security scope of:  \'sp:auth-user:read\'
+         * @summary Auth User Details
+         * @param {string} id Identity ID
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        async getAuthUser(id: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<AuthUser>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getAuthUser(id, axiosOptions);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * Update an existing user in the authentication system with a PATCH request.
+         * @summary Auth User Update
+         * @param {string} id Identity ID
+         * @param {Array<JsonPatchOperation>} jsonPatchOperation A list of auth user update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.  PATCH can only be applied to the following fields:   *   \&quot;capabilities\&quot;  A list of valid capabilities can be found using the GET ams/v3/authorization/authorization-capabilities/ endpoint. Capabilities can only be patched if they are administrator assignable, as indicated by the \&#39;adminAssignable\&#39; field from the output of list authorization-capabilities. Capabilities that have a legacy group (\&#39;legacyGroup\&#39; field) need to be patched using the legacyGroup name (e.g. \&#39;ORG_ADMIN\&#39;). Capabilities that are adminAssignable but do not have a legacyGroup can be patched using the ams id (e.g. \&#39;cam:new-role\&#39;).  A 400.1.1 Illegal update attempt detail code indicates that you attempted to PATCH a field that is not allowed.  Requires security scope of \&#39;sp:auth-user:update\&#39; 
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        async patchAuthUser(id: string, jsonPatchOperation: Array<JsonPatchOperation>, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<AuthUser>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.patchAuthUser(id, jsonPatchOperation, axiosOptions);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+    }
+};
+
+/**
+ * AuthUserApi - factory interface
+ * @export
+ */
+export const AuthUserApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
+    const localVarFp = AuthUserApiFp(configuration)
+    return {
+        /**
+         * This API returns the specified user\'s authentication system details. Requires security scope of:  \'sp:auth-user:read\'
+         * @summary Auth User Details
+         * @param {string} id Identity ID
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        getAuthUser(id: string, axiosOptions?: any): AxiosPromise<AuthUser> {
+            return localVarFp.getAuthUser(id, axiosOptions).then((request) => request(axios, basePath));
+        },
+        /**
+         * Update an existing user in the authentication system with a PATCH request.
+         * @summary Auth User Update
+         * @param {string} id Identity ID
+         * @param {Array<JsonPatchOperation>} jsonPatchOperation A list of auth user update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.  PATCH can only be applied to the following fields:   *   \&quot;capabilities\&quot;  A list of valid capabilities can be found using the GET ams/v3/authorization/authorization-capabilities/ endpoint. Capabilities can only be patched if they are administrator assignable, as indicated by the \&#39;adminAssignable\&#39; field from the output of list authorization-capabilities. Capabilities that have a legacy group (\&#39;legacyGroup\&#39; field) need to be patched using the legacyGroup name (e.g. \&#39;ORG_ADMIN\&#39;). Capabilities that are adminAssignable but do not have a legacyGroup can be patched using the ams id (e.g. \&#39;cam:new-role\&#39;).  A 400.1.1 Illegal update attempt detail code indicates that you attempted to PATCH a field that is not allowed.  Requires security scope of \&#39;sp:auth-user:update\&#39; 
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        patchAuthUser(id: string, jsonPatchOperation: Array<JsonPatchOperation>, axiosOptions?: any): AxiosPromise<AuthUser> {
+            return localVarFp.patchAuthUser(id, jsonPatchOperation, axiosOptions).then((request) => request(axios, basePath));
+        },
+    };
+};
+
+/**
+ * Request parameters for getAuthUser operation in AuthUserApi.
+ * @export
+ * @interface AuthUserApiGetAuthUserRequest
+ */
+export interface AuthUserApiGetAuthUserRequest {
+    /**
+     * Identity ID
+     * @type {string}
+     * @memberof AuthUserApiGetAuthUser
+     */
+    readonly id: string
+}
+
+/**
+ * Request parameters for patchAuthUser operation in AuthUserApi.
+ * @export
+ * @interface AuthUserApiPatchAuthUserRequest
+ */
+export interface AuthUserApiPatchAuthUserRequest {
+    /**
+     * Identity ID
+     * @type {string}
+     * @memberof AuthUserApiPatchAuthUser
+     */
+    readonly id: string
+
+    /**
+     * A list of auth user update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.  PATCH can only be applied to the following fields:   *   \&quot;capabilities\&quot;  A list of valid capabilities can be found using the GET ams/v3/authorization/authorization-capabilities/ endpoint. Capabilities can only be patched if they are administrator assignable, as indicated by the \&#39;adminAssignable\&#39; field from the output of list authorization-capabilities. Capabilities that have a legacy group (\&#39;legacyGroup\&#39; field) need to be patched using the legacyGroup name (e.g. \&#39;ORG_ADMIN\&#39;). Capabilities that are adminAssignable but do not have a legacyGroup can be patched using the ams id (e.g. \&#39;cam:new-role\&#39;).  A 400.1.1 Illegal update attempt detail code indicates that you attempted to PATCH a field that is not allowed.  Requires security scope of \&#39;sp:auth-user:update\&#39; 
+     * @type {Array<JsonPatchOperation>}
+     * @memberof AuthUserApiPatchAuthUser
+     */
+    readonly jsonPatchOperation: Array<JsonPatchOperation>
+}
+
+/**
+ * AuthUserApi - object-oriented interface
+ * @export
+ * @class AuthUserApi
+ * @extends {BaseAPI}
+ */
+export class AuthUserApi extends BaseAPI {
+    /**
+     * This API returns the specified user\'s authentication system details. Requires security scope of:  \'sp:auth-user:read\'
+     * @summary Auth User Details
+     * @param {AuthUserApiGetAuthUserRequest} requestParameters Request parameters.
+     * @param {*} [axiosOptions] Override http request option.
+     * @throws {RequiredError}
+     * @memberof AuthUserApi
+     */
+    public getAuthUser(requestParameters: AuthUserApiGetAuthUserRequest, axiosOptions?: AxiosRequestConfig) {
+        return AuthUserApiFp(this.configuration).getAuthUser(requestParameters.id, axiosOptions).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Update an existing user in the authentication system with a PATCH request.
+     * @summary Auth User Update
+     * @param {AuthUserApiPatchAuthUserRequest} requestParameters Request parameters.
+     * @param {*} [axiosOptions] Override http request option.
+     * @throws {RequiredError}
+     * @memberof AuthUserApi
+     */
+    public patchAuthUser(requestParameters: AuthUserApiPatchAuthUserRequest, axiosOptions?: AxiosRequestConfig) {
+        return AuthUserApiFp(this.configuration).patchAuthUser(requestParameters.id, requestParameters.jsonPatchOperation, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 }
 
