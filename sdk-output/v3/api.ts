@@ -9299,6 +9299,31 @@ export interface NestedAggregation {
 /**
  * 
  * @export
+ * @interface NetworkConfiguration
+ */
+export interface NetworkConfiguration {
+    /**
+     * The collection of ip ranges.
+     * @type {Array<string>}
+     * @memberof NetworkConfiguration
+     */
+    'range'?: Array<string>;
+    /**
+     * The collection of country codes.
+     * @type {Array<string>}
+     * @memberof NetworkConfiguration
+     */
+    'geolocation'?: Array<string>;
+    /**
+     * Denotes whether the provided lists are whitelisted or blacklisted for geo location.
+     * @type {boolean}
+     * @memberof NetworkConfiguration
+     */
+    'whitelisted'?: boolean;
+}
+/**
+ * 
+ * @export
  * @interface NonEmployeeApprovalDecision
  */
 export interface NonEmployeeApprovalDecision {
@@ -23014,6 +23039,294 @@ export class CertificationsApi extends BaseAPI {
      */
     public signOffIdentityCertification(requestParameters: CertificationsApiSignOffIdentityCertificationRequest, axiosOptions?: AxiosRequestConfig) {
         return CertificationsApiFp(this.configuration).signOffIdentityCertification(requestParameters.id, axiosOptions).then((request) => request(this.axios, this.basePath));
+    }
+}
+
+
+/**
+ * GlobalTenantSecuritySettingsApi - axios parameter creator
+ * @export
+ */
+export const GlobalTenantSecuritySettingsApiAxiosParamCreator = function (configuration?: Configuration) {
+    return {
+        /**
+         * This API returns the details of an org\'s network auth configuration. Requires security scope of: \'sp:auth-org:create\'
+         * @summary Create security network configuration.
+         * @param {NetworkConfiguration} networkConfiguration Network configuration creation request body.   The following constraints ensure the request body conforms to certain logical guidelines, which are:   1. Each string element in the range array must be a valid ip address or ip subnet mask.   2. Each string element in the geolocation array must be 2 characters, and they can only be uppercase letters.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        createAuthOrgNetworkConfig: async (networkConfiguration: NetworkConfiguration, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'networkConfiguration' is not null or undefined
+            assertParamExists('createAuthOrgNetworkConfig', 'networkConfiguration', networkConfiguration)
+            const localVarPath = `/auth-org/network-config`;
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'POST', ...baseOptions, ...axiosOptions};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication UserContextAuth required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "UserContextAuth", [], configuration)
+
+            // authentication UserContextAuth required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "UserContextAuth", [], configuration)
+
+
+    
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
+            localVarRequestOptions.data = serializeDataIfNeeded(networkConfiguration, localVarRequestOptions, configuration)
+
+            return {
+                url: toPathString(localVarUrlObj),
+                axiosOptions: localVarRequestOptions,
+            };
+        },
+        /**
+         * This API returns the details of an org\'s network auth configuration. Requires security scope of: \'sp:auth-org:read\'
+         * @summary Get security network configuration.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        getAuthOrgNetworkConfig: async (axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            const localVarPath = `/auth-org/network-config`;
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...axiosOptions};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication UserContextAuth required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "UserContextAuth", [], configuration)
+
+            // authentication UserContextAuth required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "UserContextAuth", [], configuration)
+
+
+    
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                axiosOptions: localVarRequestOptions,
+            };
+        },
+        /**
+         * This API updates an existing network configuration for an org using PATCH  Requires security scope of:  \'sp:auth-org:update\'
+         * @summary Update security network configuration.
+         * @param {Array<JsonPatchOperation>} jsonPatchOperation A list of auth org network configuration update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard. Ensures that the patched Network Config conforms to certain logical guidelines, which are:   1. Each string element in the range array must be a valid ip address or ip subnet mask.   2. Each string element in the geolocation array must be 2 characters, and they can only be uppercase letters.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        patchAuthOrgNetworkConfig: async (jsonPatchOperation: Array<JsonPatchOperation>, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'jsonPatchOperation' is not null or undefined
+            assertParamExists('patchAuthOrgNetworkConfig', 'jsonPatchOperation', jsonPatchOperation)
+            const localVarPath = `/auth-org/network-config`;
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'PATCH', ...baseOptions, ...axiosOptions};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication UserContextAuth required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "UserContextAuth", [], configuration)
+
+            // authentication UserContextAuth required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "UserContextAuth", [], configuration)
+
+
+    
+            localVarHeaderParameter['Content-Type'] = 'application/json-patch+json';
+
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
+            localVarRequestOptions.data = serializeDataIfNeeded(jsonPatchOperation, localVarRequestOptions, configuration)
+
+            return {
+                url: toPathString(localVarUrlObj),
+                axiosOptions: localVarRequestOptions,
+            };
+        },
+    }
+};
+
+/**
+ * GlobalTenantSecuritySettingsApi - functional programming interface
+ * @export
+ */
+export const GlobalTenantSecuritySettingsApiFp = function(configuration?: Configuration) {
+    const localVarAxiosParamCreator = GlobalTenantSecuritySettingsApiAxiosParamCreator(configuration)
+    return {
+        /**
+         * This API returns the details of an org\'s network auth configuration. Requires security scope of: \'sp:auth-org:create\'
+         * @summary Create security network configuration.
+         * @param {NetworkConfiguration} networkConfiguration Network configuration creation request body.   The following constraints ensure the request body conforms to certain logical guidelines, which are:   1. Each string element in the range array must be a valid ip address or ip subnet mask.   2. Each string element in the geolocation array must be 2 characters, and they can only be uppercase letters.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        async createAuthOrgNetworkConfig(networkConfiguration: NetworkConfiguration, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<NetworkConfiguration>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.createAuthOrgNetworkConfig(networkConfiguration, axiosOptions);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * This API returns the details of an org\'s network auth configuration. Requires security scope of: \'sp:auth-org:read\'
+         * @summary Get security network configuration.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        async getAuthOrgNetworkConfig(axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<NetworkConfiguration>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getAuthOrgNetworkConfig(axiosOptions);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * This API updates an existing network configuration for an org using PATCH  Requires security scope of:  \'sp:auth-org:update\'
+         * @summary Update security network configuration.
+         * @param {Array<JsonPatchOperation>} jsonPatchOperation A list of auth org network configuration update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard. Ensures that the patched Network Config conforms to certain logical guidelines, which are:   1. Each string element in the range array must be a valid ip address or ip subnet mask.   2. Each string element in the geolocation array must be 2 characters, and they can only be uppercase letters.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        async patchAuthOrgNetworkConfig(jsonPatchOperation: Array<JsonPatchOperation>, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<NetworkConfiguration>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.patchAuthOrgNetworkConfig(jsonPatchOperation, axiosOptions);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+    }
+};
+
+/**
+ * GlobalTenantSecuritySettingsApi - factory interface
+ * @export
+ */
+export const GlobalTenantSecuritySettingsApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
+    const localVarFp = GlobalTenantSecuritySettingsApiFp(configuration)
+    return {
+        /**
+         * This API returns the details of an org\'s network auth configuration. Requires security scope of: \'sp:auth-org:create\'
+         * @summary Create security network configuration.
+         * @param {NetworkConfiguration} networkConfiguration Network configuration creation request body.   The following constraints ensure the request body conforms to certain logical guidelines, which are:   1. Each string element in the range array must be a valid ip address or ip subnet mask.   2. Each string element in the geolocation array must be 2 characters, and they can only be uppercase letters.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        createAuthOrgNetworkConfig(networkConfiguration: NetworkConfiguration, axiosOptions?: any): AxiosPromise<NetworkConfiguration> {
+            return localVarFp.createAuthOrgNetworkConfig(networkConfiguration, axiosOptions).then((request) => request(axios, basePath));
+        },
+        /**
+         * This API returns the details of an org\'s network auth configuration. Requires security scope of: \'sp:auth-org:read\'
+         * @summary Get security network configuration.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        getAuthOrgNetworkConfig(axiosOptions?: any): AxiosPromise<NetworkConfiguration> {
+            return localVarFp.getAuthOrgNetworkConfig(axiosOptions).then((request) => request(axios, basePath));
+        },
+        /**
+         * This API updates an existing network configuration for an org using PATCH  Requires security scope of:  \'sp:auth-org:update\'
+         * @summary Update security network configuration.
+         * @param {Array<JsonPatchOperation>} jsonPatchOperation A list of auth org network configuration update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard. Ensures that the patched Network Config conforms to certain logical guidelines, which are:   1. Each string element in the range array must be a valid ip address or ip subnet mask.   2. Each string element in the geolocation array must be 2 characters, and they can only be uppercase letters.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        patchAuthOrgNetworkConfig(jsonPatchOperation: Array<JsonPatchOperation>, axiosOptions?: any): AxiosPromise<NetworkConfiguration> {
+            return localVarFp.patchAuthOrgNetworkConfig(jsonPatchOperation, axiosOptions).then((request) => request(axios, basePath));
+        },
+    };
+};
+
+/**
+ * Request parameters for createAuthOrgNetworkConfig operation in GlobalTenantSecuritySettingsApi.
+ * @export
+ * @interface GlobalTenantSecuritySettingsApiCreateAuthOrgNetworkConfigRequest
+ */
+export interface GlobalTenantSecuritySettingsApiCreateAuthOrgNetworkConfigRequest {
+    /**
+     * Network configuration creation request body.   The following constraints ensure the request body conforms to certain logical guidelines, which are:   1. Each string element in the range array must be a valid ip address or ip subnet mask.   2. Each string element in the geolocation array must be 2 characters, and they can only be uppercase letters.
+     * @type {NetworkConfiguration}
+     * @memberof GlobalTenantSecuritySettingsApiCreateAuthOrgNetworkConfig
+     */
+    readonly networkConfiguration: NetworkConfiguration
+}
+
+/**
+ * Request parameters for patchAuthOrgNetworkConfig operation in GlobalTenantSecuritySettingsApi.
+ * @export
+ * @interface GlobalTenantSecuritySettingsApiPatchAuthOrgNetworkConfigRequest
+ */
+export interface GlobalTenantSecuritySettingsApiPatchAuthOrgNetworkConfigRequest {
+    /**
+     * A list of auth org network configuration update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard. Ensures that the patched Network Config conforms to certain logical guidelines, which are:   1. Each string element in the range array must be a valid ip address or ip subnet mask.   2. Each string element in the geolocation array must be 2 characters, and they can only be uppercase letters.
+     * @type {Array<JsonPatchOperation>}
+     * @memberof GlobalTenantSecuritySettingsApiPatchAuthOrgNetworkConfig
+     */
+    readonly jsonPatchOperation: Array<JsonPatchOperation>
+}
+
+/**
+ * GlobalTenantSecuritySettingsApi - object-oriented interface
+ * @export
+ * @class GlobalTenantSecuritySettingsApi
+ * @extends {BaseAPI}
+ */
+export class GlobalTenantSecuritySettingsApi extends BaseAPI {
+    /**
+     * This API returns the details of an org\'s network auth configuration. Requires security scope of: \'sp:auth-org:create\'
+     * @summary Create security network configuration.
+     * @param {GlobalTenantSecuritySettingsApiCreateAuthOrgNetworkConfigRequest} requestParameters Request parameters.
+     * @param {*} [axiosOptions] Override http request option.
+     * @throws {RequiredError}
+     * @memberof GlobalTenantSecuritySettingsApi
+     */
+    public createAuthOrgNetworkConfig(requestParameters: GlobalTenantSecuritySettingsApiCreateAuthOrgNetworkConfigRequest, axiosOptions?: AxiosRequestConfig) {
+        return GlobalTenantSecuritySettingsApiFp(this.configuration).createAuthOrgNetworkConfig(requestParameters.networkConfiguration, axiosOptions).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * This API returns the details of an org\'s network auth configuration. Requires security scope of: \'sp:auth-org:read\'
+     * @summary Get security network configuration.
+     * @param {*} [axiosOptions] Override http request option.
+     * @throws {RequiredError}
+     * @memberof GlobalTenantSecuritySettingsApi
+     */
+    public getAuthOrgNetworkConfig(axiosOptions?: AxiosRequestConfig) {
+        return GlobalTenantSecuritySettingsApiFp(this.configuration).getAuthOrgNetworkConfig(axiosOptions).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * This API updates an existing network configuration for an org using PATCH  Requires security scope of:  \'sp:auth-org:update\'
+     * @summary Update security network configuration.
+     * @param {GlobalTenantSecuritySettingsApiPatchAuthOrgNetworkConfigRequest} requestParameters Request parameters.
+     * @param {*} [axiosOptions] Override http request option.
+     * @throws {RequiredError}
+     * @memberof GlobalTenantSecuritySettingsApi
+     */
+    public patchAuthOrgNetworkConfig(requestParameters: GlobalTenantSecuritySettingsApiPatchAuthOrgNetworkConfigRequest, axiosOptions?: AxiosRequestConfig) {
+        return GlobalTenantSecuritySettingsApiFp(this.configuration).patchAuthOrgNetworkConfig(requestParameters.jsonPatchOperation, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 }
 
