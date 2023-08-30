@@ -4549,6 +4549,19 @@ export interface CampaignReportAllOf {
     'lastRunAt'?: string;
 }
 /**
+ * 
+ * @export
+ * @interface CampaignsDeleteRequest
+ */
+export interface CampaignsDeleteRequest {
+    /**
+     * The ids of the campaigns to delete
+     * @type {Array<string>}
+     * @memberof CampaignsDeleteRequest
+     */
+    'ids'?: Array<string>;
+}
+/**
  * Request body payload for cancel access request endpoint.
  * @export
  * @interface CancelAccessRequest
@@ -21140,6 +21153,50 @@ export const CertificationCampaignsApiAxiosParamCreator = function (configuratio
             };
         },
         /**
+         * Deletes campaigns whose Ids are specified in the provided list of campaign Ids. Authorized callers must be an ORG_ADMIN or a CERT_ADMIN.
+         * @summary Deletes Campaigns
+         * @param {CampaignsDeleteRequest} campaignsDeleteRequest The ids of the campaigns to delete.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        deleteCampaigns: async (campaignsDeleteRequest: CampaignsDeleteRequest, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'campaignsDeleteRequest' is not null or undefined
+            assertParamExists('deleteCampaigns', 'campaignsDeleteRequest', campaignsDeleteRequest)
+            const localVarPath = `/campaigns/delete`;
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'POST', ...baseOptions, ...axiosOptions};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication UserContextAuth required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "UserContextAuth", [], configuration)
+
+            // authentication UserContextAuth required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "UserContextAuth", [], configuration)
+
+
+    
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
+            localVarRequestOptions.data = serializeDataIfNeeded(campaignsDeleteRequest, localVarRequestOptions, configuration)
+
+            return {
+                url: toPathString(localVarUrlObj),
+                axiosOptions: localVarRequestOptions,
+            };
+        },
+        /**
          * Gets campaigns and returns them in a list. Can provide increased level of detail for each campaign if provided the correct query.
          * @summary List Campaigns
          * @param {'SLIM' | 'FULL'} [detail] Determines whether slim, or increased level of detail is provided for each campaign in the returned list. Slim is the default behavior.
@@ -21513,6 +21570,17 @@ export const CertificationCampaignsApiFp = function(configuration?: Configuratio
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
+         * Deletes campaigns whose Ids are specified in the provided list of campaign Ids. Authorized callers must be an ORG_ADMIN or a CERT_ADMIN.
+         * @summary Deletes Campaigns
+         * @param {CampaignsDeleteRequest} campaignsDeleteRequest The ids of the campaigns to delete.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        async deleteCampaigns(campaignsDeleteRequest: CampaignsDeleteRequest, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<object>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.deleteCampaigns(campaignsDeleteRequest, axiosOptions);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
          * Gets campaigns and returns them in a list. Can provide increased level of detail for each campaign if provided the correct query.
          * @summary List Campaigns
          * @param {'SLIM' | 'FULL'} [detail] Determines whether slim, or increased level of detail is provided for each campaign in the returned list. Slim is the default behavior.
@@ -21630,6 +21698,16 @@ export const CertificationCampaignsApiFactory = function (configuration?: Config
             return localVarFp.createCampaign(campaign, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
+         * Deletes campaigns whose Ids are specified in the provided list of campaign Ids. Authorized callers must be an ORG_ADMIN or a CERT_ADMIN.
+         * @summary Deletes Campaigns
+         * @param {CampaignsDeleteRequest} campaignsDeleteRequest The ids of the campaigns to delete.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        deleteCampaigns(campaignsDeleteRequest: CampaignsDeleteRequest, axiosOptions?: any): AxiosPromise<object> {
+            return localVarFp.deleteCampaigns(campaignsDeleteRequest, axiosOptions).then((request) => request(axios, basePath));
+        },
+        /**
          * Gets campaigns and returns them in a list. Can provide increased level of detail for each campaign if provided the correct query.
          * @summary List Campaigns
          * @param {'SLIM' | 'FULL'} [detail] Determines whether slim, or increased level of detail is provided for each campaign in the returned list. Slim is the default behavior.
@@ -21744,6 +21822,20 @@ export interface CertificationCampaignsApiCreateCampaignRequest {
      * @memberof CertificationCampaignsApiCreateCampaign
      */
     readonly campaign: Campaign
+}
+
+/**
+ * Request parameters for deleteCampaigns operation in CertificationCampaignsApi.
+ * @export
+ * @interface CertificationCampaignsApiDeleteCampaignsRequest
+ */
+export interface CertificationCampaignsApiDeleteCampaignsRequest {
+    /**
+     * The ids of the campaigns to delete.
+     * @type {CampaignsDeleteRequest}
+     * @memberof CertificationCampaignsApiDeleteCampaigns
+     */
+    readonly campaignsDeleteRequest: CampaignsDeleteRequest
 }
 
 /**
@@ -21936,6 +22028,18 @@ export class CertificationCampaignsApi extends BaseAPI {
      */
     public createCampaign(requestParameters: CertificationCampaignsApiCreateCampaignRequest, axiosOptions?: AxiosRequestConfig) {
         return CertificationCampaignsApiFp(this.configuration).createCampaign(requestParameters.campaign, axiosOptions).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Deletes campaigns whose Ids are specified in the provided list of campaign Ids. Authorized callers must be an ORG_ADMIN or a CERT_ADMIN.
+     * @summary Deletes Campaigns
+     * @param {CertificationCampaignsApiDeleteCampaignsRequest} requestParameters Request parameters.
+     * @param {*} [axiosOptions] Override http request option.
+     * @throws {RequiredError}
+     * @memberof CertificationCampaignsApi
+     */
+    public deleteCampaigns(requestParameters: CertificationCampaignsApiDeleteCampaignsRequest, axiosOptions?: AxiosRequestConfig) {
+        return CertificationCampaignsApiFp(this.configuration).deleteCampaigns(requestParameters.campaignsDeleteRequest, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**

@@ -28733,6 +28733,7 @@ export const CertificationCampaignsBetaApiAxiosParamCreator = function (configur
          * @summary Deletes Campaigns
          * @param {DeleteCampaignsRequestBeta} deleteCampaignsRequestBeta The ids of the campaigns to delete.
          * @param {*} [axiosOptions] Override http request option.
+         * @deprecated
          * @throws {RequiredError}
          */
         deleteCampaigns: async (deleteCampaignsRequestBeta: DeleteCampaignsRequestBeta, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
@@ -29599,6 +29600,7 @@ export const CertificationCampaignsBetaApiFp = function(configuration?: Configur
          * @summary Deletes Campaigns
          * @param {DeleteCampaignsRequestBeta} deleteCampaignsRequestBeta The ids of the campaigns to delete.
          * @param {*} [axiosOptions] Override http request option.
+         * @deprecated
          * @throws {RequiredError}
          */
         async deleteCampaigns(deleteCampaignsRequestBeta: DeleteCampaignsRequestBeta, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<object>> {
@@ -29870,6 +29872,7 @@ export const CertificationCampaignsBetaApiFactory = function (configuration?: Co
          * @summary Deletes Campaigns
          * @param {DeleteCampaignsRequestBeta} deleteCampaignsRequestBeta The ids of the campaigns to delete.
          * @param {*} [axiosOptions] Override http request option.
+         * @deprecated
          * @throws {RequiredError}
          */
         deleteCampaigns(deleteCampaignsRequestBeta: DeleteCampaignsRequestBeta, axiosOptions?: any): AxiosPromise<object> {
@@ -30539,6 +30542,7 @@ export class CertificationCampaignsBetaApi extends BaseAPI {
      * @summary Deletes Campaigns
      * @param {CertificationCampaignsBetaApiDeleteCampaignsRequest} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
+     * @deprecated
      * @throws {RequiredError}
      * @memberof CertificationCampaignsBetaApi
      */
