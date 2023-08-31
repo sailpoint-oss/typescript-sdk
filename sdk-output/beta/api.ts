@@ -3424,7 +3424,7 @@ export interface ApprovalReminderAndEscalationConfigBeta {
      */
     'daysBetweenReminders'?: number;
     /**
-     * Maximum number of reminder notification to send to the reviewer before approval escalation. This will only be a positive number.
+     * Maximum number of reminder notification to send to the reviewer before approval escalation.
      * @type {number}
      * @memberof ApprovalReminderAndEscalationConfigBeta
      */
@@ -21217,19 +21217,19 @@ export interface SourceClusterBeta {
      * @type {string}
      * @memberof SourceClusterBeta
      */
-    'type'?: SourceClusterBetaTypeEnum;
+    'type': SourceClusterBetaTypeEnum;
     /**
      * ID of the cluster
      * @type {string}
      * @memberof SourceClusterBeta
      */
-    'id'?: string;
+    'id': string;
     /**
      * Human-readable display name of the cluster
      * @type {string}
      * @memberof SourceClusterBeta
      */
-    'name'?: string;
+    'name': string;
 }
 
 export const SourceClusterBetaTypeEnum = {
