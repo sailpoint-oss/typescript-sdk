@@ -4726,7 +4726,7 @@ export type CampaignReportBetaStatusEnum = typeof CampaignReportBetaStatusEnum[k
  */
 export interface CampaignReportsConfigBeta {
     /**
-     * 
+     * list of identity attribute columns
      * @type {Array<string>}
      * @memberof CampaignReportsConfigBeta
      */
@@ -28974,6 +28974,7 @@ export const CertificationCampaignsBetaApiAxiosParamCreator = function (configur
          * Fetches configuration for campaign reports. Currently it includes only one element - identity attributes defined as custom report columns. Requires roles of CERT_ADMIN and ORG_ADMIN.
          * @summary Get Campaign Reports Configuration
          * @param {*} [axiosOptions] Override http request option.
+         * @deprecated
          * @throws {RequiredError}
          */
         getCampaignReportsConfig: async (axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
@@ -29663,6 +29664,7 @@ export const CertificationCampaignsBetaApiFp = function(configuration?: Configur
          * Fetches configuration for campaign reports. Currently it includes only one element - identity attributes defined as custom report columns. Requires roles of CERT_ADMIN and ORG_ADMIN.
          * @summary Get Campaign Reports Configuration
          * @param {*} [axiosOptions] Override http request option.
+         * @deprecated
          * @throws {RequiredError}
          */
         async getCampaignReportsConfig(axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<CampaignReportsConfigBeta>> {
@@ -29930,6 +29932,7 @@ export const CertificationCampaignsBetaApiFactory = function (configuration?: Co
          * Fetches configuration for campaign reports. Currently it includes only one element - identity attributes defined as custom report columns. Requires roles of CERT_ADMIN and ORG_ADMIN.
          * @summary Get Campaign Reports Configuration
          * @param {*} [axiosOptions] Override http request option.
+         * @deprecated
          * @throws {RequiredError}
          */
         getCampaignReportsConfig(axiosOptions?: any): AxiosPromise<CampaignReportsConfigBeta> {
@@ -30605,6 +30608,7 @@ export class CertificationCampaignsBetaApi extends BaseAPI {
      * Fetches configuration for campaign reports. Currently it includes only one element - identity attributes defined as custom report columns. Requires roles of CERT_ADMIN and ORG_ADMIN.
      * @summary Get Campaign Reports Configuration
      * @param {*} [axiosOptions] Override http request option.
+     * @deprecated
      * @throws {RequiredError}
      * @memberof CertificationCampaignsBetaApi
      */

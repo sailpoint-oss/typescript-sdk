@@ -4551,6 +4551,19 @@ export interface CampaignReportAllOf {
 /**
  * 
  * @export
+ * @interface CampaignReportsConfig
+ */
+export interface CampaignReportsConfig {
+    /**
+     * list of identity attribute columns
+     * @type {Array<string>}
+     * @memberof CampaignReportsConfig
+     */
+    'identityAttributeColumns'?: Array<string>;
+}
+/**
+ * 
+ * @export
  * @interface CampaignsDeleteRequest
  */
 export interface CampaignsDeleteRequest {
@@ -21349,6 +21362,44 @@ export const CertificationCampaignsApiAxiosParamCreator = function (configuratio
             };
         },
         /**
+         * Fetches configuration for campaign reports. Currently it includes only one element - identity attributes defined as custom report columns. Requires roles of CERT_ADMIN and ORG_ADMIN.
+         * @summary Get Campaign Reports Configuration
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        getCampaignReportsConfig: async (axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            const localVarPath = `/campaigns/reports-configuration`;
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...axiosOptions};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication UserContextAuth required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "UserContextAuth", [], configuration)
+
+            // authentication UserContextAuth required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "UserContextAuth", [], configuration)
+
+
+    
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                axiosOptions: localVarRequestOptions,
+            };
+        },
+        /**
          * This API reassigns the specified certifications from one identity to another. A token with ORG_ADMIN or CERT_ADMIN authority is required to call this API.
          * @summary Reassign Certifications
          * @param {string} id The certification campaign ID
@@ -21619,6 +21670,16 @@ export const CertificationCampaignsApiFp = function(configuration?: Configuratio
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
+         * Fetches configuration for campaign reports. Currently it includes only one element - identity attributes defined as custom report columns. Requires roles of CERT_ADMIN and ORG_ADMIN.
+         * @summary Get Campaign Reports Configuration
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        async getCampaignReportsConfig(axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<CampaignReportsConfig>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getCampaignReportsConfig(axiosOptions);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
          * This API reassigns the specified certifications from one identity to another. A token with ORG_ADMIN or CERT_ADMIN authority is required to call this API.
          * @summary Reassign Certifications
          * @param {string} id The certification campaign ID
@@ -21741,6 +21802,15 @@ export const CertificationCampaignsApiFactory = function (configuration?: Config
          */
         getCampaignReports(campaignId: string, axiosOptions?: any): AxiosPromise<Array<CampaignReport>> {
             return localVarFp.getCampaignReports(campaignId, axiosOptions).then((request) => request(axios, basePath));
+        },
+        /**
+         * Fetches configuration for campaign reports. Currently it includes only one element - identity attributes defined as custom report columns. Requires roles of CERT_ADMIN and ORG_ADMIN.
+         * @summary Get Campaign Reports Configuration
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        getCampaignReportsConfig(axiosOptions?: any): AxiosPromise<CampaignReportsConfig> {
+            return localVarFp.getCampaignReportsConfig(axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * This API reassigns the specified certifications from one identity to another. A token with ORG_ADMIN or CERT_ADMIN authority is required to call this API.
@@ -22076,6 +22146,17 @@ export class CertificationCampaignsApi extends BaseAPI {
      */
     public getCampaignReports(requestParameters: CertificationCampaignsApiGetCampaignReportsRequest, axiosOptions?: AxiosRequestConfig) {
         return CertificationCampaignsApiFp(this.configuration).getCampaignReports(requestParameters.campaignId, axiosOptions).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Fetches configuration for campaign reports. Currently it includes only one element - identity attributes defined as custom report columns. Requires roles of CERT_ADMIN and ORG_ADMIN.
+     * @summary Get Campaign Reports Configuration
+     * @param {*} [axiosOptions] Override http request option.
+     * @throws {RequiredError}
+     * @memberof CertificationCampaignsApi
+     */
+    public getCampaignReportsConfig(axiosOptions?: AxiosRequestConfig) {
+        return CertificationCampaignsApiFp(this.configuration).getCampaignReportsConfig(axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
