@@ -21448,6 +21448,50 @@ export const CertificationCampaignsApiAxiosParamCreator = function (configuratio
             };
         },
         /**
+         * Overwrites configuration for campaign reports. Requires roles CERT_ADMIN and ORG_ADMIN.
+         * @summary Set Campaign Reports Configuration
+         * @param {CampaignReportsConfig} campaignReportsConfig Campaign Report Configuration
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        setCampaignReportsConfig: async (campaignReportsConfig: CampaignReportsConfig, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'campaignReportsConfig' is not null or undefined
+            assertParamExists('setCampaignReportsConfig', 'campaignReportsConfig', campaignReportsConfig)
+            const localVarPath = `/campaigns/reports-configuration`;
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'PUT', ...baseOptions, ...axiosOptions};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication UserContextAuth required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "UserContextAuth", [], configuration)
+
+            // authentication UserContextAuth required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "UserContextAuth", [], configuration)
+
+
+    
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
+            localVarRequestOptions.data = serializeDataIfNeeded(campaignReportsConfig, localVarRequestOptions, configuration)
+
+            return {
+                url: toPathString(localVarUrlObj),
+                axiosOptions: localVarRequestOptions,
+            };
+        },
+        /**
          * Submits a job to activate the campaign with the given Id. The campaign must be staged. Requires roles of CERT_ADMIN and ORG_ADMIN
          * @summary Activate a Campaign
          * @param {string} id The campaign id
@@ -21692,6 +21736,17 @@ export const CertificationCampaignsApiFp = function(configuration?: Configuratio
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
+         * Overwrites configuration for campaign reports. Requires roles CERT_ADMIN and ORG_ADMIN.
+         * @summary Set Campaign Reports Configuration
+         * @param {CampaignReportsConfig} campaignReportsConfig Campaign Report Configuration
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        async setCampaignReportsConfig(campaignReportsConfig: CampaignReportsConfig, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<CampaignReportsConfig>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.setCampaignReportsConfig(campaignReportsConfig, axiosOptions);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
          * Submits a job to activate the campaign with the given Id. The campaign must be staged. Requires roles of CERT_ADMIN and ORG_ADMIN
          * @summary Activate a Campaign
          * @param {string} id The campaign id
@@ -21822,6 +21877,16 @@ export const CertificationCampaignsApiFactory = function (configuration?: Config
          */
         move(id: string, adminReviewReassign: AdminReviewReassign, axiosOptions?: any): AxiosPromise<CertificationTask> {
             return localVarFp.move(id, adminReviewReassign, axiosOptions).then((request) => request(axios, basePath));
+        },
+        /**
+         * Overwrites configuration for campaign reports. Requires roles CERT_ADMIN and ORG_ADMIN.
+         * @summary Set Campaign Reports Configuration
+         * @param {CampaignReportsConfig} campaignReportsConfig Campaign Report Configuration
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        setCampaignReportsConfig(campaignReportsConfig: CampaignReportsConfig, axiosOptions?: any): AxiosPromise<CampaignReportsConfig> {
+            return localVarFp.setCampaignReportsConfig(campaignReportsConfig, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * Submits a job to activate the campaign with the given Id. The campaign must be staged. Requires roles of CERT_ADMIN and ORG_ADMIN
@@ -22007,6 +22072,20 @@ export interface CertificationCampaignsApiMoveRequest {
 }
 
 /**
+ * Request parameters for setCampaignReportsConfig operation in CertificationCampaignsApi.
+ * @export
+ * @interface CertificationCampaignsApiSetCampaignReportsConfigRequest
+ */
+export interface CertificationCampaignsApiSetCampaignReportsConfigRequest {
+    /**
+     * Campaign Report Configuration
+     * @type {CampaignReportsConfig}
+     * @memberof CertificationCampaignsApiSetCampaignReportsConfig
+     */
+    readonly campaignReportsConfig: CampaignReportsConfig
+}
+
+/**
  * Request parameters for startCampaign operation in CertificationCampaignsApi.
  * @export
  * @interface CertificationCampaignsApiStartCampaignRequest
@@ -22169,6 +22248,18 @@ export class CertificationCampaignsApi extends BaseAPI {
      */
     public move(requestParameters: CertificationCampaignsApiMoveRequest, axiosOptions?: AxiosRequestConfig) {
         return CertificationCampaignsApiFp(this.configuration).move(requestParameters.id, requestParameters.adminReviewReassign, axiosOptions).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Overwrites configuration for campaign reports. Requires roles CERT_ADMIN and ORG_ADMIN.
+     * @summary Set Campaign Reports Configuration
+     * @param {CertificationCampaignsApiSetCampaignReportsConfigRequest} requestParameters Request parameters.
+     * @param {*} [axiosOptions] Override http request option.
+     * @throws {RequiredError}
+     * @memberof CertificationCampaignsApi
+     */
+    public setCampaignReportsConfig(requestParameters: CertificationCampaignsApiSetCampaignReportsConfigRequest, axiosOptions?: AxiosRequestConfig) {
+        return CertificationCampaignsApiFp(this.configuration).setCampaignReportsConfig(requestParameters.campaignReportsConfig, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**

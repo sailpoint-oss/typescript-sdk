@@ -29300,6 +29300,7 @@ export const CertificationCampaignsBetaApiAxiosParamCreator = function (configur
          * @summary Set Campaign Reports Configuration
          * @param {CampaignReportsConfigBeta} campaignReportsConfigBeta Campaign Report Configuration
          * @param {*} [axiosOptions] Override http request option.
+         * @deprecated
          * @throws {RequiredError}
          */
         setCampaignReportsConfig: async (campaignReportsConfigBeta: CampaignReportsConfigBeta, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
@@ -29749,6 +29750,7 @@ export const CertificationCampaignsBetaApiFp = function(configuration?: Configur
          * @summary Set Campaign Reports Configuration
          * @param {CampaignReportsConfigBeta} campaignReportsConfigBeta Campaign Report Configuration
          * @param {*} [axiosOptions] Override http request option.
+         * @deprecated
          * @throws {RequiredError}
          */
         async setCampaignReportsConfig(campaignReportsConfigBeta: CampaignReportsConfigBeta, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<CampaignReportsConfigBeta>> {
@@ -30010,6 +30012,7 @@ export const CertificationCampaignsBetaApiFactory = function (configuration?: Co
          * @summary Set Campaign Reports Configuration
          * @param {CampaignReportsConfigBeta} campaignReportsConfigBeta Campaign Report Configuration
          * @param {*} [axiosOptions] Override http request option.
+         * @deprecated
          * @throws {RequiredError}
          */
         setCampaignReportsConfig(campaignReportsConfigBeta: CampaignReportsConfigBeta, axiosOptions?: any): AxiosPromise<CampaignReportsConfigBeta> {
@@ -30694,6 +30697,7 @@ export class CertificationCampaignsBetaApi extends BaseAPI {
      * @summary Set Campaign Reports Configuration
      * @param {CertificationCampaignsBetaApiSetCampaignReportsConfigRequest} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
+     * @deprecated
      * @throws {RequiredError}
      * @memberof CertificationCampaignsBetaApi
      */
