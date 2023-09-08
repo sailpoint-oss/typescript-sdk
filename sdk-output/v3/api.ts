@@ -21538,6 +21538,48 @@ export const CertificationCampaignsApiAxiosParamCreator = function (configuratio
             };
         },
         /**
+         * Kicks off remediation scan task for a certification campaign. Requires roles of CERT_ADMIN and ORG_ADMIN
+         * @summary Run Campaign Remediation Scan
+         * @param {string} id The ID of the campaign for which remediation scan is being run.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        startCampaignRemediationScan: async (id: string, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'id' is not null or undefined
+            assertParamExists('startCampaignRemediationScan', 'id', id)
+            const localVarPath = `/campaigns/{id}/run-remediation-scan`
+                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'POST', ...baseOptions, ...axiosOptions};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication UserContextAuth required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "UserContextAuth", [], configuration)
+
+            // authentication UserContextAuth required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "UserContextAuth", [], configuration)
+
+
+    
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                axiosOptions: localVarRequestOptions,
+            };
+        },
+        /**
          * Runs a report for a certification campaign. Requires the following roles: CERT_ADMIN, DASHBOARD, ORG_ADMIN and REPORT_ADMIN.
          * @summary Run Campaign Report
          * @param {string} id The ID of the campaign for which report is being run.
@@ -21759,6 +21801,17 @@ export const CertificationCampaignsApiFp = function(configuration?: Configuratio
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
+         * Kicks off remediation scan task for a certification campaign. Requires roles of CERT_ADMIN and ORG_ADMIN
+         * @summary Run Campaign Remediation Scan
+         * @param {string} id The ID of the campaign for which remediation scan is being run.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        async startCampaignRemediationScan(id: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<object>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.startCampaignRemediationScan(id, axiosOptions);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
          * Runs a report for a certification campaign. Requires the following roles: CERT_ADMIN, DASHBOARD, ORG_ADMIN and REPORT_ADMIN.
          * @summary Run Campaign Report
          * @param {string} id The ID of the campaign for which report is being run.
@@ -21898,6 +21951,16 @@ export const CertificationCampaignsApiFactory = function (configuration?: Config
          */
         startCampaign(id: string, activateCampaignOptions?: ActivateCampaignOptions, axiosOptions?: any): AxiosPromise<object> {
             return localVarFp.startCampaign(id, activateCampaignOptions, axiosOptions).then((request) => request(axios, basePath));
+        },
+        /**
+         * Kicks off remediation scan task for a certification campaign. Requires roles of CERT_ADMIN and ORG_ADMIN
+         * @summary Run Campaign Remediation Scan
+         * @param {string} id The ID of the campaign for which remediation scan is being run.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        startCampaignRemediationScan(id: string, axiosOptions?: any): AxiosPromise<object> {
+            return localVarFp.startCampaignRemediationScan(id, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * Runs a report for a certification campaign. Requires the following roles: CERT_ADMIN, DASHBOARD, ORG_ADMIN and REPORT_ADMIN.
@@ -22107,6 +22170,20 @@ export interface CertificationCampaignsApiStartCampaignRequest {
 }
 
 /**
+ * Request parameters for startCampaignRemediationScan operation in CertificationCampaignsApi.
+ * @export
+ * @interface CertificationCampaignsApiStartCampaignRemediationScanRequest
+ */
+export interface CertificationCampaignsApiStartCampaignRemediationScanRequest {
+    /**
+     * The ID of the campaign for which remediation scan is being run.
+     * @type {string}
+     * @memberof CertificationCampaignsApiStartCampaignRemediationScan
+     */
+    readonly id: string
+}
+
+/**
  * Request parameters for startCampaignReport operation in CertificationCampaignsApi.
  * @export
  * @interface CertificationCampaignsApiStartCampaignReportRequest
@@ -22272,6 +22349,18 @@ export class CertificationCampaignsApi extends BaseAPI {
      */
     public startCampaign(requestParameters: CertificationCampaignsApiStartCampaignRequest, axiosOptions?: AxiosRequestConfig) {
         return CertificationCampaignsApiFp(this.configuration).startCampaign(requestParameters.id, requestParameters.activateCampaignOptions, axiosOptions).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Kicks off remediation scan task for a certification campaign. Requires roles of CERT_ADMIN and ORG_ADMIN
+     * @summary Run Campaign Remediation Scan
+     * @param {CertificationCampaignsApiStartCampaignRemediationScanRequest} requestParameters Request parameters.
+     * @param {*} [axiosOptions] Override http request option.
+     * @throws {RequiredError}
+     * @memberof CertificationCampaignsApi
+     */
+    public startCampaignRemediationScan(requestParameters: CertificationCampaignsApiStartCampaignRemediationScanRequest, axiosOptions?: AxiosRequestConfig) {
+        return CertificationCampaignsApiFp(this.configuration).startCampaignRemediationScan(requestParameters.id, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
