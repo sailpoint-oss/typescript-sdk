@@ -22415,6 +22415,186 @@ export const TaskResultSimplifiedBetaCompletionStatusEnum = {
 export type TaskResultSimplifiedBetaCompletionStatusEnum = typeof TaskResultSimplifiedBetaCompletionStatusEnum[keyof typeof TaskResultSimplifiedBetaCompletionStatusEnum];
 
 /**
+ * Task return details
+ * @export
+ * @interface TaskReturnDetailsBeta
+ */
+export interface TaskReturnDetailsBeta {
+    /**
+     * Display name of the TaskReturnDetails
+     * @type {string}
+     * @memberof TaskReturnDetailsBeta
+     */
+    'name': string;
+    /**
+     * Attribute the TaskReturnDetails is for
+     * @type {string}
+     * @memberof TaskReturnDetailsBeta
+     */
+    'attributeName': string;
+}
+/**
+ * Details and current status of a specific task
+ * @export
+ * @interface TaskStatusBeta
+ */
+export interface TaskStatusBeta {
+    /**
+     * System-generated unique ID of the task this TaskStatus represents
+     * @type {string}
+     * @memberof TaskStatusBeta
+     */
+    'id': string;
+    /**
+     * Type of task this TaskStatus represents
+     * @type {string}
+     * @memberof TaskStatusBeta
+     */
+    'type': TaskStatusBetaTypeEnum;
+    /**
+     * Name of the task this TaskStatus represents
+     * @type {string}
+     * @memberof TaskStatusBeta
+     */
+    'uniqueName': string;
+    /**
+     * Description of the task this TaskStatus represents
+     * @type {string}
+     * @memberof TaskStatusBeta
+     */
+    'description': string;
+    /**
+     * Name of the parent of the task this TaskStatus represents
+     * @type {string}
+     * @memberof TaskStatusBeta
+     */
+    'parentName': string;
+    /**
+     * Service to execute the task this TaskStatus represents
+     * @type {string}
+     * @memberof TaskStatusBeta
+     */
+    'launcher': string;
+    /**
+     * Creation date of the task this TaskStatus represents
+     * @type {string}
+     * @memberof TaskStatusBeta
+     */
+    'created': string;
+    /**
+     * Last modification date of the task this TaskStatus represents
+     * @type {string}
+     * @memberof TaskStatusBeta
+     */
+    'modified': string;
+    /**
+     * Launch date of the task this TaskStatus represents
+     * @type {string}
+     * @memberof TaskStatusBeta
+     */
+    'launched': string;
+    /**
+     * Completion date of the task this TaskStatus represents
+     * @type {string}
+     * @memberof TaskStatusBeta
+     */
+    'completed': string;
+    /**
+     * Completion status of the task this TaskStatus represents
+     * @type {string}
+     * @memberof TaskStatusBeta
+     */
+    'completionStatus': TaskStatusBetaCompletionStatusEnum;
+    /**
+     * Messages associated with the task this TaskStatus represents
+     * @type {Array<TaskStatusMessageBeta>}
+     * @memberof TaskStatusBeta
+     */
+    'messages': Array<TaskStatusMessageBeta>;
+    /**
+     * Return values from the task this TaskStatus represents
+     * @type {Array<TaskReturnDetailsBeta>}
+     * @memberof TaskStatusBeta
+     */
+    'returns': Array<TaskReturnDetailsBeta>;
+    /**
+     * Attributes of the task this TaskStatus represents
+     * @type {{ [key: string]: any; }}
+     * @memberof TaskStatusBeta
+     */
+    'attributes': { [key: string]: any; };
+    /**
+     * Current progress of the task this TaskStatus represents
+     * @type {string}
+     * @memberof TaskStatusBeta
+     */
+    'progress': string;
+    /**
+     * Current percentage completion of the task this TaskStatus represents
+     * @type {number}
+     * @memberof TaskStatusBeta
+     */
+    'percentComplete': number;
+}
+
+export const TaskStatusBetaTypeEnum = {
+    Quartz: 'QUARTZ',
+    Qpoc: 'QPOC',
+    QueuedTask: 'QUEUED_TASK'
+} as const;
+
+export type TaskStatusBetaTypeEnum = typeof TaskStatusBetaTypeEnum[keyof typeof TaskStatusBetaTypeEnum];
+export const TaskStatusBetaCompletionStatusEnum = {
+    Success: 'Success',
+    Warning: 'Warning',
+    Error: 'Error',
+    Terminated: 'Terminated',
+    TempError: 'TempError'
+} as const;
+
+export type TaskStatusBetaCompletionStatusEnum = typeof TaskStatusBetaCompletionStatusEnum[keyof typeof TaskStatusBetaCompletionStatusEnum];
+
+/**
+ * TaskStatus Message
+ * @export
+ * @interface TaskStatusMessageBeta
+ */
+export interface TaskStatusMessageBeta {
+    /**
+     * Type of the message
+     * @type {string}
+     * @memberof TaskStatusMessageBeta
+     */
+    'type': TaskStatusMessageBetaTypeEnum;
+    /**
+     * 
+     * @type {LocalizedMessageBeta}
+     * @memberof TaskStatusMessageBeta
+     */
+    'localizedText': LocalizedMessageBeta;
+    /**
+     * Key of the message
+     * @type {string}
+     * @memberof TaskStatusMessageBeta
+     */
+    'key': string;
+    /**
+     * Message parameters for internationalization
+     * @type {Array<object>}
+     * @memberof TaskStatusMessageBeta
+     */
+    'parameters': Array<object>;
+}
+
+export const TaskStatusMessageBetaTypeEnum = {
+    Info: 'INFO',
+    Warn: 'WARN',
+    Error: 'ERROR'
+} as const;
+
+export type TaskStatusMessageBetaTypeEnum = typeof TaskStatusMessageBetaTypeEnum[keyof typeof TaskStatusMessageBetaTypeEnum];
+
+/**
  * 
  * @export
  * @interface TemplateBulkDeleteDtoBeta
@@ -64288,6 +64468,675 @@ export class TaggedObjectsBetaApi extends BaseAPI {
      */
     public updateTaggedObject(requestParameters: TaggedObjectsBetaApiUpdateTaggedObjectRequest, axiosOptions?: AxiosRequestConfig) {
         return TaggedObjectsBetaApiFp(this.configuration).updateTaggedObject(requestParameters.type, requestParameters.id, requestParameters.taggedObjectBeta, axiosOptions).then((request) => request(this.axios, this.basePath));
+    }
+}
+
+
+/**
+ * TaskManagementBetaApi - axios parameter creator
+ * @export
+ */
+export const TaskManagementBetaApiAxiosParamCreator = function (configuration?: Configuration) {
+    return {
+        /**
+         * Retrieve headers for a list of TaskStatus for pending tasks.
+         * @summary Retrieve headers only for pending task list.
+         * @param {number} [offset] Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+         * @param {number} [limit] Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+         * @param {boolean} [count] If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+         * @param {string} [sorters] sort criteria
+         * @param {string} [filters] filter criteria
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        getPendingTaskHeaders: async (offset?: number, limit?: number, count?: boolean, sorters?: string, filters?: string, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            const localVarPath = `/task-status/pending-tasks`;
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'HEAD', ...baseOptions, ...axiosOptions};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication UserContextAuth required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "UserContextAuth", [], configuration)
+
+            // authentication UserContextAuth required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "UserContextAuth", [], configuration)
+
+            if (offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+
+            if (limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+
+            if (count !== undefined) {
+                localVarQueryParameter['count'] = count;
+            }
+
+            if (sorters !== undefined) {
+                localVarQueryParameter['sorters'] = sorters;
+            }
+
+            if (filters !== undefined) {
+                localVarQueryParameter['filters'] = filters;
+            }
+
+
+    
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                axiosOptions: localVarRequestOptions,
+            };
+        },
+        /**
+         * Retrieve a list of TaskStatus for pending tasks.
+         * @summary Retrieve a pending task list.
+         * @param {number} [offset] Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+         * @param {number} [limit] Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+         * @param {boolean} [count] If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+         * @param {string} [sorters] sort criteria
+         * @param {string} [filters] filter criteria
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        getPendingTasks: async (offset?: number, limit?: number, count?: boolean, sorters?: string, filters?: string, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            const localVarPath = `/task-status/pending-tasks`;
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...axiosOptions};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication UserContextAuth required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "UserContextAuth", [], configuration)
+
+            // authentication UserContextAuth required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "UserContextAuth", [], configuration)
+
+            if (offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+
+            if (limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+
+            if (count !== undefined) {
+                localVarQueryParameter['count'] = count;
+            }
+
+            if (sorters !== undefined) {
+                localVarQueryParameter['sorters'] = sorters;
+            }
+
+            if (filters !== undefined) {
+                localVarQueryParameter['filters'] = filters;
+            }
+
+
+    
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                axiosOptions: localVarRequestOptions,
+            };
+        },
+        /**
+         * Get a TaskStatus for a task by task ID.
+         * @summary Get task status by ID.
+         * @param {string} id Task ID of the TaskStatus to get
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        getTaskStatus: async (id: string, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'id' is not null or undefined
+            assertParamExists('getTaskStatus', 'id', id)
+            const localVarPath = `/task-status/{id}`
+                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...axiosOptions};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication UserContextAuth required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "UserContextAuth", [], configuration)
+
+            // authentication UserContextAuth required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "UserContextAuth", [], configuration)
+
+
+    
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                axiosOptions: localVarRequestOptions,
+            };
+        },
+        /**
+         * Get a TaskStatus list.
+         * @summary Retrieve a task status list.
+         * @param {number} [limit] Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+         * @param {number} [offset] Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+         * @param {boolean} [count] If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+         * @param {string} [filters] Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results) Filtering is supported for the following fields and operators:   **id**: *eq, in*   **sourceId**: *eq, in*   **completionStatus**: *eq, in*   **type**: *eq, in* \&quot;CLOUD_ACCOUNT_AGGREGATION\&quot;, \&quot;CLOUD_GROUP_AGGREGATION\&quot;, \&quot;CLOUD_PROCESS_UNCORRELATED_ACCOUNTS\&quot; or \&quot;CLOUD_REFRESH_ROLE\&quot;
+         * @param {string} [sorters] Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results) Sorting is supported for the following fields: **created**
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        getTaskStatusList: async (limit?: number, offset?: number, count?: boolean, filters?: string, sorters?: string, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            const localVarPath = `/task-status`;
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...axiosOptions};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication UserContextAuth required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "UserContextAuth", [], configuration)
+
+            // authentication UserContextAuth required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "UserContextAuth", [], configuration)
+
+            if (limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+
+            if (offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+
+            if (count !== undefined) {
+                localVarQueryParameter['count'] = count;
+            }
+
+            if (filters !== undefined) {
+                localVarQueryParameter['filters'] = filters;
+            }
+
+            if (sorters !== undefined) {
+                localVarQueryParameter['sorters'] = sorters;
+            }
+
+
+    
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                axiosOptions: localVarRequestOptions,
+            };
+        },
+        /**
+         * Update a current TaskStatus for a task by task ID.
+         * @summary Update task status by ID
+         * @param {string} id Task ID of the task whose TaskStatus to update
+         * @param {JsonPatchBeta} jsonPatchBeta 
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        updateTaskStatus: async (id: string, jsonPatchBeta: JsonPatchBeta, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'id' is not null or undefined
+            assertParamExists('updateTaskStatus', 'id', id)
+            // verify required parameter 'jsonPatchBeta' is not null or undefined
+            assertParamExists('updateTaskStatus', 'jsonPatchBeta', jsonPatchBeta)
+            const localVarPath = `/task-status/{id}`
+                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'PATCH', ...baseOptions, ...axiosOptions};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication UserContextAuth required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "UserContextAuth", [], configuration)
+
+            // authentication UserContextAuth required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "UserContextAuth", [], configuration)
+
+
+    
+            localVarHeaderParameter['Content-Type'] = 'application/json-patch+json';
+
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
+            localVarRequestOptions.data = serializeDataIfNeeded(jsonPatchBeta, localVarRequestOptions, configuration)
+
+            return {
+                url: toPathString(localVarUrlObj),
+                axiosOptions: localVarRequestOptions,
+            };
+        },
+    }
+};
+
+/**
+ * TaskManagementBetaApi - functional programming interface
+ * @export
+ */
+export const TaskManagementBetaApiFp = function(configuration?: Configuration) {
+    const localVarAxiosParamCreator = TaskManagementBetaApiAxiosParamCreator(configuration)
+    return {
+        /**
+         * Retrieve headers for a list of TaskStatus for pending tasks.
+         * @summary Retrieve headers only for pending task list.
+         * @param {number} [offset] Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+         * @param {number} [limit] Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+         * @param {boolean} [count] If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+         * @param {string} [sorters] sort criteria
+         * @param {string} [filters] filter criteria
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        async getPendingTaskHeaders(offset?: number, limit?: number, count?: boolean, sorters?: string, filters?: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getPendingTaskHeaders(offset, limit, count, sorters, filters, axiosOptions);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * Retrieve a list of TaskStatus for pending tasks.
+         * @summary Retrieve a pending task list.
+         * @param {number} [offset] Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+         * @param {number} [limit] Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+         * @param {boolean} [count] If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+         * @param {string} [sorters] sort criteria
+         * @param {string} [filters] filter criteria
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        async getPendingTasks(offset?: number, limit?: number, count?: boolean, sorters?: string, filters?: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<TaskStatusBeta>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getPendingTasks(offset, limit, count, sorters, filters, axiosOptions);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * Get a TaskStatus for a task by task ID.
+         * @summary Get task status by ID.
+         * @param {string} id Task ID of the TaskStatus to get
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        async getTaskStatus(id: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<TaskStatusBeta>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getTaskStatus(id, axiosOptions);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * Get a TaskStatus list.
+         * @summary Retrieve a task status list.
+         * @param {number} [limit] Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+         * @param {number} [offset] Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+         * @param {boolean} [count] If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+         * @param {string} [filters] Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results) Filtering is supported for the following fields and operators:   **id**: *eq, in*   **sourceId**: *eq, in*   **completionStatus**: *eq, in*   **type**: *eq, in* \&quot;CLOUD_ACCOUNT_AGGREGATION\&quot;, \&quot;CLOUD_GROUP_AGGREGATION\&quot;, \&quot;CLOUD_PROCESS_UNCORRELATED_ACCOUNTS\&quot; or \&quot;CLOUD_REFRESH_ROLE\&quot;
+         * @param {string} [sorters] Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results) Sorting is supported for the following fields: **created**
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        async getTaskStatusList(limit?: number, offset?: number, count?: boolean, filters?: string, sorters?: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<TaskStatusBeta>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getTaskStatusList(limit, offset, count, filters, sorters, axiosOptions);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * Update a current TaskStatus for a task by task ID.
+         * @summary Update task status by ID
+         * @param {string} id Task ID of the task whose TaskStatus to update
+         * @param {JsonPatchBeta} jsonPatchBeta 
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        async updateTaskStatus(id: string, jsonPatchBeta: JsonPatchBeta, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<TaskStatusBeta>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.updateTaskStatus(id, jsonPatchBeta, axiosOptions);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+    }
+};
+
+/**
+ * TaskManagementBetaApi - factory interface
+ * @export
+ */
+export const TaskManagementBetaApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
+    const localVarFp = TaskManagementBetaApiFp(configuration)
+    return {
+        /**
+         * Retrieve headers for a list of TaskStatus for pending tasks.
+         * @summary Retrieve headers only for pending task list.
+         * @param {number} [offset] Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+         * @param {number} [limit] Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+         * @param {boolean} [count] If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+         * @param {string} [sorters] sort criteria
+         * @param {string} [filters] filter criteria
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        getPendingTaskHeaders(offset?: number, limit?: number, count?: boolean, sorters?: string, filters?: string, axiosOptions?: any): AxiosPromise<void> {
+            return localVarFp.getPendingTaskHeaders(offset, limit, count, sorters, filters, axiosOptions).then((request) => request(axios, basePath));
+        },
+        /**
+         * Retrieve a list of TaskStatus for pending tasks.
+         * @summary Retrieve a pending task list.
+         * @param {number} [offset] Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+         * @param {number} [limit] Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+         * @param {boolean} [count] If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+         * @param {string} [sorters] sort criteria
+         * @param {string} [filters] filter criteria
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        getPendingTasks(offset?: number, limit?: number, count?: boolean, sorters?: string, filters?: string, axiosOptions?: any): AxiosPromise<Array<TaskStatusBeta>> {
+            return localVarFp.getPendingTasks(offset, limit, count, sorters, filters, axiosOptions).then((request) => request(axios, basePath));
+        },
+        /**
+         * Get a TaskStatus for a task by task ID.
+         * @summary Get task status by ID.
+         * @param {string} id Task ID of the TaskStatus to get
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        getTaskStatus(id: string, axiosOptions?: any): AxiosPromise<TaskStatusBeta> {
+            return localVarFp.getTaskStatus(id, axiosOptions).then((request) => request(axios, basePath));
+        },
+        /**
+         * Get a TaskStatus list.
+         * @summary Retrieve a task status list.
+         * @param {number} [limit] Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+         * @param {number} [offset] Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+         * @param {boolean} [count] If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+         * @param {string} [filters] Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results) Filtering is supported for the following fields and operators:   **id**: *eq, in*   **sourceId**: *eq, in*   **completionStatus**: *eq, in*   **type**: *eq, in* \&quot;CLOUD_ACCOUNT_AGGREGATION\&quot;, \&quot;CLOUD_GROUP_AGGREGATION\&quot;, \&quot;CLOUD_PROCESS_UNCORRELATED_ACCOUNTS\&quot; or \&quot;CLOUD_REFRESH_ROLE\&quot;
+         * @param {string} [sorters] Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results) Sorting is supported for the following fields: **created**
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        getTaskStatusList(limit?: number, offset?: number, count?: boolean, filters?: string, sorters?: string, axiosOptions?: any): AxiosPromise<Array<TaskStatusBeta>> {
+            return localVarFp.getTaskStatusList(limit, offset, count, filters, sorters, axiosOptions).then((request) => request(axios, basePath));
+        },
+        /**
+         * Update a current TaskStatus for a task by task ID.
+         * @summary Update task status by ID
+         * @param {string} id Task ID of the task whose TaskStatus to update
+         * @param {JsonPatchBeta} jsonPatchBeta 
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        updateTaskStatus(id: string, jsonPatchBeta: JsonPatchBeta, axiosOptions?: any): AxiosPromise<TaskStatusBeta> {
+            return localVarFp.updateTaskStatus(id, jsonPatchBeta, axiosOptions).then((request) => request(axios, basePath));
+        },
+    };
+};
+
+/**
+ * Request parameters for getPendingTaskHeaders operation in TaskManagementBetaApi.
+ * @export
+ * @interface TaskManagementBetaApiGetPendingTaskHeadersRequest
+ */
+export interface TaskManagementBetaApiGetPendingTaskHeadersRequest {
+    /**
+     * Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+     * @type {number}
+     * @memberof TaskManagementBetaApiGetPendingTaskHeaders
+     */
+    readonly offset?: number
+
+    /**
+     * Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+     * @type {number}
+     * @memberof TaskManagementBetaApiGetPendingTaskHeaders
+     */
+    readonly limit?: number
+
+    /**
+     * If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+     * @type {boolean}
+     * @memberof TaskManagementBetaApiGetPendingTaskHeaders
+     */
+    readonly count?: boolean
+
+    /**
+     * sort criteria
+     * @type {string}
+     * @memberof TaskManagementBetaApiGetPendingTaskHeaders
+     */
+    readonly sorters?: string
+
+    /**
+     * filter criteria
+     * @type {string}
+     * @memberof TaskManagementBetaApiGetPendingTaskHeaders
+     */
+    readonly filters?: string
+}
+
+/**
+ * Request parameters for getPendingTasks operation in TaskManagementBetaApi.
+ * @export
+ * @interface TaskManagementBetaApiGetPendingTasksRequest
+ */
+export interface TaskManagementBetaApiGetPendingTasksRequest {
+    /**
+     * Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+     * @type {number}
+     * @memberof TaskManagementBetaApiGetPendingTasks
+     */
+    readonly offset?: number
+
+    /**
+     * Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+     * @type {number}
+     * @memberof TaskManagementBetaApiGetPendingTasks
+     */
+    readonly limit?: number
+
+    /**
+     * If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+     * @type {boolean}
+     * @memberof TaskManagementBetaApiGetPendingTasks
+     */
+    readonly count?: boolean
+
+    /**
+     * sort criteria
+     * @type {string}
+     * @memberof TaskManagementBetaApiGetPendingTasks
+     */
+    readonly sorters?: string
+
+    /**
+     * filter criteria
+     * @type {string}
+     * @memberof TaskManagementBetaApiGetPendingTasks
+     */
+    readonly filters?: string
+}
+
+/**
+ * Request parameters for getTaskStatus operation in TaskManagementBetaApi.
+ * @export
+ * @interface TaskManagementBetaApiGetTaskStatusRequest
+ */
+export interface TaskManagementBetaApiGetTaskStatusRequest {
+    /**
+     * Task ID of the TaskStatus to get
+     * @type {string}
+     * @memberof TaskManagementBetaApiGetTaskStatus
+     */
+    readonly id: string
+}
+
+/**
+ * Request parameters for getTaskStatusList operation in TaskManagementBetaApi.
+ * @export
+ * @interface TaskManagementBetaApiGetTaskStatusListRequest
+ */
+export interface TaskManagementBetaApiGetTaskStatusListRequest {
+    /**
+     * Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+     * @type {number}
+     * @memberof TaskManagementBetaApiGetTaskStatusList
+     */
+    readonly limit?: number
+
+    /**
+     * Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+     * @type {number}
+     * @memberof TaskManagementBetaApiGetTaskStatusList
+     */
+    readonly offset?: number
+
+    /**
+     * If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+     * @type {boolean}
+     * @memberof TaskManagementBetaApiGetTaskStatusList
+     */
+    readonly count?: boolean
+
+    /**
+     * Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results) Filtering is supported for the following fields and operators:   **id**: *eq, in*   **sourceId**: *eq, in*   **completionStatus**: *eq, in*   **type**: *eq, in* \&quot;CLOUD_ACCOUNT_AGGREGATION\&quot;, \&quot;CLOUD_GROUP_AGGREGATION\&quot;, \&quot;CLOUD_PROCESS_UNCORRELATED_ACCOUNTS\&quot; or \&quot;CLOUD_REFRESH_ROLE\&quot;
+     * @type {string}
+     * @memberof TaskManagementBetaApiGetTaskStatusList
+     */
+    readonly filters?: string
+
+    /**
+     * Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results) Sorting is supported for the following fields: **created**
+     * @type {string}
+     * @memberof TaskManagementBetaApiGetTaskStatusList
+     */
+    readonly sorters?: string
+}
+
+/**
+ * Request parameters for updateTaskStatus operation in TaskManagementBetaApi.
+ * @export
+ * @interface TaskManagementBetaApiUpdateTaskStatusRequest
+ */
+export interface TaskManagementBetaApiUpdateTaskStatusRequest {
+    /**
+     * Task ID of the task whose TaskStatus to update
+     * @type {string}
+     * @memberof TaskManagementBetaApiUpdateTaskStatus
+     */
+    readonly id: string
+
+    /**
+     * 
+     * @type {JsonPatchBeta}
+     * @memberof TaskManagementBetaApiUpdateTaskStatus
+     */
+    readonly jsonPatchBeta: JsonPatchBeta
+}
+
+/**
+ * TaskManagementBetaApi - object-oriented interface
+ * @export
+ * @class TaskManagementBetaApi
+ * @extends {BaseAPI}
+ */
+export class TaskManagementBetaApi extends BaseAPI {
+    /**
+     * Retrieve headers for a list of TaskStatus for pending tasks.
+     * @summary Retrieve headers only for pending task list.
+     * @param {TaskManagementBetaApiGetPendingTaskHeadersRequest} requestParameters Request parameters.
+     * @param {*} [axiosOptions] Override http request option.
+     * @throws {RequiredError}
+     * @memberof TaskManagementBetaApi
+     */
+    public getPendingTaskHeaders(requestParameters: TaskManagementBetaApiGetPendingTaskHeadersRequest = {}, axiosOptions?: AxiosRequestConfig) {
+        return TaskManagementBetaApiFp(this.configuration).getPendingTaskHeaders(requestParameters.offset, requestParameters.limit, requestParameters.count, requestParameters.sorters, requestParameters.filters, axiosOptions).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Retrieve a list of TaskStatus for pending tasks.
+     * @summary Retrieve a pending task list.
+     * @param {TaskManagementBetaApiGetPendingTasksRequest} requestParameters Request parameters.
+     * @param {*} [axiosOptions] Override http request option.
+     * @throws {RequiredError}
+     * @memberof TaskManagementBetaApi
+     */
+    public getPendingTasks(requestParameters: TaskManagementBetaApiGetPendingTasksRequest = {}, axiosOptions?: AxiosRequestConfig) {
+        return TaskManagementBetaApiFp(this.configuration).getPendingTasks(requestParameters.offset, requestParameters.limit, requestParameters.count, requestParameters.sorters, requestParameters.filters, axiosOptions).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Get a TaskStatus for a task by task ID.
+     * @summary Get task status by ID.
+     * @param {TaskManagementBetaApiGetTaskStatusRequest} requestParameters Request parameters.
+     * @param {*} [axiosOptions] Override http request option.
+     * @throws {RequiredError}
+     * @memberof TaskManagementBetaApi
+     */
+    public getTaskStatus(requestParameters: TaskManagementBetaApiGetTaskStatusRequest, axiosOptions?: AxiosRequestConfig) {
+        return TaskManagementBetaApiFp(this.configuration).getTaskStatus(requestParameters.id, axiosOptions).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Get a TaskStatus list.
+     * @summary Retrieve a task status list.
+     * @param {TaskManagementBetaApiGetTaskStatusListRequest} requestParameters Request parameters.
+     * @param {*} [axiosOptions] Override http request option.
+     * @throws {RequiredError}
+     * @memberof TaskManagementBetaApi
+     */
+    public getTaskStatusList(requestParameters: TaskManagementBetaApiGetTaskStatusListRequest = {}, axiosOptions?: AxiosRequestConfig) {
+        return TaskManagementBetaApiFp(this.configuration).getTaskStatusList(requestParameters.limit, requestParameters.offset, requestParameters.count, requestParameters.filters, requestParameters.sorters, axiosOptions).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Update a current TaskStatus for a task by task ID.
+     * @summary Update task status by ID
+     * @param {TaskManagementBetaApiUpdateTaskStatusRequest} requestParameters Request parameters.
+     * @param {*} [axiosOptions] Override http request option.
+     * @throws {RequiredError}
+     * @memberof TaskManagementBetaApi
+     */
+    public updateTaskStatus(requestParameters: TaskManagementBetaApiUpdateTaskStatusRequest, axiosOptions?: AxiosRequestConfig) {
+        return TaskManagementBetaApiFp(this.configuration).updateTaskStatus(requestParameters.id, requestParameters.jsonPatchBeta, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 }
 
