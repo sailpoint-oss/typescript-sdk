@@ -22455,13 +22455,13 @@ export type TemplateBulkDeleteDtoBetaMediumEnum = typeof TemplateBulkDeleteDtoBe
  */
 export interface TemplateDtoBeta {
     /**
-     * 
+     * The key of the template
      * @type {string}
      * @memberof TemplateDtoBeta
      */
     'key': string;
     /**
-     * 
+     * The name of the Task Manager Subscription
      * @type {string}
      * @memberof TemplateDtoBeta
      */
@@ -22479,43 +22479,45 @@ export interface TemplateDtoBeta {
      */
     'locale': string;
     /**
-     * 
+     * The subject line in the template
      * @type {string}
      * @memberof TemplateDtoBeta
      */
     'subject'?: string;
     /**
-     * 
+     * The header value is now located within the body field. If included with non-null values, will result in a 400.
      * @type {string}
      * @memberof TemplateDtoBeta
+     * @deprecated
      */
-    'header'?: string;
+    'header'?: string | null;
     /**
-     * 
+     * The body in the template
      * @type {string}
      * @memberof TemplateDtoBeta
      */
     'body'?: string;
     /**
-     * 
+     * The footer value is now located within the body field. If included with non-null values, will result in a 400.
      * @type {string}
      * @memberof TemplateDtoBeta
+     * @deprecated
      */
-    'footer'?: string;
+    'footer'?: string | null;
     /**
-     * 
+     * The \"From:\" address in the template
      * @type {string}
      * @memberof TemplateDtoBeta
      */
     'from'?: string;
     /**
-     * 
+     * The \"Reply To\" line in the template
      * @type {string}
      * @memberof TemplateDtoBeta
      */
     'replyTo'?: string;
     /**
-     * 
+     * The description in the template
      * @type {string}
      * @memberof TemplateDtoBeta
      */
@@ -22557,13 +22559,13 @@ export type TemplateDtoBetaMediumEnum = typeof TemplateDtoBetaMediumEnum[keyof t
  */
 export interface TemplateDtoDefaultBeta {
     /**
-     * 
+     * The key of the default template
      * @type {string}
      * @memberof TemplateDtoDefaultBeta
      */
     'key'?: string;
     /**
-     * 
+     * The name of the default template
      * @type {string}
      * @memberof TemplateDtoDefaultBeta
      */
@@ -22581,43 +22583,45 @@ export interface TemplateDtoDefaultBeta {
      */
     'locale'?: string;
     /**
-     * 
+     * The subject of the default template
      * @type {string}
      * @memberof TemplateDtoDefaultBeta
      */
     'subject'?: string;
     /**
-     * 
+     * The header value is now located within the body field. If included with non-null values, will result in a 400.
      * @type {string}
      * @memberof TemplateDtoDefaultBeta
+     * @deprecated
      */
-    'header'?: string;
+    'header'?: string | null;
     /**
-     * 
+     * The body of the default template
      * @type {string}
      * @memberof TemplateDtoDefaultBeta
      */
     'body'?: string;
     /**
-     * 
+     * The footer value is now located within the body field. If included with non-null values, will result in a 400.
      * @type {string}
      * @memberof TemplateDtoDefaultBeta
+     * @deprecated
      */
-    'footer'?: string;
+    'footer'?: string | null;
     /**
-     * 
+     * The \"From:\" address of the default template
      * @type {string}
      * @memberof TemplateDtoDefaultBeta
      */
     'from'?: string;
     /**
-     * 
+     * The \"Reply To\" field of the default template
      * @type {string}
      * @memberof TemplateDtoDefaultBeta
      */
     'replyTo'?: string;
     /**
-     * 
+     * The description of the default template
      * @type {string}
      * @memberof TemplateDtoDefaultBeta
      */
