@@ -4214,7 +4214,7 @@ export interface CampaignBeta {
      */
     'description': string;
     /**
-     * The campaign\'s completion deadline.
+     * The campaign\'s completion deadline.  This date must be in the future in order to activate the campaign.  If you try to activate a campaign with a deadline of today or in the past, you will receive a 400 error response.
      * @type {string}
      * @memberof CampaignBeta
      */
@@ -9705,7 +9705,7 @@ export interface FullcampaignBeta {
      */
     'description': string;
     /**
-     * The campaign\'s completion deadline.
+     * The campaign\'s completion deadline.  This date must be in the future in order to activate the campaign.  If you try to activate a campaign with a deadline of today or in the past, you will receive a 400 error response.
      * @type {string}
      * @memberof FullcampaignBeta
      */
@@ -20366,7 +20366,7 @@ export interface SlimcampaignBeta {
      */
     'description': string;
     /**
-     * The campaign\'s completion deadline.
+     * The campaign\'s completion deadline.  This date must be in the future in order to activate the campaign.  If you try to activate a campaign with a deadline of today or in the past, you will receive a 400 error response.
      * @type {string}
      * @memberof SlimcampaignBeta
      */
