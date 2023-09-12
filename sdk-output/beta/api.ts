@@ -11054,6 +11054,38 @@ export interface IdentityListItemBeta {
 /**
  * 
  * @export
+ * @interface IdentityOwnershipAssociationDetailsAssociationDetailsInnerBeta
+ */
+export interface IdentityOwnershipAssociationDetailsAssociationDetailsInnerBeta {
+    /**
+     * association type with the identity
+     * @type {string}
+     * @memberof IdentityOwnershipAssociationDetailsAssociationDetailsInnerBeta
+     */
+    'associationType'?: string;
+    /**
+     * the specific resource this identity has ownership on
+     * @type {Array<IdentityEntitiesBeta>}
+     * @memberof IdentityOwnershipAssociationDetailsAssociationDetailsInnerBeta
+     */
+    'entities'?: Array<IdentityEntitiesBeta>;
+}
+/**
+ * 
+ * @export
+ * @interface IdentityOwnershipAssociationDetailsBeta
+ */
+export interface IdentityOwnershipAssociationDetailsBeta {
+    /**
+     * list of all the resource associations for the identity
+     * @type {Array<IdentityOwnershipAssociationDetailsAssociationDetailsInnerBeta>}
+     * @memberof IdentityOwnershipAssociationDetailsBeta
+     */
+    'associationDetails'?: Array<IdentityOwnershipAssociationDetailsAssociationDetailsInnerBeta>;
+}
+/**
+ * 
+ * @export
  * @interface IdentityPreviewRequestBeta
  */
 export interface IdentityPreviewRequestBeta {
@@ -41488,6 +41520,48 @@ export const IdentitiesBetaApiAxiosParamCreator = function (configuration?: Conf
             };
         },
         /**
+         * Get Ownership association details of an Identity
+         * @summary Get ownership details
+         * @param {string} identityId The identity id
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        getIdentityOwnershipDetails: async (identityId: string, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'identityId' is not null or undefined
+            assertParamExists('getIdentityOwnershipDetails', 'identityId', identityId)
+            const localVarPath = `/identities/{identityId}/ownership`
+                .replace(`{${"identityId"}}`, encodeURIComponent(String(identityId)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...axiosOptions};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication UserContextAuth required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "UserContextAuth", [], configuration)
+
+            // authentication UserContextAuth required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "UserContextAuth", [], configuration)
+
+
+    
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                axiosOptions: localVarRequestOptions,
+            };
+        },
+        /**
          * This API returns a list of identities.
          * @summary List Identities
          * @param {string} [filters] Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters)  Filtering is supported for the following fields and operators:  **id**: *eq, in*  **name**: *eq, sw*  **alias**: *eq, sw*  **firstname**: *eq, sw*  **lastname**: *eq, sw*  **email**: *eq, sw*  **cloudStatus**: *eq*  **processingState**: *eq*  **correlated**: *eq*  **protected**: *eq*
@@ -41674,6 +41748,17 @@ export const IdentitiesBetaApiFp = function(configuration?: Configuration) {
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
+         * Get Ownership association details of an Identity
+         * @summary Get ownership details
+         * @param {string} identityId The identity id
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        async getIdentityOwnershipDetails(identityId: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<IdentityOwnershipAssociationDetailsBeta>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getIdentityOwnershipDetails(identityId, axiosOptions);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
          * This API returns a list of identities.
          * @summary List Identities
          * @param {string} [filters] Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters)  Filtering is supported for the following fields and operators:  **id**: *eq, in*  **name**: *eq, sw*  **alias**: *eq, sw*  **firstname**: *eq, sw*  **lastname**: *eq, sw*  **email**: *eq, sw*  **cloudStatus**: *eq*  **processingState**: *eq*  **correlated**: *eq*  **protected**: *eq*
@@ -41742,6 +41827,16 @@ export const IdentitiesBetaApiFactory = function (configuration?: Configuration,
             return localVarFp.getIdentity(id, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
+         * Get Ownership association details of an Identity
+         * @summary Get ownership details
+         * @param {string} identityId The identity id
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        getIdentityOwnershipDetails(identityId: string, axiosOptions?: any): AxiosPromise<IdentityOwnershipAssociationDetailsBeta> {
+            return localVarFp.getIdentityOwnershipDetails(identityId, axiosOptions).then((request) => request(axios, basePath));
+        },
+        /**
          * This API returns a list of identities.
          * @summary List Identities
          * @param {string} [filters] Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters)  Filtering is supported for the following fields and operators:  **id**: *eq, in*  **name**: *eq, sw*  **alias**: *eq, sw*  **firstname**: *eq, sw*  **lastname**: *eq, sw*  **email**: *eq, sw*  **cloudStatus**: *eq*  **processingState**: *eq*  **correlated**: *eq*  **protected**: *eq*
@@ -41805,6 +41900,20 @@ export interface IdentitiesBetaApiGetIdentityRequest {
      * @memberof IdentitiesBetaApiGetIdentity
      */
     readonly id: string
+}
+
+/**
+ * Request parameters for getIdentityOwnershipDetails operation in IdentitiesBetaApi.
+ * @export
+ * @interface IdentitiesBetaApiGetIdentityOwnershipDetailsRequest
+ */
+export interface IdentitiesBetaApiGetIdentityOwnershipDetailsRequest {
+    /**
+     * The identity id
+     * @type {string}
+     * @memberof IdentitiesBetaApiGetIdentityOwnershipDetails
+     */
+    readonly identityId: string
 }
 
 /**
@@ -41913,6 +42022,18 @@ export class IdentitiesBetaApi extends BaseAPI {
      */
     public getIdentity(requestParameters: IdentitiesBetaApiGetIdentityRequest, axiosOptions?: AxiosRequestConfig) {
         return IdentitiesBetaApiFp(this.configuration).getIdentity(requestParameters.id, axiosOptions).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Get Ownership association details of an Identity
+     * @summary Get ownership details
+     * @param {IdentitiesBetaApiGetIdentityOwnershipDetailsRequest} requestParameters Request parameters.
+     * @param {*} [axiosOptions] Override http request option.
+     * @throws {RequiredError}
+     * @memberof IdentitiesBetaApi
+     */
+    public getIdentityOwnershipDetails(requestParameters: IdentitiesBetaApiGetIdentityOwnershipDetailsRequest, axiosOptions?: AxiosRequestConfig) {
+        return IdentitiesBetaApiFp(this.configuration).getIdentityOwnershipDetails(requestParameters.identityId, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
