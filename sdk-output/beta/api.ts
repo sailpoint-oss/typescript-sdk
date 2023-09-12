@@ -13243,6 +13243,58 @@ export interface MultiPolicyRequestBeta {
     'filteredPolicyList'?: Array<string>;
 }
 /**
+ * Source configuration information for Native Change Detection that is read and used by account aggregation process.
+ * @export
+ * @interface NativeChangeDetectionConfigBeta
+ */
+export interface NativeChangeDetectionConfigBeta {
+    /**
+     * A flag indicating if Native Change Detection is enabled for a source.
+     * @type {boolean}
+     * @memberof NativeChangeDetectionConfigBeta
+     */
+    'enabled'?: boolean;
+    /**
+     * Operation types for which Native Change Detection is enabled for a source.
+     * @type {Array<string>}
+     * @memberof NativeChangeDetectionConfigBeta
+     */
+    'operations'?: Array<NativeChangeDetectionConfigBetaOperationsEnum>;
+    /**
+     * A flag indicating that all entitlements participate in Native Change Detection.
+     * @type {boolean}
+     * @memberof NativeChangeDetectionConfigBeta
+     */
+    'allEntitlements'?: boolean;
+    /**
+     * A flag indicating that all non-entitlement account attributes participate in Native Change Detection.
+     * @type {boolean}
+     * @memberof NativeChangeDetectionConfigBeta
+     */
+    'allNonEntitlementAttributes'?: boolean;
+    /**
+     * If allEntitlements flag is off this field lists entitlements that participate in Native Change Detection.
+     * @type {Array<string>}
+     * @memberof NativeChangeDetectionConfigBeta
+     */
+    'selectedEntitlements'?: Array<string>;
+    /**
+     * If allNonEntitlementAttributes flag is off this field lists non-entitlement account attributes that participate in Native Change Detection.
+     * @type {Array<string>}
+     * @memberof NativeChangeDetectionConfigBeta
+     */
+    'selectedNonEntitlementAttributes'?: Array<string>;
+}
+
+export const NativeChangeDetectionConfigBetaOperationsEnum = {
+    Updated: 'ACCOUNT_UPDATED',
+    Created: 'ACCOUNT_CREATED',
+    Deleted: 'ACCOUNT_DELETED'
+} as const;
+
+export type NativeChangeDetectionConfigBetaOperationsEnum = typeof NativeChangeDetectionConfigBetaOperationsEnum[keyof typeof NativeChangeDetectionConfigBetaOperationsEnum];
+
+/**
  * 
  * @export
  * @interface NonEmployeeApprovalDecisionBeta
@@ -60250,6 +60302,48 @@ export const SourcesBetaApiAxiosParamCreator = function (configuration?: Configu
             };
         },
         /**
+         * Deletes the native change detection configuration for the source specified by the given ID. A token with API, or ORG_ADMIN authority is required to call this API.
+         * @summary Delete Native Change Detection Configuration
+         * @param {string} id The source id
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        deleteNativeChangeDetectionConfig: async (id: string, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'id' is not null or undefined
+            assertParamExists('deleteNativeChangeDetectionConfig', 'id', id)
+            const localVarPath = `/sources/{sourceId}/native-change-detection-config`
+                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'DELETE', ...baseOptions, ...axiosOptions};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication UserContextAuth required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "UserContextAuth", [], configuration)
+
+            // authentication UserContextAuth required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "UserContextAuth", [], configuration)
+
+
+    
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                axiosOptions: localVarRequestOptions,
+            };
+        },
+        /**
          * Deletes the provisioning policy with the specified usage on an application. A token with API, or ORG_ADMIN authority is required to call this API.
          * @summary Delete Provisioning Policy by UsageType
          * @param {string} sourceId The Source ID.
@@ -60319,6 +60413,48 @@ export const SourcesBetaApiAxiosParamCreator = function (configuration?: Configu
             }
 
             const localVarRequestOptions = { method: 'DELETE', ...baseOptions, ...axiosOptions};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication UserContextAuth required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "UserContextAuth", [], configuration)
+
+            // authentication UserContextAuth required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "UserContextAuth", [], configuration)
+
+
+    
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                axiosOptions: localVarRequestOptions,
+            };
+        },
+        /**
+         * This API returns the existing native change detection configuration for a source specified by the given ID. A token with ORG_ADMIN authority is required to call this API.
+         * @summary Native Change Detection Configuration
+         * @param {string} id The source id
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        getNativeChangeDetectionConfig: async (id: string, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'id' is not null or undefined
+            assertParamExists('getNativeChangeDetectionConfig', 'id', id)
+            const localVarPath = `/sources/{sourceId}/native-change-detection-config`
+                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...axiosOptions};
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
 
@@ -61097,6 +61233,54 @@ export const SourcesBetaApiAxiosParamCreator = function (configuration?: Configu
             };
         },
         /**
+         * Replaces the native change detection configuration for the source specified by the given ID with the configuration provided in the request body.      A token with ORG_ADMIN authority is required to call this API.
+         * @summary Update Native Change Detection Configuration
+         * @param {string} id The source id
+         * @param {NativeChangeDetectionConfigBeta} nativeChangeDetectionConfigBeta 
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        putNativeChangeDetectionConfig: async (id: string, nativeChangeDetectionConfigBeta: NativeChangeDetectionConfigBeta, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'id' is not null or undefined
+            assertParamExists('putNativeChangeDetectionConfig', 'id', id)
+            // verify required parameter 'nativeChangeDetectionConfigBeta' is not null or undefined
+            assertParamExists('putNativeChangeDetectionConfig', 'nativeChangeDetectionConfigBeta', nativeChangeDetectionConfigBeta)
+            const localVarPath = `/sources/{sourceId}/native-change-detection-config`
+                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'PUT', ...baseOptions, ...axiosOptions};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication UserContextAuth required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "UserContextAuth", [], configuration)
+
+            // authentication UserContextAuth required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "UserContextAuth", [], configuration)
+
+
+    
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
+            localVarRequestOptions.data = serializeDataIfNeeded(nativeChangeDetectionConfigBeta, localVarRequestOptions, configuration)
+
+            return {
+                url: toPathString(localVarUrlObj),
+                axiosOptions: localVarRequestOptions,
+            };
+        },
+        /**
          * This end-point updates the provisioning policy with the specified usage on the specified source in IdentityNow. Transforms can be used in the provisioning policy to create a new attribute that you only need during provisioning. Refer to [Transforms in Provisioning Policies](https://developer.sailpoint.com/idn/docs/transforms/guides/transforms-in-provisioning-policies) for more information. A token with API, ORG_ADMIN, SOURCE_ADMIN, or SOURCE_SUBADMIN authority is required to call this API.
          * @summary Update Provisioning Policy by UsageType
          * @param {string} sourceId The Source ID.
@@ -61724,6 +61908,17 @@ export const SourcesBetaApiFp = function(configuration?: Configuration) {
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
+         * Deletes the native change detection configuration for the source specified by the given ID. A token with API, or ORG_ADMIN authority is required to call this API.
+         * @summary Delete Native Change Detection Configuration
+         * @param {string} id The source id
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        async deleteNativeChangeDetectionConfig(id: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.deleteNativeChangeDetectionConfig(id, axiosOptions);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
          * Deletes the provisioning policy with the specified usage on an application. A token with API, or ORG_ADMIN authority is required to call this API.
          * @summary Delete Provisioning Policy by UsageType
          * @param {string} sourceId The Source ID.
@@ -61745,6 +61940,17 @@ export const SourcesBetaApiFp = function(configuration?: Configuration) {
          */
         async deleteSourceSchema(sourceId: string, schemaId: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.deleteSourceSchema(sourceId, schemaId, axiosOptions);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * This API returns the existing native change detection configuration for a source specified by the given ID. A token with ORG_ADMIN authority is required to call this API.
+         * @summary Native Change Detection Configuration
+         * @param {string} id The source id
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        async getNativeChangeDetectionConfig(id: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<NativeChangeDetectionConfigBeta>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getNativeChangeDetectionConfig(id, axiosOptions);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
@@ -61935,6 +62141,18 @@ export const SourcesBetaApiFp = function(configuration?: Configuration) {
          */
         async pingCluster(sourceId: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<StatusResponseBeta>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.pingCluster(sourceId, axiosOptions);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * Replaces the native change detection configuration for the source specified by the given ID with the configuration provided in the request body.      A token with ORG_ADMIN authority is required to call this API.
+         * @summary Update Native Change Detection Configuration
+         * @param {string} id The source id
+         * @param {NativeChangeDetectionConfigBeta} nativeChangeDetectionConfigBeta 
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        async putNativeChangeDetectionConfig(id: string, nativeChangeDetectionConfigBeta: NativeChangeDetectionConfigBeta, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<NativeChangeDetectionConfigBeta>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.putNativeChangeDetectionConfig(id, nativeChangeDetectionConfigBeta, axiosOptions);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
@@ -62135,6 +62353,16 @@ export const SourcesBetaApiFactory = function (configuration?: Configuration, ba
             return localVarFp.createSourceSchema(sourceId, schemaBeta, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
+         * Deletes the native change detection configuration for the source specified by the given ID. A token with API, or ORG_ADMIN authority is required to call this API.
+         * @summary Delete Native Change Detection Configuration
+         * @param {string} id The source id
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        deleteNativeChangeDetectionConfig(id: string, axiosOptions?: any): AxiosPromise<void> {
+            return localVarFp.deleteNativeChangeDetectionConfig(id, axiosOptions).then((request) => request(axios, basePath));
+        },
+        /**
          * Deletes the provisioning policy with the specified usage on an application. A token with API, or ORG_ADMIN authority is required to call this API.
          * @summary Delete Provisioning Policy by UsageType
          * @param {string} sourceId The Source ID.
@@ -62155,6 +62383,16 @@ export const SourcesBetaApiFactory = function (configuration?: Configuration, ba
          */
         deleteSourceSchema(sourceId: string, schemaId: string, axiosOptions?: any): AxiosPromise<void> {
             return localVarFp.deleteSourceSchema(sourceId, schemaId, axiosOptions).then((request) => request(axios, basePath));
+        },
+        /**
+         * This API returns the existing native change detection configuration for a source specified by the given ID. A token with ORG_ADMIN authority is required to call this API.
+         * @summary Native Change Detection Configuration
+         * @param {string} id The source id
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        getNativeChangeDetectionConfig(id: string, axiosOptions?: any): AxiosPromise<NativeChangeDetectionConfigBeta> {
+            return localVarFp.getNativeChangeDetectionConfig(id, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * This end-point retrieves the ProvisioningPolicy with the specified usage on the specified Source in IdentityNow. A token with API, ORG_ADMIN, SOURCE_ADMIN, or SOURCE_SUBADMIN authority is required to call this API.
@@ -62329,6 +62567,17 @@ export const SourcesBetaApiFactory = function (configuration?: Configuration, ba
          */
         pingCluster(sourceId: string, axiosOptions?: any): AxiosPromise<StatusResponseBeta> {
             return localVarFp.pingCluster(sourceId, axiosOptions).then((request) => request(axios, basePath));
+        },
+        /**
+         * Replaces the native change detection configuration for the source specified by the given ID with the configuration provided in the request body.      A token with ORG_ADMIN authority is required to call this API.
+         * @summary Update Native Change Detection Configuration
+         * @param {string} id The source id
+         * @param {NativeChangeDetectionConfigBeta} nativeChangeDetectionConfigBeta 
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        putNativeChangeDetectionConfig(id: string, nativeChangeDetectionConfigBeta: NativeChangeDetectionConfigBeta, axiosOptions?: any): AxiosPromise<NativeChangeDetectionConfigBeta> {
+            return localVarFp.putNativeChangeDetectionConfig(id, nativeChangeDetectionConfigBeta, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * This end-point updates the provisioning policy with the specified usage on the specified source in IdentityNow. Transforms can be used in the provisioning policy to create a new attribute that you only need during provisioning. Refer to [Transforms in Provisioning Policies](https://developer.sailpoint.com/idn/docs/transforms/guides/transforms-in-provisioning-policies) for more information. A token with API, ORG_ADMIN, SOURCE_ADMIN, or SOURCE_SUBADMIN authority is required to call this API.
@@ -62543,6 +62792,20 @@ export interface SourcesBetaApiCreateSourceSchemaRequest {
 }
 
 /**
+ * Request parameters for deleteNativeChangeDetectionConfig operation in SourcesBetaApi.
+ * @export
+ * @interface SourcesBetaApiDeleteNativeChangeDetectionConfigRequest
+ */
+export interface SourcesBetaApiDeleteNativeChangeDetectionConfigRequest {
+    /**
+     * The source id
+     * @type {string}
+     * @memberof SourcesBetaApiDeleteNativeChangeDetectionConfig
+     */
+    readonly id: string
+}
+
+/**
  * Request parameters for deleteProvisioningPolicy operation in SourcesBetaApi.
  * @export
  * @interface SourcesBetaApiDeleteProvisioningPolicyRequest
@@ -62582,6 +62845,20 @@ export interface SourcesBetaApiDeleteSourceSchemaRequest {
      * @memberof SourcesBetaApiDeleteSourceSchema
      */
     readonly schemaId: string
+}
+
+/**
+ * Request parameters for getNativeChangeDetectionConfig operation in SourcesBetaApi.
+ * @export
+ * @interface SourcesBetaApiGetNativeChangeDetectionConfigRequest
+ */
+export interface SourcesBetaApiGetNativeChangeDetectionConfigRequest {
+    /**
+     * The source id
+     * @type {string}
+     * @memberof SourcesBetaApiGetNativeChangeDetectionConfig
+     */
+    readonly id: string
 }
 
 /**
@@ -62900,6 +63177,27 @@ export interface SourcesBetaApiPingClusterRequest {
 }
 
 /**
+ * Request parameters for putNativeChangeDetectionConfig operation in SourcesBetaApi.
+ * @export
+ * @interface SourcesBetaApiPutNativeChangeDetectionConfigRequest
+ */
+export interface SourcesBetaApiPutNativeChangeDetectionConfigRequest {
+    /**
+     * The source id
+     * @type {string}
+     * @memberof SourcesBetaApiPutNativeChangeDetectionConfig
+     */
+    readonly id: string
+
+    /**
+     * 
+     * @type {NativeChangeDetectionConfigBeta}
+     * @memberof SourcesBetaApiPutNativeChangeDetectionConfig
+     */
+    readonly nativeChangeDetectionConfigBeta: NativeChangeDetectionConfigBeta
+}
+
+/**
  * Request parameters for putProvisioningPolicy operation in SourcesBetaApi.
  * @export
  * @interface SourcesBetaApiPutProvisioningPolicyRequest
@@ -63207,6 +63505,18 @@ export class SourcesBetaApi extends BaseAPI {
     }
 
     /**
+     * Deletes the native change detection configuration for the source specified by the given ID. A token with API, or ORG_ADMIN authority is required to call this API.
+     * @summary Delete Native Change Detection Configuration
+     * @param {SourcesBetaApiDeleteNativeChangeDetectionConfigRequest} requestParameters Request parameters.
+     * @param {*} [axiosOptions] Override http request option.
+     * @throws {RequiredError}
+     * @memberof SourcesBetaApi
+     */
+    public deleteNativeChangeDetectionConfig(requestParameters: SourcesBetaApiDeleteNativeChangeDetectionConfigRequest, axiosOptions?: AxiosRequestConfig) {
+        return SourcesBetaApiFp(this.configuration).deleteNativeChangeDetectionConfig(requestParameters.id, axiosOptions).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
      * Deletes the provisioning policy with the specified usage on an application. A token with API, or ORG_ADMIN authority is required to call this API.
      * @summary Delete Provisioning Policy by UsageType
      * @param {SourcesBetaApiDeleteProvisioningPolicyRequest} requestParameters Request parameters.
@@ -63228,6 +63538,18 @@ export class SourcesBetaApi extends BaseAPI {
      */
     public deleteSourceSchema(requestParameters: SourcesBetaApiDeleteSourceSchemaRequest, axiosOptions?: AxiosRequestConfig) {
         return SourcesBetaApiFp(this.configuration).deleteSourceSchema(requestParameters.sourceId, requestParameters.schemaId, axiosOptions).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * This API returns the existing native change detection configuration for a source specified by the given ID. A token with ORG_ADMIN authority is required to call this API.
+     * @summary Native Change Detection Configuration
+     * @param {SourcesBetaApiGetNativeChangeDetectionConfigRequest} requestParameters Request parameters.
+     * @param {*} [axiosOptions] Override http request option.
+     * @throws {RequiredError}
+     * @memberof SourcesBetaApi
+     */
+    public getNativeChangeDetectionConfig(requestParameters: SourcesBetaApiGetNativeChangeDetectionConfigRequest, axiosOptions?: AxiosRequestConfig) {
+        return SourcesBetaApiFp(this.configuration).getNativeChangeDetectionConfig(requestParameters.id, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -63419,6 +63741,18 @@ export class SourcesBetaApi extends BaseAPI {
      */
     public pingCluster(requestParameters: SourcesBetaApiPingClusterRequest, axiosOptions?: AxiosRequestConfig) {
         return SourcesBetaApiFp(this.configuration).pingCluster(requestParameters.sourceId, axiosOptions).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Replaces the native change detection configuration for the source specified by the given ID with the configuration provided in the request body.      A token with ORG_ADMIN authority is required to call this API.
+     * @summary Update Native Change Detection Configuration
+     * @param {SourcesBetaApiPutNativeChangeDetectionConfigRequest} requestParameters Request parameters.
+     * @param {*} [axiosOptions] Override http request option.
+     * @throws {RequiredError}
+     * @memberof SourcesBetaApi
+     */
+    public putNativeChangeDetectionConfig(requestParameters: SourcesBetaApiPutNativeChangeDetectionConfigRequest, axiosOptions?: AxiosRequestConfig) {
+        return SourcesBetaApiFp(this.configuration).putNativeChangeDetectionConfig(requestParameters.id, requestParameters.nativeChangeDetectionConfigBeta, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
