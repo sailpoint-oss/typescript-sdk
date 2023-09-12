@@ -8122,7 +8122,7 @@ export const ExportOptionsBetaExcludeTypesEnum = {
     Source: 'SOURCE',
     Transform: 'TRANSFORM',
     TriggerSubscription: 'TRIGGER_SUBSCRIPTION',
-    Workflows: 'WORKFLOWS'
+    Workflow: 'WORKFLOW'
 } as const;
 
 export type ExportOptionsBetaExcludeTypesEnum = typeof ExportOptionsBetaExcludeTypesEnum[keyof typeof ExportOptionsBetaExcludeTypesEnum];
@@ -8148,7 +8148,7 @@ export const ExportOptionsBetaIncludeTypesEnum = {
     Source: 'SOURCE',
     Transform: 'TRANSFORM',
     TriggerSubscription: 'TRIGGER_SUBSCRIPTION',
-    Workflows: 'WORKFLOWS'
+    Workflow: 'WORKFLOW'
 } as const;
 
 export type ExportOptionsBetaIncludeTypesEnum = typeof ExportOptionsBetaIncludeTypesEnum[keyof typeof ExportOptionsBetaIncludeTypesEnum];
@@ -8207,7 +8207,7 @@ export const ExportPayloadBetaExcludeTypesEnum = {
     Source: 'SOURCE',
     Transform: 'TRANSFORM',
     TriggerSubscription: 'TRIGGER_SUBSCRIPTION',
-    Workflows: 'WORKFLOWS'
+    Workflow: 'WORKFLOW'
 } as const;
 
 export type ExportPayloadBetaExcludeTypesEnum = typeof ExportPayloadBetaExcludeTypesEnum[keyof typeof ExportPayloadBetaExcludeTypesEnum];
@@ -8233,7 +8233,7 @@ export const ExportPayloadBetaIncludeTypesEnum = {
     Source: 'SOURCE',
     Transform: 'TRANSFORM',
     TriggerSubscription: 'TRIGGER_SUBSCRIPTION',
-    Workflows: 'WORKFLOWS'
+    Workflow: 'WORKFLOW'
 } as const;
 
 export type ExportPayloadBetaIncludeTypesEnum = typeof ExportPayloadBetaIncludeTypesEnum[keyof typeof ExportPayloadBetaIncludeTypesEnum];
