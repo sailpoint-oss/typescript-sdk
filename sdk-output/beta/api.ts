@@ -20923,13 +20923,13 @@ export interface SourceAccountBeta {
      */
     'sourceName': string;
     /**
-     * The ID of the identity that is corellated with this account.
+     * The ID of the identity that is correlated with this account.
      * @type {string}
      * @memberof SourceAccountBeta
      */
     'identityId': string;
     /**
-     * The name of the identity that is corellated with this account.
+     * The name of the identity that is correlated with this account.
      * @type {string}
      * @memberof SourceAccountBeta
      */
@@ -21200,11 +21200,11 @@ export interface SourceBeta {
      */
     'connectionType'?: string;
     /**
-     * The connector implementstion id
+     * The connector implementation id
      * @type {string}
      * @memberof SourceBeta
      */
-    'connectorImplementstionId'?: string;
+    'connectorImplementationId'?: string;
 }
 /**
  * Reference to the associated Cluster
@@ -31108,7 +31108,7 @@ export const CertificationsBetaApiAxiosParamCreator = function (configuration?: 
         },
         /**
          * This API returns a list of reviewers for the certification. A token with ORG_ADMIN or CERT_ADMIN authority is required to call this API. Reviewers for this certification can also call this API.
-         * @summary List of Reviewers for the certification
+         * @summary List of Reviewers for certification
          * @param {string} id The certification ID
          * @param {number} [limit] Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
          * @param {number} [offset] Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
@@ -31116,6 +31116,7 @@ export const CertificationsBetaApiAxiosParamCreator = function (configuration?: 
          * @param {string} [filters] Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators (Filtering is done by reviewer\&#39;s fields):  **id**: *eq, in*  **name**: *eq, sw*  **email**: *eq, sw*
          * @param {string} [sorters] Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **name, email**
          * @param {*} [axiosOptions] Override http request option.
+         * @deprecated
          * @throws {RequiredError}
          */
         listCertificationReviewers: async (id: string, limit?: number, offset?: number, count?: boolean, filters?: string, sorters?: string, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
@@ -31272,7 +31273,7 @@ export const CertificationsBetaApiFp = function(configuration?: Configuration) {
         },
         /**
          * This API returns a list of reviewers for the certification. A token with ORG_ADMIN or CERT_ADMIN authority is required to call this API. Reviewers for this certification can also call this API.
-         * @summary List of Reviewers for the certification
+         * @summary List of Reviewers for certification
          * @param {string} id The certification ID
          * @param {number} [limit] Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
          * @param {number} [offset] Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
@@ -31280,6 +31281,7 @@ export const CertificationsBetaApiFp = function(configuration?: Configuration) {
          * @param {string} [filters] Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators (Filtering is done by reviewer\&#39;s fields):  **id**: *eq, in*  **name**: *eq, sw*  **email**: *eq, sw*
          * @param {string} [sorters] Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **name, email**
          * @param {*} [axiosOptions] Override http request option.
+         * @deprecated
          * @throws {RequiredError}
          */
         async listCertificationReviewers(id: string, limit?: number, offset?: number, count?: boolean, filters?: string, sorters?: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<IdentityReferenceWithNameAndEmailBeta>>> {
@@ -31346,7 +31348,7 @@ export const CertificationsBetaApiFactory = function (configuration?: Configurat
         },
         /**
          * This API returns a list of reviewers for the certification. A token with ORG_ADMIN or CERT_ADMIN authority is required to call this API. Reviewers for this certification can also call this API.
-         * @summary List of Reviewers for the certification
+         * @summary List of Reviewers for certification
          * @param {string} id The certification ID
          * @param {number} [limit] Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
          * @param {number} [offset] Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
@@ -31354,6 +31356,7 @@ export const CertificationsBetaApiFactory = function (configuration?: Configurat
          * @param {string} [filters] Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators (Filtering is done by reviewer\&#39;s fields):  **id**: *eq, in*  **name**: *eq, sw*  **email**: *eq, sw*
          * @param {string} [sorters] Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **name, email**
          * @param {*} [axiosOptions] Override http request option.
+         * @deprecated
          * @throws {RequiredError}
          */
         listCertificationReviewers(id: string, limit?: number, offset?: number, count?: boolean, filters?: string, sorters?: string, axiosOptions?: any): AxiosPromise<Array<IdentityReferenceWithNameAndEmailBeta>> {
@@ -31572,9 +31575,10 @@ export class CertificationsBetaApi extends BaseAPI {
 
     /**
      * This API returns a list of reviewers for the certification. A token with ORG_ADMIN or CERT_ADMIN authority is required to call this API. Reviewers for this certification can also call this API.
-     * @summary List of Reviewers for the certification
+     * @summary List of Reviewers for certification
      * @param {CertificationsBetaApiListCertificationReviewersRequest} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
+     * @deprecated
      * @throws {RequiredError}
      * @memberof CertificationsBetaApi
      */
