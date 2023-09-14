@@ -22970,6 +22970,48 @@ export class CertificationSummariesApi extends BaseAPI {
 export const CertificationsApiAxiosParamCreator = function (configuration?: Configuration) {
     return {
         /**
+         * This API returns the certification task for the specified ID. A token with ORG_ADMIN or CERT_ADMIN authority is required to call this API. Reviewers for the specified certification can also call this API.
+         * @summary Certification Task by ID
+         * @param {string} id The task ID
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        getCertificationTask: async (id: string, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'id' is not null or undefined
+            assertParamExists('getCertificationTask', 'id', id)
+            const localVarPath = `/certification-tasks/{id}`
+                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...axiosOptions};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication UserContextAuth required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "UserContextAuth", [], configuration)
+
+            // authentication UserContextAuth required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "UserContextAuth", [], configuration)
+
+
+    
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                axiosOptions: localVarRequestOptions,
+            };
+        },
+        /**
          * This API returns a single identity campaign certification by its ID. A token with ORG_ADMIN or CERT_ADMIN authority is required to call this API. Reviewers for this certification can also call this API. This API does not support requests for certifications assigned to Governance Groups.
          * @summary Identity Certification by ID
          * @param {string} id The certification id
@@ -23377,6 +23419,17 @@ export const CertificationsApiFp = function(configuration?: Configuration) {
     const localVarAxiosParamCreator = CertificationsApiAxiosParamCreator(configuration)
     return {
         /**
+         * This API returns the certification task for the specified ID. A token with ORG_ADMIN or CERT_ADMIN authority is required to call this API. Reviewers for the specified certification can also call this API.
+         * @summary Certification Task by ID
+         * @param {string} id The task ID
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        async getCertificationTask(id: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<CertificationTask>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getCertificationTask(id, axiosOptions);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
          * This API returns a single identity campaign certification by its ID. A token with ORG_ADMIN or CERT_ADMIN authority is required to call this API. Reviewers for this certification can also call this API. This API does not support requests for certifications assigned to Governance Groups.
          * @summary Identity Certification by ID
          * @param {string} id The certification id
@@ -23484,6 +23537,16 @@ export const CertificationsApiFactory = function (configuration?: Configuration,
     const localVarFp = CertificationsApiFp(configuration)
     return {
         /**
+         * This API returns the certification task for the specified ID. A token with ORG_ADMIN or CERT_ADMIN authority is required to call this API. Reviewers for the specified certification can also call this API.
+         * @summary Certification Task by ID
+         * @param {string} id The task ID
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        getCertificationTask(id: string, axiosOptions?: any): AxiosPromise<CertificationTask> {
+            return localVarFp.getCertificationTask(id, axiosOptions).then((request) => request(axios, basePath));
+        },
+        /**
          * This API returns a single identity campaign certification by its ID. A token with ORG_ADMIN or CERT_ADMIN authority is required to call this API. Reviewers for this certification can also call this API. This API does not support requests for certifications assigned to Governance Groups.
          * @summary Identity Certification by ID
          * @param {string} id The certification id
@@ -23575,6 +23638,20 @@ export const CertificationsApiFactory = function (configuration?: Configuration,
         },
     };
 };
+
+/**
+ * Request parameters for getCertificationTask operation in CertificationsApi.
+ * @export
+ * @interface CertificationsApiGetCertificationTaskRequest
+ */
+export interface CertificationsApiGetCertificationTaskRequest {
+    /**
+     * The task ID
+     * @type {string}
+     * @memberof CertificationsApiGetCertificationTask
+     */
+    readonly id: string
+}
 
 /**
  * Request parameters for getIdentityCertification operation in CertificationsApi.
@@ -23821,6 +23898,18 @@ export interface CertificationsApiSignOffIdentityCertificationRequest {
  * @extends {BaseAPI}
  */
 export class CertificationsApi extends BaseAPI {
+    /**
+     * This API returns the certification task for the specified ID. A token with ORG_ADMIN or CERT_ADMIN authority is required to call this API. Reviewers for the specified certification can also call this API.
+     * @summary Certification Task by ID
+     * @param {CertificationsApiGetCertificationTaskRequest} requestParameters Request parameters.
+     * @param {*} [axiosOptions] Override http request option.
+     * @throws {RequiredError}
+     * @memberof CertificationsApi
+     */
+    public getCertificationTask(requestParameters: CertificationsApiGetCertificationTaskRequest, axiosOptions?: AxiosRequestConfig) {
+        return CertificationsApiFp(this.configuration).getCertificationTask(requestParameters.id, axiosOptions).then((request) => request(this.axios, this.basePath));
+    }
+
     /**
      * This API returns a single identity campaign certification by its ID. A token with ORG_ADMIN or CERT_ADMIN authority is required to call this API. Reviewers for this certification can also call this API. This API does not support requests for certifications assigned to Governance Groups.
      * @summary Identity Certification by ID
