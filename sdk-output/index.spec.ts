@@ -10,7 +10,7 @@ describe('Test_v3', () => {
     
         expect(resp.data.length).toStrictEqual(10)
         expect(resp.status).toStrictEqual(200)
-    })
+    }, 30000)
 
     it('Test paginate search API', async () => {
         let apiConfig = new Configuration()
@@ -39,7 +39,7 @@ describe('Test_v3', () => {
     
         expect(resp.data.length).toStrictEqual(10)
         expect(resp.status).toStrictEqual(200)
-    })
+    }, 30000)
 
     it('Test Pagination', async () => {
         let apiConfig = new Configuration()
@@ -61,7 +61,7 @@ describe('Test_beta', () => {
     
         expect(resp.data.length).toStrictEqual(10)
         expect(resp.status).toStrictEqual(200)
-    })
+    }, 30000)
 
 
     it('Test connector api', async () => {
@@ -72,7 +72,7 @@ describe('Test_beta', () => {
     
         expect(resp.data.length).toStrictEqual(10)
         expect(resp.status).toStrictEqual(200)
-    })
+    }, 30000)
 
     it('Test List Sources', async () => {
         let apiConfig = new Configuration()
@@ -82,7 +82,7 @@ describe('Test_beta', () => {
     
         expect(resp.data.length).toStrictEqual(10)
         expect(resp.status).toStrictEqual(200)
-    })
+    }, 30000)
 
     it('Test Pagination', async () => {
         let apiConfig = new Configuration()
@@ -104,7 +104,7 @@ describe('Test_v2', () => {
     
         expect(resp.data.length).toStrictEqual(2)
         expect(resp.status).toStrictEqual(200)
-    })
+    }, 30000)
 })
 
 describe('Test_cc', () => {
@@ -115,5 +115,5 @@ describe('Test_cc', () => {
         const resp = await api.listAccounts()
     
         expect(resp.status).toStrictEqual(200)
-    })
+    }, 30000)
 })

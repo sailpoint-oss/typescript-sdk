@@ -27,6 +27,10 @@ export interface PaginationParams {
     filters?: string;
 }
 
+export interface ExtraParams {
+    [key: string]: any
+}
+
 export interface AxiosResponse<T = any, D = any>  {
     data: T;
     status: number;
@@ -40,7 +44,7 @@ export interface AxiosResponse<T = any, D = any>  {
 
 export class Paginator {
 
-    public static async paginate<T, TResult, A extends PaginationParams>(thisArg: T, callbackFn: (this: T, args: A) => Promise<AxiosResponse<TResult[], any>>, args?: A, increment?: number): Promise<AxiosResponse<TResult[], any>> {
+    public static async paginate<T, TResult, A extends PaginationParams & ExtraParams>(thisArg: T, callbackFn: (this: T, args: A) => Promise<AxiosResponse<TResult[], any>>, args?: A, increment?: number): Promise<AxiosResponse<TResult[], any>> {
         let params: PaginationParams = args ? args : {limit: 0, offset: 0}
         const maxLimit = params && params.limit ? params.limit : 0
         if (!params.offset) {

@@ -3,3 +3,4 @@ build
 dist
 api-specs
 sdk-output/config.json
+examples/config.json

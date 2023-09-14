@@ -53,8 +53,9 @@ const getPaginatedAccounts = async () => {
         },
     }
     let api = new AccountsApi(apiConfig)
+
     
-    const val = await Paginator.paginate(api, api.listAccounts, {limit: 100}, 10)
+    const val = await Paginator.paginate(api, api.listAccounts, {limit: 20, sorters: "created"}, 10)
 
     console.log(val)
 
@@ -82,4 +83,4 @@ const getPaginatedTransforms = async () => {
 
 
 
-getPaginatedTransforms()
+getPaginatedAccounts()
