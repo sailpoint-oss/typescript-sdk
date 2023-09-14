@@ -30,4 +30,5 @@ export {Configuration, ConfigurationParameters} from "./configuration";
 
 export * from "./paginator";
 
-export * as axiosRetry from "axios-retry"
+import * as axiosRetry from "axios-retry"
+export {axiosRetry}
