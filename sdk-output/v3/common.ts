@@ -134,8 +134,8 @@ export const toPathString = function (url: URL) {
 export const createRequestFunction = function (axiosArgs: RequestArgs, globalAxios: AxiosInstance, BASE_PATH: string, configuration?: Configuration) {
     return <T = unknown, R = AxiosResponse<T>>(axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
         axiosRetry(globalAxios, configuration.retriesConfig)
-        axiosArgs.axiosOptions.headers['X-SailPoint-SDK'] = 'typescript-1.2.0'
-        axiosArgs.axiosOptions.headers['User-Agent'] = 'OpenAPI-Generator/1.2.0/ts'
+        axiosArgs.axiosOptions.headers['X-SailPoint-SDK'] = 'typescript-1.2.1'
+        axiosArgs.axiosOptions.headers['User-Agent'] = 'OpenAPI-Generator/1.2.1/ts'
         const axiosRequestArgs = {...axiosArgs.axiosOptions, url: (configuration?.basePathV3 || basePath) + axiosArgs.url};
         return axios.request<T, R>(axiosRequestArgs);
     };
