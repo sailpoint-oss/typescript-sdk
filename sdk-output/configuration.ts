@@ -148,6 +148,8 @@ export class Configuration {
             param = this.getParams()
         }
 
+        this.accessToken = param.accessToken
+
         this.basePathBeta = param.baseurl + `/beta`
         this.basePathV3 = param.baseurl + `/v3`
         this.basePathV2 = param.baseurl + `/v2`
