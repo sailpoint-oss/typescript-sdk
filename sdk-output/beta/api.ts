@@ -31288,6 +31288,7 @@ export const CertificationsBetaApiAxiosParamCreator = function (configuration?: 
          * @param {number} [offset] Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
          * @param {boolean} [count] If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
          * @param {*} [axiosOptions] Override http request option.
+         * @deprecated
          * @throws {RequiredError}
          */
         getIdentityCertificationItemPermissions: async (certificationId: string, itemId: string, filters?: string, limit?: number, offset?: number, count?: boolean, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
@@ -31568,6 +31569,7 @@ export const CertificationsBetaApiFp = function(configuration?: Configuration) {
          * @param {number} [offset] Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
          * @param {boolean} [count] If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
          * @param {*} [axiosOptions] Override http request option.
+         * @deprecated
          * @throws {RequiredError}
          */
         async getIdentityCertificationItemPermissions(certificationId: string, itemId: string, filters?: string, limit?: number, offset?: number, count?: boolean, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<PermissionDtoBeta>>> {
@@ -31646,6 +31648,7 @@ export const CertificationsBetaApiFactory = function (configuration?: Configurat
          * @param {number} [offset] Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
          * @param {boolean} [count] If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
          * @param {*} [axiosOptions] Override http request option.
+         * @deprecated
          * @throws {RequiredError}
          */
         getIdentityCertificationItemPermissions(certificationId: string, itemId: string, filters?: string, limit?: number, offset?: number, count?: boolean, axiosOptions?: any): AxiosPromise<Array<PermissionDtoBeta>> {
@@ -31868,6 +31871,7 @@ export class CertificationsBetaApi extends BaseAPI {
      * @summary Permissions for Entitlement Certification Item
      * @param {CertificationsBetaApiGetIdentityCertificationItemPermissionsRequest} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
+     * @deprecated
      * @throws {RequiredError}
      * @memberof CertificationsBetaApi
      */

@@ -23296,6 +23296,72 @@ export const CertificationsApiAxiosParamCreator = function (configuration?: Conf
             };
         },
         /**
+         * This API returns the permissions associated with an entitlement certification item based on the certification item\'s ID. A token with ORG_ADMIN or CERT_ADMIN authority is required to call this API. Reviewers for this certification can also call this API.
+         * @summary Permissions for Entitlement Certification Item
+         * @param {string} certificationId The certification ID
+         * @param {string} itemId The certification item ID
+         * @param {string} [filters] Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Supported fields and primitive operators:  **target**: *eq, sw*  **rights**: *ca*  Supported composite operators:  *and, or*  All field values (second filter operands) are case-insensitive for this API.  Only a single *and* or *or* composite filter operator may be used. It must also be used between a target filter and a rights filter, not between 2 filters for the same field. For example,  The following is valid: *?filters&#x3D;rights+ca+(%22CREATE%22)+and+target+eq+%22SYS.OBJAUTH2%22*  The following is invalid: *?filters&#x3D;rights+ca+(%22CREATE%22)+and+rights+ca+(%SELECT%22)*
+         * @param {number} [limit] Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+         * @param {number} [offset] Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+         * @param {boolean} [count] If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        getIdentityCertificationItemPermissions: async (certificationId: string, itemId: string, filters?: string, limit?: number, offset?: number, count?: boolean, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'certificationId' is not null or undefined
+            assertParamExists('getIdentityCertificationItemPermissions', 'certificationId', certificationId)
+            // verify required parameter 'itemId' is not null or undefined
+            assertParamExists('getIdentityCertificationItemPermissions', 'itemId', itemId)
+            const localVarPath = `/certifications/{certificationId}/access-review-items/{itemId}/permissions`
+                .replace(`{${"certificationId"}}`, encodeURIComponent(String(certificationId)))
+                .replace(`{${"itemId"}}`, encodeURIComponent(String(itemId)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...axiosOptions};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication UserContextAuth required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "UserContextAuth", [], configuration)
+
+            // authentication UserContextAuth required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "UserContextAuth", [], configuration)
+
+            if (filters !== undefined) {
+                localVarQueryParameter['filters'] = filters;
+            }
+
+            if (limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+
+            if (offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+
+            if (count !== undefined) {
+                localVarQueryParameter['count'] = count;
+            }
+
+
+    
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                axiosOptions: localVarRequestOptions,
+            };
+        },
+        /**
          * This API returns a list of reviewers for the certification. A token with ORG_ADMIN or CERT_ADMIN authority is required to call this API. Reviewers for this certification can also call this API.
          * @summary List of Reviewers for certification
          * @param {string} id The certification ID
@@ -23683,6 +23749,22 @@ export const CertificationsApiFp = function(configuration?: Configuration) {
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
+         * This API returns the permissions associated with an entitlement certification item based on the certification item\'s ID. A token with ORG_ADMIN or CERT_ADMIN authority is required to call this API. Reviewers for this certification can also call this API.
+         * @summary Permissions for Entitlement Certification Item
+         * @param {string} certificationId The certification ID
+         * @param {string} itemId The certification item ID
+         * @param {string} [filters] Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Supported fields and primitive operators:  **target**: *eq, sw*  **rights**: *ca*  Supported composite operators:  *and, or*  All field values (second filter operands) are case-insensitive for this API.  Only a single *and* or *or* composite filter operator may be used. It must also be used between a target filter and a rights filter, not between 2 filters for the same field. For example,  The following is valid: *?filters&#x3D;rights+ca+(%22CREATE%22)+and+target+eq+%22SYS.OBJAUTH2%22*  The following is invalid: *?filters&#x3D;rights+ca+(%22CREATE%22)+and+rights+ca+(%SELECT%22)*
+         * @param {number} [limit] Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+         * @param {number} [offset] Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+         * @param {boolean} [count] If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        async getIdentityCertificationItemPermissions(certificationId: string, itemId: string, filters?: string, limit?: number, offset?: number, count?: boolean, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<PermissionDto>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getIdentityCertificationItemPermissions(certificationId, itemId, filters, limit, offset, count, axiosOptions);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
          * This API returns a list of reviewers for the certification. A token with ORG_ADMIN or CERT_ADMIN authority is required to call this API. Reviewers for this certification can also call this API.
          * @summary List of Reviewers for certification
          * @param {string} id The certification ID
@@ -23799,6 +23881,21 @@ export const CertificationsApiFactory = function (configuration?: Configuration,
             return localVarFp.getIdentityCertification(id, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
+         * This API returns the permissions associated with an entitlement certification item based on the certification item\'s ID. A token with ORG_ADMIN or CERT_ADMIN authority is required to call this API. Reviewers for this certification can also call this API.
+         * @summary Permissions for Entitlement Certification Item
+         * @param {string} certificationId The certification ID
+         * @param {string} itemId The certification item ID
+         * @param {string} [filters] Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Supported fields and primitive operators:  **target**: *eq, sw*  **rights**: *ca*  Supported composite operators:  *and, or*  All field values (second filter operands) are case-insensitive for this API.  Only a single *and* or *or* composite filter operator may be used. It must also be used between a target filter and a rights filter, not between 2 filters for the same field. For example,  The following is valid: *?filters&#x3D;rights+ca+(%22CREATE%22)+and+target+eq+%22SYS.OBJAUTH2%22*  The following is invalid: *?filters&#x3D;rights+ca+(%22CREATE%22)+and+rights+ca+(%SELECT%22)*
+         * @param {number} [limit] Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+         * @param {number} [offset] Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+         * @param {boolean} [count] If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        getIdentityCertificationItemPermissions(certificationId: string, itemId: string, filters?: string, limit?: number, offset?: number, count?: boolean, axiosOptions?: any): AxiosPromise<Array<PermissionDto>> {
+            return localVarFp.getIdentityCertificationItemPermissions(certificationId, itemId, filters, limit, offset, count, axiosOptions).then((request) => request(axios, basePath));
+        },
+        /**
          * This API returns a list of reviewers for the certification. A token with ORG_ADMIN or CERT_ADMIN authority is required to call this API. Reviewers for this certification can also call this API.
          * @summary List of Reviewers for certification
          * @param {string} id The certification ID
@@ -23907,6 +24004,55 @@ export interface CertificationsApiGetIdentityCertificationRequest {
      * @memberof CertificationsApiGetIdentityCertification
      */
     readonly id: string
+}
+
+/**
+ * Request parameters for getIdentityCertificationItemPermissions operation in CertificationsApi.
+ * @export
+ * @interface CertificationsApiGetIdentityCertificationItemPermissionsRequest
+ */
+export interface CertificationsApiGetIdentityCertificationItemPermissionsRequest {
+    /**
+     * The certification ID
+     * @type {string}
+     * @memberof CertificationsApiGetIdentityCertificationItemPermissions
+     */
+    readonly certificationId: string
+
+    /**
+     * The certification item ID
+     * @type {string}
+     * @memberof CertificationsApiGetIdentityCertificationItemPermissions
+     */
+    readonly itemId: string
+
+    /**
+     * Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Supported fields and primitive operators:  **target**: *eq, sw*  **rights**: *ca*  Supported composite operators:  *and, or*  All field values (second filter operands) are case-insensitive for this API.  Only a single *and* or *or* composite filter operator may be used. It must also be used between a target filter and a rights filter, not between 2 filters for the same field. For example,  The following is valid: *?filters&#x3D;rights+ca+(%22CREATE%22)+and+target+eq+%22SYS.OBJAUTH2%22*  The following is invalid: *?filters&#x3D;rights+ca+(%22CREATE%22)+and+rights+ca+(%SELECT%22)*
+     * @type {string}
+     * @memberof CertificationsApiGetIdentityCertificationItemPermissions
+     */
+    readonly filters?: string
+
+    /**
+     * Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+     * @type {number}
+     * @memberof CertificationsApiGetIdentityCertificationItemPermissions
+     */
+    readonly limit?: number
+
+    /**
+     * Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+     * @type {number}
+     * @memberof CertificationsApiGetIdentityCertificationItemPermissions
+     */
+    readonly offset?: number
+
+    /**
+     * If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+     * @type {boolean}
+     * @memberof CertificationsApiGetIdentityCertificationItemPermissions
+     */
+    readonly count?: boolean
 }
 
 /**
@@ -24162,6 +24308,18 @@ export class CertificationsApi extends BaseAPI {
      */
     public getIdentityCertification(requestParameters: CertificationsApiGetIdentityCertificationRequest, axiosOptions?: AxiosRequestConfig) {
         return CertificationsApiFp(this.configuration).getIdentityCertification(requestParameters.id, axiosOptions).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * This API returns the permissions associated with an entitlement certification item based on the certification item\'s ID. A token with ORG_ADMIN or CERT_ADMIN authority is required to call this API. Reviewers for this certification can also call this API.
+     * @summary Permissions for Entitlement Certification Item
+     * @param {CertificationsApiGetIdentityCertificationItemPermissionsRequest} requestParameters Request parameters.
+     * @param {*} [axiosOptions] Override http request option.
+     * @throws {RequiredError}
+     * @memberof CertificationsApi
+     */
+    public getIdentityCertificationItemPermissions(requestParameters: CertificationsApiGetIdentityCertificationItemPermissionsRequest, axiosOptions?: AxiosRequestConfig) {
+        return CertificationsApiFp(this.configuration).getIdentityCertificationItemPermissions(requestParameters.certificationId, requestParameters.itemId, requestParameters.filters, requestParameters.limit, requestParameters.offset, requestParameters.count, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
