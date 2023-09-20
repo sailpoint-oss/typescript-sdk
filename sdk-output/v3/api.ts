@@ -2318,6 +2318,25 @@ export interface AccountUnlockRequest {
     'forceProvisioning'?: boolean;
 }
 /**
+ * 
+ * @export
+ * @interface AccountUsage
+ */
+export interface AccountUsage {
+    /**
+     * The first day of the month for which activity is aggregated.
+     * @type {string}
+     * @memberof AccountUsage
+     */
+    'date'?: string;
+    /**
+     * The number of days within the month that the account was active in a source.
+     * @type {number}
+     * @memberof AccountUsage
+     */
+    'count'?: number;
+}
+/**
  * Accounts async response containing details on started async process
  * @export
  * @interface AccountsAsyncResult
@@ -16313,6 +16332,46 @@ export const SourceSchemasInnerTypeEnum = {
 export type SourceSchemasInnerTypeEnum = typeof SourceSchemasInnerTypeEnum[keyof typeof SourceSchemasInnerTypeEnum];
 
 /**
+ * 
+ * @export
+ * @interface SourceUsage
+ */
+export interface SourceUsage {
+    /**
+     * The first day of the month for which activity is aggregated.
+     * @type {string}
+     * @memberof SourceUsage
+     */
+    'date'?: string;
+    /**
+     * The average number of days that accounts were active within this source, for the month.
+     * @type {number}
+     * @memberof SourceUsage
+     */
+    'count'?: number;
+}
+/**
+ * 
+ * @export
+ * @interface SourceUsageStatus
+ */
+export interface SourceUsageStatus {
+    /**
+     * Source Usage Status. Acceptable values are:   - COMPLETE       - This status means that an activity data source has been setup and usage insights are available for the source.   - INCOMPLETE       - This status means that an activity data source has not been setup and usage insights are not available for the source.
+     * @type {string}
+     * @memberof SourceUsageStatus
+     */
+    'status'?: SourceUsageStatusStatusEnum;
+}
+
+export const SourceUsageStatusStatusEnum = {
+    Complete: 'COMPLETE',
+    Incomplete: 'INCOMPLETE'
+} as const;
+
+export type SourceUsageStatusStatusEnum = typeof SourceUsageStatusStatusEnum[keyof typeof SourceUsageStatusStatusEnum];
+
+/**
  * Message model for Config Import/Export.
  * @export
  * @interface SpConfigMessage
@@ -19641,6 +19700,189 @@ export class AccountActivitiesApi extends BaseAPI {
      */
     public listAccountActivities(requestParameters: AccountActivitiesApiListAccountActivitiesRequest = {}, axiosOptions?: AxiosRequestConfig) {
         return AccountActivitiesApiFp(this.configuration).listAccountActivities(requestParameters.requestedFor, requestParameters.requestedBy, requestParameters.regardingIdentity, requestParameters.limit, requestParameters.offset, requestParameters.count, requestParameters.filters, requestParameters.sorters, axiosOptions).then((request) => request(this.axios, this.basePath));
+    }
+}
+
+
+/**
+ * AccountUsagesApi - axios parameter creator
+ * @export
+ */
+export const AccountUsagesApiAxiosParamCreator = function (configuration?: Configuration) {
+    return {
+        /**
+         * This API returns a summary of account usage insights for past 12 months.
+         * @summary Returns account usage insights
+         * @param {string} accountId ID of IDN account
+         * @param {number} [limit] Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+         * @param {number} [offset] Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+         * @param {boolean} [count] If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+         * @param {string} [sorters] Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **date**
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        getUsagesByAccountId: async (accountId: string, limit?: number, offset?: number, count?: boolean, sorters?: string, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'accountId' is not null or undefined
+            assertParamExists('getUsagesByAccountId', 'accountId', accountId)
+            const localVarPath = `/account-usages/{accountId}/summaries`
+                .replace(`{${"accountId"}}`, encodeURIComponent(String(accountId)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...axiosOptions};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication UserContextAuth required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "UserContextAuth", [], configuration)
+
+            // authentication UserContextAuth required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "UserContextAuth", [], configuration)
+
+            if (limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+
+            if (offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+
+            if (count !== undefined) {
+                localVarQueryParameter['count'] = count;
+            }
+
+            if (sorters !== undefined) {
+                localVarQueryParameter['sorters'] = sorters;
+            }
+
+
+    
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                axiosOptions: localVarRequestOptions,
+            };
+        },
+    }
+};
+
+/**
+ * AccountUsagesApi - functional programming interface
+ * @export
+ */
+export const AccountUsagesApiFp = function(configuration?: Configuration) {
+    const localVarAxiosParamCreator = AccountUsagesApiAxiosParamCreator(configuration)
+    return {
+        /**
+         * This API returns a summary of account usage insights for past 12 months.
+         * @summary Returns account usage insights
+         * @param {string} accountId ID of IDN account
+         * @param {number} [limit] Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+         * @param {number} [offset] Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+         * @param {boolean} [count] If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+         * @param {string} [sorters] Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **date**
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        async getUsagesByAccountId(accountId: string, limit?: number, offset?: number, count?: boolean, sorters?: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<AccountUsage>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getUsagesByAccountId(accountId, limit, offset, count, sorters, axiosOptions);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+    }
+};
+
+/**
+ * AccountUsagesApi - factory interface
+ * @export
+ */
+export const AccountUsagesApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
+    const localVarFp = AccountUsagesApiFp(configuration)
+    return {
+        /**
+         * This API returns a summary of account usage insights for past 12 months.
+         * @summary Returns account usage insights
+         * @param {string} accountId ID of IDN account
+         * @param {number} [limit] Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+         * @param {number} [offset] Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+         * @param {boolean} [count] If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+         * @param {string} [sorters] Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **date**
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        getUsagesByAccountId(accountId: string, limit?: number, offset?: number, count?: boolean, sorters?: string, axiosOptions?: any): AxiosPromise<Array<AccountUsage>> {
+            return localVarFp.getUsagesByAccountId(accountId, limit, offset, count, sorters, axiosOptions).then((request) => request(axios, basePath));
+        },
+    };
+};
+
+/**
+ * Request parameters for getUsagesByAccountId operation in AccountUsagesApi.
+ * @export
+ * @interface AccountUsagesApiGetUsagesByAccountIdRequest
+ */
+export interface AccountUsagesApiGetUsagesByAccountIdRequest {
+    /**
+     * ID of IDN account
+     * @type {string}
+     * @memberof AccountUsagesApiGetUsagesByAccountId
+     */
+    readonly accountId: string
+
+    /**
+     * Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+     * @type {number}
+     * @memberof AccountUsagesApiGetUsagesByAccountId
+     */
+    readonly limit?: number
+
+    /**
+     * Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+     * @type {number}
+     * @memberof AccountUsagesApiGetUsagesByAccountId
+     */
+    readonly offset?: number
+
+    /**
+     * If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+     * @type {boolean}
+     * @memberof AccountUsagesApiGetUsagesByAccountId
+     */
+    readonly count?: boolean
+
+    /**
+     * Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **date**
+     * @type {string}
+     * @memberof AccountUsagesApiGetUsagesByAccountId
+     */
+    readonly sorters?: string
+}
+
+/**
+ * AccountUsagesApi - object-oriented interface
+ * @export
+ * @class AccountUsagesApi
+ * @extends {BaseAPI}
+ */
+export class AccountUsagesApi extends BaseAPI {
+    /**
+     * This API returns a summary of account usage insights for past 12 months.
+     * @summary Returns account usage insights
+     * @param {AccountUsagesApiGetUsagesByAccountIdRequest} requestParameters Request parameters.
+     * @param {*} [axiosOptions] Override http request option.
+     * @throws {RequiredError}
+     * @memberof AccountUsagesApi
+     */
+    public getUsagesByAccountId(requestParameters: AccountUsagesApiGetUsagesByAccountIdRequest, axiosOptions?: AxiosRequestConfig) {
+        return AccountUsagesApiFp(this.configuration).getUsagesByAccountId(requestParameters.accountId, requestParameters.limit, requestParameters.offset, requestParameters.count, requestParameters.sorters, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 }
 
@@ -37927,6 +38169,278 @@ export class ServiceDeskIntegrationApi extends BaseAPI {
      */
     public updateStatusCheckDetails(requestParameters: ServiceDeskIntegrationApiUpdateStatusCheckDetailsRequest, axiosOptions?: AxiosRequestConfig) {
         return ServiceDeskIntegrationApiFp(this.configuration).updateStatusCheckDetails(requestParameters.queuedCheckConfigDetails, axiosOptions).then((request) => request(this.axios, this.basePath));
+    }
+}
+
+
+/**
+ * SourceUsagesApi - axios parameter creator
+ * @export
+ */
+export const SourceUsagesApiAxiosParamCreator = function (configuration?: Configuration) {
+    return {
+        /**
+         * This API returns the status of the source usage insights setup by IDN source ID.
+         * @summary Finds status of source usage
+         * @param {string} sourceId ID of IDN source
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        getStatusBySourceId: async (sourceId: string, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'sourceId' is not null or undefined
+            assertParamExists('getStatusBySourceId', 'sourceId', sourceId)
+            const localVarPath = `/source-usages/{sourceId}/status`
+                .replace(`{${"sourceId"}}`, encodeURIComponent(String(sourceId)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...axiosOptions};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication UserContextAuth required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "UserContextAuth", [], configuration)
+
+            // authentication UserContextAuth required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "UserContextAuth", [], configuration)
+
+
+    
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                axiosOptions: localVarRequestOptions,
+            };
+        },
+        /**
+         * This API returns a summary of source usage insights for past 12 months.
+         * @summary Returns source usage insights
+         * @param {string} sourceId ID of IDN source
+         * @param {number} [limit] Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+         * @param {number} [offset] Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+         * @param {boolean} [count] If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+         * @param {string} [sorters] Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **date**
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        getUsagesBySourceId: async (sourceId: string, limit?: number, offset?: number, count?: boolean, sorters?: string, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'sourceId' is not null or undefined
+            assertParamExists('getUsagesBySourceId', 'sourceId', sourceId)
+            const localVarPath = `/source-usages/{sourceId}/summaries`
+                .replace(`{${"sourceId"}}`, encodeURIComponent(String(sourceId)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...axiosOptions};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication UserContextAuth required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "UserContextAuth", [], configuration)
+
+            // authentication UserContextAuth required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "UserContextAuth", [], configuration)
+
+            if (limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+
+            if (offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+
+            if (count !== undefined) {
+                localVarQueryParameter['count'] = count;
+            }
+
+            if (sorters !== undefined) {
+                localVarQueryParameter['sorters'] = sorters;
+            }
+
+
+    
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                axiosOptions: localVarRequestOptions,
+            };
+        },
+    }
+};
+
+/**
+ * SourceUsagesApi - functional programming interface
+ * @export
+ */
+export const SourceUsagesApiFp = function(configuration?: Configuration) {
+    const localVarAxiosParamCreator = SourceUsagesApiAxiosParamCreator(configuration)
+    return {
+        /**
+         * This API returns the status of the source usage insights setup by IDN source ID.
+         * @summary Finds status of source usage
+         * @param {string} sourceId ID of IDN source
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        async getStatusBySourceId(sourceId: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SourceUsageStatus>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getStatusBySourceId(sourceId, axiosOptions);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * This API returns a summary of source usage insights for past 12 months.
+         * @summary Returns source usage insights
+         * @param {string} sourceId ID of IDN source
+         * @param {number} [limit] Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+         * @param {number} [offset] Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+         * @param {boolean} [count] If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+         * @param {string} [sorters] Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **date**
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        async getUsagesBySourceId(sourceId: string, limit?: number, offset?: number, count?: boolean, sorters?: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<SourceUsage>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getUsagesBySourceId(sourceId, limit, offset, count, sorters, axiosOptions);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+    }
+};
+
+/**
+ * SourceUsagesApi - factory interface
+ * @export
+ */
+export const SourceUsagesApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
+    const localVarFp = SourceUsagesApiFp(configuration)
+    return {
+        /**
+         * This API returns the status of the source usage insights setup by IDN source ID.
+         * @summary Finds status of source usage
+         * @param {string} sourceId ID of IDN source
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        getStatusBySourceId(sourceId: string, axiosOptions?: any): AxiosPromise<SourceUsageStatus> {
+            return localVarFp.getStatusBySourceId(sourceId, axiosOptions).then((request) => request(axios, basePath));
+        },
+        /**
+         * This API returns a summary of source usage insights for past 12 months.
+         * @summary Returns source usage insights
+         * @param {string} sourceId ID of IDN source
+         * @param {number} [limit] Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+         * @param {number} [offset] Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+         * @param {boolean} [count] If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+         * @param {string} [sorters] Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **date**
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        getUsagesBySourceId(sourceId: string, limit?: number, offset?: number, count?: boolean, sorters?: string, axiosOptions?: any): AxiosPromise<Array<SourceUsage>> {
+            return localVarFp.getUsagesBySourceId(sourceId, limit, offset, count, sorters, axiosOptions).then((request) => request(axios, basePath));
+        },
+    };
+};
+
+/**
+ * Request parameters for getStatusBySourceId operation in SourceUsagesApi.
+ * @export
+ * @interface SourceUsagesApiGetStatusBySourceIdRequest
+ */
+export interface SourceUsagesApiGetStatusBySourceIdRequest {
+    /**
+     * ID of IDN source
+     * @type {string}
+     * @memberof SourceUsagesApiGetStatusBySourceId
+     */
+    readonly sourceId: string
+}
+
+/**
+ * Request parameters for getUsagesBySourceId operation in SourceUsagesApi.
+ * @export
+ * @interface SourceUsagesApiGetUsagesBySourceIdRequest
+ */
+export interface SourceUsagesApiGetUsagesBySourceIdRequest {
+    /**
+     * ID of IDN source
+     * @type {string}
+     * @memberof SourceUsagesApiGetUsagesBySourceId
+     */
+    readonly sourceId: string
+
+    /**
+     * Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+     * @type {number}
+     * @memberof SourceUsagesApiGetUsagesBySourceId
+     */
+    readonly limit?: number
+
+    /**
+     * Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+     * @type {number}
+     * @memberof SourceUsagesApiGetUsagesBySourceId
+     */
+    readonly offset?: number
+
+    /**
+     * If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+     * @type {boolean}
+     * @memberof SourceUsagesApiGetUsagesBySourceId
+     */
+    readonly count?: boolean
+
+    /**
+     * Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **date**
+     * @type {string}
+     * @memberof SourceUsagesApiGetUsagesBySourceId
+     */
+    readonly sorters?: string
+}
+
+/**
+ * SourceUsagesApi - object-oriented interface
+ * @export
+ * @class SourceUsagesApi
+ * @extends {BaseAPI}
+ */
+export class SourceUsagesApi extends BaseAPI {
+    /**
+     * This API returns the status of the source usage insights setup by IDN source ID.
+     * @summary Finds status of source usage
+     * @param {SourceUsagesApiGetStatusBySourceIdRequest} requestParameters Request parameters.
+     * @param {*} [axiosOptions] Override http request option.
+     * @throws {RequiredError}
+     * @memberof SourceUsagesApi
+     */
+    public getStatusBySourceId(requestParameters: SourceUsagesApiGetStatusBySourceIdRequest, axiosOptions?: AxiosRequestConfig) {
+        return SourceUsagesApiFp(this.configuration).getStatusBySourceId(requestParameters.sourceId, axiosOptions).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * This API returns a summary of source usage insights for past 12 months.
+     * @summary Returns source usage insights
+     * @param {SourceUsagesApiGetUsagesBySourceIdRequest} requestParameters Request parameters.
+     * @param {*} [axiosOptions] Override http request option.
+     * @throws {RequiredError}
+     * @memberof SourceUsagesApi
+     */
+    public getUsagesBySourceId(requestParameters: SourceUsagesApiGetUsagesBySourceIdRequest, axiosOptions?: AxiosRequestConfig) {
+        return SourceUsagesApiFp(this.configuration).getUsagesBySourceId(requestParameters.sourceId, requestParameters.limit, requestParameters.offset, requestParameters.count, requestParameters.sorters, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 }
 
