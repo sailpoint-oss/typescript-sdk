@@ -16838,6 +16838,12 @@ export interface TypeAheadQuery {
      * @memberof TypeAheadQuery
      */
     'maxExpansions'?: number;
+    /**
+     * The max amount of records the search will return.
+     * @type {number}
+     * @memberof TypeAheadQuery
+     */
+    'size'?: number;
 }
 /**
  * A typed reference to the object. 
