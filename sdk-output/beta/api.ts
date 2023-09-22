@@ -10294,6 +10294,61 @@ export interface IdentityAssociationDetailsBeta {
     'associationDetails'?: Array<IdentityAssociationDetailsAssociationDetailsInnerBeta>;
 }
 /**
+ * 
+ * @export
+ * @interface IdentityAttributeBeta
+ */
+export interface IdentityAttributeBeta {
+    /**
+     * The technical name of the identity attribute
+     * @type {string}
+     * @memberof IdentityAttributeBeta
+     */
+    'name'?: string;
+    /**
+     * The business-friendly name of the identity attribute
+     * @type {string}
+     * @memberof IdentityAttributeBeta
+     */
+    'displayName'?: string;
+    /**
+     * Shows if the attribute is \'standard\' or default
+     * @type {boolean}
+     * @memberof IdentityAttributeBeta
+     */
+    'standard'?: boolean;
+    /**
+     * The type of the identity attribute
+     * @type {string}
+     * @memberof IdentityAttributeBeta
+     */
+    'type'?: string;
+    /**
+     * Shows if the identity attribute is multi-valued
+     * @type {boolean}
+     * @memberof IdentityAttributeBeta
+     */
+    'multi'?: boolean;
+    /**
+     * Shows if the identity attribute is searchable
+     * @type {boolean}
+     * @memberof IdentityAttributeBeta
+     */
+    'searchable'?: boolean;
+    /**
+     * Shows this is \'system\' identity attribute that does not have a source and is not configurable.
+     * @type {boolean}
+     * @memberof IdentityAttributeBeta
+     */
+    'system'?: boolean;
+    /**
+     * List of sources for an attribute, this specifies how the value of the rule is derived
+     * @type {Array<Source1Beta>}
+     * @memberof IdentityAttributeBeta
+     */
+    'sources'?: Array<Source1Beta>;
+}
+/**
  * Defines all the identity attribute mapping configurations. This defines how to generate or collect data for each identity attributes in identity refresh process.
  * @export
  * @interface IdentityAttributeConfig1Beta
@@ -20988,6 +21043,25 @@ export interface SodViolationContextConflictingAccessCriteriaLeftCriteriaBeta {
      * @memberof SodViolationContextConflictingAccessCriteriaLeftCriteriaBeta
      */
     'criteriaList'?: Array<SodExemptCriteriaBeta>;
+}
+/**
+ * 
+ * @export
+ * @interface Source1Beta
+ */
+export interface Source1Beta {
+    /**
+     * The type of the source
+     * @type {string}
+     * @memberof Source1Beta
+     */
+    'type'?: string;
+    /**
+     * The source properties
+     * @type {object}
+     * @memberof Source1Beta
+     */
+    'properties'?: object;
 }
 /**
  * 
@@ -42316,6 +42390,265 @@ export class IdentitiesBetaApi extends BaseAPI {
      */
     public synchronizeAttributesForIdentity(requestParameters: IdentitiesBetaApiSynchronizeAttributesForIdentityRequest, axiosOptions?: AxiosRequestConfig) {
         return IdentitiesBetaApiFp(this.configuration).synchronizeAttributesForIdentity(requestParameters.identityId, axiosOptions).then((request) => request(this.axios, this.basePath));
+    }
+}
+
+
+/**
+ * IdentityAttributesBetaApi - axios parameter creator
+ * @export
+ */
+export const IdentityAttributesBetaApiAxiosParamCreator = function (configuration?: Configuration) {
+    return {
+        /**
+         * This gets an identity attributes for a given technical name.
+         * @summary Get Identity Attribute
+         * @param {string} name The attribute\&#39;s technical name.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        getIdentityAttribute: async (name: string, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'name' is not null or undefined
+            assertParamExists('getIdentityAttribute', 'name', name)
+            const localVarPath = `/identity-attributes/{name}`
+                .replace(`{${"name"}}`, encodeURIComponent(String(name)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...axiosOptions};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication UserContextAuth required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "UserContextAuth", [], configuration)
+
+            // authentication UserContextAuth required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "UserContextAuth", [], configuration)
+
+
+    
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                axiosOptions: localVarRequestOptions,
+            };
+        },
+        /**
+         * This gets a collection of identity attributes.
+         * @summary List Identity Attributes
+         * @param {boolean} [includeSystem] Include \&quot;system\&quot; attributes in the response.
+         * @param {boolean} [includeSilent] Include \&quot;silent\&quot; attributes in the response.
+         * @param {boolean} [searchableOnly] Include only \&quot;searchable\&quot; attributes in the response.
+         * @param {boolean} [count] If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        listIdentityAttributes: async (includeSystem?: boolean, includeSilent?: boolean, searchableOnly?: boolean, count?: boolean, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            const localVarPath = `/identity-attributes`;
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...axiosOptions};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication UserContextAuth required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "UserContextAuth", [], configuration)
+
+            // authentication UserContextAuth required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "UserContextAuth", [], configuration)
+
+            if (includeSystem !== undefined) {
+                localVarQueryParameter['includeSystem'] = includeSystem;
+            }
+
+            if (includeSilent !== undefined) {
+                localVarQueryParameter['includeSilent'] = includeSilent;
+            }
+
+            if (searchableOnly !== undefined) {
+                localVarQueryParameter['searchableOnly'] = searchableOnly;
+            }
+
+            if (count !== undefined) {
+                localVarQueryParameter['count'] = count;
+            }
+
+
+    
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                axiosOptions: localVarRequestOptions,
+            };
+        },
+    }
+};
+
+/**
+ * IdentityAttributesBetaApi - functional programming interface
+ * @export
+ */
+export const IdentityAttributesBetaApiFp = function(configuration?: Configuration) {
+    const localVarAxiosParamCreator = IdentityAttributesBetaApiAxiosParamCreator(configuration)
+    return {
+        /**
+         * This gets an identity attributes for a given technical name.
+         * @summary Get Identity Attribute
+         * @param {string} name The attribute\&#39;s technical name.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        async getIdentityAttribute(name: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<IdentityAttributeBeta>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getIdentityAttribute(name, axiosOptions);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * This gets a collection of identity attributes.
+         * @summary List Identity Attributes
+         * @param {boolean} [includeSystem] Include \&quot;system\&quot; attributes in the response.
+         * @param {boolean} [includeSilent] Include \&quot;silent\&quot; attributes in the response.
+         * @param {boolean} [searchableOnly] Include only \&quot;searchable\&quot; attributes in the response.
+         * @param {boolean} [count] If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        async listIdentityAttributes(includeSystem?: boolean, includeSilent?: boolean, searchableOnly?: boolean, count?: boolean, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<IdentityAttributeBeta>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.listIdentityAttributes(includeSystem, includeSilent, searchableOnly, count, axiosOptions);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+    }
+};
+
+/**
+ * IdentityAttributesBetaApi - factory interface
+ * @export
+ */
+export const IdentityAttributesBetaApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
+    const localVarFp = IdentityAttributesBetaApiFp(configuration)
+    return {
+        /**
+         * This gets an identity attributes for a given technical name.
+         * @summary Get Identity Attribute
+         * @param {string} name The attribute\&#39;s technical name.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        getIdentityAttribute(name: string, axiosOptions?: any): AxiosPromise<IdentityAttributeBeta> {
+            return localVarFp.getIdentityAttribute(name, axiosOptions).then((request) => request(axios, basePath));
+        },
+        /**
+         * This gets a collection of identity attributes.
+         * @summary List Identity Attributes
+         * @param {boolean} [includeSystem] Include \&quot;system\&quot; attributes in the response.
+         * @param {boolean} [includeSilent] Include \&quot;silent\&quot; attributes in the response.
+         * @param {boolean} [searchableOnly] Include only \&quot;searchable\&quot; attributes in the response.
+         * @param {boolean} [count] If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        listIdentityAttributes(includeSystem?: boolean, includeSilent?: boolean, searchableOnly?: boolean, count?: boolean, axiosOptions?: any): AxiosPromise<Array<IdentityAttributeBeta>> {
+            return localVarFp.listIdentityAttributes(includeSystem, includeSilent, searchableOnly, count, axiosOptions).then((request) => request(axios, basePath));
+        },
+    };
+};
+
+/**
+ * Request parameters for getIdentityAttribute operation in IdentityAttributesBetaApi.
+ * @export
+ * @interface IdentityAttributesBetaApiGetIdentityAttributeRequest
+ */
+export interface IdentityAttributesBetaApiGetIdentityAttributeRequest {
+    /**
+     * The attribute\&#39;s technical name.
+     * @type {string}
+     * @memberof IdentityAttributesBetaApiGetIdentityAttribute
+     */
+    readonly name: string
+}
+
+/**
+ * Request parameters for listIdentityAttributes operation in IdentityAttributesBetaApi.
+ * @export
+ * @interface IdentityAttributesBetaApiListIdentityAttributesRequest
+ */
+export interface IdentityAttributesBetaApiListIdentityAttributesRequest {
+    /**
+     * Include \&quot;system\&quot; attributes in the response.
+     * @type {boolean}
+     * @memberof IdentityAttributesBetaApiListIdentityAttributes
+     */
+    readonly includeSystem?: boolean
+
+    /**
+     * Include \&quot;silent\&quot; attributes in the response.
+     * @type {boolean}
+     * @memberof IdentityAttributesBetaApiListIdentityAttributes
+     */
+    readonly includeSilent?: boolean
+
+    /**
+     * Include only \&quot;searchable\&quot; attributes in the response.
+     * @type {boolean}
+     * @memberof IdentityAttributesBetaApiListIdentityAttributes
+     */
+    readonly searchableOnly?: boolean
+
+    /**
+     * If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+     * @type {boolean}
+     * @memberof IdentityAttributesBetaApiListIdentityAttributes
+     */
+    readonly count?: boolean
+}
+
+/**
+ * IdentityAttributesBetaApi - object-oriented interface
+ * @export
+ * @class IdentityAttributesBetaApi
+ * @extends {BaseAPI}
+ */
+export class IdentityAttributesBetaApi extends BaseAPI {
+    /**
+     * This gets an identity attributes for a given technical name.
+     * @summary Get Identity Attribute
+     * @param {IdentityAttributesBetaApiGetIdentityAttributeRequest} requestParameters Request parameters.
+     * @param {*} [axiosOptions] Override http request option.
+     * @throws {RequiredError}
+     * @memberof IdentityAttributesBetaApi
+     */
+    public getIdentityAttribute(requestParameters: IdentityAttributesBetaApiGetIdentityAttributeRequest, axiosOptions?: AxiosRequestConfig) {
+        return IdentityAttributesBetaApiFp(this.configuration).getIdentityAttribute(requestParameters.name, axiosOptions).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * This gets a collection of identity attributes.
+     * @summary List Identity Attributes
+     * @param {IdentityAttributesBetaApiListIdentityAttributesRequest} requestParameters Request parameters.
+     * @param {*} [axiosOptions] Override http request option.
+     * @throws {RequiredError}
+     * @memberof IdentityAttributesBetaApi
+     */
+    public listIdentityAttributes(requestParameters: IdentityAttributesBetaApiListIdentityAttributesRequest = {}, axiosOptions?: AxiosRequestConfig) {
+        return IdentityAttributesBetaApiFp(this.configuration).listIdentityAttributes(requestParameters.includeSystem, requestParameters.includeSilent, requestParameters.searchableOnly, requestParameters.count, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 }
 
