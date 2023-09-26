@@ -31581,13 +31581,14 @@ export const CertificationsBetaApiAxiosParamCreator = function (configuration?: 
          * @param {string} id The identity campaign certification ID
          * @param {ReviewReassignBeta} reviewReassignBeta 
          * @param {*} [axiosOptions] Override http request option.
+         * @deprecated
          * @throws {RequiredError}
          */
-        reassignIdentityCertsAsync: async (id: string, reviewReassignBeta: ReviewReassignBeta, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        submitReassignCertsAsync: async (id: string, reviewReassignBeta: ReviewReassignBeta, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'id' is not null or undefined
-            assertParamExists('reassignIdentityCertsAsync', 'id', id)
+            assertParamExists('submitReassignCertsAsync', 'id', id)
             // verify required parameter 'reviewReassignBeta' is not null or undefined
-            assertParamExists('reassignIdentityCertsAsync', 'reviewReassignBeta', reviewReassignBeta)
+            assertParamExists('submitReassignCertsAsync', 'reviewReassignBeta', reviewReassignBeta)
             const localVarPath = `/certifications/{id}/reassign-async`
                 .replace(`{${"id"}}`, encodeURIComponent(String(id)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
@@ -31696,10 +31697,11 @@ export const CertificationsBetaApiFp = function(configuration?: Configuration) {
          * @param {string} id The identity campaign certification ID
          * @param {ReviewReassignBeta} reviewReassignBeta 
          * @param {*} [axiosOptions] Override http request option.
+         * @deprecated
          * @throws {RequiredError}
          */
-        async reassignIdentityCertsAsync(id: string, reviewReassignBeta: ReviewReassignBeta, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<IdentityCertificationTaskBeta>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.reassignIdentityCertsAsync(id, reviewReassignBeta, axiosOptions);
+        async submitReassignCertsAsync(id: string, reviewReassignBeta: ReviewReassignBeta, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<IdentityCertificationTaskBeta>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.submitReassignCertsAsync(id, reviewReassignBeta, axiosOptions);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
     }
@@ -31771,10 +31773,11 @@ export const CertificationsBetaApiFactory = function (configuration?: Configurat
          * @param {string} id The identity campaign certification ID
          * @param {ReviewReassignBeta} reviewReassignBeta 
          * @param {*} [axiosOptions] Override http request option.
+         * @deprecated
          * @throws {RequiredError}
          */
-        reassignIdentityCertsAsync(id: string, reviewReassignBeta: ReviewReassignBeta, axiosOptions?: any): AxiosPromise<IdentityCertificationTaskBeta> {
-            return localVarFp.reassignIdentityCertsAsync(id, reviewReassignBeta, axiosOptions).then((request) => request(axios, basePath));
+        submitReassignCertsAsync(id: string, reviewReassignBeta: ReviewReassignBeta, axiosOptions?: any): AxiosPromise<IdentityCertificationTaskBeta> {
+            return localVarFp.submitReassignCertsAsync(id, reviewReassignBeta, axiosOptions).then((request) => request(axios, basePath));
         },
     };
 };
@@ -31913,22 +31916,22 @@ export interface CertificationsBetaApiListCertificationReviewersRequest {
 }
 
 /**
- * Request parameters for reassignIdentityCertsAsync operation in CertificationsBetaApi.
+ * Request parameters for submitReassignCertsAsync operation in CertificationsBetaApi.
  * @export
- * @interface CertificationsBetaApiReassignIdentityCertsAsyncRequest
+ * @interface CertificationsBetaApiSubmitReassignCertsAsyncRequest
  */
-export interface CertificationsBetaApiReassignIdentityCertsAsyncRequest {
+export interface CertificationsBetaApiSubmitReassignCertsAsyncRequest {
     /**
      * The identity campaign certification ID
      * @type {string}
-     * @memberof CertificationsBetaApiReassignIdentityCertsAsync
+     * @memberof CertificationsBetaApiSubmitReassignCertsAsync
      */
     readonly id: string
 
     /**
      * 
      * @type {ReviewReassignBeta}
-     * @memberof CertificationsBetaApiReassignIdentityCertsAsync
+     * @memberof CertificationsBetaApiSubmitReassignCertsAsync
      */
     readonly reviewReassignBeta: ReviewReassignBeta
 }
@@ -31993,13 +31996,14 @@ export class CertificationsBetaApi extends BaseAPI {
     /**
      * This API initiates a task to reassign up to 500 identities or items in an identity campaign certification to another reviewer. The `certification-tasks` API can be used to get an updated status on the task and determine when the reassignment is complete. A token with ORG_ADMIN or CERT_ADMIN authority is required to call this API. Reviewers for this certification can also call this API.
      * @summary Reassign Certifications Asynchronously
-     * @param {CertificationsBetaApiReassignIdentityCertsAsyncRequest} requestParameters Request parameters.
+     * @param {CertificationsBetaApiSubmitReassignCertsAsyncRequest} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
+     * @deprecated
      * @throws {RequiredError}
      * @memberof CertificationsBetaApi
      */
-    public reassignIdentityCertsAsync(requestParameters: CertificationsBetaApiReassignIdentityCertsAsyncRequest, axiosOptions?: AxiosRequestConfig) {
-        return CertificationsBetaApiFp(this.configuration).reassignIdentityCertsAsync(requestParameters.id, requestParameters.reviewReassignBeta, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public submitReassignCertsAsync(requestParameters: CertificationsBetaApiSubmitReassignCertsAsyncRequest, axiosOptions?: AxiosRequestConfig) {
+        return CertificationsBetaApiFp(this.configuration).submitReassignCertsAsync(requestParameters.id, requestParameters.reviewReassignBeta, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 }
 

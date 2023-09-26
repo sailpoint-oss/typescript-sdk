@@ -23722,6 +23722,54 @@ export const CertificationsApiAxiosParamCreator = function (configuration?: Conf
                 axiosOptions: localVarRequestOptions,
             };
         },
+        /**
+         * This API initiates a task to reassign up to 500 identities or items in an identity campaign certification to another reviewer. The `certification-tasks` API can be used to get an updated status on the task and determine when the reassignment is complete. A token with ORG_ADMIN or CERT_ADMIN authority is required to call this API. Reviewers for this certification can also call this API.
+         * @summary Reassign Certifications Asynchronously
+         * @param {string} id The identity campaign certification ID
+         * @param {ReviewReassign} reviewReassign 
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        submitReassignCertsAsync: async (id: string, reviewReassign: ReviewReassign, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'id' is not null or undefined
+            assertParamExists('submitReassignCertsAsync', 'id', id)
+            // verify required parameter 'reviewReassign' is not null or undefined
+            assertParamExists('submitReassignCertsAsync', 'reviewReassign', reviewReassign)
+            const localVarPath = `/certifications/{id}/reassign-async`
+                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'POST', ...baseOptions, ...axiosOptions};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication UserContextAuth required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "UserContextAuth", [], configuration)
+
+            // authentication UserContextAuth required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "UserContextAuth", [], configuration)
+
+
+    
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
+            localVarRequestOptions.data = serializeDataIfNeeded(reviewReassign, localVarRequestOptions, configuration)
+
+            return {
+                url: toPathString(localVarUrlObj),
+                axiosOptions: localVarRequestOptions,
+            };
+        },
     }
 };
 
@@ -23856,6 +23904,18 @@ export const CertificationsApiFp = function(configuration?: Configuration) {
             const localVarAxiosArgs = await localVarAxiosParamCreator.signOffIdentityCertification(id, axiosOptions);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
+        /**
+         * This API initiates a task to reassign up to 500 identities or items in an identity campaign certification to another reviewer. The `certification-tasks` API can be used to get an updated status on the task and determine when the reassignment is complete. A token with ORG_ADMIN or CERT_ADMIN authority is required to call this API. Reviewers for this certification can also call this API.
+         * @summary Reassign Certifications Asynchronously
+         * @param {string} id The identity campaign certification ID
+         * @param {ReviewReassign} reviewReassign 
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        async submitReassignCertsAsync(id: string, reviewReassign: ReviewReassign, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<CertificationTask>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.submitReassignCertsAsync(id, reviewReassign, axiosOptions);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
     }
 };
 
@@ -23980,6 +24040,17 @@ export const CertificationsApiFactory = function (configuration?: Configuration,
          */
         signOffIdentityCertification(id: string, axiosOptions?: any): AxiosPromise<IdentityCertificationDto> {
             return localVarFp.signOffIdentityCertification(id, axiosOptions).then((request) => request(axios, basePath));
+        },
+        /**
+         * This API initiates a task to reassign up to 500 identities or items in an identity campaign certification to another reviewer. The `certification-tasks` API can be used to get an updated status on the task and determine when the reassignment is complete. A token with ORG_ADMIN or CERT_ADMIN authority is required to call this API. Reviewers for this certification can also call this API.
+         * @summary Reassign Certifications Asynchronously
+         * @param {string} id The identity campaign certification ID
+         * @param {ReviewReassign} reviewReassign 
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        submitReassignCertsAsync(id: string, reviewReassign: ReviewReassign, axiosOptions?: any): AxiosPromise<CertificationTask> {
+            return localVarFp.submitReassignCertsAsync(id, reviewReassign, axiosOptions).then((request) => request(axios, basePath));
         },
     };
 };
@@ -24286,6 +24357,27 @@ export interface CertificationsApiSignOffIdentityCertificationRequest {
 }
 
 /**
+ * Request parameters for submitReassignCertsAsync operation in CertificationsApi.
+ * @export
+ * @interface CertificationsApiSubmitReassignCertsAsyncRequest
+ */
+export interface CertificationsApiSubmitReassignCertsAsyncRequest {
+    /**
+     * The identity campaign certification ID
+     * @type {string}
+     * @memberof CertificationsApiSubmitReassignCertsAsync
+     */
+    readonly id: string
+
+    /**
+     * 
+     * @type {ReviewReassign}
+     * @memberof CertificationsApiSubmitReassignCertsAsync
+     */
+    readonly reviewReassign: ReviewReassign
+}
+
+/**
  * CertificationsApi - object-oriented interface
  * @export
  * @class CertificationsApi
@@ -24398,6 +24490,18 @@ export class CertificationsApi extends BaseAPI {
      */
     public signOffIdentityCertification(requestParameters: CertificationsApiSignOffIdentityCertificationRequest, axiosOptions?: AxiosRequestConfig) {
         return CertificationsApiFp(this.configuration).signOffIdentityCertification(requestParameters.id, axiosOptions).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * This API initiates a task to reassign up to 500 identities or items in an identity campaign certification to another reviewer. The `certification-tasks` API can be used to get an updated status on the task and determine when the reassignment is complete. A token with ORG_ADMIN or CERT_ADMIN authority is required to call this API. Reviewers for this certification can also call this API.
+     * @summary Reassign Certifications Asynchronously
+     * @param {CertificationsApiSubmitReassignCertsAsyncRequest} requestParameters Request parameters.
+     * @param {*} [axiosOptions] Override http request option.
+     * @throws {RequiredError}
+     * @memberof CertificationsApi
+     */
+    public submitReassignCertsAsync(requestParameters: CertificationsApiSubmitReassignCertsAsyncRequest, axiosOptions?: AxiosRequestConfig) {
+        return CertificationsApiFp(this.configuration).submitReassignCertsAsync(requestParameters.id, requestParameters.reviewReassign, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 }
 
