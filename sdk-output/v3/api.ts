@@ -23558,6 +23558,69 @@ export const CertificationsApiAxiosParamCreator = function (configuration?: Conf
             };
         },
         /**
+         * This API returns a list of pending (`QUEUED` or `IN_PROGRESS`) certification tasks. Any authenticated token can call this API, but only certification tasks you are authorized to review will be returned.
+         * @summary List of Pending Certification Tasks
+         * @param {string} [reviewerIdentity] The ID of reviewer identity. *me* indicates the current user.
+         * @param {number} [limit] Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+         * @param {number} [offset] Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+         * @param {boolean} [count] If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+         * @param {string} [filters] Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, in*  **targetId**: *eq, in*  **type**: *eq, in*
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        getPendingCertificationTasks: async (reviewerIdentity?: string, limit?: number, offset?: number, count?: boolean, filters?: string, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            const localVarPath = `/certification-tasks`;
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...axiosOptions};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication UserContextAuth required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "UserContextAuth", [], configuration)
+
+            // authentication UserContextAuth required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "UserContextAuth", [], configuration)
+
+            if (reviewerIdentity !== undefined) {
+                localVarQueryParameter['reviewer-identity'] = reviewerIdentity;
+            }
+
+            if (limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+
+            if (offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+
+            if (count !== undefined) {
+                localVarQueryParameter['count'] = count;
+            }
+
+            if (filters !== undefined) {
+                localVarQueryParameter['filters'] = filters;
+            }
+
+
+    
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                axiosOptions: localVarRequestOptions,
+            };
+        },
+        /**
          * This API returns a list of reviewers for the certification. A token with ORG_ADMIN or CERT_ADMIN authority is required to call this API. Reviewers for this certification can also call this API.
          * @summary List of Reviewers for certification
          * @param {string} id The certification ID
@@ -24009,6 +24072,21 @@ export const CertificationsApiFp = function(configuration?: Configuration) {
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
+         * This API returns a list of pending (`QUEUED` or `IN_PROGRESS`) certification tasks. Any authenticated token can call this API, but only certification tasks you are authorized to review will be returned.
+         * @summary List of Pending Certification Tasks
+         * @param {string} [reviewerIdentity] The ID of reviewer identity. *me* indicates the current user.
+         * @param {number} [limit] Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+         * @param {number} [offset] Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+         * @param {boolean} [count] If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+         * @param {string} [filters] Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, in*  **targetId**: *eq, in*  **type**: *eq, in*
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        async getPendingCertificationTasks(reviewerIdentity?: string, limit?: number, offset?: number, count?: boolean, filters?: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<CertificationTask>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getPendingCertificationTasks(reviewerIdentity, limit, offset, count, filters, axiosOptions);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
          * This API returns a list of reviewers for the certification. A token with ORG_ADMIN or CERT_ADMIN authority is required to call this API. Reviewers for this certification can also call this API.
          * @summary List of Reviewers for certification
          * @param {string} id The certification ID
@@ -24150,6 +24228,20 @@ export const CertificationsApiFactory = function (configuration?: Configuration,
          */
         getIdentityCertificationItemPermissions(certificationId: string, itemId: string, filters?: string, limit?: number, offset?: number, count?: boolean, axiosOptions?: any): AxiosPromise<Array<PermissionDto>> {
             return localVarFp.getIdentityCertificationItemPermissions(certificationId, itemId, filters, limit, offset, count, axiosOptions).then((request) => request(axios, basePath));
+        },
+        /**
+         * This API returns a list of pending (`QUEUED` or `IN_PROGRESS`) certification tasks. Any authenticated token can call this API, but only certification tasks you are authorized to review will be returned.
+         * @summary List of Pending Certification Tasks
+         * @param {string} [reviewerIdentity] The ID of reviewer identity. *me* indicates the current user.
+         * @param {number} [limit] Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+         * @param {number} [offset] Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+         * @param {boolean} [count] If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+         * @param {string} [filters] Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, in*  **targetId**: *eq, in*  **type**: *eq, in*
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        getPendingCertificationTasks(reviewerIdentity?: string, limit?: number, offset?: number, count?: boolean, filters?: string, axiosOptions?: any): AxiosPromise<Array<CertificationTask>> {
+            return localVarFp.getPendingCertificationTasks(reviewerIdentity, limit, offset, count, filters, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * This API returns a list of reviewers for the certification. A token with ORG_ADMIN or CERT_ADMIN authority is required to call this API. Reviewers for this certification can also call this API.
@@ -24320,6 +24412,48 @@ export interface CertificationsApiGetIdentityCertificationItemPermissionsRequest
      * @memberof CertificationsApiGetIdentityCertificationItemPermissions
      */
     readonly count?: boolean
+}
+
+/**
+ * Request parameters for getPendingCertificationTasks operation in CertificationsApi.
+ * @export
+ * @interface CertificationsApiGetPendingCertificationTasksRequest
+ */
+export interface CertificationsApiGetPendingCertificationTasksRequest {
+    /**
+     * The ID of reviewer identity. *me* indicates the current user.
+     * @type {string}
+     * @memberof CertificationsApiGetPendingCertificationTasks
+     */
+    readonly reviewerIdentity?: string
+
+    /**
+     * Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+     * @type {number}
+     * @memberof CertificationsApiGetPendingCertificationTasks
+     */
+    readonly limit?: number
+
+    /**
+     * Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+     * @type {number}
+     * @memberof CertificationsApiGetPendingCertificationTasks
+     */
+    readonly offset?: number
+
+    /**
+     * If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+     * @type {boolean}
+     * @memberof CertificationsApiGetPendingCertificationTasks
+     */
+    readonly count?: boolean
+
+    /**
+     * Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, in*  **targetId**: *eq, in*  **type**: *eq, in*
+     * @type {string}
+     * @memberof CertificationsApiGetPendingCertificationTasks
+     */
+    readonly filters?: string
 }
 
 /**
@@ -24608,6 +24742,18 @@ export class CertificationsApi extends BaseAPI {
      */
     public getIdentityCertificationItemPermissions(requestParameters: CertificationsApiGetIdentityCertificationItemPermissionsRequest, axiosOptions?: AxiosRequestConfig) {
         return CertificationsApiFp(this.configuration).getIdentityCertificationItemPermissions(requestParameters.certificationId, requestParameters.itemId, requestParameters.filters, requestParameters.limit, requestParameters.offset, requestParameters.count, axiosOptions).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * This API returns a list of pending (`QUEUED` or `IN_PROGRESS`) certification tasks. Any authenticated token can call this API, but only certification tasks you are authorized to review will be returned.
+     * @summary List of Pending Certification Tasks
+     * @param {CertificationsApiGetPendingCertificationTasksRequest} requestParameters Request parameters.
+     * @param {*} [axiosOptions] Override http request option.
+     * @throws {RequiredError}
+     * @memberof CertificationsApi
+     */
+    public getPendingCertificationTasks(requestParameters: CertificationsApiGetPendingCertificationTasksRequest = {}, axiosOptions?: AxiosRequestConfig) {
+        return CertificationsApiFp(this.configuration).getPendingCertificationTasks(requestParameters.reviewerIdentity, requestParameters.limit, requestParameters.offset, requestParameters.count, requestParameters.filters, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
