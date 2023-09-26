@@ -4806,7 +4806,7 @@ export interface CampaignTemplateBeta {
      */
     'deadlineDuration'?: string;
     /**
-     * 
+     * This will hold campaign related information like name, description etc.
      * @type {CampaignBeta}
      * @memberof CampaignTemplateBeta
      */
@@ -29185,10 +29185,11 @@ export const CertificationCampaignsBetaApiAxiosParamCreator = function (configur
             };
         },
         /**
-         * 
+         * Create a campaign Template based on campaign.
          * @summary Create a Campaign Template
          * @param {CampaignTemplateBeta} campaignTemplateBeta 
          * @param {*} [axiosOptions] Override http request option.
+         * @deprecated
          * @throws {RequiredError}
          */
         createCampaignTemplate: async (campaignTemplateBeta: CampaignTemplateBeta, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
@@ -30150,10 +30151,11 @@ export const CertificationCampaignsBetaApiFp = function(configuration?: Configur
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
-         * 
+         * Create a campaign Template based on campaign.
          * @summary Create a Campaign Template
          * @param {CampaignTemplateBeta} campaignTemplateBeta 
          * @param {*} [axiosOptions] Override http request option.
+         * @deprecated
          * @throws {RequiredError}
          */
         async createCampaignTemplate(campaignTemplateBeta: CampaignTemplateBeta, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<CampaignTemplateBeta>> {
@@ -30428,10 +30430,11 @@ export const CertificationCampaignsBetaApiFactory = function (configuration?: Co
             return localVarFp.createCampaign(campaignBeta, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
-         * 
+         * Create a campaign Template based on campaign.
          * @summary Create a Campaign Template
          * @param {CampaignTemplateBeta} campaignTemplateBeta 
          * @param {*} [axiosOptions] Override http request option.
+         * @deprecated
          * @throws {RequiredError}
          */
         createCampaignTemplate(campaignTemplateBeta: CampaignTemplateBeta, axiosOptions?: any): AxiosPromise<CampaignTemplateBeta> {
@@ -31095,10 +31098,11 @@ export class CertificationCampaignsBetaApi extends BaseAPI {
     }
 
     /**
-     * 
+     * Create a campaign Template based on campaign.
      * @summary Create a Campaign Template
      * @param {CertificationCampaignsBetaApiCreateCampaignTemplateRequest} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
+     * @deprecated
      * @throws {RequiredError}
      * @memberof CertificationCampaignsBetaApi
      */

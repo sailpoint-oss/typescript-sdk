@@ -4581,6 +4581,105 @@ export interface CampaignReportsConfig {
     'identityAttributeColumns'?: Array<string>;
 }
 /**
+ * Campaign Template
+ * @export
+ * @interface CampaignTemplate
+ */
+export interface CampaignTemplate {
+    /**
+     * Id of the campaign template
+     * @type {string}
+     * @memberof CampaignTemplate
+     */
+    'id'?: string;
+    /**
+     * This template\'s name. Has no bearing on generated campaigns\' names.
+     * @type {string}
+     * @memberof CampaignTemplate
+     */
+    'name': string;
+    /**
+     * This template\'s description. Has no bearing on generated campaigns\' descriptions.
+     * @type {string}
+     * @memberof CampaignTemplate
+     */
+    'description': string;
+    /**
+     * Creation date of Campaign Template
+     * @type {string}
+     * @memberof CampaignTemplate
+     */
+    'created': string;
+    /**
+     * Modification date of Campaign Template
+     * @type {string}
+     * @memberof CampaignTemplate
+     */
+    'modified': string;
+    /**
+     * Indicates if this campaign template has been scheduled.
+     * @type {boolean}
+     * @memberof CampaignTemplate
+     */
+    'scheduled'?: boolean;
+    /**
+     * 
+     * @type {CampaignTemplateOwnerRef}
+     * @memberof CampaignTemplate
+     */
+    'ownerRef'?: CampaignTemplateOwnerRef;
+    /**
+     * The time period during which the campaign should be completed, formatted as an ISO-8601 Duration. When this template generates a campaign, the campaign\'s deadline will be the current date plus this duration. For example, if generation occurred on 2020-01-01 and this field was \"P2W\" (two weeks), the resulting campaign\'s deadline would be 2020-01-15 (the current date plus 14 days).
+     * @type {string}
+     * @memberof CampaignTemplate
+     */
+    'deadlineDuration'?: string;
+    /**
+     * This will hold campaign related information like name, description etc.
+     * @type {Campaign}
+     * @memberof CampaignTemplate
+     */
+    'campaign': Campaign;
+}
+/**
+ * The owner of this template, and the owner of campaigns generated from this template via a schedule. This field is automatically populated at creation time with the current user.
+ * @export
+ * @interface CampaignTemplateOwnerRef
+ */
+export interface CampaignTemplateOwnerRef {
+    /**
+     * Id of the owner
+     * @type {string}
+     * @memberof CampaignTemplateOwnerRef
+     */
+    'id'?: string;
+    /**
+     * Type of the owner
+     * @type {string}
+     * @memberof CampaignTemplateOwnerRef
+     */
+    'type'?: CampaignTemplateOwnerRefTypeEnum;
+    /**
+     * Name of the owner
+     * @type {string}
+     * @memberof CampaignTemplateOwnerRef
+     */
+    'name'?: string;
+    /**
+     * Email of the owner
+     * @type {string}
+     * @memberof CampaignTemplateOwnerRef
+     */
+    'email'?: string;
+}
+
+export const CampaignTemplateOwnerRefTypeEnum = {
+    Identity: 'IDENTITY'
+} as const;
+
+export type CampaignTemplateOwnerRefTypeEnum = typeof CampaignTemplateOwnerRefTypeEnum[keyof typeof CampaignTemplateOwnerRefTypeEnum];
+
+/**
  * 
  * @export
  * @interface CampaignsDeleteRequest
@@ -21414,6 +21513,50 @@ export const CertificationCampaignsApiAxiosParamCreator = function (configuratio
             };
         },
         /**
+         * Create a campaign Template based on campaign.
+         * @summary Create a Campaign Template
+         * @param {CampaignTemplate} campaignTemplate 
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        createCampaignTemplate: async (campaignTemplate: CampaignTemplate, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'campaignTemplate' is not null or undefined
+            assertParamExists('createCampaignTemplate', 'campaignTemplate', campaignTemplate)
+            const localVarPath = `/campaign-templates`;
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'POST', ...baseOptions, ...axiosOptions};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication UserContextAuth required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "UserContextAuth", [], configuration)
+
+            // authentication UserContextAuth required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "UserContextAuth", [], configuration)
+
+
+    
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
+            localVarRequestOptions.data = serializeDataIfNeeded(campaignTemplate, localVarRequestOptions, configuration)
+
+            return {
+                url: toPathString(localVarUrlObj),
+                axiosOptions: localVarRequestOptions,
+            };
+        },
+        /**
          * Deletes campaigns whose Ids are specified in the provided list of campaign Ids. Authorized callers must be an ORG_ADMIN or a CERT_ADMIN.
          * @summary Deletes Campaigns
          * @param {CampaignsDeleteRequest} campaignsDeleteRequest The ids of the campaigns to delete.
@@ -21955,6 +22098,17 @@ export const CertificationCampaignsApiFp = function(configuration?: Configuratio
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
+         * Create a campaign Template based on campaign.
+         * @summary Create a Campaign Template
+         * @param {CampaignTemplate} campaignTemplate 
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        async createCampaignTemplate(campaignTemplate: CampaignTemplate, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<CampaignTemplate>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.createCampaignTemplate(campaignTemplate, axiosOptions);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
          * Deletes campaigns whose Ids are specified in the provided list of campaign Ids. Authorized callers must be an ORG_ADMIN or a CERT_ADMIN.
          * @summary Deletes Campaigns
          * @param {CampaignsDeleteRequest} campaignsDeleteRequest The ids of the campaigns to delete.
@@ -22115,6 +22269,16 @@ export const CertificationCampaignsApiFactory = function (configuration?: Config
             return localVarFp.createCampaign(campaign, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
+         * Create a campaign Template based on campaign.
+         * @summary Create a Campaign Template
+         * @param {CampaignTemplate} campaignTemplate 
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        createCampaignTemplate(campaignTemplate: CampaignTemplate, axiosOptions?: any): AxiosPromise<CampaignTemplate> {
+            return localVarFp.createCampaignTemplate(campaignTemplate, axiosOptions).then((request) => request(axios, basePath));
+        },
+        /**
          * Deletes campaigns whose Ids are specified in the provided list of campaign Ids. Authorized callers must be an ORG_ADMIN or a CERT_ADMIN.
          * @summary Deletes Campaigns
          * @param {CampaignsDeleteRequest} campaignsDeleteRequest The ids of the campaigns to delete.
@@ -22268,6 +22432,20 @@ export interface CertificationCampaignsApiCreateCampaignRequest {
      * @memberof CertificationCampaignsApiCreateCampaign
      */
     readonly campaign: Campaign
+}
+
+/**
+ * Request parameters for createCampaignTemplate operation in CertificationCampaignsApi.
+ * @export
+ * @interface CertificationCampaignsApiCreateCampaignTemplateRequest
+ */
+export interface CertificationCampaignsApiCreateCampaignTemplateRequest {
+    /**
+     * 
+     * @type {CampaignTemplate}
+     * @memberof CertificationCampaignsApiCreateCampaignTemplate
+     */
+    readonly campaignTemplate: CampaignTemplate
 }
 
 /**
@@ -22502,6 +22680,18 @@ export class CertificationCampaignsApi extends BaseAPI {
      */
     public createCampaign(requestParameters: CertificationCampaignsApiCreateCampaignRequest, axiosOptions?: AxiosRequestConfig) {
         return CertificationCampaignsApiFp(this.configuration).createCampaign(requestParameters.campaign, axiosOptions).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Create a campaign Template based on campaign.
+     * @summary Create a Campaign Template
+     * @param {CertificationCampaignsApiCreateCampaignTemplateRequest} requestParameters Request parameters.
+     * @param {*} [axiosOptions] Override http request option.
+     * @throws {RequiredError}
+     * @memberof CertificationCampaignsApi
+     */
+    public createCampaignTemplate(requestParameters: CertificationCampaignsApiCreateCampaignTemplateRequest, axiosOptions?: AxiosRequestConfig) {
+        return CertificationCampaignsApiFp(this.configuration).createCampaignTemplate(requestParameters.campaignTemplate, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
