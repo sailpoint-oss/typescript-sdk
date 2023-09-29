@@ -29795,15 +29795,16 @@ export const CertificationCampaignsBetaApiAxiosParamCreator = function (configur
          * Allows updating individual fields on a campaign template using the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.
          * @summary Update a Campaign Template
          * @param {string} id The ID of the campaign template being modified.
-         * @param {Array<object>} requestBody A list of campaign update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.  The following fields are patchable: * name * description * deadlineDuration * campaign (all fields that are allowed during create) 
+         * @param {Array<JsonPatchOperationBeta>} jsonPatchOperationBeta A list of campaign update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.  The following fields are patchable: * name * description * deadlineDuration * campaign (all fields that are allowed during create) 
          * @param {*} [axiosOptions] Override http request option.
+         * @deprecated
          * @throws {RequiredError}
          */
-        patchCampaignTemplate: async (id: string, requestBody: Array<object>, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        patchCampaignTemplate: async (id: string, jsonPatchOperationBeta: Array<JsonPatchOperationBeta>, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'id' is not null or undefined
             assertParamExists('patchCampaignTemplate', 'id', id)
-            // verify required parameter 'requestBody' is not null or undefined
-            assertParamExists('patchCampaignTemplate', 'requestBody', requestBody)
+            // verify required parameter 'jsonPatchOperationBeta' is not null or undefined
+            assertParamExists('patchCampaignTemplate', 'jsonPatchOperationBeta', jsonPatchOperationBeta)
             const localVarPath = `/campaign-templates/{id}`
                 .replace(`{${"id"}}`, encodeURIComponent(String(id)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
@@ -29832,7 +29833,7 @@ export const CertificationCampaignsBetaApiAxiosParamCreator = function (configur
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(requestBody, localVarRequestOptions, configuration)
+            localVarRequestOptions.data = serializeDataIfNeeded(jsonPatchOperationBeta, localVarRequestOptions, configuration)
 
             return {
                 url: toPathString(localVarUrlObj),
@@ -30315,12 +30316,13 @@ export const CertificationCampaignsBetaApiFp = function(configuration?: Configur
          * Allows updating individual fields on a campaign template using the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.
          * @summary Update a Campaign Template
          * @param {string} id The ID of the campaign template being modified.
-         * @param {Array<object>} requestBody A list of campaign update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.  The following fields are patchable: * name * description * deadlineDuration * campaign (all fields that are allowed during create) 
+         * @param {Array<JsonPatchOperationBeta>} jsonPatchOperationBeta A list of campaign update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.  The following fields are patchable: * name * description * deadlineDuration * campaign (all fields that are allowed during create) 
          * @param {*} [axiosOptions] Override http request option.
+         * @deprecated
          * @throws {RequiredError}
          */
-        async patchCampaignTemplate(id: string, requestBody: Array<object>, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<CampaignTemplateBeta>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.patchCampaignTemplate(id, requestBody, axiosOptions);
+        async patchCampaignTemplate(id: string, jsonPatchOperationBeta: Array<JsonPatchOperationBeta>, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<CampaignTemplateBeta>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.patchCampaignTemplate(id, jsonPatchOperationBeta, axiosOptions);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
@@ -30582,12 +30584,13 @@ export const CertificationCampaignsBetaApiFactory = function (configuration?: Co
          * Allows updating individual fields on a campaign template using the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.
          * @summary Update a Campaign Template
          * @param {string} id The ID of the campaign template being modified.
-         * @param {Array<object>} requestBody A list of campaign update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.  The following fields are patchable: * name * description * deadlineDuration * campaign (all fields that are allowed during create) 
+         * @param {Array<JsonPatchOperationBeta>} jsonPatchOperationBeta A list of campaign update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.  The following fields are patchable: * name * description * deadlineDuration * campaign (all fields that are allowed during create) 
          * @param {*} [axiosOptions] Override http request option.
+         * @deprecated
          * @throws {RequiredError}
          */
-        patchCampaignTemplate(id: string, requestBody: Array<object>, axiosOptions?: any): AxiosPromise<CampaignTemplateBeta> {
-            return localVarFp.patchCampaignTemplate(id, requestBody, axiosOptions).then((request) => request(axios, basePath));
+        patchCampaignTemplate(id: string, jsonPatchOperationBeta: Array<JsonPatchOperationBeta>, axiosOptions?: any): AxiosPromise<CampaignTemplateBeta> {
+            return localVarFp.patchCampaignTemplate(id, jsonPatchOperationBeta, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * Overwrites configuration for campaign reports. Requires roles CERT_ADMIN and ORG_ADMIN.
@@ -30949,10 +30952,10 @@ export interface CertificationCampaignsBetaApiPatchCampaignTemplateRequest {
 
     /**
      * A list of campaign update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.  The following fields are patchable: * name * description * deadlineDuration * campaign (all fields that are allowed during create) 
-     * @type {Array<object>}
+     * @type {Array<JsonPatchOperationBeta>}
      * @memberof CertificationCampaignsBetaApiPatchCampaignTemplate
      */
-    readonly requestBody: Array<object>
+    readonly jsonPatchOperationBeta: Array<JsonPatchOperationBeta>
 }
 
 /**
@@ -31268,11 +31271,12 @@ export class CertificationCampaignsBetaApi extends BaseAPI {
      * @summary Update a Campaign Template
      * @param {CertificationCampaignsBetaApiPatchCampaignTemplateRequest} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
+     * @deprecated
      * @throws {RequiredError}
      * @memberof CertificationCampaignsBetaApi
      */
     public patchCampaignTemplate(requestParameters: CertificationCampaignsBetaApiPatchCampaignTemplateRequest, axiosOptions?: AxiosRequestConfig) {
-        return CertificationCampaignsBetaApiFp(this.configuration).patchCampaignTemplate(requestParameters.id, requestParameters.requestBody, axiosOptions).then((request) => request(this.axios, this.basePath));
+        return CertificationCampaignsBetaApiFp(this.configuration).patchCampaignTemplate(requestParameters.id, requestParameters.jsonPatchOperationBeta, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
