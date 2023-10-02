@@ -19551,7 +19551,7 @@ export interface ScheduleBeta {
      */
     'expiration'?: string;
     /**
-     * The time zone to use when running the schedule. For instance, if the schedule is a DAILY schedule that runs at 1AM, and this field is set to \"CST\", the schedule will run at 1AM CST.
+     * The time zone to use when running the schedule. For instance, if the schedule is scheduled to run at 1AM, and this field is set to \"CST\", the schedule will run at 1AM CST.
      * @type {string}
      * @memberof ScheduleBeta
      */
@@ -19559,7 +19559,6 @@ export interface ScheduleBeta {
 }
 
 export const ScheduleBetaTypeEnum = {
-    Daily: 'DAILY',
     Weekly: 'WEEKLY',
     Monthly: 'MONTHLY',
     Annually: 'ANNUALLY',
@@ -19569,25 +19568,25 @@ export const ScheduleBetaTypeEnum = {
 export type ScheduleBetaTypeEnum = typeof ScheduleBetaTypeEnum[keyof typeof ScheduleBetaTypeEnum];
 
 /**
- * Specifies which day(s) a schedule is active for. This is required for all schedule types except DAILY. The \"values\" field holds different data depending on the type of schedule: * WEEKLY: days of the week (1-7) * MONTHLY: days of the month (1-31, L, L-1...) * ANNUALLY: if the \"months\" field is also set: days of the month (1-31, L, L-1...); otherwise: ISO-8601 dates without year (\"--12-31\") * CALENDAR: ISO-8601 dates (\"2020-12-31\")  Note that CALENDAR only supports the LIST type, and ANNUALLY does not support the RANGE type when provided with ISO-8601 dates without year.  Examples:  On Sundays: * type LIST * values \"1\"  The second to last day of the month: * type LIST * values \"L-1\"  From the 20th to the last day of the month: * type RANGE * values \"20\", \"L\"  Every March 2nd: * type LIST * values \"--03-02\"  On March 2nd, 2021: * type: LIST * values \"2021-03-02\" 
+ * Specifies which day(s) a schedule is active for. This is required for all schedule types. The \"values\" field holds different data depending on the type of schedule: * WEEKLY: days of the week (1-7) * MONTHLY: days of the month (1-31, L, L-1...) * ANNUALLY: if the \"months\" field is also set: days of the month (1-31, L, L-1...); otherwise: ISO-8601 dates without year (\"--12-31\") * CALENDAR: ISO-8601 dates (\"2020-12-31\")  Note that CALENDAR only supports the LIST type, and ANNUALLY does not support the RANGE type when provided with ISO-8601 dates without year.  Examples:  On Sundays: * type LIST * values \"1\"  The second to last day of the month: * type LIST * values \"L-1\"  From the 20th to the last day of the month: * type RANGE * values \"20\", \"L\"  Every March 2nd: * type LIST * values \"--03-02\"  On March 2nd, 2021: * type: LIST * values \"2021-03-02\" 
  * @export
  * @interface ScheduleDaysBeta
  */
 export interface ScheduleDaysBeta {
     /**
-     * 
+     * Enum type to specify days value
      * @type {string}
      * @memberof ScheduleDaysBeta
      */
     'type': ScheduleDaysBetaTypeEnum;
     /**
-     * 
+     * Values of the days based on the enum type mentioned above
      * @type {Array<string>}
      * @memberof ScheduleDaysBeta
      */
     'values': Array<string>;
     /**
-     * 
+     * Interval between the cert generations
      * @type {number}
      * @memberof ScheduleDaysBeta
      */
@@ -19608,19 +19607,19 @@ export type ScheduleDaysBetaTypeEnum = typeof ScheduleDaysBetaTypeEnum[keyof typ
  */
 export interface ScheduleHoursBeta {
     /**
-     * 
+     * Enum type to specify hours value
      * @type {string}
      * @memberof ScheduleHoursBeta
      */
     'type': ScheduleHoursBetaTypeEnum;
     /**
-     * 
+     * Values of the days based on the enum type mentioned above
      * @type {Array<string>}
      * @memberof ScheduleHoursBeta
      */
     'values': Array<string>;
     /**
-     * 
+     * Interval between the cert generations
      * @type {number}
      * @memberof ScheduleHoursBeta
      */
@@ -19641,19 +19640,19 @@ export type ScheduleHoursBetaTypeEnum = typeof ScheduleHoursBetaTypeEnum[keyof t
  */
 export interface ScheduleMonthsBeta {
     /**
-     * 
+     * Enum type to specify months value
      * @type {string}
      * @memberof ScheduleMonthsBeta
      */
     'type': ScheduleMonthsBetaTypeEnum;
     /**
-     * 
+     * Values of the months based on the enum type mentioned above
      * @type {Array<string>}
      * @memberof ScheduleMonthsBeta
      */
     'values': Array<string>;
     /**
-     * 
+     * Interval between the cert generations
      * @type {number}
      * @memberof ScheduleMonthsBeta
      */
@@ -29891,6 +29890,7 @@ export const CertificationCampaignsBetaApiAxiosParamCreator = function (configur
          * @param {string} id The ID of the campaign template being scheduled.
          * @param {ScheduleBeta} [scheduleBeta] 
          * @param {*} [axiosOptions] Override http request option.
+         * @deprecated
          * @throws {RequiredError}
          */
         setCampaignTemplateSchedule: async (id: string, scheduleBeta?: ScheduleBeta, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
@@ -30343,6 +30343,7 @@ export const CertificationCampaignsBetaApiFp = function(configuration?: Configur
          * @param {string} id The ID of the campaign template being scheduled.
          * @param {ScheduleBeta} [scheduleBeta] 
          * @param {*} [axiosOptions] Override http request option.
+         * @deprecated
          * @throws {RequiredError}
          */
         async setCampaignTemplateSchedule(id: string, scheduleBeta?: ScheduleBeta, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
@@ -30609,6 +30610,7 @@ export const CertificationCampaignsBetaApiFactory = function (configuration?: Co
          * @param {string} id The ID of the campaign template being scheduled.
          * @param {ScheduleBeta} [scheduleBeta] 
          * @param {*} [axiosOptions] Override http request option.
+         * @deprecated
          * @throws {RequiredError}
          */
         setCampaignTemplateSchedule(id: string, scheduleBeta?: ScheduleBeta, axiosOptions?: any): AxiosPromise<void> {
@@ -31297,6 +31299,7 @@ export class CertificationCampaignsBetaApi extends BaseAPI {
      * @summary Sets a Campaign Template\'s Schedule
      * @param {CertificationCampaignsBetaApiSetCampaignTemplateScheduleRequest} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
+     * @deprecated
      * @throws {RequiredError}
      * @memberof CertificationCampaignsBetaApi
      */
