@@ -16786,12 +16786,6 @@ export interface TextQuery {
  */
 export interface Transform {
     /**
-     * Unique ID of this transform
-     * @type {string}
-     * @memberof Transform
-     */
-    'id'?: string;
-    /**
      * Unique name of this transform
      * @type {string}
      * @memberof Transform
@@ -16887,6 +16881,95 @@ export interface TransformDefinition {
  * @interface TransformDefinitionAttributesValue
  */
 export interface TransformDefinitionAttributesValue {
+}
+/**
+ * 
+ * @export
+ * @interface TransformRead
+ */
+export interface TransformRead {
+    /**
+     * Unique name of this transform
+     * @type {string}
+     * @memberof TransformRead
+     */
+    'name': string;
+    /**
+     * The type of transform operation
+     * @type {string}
+     * @memberof TransformRead
+     */
+    'type': TransformReadTypeEnum;
+    /**
+     * 
+     * @type {TransformAttributes}
+     * @memberof TransformRead
+     */
+    'attributes': TransformAttributes;
+    /**
+     * Indicates whether this is an internal SailPoint-created transform or a customer-created transform
+     * @type {boolean}
+     * @memberof TransformRead
+     */
+    'internal'?: boolean;
+    /**
+     * Unique ID of this transform
+     * @type {string}
+     * @memberof TransformRead
+     */
+    'id'?: string;
+}
+
+export const TransformReadTypeEnum = {
+    AccountAttribute: 'accountAttribute',
+    Base64Decode: 'base64Decode',
+    Base64Encode: 'base64Encode',
+    Concat: 'concat',
+    Conditional: 'conditional',
+    DateCompare: 'dateCompare',
+    DateFormat: 'dateFormat',
+    DateMath: 'dateMath',
+    DecomposeDiacriticalMarks: 'decomposeDiacriticalMarks',
+    E164phone: 'e164phone',
+    FirstValid: 'firstValid',
+    Rule: 'rule',
+    IdentityAttribute: 'identityAttribute',
+    IndexOf: 'indexOf',
+    Iso3166: 'iso3166',
+    LastIndexOf: 'lastIndexOf',
+    LeftPad: 'leftPad',
+    Lookup: 'lookup',
+    Lower: 'lower',
+    NormalizeNames: 'normalizeNames',
+    RandomAlphaNumeric: 'randomAlphaNumeric',
+    RandomNumeric: 'randomNumeric',
+    Reference: 'reference',
+    ReplaceAll: 'replaceAll',
+    Replace: 'replace',
+    RightPad: 'rightPad',
+    Split: 'split',
+    Static: 'static',
+    Substring: 'substring',
+    Trim: 'trim',
+    Upper: 'upper',
+    UsernameGenerator: 'usernameGenerator',
+    Uuid: 'uuid'
+} as const;
+
+export type TransformReadTypeEnum = typeof TransformReadTypeEnum[keyof typeof TransformReadTypeEnum];
+
+/**
+ * 
+ * @export
+ * @interface TransformReadAllOf
+ */
+export interface TransformReadAllOf {
+    /**
+     * Unique ID of this transform
+     * @type {string}
+     * @memberof TransformReadAllOf
+     */
+    'id'?: string;
 }
 /**
  * 
@@ -43264,7 +43347,7 @@ export const TransformsApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async getTransform(id: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Transform>> {
+        async getTransform(id: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<TransformRead>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getTransform(id, axiosOptions);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -43279,7 +43362,7 @@ export const TransformsApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async listTransforms(offset?: number, limit?: number, count?: boolean, name?: string, filters?: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Transform>>> {
+        async listTransforms(offset?: number, limit?: number, count?: boolean, name?: string, filters?: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<TransformRead>>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.listTransforms(offset, limit, count, name, filters, axiosOptions);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -43332,7 +43415,7 @@ export const TransformsApiFactory = function (configuration?: Configuration, bas
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        getTransform(id: string, axiosOptions?: any): AxiosPromise<Transform> {
+        getTransform(id: string, axiosOptions?: any): AxiosPromise<TransformRead> {
             return localVarFp.getTransform(id, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
@@ -43346,7 +43429,7 @@ export const TransformsApiFactory = function (configuration?: Configuration, bas
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        listTransforms(offset?: number, limit?: number, count?: boolean, name?: string, filters?: string, axiosOptions?: any): AxiosPromise<Array<Transform>> {
+        listTransforms(offset?: number, limit?: number, count?: boolean, name?: string, filters?: string, axiosOptions?: any): AxiosPromise<Array<TransformRead>> {
             return localVarFp.listTransforms(offset, limit, count, name, filters, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
