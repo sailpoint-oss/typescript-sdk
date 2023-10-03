@@ -22128,6 +22128,48 @@ export const CertificationCampaignsApiAxiosParamCreator = function (configuratio
             };
         },
         /**
+         * Generates a new campaign from a campaign template. The campaign object contained in the template has special formatting applied to its name and description fields in order to determine the generated campaign\'s name/description. Placeholders in those fields are formatted with the current date and time upon generation. Placeholders consist of a percent sign followed by a letter indicating what should be inserted; for example, \"%Y\" will insert the current year; a campaign template named \"Campaign for %y\" would generate a campaign called \"Campaign for 2020\" (assuming the year at generation time is 2020). Valid placeholders are the date/time conversion suffix characters supported by [java.util.Formatter](https://docs.oracle.com/javase/8/docs/api/java/util/Formatter.html). Requires roles ORG_ADMIN.
+         * @summary Generate a Campaign from Template
+         * @param {string} id The ID of the campaign template to use for generation.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        startGenerateCampaignTemplate: async (id: string, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'id' is not null or undefined
+            assertParamExists('startGenerateCampaignTemplate', 'id', id)
+            const localVarPath = `/campaign-templates/{id}/generate`
+                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'POST', ...baseOptions, ...axiosOptions};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication UserContextAuth required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "UserContextAuth", [], configuration)
+
+            // authentication UserContextAuth required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "UserContextAuth", [], configuration)
+
+
+    
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                axiosOptions: localVarRequestOptions,
+            };
+        },
+        /**
          * Allows updating individual fields on a campaign using the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.
          * @summary Update a Campaign
          * @param {string} id The ID of the campaign template being modified.
@@ -22364,6 +22406,17 @@ export const CertificationCampaignsApiFp = function(configuration?: Configuratio
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
+         * Generates a new campaign from a campaign template. The campaign object contained in the template has special formatting applied to its name and description fields in order to determine the generated campaign\'s name/description. Placeholders in those fields are formatted with the current date and time upon generation. Placeholders consist of a percent sign followed by a letter indicating what should be inserted; for example, \"%Y\" will insert the current year; a campaign template named \"Campaign for %y\" would generate a campaign called \"Campaign for 2020\" (assuming the year at generation time is 2020). Valid placeholders are the date/time conversion suffix characters supported by [java.util.Formatter](https://docs.oracle.com/javase/8/docs/api/java/util/Formatter.html). Requires roles ORG_ADMIN.
+         * @summary Generate a Campaign from Template
+         * @param {string} id The ID of the campaign template to use for generation.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        async startGenerateCampaignTemplate(id: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<CampaignReference>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.startGenerateCampaignTemplate(id, axiosOptions);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
          * Allows updating individual fields on a campaign using the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.
          * @summary Update a Campaign
          * @param {string} id The ID of the campaign template being modified.
@@ -22547,6 +22600,16 @@ export const CertificationCampaignsApiFactory = function (configuration?: Config
          */
         startCampaignReport(id: string, type: ReportType, axiosOptions?: any): AxiosPromise<object> {
             return localVarFp.startCampaignReport(id, type, axiosOptions).then((request) => request(axios, basePath));
+        },
+        /**
+         * Generates a new campaign from a campaign template. The campaign object contained in the template has special formatting applied to its name and description fields in order to determine the generated campaign\'s name/description. Placeholders in those fields are formatted with the current date and time upon generation. Placeholders consist of a percent sign followed by a letter indicating what should be inserted; for example, \"%Y\" will insert the current year; a campaign template named \"Campaign for %y\" would generate a campaign called \"Campaign for 2020\" (assuming the year at generation time is 2020). Valid placeholders are the date/time conversion suffix characters supported by [java.util.Formatter](https://docs.oracle.com/javase/8/docs/api/java/util/Formatter.html). Requires roles ORG_ADMIN.
+         * @summary Generate a Campaign from Template
+         * @param {string} id The ID of the campaign template to use for generation.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        startGenerateCampaignTemplate(id: string, axiosOptions?: any): AxiosPromise<CampaignReference> {
+            return localVarFp.startGenerateCampaignTemplate(id, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * Allows updating individual fields on a campaign using the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.
@@ -22857,6 +22920,20 @@ export interface CertificationCampaignsApiStartCampaignReportRequest {
 }
 
 /**
+ * Request parameters for startGenerateCampaignTemplate operation in CertificationCampaignsApi.
+ * @export
+ * @interface CertificationCampaignsApiStartGenerateCampaignTemplateRequest
+ */
+export interface CertificationCampaignsApiStartGenerateCampaignTemplateRequest {
+    /**
+     * The ID of the campaign template to use for generation.
+     * @type {string}
+     * @memberof CertificationCampaignsApiStartGenerateCampaignTemplate
+     */
+    readonly id: string
+}
+
+/**
  * Request parameters for updateCampaign operation in CertificationCampaignsApi.
  * @export
  * @interface CertificationCampaignsApiUpdateCampaignRequest
@@ -23061,6 +23138,18 @@ export class CertificationCampaignsApi extends BaseAPI {
      */
     public startCampaignReport(requestParameters: CertificationCampaignsApiStartCampaignReportRequest, axiosOptions?: AxiosRequestConfig) {
         return CertificationCampaignsApiFp(this.configuration).startCampaignReport(requestParameters.id, requestParameters.type, axiosOptions).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Generates a new campaign from a campaign template. The campaign object contained in the template has special formatting applied to its name and description fields in order to determine the generated campaign\'s name/description. Placeholders in those fields are formatted with the current date and time upon generation. Placeholders consist of a percent sign followed by a letter indicating what should be inserted; for example, \"%Y\" will insert the current year; a campaign template named \"Campaign for %y\" would generate a campaign called \"Campaign for 2020\" (assuming the year at generation time is 2020). Valid placeholders are the date/time conversion suffix characters supported by [java.util.Formatter](https://docs.oracle.com/javase/8/docs/api/java/util/Formatter.html). Requires roles ORG_ADMIN.
+     * @summary Generate a Campaign from Template
+     * @param {CertificationCampaignsApiStartGenerateCampaignTemplateRequest} requestParameters Request parameters.
+     * @param {*} [axiosOptions] Override http request option.
+     * @throws {RequiredError}
+     * @memberof CertificationCampaignsApi
+     */
+    public startGenerateCampaignTemplate(requestParameters: CertificationCampaignsApiStartGenerateCampaignTemplateRequest, axiosOptions?: AxiosRequestConfig) {
+        return CertificationCampaignsApiFp(this.configuration).startGenerateCampaignTemplate(requestParameters.id, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
