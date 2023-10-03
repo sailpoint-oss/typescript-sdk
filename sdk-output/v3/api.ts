@@ -7859,23 +7859,23 @@ export type IdentityAccess = AccessProfileEntitlement | AccessProfileRole | Acce
  */
 export interface IdentityAttribute {
     /**
-     * The system (camel-cased) name of the identity attribute to bring in
+     * The attribute key
      * @type {string}
      * @memberof IdentityAttribute
      */
-    'name': string;
+    'key'?: string;
     /**
-     * A value that indicates whether the transform logic should be re-evaluated every evening as part of the identity refresh process
-     * @type {boolean}
+     * Human-readable display name of the attribute
+     * @type {string}
      * @memberof IdentityAttribute
      */
-    'requiresPeriodicRefresh'?: boolean;
+    'name'?: string;
     /**
-     * This is an optional attribute that can explicitly define the input data which will be fed into the transform logic. If input is not provided, the transform will take its input from the source and attribute combination configured via the UI.
-     * @type {{ [key: string]: any; }}
+     * The attribute value
+     * @type {string}
      * @memberof IdentityAttribute
      */
-    'input'?: { [key: string]: any; };
+    'value'?: string;
 }
 /**
  * 
@@ -7884,23 +7884,23 @@ export interface IdentityAttribute {
  */
 export interface IdentityAttribute1 {
     /**
-     * The attribute key
+     * The system (camel-cased) name of the identity attribute to bring in
      * @type {string}
      * @memberof IdentityAttribute1
      */
-    'key'?: string;
+    'name': string;
     /**
-     * Human-readable display name of the attribute
-     * @type {string}
+     * A value that indicates whether the transform logic should be re-evaluated every evening as part of the identity refresh process
+     * @type {boolean}
      * @memberof IdentityAttribute1
      */
-    'name'?: string;
+    'requiresPeriodicRefresh'?: boolean;
     /**
-     * The attribute value
-     * @type {string}
+     * This is an optional attribute that can explicitly define the input data which will be fed into the transform logic. If input is not provided, the transform will take its input from the source and attribute combination configured via the UI.
+     * @type {{ [key: string]: any; }}
      * @memberof IdentityAttribute1
      */
-    'value'?: string;
+    'input'?: { [key: string]: any; };
 }
 /**
  * Defines all the identity attribute mapping configurations. This defines how to generate or collect data for each identity attributes in identity refresh process.
@@ -12042,10 +12042,10 @@ export interface PublicIdentity {
     'manager'?: IdentityReference | null;
     /**
      * The public identity attributes of the identity
-     * @type {Array<IdentityAttribute1>}
+     * @type {Array<IdentityAttribute>}
      * @memberof PublicIdentity
      */
-    'attributes'?: Array<IdentityAttribute1>;
+    'attributes'?: Array<IdentityAttribute>;
 }
 /**
  * Used to map an attribute key for an Identity to its display name.
@@ -16780,11 +16780,17 @@ export interface TextQuery {
     'contains'?: boolean;
 }
 /**
- * The representation of an internally- or customer-defined transform.
+ * 
  * @export
  * @interface Transform
  */
 export interface Transform {
+    /**
+     * 
+     * @type {TransformUpdateAttributes}
+     * @memberof Transform
+     */
+    'attributes': TransformUpdateAttributes;
     /**
      * Unique name of this transform
      * @type {string}
@@ -16797,18 +16803,6 @@ export interface Transform {
      * @memberof Transform
      */
     'type': TransformTypeEnum;
-    /**
-     * 
-     * @type {TransformAttributes}
-     * @memberof Transform
-     */
-    'attributes': TransformAttributes;
-    /**
-     * Indicates whether this is an internal SailPoint-created transform or a customer-created transform
-     * @type {boolean}
-     * @memberof Transform
-     */
-    'internal'?: boolean;
 }
 
 export const TransformTypeEnum = {
@@ -16850,11 +16844,62 @@ export const TransformTypeEnum = {
 export type TransformTypeEnum = typeof TransformTypeEnum[keyof typeof TransformTypeEnum];
 
 /**
- * @type TransformAttributes
- * Meta-data about the transform. Values in this list are specific to the type of transform to be executed.
+ * The representation of an internally- or customer-defined transform.
  * @export
+ * @interface TransformAllOf
  */
-export type TransformAttributes = AccountAttribute | Base64Decode | Base64Encode | Concatenation | Conditional | DateCompare | DateFormat | DateMath | DecomposeDiacriticalMarks | E164phone | FirstValid | ISO3166 | IdentityAttribute | IndexOf | LeftPad | Lookup | Lower | NameNormalizer | RandomAlphaNumeric | RandomNumeric | Reference | Replace | ReplaceAll | RightPad | Rule | Split | Static | Substring | Trim | UUIDGenerator | Upper;
+export interface TransformAllOf {
+    /**
+     * Unique name of this transform
+     * @type {string}
+     * @memberof TransformAllOf
+     */
+    'name': string;
+    /**
+     * The type of transform operation
+     * @type {string}
+     * @memberof TransformAllOf
+     */
+    'type': TransformAllOfTypeEnum;
+}
+
+export const TransformAllOfTypeEnum = {
+    AccountAttribute: 'accountAttribute',
+    Base64Decode: 'base64Decode',
+    Base64Encode: 'base64Encode',
+    Concat: 'concat',
+    Conditional: 'conditional',
+    DateCompare: 'dateCompare',
+    DateFormat: 'dateFormat',
+    DateMath: 'dateMath',
+    DecomposeDiacriticalMarks: 'decomposeDiacriticalMarks',
+    E164phone: 'e164phone',
+    FirstValid: 'firstValid',
+    Rule: 'rule',
+    IdentityAttribute: 'identityAttribute',
+    IndexOf: 'indexOf',
+    Iso3166: 'iso3166',
+    LastIndexOf: 'lastIndexOf',
+    LeftPad: 'leftPad',
+    Lookup: 'lookup',
+    Lower: 'lower',
+    NormalizeNames: 'normalizeNames',
+    RandomAlphaNumeric: 'randomAlphaNumeric',
+    RandomNumeric: 'randomNumeric',
+    Reference: 'reference',
+    ReplaceAll: 'replaceAll',
+    Replace: 'replace',
+    RightPad: 'rightPad',
+    Split: 'split',
+    Static: 'static',
+    Substring: 'substring',
+    Trim: 'trim',
+    Upper: 'upper',
+    UsernameGenerator: 'usernameGenerator',
+    Uuid: 'uuid'
+} as const;
+
+export type TransformAllOfTypeEnum = typeof TransformAllOfTypeEnum[keyof typeof TransformAllOfTypeEnum];
 
 /**
  * 
@@ -16889,6 +16934,12 @@ export interface TransformDefinitionAttributesValue {
  */
 export interface TransformRead {
     /**
+     * 
+     * @type {TransformUpdateAttributes}
+     * @memberof TransformRead
+     */
+    'attributes': TransformUpdateAttributes;
+    /**
      * Unique name of this transform
      * @type {string}
      * @memberof TransformRead
@@ -16901,23 +16952,17 @@ export interface TransformRead {
      */
     'type': TransformReadTypeEnum;
     /**
-     * 
-     * @type {TransformAttributes}
+     * Unique ID of this transform
+     * @type {string}
      * @memberof TransformRead
      */
-    'attributes': TransformAttributes;
+    'id': string;
     /**
      * Indicates whether this is an internal SailPoint-created transform or a customer-created transform
      * @type {boolean}
      * @memberof TransformRead
      */
     'internal'?: boolean;
-    /**
-     * Unique ID of this transform
-     * @type {string}
-     * @memberof TransformRead
-     */
-    'id'?: string;
 }
 
 export const TransformReadTypeEnum = {
@@ -16969,8 +17014,34 @@ export interface TransformReadAllOf {
      * @type {string}
      * @memberof TransformReadAllOf
      */
-    'id'?: string;
+    'id': string;
+    /**
+     * Indicates whether this is an internal SailPoint-created transform or a customer-created transform
+     * @type {boolean}
+     * @memberof TransformReadAllOf
+     */
+    'internal'?: boolean;
 }
+/**
+ * The representation of an internally- or customer-defined transform.
+ * @export
+ * @interface TransformUpdate
+ */
+export interface TransformUpdate {
+    /**
+     * 
+     * @type {TransformUpdateAttributes}
+     * @memberof TransformUpdate
+     */
+    'attributes': TransformUpdateAttributes;
+}
+/**
+ * @type TransformUpdateAttributes
+ * Meta-data about the transform. Values in this list are specific to the type of transform to be executed.
+ * @export
+ */
+export type TransformUpdateAttributes = AccountAttribute | Base64Decode | Base64Encode | Concatenation | Conditional | DateCompare | DateFormat | DateMath | DecomposeDiacriticalMarks | E164phone | FirstValid | ISO3166 | IdentityAttribute1 | IndexOf | LeftPad | Lookup | Lower | NameNormalizer | RandomAlphaNumeric | RandomNumeric | Reference | Replace | ReplaceAll | RightPad | Rule | Split | Static | Substring | Trim | UUIDGenerator | Upper;
+
 /**
  * 
  * @export
@@ -43266,11 +43337,11 @@ export const TransformsApiAxiosParamCreator = function (configuration?: Configur
          * Replaces the transform specified by the given ID with the transform provided in the request body. Only the \"attributes\" field is mutable. Attempting to change other properties (ex. \"name\" and \"type\") will result in an error. A token with transform write authority is required to call this API.
          * @summary Update a transform
          * @param {string} id ID of the transform to update
-         * @param {Transform} [transform] The updated transform object (must include \&quot;name\&quot;, \&quot;type\&quot;, and \&quot;attributes\&quot; fields).
+         * @param {TransformUpdate} [transformUpdate] The updated transform object (must include \&quot;name\&quot;, \&quot;type\&quot;, and \&quot;attributes\&quot; fields).
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        updateTransform: async (id: string, transform?: Transform, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        updateTransform: async (id: string, transformUpdate?: TransformUpdate, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'id' is not null or undefined
             assertParamExists('updateTransform', 'id', id)
             const localVarPath = `/transforms/{id}`
@@ -43301,7 +43372,7 @@ export const TransformsApiAxiosParamCreator = function (configuration?: Configur
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(transform, localVarRequestOptions, configuration)
+            localVarRequestOptions.data = serializeDataIfNeeded(transformUpdate, localVarRequestOptions, configuration)
 
             return {
                 url: toPathString(localVarUrlObj),
@@ -43325,7 +43396,7 @@ export const TransformsApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async createTransform(transform: Transform, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Transform>> {
+        async createTransform(transform: Transform, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<TransformRead>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.createTransform(transform, axiosOptions);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -43370,12 +43441,12 @@ export const TransformsApiFp = function(configuration?: Configuration) {
          * Replaces the transform specified by the given ID with the transform provided in the request body. Only the \"attributes\" field is mutable. Attempting to change other properties (ex. \"name\" and \"type\") will result in an error. A token with transform write authority is required to call this API.
          * @summary Update a transform
          * @param {string} id ID of the transform to update
-         * @param {Transform} [transform] The updated transform object (must include \&quot;name\&quot;, \&quot;type\&quot;, and \&quot;attributes\&quot; fields).
+         * @param {TransformUpdate} [transformUpdate] The updated transform object (must include \&quot;name\&quot;, \&quot;type\&quot;, and \&quot;attributes\&quot; fields).
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async updateTransform(id: string, transform?: Transform, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Transform>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.updateTransform(id, transform, axiosOptions);
+        async updateTransform(id: string, transformUpdate?: TransformUpdate, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<TransformRead>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.updateTransform(id, transformUpdate, axiosOptions);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
     }
@@ -43395,7 +43466,7 @@ export const TransformsApiFactory = function (configuration?: Configuration, bas
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        createTransform(transform: Transform, axiosOptions?: any): AxiosPromise<Transform> {
+        createTransform(transform: Transform, axiosOptions?: any): AxiosPromise<TransformRead> {
             return localVarFp.createTransform(transform, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
@@ -43436,12 +43507,12 @@ export const TransformsApiFactory = function (configuration?: Configuration, bas
          * Replaces the transform specified by the given ID with the transform provided in the request body. Only the \"attributes\" field is mutable. Attempting to change other properties (ex. \"name\" and \"type\") will result in an error. A token with transform write authority is required to call this API.
          * @summary Update a transform
          * @param {string} id ID of the transform to update
-         * @param {Transform} [transform] The updated transform object (must include \&quot;name\&quot;, \&quot;type\&quot;, and \&quot;attributes\&quot; fields).
+         * @param {TransformUpdate} [transformUpdate] The updated transform object (must include \&quot;name\&quot;, \&quot;type\&quot;, and \&quot;attributes\&quot; fields).
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        updateTransform(id: string, transform?: Transform, axiosOptions?: any): AxiosPromise<Transform> {
-            return localVarFp.updateTransform(id, transform, axiosOptions).then((request) => request(axios, basePath));
+        updateTransform(id: string, transformUpdate?: TransformUpdate, axiosOptions?: any): AxiosPromise<TransformRead> {
+            return localVarFp.updateTransform(id, transformUpdate, axiosOptions).then((request) => request(axios, basePath));
         },
     };
 };
@@ -43545,10 +43616,10 @@ export interface TransformsApiUpdateTransformRequest {
 
     /**
      * The updated transform object (must include \&quot;name\&quot;, \&quot;type\&quot;, and \&quot;attributes\&quot; fields).
-     * @type {Transform}
+     * @type {TransformUpdate}
      * @memberof TransformsApiUpdateTransform
      */
-    readonly transform?: Transform
+    readonly transformUpdate?: TransformUpdate
 }
 
 /**
@@ -43615,7 +43686,7 @@ export class TransformsApi extends BaseAPI {
      * @memberof TransformsApi
      */
     public updateTransform(requestParameters: TransformsApiUpdateTransformRequest, axiosOptions?: AxiosRequestConfig) {
-        return TransformsApiFp(this.configuration).updateTransform(requestParameters.id, requestParameters.transform, axiosOptions).then((request) => request(this.axios, this.basePath));
+        return TransformsApiFp(this.configuration).updateTransform(requestParameters.id, requestParameters.transformUpdate, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 }
 

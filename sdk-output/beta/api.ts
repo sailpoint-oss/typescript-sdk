@@ -2230,6 +2230,67 @@ export interface AccountAllOfBeta {
 /**
  * 
  * @export
+ * @interface AccountAttributeBeta
+ */
+export interface AccountAttributeBeta {
+    /**
+     * A reference to the source to search for the account
+     * @type {string}
+     * @memberof AccountAttributeBeta
+     */
+    'sourceName': string;
+    /**
+     * The name of the attribute on the account to return. This should match the name of the account attribute name visible in the user interface, or on the source schema.
+     * @type {string}
+     * @memberof AccountAttributeBeta
+     */
+    'attributeName': string;
+    /**
+     * The value of this configuration is a string name of the attribute to use when determining the ordering of returned accounts when there are multiple entries
+     * @type {string}
+     * @memberof AccountAttributeBeta
+     */
+    'accountSortAttribute'?: string;
+    /**
+     * The value of this configuration is a boolean (true/false). Controls the order of the sort when there are multiple accounts. If not defined, the transform will default to false (ascending order)
+     * @type {boolean}
+     * @memberof AccountAttributeBeta
+     */
+    'accountSortDescending'?: boolean;
+    /**
+     * The value of this configuration is a boolean (true/false). Controls which account to source a value from for an attribute.  If this flag is set to true, the transform returns the value from the first account in the list, even if it is null. If it is set to false, the transform returns the first non-null value. If not defined, the transform will default to false
+     * @type {boolean}
+     * @memberof AccountAttributeBeta
+     */
+    'accountReturnFirstLink'?: boolean;
+    /**
+     * This expression queries the database to narrow search results. The value of this configuration is a sailpoint.object.Filter expression and used when searching against the database.  The default filter will always include the source and identity, and any subsequent expressions will be combined in an AND operation to the existing search criteria. Only certain searchable attributes are available:  - `nativeIdentity` - the Account ID  - `displayName` - the Account Name  - `entitlements` - a boolean value to determine if the account has entitlements
+     * @type {string}
+     * @memberof AccountAttributeBeta
+     */
+    'accountFilter'?: string;
+    /**
+     * This expression is used to search and filter accounts in memory. The value of this configuration is a sailpoint.object.Filter expression and used when searching against the returned resultset.  All account attributes are available for filtering as this operation is performed in memory.
+     * @type {string}
+     * @memberof AccountAttributeBeta
+     */
+    'accountPropertyFilter'?: string;
+    /**
+     * A value that indicates whether the transform logic should be re-evaluated every evening as part of the identity refresh process
+     * @type {boolean}
+     * @memberof AccountAttributeBeta
+     */
+    'requiresPeriodicRefresh'?: boolean;
+    /**
+     * This is an optional attribute that can explicitly define the input data which will be fed into the transform logic. If input is not provided, the transform will take its input from the source and attribute combination configured via the UI.
+     * @type {{ [key: string]: any; }}
+     * @memberof AccountAttributeBeta
+     */
+    'input'?: { [key: string]: any; };
+}
+/**
+ * 
+ * @export
  * @interface AccountAttributesBeta
  */
 export interface AccountAttributesBeta {
@@ -3869,6 +3930,44 @@ export interface AuditDetailsBeta {
      * @memberof AuditDetailsBeta
      */
     'modifiedBy'?: Identity1Beta;
+}
+/**
+ * 
+ * @export
+ * @interface Base64DecodeBeta
+ */
+export interface Base64DecodeBeta {
+    /**
+     * A value that indicates whether the transform logic should be re-evaluated every evening as part of the identity refresh process
+     * @type {boolean}
+     * @memberof Base64DecodeBeta
+     */
+    'requiresPeriodicRefresh'?: boolean;
+    /**
+     * This is an optional attribute that can explicitly define the input data which will be fed into the transform logic. If input is not provided, the transform will take its input from the source and attribute combination configured via the UI.
+     * @type {{ [key: string]: any; }}
+     * @memberof Base64DecodeBeta
+     */
+    'input'?: { [key: string]: any; };
+}
+/**
+ * 
+ * @export
+ * @interface Base64EncodeBeta
+ */
+export interface Base64EncodeBeta {
+    /**
+     * A value that indicates whether the transform logic should be re-evaluated every evening as part of the identity refresh process
+     * @type {boolean}
+     * @memberof Base64EncodeBeta
+     */
+    'requiresPeriodicRefresh'?: boolean;
+    /**
+     * This is an optional attribute that can explicitly define the input data which will be fed into the transform logic. If input is not provided, the transform will take its input from the source and attribute combination configured via the UI.
+     * @type {{ [key: string]: any; }}
+     * @memberof Base64EncodeBeta
+     */
+    'input'?: { [key: string]: any; };
 }
 /**
  * 
@@ -5981,6 +6080,31 @@ export type CompletionStatusBeta = typeof CompletionStatusBeta[keyof typeof Comp
 
 
 /**
+ * 
+ * @export
+ * @interface ConcatenationBeta
+ */
+export interface ConcatenationBeta {
+    /**
+     * An array of items to join together
+     * @type {Array<object>}
+     * @memberof ConcatenationBeta
+     */
+    'values': Array<object>;
+    /**
+     * A value that indicates whether the transform logic should be re-evaluated every evening as part of the identity refresh process
+     * @type {boolean}
+     * @memberof ConcatenationBeta
+     */
+    'requiresPeriodicRefresh'?: boolean;
+    /**
+     * This is an optional attribute that can explicitly define the input data which will be fed into the transform logic. If input is not provided, the transform will take its input from the source and attribute combination configured via the UI.
+     * @type {{ [key: string]: any; }}
+     * @memberof ConcatenationBeta
+     */
+    'input'?: { [key: string]: any; };
+}
+/**
  * ConditionEffect is the effect produced by a condition
  * @export
  * @interface ConditionEffectBeta
@@ -6085,6 +6209,43 @@ export const ConditionRuleBetaValueTypeEnum = {
 
 export type ConditionRuleBetaValueTypeEnum = typeof ConditionRuleBetaValueTypeEnum[keyof typeof ConditionRuleBetaValueTypeEnum];
 
+/**
+ * 
+ * @export
+ * @interface ConditionalBeta
+ */
+export interface ConditionalBeta {
+    /**
+     * A comparison statement that follows the structure of `ValueA eq ValueB` where `ValueA` and `ValueB` are static strings or outputs of other transforms.   The `eq` operator is the only valid comparison
+     * @type {string}
+     * @memberof ConditionalBeta
+     */
+    'expression': string;
+    /**
+     * The output of the transform if the expression evalutes to true
+     * @type {string}
+     * @memberof ConditionalBeta
+     */
+    'positiveCondition': string;
+    /**
+     * The output of the transform if the expression evalutes to false
+     * @type {string}
+     * @memberof ConditionalBeta
+     */
+    'negativeCondition': string;
+    /**
+     * A value that indicates whether the transform logic should be re-evaluated every evening as part of the identity refresh process
+     * @type {boolean}
+     * @memberof ConditionalBeta
+     */
+    'requiresPeriodicRefresh'?: boolean;
+    /**
+     * This is an optional attribute that can explicitly define the input data which will be fed into the transform logic. If input is not provided, the transform will take its input from the source and attribute combination configured via the UI.
+     * @type {{ [key: string]: any; }}
+     * @memberof ConditionalBeta
+     */
+    'input'?: { [key: string]: any; };
+}
 /**
  * Config export and import format for individual object configurations.
  * @export
@@ -7239,6 +7400,174 @@ export type CustomPasswordInstructionBetaPageIdEnum = typeof CustomPasswordInstr
 /**
  * 
  * @export
+ * @interface DateCompareBeta
+ */
+export interface DateCompareBeta {
+    /**
+     * 
+     * @type {DateCompareFirstDateBeta}
+     * @memberof DateCompareBeta
+     */
+    'firstDate': DateCompareFirstDateBeta;
+    /**
+     * 
+     * @type {DateCompareSecondDateBeta}
+     * @memberof DateCompareBeta
+     */
+    'secondDate': DateCompareSecondDateBeta;
+    /**
+     * This is the comparison to perform. | Operation | Description | | --------- | ------- | | LT        | Strictly less than: firstDate < secondDate | | LTE       | Less than or equal to: firstDate <= secondDate | | GT        | Strictly greater than: firstDate > secondDate | | GTE       | Greater than or equal to: firstDate >= secondDate | 
+     * @type {string}
+     * @memberof DateCompareBeta
+     */
+    'operator': DateCompareBetaOperatorEnum;
+    /**
+     * The output of the transform if the expression evalutes to true
+     * @type {string}
+     * @memberof DateCompareBeta
+     */
+    'positiveCondition': string;
+    /**
+     * The output of the transform if the expression evalutes to false
+     * @type {string}
+     * @memberof DateCompareBeta
+     */
+    'negativeCondition': string;
+    /**
+     * A value that indicates whether the transform logic should be re-evaluated every evening as part of the identity refresh process
+     * @type {boolean}
+     * @memberof DateCompareBeta
+     */
+    'requiresPeriodicRefresh'?: boolean;
+    /**
+     * This is an optional attribute that can explicitly define the input data which will be fed into the transform logic. If input is not provided, the transform will take its input from the source and attribute combination configured via the UI.
+     * @type {{ [key: string]: any; }}
+     * @memberof DateCompareBeta
+     */
+    'input'?: { [key: string]: any; };
+}
+
+export const DateCompareBetaOperatorEnum = {
+    Lt: 'LT',
+    Lte: 'LTE',
+    Gt: 'GT',
+    Gte: 'GTE'
+} as const;
+
+export type DateCompareBetaOperatorEnum = typeof DateCompareBetaOperatorEnum[keyof typeof DateCompareBetaOperatorEnum];
+
+/**
+ * @type DateCompareFirstDateBeta
+ * This is the first date to consider (The date that would be on the left hand side of the comparison operation).
+ * @export
+ */
+export type DateCompareFirstDateBeta = AccountAttributeBeta | DateFormatBeta;
+
+/**
+ * @type DateCompareSecondDateBeta
+ * This is the second date to consider (The date that would be on the right hand side of the comparison operation).
+ * @export
+ */
+export type DateCompareSecondDateBeta = AccountAttributeBeta | DateFormatBeta;
+
+/**
+ * 
+ * @export
+ * @interface DateFormatBeta
+ */
+export interface DateFormatBeta {
+    /**
+     * 
+     * @type {DateFormatInputFormatBeta}
+     * @memberof DateFormatBeta
+     */
+    'inputFormat'?: DateFormatInputFormatBeta;
+    /**
+     * 
+     * @type {DateFormatOutputFormatBeta}
+     * @memberof DateFormatBeta
+     */
+    'outputFormat'?: DateFormatOutputFormatBeta;
+    /**
+     * A value that indicates whether the transform logic should be re-evaluated every evening as part of the identity refresh process
+     * @type {boolean}
+     * @memberof DateFormatBeta
+     */
+    'requiresPeriodicRefresh'?: boolean;
+    /**
+     * This is an optional attribute that can explicitly define the input data which will be fed into the transform logic. If input is not provided, the transform will take its input from the source and attribute combination configured via the UI.
+     * @type {{ [key: string]: any; }}
+     * @memberof DateFormatBeta
+     */
+    'input'?: { [key: string]: any; };
+}
+/**
+ * @type DateFormatInputFormatBeta
+ * A string value indicating either the explicit SimpleDateFormat or the built-in named format that the data is coming in as.  *If no inputFormat is provided, the transform assumes that it is in ISO8601 format*
+ * @export
+ */
+export type DateFormatInputFormatBeta = NamedConstructsBeta | string;
+
+/**
+ * @type DateFormatOutputFormatBeta
+ * A string value indicating either the explicit SimpleDateFormat or the built-in named format that the data should be formatted into.  *If no inputFormat is provided, the transform assumes that it is in ISO8601 format*
+ * @export
+ */
+export type DateFormatOutputFormatBeta = NamedConstructsBeta | string;
+
+/**
+ * 
+ * @export
+ * @interface DateMathBeta
+ */
+export interface DateMathBeta {
+    /**
+     * A string value of the date and time components to operation on, along with the math operations to execute. 
+     * @type {string}
+     * @memberof DateMathBeta
+     */
+    'expression': string;
+    /**
+     * A boolean value to indicate whether the transform should round up or down when a rounding `/` operation is defined in the expression.    If not provided, the transform will default to `false`   `true` indicates the transform should round up (i.e., truncate the fractional date/time component indicated and then add one unit of that component)   `false` indicates the transform should round down (i.e., truncate the fractional date/time component indicated) 
+     * @type {boolean}
+     * @memberof DateMathBeta
+     */
+    'roundUp'?: boolean;
+    /**
+     * A value that indicates whether the transform logic should be re-evaluated every evening as part of the identity refresh process
+     * @type {boolean}
+     * @memberof DateMathBeta
+     */
+    'requiresPeriodicRefresh'?: boolean;
+    /**
+     * This is an optional attribute that can explicitly define the input data which will be fed into the transform logic. If input is not provided, the transform will take its input from the source and attribute combination configured via the UI.
+     * @type {{ [key: string]: any; }}
+     * @memberof DateMathBeta
+     */
+    'input'?: { [key: string]: any; };
+}
+/**
+ * 
+ * @export
+ * @interface DecomposeDiacriticalMarksBeta
+ */
+export interface DecomposeDiacriticalMarksBeta {
+    /**
+     * A value that indicates whether the transform logic should be re-evaluated every evening as part of the identity refresh process
+     * @type {boolean}
+     * @memberof DecomposeDiacriticalMarksBeta
+     */
+    'requiresPeriodicRefresh'?: boolean;
+    /**
+     * This is an optional attribute that can explicitly define the input data which will be fed into the transform logic. If input is not provided, the transform will take its input from the source and attribute combination configured via the UI.
+     * @type {{ [key: string]: any; }}
+     * @memberof DecomposeDiacriticalMarksBeta
+     */
+    'input'?: { [key: string]: any; };
+}
+/**
+ * 
+ * @export
  * @interface Delete202ResponseBeta
  */
 export interface Delete202ResponseBeta {
@@ -7421,6 +7750,31 @@ export const DtoTypeBeta = {
 export type DtoTypeBeta = typeof DtoTypeBeta[keyof typeof DtoTypeBeta];
 
 
+/**
+ * 
+ * @export
+ * @interface E164phoneBeta
+ */
+export interface E164phoneBeta {
+    /**
+     * This is an optional attribute that can be used to define the region of the phone number to format into.   If defaultRegion is not provided, it will take US as the default country.   The format of the country code should be in [ISO 3166-1 alpha-2 format](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) 
+     * @type {string}
+     * @memberof E164phoneBeta
+     */
+    'defaultRegion'?: string;
+    /**
+     * A value that indicates whether the transform logic should be re-evaluated every evening as part of the identity refresh process
+     * @type {boolean}
+     * @memberof E164phoneBeta
+     */
+    'requiresPeriodicRefresh'?: boolean;
+    /**
+     * This is an optional attribute that can explicitly define the input data which will be fed into the transform logic. If input is not provided, the transform will take its input from the source and attribute combination configured via the UI.
+     * @type {{ [key: string]: any; }}
+     * @memberof E164phoneBeta
+     */
+    'input'?: { [key: string]: any; };
+}
 /**
  * 
  * @export
@@ -8505,6 +8859,31 @@ export interface FieldDetailsDtoBeta {
      * @memberof FieldDetailsDtoBeta
      */
     'isMultiValued'?: boolean;
+}
+/**
+ * 
+ * @export
+ * @interface FirstValidBeta
+ */
+export interface FirstValidBeta {
+    /**
+     * An array of attributes to evaluate for existence.
+     * @type {Array<object>}
+     * @memberof FirstValidBeta
+     */
+    'values': Array<object>;
+    /**
+     * a true or false value representing to move on to the next option if an error (like an Null Pointer Exception) were to occur.
+     * @type {boolean}
+     * @memberof FirstValidBeta
+     */
+    'ignoreErrors'?: boolean;
+    /**
+     * A value that indicates whether the transform logic should be re-evaluated every evening as part of the identity refresh process
+     * @type {boolean}
+     * @memberof FirstValidBeta
+     */
+    'requiresPeriodicRefresh'?: boolean;
 }
 /**
  * 
@@ -9875,6 +10254,68 @@ export const FullcampaignBetaMandatoryCommentRequirementEnum = {
 export type FullcampaignBetaMandatoryCommentRequirementEnum = typeof FullcampaignBetaMandatoryCommentRequirementEnum[keyof typeof FullcampaignBetaMandatoryCommentRequirementEnum];
 
 /**
+ * 
+ * @export
+ * @interface GenerateRandomStringBeta
+ */
+export interface GenerateRandomStringBeta {
+    /**
+     * This must always be set to \"Cloud Services Deployment Utility\"
+     * @type {string}
+     * @memberof GenerateRandomStringBeta
+     */
+    'name': string;
+    /**
+     * The operation to perform `generateRandomString`
+     * @type {string}
+     * @memberof GenerateRandomStringBeta
+     */
+    'operation': string;
+    /**
+     * This must be either \"true\" or \"false\" to indicate whether the generator logic should include numbers
+     * @type {boolean}
+     * @memberof GenerateRandomStringBeta
+     */
+    'includeNumbers': boolean;
+    /**
+     * This must be either \"true\" or \"false\" to indicate whether the generator logic should include special characters
+     * @type {boolean}
+     * @memberof GenerateRandomStringBeta
+     */
+    'includeSpecialChars': boolean;
+    /**
+     * This specifies how long the randomly generated string needs to be   >NOTE Due to identity attribute data constraints, the maximum allowable value is 450 characters 
+     * @type {string}
+     * @memberof GenerateRandomStringBeta
+     */
+    'length': string;
+    /**
+     * A value that indicates whether the transform logic should be re-evaluated every evening as part of the identity refresh process
+     * @type {boolean}
+     * @memberof GenerateRandomStringBeta
+     */
+    'requiresPeriodicRefresh'?: boolean;
+}
+/**
+ * 
+ * @export
+ * @interface GenericRuleBeta
+ */
+export interface GenericRuleBeta {
+    /**
+     * This is the name of the Generic rule that needs to be invoked by the transform
+     * @type {string}
+     * @memberof GenericRuleBeta
+     */
+    'name': string;
+    /**
+     * A value that indicates whether the transform logic should be re-evaluated every evening as part of the identity refresh process
+     * @type {boolean}
+     * @memberof GenericRuleBeta
+     */
+    'requiresPeriodicRefresh'?: boolean;
+}
+/**
  * @type GetActiveCampaigns200ResponseInnerBeta
  * @export
  */
@@ -10142,6 +10583,37 @@ export interface GetPersonalAccessTokenResponseBeta {
     'lastUsed'?: string | null;
 }
 /**
+ * 
+ * @export
+ * @interface GetReferenceIdentityAttributeBeta
+ */
+export interface GetReferenceIdentityAttributeBeta {
+    /**
+     * This must always be set to \"Cloud Services Deployment Utility\"
+     * @type {string}
+     * @memberof GetReferenceIdentityAttributeBeta
+     */
+    'name': string;
+    /**
+     * The operation to perform `getReferenceIdentityAttribute`
+     * @type {string}
+     * @memberof GetReferenceIdentityAttributeBeta
+     */
+    'operation': string;
+    /**
+     * This is the SailPoint User Name (uid) value of the identity whose attribute is desired  As a convenience feature, you can use the `manager` keyword to dynamically look up the user\'s manager and then get that manager\'s identity attribute. 
+     * @type {string}
+     * @memberof GetReferenceIdentityAttributeBeta
+     */
+    'uid': string;
+    /**
+     * A value that indicates whether the transform logic should be re-evaluated every evening as part of the identity refresh process
+     * @type {boolean}
+     * @memberof GetReferenceIdentityAttributeBeta
+     */
+    'requiresPeriodicRefresh'?: boolean;
+}
+/**
  * OAuth2 Grant Type
  * @export
  * @enum {string}
@@ -10226,6 +10698,31 @@ export type HttpDispatchModeBeta = typeof HttpDispatchModeBeta[keyof typeof Http
 /**
  * 
  * @export
+ * @interface ISO3166Beta
+ */
+export interface ISO3166Beta {
+    /**
+     * An optional value to denote which ISO 3166 format to return. Valid values are:   `alpha2` - Two-character country code (e.g., \"US\"); this is the default value if no format is supplied   `alpha3` - Three-character country code (e.g., \"USA\")   `numeric` - The numeric country code (e.g., \"840\") 
+     * @type {string}
+     * @memberof ISO3166Beta
+     */
+    'format'?: string;
+    /**
+     * A value that indicates whether the transform logic should be re-evaluated every evening as part of the identity refresh process
+     * @type {boolean}
+     * @memberof ISO3166Beta
+     */
+    'requiresPeriodicRefresh'?: boolean;
+    /**
+     * This is an optional attribute that can explicitly define the input data which will be fed into the transform logic. If input is not provided, the transform will take its input from the source and attribute combination configured via the UI.
+     * @type {{ [key: string]: any; }}
+     * @memberof ISO3166Beta
+     */
+    'input'?: { [key: string]: any; };
+}
+/**
+ * 
+ * @export
  * @interface IdentitiesAccountsBulkRequestBeta
  */
 export interface IdentitiesAccountsBulkRequestBeta {
@@ -10292,6 +10789,31 @@ export interface IdentityAssociationDetailsBeta {
      * @memberof IdentityAssociationDetailsBeta
      */
     'associationDetails'?: Array<IdentityAssociationDetailsAssociationDetailsInnerBeta>;
+}
+/**
+ * 
+ * @export
+ * @interface IdentityAttribute1Beta
+ */
+export interface IdentityAttribute1Beta {
+    /**
+     * The system (camel-cased) name of the identity attribute to bring in
+     * @type {string}
+     * @memberof IdentityAttribute1Beta
+     */
+    'name': string;
+    /**
+     * A value that indicates whether the transform logic should be re-evaluated every evening as part of the identity refresh process
+     * @type {boolean}
+     * @memberof IdentityAttribute1Beta
+     */
+    'requiresPeriodicRefresh'?: boolean;
+    /**
+     * This is an optional attribute that can explicitly define the input data which will be fed into the transform logic. If input is not provided, the transform will take its input from the source and attribute combination configured via the UI.
+     * @type {{ [key: string]: any; }}
+     * @memberof IdentityAttribute1Beta
+     */
+    'input'?: { [key: string]: any; };
 }
 /**
  * 
@@ -11982,6 +12504,31 @@ export interface ImportSpConfigRequestBeta {
 /**
  * 
  * @export
+ * @interface IndexOfBeta
+ */
+export interface IndexOfBeta {
+    /**
+     * A substring to search for, searches the entire calling string, and returns the index of the first occurrence of the specified substring.
+     * @type {string}
+     * @memberof IndexOfBeta
+     */
+    'substring': string;
+    /**
+     * A value that indicates whether the transform logic should be re-evaluated every evening as part of the identity refresh process
+     * @type {boolean}
+     * @memberof IndexOfBeta
+     */
+    'requiresPeriodicRefresh'?: boolean;
+    /**
+     * This is an optional attribute that can explicitly define the input data which will be fed into the transform logic. If input is not provided, the transform will take its input from the source and attribute combination configured via the UI.
+     * @type {{ [key: string]: any; }}
+     * @memberof IndexOfBeta
+     */
+    'input'?: { [key: string]: any; };
+}
+/**
+ * 
+ * @export
  * @interface InvocationBeta
  */
 export interface InvocationBeta {
@@ -12188,6 +12735,37 @@ export const LatestOutlierSummaryBetaTypeEnum = {
 
 export type LatestOutlierSummaryBetaTypeEnum = typeof LatestOutlierSummaryBetaTypeEnum[keyof typeof LatestOutlierSummaryBetaTypeEnum];
 
+/**
+ * 
+ * @export
+ * @interface LeftPadBeta
+ */
+export interface LeftPadBeta {
+    /**
+     * An integer value for the desired length of the final output string
+     * @type {string}
+     * @memberof LeftPadBeta
+     */
+    'length': string;
+    /**
+     * A string value representing the character that the incoming data should be padded with to get to the desired length   If not provided, the transform will default to a single space (\" \") character for padding 
+     * @type {string}
+     * @memberof LeftPadBeta
+     */
+    'padding'?: string;
+    /**
+     * A value that indicates whether the transform logic should be re-evaluated every evening as part of the identity refresh process
+     * @type {boolean}
+     * @memberof LeftPadBeta
+     */
+    'requiresPeriodicRefresh'?: boolean;
+    /**
+     * This is an optional attribute that can explicitly define the input data which will be fed into the transform logic. If input is not provided, the transform will take its input from the source and attribute combination configured via the UI.
+     * @type {{ [key: string]: any; }}
+     * @memberof LeftPadBeta
+     */
+    'input'?: { [key: string]: any; };
+}
 /**
  * 
  * @export
@@ -12586,6 +13164,31 @@ export interface LocalizedMessageBeta {
     'message': string;
 }
 /**
+ * 
+ * @export
+ * @interface LookupBeta
+ */
+export interface LookupBeta {
+    /**
+     * This is a JSON object of key-value pairs. The key is the string that will attempt to be matched to the input, and the value is the output string that should be returned if the key is matched   >**Note** the use of the optional default key value here; if none of the three countries in the above example match the input string, the transform will return \"Unknown Region\" for the attribute that is mapped to this transform. 
+     * @type {{ [key: string]: any; }}
+     * @memberof LookupBeta
+     */
+    'table': { [key: string]: any; };
+    /**
+     * A value that indicates whether the transform logic should be re-evaluated every evening as part of the identity refresh process
+     * @type {boolean}
+     * @memberof LookupBeta
+     */
+    'requiresPeriodicRefresh'?: boolean;
+    /**
+     * This is an optional attribute that can explicitly define the input data which will be fed into the transform logic. If input is not provided, the transform will take its input from the source and attribute combination configured via the UI.
+     * @type {{ [key: string]: any; }}
+     * @memberof LookupBeta
+     */
+    'input'?: { [key: string]: any; };
+}
+/**
  * The definition of an Identity according to the Reassignment Configuration service
  * @export
  * @interface LookupStepBeta
@@ -12609,6 +13212,25 @@ export interface LookupStepBeta {
      * @memberof LookupStepBeta
      */
     'reassignmentType'?: ReassignmentTypeEnumBeta;
+}
+/**
+ * 
+ * @export
+ * @interface LowerBeta
+ */
+export interface LowerBeta {
+    /**
+     * A value that indicates whether the transform logic should be re-evaluated every evening as part of the identity refresh process
+     * @type {boolean}
+     * @memberof LowerBeta
+     */
+    'requiresPeriodicRefresh'?: boolean;
+    /**
+     * This is an optional attribute that can explicitly define the input data which will be fed into the transform logic. If input is not provided, the transform will take its input from the source and attribute combination configured via the UI.
+     * @type {{ [key: string]: any; }}
+     * @memberof LowerBeta
+     */
+    'input'?: { [key: string]: any; };
 }
 /**
  * MAIL FROM attributes for a domain / identity
@@ -13348,6 +13970,42 @@ export interface MultiPolicyRequestBeta {
      */
     'filteredPolicyList'?: Array<string>;
 }
+/**
+ * 
+ * @export
+ * @interface NameNormalizerBeta
+ */
+export interface NameNormalizerBeta {
+    /**
+     * A value that indicates whether the transform logic should be re-evaluated every evening as part of the identity refresh process
+     * @type {boolean}
+     * @memberof NameNormalizerBeta
+     */
+    'requiresPeriodicRefresh'?: boolean;
+    /**
+     * This is an optional attribute that can explicitly define the input data which will be fed into the transform logic. If input is not provided, the transform will take its input from the source and attribute combination configured via the UI.
+     * @type {{ [key: string]: any; }}
+     * @memberof NameNormalizerBeta
+     */
+    'input'?: { [key: string]: any; };
+}
+/**
+ * | Construct       | Date Time Pattern | Description | | ---------       | ----------------- | ----------- | | ISO8601         | `yyyy-MM-dd\'T\'HH:mm:ss.SSSX` | The ISO8601 standard. |           | LDAP            | `yyyyMMddHHmmss.Z`           | The LDAP standard.    | | PEOPLE_SOFT     | `MM/dd/yyyy`                 | The date format People Soft uses. | | EPOCH_TIME_JAVA | # ms from midnight, January 1st, 1970 | The incoming date value as elapsed time in milliseconds from midnight, January 1st, 1970. | | EPOCH_TIME_WIN32| # intervals of 100ns from midnight, January 1st, 1601 | The incoming date value as elapsed time in 100-nanosecond intervals from midnight, January 1st, 1601. | 
+ * @export
+ * @enum {string}
+ */
+
+export const NamedConstructsBeta = {
+    Iso8601: 'ISO8601',
+    Ldap: 'LDAP',
+    PeopleSoft: 'PEOPLE_SOFT',
+    EpochTimeJava: 'EPOCH_TIME_JAVA',
+    EpochTimeWin32: 'EPOCH_TIME_WIN32'
+} as const;
+
+export type NamedConstructsBeta = typeof NamedConstructsBeta[keyof typeof NamedConstructsBeta];
+
+
 /**
  * Source configuration information for Native Change Detection that is read and used by account aggregation process.
  * @export
@@ -16652,6 +17310,56 @@ export interface QueuedCheckConfigDetailsBeta {
 /**
  * 
  * @export
+ * @interface RandomAlphaNumericBeta
+ */
+export interface RandomAlphaNumericBeta {
+    /**
+     * This is an integer value specifying the size/number of characters the random string must contain   * This value must be a positive number and cannot be blank   * If no length is provided, the transform will default to a value of `32`   * Due to identity attribute data constraints, the maximum allowable value is `450` characters 
+     * @type {string}
+     * @memberof RandomAlphaNumericBeta
+     */
+    'length'?: string;
+    /**
+     * A value that indicates whether the transform logic should be re-evaluated every evening as part of the identity refresh process
+     * @type {boolean}
+     * @memberof RandomAlphaNumericBeta
+     */
+    'requiresPeriodicRefresh'?: boolean;
+    /**
+     * This is an optional attribute that can explicitly define the input data which will be fed into the transform logic. If input is not provided, the transform will take its input from the source and attribute combination configured via the UI.
+     * @type {{ [key: string]: any; }}
+     * @memberof RandomAlphaNumericBeta
+     */
+    'input'?: { [key: string]: any; };
+}
+/**
+ * 
+ * @export
+ * @interface RandomNumericBeta
+ */
+export interface RandomNumericBeta {
+    /**
+     * This is an integer value specifying the size/number of characters the random string must contain   * This value must be a positive number and cannot be blank   * If no length is provided, the transform will default to a value of `32`   * Due to identity attribute data constraints, the maximum allowable value is `450` characters 
+     * @type {string}
+     * @memberof RandomNumericBeta
+     */
+    'length'?: string;
+    /**
+     * A value that indicates whether the transform logic should be re-evaluated every evening as part of the identity refresh process
+     * @type {boolean}
+     * @memberof RandomNumericBeta
+     */
+    'requiresPeriodicRefresh'?: boolean;
+    /**
+     * This is an optional attribute that can explicitly define the input data which will be fed into the transform logic. If input is not provided, the transform will take its input from the source and attribute combination configured via the UI.
+     * @type {{ [key: string]: any; }}
+     * @memberof RandomNumericBeta
+     */
+    'input'?: { [key: string]: any; };
+}
+/**
+ * 
+ * @export
  * @interface ReassignReferenceBeta
  */
 export interface ReassignReferenceBeta {
@@ -16940,6 +17648,31 @@ export interface RecommenderCalculationsIdentityAttributesValueBeta {
 /**
  * 
  * @export
+ * @interface ReferenceBeta
+ */
+export interface ReferenceBeta {
+    /**
+     * This ID specifies the name of the pre-existing transform which you want to use within your current transform
+     * @type {string}
+     * @memberof ReferenceBeta
+     */
+    'id': string;
+    /**
+     * A value that indicates whether the transform logic should be re-evaluated every evening as part of the identity refresh process
+     * @type {boolean}
+     * @memberof ReferenceBeta
+     */
+    'requiresPeriodicRefresh'?: boolean;
+    /**
+     * This is an optional attribute that can explicitly define the input data which will be fed into the transform logic. If input is not provided, the transform will take its input from the source and attribute combination configured via the UI.
+     * @type {{ [key: string]: any; }}
+     * @memberof ReferenceBeta
+     */
+    'input'?: { [key: string]: any; };
+}
+/**
+ * 
+ * @export
  * @interface RemediationItemDetailsBeta
  */
 export interface RemediationItemDetailsBeta {
@@ -17058,6 +17791,62 @@ export interface RemediationItemsBeta {
      * @memberof RemediationItemsBeta
      */
     'nativeIdentity'?: string;
+}
+/**
+ * 
+ * @export
+ * @interface ReplaceAllBeta
+ */
+export interface ReplaceAllBeta {
+    /**
+     * An attribute of key-value pairs. Each pair identifies the pattern to search for as its key, and the replacement string as its value.
+     * @type {{ [key: string]: any; }}
+     * @memberof ReplaceAllBeta
+     */
+    'table': { [key: string]: any; };
+    /**
+     * A value that indicates whether the transform logic should be re-evaluated every evening as part of the identity refresh process
+     * @type {boolean}
+     * @memberof ReplaceAllBeta
+     */
+    'requiresPeriodicRefresh'?: boolean;
+    /**
+     * This is an optional attribute that can explicitly define the input data which will be fed into the transform logic. If input is not provided, the transform will take its input from the source and attribute combination configured via the UI.
+     * @type {{ [key: string]: any; }}
+     * @memberof ReplaceAllBeta
+     */
+    'input'?: { [key: string]: any; };
+}
+/**
+ * 
+ * @export
+ * @interface ReplaceBeta
+ */
+export interface ReplaceBeta {
+    /**
+     * This can be a string or a regex pattern in which you want to replace.
+     * @type {string}
+     * @memberof ReplaceBeta
+     */
+    'regex': string;
+    /**
+     * This is the replacement string that should be substituded wherever the string or pattern is found.
+     * @type {string}
+     * @memberof ReplaceBeta
+     */
+    'replacement': string;
+    /**
+     * A value that indicates whether the transform logic should be re-evaluated every evening as part of the identity refresh process
+     * @type {boolean}
+     * @memberof ReplaceBeta
+     */
+    'requiresPeriodicRefresh'?: boolean;
+    /**
+     * This is an optional attribute that can explicitly define the input data which will be fed into the transform logic. If input is not provided, the transform will take its input from the source and attribute combination configured via the UI.
+     * @type {{ [key: string]: any; }}
+     * @memberof ReplaceBeta
+     */
+    'input'?: { [key: string]: any; };
 }
 /**
  * 
@@ -17802,6 +18591,37 @@ export interface RevocabilityBeta {
      * @memberof RevocabilityBeta
      */
     'approvalSchemes'?: Array<AccessProfileApprovalSchemeBeta>;
+}
+/**
+ * 
+ * @export
+ * @interface RightPadBeta
+ */
+export interface RightPadBeta {
+    /**
+     * An integer value for the desired length of the final output string
+     * @type {string}
+     * @memberof RightPadBeta
+     */
+    'length': string;
+    /**
+     * A string value representing the character that the incoming data should be padded with to get to the desired length   If not provided, the transform will default to a single space (\" \") character for padding 
+     * @type {string}
+     * @memberof RightPadBeta
+     */
+    'padding'?: string;
+    /**
+     * A value that indicates whether the transform logic should be re-evaluated every evening as part of the identity refresh process
+     * @type {boolean}
+     * @memberof RightPadBeta
+     */
+    'requiresPeriodicRefresh'?: boolean;
+    /**
+     * This is an optional attribute that can explicitly define the input data which will be fed into the transform logic. If input is not provided, the transform will take its input from the source and attribute combination configured via the UI.
+     * @type {{ [key: string]: any; }}
+     * @memberof RightPadBeta
+     */
+    'input'?: { [key: string]: any; };
 }
 /**
  * Type which indicates how a particular Identity obtained a particular Role
@@ -19278,6 +20098,12 @@ export interface RoleMiningSessionStatusBeta {
      */
     'state'?: string;
 }
+/**
+ * @type RuleBeta
+ * @export
+ */
+export type RuleBeta = GenerateRandomStringBeta | GenericRuleBeta | GetReferenceIdentityAttributeBeta;
+
 /**
  * 
  * @export
@@ -22221,6 +23047,43 @@ export interface SpConfigUrlBeta {
     'query'?: object | null;
 }
 /**
+ * 
+ * @export
+ * @interface SplitBeta
+ */
+export interface SplitBeta {
+    /**
+     * This can be either a single character or a regex expression, and is used by the transform to identify the break point between two substrings in the incoming data
+     * @type {string}
+     * @memberof SplitBeta
+     */
+    'delimiter': string;
+    /**
+     * An integer value for the desired array element after the incoming data has been split into a list; the array is a 0-based object, so the first array element would be index 0, the second element would be index 1, etc.
+     * @type {string}
+     * @memberof SplitBeta
+     */
+    'index': string;
+    /**
+     * A boolean (true/false) value which indicates whether an exception should be thrown and returned as an output when an index is out of bounds with the resultant array (i.e., the provided index value is larger than the size of the array)   `true` - The transform should return \"IndexOutOfBoundsException\"   `false` - The transform should return null   If not provided, the transform will default to false and return a null 
+     * @type {boolean}
+     * @memberof SplitBeta
+     */
+    'throws'?: boolean;
+    /**
+     * A value that indicates whether the transform logic should be re-evaluated every evening as part of the identity refresh process
+     * @type {boolean}
+     * @memberof SplitBeta
+     */
+    'requiresPeriodicRefresh'?: boolean;
+    /**
+     * This is an optional attribute that can explicitly define the input data which will be fed into the transform logic. If input is not provided, the transform will take its input from the source and attribute combination configured via the UI.
+     * @type {{ [key: string]: any; }}
+     * @memberof SplitBeta
+     */
+    'input'?: { [key: string]: any; };
+}
+/**
  * Standard Log4j log level
  * @export
  * @enum {string}
@@ -22263,6 +23126,25 @@ export interface StartInvocationInputBeta {
      * @memberof StartInvocationInputBeta
      */
     'contentJson'?: object;
+}
+/**
+ * 
+ * @export
+ * @interface StaticBeta
+ */
+export interface StaticBeta {
+    /**
+     * This must evaluate to a JSON string, either through a fixed value or through conditional logic using the Apache Velocity Template Language.
+     * @type {string}
+     * @memberof StaticBeta
+     */
+    'values': string;
+    /**
+     * A value that indicates whether the transform logic should be re-evaluated every evening as part of the identity refresh process
+     * @type {boolean}
+     * @memberof StaticBeta
+     */
+    'requiresPeriodicRefresh'?: boolean;
 }
 /**
  * Response model for connection check, configuration test and ping of source connectors.
@@ -22551,6 +23433,49 @@ export const SubscriptionTypeBeta = {
 export type SubscriptionTypeBeta = typeof SubscriptionTypeBeta[keyof typeof SubscriptionTypeBeta];
 
 
+/**
+ * 
+ * @export
+ * @interface SubstringBeta
+ */
+export interface SubstringBeta {
+    /**
+     * The index of the first character to include in the returned substring.   If `begin` is set to -1, the transform will begin at character 0 of the input data 
+     * @type {number}
+     * @memberof SubstringBeta
+     */
+    'begin': number;
+    /**
+     * This integer value is the number of characters to add to the begin attribute when returning a substring.   This attribute is only used if begin is not -1. 
+     * @type {number}
+     * @memberof SubstringBeta
+     */
+    'beginOffset'?: number;
+    /**
+     * The index of the first character to exclude from the returned substring.  If end is -1 or not provided at all, the substring transform will return everything up to the end of the input string. 
+     * @type {number}
+     * @memberof SubstringBeta
+     */
+    'end'?: number;
+    /**
+     * This integer value is the number of characters to add to the end attribute when returning a substring.   This attribute is only used if end is provided and is not -1. 
+     * @type {number}
+     * @memberof SubstringBeta
+     */
+    'endOffset'?: number;
+    /**
+     * A value that indicates whether the transform logic should be re-evaluated every evening as part of the identity refresh process
+     * @type {boolean}
+     * @memberof SubstringBeta
+     */
+    'requiresPeriodicRefresh'?: boolean;
+    /**
+     * This is an optional attribute that can explicitly define the input data which will be fed into the transform logic. If input is not provided, the transform will take its input from the source and attribute combination configured via the UI.
+     * @type {{ [key: string]: any; }}
+     * @memberof SubstringBeta
+     */
+    'input'?: { [key: string]: any; };
+}
 /**
  * 
  * @export
@@ -23163,17 +24088,75 @@ export interface TestWorkflowRequestBeta {
     'input': object;
 }
 /**
- * DTO for representing an internally- or customer-defined transform.
+ * The representation of an internally- or customer-defined transform.
+ * @export
+ * @interface TransformAllOfBeta
+ */
+export interface TransformAllOfBeta {
+    /**
+     * Unique name of this transform
+     * @type {string}
+     * @memberof TransformAllOfBeta
+     */
+    'name': string;
+    /**
+     * The type of transform operation
+     * @type {string}
+     * @memberof TransformAllOfBeta
+     */
+    'type': TransformAllOfBetaTypeEnum;
+}
+
+export const TransformAllOfBetaTypeEnum = {
+    AccountAttribute: 'accountAttribute',
+    Base64Decode: 'base64Decode',
+    Base64Encode: 'base64Encode',
+    Concat: 'concat',
+    Conditional: 'conditional',
+    DateCompare: 'dateCompare',
+    DateFormat: 'dateFormat',
+    DateMath: 'dateMath',
+    DecomposeDiacriticalMarks: 'decomposeDiacriticalMarks',
+    E164phone: 'e164phone',
+    FirstValid: 'firstValid',
+    Rule: 'rule',
+    IdentityAttribute: 'identityAttribute',
+    IndexOf: 'indexOf',
+    Iso3166: 'iso3166',
+    LastIndexOf: 'lastIndexOf',
+    LeftPad: 'leftPad',
+    Lookup: 'lookup',
+    Lower: 'lower',
+    NormalizeNames: 'normalizeNames',
+    RandomAlphaNumeric: 'randomAlphaNumeric',
+    RandomNumeric: 'randomNumeric',
+    Reference: 'reference',
+    ReplaceAll: 'replaceAll',
+    Replace: 'replace',
+    RightPad: 'rightPad',
+    Split: 'split',
+    Static: 'static',
+    Substring: 'substring',
+    Trim: 'trim',
+    Upper: 'upper',
+    UsernameGenerator: 'usernameGenerator',
+    Uuid: 'uuid'
+} as const;
+
+export type TransformAllOfBetaTypeEnum = typeof TransformAllOfBetaTypeEnum[keyof typeof TransformAllOfBetaTypeEnum];
+
+/**
+ * 
  * @export
  * @interface TransformBeta
  */
 export interface TransformBeta {
     /**
-     * Unique ID of this transform
-     * @type {string}
+     * 
+     * @type {TransformUpdateAttributesBeta}
      * @memberof TransformBeta
      */
-    'id'?: string;
+    'attributes': TransformUpdateAttributesBeta;
     /**
      * Unique name of this transform
      * @type {string}
@@ -23181,24 +24164,51 @@ export interface TransformBeta {
      */
     'name': string;
     /**
-     * The transform type (see [Transformations in IdentityNow Using Seaspray](https://community.sailpoint.com/docs/DOC-4629)).
+     * The type of transform operation
      * @type {string}
      * @memberof TransformBeta
      */
-    'type': string;
-    /**
-     * Meta-data about the transform. Values in this list are specific to the type of transform to be executed.
-     * @type {object}
-     * @memberof TransformBeta
-     */
-    'attributes': object | null;
-    /**
-     * Indicates whether this is an internal SailPoint-created transform or a customer-created transform
-     * @type {boolean}
-     * @memberof TransformBeta
-     */
-    'internal'?: boolean;
+    'type': TransformBetaTypeEnum;
 }
+
+export const TransformBetaTypeEnum = {
+    AccountAttribute: 'accountAttribute',
+    Base64Decode: 'base64Decode',
+    Base64Encode: 'base64Encode',
+    Concat: 'concat',
+    Conditional: 'conditional',
+    DateCompare: 'dateCompare',
+    DateFormat: 'dateFormat',
+    DateMath: 'dateMath',
+    DecomposeDiacriticalMarks: 'decomposeDiacriticalMarks',
+    E164phone: 'e164phone',
+    FirstValid: 'firstValid',
+    Rule: 'rule',
+    IdentityAttribute: 'identityAttribute',
+    IndexOf: 'indexOf',
+    Iso3166: 'iso3166',
+    LastIndexOf: 'lastIndexOf',
+    LeftPad: 'leftPad',
+    Lookup: 'lookup',
+    Lower: 'lower',
+    NormalizeNames: 'normalizeNames',
+    RandomAlphaNumeric: 'randomAlphaNumeric',
+    RandomNumeric: 'randomNumeric',
+    Reference: 'reference',
+    ReplaceAll: 'replaceAll',
+    Replace: 'replace',
+    RightPad: 'rightPad',
+    Split: 'split',
+    Static: 'static',
+    Substring: 'substring',
+    Trim: 'trim',
+    Upper: 'upper',
+    UsernameGenerator: 'usernameGenerator',
+    Uuid: 'uuid'
+} as const;
+
+export type TransformBetaTypeEnum = typeof TransformBetaTypeEnum[keyof typeof TransformBetaTypeEnum];
+
 /**
  * 
  * @export
@@ -23243,6 +24253,121 @@ export interface TransformDefinitionBeta {
      * @memberof TransformDefinitionBeta
      */
     'attributes'?: { [key: string]: any; } | null;
+}
+/**
+ * 
+ * @export
+ * @interface TransformReadAllOfBeta
+ */
+export interface TransformReadAllOfBeta {
+    /**
+     * Unique ID of this transform
+     * @type {string}
+     * @memberof TransformReadAllOfBeta
+     */
+    'id': string;
+    /**
+     * Indicates whether this is an internal SailPoint-created transform or a customer-created transform
+     * @type {boolean}
+     * @memberof TransformReadAllOfBeta
+     */
+    'internal'?: boolean;
+}
+/**
+ * 
+ * @export
+ * @interface TransformReadBeta
+ */
+export interface TransformReadBeta {
+    /**
+     * 
+     * @type {TransformUpdateAttributesBeta}
+     * @memberof TransformReadBeta
+     */
+    'attributes': TransformUpdateAttributesBeta;
+    /**
+     * Unique name of this transform
+     * @type {string}
+     * @memberof TransformReadBeta
+     */
+    'name': string;
+    /**
+     * The type of transform operation
+     * @type {string}
+     * @memberof TransformReadBeta
+     */
+    'type': TransformReadBetaTypeEnum;
+    /**
+     * Unique ID of this transform
+     * @type {string}
+     * @memberof TransformReadBeta
+     */
+    'id': string;
+    /**
+     * Indicates whether this is an internal SailPoint-created transform or a customer-created transform
+     * @type {boolean}
+     * @memberof TransformReadBeta
+     */
+    'internal'?: boolean;
+}
+
+export const TransformReadBetaTypeEnum = {
+    AccountAttribute: 'accountAttribute',
+    Base64Decode: 'base64Decode',
+    Base64Encode: 'base64Encode',
+    Concat: 'concat',
+    Conditional: 'conditional',
+    DateCompare: 'dateCompare',
+    DateFormat: 'dateFormat',
+    DateMath: 'dateMath',
+    DecomposeDiacriticalMarks: 'decomposeDiacriticalMarks',
+    E164phone: 'e164phone',
+    FirstValid: 'firstValid',
+    Rule: 'rule',
+    IdentityAttribute: 'identityAttribute',
+    IndexOf: 'indexOf',
+    Iso3166: 'iso3166',
+    LastIndexOf: 'lastIndexOf',
+    LeftPad: 'leftPad',
+    Lookup: 'lookup',
+    Lower: 'lower',
+    NormalizeNames: 'normalizeNames',
+    RandomAlphaNumeric: 'randomAlphaNumeric',
+    RandomNumeric: 'randomNumeric',
+    Reference: 'reference',
+    ReplaceAll: 'replaceAll',
+    Replace: 'replace',
+    RightPad: 'rightPad',
+    Split: 'split',
+    Static: 'static',
+    Substring: 'substring',
+    Trim: 'trim',
+    Upper: 'upper',
+    UsernameGenerator: 'usernameGenerator',
+    Uuid: 'uuid'
+} as const;
+
+export type TransformReadBetaTypeEnum = typeof TransformReadBetaTypeEnum[keyof typeof TransformReadBetaTypeEnum];
+
+/**
+ * @type TransformUpdateAttributesBeta
+ * Meta-data about the transform. Values in this list are specific to the type of transform to be executed.
+ * @export
+ */
+export type TransformUpdateAttributesBeta = AccountAttributeBeta | Base64DecodeBeta | Base64EncodeBeta | ConcatenationBeta | ConditionalBeta | DateCompareBeta | DateFormatBeta | DateMathBeta | DecomposeDiacriticalMarksBeta | E164phoneBeta | FirstValidBeta | ISO3166Beta | IdentityAttribute1Beta | IndexOfBeta | LeftPadBeta | LookupBeta | LowerBeta | NameNormalizerBeta | RandomAlphaNumericBeta | RandomNumericBeta | ReferenceBeta | ReplaceAllBeta | ReplaceBeta | RightPadBeta | RuleBeta | SplitBeta | StaticBeta | SubstringBeta | TrimBeta | UUIDGeneratorBeta | UpperBeta;
+
+/**
+ * The representation of an internally- or customer-defined transform.
+ * @export
+ * @interface TransformUpdateBeta
+ */
+export interface TransformUpdateBeta {
+    /**
+     * 
+     * @type {TransformUpdateAttributesBeta}
+     * @memberof TransformUpdateBeta
+     */
+    'attributes': TransformUpdateAttributesBeta;
 }
 /**
  * 
@@ -23349,6 +24474,38 @@ export type TriggerTypeBeta = typeof TriggerTypeBeta[keyof typeof TriggerTypeBet
 /**
  * 
  * @export
+ * @interface TrimBeta
+ */
+export interface TrimBeta {
+    /**
+     * A value that indicates whether the transform logic should be re-evaluated every evening as part of the identity refresh process
+     * @type {boolean}
+     * @memberof TrimBeta
+     */
+    'requiresPeriodicRefresh'?: boolean;
+    /**
+     * This is an optional attribute that can explicitly define the input data which will be fed into the transform logic. If input is not provided, the transform will take its input from the source and attribute combination configured via the UI.
+     * @type {{ [key: string]: any; }}
+     * @memberof TrimBeta
+     */
+    'input'?: { [key: string]: any; };
+}
+/**
+ * 
+ * @export
+ * @interface UUIDGeneratorBeta
+ */
+export interface UUIDGeneratorBeta {
+    /**
+     * A value that indicates whether the transform logic should be re-evaluated every evening as part of the identity refresh process
+     * @type {boolean}
+     * @memberof UUIDGeneratorBeta
+     */
+    'requiresPeriodicRefresh'?: boolean;
+}
+/**
+ * 
+ * @export
  * @interface UpdatePasswordDictionaryRequestBeta
  */
 export interface UpdatePasswordDictionaryRequestBeta {
@@ -23358,6 +24515,25 @@ export interface UpdatePasswordDictionaryRequestBeta {
      * @memberof UpdatePasswordDictionaryRequestBeta
      */
     'file'?: any;
+}
+/**
+ * 
+ * @export
+ * @interface UpperBeta
+ */
+export interface UpperBeta {
+    /**
+     * A value that indicates whether the transform logic should be re-evaluated every evening as part of the identity refresh process
+     * @type {boolean}
+     * @memberof UpperBeta
+     */
+    'requiresPeriodicRefresh'?: boolean;
+    /**
+     * This is an optional attribute that can explicitly define the input data which will be fed into the transform logic. If input is not provided, the transform will take its input from the source and attribute combination configured via the UI.
+     * @type {{ [key: string]: any; }}
+     * @memberof UpperBeta
+     */
+    'input'?: { [key: string]: any; };
 }
 /**
  * The type of provisioning policy usage.  In IdentityNow, a source can support various provisioning operations. For example, when a joiner is added to a source, this may trigger both CREATE and UPDATE provisioning operations.  Each usage type is considered a provisioning policy.  A source can have any number of these provisioning policies defined.  These are the common usage types:  CREATE - This usage type relates to \'Create Account Profile\', the provisioning template for the account to be created. For example, this would be used for a joiner on a source.   UPDATE - This usage type relates to \'Update Account Profile\', the provisioning template for the \'Update\' connector operations. For example, this would be used for an attribute sync on a source. ENABLE - This usage type relates to \'Enable Account Profile\', the provisioning template for the account to be enabled. For example, this could be used for a joiner on a source once the joiner\'s account is created.  DISABLE - This usage type relates to \'Disable Account Profile\', the provisioning template for the account to be disabled. For example, this could be used when a leaver is removed temporarily from a source.  You can use these four usage types for all your provisioning policy needs. 
@@ -66481,7 +67657,7 @@ export class TaskManagementBetaApi extends BaseAPI {
 export const TransformsBetaApiAxiosParamCreator = function (configuration?: Configuration) {
     return {
         /**
-         * Creates a new transform object. Request body must include name, type, and attributes. A token with transform write authority is required to call this API.
+         * Creates a new transform object immediately. By default, the internal flag is set to false to indicate that this is a custom transform. Only SailPoint employees have the ability to create a transform with internal set to true. Newly created Transforms can be used in the Identity Profile mappings within the UI. A token with transform write authority is required to call this API.
          * @summary Create transform
          * @param {TransformBeta} transformBeta The transform to be created.
          * @param {*} [axiosOptions] Override http request option.
@@ -66525,7 +67701,7 @@ export const TransformsBetaApiAxiosParamCreator = function (configuration?: Conf
             };
         },
         /**
-         * Deletes the transform specified by the given ID. A token with transform delete authority is required to call this API.
+         * Deletes the transform specified by the given ID. Attempting to delete a transform that is used in one or more Identity Profile mappings will result in an error. If this occurs, you must first remove the transform from all mappings before deleting the transform. A token with transform delete authority is required to call this API.
          * @summary Delete a transform
          * @param {string} id ID of the transform to delete
          * @param {*} [axiosOptions] Override http request option.
@@ -66672,14 +67848,14 @@ export const TransformsBetaApiAxiosParamCreator = function (configuration?: Conf
             };
         },
         /**
-         * Replaces the transform specified by the given ID with the transform provided in the request body. Only the \"attributes\" field is mutable. Attempting to change other attributes will result in an error. A token with transform write authority is required to call this API.
+         * Replaces the transform specified by the given ID with the transform provided in the request body. Only the \"attributes\" field is mutable. Attempting to change other properties (ex. \"name\" and \"type\") will result in an error. A token with transform write authority is required to call this API.
          * @summary Update a transform
          * @param {string} id ID of the transform to update
-         * @param {TransformBeta} [transformBeta] The updated transform object (must include \&quot;name\&quot;, \&quot;type\&quot;, and \&quot;attributes\&quot; fields).
+         * @param {TransformUpdateBeta} [transformUpdateBeta] The updated transform object (must include \&quot;name\&quot;, \&quot;type\&quot;, and \&quot;attributes\&quot; fields).
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        updateTransform: async (id: string, transformBeta?: TransformBeta, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        updateTransform: async (id: string, transformUpdateBeta?: TransformUpdateBeta, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'id' is not null or undefined
             assertParamExists('updateTransform', 'id', id)
             const localVarPath = `/transforms/{id}`
@@ -66710,7 +67886,7 @@ export const TransformsBetaApiAxiosParamCreator = function (configuration?: Conf
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(transformBeta, localVarRequestOptions, configuration)
+            localVarRequestOptions.data = serializeDataIfNeeded(transformUpdateBeta, localVarRequestOptions, configuration)
 
             return {
                 url: toPathString(localVarUrlObj),
@@ -66728,18 +67904,18 @@ export const TransformsBetaApiFp = function(configuration?: Configuration) {
     const localVarAxiosParamCreator = TransformsBetaApiAxiosParamCreator(configuration)
     return {
         /**
-         * Creates a new transform object. Request body must include name, type, and attributes. A token with transform write authority is required to call this API.
+         * Creates a new transform object immediately. By default, the internal flag is set to false to indicate that this is a custom transform. Only SailPoint employees have the ability to create a transform with internal set to true. Newly created Transforms can be used in the Identity Profile mappings within the UI. A token with transform write authority is required to call this API.
          * @summary Create transform
          * @param {TransformBeta} transformBeta The transform to be created.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async createTransform(transformBeta: TransformBeta, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<TransformBeta>> {
+        async createTransform(transformBeta: TransformBeta, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<TransformReadBeta>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.createTransform(transformBeta, axiosOptions);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
-         * Deletes the transform specified by the given ID. A token with transform delete authority is required to call this API.
+         * Deletes the transform specified by the given ID. Attempting to delete a transform that is used in one or more Identity Profile mappings will result in an error. If this occurs, you must first remove the transform from all mappings before deleting the transform. A token with transform delete authority is required to call this API.
          * @summary Delete a transform
          * @param {string} id ID of the transform to delete
          * @param {*} [axiosOptions] Override http request option.
@@ -66756,7 +67932,7 @@ export const TransformsBetaApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async getTransform(id: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<TransformBeta>> {
+        async getTransform(id: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<TransformReadBeta>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getTransform(id, axiosOptions);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -66771,20 +67947,20 @@ export const TransformsBetaApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async listTransforms(offset?: number, limit?: number, count?: boolean, name?: string, filters?: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<TransformBeta>>> {
+        async listTransforms(offset?: number, limit?: number, count?: boolean, name?: string, filters?: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<TransformReadBeta>>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.listTransforms(offset, limit, count, name, filters, axiosOptions);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
-         * Replaces the transform specified by the given ID with the transform provided in the request body. Only the \"attributes\" field is mutable. Attempting to change other attributes will result in an error. A token with transform write authority is required to call this API.
+         * Replaces the transform specified by the given ID with the transform provided in the request body. Only the \"attributes\" field is mutable. Attempting to change other properties (ex. \"name\" and \"type\") will result in an error. A token with transform write authority is required to call this API.
          * @summary Update a transform
          * @param {string} id ID of the transform to update
-         * @param {TransformBeta} [transformBeta] The updated transform object (must include \&quot;name\&quot;, \&quot;type\&quot;, and \&quot;attributes\&quot; fields).
+         * @param {TransformUpdateBeta} [transformUpdateBeta] The updated transform object (must include \&quot;name\&quot;, \&quot;type\&quot;, and \&quot;attributes\&quot; fields).
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async updateTransform(id: string, transformBeta?: TransformBeta, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<TransformBeta>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.updateTransform(id, transformBeta, axiosOptions);
+        async updateTransform(id: string, transformUpdateBeta?: TransformUpdateBeta, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<TransformReadBeta>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.updateTransform(id, transformUpdateBeta, axiosOptions);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
     }
@@ -66798,17 +67974,17 @@ export const TransformsBetaApiFactory = function (configuration?: Configuration,
     const localVarFp = TransformsBetaApiFp(configuration)
     return {
         /**
-         * Creates a new transform object. Request body must include name, type, and attributes. A token with transform write authority is required to call this API.
+         * Creates a new transform object immediately. By default, the internal flag is set to false to indicate that this is a custom transform. Only SailPoint employees have the ability to create a transform with internal set to true. Newly created Transforms can be used in the Identity Profile mappings within the UI. A token with transform write authority is required to call this API.
          * @summary Create transform
          * @param {TransformBeta} transformBeta The transform to be created.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        createTransform(transformBeta: TransformBeta, axiosOptions?: any): AxiosPromise<TransformBeta> {
+        createTransform(transformBeta: TransformBeta, axiosOptions?: any): AxiosPromise<TransformReadBeta> {
             return localVarFp.createTransform(transformBeta, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
-         * Deletes the transform specified by the given ID. A token with transform delete authority is required to call this API.
+         * Deletes the transform specified by the given ID. Attempting to delete a transform that is used in one or more Identity Profile mappings will result in an error. If this occurs, you must first remove the transform from all mappings before deleting the transform. A token with transform delete authority is required to call this API.
          * @summary Delete a transform
          * @param {string} id ID of the transform to delete
          * @param {*} [axiosOptions] Override http request option.
@@ -66824,7 +68000,7 @@ export const TransformsBetaApiFactory = function (configuration?: Configuration,
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        getTransform(id: string, axiosOptions?: any): AxiosPromise<TransformBeta> {
+        getTransform(id: string, axiosOptions?: any): AxiosPromise<TransformReadBeta> {
             return localVarFp.getTransform(id, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
@@ -66838,19 +68014,19 @@ export const TransformsBetaApiFactory = function (configuration?: Configuration,
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        listTransforms(offset?: number, limit?: number, count?: boolean, name?: string, filters?: string, axiosOptions?: any): AxiosPromise<Array<TransformBeta>> {
+        listTransforms(offset?: number, limit?: number, count?: boolean, name?: string, filters?: string, axiosOptions?: any): AxiosPromise<Array<TransformReadBeta>> {
             return localVarFp.listTransforms(offset, limit, count, name, filters, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
-         * Replaces the transform specified by the given ID with the transform provided in the request body. Only the \"attributes\" field is mutable. Attempting to change other attributes will result in an error. A token with transform write authority is required to call this API.
+         * Replaces the transform specified by the given ID with the transform provided in the request body. Only the \"attributes\" field is mutable. Attempting to change other properties (ex. \"name\" and \"type\") will result in an error. A token with transform write authority is required to call this API.
          * @summary Update a transform
          * @param {string} id ID of the transform to update
-         * @param {TransformBeta} [transformBeta] The updated transform object (must include \&quot;name\&quot;, \&quot;type\&quot;, and \&quot;attributes\&quot; fields).
+         * @param {TransformUpdateBeta} [transformUpdateBeta] The updated transform object (must include \&quot;name\&quot;, \&quot;type\&quot;, and \&quot;attributes\&quot; fields).
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        updateTransform(id: string, transformBeta?: TransformBeta, axiosOptions?: any): AxiosPromise<TransformBeta> {
-            return localVarFp.updateTransform(id, transformBeta, axiosOptions).then((request) => request(axios, basePath));
+        updateTransform(id: string, transformUpdateBeta?: TransformUpdateBeta, axiosOptions?: any): AxiosPromise<TransformReadBeta> {
+            return localVarFp.updateTransform(id, transformUpdateBeta, axiosOptions).then((request) => request(axios, basePath));
         },
     };
 };
@@ -66954,10 +68130,10 @@ export interface TransformsBetaApiUpdateTransformRequest {
 
     /**
      * The updated transform object (must include \&quot;name\&quot;, \&quot;type\&quot;, and \&quot;attributes\&quot; fields).
-     * @type {TransformBeta}
+     * @type {TransformUpdateBeta}
      * @memberof TransformsBetaApiUpdateTransform
      */
-    readonly transformBeta?: TransformBeta
+    readonly transformUpdateBeta?: TransformUpdateBeta
 }
 
 /**
@@ -66968,7 +68144,7 @@ export interface TransformsBetaApiUpdateTransformRequest {
  */
 export class TransformsBetaApi extends BaseAPI {
     /**
-     * Creates a new transform object. Request body must include name, type, and attributes. A token with transform write authority is required to call this API.
+     * Creates a new transform object immediately. By default, the internal flag is set to false to indicate that this is a custom transform. Only SailPoint employees have the ability to create a transform with internal set to true. Newly created Transforms can be used in the Identity Profile mappings within the UI. A token with transform write authority is required to call this API.
      * @summary Create transform
      * @param {TransformsBetaApiCreateTransformRequest} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
@@ -66980,7 +68156,7 @@ export class TransformsBetaApi extends BaseAPI {
     }
 
     /**
-     * Deletes the transform specified by the given ID. A token with transform delete authority is required to call this API.
+     * Deletes the transform specified by the given ID. Attempting to delete a transform that is used in one or more Identity Profile mappings will result in an error. If this occurs, you must first remove the transform from all mappings before deleting the transform. A token with transform delete authority is required to call this API.
      * @summary Delete a transform
      * @param {TransformsBetaApiDeleteTransformRequest} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
@@ -67016,7 +68192,7 @@ export class TransformsBetaApi extends BaseAPI {
     }
 
     /**
-     * Replaces the transform specified by the given ID with the transform provided in the request body. Only the \"attributes\" field is mutable. Attempting to change other attributes will result in an error. A token with transform write authority is required to call this API.
+     * Replaces the transform specified by the given ID with the transform provided in the request body. Only the \"attributes\" field is mutable. Attempting to change other properties (ex. \"name\" and \"type\") will result in an error. A token with transform write authority is required to call this API.
      * @summary Update a transform
      * @param {TransformsBetaApiUpdateTransformRequest} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
@@ -67024,7 +68200,7 @@ export class TransformsBetaApi extends BaseAPI {
      * @memberof TransformsBetaApi
      */
     public updateTransform(requestParameters: TransformsBetaApiUpdateTransformRequest, axiosOptions?: AxiosRequestConfig) {
-        return TransformsBetaApiFp(this.configuration).updateTransform(requestParameters.id, requestParameters.transformBeta, axiosOptions).then((request) => request(this.axios, this.basePath));
+        return TransformsBetaApiFp(this.configuration).updateTransform(requestParameters.id, requestParameters.transformUpdateBeta, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 }
 
