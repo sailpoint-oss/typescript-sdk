@@ -24088,75 +24088,18 @@ export interface TestWorkflowRequestBeta {
     'input': object;
 }
 /**
- * The representation of an internally- or customer-defined transform.
+ * @type TransformAttributesBeta
+ * Meta-data about the transform. Values in this list are specific to the type of transform to be executed.
  * @export
- * @interface TransformAllOfBeta
  */
-export interface TransformAllOfBeta {
-    /**
-     * Unique name of this transform
-     * @type {string}
-     * @memberof TransformAllOfBeta
-     */
-    'name': string;
-    /**
-     * The type of transform operation
-     * @type {string}
-     * @memberof TransformAllOfBeta
-     */
-    'type': TransformAllOfBetaTypeEnum;
-}
-
-export const TransformAllOfBetaTypeEnum = {
-    AccountAttribute: 'accountAttribute',
-    Base64Decode: 'base64Decode',
-    Base64Encode: 'base64Encode',
-    Concat: 'concat',
-    Conditional: 'conditional',
-    DateCompare: 'dateCompare',
-    DateFormat: 'dateFormat',
-    DateMath: 'dateMath',
-    DecomposeDiacriticalMarks: 'decomposeDiacriticalMarks',
-    E164phone: 'e164phone',
-    FirstValid: 'firstValid',
-    Rule: 'rule',
-    IdentityAttribute: 'identityAttribute',
-    IndexOf: 'indexOf',
-    Iso3166: 'iso3166',
-    LastIndexOf: 'lastIndexOf',
-    LeftPad: 'leftPad',
-    Lookup: 'lookup',
-    Lower: 'lower',
-    NormalizeNames: 'normalizeNames',
-    RandomAlphaNumeric: 'randomAlphaNumeric',
-    RandomNumeric: 'randomNumeric',
-    Reference: 'reference',
-    ReplaceAll: 'replaceAll',
-    Replace: 'replace',
-    RightPad: 'rightPad',
-    Split: 'split',
-    Static: 'static',
-    Substring: 'substring',
-    Trim: 'trim',
-    Upper: 'upper',
-    UsernameGenerator: 'usernameGenerator',
-    Uuid: 'uuid'
-} as const;
-
-export type TransformAllOfBetaTypeEnum = typeof TransformAllOfBetaTypeEnum[keyof typeof TransformAllOfBetaTypeEnum];
+export type TransformAttributesBeta = AccountAttributeBeta | Base64DecodeBeta | Base64EncodeBeta | ConcatenationBeta | ConditionalBeta | DateCompareBeta | DateFormatBeta | DateMathBeta | DecomposeDiacriticalMarksBeta | E164phoneBeta | FirstValidBeta | ISO3166Beta | IdentityAttribute1Beta | IndexOfBeta | LeftPadBeta | LookupBeta | LowerBeta | NameNormalizerBeta | RandomAlphaNumericBeta | RandomNumericBeta | ReferenceBeta | ReplaceAllBeta | ReplaceBeta | RightPadBeta | RuleBeta | SplitBeta | StaticBeta | SubstringBeta | TrimBeta | UUIDGeneratorBeta | UpperBeta;
 
 /**
- * 
+ * The representation of an internally- or customer-defined transform.
  * @export
  * @interface TransformBeta
  */
 export interface TransformBeta {
-    /**
-     * 
-     * @type {TransformUpdateAttributesBeta}
-     * @memberof TransformBeta
-     */
-    'attributes': TransformUpdateAttributesBeta;
     /**
      * Unique name of this transform
      * @type {string}
@@ -24169,6 +24112,12 @@ export interface TransformBeta {
      * @memberof TransformBeta
      */
     'type': TransformBetaTypeEnum;
+    /**
+     * 
+     * @type {TransformAttributesBeta}
+     * @memberof TransformBeta
+     */
+    'attributes': TransformAttributesBeta;
 }
 
 export const TransformBetaTypeEnum = {
@@ -24271,7 +24220,7 @@ export interface TransformReadAllOfBeta {
      * @type {boolean}
      * @memberof TransformReadAllOfBeta
      */
-    'internal'?: boolean;
+    'internal': boolean;
 }
 /**
  * 
@@ -24279,12 +24228,6 @@ export interface TransformReadAllOfBeta {
  * @interface TransformReadBeta
  */
 export interface TransformReadBeta {
-    /**
-     * 
-     * @type {TransformUpdateAttributesBeta}
-     * @memberof TransformReadBeta
-     */
-    'attributes': TransformUpdateAttributesBeta;
     /**
      * Unique name of this transform
      * @type {string}
@@ -24298,6 +24241,12 @@ export interface TransformReadBeta {
      */
     'type': TransformReadBetaTypeEnum;
     /**
+     * 
+     * @type {TransformAttributesBeta}
+     * @memberof TransformReadBeta
+     */
+    'attributes': TransformAttributesBeta;
+    /**
      * Unique ID of this transform
      * @type {string}
      * @memberof TransformReadBeta
@@ -24308,7 +24257,7 @@ export interface TransformReadBeta {
      * @type {boolean}
      * @memberof TransformReadBeta
      */
-    'internal'?: boolean;
+    'internal': boolean;
 }
 
 export const TransformReadBetaTypeEnum = {
@@ -24349,26 +24298,6 @@ export const TransformReadBetaTypeEnum = {
 
 export type TransformReadBetaTypeEnum = typeof TransformReadBetaTypeEnum[keyof typeof TransformReadBetaTypeEnum];
 
-/**
- * @type TransformUpdateAttributesBeta
- * Meta-data about the transform. Values in this list are specific to the type of transform to be executed.
- * @export
- */
-export type TransformUpdateAttributesBeta = AccountAttributeBeta | Base64DecodeBeta | Base64EncodeBeta | ConcatenationBeta | ConditionalBeta | DateCompareBeta | DateFormatBeta | DateMathBeta | DecomposeDiacriticalMarksBeta | E164phoneBeta | FirstValidBeta | ISO3166Beta | IdentityAttribute1Beta | IndexOfBeta | LeftPadBeta | LookupBeta | LowerBeta | NameNormalizerBeta | RandomAlphaNumericBeta | RandomNumericBeta | ReferenceBeta | ReplaceAllBeta | ReplaceBeta | RightPadBeta | RuleBeta | SplitBeta | StaticBeta | SubstringBeta | TrimBeta | UUIDGeneratorBeta | UpperBeta;
-
-/**
- * The representation of an internally- or customer-defined transform.
- * @export
- * @interface TransformUpdateBeta
- */
-export interface TransformUpdateBeta {
-    /**
-     * 
-     * @type {TransformUpdateAttributesBeta}
-     * @memberof TransformUpdateBeta
-     */
-    'attributes': TransformUpdateAttributesBeta;
-}
 /**
  * 
  * @export
@@ -67851,11 +67780,11 @@ export const TransformsBetaApiAxiosParamCreator = function (configuration?: Conf
          * Replaces the transform specified by the given ID with the transform provided in the request body. Only the \"attributes\" field is mutable. Attempting to change other properties (ex. \"name\" and \"type\") will result in an error. A token with transform write authority is required to call this API.
          * @summary Update a transform
          * @param {string} id ID of the transform to update
-         * @param {TransformUpdateBeta} [transformUpdateBeta] The updated transform object (must include \&quot;name\&quot;, \&quot;type\&quot;, and \&quot;attributes\&quot; fields).
+         * @param {TransformBeta} [transformBeta] The updated transform object. Must include \&quot;name\&quot;, \&quot;type\&quot;, and \&quot;attributes\&quot; fields, but \&quot;name\&quot; and \&quot;type\&quot; must not be modified.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        updateTransform: async (id: string, transformUpdateBeta?: TransformUpdateBeta, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        updateTransform: async (id: string, transformBeta?: TransformBeta, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'id' is not null or undefined
             assertParamExists('updateTransform', 'id', id)
             const localVarPath = `/transforms/{id}`
@@ -67886,7 +67815,7 @@ export const TransformsBetaApiAxiosParamCreator = function (configuration?: Conf
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(transformUpdateBeta, localVarRequestOptions, configuration)
+            localVarRequestOptions.data = serializeDataIfNeeded(transformBeta, localVarRequestOptions, configuration)
 
             return {
                 url: toPathString(localVarUrlObj),
@@ -67955,12 +67884,12 @@ export const TransformsBetaApiFp = function(configuration?: Configuration) {
          * Replaces the transform specified by the given ID with the transform provided in the request body. Only the \"attributes\" field is mutable. Attempting to change other properties (ex. \"name\" and \"type\") will result in an error. A token with transform write authority is required to call this API.
          * @summary Update a transform
          * @param {string} id ID of the transform to update
-         * @param {TransformUpdateBeta} [transformUpdateBeta] The updated transform object (must include \&quot;name\&quot;, \&quot;type\&quot;, and \&quot;attributes\&quot; fields).
+         * @param {TransformBeta} [transformBeta] The updated transform object. Must include \&quot;name\&quot;, \&quot;type\&quot;, and \&quot;attributes\&quot; fields, but \&quot;name\&quot; and \&quot;type\&quot; must not be modified.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async updateTransform(id: string, transformUpdateBeta?: TransformUpdateBeta, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<TransformReadBeta>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.updateTransform(id, transformUpdateBeta, axiosOptions);
+        async updateTransform(id: string, transformBeta?: TransformBeta, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<TransformReadBeta>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.updateTransform(id, transformBeta, axiosOptions);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
     }
@@ -68021,12 +67950,12 @@ export const TransformsBetaApiFactory = function (configuration?: Configuration,
          * Replaces the transform specified by the given ID with the transform provided in the request body. Only the \"attributes\" field is mutable. Attempting to change other properties (ex. \"name\" and \"type\") will result in an error. A token with transform write authority is required to call this API.
          * @summary Update a transform
          * @param {string} id ID of the transform to update
-         * @param {TransformUpdateBeta} [transformUpdateBeta] The updated transform object (must include \&quot;name\&quot;, \&quot;type\&quot;, and \&quot;attributes\&quot; fields).
+         * @param {TransformBeta} [transformBeta] The updated transform object. Must include \&quot;name\&quot;, \&quot;type\&quot;, and \&quot;attributes\&quot; fields, but \&quot;name\&quot; and \&quot;type\&quot; must not be modified.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        updateTransform(id: string, transformUpdateBeta?: TransformUpdateBeta, axiosOptions?: any): AxiosPromise<TransformReadBeta> {
-            return localVarFp.updateTransform(id, transformUpdateBeta, axiosOptions).then((request) => request(axios, basePath));
+        updateTransform(id: string, transformBeta?: TransformBeta, axiosOptions?: any): AxiosPromise<TransformReadBeta> {
+            return localVarFp.updateTransform(id, transformBeta, axiosOptions).then((request) => request(axios, basePath));
         },
     };
 };
@@ -68129,11 +68058,11 @@ export interface TransformsBetaApiUpdateTransformRequest {
     readonly id: string
 
     /**
-     * The updated transform object (must include \&quot;name\&quot;, \&quot;type\&quot;, and \&quot;attributes\&quot; fields).
-     * @type {TransformUpdateBeta}
+     * The updated transform object. Must include \&quot;name\&quot;, \&quot;type\&quot;, and \&quot;attributes\&quot; fields, but \&quot;name\&quot; and \&quot;type\&quot; must not be modified.
+     * @type {TransformBeta}
      * @memberof TransformsBetaApiUpdateTransform
      */
-    readonly transformUpdateBeta?: TransformUpdateBeta
+    readonly transformBeta?: TransformBeta
 }
 
 /**
@@ -68200,7 +68129,7 @@ export class TransformsBetaApi extends BaseAPI {
      * @memberof TransformsBetaApi
      */
     public updateTransform(requestParameters: TransformsBetaApiUpdateTransformRequest, axiosOptions?: AxiosRequestConfig) {
-        return TransformsBetaApiFp(this.configuration).updateTransform(requestParameters.id, requestParameters.transformUpdateBeta, axiosOptions).then((request) => request(this.axios, this.basePath));
+        return TransformsBetaApiFp(this.configuration).updateTransform(requestParameters.id, requestParameters.transformBeta, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 }
 
