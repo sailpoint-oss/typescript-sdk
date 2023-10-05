@@ -575,7 +575,7 @@ export interface AccessProfileBeta {
      * @type {OwnerReferenceBeta}
      * @memberof AccessProfileBeta
      */
-    'owner': OwnerReferenceBeta | null;
+    'owner': OwnerReferenceBeta;
     /**
      * 
      * @type {AccessProfileSourceRefBeta}
@@ -3696,6 +3696,13 @@ export interface ArgumentBeta {
      * @memberof ArgumentBeta
      */
     'type'?: string | null;
+}
+/**
+ * 
+ * @export
+ * @interface ArrayInnerBeta
+ */
+export interface ArrayInnerBeta {
 }
 /**
  * Specification of source attribute sync mapping configuration for an identity attribute
@@ -12724,19 +12731,12 @@ export const JsonPatchOperationBetaOpEnum = {
 export type JsonPatchOperationBetaOpEnum = typeof JsonPatchOperationBetaOpEnum[keyof typeof JsonPatchOperationBetaOpEnum];
 
 /**
- * 
- * @export
- * @interface JsonPatchOperationValueAnyOfInnerBeta
- */
-export interface JsonPatchOperationValueAnyOfInnerBeta {
-}
-/**
+ * @type JsonPatchOperationValueBeta
  * The value to be used for the operation, required for \"add\" and \"replace\" operations
  * @export
- * @interface JsonPatchOperationValueBeta
  */
-export interface JsonPatchOperationValueBeta {
-}
+export type JsonPatchOperationValueBeta = Array<ArrayInnerBeta> | number | object | string;
+
 /**
  * 
  * @export
@@ -16085,11 +16085,11 @@ export type OutliersContributingFeatureAccessItemsBetaAccessTypeEnum = typeof Ou
  */
 export interface OwnerReferenceBeta {
     /**
-     * 
-     * @type {DtoTypeBeta}
+     * Owner type. This field must be either left null or set to \'IDENTITY\' on input, otherwise a 400 Bad Request error will result.
+     * @type {string}
      * @memberof OwnerReferenceBeta
      */
-    'type'?: DtoTypeBeta;
+    'type'?: OwnerReferenceBetaTypeEnum;
     /**
      * Identity id
      * @type {string}
@@ -16103,6 +16103,13 @@ export interface OwnerReferenceBeta {
      */
     'name'?: string;
 }
+
+export const OwnerReferenceBetaTypeEnum = {
+    Identity: 'IDENTITY'
+} as const;
+
+export type OwnerReferenceBetaTypeEnum = typeof OwnerReferenceBetaTypeEnum[keyof typeof OwnerReferenceBetaTypeEnum];
+
 /**
  * Simplified DTO for the owner object of the entitlement
  * @export
@@ -16134,6 +16141,38 @@ export const OwnerReferenceDtoBetaTypeEnum = {
 } as const;
 
 export type OwnerReferenceDtoBetaTypeEnum = typeof OwnerReferenceDtoBetaTypeEnum[keyof typeof OwnerReferenceDtoBetaTypeEnum];
+
+/**
+ * The owner of this object.
+ * @export
+ * @interface OwnerReferenceSegmentsBeta
+ */
+export interface OwnerReferenceSegmentsBeta {
+    /**
+     * Owner type. This field must be either left null or set to \'IDENTITY\' on input, otherwise a 400 Bad Request error will result.
+     * @type {string}
+     * @memberof OwnerReferenceSegmentsBeta
+     */
+    'type'?: OwnerReferenceSegmentsBetaTypeEnum;
+    /**
+     * Identity id
+     * @type {string}
+     * @memberof OwnerReferenceSegmentsBeta
+     */
+    'id'?: string;
+    /**
+     * Human-readable display name of the owner. It may be left null or omitted in a POST or PATCH. If set, it must match the current value of the owner\'s display name, otherwise a 400 Bad Request error will result.
+     * @type {string}
+     * @memberof OwnerReferenceSegmentsBeta
+     */
+    'name'?: string;
+}
+
+export const OwnerReferenceSegmentsBetaTypeEnum = {
+    Identity: 'IDENTITY'
+} as const;
+
+export type OwnerReferenceSegmentsBetaTypeEnum = typeof OwnerReferenceSegmentsBetaTypeEnum[keyof typeof OwnerReferenceSegmentsBetaTypeEnum];
 
 /**
  * 
@@ -18688,7 +18727,7 @@ export interface RoleBeta {
      * @type {OwnerReferenceBeta}
      * @memberof RoleBeta
      */
-    'owner': OwnerReferenceBeta | null;
+    'owner': OwnerReferenceBeta;
     /**
      * 
      * @type {Array<AccessProfileRefBeta>}
@@ -20742,41 +20781,41 @@ export interface SectionDetailsBeta {
  */
 export interface SegmentBeta {
     /**
-     * 
+     * The segment\'s ID.
      * @type {string}
      * @memberof SegmentBeta
      */
     'id'?: string;
     /**
-     * Segment Business Name
+     * The segment\'s business name.
      * @type {string}
      * @memberof SegmentBeta
      */
     'name'?: string;
     /**
-     * The time when this Segment is created
+     * The time when the segment is created.
      * @type {string}
      * @memberof SegmentBeta
      */
     'created'?: string;
     /**
-     * The time when this Segment is modified
+     * The time when the segment is modified.
      * @type {string}
      * @memberof SegmentBeta
      */
     'modified'?: string;
     /**
-     * Optional description of the Segment
+     * The segment\'s optional description.
      * @type {string}
      * @memberof SegmentBeta
      */
     'description'?: string;
     /**
      * 
-     * @type {OwnerReferenceBeta}
+     * @type {OwnerReferenceSegmentsBeta}
      * @memberof SegmentBeta
      */
-    'owner'?: OwnerReferenceBeta | null;
+    'owner'?: OwnerReferenceSegmentsBeta | null;
     /**
      * 
      * @type {VisibilityCriteriaBeta}
@@ -20784,7 +20823,7 @@ export interface SegmentBeta {
      */
     'visibilityCriteria'?: VisibilityCriteriaBeta;
     /**
-     * Whether the Segment is currently active. Inactive segments have no effect.
+     * This boolean indicates whether the segment is currently active. Inactive segments have no effect.
      * @type {boolean}
      * @memberof SegmentBeta
      */
@@ -23294,10 +23333,10 @@ export interface SubscriptionPatchRequestInnerBeta {
     'path': string;
     /**
      * 
-     * @type {JsonPatchOperationValueBeta}
+     * @type {SubscriptionPatchRequestInnerValueBeta}
      * @memberof SubscriptionPatchRequestInnerBeta
      */
-    'value'?: JsonPatchOperationValueBeta;
+    'value'?: SubscriptionPatchRequestInnerValueBeta;
 }
 
 export const SubscriptionPatchRequestInnerBetaOpEnum = {
@@ -23310,6 +23349,20 @@ export const SubscriptionPatchRequestInnerBetaOpEnum = {
 
 export type SubscriptionPatchRequestInnerBetaOpEnum = typeof SubscriptionPatchRequestInnerBetaOpEnum[keyof typeof SubscriptionPatchRequestInnerBetaOpEnum];
 
+/**
+ * 
+ * @export
+ * @interface SubscriptionPatchRequestInnerValueAnyOfInnerBeta
+ */
+export interface SubscriptionPatchRequestInnerValueAnyOfInnerBeta {
+}
+/**
+ * The value to be used for the operation, required for \"add\" and \"replace\" operations
+ * @export
+ * @interface SubscriptionPatchRequestInnerValueBeta
+ */
+export interface SubscriptionPatchRequestInnerValueBeta {
+}
 /**
  * 
  * @export

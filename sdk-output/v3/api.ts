@@ -215,7 +215,7 @@ export interface AccessProfile {
      * @type {OwnerReference}
      * @memberof AccessProfile
      */
-    'owner': OwnerReference | null;
+    'owner': OwnerReference;
     /**
      * 
      * @type {AccessProfileSourceRef}
@@ -3124,6 +3124,13 @@ export interface ApprovalSummary {
      * @memberof ApprovalSummary
      */
     'rejected'?: number;
+}
+/**
+ * 
+ * @export
+ * @interface ArrayInner
+ */
+export interface ArrayInner {
 }
 /**
  * 
@@ -9088,19 +9095,12 @@ export const JsonPatchOperationOpEnum = {
 export type JsonPatchOperationOpEnum = typeof JsonPatchOperationOpEnum[keyof typeof JsonPatchOperationOpEnum];
 
 /**
+ * @type JsonPatchOperationValue
  * The value to be used for the operation, required for \"add\" and \"replace\" operations
  * @export
- * @interface JsonPatchOperationValue
  */
-export interface JsonPatchOperationValue {
-}
-/**
- * 
- * @export
- * @interface JsonPatchOperationValueAnyOfInner
- */
-export interface JsonPatchOperationValueAnyOfInner {
-}
+export type JsonPatchOperationValue = Array<ArrayInner> | number | object | string;
+
 /**
  * 
  * @export
@@ -11178,11 +11178,11 @@ export interface OwnerAllOf {
  */
 export interface OwnerReference {
     /**
-     * 
-     * @type {DtoType}
+     * Owner type. This field must be either left null or set to \'IDENTITY\' on input, otherwise a 400 Bad Request error will result.
+     * @type {string}
      * @memberof OwnerReference
      */
-    'type'?: DtoType;
+    'type'?: OwnerReferenceTypeEnum;
     /**
      * Identity id
      * @type {string}
@@ -11196,6 +11196,45 @@ export interface OwnerReference {
      */
     'name'?: string;
 }
+
+export const OwnerReferenceTypeEnum = {
+    Identity: 'IDENTITY'
+} as const;
+
+export type OwnerReferenceTypeEnum = typeof OwnerReferenceTypeEnum[keyof typeof OwnerReferenceTypeEnum];
+
+/**
+ * The owner of this object.
+ * @export
+ * @interface OwnerReferenceSegments
+ */
+export interface OwnerReferenceSegments {
+    /**
+     * Owner type. This field must be either left null or set to \'IDENTITY\' on input, otherwise a 400 Bad Request error will result.
+     * @type {string}
+     * @memberof OwnerReferenceSegments
+     */
+    'type'?: OwnerReferenceSegmentsTypeEnum;
+    /**
+     * Identity id
+     * @type {string}
+     * @memberof OwnerReferenceSegments
+     */
+    'id'?: string;
+    /**
+     * Human-readable display name of the owner. It may be left null or omitted in a POST or PATCH. If set, it must match the current value of the owner\'s display name, otherwise a 400 Bad Request error will result.
+     * @type {string}
+     * @memberof OwnerReferenceSegments
+     */
+    'name'?: string;
+}
+
+export const OwnerReferenceSegmentsTypeEnum = {
+    Identity: 'IDENTITY'
+} as const;
+
+export type OwnerReferenceSegmentsTypeEnum = typeof OwnerReferenceSegmentsTypeEnum[keyof typeof OwnerReferenceSegmentsTypeEnum];
+
 /**
  * 
  * @export
@@ -13561,7 +13600,7 @@ export interface Role {
      * @type {OwnerReference}
      * @memberof Role
      */
-    'owner': OwnerReference | null;
+    'owner': OwnerReference;
     /**
      * 
      * @type {Array<AccessProfileRef>}
@@ -15020,41 +15059,41 @@ export interface SectionDetailsAllOf {
  */
 export interface Segment {
     /**
-     * The id of the Segment.
+     * The segment\'s ID.
      * @type {string}
      * @memberof Segment
      */
     'id'?: string;
     /**
-     * Segment Business Name
+     * The segment\'s business name.
      * @type {string}
      * @memberof Segment
      */
     'name'?: string;
     /**
-     * The time when this Segment is created
+     * The time when the segment is created.
      * @type {string}
      * @memberof Segment
      */
     'created'?: string;
     /**
-     * The time when this Segment is modified
+     * The time when the segment is modified.
      * @type {string}
      * @memberof Segment
      */
     'modified'?: string;
     /**
-     * Optional description of the Segment
+     * The segment\'s optional description.
      * @type {string}
      * @memberof Segment
      */
     'description'?: string;
     /**
      * 
-     * @type {OwnerReference}
+     * @type {OwnerReferenceSegments}
      * @memberof Segment
      */
-    'owner'?: OwnerReference | null;
+    'owner'?: OwnerReferenceSegments | null;
     /**
      * 
      * @type {VisibilityCriteria}
@@ -15062,7 +15101,7 @@ export interface Segment {
      */
     'visibilityCriteria'?: VisibilityCriteria;
     /**
-     * Whether the Segment is currently active. Inactive segments have no effect.
+     * This boolean indicates whether the segment is currently active. Inactive segments have no effect.
      * @type {boolean}
      * @memberof Segment
      */
