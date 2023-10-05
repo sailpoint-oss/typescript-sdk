@@ -6445,6 +6445,53 @@ export interface ConflictingAccessCriteriaBeta {
 /**
  * 
  * @export
+ * @interface ConnectedObjectBeta
+ */
+export interface ConnectedObjectBeta {
+    /**
+     * 
+     * @type {ConnectedObjectTypeBeta}
+     * @memberof ConnectedObjectBeta
+     */
+    'type'?: ConnectedObjectTypeBeta;
+    /**
+     * ID of the object to which this reference applies
+     * @type {string}
+     * @memberof ConnectedObjectBeta
+     */
+    'id'?: string;
+    /**
+     * Human-readable name of Connected object
+     * @type {string}
+     * @memberof ConnectedObjectBeta
+     */
+    'name'?: string;
+    /**
+     * Description of the Connected object.
+     * @type {string}
+     * @memberof ConnectedObjectBeta
+     */
+    'description'?: string;
+}
+/**
+ * An enumeration of the types of Objects associated with a Governance Group. Supported object types are ACCESS_PROFILE, ROLE, SOD_POLICY and SOURCE.
+ * @export
+ * @enum {string}
+ */
+
+export const ConnectedObjectTypeBeta = {
+    AccessProfile: 'ACCESS_PROFILE',
+    Role: 'ROLE',
+    SodPolicy: 'SOD_POLICY',
+    Source: 'SOURCE'
+} as const;
+
+export type ConnectedObjectTypeBeta = typeof ConnectedObjectTypeBeta[keyof typeof ConnectedObjectTypeBeta];
+
+
+/**
+ * 
+ * @export
  * @interface ConnectorDetailBeta
  */
 export interface ConnectorDetailBeta {
@@ -16031,43 +16078,6 @@ export const OutliersContributingFeatureAccessItemsBetaAccessTypeEnum = {
 
 export type OutliersContributingFeatureAccessItemsBetaAccessTypeEnum = typeof OutliersContributingFeatureAccessItemsBetaAccessTypeEnum[keyof typeof OutliersContributingFeatureAccessItemsBetaAccessTypeEnum];
 
-/**
- * 
- * @export
- * @interface OwnerBeta
- */
-export interface OwnerBeta {
-    /**
-     * 
-     * @type {DtoTypeBeta}
-     * @memberof OwnerBeta
-     */
-    'type'?: DtoTypeBeta;
-    /**
-     * ID of the object to which this reference applies
-     * @type {string}
-     * @memberof OwnerBeta
-     */
-    'id'?: string;
-    /**
-     * Human-readable name of the owner
-     * @type {string}
-     * @memberof OwnerBeta
-     */
-    'name'?: string;
-    /**
-     * Human-readable display name of the owner
-     * @type {string}
-     * @memberof OwnerBeta
-     */
-    'displayName'?: string;
-    /**
-     * Email ID of the owner
-     * @type {string}
-     * @memberof OwnerBeta
-     */
-    'emailAddress'?: string;
-}
 /**
  * The owner of this object.
  * @export
@@ -25672,21 +25682,93 @@ export type WorkflowTriggerBetaTypeEnum = typeof WorkflowTriggerBetaTypeEnum[key
 /**
  * 
  * @export
+ * @interface WorkgroupBulkDeleteRequestBeta
+ */
+export interface WorkgroupBulkDeleteRequestBeta {
+    /**
+     * List of IDs of Governance Groups to be deleted.
+     * @type {Array<string>}
+     * @memberof WorkgroupBulkDeleteRequestBeta
+     */
+    'ids'?: Array<string>;
+}
+/**
+ * 
+ * @export
+ * @interface WorkgroupConnectionDtoBeta
+ */
+export interface WorkgroupConnectionDtoBeta {
+    /**
+     * 
+     * @type {ConnectedObjectBeta}
+     * @memberof WorkgroupConnectionDtoBeta
+     */
+    'object'?: ConnectedObjectBeta;
+    /**
+     * Connection Type.
+     * @type {string}
+     * @memberof WorkgroupConnectionDtoBeta
+     */
+    'connectionType'?: WorkgroupConnectionDtoBetaConnectionTypeEnum;
+}
+
+export const WorkgroupConnectionDtoBetaConnectionTypeEnum = {
+    AccessRequestReviewer: 'AccessRequestReviewer',
+    Owner: 'Owner',
+    ManagementWorkgroup: 'ManagementWorkgroup'
+} as const;
+
+export type WorkgroupConnectionDtoBetaConnectionTypeEnum = typeof WorkgroupConnectionDtoBetaConnectionTypeEnum[keyof typeof WorkgroupConnectionDtoBetaConnectionTypeEnum];
+
+/**
+ * 
+ * @export
+ * @interface WorkgroupDeleteItemBeta
+ */
+export interface WorkgroupDeleteItemBeta {
+    /**
+     * Id of the Governance Group.
+     * @type {string}
+     * @memberof WorkgroupDeleteItemBeta
+     */
+    'id': string;
+    /**
+     *  The HTTP response status code returned for an individual Governance Group that is requested for deletion during a bulk delete operation.  > 204   -  Governance Group deleted successfully.  > 409   - Governance Group is in use,hence can not be deleted.  > 404   - Governance Group not found. 
+     * @type {string}
+     * @memberof WorkgroupDeleteItemBeta
+     */
+    'status': string;
+    /**
+     * Human readable status description and containing additional context information about success or failures etc. 
+     * @type {string}
+     * @memberof WorkgroupDeleteItemBeta
+     */
+    'description'?: string;
+}
+/**
+ * 
+ * @export
  * @interface WorkgroupDtoBeta
  */
 export interface WorkgroupDtoBeta {
     /**
      * 
-     * @type {OwnerBeta}
+     * @type {BaseReferenceDto1Beta}
      * @memberof WorkgroupDtoBeta
      */
-    'owner'?: OwnerBeta;
+    'owner'?: BaseReferenceDto1Beta;
     /**
      * ID of the object to which this reference applies
      * @type {string}
      * @memberof WorkgroupDtoBeta
      */
     'id'?: string;
+    /**
+     * Name of the Governance Group
+     * @type {string}
+     * @memberof WorkgroupDtoBeta
+     */
+    'name'?: string;
     /**
      * Description of the Governance Group
      * @type {string}
@@ -25705,6 +25787,56 @@ export interface WorkgroupDtoBeta {
      * @memberof WorkgroupDtoBeta
      */
     'connectionCount'?: number;
+}
+/**
+ * 
+ * @export
+ * @interface WorkgroupMemberAddItemBeta
+ */
+export interface WorkgroupMemberAddItemBeta {
+    /**
+     * Identifier of identity in bulk member add request.
+     * @type {string}
+     * @memberof WorkgroupMemberAddItemBeta
+     */
+    'id': string;
+    /**
+     *  The HTTP response status code returned for an individual member that is requested for addition during a bulk add operation.   The HTTP response status code returned for an individual Governance Group is requested for deletion.   > 201   - Identity is added into Governance Group members list.  > 409   - Identity is already member of  Governance Group. 
+     * @type {string}
+     * @memberof WorkgroupMemberAddItemBeta
+     */
+    'status': string;
+    /**
+     * Human readable status description and containing additional context information about success or failures etc. 
+     * @type {string}
+     * @memberof WorkgroupMemberAddItemBeta
+     */
+    'description'?: string;
+}
+/**
+ * 
+ * @export
+ * @interface WorkgroupMemberDeleteItemBeta
+ */
+export interface WorkgroupMemberDeleteItemBeta {
+    /**
+     * Identifier of identity in bulk member add /remove request.
+     * @type {string}
+     * @memberof WorkgroupMemberDeleteItemBeta
+     */
+    'id': string;
+    /**
+     *  The HTTP response status code returned for an individual  member that is requested for deletion during a bulk delete operation.  > 204   - Identity is removed from Governance Group members list.  > 404   - Identity is not member of Governance Group. 
+     * @type {string}
+     * @memberof WorkgroupMemberDeleteItemBeta
+     */
+    'status': string;
+    /**
+     * Human readable status description and containing additional context information about success or failures etc. 
+     * @type {string}
+     * @memberof WorkgroupMemberDeleteItemBeta
+     */
+    'description'?: string;
 }
 
 /**
@@ -36842,9 +36974,143 @@ export const GovernanceGroupsBetaApiAxiosParamCreator = function (configuration?
             };
         },
         /**
-         * This API returns an Governance Groups by its ID.
-         * @summary Get an Governance Groups
-         * @param {string} id ID of the Governance Groups
+         * This API deletes a Governance Group by its ID.
+         * @summary Delete a Governance Group
+         * @param {string} id ID of the Governance Group
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        deleteWorkgroup: async (id: string, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'id' is not null or undefined
+            assertParamExists('deleteWorkgroup', 'id', id)
+            const localVarPath = `/workgroups/{id}`
+                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'DELETE', ...baseOptions, ...axiosOptions};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication UserContextAuth required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "UserContextAuth", [], configuration)
+
+            // authentication UserContextAuth required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "UserContextAuth", [], configuration)
+
+
+    
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                axiosOptions: localVarRequestOptions,
+            };
+        },
+        /**
+         * This API removes one or more  members from a Governance Group.  A token with API, ORG_ADMIN authority is required to call this API.  >  **Following field of Identity is an optional field in the request.**  >  **name**
+         * @summary Remove members from Governance Group
+         * @param {string} workgroupId ID of the Governance Group.
+         * @param {Array<BaseReferenceDto1Beta>} baseReferenceDto1Beta List of identities to be removed from  a Governance Group members list.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        deleteWorkgroupMembers: async (workgroupId: string, baseReferenceDto1Beta: Array<BaseReferenceDto1Beta>, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'workgroupId' is not null or undefined
+            assertParamExists('deleteWorkgroupMembers', 'workgroupId', workgroupId)
+            // verify required parameter 'baseReferenceDto1Beta' is not null or undefined
+            assertParamExists('deleteWorkgroupMembers', 'baseReferenceDto1Beta', baseReferenceDto1Beta)
+            const localVarPath = `/workgroups/{workgrouId}/members/bulk-delete`
+                .replace(`{${"workgroupId"}}`, encodeURIComponent(String(workgroupId)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'POST', ...baseOptions, ...axiosOptions};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication UserContextAuth required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "UserContextAuth", [], configuration)
+
+            // authentication UserContextAuth required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "UserContextAuth", [], configuration)
+
+
+    
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
+            localVarRequestOptions.data = serializeDataIfNeeded(baseReferenceDto1Beta, localVarRequestOptions, configuration)
+
+            return {
+                url: toPathString(localVarUrlObj),
+                axiosOptions: localVarRequestOptions,
+            };
+        },
+        /**
+         *  This API initiates a bulk deletion of one or more Governance Groups.  >  If any of the indicated Governance Groups have one or more connections associated with it,then those Governance Groups will be added in  **inUse** list of the response. Governance Group(s) marked as **inUse** can not be deleted.  >  If any of the indicated Governance Groups is not does not exists in Organization,then those Governance Groups will be added in **notFound** list of the response. Governance Groups marked as **notFound** will not be deleted.  >  If any of the indicated Governance Groups does not have any connections associated with it,then those Governance Groups will be added in **deleted** list of the response. A Governance Group marked as **deleted** will be deleted from current Organization.  >  If the request contains any **inUse** or **notFound** Governance Group IDs then it skips only these Governance Groups for deletion and deletes the rest of Governance Groups which have no connections associated with it.   >  **This API has limit number of Governance Groups can be deleted at one time. If the request contains more then 100 Governance Groups IDs to be deleted then the API will throw an exception.**
+         * @summary Delete Governance Group(s)
+         * @param {WorkgroupBulkDeleteRequestBeta} workgroupBulkDeleteRequestBeta 
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        deleteWorkgroupsInBulk: async (workgroupBulkDeleteRequestBeta: WorkgroupBulkDeleteRequestBeta, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'workgroupBulkDeleteRequestBeta' is not null or undefined
+            assertParamExists('deleteWorkgroupsInBulk', 'workgroupBulkDeleteRequestBeta', workgroupBulkDeleteRequestBeta)
+            const localVarPath = `/workgroups/bulk-delete`;
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'POST', ...baseOptions, ...axiosOptions};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication UserContextAuth required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "UserContextAuth", [], configuration)
+
+            // authentication UserContextAuth required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "UserContextAuth", [], configuration)
+
+
+    
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
+            localVarRequestOptions.data = serializeDataIfNeeded(workgroupBulkDeleteRequestBeta, localVarRequestOptions, configuration)
+
+            return {
+                url: toPathString(localVarUrlObj),
+                axiosOptions: localVarRequestOptions,
+            };
+        },
+        /**
+         * This API returns a Governance Groups by its ID.
+         * @summary Get Governance Group by Id
+         * @param {string} id ID of the Governance Group
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
@@ -36884,8 +37150,9 @@ export const GovernanceGroupsBetaApiAxiosParamCreator = function (configuration?
             };
         },
         /**
-         * This API returns list of Governance Groups
-         * @summary List Governance Groups
+         * This API returns list of connections associated with a Governance Group.
+         * @summary List connections for Governance Group
+         * @param {string} workgroupId ID of the Governance Group.
          * @param {number} [offset] Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
          * @param {number} [limit] Note that for this API the maximum value for limit is 50. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
          * @param {boolean} [count] If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
@@ -36893,8 +37160,11 @@ export const GovernanceGroupsBetaApiAxiosParamCreator = function (configuration?
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        listWorkgroups: async (offset?: number, limit?: number, count?: boolean, sorters?: string, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
-            const localVarPath = `/workgroups`;
+        listConnections: async (workgroupId: string, offset?: number, limit?: number, count?: boolean, sorters?: string, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'workgroupId' is not null or undefined
+            assertParamExists('listConnections', 'workgroupId', workgroupId)
+            const localVarPath = `/workgroups/{workgrouId}/connections`
+                .replace(`{${"workgroupId"}}`, encodeURIComponent(String(workgroupId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -36941,6 +37211,225 @@ export const GovernanceGroupsBetaApiAxiosParamCreator = function (configuration?
                 axiosOptions: localVarRequestOptions,
             };
         },
+        /**
+         * This API returns list of members associated with a Governance Group.
+         * @summary List Governance Group Members
+         * @param {string} workgroupId ID of the Governance Group.
+         * @param {number} [offset] Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+         * @param {number} [limit] Note that for this API the maximum value for limit is 50. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+         * @param {boolean} [count] If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+         * @param {string} [sorters] Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results) Sorting is supported for the following fields: **name, created, modified**
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        listWorkgroupMembers: async (workgroupId: string, offset?: number, limit?: number, count?: boolean, sorters?: string, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'workgroupId' is not null or undefined
+            assertParamExists('listWorkgroupMembers', 'workgroupId', workgroupId)
+            const localVarPath = `/workgroups/{workgrouId}/members`
+                .replace(`{${"workgroupId"}}`, encodeURIComponent(String(workgroupId)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...axiosOptions};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication UserContextAuth required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "UserContextAuth", [], configuration)
+
+            // authentication UserContextAuth required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "UserContextAuth", [], configuration)
+
+            if (offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+
+            if (limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+
+            if (count !== undefined) {
+                localVarQueryParameter['count'] = count;
+            }
+
+            if (sorters !== undefined) {
+                localVarQueryParameter['sorters'] = sorters;
+            }
+
+
+    
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                axiosOptions: localVarRequestOptions,
+            };
+        },
+        /**
+         * This API returns list of Governance Groups
+         * @summary List Governance Groups
+         * @param {number} [offset] Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+         * @param {number} [limit] Note that for this API the maximum value for limit is 50. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+         * @param {boolean} [count] If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+         * @param {string} [filters] Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following Governance Group fields and operators: **id**: *eq, in*  **name**: *eq, sw*
+         * @param {string} [sorters] Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results) Sorting is supported for the following fields: **name, created, modified**
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        listWorkgroups: async (offset?: number, limit?: number, count?: boolean, filters?: string, sorters?: string, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            const localVarPath = `/workgroups`;
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...axiosOptions};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication UserContextAuth required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "UserContextAuth", [], configuration)
+
+            // authentication UserContextAuth required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "UserContextAuth", [], configuration)
+
+            if (offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+
+            if (limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+
+            if (count !== undefined) {
+                localVarQueryParameter['count'] = count;
+            }
+
+            if (filters !== undefined) {
+                localVarQueryParameter['filters'] = filters;
+            }
+
+            if (sorters !== undefined) {
+                localVarQueryParameter['sorters'] = sorters;
+            }
+
+
+    
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                axiosOptions: localVarRequestOptions,
+            };
+        },
+        /**
+         * This API updates existing Governance Group by its ID. Following fields are patchable. **name**, **description** A token with API, ORG_ADMIN is required to call this API. In addition.
+         * @summary Patch a Governance Group
+         * @param {string} id ID of the Governance Group
+         * @param {Array<JsonPatchOperationBeta>} [jsonPatchOperationBeta] 
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        patchWorkgroup: async (id: string, jsonPatchOperationBeta?: Array<JsonPatchOperationBeta>, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'id' is not null or undefined
+            assertParamExists('patchWorkgroup', 'id', id)
+            const localVarPath = `/workgroups/{id}`
+                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'PATCH', ...baseOptions, ...axiosOptions};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication UserContextAuth required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "UserContextAuth", [], configuration)
+
+            // authentication UserContextAuth required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "UserContextAuth", [], configuration)
+
+
+    
+            localVarHeaderParameter['Content-Type'] = 'application/json-patch+json';
+
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
+            localVarRequestOptions.data = serializeDataIfNeeded(jsonPatchOperationBeta, localVarRequestOptions, configuration)
+
+            return {
+                url: toPathString(localVarUrlObj),
+                axiosOptions: localVarRequestOptions,
+            };
+        },
+        /**
+         * This API adds one or more members to a Governance Group.  A token with API, ORG_ADMIN authority is required to call this API.  >  **Following field of Identity is an optional field in the request.**  >  **name**
+         * @summary Add members to Governance Group
+         * @param {string} workgroupId ID of the Governance Group.
+         * @param {Array<BaseReferenceDto1Beta>} baseReferenceDto1Beta List of identities to be added to a Governance Group members list.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        updateWorkgroupMembers: async (workgroupId: string, baseReferenceDto1Beta: Array<BaseReferenceDto1Beta>, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'workgroupId' is not null or undefined
+            assertParamExists('updateWorkgroupMembers', 'workgroupId', workgroupId)
+            // verify required parameter 'baseReferenceDto1Beta' is not null or undefined
+            assertParamExists('updateWorkgroupMembers', 'baseReferenceDto1Beta', baseReferenceDto1Beta)
+            const localVarPath = `/workgroups/{workgrouId}/members/bulk-add`
+                .replace(`{${"workgroupId"}}`, encodeURIComponent(String(workgroupId)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'POST', ...baseOptions, ...axiosOptions};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication UserContextAuth required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "UserContextAuth", [], configuration)
+
+            // authentication UserContextAuth required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "UserContextAuth", [], configuration)
+
+
+    
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
+            localVarRequestOptions.data = serializeDataIfNeeded(baseReferenceDto1Beta, localVarRequestOptions, configuration)
+
+            return {
+                url: toPathString(localVarUrlObj),
+                axiosOptions: localVarRequestOptions,
+            };
+        },
     }
 };
 
@@ -36963,9 +37452,43 @@ export const GovernanceGroupsBetaApiFp = function(configuration?: Configuration)
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
-         * This API returns an Governance Groups by its ID.
-         * @summary Get an Governance Groups
-         * @param {string} id ID of the Governance Groups
+         * This API deletes a Governance Group by its ID.
+         * @summary Delete a Governance Group
+         * @param {string} id ID of the Governance Group
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        async deleteWorkgroup(id: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.deleteWorkgroup(id, axiosOptions);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * This API removes one or more  members from a Governance Group.  A token with API, ORG_ADMIN authority is required to call this API.  >  **Following field of Identity is an optional field in the request.**  >  **name**
+         * @summary Remove members from Governance Group
+         * @param {string} workgroupId ID of the Governance Group.
+         * @param {Array<BaseReferenceDto1Beta>} baseReferenceDto1Beta List of identities to be removed from  a Governance Group members list.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        async deleteWorkgroupMembers(workgroupId: string, baseReferenceDto1Beta: Array<BaseReferenceDto1Beta>, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<WorkgroupMemberDeleteItemBeta>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.deleteWorkgroupMembers(workgroupId, baseReferenceDto1Beta, axiosOptions);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         *  This API initiates a bulk deletion of one or more Governance Groups.  >  If any of the indicated Governance Groups have one or more connections associated with it,then those Governance Groups will be added in  **inUse** list of the response. Governance Group(s) marked as **inUse** can not be deleted.  >  If any of the indicated Governance Groups is not does not exists in Organization,then those Governance Groups will be added in **notFound** list of the response. Governance Groups marked as **notFound** will not be deleted.  >  If any of the indicated Governance Groups does not have any connections associated with it,then those Governance Groups will be added in **deleted** list of the response. A Governance Group marked as **deleted** will be deleted from current Organization.  >  If the request contains any **inUse** or **notFound** Governance Group IDs then it skips only these Governance Groups for deletion and deletes the rest of Governance Groups which have no connections associated with it.   >  **This API has limit number of Governance Groups can be deleted at one time. If the request contains more then 100 Governance Groups IDs to be deleted then the API will throw an exception.**
+         * @summary Delete Governance Group(s)
+         * @param {WorkgroupBulkDeleteRequestBeta} workgroupBulkDeleteRequestBeta 
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        async deleteWorkgroupsInBulk(workgroupBulkDeleteRequestBeta: WorkgroupBulkDeleteRequestBeta, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<WorkgroupDeleteItemBeta>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.deleteWorkgroupsInBulk(workgroupBulkDeleteRequestBeta, axiosOptions);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * This API returns a Governance Groups by its ID.
+         * @summary Get Governance Group by Id
+         * @param {string} id ID of the Governance Group
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
@@ -36974,8 +37497,9 @@ export const GovernanceGroupsBetaApiFp = function(configuration?: Configuration)
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
-         * This API returns list of Governance Groups
-         * @summary List Governance Groups
+         * This API returns list of connections associated with a Governance Group.
+         * @summary List connections for Governance Group
+         * @param {string} workgroupId ID of the Governance Group.
          * @param {number} [offset] Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
          * @param {number} [limit] Note that for this API the maximum value for limit is 50. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
          * @param {boolean} [count] If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
@@ -36983,8 +37507,62 @@ export const GovernanceGroupsBetaApiFp = function(configuration?: Configuration)
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async listWorkgroups(offset?: number, limit?: number, count?: boolean, sorters?: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<WorkgroupDtoBeta>>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.listWorkgroups(offset, limit, count, sorters, axiosOptions);
+        async listConnections(workgroupId: string, offset?: number, limit?: number, count?: boolean, sorters?: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<WorkgroupConnectionDtoBeta>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.listConnections(workgroupId, offset, limit, count, sorters, axiosOptions);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * This API returns list of members associated with a Governance Group.
+         * @summary List Governance Group Members
+         * @param {string} workgroupId ID of the Governance Group.
+         * @param {number} [offset] Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+         * @param {number} [limit] Note that for this API the maximum value for limit is 50. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+         * @param {boolean} [count] If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+         * @param {string} [sorters] Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results) Sorting is supported for the following fields: **name, created, modified**
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        async listWorkgroupMembers(workgroupId: string, offset?: number, limit?: number, count?: boolean, sorters?: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<BaseReferenceDto1Beta>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.listWorkgroupMembers(workgroupId, offset, limit, count, sorters, axiosOptions);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * This API returns list of Governance Groups
+         * @summary List Governance Groups
+         * @param {number} [offset] Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+         * @param {number} [limit] Note that for this API the maximum value for limit is 50. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+         * @param {boolean} [count] If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+         * @param {string} [filters] Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following Governance Group fields and operators: **id**: *eq, in*  **name**: *eq, sw*
+         * @param {string} [sorters] Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results) Sorting is supported for the following fields: **name, created, modified**
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        async listWorkgroups(offset?: number, limit?: number, count?: boolean, filters?: string, sorters?: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<WorkgroupDtoBeta>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.listWorkgroups(offset, limit, count, filters, sorters, axiosOptions);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * This API updates existing Governance Group by its ID. Following fields are patchable. **name**, **description** A token with API, ORG_ADMIN is required to call this API. In addition.
+         * @summary Patch a Governance Group
+         * @param {string} id ID of the Governance Group
+         * @param {Array<JsonPatchOperationBeta>} [jsonPatchOperationBeta] 
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        async patchWorkgroup(id: string, jsonPatchOperationBeta?: Array<JsonPatchOperationBeta>, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<WorkgroupDtoBeta>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.patchWorkgroup(id, jsonPatchOperationBeta, axiosOptions);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * This API adds one or more members to a Governance Group.  A token with API, ORG_ADMIN authority is required to call this API.  >  **Following field of Identity is an optional field in the request.**  >  **name**
+         * @summary Add members to Governance Group
+         * @param {string} workgroupId ID of the Governance Group.
+         * @param {Array<BaseReferenceDto1Beta>} baseReferenceDto1Beta List of identities to be added to a Governance Group members list.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        async updateWorkgroupMembers(workgroupId: string, baseReferenceDto1Beta: Array<BaseReferenceDto1Beta>, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<WorkgroupMemberAddItemBeta>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.updateWorkgroupMembers(workgroupId, baseReferenceDto1Beta, axiosOptions);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
     }
@@ -37008,9 +37586,40 @@ export const GovernanceGroupsBetaApiFactory = function (configuration?: Configur
             return localVarFp.createWorkgroup(workgroupDtoBeta, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
-         * This API returns an Governance Groups by its ID.
-         * @summary Get an Governance Groups
-         * @param {string} id ID of the Governance Groups
+         * This API deletes a Governance Group by its ID.
+         * @summary Delete a Governance Group
+         * @param {string} id ID of the Governance Group
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        deleteWorkgroup(id: string, axiosOptions?: any): AxiosPromise<void> {
+            return localVarFp.deleteWorkgroup(id, axiosOptions).then((request) => request(axios, basePath));
+        },
+        /**
+         * This API removes one or more  members from a Governance Group.  A token with API, ORG_ADMIN authority is required to call this API.  >  **Following field of Identity is an optional field in the request.**  >  **name**
+         * @summary Remove members from Governance Group
+         * @param {string} workgroupId ID of the Governance Group.
+         * @param {Array<BaseReferenceDto1Beta>} baseReferenceDto1Beta List of identities to be removed from  a Governance Group members list.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        deleteWorkgroupMembers(workgroupId: string, baseReferenceDto1Beta: Array<BaseReferenceDto1Beta>, axiosOptions?: any): AxiosPromise<Array<WorkgroupMemberDeleteItemBeta>> {
+            return localVarFp.deleteWorkgroupMembers(workgroupId, baseReferenceDto1Beta, axiosOptions).then((request) => request(axios, basePath));
+        },
+        /**
+         *  This API initiates a bulk deletion of one or more Governance Groups.  >  If any of the indicated Governance Groups have one or more connections associated with it,then those Governance Groups will be added in  **inUse** list of the response. Governance Group(s) marked as **inUse** can not be deleted.  >  If any of the indicated Governance Groups is not does not exists in Organization,then those Governance Groups will be added in **notFound** list of the response. Governance Groups marked as **notFound** will not be deleted.  >  If any of the indicated Governance Groups does not have any connections associated with it,then those Governance Groups will be added in **deleted** list of the response. A Governance Group marked as **deleted** will be deleted from current Organization.  >  If the request contains any **inUse** or **notFound** Governance Group IDs then it skips only these Governance Groups for deletion and deletes the rest of Governance Groups which have no connections associated with it.   >  **This API has limit number of Governance Groups can be deleted at one time. If the request contains more then 100 Governance Groups IDs to be deleted then the API will throw an exception.**
+         * @summary Delete Governance Group(s)
+         * @param {WorkgroupBulkDeleteRequestBeta} workgroupBulkDeleteRequestBeta 
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        deleteWorkgroupsInBulk(workgroupBulkDeleteRequestBeta: WorkgroupBulkDeleteRequestBeta, axiosOptions?: any): AxiosPromise<Array<WorkgroupDeleteItemBeta>> {
+            return localVarFp.deleteWorkgroupsInBulk(workgroupBulkDeleteRequestBeta, axiosOptions).then((request) => request(axios, basePath));
+        },
+        /**
+         * This API returns a Governance Groups by its ID.
+         * @summary Get Governance Group by Id
+         * @param {string} id ID of the Governance Group
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
@@ -37018,8 +37627,9 @@ export const GovernanceGroupsBetaApiFactory = function (configuration?: Configur
             return localVarFp.getWorkgroup(id, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
-         * This API returns list of Governance Groups
-         * @summary List Governance Groups
+         * This API returns list of connections associated with a Governance Group.
+         * @summary List connections for Governance Group
+         * @param {string} workgroupId ID of the Governance Group.
          * @param {number} [offset] Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
          * @param {number} [limit] Note that for this API the maximum value for limit is 50. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
          * @param {boolean} [count] If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
@@ -37027,8 +37637,58 @@ export const GovernanceGroupsBetaApiFactory = function (configuration?: Configur
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        listWorkgroups(offset?: number, limit?: number, count?: boolean, sorters?: string, axiosOptions?: any): AxiosPromise<Array<WorkgroupDtoBeta>> {
-            return localVarFp.listWorkgroups(offset, limit, count, sorters, axiosOptions).then((request) => request(axios, basePath));
+        listConnections(workgroupId: string, offset?: number, limit?: number, count?: boolean, sorters?: string, axiosOptions?: any): AxiosPromise<Array<WorkgroupConnectionDtoBeta>> {
+            return localVarFp.listConnections(workgroupId, offset, limit, count, sorters, axiosOptions).then((request) => request(axios, basePath));
+        },
+        /**
+         * This API returns list of members associated with a Governance Group.
+         * @summary List Governance Group Members
+         * @param {string} workgroupId ID of the Governance Group.
+         * @param {number} [offset] Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+         * @param {number} [limit] Note that for this API the maximum value for limit is 50. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+         * @param {boolean} [count] If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+         * @param {string} [sorters] Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results) Sorting is supported for the following fields: **name, created, modified**
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        listWorkgroupMembers(workgroupId: string, offset?: number, limit?: number, count?: boolean, sorters?: string, axiosOptions?: any): AxiosPromise<Array<BaseReferenceDto1Beta>> {
+            return localVarFp.listWorkgroupMembers(workgroupId, offset, limit, count, sorters, axiosOptions).then((request) => request(axios, basePath));
+        },
+        /**
+         * This API returns list of Governance Groups
+         * @summary List Governance Groups
+         * @param {number} [offset] Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+         * @param {number} [limit] Note that for this API the maximum value for limit is 50. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+         * @param {boolean} [count] If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+         * @param {string} [filters] Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following Governance Group fields and operators: **id**: *eq, in*  **name**: *eq, sw*
+         * @param {string} [sorters] Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results) Sorting is supported for the following fields: **name, created, modified**
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        listWorkgroups(offset?: number, limit?: number, count?: boolean, filters?: string, sorters?: string, axiosOptions?: any): AxiosPromise<Array<WorkgroupDtoBeta>> {
+            return localVarFp.listWorkgroups(offset, limit, count, filters, sorters, axiosOptions).then((request) => request(axios, basePath));
+        },
+        /**
+         * This API updates existing Governance Group by its ID. Following fields are patchable. **name**, **description** A token with API, ORG_ADMIN is required to call this API. In addition.
+         * @summary Patch a Governance Group
+         * @param {string} id ID of the Governance Group
+         * @param {Array<JsonPatchOperationBeta>} [jsonPatchOperationBeta] 
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        patchWorkgroup(id: string, jsonPatchOperationBeta?: Array<JsonPatchOperationBeta>, axiosOptions?: any): AxiosPromise<WorkgroupDtoBeta> {
+            return localVarFp.patchWorkgroup(id, jsonPatchOperationBeta, axiosOptions).then((request) => request(axios, basePath));
+        },
+        /**
+         * This API adds one or more members to a Governance Group.  A token with API, ORG_ADMIN authority is required to call this API.  >  **Following field of Identity is an optional field in the request.**  >  **name**
+         * @summary Add members to Governance Group
+         * @param {string} workgroupId ID of the Governance Group.
+         * @param {Array<BaseReferenceDto1Beta>} baseReferenceDto1Beta List of identities to be added to a Governance Group members list.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        updateWorkgroupMembers(workgroupId: string, baseReferenceDto1Beta: Array<BaseReferenceDto1Beta>, axiosOptions?: any): AxiosPromise<Array<WorkgroupMemberAddItemBeta>> {
+            return localVarFp.updateWorkgroupMembers(workgroupId, baseReferenceDto1Beta, axiosOptions).then((request) => request(axios, basePath));
         },
     };
 };
@@ -37048,17 +37708,150 @@ export interface GovernanceGroupsBetaApiCreateWorkgroupRequest {
 }
 
 /**
+ * Request parameters for deleteWorkgroup operation in GovernanceGroupsBetaApi.
+ * @export
+ * @interface GovernanceGroupsBetaApiDeleteWorkgroupRequest
+ */
+export interface GovernanceGroupsBetaApiDeleteWorkgroupRequest {
+    /**
+     * ID of the Governance Group
+     * @type {string}
+     * @memberof GovernanceGroupsBetaApiDeleteWorkgroup
+     */
+    readonly id: string
+}
+
+/**
+ * Request parameters for deleteWorkgroupMembers operation in GovernanceGroupsBetaApi.
+ * @export
+ * @interface GovernanceGroupsBetaApiDeleteWorkgroupMembersRequest
+ */
+export interface GovernanceGroupsBetaApiDeleteWorkgroupMembersRequest {
+    /**
+     * ID of the Governance Group.
+     * @type {string}
+     * @memberof GovernanceGroupsBetaApiDeleteWorkgroupMembers
+     */
+    readonly workgroupId: string
+
+    /**
+     * List of identities to be removed from  a Governance Group members list.
+     * @type {Array<BaseReferenceDto1Beta>}
+     * @memberof GovernanceGroupsBetaApiDeleteWorkgroupMembers
+     */
+    readonly baseReferenceDto1Beta: Array<BaseReferenceDto1Beta>
+}
+
+/**
+ * Request parameters for deleteWorkgroupsInBulk operation in GovernanceGroupsBetaApi.
+ * @export
+ * @interface GovernanceGroupsBetaApiDeleteWorkgroupsInBulkRequest
+ */
+export interface GovernanceGroupsBetaApiDeleteWorkgroupsInBulkRequest {
+    /**
+     * 
+     * @type {WorkgroupBulkDeleteRequestBeta}
+     * @memberof GovernanceGroupsBetaApiDeleteWorkgroupsInBulk
+     */
+    readonly workgroupBulkDeleteRequestBeta: WorkgroupBulkDeleteRequestBeta
+}
+
+/**
  * Request parameters for getWorkgroup operation in GovernanceGroupsBetaApi.
  * @export
  * @interface GovernanceGroupsBetaApiGetWorkgroupRequest
  */
 export interface GovernanceGroupsBetaApiGetWorkgroupRequest {
     /**
-     * ID of the Governance Groups
+     * ID of the Governance Group
      * @type {string}
      * @memberof GovernanceGroupsBetaApiGetWorkgroup
      */
     readonly id: string
+}
+
+/**
+ * Request parameters for listConnections operation in GovernanceGroupsBetaApi.
+ * @export
+ * @interface GovernanceGroupsBetaApiListConnectionsRequest
+ */
+export interface GovernanceGroupsBetaApiListConnectionsRequest {
+    /**
+     * ID of the Governance Group.
+     * @type {string}
+     * @memberof GovernanceGroupsBetaApiListConnections
+     */
+    readonly workgroupId: string
+
+    /**
+     * Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+     * @type {number}
+     * @memberof GovernanceGroupsBetaApiListConnections
+     */
+    readonly offset?: number
+
+    /**
+     * Note that for this API the maximum value for limit is 50. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+     * @type {number}
+     * @memberof GovernanceGroupsBetaApiListConnections
+     */
+    readonly limit?: number
+
+    /**
+     * If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+     * @type {boolean}
+     * @memberof GovernanceGroupsBetaApiListConnections
+     */
+    readonly count?: boolean
+
+    /**
+     * Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results) Sorting is supported for the following fields: **name, created, modified**
+     * @type {string}
+     * @memberof GovernanceGroupsBetaApiListConnections
+     */
+    readonly sorters?: string
+}
+
+/**
+ * Request parameters for listWorkgroupMembers operation in GovernanceGroupsBetaApi.
+ * @export
+ * @interface GovernanceGroupsBetaApiListWorkgroupMembersRequest
+ */
+export interface GovernanceGroupsBetaApiListWorkgroupMembersRequest {
+    /**
+     * ID of the Governance Group.
+     * @type {string}
+     * @memberof GovernanceGroupsBetaApiListWorkgroupMembers
+     */
+    readonly workgroupId: string
+
+    /**
+     * Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+     * @type {number}
+     * @memberof GovernanceGroupsBetaApiListWorkgroupMembers
+     */
+    readonly offset?: number
+
+    /**
+     * Note that for this API the maximum value for limit is 50. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+     * @type {number}
+     * @memberof GovernanceGroupsBetaApiListWorkgroupMembers
+     */
+    readonly limit?: number
+
+    /**
+     * If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+     * @type {boolean}
+     * @memberof GovernanceGroupsBetaApiListWorkgroupMembers
+     */
+    readonly count?: boolean
+
+    /**
+     * Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results) Sorting is supported for the following fields: **name, created, modified**
+     * @type {string}
+     * @memberof GovernanceGroupsBetaApiListWorkgroupMembers
+     */
+    readonly sorters?: string
 }
 
 /**
@@ -37089,11 +37882,60 @@ export interface GovernanceGroupsBetaApiListWorkgroupsRequest {
     readonly count?: boolean
 
     /**
+     * Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following Governance Group fields and operators: **id**: *eq, in*  **name**: *eq, sw*
+     * @type {string}
+     * @memberof GovernanceGroupsBetaApiListWorkgroups
+     */
+    readonly filters?: string
+
+    /**
      * Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results) Sorting is supported for the following fields: **name, created, modified**
      * @type {string}
      * @memberof GovernanceGroupsBetaApiListWorkgroups
      */
     readonly sorters?: string
+}
+
+/**
+ * Request parameters for patchWorkgroup operation in GovernanceGroupsBetaApi.
+ * @export
+ * @interface GovernanceGroupsBetaApiPatchWorkgroupRequest
+ */
+export interface GovernanceGroupsBetaApiPatchWorkgroupRequest {
+    /**
+     * ID of the Governance Group
+     * @type {string}
+     * @memberof GovernanceGroupsBetaApiPatchWorkgroup
+     */
+    readonly id: string
+
+    /**
+     * 
+     * @type {Array<JsonPatchOperationBeta>}
+     * @memberof GovernanceGroupsBetaApiPatchWorkgroup
+     */
+    readonly jsonPatchOperationBeta?: Array<JsonPatchOperationBeta>
+}
+
+/**
+ * Request parameters for updateWorkgroupMembers operation in GovernanceGroupsBetaApi.
+ * @export
+ * @interface GovernanceGroupsBetaApiUpdateWorkgroupMembersRequest
+ */
+export interface GovernanceGroupsBetaApiUpdateWorkgroupMembersRequest {
+    /**
+     * ID of the Governance Group.
+     * @type {string}
+     * @memberof GovernanceGroupsBetaApiUpdateWorkgroupMembers
+     */
+    readonly workgroupId: string
+
+    /**
+     * List of identities to be added to a Governance Group members list.
+     * @type {Array<BaseReferenceDto1Beta>}
+     * @memberof GovernanceGroupsBetaApiUpdateWorkgroupMembers
+     */
+    readonly baseReferenceDto1Beta: Array<BaseReferenceDto1Beta>
 }
 
 /**
@@ -37116,8 +37958,44 @@ export class GovernanceGroupsBetaApi extends BaseAPI {
     }
 
     /**
-     * This API returns an Governance Groups by its ID.
-     * @summary Get an Governance Groups
+     * This API deletes a Governance Group by its ID.
+     * @summary Delete a Governance Group
+     * @param {GovernanceGroupsBetaApiDeleteWorkgroupRequest} requestParameters Request parameters.
+     * @param {*} [axiosOptions] Override http request option.
+     * @throws {RequiredError}
+     * @memberof GovernanceGroupsBetaApi
+     */
+    public deleteWorkgroup(requestParameters: GovernanceGroupsBetaApiDeleteWorkgroupRequest, axiosOptions?: AxiosRequestConfig) {
+        return GovernanceGroupsBetaApiFp(this.configuration).deleteWorkgroup(requestParameters.id, axiosOptions).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * This API removes one or more  members from a Governance Group.  A token with API, ORG_ADMIN authority is required to call this API.  >  **Following field of Identity is an optional field in the request.**  >  **name**
+     * @summary Remove members from Governance Group
+     * @param {GovernanceGroupsBetaApiDeleteWorkgroupMembersRequest} requestParameters Request parameters.
+     * @param {*} [axiosOptions] Override http request option.
+     * @throws {RequiredError}
+     * @memberof GovernanceGroupsBetaApi
+     */
+    public deleteWorkgroupMembers(requestParameters: GovernanceGroupsBetaApiDeleteWorkgroupMembersRequest, axiosOptions?: AxiosRequestConfig) {
+        return GovernanceGroupsBetaApiFp(this.configuration).deleteWorkgroupMembers(requestParameters.workgroupId, requestParameters.baseReferenceDto1Beta, axiosOptions).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     *  This API initiates a bulk deletion of one or more Governance Groups.  >  If any of the indicated Governance Groups have one or more connections associated with it,then those Governance Groups will be added in  **inUse** list of the response. Governance Group(s) marked as **inUse** can not be deleted.  >  If any of the indicated Governance Groups is not does not exists in Organization,then those Governance Groups will be added in **notFound** list of the response. Governance Groups marked as **notFound** will not be deleted.  >  If any of the indicated Governance Groups does not have any connections associated with it,then those Governance Groups will be added in **deleted** list of the response. A Governance Group marked as **deleted** will be deleted from current Organization.  >  If the request contains any **inUse** or **notFound** Governance Group IDs then it skips only these Governance Groups for deletion and deletes the rest of Governance Groups which have no connections associated with it.   >  **This API has limit number of Governance Groups can be deleted at one time. If the request contains more then 100 Governance Groups IDs to be deleted then the API will throw an exception.**
+     * @summary Delete Governance Group(s)
+     * @param {GovernanceGroupsBetaApiDeleteWorkgroupsInBulkRequest} requestParameters Request parameters.
+     * @param {*} [axiosOptions] Override http request option.
+     * @throws {RequiredError}
+     * @memberof GovernanceGroupsBetaApi
+     */
+    public deleteWorkgroupsInBulk(requestParameters: GovernanceGroupsBetaApiDeleteWorkgroupsInBulkRequest, axiosOptions?: AxiosRequestConfig) {
+        return GovernanceGroupsBetaApiFp(this.configuration).deleteWorkgroupsInBulk(requestParameters.workgroupBulkDeleteRequestBeta, axiosOptions).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * This API returns a Governance Groups by its ID.
+     * @summary Get Governance Group by Id
      * @param {GovernanceGroupsBetaApiGetWorkgroupRequest} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
@@ -37125,6 +38003,30 @@ export class GovernanceGroupsBetaApi extends BaseAPI {
      */
     public getWorkgroup(requestParameters: GovernanceGroupsBetaApiGetWorkgroupRequest, axiosOptions?: AxiosRequestConfig) {
         return GovernanceGroupsBetaApiFp(this.configuration).getWorkgroup(requestParameters.id, axiosOptions).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * This API returns list of connections associated with a Governance Group.
+     * @summary List connections for Governance Group
+     * @param {GovernanceGroupsBetaApiListConnectionsRequest} requestParameters Request parameters.
+     * @param {*} [axiosOptions] Override http request option.
+     * @throws {RequiredError}
+     * @memberof GovernanceGroupsBetaApi
+     */
+    public listConnections(requestParameters: GovernanceGroupsBetaApiListConnectionsRequest, axiosOptions?: AxiosRequestConfig) {
+        return GovernanceGroupsBetaApiFp(this.configuration).listConnections(requestParameters.workgroupId, requestParameters.offset, requestParameters.limit, requestParameters.count, requestParameters.sorters, axiosOptions).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * This API returns list of members associated with a Governance Group.
+     * @summary List Governance Group Members
+     * @param {GovernanceGroupsBetaApiListWorkgroupMembersRequest} requestParameters Request parameters.
+     * @param {*} [axiosOptions] Override http request option.
+     * @throws {RequiredError}
+     * @memberof GovernanceGroupsBetaApi
+     */
+    public listWorkgroupMembers(requestParameters: GovernanceGroupsBetaApiListWorkgroupMembersRequest, axiosOptions?: AxiosRequestConfig) {
+        return GovernanceGroupsBetaApiFp(this.configuration).listWorkgroupMembers(requestParameters.workgroupId, requestParameters.offset, requestParameters.limit, requestParameters.count, requestParameters.sorters, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -37136,7 +38038,31 @@ export class GovernanceGroupsBetaApi extends BaseAPI {
      * @memberof GovernanceGroupsBetaApi
      */
     public listWorkgroups(requestParameters: GovernanceGroupsBetaApiListWorkgroupsRequest = {}, axiosOptions?: AxiosRequestConfig) {
-        return GovernanceGroupsBetaApiFp(this.configuration).listWorkgroups(requestParameters.offset, requestParameters.limit, requestParameters.count, requestParameters.sorters, axiosOptions).then((request) => request(this.axios, this.basePath));
+        return GovernanceGroupsBetaApiFp(this.configuration).listWorkgroups(requestParameters.offset, requestParameters.limit, requestParameters.count, requestParameters.filters, requestParameters.sorters, axiosOptions).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * This API updates existing Governance Group by its ID. Following fields are patchable. **name**, **description** A token with API, ORG_ADMIN is required to call this API. In addition.
+     * @summary Patch a Governance Group
+     * @param {GovernanceGroupsBetaApiPatchWorkgroupRequest} requestParameters Request parameters.
+     * @param {*} [axiosOptions] Override http request option.
+     * @throws {RequiredError}
+     * @memberof GovernanceGroupsBetaApi
+     */
+    public patchWorkgroup(requestParameters: GovernanceGroupsBetaApiPatchWorkgroupRequest, axiosOptions?: AxiosRequestConfig) {
+        return GovernanceGroupsBetaApiFp(this.configuration).patchWorkgroup(requestParameters.id, requestParameters.jsonPatchOperationBeta, axiosOptions).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * This API adds one or more members to a Governance Group.  A token with API, ORG_ADMIN authority is required to call this API.  >  **Following field of Identity is an optional field in the request.**  >  **name**
+     * @summary Add members to Governance Group
+     * @param {GovernanceGroupsBetaApiUpdateWorkgroupMembersRequest} requestParameters Request parameters.
+     * @param {*} [axiosOptions] Override http request option.
+     * @throws {RequiredError}
+     * @memberof GovernanceGroupsBetaApi
+     */
+    public updateWorkgroupMembers(requestParameters: GovernanceGroupsBetaApiUpdateWorkgroupMembersRequest, axiosOptions?: AxiosRequestConfig) {
+        return GovernanceGroupsBetaApiFp(this.configuration).updateWorkgroupMembers(requestParameters.workgroupId, requestParameters.baseReferenceDto1Beta, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 }
 
