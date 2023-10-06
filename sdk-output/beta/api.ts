@@ -30846,6 +30846,7 @@ export const CertificationCampaignsBetaApiAxiosParamCreator = function (configur
          * @summary Get a Campaign Template
          * @param {string} id The desired campaign template\&#39;s ID.
          * @param {*} [axiosOptions] Override http request option.
+         * @deprecated
          * @throws {RequiredError}
          */
         getCampaignTemplate: async (id: string, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
@@ -31546,6 +31547,7 @@ export const CertificationCampaignsBetaApiFp = function(configuration?: Configur
          * @summary Get a Campaign Template
          * @param {string} id The desired campaign template\&#39;s ID.
          * @param {*} [axiosOptions] Override http request option.
+         * @deprecated
          * @throws {RequiredError}
          */
         async getCampaignTemplate(id: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<CampaignTemplateBeta>> {
@@ -31821,6 +31823,7 @@ export const CertificationCampaignsBetaApiFactory = function (configuration?: Co
          * @summary Get a Campaign Template
          * @param {string} id The desired campaign template\&#39;s ID.
          * @param {*} [axiosOptions] Override http request option.
+         * @deprecated
          * @throws {RequiredError}
          */
         getCampaignTemplate(id: string, axiosOptions?: any): AxiosPromise<CampaignTemplateBeta> {
@@ -32504,6 +32507,7 @@ export class CertificationCampaignsBetaApi extends BaseAPI {
      * @summary Get a Campaign Template
      * @param {CertificationCampaignsBetaApiGetCampaignTemplateRequest} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
+     * @deprecated
      * @throws {RequiredError}
      * @memberof CertificationCampaignsBetaApi
      */

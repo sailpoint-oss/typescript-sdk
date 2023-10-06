@@ -21913,6 +21913,48 @@ export const CertificationCampaignsApiAxiosParamCreator = function (configuratio
             };
         },
         /**
+         * Fetches a campaign template by ID.
+         * @summary Get a Campaign Template
+         * @param {string} id The desired campaign template\&#39;s ID.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        getCampaignTemplate: async (id: string, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'id' is not null or undefined
+            assertParamExists('getCampaignTemplate', 'id', id)
+            const localVarPath = `/campaign-templates/{id}`
+                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...axiosOptions};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication UserContextAuth required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "UserContextAuth", [], configuration)
+
+            // authentication UserContextAuth required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "UserContextAuth", [], configuration)
+
+
+    
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                axiosOptions: localVarRequestOptions,
+            };
+        },
+        /**
          * Lists all CampaignTemplates. Scope can be reduced via standard V3 query params.  All CampaignTemplates matching the query params
          * @summary List Campaign Templates
          * @param {number} [limit] Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
@@ -22443,6 +22485,17 @@ export const CertificationCampaignsApiFp = function(configuration?: Configuratio
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
+         * Fetches a campaign template by ID.
+         * @summary Get a Campaign Template
+         * @param {string} id The desired campaign template\&#39;s ID.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        async getCampaignTemplate(id: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<CampaignTemplate>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getCampaignTemplate(id, axiosOptions);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
          * Lists all CampaignTemplates. Scope can be reduced via standard V3 query params.  All CampaignTemplates matching the query params
          * @summary List Campaign Templates
          * @param {number} [limit] Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
@@ -22644,6 +22697,16 @@ export const CertificationCampaignsApiFactory = function (configuration?: Config
          */
         getCampaignReportsConfig(axiosOptions?: any): AxiosPromise<CampaignReportsConfig> {
             return localVarFp.getCampaignReportsConfig(axiosOptions).then((request) => request(axios, basePath));
+        },
+        /**
+         * Fetches a campaign template by ID.
+         * @summary Get a Campaign Template
+         * @param {string} id The desired campaign template\&#39;s ID.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        getCampaignTemplate(id: string, axiosOptions?: any): AxiosPromise<CampaignTemplate> {
+            return localVarFp.getCampaignTemplate(id, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * Lists all CampaignTemplates. Scope can be reduced via standard V3 query params.  All CampaignTemplates matching the query params
@@ -22885,6 +22948,20 @@ export interface CertificationCampaignsApiGetCampaignReportsRequest {
      * @memberof CertificationCampaignsApiGetCampaignReports
      */
     readonly campaignId: string
+}
+
+/**
+ * Request parameters for getCampaignTemplate operation in CertificationCampaignsApi.
+ * @export
+ * @interface CertificationCampaignsApiGetCampaignTemplateRequest
+ */
+export interface CertificationCampaignsApiGetCampaignTemplateRequest {
+    /**
+     * The desired campaign template\&#39;s ID.
+     * @type {string}
+     * @memberof CertificationCampaignsApiGetCampaignTemplate
+     */
+    readonly id: string
 }
 
 /**
@@ -23176,6 +23253,18 @@ export class CertificationCampaignsApi extends BaseAPI {
      */
     public getCampaignReportsConfig(axiosOptions?: AxiosRequestConfig) {
         return CertificationCampaignsApiFp(this.configuration).getCampaignReportsConfig(axiosOptions).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Fetches a campaign template by ID.
+     * @summary Get a Campaign Template
+     * @param {CertificationCampaignsApiGetCampaignTemplateRequest} requestParameters Request parameters.
+     * @param {*} [axiosOptions] Override http request option.
+     * @throws {RequiredError}
+     * @memberof CertificationCampaignsApi
+     */
+    public getCampaignTemplate(requestParameters: CertificationCampaignsApiGetCampaignTemplateRequest, axiosOptions?: AxiosRequestConfig) {
+        return CertificationCampaignsApiFp(this.configuration).getCampaignTemplate(requestParameters.id, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
