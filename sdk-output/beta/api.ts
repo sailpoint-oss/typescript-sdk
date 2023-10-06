@@ -44508,7 +44508,137 @@ export class IdentitiesBetaApi extends BaseAPI {
 export const IdentityAttributesBetaApiAxiosParamCreator = function (configuration?: Configuration) {
     return {
         /**
-         * This gets an identity attributes for a given technical name.
+         * This creates a new identity attribute.
+         * @summary Create Identity Attribute
+         * @param {IdentityAttributeBeta} identityAttributeBeta 
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        createIdentityAttribute: async (identityAttributeBeta: IdentityAttributeBeta, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'identityAttributeBeta' is not null or undefined
+            assertParamExists('createIdentityAttribute', 'identityAttributeBeta', identityAttributeBeta)
+            const localVarPath = `/identity-attributes/{name}`;
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'POST', ...baseOptions, ...axiosOptions};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication UserContextAuth required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "UserContextAuth", [], configuration)
+
+            // authentication UserContextAuth required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "UserContextAuth", [], configuration)
+
+
+    
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
+            localVarRequestOptions.data = serializeDataIfNeeded(identityAttributeBeta, localVarRequestOptions, configuration)
+
+            return {
+                url: toPathString(localVarUrlObj),
+                axiosOptions: localVarRequestOptions,
+            };
+        },
+        /**
+         * This deletes an identity attribute for a given technical name.
+         * @summary Delete Identity Attribute
+         * @param {string} name The attribute\&#39;s technical name.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        deleteIdentityAttribute: async (name: string, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'name' is not null or undefined
+            assertParamExists('deleteIdentityAttribute', 'name', name)
+            const localVarPath = `/identity-attributes/{name}`
+                .replace(`{${"name"}}`, encodeURIComponent(String(name)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'DELETE', ...baseOptions, ...axiosOptions};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication UserContextAuth required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "UserContextAuth", [], configuration)
+
+            // authentication UserContextAuth required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "UserContextAuth", [], configuration)
+
+
+    
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                axiosOptions: localVarRequestOptions,
+            };
+        },
+        /**
+         * This deletes identity attributes for a given set of technical names.
+         * @summary Bulk delete Identity Attributes
+         * @param {Array<string>} requestBody 
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        deleteIdentityAttributesInBulk: async (requestBody: Array<string>, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'requestBody' is not null or undefined
+            assertParamExists('deleteIdentityAttributesInBulk', 'requestBody', requestBody)
+            const localVarPath = `/identity-attributes/bulk-delete`;
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'POST', ...baseOptions, ...axiosOptions};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication UserContextAuth required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "UserContextAuth", [], configuration)
+
+            // authentication UserContextAuth required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "UserContextAuth", [], configuration)
+
+
+    
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
+            localVarRequestOptions.data = serializeDataIfNeeded(requestBody, localVarRequestOptions, configuration)
+
+            return {
+                url: toPathString(localVarUrlObj),
+                axiosOptions: localVarRequestOptions,
+            };
+        },
+        /**
+         * This gets an identity attribute for a given technical name.
          * @summary Get Identity Attribute
          * @param {string} name The attribute\&#39;s technical name.
          * @param {*} [axiosOptions] Override http request option.
@@ -44618,7 +44748,40 @@ export const IdentityAttributesBetaApiFp = function(configuration?: Configuratio
     const localVarAxiosParamCreator = IdentityAttributesBetaApiAxiosParamCreator(configuration)
     return {
         /**
-         * This gets an identity attributes for a given technical name.
+         * This creates a new identity attribute.
+         * @summary Create Identity Attribute
+         * @param {IdentityAttributeBeta} identityAttributeBeta 
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        async createIdentityAttribute(identityAttributeBeta: IdentityAttributeBeta, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<IdentityAttributeBeta>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.createIdentityAttribute(identityAttributeBeta, axiosOptions);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * This deletes an identity attribute for a given technical name.
+         * @summary Delete Identity Attribute
+         * @param {string} name The attribute\&#39;s technical name.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        async deleteIdentityAttribute(name: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.deleteIdentityAttribute(name, axiosOptions);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * This deletes identity attributes for a given set of technical names.
+         * @summary Bulk delete Identity Attributes
+         * @param {Array<string>} requestBody 
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        async deleteIdentityAttributesInBulk(requestBody: Array<string>, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.deleteIdentityAttributesInBulk(requestBody, axiosOptions);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * This gets an identity attribute for a given technical name.
          * @summary Get Identity Attribute
          * @param {string} name The attribute\&#39;s technical name.
          * @param {*} [axiosOptions] Override http request option.
@@ -44653,7 +44816,37 @@ export const IdentityAttributesBetaApiFactory = function (configuration?: Config
     const localVarFp = IdentityAttributesBetaApiFp(configuration)
     return {
         /**
-         * This gets an identity attributes for a given technical name.
+         * This creates a new identity attribute.
+         * @summary Create Identity Attribute
+         * @param {IdentityAttributeBeta} identityAttributeBeta 
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        createIdentityAttribute(identityAttributeBeta: IdentityAttributeBeta, axiosOptions?: any): AxiosPromise<IdentityAttributeBeta> {
+            return localVarFp.createIdentityAttribute(identityAttributeBeta, axiosOptions).then((request) => request(axios, basePath));
+        },
+        /**
+         * This deletes an identity attribute for a given technical name.
+         * @summary Delete Identity Attribute
+         * @param {string} name The attribute\&#39;s technical name.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        deleteIdentityAttribute(name: string, axiosOptions?: any): AxiosPromise<void> {
+            return localVarFp.deleteIdentityAttribute(name, axiosOptions).then((request) => request(axios, basePath));
+        },
+        /**
+         * This deletes identity attributes for a given set of technical names.
+         * @summary Bulk delete Identity Attributes
+         * @param {Array<string>} requestBody 
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        deleteIdentityAttributesInBulk(requestBody: Array<string>, axiosOptions?: any): AxiosPromise<void> {
+            return localVarFp.deleteIdentityAttributesInBulk(requestBody, axiosOptions).then((request) => request(axios, basePath));
+        },
+        /**
+         * This gets an identity attribute for a given technical name.
          * @summary Get Identity Attribute
          * @param {string} name The attribute\&#39;s technical name.
          * @param {*} [axiosOptions] Override http request option.
@@ -44677,6 +44870,48 @@ export const IdentityAttributesBetaApiFactory = function (configuration?: Config
         },
     };
 };
+
+/**
+ * Request parameters for createIdentityAttribute operation in IdentityAttributesBetaApi.
+ * @export
+ * @interface IdentityAttributesBetaApiCreateIdentityAttributeRequest
+ */
+export interface IdentityAttributesBetaApiCreateIdentityAttributeRequest {
+    /**
+     * 
+     * @type {IdentityAttributeBeta}
+     * @memberof IdentityAttributesBetaApiCreateIdentityAttribute
+     */
+    readonly identityAttributeBeta: IdentityAttributeBeta
+}
+
+/**
+ * Request parameters for deleteIdentityAttribute operation in IdentityAttributesBetaApi.
+ * @export
+ * @interface IdentityAttributesBetaApiDeleteIdentityAttributeRequest
+ */
+export interface IdentityAttributesBetaApiDeleteIdentityAttributeRequest {
+    /**
+     * The attribute\&#39;s technical name.
+     * @type {string}
+     * @memberof IdentityAttributesBetaApiDeleteIdentityAttribute
+     */
+    readonly name: string
+}
+
+/**
+ * Request parameters for deleteIdentityAttributesInBulk operation in IdentityAttributesBetaApi.
+ * @export
+ * @interface IdentityAttributesBetaApiDeleteIdentityAttributesInBulkRequest
+ */
+export interface IdentityAttributesBetaApiDeleteIdentityAttributesInBulkRequest {
+    /**
+     * 
+     * @type {Array<string>}
+     * @memberof IdentityAttributesBetaApiDeleteIdentityAttributesInBulk
+     */
+    readonly requestBody: Array<string>
+}
 
 /**
  * Request parameters for getIdentityAttribute operation in IdentityAttributesBetaApi.
@@ -44735,7 +44970,43 @@ export interface IdentityAttributesBetaApiListIdentityAttributesRequest {
  */
 export class IdentityAttributesBetaApi extends BaseAPI {
     /**
-     * This gets an identity attributes for a given technical name.
+     * This creates a new identity attribute.
+     * @summary Create Identity Attribute
+     * @param {IdentityAttributesBetaApiCreateIdentityAttributeRequest} requestParameters Request parameters.
+     * @param {*} [axiosOptions] Override http request option.
+     * @throws {RequiredError}
+     * @memberof IdentityAttributesBetaApi
+     */
+    public createIdentityAttribute(requestParameters: IdentityAttributesBetaApiCreateIdentityAttributeRequest, axiosOptions?: AxiosRequestConfig) {
+        return IdentityAttributesBetaApiFp(this.configuration).createIdentityAttribute(requestParameters.identityAttributeBeta, axiosOptions).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * This deletes an identity attribute for a given technical name.
+     * @summary Delete Identity Attribute
+     * @param {IdentityAttributesBetaApiDeleteIdentityAttributeRequest} requestParameters Request parameters.
+     * @param {*} [axiosOptions] Override http request option.
+     * @throws {RequiredError}
+     * @memberof IdentityAttributesBetaApi
+     */
+    public deleteIdentityAttribute(requestParameters: IdentityAttributesBetaApiDeleteIdentityAttributeRequest, axiosOptions?: AxiosRequestConfig) {
+        return IdentityAttributesBetaApiFp(this.configuration).deleteIdentityAttribute(requestParameters.name, axiosOptions).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * This deletes identity attributes for a given set of technical names.
+     * @summary Bulk delete Identity Attributes
+     * @param {IdentityAttributesBetaApiDeleteIdentityAttributesInBulkRequest} requestParameters Request parameters.
+     * @param {*} [axiosOptions] Override http request option.
+     * @throws {RequiredError}
+     * @memberof IdentityAttributesBetaApi
+     */
+    public deleteIdentityAttributesInBulk(requestParameters: IdentityAttributesBetaApiDeleteIdentityAttributesInBulkRequest, axiosOptions?: AxiosRequestConfig) {
+        return IdentityAttributesBetaApiFp(this.configuration).deleteIdentityAttributesInBulk(requestParameters.requestBody, axiosOptions).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * This gets an identity attribute for a given technical name.
      * @summary Get Identity Attribute
      * @param {IdentityAttributesBetaApiGetIdentityAttributeRequest} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
