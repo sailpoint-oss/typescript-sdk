@@ -17508,7 +17508,13 @@ export interface RecommendationConfigDtoBeta {
      * @type {boolean}
      * @memberof RecommendationConfigDtoBeta
      */
-    'forceRefresh'?: boolean;
+    'runAutoSelectOnce'?: boolean;
+    /**
+     * If true, rulesRecommenderConfig will be refreshed with new programatically selected threshold values on the next pipeline run
+     * @type {boolean}
+     * @memberof RecommendationConfigDtoBeta
+     */
+    'onlyTuneThreshold'?: boolean;
 }
 /**
  * 
