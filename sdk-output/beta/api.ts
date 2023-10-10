@@ -44747,6 +44747,54 @@ export const IdentityAttributesBetaApiAxiosParamCreator = function (configuratio
                 axiosOptions: localVarRequestOptions,
             };
         },
+        /**
+         * This updates an existing identity attribute.
+         * @summary Update Identity Attribute
+         * @param {string} name The attribute\&#39;s technical name.
+         * @param {IdentityAttributeBeta} identityAttributeBeta 
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        putIdentityAttribute: async (name: string, identityAttributeBeta: IdentityAttributeBeta, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'name' is not null or undefined
+            assertParamExists('putIdentityAttribute', 'name', name)
+            // verify required parameter 'identityAttributeBeta' is not null or undefined
+            assertParamExists('putIdentityAttribute', 'identityAttributeBeta', identityAttributeBeta)
+            const localVarPath = `/identity-attributes/{name}`
+                .replace(`{${"name"}}`, encodeURIComponent(String(name)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'PUT', ...baseOptions, ...axiosOptions};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication UserContextAuth required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "UserContextAuth", [], configuration)
+
+            // authentication UserContextAuth required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "UserContextAuth", [], configuration)
+
+
+    
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
+            localVarRequestOptions.data = serializeDataIfNeeded(identityAttributeBeta, localVarRequestOptions, configuration)
+
+            return {
+                url: toPathString(localVarUrlObj),
+                axiosOptions: localVarRequestOptions,
+            };
+        },
     }
 };
 
@@ -44815,6 +44863,18 @@ export const IdentityAttributesBetaApiFp = function(configuration?: Configuratio
             const localVarAxiosArgs = await localVarAxiosParamCreator.listIdentityAttributes(includeSystem, includeSilent, searchableOnly, count, axiosOptions);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
+        /**
+         * This updates an existing identity attribute.
+         * @summary Update Identity Attribute
+         * @param {string} name The attribute\&#39;s technical name.
+         * @param {IdentityAttributeBeta} identityAttributeBeta 
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        async putIdentityAttribute(name: string, identityAttributeBeta: IdentityAttributeBeta, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<IdentityAttributeBeta>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.putIdentityAttribute(name, identityAttributeBeta, axiosOptions);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
     }
 };
 
@@ -44877,6 +44937,17 @@ export const IdentityAttributesBetaApiFactory = function (configuration?: Config
          */
         listIdentityAttributes(includeSystem?: boolean, includeSilent?: boolean, searchableOnly?: boolean, count?: boolean, axiosOptions?: any): AxiosPromise<Array<IdentityAttributeBeta>> {
             return localVarFp.listIdentityAttributes(includeSystem, includeSilent, searchableOnly, count, axiosOptions).then((request) => request(axios, basePath));
+        },
+        /**
+         * This updates an existing identity attribute.
+         * @summary Update Identity Attribute
+         * @param {string} name The attribute\&#39;s technical name.
+         * @param {IdentityAttributeBeta} identityAttributeBeta 
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        putIdentityAttribute(name: string, identityAttributeBeta: IdentityAttributeBeta, axiosOptions?: any): AxiosPromise<IdentityAttributeBeta> {
+            return localVarFp.putIdentityAttribute(name, identityAttributeBeta, axiosOptions).then((request) => request(axios, basePath));
         },
     };
 };
@@ -44973,6 +45044,27 @@ export interface IdentityAttributesBetaApiListIdentityAttributesRequest {
 }
 
 /**
+ * Request parameters for putIdentityAttribute operation in IdentityAttributesBetaApi.
+ * @export
+ * @interface IdentityAttributesBetaApiPutIdentityAttributeRequest
+ */
+export interface IdentityAttributesBetaApiPutIdentityAttributeRequest {
+    /**
+     * The attribute\&#39;s technical name.
+     * @type {string}
+     * @memberof IdentityAttributesBetaApiPutIdentityAttribute
+     */
+    readonly name: string
+
+    /**
+     * 
+     * @type {IdentityAttributeBeta}
+     * @memberof IdentityAttributesBetaApiPutIdentityAttribute
+     */
+    readonly identityAttributeBeta: IdentityAttributeBeta
+}
+
+/**
  * IdentityAttributesBetaApi - object-oriented interface
  * @export
  * @class IdentityAttributesBetaApi
@@ -45037,6 +45129,18 @@ export class IdentityAttributesBetaApi extends BaseAPI {
      */
     public listIdentityAttributes(requestParameters: IdentityAttributesBetaApiListIdentityAttributesRequest = {}, axiosOptions?: AxiosRequestConfig) {
         return IdentityAttributesBetaApiFp(this.configuration).listIdentityAttributes(requestParameters.includeSystem, requestParameters.includeSilent, requestParameters.searchableOnly, requestParameters.count, axiosOptions).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * This updates an existing identity attribute.
+     * @summary Update Identity Attribute
+     * @param {IdentityAttributesBetaApiPutIdentityAttributeRequest} requestParameters Request parameters.
+     * @param {*} [axiosOptions] Override http request option.
+     * @throws {RequiredError}
+     * @memberof IdentityAttributesBetaApi
+     */
+    public putIdentityAttribute(requestParameters: IdentityAttributesBetaApiPutIdentityAttributeRequest, axiosOptions?: AxiosRequestConfig) {
+        return IdentityAttributesBetaApiFp(this.configuration).putIdentityAttribute(requestParameters.name, requestParameters.identityAttributeBeta, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 }
 
