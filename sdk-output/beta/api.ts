@@ -8544,9 +8544,11 @@ export const ExportOptionsBetaExcludeTypesEnum = {
     PublicIdentitiesConfig: 'PUBLIC_IDENTITIES_CONFIG',
     Role: 'ROLE',
     Rule: 'RULE',
+    Segment: 'SEGMENT',
     ServiceDeskIntegration: 'SERVICE_DESK_INTEGRATION',
     SodPolicy: 'SOD_POLICY',
     Source: 'SOURCE',
+    Tag: 'TAG',
     Transform: 'TRANSFORM',
     TriggerSubscription: 'TRIGGER_SUBSCRIPTION',
     Workflow: 'WORKFLOW'
@@ -8570,9 +8572,11 @@ export const ExportOptionsBetaIncludeTypesEnum = {
     PublicIdentitiesConfig: 'PUBLIC_IDENTITIES_CONFIG',
     Role: 'ROLE',
     Rule: 'RULE',
+    Segment: 'SEGMENT',
     ServiceDeskIntegration: 'SERVICE_DESK_INTEGRATION',
     SodPolicy: 'SOD_POLICY',
     Source: 'SOURCE',
+    Tag: 'TAG',
     Transform: 'TRANSFORM',
     TriggerSubscription: 'TRIGGER_SUBSCRIPTION',
     Workflow: 'WORKFLOW'
@@ -8629,9 +8633,11 @@ export const ExportPayloadBetaExcludeTypesEnum = {
     PublicIdentitiesConfig: 'PUBLIC_IDENTITIES_CONFIG',
     Role: 'ROLE',
     Rule: 'RULE',
+    Segment: 'SEGMENT',
     ServiceDeskIntegration: 'SERVICE_DESK_INTEGRATION',
     SodPolicy: 'SOD_POLICY',
     Source: 'SOURCE',
+    Tag: 'TAG',
     Transform: 'TRANSFORM',
     TriggerSubscription: 'TRIGGER_SUBSCRIPTION',
     Workflow: 'WORKFLOW'
@@ -8655,9 +8661,11 @@ export const ExportPayloadBetaIncludeTypesEnum = {
     PublicIdentitiesConfig: 'PUBLIC_IDENTITIES_CONFIG',
     Role: 'ROLE',
     Rule: 'RULE',
+    Segment: 'SEGMENT',
     ServiceDeskIntegration: 'SERVICE_DESK_INTEGRATION',
     SodPolicy: 'SOD_POLICY',
     Source: 'SOURCE',
+    Tag: 'TAG',
     Transform: 'TRANSFORM',
     TriggerSubscription: 'TRIGGER_SUBSCRIPTION',
     Workflow: 'WORKFLOW'
@@ -9974,11 +9982,11 @@ export type FullcampaignAllOfFilterBetaTypeEnum = typeof FullcampaignAllOfFilter
  */
 export interface FullcampaignAllOfRoleCompositionCampaignInfoBeta {
     /**
-     * If specified, this identity or governance group will be the reviewer for all certifications in this campaign. The allowed DTO types are IDENTITY and GOVERNANCE_GROUP
-     * @type {BaseReferenceDto1Beta & object}
+     * 
+     * @type {FullcampaignAllOfSearchCampaignInfoReviewerBeta}
      * @memberof FullcampaignAllOfRoleCompositionCampaignInfoBeta
      */
-    'reviewer'?: BaseReferenceDto1Beta & object;
+    'reviewer'?: FullcampaignAllOfSearchCampaignInfoReviewerBeta;
     /**
      * Optional list of roles to include in this campaign. Only one of `roleIds` and `query` may be set; if neither are set, all roles are included.
      * @type {Array<string>}
@@ -10055,11 +10063,11 @@ export interface FullcampaignAllOfSearchCampaignInfoBeta {
      */
     'description'?: string;
     /**
-     * If specified, this identity or governance group will be the reviewer for all certifications in this campaign. The allowed DTO types are IDENTITY and GOVERNANCE_GROUP
-     * @type {BaseReferenceDto1Beta & object}
+     * 
+     * @type {FullcampaignAllOfSearchCampaignInfoReviewerBeta}
      * @memberof FullcampaignAllOfSearchCampaignInfoBeta
      */
-    'reviewer'?: BaseReferenceDto1Beta & object;
+    'reviewer'?: FullcampaignAllOfSearchCampaignInfoReviewerBeta;
     /**
      * The scope for the campaign. The campaign will cover identities returned by the query and identities that have access items returned by the query. One of `query` or `identityIds` must be set.
      * @type {string}
@@ -10086,6 +10094,39 @@ export const FullcampaignAllOfSearchCampaignInfoBetaTypeEnum = {
 } as const;
 
 export type FullcampaignAllOfSearchCampaignInfoBetaTypeEnum = typeof FullcampaignAllOfSearchCampaignInfoBetaTypeEnum[keyof typeof FullcampaignAllOfSearchCampaignInfoBetaTypeEnum];
+
+/**
+ * If specified, this identity or governance group will be the reviewer for all certifications in this campaign. The allowed DTO types are IDENTITY and GOVERNANCE_GROUP.
+ * @export
+ * @interface FullcampaignAllOfSearchCampaignInfoReviewerBeta
+ */
+export interface FullcampaignAllOfSearchCampaignInfoReviewerBeta {
+    /**
+     * The reviewer\'s DTO type.
+     * @type {string}
+     * @memberof FullcampaignAllOfSearchCampaignInfoReviewerBeta
+     */
+    'type'?: FullcampaignAllOfSearchCampaignInfoReviewerBetaTypeEnum;
+    /**
+     * The reviewer\'s ID.
+     * @type {string}
+     * @memberof FullcampaignAllOfSearchCampaignInfoReviewerBeta
+     */
+    'id'?: string;
+    /**
+     * The reviewer\'s name.
+     * @type {string}
+     * @memberof FullcampaignAllOfSearchCampaignInfoReviewerBeta
+     */
+    'name'?: string;
+}
+
+export const FullcampaignAllOfSearchCampaignInfoReviewerBetaTypeEnum = {
+    GovernanceGroup: 'GOVERNANCE_GROUP',
+    Identity: 'IDENTITY'
+} as const;
+
+export type FullcampaignAllOfSearchCampaignInfoReviewerBetaTypeEnum = typeof FullcampaignAllOfSearchCampaignInfoReviewerBetaTypeEnum[keyof typeof FullcampaignAllOfSearchCampaignInfoReviewerBetaTypeEnum];
 
 /**
  * Must be set only if the campaign type is SOURCE_OWNER.

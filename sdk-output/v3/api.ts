@@ -4245,11 +4245,11 @@ export type CampaignAllOfFilterTypeEnum = typeof CampaignAllOfFilterTypeEnum[key
  */
 export interface CampaignAllOfRoleCompositionCampaignInfo {
     /**
-     * If specified, this identity or governance group will be the reviewer for all certifications in this campaign. The allowed DTO types are IDENTITY and GOVERNANCE_GROUP
-     * @type {BaseReferenceDto & object}
+     * 
+     * @type {CampaignAllOfSearchCampaignInfoReviewer}
      * @memberof CampaignAllOfRoleCompositionCampaignInfo
      */
-    'reviewer'?: BaseReferenceDto & object;
+    'reviewer'?: CampaignAllOfSearchCampaignInfoReviewer;
     /**
      * Optional list of roles to include in this campaign. Only one of `roleIds` and `query` may be set; if neither are set, all roles are included.
      * @type {Array<string>}
@@ -4326,11 +4326,11 @@ export interface CampaignAllOfSearchCampaignInfo {
      */
     'description'?: string;
     /**
-     * If specified, this identity or governance group will be the reviewer for all certifications in this campaign. The allowed DTO types are IDENTITY and GOVERNANCE_GROUP
-     * @type {BaseReferenceDto & object}
+     * 
+     * @type {CampaignAllOfSearchCampaignInfoReviewer}
      * @memberof CampaignAllOfSearchCampaignInfo
      */
-    'reviewer'?: BaseReferenceDto & object;
+    'reviewer'?: CampaignAllOfSearchCampaignInfoReviewer;
     /**
      * The scope for the campaign. The campaign will cover identities returned by the query and identities that have access items returned by the query. One of `query` or `identityIds` must be set.
      * @type {string}
@@ -4357,6 +4357,39 @@ export const CampaignAllOfSearchCampaignInfoTypeEnum = {
 } as const;
 
 export type CampaignAllOfSearchCampaignInfoTypeEnum = typeof CampaignAllOfSearchCampaignInfoTypeEnum[keyof typeof CampaignAllOfSearchCampaignInfoTypeEnum];
+
+/**
+ * If specified, this identity or governance group will be the reviewer for all certifications in this campaign. The allowed DTO types are IDENTITY and GOVERNANCE_GROUP.
+ * @export
+ * @interface CampaignAllOfSearchCampaignInfoReviewer
+ */
+export interface CampaignAllOfSearchCampaignInfoReviewer {
+    /**
+     * The reviewer\'s DTO type.
+     * @type {string}
+     * @memberof CampaignAllOfSearchCampaignInfoReviewer
+     */
+    'type'?: CampaignAllOfSearchCampaignInfoReviewerTypeEnum;
+    /**
+     * The reviewer\'s ID.
+     * @type {string}
+     * @memberof CampaignAllOfSearchCampaignInfoReviewer
+     */
+    'id'?: string;
+    /**
+     * The reviewer\'s name.
+     * @type {string}
+     * @memberof CampaignAllOfSearchCampaignInfoReviewer
+     */
+    'name'?: string;
+}
+
+export const CampaignAllOfSearchCampaignInfoReviewerTypeEnum = {
+    GovernanceGroup: 'GOVERNANCE_GROUP',
+    Identity: 'IDENTITY'
+} as const;
+
+export type CampaignAllOfSearchCampaignInfoReviewerTypeEnum = typeof CampaignAllOfSearchCampaignInfoReviewerTypeEnum[keyof typeof CampaignAllOfSearchCampaignInfoReviewerTypeEnum];
 
 /**
  * Must be set only if the campaign type is SOURCE_OWNER.
