@@ -19299,9 +19299,9 @@ export const AccessRequestsApiAxiosParamCreator = function (configuration?: Conf
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        updateAccessRequestConfig: async (accessRequestConfig: AccessRequestConfig, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        setAccessRequestConfig: async (accessRequestConfig: AccessRequestConfig, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'accessRequestConfig' is not null or undefined
-            assertParamExists('updateAccessRequestConfig', 'accessRequestConfig', accessRequestConfig)
+            assertParamExists('setAccessRequestConfig', 'accessRequestConfig', accessRequestConfig)
             const localVarPath = `/access-request-config`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -19403,8 +19403,8 @@ export const AccessRequestsApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async updateAccessRequestConfig(accessRequestConfig: AccessRequestConfig, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<AccessRequestConfig>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.updateAccessRequestConfig(accessRequestConfig, axiosOptions);
+        async setAccessRequestConfig(accessRequestConfig: AccessRequestConfig, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<AccessRequestConfig>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.setAccessRequestConfig(accessRequestConfig, axiosOptions);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
     }
@@ -19470,8 +19470,8 @@ export const AccessRequestsApiFactory = function (configuration?: Configuration,
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        updateAccessRequestConfig(accessRequestConfig: AccessRequestConfig, axiosOptions?: any): AxiosPromise<AccessRequestConfig> {
-            return localVarFp.updateAccessRequestConfig(accessRequestConfig, axiosOptions).then((request) => request(axios, basePath));
+        setAccessRequestConfig(accessRequestConfig: AccessRequestConfig, axiosOptions?: any): AxiosPromise<AccessRequestConfig> {
+            return localVarFp.setAccessRequestConfig(accessRequestConfig, axiosOptions).then((request) => request(axios, basePath));
         },
     };
 };
@@ -19568,15 +19568,15 @@ export interface AccessRequestsApiListAccessRequestStatusRequest {
 }
 
 /**
- * Request parameters for updateAccessRequestConfig operation in AccessRequestsApi.
+ * Request parameters for setAccessRequestConfig operation in AccessRequestsApi.
  * @export
- * @interface AccessRequestsApiUpdateAccessRequestConfigRequest
+ * @interface AccessRequestsApiSetAccessRequestConfigRequest
  */
-export interface AccessRequestsApiUpdateAccessRequestConfigRequest {
+export interface AccessRequestsApiSetAccessRequestConfigRequest {
     /**
      * 
      * @type {AccessRequestConfig}
-     * @memberof AccessRequestsApiUpdateAccessRequestConfig
+     * @memberof AccessRequestsApiSetAccessRequestConfig
      */
     readonly accessRequestConfig: AccessRequestConfig
 }
@@ -19638,13 +19638,13 @@ export class AccessRequestsApi extends BaseAPI {
     /**
      * This endpoint replaces the current access-request configuration. A token with ORG_ADMIN authority is required to call this API.
      * @summary Update Access Request Configuration
-     * @param {AccessRequestsApiUpdateAccessRequestConfigRequest} requestParameters Request parameters.
+     * @param {AccessRequestsApiSetAccessRequestConfigRequest} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
      * @memberof AccessRequestsApi
      */
-    public updateAccessRequestConfig(requestParameters: AccessRequestsApiUpdateAccessRequestConfigRequest, axiosOptions?: AxiosRequestConfig) {
-        return AccessRequestsApiFp(this.configuration).updateAccessRequestConfig(requestParameters.accessRequestConfig, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public setAccessRequestConfig(requestParameters: AccessRequestsApiSetAccessRequestConfigRequest, axiosOptions?: AxiosRequestConfig) {
+        return AccessRequestsApiFp(this.configuration).setAccessRequestConfig(requestParameters.accessRequestConfig, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 }
 

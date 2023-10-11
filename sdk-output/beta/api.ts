@@ -27832,9 +27832,9 @@ export const AccessRequestsBetaApiAxiosParamCreator = function (configuration?: 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        updateAccessRequestConfig: async (accessRequestConfigBeta: AccessRequestConfigBeta, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        setAccessRequestConfig: async (accessRequestConfigBeta: AccessRequestConfigBeta, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'accessRequestConfigBeta' is not null or undefined
-            assertParamExists('updateAccessRequestConfig', 'accessRequestConfigBeta', accessRequestConfigBeta)
+            assertParamExists('setAccessRequestConfig', 'accessRequestConfigBeta', accessRequestConfigBeta)
             const localVarPath = `/access-request-config`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -27947,8 +27947,8 @@ export const AccessRequestsBetaApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async updateAccessRequestConfig(accessRequestConfigBeta: AccessRequestConfigBeta, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<AccessRequestConfigBeta>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.updateAccessRequestConfig(accessRequestConfigBeta, axiosOptions);
+        async setAccessRequestConfig(accessRequestConfigBeta: AccessRequestConfigBeta, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<AccessRequestConfigBeta>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.setAccessRequestConfig(accessRequestConfigBeta, axiosOptions);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
     }
@@ -28024,8 +28024,8 @@ export const AccessRequestsBetaApiFactory = function (configuration?: Configurat
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        updateAccessRequestConfig(accessRequestConfigBeta: AccessRequestConfigBeta, axiosOptions?: any): AxiosPromise<AccessRequestConfigBeta> {
-            return localVarFp.updateAccessRequestConfig(accessRequestConfigBeta, axiosOptions).then((request) => request(axios, basePath));
+        setAccessRequestConfig(accessRequestConfigBeta: AccessRequestConfigBeta, axiosOptions?: any): AxiosPromise<AccessRequestConfigBeta> {
+            return localVarFp.setAccessRequestConfig(accessRequestConfigBeta, axiosOptions).then((request) => request(axios, basePath));
         },
     };
 };
@@ -28136,15 +28136,15 @@ export interface AccessRequestsBetaApiListAccessRequestStatusRequest {
 }
 
 /**
- * Request parameters for updateAccessRequestConfig operation in AccessRequestsBetaApi.
+ * Request parameters for setAccessRequestConfig operation in AccessRequestsBetaApi.
  * @export
- * @interface AccessRequestsBetaApiUpdateAccessRequestConfigRequest
+ * @interface AccessRequestsBetaApiSetAccessRequestConfigRequest
  */
-export interface AccessRequestsBetaApiUpdateAccessRequestConfigRequest {
+export interface AccessRequestsBetaApiSetAccessRequestConfigRequest {
     /**
      * 
      * @type {AccessRequestConfigBeta}
-     * @memberof AccessRequestsBetaApiUpdateAccessRequestConfig
+     * @memberof AccessRequestsBetaApiSetAccessRequestConfig
      */
     readonly accessRequestConfigBeta: AccessRequestConfigBeta
 }
@@ -28218,13 +28218,13 @@ export class AccessRequestsBetaApi extends BaseAPI {
     /**
      * This endpoint replaces the current access-request configuration. A token with ORG_ADMIN authority is required to call this API.
      * @summary Update Access Request Configuration
-     * @param {AccessRequestsBetaApiUpdateAccessRequestConfigRequest} requestParameters Request parameters.
+     * @param {AccessRequestsBetaApiSetAccessRequestConfigRequest} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
      * @memberof AccessRequestsBetaApi
      */
-    public updateAccessRequestConfig(requestParameters: AccessRequestsBetaApiUpdateAccessRequestConfigRequest, axiosOptions?: AxiosRequestConfig) {
-        return AccessRequestsBetaApiFp(this.configuration).updateAccessRequestConfig(requestParameters.accessRequestConfigBeta, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public setAccessRequestConfig(requestParameters: AccessRequestsBetaApiSetAccessRequestConfigRequest, axiosOptions?: AxiosRequestConfig) {
+        return AccessRequestsBetaApiFp(this.configuration).setAccessRequestConfig(requestParameters.accessRequestConfigBeta, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 }
 
