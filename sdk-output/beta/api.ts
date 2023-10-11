@@ -10963,6 +10963,19 @@ export interface IdentityAttributeConfigBeta {
     'attributeTransforms'?: Array<IdentityAttributeTransformBeta>;
 }
 /**
+ * Identity Attribute IDs
+ * @export
+ * @interface IdentityAttributeNamesBeta
+ */
+export interface IdentityAttributeNamesBeta {
+    /**
+     * List of identity attributes\' technical names
+     * @type {Array<string>}
+     * @memberof IdentityAttributeNamesBeta
+     */
+    'ids'?: Array<string>;
+}
+/**
  * 
  * @export
  * @interface IdentityAttributePreviewBeta
@@ -44606,13 +44619,13 @@ export const IdentityAttributesBetaApiAxiosParamCreator = function (configuratio
         /**
          * This deletes identity attributes for a given set of technical names.
          * @summary Bulk delete Identity Attributes
-         * @param {Array<string>} requestBody 
+         * @param {IdentityAttributeNamesBeta} identityAttributeNamesBeta 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        deleteIdentityAttributesInBulk: async (requestBody: Array<string>, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
-            // verify required parameter 'requestBody' is not null or undefined
-            assertParamExists('deleteIdentityAttributesInBulk', 'requestBody', requestBody)
+        deleteIdentityAttributesInBulk: async (identityAttributeNamesBeta: IdentityAttributeNamesBeta, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'identityAttributeNamesBeta' is not null or undefined
+            assertParamExists('deleteIdentityAttributesInBulk', 'identityAttributeNamesBeta', identityAttributeNamesBeta)
             const localVarPath = `/identity-attributes/bulk-delete`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -44640,7 +44653,7 @@ export const IdentityAttributesBetaApiAxiosParamCreator = function (configuratio
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(requestBody, localVarRequestOptions, configuration)
+            localVarRequestOptions.data = serializeDataIfNeeded(identityAttributeNamesBeta, localVarRequestOptions, configuration)
 
             return {
                 url: toPathString(localVarUrlObj),
@@ -44830,12 +44843,12 @@ export const IdentityAttributesBetaApiFp = function(configuration?: Configuratio
         /**
          * This deletes identity attributes for a given set of technical names.
          * @summary Bulk delete Identity Attributes
-         * @param {Array<string>} requestBody 
+         * @param {IdentityAttributeNamesBeta} identityAttributeNamesBeta 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async deleteIdentityAttributesInBulk(requestBody: Array<string>, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.deleteIdentityAttributesInBulk(requestBody, axiosOptions);
+        async deleteIdentityAttributesInBulk(identityAttributeNamesBeta: IdentityAttributeNamesBeta, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.deleteIdentityAttributesInBulk(identityAttributeNamesBeta, axiosOptions);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
@@ -44908,12 +44921,12 @@ export const IdentityAttributesBetaApiFactory = function (configuration?: Config
         /**
          * This deletes identity attributes for a given set of technical names.
          * @summary Bulk delete Identity Attributes
-         * @param {Array<string>} requestBody 
+         * @param {IdentityAttributeNamesBeta} identityAttributeNamesBeta 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        deleteIdentityAttributesInBulk(requestBody: Array<string>, axiosOptions?: any): AxiosPromise<void> {
-            return localVarFp.deleteIdentityAttributesInBulk(requestBody, axiosOptions).then((request) => request(axios, basePath));
+        deleteIdentityAttributesInBulk(identityAttributeNamesBeta: IdentityAttributeNamesBeta, axiosOptions?: any): AxiosPromise<void> {
+            return localVarFp.deleteIdentityAttributesInBulk(identityAttributeNamesBeta, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * This gets an identity attribute for a given technical name.
@@ -44988,10 +45001,10 @@ export interface IdentityAttributesBetaApiDeleteIdentityAttributeRequest {
 export interface IdentityAttributesBetaApiDeleteIdentityAttributesInBulkRequest {
     /**
      * 
-     * @type {Array<string>}
+     * @type {IdentityAttributeNamesBeta}
      * @memberof IdentityAttributesBetaApiDeleteIdentityAttributesInBulk
      */
-    readonly requestBody: Array<string>
+    readonly identityAttributeNamesBeta: IdentityAttributeNamesBeta
 }
 
 /**
@@ -45104,7 +45117,7 @@ export class IdentityAttributesBetaApi extends BaseAPI {
      * @memberof IdentityAttributesBetaApi
      */
     public deleteIdentityAttributesInBulk(requestParameters: IdentityAttributesBetaApiDeleteIdentityAttributesInBulkRequest, axiosOptions?: AxiosRequestConfig) {
-        return IdentityAttributesBetaApiFp(this.configuration).deleteIdentityAttributesInBulk(requestParameters.requestBody, axiosOptions).then((request) => request(this.axios, this.basePath));
+        return IdentityAttributesBetaApiFp(this.configuration).deleteIdentityAttributesInBulk(requestParameters.identityAttributeNamesBeta, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
