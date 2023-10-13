@@ -13698,6 +13698,19 @@ export type RoleAssignmentSourceType = typeof RoleAssignmentSourceType[keyof typ
 
 
 /**
+ * 
+ * @export
+ * @interface RoleBulkDeleteRequest
+ */
+export interface RoleBulkDeleteRequest {
+    /**
+     * List of IDs of Roles to be deleted.
+     * @type {Array<string>}
+     * @memberof RoleBulkDeleteRequest
+     */
+    'roleIds': Array<string>;
+}
+/**
  * Refers to a specific Identity attribute, Account attibute, or Entitlement used in Role membership criteria
  * @export
  * @interface RoleCriteriaKey
@@ -33578,6 +33591,50 @@ export const RolesApiAxiosParamCreator = function (configuration?: Configuration
             };
         },
         /**
+         * This API initiates a bulk deletion of one or more Roles.  A token with API, ORG_ADMIN, ROLE_ADMIN, or ROLE_SUBADMIN authority is required to call this API. In addition, a token with ROLE_SUBADMIN authority may only call this API if all Roles included in the request are associated to Sources with management workgroups of which the ROLE_SUBADMIN is a member.
+         * @summary Delete Role(s)
+         * @param {RoleBulkDeleteRequest} roleBulkDeleteRequest 
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        deleteBulkRoles: async (roleBulkDeleteRequest: RoleBulkDeleteRequest, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'roleBulkDeleteRequest' is not null or undefined
+            assertParamExists('deleteBulkRoles', 'roleBulkDeleteRequest', roleBulkDeleteRequest)
+            const localVarPath = `/roles/bulk-delete`;
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'POST', ...baseOptions, ...axiosOptions};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication UserContextAuth required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "UserContextAuth", [], configuration)
+
+            // authentication UserContextAuth required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "UserContextAuth", [], configuration)
+
+
+    
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
+            localVarRequestOptions.data = serializeDataIfNeeded(roleBulkDeleteRequest, localVarRequestOptions, configuration)
+
+            return {
+                url: toPathString(localVarUrlObj),
+                axiosOptions: localVarRequestOptions,
+            };
+        },
+        /**
          * This API returns a Role by its ID.  A token with API, ORG_ADMIN, ROLE_ADMIN, or ROLE_SUBADMIN authority is required to call this API. In addition, a token with ROLE_SUBADMIN authority may only call this API if all Access Profiles included in the Role are associated to Sources with management workgroups of which the ROLE_SUBADMIN is a member.
          * @summary Get a Role
          * @param {string} id ID of the Role
@@ -33834,6 +33891,17 @@ export const RolesApiFp = function(configuration?: Configuration) {
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
+         * This API initiates a bulk deletion of one or more Roles.  A token with API, ORG_ADMIN, ROLE_ADMIN, or ROLE_SUBADMIN authority is required to call this API. In addition, a token with ROLE_SUBADMIN authority may only call this API if all Roles included in the request are associated to Sources with management workgroups of which the ROLE_SUBADMIN is a member.
+         * @summary Delete Role(s)
+         * @param {RoleBulkDeleteRequest} roleBulkDeleteRequest 
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        async deleteBulkRoles(roleBulkDeleteRequest: RoleBulkDeleteRequest, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<BaseReferenceDto>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.deleteBulkRoles(roleBulkDeleteRequest, axiosOptions);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
          * This API returns a Role by its ID.  A token with API, ORG_ADMIN, ROLE_ADMIN, or ROLE_SUBADMIN authority is required to call this API. In addition, a token with ROLE_SUBADMIN authority may only call this API if all Access Profiles included in the Role are associated to Sources with management workgroups of which the ROLE_SUBADMIN is a member.
          * @summary Get a Role
          * @param {string} id ID of the Role
@@ -33911,6 +33979,16 @@ export const RolesApiFactory = function (configuration?: Configuration, basePath
             return localVarFp.createRole(role, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
+         * This API initiates a bulk deletion of one or more Roles.  A token with API, ORG_ADMIN, ROLE_ADMIN, or ROLE_SUBADMIN authority is required to call this API. In addition, a token with ROLE_SUBADMIN authority may only call this API if all Roles included in the request are associated to Sources with management workgroups of which the ROLE_SUBADMIN is a member.
+         * @summary Delete Role(s)
+         * @param {RoleBulkDeleteRequest} roleBulkDeleteRequest 
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        deleteBulkRoles(roleBulkDeleteRequest: RoleBulkDeleteRequest, axiosOptions?: any): AxiosPromise<BaseReferenceDto> {
+            return localVarFp.deleteBulkRoles(roleBulkDeleteRequest, axiosOptions).then((request) => request(axios, basePath));
+        },
+        /**
          * This API returns a Role by its ID.  A token with API, ORG_ADMIN, ROLE_ADMIN, or ROLE_SUBADMIN authority is required to call this API. In addition, a token with ROLE_SUBADMIN authority may only call this API if all Access Profiles included in the Role are associated to Sources with management workgroups of which the ROLE_SUBADMIN is a member.
          * @summary Get a Role
          * @param {string} id ID of the Role
@@ -33978,6 +34056,20 @@ export interface RolesApiCreateRoleRequest {
      * @memberof RolesApiCreateRole
      */
     readonly role: Role
+}
+
+/**
+ * Request parameters for deleteBulkRoles operation in RolesApi.
+ * @export
+ * @interface RolesApiDeleteBulkRolesRequest
+ */
+export interface RolesApiDeleteBulkRolesRequest {
+    /**
+     * 
+     * @type {RoleBulkDeleteRequest}
+     * @memberof RolesApiDeleteBulkRoles
+     */
+    readonly roleBulkDeleteRequest: RoleBulkDeleteRequest
 }
 
 /**
@@ -34144,6 +34236,18 @@ export class RolesApi extends BaseAPI {
      */
     public createRole(requestParameters: RolesApiCreateRoleRequest, axiosOptions?: AxiosRequestConfig) {
         return RolesApiFp(this.configuration).createRole(requestParameters.role, axiosOptions).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * This API initiates a bulk deletion of one or more Roles.  A token with API, ORG_ADMIN, ROLE_ADMIN, or ROLE_SUBADMIN authority is required to call this API. In addition, a token with ROLE_SUBADMIN authority may only call this API if all Roles included in the request are associated to Sources with management workgroups of which the ROLE_SUBADMIN is a member.
+     * @summary Delete Role(s)
+     * @param {RolesApiDeleteBulkRolesRequest} requestParameters Request parameters.
+     * @param {*} [axiosOptions] Override http request option.
+     * @throws {RequiredError}
+     * @memberof RolesApi
+     */
+    public deleteBulkRoles(requestParameters: RolesApiDeleteBulkRolesRequest, axiosOptions?: AxiosRequestConfig) {
+        return RolesApiFp(this.configuration).deleteBulkRoles(requestParameters.roleBulkDeleteRequest, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
