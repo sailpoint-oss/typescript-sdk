@@ -26003,7 +26003,7 @@ export const AccessProfilesBetaApiAxiosParamCreator = function (configuration?: 
             };
         },
         /**
-         * This API deletes an existing Access Profile.  The Access Profile must not be in use. If it is, a 400 error is returned.  A token with API, ORG_ADMIN, SOURCE_ADMIN, or SOURCE_SUBADMIN authority is required to invoke this API. In addition, a SOURCE_SUBADMIN token must be able to administer the Source associated with the Access Profile.
+         * This API deletes an existing Access Profile.  The Access Profile must not be in use, for example, Access Profile can not be deleted if they belong to an Application, Life Cycle State or a Role. If it is, a 400 error is returned.  A token with API, ORG_ADMIN, SOURCE_ADMIN, or SOURCE_SUBADMIN authority is required to invoke this API. In addition, a SOURCE_SUBADMIN token must be able to administer the Source associated with the Access Profile.
          * @summary Delete the specified Access Profile
          * @param {string} id ID of the Access Profile to delete
          * @param {*} [axiosOptions] Override http request option.
@@ -26345,7 +26345,7 @@ export const AccessProfilesBetaApiFp = function(configuration?: Configuration) {
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
-         * This API deletes an existing Access Profile.  The Access Profile must not be in use. If it is, a 400 error is returned.  A token with API, ORG_ADMIN, SOURCE_ADMIN, or SOURCE_SUBADMIN authority is required to invoke this API. In addition, a SOURCE_SUBADMIN token must be able to administer the Source associated with the Access Profile.
+         * This API deletes an existing Access Profile.  The Access Profile must not be in use, for example, Access Profile can not be deleted if they belong to an Application, Life Cycle State or a Role. If it is, a 400 error is returned.  A token with API, ORG_ADMIN, SOURCE_ADMIN, or SOURCE_SUBADMIN authority is required to invoke this API. In addition, a SOURCE_SUBADMIN token must be able to administer the Source associated with the Access Profile.
          * @summary Delete the specified Access Profile
          * @param {string} id ID of the Access Profile to delete
          * @param {*} [axiosOptions] Override http request option.
@@ -26444,7 +26444,7 @@ export const AccessProfilesBetaApiFactory = function (configuration?: Configurat
             return localVarFp.createAccessProfile(accessProfileBeta, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
-         * This API deletes an existing Access Profile.  The Access Profile must not be in use. If it is, a 400 error is returned.  A token with API, ORG_ADMIN, SOURCE_ADMIN, or SOURCE_SUBADMIN authority is required to invoke this API. In addition, a SOURCE_SUBADMIN token must be able to administer the Source associated with the Access Profile.
+         * This API deletes an existing Access Profile.  The Access Profile must not be in use, for example, Access Profile can not be deleted if they belong to an Application, Life Cycle State or a Role. If it is, a 400 error is returned.  A token with API, ORG_ADMIN, SOURCE_ADMIN, or SOURCE_SUBADMIN authority is required to invoke this API. In addition, a SOURCE_SUBADMIN token must be able to administer the Source associated with the Access Profile.
          * @summary Delete the specified Access Profile
          * @param {string} id ID of the Access Profile to delete
          * @param {*} [axiosOptions] Override http request option.
@@ -26728,7 +26728,7 @@ export class AccessProfilesBetaApi extends BaseAPI {
     }
 
     /**
-     * This API deletes an existing Access Profile.  The Access Profile must not be in use. If it is, a 400 error is returned.  A token with API, ORG_ADMIN, SOURCE_ADMIN, or SOURCE_SUBADMIN authority is required to invoke this API. In addition, a SOURCE_SUBADMIN token must be able to administer the Source associated with the Access Profile.
+     * This API deletes an existing Access Profile.  The Access Profile must not be in use, for example, Access Profile can not be deleted if they belong to an Application, Life Cycle State or a Role. If it is, a 400 error is returned.  A token with API, ORG_ADMIN, SOURCE_ADMIN, or SOURCE_SUBADMIN authority is required to invoke this API. In addition, a SOURCE_SUBADMIN token must be able to administer the Source associated with the Access Profile.
      * @summary Delete the specified Access Profile
      * @param {AccessProfilesBetaApiDeleteAccessProfileRequest} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.

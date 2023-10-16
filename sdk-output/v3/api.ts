@@ -17616,6 +17616,48 @@ export const AccessProfilesApiAxiosParamCreator = function (configuration?: Conf
             };
         },
         /**
+         * This API deletes an existing Access Profile.  The Access Profile must not be in use, for example, Access Profile can not be deleted if they belong to an Application, Life Cycle State or a Role. If it is, a 400 error is returned.  A token with API, ORG_ADMIN, SOURCE_ADMIN, or SOURCE_SUBADMIN authority is required to invoke this API. In addition, a SOURCE_SUBADMIN token must be able to administer the Source associated with the Access Profile.
+         * @summary Delete the specified Access Profile
+         * @param {string} id ID of the Access Profile to delete
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        deleteAccessProfile: async (id: string, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'id' is not null or undefined
+            assertParamExists('deleteAccessProfile', 'id', id)
+            const localVarPath = `/access-profiles/{id}`
+                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'DELETE', ...baseOptions, ...axiosOptions};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication UserContextAuth required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "UserContextAuth", [], configuration)
+
+            // authentication UserContextAuth required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "UserContextAuth", [], configuration)
+
+
+    
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                axiosOptions: localVarRequestOptions,
+            };
+        },
+        /**
          * This API initiates a bulk deletion of one or more Access Profiles.  By default, if any of the indicated Access Profiles are in use, no deletions will be performed and the **inUse** field of the response indicates the usages that must be removed first. If the request field **bestEffortOnly** is **true**, however, usages are reported in the **inUse** response field but all other indicated Access Profiles will be deleted.  A token with API, ORG_ADMIN, SOURCE_ADMIN, or SOURCE_SUBADMIN authority is required to call this API. In addition, a SOURCE_SUBADMIN may only use this API to delete Access Profiles which are associated with Sources they are able to administer.
          * @summary Delete Access Profile(s)
          * @param {AccessProfileBulkDeleteRequest} accessProfileBulkDeleteRequest 
@@ -17916,6 +17958,17 @@ export const AccessProfilesApiFp = function(configuration?: Configuration) {
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
+         * This API deletes an existing Access Profile.  The Access Profile must not be in use, for example, Access Profile can not be deleted if they belong to an Application, Life Cycle State or a Role. If it is, a 400 error is returned.  A token with API, ORG_ADMIN, SOURCE_ADMIN, or SOURCE_SUBADMIN authority is required to invoke this API. In addition, a SOURCE_SUBADMIN token must be able to administer the Source associated with the Access Profile.
+         * @summary Delete the specified Access Profile
+         * @param {string} id ID of the Access Profile to delete
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        async deleteAccessProfile(id: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.deleteAccessProfile(id, axiosOptions);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
          * This API initiates a bulk deletion of one or more Access Profiles.  By default, if any of the indicated Access Profiles are in use, no deletions will be performed and the **inUse** field of the response indicates the usages that must be removed first. If the request field **bestEffortOnly** is **true**, however, usages are reported in the **inUse** response field but all other indicated Access Profiles will be deleted.  A token with API, ORG_ADMIN, SOURCE_ADMIN, or SOURCE_SUBADMIN authority is required to call this API. In addition, a SOURCE_SUBADMIN may only use this API to delete Access Profiles which are associated with Sources they are able to administer.
          * @summary Delete Access Profile(s)
          * @param {AccessProfileBulkDeleteRequest} accessProfileBulkDeleteRequest 
@@ -18004,6 +18057,16 @@ export const AccessProfilesApiFactory = function (configuration?: Configuration,
             return localVarFp.createAccessProfile(accessProfile, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
+         * This API deletes an existing Access Profile.  The Access Profile must not be in use, for example, Access Profile can not be deleted if they belong to an Application, Life Cycle State or a Role. If it is, a 400 error is returned.  A token with API, ORG_ADMIN, SOURCE_ADMIN, or SOURCE_SUBADMIN authority is required to invoke this API. In addition, a SOURCE_SUBADMIN token must be able to administer the Source associated with the Access Profile.
+         * @summary Delete the specified Access Profile
+         * @param {string} id ID of the Access Profile to delete
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        deleteAccessProfile(id: string, axiosOptions?: any): AxiosPromise<void> {
+            return localVarFp.deleteAccessProfile(id, axiosOptions).then((request) => request(axios, basePath));
+        },
+        /**
          * This API initiates a bulk deletion of one or more Access Profiles.  By default, if any of the indicated Access Profiles are in use, no deletions will be performed and the **inUse** field of the response indicates the usages that must be removed first. If the request field **bestEffortOnly** is **true**, however, usages are reported in the **inUse** response field but all other indicated Access Profiles will be deleted.  A token with API, ORG_ADMIN, SOURCE_ADMIN, or SOURCE_SUBADMIN authority is required to call this API. In addition, a SOURCE_SUBADMIN may only use this API to delete Access Profiles which are associated with Sources they are able to administer.
          * @summary Delete Access Profile(s)
          * @param {AccessProfileBulkDeleteRequest} accessProfileBulkDeleteRequest 
@@ -18081,6 +18144,20 @@ export interface AccessProfilesApiCreateAccessProfileRequest {
      * @memberof AccessProfilesApiCreateAccessProfile
      */
     readonly accessProfile: AccessProfile
+}
+
+/**
+ * Request parameters for deleteAccessProfile operation in AccessProfilesApi.
+ * @export
+ * @interface AccessProfilesApiDeleteAccessProfileRequest
+ */
+export interface AccessProfilesApiDeleteAccessProfileRequest {
+    /**
+     * ID of the Access Profile to delete
+     * @type {string}
+     * @memberof AccessProfilesApiDeleteAccessProfile
+     */
+    readonly id: string
 }
 
 /**
@@ -18261,6 +18338,18 @@ export class AccessProfilesApi extends BaseAPI {
      */
     public createAccessProfile(requestParameters: AccessProfilesApiCreateAccessProfileRequest, axiosOptions?: AxiosRequestConfig) {
         return AccessProfilesApiFp(this.configuration).createAccessProfile(requestParameters.accessProfile, axiosOptions).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * This API deletes an existing Access Profile.  The Access Profile must not be in use, for example, Access Profile can not be deleted if they belong to an Application, Life Cycle State or a Role. If it is, a 400 error is returned.  A token with API, ORG_ADMIN, SOURCE_ADMIN, or SOURCE_SUBADMIN authority is required to invoke this API. In addition, a SOURCE_SUBADMIN token must be able to administer the Source associated with the Access Profile.
+     * @summary Delete the specified Access Profile
+     * @param {AccessProfilesApiDeleteAccessProfileRequest} requestParameters Request parameters.
+     * @param {*} [axiosOptions] Override http request option.
+     * @throws {RequiredError}
+     * @memberof AccessProfilesApi
+     */
+    public deleteAccessProfile(requestParameters: AccessProfilesApiDeleteAccessProfileRequest, axiosOptions?: AxiosRequestConfig) {
+        return AccessProfilesApiFp(this.configuration).deleteAccessProfile(requestParameters.id, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -33635,6 +33724,48 @@ export const RolesApiAxiosParamCreator = function (configuration?: Configuration
             };
         },
         /**
+         * This API deletes a Role by its ID. A token with API, ORG_ADMIN, ROLE_ADMIN, or ROLE_SUBADMIN authority is required to call this API. In addition, a token with ROLE_SUBADMIN authority may only call this API if all Access Profiles included in the Role are associated to Sources with management workgroups of which the ROLE_SUBADMIN is a member.
+         * @summary Delete a Role
+         * @param {string} id ID of the Role
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        deleteRole: async (id: string, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'id' is not null or undefined
+            assertParamExists('deleteRole', 'id', id)
+            const localVarPath = `/roles/{id}`
+                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'DELETE', ...baseOptions, ...axiosOptions};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication UserContextAuth required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "UserContextAuth", [], configuration)
+
+            // authentication UserContextAuth required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "UserContextAuth", [], configuration)
+
+
+    
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                axiosOptions: localVarRequestOptions,
+            };
+        },
+        /**
          * This API returns a Role by its ID.  A token with API, ORG_ADMIN, ROLE_ADMIN, or ROLE_SUBADMIN authority is required to call this API. In addition, a token with ROLE_SUBADMIN authority may only call this API if all Access Profiles included in the Role are associated to Sources with management workgroups of which the ROLE_SUBADMIN is a member.
          * @summary Get a Role
          * @param {string} id ID of the Role
@@ -33902,6 +34033,17 @@ export const RolesApiFp = function(configuration?: Configuration) {
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
+         * This API deletes a Role by its ID. A token with API, ORG_ADMIN, ROLE_ADMIN, or ROLE_SUBADMIN authority is required to call this API. In addition, a token with ROLE_SUBADMIN authority may only call this API if all Access Profiles included in the Role are associated to Sources with management workgroups of which the ROLE_SUBADMIN is a member.
+         * @summary Delete a Role
+         * @param {string} id ID of the Role
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        async deleteRole(id: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.deleteRole(id, axiosOptions);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
          * This API returns a Role by its ID.  A token with API, ORG_ADMIN, ROLE_ADMIN, or ROLE_SUBADMIN authority is required to call this API. In addition, a token with ROLE_SUBADMIN authority may only call this API if all Access Profiles included in the Role are associated to Sources with management workgroups of which the ROLE_SUBADMIN is a member.
          * @summary Get a Role
          * @param {string} id ID of the Role
@@ -33989,6 +34131,16 @@ export const RolesApiFactory = function (configuration?: Configuration, basePath
             return localVarFp.deleteBulkRoles(roleBulkDeleteRequest, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
+         * This API deletes a Role by its ID. A token with API, ORG_ADMIN, ROLE_ADMIN, or ROLE_SUBADMIN authority is required to call this API. In addition, a token with ROLE_SUBADMIN authority may only call this API if all Access Profiles included in the Role are associated to Sources with management workgroups of which the ROLE_SUBADMIN is a member.
+         * @summary Delete a Role
+         * @param {string} id ID of the Role
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        deleteRole(id: string, axiosOptions?: any): AxiosPromise<void> {
+            return localVarFp.deleteRole(id, axiosOptions).then((request) => request(axios, basePath));
+        },
+        /**
          * This API returns a Role by its ID.  A token with API, ORG_ADMIN, ROLE_ADMIN, or ROLE_SUBADMIN authority is required to call this API. In addition, a token with ROLE_SUBADMIN authority may only call this API if all Access Profiles included in the Role are associated to Sources with management workgroups of which the ROLE_SUBADMIN is a member.
          * @summary Get a Role
          * @param {string} id ID of the Role
@@ -34070,6 +34222,20 @@ export interface RolesApiDeleteBulkRolesRequest {
      * @memberof RolesApiDeleteBulkRoles
      */
     readonly roleBulkDeleteRequest: RoleBulkDeleteRequest
+}
+
+/**
+ * Request parameters for deleteRole operation in RolesApi.
+ * @export
+ * @interface RolesApiDeleteRoleRequest
+ */
+export interface RolesApiDeleteRoleRequest {
+    /**
+     * ID of the Role
+     * @type {string}
+     * @memberof RolesApiDeleteRole
+     */
+    readonly id: string
 }
 
 /**
@@ -34248,6 +34414,18 @@ export class RolesApi extends BaseAPI {
      */
     public deleteBulkRoles(requestParameters: RolesApiDeleteBulkRolesRequest, axiosOptions?: AxiosRequestConfig) {
         return RolesApiFp(this.configuration).deleteBulkRoles(requestParameters.roleBulkDeleteRequest, axiosOptions).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * This API deletes a Role by its ID. A token with API, ORG_ADMIN, ROLE_ADMIN, or ROLE_SUBADMIN authority is required to call this API. In addition, a token with ROLE_SUBADMIN authority may only call this API if all Access Profiles included in the Role are associated to Sources with management workgroups of which the ROLE_SUBADMIN is a member.
+     * @summary Delete a Role
+     * @param {RolesApiDeleteRoleRequest} requestParameters Request parameters.
+     * @param {*} [axiosOptions] Override http request option.
+     * @throws {RequiredError}
+     * @memberof RolesApi
+     */
+    public deleteRole(requestParameters: RolesApiDeleteRoleRequest, axiosOptions?: AxiosRequestConfig) {
+        return RolesApiFp(this.configuration).deleteRole(requestParameters.id, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
