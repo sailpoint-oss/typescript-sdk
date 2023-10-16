@@ -37145,7 +37145,7 @@ export const GovernanceGroupsBetaApiAxiosParamCreator = function (configuration?
             assertParamExists('deleteWorkgroupMembers', 'workgroupId', workgroupId)
             // verify required parameter 'baseReferenceDto1Beta' is not null or undefined
             assertParamExists('deleteWorkgroupMembers', 'baseReferenceDto1Beta', baseReferenceDto1Beta)
-            const localVarPath = `/workgroups/{workgrouId}/members/bulk-delete`
+            const localVarPath = `/workgroups/{workgroupId}/members/bulk-delete`
                 .replace(`{${"workgroupId"}}`, encodeURIComponent(String(workgroupId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -37280,7 +37280,7 @@ export const GovernanceGroupsBetaApiAxiosParamCreator = function (configuration?
         listConnections: async (workgroupId: string, offset?: number, limit?: number, count?: boolean, sorters?: string, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'workgroupId' is not null or undefined
             assertParamExists('listConnections', 'workgroupId', workgroupId)
-            const localVarPath = `/workgroups/{workgrouId}/connections`
+            const localVarPath = `/workgroups/{workgroupId}/connections`
                 .replace(`{${"workgroupId"}}`, encodeURIComponent(String(workgroupId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -37342,7 +37342,7 @@ export const GovernanceGroupsBetaApiAxiosParamCreator = function (configuration?
         listWorkgroupMembers: async (workgroupId: string, offset?: number, limit?: number, count?: boolean, sorters?: string, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'workgroupId' is not null or undefined
             assertParamExists('listWorkgroupMembers', 'workgroupId', workgroupId)
-            const localVarPath = `/workgroups/{workgrouId}/members`
+            const localVarPath = `/workgroups/{workgroupId}/members`
                 .replace(`{${"workgroupId"}}`, encodeURIComponent(String(workgroupId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -37512,7 +37512,7 @@ export const GovernanceGroupsBetaApiAxiosParamCreator = function (configuration?
             assertParamExists('updateWorkgroupMembers', 'workgroupId', workgroupId)
             // verify required parameter 'baseReferenceDto1Beta' is not null or undefined
             assertParamExists('updateWorkgroupMembers', 'baseReferenceDto1Beta', baseReferenceDto1Beta)
-            const localVarPath = `/workgroups/{workgrouId}/members/bulk-add`
+            const localVarPath = `/workgroups/{workgroupId}/members/bulk-add`
                 .replace(`{${"workgroupId"}}`, encodeURIComponent(String(workgroupId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
