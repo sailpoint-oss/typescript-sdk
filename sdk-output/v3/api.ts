@@ -5840,10 +5840,10 @@ export interface CreateScheduledSearchRequest {
     'modified'?: string;
     /**
      * 
-     * @type {Schedule}
+     * @type {Schedule1}
      * @memberof CreateScheduledSearchRequest
      */
-    'schedule': Schedule;
+    'schedule': Schedule1;
     /**
      * A list of identities that should receive the scheduled search report via email.
      * @type {Array<SearchScheduleRecipientsInner>}
@@ -14381,17 +14381,23 @@ export interface SavedSearchName {
     'description'?: string | null;
 }
 /**
- * The schedule information.
+ * 
  * @export
  * @interface Schedule
  */
 export interface Schedule {
     /**
-     * 
-     * @type {ScheduleType}
+     * Determines the overall schedule cadence. In general, all time period fields smaller than the chosen type can be configured. For example, a DAILY schedule can have \'hours\' set, but not \'days\'; a WEEKLY schedule can have both \'hours\' and \'days\' set.
+     * @type {string}
      * @memberof Schedule
      */
-    'type': ScheduleType;
+    'type': ScheduleTypeEnum;
+    /**
+     * 
+     * @type {ScheduleMonths}
+     * @memberof Schedule
+     */
+    'months'?: ScheduleMonths;
     /**
      * 
      * @type {ScheduleDays}
@@ -14405,68 +14411,214 @@ export interface Schedule {
      */
     'hours': ScheduleHours;
     /**
-     * A date-time in ISO-8601 format
+     * Specifies the time after which this schedule will no longer occur.
      * @type {string}
      * @memberof Schedule
+     */
+    'expiration'?: string;
+    /**
+     * The time zone to use when running the schedule. For instance, if the schedule is scheduled to run at 1AM, and this field is set to \"CST\", the schedule will run at 1AM CST.
+     * @type {string}
+     * @memberof Schedule
+     */
+    'timeZoneId'?: string;
+}
+
+export const ScheduleTypeEnum = {
+    Weekly: 'WEEKLY',
+    Monthly: 'MONTHLY',
+    Annually: 'ANNUALLY',
+    Calendar: 'CALENDAR'
+} as const;
+
+export type ScheduleTypeEnum = typeof ScheduleTypeEnum[keyof typeof ScheduleTypeEnum];
+
+/**
+ * The schedule information.
+ * @export
+ * @interface Schedule1
+ */
+export interface Schedule1 {
+    /**
+     * 
+     * @type {ScheduleType}
+     * @memberof Schedule1
+     */
+    'type': ScheduleType;
+    /**
+     * 
+     * @type {Schedule1Days}
+     * @memberof Schedule1
+     */
+    'days'?: Schedule1Days;
+    /**
+     * 
+     * @type {Schedule1Hours}
+     * @memberof Schedule1
+     */
+    'hours': Schedule1Hours;
+    /**
+     * A date-time in ISO-8601 format
+     * @type {string}
+     * @memberof Schedule1
      */
     'expiration'?: string | null;
     /**
      * The GMT formatted timezone the schedule will run in (ex. GMT-06:00).  If no timezone is specified, the org\'s default timezone is used.
      * @type {string}
-     * @memberof Schedule
+     * @memberof Schedule1
      */
     'timeZoneId'?: string | null;
 }
 /**
  * 
  * @export
- * @interface ScheduleDays
+ * @interface Schedule1Days
  */
-export interface ScheduleDays {
+export interface Schedule1Days {
     /**
      * 
      * @type {SelectorType}
-     * @memberof ScheduleDays
+     * @memberof Schedule1Days
      */
     'type': SelectorType;
     /**
      * The selected values. 
      * @type {Array<string>}
-     * @memberof ScheduleDays
+     * @memberof Schedule1Days
      */
     'values': Array<string>;
     /**
      * The selected interval for RANGE selectors. 
      * @type {number}
-     * @memberof ScheduleDays
+     * @memberof Schedule1Days
      */
     'interval'?: number | null;
 }
 /**
  * 
  * @export
- * @interface ScheduleHours
+ * @interface Schedule1Hours
  */
-export interface ScheduleHours {
+export interface Schedule1Hours {
     /**
      * 
      * @type {SelectorType}
-     * @memberof ScheduleHours
+     * @memberof Schedule1Hours
      */
     'type': SelectorType;
     /**
      * The selected values. 
      * @type {Array<string>}
-     * @memberof ScheduleHours
+     * @memberof Schedule1Hours
      */
     'values': Array<string>;
     /**
      * The selected interval for RANGE selectors. 
      * @type {number}
-     * @memberof ScheduleHours
+     * @memberof Schedule1Hours
      */
     'interval'?: number | null;
 }
+/**
+ * Specifies which day(s) a schedule is active for. This is required for all schedule types. The \"values\" field holds different data depending on the type of schedule: * WEEKLY: days of the week (1-7) * MONTHLY: days of the month (1-31, L, L-1...) * ANNUALLY: if the \"months\" field is also set: days of the month (1-31, L, L-1...); otherwise: ISO-8601 dates without year (\"--12-31\") * CALENDAR: ISO-8601 dates (\"2020-12-31\")  Note that CALENDAR only supports the LIST type, and ANNUALLY does not support the RANGE type when provided with ISO-8601 dates without year.  Examples:  On Sundays: * type LIST * values \"1\"  The second to last day of the month: * type LIST * values \"L-1\"  From the 20th to the last day of the month: * type RANGE * values \"20\", \"L\"  Every March 2nd: * type LIST * values \"--03-02\"  On March 2nd, 2021: * type: LIST * values \"2021-03-02\" 
+ * @export
+ * @interface ScheduleDays
+ */
+export interface ScheduleDays {
+    /**
+     * Enum type to specify days value
+     * @type {string}
+     * @memberof ScheduleDays
+     */
+    'type': ScheduleDaysTypeEnum;
+    /**
+     * Values of the days based on the enum type mentioned above
+     * @type {Array<string>}
+     * @memberof ScheduleDays
+     */
+    'values': Array<string>;
+    /**
+     * Interval between the cert generations
+     * @type {number}
+     * @memberof ScheduleDays
+     */
+    'interval'?: number;
+}
+
+export const ScheduleDaysTypeEnum = {
+    List: 'LIST',
+    Range: 'RANGE'
+} as const;
+
+export type ScheduleDaysTypeEnum = typeof ScheduleDaysTypeEnum[keyof typeof ScheduleDaysTypeEnum];
+
+/**
+ * Specifies which hour(s) a schedule is active for. Examples:  Every three hours starting from 8AM, inclusive: * type LIST * values \"8\" * interval 3  During business hours: * type RANGE * values \"9\", \"5\"  At 5AM, noon, and 5PM: * type LIST * values \"5\", \"12\", \"17\" 
+ * @export
+ * @interface ScheduleHours
+ */
+export interface ScheduleHours {
+    /**
+     * Enum type to specify hours value
+     * @type {string}
+     * @memberof ScheduleHours
+     */
+    'type': ScheduleHoursTypeEnum;
+    /**
+     * Values of the days based on the enum type mentioned above
+     * @type {Array<string>}
+     * @memberof ScheduleHours
+     */
+    'values': Array<string>;
+    /**
+     * Interval between the cert generations
+     * @type {number}
+     * @memberof ScheduleHours
+     */
+    'interval'?: number;
+}
+
+export const ScheduleHoursTypeEnum = {
+    List: 'LIST',
+    Range: 'RANGE'
+} as const;
+
+export type ScheduleHoursTypeEnum = typeof ScheduleHoursTypeEnum[keyof typeof ScheduleHoursTypeEnum];
+
+/**
+ * Specifies which months of a schedule are active. Only valid for ANNUALLY schedule types. Examples:  On February and March: * type LIST * values \"2\", \"3\"  Every 3 months, starting in January (quarterly): * type LIST * values \"1\" * interval 3  Every two months between July and December: * type RANGE * values \"7\", \"12\" * interval 2 
+ * @export
+ * @interface ScheduleMonths
+ */
+export interface ScheduleMonths {
+    /**
+     * Enum type to specify months value
+     * @type {string}
+     * @memberof ScheduleMonths
+     */
+    'type': ScheduleMonthsTypeEnum;
+    /**
+     * Values of the months based on the enum type mentioned above
+     * @type {Array<string>}
+     * @memberof ScheduleMonths
+     */
+    'values': Array<string>;
+    /**
+     * Interval between the cert generations
+     * @type {number}
+     * @memberof ScheduleMonths
+     */
+    'interval'?: number;
+}
+
+export const ScheduleMonthsTypeEnum = {
+    List: 'LIST',
+    Range: 'RANGE'
+} as const;
+
+export type ScheduleMonthsTypeEnum = typeof ScheduleMonthsTypeEnum[keyof typeof ScheduleMonthsTypeEnum];
+
 /**
  * Enum representing the currently supported schedule types.  Additional values may be added in the future without notice. 
  * @export
@@ -14540,10 +14692,10 @@ export interface ScheduledSearch {
     'modified'?: string;
     /**
      * 
-     * @type {Schedule}
+     * @type {Schedule1}
      * @memberof ScheduledSearch
      */
-    'schedule': Schedule;
+    'schedule': Schedule1;
     /**
      * A list of identities that should receive the scheduled search report via email.
      * @type {Array<SearchScheduleRecipientsInner>}
@@ -14999,10 +15151,10 @@ export interface SearchSchedule {
     'modified'?: string;
     /**
      * 
-     * @type {Schedule}
+     * @type {Schedule1}
      * @memberof SearchSchedule
      */
-    'schedule': Schedule;
+    'schedule': Schedule1;
     /**
      * A list of identities that should receive the scheduled search report via email.
      * @type {Array<SearchScheduleRecipientsInner>}
@@ -15774,10 +15926,10 @@ export interface SodPolicySchedule {
     'description'?: string;
     /**
      * 
-     * @type {Schedule}
+     * @type {Schedule1}
      * @memberof SodPolicySchedule
      */
-    'schedule'?: Schedule;
+    'schedule'?: Schedule1;
     /**
      * 
      * @type {Array<BaseReferenceDto>}
@@ -22090,6 +22242,48 @@ export const CertificationCampaignsApiAxiosParamCreator = function (configuratio
             };
         },
         /**
+         * Gets the schedule for a campaign template. Returns a 404 if there is no schedule set.
+         * @summary Gets a Campaign Template\'s Schedule
+         * @param {string} id The ID of the campaign template whose schedule is being fetched.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        getCampaignTemplateSchedule: async (id: string, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'id' is not null or undefined
+            assertParamExists('getCampaignTemplateSchedule', 'id', id)
+            const localVarPath = `/campaign-templates/{id}/schedule`
+                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...axiosOptions};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication UserContextAuth required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "UserContextAuth", [], configuration)
+
+            // authentication UserContextAuth required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "UserContextAuth", [], configuration)
+
+
+    
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                axiosOptions: localVarRequestOptions,
+            };
+        },
+        /**
          * Lists all CampaignTemplates. Scope can be reduced via standard V3 query params.  All CampaignTemplates matching the query params
          * @summary List Campaign Templates
          * @param {number} [limit] Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
@@ -22631,6 +22825,17 @@ export const CertificationCampaignsApiFp = function(configuration?: Configuratio
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
+         * Gets the schedule for a campaign template. Returns a 404 if there is no schedule set.
+         * @summary Gets a Campaign Template\'s Schedule
+         * @param {string} id The ID of the campaign template whose schedule is being fetched.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        async getCampaignTemplateSchedule(id: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Schedule>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getCampaignTemplateSchedule(id, axiosOptions);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
          * Lists all CampaignTemplates. Scope can be reduced via standard V3 query params.  All CampaignTemplates matching the query params
          * @summary List Campaign Templates
          * @param {number} [limit] Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
@@ -22842,6 +23047,16 @@ export const CertificationCampaignsApiFactory = function (configuration?: Config
          */
         getCampaignTemplate(id: string, axiosOptions?: any): AxiosPromise<CampaignTemplate> {
             return localVarFp.getCampaignTemplate(id, axiosOptions).then((request) => request(axios, basePath));
+        },
+        /**
+         * Gets the schedule for a campaign template. Returns a 404 if there is no schedule set.
+         * @summary Gets a Campaign Template\'s Schedule
+         * @param {string} id The ID of the campaign template whose schedule is being fetched.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        getCampaignTemplateSchedule(id: string, axiosOptions?: any): AxiosPromise<Schedule> {
+            return localVarFp.getCampaignTemplateSchedule(id, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * Lists all CampaignTemplates. Scope can be reduced via standard V3 query params.  All CampaignTemplates matching the query params
@@ -23095,6 +23310,20 @@ export interface CertificationCampaignsApiGetCampaignTemplateRequest {
      * The desired campaign template\&#39;s ID.
      * @type {string}
      * @memberof CertificationCampaignsApiGetCampaignTemplate
+     */
+    readonly id: string
+}
+
+/**
+ * Request parameters for getCampaignTemplateSchedule operation in CertificationCampaignsApi.
+ * @export
+ * @interface CertificationCampaignsApiGetCampaignTemplateScheduleRequest
+ */
+export interface CertificationCampaignsApiGetCampaignTemplateScheduleRequest {
+    /**
+     * The ID of the campaign template whose schedule is being fetched.
+     * @type {string}
+     * @memberof CertificationCampaignsApiGetCampaignTemplateSchedule
      */
     readonly id: string
 }
@@ -23400,6 +23629,18 @@ export class CertificationCampaignsApi extends BaseAPI {
      */
     public getCampaignTemplate(requestParameters: CertificationCampaignsApiGetCampaignTemplateRequest, axiosOptions?: AxiosRequestConfig) {
         return CertificationCampaignsApiFp(this.configuration).getCampaignTemplate(requestParameters.id, axiosOptions).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Gets the schedule for a campaign template. Returns a 404 if there is no schedule set.
+     * @summary Gets a Campaign Template\'s Schedule
+     * @param {CertificationCampaignsApiGetCampaignTemplateScheduleRequest} requestParameters Request parameters.
+     * @param {*} [axiosOptions] Override http request option.
+     * @throws {RequiredError}
+     * @memberof CertificationCampaignsApi
+     */
+    public getCampaignTemplateSchedule(requestParameters: CertificationCampaignsApiGetCampaignTemplateScheduleRequest, axiosOptions?: AxiosRequestConfig) {
+        return CertificationCampaignsApiFp(this.configuration).getCampaignTemplateSchedule(requestParameters.id, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**

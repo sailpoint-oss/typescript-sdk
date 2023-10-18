@@ -30949,6 +30949,7 @@ export const CertificationCampaignsBetaApiAxiosParamCreator = function (configur
          * @summary Gets a Campaign Template\'s Schedule
          * @param {string} id The ID of the campaign template whose schedule is being fetched.
          * @param {*} [axiosOptions] Override http request option.
+         * @deprecated
          * @throws {RequiredError}
          */
         getCampaignTemplateSchedule: async (id: string, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
@@ -31619,6 +31620,7 @@ export const CertificationCampaignsBetaApiFp = function(configuration?: Configur
          * @summary Gets a Campaign Template\'s Schedule
          * @param {string} id The ID of the campaign template whose schedule is being fetched.
          * @param {*} [axiosOptions] Override http request option.
+         * @deprecated
          * @throws {RequiredError}
          */
         async getCampaignTemplateSchedule(id: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ScheduleBeta>> {
@@ -31894,6 +31896,7 @@ export const CertificationCampaignsBetaApiFactory = function (configuration?: Co
          * @summary Gets a Campaign Template\'s Schedule
          * @param {string} id The ID of the campaign template whose schedule is being fetched.
          * @param {*} [axiosOptions] Override http request option.
+         * @deprecated
          * @throws {RequiredError}
          */
         getCampaignTemplateSchedule(id: string, axiosOptions?: any): AxiosPromise<ScheduleBeta> {
@@ -32580,6 +32583,7 @@ export class CertificationCampaignsBetaApi extends BaseAPI {
      * @summary Gets a Campaign Template\'s Schedule
      * @param {CertificationCampaignsBetaApiGetCampaignTemplateScheduleRequest} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
+     * @deprecated
      * @throws {RequiredError}
      * @memberof CertificationCampaignsBetaApi
      */
