@@ -6112,23 +6112,23 @@ export interface ConcatenationBeta {
     'input'?: { [key: string]: any; };
 }
 /**
- * ConditionEffect is the effect produced by a condition
+ * Effect produced by a condition.
  * @export
  * @interface ConditionEffectBeta
  */
 export interface ConditionEffectBeta {
     /**
-     * Config is a arbitrary map that holds a configuration based on EffectType
-     * @type {{ [key: string]: object; }}
-     * @memberof ConditionEffectBeta
-     */
-    'config'?: { [key: string]: object; };
-    /**
-     * EffectType is the type of effect to perform when the conditions are evaluated for this logic block HIDE ConditionEffectTypeHide  ConditionEffectTypeHide disables validations SHOW ConditionEffectTypeShow  ConditionEffectTypeShow enables validations DISABLE ConditionEffectTypeDisable  ConditionEffectTypeDisable disables validations ENABLE ConditionEffectTypeEnable  ConditionEffectTypeEnable enables validations REQUIRE ConditionEffectTypeRequire OPTIONAL ConditionEffectTypeOptional SUBMIT_MESSAGE ConditionEffectTypeSubmitMessage SUBMIT_NOTIFICATION ConditionEffectTypeSubmitNotification SET_DEFAULT_VALUE ConditionEffectTypeSetDefaultValue  ConditionEffectTypeSetDefaultValue is ignored on purpose
+     * Type of effect to perform when the conditions are evaluated for this logic block. HIDE ConditionEffectTypeHide  Disables validations. SHOW ConditionEffectTypeShow  Enables validations. DISABLE ConditionEffectTypeDisable  Disables validations. ENABLE ConditionEffectTypeEnable  Enables validations. REQUIRE ConditionEffectTypeRequire OPTIONAL ConditionEffectTypeOptional SUBMIT_MESSAGE ConditionEffectTypeSubmitMessage SUBMIT_NOTIFICATION ConditionEffectTypeSubmitNotification SET_DEFAULT_VALUE ConditionEffectTypeSetDefaultValue  This value is ignored on purpose.
      * @type {string}
      * @memberof ConditionEffectBeta
      */
     'effectType'?: ConditionEffectBetaEffectTypeEnum;
+    /**
+     * 
+     * @type {ConditionEffectConfigBeta}
+     * @memberof ConditionEffectBeta
+     */
+    'config'?: ConditionEffectConfigBeta;
 }
 
 export const ConditionEffectBetaEffectTypeEnum = {
@@ -6146,43 +6146,68 @@ export const ConditionEffectBetaEffectTypeEnum = {
 export type ConditionEffectBetaEffectTypeEnum = typeof ConditionEffectBetaEffectTypeEnum[keyof typeof ConditionEffectBetaEffectTypeEnum];
 
 /**
+ * Arbitrary map containing a configuration based on the EffectType.
+ * @export
+ * @interface ConditionEffectConfigBeta
+ */
+export interface ConditionEffectConfigBeta {
+    /**
+     * Effect type\'s label.
+     * @type {string}
+     * @memberof ConditionEffectConfigBeta
+     */
+    'defaultValueLabel'?: string;
+    /**
+     * Element\'s identifier.
+     * @type {string}
+     * @memberof ConditionEffectConfigBeta
+     */
+    'element'?: string;
+}
+/**
  * 
  * @export
  * @interface ConditionRuleBeta
  */
 export interface ConditionRuleBeta {
     /**
-     * Operator is a ConditionRuleComparisonOperatorType value EQ ConditionRuleComparisonOperatorTypeEquals  ConditionRuleComparisonOperatorTypeEquals is a comparison operator, the source and target are compared for equality NE ConditionRuleComparisonOperatorTypeNotEquals  ConditionRuleComparisonOperatorTypeNotEquals is a comparison operator, the source and target are compared for the opposite of equality CO ConditionRuleComparisonOperatorTypeContains  ConditionRuleComparisonOperatorTypeContains is a comparison operator, the source is searched to see if it contains the value NOT_CO ConditionRuleComparisonOperatorTypeNotContains IN ConditionRuleComparisonOperatorTypeIncludes  ConditionRuleComparisonOperatorTypeIncludes is a comparison operator, the source will be searched if it equals any of the values NOT_IN ConditionRuleComparisonOperatorTypeNotIncludes EM ConditionRuleComparisonOperatorTypeEmpty NOT_EM ConditionRuleComparisonOperatorTypeNotEmpty SW ConditionRuleComparisonOperatorTypeStartsWith  ConditionRuleComparisonOperatorTypeStartsWith checks if a string starts with another substring of the same string, this operator is case-sensitive NOT_SW ConditionRuleComparisonOperatorTypeNotStartsWith EW ConditionRuleComparisonOperatorTypeEndsWith  ConditionRuleComparisonOperatorTypeEndsWith checks if a string ends with another substring of the same string, this operator is case-sensitive NOT_EW ConditionRuleComparisonOperatorTypeNotEndsWith
-     * @type {string}
-     * @memberof ConditionRuleBeta
-     */
-    'operator'?: ConditionRuleBetaOperatorEnum;
-    /**
-     * Source, if the sourceType is ConditionRuleSourceTypeInput then the source type is the name of the form input to accept. While if the sourceType is ConditionRuleSourceTypeElement then source is the name of a technical key of an element to retrieve its value
-     * @type {string}
-     * @memberof ConditionRuleBeta
-     */
-    'source'?: string;
-    /**
-     * SourceType defines what type of object is being selected. Either a reference to a form input (by input name), or a form element (by technical key) INPUT ConditionRuleSourceTypeInput ELEMENT ConditionRuleSourceTypeElement
+     * Defines the type of object being selected. It will be either a reference to a form input (by input name) or a form element (by technical key). INPUT ConditionRuleSourceTypeInput ELEMENT ConditionRuleSourceTypeElement
      * @type {string}
      * @memberof ConditionRuleBeta
      */
     'sourceType'?: ConditionRuleBetaSourceTypeEnum;
     /**
-     * Value is the value based on the ValueType
-     * @type {object}
+     * Source - if the sourceType is ConditionRuleSourceTypeInput, the source type is the name of the form input to accept. However, if the sourceType is ConditionRuleSourceTypeElement, the source is the name of a technical key of an element to retrieve its value.
+     * @type {string}
      * @memberof ConditionRuleBeta
      */
-    'value'?: object;
+    'source'?: string;
     /**
-     * ValueType is a ConditionRuleValueType type STRING ConditionRuleValueTypeString  ConditionRuleValueTypeString the value field is a static string STRING_LIST ConditionRuleValueTypeStringList  ConditionRuleValueTypeStringList the value field is an array of string values INPUT ConditionRuleValueTypeInput  ConditionRuleValueTypeInput the value field is a reference to a form input by ELEMENT ConditionRuleValueTypeElement  ConditionRuleValueTypeElement the value field is a reference to form element (by technical key) LIST ConditionRuleValueTypeList BOOLEAN ConditionRuleValueTypeBoolean
+     * ConditionRuleComparisonOperatorType value. EQ ConditionRuleComparisonOperatorTypeEquals  This comparison operator compares the source and target for equality. NE ConditionRuleComparisonOperatorTypeNotEquals  This comparison operator compares the source and target for inequality. CO ConditionRuleComparisonOperatorTypeContains  This comparison operator searches the source to see whether it contains the value. NOT_CO ConditionRuleComparisonOperatorTypeNotContains IN ConditionRuleComparisonOperatorTypeIncludes  This comparison operator searches the source if it equals any of the values. NOT_IN ConditionRuleComparisonOperatorTypeNotIncludes EM ConditionRuleComparisonOperatorTypeEmpty NOT_EM ConditionRuleComparisonOperatorTypeNotEmpty SW ConditionRuleComparisonOperatorTypeStartsWith  Checks whether a string starts with another substring of the same string. This operator is case-sensitive. NOT_SW ConditionRuleComparisonOperatorTypeNotStartsWith EW ConditionRuleComparisonOperatorTypeEndsWith  Checks whether a string ends with another substring of the same string. This operator is case-sensitive. NOT_EW ConditionRuleComparisonOperatorTypeNotEndsWith
+     * @type {string}
+     * @memberof ConditionRuleBeta
+     */
+    'operator'?: ConditionRuleBetaOperatorEnum;
+    /**
+     * ConditionRuleValueType type. STRING ConditionRuleValueTypeString  This value is a static string. STRING_LIST ConditionRuleValueTypeStringList  This value is an array of string values. INPUT ConditionRuleValueTypeInput  This value is a reference to a form input. ELEMENT ConditionRuleValueTypeElement  This value is a reference to a form element (by technical key). LIST ConditionRuleValueTypeList BOOLEAN ConditionRuleValueTypeBoolean
      * @type {string}
      * @memberof ConditionRuleBeta
      */
     'valueType'?: ConditionRuleBetaValueTypeEnum;
+    /**
+     * Based on the ValueType.
+     * @type {object}
+     * @memberof ConditionRuleBeta
+     */
+    'value'?: object;
 }
 
+export const ConditionRuleBetaSourceTypeEnum = {
+    Input: 'INPUT',
+    Element: 'ELEMENT'
+} as const;
+
+export type ConditionRuleBetaSourceTypeEnum = typeof ConditionRuleBetaSourceTypeEnum[keyof typeof ConditionRuleBetaSourceTypeEnum];
 export const ConditionRuleBetaOperatorEnum = {
     Eq: 'EQ',
     Ne: 'NE',
@@ -6199,12 +6224,6 @@ export const ConditionRuleBetaOperatorEnum = {
 } as const;
 
 export type ConditionRuleBetaOperatorEnum = typeof ConditionRuleBetaOperatorEnum[keyof typeof ConditionRuleBetaOperatorEnum];
-export const ConditionRuleBetaSourceTypeEnum = {
-    Input: 'INPUT',
-    Element: 'ELEMENT'
-} as const;
-
-export type ConditionRuleBetaSourceTypeEnum = typeof ConditionRuleBetaSourceTypeEnum[keyof typeof ConditionRuleBetaSourceTypeEnum];
 export const ConditionRuleBetaValueTypeEnum = {
     String: 'STRING',
     StringList: 'STRING_LIST',
@@ -8991,29 +9010,29 @@ export interface FormBeta {
     'sections'?: SectionDetailsBeta;
 }
 /**
- * FormCondition represent a form conditional
+ * Represent a form conditional.
  * @export
  * @interface FormConditionBeta
  */
 export interface FormConditionBeta {
     /**
-     * Effects is a list of effects
-     * @type {Array<ConditionEffectBeta>}
-     * @memberof FormConditionBeta
-     */
-    'effects'?: Array<ConditionEffectBeta>;
-    /**
-     * RuleOperator is a ConditionRuleLogicalOperatorType value AND ConditionRuleLogicalOperatorTypeAnd OR ConditionRuleLogicalOperatorTypeOr
+     * ConditionRuleLogicalOperatorType value. AND ConditionRuleLogicalOperatorTypeAnd OR ConditionRuleLogicalOperatorTypeOr
      * @type {string}
      * @memberof FormConditionBeta
      */
     'ruleOperator'?: FormConditionBetaRuleOperatorEnum;
     /**
-     * Rules is a list of rules
+     * List of rules.
      * @type {Array<ConditionRuleBeta>}
      * @memberof FormConditionBeta
      */
     'rules'?: Array<ConditionRuleBeta>;
+    /**
+     * List of effects.
+     * @type {Array<ConditionEffectBeta>}
+     * @memberof FormConditionBeta
+     */
+    'effects'?: Array<ConditionEffectBeta>;
 }
 
 export const FormConditionBetaRuleOperatorEnum = {
@@ -9093,29 +9112,29 @@ export interface FormDefinitionDynamicSchemaResponseBeta {
  */
 export interface FormDefinitionInputBeta {
     /**
-     * Description is the description for this form input value
-     * @type {string}
-     * @memberof FormDefinitionInputBeta
-     */
-    'description'?: string;
-    /**
-     * ID is a unique identifier
+     * Unique identifier for the form input.
      * @type {string}
      * @memberof FormDefinitionInputBeta
      */
     'id'?: string;
     /**
-     * Label is the name for this form input value
+     * FormDefinitionInputType value. STRING FormDefinitionInputTypeString
+     * @type {string}
+     * @memberof FormDefinitionInputBeta
+     */
+    'type'?: FormDefinitionInputBetaTypeEnum;
+    /**
+     * Name for the form input.
      * @type {string}
      * @memberof FormDefinitionInputBeta
      */
     'label'?: string;
     /**
-     * Type is a FormDefinitionInputType value STRING FormDefinitionInputTypeString
+     * Form input\'s description.
      * @type {string}
      * @memberof FormDefinitionInputBeta
      */
-    'type'?: FormDefinitionInputBetaTypeEnum;
+    'description'?: string;
 }
 
 export const FormDefinitionInputBetaTypeEnum = {
@@ -9131,53 +9150,23 @@ export type FormDefinitionInputBetaTypeEnum = typeof FormDefinitionInputBetaType
  */
 export interface FormDefinitionResponseBeta {
     /**
-     * Created is the date the form definition was created
-     * @type {string}
-     * @memberof FormDefinitionResponseBeta
-     */
-    'created'?: string;
-    /**
-     * Description is the form definition description
-     * @type {string}
-     * @memberof FormDefinitionResponseBeta
-     */
-    'description'?: string;
-    /**
-     * FormConditions is the conditional logic that modify the form dynamically modify the form as the recipient is interacting out the form
-     * @type {Array<FormConditionBeta>}
-     * @memberof FormDefinitionResponseBeta
-     */
-    'formConditions'?: Array<FormConditionBeta>;
-    /**
-     * FormElements is a list of nested form elements
-     * @type {Array<FormElementBeta>}
-     * @memberof FormDefinitionResponseBeta
-     */
-    'formElements'?: Array<FormElementBeta>;
-    /**
-     * FormInput is a list of form inputs that are required when creating a form-instance object
-     * @type {Array<FormDefinitionInputBeta>}
-     * @memberof FormDefinitionResponseBeta
-     */
-    'formInput'?: Array<FormDefinitionInputBeta>;
-    /**
-     * FormDefinitionID is a unique guid identifying this form definition
+     * Unique guid identifying the form definition.
      * @type {string}
      * @memberof FormDefinitionResponseBeta
      */
     'id'?: string;
     /**
-     * Modified is the last date the form definition was modified
-     * @type {string}
-     * @memberof FormDefinitionResponseBeta
-     */
-    'modified'?: string;
-    /**
-     * Name is the form definition name
+     * Name of the form definition.
      * @type {string}
      * @memberof FormDefinitionResponseBeta
      */
     'name'?: string;
+    /**
+     * Form definition\'s description.
+     * @type {string}
+     * @memberof FormDefinitionResponseBeta
+     */
+    'description'?: string;
     /**
      * 
      * @type {FormOwnerBeta}
@@ -9185,11 +9174,41 @@ export interface FormDefinitionResponseBeta {
      */
     'owner'?: FormOwnerBeta;
     /**
-     * UsedBy is a list of objects where when any system uses a particular form it reaches out to the form service to record it is currently being used
+     * List of objects using the form definition. Whenever a system uses a form, the API reaches out to the form service to record that the system is currently using it.
      * @type {Array<FormUsedByBeta>}
      * @memberof FormDefinitionResponseBeta
      */
     'usedBy'?: Array<FormUsedByBeta>;
+    /**
+     * List of form inputs required to create a form-instance object.
+     * @type {Array<FormDefinitionInputBeta>}
+     * @memberof FormDefinitionResponseBeta
+     */
+    'formInput'?: Array<FormDefinitionInputBeta>;
+    /**
+     * List of nested form elements.
+     * @type {Array<FormElementBeta>}
+     * @memberof FormDefinitionResponseBeta
+     */
+    'formElements'?: Array<FormElementBeta>;
+    /**
+     * Conditional logic that can dynamically modify the form as the recipient is interacting with it.
+     * @type {Array<FormConditionBeta>}
+     * @memberof FormDefinitionResponseBeta
+     */
+    'formConditions'?: Array<FormConditionBeta>;
+    /**
+     * Created is the date the form definition was created
+     * @type {string}
+     * @memberof FormDefinitionResponseBeta
+     */
+    'created'?: string;
+    /**
+     * Modified is the last date the form definition was modified
+     * @type {string}
+     * @memberof FormDefinitionResponseBeta
+     */
+    'modified'?: string;
 }
 /**
  * 
@@ -9241,31 +9260,31 @@ export interface FormDetailsBeta {
  */
 export interface FormElementBeta {
     /**
-     * Config is a config object
-     * @type {{ [key: string]: object; }}
-     * @memberof FormElementBeta
-     */
-    'config'?: { [key: string]: object; };
-    /**
-     * ElementType is a FormElementType value TEXT FormElementTypeText TOGGLE FormElementTypeToggle TEXTAREA FormElementTypeTextArea HIDDEN FormElementTypeHidden PHONE FormElementTypePhone EMAIL FormElementTypeEmail SELECT FormElementTypeSelect DATE FormElementTypeDate SECTION FormElementTypeSection COLUMNS FormElementTypeColumns
-     * @type {string}
-     * @memberof FormElementBeta
-     */
-    'elementType'?: FormElementBetaElementTypeEnum;
-    /**
-     * ID is a form element identifier
+     * Form element identifier.
      * @type {string}
      * @memberof FormElementBeta
      */
     'id'?: string;
     /**
-     * Key is the technical key
+     * FormElementType value.  TEXT FormElementTypeText TOGGLE FormElementTypeToggle TEXTAREA FormElementTypeTextArea HIDDEN FormElementTypeHidden PHONE FormElementTypePhone EMAIL FormElementTypeEmail SELECT FormElementTypeSelect DATE FormElementTypeDate SECTION FormElementTypeSection COLUMNS FormElementTypeColumns
+     * @type {string}
+     * @memberof FormElementBeta
+     */
+    'elementType'?: FormElementBetaElementTypeEnum;
+    /**
+     * Config object.
+     * @type {{ [key: string]: object; }}
+     * @memberof FormElementBeta
+     */
+    'config'?: { [key: string]: object; };
+    /**
+     * Technical key.
      * @type {string}
      * @memberof FormElementBeta
      */
     'key'?: string;
     /**
-     * FormElementValidationsSet is a set of FormElementValidation items
+     * Set of FormElementValidation items.
      * @type {object}
      * @memberof FormElementBeta
      */
@@ -9625,17 +9644,17 @@ export interface FormItemDetailsBeta {
  */
 export interface FormOwnerBeta {
     /**
-     * ID is a unique identifier
-     * @type {string}
-     * @memberof FormOwnerBeta
-     */
-    'id'?: string;
-    /**
-     * Type is a FormOwnerType value IDENTITY FormOwnerTypeIdentity
+     * FormOwnerType value. IDENTITY FormOwnerTypeIdentity
      * @type {string}
      * @memberof FormOwnerBeta
      */
     'type'?: FormOwnerBetaTypeEnum;
+    /**
+     * Unique identifier of the form\'s owner.
+     * @type {string}
+     * @memberof FormOwnerBeta
+     */
+    'id'?: string;
 }
 
 export const FormOwnerBetaTypeEnum = {
@@ -9651,17 +9670,17 @@ export type FormOwnerBetaTypeEnum = typeof FormOwnerBetaTypeEnum[keyof typeof Fo
  */
 export interface FormUsedByBeta {
     /**
-     * ID is a unique identifier
-     * @type {string}
-     * @memberof FormUsedByBeta
-     */
-    'id'?: string;
-    /**
-     * Type is a FormUsedByType value WORKFLOW FormUsedByTypeWorkflow SOURCE FormUsedByTypeSource
+     * FormUsedByType value.  WORKFLOW FormUsedByTypeWorkflow SOURCE FormUsedByTypeSource
      * @type {string}
      * @memberof FormUsedByBeta
      */
     'type'?: FormUsedByBetaTypeEnum;
+    /**
+     * Unique identifier of the system using the form.
+     * @type {string}
+     * @memberof FormUsedByBeta
+     */
+    'id'?: string;
 }
 
 export const FormUsedByBetaTypeEnum = {
@@ -13168,13 +13187,13 @@ export interface ListCompleteWorkflowLibrary200ResponseInnerBeta {
  */
 export interface ListFormDefinitionsByTenantResponseBeta {
     /**
-     * Count number of Results
+     * Count number of results.
      * @type {number}
      * @memberof ListFormDefinitionsByTenantResponseBeta
      */
     'count'?: number;
     /**
-     * Results holds a list of FormDefinitionResponse items
+     * List of FormDefinitionResponse items.
      * @type {Array<FormDefinitionResponseBeta>}
      * @memberof ListFormDefinitionsByTenantResponseBeta
      */
