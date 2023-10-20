@@ -19610,6 +19610,7 @@ export const AccessRequestsApiAxiosParamCreator = function (configuration?: Conf
          * @param {string} [requestedFor] Filter the results by the identity for which the requests were made. *me* indicates the current user. Mutually exclusive with *regarding-identity*.
          * @param {string} [requestedBy] Filter the results by the identity that made the requests. *me* indicates the current user. Mutually exclusive with *regarding-identity*.
          * @param {string} [regardingIdentity] Filter the results by the specified identity which is either the requester or target of the requests. *me* indicates the current user. Mutually exclusive with *requested-for* and *requested-by*.
+         * @param {string} [assignedTo] Filter the results by the specified identity which is the owner of the Identity Request Work Item. *me* indicates the current user.
          * @param {boolean} [count] If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.
          * @param {number} [limit] Max number of results to return.
          * @param {number} [offset] Offset into the full result set. Usually specified with *limit* to paginate through the results. Defaults to 0 if not specified.
@@ -19618,7 +19619,7 @@ export const AccessRequestsApiAxiosParamCreator = function (configuration?: Conf
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        listAccessRequestStatus: async (requestedFor?: string, requestedBy?: string, regardingIdentity?: string, count?: boolean, limit?: number, offset?: number, filters?: string, sorters?: string, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        listAccessRequestStatus: async (requestedFor?: string, requestedBy?: string, regardingIdentity?: string, assignedTo?: string, count?: boolean, limit?: number, offset?: number, filters?: string, sorters?: string, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             const localVarPath = `/access-request-status`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -19649,6 +19650,10 @@ export const AccessRequestsApiAxiosParamCreator = function (configuration?: Conf
 
             if (regardingIdentity !== undefined) {
                 localVarQueryParameter['regarding-identity'] = regardingIdentity;
+            }
+
+            if (assignedTo !== undefined) {
+                localVarQueryParameter['assigned-to'] = assignedTo;
             }
 
             if (count !== undefined) {
@@ -19774,6 +19779,7 @@ export const AccessRequestsApiFp = function(configuration?: Configuration) {
          * @param {string} [requestedFor] Filter the results by the identity for which the requests were made. *me* indicates the current user. Mutually exclusive with *regarding-identity*.
          * @param {string} [requestedBy] Filter the results by the identity that made the requests. *me* indicates the current user. Mutually exclusive with *regarding-identity*.
          * @param {string} [regardingIdentity] Filter the results by the specified identity which is either the requester or target of the requests. *me* indicates the current user. Mutually exclusive with *requested-for* and *requested-by*.
+         * @param {string} [assignedTo] Filter the results by the specified identity which is the owner of the Identity Request Work Item. *me* indicates the current user.
          * @param {boolean} [count] If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.
          * @param {number} [limit] Max number of results to return.
          * @param {number} [offset] Offset into the full result set. Usually specified with *limit* to paginate through the results. Defaults to 0 if not specified.
@@ -19782,8 +19788,8 @@ export const AccessRequestsApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async listAccessRequestStatus(requestedFor?: string, requestedBy?: string, regardingIdentity?: string, count?: boolean, limit?: number, offset?: number, filters?: string, sorters?: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<RequestedItemStatus>>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.listAccessRequestStatus(requestedFor, requestedBy, regardingIdentity, count, limit, offset, filters, sorters, axiosOptions);
+        async listAccessRequestStatus(requestedFor?: string, requestedBy?: string, regardingIdentity?: string, assignedTo?: string, count?: boolean, limit?: number, offset?: number, filters?: string, sorters?: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<RequestedItemStatus>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.listAccessRequestStatus(requestedFor, requestedBy, regardingIdentity, assignedTo, count, limit, offset, filters, sorters, axiosOptions);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
@@ -19842,6 +19848,7 @@ export const AccessRequestsApiFactory = function (configuration?: Configuration,
          * @param {string} [requestedFor] Filter the results by the identity for which the requests were made. *me* indicates the current user. Mutually exclusive with *regarding-identity*.
          * @param {string} [requestedBy] Filter the results by the identity that made the requests. *me* indicates the current user. Mutually exclusive with *regarding-identity*.
          * @param {string} [regardingIdentity] Filter the results by the specified identity which is either the requester or target of the requests. *me* indicates the current user. Mutually exclusive with *requested-for* and *requested-by*.
+         * @param {string} [assignedTo] Filter the results by the specified identity which is the owner of the Identity Request Work Item. *me* indicates the current user.
          * @param {boolean} [count] If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.
          * @param {number} [limit] Max number of results to return.
          * @param {number} [offset] Offset into the full result set. Usually specified with *limit* to paginate through the results. Defaults to 0 if not specified.
@@ -19850,8 +19857,8 @@ export const AccessRequestsApiFactory = function (configuration?: Configuration,
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        listAccessRequestStatus(requestedFor?: string, requestedBy?: string, regardingIdentity?: string, count?: boolean, limit?: number, offset?: number, filters?: string, sorters?: string, axiosOptions?: any): AxiosPromise<Array<RequestedItemStatus>> {
-            return localVarFp.listAccessRequestStatus(requestedFor, requestedBy, regardingIdentity, count, limit, offset, filters, sorters, axiosOptions).then((request) => request(axios, basePath));
+        listAccessRequestStatus(requestedFor?: string, requestedBy?: string, regardingIdentity?: string, assignedTo?: string, count?: boolean, limit?: number, offset?: number, filters?: string, sorters?: string, axiosOptions?: any): AxiosPromise<Array<RequestedItemStatus>> {
+            return localVarFp.listAccessRequestStatus(requestedFor, requestedBy, regardingIdentity, assignedTo, count, limit, offset, filters, sorters, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * This endpoint replaces the current access-request configuration. A token with ORG_ADMIN authority is required to call this API.
@@ -19920,6 +19927,13 @@ export interface AccessRequestsApiListAccessRequestStatusRequest {
      * @memberof AccessRequestsApiListAccessRequestStatus
      */
     readonly regardingIdentity?: string
+
+    /**
+     * Filter the results by the specified identity which is the owner of the Identity Request Work Item. *me* indicates the current user.
+     * @type {string}
+     * @memberof AccessRequestsApiListAccessRequestStatus
+     */
+    readonly assignedTo?: string
 
     /**
      * If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.
@@ -20022,7 +20036,7 @@ export class AccessRequestsApi extends BaseAPI {
      * @memberof AccessRequestsApi
      */
     public listAccessRequestStatus(requestParameters: AccessRequestsApiListAccessRequestStatusRequest = {}, axiosOptions?: AxiosRequestConfig) {
-        return AccessRequestsApiFp(this.configuration).listAccessRequestStatus(requestParameters.requestedFor, requestParameters.requestedBy, requestParameters.regardingIdentity, requestParameters.count, requestParameters.limit, requestParameters.offset, requestParameters.filters, requestParameters.sorters, axiosOptions).then((request) => request(this.axios, this.basePath));
+        return AccessRequestsApiFp(this.configuration).listAccessRequestStatus(requestParameters.requestedFor, requestParameters.requestedBy, requestParameters.regardingIdentity, requestParameters.assignedTo, requestParameters.count, requestParameters.limit, requestParameters.offset, requestParameters.filters, requestParameters.sorters, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
