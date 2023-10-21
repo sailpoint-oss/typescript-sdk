@@ -5975,6 +5975,76 @@ export type CriteriaType = typeof CriteriaType[keyof typeof CriteriaType];
 
 
 /**
+ * DAS data for the entitlement
+ * @export
+ * @interface DataAccess
+ */
+export interface DataAccess {
+    /**
+     * List of classification policies that apply to resources the entitlement \\ groups has access to
+     * @type {Array<DataAccessPoliciesInner>}
+     * @memberof DataAccess
+     */
+    'policies'?: Array<DataAccessPoliciesInner>;
+    /**
+     * List of classification categories that apply to resources the entitlement \\ groups has access to
+     * @type {Array<DataAccessCategoriesInner>}
+     * @memberof DataAccess
+     */
+    'categories'?: Array<DataAccessCategoriesInner>;
+    /**
+     * 
+     * @type {DataAccessImpactScore}
+     * @memberof DataAccess
+     */
+    'impactScore'?: DataAccessImpactScore;
+}
+/**
+ * 
+ * @export
+ * @interface DataAccessCategoriesInner
+ */
+export interface DataAccessCategoriesInner {
+    /**
+     * Value of the category
+     * @type {string}
+     * @memberof DataAccessCategoriesInner
+     */
+    'value'?: string;
+    /**
+     * Number of matched for each category
+     * @type {number}
+     * @memberof DataAccessCategoriesInner
+     */
+    'matchCount'?: number;
+}
+/**
+ * 
+ * @export
+ * @interface DataAccessImpactScore
+ */
+export interface DataAccessImpactScore {
+    /**
+     * Impact Score for this data
+     * @type {string}
+     * @memberof DataAccessImpactScore
+     */
+    'value'?: string;
+}
+/**
+ * 
+ * @export
+ * @interface DataAccessPoliciesInner
+ */
+export interface DataAccessPoliciesInner {
+    /**
+     * Value of the policy
+     * @type {string}
+     * @memberof DataAccessPoliciesInner
+     */
+    'value'?: string;
+}
+/**
  * 
  * @export
  * @interface DateCompare
@@ -13493,6 +13563,18 @@ export interface ReviewableEntitlement {
      * @memberof ReviewableEntitlement
      */
     'cloudGoverned'?: boolean;
+    /**
+     * True if the entitlement has DAS data
+     * @type {boolean}
+     * @memberof ReviewableEntitlement
+     */
+    'containsDataAccess'?: boolean;
+    /**
+     * 
+     * @type {DataAccess}
+     * @memberof ReviewableEntitlement
+     */
+    'dataAccess'?: DataAccess | null;
     /**
      * 
      * @type {ReviewableEntitlementAccount}
