@@ -741,10 +741,10 @@ export interface AccessProfileUsageBeta {
     'accessProfileId'?: string;
     /**
      * List of references to objects which are using the indicated Access Profile
-     * @type {Array<BaseReferenceDto1Beta>}
+     * @type {Array<BaseReferenceDtoBeta>}
      * @memberof AccessProfileUsageBeta
      */
-    'usedBy'?: Array<BaseReferenceDto1Beta>;
+    'usedBy'?: Array<BaseReferenceDtoBeta>;
 }
 /**
  * 
@@ -3594,22 +3594,22 @@ export interface ApprovalStatusDtoBeta {
     'forwarded'?: boolean;
     /**
      * 
-     * @type {BaseReferenceDto1Beta}
+     * @type {BaseReferenceDtoBeta}
      * @memberof ApprovalStatusDtoBeta
      */
-    'originalOwner'?: BaseReferenceDto1Beta;
+    'originalOwner'?: BaseReferenceDtoBeta;
     /**
      * 
-     * @type {BaseReferenceDto1Beta}
+     * @type {BaseReferenceDtoBeta}
      * @memberof ApprovalStatusDtoBeta
      */
-    'currentOwner'?: BaseReferenceDto1Beta;
+    'currentOwner'?: BaseReferenceDtoBeta;
     /**
      * 
-     * @type {BaseReferenceDto1Beta}
+     * @type {BaseReferenceDtoBeta}
      * @memberof ApprovalStatusDtoBeta
      */
-    'reviewedBy'?: BaseReferenceDto1Beta;
+    'reviewedBy'?: BaseReferenceDtoBeta;
     /**
      * Time at which item was modified.
      * @type {string}
@@ -3743,10 +3743,10 @@ export interface AttrSyncSourceAttributeConfigBeta {
 export interface AttrSyncSourceConfigBeta {
     /**
      * 
-     * @type {BaseReferenceDto1Beta}
+     * @type {BaseReferenceDtoBeta}
      * @memberof AttrSyncSourceConfigBeta
      */
-    'source': BaseReferenceDto1Beta;
+    'source': BaseReferenceDtoBeta;
     /**
      * Attribute synchronization configuration for specific identity attributes in the context of a source
      * @type {Array<AttrSyncSourceAttributeConfigBeta>}
@@ -4045,19 +4045,13 @@ export interface BaseCommonDtoBeta {
  */
 export interface BaseReferenceDto1Beta {
     /**
-     * 
-     * @type {DtoTypeBeta}
-     * @memberof BaseReferenceDto1Beta
-     */
-    'type'?: DtoTypeBeta;
-    /**
-     * ID of the object to which this reference applies
+     * the application ID
      * @type {string}
      * @memberof BaseReferenceDto1Beta
      */
     'id'?: string;
     /**
-     * Human-readable display name of the object to which this reference applies
+     * the application name
      * @type {string}
      * @memberof BaseReferenceDto1Beta
      */
@@ -4070,13 +4064,19 @@ export interface BaseReferenceDto1Beta {
  */
 export interface BaseReferenceDtoBeta {
     /**
-     * the application ID
+     * 
+     * @type {DtoTypeBeta}
+     * @memberof BaseReferenceDtoBeta
+     */
+    'type'?: DtoTypeBeta;
+    /**
+     * ID of the object to which this reference applies
      * @type {string}
      * @memberof BaseReferenceDtoBeta
      */
     'id'?: string;
     /**
-     * the application name
+     * Human-readable display name of the object to which this reference applies
      * @type {string}
      * @memberof BaseReferenceDtoBeta
      */
@@ -4147,10 +4147,10 @@ export interface BulkIdentitiesAccountsResponseBeta {
 export interface BulkTaggedObjectBeta {
     /**
      * 
-     * @type {Array<BaseReferenceDto1Beta>}
+     * @type {Array<BaseReferenceDtoBeta>}
      * @memberof BulkTaggedObjectBeta
      */
-    'objectRefs'?: Array<BaseReferenceDto1Beta>;
+    'objectRefs'?: Array<BaseReferenceDtoBeta>;
     /**
      * Label to be applied to an Object
      * @type {Array<string>}
@@ -5092,10 +5092,10 @@ export interface CancelledRequestDetailsBeta {
     'comment'?: string;
     /**
      * 
-     * @type {BaseReferenceDto1Beta}
+     * @type {BaseReferenceDtoBeta}
      * @memberof CancelledRequestDetailsBeta
      */
-    'owner'?: BaseReferenceDto1Beta;
+    'owner'?: BaseReferenceDtoBeta;
     /**
      * Date comment was added by the owner when cancelling the associated request
      * @type {string}
@@ -5967,28 +5967,28 @@ export interface CompletedApprovalBeta {
     'requestType'?: AccessRequestTypeBeta;
     /**
      * 
-     * @type {BaseReferenceDto1Beta}
+     * @type {BaseReferenceDtoBeta}
      * @memberof CompletedApprovalBeta
      */
-    'requester'?: BaseReferenceDto1Beta;
+    'requester'?: BaseReferenceDtoBeta;
     /**
      * 
-     * @type {BaseReferenceDto1Beta}
+     * @type {BaseReferenceDtoBeta}
      * @memberof CompletedApprovalBeta
      */
-    'requestedFor'?: BaseReferenceDto1Beta;
+    'requestedFor'?: BaseReferenceDtoBeta;
     /**
      * 
-     * @type {BaseReferenceDto1Beta}
+     * @type {BaseReferenceDtoBeta}
      * @memberof CompletedApprovalBeta
      */
-    'reviewedBy'?: BaseReferenceDto1Beta;
+    'reviewedBy'?: BaseReferenceDtoBeta;
     /**
      * 
-     * @type {BaseReferenceDto1Beta}
+     * @type {BaseReferenceDtoBeta}
      * @memberof CompletedApprovalBeta
      */
-    'owner'?: BaseReferenceDto1Beta;
+    'owner'?: BaseReferenceDtoBeta;
     /**
      * 
      * @type {RequestableObjectReferenceBeta}
@@ -6286,10 +6286,10 @@ export interface ConfigObjectBeta {
     'version'?: number;
     /**
      * 
-     * @type {BaseReferenceDto1Beta}
+     * @type {BaseReferenceDtoBeta}
      * @memberof ConfigObjectBeta
      */
-    'self'?: BaseReferenceDto1Beta;
+    'self'?: BaseReferenceDtoBeta;
     /**
      * Object details. Format dependant on the object type.
      * @type {{ [key: string]: any; }}
@@ -7373,10 +7373,10 @@ export interface CreatePersonalAccessTokenResponseBeta {
     'name': string;
     /**
      * 
-     * @type {BaseReferenceDto1Beta}
+     * @type {BaseReferenceDtoBeta}
      * @memberof CreatePersonalAccessTokenResponseBeta
      */
-    'owner': BaseReferenceDto1Beta;
+    'owner': BaseReferenceDtoBeta;
     /**
      * The date and time, down to the millisecond, when this personal access token was created.
      * @type {string}
@@ -10679,10 +10679,10 @@ export interface GetPersonalAccessTokenResponseBeta {
     'scope': Array<string> | null;
     /**
      * 
-     * @type {BaseReferenceDto1Beta}
+     * @type {BaseReferenceDtoBeta}
      * @memberof GetPersonalAccessTokenResponseBeta
      */
-    'owner': BaseReferenceDto1Beta;
+    'owner': BaseReferenceDtoBeta;
     /**
      * The date and time, down to the millisecond, when this personal access token was created.
      * @type {string}
@@ -11256,10 +11256,10 @@ export interface IdentityBeta {
     'identityStatus'?: IdentityBetaIdentityStatusEnum;
     /**
      * 
-     * @type {BaseReferenceDto1Beta}
+     * @type {BaseReferenceDtoBeta}
      * @memberof IdentityBeta
      */
-    'managerRef'?: BaseReferenceDto1Beta;
+    'managerRef'?: BaseReferenceDtoBeta;
     /**
      * Whether this identity is a manager of another identity
      * @type {boolean}
@@ -11561,10 +11561,10 @@ export interface IdentityDtoBeta {
     'identityStatus'?: IdentityDtoBetaIdentityStatusEnum;
     /**
      * 
-     * @type {BaseReferenceDto1Beta}
+     * @type {BaseReferenceDtoBeta}
      * @memberof IdentityDtoBeta
      */
-    'managerRef'?: BaseReferenceDto1Beta;
+    'managerRef'?: BaseReferenceDtoBeta;
     /**
      * Whether this identity is a manager of another identity
      * @type {boolean}
@@ -11833,10 +11833,10 @@ export interface IdentityPreviewRequestBeta {
 export interface IdentityPreviewResponseBeta {
     /**
      * 
-     * @type {BaseReferenceDto1Beta}
+     * @type {BaseReferenceDtoBeta}
      * @memberof IdentityPreviewResponseBeta
      */
-    'identity'?: BaseReferenceDto1Beta;
+    'identity'?: BaseReferenceDtoBeta;
     /**
      * 
      * @type {Array<IdentityAttributePreviewBeta>}
@@ -12246,10 +12246,10 @@ export interface IdentityProfileExportedObjectBeta {
     'version'?: number;
     /**
      * 
-     * @type {BaseReferenceDto1Beta}
+     * @type {BaseReferenceDtoBeta}
      * @memberof IdentityProfileExportedObjectBeta
      */
-    'self'?: BaseReferenceDto1Beta;
+    'self'?: BaseReferenceDtoBeta;
     /**
      * 
      * @type {IdentityProfile1Beta}
@@ -12576,10 +12576,10 @@ export interface ImportOptionsBeta {
     'objectOptions'?: { [key: string]: ObjectExportImportOptionsBeta; };
     /**
      * List of BaseRefenceDtos that can be used to resolve references on import.
-     * @type {Array<BaseReferenceDto1Beta>}
+     * @type {Array<BaseReferenceDtoBeta>}
      * @memberof ImportOptionsBeta
      */
-    'defaultReferences'?: Array<BaseReferenceDto1Beta>;
+    'defaultReferences'?: Array<BaseReferenceDtoBeta>;
     /**
      * By default, every import will first export all existing objects supported by sp-config as a backup before the import is attempted. If excludeBackup is true, the backup will not be performed.
      * @type {boolean}
@@ -13898,16 +13898,16 @@ export interface ManualWorkItemDetailsBeta {
     'forwarded'?: boolean;
     /**
      * 
-     * @type {BaseReferenceDto1Beta}
+     * @type {BaseReferenceDtoBeta}
      * @memberof ManualWorkItemDetailsBeta
      */
-    'originalOwner'?: BaseReferenceDto1Beta;
+    'originalOwner'?: BaseReferenceDtoBeta;
     /**
      * 
-     * @type {BaseReferenceDto1Beta}
+     * @type {BaseReferenceDtoBeta}
      * @memberof ManualWorkItemDetailsBeta
      */
-    'currentOwner'?: BaseReferenceDto1Beta;
+    'currentOwner'?: BaseReferenceDtoBeta;
     /**
      * Time at which item was modified.
      * @type {string}
@@ -15724,10 +15724,10 @@ export interface ObjectImportResultBeta {
     'errors': Array<SpConfigMessageBeta>;
     /**
      * References to objects that were created or updated by the import.
-     * @type {Array<BaseReferenceDto1Beta>}
+     * @type {Array<BaseReferenceDtoBeta>}
      * @memberof ObjectImportResultBeta
      */
-    'importedObjects': Array<BaseReferenceDto1Beta>;
+    'importedObjects': Array<BaseReferenceDtoBeta>;
 }
 /**
  * DTO class for OrgConfig data accessible by customer external org admin (\"ORG_ADMIN\") users
@@ -16662,22 +16662,22 @@ export interface PendingApprovalBeta {
     'requestType'?: AccessRequestTypeBeta;
     /**
      * 
-     * @type {BaseReferenceDto1Beta}
+     * @type {BaseReferenceDtoBeta}
      * @memberof PendingApprovalBeta
      */
-    'requester'?: BaseReferenceDto1Beta;
+    'requester'?: BaseReferenceDtoBeta;
     /**
      * 
-     * @type {BaseReferenceDto1Beta}
+     * @type {BaseReferenceDtoBeta}
      * @memberof PendingApprovalBeta
      */
-    'requestedFor'?: BaseReferenceDto1Beta;
+    'requestedFor'?: BaseReferenceDtoBeta;
     /**
      * 
-     * @type {BaseReferenceDto1Beta}
+     * @type {BaseReferenceDtoBeta}
      * @memberof PendingApprovalBeta
      */
-    'owner'?: BaseReferenceDto1Beta;
+    'owner'?: BaseReferenceDtoBeta;
     /**
      * 
      * @type {RequestableObjectReferenceBeta}
@@ -18370,16 +18370,16 @@ export interface RequestedItemStatusBeta {
     'created'?: string;
     /**
      * 
-     * @type {BaseReferenceDto1Beta}
+     * @type {BaseReferenceDtoBeta}
      * @memberof RequestedItemStatusBeta
      */
-    'requester'?: BaseReferenceDto1Beta;
+    'requester'?: BaseReferenceDtoBeta;
     /**
      * 
-     * @type {BaseReferenceDto1Beta}
+     * @type {BaseReferenceDtoBeta}
      * @memberof RequestedItemStatusBeta
      */
-    'requestedFor'?: BaseReferenceDto1Beta;
+    'requestedFor'?: BaseReferenceDtoBeta;
     /**
      * 
      * @type {CommentDto1Beta}
@@ -21001,16 +21001,16 @@ export interface ServiceDeskIntegrationDtoAllOfBeta {
     'type': string;
     /**
      * Reference to the identity that is the owner of this Service Desk integration
-     * @type {BaseReferenceDto1Beta}
+     * @type {BaseReferenceDtoBeta}
      * @memberof ServiceDeskIntegrationDtoAllOfBeta
      */
-    'ownerRef'?: BaseReferenceDto1Beta;
+    'ownerRef'?: BaseReferenceDtoBeta;
     /**
      * Reference to the source cluster for this Service Desk integration
-     * @type {BaseReferenceDto1Beta}
+     * @type {BaseReferenceDtoBeta}
      * @memberof ServiceDeskIntegrationDtoAllOfBeta
      */
-    'clusterRef'?: BaseReferenceDto1Beta;
+    'clusterRef'?: BaseReferenceDtoBeta;
     /**
      * ID of the cluster for the Service Desk integration (replaced by clusterRef, retained for backward compatibility)
      * @type {string}
@@ -21039,10 +21039,10 @@ export interface ServiceDeskIntegrationDtoAllOfBeta {
     'attributes': { [key: string]: any; };
     /**
      * Reference to beforeProvisioningRule for this Service Desk integration
-     * @type {BaseReferenceDto1Beta}
+     * @type {BaseReferenceDtoBeta}
      * @memberof ServiceDeskIntegrationDtoAllOfBeta
      */
-    'beforeProvisioningRule'?: BaseReferenceDto1Beta;
+    'beforeProvisioningRule'?: BaseReferenceDtoBeta;
 }
 /**
  * 
@@ -21088,16 +21088,16 @@ export interface ServiceDeskIntegrationDtoBeta {
     'type': string;
     /**
      * Reference to the identity that is the owner of this Service Desk integration
-     * @type {BaseReferenceDto1Beta}
+     * @type {BaseReferenceDtoBeta}
      * @memberof ServiceDeskIntegrationDtoBeta
      */
-    'ownerRef'?: BaseReferenceDto1Beta;
+    'ownerRef'?: BaseReferenceDtoBeta;
     /**
      * Reference to the source cluster for this Service Desk integration
-     * @type {BaseReferenceDto1Beta}
+     * @type {BaseReferenceDtoBeta}
      * @memberof ServiceDeskIntegrationDtoBeta
      */
-    'clusterRef'?: BaseReferenceDto1Beta;
+    'clusterRef'?: BaseReferenceDtoBeta;
     /**
      * ID of the cluster for the Service Desk integration (replaced by clusterRef, retained for backward compatibility)
      * @type {string}
@@ -21126,10 +21126,10 @@ export interface ServiceDeskIntegrationDtoBeta {
     'attributes': { [key: string]: any; };
     /**
      * Reference to beforeProvisioningRule for this Service Desk integration
-     * @type {BaseReferenceDto1Beta}
+     * @type {BaseReferenceDtoBeta}
      * @memberof ServiceDeskIntegrationDtoBeta
      */
-    'beforeProvisioningRule'?: BaseReferenceDto1Beta;
+    'beforeProvisioningRule'?: BaseReferenceDtoBeta;
 }
 /**
  * This is the model for a Service Desk integration template, used to create and edit Service Desk Integrations.
@@ -21596,10 +21596,10 @@ export interface SodPolicyBeta {
     'description'?: string | null;
     /**
      * 
-     * @type {BaseReferenceDto1Beta}
+     * @type {BaseReferenceDtoBeta}
      * @memberof SodPolicyBeta
      */
-    'ownerRef'?: BaseReferenceDto1Beta;
+    'ownerRef'?: BaseReferenceDtoBeta;
     /**
      * Optional External Policy Reference
      * @type {string}
@@ -21744,10 +21744,10 @@ export interface SodPolicyScheduleBeta {
     'schedule'?: Schedule1Beta;
     /**
      * 
-     * @type {Array<BaseReferenceDto1Beta>}
+     * @type {Array<BaseReferenceDtoBeta>}
      * @memberof SodPolicyScheduleBeta
      */
-    'recipients'?: Array<BaseReferenceDto1Beta>;
+    'recipients'?: Array<BaseReferenceDtoBeta>;
     /**
      * Indicates if empty results need to be emailed
      * @type {boolean}
@@ -21793,10 +21793,10 @@ export interface SodViolationCheckResult1Beta {
     'violationContexts'?: Array<SodViolationContext1Beta>;
     /**
      * A list of the Policies that were violated
-     * @type {Array<BaseReferenceDtoBeta>}
+     * @type {Array<BaseReferenceDto1Beta>}
      * @memberof SodViolationCheckResult1Beta
      */
-    'violatedPolicies'?: Array<BaseReferenceDtoBeta>;
+    'violatedPolicies'?: Array<BaseReferenceDto1Beta>;
 }
 /**
  * The inner object representing the completed SOD Violation check
@@ -21824,10 +21824,10 @@ export interface SodViolationCheckResultBeta {
     'violationContexts'?: Array<SodViolationContextBeta>;
     /**
      * A list of the Policies that were violated
-     * @type {Array<BaseReferenceDto1Beta>}
+     * @type {Array<BaseReferenceDtoBeta>}
      * @memberof SodViolationCheckResultBeta
      */
-    'violatedPolicies'?: Array<BaseReferenceDto1Beta>;
+    'violatedPolicies'?: Array<BaseReferenceDtoBeta>;
 }
 /**
  * The contextual information of the violated criteria
@@ -21837,10 +21837,10 @@ export interface SodViolationCheckResultBeta {
 export interface SodViolationContext1Beta {
     /**
      * 
-     * @type {BaseReferenceDto1Beta}
+     * @type {BaseReferenceDtoBeta}
      * @memberof SodViolationContext1Beta
      */
-    'policy'?: BaseReferenceDto1Beta;
+    'policy'?: BaseReferenceDtoBeta;
     /**
      * 
      * @type {SodViolationContext1ConflictingAccessCriteriaBeta}
@@ -21888,10 +21888,10 @@ export interface SodViolationContext1ConflictingAccessCriteriaLeftCriteriaBeta {
 export interface SodViolationContextBeta {
     /**
      * 
-     * @type {BaseReferenceDto1Beta}
+     * @type {BaseReferenceDtoBeta}
      * @memberof SodViolationContextBeta
      */
-    'policy'?: BaseReferenceDto1Beta;
+    'policy'?: BaseReferenceDtoBeta;
     /**
      * 
      * @type {SodViolationContextConflictingAccessCriteriaBeta}
@@ -23626,16 +23626,41 @@ export interface SubstringBeta {
 export interface TaggedObjectBeta {
     /**
      * 
-     * @type {BaseReferenceDto1Beta}
+     * @type {BaseReferenceDtoBeta}
      * @memberof TaggedObjectBeta
      */
-    'objectRef'?: BaseReferenceDto1Beta;
+    'objectRef'?: BaseReferenceDtoBeta;
     /**
      * Labels to be applied to an Object
      * @type {Array<string>}
      * @memberof TaggedObjectBeta
      */
     'tags'?: Array<string>;
+}
+/**
+ * 
+ * @export
+ * @interface TaskResultResponseBeta
+ */
+export interface TaskResultResponseBeta {
+    /**
+     * the type of response reference
+     * @type {string}
+     * @memberof TaskResultResponseBeta
+     */
+    'type'?: string;
+    /**
+     * the task ID
+     * @type {string}
+     * @memberof TaskResultResponseBeta
+     */
+    'id'?: string;
+    /**
+     * the task name (not used in this endpoint, always null)
+     * @type {string}
+     * @memberof TaskResultResponseBeta
+     */
+    'name'?: string;
 }
 /**
  * 
@@ -25274,10 +25299,10 @@ export interface WorkflowAllOfBeta {
     'created'?: string;
     /**
      * The identity that created the workflow.
-     * @type {BaseReferenceDto1Beta}
+     * @type {BaseReferenceDtoBeta}
      * @memberof WorkflowAllOfBeta
      */
-    'creator'?: BaseReferenceDto1Beta;
+    'creator'?: BaseReferenceDtoBeta;
 }
 /**
  * 
@@ -25311,10 +25336,10 @@ export interface WorkflowBeta {
     'created'?: string;
     /**
      * The identity that created the workflow.
-     * @type {BaseReferenceDto1Beta}
+     * @type {BaseReferenceDtoBeta}
      * @memberof WorkflowBeta
      */
-    'creator'?: BaseReferenceDto1Beta;
+    'creator'?: BaseReferenceDtoBeta;
     /**
      * The name of the workflow
      * @type {string}
@@ -25885,10 +25910,10 @@ export interface WorkgroupDeleteItemBeta {
 export interface WorkgroupDtoBeta {
     /**
      * 
-     * @type {BaseReferenceDto1Beta}
+     * @type {BaseReferenceDtoBeta}
      * @memberof WorkgroupDtoBeta
      */
-    'owner'?: BaseReferenceDto1Beta;
+    'owner'?: BaseReferenceDtoBeta;
     /**
      * ID of the object to which this reference applies
      * @type {string}
@@ -37173,15 +37198,15 @@ export const GovernanceGroupsBetaApiAxiosParamCreator = function (configuration?
          * This API removes one or more  members from a Governance Group.  A token with API, ORG_ADMIN authority is required to call this API.  >  **Following field of Identity is an optional field in the request.**  >  **name**
          * @summary Remove members from Governance Group
          * @param {string} workgroupId ID of the Governance Group.
-         * @param {Array<BaseReferenceDto1Beta>} baseReferenceDto1Beta List of identities to be removed from  a Governance Group members list.
+         * @param {Array<BaseReferenceDtoBeta>} baseReferenceDtoBeta List of identities to be removed from  a Governance Group members list.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        deleteWorkgroupMembers: async (workgroupId: string, baseReferenceDto1Beta: Array<BaseReferenceDto1Beta>, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        deleteWorkgroupMembers: async (workgroupId: string, baseReferenceDtoBeta: Array<BaseReferenceDtoBeta>, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'workgroupId' is not null or undefined
             assertParamExists('deleteWorkgroupMembers', 'workgroupId', workgroupId)
-            // verify required parameter 'baseReferenceDto1Beta' is not null or undefined
-            assertParamExists('deleteWorkgroupMembers', 'baseReferenceDto1Beta', baseReferenceDto1Beta)
+            // verify required parameter 'baseReferenceDtoBeta' is not null or undefined
+            assertParamExists('deleteWorkgroupMembers', 'baseReferenceDtoBeta', baseReferenceDtoBeta)
             const localVarPath = `/workgroups/{workgroupId}/members/bulk-delete`
                 .replace(`{${"workgroupId"}}`, encodeURIComponent(String(workgroupId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
@@ -37210,7 +37235,7 @@ export const GovernanceGroupsBetaApiAxiosParamCreator = function (configuration?
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(baseReferenceDto1Beta, localVarRequestOptions, configuration)
+            localVarRequestOptions.data = serializeDataIfNeeded(baseReferenceDtoBeta, localVarRequestOptions, configuration)
 
             return {
                 url: toPathString(localVarUrlObj),
@@ -37540,15 +37565,15 @@ export const GovernanceGroupsBetaApiAxiosParamCreator = function (configuration?
          * This API adds one or more members to a Governance Group.  A token with API, ORG_ADMIN authority is required to call this API.  >  **Following field of Identity is an optional field in the request.**  >  **name**
          * @summary Add members to Governance Group
          * @param {string} workgroupId ID of the Governance Group.
-         * @param {Array<BaseReferenceDto1Beta>} baseReferenceDto1Beta List of identities to be added to a Governance Group members list.
+         * @param {Array<BaseReferenceDtoBeta>} baseReferenceDtoBeta List of identities to be added to a Governance Group members list.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        updateWorkgroupMembers: async (workgroupId: string, baseReferenceDto1Beta: Array<BaseReferenceDto1Beta>, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        updateWorkgroupMembers: async (workgroupId: string, baseReferenceDtoBeta: Array<BaseReferenceDtoBeta>, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'workgroupId' is not null or undefined
             assertParamExists('updateWorkgroupMembers', 'workgroupId', workgroupId)
-            // verify required parameter 'baseReferenceDto1Beta' is not null or undefined
-            assertParamExists('updateWorkgroupMembers', 'baseReferenceDto1Beta', baseReferenceDto1Beta)
+            // verify required parameter 'baseReferenceDtoBeta' is not null or undefined
+            assertParamExists('updateWorkgroupMembers', 'baseReferenceDtoBeta', baseReferenceDtoBeta)
             const localVarPath = `/workgroups/{workgroupId}/members/bulk-add`
                 .replace(`{${"workgroupId"}}`, encodeURIComponent(String(workgroupId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
@@ -37577,7 +37602,7 @@ export const GovernanceGroupsBetaApiAxiosParamCreator = function (configuration?
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(baseReferenceDto1Beta, localVarRequestOptions, configuration)
+            localVarRequestOptions.data = serializeDataIfNeeded(baseReferenceDtoBeta, localVarRequestOptions, configuration)
 
             return {
                 url: toPathString(localVarUrlObj),
@@ -37620,12 +37645,12 @@ export const GovernanceGroupsBetaApiFp = function(configuration?: Configuration)
          * This API removes one or more  members from a Governance Group.  A token with API, ORG_ADMIN authority is required to call this API.  >  **Following field of Identity is an optional field in the request.**  >  **name**
          * @summary Remove members from Governance Group
          * @param {string} workgroupId ID of the Governance Group.
-         * @param {Array<BaseReferenceDto1Beta>} baseReferenceDto1Beta List of identities to be removed from  a Governance Group members list.
+         * @param {Array<BaseReferenceDtoBeta>} baseReferenceDtoBeta List of identities to be removed from  a Governance Group members list.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async deleteWorkgroupMembers(workgroupId: string, baseReferenceDto1Beta: Array<BaseReferenceDto1Beta>, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<WorkgroupMemberDeleteItemBeta>>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.deleteWorkgroupMembers(workgroupId, baseReferenceDto1Beta, axiosOptions);
+        async deleteWorkgroupMembers(workgroupId: string, baseReferenceDtoBeta: Array<BaseReferenceDtoBeta>, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<WorkgroupMemberDeleteItemBeta>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.deleteWorkgroupMembers(workgroupId, baseReferenceDtoBeta, axiosOptions);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
@@ -37676,7 +37701,7 @@ export const GovernanceGroupsBetaApiFp = function(configuration?: Configuration)
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async listWorkgroupMembers(workgroupId: string, offset?: number, limit?: number, count?: boolean, sorters?: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<BaseReferenceDto1Beta>>> {
+        async listWorkgroupMembers(workgroupId: string, offset?: number, limit?: number, count?: boolean, sorters?: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<BaseReferenceDtoBeta>>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.listWorkgroupMembers(workgroupId, offset, limit, count, sorters, axiosOptions);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -37711,12 +37736,12 @@ export const GovernanceGroupsBetaApiFp = function(configuration?: Configuration)
          * This API adds one or more members to a Governance Group.  A token with API, ORG_ADMIN authority is required to call this API.  >  **Following field of Identity is an optional field in the request.**  >  **name**
          * @summary Add members to Governance Group
          * @param {string} workgroupId ID of the Governance Group.
-         * @param {Array<BaseReferenceDto1Beta>} baseReferenceDto1Beta List of identities to be added to a Governance Group members list.
+         * @param {Array<BaseReferenceDtoBeta>} baseReferenceDtoBeta List of identities to be added to a Governance Group members list.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async updateWorkgroupMembers(workgroupId: string, baseReferenceDto1Beta: Array<BaseReferenceDto1Beta>, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<WorkgroupMemberAddItemBeta>>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.updateWorkgroupMembers(workgroupId, baseReferenceDto1Beta, axiosOptions);
+        async updateWorkgroupMembers(workgroupId: string, baseReferenceDtoBeta: Array<BaseReferenceDtoBeta>, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<WorkgroupMemberAddItemBeta>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.updateWorkgroupMembers(workgroupId, baseReferenceDtoBeta, axiosOptions);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
     }
@@ -37753,12 +37778,12 @@ export const GovernanceGroupsBetaApiFactory = function (configuration?: Configur
          * This API removes one or more  members from a Governance Group.  A token with API, ORG_ADMIN authority is required to call this API.  >  **Following field of Identity is an optional field in the request.**  >  **name**
          * @summary Remove members from Governance Group
          * @param {string} workgroupId ID of the Governance Group.
-         * @param {Array<BaseReferenceDto1Beta>} baseReferenceDto1Beta List of identities to be removed from  a Governance Group members list.
+         * @param {Array<BaseReferenceDtoBeta>} baseReferenceDtoBeta List of identities to be removed from  a Governance Group members list.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        deleteWorkgroupMembers(workgroupId: string, baseReferenceDto1Beta: Array<BaseReferenceDto1Beta>, axiosOptions?: any): AxiosPromise<Array<WorkgroupMemberDeleteItemBeta>> {
-            return localVarFp.deleteWorkgroupMembers(workgroupId, baseReferenceDto1Beta, axiosOptions).then((request) => request(axios, basePath));
+        deleteWorkgroupMembers(workgroupId: string, baseReferenceDtoBeta: Array<BaseReferenceDtoBeta>, axiosOptions?: any): AxiosPromise<Array<WorkgroupMemberDeleteItemBeta>> {
+            return localVarFp.deleteWorkgroupMembers(workgroupId, baseReferenceDtoBeta, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          *  This API initiates a bulk deletion of one or more Governance Groups.  >  If any of the indicated Governance Groups have one or more connections associated with it,then those Governance Groups will be added in  **inUse** list of the response. Governance Group(s) marked as **inUse** can not be deleted.  >  If any of the indicated Governance Groups is not does not exists in Organization,then those Governance Groups will be added in **notFound** list of the response. Governance Groups marked as **notFound** will not be deleted.  >  If any of the indicated Governance Groups does not have any connections associated with it,then those Governance Groups will be added in **deleted** list of the response. A Governance Group marked as **deleted** will be deleted from current Organization.  >  If the request contains any **inUse** or **notFound** Governance Group IDs then it skips only these Governance Groups for deletion and deletes the rest of Governance Groups which have no connections associated with it.   >  **This API has limit number of Governance Groups can be deleted at one time. If the request contains more then 100 Governance Groups IDs to be deleted then the API will throw an exception.**
@@ -37805,7 +37830,7 @@ export const GovernanceGroupsBetaApiFactory = function (configuration?: Configur
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        listWorkgroupMembers(workgroupId: string, offset?: number, limit?: number, count?: boolean, sorters?: string, axiosOptions?: any): AxiosPromise<Array<BaseReferenceDto1Beta>> {
+        listWorkgroupMembers(workgroupId: string, offset?: number, limit?: number, count?: boolean, sorters?: string, axiosOptions?: any): AxiosPromise<Array<BaseReferenceDtoBeta>> {
             return localVarFp.listWorkgroupMembers(workgroupId, offset, limit, count, sorters, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
@@ -37837,12 +37862,12 @@ export const GovernanceGroupsBetaApiFactory = function (configuration?: Configur
          * This API adds one or more members to a Governance Group.  A token with API, ORG_ADMIN authority is required to call this API.  >  **Following field of Identity is an optional field in the request.**  >  **name**
          * @summary Add members to Governance Group
          * @param {string} workgroupId ID of the Governance Group.
-         * @param {Array<BaseReferenceDto1Beta>} baseReferenceDto1Beta List of identities to be added to a Governance Group members list.
+         * @param {Array<BaseReferenceDtoBeta>} baseReferenceDtoBeta List of identities to be added to a Governance Group members list.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        updateWorkgroupMembers(workgroupId: string, baseReferenceDto1Beta: Array<BaseReferenceDto1Beta>, axiosOptions?: any): AxiosPromise<Array<WorkgroupMemberAddItemBeta>> {
-            return localVarFp.updateWorkgroupMembers(workgroupId, baseReferenceDto1Beta, axiosOptions).then((request) => request(axios, basePath));
+        updateWorkgroupMembers(workgroupId: string, baseReferenceDtoBeta: Array<BaseReferenceDtoBeta>, axiosOptions?: any): AxiosPromise<Array<WorkgroupMemberAddItemBeta>> {
+            return localVarFp.updateWorkgroupMembers(workgroupId, baseReferenceDtoBeta, axiosOptions).then((request) => request(axios, basePath));
         },
     };
 };
@@ -37890,10 +37915,10 @@ export interface GovernanceGroupsBetaApiDeleteWorkgroupMembersRequest {
 
     /**
      * List of identities to be removed from  a Governance Group members list.
-     * @type {Array<BaseReferenceDto1Beta>}
+     * @type {Array<BaseReferenceDtoBeta>}
      * @memberof GovernanceGroupsBetaApiDeleteWorkgroupMembers
      */
-    readonly baseReferenceDto1Beta: Array<BaseReferenceDto1Beta>
+    readonly baseReferenceDtoBeta: Array<BaseReferenceDtoBeta>
 }
 
 /**
@@ -38086,10 +38111,10 @@ export interface GovernanceGroupsBetaApiUpdateWorkgroupMembersRequest {
 
     /**
      * List of identities to be added to a Governance Group members list.
-     * @type {Array<BaseReferenceDto1Beta>}
+     * @type {Array<BaseReferenceDtoBeta>}
      * @memberof GovernanceGroupsBetaApiUpdateWorkgroupMembers
      */
-    readonly baseReferenceDto1Beta: Array<BaseReferenceDto1Beta>
+    readonly baseReferenceDtoBeta: Array<BaseReferenceDtoBeta>
 }
 
 /**
@@ -38132,7 +38157,7 @@ export class GovernanceGroupsBetaApi extends BaseAPI {
      * @memberof GovernanceGroupsBetaApi
      */
     public deleteWorkgroupMembers(requestParameters: GovernanceGroupsBetaApiDeleteWorkgroupMembersRequest, axiosOptions?: AxiosRequestConfig) {
-        return GovernanceGroupsBetaApiFp(this.configuration).deleteWorkgroupMembers(requestParameters.workgroupId, requestParameters.baseReferenceDto1Beta, axiosOptions).then((request) => request(this.axios, this.basePath));
+        return GovernanceGroupsBetaApiFp(this.configuration).deleteWorkgroupMembers(requestParameters.workgroupId, requestParameters.baseReferenceDtoBeta, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -38216,7 +38241,7 @@ export class GovernanceGroupsBetaApi extends BaseAPI {
      * @memberof GovernanceGroupsBetaApi
      */
     public updateWorkgroupMembers(requestParameters: GovernanceGroupsBetaApiUpdateWorkgroupMembersRequest, axiosOptions?: AxiosRequestConfig) {
-        return GovernanceGroupsBetaApiFp(this.configuration).updateWorkgroupMembers(requestParameters.workgroupId, requestParameters.baseReferenceDto1Beta, axiosOptions).then((request) => request(this.axios, this.basePath));
+        return GovernanceGroupsBetaApiFp(this.configuration).updateWorkgroupMembers(requestParameters.workgroupId, requestParameters.baseReferenceDtoBeta, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 }
 
@@ -44158,7 +44183,7 @@ export const IdentitiesBetaApiAxiosParamCreator = function (configuration?: Conf
             };
         },
         /**
-         * You could use this endpoint to: 1. Calculate identity attributes, including applying or running any rules or transforms (e.g. calculate Lifecycle State at a point-in-time it\'s expected to change). 2. Evaluate role assignments, leading to assignment of new roles and removal of existing roles. 3. Enforce provisioning for any assigned accesses that haven\'t been fulfilled (e.g. failure due to source health). 4. Recalculate manager relationships. 5. Potentially clean-up identity processing errors, assuming the error has been resolved.  To learn more, refer to the [identity processing documentation](https://documentation.sailpoint.com/saas/help/setup/identity_processing.html). 
+         * You could use this endpoint to: 1. Calculate identity attributes, including applying or running any rules or transforms (e.g. calculate Lifecycle State at a point-in-time it\'s expected to change). 2. Evaluate role assignments, leading to assignment of new roles and removal of existing roles. 3. Enforce provisioning for any assigned accesses that haven\'t been fulfilled (e.g. failure due to source health). 4. Recalculate manager relationships. 5. Potentially clean-up identity processing errors, assuming the error has been resolved.  To learn more, refer to the [identity processing documentation](https://documentation.sailpoint.com/saas/help/setup/identity_processing.html).  A token with ORG_ADMIN or HELPDESK authority is required to call this API. 
          * @summary Process a list of identityIds
          * @param {ProcessIdentitiesRequestBeta} processIdentitiesRequestBeta 
          * @param {*} [axiosOptions] Override http request option.
@@ -44303,13 +44328,13 @@ export const IdentitiesBetaApiFp = function(configuration?: Configuration) {
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
-         * You could use this endpoint to: 1. Calculate identity attributes, including applying or running any rules or transforms (e.g. calculate Lifecycle State at a point-in-time it\'s expected to change). 2. Evaluate role assignments, leading to assignment of new roles and removal of existing roles. 3. Enforce provisioning for any assigned accesses that haven\'t been fulfilled (e.g. failure due to source health). 4. Recalculate manager relationships. 5. Potentially clean-up identity processing errors, assuming the error has been resolved.  To learn more, refer to the [identity processing documentation](https://documentation.sailpoint.com/saas/help/setup/identity_processing.html). 
+         * You could use this endpoint to: 1. Calculate identity attributes, including applying or running any rules or transforms (e.g. calculate Lifecycle State at a point-in-time it\'s expected to change). 2. Evaluate role assignments, leading to assignment of new roles and removal of existing roles. 3. Enforce provisioning for any assigned accesses that haven\'t been fulfilled (e.g. failure due to source health). 4. Recalculate manager relationships. 5. Potentially clean-up identity processing errors, assuming the error has been resolved.  To learn more, refer to the [identity processing documentation](https://documentation.sailpoint.com/saas/help/setup/identity_processing.html).  A token with ORG_ADMIN or HELPDESK authority is required to call this API. 
          * @summary Process a list of identityIds
          * @param {ProcessIdentitiesRequestBeta} processIdentitiesRequestBeta 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async startIdentityProcessing(processIdentitiesRequestBeta: ProcessIdentitiesRequestBeta, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<BaseReferenceDtoBeta>> {
+        async startIdentityProcessing(processIdentitiesRequestBeta: ProcessIdentitiesRequestBeta, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<TaskResultResponseBeta>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.startIdentityProcessing(processIdentitiesRequestBeta, axiosOptions);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -44380,13 +44405,13 @@ export const IdentitiesBetaApiFactory = function (configuration?: Configuration,
             return localVarFp.listIdentities(filters, sorters, defaultFilter, count, limit, offset, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
-         * You could use this endpoint to: 1. Calculate identity attributes, including applying or running any rules or transforms (e.g. calculate Lifecycle State at a point-in-time it\'s expected to change). 2. Evaluate role assignments, leading to assignment of new roles and removal of existing roles. 3. Enforce provisioning for any assigned accesses that haven\'t been fulfilled (e.g. failure due to source health). 4. Recalculate manager relationships. 5. Potentially clean-up identity processing errors, assuming the error has been resolved.  To learn more, refer to the [identity processing documentation](https://documentation.sailpoint.com/saas/help/setup/identity_processing.html). 
+         * You could use this endpoint to: 1. Calculate identity attributes, including applying or running any rules or transforms (e.g. calculate Lifecycle State at a point-in-time it\'s expected to change). 2. Evaluate role assignments, leading to assignment of new roles and removal of existing roles. 3. Enforce provisioning for any assigned accesses that haven\'t been fulfilled (e.g. failure due to source health). 4. Recalculate manager relationships. 5. Potentially clean-up identity processing errors, assuming the error has been resolved.  To learn more, refer to the [identity processing documentation](https://documentation.sailpoint.com/saas/help/setup/identity_processing.html).  A token with ORG_ADMIN or HELPDESK authority is required to call this API. 
          * @summary Process a list of identityIds
          * @param {ProcessIdentitiesRequestBeta} processIdentitiesRequestBeta 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        startIdentityProcessing(processIdentitiesRequestBeta: ProcessIdentitiesRequestBeta, axiosOptions?: any): AxiosPromise<BaseReferenceDtoBeta> {
+        startIdentityProcessing(processIdentitiesRequestBeta: ProcessIdentitiesRequestBeta, axiosOptions?: any): AxiosPromise<TaskResultResponseBeta> {
             return localVarFp.startIdentityProcessing(processIdentitiesRequestBeta, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
@@ -44577,7 +44602,7 @@ export class IdentitiesBetaApi extends BaseAPI {
     }
 
     /**
-     * You could use this endpoint to: 1. Calculate identity attributes, including applying or running any rules or transforms (e.g. calculate Lifecycle State at a point-in-time it\'s expected to change). 2. Evaluate role assignments, leading to assignment of new roles and removal of existing roles. 3. Enforce provisioning for any assigned accesses that haven\'t been fulfilled (e.g. failure due to source health). 4. Recalculate manager relationships. 5. Potentially clean-up identity processing errors, assuming the error has been resolved.  To learn more, refer to the [identity processing documentation](https://documentation.sailpoint.com/saas/help/setup/identity_processing.html). 
+     * You could use this endpoint to: 1. Calculate identity attributes, including applying or running any rules or transforms (e.g. calculate Lifecycle State at a point-in-time it\'s expected to change). 2. Evaluate role assignments, leading to assignment of new roles and removal of existing roles. 3. Enforce provisioning for any assigned accesses that haven\'t been fulfilled (e.g. failure due to source health). 4. Recalculate manager relationships. 5. Potentially clean-up identity processing errors, assuming the error has been resolved.  To learn more, refer to the [identity processing documentation](https://documentation.sailpoint.com/saas/help/setup/identity_processing.html).  A token with ORG_ADMIN or HELPDESK authority is required to call this API. 
      * @summary Process a list of identityIds
      * @param {IdentitiesBetaApiStartIdentityProcessingRequest} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
@@ -58581,7 +58606,7 @@ export const RolesBetaApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async bulkDeleteRoles(roleBulkDeleteRequestBeta: RoleBulkDeleteRequestBeta, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<BaseReferenceDto1Beta>> {
+        async bulkDeleteRoles(roleBulkDeleteRequestBeta: RoleBulkDeleteRequestBeta, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<BaseReferenceDtoBeta>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.bulkDeleteRoles(roleBulkDeleteRequestBeta, axiosOptions);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -58681,7 +58706,7 @@ export const RolesBetaApiFactory = function (configuration?: Configuration, base
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        bulkDeleteRoles(roleBulkDeleteRequestBeta: RoleBulkDeleteRequestBeta, axiosOptions?: any): AxiosPromise<BaseReferenceDto1Beta> {
+        bulkDeleteRoles(roleBulkDeleteRequestBeta: RoleBulkDeleteRequestBeta, axiosOptions?: any): AxiosPromise<BaseReferenceDtoBeta> {
             return localVarFp.bulkDeleteRoles(roleBulkDeleteRequestBeta, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
