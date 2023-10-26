@@ -14020,37 +14020,6 @@ export interface MetricResponseBeta {
     'value'?: number;
 }
 /**
- * 
- * @export
- * @interface MfaConfigBeta
- */
-export interface MfaConfigBeta {
-    /**
-     * If MFA method is enabled.
-     * @type {boolean}
-     * @memberof MfaConfigBeta
-     */
-    'enabled'?: boolean;
-    /**
-     * The server host name or IP address of the MFA provider.
-     * @type {string}
-     * @memberof MfaConfigBeta
-     */
-    'host'?: string;
-    /**
-     * The secret key for authenticating requests to the MFA provider.
-     * @type {string}
-     * @memberof MfaConfigBeta
-     */
-    'accessKey'?: string;
-    /**
-     * Optional. The name of the attribute for mapping IdentityNow identity to the MFA provider.
-     * @type {string}
-     * @memberof MfaConfigBeta
-     */
-    'identityAttribute'?: string;
-}
-/**
  * Response model for configuration test of a given MFA method
  * @export
  * @interface MfaConfigTestResponseBeta
@@ -14077,6 +14046,86 @@ export const MfaConfigTestResponseBetaStateEnum = {
 
 export type MfaConfigTestResponseBetaStateEnum = typeof MfaConfigTestResponseBetaStateEnum[keyof typeof MfaConfigTestResponseBetaStateEnum];
 
+/**
+ * 
+ * @export
+ * @interface MfaDuoConfigBeta
+ */
+export interface MfaDuoConfigBeta {
+    /**
+     * Mfa method name
+     * @type {string}
+     * @memberof MfaDuoConfigBeta
+     */
+    'mfaMethod'?: string | null;
+    /**
+     * If MFA method is enabled.
+     * @type {boolean}
+     * @memberof MfaDuoConfigBeta
+     */
+    'enabled'?: boolean;
+    /**
+     * The server host name or IP address of the MFA provider.
+     * @type {string}
+     * @memberof MfaDuoConfigBeta
+     */
+    'host'?: string | null;
+    /**
+     * The secret key for authenticating requests to the MFA provider.
+     * @type {string}
+     * @memberof MfaDuoConfigBeta
+     */
+    'accessKey'?: string | null;
+    /**
+     * Optional. The name of the attribute for mapping IdentityNow identity to the MFA provider.
+     * @type {string}
+     * @memberof MfaDuoConfigBeta
+     */
+    'identityAttribute'?: string | null;
+    /**
+     * A map with additional config properties for the given MFA method - duo-web.
+     * @type {{ [key: string]: any; }}
+     * @memberof MfaDuoConfigBeta
+     */
+    'configProperties'?: { [key: string]: any; } | null;
+}
+/**
+ * 
+ * @export
+ * @interface MfaOktaConfigBeta
+ */
+export interface MfaOktaConfigBeta {
+    /**
+     * Mfa method name
+     * @type {string}
+     * @memberof MfaOktaConfigBeta
+     */
+    'mfaMethod'?: string | null;
+    /**
+     * If MFA method is enabled.
+     * @type {boolean}
+     * @memberof MfaOktaConfigBeta
+     */
+    'enabled'?: boolean;
+    /**
+     * The server host name or IP address of the MFA provider.
+     * @type {string}
+     * @memberof MfaOktaConfigBeta
+     */
+    'host'?: string | null;
+    /**
+     * The secret key for authenticating requests to the MFA provider.
+     * @type {string}
+     * @memberof MfaOktaConfigBeta
+     */
+    'accessKey'?: string | null;
+    /**
+     * Optional. The name of the attribute for mapping IdentityNow identity to the MFA provider.
+     * @type {string}
+     * @memberof MfaOktaConfigBeta
+     */
+    'identityAttribute'?: string | null;
+}
 /**
  * 
  * @export
@@ -48226,17 +48275,55 @@ export class LifecycleStatesBetaApi extends BaseAPI {
 export const MFAConfigurationBetaApiAxiosParamCreator = function (configuration?: Configuration) {
     return {
         /**
-         * This API returns the configuration of a given MFA method. A token with ORG_ADMIN authority is required to call this API.
-         * @summary Configuration of a MFA method
-         * @param {string} method The name of the MFA method. The currently supported method name is okta-verify.
+         * This API removes the configuration for the specified MFA method. A token with ORG_ADMIN authority is required to call this API.
+         * @summary Delete MFA method configuration
+         * @param {string} method The name of the MFA method. The currently supported method names are \&#39;okta-verify\&#39; and \&#39;duo-web\&#39;.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        getMFAConfig: async (method: string, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        deleteMFAConfig: async (method: string, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'method' is not null or undefined
-            assertParamExists('getMFAConfig', 'method', method)
-            const localVarPath = `/mfa/{method}/config`
+            assertParamExists('deleteMFAConfig', 'method', method)
+            const localVarPath = `/mfa/{method}/delete`
                 .replace(`{${"method"}}`, encodeURIComponent(String(method)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'DELETE', ...baseOptions, ...axiosOptions};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication UserContextAuth required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "UserContextAuth", [], configuration)
+
+            // authentication UserContextAuth required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "UserContextAuth", [], configuration)
+
+
+    
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                axiosOptions: localVarRequestOptions,
+            };
+        },
+        /**
+         * This API returns the configuration of an Duo MFA method. A token with ORG_ADMIN authority is required to call this API.
+         * @summary Configuration of Duo MFA method
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        getMFADuoConfig: async (axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            const localVarPath = `/mfa/duo-web/config`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -48268,20 +48355,54 @@ export const MFAConfigurationBetaApiAxiosParamCreator = function (configuration?
             };
         },
         /**
-         * This API sets the configuration of a given MFA method. A token with ORG_ADMIN authority is required to call this API.
-         * @summary Set MFA method configuration
-         * @param {string} method The name of the MFA method. The currently supported method name is okta-verify.
-         * @param {MfaConfigBeta} mfaConfigBeta 
+         * This API returns the configuration of an Okta MFA method. A token with ORG_ADMIN authority is required to call this API.
+         * @summary Configuration of Okta MFA method
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        setMFAConfig: async (method: string, mfaConfigBeta: MfaConfigBeta, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
-            // verify required parameter 'method' is not null or undefined
-            assertParamExists('setMFAConfig', 'method', method)
-            // verify required parameter 'mfaConfigBeta' is not null or undefined
-            assertParamExists('setMFAConfig', 'mfaConfigBeta', mfaConfigBeta)
-            const localVarPath = `/mfa/{method}/config`
-                .replace(`{${"method"}}`, encodeURIComponent(String(method)));
+        getMFAOktaConfig: async (axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            const localVarPath = `/mfa/okta-verify/config`;
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...axiosOptions};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication UserContextAuth required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "UserContextAuth", [], configuration)
+
+            // authentication UserContextAuth required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "UserContextAuth", [], configuration)
+
+
+    
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                axiosOptions: localVarRequestOptions,
+            };
+        },
+        /**
+         * This API sets the configuration of an Duo MFA method. A token with ORG_ADMIN authority is required to call this API.
+         * @summary Set Duo MFA configuration
+         * @param {MfaDuoConfigBeta} mfaDuoConfigBeta 
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        setMFADuoConfig: async (mfaDuoConfigBeta: MfaDuoConfigBeta, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'mfaDuoConfigBeta' is not null or undefined
+            assertParamExists('setMFADuoConfig', 'mfaDuoConfigBeta', mfaDuoConfigBeta)
+            const localVarPath = `/mfa/duo-web/config`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -48308,7 +48429,51 @@ export const MFAConfigurationBetaApiAxiosParamCreator = function (configuration?
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(mfaConfigBeta, localVarRequestOptions, configuration)
+            localVarRequestOptions.data = serializeDataIfNeeded(mfaDuoConfigBeta, localVarRequestOptions, configuration)
+
+            return {
+                url: toPathString(localVarUrlObj),
+                axiosOptions: localVarRequestOptions,
+            };
+        },
+        /**
+         * This API sets the configuration of an Okta MFA method. A token with ORG_ADMIN authority is required to call this API.
+         * @summary Set Okta MFA configuration
+         * @param {MfaOktaConfigBeta} mfaOktaConfigBeta 
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        setMFAOktaConfig: async (mfaOktaConfigBeta: MfaOktaConfigBeta, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'mfaOktaConfigBeta' is not null or undefined
+            assertParamExists('setMFAOktaConfig', 'mfaOktaConfigBeta', mfaOktaConfigBeta)
+            const localVarPath = `/mfa/okta-verify/config`;
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'PUT', ...baseOptions, ...axiosOptions};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication UserContextAuth required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "UserContextAuth", [], configuration)
+
+            // authentication UserContextAuth required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "UserContextAuth", [], configuration)
+
+
+    
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
+            localVarRequestOptions.data = serializeDataIfNeeded(mfaOktaConfigBeta, localVarRequestOptions, configuration)
 
             return {
                 url: toPathString(localVarUrlObj),
@@ -48318,7 +48483,7 @@ export const MFAConfigurationBetaApiAxiosParamCreator = function (configuration?
         /**
          * This API validates that the configuration is valid and will properly authenticate with the MFA provider identified by the method path parameter. A token with ORG_ADMIN authority is required to call this API.
          * @summary MFA method\'s test configuration
-         * @param {string} method The name of the MFA method. The currently supported method name is okta-verify.
+         * @param {string} method The name of the MFA method. The currently supported method names are \&#39;okta-verify\&#39; and \&#39;duo-web\&#39;.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
@@ -48368,32 +48533,62 @@ export const MFAConfigurationBetaApiFp = function(configuration?: Configuration)
     const localVarAxiosParamCreator = MFAConfigurationBetaApiAxiosParamCreator(configuration)
     return {
         /**
-         * This API returns the configuration of a given MFA method. A token with ORG_ADMIN authority is required to call this API.
-         * @summary Configuration of a MFA method
-         * @param {string} method The name of the MFA method. The currently supported method name is okta-verify.
+         * This API removes the configuration for the specified MFA method. A token with ORG_ADMIN authority is required to call this API.
+         * @summary Delete MFA method configuration
+         * @param {string} method The name of the MFA method. The currently supported method names are \&#39;okta-verify\&#39; and \&#39;duo-web\&#39;.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async getMFAConfig(method: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<MfaConfigBeta>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.getMFAConfig(method, axiosOptions);
+        async deleteMFAConfig(method: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<MfaOktaConfigBeta>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.deleteMFAConfig(method, axiosOptions);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
-         * This API sets the configuration of a given MFA method. A token with ORG_ADMIN authority is required to call this API.
-         * @summary Set MFA method configuration
-         * @param {string} method The name of the MFA method. The currently supported method name is okta-verify.
-         * @param {MfaConfigBeta} mfaConfigBeta 
+         * This API returns the configuration of an Duo MFA method. A token with ORG_ADMIN authority is required to call this API.
+         * @summary Configuration of Duo MFA method
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async setMFAConfig(method: string, mfaConfigBeta: MfaConfigBeta, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<MfaConfigBeta>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.setMFAConfig(method, mfaConfigBeta, axiosOptions);
+        async getMFADuoConfig(axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<MfaDuoConfigBeta>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getMFADuoConfig(axiosOptions);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * This API returns the configuration of an Okta MFA method. A token with ORG_ADMIN authority is required to call this API.
+         * @summary Configuration of Okta MFA method
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        async getMFAOktaConfig(axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<MfaOktaConfigBeta>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getMFAOktaConfig(axiosOptions);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * This API sets the configuration of an Duo MFA method. A token with ORG_ADMIN authority is required to call this API.
+         * @summary Set Duo MFA configuration
+         * @param {MfaDuoConfigBeta} mfaDuoConfigBeta 
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        async setMFADuoConfig(mfaDuoConfigBeta: MfaDuoConfigBeta, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<MfaDuoConfigBeta>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.setMFADuoConfig(mfaDuoConfigBeta, axiosOptions);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * This API sets the configuration of an Okta MFA method. A token with ORG_ADMIN authority is required to call this API.
+         * @summary Set Okta MFA configuration
+         * @param {MfaOktaConfigBeta} mfaOktaConfigBeta 
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        async setMFAOktaConfig(mfaOktaConfigBeta: MfaOktaConfigBeta, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<MfaOktaConfigBeta>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.setMFAOktaConfig(mfaOktaConfigBeta, axiosOptions);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
          * This API validates that the configuration is valid and will properly authenticate with the MFA provider identified by the method path parameter. A token with ORG_ADMIN authority is required to call this API.
          * @summary MFA method\'s test configuration
-         * @param {string} method The name of the MFA method. The currently supported method name is okta-verify.
+         * @param {string} method The name of the MFA method. The currently supported method names are \&#39;okta-verify\&#39; and \&#39;duo-web\&#39;.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
@@ -48412,30 +48607,57 @@ export const MFAConfigurationBetaApiFactory = function (configuration?: Configur
     const localVarFp = MFAConfigurationBetaApiFp(configuration)
     return {
         /**
-         * This API returns the configuration of a given MFA method. A token with ORG_ADMIN authority is required to call this API.
-         * @summary Configuration of a MFA method
-         * @param {string} method The name of the MFA method. The currently supported method name is okta-verify.
+         * This API removes the configuration for the specified MFA method. A token with ORG_ADMIN authority is required to call this API.
+         * @summary Delete MFA method configuration
+         * @param {string} method The name of the MFA method. The currently supported method names are \&#39;okta-verify\&#39; and \&#39;duo-web\&#39;.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        getMFAConfig(method: string, axiosOptions?: any): AxiosPromise<MfaConfigBeta> {
-            return localVarFp.getMFAConfig(method, axiosOptions).then((request) => request(axios, basePath));
+        deleteMFAConfig(method: string, axiosOptions?: any): AxiosPromise<MfaOktaConfigBeta> {
+            return localVarFp.deleteMFAConfig(method, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
-         * This API sets the configuration of a given MFA method. A token with ORG_ADMIN authority is required to call this API.
-         * @summary Set MFA method configuration
-         * @param {string} method The name of the MFA method. The currently supported method name is okta-verify.
-         * @param {MfaConfigBeta} mfaConfigBeta 
+         * This API returns the configuration of an Duo MFA method. A token with ORG_ADMIN authority is required to call this API.
+         * @summary Configuration of Duo MFA method
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        setMFAConfig(method: string, mfaConfigBeta: MfaConfigBeta, axiosOptions?: any): AxiosPromise<MfaConfigBeta> {
-            return localVarFp.setMFAConfig(method, mfaConfigBeta, axiosOptions).then((request) => request(axios, basePath));
+        getMFADuoConfig(axiosOptions?: any): AxiosPromise<MfaDuoConfigBeta> {
+            return localVarFp.getMFADuoConfig(axiosOptions).then((request) => request(axios, basePath));
+        },
+        /**
+         * This API returns the configuration of an Okta MFA method. A token with ORG_ADMIN authority is required to call this API.
+         * @summary Configuration of Okta MFA method
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        getMFAOktaConfig(axiosOptions?: any): AxiosPromise<MfaOktaConfigBeta> {
+            return localVarFp.getMFAOktaConfig(axiosOptions).then((request) => request(axios, basePath));
+        },
+        /**
+         * This API sets the configuration of an Duo MFA method. A token with ORG_ADMIN authority is required to call this API.
+         * @summary Set Duo MFA configuration
+         * @param {MfaDuoConfigBeta} mfaDuoConfigBeta 
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        setMFADuoConfig(mfaDuoConfigBeta: MfaDuoConfigBeta, axiosOptions?: any): AxiosPromise<MfaDuoConfigBeta> {
+            return localVarFp.setMFADuoConfig(mfaDuoConfigBeta, axiosOptions).then((request) => request(axios, basePath));
+        },
+        /**
+         * This API sets the configuration of an Okta MFA method. A token with ORG_ADMIN authority is required to call this API.
+         * @summary Set Okta MFA configuration
+         * @param {MfaOktaConfigBeta} mfaOktaConfigBeta 
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        setMFAOktaConfig(mfaOktaConfigBeta: MfaOktaConfigBeta, axiosOptions?: any): AxiosPromise<MfaOktaConfigBeta> {
+            return localVarFp.setMFAOktaConfig(mfaOktaConfigBeta, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * This API validates that the configuration is valid and will properly authenticate with the MFA provider identified by the method path parameter. A token with ORG_ADMIN authority is required to call this API.
          * @summary MFA method\'s test configuration
-         * @param {string} method The name of the MFA method. The currently supported method name is okta-verify.
+         * @param {string} method The name of the MFA method. The currently supported method names are \&#39;okta-verify\&#39; and \&#39;duo-web\&#39;.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
@@ -48446,38 +48668,45 @@ export const MFAConfigurationBetaApiFactory = function (configuration?: Configur
 };
 
 /**
- * Request parameters for getMFAConfig operation in MFAConfigurationBetaApi.
+ * Request parameters for deleteMFAConfig operation in MFAConfigurationBetaApi.
  * @export
- * @interface MFAConfigurationBetaApiGetMFAConfigRequest
+ * @interface MFAConfigurationBetaApiDeleteMFAConfigRequest
  */
-export interface MFAConfigurationBetaApiGetMFAConfigRequest {
+export interface MFAConfigurationBetaApiDeleteMFAConfigRequest {
     /**
-     * The name of the MFA method. The currently supported method name is okta-verify.
+     * The name of the MFA method. The currently supported method names are \&#39;okta-verify\&#39; and \&#39;duo-web\&#39;.
      * @type {string}
-     * @memberof MFAConfigurationBetaApiGetMFAConfig
+     * @memberof MFAConfigurationBetaApiDeleteMFAConfig
      */
     readonly method: string
 }
 
 /**
- * Request parameters for setMFAConfig operation in MFAConfigurationBetaApi.
+ * Request parameters for setMFADuoConfig operation in MFAConfigurationBetaApi.
  * @export
- * @interface MFAConfigurationBetaApiSetMFAConfigRequest
+ * @interface MFAConfigurationBetaApiSetMFADuoConfigRequest
  */
-export interface MFAConfigurationBetaApiSetMFAConfigRequest {
-    /**
-     * The name of the MFA method. The currently supported method name is okta-verify.
-     * @type {string}
-     * @memberof MFAConfigurationBetaApiSetMFAConfig
-     */
-    readonly method: string
-
+export interface MFAConfigurationBetaApiSetMFADuoConfigRequest {
     /**
      * 
-     * @type {MfaConfigBeta}
-     * @memberof MFAConfigurationBetaApiSetMFAConfig
+     * @type {MfaDuoConfigBeta}
+     * @memberof MFAConfigurationBetaApiSetMFADuoConfig
      */
-    readonly mfaConfigBeta: MfaConfigBeta
+    readonly mfaDuoConfigBeta: MfaDuoConfigBeta
+}
+
+/**
+ * Request parameters for setMFAOktaConfig operation in MFAConfigurationBetaApi.
+ * @export
+ * @interface MFAConfigurationBetaApiSetMFAOktaConfigRequest
+ */
+export interface MFAConfigurationBetaApiSetMFAOktaConfigRequest {
+    /**
+     * 
+     * @type {MfaOktaConfigBeta}
+     * @memberof MFAConfigurationBetaApiSetMFAOktaConfig
+     */
+    readonly mfaOktaConfigBeta: MfaOktaConfigBeta
 }
 
 /**
@@ -48487,7 +48716,7 @@ export interface MFAConfigurationBetaApiSetMFAConfigRequest {
  */
 export interface MFAConfigurationBetaApiTestMFAConfigRequest {
     /**
-     * The name of the MFA method. The currently supported method name is okta-verify.
+     * The name of the MFA method. The currently supported method names are \&#39;okta-verify\&#39; and \&#39;duo-web\&#39;.
      * @type {string}
      * @memberof MFAConfigurationBetaApiTestMFAConfig
      */
@@ -48502,27 +48731,61 @@ export interface MFAConfigurationBetaApiTestMFAConfigRequest {
  */
 export class MFAConfigurationBetaApi extends BaseAPI {
     /**
-     * This API returns the configuration of a given MFA method. A token with ORG_ADMIN authority is required to call this API.
-     * @summary Configuration of a MFA method
-     * @param {MFAConfigurationBetaApiGetMFAConfigRequest} requestParameters Request parameters.
+     * This API removes the configuration for the specified MFA method. A token with ORG_ADMIN authority is required to call this API.
+     * @summary Delete MFA method configuration
+     * @param {MFAConfigurationBetaApiDeleteMFAConfigRequest} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
      * @memberof MFAConfigurationBetaApi
      */
-    public getMFAConfig(requestParameters: MFAConfigurationBetaApiGetMFAConfigRequest, axiosOptions?: AxiosRequestConfig) {
-        return MFAConfigurationBetaApiFp(this.configuration).getMFAConfig(requestParameters.method, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public deleteMFAConfig(requestParameters: MFAConfigurationBetaApiDeleteMFAConfigRequest, axiosOptions?: AxiosRequestConfig) {
+        return MFAConfigurationBetaApiFp(this.configuration).deleteMFAConfig(requestParameters.method, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
-     * This API sets the configuration of a given MFA method. A token with ORG_ADMIN authority is required to call this API.
-     * @summary Set MFA method configuration
-     * @param {MFAConfigurationBetaApiSetMFAConfigRequest} requestParameters Request parameters.
+     * This API returns the configuration of an Duo MFA method. A token with ORG_ADMIN authority is required to call this API.
+     * @summary Configuration of Duo MFA method
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
      * @memberof MFAConfigurationBetaApi
      */
-    public setMFAConfig(requestParameters: MFAConfigurationBetaApiSetMFAConfigRequest, axiosOptions?: AxiosRequestConfig) {
-        return MFAConfigurationBetaApiFp(this.configuration).setMFAConfig(requestParameters.method, requestParameters.mfaConfigBeta, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public getMFADuoConfig(axiosOptions?: AxiosRequestConfig) {
+        return MFAConfigurationBetaApiFp(this.configuration).getMFADuoConfig(axiosOptions).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * This API returns the configuration of an Okta MFA method. A token with ORG_ADMIN authority is required to call this API.
+     * @summary Configuration of Okta MFA method
+     * @param {*} [axiosOptions] Override http request option.
+     * @throws {RequiredError}
+     * @memberof MFAConfigurationBetaApi
+     */
+    public getMFAOktaConfig(axiosOptions?: AxiosRequestConfig) {
+        return MFAConfigurationBetaApiFp(this.configuration).getMFAOktaConfig(axiosOptions).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * This API sets the configuration of an Duo MFA method. A token with ORG_ADMIN authority is required to call this API.
+     * @summary Set Duo MFA configuration
+     * @param {MFAConfigurationBetaApiSetMFADuoConfigRequest} requestParameters Request parameters.
+     * @param {*} [axiosOptions] Override http request option.
+     * @throws {RequiredError}
+     * @memberof MFAConfigurationBetaApi
+     */
+    public setMFADuoConfig(requestParameters: MFAConfigurationBetaApiSetMFADuoConfigRequest, axiosOptions?: AxiosRequestConfig) {
+        return MFAConfigurationBetaApiFp(this.configuration).setMFADuoConfig(requestParameters.mfaDuoConfigBeta, axiosOptions).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * This API sets the configuration of an Okta MFA method. A token with ORG_ADMIN authority is required to call this API.
+     * @summary Set Okta MFA configuration
+     * @param {MFAConfigurationBetaApiSetMFAOktaConfigRequest} requestParameters Request parameters.
+     * @param {*} [axiosOptions] Override http request option.
+     * @throws {RequiredError}
+     * @memberof MFAConfigurationBetaApi
+     */
+    public setMFAOktaConfig(requestParameters: MFAConfigurationBetaApiSetMFAOktaConfigRequest, axiosOptions?: AxiosRequestConfig) {
+        return MFAConfigurationBetaApiFp(this.configuration).setMFAOktaConfig(requestParameters.mfaOktaConfigBeta, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
