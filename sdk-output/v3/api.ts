@@ -22937,6 +22937,52 @@ export const CertificationCampaignsApiAxiosParamCreator = function (configuratio
             };
         },
         /**
+         * Sets the schedule for a campaign template. If a schedule already exists, it will be overwritten with the new one.
+         * @summary Sets a Campaign Template\'s Schedule
+         * @param {string} id The ID of the campaign template being scheduled.
+         * @param {Schedule} [schedule] 
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        setCampaignTemplateSchedule: async (id: string, schedule?: Schedule, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'id' is not null or undefined
+            assertParamExists('setCampaignTemplateSchedule', 'id', id)
+            const localVarPath = `/campaign-templates/{id}/schedule`
+                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'PUT', ...baseOptions, ...axiosOptions};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication UserContextAuth required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "UserContextAuth", [], configuration)
+
+            // authentication UserContextAuth required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "UserContextAuth", [], configuration)
+
+
+    
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
+            localVarRequestOptions.data = serializeDataIfNeeded(schedule, localVarRequestOptions, configuration)
+
+            return {
+                url: toPathString(localVarUrlObj),
+                axiosOptions: localVarRequestOptions,
+            };
+        },
+        /**
          * Submits a job to activate the campaign with the given Id. The campaign must be staged. Requires roles of CERT_ADMIN and ORG_ADMIN
          * @summary Activate a Campaign
          * @param {string} id The campaign id
@@ -23336,6 +23382,18 @@ export const CertificationCampaignsApiFp = function(configuration?: Configuratio
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
+         * Sets the schedule for a campaign template. If a schedule already exists, it will be overwritten with the new one.
+         * @summary Sets a Campaign Template\'s Schedule
+         * @param {string} id The ID of the campaign template being scheduled.
+         * @param {Schedule} [schedule] 
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        async setCampaignTemplateSchedule(id: string, schedule?: Schedule, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.setCampaignTemplateSchedule(id, schedule, axiosOptions);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
          * Submits a job to activate the campaign with the given Id. The campaign must be staged. Requires roles of CERT_ADMIN and ORG_ADMIN
          * @summary Activate a Campaign
          * @param {string} id The campaign id
@@ -23553,6 +23611,17 @@ export const CertificationCampaignsApiFactory = function (configuration?: Config
          */
         setCampaignReportsConfig(campaignReportsConfig: CampaignReportsConfig, axiosOptions?: any): AxiosPromise<CampaignReportsConfig> {
             return localVarFp.setCampaignReportsConfig(campaignReportsConfig, axiosOptions).then((request) => request(axios, basePath));
+        },
+        /**
+         * Sets the schedule for a campaign template. If a schedule already exists, it will be overwritten with the new one.
+         * @summary Sets a Campaign Template\'s Schedule
+         * @param {string} id The ID of the campaign template being scheduled.
+         * @param {Schedule} [schedule] 
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        setCampaignTemplateSchedule(id: string, schedule?: Schedule, axiosOptions?: any): AxiosPromise<void> {
+            return localVarFp.setCampaignTemplateSchedule(id, schedule, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * Submits a job to activate the campaign with the given Id. The campaign must be staged. Requires roles of CERT_ADMIN and ORG_ADMIN
@@ -23877,6 +23946,27 @@ export interface CertificationCampaignsApiSetCampaignReportsConfigRequest {
 }
 
 /**
+ * Request parameters for setCampaignTemplateSchedule operation in CertificationCampaignsApi.
+ * @export
+ * @interface CertificationCampaignsApiSetCampaignTemplateScheduleRequest
+ */
+export interface CertificationCampaignsApiSetCampaignTemplateScheduleRequest {
+    /**
+     * The ID of the campaign template being scheduled.
+     * @type {string}
+     * @memberof CertificationCampaignsApiSetCampaignTemplateSchedule
+     */
+    readonly id: string
+
+    /**
+     * 
+     * @type {Schedule}
+     * @memberof CertificationCampaignsApiSetCampaignTemplateSchedule
+     */
+    readonly schedule?: Schedule
+}
+
+/**
  * Request parameters for startCampaign operation in CertificationCampaignsApi.
  * @export
  * @interface CertificationCampaignsApiStartCampaignRequest
@@ -24139,6 +24229,18 @@ export class CertificationCampaignsApi extends BaseAPI {
      */
     public setCampaignReportsConfig(requestParameters: CertificationCampaignsApiSetCampaignReportsConfigRequest, axiosOptions?: AxiosRequestConfig) {
         return CertificationCampaignsApiFp(this.configuration).setCampaignReportsConfig(requestParameters.campaignReportsConfig, axiosOptions).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Sets the schedule for a campaign template. If a schedule already exists, it will be overwritten with the new one.
+     * @summary Sets a Campaign Template\'s Schedule
+     * @param {CertificationCampaignsApiSetCampaignTemplateScheduleRequest} requestParameters Request parameters.
+     * @param {*} [axiosOptions] Override http request option.
+     * @throws {RequiredError}
+     * @memberof CertificationCampaignsApi
+     */
+    public setCampaignTemplateSchedule(requestParameters: CertificationCampaignsApiSetCampaignTemplateScheduleRequest, axiosOptions?: AxiosRequestConfig) {
+        return CertificationCampaignsApiFp(this.configuration).setCampaignTemplateSchedule(requestParameters.id, requestParameters.schedule, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
