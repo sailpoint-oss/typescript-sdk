@@ -22416,6 +22416,48 @@ export const CertificationCampaignsApiAxiosParamCreator = function (configuratio
             };
         },
         /**
+         * Deletes a campaign template by ID.
+         * @summary Delete a Campaign Template
+         * @param {string} id The ID of the campaign template being deleted.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        deleteCampaignTemplate: async (id: string, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'id' is not null or undefined
+            assertParamExists('deleteCampaignTemplate', 'id', id)
+            const localVarPath = `/campaign-templates/{id}`
+                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'DELETE', ...baseOptions, ...axiosOptions};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication UserContextAuth required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "UserContextAuth", [], configuration)
+
+            // authentication UserContextAuth required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "UserContextAuth", [], configuration)
+
+
+    
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                axiosOptions: localVarRequestOptions,
+            };
+        },
+        /**
          * Deletes campaigns whose Ids are specified in the provided list of campaign Ids. Authorized callers must be an ORG_ADMIN or a CERT_ADMIN.
          * @summary Deletes Campaigns
          * @param {CampaignsDeleteRequest} campaignsDeleteRequest The ids of the campaigns to delete.
@@ -23251,6 +23293,17 @@ export const CertificationCampaignsApiFp = function(configuration?: Configuratio
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
+         * Deletes a campaign template by ID.
+         * @summary Delete a Campaign Template
+         * @param {string} id The ID of the campaign template being deleted.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        async deleteCampaignTemplate(id: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.deleteCampaignTemplate(id, axiosOptions);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
          * Deletes campaigns whose Ids are specified in the provided list of campaign Ids. Authorized callers must be an ORG_ADMIN or a CERT_ADMIN.
          * @summary Deletes Campaigns
          * @param {CampaignsDeleteRequest} campaignsDeleteRequest The ids of the campaigns to delete.
@@ -23493,6 +23546,16 @@ export const CertificationCampaignsApiFactory = function (configuration?: Config
             return localVarFp.createCampaignTemplate(campaignTemplate, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
+         * Deletes a campaign template by ID.
+         * @summary Delete a Campaign Template
+         * @param {string} id The ID of the campaign template being deleted.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        deleteCampaignTemplate(id: string, axiosOptions?: any): AxiosPromise<void> {
+            return localVarFp.deleteCampaignTemplate(id, axiosOptions).then((request) => request(axios, basePath));
+        },
+        /**
          * Deletes campaigns whose Ids are specified in the provided list of campaign Ids. Authorized callers must be an ORG_ADMIN or a CERT_ADMIN.
          * @summary Deletes Campaigns
          * @param {CampaignsDeleteRequest} campaignsDeleteRequest The ids of the campaigns to delete.
@@ -23726,6 +23789,20 @@ export interface CertificationCampaignsApiCreateCampaignTemplateRequest {
      * @memberof CertificationCampaignsApiCreateCampaignTemplate
      */
     readonly campaignTemplate: CampaignTemplate
+}
+
+/**
+ * Request parameters for deleteCampaignTemplate operation in CertificationCampaignsApi.
+ * @export
+ * @interface CertificationCampaignsApiDeleteCampaignTemplateRequest
+ */
+export interface CertificationCampaignsApiDeleteCampaignTemplateRequest {
+    /**
+     * The ID of the campaign template being deleted.
+     * @type {string}
+     * @memberof CertificationCampaignsApiDeleteCampaignTemplate
+     */
+    readonly id: string
 }
 
 /**
@@ -24098,6 +24175,18 @@ export class CertificationCampaignsApi extends BaseAPI {
      */
     public createCampaignTemplate(requestParameters: CertificationCampaignsApiCreateCampaignTemplateRequest, axiosOptions?: AxiosRequestConfig) {
         return CertificationCampaignsApiFp(this.configuration).createCampaignTemplate(requestParameters.campaignTemplate, axiosOptions).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Deletes a campaign template by ID.
+     * @summary Delete a Campaign Template
+     * @param {CertificationCampaignsApiDeleteCampaignTemplateRequest} requestParameters Request parameters.
+     * @param {*} [axiosOptions] Override http request option.
+     * @throws {RequiredError}
+     * @memberof CertificationCampaignsApi
+     */
+    public deleteCampaignTemplate(requestParameters: CertificationCampaignsApiDeleteCampaignTemplateRequest, axiosOptions?: AxiosRequestConfig) {
+        return CertificationCampaignsApiFp(this.configuration).deleteCampaignTemplate(requestParameters.id, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
