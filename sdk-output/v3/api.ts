@@ -22719,15 +22719,15 @@ export const CertificationCampaignsApiAxiosParamCreator = function (configuratio
         /**
          * Fetches all reports for a certification campaign by campaign ID. Requires roles of CERT_ADMIN, DASHBOARD, ORG_ADMIN and REPORT_ADMIN
          * @summary Get Campaign Reports
-         * @param {string} campaignId The ID of the campaign for which reports are being fetched.
+         * @param {string} id The ID of the campaign for which reports are being fetched.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        getCampaignReports: async (campaignId: string, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
-            // verify required parameter 'campaignId' is not null or undefined
-            assertParamExists('getCampaignReports', 'campaignId', campaignId)
+        getCampaignReports: async (id: string, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'id' is not null or undefined
+            assertParamExists('getCampaignReports', 'id', id)
             const localVarPath = `/campaigns/{id}/reports`
-                .replace(`{${"campaignId"}}`, encodeURIComponent(String(campaignId)));
+                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -23449,12 +23449,12 @@ export const CertificationCampaignsApiFp = function(configuration?: Configuratio
         /**
          * Fetches all reports for a certification campaign by campaign ID. Requires roles of CERT_ADMIN, DASHBOARD, ORG_ADMIN and REPORT_ADMIN
          * @summary Get Campaign Reports
-         * @param {string} campaignId The ID of the campaign for which reports are being fetched.
+         * @param {string} id The ID of the campaign for which reports are being fetched.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async getCampaignReports(campaignId: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<CampaignReport>>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.getCampaignReports(campaignId, axiosOptions);
+        async getCampaignReports(id: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<CampaignReport>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getCampaignReports(id, axiosOptions);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
@@ -23698,12 +23698,12 @@ export const CertificationCampaignsApiFactory = function (configuration?: Config
         /**
          * Fetches all reports for a certification campaign by campaign ID. Requires roles of CERT_ADMIN, DASHBOARD, ORG_ADMIN and REPORT_ADMIN
          * @summary Get Campaign Reports
-         * @param {string} campaignId The ID of the campaign for which reports are being fetched.
+         * @param {string} id The ID of the campaign for which reports are being fetched.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        getCampaignReports(campaignId: string, axiosOptions?: any): AxiosPromise<Array<CampaignReport>> {
-            return localVarFp.getCampaignReports(campaignId, axiosOptions).then((request) => request(axios, basePath));
+        getCampaignReports(id: string, axiosOptions?: any): AxiosPromise<Array<CampaignReport>> {
+            return localVarFp.getCampaignReports(id, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * Fetches configuration for campaign reports. Currently it includes only one element - identity attributes defined as custom report columns. Requires roles of CERT_ADMIN and ORG_ADMIN.
@@ -23998,7 +23998,7 @@ export interface CertificationCampaignsApiGetCampaignReportsRequest {
      * @type {string}
      * @memberof CertificationCampaignsApiGetCampaignReports
      */
-    readonly campaignId: string
+    readonly id: string
 }
 
 /**
@@ -24339,7 +24339,7 @@ export class CertificationCampaignsApi extends BaseAPI {
      * @memberof CertificationCampaignsApi
      */
     public getCampaignReports(requestParameters: CertificationCampaignsApiGetCampaignReportsRequest, axiosOptions?: AxiosRequestConfig) {
-        return CertificationCampaignsApiFp(this.configuration).getCampaignReports(requestParameters.campaignId, axiosOptions).then((request) => request(this.axios, this.basePath));
+        return CertificationCampaignsApiFp(this.configuration).getCampaignReports(requestParameters.id, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
