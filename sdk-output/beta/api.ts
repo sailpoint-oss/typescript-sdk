@@ -22742,7 +22742,8 @@ export const SourceFeatureBeta = {
     NoPermissionsProvisioning: 'NO_PERMISSIONS_PROVISIONING',
     NoGroupPermissionsProvisioning: 'NO_GROUP_PERMISSIONS_PROVISIONING',
     NoUnstructuredTargetsProvisioning: 'NO_UNSTRUCTURED_TARGETS_PROVISIONING',
-    NoDirectPermissionsProvisioning: 'NO_DIRECT_PERMISSIONS_PROVISIONING'
+    NoDirectPermissionsProvisioning: 'NO_DIRECT_PERMISSIONS_PROVISIONING',
+    PreferUuid: 'PREFER_UUID'
 } as const;
 
 export type SourceFeatureBeta = typeof SourceFeatureBeta[keyof typeof SourceFeatureBeta];
@@ -24444,7 +24445,7 @@ export interface TransformBeta {
      * @type {TransformAttributesBeta}
      * @memberof TransformBeta
      */
-    'attributes': TransformAttributesBeta;
+    'attributes': TransformAttributesBeta | null;
 }
 
 export const TransformBetaTypeEnum = {
@@ -24572,7 +24573,7 @@ export interface TransformReadBeta {
      * @type {TransformAttributesBeta}
      * @memberof TransformReadBeta
      */
-    'attributes': TransformAttributesBeta;
+    'attributes': TransformAttributesBeta | null;
     /**
      * Unique ID of this transform
      * @type {string}

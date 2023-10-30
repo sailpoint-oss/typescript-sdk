@@ -672,6 +672,134 @@ export interface ImportConnectorConfigRequestCC {
 /**
  * 
  * @export
+ * @interface ListAccounts200ResponseInnerCC
+ */
+export interface ListAccounts200ResponseInnerCC {
+    /**
+     * 
+     * @type {string}
+     * @memberof ListAccounts200ResponseInnerCC
+     */
+    'id'?: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof ListAccounts200ResponseInnerCC
+     */
+    'type'?: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof ListAccounts200ResponseInnerCC
+     */
+    'displayName'?: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof ListAccounts200ResponseInnerCC
+     */
+    'username'?: string;
+    /**
+     * 
+     * @type {boolean}
+     * @memberof ListAccounts200ResponseInnerCC
+     */
+    'passwordRequired'?: boolean;
+    /**
+     * 
+     * @type {boolean}
+     * @memberof ListAccounts200ResponseInnerCC
+     */
+    'passwordProvided'?: boolean;
+    /**
+     * 
+     * @type {Array<object>}
+     * @memberof ListAccounts200ResponseInnerCC
+     */
+    'apps'?: Array<object>;
+    /**
+     * 
+     * @type {string}
+     * @memberof ListAccounts200ResponseInnerCC
+     */
+    'ssoMethod'?: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof ListAccounts200ResponseInnerCC
+     */
+    'idEncryption'?: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof ListAccounts200ResponseInnerCC
+     */
+    'passwordEncryption'?: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof ListAccounts200ResponseInnerCC
+     */
+    'lastPasswdChange'?: string | null;
+    /**
+     * 
+     * @type {string}
+     * @memberof ListAccounts200ResponseInnerCC
+     */
+    'serviceName'?: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof ListAccounts200ResponseInnerCC
+     */
+    'dateDisabled'?: string | null;
+    /**
+     * 
+     * @type {number}
+     * @memberof ListAccounts200ResponseInnerCC
+     */
+    'accountServiceId'?: number;
+    /**
+     * 
+     * @type {number}
+     * @memberof ListAccounts200ResponseInnerCC
+     */
+    'serviceId'?: number;
+    /**
+     * 
+     * @type {string}
+     * @memberof ListAccounts200ResponseInnerCC
+     */
+    'pendingPasswordRequestId'?: string | null;
+    /**
+     * 
+     * @type {string}
+     * @memberof ListAccounts200ResponseInnerCC
+     */
+    'passwordChangeStatus'?: string;
+    /**
+     * 
+     * @type {ListAccounts200ResponseInnerPasswordChangeResultCC}
+     * @memberof ListAccounts200ResponseInnerCC
+     */
+    'passwordChangeResult'?: ListAccounts200ResponseInnerPasswordChangeResultCC;
+}
+/**
+ * 
+ * @export
+ * @interface ListAccounts200ResponseInnerPasswordChangeResultCC
+ */
+export interface ListAccounts200ResponseInnerPasswordChangeResultCC {
+    /**
+     * 
+     * @type {string}
+     * @memberof ListAccounts200ResponseInnerPasswordChangeResultCC
+     */
+    'completionStatus'?: string;
+}
+/**
+ * 
+ * @export
  * @interface ListApplications200ResponseInnerAccountServicePoliciesInnerCC
  */
 export interface ListApplications200ResponseInnerAccountServicePoliciesInnerCC {
@@ -1091,6 +1219,140 @@ export interface ListApplications200ResponseInnerOwnerCC {
 /**
  * 
  * @export
+ * @interface ListConnectors200ResponseCC
+ */
+export interface ListConnectors200ResponseCC {
+    /**
+     * 
+     * @type {number}
+     * @memberof ListConnectors200ResponseCC
+     */
+    'total'?: number;
+    /**
+     * 
+     * @type {Array<ListConnectors200ResponseItemsInnerCC>}
+     * @memberof ListConnectors200ResponseCC
+     */
+    'items'?: Array<ListConnectors200ResponseItemsInnerCC>;
+}
+/**
+ * 
+ * @export
+ * @interface ListConnectors200ResponseItemsInnerCC
+ */
+export interface ListConnectors200ResponseItemsInnerCC {
+    /**
+     * 
+     * @type {string}
+     * @memberof ListConnectors200ResponseItemsInnerCC
+     */
+    'applicationXml'?: string | null;
+    /**
+     * 
+     * @type {string}
+     * @memberof ListConnectors200ResponseItemsInnerCC
+     */
+    'className'?: string | null;
+    /**
+     * 
+     * @type {object}
+     * @memberof ListConnectors200ResponseItemsInnerCC
+     */
+    'connectorMetadata'?: object;
+    /**
+     * 
+     * @type {string}
+     * @memberof ListConnectors200ResponseItemsInnerCC
+     */
+    'correlationConfigXml'?: string | null;
+    /**
+     * 
+     * @type {boolean}
+     * @memberof ListConnectors200ResponseItemsInnerCC
+     */
+    'directConnect'?: boolean;
+    /**
+     * 
+     * @type {boolean}
+     * @memberof ListConnectors200ResponseItemsInnerCC
+     */
+    'fileUpload'?: boolean;
+    /**
+     * 
+     * @type {number}
+     * @memberof ListConnectors200ResponseItemsInnerCC
+     */
+    'id'?: number;
+    /**
+     * 
+     * @type {string}
+     * @memberof ListConnectors200ResponseItemsInnerCC
+     */
+    'name'?: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof ListConnectors200ResponseItemsInnerCC
+     */
+    's3Location'?: string | null;
+    /**
+     * 
+     * @type {string}
+     * @memberof ListConnectors200ResponseItemsInnerCC
+     */
+    'scope'?: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof ListConnectors200ResponseItemsInnerCC
+     */
+    'scriptName'?: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof ListConnectors200ResponseItemsInnerCC
+     */
+    'sourceConfig'?: string | null;
+    /**
+     * 
+     * @type {string}
+     * @memberof ListConnectors200ResponseItemsInnerCC
+     */
+    'sourceConfigFrom'?: string | null;
+    /**
+     * 
+     * @type {string}
+     * @memberof ListConnectors200ResponseItemsInnerCC
+     */
+    'sourceConfigXml'?: string | null;
+    /**
+     * 
+     * @type {string}
+     * @memberof ListConnectors200ResponseItemsInnerCC
+     */
+    'status'?: string;
+    /**
+     * 
+     * @type {object}
+     * @memberof ListConnectors200ResponseItemsInnerCC
+     */
+    'translationProperties'?: object;
+    /**
+     * 
+     * @type {string}
+     * @memberof ListConnectors200ResponseItemsInnerCC
+     */
+    'type'?: string;
+    /**
+     * 
+     * @type {Array<object>}
+     * @memberof ListConnectors200ResponseItemsInnerCC
+     */
+    'uploadedFiles'?: Array<object>;
+}
+/**
+ * 
+ * @export
  * @interface LoadAccountsRequestCC
  */
 export interface LoadAccountsRequestCC {
@@ -1324,7 +1586,7 @@ export const AccountsCCApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async listAccounts(axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
+        async listAccounts(axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<ListAccounts200ResponseInnerCC>>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.listAccounts(axiosOptions);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -1355,7 +1617,7 @@ export const AccountsCCApiFactory = function (configuration?: Configuration, bas
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        listAccounts(axiosOptions?: any): AxiosPromise<void> {
+        listAccounts(axiosOptions?: any): AxiosPromise<Array<ListAccounts200ResponseInnerCC>> {
             return localVarFp.listAccounts(axiosOptions).then((request) => request(axios, basePath));
         },
         /**
@@ -2290,7 +2552,7 @@ export const ConnectorsCCApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async listConnectors(axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
+        async listConnectors(axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ListConnectors200ResponseCC>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.listConnectors(axiosOptions);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -2356,7 +2618,7 @@ export const ConnectorsCCApiFactory = function (configuration?: Configuration, b
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        listConnectors(axiosOptions?: any): AxiosPromise<void> {
+        listConnectors(axiosOptions?: any): AxiosPromise<ListConnectors200ResponseCC> {
             return localVarFp.listConnectors(axiosOptions).then((request) => request(axios, basePath));
         },
     };

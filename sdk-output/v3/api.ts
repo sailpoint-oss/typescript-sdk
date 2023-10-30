@@ -16624,7 +16624,8 @@ export const SourceFeature = {
     NoPermissionsProvisioning: 'NO_PERMISSIONS_PROVISIONING',
     NoGroupPermissionsProvisioning: 'NO_GROUP_PERMISSIONS_PROVISIONING',
     NoUnstructuredTargetsProvisioning: 'NO_UNSTRUCTURED_TARGETS_PROVISIONING',
-    NoDirectPermissionsProvisioning: 'NO_DIRECT_PERMISSIONS_PROVISIONING'
+    NoDirectPermissionsProvisioning: 'NO_DIRECT_PERMISSIONS_PROVISIONING',
+    PreferUuid: 'PREFER_UUID'
 } as const;
 
 export type SourceFeature = typeof SourceFeature[keyof typeof SourceFeature];
@@ -17245,7 +17246,7 @@ export interface Transform {
      * @type {TransformAttributes}
      * @memberof Transform
      */
-    'attributes': TransformAttributes;
+    'attributes': TransformAttributes | null;
 }
 
 export const TransformTypeEnum = {
@@ -17342,7 +17343,7 @@ export interface TransformRead {
      * @type {TransformAttributes}
      * @memberof TransformRead
      */
-    'attributes': TransformAttributes;
+    'attributes': TransformAttributes | null;
     /**
      * Unique ID of this transform
      * @type {string}
