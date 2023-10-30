@@ -22149,6 +22149,54 @@ export const CertificationCampaignFiltersApiAxiosParamCreator = function (config
                 axiosOptions: localVarRequestOptions,
             };
         },
+        /**
+         * Updates an existing campaign filter using the filter\'s ID.
+         * @summary Updates a Campaign Filter
+         * @param {string} filterId The ID of the campaign filter being modified.
+         * @param {CampaignFilterDetails} campaignFilterDetails A campaign filter details with updated field values.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        updateCampaignFilter: async (filterId: string, campaignFilterDetails: CampaignFilterDetails, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'filterId' is not null or undefined
+            assertParamExists('updateCampaignFilter', 'filterId', filterId)
+            // verify required parameter 'campaignFilterDetails' is not null or undefined
+            assertParamExists('updateCampaignFilter', 'campaignFilterDetails', campaignFilterDetails)
+            const localVarPath = `/campaign-filters/{id}`
+                .replace(`{${"filterId"}}`, encodeURIComponent(String(filterId)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'POST', ...baseOptions, ...axiosOptions};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication UserContextAuth required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "UserContextAuth", [], configuration)
+
+            // authentication UserContextAuth required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "UserContextAuth", [], configuration)
+
+
+    
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
+            localVarRequestOptions.data = serializeDataIfNeeded(campaignFilterDetails, localVarRequestOptions, configuration)
+
+            return {
+                url: toPathString(localVarUrlObj),
+                axiosOptions: localVarRequestOptions,
+            };
+        },
     }
 };
 
@@ -22181,6 +22229,18 @@ export const CertificationCampaignFiltersApiFp = function(configuration?: Config
             const localVarAxiosArgs = await localVarAxiosParamCreator.getCampaignFilterById(filterId, axiosOptions);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
+        /**
+         * Updates an existing campaign filter using the filter\'s ID.
+         * @summary Updates a Campaign Filter
+         * @param {string} filterId The ID of the campaign filter being modified.
+         * @param {CampaignFilterDetails} campaignFilterDetails A campaign filter details with updated field values.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        async updateCampaignFilter(filterId: string, campaignFilterDetails: CampaignFilterDetails, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<CampaignFilterDetails>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.updateCampaignFilter(filterId, campaignFilterDetails, axiosOptions);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
     }
 };
 
@@ -22210,6 +22270,17 @@ export const CertificationCampaignFiltersApiFactory = function (configuration?: 
          */
         getCampaignFilterById(filterId: string, axiosOptions?: any): AxiosPromise<Array<CampaignFilterDetails>> {
             return localVarFp.getCampaignFilterById(filterId, axiosOptions).then((request) => request(axios, basePath));
+        },
+        /**
+         * Updates an existing campaign filter using the filter\'s ID.
+         * @summary Updates a Campaign Filter
+         * @param {string} filterId The ID of the campaign filter being modified.
+         * @param {CampaignFilterDetails} campaignFilterDetails A campaign filter details with updated field values.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        updateCampaignFilter(filterId: string, campaignFilterDetails: CampaignFilterDetails, axiosOptions?: any): AxiosPromise<CampaignFilterDetails> {
+            return localVarFp.updateCampaignFilter(filterId, campaignFilterDetails, axiosOptions).then((request) => request(axios, basePath));
         },
     };
 };
@@ -22243,6 +22314,27 @@ export interface CertificationCampaignFiltersApiGetCampaignFilterByIdRequest {
 }
 
 /**
+ * Request parameters for updateCampaignFilter operation in CertificationCampaignFiltersApi.
+ * @export
+ * @interface CertificationCampaignFiltersApiUpdateCampaignFilterRequest
+ */
+export interface CertificationCampaignFiltersApiUpdateCampaignFilterRequest {
+    /**
+     * The ID of the campaign filter being modified.
+     * @type {string}
+     * @memberof CertificationCampaignFiltersApiUpdateCampaignFilter
+     */
+    readonly filterId: string
+
+    /**
+     * A campaign filter details with updated field values.
+     * @type {CampaignFilterDetails}
+     * @memberof CertificationCampaignFiltersApiUpdateCampaignFilter
+     */
+    readonly campaignFilterDetails: CampaignFilterDetails
+}
+
+/**
  * CertificationCampaignFiltersApi - object-oriented interface
  * @export
  * @class CertificationCampaignFiltersApi
@@ -22271,6 +22363,18 @@ export class CertificationCampaignFiltersApi extends BaseAPI {
      */
     public getCampaignFilterById(requestParameters: CertificationCampaignFiltersApiGetCampaignFilterByIdRequest, axiosOptions?: AxiosRequestConfig) {
         return CertificationCampaignFiltersApiFp(this.configuration).getCampaignFilterById(requestParameters.filterId, axiosOptions).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Updates an existing campaign filter using the filter\'s ID.
+     * @summary Updates a Campaign Filter
+     * @param {CertificationCampaignFiltersApiUpdateCampaignFilterRequest} requestParameters Request parameters.
+     * @param {*} [axiosOptions] Override http request option.
+     * @throws {RequiredError}
+     * @memberof CertificationCampaignFiltersApi
+     */
+    public updateCampaignFilter(requestParameters: CertificationCampaignFiltersApiUpdateCampaignFilterRequest, axiosOptions?: AxiosRequestConfig) {
+        return CertificationCampaignFiltersApiFp(this.configuration).updateCampaignFilter(requestParameters.filterId, requestParameters.campaignFilterDetails, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 }
 
