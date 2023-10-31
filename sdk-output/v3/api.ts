@@ -22109,6 +22109,50 @@ export const CertificationCampaignFiltersApiAxiosParamCreator = function (config
             };
         },
         /**
+         * Deletes campaign filters whose Ids are specified in the provided list of campaign filter Ids. Authorized callers must be an ORG_ADMIN or a CERT_ADMIN.
+         * @summary Deletes Campaign Filters
+         * @param {Array<string>} requestBody A json list of IDs of campaign filters to delete.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        deleteCampaignFilters: async (requestBody: Array<string>, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'requestBody' is not null or undefined
+            assertParamExists('deleteCampaignFilters', 'requestBody', requestBody)
+            const localVarPath = `/campaign-filters/delete`;
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'POST', ...baseOptions, ...axiosOptions};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication UserContextAuth required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "UserContextAuth", [], configuration)
+
+            // authentication UserContextAuth required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "UserContextAuth", [], configuration)
+
+
+    
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
+            localVarRequestOptions.data = serializeDataIfNeeded(requestBody, localVarRequestOptions, configuration)
+
+            return {
+                url: toPathString(localVarUrlObj),
+                axiosOptions: localVarRequestOptions,
+            };
+        },
+        /**
          * Retrieves information for an existing campaign filter using the filter\'s ID.
          * @summary Get Campaign Filter by ID
          * @param {string} filterId The ID of the campaign filter to be retrieved.
@@ -22273,6 +22317,17 @@ export const CertificationCampaignFiltersApiFp = function(configuration?: Config
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
+         * Deletes campaign filters whose Ids are specified in the provided list of campaign filter Ids. Authorized callers must be an ORG_ADMIN or a CERT_ADMIN.
+         * @summary Deletes Campaign Filters
+         * @param {Array<string>} requestBody A json list of IDs of campaign filters to delete.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        async deleteCampaignFilters(requestBody: Array<string>, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.deleteCampaignFilters(requestBody, axiosOptions);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
          * Retrieves information for an existing campaign filter using the filter\'s ID.
          * @summary Get Campaign Filter by ID
          * @param {string} filterId The ID of the campaign filter to be retrieved.
@@ -22329,6 +22384,16 @@ export const CertificationCampaignFiltersApiFactory = function (configuration?: 
             return localVarFp.createCampaignFilter(campaignFilterDetails, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
+         * Deletes campaign filters whose Ids are specified in the provided list of campaign filter Ids. Authorized callers must be an ORG_ADMIN or a CERT_ADMIN.
+         * @summary Deletes Campaign Filters
+         * @param {Array<string>} requestBody A json list of IDs of campaign filters to delete.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        deleteCampaignFilters(requestBody: Array<string>, axiosOptions?: any): AxiosPromise<void> {
+            return localVarFp.deleteCampaignFilters(requestBody, axiosOptions).then((request) => request(axios, basePath));
+        },
+        /**
          * Retrieves information for an existing campaign filter using the filter\'s ID.
          * @summary Get Campaign Filter by ID
          * @param {string} filterId The ID of the campaign filter to be retrieved.
@@ -22376,6 +22441,20 @@ export interface CertificationCampaignFiltersApiCreateCampaignFilterRequest {
      * @memberof CertificationCampaignFiltersApiCreateCampaignFilter
      */
     readonly campaignFilterDetails: CampaignFilterDetails
+}
+
+/**
+ * Request parameters for deleteCampaignFilters operation in CertificationCampaignFiltersApi.
+ * @export
+ * @interface CertificationCampaignFiltersApiDeleteCampaignFiltersRequest
+ */
+export interface CertificationCampaignFiltersApiDeleteCampaignFiltersRequest {
+    /**
+     * A json list of IDs of campaign filters to delete.
+     * @type {Array<string>}
+     * @memberof CertificationCampaignFiltersApiDeleteCampaignFilters
+     */
+    readonly requestBody: Array<string>
 }
 
 /**
@@ -22458,6 +22537,18 @@ export class CertificationCampaignFiltersApi extends BaseAPI {
      */
     public createCampaignFilter(requestParameters: CertificationCampaignFiltersApiCreateCampaignFilterRequest, axiosOptions?: AxiosRequestConfig) {
         return CertificationCampaignFiltersApiFp(this.configuration).createCampaignFilter(requestParameters.campaignFilterDetails, axiosOptions).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Deletes campaign filters whose Ids are specified in the provided list of campaign filter Ids. Authorized callers must be an ORG_ADMIN or a CERT_ADMIN.
+     * @summary Deletes Campaign Filters
+     * @param {CertificationCampaignFiltersApiDeleteCampaignFiltersRequest} requestParameters Request parameters.
+     * @param {*} [axiosOptions] Override http request option.
+     * @throws {RequiredError}
+     * @memberof CertificationCampaignFiltersApi
+     */
+    public deleteCampaignFilters(requestParameters: CertificationCampaignFiltersApiDeleteCampaignFiltersRequest, axiosOptions?: AxiosRequestConfig) {
+        return CertificationCampaignFiltersApiFp(this.configuration).deleteCampaignFilters(requestParameters.requestBody, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
