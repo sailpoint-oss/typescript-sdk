@@ -22151,6 +22151,59 @@ export const CertificationCampaignFiltersApiAxiosParamCreator = function (config
             };
         },
         /**
+         * Lists all Campaign Filters. Scope can be reduced via standard V3 query params.  All Campaign Filters matching the query params
+         * @summary List Campaign Filters
+         * @param {number} [limit] Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+         * @param {number} [start] Start/Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+         * @param {boolean} [includeSystemFilters] If true, include system filters in the count and results, exclude them otherwise. If not provided any value for it then by default it is true.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        listCampaignFilters: async (limit?: number, start?: number, includeSystemFilters?: boolean, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            const localVarPath = `/campaign-filters`;
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...axiosOptions};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication UserContextAuth required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "UserContextAuth", [], configuration)
+
+            // authentication UserContextAuth required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "UserContextAuth", [], configuration)
+
+            if (limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+
+            if (start !== undefined) {
+                localVarQueryParameter['start'] = start;
+            }
+
+            if (includeSystemFilters !== undefined) {
+                localVarQueryParameter['includeSystemFilters'] = includeSystemFilters;
+            }
+
+
+    
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                axiosOptions: localVarRequestOptions,
+            };
+        },
+        /**
          * Updates an existing campaign filter using the filter\'s ID.
          * @summary Updates a Campaign Filter
          * @param {string} filterId The ID of the campaign filter being modified.
@@ -22231,6 +22284,19 @@ export const CertificationCampaignFiltersApiFp = function(configuration?: Config
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
+         * Lists all Campaign Filters. Scope can be reduced via standard V3 query params.  All Campaign Filters matching the query params
+         * @summary List Campaign Filters
+         * @param {number} [limit] Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+         * @param {number} [start] Start/Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+         * @param {boolean} [includeSystemFilters] If true, include system filters in the count and results, exclude them otherwise. If not provided any value for it then by default it is true.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        async listCampaignFilters(limit?: number, start?: number, includeSystemFilters?: boolean, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<CampaignFilterDetails>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.listCampaignFilters(limit, start, includeSystemFilters, axiosOptions);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
          * Updates an existing campaign filter using the filter\'s ID.
          * @summary Updates a Campaign Filter
          * @param {string} filterId The ID of the campaign filter being modified.
@@ -22273,6 +22339,18 @@ export const CertificationCampaignFiltersApiFactory = function (configuration?: 
             return localVarFp.getCampaignFilterById(filterId, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
+         * Lists all Campaign Filters. Scope can be reduced via standard V3 query params.  All Campaign Filters matching the query params
+         * @summary List Campaign Filters
+         * @param {number} [limit] Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+         * @param {number} [start] Start/Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+         * @param {boolean} [includeSystemFilters] If true, include system filters in the count and results, exclude them otherwise. If not provided any value for it then by default it is true.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        listCampaignFilters(limit?: number, start?: number, includeSystemFilters?: boolean, axiosOptions?: any): AxiosPromise<Array<CampaignFilterDetails>> {
+            return localVarFp.listCampaignFilters(limit, start, includeSystemFilters, axiosOptions).then((request) => request(axios, basePath));
+        },
+        /**
          * Updates an existing campaign filter using the filter\'s ID.
          * @summary Updates a Campaign Filter
          * @param {string} filterId The ID of the campaign filter being modified.
@@ -22312,6 +22390,34 @@ export interface CertificationCampaignFiltersApiGetCampaignFilterByIdRequest {
      * @memberof CertificationCampaignFiltersApiGetCampaignFilterById
      */
     readonly filterId: string
+}
+
+/**
+ * Request parameters for listCampaignFilters operation in CertificationCampaignFiltersApi.
+ * @export
+ * @interface CertificationCampaignFiltersApiListCampaignFiltersRequest
+ */
+export interface CertificationCampaignFiltersApiListCampaignFiltersRequest {
+    /**
+     * Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+     * @type {number}
+     * @memberof CertificationCampaignFiltersApiListCampaignFilters
+     */
+    readonly limit?: number
+
+    /**
+     * Start/Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+     * @type {number}
+     * @memberof CertificationCampaignFiltersApiListCampaignFilters
+     */
+    readonly start?: number
+
+    /**
+     * If true, include system filters in the count and results, exclude them otherwise. If not provided any value for it then by default it is true.
+     * @type {boolean}
+     * @memberof CertificationCampaignFiltersApiListCampaignFilters
+     */
+    readonly includeSystemFilters?: boolean
 }
 
 /**
@@ -22364,6 +22470,18 @@ export class CertificationCampaignFiltersApi extends BaseAPI {
      */
     public getCampaignFilterById(requestParameters: CertificationCampaignFiltersApiGetCampaignFilterByIdRequest, axiosOptions?: AxiosRequestConfig) {
         return CertificationCampaignFiltersApiFp(this.configuration).getCampaignFilterById(requestParameters.filterId, axiosOptions).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Lists all Campaign Filters. Scope can be reduced via standard V3 query params.  All Campaign Filters matching the query params
+     * @summary List Campaign Filters
+     * @param {CertificationCampaignFiltersApiListCampaignFiltersRequest} requestParameters Request parameters.
+     * @param {*} [axiosOptions] Override http request option.
+     * @throws {RequiredError}
+     * @memberof CertificationCampaignFiltersApi
+     */
+    public listCampaignFilters(requestParameters: CertificationCampaignFiltersApiListCampaignFiltersRequest = {}, axiosOptions?: AxiosRequestConfig) {
+        return CertificationCampaignFiltersApiFp(this.configuration).listCampaignFilters(requestParameters.limit, requestParameters.start, requestParameters.includeSystemFilters, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
