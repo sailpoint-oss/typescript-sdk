@@ -22772,6 +22772,48 @@ export const CertificationCampaignsApiAxiosParamCreator = function (configuratio
             };
         },
         /**
+         * Deletes the schedule for a campaign template. Returns a 404 if there is no schedule set.
+         * @summary Deletes a Campaign Template\'s Schedule
+         * @param {string} id The ID of the campaign template whose schedule is being deleted.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        deleteCampaignTemplateSchedule: async (id: string, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'id' is not null or undefined
+            assertParamExists('deleteCampaignTemplateSchedule', 'id', id)
+            const localVarPath = `/campaign-templates/{id}/schedule`
+                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'DELETE', ...baseOptions, ...axiosOptions};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication UserContextAuth required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "UserContextAuth", [], configuration)
+
+            // authentication UserContextAuth required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "UserContextAuth", [], configuration)
+
+
+    
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                axiosOptions: localVarRequestOptions,
+            };
+        },
+        /**
          * Deletes campaigns whose Ids are specified in the provided list of campaign Ids. Authorized callers must be an ORG_ADMIN or a CERT_ADMIN.
          * @summary Deletes Campaigns
          * @param {CampaignsDeleteRequest} campaignsDeleteRequest The ids of the campaigns to delete.
@@ -23618,6 +23660,17 @@ export const CertificationCampaignsApiFp = function(configuration?: Configuratio
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
+         * Deletes the schedule for a campaign template. Returns a 404 if there is no schedule set.
+         * @summary Deletes a Campaign Template\'s Schedule
+         * @param {string} id The ID of the campaign template whose schedule is being deleted.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        async deleteCampaignTemplateSchedule(id: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.deleteCampaignTemplateSchedule(id, axiosOptions);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
          * Deletes campaigns whose Ids are specified in the provided list of campaign Ids. Authorized callers must be an ORG_ADMIN or a CERT_ADMIN.
          * @summary Deletes Campaigns
          * @param {CampaignsDeleteRequest} campaignsDeleteRequest The ids of the campaigns to delete.
@@ -23870,6 +23923,16 @@ export const CertificationCampaignsApiFactory = function (configuration?: Config
             return localVarFp.deleteCampaignTemplate(id, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
+         * Deletes the schedule for a campaign template. Returns a 404 if there is no schedule set.
+         * @summary Deletes a Campaign Template\'s Schedule
+         * @param {string} id The ID of the campaign template whose schedule is being deleted.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        deleteCampaignTemplateSchedule(id: string, axiosOptions?: any): AxiosPromise<void> {
+            return localVarFp.deleteCampaignTemplateSchedule(id, axiosOptions).then((request) => request(axios, basePath));
+        },
+        /**
          * Deletes campaigns whose Ids are specified in the provided list of campaign Ids. Authorized callers must be an ORG_ADMIN or a CERT_ADMIN.
          * @summary Deletes Campaigns
          * @param {CampaignsDeleteRequest} campaignsDeleteRequest The ids of the campaigns to delete.
@@ -24115,6 +24178,20 @@ export interface CertificationCampaignsApiDeleteCampaignTemplateRequest {
      * The ID of the campaign template being deleted.
      * @type {string}
      * @memberof CertificationCampaignsApiDeleteCampaignTemplate
+     */
+    readonly id: string
+}
+
+/**
+ * Request parameters for deleteCampaignTemplateSchedule operation in CertificationCampaignsApi.
+ * @export
+ * @interface CertificationCampaignsApiDeleteCampaignTemplateScheduleRequest
+ */
+export interface CertificationCampaignsApiDeleteCampaignTemplateScheduleRequest {
+    /**
+     * The ID of the campaign template whose schedule is being deleted.
+     * @type {string}
+     * @memberof CertificationCampaignsApiDeleteCampaignTemplateSchedule
      */
     readonly id: string
 }
@@ -24501,6 +24578,18 @@ export class CertificationCampaignsApi extends BaseAPI {
      */
     public deleteCampaignTemplate(requestParameters: CertificationCampaignsApiDeleteCampaignTemplateRequest, axiosOptions?: AxiosRequestConfig) {
         return CertificationCampaignsApiFp(this.configuration).deleteCampaignTemplate(requestParameters.id, axiosOptions).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Deletes the schedule for a campaign template. Returns a 404 if there is no schedule set.
+     * @summary Deletes a Campaign Template\'s Schedule
+     * @param {CertificationCampaignsApiDeleteCampaignTemplateScheduleRequest} requestParameters Request parameters.
+     * @param {*} [axiosOptions] Override http request option.
+     * @throws {RequiredError}
+     * @memberof CertificationCampaignsApi
+     */
+    public deleteCampaignTemplateSchedule(requestParameters: CertificationCampaignsApiDeleteCampaignTemplateScheduleRequest, axiosOptions?: AxiosRequestConfig) {
+        return CertificationCampaignsApiFp(this.configuration).deleteCampaignTemplateSchedule(requestParameters.id, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**

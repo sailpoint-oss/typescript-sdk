@@ -30845,6 +30845,7 @@ export const CertificationCampaignsBetaApiAxiosParamCreator = function (configur
          * @summary Deletes a Campaign Template\'s Schedule
          * @param {string} id The ID of the campaign template whose schedule is being deleted.
          * @param {*} [axiosOptions] Override http request option.
+         * @deprecated
          * @throws {RequiredError}
          */
         deleteCampaignTemplateSchedule: async (id: string, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
@@ -31754,6 +31755,7 @@ export const CertificationCampaignsBetaApiFp = function(configuration?: Configur
          * @summary Deletes a Campaign Template\'s Schedule
          * @param {string} id The ID of the campaign template whose schedule is being deleted.
          * @param {*} [axiosOptions] Override http request option.
+         * @deprecated
          * @throws {RequiredError}
          */
         async deleteCampaignTemplateSchedule(id: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
@@ -32038,6 +32040,7 @@ export const CertificationCampaignsBetaApiFactory = function (configuration?: Co
          * @summary Deletes a Campaign Template\'s Schedule
          * @param {string} id The ID of the campaign template whose schedule is being deleted.
          * @param {*} [axiosOptions] Override http request option.
+         * @deprecated
          * @throws {RequiredError}
          */
         deleteCampaignTemplateSchedule(id: string, axiosOptions?: any): AxiosPromise<void> {
@@ -32717,6 +32720,7 @@ export class CertificationCampaignsBetaApi extends BaseAPI {
      * @summary Deletes a Campaign Template\'s Schedule
      * @param {CertificationCampaignsBetaApiDeleteCampaignTemplateScheduleRequest} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
+     * @deprecated
      * @throws {RequiredError}
      * @memberof CertificationCampaignsBetaApi
      */
