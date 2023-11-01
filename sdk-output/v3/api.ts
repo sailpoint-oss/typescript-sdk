@@ -13540,6 +13540,12 @@ export interface ReviewableEntitlement {
      */
     'sourceType'?: string;
     /**
+     * The ID of the source for which the entitlement belongs
+     * @type {string}
+     * @memberof ReviewableEntitlement
+     */
+    'sourceId'?: string;
+    /**
      * Indicates if the entitlement has permissions
      * @type {boolean}
      * @memberof ReviewableEntitlement
