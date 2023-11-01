@@ -58148,9 +58148,10 @@ export class RequestableObjectsBetaApi extends BaseAPI {
 export const RoleInsightsBetaApiAxiosParamCreator = function (configuration?: Configuration) {
     return {
         /**
-         * This submits a create role insights request to the role insights application. At this time there are no parameters. All business roles will be processed for the customer.
-         * @summary A request to generate insights for roles
+         * Submits a create role insights request to the role insights application. At this time there are no parameters. All business roles will be processed for the customer.
+         * @summary Generate insights for roles
          * @param {*} [axiosOptions] Override http request option.
+         * @deprecated
          * @throws {RequiredError}
          */
         createRoleInsightRequests: async (axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
@@ -58518,10 +58519,11 @@ export const RoleInsightsBetaApiAxiosParamCreator = function (configuration?: Co
             };
         },
         /**
-         * This endpoint returns details of a prior request.
-         * @summary Returns the metadata for a request in order to generate insights for roles.
+         * This endpoint returns details of a prior role insights request. 
+         * @summary Returns metadata from prior request.
          * @param {string} id The role insights request id
          * @param {*} [axiosOptions] Override http request option.
+         * @deprecated
          * @throws {RequiredError}
          */
         getRoleInsightsRequests: async (id: string, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
@@ -58608,9 +58610,10 @@ export const RoleInsightsBetaApiFp = function(configuration?: Configuration) {
     const localVarAxiosParamCreator = RoleInsightsBetaApiAxiosParamCreator(configuration)
     return {
         /**
-         * This submits a create role insights request to the role insights application. At this time there are no parameters. All business roles will be processed for the customer.
-         * @summary A request to generate insights for roles
+         * Submits a create role insights request to the role insights application. At this time there are no parameters. All business roles will be processed for the customer.
+         * @summary Generate insights for roles
          * @param {*} [axiosOptions] Override http request option.
+         * @deprecated
          * @throws {RequiredError}
          */
         async createRoleInsightRequests(axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<RoleInsightsResponseBeta>> {
@@ -58700,10 +58703,11 @@ export const RoleInsightsBetaApiFp = function(configuration?: Configuration) {
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
-         * This endpoint returns details of a prior request.
-         * @summary Returns the metadata for a request in order to generate insights for roles.
+         * This endpoint returns details of a prior role insights request. 
+         * @summary Returns metadata from prior request.
          * @param {string} id The role insights request id
          * @param {*} [axiosOptions] Override http request option.
+         * @deprecated
          * @throws {RequiredError}
          */
         async getRoleInsightsRequests(id: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<RoleInsightsResponseBeta>> {
@@ -58731,9 +58735,10 @@ export const RoleInsightsBetaApiFactory = function (configuration?: Configuratio
     const localVarFp = RoleInsightsBetaApiFp(configuration)
     return {
         /**
-         * This submits a create role insights request to the role insights application. At this time there are no parameters. All business roles will be processed for the customer.
-         * @summary A request to generate insights for roles
+         * Submits a create role insights request to the role insights application. At this time there are no parameters. All business roles will be processed for the customer.
+         * @summary Generate insights for roles
          * @param {*} [axiosOptions] Override http request option.
+         * @deprecated
          * @throws {RequiredError}
          */
         createRoleInsightRequests(axiosOptions?: any): AxiosPromise<RoleInsightsResponseBeta> {
@@ -58816,10 +58821,11 @@ export const RoleInsightsBetaApiFactory = function (configuration?: Configuratio
             return localVarFp.getRoleInsightsEntitlementsChanges(insightId, sorters, filters, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
-         * This endpoint returns details of a prior request.
-         * @summary Returns the metadata for a request in order to generate insights for roles.
+         * This endpoint returns details of a prior role insights request. 
+         * @summary Returns metadata from prior request.
          * @param {string} id The role insights request id
          * @param {*} [axiosOptions] Override http request option.
+         * @deprecated
          * @throws {RequiredError}
          */
         getRoleInsightsRequests(id: string, axiosOptions?: any): AxiosPromise<RoleInsightsResponseBeta> {
@@ -59055,9 +59061,10 @@ export interface RoleInsightsBetaApiGetRoleInsightsRequestsRequest {
  */
 export class RoleInsightsBetaApi extends BaseAPI {
     /**
-     * This submits a create role insights request to the role insights application. At this time there are no parameters. All business roles will be processed for the customer.
-     * @summary A request to generate insights for roles
+     * Submits a create role insights request to the role insights application. At this time there are no parameters. All business roles will be processed for the customer.
+     * @summary Generate insights for roles
      * @param {*} [axiosOptions] Override http request option.
+     * @deprecated
      * @throws {RequiredError}
      * @memberof RoleInsightsBetaApi
      */
@@ -59138,10 +59145,11 @@ export class RoleInsightsBetaApi extends BaseAPI {
     }
 
     /**
-     * This endpoint returns details of a prior request.
-     * @summary Returns the metadata for a request in order to generate insights for roles.
+     * This endpoint returns details of a prior role insights request. 
+     * @summary Returns metadata from prior request.
      * @param {RoleInsightsBetaApiGetRoleInsightsRequestsRequest} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
+     * @deprecated
      * @throws {RequiredError}
      * @memberof RoleInsightsBetaApi
      */
