@@ -254,6 +254,38 @@ export interface AccessItemAppResponseBeta {
     'sourceName'?: string;
 }
 /**
+ * Identity who approved the access item request.
+ * @export
+ * @interface AccessItemApproverDtoBeta
+ */
+export interface AccessItemApproverDtoBeta {
+    /**
+     * DTO type of identity who approved the access item request.
+     * @type {string}
+     * @memberof AccessItemApproverDtoBeta
+     */
+    'type'?: AccessItemApproverDtoBetaTypeEnum;
+    /**
+     * ID of identity who approved the access item request.
+     * @type {string}
+     * @memberof AccessItemApproverDtoBeta
+     */
+    'id'?: string;
+    /**
+     * Human-readable display name of identity who approved the access item request.
+     * @type {string}
+     * @memberof AccessItemApproverDtoBeta
+     */
+    'name'?: string;
+}
+
+export const AccessItemApproverDtoBetaTypeEnum = {
+    Identity: 'IDENTITY'
+} as const;
+
+export type AccessItemApproverDtoBetaTypeEnum = typeof AccessItemApproverDtoBetaTypeEnum[keyof typeof AccessItemApproverDtoBetaTypeEnum];
+
+/**
  * @type AccessItemAssociatedAccessItemBeta
  * @export
  */
@@ -397,6 +429,38 @@ export interface AccessItemEntitlementResponseBeta {
     'displayName'?: string;
 }
 /**
+ * Access item owner\'s identity.
+ * @export
+ * @interface AccessItemOwnerDtoBeta
+ */
+export interface AccessItemOwnerDtoBeta {
+    /**
+     * Access item owner\'s DTO type.
+     * @type {string}
+     * @memberof AccessItemOwnerDtoBeta
+     */
+    'type'?: AccessItemOwnerDtoBetaTypeEnum;
+    /**
+     * Access item owner\'s identity ID.
+     * @type {string}
+     * @memberof AccessItemOwnerDtoBeta
+     */
+    'id'?: string;
+    /**
+     * Access item owner\'s human-readable display name.
+     * @type {string}
+     * @memberof AccessItemOwnerDtoBeta
+     */
+    'name'?: string;
+}
+
+export const AccessItemOwnerDtoBetaTypeEnum = {
+    Identity: 'IDENTITY'
+} as const;
+
+export type AccessItemOwnerDtoBetaTypeEnum = typeof AccessItemOwnerDtoBetaTypeEnum[keyof typeof AccessItemOwnerDtoBetaTypeEnum];
+
+/**
  * 
  * @export
  * @interface AccessItemRefBeta
@@ -461,6 +525,166 @@ export interface AccessItemRemovedBeta {
      */
     'governanceEvent'?: CorrelatedGovernanceEventBeta;
 }
+/**
+ * Identity the access item is requested for.
+ * @export
+ * @interface AccessItemRequestedForBeta
+ */
+export interface AccessItemRequestedForBeta {
+    /**
+     * DTO type of identity the access item is requested for.
+     * @type {string}
+     * @memberof AccessItemRequestedForBeta
+     */
+    'type'?: AccessItemRequestedForBetaTypeEnum;
+    /**
+     * ID of identity the access item is requested for.
+     * @type {string}
+     * @memberof AccessItemRequestedForBeta
+     */
+    'id'?: string;
+    /**
+     * Human-readable display name of identity the access item is requested for.
+     * @type {string}
+     * @memberof AccessItemRequestedForBeta
+     */
+    'name'?: string;
+}
+
+export const AccessItemRequestedForBetaTypeEnum = {
+    Identity: 'IDENTITY'
+} as const;
+
+export type AccessItemRequestedForBetaTypeEnum = typeof AccessItemRequestedForBetaTypeEnum[keyof typeof AccessItemRequestedForBetaTypeEnum];
+
+/**
+ * Identity the access item is requested for.
+ * @export
+ * @interface AccessItemRequestedForDtoBeta
+ */
+export interface AccessItemRequestedForDtoBeta {
+    /**
+     * DTO type of identity the access item is requested for.
+     * @type {string}
+     * @memberof AccessItemRequestedForDtoBeta
+     */
+    'type'?: AccessItemRequestedForDtoBetaTypeEnum;
+    /**
+     * ID of identity the access item is requested for.
+     * @type {string}
+     * @memberof AccessItemRequestedForDtoBeta
+     */
+    'id'?: string;
+    /**
+     * Human-readable display name of identity the access item is requested for.
+     * @type {string}
+     * @memberof AccessItemRequestedForDtoBeta
+     */
+    'name'?: string;
+}
+
+export const AccessItemRequestedForDtoBetaTypeEnum = {
+    Identity: 'IDENTITY'
+} as const;
+
+export type AccessItemRequestedForDtoBetaTypeEnum = typeof AccessItemRequestedForDtoBetaTypeEnum[keyof typeof AccessItemRequestedForDtoBetaTypeEnum];
+
+/**
+ * Access item requester\'s identity.
+ * @export
+ * @interface AccessItemRequesterBeta
+ */
+export interface AccessItemRequesterBeta {
+    /**
+     * Access item requester\'s DTO type.
+     * @type {string}
+     * @memberof AccessItemRequesterBeta
+     */
+    'type'?: AccessItemRequesterBetaTypeEnum;
+    /**
+     * Access item requester\'s identity ID.
+     * @type {string}
+     * @memberof AccessItemRequesterBeta
+     */
+    'id'?: string;
+    /**
+     * Access item owner\'s human-readable display name.
+     * @type {string}
+     * @memberof AccessItemRequesterBeta
+     */
+    'name'?: string;
+}
+
+export const AccessItemRequesterBetaTypeEnum = {
+    Identity: 'IDENTITY'
+} as const;
+
+export type AccessItemRequesterBetaTypeEnum = typeof AccessItemRequesterBetaTypeEnum[keyof typeof AccessItemRequesterBetaTypeEnum];
+
+/**
+ * Access item requester\'s identity.
+ * @export
+ * @interface AccessItemRequesterDtoBeta
+ */
+export interface AccessItemRequesterDtoBeta {
+    /**
+     * Access item requester\'s DTO type.
+     * @type {string}
+     * @memberof AccessItemRequesterDtoBeta
+     */
+    'type'?: AccessItemRequesterDtoBetaTypeEnum;
+    /**
+     * Access item requester\'s identity ID.
+     * @type {string}
+     * @memberof AccessItemRequesterDtoBeta
+     */
+    'id'?: string;
+    /**
+     * Access item owner\'s human-readable display name.
+     * @type {string}
+     * @memberof AccessItemRequesterDtoBeta
+     */
+    'name'?: string;
+}
+
+export const AccessItemRequesterDtoBetaTypeEnum = {
+    Identity: 'IDENTITY'
+} as const;
+
+export type AccessItemRequesterDtoBetaTypeEnum = typeof AccessItemRequesterDtoBetaTypeEnum[keyof typeof AccessItemRequesterDtoBetaTypeEnum];
+
+/**
+ * Identity who reviewed the access item request.
+ * @export
+ * @interface AccessItemReviewedByBeta
+ */
+export interface AccessItemReviewedByBeta {
+    /**
+     * DTO type of identity who reviewed the access item request.
+     * @type {string}
+     * @memberof AccessItemReviewedByBeta
+     */
+    'type'?: AccessItemReviewedByBetaTypeEnum;
+    /**
+     * ID of identity who reviewed the access item request.
+     * @type {string}
+     * @memberof AccessItemReviewedByBeta
+     */
+    'id'?: string;
+    /**
+     * Human-readable display name of identity who reviewed the access item request.
+     * @type {string}
+     * @memberof AccessItemReviewedByBeta
+     */
+    'name'?: string;
+}
+
+export const AccessItemReviewedByBetaTypeEnum = {
+    Identity: 'IDENTITY'
+} as const;
+
+export type AccessItemReviewedByBetaTypeEnum = typeof AccessItemReviewedByBetaTypeEnum[keyof typeof AccessItemReviewedByBetaTypeEnum];
+
 /**
  * 
  * @export
@@ -587,7 +811,7 @@ export interface AccessProfileBeta {
      * @type {Array<EntitlementRefBeta>}
      * @memberof AccessProfileBeta
      */
-    'entitlements'?: Array<EntitlementRefBeta>;
+    'entitlements'?: Array<EntitlementRefBeta> | null;
     /**
      * Whether the Access Profile is requestable via access request. Currently, making an Access Profile non-requestable is only supported  for customers enabled with the new Request Center. Otherwise, attempting to create an Access Profile with a value  **false** in this field results in a 400 error.
      * @type {boolean}
@@ -741,11 +965,43 @@ export interface AccessProfileUsageBeta {
     'accessProfileId'?: string;
     /**
      * List of references to objects which are using the indicated Access Profile
-     * @type {Array<BaseReferenceDtoBeta>}
+     * @type {Array<AccessProfileUsageUsedByInnerBeta>}
      * @memberof AccessProfileUsageBeta
      */
-    'usedBy'?: Array<BaseReferenceDtoBeta>;
+    'usedBy'?: Array<AccessProfileUsageUsedByInnerBeta>;
 }
+/**
+ * Role using the access profile.
+ * @export
+ * @interface AccessProfileUsageUsedByInnerBeta
+ */
+export interface AccessProfileUsageUsedByInnerBeta {
+    /**
+     * DTO type of role using the access profile.
+     * @type {string}
+     * @memberof AccessProfileUsageUsedByInnerBeta
+     */
+    'type'?: AccessProfileUsageUsedByInnerBetaTypeEnum;
+    /**
+     * ID of role using the access profile.
+     * @type {string}
+     * @memberof AccessProfileUsageUsedByInnerBeta
+     */
+    'id'?: string;
+    /**
+     * Display name of role using the access profile.
+     * @type {string}
+     * @memberof AccessProfileUsageUsedByInnerBeta
+     */
+    'name'?: string;
+}
+
+export const AccessProfileUsageUsedByInnerBetaTypeEnum = {
+    Role: 'ROLE'
+} as const;
+
+export type AccessProfileUsageUsedByInnerBetaTypeEnum = typeof AccessProfileUsageUsedByInnerBetaTypeEnum[keyof typeof AccessProfileUsageUsedByInnerBetaTypeEnum];
+
 /**
  * 
  * @export
@@ -892,25 +1148,25 @@ export interface AccessRequestDynamicApproverBeta {
     'requestedBy': AccessRequestDynamicApproverRequestedByBeta;
 }
 /**
- * The identity that initiated the access request.
+ * 
  * @export
  * @interface AccessRequestDynamicApproverRequestedByBeta
  */
 export interface AccessRequestDynamicApproverRequestedByBeta {
     /**
-     * The type of object that is referenced
-     * @type {object}
+     * Access item requester\'s DTO type.
+     * @type {string}
      * @memberof AccessRequestDynamicApproverRequestedByBeta
      */
     'type'?: AccessRequestDynamicApproverRequestedByBetaTypeEnum;
     /**
-     * ID of the object to which this reference applies
+     * Access item requester\'s identity ID.
      * @type {string}
      * @memberof AccessRequestDynamicApproverRequestedByBeta
      */
     'id'?: string;
     /**
-     * Human-readable display name of the object to which this reference applies
+     * Access item owner\'s human-readable display name.
      * @type {string}
      * @memberof AccessRequestDynamicApproverRequestedByBeta
      */
@@ -924,25 +1180,25 @@ export const AccessRequestDynamicApproverRequestedByBetaTypeEnum = {
 export type AccessRequestDynamicApproverRequestedByBetaTypeEnum = typeof AccessRequestDynamicApproverRequestedByBetaTypeEnum[keyof typeof AccessRequestDynamicApproverRequestedByBetaTypeEnum];
 
 /**
- * The identity for whom the access is requested for.
+ * 
  * @export
  * @interface AccessRequestDynamicApproverRequestedForBeta
  */
 export interface AccessRequestDynamicApproverRequestedForBeta {
     /**
-     * The type of object that is referenced
-     * @type {object}
+     * DTO type of identity the access item is requested for.
+     * @type {string}
      * @memberof AccessRequestDynamicApproverRequestedForBeta
      */
     'type'?: AccessRequestDynamicApproverRequestedForBetaTypeEnum;
     /**
-     * ID of the object to which this reference applies
+     * ID of identity the access item is requested for.
      * @type {string}
      * @memberof AccessRequestDynamicApproverRequestedForBeta
      */
     'id'?: string;
     /**
-     * Human-readable display name of the object to which this reference applies
+     * Human-readable display name of identity the access item is requested for.
      * @type {string}
      * @memberof AccessRequestDynamicApproverRequestedForBeta
      */
@@ -1213,25 +1469,25 @@ export interface AccessRequestPostApprovalBeta {
     'requestedBy': AccessRequestPostApprovalRequestedByBeta;
 }
 /**
- * The identity that initiated the access request.
+ * 
  * @export
  * @interface AccessRequestPostApprovalRequestedByBeta
  */
 export interface AccessRequestPostApprovalRequestedByBeta {
     /**
-     * The type of object that is referenced
-     * @type {object}
+     * Access item requester\'s DTO type.
+     * @type {string}
      * @memberof AccessRequestPostApprovalRequestedByBeta
      */
     'type': AccessRequestPostApprovalRequestedByBetaTypeEnum;
     /**
-     * ID of the object to which this reference applies
+     * Access item requester\'s identity ID.
      * @type {string}
      * @memberof AccessRequestPostApprovalRequestedByBeta
      */
     'id': string;
     /**
-     * Human-readable display name of the object to which this reference applies
+     * Access item owner\'s human-readable display name.
      * @type {string}
      * @memberof AccessRequestPostApprovalRequestedByBeta
      */
@@ -1245,25 +1501,25 @@ export const AccessRequestPostApprovalRequestedByBetaTypeEnum = {
 export type AccessRequestPostApprovalRequestedByBetaTypeEnum = typeof AccessRequestPostApprovalRequestedByBetaTypeEnum[keyof typeof AccessRequestPostApprovalRequestedByBetaTypeEnum];
 
 /**
- * The identity who the access request is for.
+ * 
  * @export
  * @interface AccessRequestPostApprovalRequestedForBeta
  */
 export interface AccessRequestPostApprovalRequestedForBeta {
     /**
-     * The type of object that is referenced
-     * @type {object}
+     * DTO type of identity the access item is requested for.
+     * @type {string}
      * @memberof AccessRequestPostApprovalRequestedForBeta
      */
     'type': AccessRequestPostApprovalRequestedForBetaTypeEnum;
     /**
-     * ID of the object to which this reference applies
+     * ID of identity the access item is requested for.
      * @type {string}
      * @memberof AccessRequestPostApprovalRequestedForBeta
      */
     'id': string;
     /**
-     * Human-readable display name of the object to which this reference applies
+     * Human-readable display name of identity the access item is requested for.
      * @type {string}
      * @memberof AccessRequestPostApprovalRequestedForBeta
      */
@@ -1289,13 +1545,13 @@ export interface AccessRequestPostApprovalRequestedItemsStatusInnerApprovalInfoI
      */
     'type': AccessRequestPostApprovalRequestedItemsStatusInnerApprovalInfoInnerApproverBetaTypeEnum;
     /**
-     * ID of the object to which this reference applies
+     * ID of identity who approved the access item request.
      * @type {string}
      * @memberof AccessRequestPostApprovalRequestedItemsStatusInnerApprovalInfoInnerApproverBeta
      */
     'id': string;
     /**
-     * Human-readable display name of the object to which this reference applies
+     * Human-readable display name of identity who approved the access item request.
      * @type {string}
      * @memberof AccessRequestPostApprovalRequestedItemsStatusInnerApprovalInfoInnerApproverBeta
      */
@@ -2025,25 +2281,25 @@ export const AccountAggregationCompletedBetaStatusEnum = {
 export type AccountAggregationCompletedBetaStatusEnum = typeof AccountAggregationCompletedBetaStatusEnum[keyof typeof AccountAggregationCompletedBetaStatusEnum];
 
 /**
- * The source from which the accounts were aggregated.
+ * The source the accounts are being aggregated from.
  * @export
  * @interface AccountAggregationCompletedSourceBeta
  */
 export interface AccountAggregationCompletedSourceBeta {
     /**
-     * The type of object that is referenced
-     * @type {object}
+     * The DTO type of the source the accounts are being aggregated from.
+     * @type {string}
      * @memberof AccountAggregationCompletedSourceBeta
      */
     'type': AccountAggregationCompletedSourceBetaTypeEnum;
     /**
-     * ID of the object to which this reference applies
+     * The ID of the source the accounts are being aggregated from.
      * @type {string}
      * @memberof AccountAggregationCompletedSourceBeta
      */
     'id': string;
     /**
-     * Human-readable display name of the object to which this reference applies
+     * Display name of the source the accounts are being aggregated from.
      * @type {string}
      * @memberof AccountAggregationCompletedSourceBeta
      */
@@ -2416,25 +2672,25 @@ export type AccountAttributesChangedChangesInnerNewValueBeta = Array<string> | b
 export type AccountAttributesChangedChangesInnerOldValueBeta = Array<string> | boolean | string;
 
 /**
- * The identity whose account attributes changed.
+ * The identity whose account attributes were updated.
  * @export
  * @interface AccountAttributesChangedIdentityBeta
  */
 export interface AccountAttributesChangedIdentityBeta {
     /**
-     * The type of object that is referenced
-     * @type {object}
+     * DTO type of the identity whose account attributes were updated.
+     * @type {string}
      * @memberof AccountAttributesChangedIdentityBeta
      */
     'type': AccountAttributesChangedIdentityBetaTypeEnum;
     /**
-     * ID of the object to which this reference applies
+     * ID of the identity whose account attributes were updated.
      * @type {string}
      * @memberof AccountAttributesChangedIdentityBeta
      */
     'id': string;
     /**
-     * Human-readable display name of the object to which this reference applies
+     * Display name of the identity whose account attributes were updated.
      * @type {string}
      * @memberof AccountAttributesChangedIdentityBeta
      */
@@ -2623,17 +2879,29 @@ export interface AccountBeta {
     'hasEntitlements': boolean;
 }
 /**
- * The account that was correlated.
+ * The correlated account.
  * @export
  * @interface AccountCorrelatedAccountBeta
  */
 export interface AccountCorrelatedAccountBeta {
     /**
-     * The type of object that is referenced
-     * @type {object}
+     * The correlated account\'s DTO type.
+     * @type {string}
      * @memberof AccountCorrelatedAccountBeta
      */
     'type': AccountCorrelatedAccountBetaTypeEnum;
+    /**
+     * The correlated account\'s ID.
+     * @type {string}
+     * @memberof AccountCorrelatedAccountBeta
+     */
+    'id': string;
+    /**
+     * The correlated account\'s display name.
+     * @type {string}
+     * @memberof AccountCorrelatedAccountBeta
+     */
+    'name': string;
     /**
      * Unique ID of the account on the source.
      * @type {string}
@@ -2646,18 +2914,6 @@ export interface AccountCorrelatedAccountBeta {
      * @memberof AccountCorrelatedAccountBeta
      */
     'uuid'?: string | null;
-    /**
-     * ID of the object to which this reference applies
-     * @type {string}
-     * @memberof AccountCorrelatedAccountBeta
-     */
-    'id': string;
-    /**
-     * Human-readable display name of the object to which this reference applies
-     * @type {string}
-     * @memberof AccountCorrelatedAccountBeta
-     */
-    'name': string;
 }
 
 export const AccountCorrelatedAccountBetaTypeEnum = {
@@ -2704,25 +2960,25 @@ export interface AccountCorrelatedBeta {
     'entitlementCount'?: number;
 }
 /**
- * The identity that the account correlated with.
+ * Identity the account is correlated with.
  * @export
  * @interface AccountCorrelatedIdentityBeta
  */
 export interface AccountCorrelatedIdentityBeta {
     /**
-     * The type of object that is referenced
-     * @type {object}
+     * DTO type of the identity the account is correlated with.
+     * @type {string}
      * @memberof AccountCorrelatedIdentityBeta
      */
     'type': AccountCorrelatedIdentityBetaTypeEnum;
     /**
-     * ID of the object to which this reference applies
+     * ID of the identity the account is correlated with.
      * @type {string}
      * @memberof AccountCorrelatedIdentityBeta
      */
     'id': string;
     /**
-     * Human-readable display name of the object to which this reference applies
+     * Display name of the identity the account is correlated with.
      * @type {string}
      * @memberof AccountCorrelatedIdentityBeta
      */
@@ -2736,25 +2992,25 @@ export const AccountCorrelatedIdentityBetaTypeEnum = {
 export type AccountCorrelatedIdentityBetaTypeEnum = typeof AccountCorrelatedIdentityBetaTypeEnum[keyof typeof AccountCorrelatedIdentityBetaTypeEnum];
 
 /**
- * The source from which the account came from.
+ * The source the accounts are being correlated from.
  * @export
  * @interface AccountCorrelatedSourceBeta
  */
 export interface AccountCorrelatedSourceBeta {
     /**
-     * ID of the object to which this reference applies
-     * @type {string}
-     * @memberof AccountCorrelatedSourceBeta
-     */
-    'id': string;
-    /**
-     * The type of object that is referenced
+     * The DTO type of the source the accounts are being correlated from.
      * @type {string}
      * @memberof AccountCorrelatedSourceBeta
      */
     'type': AccountCorrelatedSourceBetaTypeEnum;
     /**
-     * Human-readable display name of the object to which this reference applies
+     * The ID of the source the accounts are being correlated from.
+     * @type {string}
+     * @memberof AccountCorrelatedSourceBeta
+     */
+    'id': string;
+    /**
+     * Display name of the source the accounts are being correlated from.
      * @type {string}
      * @memberof AccountCorrelatedSourceBeta
      */
@@ -2933,17 +3189,29 @@ export interface AccountToggleRequestBeta {
     'forceProvisioning'?: boolean;
 }
 /**
- * The account that was uncorrelated.
+ * Uncorrelated account.
  * @export
  * @interface AccountUncorrelatedAccountBeta
  */
 export interface AccountUncorrelatedAccountBeta {
     /**
-     * The type of object that is referenced
+     * Uncorrelated account\'s DTO type.
      * @type {object}
      * @memberof AccountUncorrelatedAccountBeta
      */
     'type': AccountUncorrelatedAccountBetaTypeEnum;
+    /**
+     * Uncorrelated account\'s ID.
+     * @type {string}
+     * @memberof AccountUncorrelatedAccountBeta
+     */
+    'id': string;
+    /**
+     * Uncorrelated account\'s display name.
+     * @type {string}
+     * @memberof AccountUncorrelatedAccountBeta
+     */
+    'name': string;
     /**
      * Unique ID of the account on the source.
      * @type {string}
@@ -2956,18 +3224,6 @@ export interface AccountUncorrelatedAccountBeta {
      * @memberof AccountUncorrelatedAccountBeta
      */
     'uuid'?: string | null;
-    /**
-     * ID of the object to which this reference applies
-     * @type {string}
-     * @memberof AccountUncorrelatedAccountBeta
-     */
-    'id': string;
-    /**
-     * Human-readable display name of the object to which this reference applies
-     * @type {string}
-     * @memberof AccountUncorrelatedAccountBeta
-     */
-    'name': string;
 }
 
 export const AccountUncorrelatedAccountBetaTypeEnum = {
@@ -3008,25 +3264,25 @@ export interface AccountUncorrelatedBeta {
     'entitlementCount'?: number;
 }
 /**
- * The identity that the account uncorrelated with.
+ * Identity the account is uncorrelated with.
  * @export
  * @interface AccountUncorrelatedIdentityBeta
  */
 export interface AccountUncorrelatedIdentityBeta {
     /**
-     * The type of object that is referenced
-     * @type {object}
+     * DTO type of the identity the account is uncorrelated with.
+     * @type {string}
      * @memberof AccountUncorrelatedIdentityBeta
      */
     'type': AccountUncorrelatedIdentityBetaTypeEnum;
     /**
-     * ID of the object to which this reference applies
+     * ID of the identity the account is uncorrelated with.
      * @type {string}
      * @memberof AccountUncorrelatedIdentityBeta
      */
     'id': string;
     /**
-     * Human-readable display name of the object to which this reference applies
+     * Display name of the identity the account is uncorrelated with.
      * @type {string}
      * @memberof AccountUncorrelatedIdentityBeta
      */
@@ -3040,25 +3296,25 @@ export const AccountUncorrelatedIdentityBetaTypeEnum = {
 export type AccountUncorrelatedIdentityBetaTypeEnum = typeof AccountUncorrelatedIdentityBetaTypeEnum[keyof typeof AccountUncorrelatedIdentityBetaTypeEnum];
 
 /**
- * The source from which the account came from.
+ * The source the accounts are uncorrelated from.
  * @export
  * @interface AccountUncorrelatedSourceBeta
  */
 export interface AccountUncorrelatedSourceBeta {
     /**
-     * The type of object that is referenced
-     * @type {object}
+     * The DTO type of the source the accounts are uncorrelated from.
+     * @type {string}
      * @memberof AccountUncorrelatedSourceBeta
      */
     'type': AccountUncorrelatedSourceBetaTypeEnum;
     /**
-     * ID of the object to which this reference applies
+     * The ID of the source the accounts are uncorrelated from.
      * @type {string}
      * @memberof AccountUncorrelatedSourceBeta
      */
     'id': string;
     /**
-     * Human-readable display name of the object to which this reference applies
+     * Display name of the source the accounts are uncorrelated from.
      * @type {string}
      * @memberof AccountUncorrelatedSourceBeta
      */
@@ -3594,22 +3850,16 @@ export interface ApprovalStatusDtoBeta {
     'forwarded'?: boolean;
     /**
      * 
-     * @type {BaseReferenceDtoBeta}
+     * @type {ApprovalStatusDtoOriginalOwnerBeta}
      * @memberof ApprovalStatusDtoBeta
      */
-    'originalOwner'?: BaseReferenceDtoBeta;
+    'originalOwner'?: ApprovalStatusDtoOriginalOwnerBeta;
     /**
      * 
-     * @type {BaseReferenceDtoBeta}
+     * @type {AccessItemReviewedByBeta}
      * @memberof ApprovalStatusDtoBeta
      */
-    'currentOwner'?: BaseReferenceDtoBeta;
-    /**
-     * 
-     * @type {BaseReferenceDtoBeta}
-     * @memberof ApprovalStatusDtoBeta
-     */
-    'reviewedBy'?: BaseReferenceDtoBeta;
+    'currentOwner'?: AccessItemReviewedByBeta;
     /**
      * Time at which item was modified.
      * @type {string}
@@ -3647,6 +3897,39 @@ export interface ApprovalStatusDtoBeta {
      */
     'removeDate'?: string;
 }
+/**
+ * Identity of orginal approval owner.
+ * @export
+ * @interface ApprovalStatusDtoOriginalOwnerBeta
+ */
+export interface ApprovalStatusDtoOriginalOwnerBeta {
+    /**
+     * DTO type of original approval owner\'s identity.
+     * @type {string}
+     * @memberof ApprovalStatusDtoOriginalOwnerBeta
+     */
+    'type'?: ApprovalStatusDtoOriginalOwnerBetaTypeEnum;
+    /**
+     * ID of original approval owner\'s identity.
+     * @type {string}
+     * @memberof ApprovalStatusDtoOriginalOwnerBeta
+     */
+    'id'?: string;
+    /**
+     * Display name of original approval owner.
+     * @type {string}
+     * @memberof ApprovalStatusDtoOriginalOwnerBeta
+     */
+    'name'?: string;
+}
+
+export const ApprovalStatusDtoOriginalOwnerBetaTypeEnum = {
+    GovernanceGroup: 'GOVERNANCE_GROUP',
+    Identity: 'IDENTITY'
+} as const;
+
+export type ApprovalStatusDtoOriginalOwnerBetaTypeEnum = typeof ApprovalStatusDtoOriginalOwnerBetaTypeEnum[keyof typeof ApprovalStatusDtoOriginalOwnerBetaTypeEnum];
+
 /**
  * 
  * @export
@@ -3736,6 +4019,38 @@ export interface AttrSyncSourceAttributeConfigBeta {
     'target': string;
 }
 /**
+ * Target source for attribute synchronization.
+ * @export
+ * @interface AttrSyncSourceBeta
+ */
+export interface AttrSyncSourceBeta {
+    /**
+     * DTO type of target source for attribute synchronization.
+     * @type {string}
+     * @memberof AttrSyncSourceBeta
+     */
+    'type'?: AttrSyncSourceBetaTypeEnum;
+    /**
+     * ID of target source for attribute synchronization.
+     * @type {string}
+     * @memberof AttrSyncSourceBeta
+     */
+    'id'?: string;
+    /**
+     * Human-readable name of target source for attribute synchronization.
+     * @type {string}
+     * @memberof AttrSyncSourceBeta
+     */
+    'name'?: string;
+}
+
+export const AttrSyncSourceBetaTypeEnum = {
+    Source: 'SOURCE'
+} as const;
+
+export type AttrSyncSourceBetaTypeEnum = typeof AttrSyncSourceBetaTypeEnum[keyof typeof AttrSyncSourceBetaTypeEnum];
+
+/**
  * Specification of attribute sync configuration for a source
  * @export
  * @interface AttrSyncSourceConfigBeta
@@ -3743,10 +4058,10 @@ export interface AttrSyncSourceAttributeConfigBeta {
 export interface AttrSyncSourceConfigBeta {
     /**
      * 
-     * @type {BaseReferenceDtoBeta}
+     * @type {AttrSyncSourceBeta}
      * @memberof AttrSyncSourceConfigBeta
      */
-    'source': BaseReferenceDtoBeta;
+    'source': AttrSyncSourceBeta;
     /**
      * Attribute synchronization configuration for specific identity attributes in the context of a source
      * @type {Array<AttrSyncSourceAttributeConfigBeta>}
@@ -4039,50 +4354,6 @@ export interface BaseCommonDtoBeta {
     'modified'?: string;
 }
 /**
- * 
- * @export
- * @interface BaseReferenceDto1Beta
- */
-export interface BaseReferenceDto1Beta {
-    /**
-     * the application ID
-     * @type {string}
-     * @memberof BaseReferenceDto1Beta
-     */
-    'id'?: string;
-    /**
-     * the application name
-     * @type {string}
-     * @memberof BaseReferenceDto1Beta
-     */
-    'name'?: string;
-}
-/**
- * 
- * @export
- * @interface BaseReferenceDtoBeta
- */
-export interface BaseReferenceDtoBeta {
-    /**
-     * 
-     * @type {DtoTypeBeta}
-     * @memberof BaseReferenceDtoBeta
-     */
-    'type'?: DtoTypeBeta;
-    /**
-     * ID of the object to which this reference applies
-     * @type {string}
-     * @memberof BaseReferenceDtoBeta
-     */
-    'id'?: string;
-    /**
-     * Human-readable display name of the object to which this reference applies
-     * @type {string}
-     * @memberof BaseReferenceDtoBeta
-     */
-    'name'?: string;
-}
-/**
  * Config required if BASIC_AUTH is used.
  * @export
  * @interface BasicAuthConfigBeta
@@ -4114,6 +4385,38 @@ export interface BearerTokenAuthConfigBeta {
      */
     'bearerToken'?: string | null;
 }
+/**
+ * Before Provisioning Rule.
+ * @export
+ * @interface BeforeProvisioningRuleDtoBeta
+ */
+export interface BeforeProvisioningRuleDtoBeta {
+    /**
+     * Before Provisioning Rule DTO type.
+     * @type {string}
+     * @memberof BeforeProvisioningRuleDtoBeta
+     */
+    'type'?: BeforeProvisioningRuleDtoBetaTypeEnum;
+    /**
+     * Before Provisioning Rule ID.
+     * @type {string}
+     * @memberof BeforeProvisioningRuleDtoBeta
+     */
+    'id'?: string;
+    /**
+     * Rule display name.
+     * @type {string}
+     * @memberof BeforeProvisioningRuleDtoBeta
+     */
+    'name'?: string;
+}
+
+export const BeforeProvisioningRuleDtoBetaTypeEnum = {
+    Rule: 'RULE'
+} as const;
+
+export type BeforeProvisioningRuleDtoBetaTypeEnum = typeof BeforeProvisioningRuleDtoBetaTypeEnum[keyof typeof BeforeProvisioningRuleDtoBetaTypeEnum];
+
 /**
  * Bulk response object.
  * @export
@@ -4152,7 +4455,7 @@ export interface BulkTaggedObjectBeta {
      */
     'objectRefs'?: Array<TaggedObjectDtoBeta>;
     /**
-     * Label to be applied to an Object
+     * Label to be applied to object.
      * @type {Array<string>}
      * @memberof BulkTaggedObjectBeta
      */
@@ -4171,6 +4474,38 @@ export const BulkTaggedObjectBetaOperationEnum = {
 } as const;
 
 export type BulkTaggedObjectBetaOperationEnum = typeof BulkTaggedObjectBetaOperationEnum[keyof typeof BulkTaggedObjectBetaOperationEnum];
+
+/**
+ * Identity\'s basic details.
+ * @export
+ * @interface BulkWorkgroupMembersRequestInnerBeta
+ */
+export interface BulkWorkgroupMembersRequestInnerBeta {
+    /**
+     * Identity\'s DTO type.
+     * @type {string}
+     * @memberof BulkWorkgroupMembersRequestInnerBeta
+     */
+    'type'?: BulkWorkgroupMembersRequestInnerBetaTypeEnum;
+    /**
+     * Identity ID.
+     * @type {string}
+     * @memberof BulkWorkgroupMembersRequestInnerBeta
+     */
+    'id'?: string;
+    /**
+     * Identity\'s display name.
+     * @type {string}
+     * @memberof BulkWorkgroupMembersRequestInnerBeta
+     */
+    'name'?: string;
+}
+
+export const BulkWorkgroupMembersRequestInnerBetaTypeEnum = {
+    Identity: 'IDENTITY'
+} as const;
+
+export type BulkWorkgroupMembersRequestInnerBetaTypeEnum = typeof BulkWorkgroupMembersRequestInnerBetaTypeEnum[keyof typeof BulkWorkgroupMembersRequestInnerBetaTypeEnum];
 
 /**
  * 
@@ -4796,25 +5131,25 @@ export interface CampaignReportAllOfBeta {
  */
 export interface CampaignReportBeta {
     /**
-     * 
-     * @type {DtoTypeBeta}
+     * SOD policy violation report result DTO type.
+     * @type {string}
      * @memberof CampaignReportBeta
      */
-    'type'?: DtoTypeBeta;
+    'type'?: CampaignReportBetaTypeEnum;
     /**
-     * ID of the object to which this reference applies
+     * SOD policy violation report result ID.
      * @type {string}
      * @memberof CampaignReportBeta
      */
     'id'?: string;
     /**
-     * Human-readable display name of the object to which this reference applies
+     * Human-readable name of the SOD policy violation report result.
      * @type {string}
      * @memberof CampaignReportBeta
      */
     'name'?: string;
     /**
-     * 
+     * Status of a SOD policy violation report.
      * @type {string}
      * @memberof CampaignReportBeta
      */
@@ -4833,6 +5168,11 @@ export interface CampaignReportBeta {
     'lastRunAt'?: string;
 }
 
+export const CampaignReportBetaTypeEnum = {
+    ReportResult: 'REPORT_RESULT'
+} as const;
+
+export type CampaignReportBetaTypeEnum = typeof CampaignReportBetaTypeEnum[keyof typeof CampaignReportBetaTypeEnum];
 export const CampaignReportBetaStatusEnum = {
     Success: 'SUCCESS',
     Warning: 'WARNING',
@@ -5092,12 +5432,12 @@ export interface CancelledRequestDetailsBeta {
     'comment'?: string;
     /**
      * 
-     * @type {BaseReferenceDtoBeta}
+     * @type {OwnerDtoBeta}
      * @memberof CancelledRequestDetailsBeta
      */
-    'owner'?: BaseReferenceDtoBeta;
+    'owner'?: OwnerDtoBeta;
     /**
-     * Date comment was added by the owner when cancelling the associated request
+     * Date comment was added by the owner when cancelling the associated request.
      * @type {string}
      * @memberof CancelledRequestDetailsBeta
      */
@@ -5217,25 +5557,25 @@ export interface CertificationReferenceAllOfBeta {
     'reviewer'?: ReviewerBeta;
 }
 /**
- * The previous certification
+ * Previous certification.
  * @export
  * @interface CertificationReferenceBeta
  */
 export interface CertificationReferenceBeta {
     /**
-     * The type of object that the reviewer is.
-     * @type {object}
+     * DTO type of certification for review.
+     * @type {string}
      * @memberof CertificationReferenceBeta
      */
     'type'?: CertificationReferenceBetaTypeEnum;
     /**
-     * ID of the object to which this reference applies
+     * ID of certification for review.
      * @type {string}
      * @memberof CertificationReferenceBeta
      */
     'id'?: string;
     /**
-     * Human-readable display name of the object to which this reference applies
+     * Display name of certification for review.
      * @type {string}
      * @memberof CertificationReferenceBeta
      */
@@ -5253,6 +5593,38 @@ export const CertificationReferenceBetaTypeEnum = {
 } as const;
 
 export type CertificationReferenceBetaTypeEnum = typeof CertificationReferenceBetaTypeEnum[keyof typeof CertificationReferenceBetaTypeEnum];
+
+/**
+ * Certification for review.
+ * @export
+ * @interface CertificationReferenceDtoBeta
+ */
+export interface CertificationReferenceDtoBeta {
+    /**
+     * DTO type of certification for review.
+     * @type {string}
+     * @memberof CertificationReferenceDtoBeta
+     */
+    'type'?: CertificationReferenceDtoBetaTypeEnum;
+    /**
+     * ID of certification for review.
+     * @type {string}
+     * @memberof CertificationReferenceDtoBeta
+     */
+    'id'?: string;
+    /**
+     * Display name of certification for review.
+     * @type {string}
+     * @memberof CertificationReferenceDtoBeta
+     */
+    'name'?: string;
+}
+
+export const CertificationReferenceDtoBetaTypeEnum = {
+    Certification: 'CERTIFICATION'
+} as const;
+
+export type CertificationReferenceDtoBetaTypeEnum = typeof CertificationReferenceDtoBetaTypeEnum[keyof typeof CertificationReferenceDtoBetaTypeEnum];
 
 /**
  * 
@@ -5603,53 +5975,35 @@ export interface CommentBeta {
 /**
  * 
  * @export
- * @interface CommentDto1AuthorBeta
+ * @interface CommentDtoAuthorBeta
  */
-export interface CommentDto1AuthorBeta {
+export interface CommentDtoAuthorBeta {
     /**
-     * 
-     * @type {DtoTypeBeta}
-     * @memberof CommentDto1AuthorBeta
-     */
-    'type'?: DtoTypeBeta;
-    /**
-     * ID of the author
+     * DTO type of the commenting identity.
      * @type {string}
-     * @memberof CommentDto1AuthorBeta
+     * @memberof CommentDtoAuthorBeta
+     */
+    'type'?: CommentDtoAuthorBetaTypeEnum;
+    /**
+     * ID of the commenting identity.
+     * @type {string}
+     * @memberof CommentDtoAuthorBeta
      */
     'id'?: string;
     /**
-     * Human-readable display name of the identity making the comment
+     * Display name of the commenting identity.
      * @type {string}
-     * @memberof CommentDto1AuthorBeta
+     * @memberof CommentDtoAuthorBeta
      */
     'name'?: string;
 }
-/**
- * 
- * @export
- * @interface CommentDto1Beta
- */
-export interface CommentDto1Beta {
-    /**
-     * Content of the comment
-     * @type {string}
-     * @memberof CommentDto1Beta
-     */
-    'comment'?: string;
-    /**
-     * 
-     * @type {CommentDto1AuthorBeta}
-     * @memberof CommentDto1Beta
-     */
-    'author'?: CommentDto1AuthorBeta;
-    /**
-     * Date and time comment was created
-     * @type {string}
-     * @memberof CommentDto1Beta
-     */
-    'created'?: string;
-}
+
+export const CommentDtoAuthorBetaTypeEnum = {
+    Identity: 'IDENTITY'
+} as const;
+
+export type CommentDtoAuthorBetaTypeEnum = typeof CommentDtoAuthorBetaTypeEnum[keyof typeof CommentDtoAuthorBetaTypeEnum];
+
 /**
  * 
  * @export
@@ -5657,11 +6011,23 @@ export interface CommentDto1Beta {
  */
 export interface CommentDtoBeta {
     /**
-     * 
+     * Comment content.
      * @type {string}
      * @memberof CommentDtoBeta
      */
-    'comment'?: string;
+    'comment'?: string | null;
+    /**
+     * 
+     * @type {CommentDtoAuthorBeta}
+     * @memberof CommentDtoBeta
+     */
+    'author'?: CommentDtoAuthorBeta;
+    /**
+     * Date and time comment was created.
+     * @type {string}
+     * @memberof CommentDtoBeta
+     */
+    'created'?: string;
 }
 /**
  * 
@@ -5967,28 +6333,28 @@ export interface CompletedApprovalBeta {
     'requestType'?: AccessRequestTypeBeta;
     /**
      * 
-     * @type {BaseReferenceDtoBeta}
+     * @type {AccessItemRequesterDtoBeta}
      * @memberof CompletedApprovalBeta
      */
-    'requester'?: BaseReferenceDtoBeta;
+    'requester'?: AccessItemRequesterDtoBeta;
     /**
      * 
-     * @type {BaseReferenceDtoBeta}
+     * @type {AccessItemRequestedForDtoBeta}
      * @memberof CompletedApprovalBeta
      */
-    'requestedFor'?: BaseReferenceDtoBeta;
+    'requestedFor'?: AccessItemRequestedForDtoBeta;
     /**
      * 
-     * @type {BaseReferenceDtoBeta}
+     * @type {CompletedApprovalReviewedByBeta}
      * @memberof CompletedApprovalBeta
      */
-    'reviewedBy'?: BaseReferenceDtoBeta;
+    'reviewedBy'?: CompletedApprovalReviewedByBeta;
     /**
      * 
-     * @type {BaseReferenceDtoBeta}
+     * @type {AccessItemOwnerDtoBeta}
      * @memberof CompletedApprovalBeta
      */
-    'owner'?: BaseReferenceDtoBeta;
+    'owner'?: AccessItemOwnerDtoBeta;
     /**
      * 
      * @type {RequestableObjectReferenceBeta}
@@ -5997,22 +6363,22 @@ export interface CompletedApprovalBeta {
     'requestedObject'?: RequestableObjectReferenceBeta;
     /**
      * 
-     * @type {CommentDto1Beta}
+     * @type {CommentDtoBeta}
      * @memberof CompletedApprovalBeta
      */
-    'requesterComment'?: CommentDto1Beta;
+    'requesterComment'?: CommentDtoBeta;
     /**
      * 
-     * @type {CommentDto1Beta}
+     * @type {CompletedApprovalReviewerCommentBeta}
      * @memberof CompletedApprovalBeta
      */
-    'reviewerComment'?: CommentDto1Beta;
+    'reviewerComment'?: CompletedApprovalReviewerCommentBeta | null;
     /**
      * The history of the previous reviewers comments.
-     * @type {Array<CommentDto1Beta>}
+     * @type {Array<CommentDtoBeta>}
      * @memberof CompletedApprovalBeta
      */
-    'previousReviewersComments'?: Array<CommentDto1Beta>;
+    'previousReviewersComments'?: Array<CommentDtoBeta>;
     /**
      * The history of approval forward action.
      * @type {Array<ApprovalForwardHistoryBeta>}
@@ -6036,7 +6402,7 @@ export interface CompletedApprovalBeta {
      * @type {string}
      * @memberof CompletedApprovalBeta
      */
-    'removeDate'?: string;
+    'removeDate'?: string | null;
     /**
      * If true, then the request was to change the remove date or sunset date.
      * @type {boolean}
@@ -6048,13 +6414,70 @@ export interface CompletedApprovalBeta {
      * @type {string}
      * @memberof CompletedApprovalBeta
      */
-    'currentRemoveDate'?: string;
+    'currentRemoveDate'?: string | null;
     /**
      * 
      * @type {SodViolationContextCheckCompleted1Beta}
      * @memberof CompletedApprovalBeta
      */
     'sodViolationContext'?: SodViolationContextCheckCompleted1Beta;
+}
+/**
+ * Identity who reviewed the access item request.
+ * @export
+ * @interface CompletedApprovalReviewedByBeta
+ */
+export interface CompletedApprovalReviewedByBeta {
+    /**
+     * DTO type of identity who reviewed the access item request.
+     * @type {string}
+     * @memberof CompletedApprovalReviewedByBeta
+     */
+    'type'?: CompletedApprovalReviewedByBetaTypeEnum;
+    /**
+     * ID of identity who reviewed the access item request.
+     * @type {string}
+     * @memberof CompletedApprovalReviewedByBeta
+     */
+    'id'?: string;
+    /**
+     * Human-readable display name of identity who reviewed the access item request.
+     * @type {string}
+     * @memberof CompletedApprovalReviewedByBeta
+     */
+    'name'?: string;
+}
+
+export const CompletedApprovalReviewedByBetaTypeEnum = {
+    Identity: 'IDENTITY'
+} as const;
+
+export type CompletedApprovalReviewedByBetaTypeEnum = typeof CompletedApprovalReviewedByBetaTypeEnum[keyof typeof CompletedApprovalReviewedByBetaTypeEnum];
+
+/**
+ * The approval\'s reviewer\'s comment.
+ * @export
+ * @interface CompletedApprovalReviewerCommentBeta
+ */
+export interface CompletedApprovalReviewerCommentBeta {
+    /**
+     * Comment content.
+     * @type {string}
+     * @memberof CompletedApprovalReviewerCommentBeta
+     */
+    'comment'?: string | null;
+    /**
+     * 
+     * @type {CommentDtoAuthorBeta}
+     * @memberof CompletedApprovalReviewerCommentBeta
+     */
+    'author'?: CommentDtoAuthorBeta;
+    /**
+     * Date and time comment was created.
+     * @type {string}
+     * @memberof CompletedApprovalReviewerCommentBeta
+     */
+    'created'?: string;
 }
 /**
  * Enum represents completed approval object\'s state.
@@ -6286,10 +6709,10 @@ export interface ConfigObjectBeta {
     'version'?: number;
     /**
      * 
-     * @type {BaseReferenceDtoBeta}
+     * @type {SelfImportExportDtoBeta}
      * @memberof ConfigObjectBeta
      */
-    'self'?: BaseReferenceDtoBeta;
+    'self'?: SelfImportExportDtoBeta;
     /**
      * Object details. Format dependant on the object type.
      * @type {{ [key: string]: any; }}
@@ -7373,10 +7796,10 @@ export interface CreatePersonalAccessTokenResponseBeta {
     'name': string;
     /**
      * 
-     * @type {BaseReferenceDtoBeta}
+     * @type {PatOwnerBeta}
      * @memberof CreatePersonalAccessTokenResponseBeta
      */
-    'owner': BaseReferenceDtoBeta;
+    'owner': PatOwnerBeta;
     /**
      * The date and time, down to the millisecond, when this personal access token was created.
      * @type {string}
@@ -8096,25 +8519,25 @@ export interface EntitlementBulkUpdateRequestBeta {
     'jsonPatch': Array<JsonPatchOperationBeta>;
 }
 /**
- * 
+ * Entitlement including a specific set of access.
  * @export
  * @interface EntitlementRefBeta
  */
 export interface EntitlementRefBeta {
     /**
-     * The ID of the Entitlement
-     * @type {string}
-     * @memberof EntitlementRefBeta
-     */
-    'id'?: string;
-    /**
-     * The type of the Entitlement, will always be ENTITLEMENT
+     * Entitlement\'s DTO type.
      * @type {string}
      * @memberof EntitlementRefBeta
      */
     'type'?: EntitlementRefBetaTypeEnum;
     /**
-     * The display name of the Entitlement
+     * Entitlement\'s ID.
+     * @type {string}
+     * @memberof EntitlementRefBeta
+     */
+    'id'?: string;
+    /**
+     * Entitlement\'s display name.
      * @type {string}
      * @memberof EntitlementRefBeta
      */
@@ -10679,10 +11102,10 @@ export interface GetPersonalAccessTokenResponseBeta {
     'scope': Array<string> | null;
     /**
      * 
-     * @type {BaseReferenceDtoBeta}
+     * @type {PatOwnerBeta}
      * @memberof GetPersonalAccessTokenResponseBeta
      */
-    'owner': BaseReferenceDtoBeta;
+    'owner': PatOwnerBeta;
     /**
      * The date and time, down to the millisecond, when this personal access token was created.
      * @type {string}
@@ -11169,25 +11592,25 @@ export type IdentityAttributesChangedChangesInnerOldValueBeta = Array<string> | 
 export type IdentityAttributesChangedChangesInnerOldValueOneOfValueBeta = boolean | number | string;
 
 /**
- * The identity who\'s attributes changed.
+ * Identity whose attributes changed.
  * @export
  * @interface IdentityAttributesChangedIdentityBeta
  */
 export interface IdentityAttributesChangedIdentityBeta {
     /**
-     * The type of object that is referenced
-     * @type {object}
+     * DTO type of identity whose attributes changed.
+     * @type {string}
      * @memberof IdentityAttributesChangedIdentityBeta
      */
     'type': IdentityAttributesChangedIdentityBetaTypeEnum;
     /**
-     * ID of the object to which this reference applies
+     * ID of identity whose attributes changed.
      * @type {string}
      * @memberof IdentityAttributesChangedIdentityBeta
      */
     'id': string;
     /**
-     * Human-readable display name of the object to which this reference applies
+     * Display name of identity whose attributes changed.
      * @type {string}
      * @memberof IdentityAttributesChangedIdentityBeta
      */
@@ -11256,10 +11679,10 @@ export interface IdentityBeta {
     'identityStatus'?: IdentityBetaIdentityStatusEnum;
     /**
      * 
-     * @type {BaseReferenceDtoBeta}
+     * @type {IdentityDtoManagerRefBeta}
      * @memberof IdentityBeta
      */
-    'managerRef'?: BaseReferenceDtoBeta;
+    'managerRef'?: IdentityDtoManagerRefBeta;
     /**
      * Whether this identity is a manager of another identity
      * @type {boolean}
@@ -11440,32 +11863,32 @@ export interface IdentityCreatedBeta {
      */
     'identity': IdentityCreatedIdentityBeta;
     /**
-     * The attributes assigned to the identity.  Attributes are determined by the identity profile.
+     * The attributes assigned to the identity. Attributes are determined by the identity profile.
      * @type {{ [key: string]: any; }}
      * @memberof IdentityCreatedBeta
      */
     'attributes': { [key: string]: any; };
 }
 /**
- * The identity that was created.
+ * Created identity.
  * @export
  * @interface IdentityCreatedIdentityBeta
  */
 export interface IdentityCreatedIdentityBeta {
     /**
-     * The type of object that is referenced
-     * @type {object}
+     * Created identity\'s DTO type.
+     * @type {string}
      * @memberof IdentityCreatedIdentityBeta
      */
     'type': IdentityCreatedIdentityBetaTypeEnum;
     /**
-     * ID of the object to which this reference applies
+     * Created identity ID.
      * @type {string}
      * @memberof IdentityCreatedIdentityBeta
      */
     'id': string;
     /**
-     * Human-readable display name of the object to which this reference applies
+     * Created identity\'s display name.
      * @type {string}
      * @memberof IdentityCreatedIdentityBeta
      */
@@ -11491,32 +11914,32 @@ export interface IdentityDeletedBeta {
      */
     'identity': IdentityDeletedIdentityBeta;
     /**
-     * The attributes assigned to the identity.  Attributes are determined by the identity profile.
+     * The attributes assigned to the identity. Attributes are determined by the identity profile.
      * @type {{ [key: string]: any; }}
      * @memberof IdentityDeletedBeta
      */
     'attributes': { [key: string]: any; };
 }
 /**
- * The identity that was deleted.
+ * Deleted identity.
  * @export
  * @interface IdentityDeletedIdentityBeta
  */
 export interface IdentityDeletedIdentityBeta {
     /**
-     * The type of object that is referenced
-     * @type {object}
+     * Deleted identity\'s DTO type.
+     * @type {string}
      * @memberof IdentityDeletedIdentityBeta
      */
     'type': IdentityDeletedIdentityBetaTypeEnum;
     /**
-     * ID of the object to which this reference applies
+     * Deleted identity ID.
      * @type {string}
      * @memberof IdentityDeletedIdentityBeta
      */
     'id': string;
     /**
-     * Human-readable display name of the object to which this reference applies
+     * Deleted identity\'s display name.
      * @type {string}
      * @memberof IdentityDeletedIdentityBeta
      */
@@ -11561,10 +11984,10 @@ export interface IdentityDtoBeta {
     'identityStatus'?: IdentityDtoBetaIdentityStatusEnum;
     /**
      * 
-     * @type {BaseReferenceDtoBeta}
+     * @type {IdentityDtoManagerRefBeta}
      * @memberof IdentityDtoBeta
      */
-    'managerRef'?: BaseReferenceDtoBeta;
+    'managerRef'?: IdentityDtoManagerRefBeta;
     /**
      * Whether this identity is a manager of another identity
      * @type {boolean}
@@ -11611,6 +12034,38 @@ export const IdentityDtoBetaIdentityStatusEnum = {
 } as const;
 
 export type IdentityDtoBetaIdentityStatusEnum = typeof IdentityDtoBetaIdentityStatusEnum[keyof typeof IdentityDtoBetaIdentityStatusEnum];
+
+/**
+ * Identity\'s manager.
+ * @export
+ * @interface IdentityDtoManagerRefBeta
+ */
+export interface IdentityDtoManagerRefBeta {
+    /**
+     * DTO type of identity\'s manager.
+     * @type {string}
+     * @memberof IdentityDtoManagerRefBeta
+     */
+    'type'?: IdentityDtoManagerRefBetaTypeEnum;
+    /**
+     * ID of identity\'s manager.
+     * @type {string}
+     * @memberof IdentityDtoManagerRefBeta
+     */
+    'id'?: string;
+    /**
+     * Human-readable display name of identity\'s manager.
+     * @type {string}
+     * @memberof IdentityDtoManagerRefBeta
+     */
+    'name'?: string;
+}
+
+export const IdentityDtoManagerRefBetaTypeEnum = {
+    Identity: 'IDENTITY'
+} as const;
+
+export type IdentityDtoManagerRefBetaTypeEnum = typeof IdentityDtoManagerRefBetaTypeEnum[keyof typeof IdentityDtoManagerRefBetaTypeEnum];
 
 /**
  * 
@@ -11833,10 +12288,10 @@ export interface IdentityPreviewRequestBeta {
 export interface IdentityPreviewResponseBeta {
     /**
      * 
-     * @type {BaseReferenceDtoBeta}
+     * @type {IdentityDtoManagerRefBeta}
      * @memberof IdentityPreviewResponseBeta
      */
-    'identity'?: BaseReferenceDtoBeta;
+    'identity'?: IdentityDtoManagerRefBeta;
     /**
      * 
      * @type {Array<IdentityAttributePreviewBeta>}
@@ -12246,10 +12701,10 @@ export interface IdentityProfileExportedObjectBeta {
     'version'?: number;
     /**
      * 
-     * @type {BaseReferenceDtoBeta}
+     * @type {SelfImportExportDtoBeta}
      * @memberof IdentityProfileExportedObjectBeta
      */
-    'self'?: BaseReferenceDtoBeta;
+    'self'?: SelfImportExportDtoBeta;
     /**
      * 
      * @type {IdentityProfile1Beta}
@@ -12431,25 +12886,25 @@ export interface IdentitySyncPayloadBeta {
     'dataJson': string;
 }
 /**
- * The types of objects supported for SOD violations
+ * Entitlement including a specific set of access.
  * @export
  * @interface IdentityWithNewAccessAccessRefsInnerBeta
  */
 export interface IdentityWithNewAccessAccessRefsInnerBeta {
     /**
-     * The type of object that is referenced
-     * @type {object}
+     * Entitlement\'s DTO type.
+     * @type {string}
      * @memberof IdentityWithNewAccessAccessRefsInnerBeta
      */
     'type'?: IdentityWithNewAccessAccessRefsInnerBetaTypeEnum;
     /**
-     * ID of the object to which this reference applies
+     * Entitlement\'s ID.
      * @type {string}
      * @memberof IdentityWithNewAccessAccessRefsInnerBeta
      */
     'id'?: string;
     /**
-     * Human-readable display name of the object to which this reference applies
+     * Entitlement\'s display name.
      * @type {string}
      * @memberof IdentityWithNewAccessAccessRefsInnerBeta
      */
@@ -12475,7 +12930,7 @@ export interface IdentityWithNewAccessBeta {
      */
     'identityId': string;
     /**
-     * The list of ENTITLEMENTs to consider for calculating possible violations in a preventive check.
+     * The list of entitlements to consider for possible violations in a preventive check.
      * @type {Array<IdentityWithNewAccessAccessRefsInnerBeta>}
      * @memberof IdentityWithNewAccessBeta
      */
@@ -12551,6 +13006,43 @@ export interface ImportNonEmployeeRecordsInBulkRequestBeta {
     'data': any;
 }
 /**
+ * Object created or updated by import.
+ * @export
+ * @interface ImportObjectBeta
+ */
+export interface ImportObjectBeta {
+    /**
+     * DTO type of object created or updated by import.
+     * @type {string}
+     * @memberof ImportObjectBeta
+     */
+    'type'?: ImportObjectBetaTypeEnum;
+    /**
+     * ID of object created or updated by import.
+     * @type {string}
+     * @memberof ImportObjectBeta
+     */
+    'id'?: string;
+    /**
+     * Display name of object created or updated by import.
+     * @type {string}
+     * @memberof ImportObjectBeta
+     */
+    'name'?: string;
+}
+
+export const ImportObjectBetaTypeEnum = {
+    IdentityObjectConfig: 'IDENTITY_OBJECT_CONFIG',
+    IdentityProfile: 'IDENTITY_PROFILE',
+    Rule: 'RULE',
+    Source: 'SOURCE',
+    Transform: 'TRANSFORM',
+    TriggerSubscription: 'TRIGGER_SUBSCRIPTION'
+} as const;
+
+export type ImportObjectBetaTypeEnum = typeof ImportObjectBetaTypeEnum[keyof typeof ImportObjectBetaTypeEnum];
+
+/**
  * 
  * @export
  * @interface ImportOptionsBeta
@@ -12575,11 +13067,11 @@ export interface ImportOptionsBeta {
      */
     'objectOptions'?: { [key: string]: ObjectExportImportOptionsBeta; };
     /**
-     * List of BaseRefenceDtos that can be used to resolve references on import.
-     * @type {Array<BaseReferenceDtoBeta>}
+     * List of object types that can be used to resolve references on import.
+     * @type {Array<string>}
      * @memberof ImportOptionsBeta
      */
-    'defaultReferences'?: Array<BaseReferenceDtoBeta>;
+    'defaultReferences'?: Array<ImportOptionsBetaDefaultReferencesEnum>;
     /**
      * By default, every import will first export all existing objects supported by sp-config as a backup before the import is attempted. If excludeBackup is true, the backup will not be performed.
      * @type {boolean}
@@ -12608,6 +13100,16 @@ export const ImportOptionsBetaIncludeTypesEnum = {
 } as const;
 
 export type ImportOptionsBetaIncludeTypesEnum = typeof ImportOptionsBetaIncludeTypesEnum[keyof typeof ImportOptionsBetaIncludeTypesEnum];
+export const ImportOptionsBetaDefaultReferencesEnum = {
+    IdentityObjectConfig: 'IDENTITY_OBJECT_CONFIG',
+    IdentityProfile: 'IDENTITY_PROFILE',
+    Rule: 'RULE',
+    Source: 'SOURCE',
+    Transform: 'TRANSFORM',
+    TriggerSubscription: 'TRIGGER_SUBSCRIPTION'
+} as const;
+
+export type ImportOptionsBetaDefaultReferencesEnum = typeof ImportOptionsBetaDefaultReferencesEnum[keyof typeof ImportOptionsBetaDefaultReferencesEnum];
 
 /**
  * 
@@ -13250,6 +13752,38 @@ export interface ListPredefinedSelectOptionsResponseBeta {
      */
     'results'?: Array<string>;
 }
+/**
+ * Identity of workgroup member.
+ * @export
+ * @interface ListWorkgroupMembers200ResponseInnerBeta
+ */
+export interface ListWorkgroupMembers200ResponseInnerBeta {
+    /**
+     * Workgroup member identity DTO type.
+     * @type {string}
+     * @memberof ListWorkgroupMembers200ResponseInnerBeta
+     */
+    'type'?: ListWorkgroupMembers200ResponseInnerBetaTypeEnum;
+    /**
+     * Workgroup member identity ID.
+     * @type {string}
+     * @memberof ListWorkgroupMembers200ResponseInnerBeta
+     */
+    'id'?: string;
+    /**
+     * Workgroup member identity display name.
+     * @type {string}
+     * @memberof ListWorkgroupMembers200ResponseInnerBeta
+     */
+    'name'?: string;
+}
+
+export const ListWorkgroupMembers200ResponseInnerBetaTypeEnum = {
+    Identity: 'IDENTITY'
+} as const;
+
+export type ListWorkgroupMembers200ResponseInnerBetaTypeEnum = typeof ListWorkgroupMembers200ResponseInnerBetaTypeEnum[keyof typeof ListWorkgroupMembers200ResponseInnerBetaTypeEnum];
+
 /**
  * An indicator of how the locale was selected. *DEFAULT* means the locale is the system default. *REQUEST* means the locale was selected from the request context (i.e., best match based on the *Accept-Language* header). Additional values may be added in the future without notice.
  * @export
@@ -13898,16 +14432,16 @@ export interface ManualWorkItemDetailsBeta {
     'forwarded'?: boolean;
     /**
      * 
-     * @type {BaseReferenceDtoBeta}
+     * @type {ManualWorkItemDetailsOriginalOwnerBeta}
      * @memberof ManualWorkItemDetailsBeta
      */
-    'originalOwner'?: BaseReferenceDtoBeta;
+    'originalOwner'?: ManualWorkItemDetailsOriginalOwnerBeta;
     /**
      * 
-     * @type {BaseReferenceDtoBeta}
+     * @type {ManualWorkItemDetailsCurrentOwnerBeta}
      * @memberof ManualWorkItemDetailsBeta
      */
-    'currentOwner'?: BaseReferenceDtoBeta;
+    'currentOwner'?: ManualWorkItemDetailsCurrentOwnerBeta;
     /**
      * Time at which item was modified.
      * @type {string}
@@ -13927,6 +14461,72 @@ export interface ManualWorkItemDetailsBeta {
      */
     'forwardHistory'?: Array<ApprovalForwardHistoryBeta>;
 }
+/**
+ * Identity of current work item owner.
+ * @export
+ * @interface ManualWorkItemDetailsCurrentOwnerBeta
+ */
+export interface ManualWorkItemDetailsCurrentOwnerBeta {
+    /**
+     * DTO type of current work item owner\'s identity.
+     * @type {string}
+     * @memberof ManualWorkItemDetailsCurrentOwnerBeta
+     */
+    'type'?: ManualWorkItemDetailsCurrentOwnerBetaTypeEnum;
+    /**
+     * ID of current work item owner\'s identity.
+     * @type {string}
+     * @memberof ManualWorkItemDetailsCurrentOwnerBeta
+     */
+    'id'?: string;
+    /**
+     * Display name of current work item owner.
+     * @type {string}
+     * @memberof ManualWorkItemDetailsCurrentOwnerBeta
+     */
+    'name'?: string;
+}
+
+export const ManualWorkItemDetailsCurrentOwnerBetaTypeEnum = {
+    GovernanceGroup: 'GOVERNANCE_GROUP',
+    Identity: 'IDENTITY'
+} as const;
+
+export type ManualWorkItemDetailsCurrentOwnerBetaTypeEnum = typeof ManualWorkItemDetailsCurrentOwnerBetaTypeEnum[keyof typeof ManualWorkItemDetailsCurrentOwnerBetaTypeEnum];
+
+/**
+ * Identity of original work item owner, if the work item has been forwarded.
+ * @export
+ * @interface ManualWorkItemDetailsOriginalOwnerBeta
+ */
+export interface ManualWorkItemDetailsOriginalOwnerBeta {
+    /**
+     * DTO type of original work item owner\'s identity.
+     * @type {string}
+     * @memberof ManualWorkItemDetailsOriginalOwnerBeta
+     */
+    'type'?: ManualWorkItemDetailsOriginalOwnerBetaTypeEnum;
+    /**
+     * ID of original work item owner\'s identity.
+     * @type {string}
+     * @memberof ManualWorkItemDetailsOriginalOwnerBeta
+     */
+    'id'?: string;
+    /**
+     * Display name of original work item owner.
+     * @type {string}
+     * @memberof ManualWorkItemDetailsOriginalOwnerBeta
+     */
+    'name'?: string;
+}
+
+export const ManualWorkItemDetailsOriginalOwnerBetaTypeEnum = {
+    GovernanceGroup: 'GOVERNANCE_GROUP',
+    Identity: 'IDENTITY'
+} as const;
+
+export type ManualWorkItemDetailsOriginalOwnerBetaTypeEnum = typeof ManualWorkItemDetailsOriginalOwnerBetaTypeEnum[keyof typeof ManualWorkItemDetailsOriginalOwnerBetaTypeEnum];
+
 /**
  * Indicates the state of the request processing for this item: * PENDING: The request for this item is awaiting processing. * APPROVED: The request for this item has been approved. * REJECTED: The request for this item was rejected. * EXPIRED: The request for this item expired with no action taken. * CANCELLED: The request for this item was cancelled with no user action. * ARCHIVED: The request for this item has been archived after completion.
  * @export
@@ -15773,10 +16373,10 @@ export interface ObjectImportResultBeta {
     'errors': Array<SpConfigMessageBeta>;
     /**
      * References to objects that were created or updated by the import.
-     * @type {Array<BaseReferenceDtoBeta>}
+     * @type {Array<ImportObjectBeta>}
      * @memberof ObjectImportResultBeta
      */
-    'importedObjects': Array<BaseReferenceDtoBeta>;
+    'importedObjects': Array<ImportObjectBeta>;
 }
 /**
  * DTO class for OrgConfig data accessible by customer external org admin (\"ORG_ADMIN\") users
@@ -16201,6 +16801,38 @@ export const OutliersContributingFeatureAccessItemsBetaAccessTypeEnum = {
 export type OutliersContributingFeatureAccessItemsBetaAccessTypeEnum = typeof OutliersContributingFeatureAccessItemsBetaAccessTypeEnum[keyof typeof OutliersContributingFeatureAccessItemsBetaAccessTypeEnum];
 
 /**
+ * Owner\'s identity.
+ * @export
+ * @interface OwnerDtoBeta
+ */
+export interface OwnerDtoBeta {
+    /**
+     * Owner\'s DTO type.
+     * @type {string}
+     * @memberof OwnerDtoBeta
+     */
+    'type'?: OwnerDtoBetaTypeEnum;
+    /**
+     * Owner\'s identity ID.
+     * @type {string}
+     * @memberof OwnerDtoBeta
+     */
+    'id'?: string;
+    /**
+     * Owner\'s display name.
+     * @type {string}
+     * @memberof OwnerDtoBeta
+     */
+    'name'?: string;
+}
+
+export const OwnerDtoBetaTypeEnum = {
+    Identity: 'IDENTITY'
+} as const;
+
+export type OwnerDtoBetaTypeEnum = typeof OwnerDtoBetaTypeEnum[keyof typeof OwnerDtoBetaTypeEnum];
+
+/**
  * The owner of this object.
  * @export
  * @interface OwnerReferenceBeta
@@ -16589,6 +17221,38 @@ export interface PasswordSyncGroupBeta {
     'sourceIds'?: Array<string>;
 }
 /**
+ * Personal access token owner\'s identity.
+ * @export
+ * @interface PatOwnerBeta
+ */
+export interface PatOwnerBeta {
+    /**
+     * Personal access token owner\'s DTO type.
+     * @type {string}
+     * @memberof PatOwnerBeta
+     */
+    'type'?: PatOwnerBetaTypeEnum;
+    /**
+     * Personal access token owner\'s identity ID.
+     * @type {string}
+     * @memberof PatOwnerBeta
+     */
+    'id'?: string;
+    /**
+     * Personal access token owner\'s human-readable display name.
+     * @type {string}
+     * @memberof PatOwnerBeta
+     */
+    'name'?: string;
+}
+
+export const PatOwnerBetaTypeEnum = {
+    Identity: 'IDENTITY'
+} as const;
+
+export type PatOwnerBetaTypeEnum = typeof PatOwnerBetaTypeEnum[keyof typeof PatOwnerBetaTypeEnum];
+
+/**
  * 
  * @export
  * @interface PatchPotentialRoleRequestInnerBeta
@@ -16711,22 +17375,22 @@ export interface PendingApprovalBeta {
     'requestType'?: AccessRequestTypeBeta;
     /**
      * 
-     * @type {BaseReferenceDtoBeta}
+     * @type {AccessItemRequesterDtoBeta}
      * @memberof PendingApprovalBeta
      */
-    'requester'?: BaseReferenceDtoBeta;
+    'requester'?: AccessItemRequesterDtoBeta;
     /**
      * 
-     * @type {BaseReferenceDtoBeta}
+     * @type {AccessItemRequestedForDtoBeta}
      * @memberof PendingApprovalBeta
      */
-    'requestedFor'?: BaseReferenceDtoBeta;
+    'requestedFor'?: AccessItemRequestedForDtoBeta;
     /**
      * 
-     * @type {BaseReferenceDtoBeta}
+     * @type {AccessItemOwnerDtoBeta}
      * @memberof PendingApprovalBeta
      */
-    'owner'?: BaseReferenceDtoBeta;
+    'owner'?: AccessItemOwnerDtoBeta;
     /**
      * 
      * @type {RequestableObjectReferenceBeta}
@@ -16735,16 +17399,16 @@ export interface PendingApprovalBeta {
     'requestedObject'?: RequestableObjectReferenceBeta;
     /**
      * 
-     * @type {CommentDto1Beta}
+     * @type {CommentDtoBeta}
      * @memberof PendingApprovalBeta
      */
-    'requesterComment'?: CommentDto1Beta;
+    'requesterComment'?: CommentDtoBeta;
     /**
      * The history of the previous reviewers comments.
-     * @type {Array<CommentDto1Beta>}
+     * @type {Array<CommentDtoBeta>}
      * @memberof PendingApprovalBeta
      */
-    'previousReviewersComments'?: Array<CommentDto1Beta>;
+    'previousReviewersComments'?: Array<CommentDtoBeta>;
     /**
      * The history of approval forward action.
      * @type {Array<ApprovalForwardHistoryBeta>}
@@ -17103,25 +17767,25 @@ export interface ProvisioningCompletedBeta {
     'accountRequests': Array<ProvisioningCompletedAccountRequestsInnerBeta>;
 }
 /**
- * Reference to the identity who is the target of the provisioning request.
+ * Provisioning recpient.
  * @export
  * @interface ProvisioningCompletedRecipientBeta
  */
 export interface ProvisioningCompletedRecipientBeta {
     /**
-     * The type of object that is referenced
-     * @type {object}
+     * Provisioning recipient DTO type.
+     * @type {string}
      * @memberof ProvisioningCompletedRecipientBeta
      */
     'type': ProvisioningCompletedRecipientBetaTypeEnum;
     /**
-     * ID of the object to which this reference applies
+     * Provisioning recipient\'s identity ID.
      * @type {string}
      * @memberof ProvisioningCompletedRecipientBeta
      */
     'id': string;
     /**
-     * Human-readable display name of the object to which this reference applies
+     * Provisioning recipient\'s display name.
      * @type {string}
      * @memberof ProvisioningCompletedRecipientBeta
      */
@@ -17135,25 +17799,25 @@ export const ProvisioningCompletedRecipientBetaTypeEnum = {
 export type ProvisioningCompletedRecipientBetaTypeEnum = typeof ProvisioningCompletedRecipientBetaTypeEnum[keyof typeof ProvisioningCompletedRecipientBetaTypeEnum];
 
 /**
- * Reference to the identity (if any) who submitted the provisioning request.
+ * Provisioning requester\'s identity.
  * @export
  * @interface ProvisioningCompletedRequesterBeta
  */
 export interface ProvisioningCompletedRequesterBeta {
     /**
-     * The type of object that is referenced
-     * @type {object}
+     * Provisioning requester\'s DTO type.
+     * @type {string}
      * @memberof ProvisioningCompletedRequesterBeta
      */
     'type': ProvisioningCompletedRequesterBetaTypeEnum;
     /**
-     * ID of the object to which this reference applies
+     * Provisioning requester\'s identity ID.
      * @type {string}
      * @memberof ProvisioningCompletedRequesterBeta
      */
     'id': string;
     /**
-     * Human-readable display name of the object to which this reference applies
+     * Provisioning owner\'s human-readable display name.
      * @type {string}
      * @memberof ProvisioningCompletedRequesterBeta
      */
@@ -18063,7 +18727,7 @@ export interface ReportConfigDTOBeta {
  */
 export interface ReportResultReferenceAllOfBeta {
     /**
-     * 
+     * Status of a SOD policy violation report.
      * @type {string}
      * @memberof ReportResultReferenceAllOfBeta
      */
@@ -18088,31 +18752,36 @@ export type ReportResultReferenceAllOfBetaStatusEnum = typeof ReportResultRefere
  */
 export interface ReportResultReferenceBeta {
     /**
-     * 
-     * @type {DtoTypeBeta}
+     * SOD policy violation report result DTO type.
+     * @type {string}
      * @memberof ReportResultReferenceBeta
      */
-    'type'?: DtoTypeBeta;
+    'type'?: ReportResultReferenceBetaTypeEnum;
     /**
-     * ID of the object to which this reference applies
+     * SOD policy violation report result ID.
      * @type {string}
      * @memberof ReportResultReferenceBeta
      */
     'id'?: string;
     /**
-     * Human-readable display name of the object to which this reference applies
+     * Human-readable name of the SOD policy violation report result.
      * @type {string}
      * @memberof ReportResultReferenceBeta
      */
     'name'?: string;
     /**
-     * 
+     * Status of a SOD policy violation report.
      * @type {string}
      * @memberof ReportResultReferenceBeta
      */
     'status'?: ReportResultReferenceBetaStatusEnum;
 }
 
+export const ReportResultReferenceBetaTypeEnum = {
+    ReportResult: 'REPORT_RESULT'
+} as const;
+
+export type ReportResultReferenceBetaTypeEnum = typeof ReportResultReferenceBetaTypeEnum[keyof typeof ReportResultReferenceBetaTypeEnum];
 export const ReportResultReferenceBetaStatusEnum = {
     Success: 'SUCCESS',
     Warning: 'WARNING',
@@ -18419,22 +19088,22 @@ export interface RequestedItemStatusBeta {
     'created'?: string;
     /**
      * 
-     * @type {BaseReferenceDtoBeta}
+     * @type {AccessItemRequesterBeta}
      * @memberof RequestedItemStatusBeta
      */
-    'requester'?: BaseReferenceDtoBeta;
+    'requester'?: AccessItemRequesterBeta;
     /**
      * 
-     * @type {BaseReferenceDtoBeta}
+     * @type {AccessItemRequestedForBeta}
      * @memberof RequestedItemStatusBeta
      */
-    'requestedFor'?: BaseReferenceDtoBeta;
+    'requestedFor'?: AccessItemRequestedForBeta;
     /**
      * 
-     * @type {CommentDto1Beta}
+     * @type {CommentDtoBeta}
      * @memberof RequestedItemStatusBeta
      */
-    'requesterComment'?: CommentDto1Beta;
+    'requesterComment'?: CommentDtoBeta;
     /**
      * 
      * @type {SodViolationContextCheckCompletedBeta}
@@ -18712,29 +19381,29 @@ export interface ReviewReassignBeta {
  */
 export interface ReviewerBeta {
     /**
-     * The type of object that the reviewer is.
-     * @type {object}
+     * The reviewer\'s DTO type.
+     * @type {string}
      * @memberof ReviewerBeta
      */
     'type': ReviewerBetaTypeEnum;
     /**
-     * The email of the reviewing identity. Only applicable to `IDENTITY`
-     * @type {string}
-     * @memberof ReviewerBeta
-     */
-    'email'?: string | null;
-    /**
-     * ID of the object to which this reference applies
+     * The reviewer\'s ID.
      * @type {string}
      * @memberof ReviewerBeta
      */
     'id': string;
     /**
-     * Human-readable display name of the object to which this reference applies
+     * The reviewer\'s display name.
      * @type {string}
      * @memberof ReviewerBeta
      */
     'name': string;
+    /**
+     * The reviewing identity\'s email. Only applicable to `IDENTITY`.
+     * @type {string}
+     * @memberof ReviewerBeta
+     */
+    'email'?: string | null;
 }
 
 export const ReviewerBetaTypeEnum = {
@@ -21108,6 +21777,61 @@ export type SelectorTypeBeta = typeof SelectorTypeBeta[keyof typeof SelectorType
 
 
 /**
+ * Self block for imported/exported object.
+ * @export
+ * @interface SelfImportExportDtoBeta
+ */
+export interface SelfImportExportDtoBeta {
+    /**
+     * Imported/exported object\'s DTO type. Import is currently only possible with the IDENTITY_OBJECT_CONFIG, IDENTITY_PROFILE, RULE, SOURCE, TRANSFORM, and TRIGGER_SUBSCRIPTION object types.
+     * @type {string}
+     * @memberof SelfImportExportDtoBeta
+     */
+    'type'?: SelfImportExportDtoBetaTypeEnum;
+    /**
+     * Imported/exported object\'s ID.
+     * @type {string}
+     * @memberof SelfImportExportDtoBeta
+     */
+    'id'?: string;
+    /**
+     * Imported/exported object\'s display name.
+     * @type {string}
+     * @memberof SelfImportExportDtoBeta
+     */
+    'name'?: string;
+}
+
+export const SelfImportExportDtoBetaTypeEnum = {
+    AccessProfile: 'ACCESS_PROFILE',
+    AccessRequestConfig: 'ACCESS_REQUEST_CONFIG',
+    AttrSyncSourceConfig: 'ATTR_SYNC_SOURCE_CONFIG',
+    AuthOrg: 'AUTH_ORG',
+    CampaignFilter: 'CAMPAIGN_FILTER',
+    FormDefinition: 'FORM_DEFINITION',
+    GovernanceGroup: 'GOVERNANCE_GROUP',
+    IdentityObjectConfig: 'IDENTITY_OBJECT_CONFIG',
+    IdentityProfile: 'IDENTITY_PROFILE',
+    LifecycleState: 'LIFECYCLE_STATE',
+    NotificationTemplate: 'NOTIFICATION_TEMPLATE',
+    PasswordPolicy: 'PASSWORD_POLICY',
+    PasswordSyncGroup: 'PASSWORD_SYNC_GROUP',
+    PublicIdentitiesConfig: 'PUBLIC_IDENTITIES_CONFIG',
+    Role: 'ROLE',
+    Rule: 'RULE',
+    Segment: 'SEGMENT',
+    ServiceDeskIntegration: 'SERVICE_DESK_INTEGRATION',
+    SodPolicy: 'SOD_POLICY',
+    Source: 'SOURCE',
+    Tag: 'TAG',
+    Transform: 'TRANSFORM',
+    TriggerSubscription: 'TRIGGER_SUBSCRIPTION',
+    Workflow: 'WORKFLOW'
+} as const;
+
+export type SelfImportExportDtoBetaTypeEnum = typeof SelfImportExportDtoBetaTypeEnum[keyof typeof SelfImportExportDtoBetaTypeEnum];
+
+/**
  * 
  * @export
  * @interface SendTestNotificationRequestDtoBeta
@@ -21142,13 +21866,13 @@ export const SendTestNotificationRequestDtoBetaMediumEnum = {
 export type SendTestNotificationRequestDtoBetaMediumEnum = typeof SendTestNotificationRequestDtoBetaMediumEnum[keyof typeof SendTestNotificationRequestDtoBetaMediumEnum];
 
 /**
- * Specification of a Service Desk integration
+ * Specification of a Service Desk integration.
  * @export
  * @interface ServiceDeskIntegrationDtoAllOfBeta
  */
 export interface ServiceDeskIntegrationDtoAllOfBeta {
     /**
-     * Description of the Service Desk integration
+     * Description of the Service Desk integration.
      * @type {string}
      * @memberof ServiceDeskIntegrationDtoAllOfBeta
      */
@@ -21160,26 +21884,26 @@ export interface ServiceDeskIntegrationDtoAllOfBeta {
      */
     'type': string;
     /**
-     * Reference to the identity that is the owner of this Service Desk integration
-     * @type {BaseReferenceDtoBeta}
+     * 
+     * @type {OwnerDtoBeta}
      * @memberof ServiceDeskIntegrationDtoAllOfBeta
      */
-    'ownerRef'?: BaseReferenceDtoBeta;
+    'ownerRef'?: OwnerDtoBeta;
     /**
-     * Reference to the source cluster for this Service Desk integration
-     * @type {BaseReferenceDtoBeta}
+     * 
+     * @type {SourceClusterDtoBeta}
      * @memberof ServiceDeskIntegrationDtoAllOfBeta
      */
-    'clusterRef'?: BaseReferenceDtoBeta;
+    'clusterRef'?: SourceClusterDtoBeta;
     /**
-     * ID of the cluster for the Service Desk integration (replaced by clusterRef, retained for backward compatibility)
+     * ID of the cluster for the Service Desk integration (replaced by clusterRef, retained for backward compatibility).
      * @type {string}
      * @memberof ServiceDeskIntegrationDtoAllOfBeta
      * @deprecated
      */
     'cluster'?: string;
     /**
-     * Source IDs for the Service Desk integration (replaced by provisioningConfig.managedSResourceRefs, but retained here for backward compatibility)
+     * Source IDs for the Service Desk integration (replaced by provisioningConfig.managedSResourceRefs, but retained here for backward compatibility).
      * @type {Array<string>}
      * @memberof ServiceDeskIntegrationDtoAllOfBeta
      * @deprecated
@@ -21198,11 +21922,11 @@ export interface ServiceDeskIntegrationDtoAllOfBeta {
      */
     'attributes': { [key: string]: any; };
     /**
-     * Reference to beforeProvisioningRule for this Service Desk integration
-     * @type {BaseReferenceDtoBeta}
+     * 
+     * @type {BeforeProvisioningRuleDtoBeta}
      * @memberof ServiceDeskIntegrationDtoAllOfBeta
      */
-    'beforeProvisioningRule'?: BaseReferenceDtoBeta;
+    'beforeProvisioningRule'?: BeforeProvisioningRuleDtoBeta;
 }
 /**
  * 
@@ -21235,7 +21959,7 @@ export interface ServiceDeskIntegrationDtoBeta {
      */
     'modified'?: string;
     /**
-     * Description of the Service Desk integration
+     * Description of the Service Desk integration.
      * @type {string}
      * @memberof ServiceDeskIntegrationDtoBeta
      */
@@ -21247,26 +21971,26 @@ export interface ServiceDeskIntegrationDtoBeta {
      */
     'type': string;
     /**
-     * Reference to the identity that is the owner of this Service Desk integration
-     * @type {BaseReferenceDtoBeta}
+     * 
+     * @type {OwnerDtoBeta}
      * @memberof ServiceDeskIntegrationDtoBeta
      */
-    'ownerRef'?: BaseReferenceDtoBeta;
+    'ownerRef'?: OwnerDtoBeta;
     /**
-     * Reference to the source cluster for this Service Desk integration
-     * @type {BaseReferenceDtoBeta}
+     * 
+     * @type {SourceClusterDtoBeta}
      * @memberof ServiceDeskIntegrationDtoBeta
      */
-    'clusterRef'?: BaseReferenceDtoBeta;
+    'clusterRef'?: SourceClusterDtoBeta;
     /**
-     * ID of the cluster for the Service Desk integration (replaced by clusterRef, retained for backward compatibility)
+     * ID of the cluster for the Service Desk integration (replaced by clusterRef, retained for backward compatibility).
      * @type {string}
      * @memberof ServiceDeskIntegrationDtoBeta
      * @deprecated
      */
     'cluster'?: string;
     /**
-     * Source IDs for the Service Desk integration (replaced by provisioningConfig.managedSResourceRefs, but retained here for backward compatibility)
+     * Source IDs for the Service Desk integration (replaced by provisioningConfig.managedSResourceRefs, but retained here for backward compatibility).
      * @type {Array<string>}
      * @memberof ServiceDeskIntegrationDtoBeta
      * @deprecated
@@ -21285,11 +22009,11 @@ export interface ServiceDeskIntegrationDtoBeta {
      */
     'attributes': { [key: string]: any; };
     /**
-     * Reference to beforeProvisioningRule for this Service Desk integration
-     * @type {BaseReferenceDtoBeta}
+     * 
+     * @type {BeforeProvisioningRuleDtoBeta}
      * @memberof ServiceDeskIntegrationDtoBeta
      */
-    'beforeProvisioningRule'?: BaseReferenceDtoBeta;
+    'beforeProvisioningRule'?: BeforeProvisioningRuleDtoBeta;
 }
 /**
  * This is the model for a Service Desk integration template, used to create and edit Service Desk Integrations.
@@ -21390,6 +22114,38 @@ export interface ServiceDeskIntegrationTemplateTypeBeta {
      */
     'scriptName': string;
 }
+/**
+ * Source for Service Desk integration template.
+ * @export
+ * @interface ServiceDeskSourceBeta
+ */
+export interface ServiceDeskSourceBeta {
+    /**
+     * DTO type of source for service desk integration template.
+     * @type {string}
+     * @memberof ServiceDeskSourceBeta
+     */
+    'type'?: ServiceDeskSourceBetaTypeEnum;
+    /**
+     * ID of source for service desk integration template.
+     * @type {string}
+     * @memberof ServiceDeskSourceBeta
+     */
+    'id'?: string;
+    /**
+     * Human-readable name of source for service desk integration template.
+     * @type {string}
+     * @memberof ServiceDeskSourceBeta
+     */
+    'name'?: string;
+}
+
+export const ServiceDeskSourceBetaTypeEnum = {
+    Source: 'SOURCE'
+} as const;
+
+export type ServiceDeskSourceBetaTypeEnum = typeof ServiceDeskSourceBetaTypeEnum[keyof typeof ServiceDeskSourceBetaTypeEnum];
+
 /**
  * 
  * @export
@@ -21725,13 +22481,13 @@ export interface SodExemptCriteriaBeta {
  */
 export interface SodPolicyBeta {
     /**
-     * Policy id
+     * Policy ID.
      * @type {string}
      * @memberof SodPolicyBeta
      */
     'id'?: string;
     /**
-     * Policy Business Name
+     * Policy business name.
      * @type {string}
      * @memberof SodPolicyBeta
      */
@@ -21749,61 +22505,61 @@ export interface SodPolicyBeta {
      */
     'modified'?: string;
     /**
-     * Optional description of the SOD policy
+     * Optional description of the SOD policy.
      * @type {string}
      * @memberof SodPolicyBeta
      */
     'description'?: string | null;
     /**
      * 
-     * @type {BaseReferenceDtoBeta}
+     * @type {OwnerDtoBeta}
      * @memberof SodPolicyBeta
      */
-    'ownerRef'?: BaseReferenceDtoBeta;
+    'ownerRef'?: OwnerDtoBeta;
     /**
-     * Optional External Policy Reference
+     * Optional external policy reference.
      * @type {string}
      * @memberof SodPolicyBeta
      */
     'externalPolicyReference'?: string | null;
     /**
-     * Search query of the SOD policy
+     * Search query of the SOD policy.
      * @type {string}
      * @memberof SodPolicyBeta
      */
     'policyQuery'?: string;
     /**
-     * Optional compensating controls(Mitigating Controls)
+     * Optional compensating controls (Mitigating Controls).
      * @type {string}
      * @memberof SodPolicyBeta
      */
     'compensatingControls'?: string | null;
     /**
-     * Optional correction advice
+     * Optional correction advice.
      * @type {string}
      * @memberof SodPolicyBeta
      */
     'correctionAdvice'?: string | null;
     /**
-     * whether the policy is enforced or not
+     * Whether the policy is enforced or not.
      * @type {string}
      * @memberof SodPolicyBeta
      */
     'state'?: SodPolicyBetaStateEnum;
     /**
-     * tags for this policy object
+     * Tags for the policy object.
      * @type {Array<string>}
      * @memberof SodPolicyBeta
      */
     'tags'?: Array<string>;
     /**
-     * Policy\'s creator ID
+     * Policy\'s creator ID.
      * @type {string}
      * @memberof SodPolicyBeta
      */
     'creatorId'?: string;
     /**
-     * Policy\'s modifier ID
+     * Policy\'s modifier ID.
      * @type {string}
      * @memberof SodPolicyBeta
      */
@@ -21815,13 +22571,13 @@ export interface SodPolicyBeta {
      */
     'violationOwnerAssignmentConfig'?: ViolationOwnerAssignmentConfigBeta;
     /**
-     * defines whether a policy has been scheduled or not
+     * Defines whether a policy has been scheduled or not.
      * @type {boolean}
      * @memberof SodPolicyBeta
      */
     'scheduled'?: boolean;
     /**
-     * whether a policy is query based or conflicting access based
+     * Whether a policy is query based or conflicting access based.
      * @type {string}
      * @memberof SodPolicyBeta
      */
@@ -21867,6 +22623,38 @@ export interface SodPolicyConflictingAccessCriteriaBeta {
     'rightCriteria'?: AccessCriteriaBeta;
 }
 /**
+ * SOD policy.
+ * @export
+ * @interface SodPolicyDtoBeta
+ */
+export interface SodPolicyDtoBeta {
+    /**
+     * SOD policy DTO type.
+     * @type {string}
+     * @memberof SodPolicyDtoBeta
+     */
+    'type'?: SodPolicyDtoBetaTypeEnum;
+    /**
+     * SOD policy ID.
+     * @type {string}
+     * @memberof SodPolicyDtoBeta
+     */
+    'id'?: string;
+    /**
+     * SOD policy display name.
+     * @type {string}
+     * @memberof SodPolicyDtoBeta
+     */
+    'name'?: string;
+}
+
+export const SodPolicyDtoBetaTypeEnum = {
+    SodPolicy: 'SOD_POLICY'
+} as const;
+
+export type SodPolicyDtoBetaTypeEnum = typeof SodPolicyDtoBetaTypeEnum[keyof typeof SodPolicyDtoBetaTypeEnum];
+
+/**
  * 
  * @export
  * @interface SodPolicyScheduleBeta
@@ -21904,10 +22692,10 @@ export interface SodPolicyScheduleBeta {
     'schedule'?: Schedule1Beta;
     /**
      * 
-     * @type {Array<BaseReferenceDtoBeta>}
+     * @type {Array<SodRecipientBeta>}
      * @memberof SodPolicyScheduleBeta
      */
-    'recipients'?: Array<BaseReferenceDtoBeta>;
+    'recipients'?: Array<SodRecipientBeta>;
     /**
      * Indicates if empty results need to be emailed
      * @type {boolean}
@@ -21927,6 +22715,70 @@ export interface SodPolicyScheduleBeta {
      */
     'modifierId'?: string;
 }
+/**
+ * SOD policy recipient.
+ * @export
+ * @interface SodRecipientBeta
+ */
+export interface SodRecipientBeta {
+    /**
+     * SOD policy recipient DTO type.
+     * @type {string}
+     * @memberof SodRecipientBeta
+     */
+    'type'?: SodRecipientBetaTypeEnum;
+    /**
+     * SOD policy recipient\'s identity ID.
+     * @type {string}
+     * @memberof SodRecipientBeta
+     */
+    'id'?: string;
+    /**
+     * SOD policy recipient\'s display name.
+     * @type {string}
+     * @memberof SodRecipientBeta
+     */
+    'name'?: string;
+}
+
+export const SodRecipientBetaTypeEnum = {
+    Identity: 'IDENTITY'
+} as const;
+
+export type SodRecipientBetaTypeEnum = typeof SodRecipientBetaTypeEnum[keyof typeof SodRecipientBetaTypeEnum];
+
+/**
+ * SOD policy violation report result.
+ * @export
+ * @interface SodReportResultDtoBeta
+ */
+export interface SodReportResultDtoBeta {
+    /**
+     * SOD policy violation report result DTO type.
+     * @type {string}
+     * @memberof SodReportResultDtoBeta
+     */
+    'type'?: SodReportResultDtoBetaTypeEnum;
+    /**
+     * SOD policy violation report result ID.
+     * @type {string}
+     * @memberof SodReportResultDtoBeta
+     */
+    'id'?: string;
+    /**
+     * Human-readable name of the SOD policy violation report result.
+     * @type {string}
+     * @memberof SodReportResultDtoBeta
+     */
+    'name'?: string;
+}
+
+export const SodReportResultDtoBetaTypeEnum = {
+    ReportResult: 'REPORT_RESULT'
+} as const;
+
+export type SodReportResultDtoBetaTypeEnum = typeof SodReportResultDtoBetaTypeEnum[keyof typeof SodReportResultDtoBetaTypeEnum];
+
 /**
  * The inner object representing the completed SOD Violation check
  * @export
@@ -21952,11 +22804,11 @@ export interface SodViolationCheckResult1Beta {
      */
     'violationContexts'?: Array<SodViolationContext1Beta>;
     /**
-     * A list of the Policies that were violated
-     * @type {Array<BaseReferenceDto1Beta>}
+     * A list of the Policies that were violated.
+     * @type {Array<SodPolicyDtoBeta>}
      * @memberof SodViolationCheckResult1Beta
      */
-    'violatedPolicies'?: Array<BaseReferenceDto1Beta>;
+    'violatedPolicies'?: Array<SodPolicyDtoBeta>;
 }
 /**
  * The inner object representing the completed SOD Violation check
@@ -21983,24 +22835,24 @@ export interface SodViolationCheckResultBeta {
      */
     'violationContexts'?: Array<SodViolationContextBeta>;
     /**
-     * A list of the Policies that were violated
-     * @type {Array<BaseReferenceDtoBeta>}
+     * A list of the SOD policies that were violated.
+     * @type {Array<SodPolicyDtoBeta>}
      * @memberof SodViolationCheckResultBeta
      */
-    'violatedPolicies'?: Array<BaseReferenceDtoBeta>;
+    'violatedPolicies'?: Array<SodPolicyDtoBeta>;
 }
 /**
- * The contextual information of the violated criteria
+ * The contextual information of the violated criteria.
  * @export
  * @interface SodViolationContext1Beta
  */
 export interface SodViolationContext1Beta {
     /**
      * 
-     * @type {BaseReferenceDtoBeta}
+     * @type {SodPolicyDtoBeta}
      * @memberof SodViolationContext1Beta
      */
-    'policy'?: BaseReferenceDtoBeta;
+    'policy'?: SodPolicyDtoBeta;
     /**
      * 
      * @type {SodViolationContext1ConflictingAccessCriteriaBeta}
@@ -22048,10 +22900,10 @@ export interface SodViolationContext1ConflictingAccessCriteriaLeftCriteriaBeta {
 export interface SodViolationContextBeta {
     /**
      * 
-     * @type {BaseReferenceDtoBeta}
+     * @type {SodPolicyDtoBeta}
      * @memberof SodViolationContextBeta
      */
-    'policy'?: BaseReferenceDtoBeta;
+    'policy'?: SodPolicyDtoBeta;
     /**
      * 
      * @type {SodViolationContextConflictingAccessCriteriaBeta}
@@ -22529,6 +23381,38 @@ export const SourceClusterBetaTypeEnum = {
 export type SourceClusterBetaTypeEnum = typeof SourceClusterBetaTypeEnum[keyof typeof SourceClusterBetaTypeEnum];
 
 /**
+ * Source cluster.
+ * @export
+ * @interface SourceClusterDtoBeta
+ */
+export interface SourceClusterDtoBeta {
+    /**
+     * Source cluster DTO type.
+     * @type {string}
+     * @memberof SourceClusterDtoBeta
+     */
+    'type'?: SourceClusterDtoBetaTypeEnum;
+    /**
+     * Source cluster ID.
+     * @type {string}
+     * @memberof SourceClusterDtoBeta
+     */
+    'id'?: string;
+    /**
+     * Source cluster display name.
+     * @type {string}
+     * @memberof SourceClusterDtoBeta
+     */
+    'name'?: string;
+}
+
+export const SourceClusterDtoBetaTypeEnum = {
+    Cluster: 'CLUSTER'
+} as const;
+
+export type SourceClusterDtoBetaTypeEnum = typeof SourceClusterDtoBetaTypeEnum[keyof typeof SourceClusterDtoBetaTypeEnum];
+
+/**
  * SourceCode
  * @export
  * @interface SourceCodeBeta
@@ -22548,25 +23432,25 @@ export interface SourceCodeBeta {
     'script': string;
 }
 /**
- * The identity that created the source.
+ * Identity who created the source.
  * @export
  * @interface SourceCreatedActorBeta
  */
 export interface SourceCreatedActorBeta {
     /**
-     * The type of object that is referenced
-     * @type {object}
+     * DTO type of identity who created the source.
+     * @type {string}
      * @memberof SourceCreatedActorBeta
      */
     'type': SourceCreatedActorBetaTypeEnum;
     /**
-     * ID of the object to which this reference applies
+     * ID of identity who created the source.
      * @type {string}
      * @memberof SourceCreatedActorBeta
      */
     'id': string;
     /**
-     * Human-readable display name of the object to which this reference applies
+     * Display name of identity who created the source.
      * @type {string}
      * @memberof SourceCreatedActorBeta
      */
@@ -22623,25 +23507,25 @@ export interface SourceCreatedBeta {
     'actor': SourceCreatedActorBeta;
 }
 /**
- * The identity that deleted the source.
+ * Identity who deleted the source.
  * @export
  * @interface SourceDeletedActorBeta
  */
 export interface SourceDeletedActorBeta {
     /**
-     * The type of object that is referenced
-     * @type {object}
+     * DTO type of identity who deleted the source.
+     * @type {string}
      * @memberof SourceDeletedActorBeta
      */
     'type': SourceDeletedActorBetaTypeEnum;
     /**
-     * ID of the object to which this reference applies
+     * ID of identity who deleted the source.
      * @type {string}
      * @memberof SourceDeletedActorBeta
      */
     'id': string;
     /**
-     * Human-readable display name of the object to which this reference applies
+     * Display name of identity who deleted the source.
      * @type {string}
      * @memberof SourceDeletedActorBeta
      */
@@ -22964,25 +23848,25 @@ export interface SourceSyncPayloadBeta {
     'dataJson': string;
 }
 /**
- * The identity or system that performed the update.
+ * Identity who updated the source.
  * @export
  * @interface SourceUpdatedActorBeta
  */
 export interface SourceUpdatedActorBeta {
     /**
-     * The type of object that is referenced
-     * @type {object}
+     * DTO type of identity who updated the source.
+     * @type {string}
      * @memberof SourceUpdatedActorBeta
      */
     'type': SourceUpdatedActorBetaTypeEnum;
     /**
-     * ID of the object to which this reference applies
+     * ID of identity who updated the source.
      * @type {string}
      * @memberof SourceUpdatedActorBeta
      */
     'id'?: string;
     /**
-     * Human-readable display name of the object to which this reference applies
+     * Display name of identity who updated the source.
      * @type {string}
      * @memberof SourceUpdatedActorBeta
      */
@@ -23875,6 +24759,38 @@ export const TaggedObjectObjectRefBetaTypeEnum = {
 } as const;
 
 export type TaggedObjectObjectRefBetaTypeEnum = typeof TaggedObjectObjectRefBetaTypeEnum[keyof typeof TaggedObjectObjectRefBetaTypeEnum];
+
+/**
+ * Task result.
+ * @export
+ * @interface TaskResultDtoBeta
+ */
+export interface TaskResultDtoBeta {
+    /**
+     * Task result DTO type.
+     * @type {string}
+     * @memberof TaskResultDtoBeta
+     */
+    'type'?: TaskResultDtoBetaTypeEnum;
+    /**
+     * Task result ID.
+     * @type {string}
+     * @memberof TaskResultDtoBeta
+     */
+    'id'?: string;
+    /**
+     * Task result display name.
+     * @type {string}
+     * @memberof TaskResultDtoBeta
+     */
+    'name'?: string | null;
+}
+
+export const TaskResultDtoBetaTypeEnum = {
+    TaskResult: 'TASK_RESULT'
+} as const;
+
+export type TaskResultDtoBetaTypeEnum = typeof TaskResultDtoBetaTypeEnum[keyof typeof TaskResultDtoBetaTypeEnum];
 
 /**
  * 
@@ -25185,19 +26101,19 @@ export interface ViolationContextPolicyAllOfBeta {
     'name'?: string;
 }
 /**
- * The types of objects supported for SOD violations
+ * The types of objects supported for SOD policy violations.
  * @export
  * @interface ViolationContextPolicyBeta
  */
 export interface ViolationContextPolicyBeta {
     /**
-     * The type of object that is referenced
+     * The type of object supported for SOD policy violations.
      * @type {object}
      * @memberof ViolationContextPolicyBeta
      */
     'type'?: ViolationContextPolicyBetaTypeEnum;
     /**
-     * ID of the object to which this reference applies
+     * SOD policy ID.
      * @type {string}
      * @memberof ViolationContextPolicyBeta
      */
@@ -25251,24 +26167,31 @@ export type ViolationOwnerAssignmentConfigBetaAssignmentRuleEnum = typeof Violat
  */
 export interface ViolationOwnerAssignmentConfigOwnerRefBeta {
     /**
-     * 
-     * @type {DtoTypeBeta}
+     * Owner\'s DTO type.
+     * @type {string}
      * @memberof ViolationOwnerAssignmentConfigOwnerRefBeta
      */
-    'type'?: DtoTypeBeta;
+    'type'?: ViolationOwnerAssignmentConfigOwnerRefBetaTypeEnum;
     /**
-     * ID of the object to which this reference applies
+     * Owner\'s identity ID.
      * @type {string}
      * @memberof ViolationOwnerAssignmentConfigOwnerRefBeta
      */
     'id'?: string;
     /**
-     * Human-readable display name of the object to which this reference applies
+     * Owner\'s display name.
      * @type {string}
      * @memberof ViolationOwnerAssignmentConfigOwnerRefBeta
      */
     'name'?: string;
 }
+
+export const ViolationOwnerAssignmentConfigOwnerRefBetaTypeEnum = {
+    Identity: 'IDENTITY'
+} as const;
+
+export type ViolationOwnerAssignmentConfigOwnerRefBetaTypeEnum = typeof ViolationOwnerAssignmentConfigOwnerRefBetaTypeEnum[keyof typeof ViolationOwnerAssignmentConfigOwnerRefBetaTypeEnum];
+
 /**
  * An object containing a listing of the SOD violation reasons detected by this check.
  * @export
@@ -25519,30 +26442,62 @@ export interface WorkflowAllOfBeta {
      */
     'id'?: string;
     /**
-     * The number of times this workflow has been executed
+     * The number of times this workflow has been executed.
      * @type {number}
      * @memberof WorkflowAllOfBeta
      */
     'executionCount'?: number;
     /**
-     * The number of times this workflow has failed during execution
+     * The number of times this workflow has failed during execution.
      * @type {number}
      * @memberof WorkflowAllOfBeta
      */
     'failureCount'?: number;
     /**
-     * The date and time the workflow was created
+     * The date and time the workflow was created.
      * @type {string}
      * @memberof WorkflowAllOfBeta
      */
     'created'?: string;
     /**
-     * The identity that created the workflow.
-     * @type {BaseReferenceDtoBeta}
+     * 
+     * @type {WorkflowAllOfCreatorBeta}
      * @memberof WorkflowAllOfBeta
      */
-    'creator'?: BaseReferenceDtoBeta;
+    'creator'?: WorkflowAllOfCreatorBeta;
 }
+/**
+ * Workflow creator\'s identity.
+ * @export
+ * @interface WorkflowAllOfCreatorBeta
+ */
+export interface WorkflowAllOfCreatorBeta {
+    /**
+     * Workflow creator\'s DTO type.
+     * @type {string}
+     * @memberof WorkflowAllOfCreatorBeta
+     */
+    'type'?: WorkflowAllOfCreatorBetaTypeEnum;
+    /**
+     * Workflow creator\'s identity ID.
+     * @type {string}
+     * @memberof WorkflowAllOfCreatorBeta
+     */
+    'id'?: string;
+    /**
+     * Workflow creator\'s display name.
+     * @type {string}
+     * @memberof WorkflowAllOfCreatorBeta
+     */
+    'name'?: string;
+}
+
+export const WorkflowAllOfCreatorBetaTypeEnum = {
+    Identity: 'IDENTITY'
+} as const;
+
+export type WorkflowAllOfCreatorBetaTypeEnum = typeof WorkflowAllOfCreatorBetaTypeEnum[keyof typeof WorkflowAllOfCreatorBetaTypeEnum];
+
 /**
  * 
  * @export
@@ -25556,29 +26511,29 @@ export interface WorkflowBeta {
      */
     'id'?: string;
     /**
-     * The number of times this workflow has been executed
+     * The number of times this workflow has been executed.
      * @type {number}
      * @memberof WorkflowBeta
      */
     'executionCount'?: number;
     /**
-     * The number of times this workflow has failed during execution
+     * The number of times this workflow has failed during execution.
      * @type {number}
      * @memberof WorkflowBeta
      */
     'failureCount'?: number;
     /**
-     * The date and time the workflow was created
+     * The date and time the workflow was created.
      * @type {string}
      * @memberof WorkflowBeta
      */
     'created'?: string;
     /**
-     * The identity that created the workflow.
-     * @type {BaseReferenceDtoBeta}
+     * 
+     * @type {WorkflowAllOfCreatorBeta}
      * @memberof WorkflowBeta
      */
-    'creator'?: BaseReferenceDtoBeta;
+    'creator'?: WorkflowAllOfCreatorBeta;
     /**
      * The name of the workflow
      * @type {string}
@@ -26149,36 +27104,36 @@ export interface WorkgroupDeleteItemBeta {
 export interface WorkgroupDtoBeta {
     /**
      * 
-     * @type {BaseReferenceDtoBeta}
+     * @type {OwnerDtoBeta}
      * @memberof WorkgroupDtoBeta
      */
-    'owner'?: BaseReferenceDtoBeta;
+    'owner'?: OwnerDtoBeta;
     /**
-     * ID of the object to which this reference applies
+     * Governance group ID.
      * @type {string}
      * @memberof WorkgroupDtoBeta
      */
     'id'?: string;
     /**
-     * Name of the Governance Group
+     * Governance group name.
      * @type {string}
      * @memberof WorkgroupDtoBeta
      */
     'name'?: string;
     /**
-     * Description of the Governance Group
+     * Governance group description.
      * @type {string}
      * @memberof WorkgroupDtoBeta
      */
     'description'?: string;
     /**
-     * Number of members in the Governance Group.
+     * Number of members in the governance group.
      * @type {number}
      * @memberof WorkgroupDtoBeta
      */
     'memberCount'?: number;
     /**
-     * Number of connections in the Governance Group.
+     * Number of connections in the governance group.
      * @type {number}
      * @memberof WorkgroupDtoBeta
      */
@@ -37445,15 +38400,15 @@ export const GovernanceGroupsBetaApiAxiosParamCreator = function (configuration?
          * This API removes one or more  members from a Governance Group.  A token with API, ORG_ADMIN authority is required to call this API.  >  **Following field of Identity is an optional field in the request.**  >  **name**
          * @summary Remove members from Governance Group
          * @param {string} workgroupId ID of the Governance Group.
-         * @param {Array<BaseReferenceDtoBeta>} baseReferenceDtoBeta List of identities to be removed from  a Governance Group members list.
+         * @param {Array<BulkWorkgroupMembersRequestInnerBeta>} bulkWorkgroupMembersRequestInnerBeta List of identities to be removed from  a Governance Group members list.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        deleteWorkgroupMembers: async (workgroupId: string, baseReferenceDtoBeta: Array<BaseReferenceDtoBeta>, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        deleteWorkgroupMembers: async (workgroupId: string, bulkWorkgroupMembersRequestInnerBeta: Array<BulkWorkgroupMembersRequestInnerBeta>, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'workgroupId' is not null or undefined
             assertParamExists('deleteWorkgroupMembers', 'workgroupId', workgroupId)
-            // verify required parameter 'baseReferenceDtoBeta' is not null or undefined
-            assertParamExists('deleteWorkgroupMembers', 'baseReferenceDtoBeta', baseReferenceDtoBeta)
+            // verify required parameter 'bulkWorkgroupMembersRequestInnerBeta' is not null or undefined
+            assertParamExists('deleteWorkgroupMembers', 'bulkWorkgroupMembersRequestInnerBeta', bulkWorkgroupMembersRequestInnerBeta)
             const localVarPath = `/workgroups/{workgroupId}/members/bulk-delete`
                 .replace(`{${"workgroupId"}}`, encodeURIComponent(String(workgroupId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
@@ -37482,7 +38437,7 @@ export const GovernanceGroupsBetaApiAxiosParamCreator = function (configuration?
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(baseReferenceDtoBeta, localVarRequestOptions, configuration)
+            localVarRequestOptions.data = serializeDataIfNeeded(bulkWorkgroupMembersRequestInnerBeta, localVarRequestOptions, configuration)
 
             return {
                 url: toPathString(localVarUrlObj),
@@ -37812,15 +38767,15 @@ export const GovernanceGroupsBetaApiAxiosParamCreator = function (configuration?
          * This API adds one or more members to a Governance Group.  A token with API, ORG_ADMIN authority is required to call this API.  >  **Following field of Identity is an optional field in the request.**  >  **name**
          * @summary Add members to Governance Group
          * @param {string} workgroupId ID of the Governance Group.
-         * @param {Array<BaseReferenceDtoBeta>} baseReferenceDtoBeta List of identities to be added to a Governance Group members list.
+         * @param {Array<BulkWorkgroupMembersRequestInnerBeta>} bulkWorkgroupMembersRequestInnerBeta List of identities to be added to a Governance Group members list.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        updateWorkgroupMembers: async (workgroupId: string, baseReferenceDtoBeta: Array<BaseReferenceDtoBeta>, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        updateWorkgroupMembers: async (workgroupId: string, bulkWorkgroupMembersRequestInnerBeta: Array<BulkWorkgroupMembersRequestInnerBeta>, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'workgroupId' is not null or undefined
             assertParamExists('updateWorkgroupMembers', 'workgroupId', workgroupId)
-            // verify required parameter 'baseReferenceDtoBeta' is not null or undefined
-            assertParamExists('updateWorkgroupMembers', 'baseReferenceDtoBeta', baseReferenceDtoBeta)
+            // verify required parameter 'bulkWorkgroupMembersRequestInnerBeta' is not null or undefined
+            assertParamExists('updateWorkgroupMembers', 'bulkWorkgroupMembersRequestInnerBeta', bulkWorkgroupMembersRequestInnerBeta)
             const localVarPath = `/workgroups/{workgroupId}/members/bulk-add`
                 .replace(`{${"workgroupId"}}`, encodeURIComponent(String(workgroupId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
@@ -37849,7 +38804,7 @@ export const GovernanceGroupsBetaApiAxiosParamCreator = function (configuration?
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(baseReferenceDtoBeta, localVarRequestOptions, configuration)
+            localVarRequestOptions.data = serializeDataIfNeeded(bulkWorkgroupMembersRequestInnerBeta, localVarRequestOptions, configuration)
 
             return {
                 url: toPathString(localVarUrlObj),
@@ -37892,12 +38847,12 @@ export const GovernanceGroupsBetaApiFp = function(configuration?: Configuration)
          * This API removes one or more  members from a Governance Group.  A token with API, ORG_ADMIN authority is required to call this API.  >  **Following field of Identity is an optional field in the request.**  >  **name**
          * @summary Remove members from Governance Group
          * @param {string} workgroupId ID of the Governance Group.
-         * @param {Array<BaseReferenceDtoBeta>} baseReferenceDtoBeta List of identities to be removed from  a Governance Group members list.
+         * @param {Array<BulkWorkgroupMembersRequestInnerBeta>} bulkWorkgroupMembersRequestInnerBeta List of identities to be removed from  a Governance Group members list.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async deleteWorkgroupMembers(workgroupId: string, baseReferenceDtoBeta: Array<BaseReferenceDtoBeta>, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<WorkgroupMemberDeleteItemBeta>>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.deleteWorkgroupMembers(workgroupId, baseReferenceDtoBeta, axiosOptions);
+        async deleteWorkgroupMembers(workgroupId: string, bulkWorkgroupMembersRequestInnerBeta: Array<BulkWorkgroupMembersRequestInnerBeta>, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<WorkgroupMemberDeleteItemBeta>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.deleteWorkgroupMembers(workgroupId, bulkWorkgroupMembersRequestInnerBeta, axiosOptions);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
@@ -37948,7 +38903,7 @@ export const GovernanceGroupsBetaApiFp = function(configuration?: Configuration)
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async listWorkgroupMembers(workgroupId: string, offset?: number, limit?: number, count?: boolean, sorters?: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<BaseReferenceDtoBeta>>> {
+        async listWorkgroupMembers(workgroupId: string, offset?: number, limit?: number, count?: boolean, sorters?: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<ListWorkgroupMembers200ResponseInnerBeta>>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.listWorkgroupMembers(workgroupId, offset, limit, count, sorters, axiosOptions);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -37983,12 +38938,12 @@ export const GovernanceGroupsBetaApiFp = function(configuration?: Configuration)
          * This API adds one or more members to a Governance Group.  A token with API, ORG_ADMIN authority is required to call this API.  >  **Following field of Identity is an optional field in the request.**  >  **name**
          * @summary Add members to Governance Group
          * @param {string} workgroupId ID of the Governance Group.
-         * @param {Array<BaseReferenceDtoBeta>} baseReferenceDtoBeta List of identities to be added to a Governance Group members list.
+         * @param {Array<BulkWorkgroupMembersRequestInnerBeta>} bulkWorkgroupMembersRequestInnerBeta List of identities to be added to a Governance Group members list.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async updateWorkgroupMembers(workgroupId: string, baseReferenceDtoBeta: Array<BaseReferenceDtoBeta>, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<WorkgroupMemberAddItemBeta>>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.updateWorkgroupMembers(workgroupId, baseReferenceDtoBeta, axiosOptions);
+        async updateWorkgroupMembers(workgroupId: string, bulkWorkgroupMembersRequestInnerBeta: Array<BulkWorkgroupMembersRequestInnerBeta>, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<WorkgroupMemberAddItemBeta>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.updateWorkgroupMembers(workgroupId, bulkWorkgroupMembersRequestInnerBeta, axiosOptions);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
     }
@@ -38025,12 +38980,12 @@ export const GovernanceGroupsBetaApiFactory = function (configuration?: Configur
          * This API removes one or more  members from a Governance Group.  A token with API, ORG_ADMIN authority is required to call this API.  >  **Following field of Identity is an optional field in the request.**  >  **name**
          * @summary Remove members from Governance Group
          * @param {string} workgroupId ID of the Governance Group.
-         * @param {Array<BaseReferenceDtoBeta>} baseReferenceDtoBeta List of identities to be removed from  a Governance Group members list.
+         * @param {Array<BulkWorkgroupMembersRequestInnerBeta>} bulkWorkgroupMembersRequestInnerBeta List of identities to be removed from  a Governance Group members list.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        deleteWorkgroupMembers(workgroupId: string, baseReferenceDtoBeta: Array<BaseReferenceDtoBeta>, axiosOptions?: any): AxiosPromise<Array<WorkgroupMemberDeleteItemBeta>> {
-            return localVarFp.deleteWorkgroupMembers(workgroupId, baseReferenceDtoBeta, axiosOptions).then((request) => request(axios, basePath));
+        deleteWorkgroupMembers(workgroupId: string, bulkWorkgroupMembersRequestInnerBeta: Array<BulkWorkgroupMembersRequestInnerBeta>, axiosOptions?: any): AxiosPromise<Array<WorkgroupMemberDeleteItemBeta>> {
+            return localVarFp.deleteWorkgroupMembers(workgroupId, bulkWorkgroupMembersRequestInnerBeta, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          *  This API initiates a bulk deletion of one or more Governance Groups.  >  If any of the indicated Governance Groups have one or more connections associated with it,then those Governance Groups will be added in  **inUse** list of the response. Governance Group(s) marked as **inUse** can not be deleted.  >  If any of the indicated Governance Groups is not does not exists in Organization,then those Governance Groups will be added in **notFound** list of the response. Governance Groups marked as **notFound** will not be deleted.  >  If any of the indicated Governance Groups does not have any connections associated with it,then those Governance Groups will be added in **deleted** list of the response. A Governance Group marked as **deleted** will be deleted from current Organization.  >  If the request contains any **inUse** or **notFound** Governance Group IDs then it skips only these Governance Groups for deletion and deletes the rest of Governance Groups which have no connections associated with it.   >  **This API has limit number of Governance Groups can be deleted at one time. If the request contains more then 100 Governance Groups IDs to be deleted then the API will throw an exception.**
@@ -38077,7 +39032,7 @@ export const GovernanceGroupsBetaApiFactory = function (configuration?: Configur
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        listWorkgroupMembers(workgroupId: string, offset?: number, limit?: number, count?: boolean, sorters?: string, axiosOptions?: any): AxiosPromise<Array<BaseReferenceDtoBeta>> {
+        listWorkgroupMembers(workgroupId: string, offset?: number, limit?: number, count?: boolean, sorters?: string, axiosOptions?: any): AxiosPromise<Array<ListWorkgroupMembers200ResponseInnerBeta>> {
             return localVarFp.listWorkgroupMembers(workgroupId, offset, limit, count, sorters, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
@@ -38109,12 +39064,12 @@ export const GovernanceGroupsBetaApiFactory = function (configuration?: Configur
          * This API adds one or more members to a Governance Group.  A token with API, ORG_ADMIN authority is required to call this API.  >  **Following field of Identity is an optional field in the request.**  >  **name**
          * @summary Add members to Governance Group
          * @param {string} workgroupId ID of the Governance Group.
-         * @param {Array<BaseReferenceDtoBeta>} baseReferenceDtoBeta List of identities to be added to a Governance Group members list.
+         * @param {Array<BulkWorkgroupMembersRequestInnerBeta>} bulkWorkgroupMembersRequestInnerBeta List of identities to be added to a Governance Group members list.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        updateWorkgroupMembers(workgroupId: string, baseReferenceDtoBeta: Array<BaseReferenceDtoBeta>, axiosOptions?: any): AxiosPromise<Array<WorkgroupMemberAddItemBeta>> {
-            return localVarFp.updateWorkgroupMembers(workgroupId, baseReferenceDtoBeta, axiosOptions).then((request) => request(axios, basePath));
+        updateWorkgroupMembers(workgroupId: string, bulkWorkgroupMembersRequestInnerBeta: Array<BulkWorkgroupMembersRequestInnerBeta>, axiosOptions?: any): AxiosPromise<Array<WorkgroupMemberAddItemBeta>> {
+            return localVarFp.updateWorkgroupMembers(workgroupId, bulkWorkgroupMembersRequestInnerBeta, axiosOptions).then((request) => request(axios, basePath));
         },
     };
 };
@@ -38162,10 +39117,10 @@ export interface GovernanceGroupsBetaApiDeleteWorkgroupMembersRequest {
 
     /**
      * List of identities to be removed from  a Governance Group members list.
-     * @type {Array<BaseReferenceDtoBeta>}
+     * @type {Array<BulkWorkgroupMembersRequestInnerBeta>}
      * @memberof GovernanceGroupsBetaApiDeleteWorkgroupMembers
      */
-    readonly baseReferenceDtoBeta: Array<BaseReferenceDtoBeta>
+    readonly bulkWorkgroupMembersRequestInnerBeta: Array<BulkWorkgroupMembersRequestInnerBeta>
 }
 
 /**
@@ -38358,10 +39313,10 @@ export interface GovernanceGroupsBetaApiUpdateWorkgroupMembersRequest {
 
     /**
      * List of identities to be added to a Governance Group members list.
-     * @type {Array<BaseReferenceDtoBeta>}
+     * @type {Array<BulkWorkgroupMembersRequestInnerBeta>}
      * @memberof GovernanceGroupsBetaApiUpdateWorkgroupMembers
      */
-    readonly baseReferenceDtoBeta: Array<BaseReferenceDtoBeta>
+    readonly bulkWorkgroupMembersRequestInnerBeta: Array<BulkWorkgroupMembersRequestInnerBeta>
 }
 
 /**
@@ -38404,7 +39359,7 @@ export class GovernanceGroupsBetaApi extends BaseAPI {
      * @memberof GovernanceGroupsBetaApi
      */
     public deleteWorkgroupMembers(requestParameters: GovernanceGroupsBetaApiDeleteWorkgroupMembersRequest, axiosOptions?: AxiosRequestConfig) {
-        return GovernanceGroupsBetaApiFp(this.configuration).deleteWorkgroupMembers(requestParameters.workgroupId, requestParameters.baseReferenceDtoBeta, axiosOptions).then((request) => request(this.axios, this.basePath));
+        return GovernanceGroupsBetaApiFp(this.configuration).deleteWorkgroupMembers(requestParameters.workgroupId, requestParameters.bulkWorkgroupMembersRequestInnerBeta, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -38488,7 +39443,7 @@ export class GovernanceGroupsBetaApi extends BaseAPI {
      * @memberof GovernanceGroupsBetaApi
      */
     public updateWorkgroupMembers(requestParameters: GovernanceGroupsBetaApiUpdateWorkgroupMembersRequest, axiosOptions?: AxiosRequestConfig) {
-        return GovernanceGroupsBetaApiFp(this.configuration).updateWorkgroupMembers(requestParameters.workgroupId, requestParameters.baseReferenceDtoBeta, axiosOptions).then((request) => request(this.axios, this.basePath));
+        return GovernanceGroupsBetaApiFp(this.configuration).updateWorkgroupMembers(requestParameters.workgroupId, requestParameters.bulkWorkgroupMembersRequestInnerBeta, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 }
 
@@ -59558,7 +60513,7 @@ export const RolesBetaApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async bulkDeleteRoles(roleBulkDeleteRequestBeta: RoleBulkDeleteRequestBeta, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<BaseReferenceDtoBeta>> {
+        async bulkDeleteRoles(roleBulkDeleteRequestBeta: RoleBulkDeleteRequestBeta, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<TaskResultDtoBeta>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.bulkDeleteRoles(roleBulkDeleteRequestBeta, axiosOptions);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -59658,7 +60613,7 @@ export const RolesBetaApiFactory = function (configuration?: Configuration, base
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        bulkDeleteRoles(roleBulkDeleteRequestBeta: RoleBulkDeleteRequestBeta, axiosOptions?: any): AxiosPromise<BaseReferenceDtoBeta> {
+        bulkDeleteRoles(roleBulkDeleteRequestBeta: RoleBulkDeleteRequestBeta, axiosOptions?: any): AxiosPromise<TaskResultDtoBeta> {
             return localVarFp.bulkDeleteRoles(roleBulkDeleteRequestBeta, axiosOptions).then((request) => request(axios, basePath));
         },
         /**

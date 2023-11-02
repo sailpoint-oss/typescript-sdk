@@ -169,6 +169,102 @@ export const AccessCriteriaCriteriaListInnerTypeEnum = {
 export type AccessCriteriaCriteriaListInnerTypeEnum = typeof AccessCriteriaCriteriaListInnerTypeEnum[keyof typeof AccessCriteriaCriteriaListInnerTypeEnum];
 
 /**
+ * Identity the access item is requested for.
+ * @export
+ * @interface AccessItemRequestedFor
+ */
+export interface AccessItemRequestedFor {
+    /**
+     * DTO type of identity the access item is requested for.
+     * @type {string}
+     * @memberof AccessItemRequestedFor
+     */
+    'type'?: AccessItemRequestedForTypeEnum;
+    /**
+     * ID of identity the access item is requested for.
+     * @type {string}
+     * @memberof AccessItemRequestedFor
+     */
+    'id'?: string;
+    /**
+     * Human-readable display name of identity the access item is requested for.
+     * @type {string}
+     * @memberof AccessItemRequestedFor
+     */
+    'name'?: string;
+}
+
+export const AccessItemRequestedForTypeEnum = {
+    Identity: 'IDENTITY'
+} as const;
+
+export type AccessItemRequestedForTypeEnum = typeof AccessItemRequestedForTypeEnum[keyof typeof AccessItemRequestedForTypeEnum];
+
+/**
+ * Access item requester\'s identity.
+ * @export
+ * @interface AccessItemRequester
+ */
+export interface AccessItemRequester {
+    /**
+     * Access item requester\'s DTO type.
+     * @type {string}
+     * @memberof AccessItemRequester
+     */
+    'type'?: AccessItemRequesterTypeEnum;
+    /**
+     * Access item requester\'s identity ID.
+     * @type {string}
+     * @memberof AccessItemRequester
+     */
+    'id'?: string;
+    /**
+     * Access item owner\'s human-readable display name.
+     * @type {string}
+     * @memberof AccessItemRequester
+     */
+    'name'?: string;
+}
+
+export const AccessItemRequesterTypeEnum = {
+    Identity: 'IDENTITY'
+} as const;
+
+export type AccessItemRequesterTypeEnum = typeof AccessItemRequesterTypeEnum[keyof typeof AccessItemRequesterTypeEnum];
+
+/**
+ * Identity who reviewed the access item request.
+ * @export
+ * @interface AccessItemReviewedBy
+ */
+export interface AccessItemReviewedBy {
+    /**
+     * DTO type of identity who reviewed the access item request.
+     * @type {string}
+     * @memberof AccessItemReviewedBy
+     */
+    'type'?: AccessItemReviewedByTypeEnum;
+    /**
+     * ID of identity who reviewed the access item request.
+     * @type {string}
+     * @memberof AccessItemReviewedBy
+     */
+    'id'?: string;
+    /**
+     * Human-readable display name of identity who reviewed the access item request.
+     * @type {string}
+     * @memberof AccessItemReviewedBy
+     */
+    'name'?: string;
+}
+
+export const AccessItemReviewedByTypeEnum = {
+    Identity: 'IDENTITY'
+} as const;
+
+export type AccessItemReviewedByTypeEnum = typeof AccessItemReviewedByTypeEnum[keyof typeof AccessItemReviewedByTypeEnum];
+
+/**
  * 
  * @export
  * @interface AccessProfile
@@ -227,7 +323,7 @@ export interface AccessProfile {
      * @type {Array<EntitlementRef>}
      * @memberof AccessProfile
      */
-    'entitlements'?: Array<EntitlementRef>;
+    'entitlements'?: Array<EntitlementRef> | null;
     /**
      * Whether the Access Profile is requestable via access request. Currently, making an Access Profile non-requestable is only supported  for customers enabled with the new Request Center. Otherwise, attempting to create an Access Profile with a value  **false** in this field results in a 400 error.
      * @type {boolean}
@@ -741,11 +837,43 @@ export interface AccessProfileUsage {
     'accessProfileId'?: string;
     /**
      * List of references to objects which are using the indicated Access Profile
-     * @type {Array<BaseReferenceDto>}
+     * @type {Array<AccessProfileUsageUsedByInner>}
      * @memberof AccessProfileUsage
      */
-    'usedBy'?: Array<BaseReferenceDto>;
+    'usedBy'?: Array<AccessProfileUsageUsedByInner>;
 }
+/**
+ * Role using the access profile.
+ * @export
+ * @interface AccessProfileUsageUsedByInner
+ */
+export interface AccessProfileUsageUsedByInner {
+    /**
+     * DTO type of role using the access profile.
+     * @type {string}
+     * @memberof AccessProfileUsageUsedByInner
+     */
+    'type'?: AccessProfileUsageUsedByInnerTypeEnum;
+    /**
+     * ID of role using the access profile.
+     * @type {string}
+     * @memberof AccessProfileUsageUsedByInner
+     */
+    'id'?: string;
+    /**
+     * Display name of role using the access profile.
+     * @type {string}
+     * @memberof AccessProfileUsageUsedByInner
+     */
+    'name'?: string;
+}
+
+export const AccessProfileUsageUsedByInnerTypeEnum = {
+    Role: 'ROLE'
+} as const;
+
+export type AccessProfileUsageUsedByInnerTypeEnum = typeof AccessProfileUsageUsedByInnerTypeEnum[keyof typeof AccessProfileUsageUsedByInnerTypeEnum];
+
 /**
  * 
  * @export
@@ -3047,22 +3175,16 @@ export interface ApprovalStatusDto {
     'forwarded'?: boolean;
     /**
      * 
-     * @type {BaseReferenceDto}
+     * @type {ApprovalStatusDtoOriginalOwner}
      * @memberof ApprovalStatusDto
      */
-    'originalOwner'?: BaseReferenceDto;
+    'originalOwner'?: ApprovalStatusDtoOriginalOwner;
     /**
      * 
-     * @type {BaseReferenceDto}
+     * @type {AccessItemReviewedBy}
      * @memberof ApprovalStatusDto
      */
-    'currentOwner'?: BaseReferenceDto;
-    /**
-     * 
-     * @type {BaseReferenceDto}
-     * @memberof ApprovalStatusDto
-     */
-    'reviewedBy'?: BaseReferenceDto;
+    'currentOwner'?: AccessItemReviewedBy;
     /**
      * Time at which item was modified.
      * @type {string}
@@ -3100,6 +3222,39 @@ export interface ApprovalStatusDto {
      */
     'removeDate'?: string;
 }
+/**
+ * Identity of orginal approval owner.
+ * @export
+ * @interface ApprovalStatusDtoOriginalOwner
+ */
+export interface ApprovalStatusDtoOriginalOwner {
+    /**
+     * DTO type of original approval owner\'s identity.
+     * @type {string}
+     * @memberof ApprovalStatusDtoOriginalOwner
+     */
+    'type'?: ApprovalStatusDtoOriginalOwnerTypeEnum;
+    /**
+     * ID of original approval owner\'s identity.
+     * @type {string}
+     * @memberof ApprovalStatusDtoOriginalOwner
+     */
+    'id'?: string;
+    /**
+     * Display name of original approval owner.
+     * @type {string}
+     * @memberof ApprovalStatusDtoOriginalOwner
+     */
+    'name'?: string;
+}
+
+export const ApprovalStatusDtoOriginalOwnerTypeEnum = {
+    GovernanceGroup: 'GOVERNANCE_GROUP',
+    Identity: 'IDENTITY'
+} as const;
+
+export type ApprovalStatusDtoOriginalOwnerTypeEnum = typeof ApprovalStatusDtoOriginalOwnerTypeEnum[keyof typeof ApprovalStatusDtoOriginalOwnerTypeEnum];
+
 /**
  * 
  * @export
@@ -3776,30 +3931,37 @@ export interface BaseEntitlementAllOf {
     'value'?: string;
 }
 /**
- * 
+ * Before Provisioning Rule.
  * @export
- * @interface BaseReferenceDto
+ * @interface BeforeProvisioningRuleDto
  */
-export interface BaseReferenceDto {
+export interface BeforeProvisioningRuleDto {
     /**
-     * 
-     * @type {DtoType}
-     * @memberof BaseReferenceDto
-     */
-    'type'?: DtoType;
-    /**
-     * ID of the object to which this reference applies
+     * Before Provisioning Rule DTO type.
      * @type {string}
-     * @memberof BaseReferenceDto
+     * @memberof BeforeProvisioningRuleDto
+     */
+    'type'?: BeforeProvisioningRuleDtoTypeEnum;
+    /**
+     * Before Provisioning Rule ID.
+     * @type {string}
+     * @memberof BeforeProvisioningRuleDto
      */
     'id'?: string;
     /**
-     * Human-readable display name of the object to which this reference applies
+     * Rule display name.
      * @type {string}
-     * @memberof BaseReferenceDto
+     * @memberof BeforeProvisioningRuleDto
      */
     'name'?: string;
 }
+
+export const BeforeProvisioningRuleDtoTypeEnum = {
+    Rule: 'RULE'
+} as const;
+
+export type BeforeProvisioningRuleDtoTypeEnum = typeof BeforeProvisioningRuleDtoTypeEnum[keyof typeof BeforeProvisioningRuleDtoTypeEnum];
+
 /**
  * 
  * @export
@@ -4622,25 +4784,25 @@ export type CampaignReferenceMandatoryCommentRequirementEnum = typeof CampaignRe
  */
 export interface CampaignReport {
     /**
-     * 
-     * @type {DtoType}
+     * SOD policy violation report result DTO type.
+     * @type {string}
      * @memberof CampaignReport
      */
-    'type'?: DtoType;
+    'type'?: CampaignReportTypeEnum;
     /**
-     * ID of the object to which this reference applies
+     * SOD policy violation report result ID.
      * @type {string}
      * @memberof CampaignReport
      */
     'id'?: string;
     /**
-     * Human-readable display name of the object to which this reference applies
+     * Human-readable name of the SOD policy violation report result.
      * @type {string}
      * @memberof CampaignReport
      */
     'name'?: string;
     /**
-     * Status of a violation report
+     * Status of a SOD policy violation report.
      * @type {string}
      * @memberof CampaignReport
      */
@@ -4659,6 +4821,11 @@ export interface CampaignReport {
     'lastRunAt'?: string;
 }
 
+export const CampaignReportTypeEnum = {
+    ReportResult: 'REPORT_RESULT'
+} as const;
+
+export type CampaignReportTypeEnum = typeof CampaignReportTypeEnum[keyof typeof CampaignReportTypeEnum];
 export const CampaignReportStatusEnum = {
     Success: 'SUCCESS',
     Warning: 'WARNING',
@@ -4847,12 +5014,12 @@ export interface CancelledRequestDetails {
     'comment'?: string;
     /**
      * 
-     * @type {BaseReferenceDto}
+     * @type {OwnerDto}
      * @memberof CancelledRequestDetails
      */
-    'owner'?: BaseReferenceDto;
+    'owner'?: OwnerDto;
     /**
-     * Date comment was added by the owner when cancelling the associated request
+     * Date comment was added by the owner when cancelling the associated request.
      * @type {string}
      * @memberof CancelledRequestDetails
      */
@@ -5219,11 +5386,11 @@ export interface Comment {
  */
 export interface CommentDto {
     /**
-     * Content of the comment
+     * Comment content.
      * @type {string}
      * @memberof CommentDto
      */
-    'comment'?: string;
+    'comment'?: string | null;
     /**
      * 
      * @type {CommentDtoAuthor}
@@ -5231,7 +5398,7 @@ export interface CommentDto {
      */
     'author'?: CommentDtoAuthor;
     /**
-     * Date and time comment was created
+     * Date and time comment was created.
      * @type {string}
      * @memberof CommentDto
      */
@@ -5244,24 +5411,31 @@ export interface CommentDto {
  */
 export interface CommentDtoAuthor {
     /**
-     * 
-     * @type {DtoType}
+     * DTO type of the commenting identity.
+     * @type {string}
      * @memberof CommentDtoAuthor
      */
-    'type'?: DtoType;
+    'type'?: CommentDtoAuthorTypeEnum;
     /**
-     * ID of the author
+     * ID of the commenting identity.
      * @type {string}
      * @memberof CommentDtoAuthor
      */
     'id'?: string;
     /**
-     * Human-readable display name of the identity making the comment
+     * Display name of the commenting identity.
      * @type {string}
      * @memberof CommentDtoAuthor
      */
     'name'?: string;
 }
+
+export const CommentDtoAuthorTypeEnum = {
+    Identity: 'IDENTITY'
+} as const;
+
+export type CommentDtoAuthorTypeEnum = typeof CommentDtoAuthorTypeEnum[keyof typeof CommentDtoAuthorTypeEnum];
+
 /**
  * 
  * @export
@@ -5306,28 +5480,28 @@ export interface CompletedApproval {
     'requestType'?: AccessRequestType;
     /**
      * 
-     * @type {BaseReferenceDto}
+     * @type {AccessItemRequester}
      * @memberof CompletedApproval
      */
-    'requester'?: BaseReferenceDto;
+    'requester'?: AccessItemRequester;
     /**
      * 
-     * @type {BaseReferenceDto}
+     * @type {AccessItemRequestedFor}
      * @memberof CompletedApproval
      */
-    'requestedFor'?: BaseReferenceDto;
+    'requestedFor'?: AccessItemRequestedFor;
     /**
      * 
-     * @type {BaseReferenceDto}
+     * @type {AccessItemReviewedBy}
      * @memberof CompletedApproval
      */
-    'reviewedBy'?: BaseReferenceDto;
+    'reviewedBy'?: AccessItemReviewedBy;
     /**
      * 
-     * @type {BaseReferenceDto}
+     * @type {OwnerDto}
      * @memberof CompletedApproval
      */
-    'owner'?: BaseReferenceDto;
+    'owner'?: OwnerDto;
     /**
      * 
      * @type {RequestableObjectReference}
@@ -5402,11 +5576,11 @@ export interface CompletedApproval {
  */
 export interface CompletedApprovalReviewerComment {
     /**
-     * Content of the comment
+     * Comment content.
      * @type {string}
      * @memberof CompletedApprovalReviewerComment
      */
-    'comment'?: string;
+    'comment'?: string | null;
     /**
      * 
      * @type {CommentDtoAuthor}
@@ -5414,7 +5588,7 @@ export interface CompletedApprovalReviewerComment {
      */
     'author'?: CommentDtoAuthor;
     /**
-     * Date and time comment was created
+     * Date and time comment was created.
      * @type {string}
      * @memberof CompletedApprovalReviewerComment
      */
@@ -5800,10 +5974,10 @@ export interface CreatePersonalAccessTokenResponse {
     'name': string;
     /**
      * 
-     * @type {BaseReferenceDto}
+     * @type {PatOwner}
      * @memberof CreatePersonalAccessTokenResponse
      */
-    'owner': BaseReferenceDto;
+    'owner': PatOwner;
     /**
      * The date and time, down to the millisecond, when this personal access token was created.
      * @type {string}
@@ -6710,10 +6884,10 @@ export interface EntitlementDto {
     'cloudGoverned'?: boolean;
     /**
      * 
-     * @type {BaseReferenceDto}
+     * @type {EntitlementSource}
      * @memberof EntitlementDto
      */
-    'source'?: BaseReferenceDto;
+    'source'?: EntitlementSource;
 }
 /**
  * Entitlement object that represents entitlement
@@ -6765,31 +6939,31 @@ export interface EntitlementDtoAllOf {
     'cloudGoverned'?: boolean;
     /**
      * 
-     * @type {BaseReferenceDto}
+     * @type {EntitlementSource}
      * @memberof EntitlementDtoAllOf
      */
-    'source'?: BaseReferenceDto;
+    'source'?: EntitlementSource;
 }
 /**
- * 
+ * Entitlement including a specific set of access.
  * @export
  * @interface EntitlementRef
  */
 export interface EntitlementRef {
     /**
-     * The ID of the Entitlement
-     * @type {string}
-     * @memberof EntitlementRef
-     */
-    'id'?: string;
-    /**
-     * The type of the Entitlement, will always be ENTITLEMENT
+     * Entitlement\'s DTO type.
      * @type {string}
      * @memberof EntitlementRef
      */
     'type'?: EntitlementRefTypeEnum;
     /**
-     * The display name of the Entitlement
+     * Entitlement\'s ID.
+     * @type {string}
+     * @memberof EntitlementRef
+     */
+    'id'?: string;
+    /**
+     * Entitlement\'s display name.
      * @type {string}
      * @memberof EntitlementRef
      */
@@ -7973,10 +8147,10 @@ export interface GetPersonalAccessTokenResponse {
     'scope': Array<string> | null;
     /**
      * 
-     * @type {BaseReferenceDto}
+     * @type {PatOwner}
      * @memberof GetPersonalAccessTokenResponse
      */
-    'owner': BaseReferenceDto;
+    'owner': PatOwner;
     /**
      * The date and time, down to the millisecond, when this personal access token was created.
      * @type {string}
@@ -8989,7 +9163,7 @@ export const IdentityProfileAllOfOwnerTypeEnum = {
 export type IdentityProfileAllOfOwnerTypeEnum = typeof IdentityProfileAllOfOwnerTypeEnum[keyof typeof IdentityProfileAllOfOwnerTypeEnum];
 
 /**
- * Identity Profile exported object
+ * Identity profile exported object.
  * @export
  * @interface IdentityProfileExportedObject
  */
@@ -9002,10 +9176,10 @@ export interface IdentityProfileExportedObject {
     'version'?: number;
     /**
      * 
-     * @type {BaseReferenceDto}
+     * @type {IdentityProfileExportedObjectSelf}
      * @memberof IdentityProfileExportedObject
      */
-    'self'?: BaseReferenceDto;
+    'self'?: IdentityProfileExportedObjectSelf;
     /**
      * 
      * @type {IdentityProfile}
@@ -9013,6 +9187,61 @@ export interface IdentityProfileExportedObject {
      */
     'object'?: IdentityProfile;
 }
+/**
+ * Self block for exported object.
+ * @export
+ * @interface IdentityProfileExportedObjectSelf
+ */
+export interface IdentityProfileExportedObjectSelf {
+    /**
+     * Exported object\'s DTO type.
+     * @type {string}
+     * @memberof IdentityProfileExportedObjectSelf
+     */
+    'type'?: IdentityProfileExportedObjectSelfTypeEnum;
+    /**
+     * Exported object\'s ID.
+     * @type {string}
+     * @memberof IdentityProfileExportedObjectSelf
+     */
+    'id'?: string;
+    /**
+     * Exported object\'s display name.
+     * @type {string}
+     * @memberof IdentityProfileExportedObjectSelf
+     */
+    'name'?: string;
+}
+
+export const IdentityProfileExportedObjectSelfTypeEnum = {
+    AccessProfile: 'ACCESS_PROFILE',
+    AccessRequestConfig: 'ACCESS_REQUEST_CONFIG',
+    AttrSyncSourceConfig: 'ATTR_SYNC_SOURCE_CONFIG',
+    AuthOrg: 'AUTH_ORG',
+    CampaignFilter: 'CAMPAIGN_FILTER',
+    FormDefinition: 'FORM_DEFINITION',
+    GovernanceGroup: 'GOVERNANCE_GROUP',
+    IdentityObjectConfig: 'IDENTITY_OBJECT_CONFIG',
+    IdentityProfile: 'IDENTITY_PROFILE',
+    LifecycleState: 'LIFECYCLE_STATE',
+    NotificationTemplate: 'NOTIFICATION_TEMPLATE',
+    PasswordPolicy: 'PASSWORD_POLICY',
+    PasswordSyncGroup: 'PASSWORD_SYNC_GROUP',
+    PublicIdentitiesConfig: 'PUBLIC_IDENTITIES_CONFIG',
+    Role: 'ROLE',
+    Rule: 'RULE',
+    Segment: 'SEGMENT',
+    ServiceDeskIntegration: 'SERVICE_DESK_INTEGRATION',
+    SodPolicy: 'SOD_POLICY',
+    Source: 'SOURCE',
+    Tag: 'TAG',
+    Transform: 'TRANSFORM',
+    TriggerSubscription: 'TRIGGER_SUBSCRIPTION',
+    Workflow: 'WORKFLOW'
+} as const;
+
+export type IdentityProfileExportedObjectSelfTypeEnum = typeof IdentityProfileExportedObjectSelfTypeEnum[keyof typeof IdentityProfileExportedObjectSelfTypeEnum];
+
 /**
  * The manager for the identity.
  * @export
@@ -9113,7 +9342,7 @@ export interface IdentityWithNewAccess {
      */
     'identityId': string;
     /**
-     * The list of ENTITLEMENTs to consider for calculating possible violations in a preventive check.
+     * The list of entitlements to consider for possible violations in a preventive check.
      * @type {Array<IdentityWithNewAccessAccessRefsInner>}
      * @memberof IdentityWithNewAccess
      */
@@ -9126,17 +9355,17 @@ export interface IdentityWithNewAccess {
  */
 export interface IdentityWithNewAccess1 {
     /**
-     * Set of identity id\'s to be checked.
+     * Set of identity IDs to be checked.
      * @type {string}
      * @memberof IdentityWithNewAccess1
      */
     'identityId': string;
     /**
      * The bundle of access profiles to be added to the identities specified. All references must be ENTITLEMENT type.
-     * @type {Array<BaseReferenceDto>}
+     * @type {Array<IdentityWithNewAccess1AccessRefsInner>}
      * @memberof IdentityWithNewAccess1
      */
-    'accessRefs': Array<BaseReferenceDto>;
+    'accessRefs': Array<IdentityWithNewAccess1AccessRefsInner>;
     /**
      * Arbitrary key-value pairs. They will never be processed by the IdentityNow system but will be returned on completion of the violation check.
      * @type {{ [key: string]: string; }}
@@ -9145,25 +9374,57 @@ export interface IdentityWithNewAccess1 {
     'clientMetadata'?: { [key: string]: string; };
 }
 /**
- * The types of objects supported for SOD violations
+ * 
+ * @export
+ * @interface IdentityWithNewAccess1AccessRefsInner
+ */
+export interface IdentityWithNewAccess1AccessRefsInner {
+    /**
+     * Entitlement\'s DTO type.
+     * @type {string}
+     * @memberof IdentityWithNewAccess1AccessRefsInner
+     */
+    'type'?: IdentityWithNewAccess1AccessRefsInnerTypeEnum;
+    /**
+     * Entitlement\'s ID.
+     * @type {string}
+     * @memberof IdentityWithNewAccess1AccessRefsInner
+     */
+    'id'?: string;
+    /**
+     * Entitlement\'s display name.
+     * @type {string}
+     * @memberof IdentityWithNewAccess1AccessRefsInner
+     */
+    'name'?: string;
+}
+
+export const IdentityWithNewAccess1AccessRefsInnerTypeEnum = {
+    Entitlement: 'ENTITLEMENT'
+} as const;
+
+export type IdentityWithNewAccess1AccessRefsInnerTypeEnum = typeof IdentityWithNewAccess1AccessRefsInnerTypeEnum[keyof typeof IdentityWithNewAccess1AccessRefsInnerTypeEnum];
+
+/**
+ * Entitlement including a specific set of access.
  * @export
  * @interface IdentityWithNewAccessAccessRefsInner
  */
 export interface IdentityWithNewAccessAccessRefsInner {
     /**
-     * The type of object that is referenced
-     * @type {object}
+     * Entitlement\'s DTO type.
+     * @type {string}
      * @memberof IdentityWithNewAccessAccessRefsInner
      */
     'type'?: IdentityWithNewAccessAccessRefsInnerTypeEnum;
     /**
-     * ID of the object to which this reference applies
+     * Entitlement\'s ID.
      * @type {string}
      * @memberof IdentityWithNewAccessAccessRefsInner
      */
     'id'?: string;
     /**
-     * Human-readable display name of the object to which this reference applies
+     * Entitlement\'s display name.
      * @type {string}
      * @memberof IdentityWithNewAccessAccessRefsInner
      */
@@ -9189,6 +9450,43 @@ export interface ImportNonEmployeeRecordsInBulkRequest {
      */
     'data': any;
 }
+/**
+ * Object created or updated by import.
+ * @export
+ * @interface ImportObject
+ */
+export interface ImportObject {
+    /**
+     * DTO type of object created or updated by import.
+     * @type {string}
+     * @memberof ImportObject
+     */
+    'type'?: ImportObjectTypeEnum;
+    /**
+     * ID of object created or updated by import.
+     * @type {string}
+     * @memberof ImportObject
+     */
+    'id'?: string;
+    /**
+     * Display name of object created or updated by import.
+     * @type {string}
+     * @memberof ImportObject
+     */
+    'name'?: string;
+}
+
+export const ImportObjectTypeEnum = {
+    IdentityObjectConfig: 'IDENTITY_OBJECT_CONFIG',
+    IdentityProfile: 'IDENTITY_PROFILE',
+    Rule: 'RULE',
+    Source: 'SOURCE',
+    Transform: 'TRANSFORM',
+    TriggerSubscription: 'TRIGGER_SUBSCRIPTION'
+} as const;
+
+export type ImportObjectTypeEnum = typeof ImportObjectTypeEnum[keyof typeof ImportObjectTypeEnum];
+
 /**
  * Enum representing the currently supported indices. Additional values may be added in the future without notice.
  * @export
@@ -9463,6 +9761,38 @@ export interface LifecycleStateAllOf {
     'accessProfileIds'?: Set<string>;
 }
 /**
+ * Deleted lifecycle state.
+ * @export
+ * @interface LifecyclestateDeleted
+ */
+export interface LifecyclestateDeleted {
+    /**
+     * Deleted lifecycle state\'s DTO type.
+     * @type {string}
+     * @memberof LifecyclestateDeleted
+     */
+    'type'?: LifecyclestateDeletedTypeEnum;
+    /**
+     * Deleted lifecycle state ID.
+     * @type {string}
+     * @memberof LifecyclestateDeleted
+     */
+    'id'?: string;
+    /**
+     * Deleted lifecycle state\'s display name.
+     * @type {string}
+     * @memberof LifecyclestateDeleted
+     */
+    'name'?: string;
+}
+
+export const LifecyclestateDeletedTypeEnum = {
+    LifecycleState: 'LIFECYCLE_STATE'
+} as const;
+
+export type LifecyclestateDeletedTypeEnum = typeof LifecyclestateDeletedTypeEnum[keyof typeof LifecyclestateDeletedTypeEnum];
+
+/**
  * 
  * @export
  * @interface ListAccessProfiles401Response
@@ -9579,16 +9909,16 @@ export interface ManualWorkItemDetails {
     'forwarded'?: boolean;
     /**
      * 
-     * @type {BaseReferenceDto}
+     * @type {ManualWorkItemDetailsOriginalOwner}
      * @memberof ManualWorkItemDetails
      */
-    'originalOwner'?: BaseReferenceDto;
+    'originalOwner'?: ManualWorkItemDetailsOriginalOwner;
     /**
      * 
-     * @type {BaseReferenceDto}
+     * @type {ManualWorkItemDetailsCurrentOwner}
      * @memberof ManualWorkItemDetails
      */
-    'currentOwner'?: BaseReferenceDto;
+    'currentOwner'?: ManualWorkItemDetailsCurrentOwner;
     /**
      * Time at which item was modified.
      * @type {string}
@@ -9608,6 +9938,72 @@ export interface ManualWorkItemDetails {
      */
     'forwardHistory'?: Array<ApprovalForwardHistory>;
 }
+/**
+ * Identity of current work item owner.
+ * @export
+ * @interface ManualWorkItemDetailsCurrentOwner
+ */
+export interface ManualWorkItemDetailsCurrentOwner {
+    /**
+     * DTO type of current work item owner\'s identity.
+     * @type {string}
+     * @memberof ManualWorkItemDetailsCurrentOwner
+     */
+    'type'?: ManualWorkItemDetailsCurrentOwnerTypeEnum;
+    /**
+     * ID of current work item owner\'s identity.
+     * @type {string}
+     * @memberof ManualWorkItemDetailsCurrentOwner
+     */
+    'id'?: string;
+    /**
+     * Display name of current work item owner.
+     * @type {string}
+     * @memberof ManualWorkItemDetailsCurrentOwner
+     */
+    'name'?: string;
+}
+
+export const ManualWorkItemDetailsCurrentOwnerTypeEnum = {
+    GovernanceGroup: 'GOVERNANCE_GROUP',
+    Identity: 'IDENTITY'
+} as const;
+
+export type ManualWorkItemDetailsCurrentOwnerTypeEnum = typeof ManualWorkItemDetailsCurrentOwnerTypeEnum[keyof typeof ManualWorkItemDetailsCurrentOwnerTypeEnum];
+
+/**
+ * Identity of original work item owner, if the work item has been forwarded.
+ * @export
+ * @interface ManualWorkItemDetailsOriginalOwner
+ */
+export interface ManualWorkItemDetailsOriginalOwner {
+    /**
+     * DTO type of original work item owner\'s identity.
+     * @type {string}
+     * @memberof ManualWorkItemDetailsOriginalOwner
+     */
+    'type'?: ManualWorkItemDetailsOriginalOwnerTypeEnum;
+    /**
+     * ID of original work item owner\'s identity.
+     * @type {string}
+     * @memberof ManualWorkItemDetailsOriginalOwner
+     */
+    'id'?: string;
+    /**
+     * Display name of original work item owner.
+     * @type {string}
+     * @memberof ManualWorkItemDetailsOriginalOwner
+     */
+    'name'?: string;
+}
+
+export const ManualWorkItemDetailsOriginalOwnerTypeEnum = {
+    GovernanceGroup: 'GOVERNANCE_GROUP',
+    Identity: 'IDENTITY'
+} as const;
+
+export type ManualWorkItemDetailsOriginalOwnerTypeEnum = typeof ManualWorkItemDetailsOriginalOwnerTypeEnum[keyof typeof ManualWorkItemDetailsOriginalOwnerTypeEnum];
+
 /**
  * Indicates the state of the request processing for this item: * PENDING: The request for this item is awaiting processing. * APPROVED: The request for this item has been approved. * REJECTED: The request for this item was rejected. * EXPIRED: The request for this item expired with no action taken. * CANCELLED: The request for this item was cancelled with no user action. * ARCHIVED: The request for this item has been archived after completion.
  * @export
@@ -11299,10 +11695,10 @@ export interface ObjectImportResult {
     'errors': Array<SpConfigMessage>;
     /**
      * References to objects that were created or updated by the import.
-     * @type {Array<BaseReferenceDto>}
+     * @type {Array<ImportObject>}
      * @memberof ObjectImportResult
      */
-    'importedObjects': Array<BaseReferenceDto>;
+    'importedObjects': Array<ImportObject>;
 }
 /**
  * Operation on a specific criteria
@@ -11398,6 +11794,38 @@ export interface OwnerAllOf {
      */
     'email'?: string;
 }
+/**
+ * Owner\'s identity.
+ * @export
+ * @interface OwnerDto
+ */
+export interface OwnerDto {
+    /**
+     * Owner\'s DTO type.
+     * @type {string}
+     * @memberof OwnerDto
+     */
+    'type'?: OwnerDtoTypeEnum;
+    /**
+     * Owner\'s identity ID.
+     * @type {string}
+     * @memberof OwnerDto
+     */
+    'id'?: string;
+    /**
+     * Owner\'s display name.
+     * @type {string}
+     * @memberof OwnerDto
+     */
+    'name'?: string;
+}
+
+export const OwnerDtoTypeEnum = {
+    Identity: 'IDENTITY'
+} as const;
+
+export type OwnerDtoTypeEnum = typeof OwnerDtoTypeEnum[keyof typeof OwnerDtoTypeEnum];
+
 /**
  * The owner of this object.
  * @export
@@ -11760,6 +12188,38 @@ export interface PasswordSyncGroup {
     'sourceIds'?: Array<string>;
 }
 /**
+ * Personal access token owner\'s identity.
+ * @export
+ * @interface PatOwner
+ */
+export interface PatOwner {
+    /**
+     * Personal access token owner\'s DTO type.
+     * @type {string}
+     * @memberof PatOwner
+     */
+    'type'?: PatOwnerTypeEnum;
+    /**
+     * Personal access token owner\'s identity ID.
+     * @type {string}
+     * @memberof PatOwner
+     */
+    'id'?: string;
+    /**
+     * Personal access token owner\'s human-readable display name.
+     * @type {string}
+     * @memberof PatOwner
+     */
+    'name'?: string;
+}
+
+export const PatOwnerTypeEnum = {
+    Identity: 'IDENTITY'
+} as const;
+
+export type PatOwnerTypeEnum = typeof PatOwnerTypeEnum[keyof typeof PatOwnerTypeEnum];
+
+/**
  * 
  * @export
  * @interface PendingApproval
@@ -11803,22 +12263,22 @@ export interface PendingApproval {
     'requestType'?: AccessRequestType;
     /**
      * 
-     * @type {BaseReferenceDto}
+     * @type {AccessItemRequester}
      * @memberof PendingApproval
      */
-    'requester'?: BaseReferenceDto;
+    'requester'?: AccessItemRequester;
     /**
      * 
-     * @type {BaseReferenceDto}
+     * @type {AccessItemRequestedFor}
      * @memberof PendingApproval
      */
-    'requestedFor'?: BaseReferenceDto;
+    'requestedFor'?: AccessItemRequestedFor;
     /**
      * 
-     * @type {BaseReferenceDto}
+     * @type {PendingApprovalOwner}
      * @memberof PendingApproval
      */
-    'owner'?: BaseReferenceDto;
+    'owner'?: PendingApprovalOwner;
     /**
      * 
      * @type {RequestableObjectReference}
@@ -11894,6 +12354,38 @@ export const PendingApprovalAction = {
 
 export type PendingApprovalAction = typeof PendingApprovalAction[keyof typeof PendingApprovalAction];
 
+
+/**
+ * Access item owner\'s identity.
+ * @export
+ * @interface PendingApprovalOwner
+ */
+export interface PendingApprovalOwner {
+    /**
+     * Access item owner\'s DTO type.
+     * @type {string}
+     * @memberof PendingApprovalOwner
+     */
+    'type'?: PendingApprovalOwnerTypeEnum;
+    /**
+     * Access item owner\'s identity ID.
+     * @type {string}
+     * @memberof PendingApprovalOwner
+     */
+    'id'?: string;
+    /**
+     * Access item owner\'s human-readable display name.
+     * @type {string}
+     * @memberof PendingApprovalOwner
+     */
+    'name'?: string;
+}
+
+export const PendingApprovalOwnerTypeEnum = {
+    Identity: 'IDENTITY'
+} as const;
+
+export type PendingApprovalOwnerTypeEnum = typeof PendingApprovalOwnerTypeEnum[keyof typeof PendingApprovalOwnerTypeEnum];
 
 /**
  * Simplified DTO for the Permission objects stored in SailPoint\'s database. The data is aggregated from customer systems and is free-form, so its appearance can vary largely between different clients/customers.
@@ -12028,23 +12520,23 @@ export interface ProvisioningConfig {
  */
 export interface ProvisioningConfigManagedResourceRefsInner {
     /**
-     * The type of object being referenced
-     * @type {object}
+     * DTO type of source for service desk integration template.
+     * @type {string}
      * @memberof ProvisioningConfigManagedResourceRefsInner
      */
     'type'?: ProvisioningConfigManagedResourceRefsInnerTypeEnum;
     /**
-     * ID of the source
-     * @type {object}
+     * ID of source for service desk integration template.
+     * @type {string}
      * @memberof ProvisioningConfigManagedResourceRefsInner
      */
-    'id'?: object;
+    'id'?: string;
     /**
-     * Human-readable display name of the source
-     * @type {object}
+     * Human-readable name of source for service desk integration template.
+     * @type {string}
      * @memberof ProvisioningConfigManagedResourceRefsInner
      */
-    'name'?: object;
+    'name'?: string;
 }
 
 export const ProvisioningConfigManagedResourceRefsInnerTypeEnum = {
@@ -12856,31 +13348,36 @@ export interface ReplaceAll {
  */
 export interface ReportResultReference {
     /**
-     * 
-     * @type {DtoType}
+     * SOD policy violation report result DTO type.
+     * @type {string}
      * @memberof ReportResultReference
      */
-    'type'?: DtoType;
+    'type'?: ReportResultReferenceTypeEnum;
     /**
-     * ID of the object to which this reference applies
+     * SOD policy violation report result ID.
      * @type {string}
      * @memberof ReportResultReference
      */
     'id'?: string;
     /**
-     * Human-readable display name of the object to which this reference applies
+     * Human-readable name of the SOD policy violation report result.
      * @type {string}
      * @memberof ReportResultReference
      */
     'name'?: string;
     /**
-     * Status of a violation report
+     * Status of a SOD policy violation report.
      * @type {string}
      * @memberof ReportResultReference
      */
     'status'?: ReportResultReferenceStatusEnum;
 }
 
+export const ReportResultReferenceTypeEnum = {
+    ReportResult: 'REPORT_RESULT'
+} as const;
+
+export type ReportResultReferenceTypeEnum = typeof ReportResultReferenceTypeEnum[keyof typeof ReportResultReferenceTypeEnum];
 export const ReportResultReferenceStatusEnum = {
     Success: 'SUCCESS',
     Warning: 'WARNING',
@@ -12899,7 +13396,7 @@ export type ReportResultReferenceStatusEnum = typeof ReportResultReferenceStatus
  */
 export interface ReportResultReferenceAllOf {
     /**
-     * Status of a violation report
+     * Status of a SOD policy violation report.
      * @type {string}
      * @memberof ReportResultReferenceAllOf
      */
@@ -13212,16 +13709,16 @@ export interface RequestedItemStatus {
     'created'?: string;
     /**
      * 
-     * @type {BaseReferenceDto}
+     * @type {AccessItemRequester}
      * @memberof RequestedItemStatus
      */
-    'requester'?: BaseReferenceDto;
+    'requester'?: AccessItemRequester;
     /**
      * 
-     * @type {BaseReferenceDto}
+     * @type {AccessItemRequestedFor}
      * @memberof RequestedItemStatus
      */
-    'requestedFor'?: BaseReferenceDto;
+    'requestedFor'?: AccessItemRequestedFor;
     /**
      * 
      * @type {CommentDto}
@@ -15599,26 +16096,26 @@ export interface ServiceDeskIntegrationDto {
      */
     'type': string;
     /**
-     * Reference to the identity that is the owner of this Service Desk integration
-     * @type {BaseReferenceDto}
+     * 
+     * @type {ServiceDeskIntegrationDtoAllOfOwnerRef}
      * @memberof ServiceDeskIntegrationDto
      */
-    'ownerRef'?: BaseReferenceDto;
+    'ownerRef'?: ServiceDeskIntegrationDtoAllOfOwnerRef;
     /**
-     * Reference to the source cluster for this Service Desk integration
-     * @type {BaseReferenceDto}
+     * 
+     * @type {SourceClusterDto}
      * @memberof ServiceDeskIntegrationDto
      */
-    'clusterRef'?: BaseReferenceDto;
+    'clusterRef'?: SourceClusterDto;
     /**
-     * ID of the cluster for the Service Desk integration (replaced by clusterRef, retained for backward compatibility)
+     * ID of the cluster for the Service Desk integration (replaced by clusterRef, retained for backward compatibility).
      * @type {string}
      * @memberof ServiceDeskIntegrationDto
      * @deprecated
      */
     'cluster'?: string;
     /**
-     * Source IDs for the Service Desk integration (replaced by provisioningConfig.managedSResourceRefs, but retained here for backward compatibility)
+     * Source IDs for the Service Desk integration (replaced by provisioningConfig.managedSResourceRefs, but retained here for backward compatibility).
      * @type {Array<string>}
      * @memberof ServiceDeskIntegrationDto
      * @deprecated
@@ -15637,11 +16134,11 @@ export interface ServiceDeskIntegrationDto {
      */
     'attributes': { [key: string]: any; };
     /**
-     * Reference to beforeProvisioningRule for this Service Desk integration
-     * @type {BaseReferenceDto}
+     * 
+     * @type {BeforeProvisioningRuleDto}
      * @memberof ServiceDeskIntegrationDto
      */
-    'beforeProvisioningRule'?: BaseReferenceDto;
+    'beforeProvisioningRule'?: BeforeProvisioningRuleDto;
 }
 /**
  * Specification of a Service Desk integration
@@ -15662,26 +16159,26 @@ export interface ServiceDeskIntegrationDtoAllOf {
      */
     'type': string;
     /**
-     * Reference to the identity that is the owner of this Service Desk integration
-     * @type {BaseReferenceDto}
+     * 
+     * @type {ServiceDeskIntegrationDtoAllOfOwnerRef}
      * @memberof ServiceDeskIntegrationDtoAllOf
      */
-    'ownerRef'?: BaseReferenceDto;
+    'ownerRef'?: ServiceDeskIntegrationDtoAllOfOwnerRef;
     /**
-     * Reference to the source cluster for this Service Desk integration
-     * @type {BaseReferenceDto}
+     * 
+     * @type {SourceClusterDto}
      * @memberof ServiceDeskIntegrationDtoAllOf
      */
-    'clusterRef'?: BaseReferenceDto;
+    'clusterRef'?: SourceClusterDto;
     /**
-     * ID of the cluster for the Service Desk integration (replaced by clusterRef, retained for backward compatibility)
+     * ID of the cluster for the Service Desk integration (replaced by clusterRef, retained for backward compatibility).
      * @type {string}
      * @memberof ServiceDeskIntegrationDtoAllOf
      * @deprecated
      */
     'cluster'?: string;
     /**
-     * Source IDs for the Service Desk integration (replaced by provisioningConfig.managedSResourceRefs, but retained here for backward compatibility)
+     * Source IDs for the Service Desk integration (replaced by provisioningConfig.managedSResourceRefs, but retained here for backward compatibility).
      * @type {Array<string>}
      * @memberof ServiceDeskIntegrationDtoAllOf
      * @deprecated
@@ -15700,12 +16197,44 @@ export interface ServiceDeskIntegrationDtoAllOf {
      */
     'attributes': { [key: string]: any; };
     /**
-     * Reference to beforeProvisioningRule for this Service Desk integration
-     * @type {BaseReferenceDto}
+     * 
+     * @type {BeforeProvisioningRuleDto}
      * @memberof ServiceDeskIntegrationDtoAllOf
      */
-    'beforeProvisioningRule'?: BaseReferenceDto;
+    'beforeProvisioningRule'?: BeforeProvisioningRuleDto;
 }
+/**
+ * Source for Service Desk integration template.
+ * @export
+ * @interface ServiceDeskIntegrationDtoAllOfOwnerRef
+ */
+export interface ServiceDeskIntegrationDtoAllOfOwnerRef {
+    /**
+     * DTO type of source for service desk integration template.
+     * @type {string}
+     * @memberof ServiceDeskIntegrationDtoAllOfOwnerRef
+     */
+    'type'?: ServiceDeskIntegrationDtoAllOfOwnerRefTypeEnum;
+    /**
+     * ID of source for service desk integration template.
+     * @type {string}
+     * @memberof ServiceDeskIntegrationDtoAllOfOwnerRef
+     */
+    'id'?: string;
+    /**
+     * Human-readable name of source for service desk integration template.
+     * @type {string}
+     * @memberof ServiceDeskIntegrationDtoAllOfOwnerRef
+     */
+    'name'?: string;
+}
+
+export const ServiceDeskIntegrationDtoAllOfOwnerRefTypeEnum = {
+    Source: 'SOURCE'
+} as const;
+
+export type ServiceDeskIntegrationDtoAllOfOwnerRefTypeEnum = typeof ServiceDeskIntegrationDtoAllOfOwnerRefTypeEnum[keyof typeof ServiceDeskIntegrationDtoAllOfOwnerRefTypeEnum];
+
 /**
  * 
  * @export
@@ -15805,6 +16334,38 @@ export interface ServiceDeskIntegrationTemplateType {
      */
     'scriptName': string;
 }
+/**
+ * Source for Service Desk integration template.
+ * @export
+ * @interface ServiceDeskSource
+ */
+export interface ServiceDeskSource {
+    /**
+     * DTO type of source for service desk integration template.
+     * @type {string}
+     * @memberof ServiceDeskSource
+     */
+    'type'?: ServiceDeskSourceTypeEnum;
+    /**
+     * ID of source for service desk integration template.
+     * @type {string}
+     * @memberof ServiceDeskSource
+     */
+    'id'?: string;
+    /**
+     * Human-readable name of source for service desk integration template.
+     * @type {string}
+     * @memberof ServiceDeskSource
+     */
+    'name'?: string;
+}
+
+export const ServiceDeskSourceTypeEnum = {
+    Source: 'SOURCE'
+} as const;
+
+export type ServiceDeskSourceTypeEnum = typeof ServiceDeskSourceTypeEnum[keyof typeof ServiceDeskSourceTypeEnum];
+
 /**
  * 
  * @export
@@ -15996,10 +16557,10 @@ export interface SodPolicy {
     'description'?: string | null;
     /**
      * 
-     * @type {BaseReferenceDto}
+     * @type {OwnerDto}
      * @memberof SodPolicy
      */
-    'ownerRef'?: BaseReferenceDto;
+    'ownerRef'?: OwnerDto;
     /**
      * Optional External Policy Reference
      * @type {string}
@@ -16107,6 +16668,38 @@ export interface SodPolicyConflictingAccessCriteria {
     'rightCriteria'?: AccessCriteria;
 }
 /**
+ * SOD policy.
+ * @export
+ * @interface SodPolicyDto
+ */
+export interface SodPolicyDto {
+    /**
+     * SOD policy DTO type.
+     * @type {string}
+     * @memberof SodPolicyDto
+     */
+    'type'?: SodPolicyDtoTypeEnum;
+    /**
+     * SOD policy ID.
+     * @type {string}
+     * @memberof SodPolicyDto
+     */
+    'id'?: string;
+    /**
+     * SOD policy display name.
+     * @type {string}
+     * @memberof SodPolicyDto
+     */
+    'name'?: string;
+}
+
+export const SodPolicyDtoTypeEnum = {
+    SodPolicy: 'SOD_POLICY'
+} as const;
+
+export type SodPolicyDtoTypeEnum = typeof SodPolicyDtoTypeEnum[keyof typeof SodPolicyDtoTypeEnum];
+
+/**
  * 
  * @export
  * @interface SodPolicySchedule
@@ -16144,10 +16737,10 @@ export interface SodPolicySchedule {
     'schedule'?: Schedule1;
     /**
      * 
-     * @type {Array<BaseReferenceDto>}
+     * @type {Array<SodRecipient>}
      * @memberof SodPolicySchedule
      */
-    'recipients'?: Array<BaseReferenceDto>;
+    'recipients'?: Array<SodRecipient>;
     /**
      * Indicates if empty results need to be emailed
      * @type {boolean}
@@ -16167,6 +16760,70 @@ export interface SodPolicySchedule {
      */
     'modifierId'?: string;
 }
+/**
+ * SOD policy recipient.
+ * @export
+ * @interface SodRecipient
+ */
+export interface SodRecipient {
+    /**
+     * SOD policy recipient DTO type.
+     * @type {string}
+     * @memberof SodRecipient
+     */
+    'type'?: SodRecipientTypeEnum;
+    /**
+     * SOD policy recipient\'s identity ID.
+     * @type {string}
+     * @memberof SodRecipient
+     */
+    'id'?: string;
+    /**
+     * SOD policy recipient\'s display name.
+     * @type {string}
+     * @memberof SodRecipient
+     */
+    'name'?: string;
+}
+
+export const SodRecipientTypeEnum = {
+    Identity: 'IDENTITY'
+} as const;
+
+export type SodRecipientTypeEnum = typeof SodRecipientTypeEnum[keyof typeof SodRecipientTypeEnum];
+
+/**
+ * SOD policy violation report result.
+ * @export
+ * @interface SodReportResultDto
+ */
+export interface SodReportResultDto {
+    /**
+     * SOD policy violation report result DTO type.
+     * @type {string}
+     * @memberof SodReportResultDto
+     */
+    'type'?: SodReportResultDtoTypeEnum;
+    /**
+     * SOD policy violation report result ID.
+     * @type {string}
+     * @memberof SodReportResultDto
+     */
+    'id'?: string;
+    /**
+     * Human-readable name of the SOD policy violation report result.
+     * @type {string}
+     * @memberof SodReportResultDto
+     */
+    'name'?: string;
+}
+
+export const SodReportResultDtoTypeEnum = {
+    ReportResult: 'REPORT_RESULT'
+} as const;
+
+export type SodReportResultDtoTypeEnum = typeof SodReportResultDtoTypeEnum[keyof typeof SodReportResultDtoTypeEnum];
+
 /**
  * An object referencing an SOD violation check
  * @export
@@ -16211,11 +16868,11 @@ export interface SodViolationCheckResult {
      */
     'violationContexts'?: Array<SodViolationContext>;
     /**
-     * A list of the Policies that were violated
-     * @type {Array<BaseReferenceDto>}
+     * A list of the SOD policies that were violated.
+     * @type {Array<SodPolicyDto>}
      * @memberof SodViolationCheckResult
      */
-    'violatedPolicies'?: Array<BaseReferenceDto>;
+    'violatedPolicies'?: Array<SodPolicyDto>;
 }
 /**
  * The contextual information of the violated criteria
@@ -16225,10 +16882,10 @@ export interface SodViolationCheckResult {
 export interface SodViolationContext {
     /**
      * 
-     * @type {BaseReferenceDto}
+     * @type {SodPolicyDto}
      * @memberof SodViolationContext
      */
-    'policy'?: BaseReferenceDto;
+    'policy'?: SodPolicyDto;
     /**
      * 
      * @type {SodViolationContextConflictingAccessCriteria}
@@ -16597,6 +17254,38 @@ export const SourceClusterTypeEnum = {
 } as const;
 
 export type SourceClusterTypeEnum = typeof SourceClusterTypeEnum[keyof typeof SourceClusterTypeEnum];
+
+/**
+ * Source cluster.
+ * @export
+ * @interface SourceClusterDto
+ */
+export interface SourceClusterDto {
+    /**
+     * Source cluster DTO type.
+     * @type {string}
+     * @memberof SourceClusterDto
+     */
+    'type'?: SourceClusterDtoTypeEnum;
+    /**
+     * Source cluster ID.
+     * @type {string}
+     * @memberof SourceClusterDto
+     */
+    'id'?: string;
+    /**
+     * Source cluster display name.
+     * @type {string}
+     * @memberof SourceClusterDto
+     */
+    'name'?: string;
+}
+
+export const SourceClusterDtoTypeEnum = {
+    Cluster: 'CLUSTER'
+} as const;
+
+export type SourceClusterDtoTypeEnum = typeof SourceClusterDtoTypeEnum[keyof typeof SourceClusterDtoTypeEnum];
 
 /**
  * Optional features that can be supported by an source. * AUTHENTICATE: The source supports pass-through authentication. * COMPOSITE: The source supports composite source creation. * DIRECT_PERMISSIONS: The source supports returning DirectPermissions. * DISCOVER_SCHEMA: The source supports discovering schemas for users and groups. * ENABLE The source supports reading if an account is enabled or disabled. * MANAGER_LOOKUP: The source supports looking up managers as they are encountered in a feed. This is the opposite of NO_RANDOM_ACCESS. * NO_RANDOM_ACCESS: The source does not support random access and the getObject() methods should not be called and expected to perform. * PROXY: The source can serve as a proxy for another source. When an source has a proxy, all connector calls made with that source are redirected through the connector for the proxy source. * SEARCH * TEMPLATE * UNLOCK: The source supports reading if an account is locked or unlocked. * UNSTRUCTURED_TARGETS: The source supports returning unstructured Targets. * SHAREPOINT_TARGET: The source supports returning unstructured Target data for SharePoint. It will be typically used by AD, LDAP sources. * PROVISIONING: The source can both read and write accounts. Having this feature implies that the provision() method is implemented. It also means that direct and target permissions can also be provisioned if they can be returned by aggregation. * GROUP_PROVISIONING: The source can both read and write groups. Having this feature implies that the provision() method is implemented. * SYNC_PROVISIONING: The source can provision accounts synchronously. * PASSWORD: The source can provision password changes. Since sources can never read passwords, this is should only be used in conjunction with the PROVISIONING feature. * CURRENT_PASSWORD: Some source types support verification of the current password * ACCOUNT_ONLY_REQUEST: The source supports requesting accounts without entitlements. * ADDITIONAL_ACCOUNT_REQUEST: The source supports requesting additional accounts. * NO_AGGREGATION: A source that does not support aggregation. * GROUPS_HAVE_MEMBERS: The source models group memberships with a member attribute on the group object rather than a groups attribute on the account object. This effects the implementation of delta account aggregation. * NO_PERMISSIONS_PROVISIONING: Indicates that the connector cannot provision direct or target permissions for accounts. When DIRECT_PERMISSIONS and PROVISIONING features are present, it is assumed that the connector can also provision direct permissions. This feature disables that assumption and causes permission request to be converted to work items for accounts. * NO_GROUP_PERMISSIONS_PROVISIONING: Indicates that the connector cannot provision direct or target permissions for groups. When DIRECT_PERMISSIONS and PROVISIONING features are present, it is assumed that the connector can also provision direct permissions. This feature disables that assumption and causes permission request to be converted to work items for groups. * NO_UNSTRUCTURED_TARGETS_PROVISIONING: This string will be replaced by NO_GROUP_PERMISSIONS_PROVISIONING and NO_PERMISSIONS_PROVISIONING. * NO_DIRECT_PERMISSIONS_PROVISIONING: This string will be replaced by NO_GROUP_PERMISSIONS_PROVISIONING and NO_PERMISSIONS_PROVISIONING.
@@ -17095,17 +17784,17 @@ export interface Substring {
     'input'?: { [key: string]: any; };
 }
 /**
- * 
+ * Tagged object.
  * @export
  * @interface TaggedObject
  */
 export interface TaggedObject {
     /**
      * 
-     * @type {TaggedObjectDto}
+     * @type {TaggedObject}
      * @memberof TaggedObject
      */
-    'objectRef'?: TaggedObjectDto;
+    'objectRef'?: TaggedObject;
     /**
      * Labels to be applied to an Object
      * @type {Array<string>}
@@ -17151,6 +17840,38 @@ export const TaggedObjectDtoTypeEnum = {
 } as const;
 
 export type TaggedObjectDtoTypeEnum = typeof TaggedObjectDtoTypeEnum[keyof typeof TaggedObjectDtoTypeEnum];
+
+/**
+ * Task result.
+ * @export
+ * @interface TaskResultDto
+ */
+export interface TaskResultDto {
+    /**
+     * Task result DTO type.
+     * @type {string}
+     * @memberof TaskResultDto
+     */
+    'type'?: TaskResultDtoTypeEnum;
+    /**
+     * Task result ID.
+     * @type {string}
+     * @memberof TaskResultDto
+     */
+    'id'?: string;
+    /**
+     * Task result display name.
+     * @type {string}
+     * @memberof TaskResultDto
+     */
+    'name'?: string | null;
+}
+
+export const TaskResultDtoTypeEnum = {
+    TaskResult: 'TASK_RESULT'
+} as const;
+
+export type TaskResultDtoTypeEnum = typeof TaskResultDtoTypeEnum[keyof typeof TaskResultDtoTypeEnum];
 
 /**
  * 
@@ -17646,7 +18367,7 @@ export interface ViolationContextPolicy {
      */
     'type'?: ViolationContextPolicyTypeEnum;
     /**
-     * ID of the object to which this reference applies
+     * SOD policy ID.
      * @type {string}
      * @memberof ViolationContextPolicy
      */
@@ -17719,24 +18440,31 @@ export type ViolationOwnerAssignmentConfigAssignmentRuleEnum = typeof ViolationO
  */
 export interface ViolationOwnerAssignmentConfigOwnerRef {
     /**
-     * 
-     * @type {DtoType}
+     * Owner\'s DTO type.
+     * @type {string}
      * @memberof ViolationOwnerAssignmentConfigOwnerRef
      */
-    'type'?: DtoType;
+    'type'?: ViolationOwnerAssignmentConfigOwnerRefTypeEnum;
     /**
-     * ID of the object to which this reference applies
+     * Owner\'s identity ID.
      * @type {string}
      * @memberof ViolationOwnerAssignmentConfigOwnerRef
      */
     'id'?: string;
     /**
-     * Human-readable display name of the object to which this reference applies
+     * Owner\'s display name.
      * @type {string}
      * @memberof ViolationOwnerAssignmentConfigOwnerRef
      */
     'name'?: string;
 }
+
+export const ViolationOwnerAssignmentConfigOwnerRefTypeEnum = {
+    Identity: 'IDENTITY'
+} as const;
+
+export type ViolationOwnerAssignmentConfigOwnerRefTypeEnum = typeof ViolationOwnerAssignmentConfigOwnerRefTypeEnum[keyof typeof ViolationOwnerAssignmentConfigOwnerRefTypeEnum];
+
 /**
  * An object containing a listing of the SOD violation reasons detected by this check.
  * @export
@@ -28043,7 +28771,7 @@ export const LifecycleStatesApiAxiosParamCreator = function (configuration?: Con
             };
         },
         /**
-         * This endpoint deletes the Lifecycle State using it\'s ID. A token with API, or ORG_ADMIN authority is required to call this API.
+         * This endpoint deletes the Lifecycle State using its ID. A token with API, or ORG_ADMIN authority is required to call this API.
          * @summary Delete Lifecycle State by ID
          * @param {string} identityProfileId Identity Profile ID
          * @param {string} lifecycleStateId Lifecycle State ID
@@ -28319,14 +29047,14 @@ export const LifecycleStatesApiFp = function(configuration?: Configuration) {
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
-         * This endpoint deletes the Lifecycle State using it\'s ID. A token with API, or ORG_ADMIN authority is required to call this API.
+         * This endpoint deletes the Lifecycle State using its ID. A token with API, or ORG_ADMIN authority is required to call this API.
          * @summary Delete Lifecycle State by ID
          * @param {string} identityProfileId Identity Profile ID
          * @param {string} lifecycleStateId Lifecycle State ID
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async deleteLifecycleState(identityProfileId: string, lifecycleStateId: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<BaseReferenceDto>> {
+        async deleteLifecycleState(identityProfileId: string, lifecycleStateId: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<LifecyclestateDeleted>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.deleteLifecycleState(identityProfileId, lifecycleStateId, axiosOptions);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -28404,14 +29132,14 @@ export const LifecycleStatesApiFactory = function (configuration?: Configuration
             return localVarFp.createLifecycleState(identityProfileId, lifecycleState, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
-         * This endpoint deletes the Lifecycle State using it\'s ID. A token with API, or ORG_ADMIN authority is required to call this API.
+         * This endpoint deletes the Lifecycle State using its ID. A token with API, or ORG_ADMIN authority is required to call this API.
          * @summary Delete Lifecycle State by ID
          * @param {string} identityProfileId Identity Profile ID
          * @param {string} lifecycleStateId Lifecycle State ID
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        deleteLifecycleState(identityProfileId: string, lifecycleStateId: string, axiosOptions?: any): AxiosPromise<BaseReferenceDto> {
+        deleteLifecycleState(identityProfileId: string, lifecycleStateId: string, axiosOptions?: any): AxiosPromise<LifecyclestateDeleted> {
             return localVarFp.deleteLifecycleState(identityProfileId, lifecycleStateId, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
@@ -28639,7 +29367,7 @@ export class LifecycleStatesApi extends BaseAPI {
     }
 
     /**
-     * This endpoint deletes the Lifecycle State using it\'s ID. A token with API, or ORG_ADMIN authority is required to call this API.
+     * This endpoint deletes the Lifecycle State using its ID. A token with API, or ORG_ADMIN authority is required to call this API.
      * @summary Delete Lifecycle State by ID
      * @param {LifecycleStatesApiDeleteLifecycleStateRequest} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
@@ -35333,7 +36061,7 @@ export const RolesApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async deleteBulkRoles(roleBulkDeleteRequest: RoleBulkDeleteRequest, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<BaseReferenceDto>> {
+        async deleteBulkRoles(roleBulkDeleteRequest: RoleBulkDeleteRequest, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<TaskResultDto>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.deleteBulkRoles(roleBulkDeleteRequest, axiosOptions);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -35432,7 +36160,7 @@ export const RolesApiFactory = function (configuration?: Configuration, basePath
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        deleteBulkRoles(roleBulkDeleteRequest: RoleBulkDeleteRequest, axiosOptions?: any): AxiosPromise<BaseReferenceDto> {
+        deleteBulkRoles(roleBulkDeleteRequest: RoleBulkDeleteRequest, axiosOptions?: any): AxiosPromise<TaskResultDto> {
             return localVarFp.deleteBulkRoles(roleBulkDeleteRequest, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
