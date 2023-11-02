@@ -1372,6 +1372,19 @@ export interface LoadAccountsRequestCC {
 /**
  * 
  * @export
+ * @interface LoadEntitlementsRequestCC
+ */
+export interface LoadEntitlementsRequestCC {
+    /**
+     * 
+     * @type {any}
+     * @memberof LoadEntitlementsRequestCC
+     */
+    'file'?: any;
+}
+/**
+ * 
+ * @export
  * @interface RefreshIdentitiesRequestCC
  */
 export interface RefreshIdentitiesRequestCC {
@@ -1430,19 +1443,6 @@ export interface RefreshIdentitiesRequestRefreshArgsCC {
      * @memberof RefreshIdentitiesRequestRefreshArgsCC
      */
     'provision'?: boolean;
-}
-/**
- * 
- * @export
- * @interface UpdateApplicationRequestCC
- */
-export interface UpdateApplicationRequestCC {
-    /**
-     * 
-     * @type {string}
-     * @memberof UpdateApplicationRequestCC
-     */
-    'description'?: string;
 }
 /**
  * 
@@ -1887,11 +1887,11 @@ export const ApplicationsCCApiAxiosParamCreator = function (configuration?: Conf
          * 
          * @summary Update Application
          * @param {string} id 
-         * @param {UpdateApplicationRequestCC} [updateApplicationRequestCC] 
+         * @param {{ [key: string]: any; }} [requestBody] 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        updateApplication: async (id: string, updateApplicationRequestCC?: UpdateApplicationRequestCC, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        updateApplication: async (id: string, requestBody?: { [key: string]: any; }, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'id' is not null or undefined
             assertParamExists('updateApplication', 'id', id)
             const localVarPath = `/cc/api/app/update/{id}`
@@ -1922,7 +1922,7 @@ export const ApplicationsCCApiAxiosParamCreator = function (configuration?: Conf
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(updateApplicationRequestCC, localVarRequestOptions, configuration)
+            localVarRequestOptions.data = serializeDataIfNeeded(requestBody, localVarRequestOptions, configuration)
 
             return {
                 url: toPathString(localVarUrlObj),
@@ -1946,7 +1946,7 @@ export const ApplicationsCCApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async createApplication(createApplicationRequestCC?: CreateApplicationRequestCC, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
+        async createApplication(createApplicationRequestCC?: CreateApplicationRequestCC, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<{ [key: string]: any; }>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.createApplication(createApplicationRequestCC, axiosOptions);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -1979,7 +1979,7 @@ export const ApplicationsCCApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async getApplicationAccessProfiles(id: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
+        async getApplicationAccessProfiles(id: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<{ [key: string]: any; }>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getApplicationAccessProfiles(id, axiosOptions);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -1997,12 +1997,12 @@ export const ApplicationsCCApiFp = function(configuration?: Configuration) {
          * 
          * @summary Update Application
          * @param {string} id 
-         * @param {UpdateApplicationRequestCC} [updateApplicationRequestCC] 
+         * @param {{ [key: string]: any; }} [requestBody] 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async updateApplication(id: string, updateApplicationRequestCC?: UpdateApplicationRequestCC, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.updateApplication(id, updateApplicationRequestCC, axiosOptions);
+        async updateApplication(id: string, requestBody?: { [key: string]: any; }, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<{ [key: string]: any; }>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.updateApplication(id, requestBody, axiosOptions);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
     }
@@ -2022,7 +2022,7 @@ export const ApplicationsCCApiFactory = function (configuration?: Configuration,
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        createApplication(createApplicationRequestCC?: CreateApplicationRequestCC, axiosOptions?: any): AxiosPromise<void> {
+        createApplication(createApplicationRequestCC?: CreateApplicationRequestCC, axiosOptions?: any): AxiosPromise<{ [key: string]: any; }> {
             return localVarFp.createApplication(createApplicationRequestCC, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
@@ -2052,7 +2052,7 @@ export const ApplicationsCCApiFactory = function (configuration?: Configuration,
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        getApplicationAccessProfiles(id: string, axiosOptions?: any): AxiosPromise<void> {
+        getApplicationAccessProfiles(id: string, axiosOptions?: any): AxiosPromise<{ [key: string]: any; }> {
             return localVarFp.getApplicationAccessProfiles(id, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
@@ -2068,12 +2068,12 @@ export const ApplicationsCCApiFactory = function (configuration?: Configuration,
          * 
          * @summary Update Application
          * @param {string} id 
-         * @param {UpdateApplicationRequestCC} [updateApplicationRequestCC] 
+         * @param {{ [key: string]: any; }} [requestBody] 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        updateApplication(id: string, updateApplicationRequestCC?: UpdateApplicationRequestCC, axiosOptions?: any): AxiosPromise<void> {
-            return localVarFp.updateApplication(id, updateApplicationRequestCC, axiosOptions).then((request) => request(axios, basePath));
+        updateApplication(id: string, requestBody?: { [key: string]: any; }, axiosOptions?: any): AxiosPromise<{ [key: string]: any; }> {
+            return localVarFp.updateApplication(id, requestBody, axiosOptions).then((request) => request(axios, basePath));
         },
     };
 };
@@ -2149,10 +2149,10 @@ export interface ApplicationsCCApiUpdateApplicationRequest {
 
     /**
      * 
-     * @type {UpdateApplicationRequestCC}
+     * @type {{ [key: string]: any; }}
      * @memberof ApplicationsCCApiUpdateApplication
      */
-    readonly updateApplicationRequestCC?: UpdateApplicationRequestCC
+    readonly requestBody?: { [key: string]: any; }
 }
 
 /**
@@ -2230,7 +2230,7 @@ export class ApplicationsCCApi extends BaseAPI {
      * @memberof ApplicationsCCApi
      */
     public updateApplication(requestParameters: ApplicationsCCApiUpdateApplicationRequest, axiosOptions?: AxiosRequestConfig) {
-        return ApplicationsCCApiFp(this.configuration).updateApplication(requestParameters.id, requestParameters.updateApplicationRequestCC, axiosOptions).then((request) => request(this.axios, this.basePath));
+        return ApplicationsCCApiFp(this.configuration).updateApplication(requestParameters.id, requestParameters.requestBody, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 }
 
@@ -2984,6 +2984,62 @@ export const SourcesAggregationCCApiAxiosParamCreator = function (configuration?
                 axiosOptions: localVarRequestOptions,
             };
         },
+        /**
+         * Aggregates a delimited file for the given source.  This only works for file-based sources.
+         * @summary Account Aggregation (File)
+         * @param {string} id 
+         * @param {string} [contentType] 
+         * @param {any} [file] 
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        loadEntitlements: async (id: string, contentType?: string, file?: any, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'id' is not null or undefined
+            assertParamExists('loadEntitlements', 'id', id)
+            const localVarPath = `/cc/api/source/loadEntitlements/{id}`
+                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'POST', ...baseOptions, ...axiosOptions};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            const localVarFormParams = new ((configuration && configuration.formDataCtor) || FormData)();
+
+            // authentication UserContextAuth required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "UserContextAuth", [], configuration)
+
+            // authentication UserContextAuth required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "UserContextAuth", [], configuration)
+
+            if (contentType !== undefined && contentType !== null) {
+                localVarHeaderParameter['Content-Type'] = String(contentType);
+            }
+
+
+            if (file !== undefined) { 
+                localVarFormParams.append('file', file as any);
+            }
+    
+    
+            localVarHeaderParameter['Content-Type'] = 'multipart/form-data';
+    
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
+            localVarRequestOptions.data = localVarFormParams;
+
+            return {
+                url: toPathString(localVarUrlObj),
+                axiosOptions: localVarRequestOptions,
+            };
+        },
     }
 };
 
@@ -3004,8 +3060,21 @@ export const SourcesAggregationCCApiFp = function(configuration?: Configuration)
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async loadAccounts(id: string, contentType?: string, disableOptimization?: boolean, file?: any, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
+        async loadAccounts(id: string, contentType?: string, disableOptimization?: boolean, file?: any, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<{ [key: string]: any; }>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.loadAccounts(id, contentType, disableOptimization, file, axiosOptions);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * Aggregates a delimited file for the given source.  This only works for file-based sources.
+         * @summary Account Aggregation (File)
+         * @param {string} id 
+         * @param {string} [contentType] 
+         * @param {any} [file] 
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        async loadEntitlements(id: string, contentType?: string, file?: any, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<{ [key: string]: any; }>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.loadEntitlements(id, contentType, file, axiosOptions);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
     }
@@ -3028,8 +3097,20 @@ export const SourcesAggregationCCApiFactory = function (configuration?: Configur
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        loadAccounts(id: string, contentType?: string, disableOptimization?: boolean, file?: any, axiosOptions?: any): AxiosPromise<void> {
+        loadAccounts(id: string, contentType?: string, disableOptimization?: boolean, file?: any, axiosOptions?: any): AxiosPromise<{ [key: string]: any; }> {
             return localVarFp.loadAccounts(id, contentType, disableOptimization, file, axiosOptions).then((request) => request(axios, basePath));
+        },
+        /**
+         * Aggregates a delimited file for the given source.  This only works for file-based sources.
+         * @summary Account Aggregation (File)
+         * @param {string} id 
+         * @param {string} [contentType] 
+         * @param {any} [file] 
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        loadEntitlements(id: string, contentType?: string, file?: any, axiosOptions?: any): AxiosPromise<{ [key: string]: any; }> {
+            return localVarFp.loadEntitlements(id, contentType, file, axiosOptions).then((request) => request(axios, basePath));
         },
     };
 };
@@ -3070,6 +3151,34 @@ export interface SourcesAggregationCCApiLoadAccountsRequest {
 }
 
 /**
+ * Request parameters for loadEntitlements operation in SourcesAggregationCCApi.
+ * @export
+ * @interface SourcesAggregationCCApiLoadEntitlementsRequest
+ */
+export interface SourcesAggregationCCApiLoadEntitlementsRequest {
+    /**
+     * 
+     * @type {string}
+     * @memberof SourcesAggregationCCApiLoadEntitlements
+     */
+    readonly id: string
+
+    /**
+     * 
+     * @type {string}
+     * @memberof SourcesAggregationCCApiLoadEntitlements
+     */
+    readonly contentType?: string
+
+    /**
+     * 
+     * @type {any}
+     * @memberof SourcesAggregationCCApiLoadEntitlements
+     */
+    readonly file?: any
+}
+
+/**
  * SourcesAggregationCCApi - object-oriented interface
  * @export
  * @class SourcesAggregationCCApi
@@ -3086,6 +3195,18 @@ export class SourcesAggregationCCApi extends BaseAPI {
      */
     public loadAccounts(requestParameters: SourcesAggregationCCApiLoadAccountsRequest, axiosOptions?: AxiosRequestConfig) {
         return SourcesAggregationCCApiFp(this.configuration).loadAccounts(requestParameters.id, requestParameters.contentType, requestParameters.disableOptimization, requestParameters.file, axiosOptions).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Aggregates a delimited file for the given source.  This only works for file-based sources.
+     * @summary Account Aggregation (File)
+     * @param {SourcesAggregationCCApiLoadEntitlementsRequest} requestParameters Request parameters.
+     * @param {*} [axiosOptions] Override http request option.
+     * @throws {RequiredError}
+     * @memberof SourcesAggregationCCApi
+     */
+    public loadEntitlements(requestParameters: SourcesAggregationCCApiLoadEntitlementsRequest, axiosOptions?: AxiosRequestConfig) {
+        return SourcesAggregationCCApiFp(this.configuration).loadEntitlements(requestParameters.id, requestParameters.contentType, requestParameters.file, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 }
 
@@ -3161,7 +3282,7 @@ export const SystemCCApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async refreshIdentities(contentType?: string, refreshIdentitiesRequestCC?: RefreshIdentitiesRequestCC, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
+        async refreshIdentities(contentType?: string, refreshIdentitiesRequestCC?: RefreshIdentitiesRequestCC, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<{ [key: string]: any; }>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.refreshIdentities(contentType, refreshIdentitiesRequestCC, axiosOptions);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -3183,7 +3304,7 @@ export const SystemCCApiFactory = function (configuration?: Configuration, baseP
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        refreshIdentities(contentType?: string, refreshIdentitiesRequestCC?: RefreshIdentitiesRequestCC, axiosOptions?: any): AxiosPromise<void> {
+        refreshIdentities(contentType?: string, refreshIdentitiesRequestCC?: RefreshIdentitiesRequestCC, axiosOptions?: any): AxiosPromise<{ [key: string]: any; }> {
             return localVarFp.refreshIdentities(contentType, refreshIdentitiesRequestCC, axiosOptions).then((request) => request(axios, basePath));
         },
     };
