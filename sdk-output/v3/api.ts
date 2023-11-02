@@ -17791,10 +17791,10 @@ export interface Substring {
 export interface TaggedObject {
     /**
      * 
-     * @type {TaggedObject}
+     * @type {TaggedObjectDto}
      * @memberof TaggedObject
      */
-    'objectRef'?: TaggedObject;
+    'objectRef'?: TaggedObjectDto;
     /**
      * Labels to be applied to an Object
      * @type {Array<string>}
