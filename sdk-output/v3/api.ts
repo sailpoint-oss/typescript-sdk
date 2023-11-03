@@ -3322,7 +3322,7 @@ export interface AttributeDefinition {
      * @type {boolean}
      * @memberof AttributeDefinition
      */
-    'isMultiValued'?: boolean;
+    'isMulti'?: boolean;
     /**
      * Flag indicating whether or not the attribute is an entitlement.
      * @type {boolean}
