@@ -80,6 +80,313 @@ export interface CreateConnectorRequestCC {
 /**
  * 
  * @export
+ * @interface GetApplication200ResponseCC
+ */
+export interface GetApplication200ResponseCC {
+    /**
+     * 
+     * @type {string}
+     * @memberof GetApplication200ResponseCC
+     */
+    'id'?: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof GetApplication200ResponseCC
+     */
+    'appId'?: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof GetApplication200ResponseCC
+     */
+    'serviceId'?: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof GetApplication200ResponseCC
+     */
+    'serviceAppId'?: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof GetApplication200ResponseCC
+     */
+    'name'?: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof GetApplication200ResponseCC
+     */
+    'description'?: string;
+    /**
+     * 
+     * @type {boolean}
+     * @memberof GetApplication200ResponseCC
+     */
+    'appCenterEnabled'?: boolean;
+    /**
+     * 
+     * @type {boolean}
+     * @memberof GetApplication200ResponseCC
+     */
+    'provisionRequestEnabled'?: boolean;
+    /**
+     * 
+     * @type {string}
+     * @memberof GetApplication200ResponseCC
+     */
+    'controlType'?: string;
+    /**
+     * 
+     * @type {boolean}
+     * @memberof GetApplication200ResponseCC
+     */
+    'mobile'?: boolean;
+    /**
+     * 
+     * @type {boolean}
+     * @memberof GetApplication200ResponseCC
+     */
+    'privateApp'?: boolean;
+    /**
+     * 
+     * @type {string}
+     * @memberof GetApplication200ResponseCC
+     */
+    'scriptName'?: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof GetApplication200ResponseCC
+     */
+    'status'?: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof GetApplication200ResponseCC
+     */
+    'icon'?: string;
+    /**
+     * 
+     * @type {ListApplications200ResponseInnerHealthCC}
+     * @memberof GetApplication200ResponseCC
+     */
+    'health'?: ListApplications200ResponseInnerHealthCC;
+    /**
+     * 
+     * @type {boolean}
+     * @memberof GetApplication200ResponseCC
+     */
+    'enableSso'?: boolean;
+    /**
+     * 
+     * @type {string}
+     * @memberof GetApplication200ResponseCC
+     */
+    'ssoMethod'?: string;
+    /**
+     * 
+     * @type {boolean}
+     * @memberof GetApplication200ResponseCC
+     */
+    'hasLinks'?: boolean;
+    /**
+     * 
+     * @type {boolean}
+     * @memberof GetApplication200ResponseCC
+     */
+    'hasAutomations'?: boolean;
+    /**
+     * 
+     * @type {object}
+     * @memberof GetApplication200ResponseCC
+     */
+    'stepUpAuthData'?: object;
+    /**
+     * 
+     * @type {string}
+     * @memberof GetApplication200ResponseCC
+     */
+    'stepUpAuthType'?: string;
+    /**
+     * 
+     * @type {boolean}
+     * @memberof GetApplication200ResponseCC
+     */
+    'usageAnalytics'?: boolean;
+    /**
+     * 
+     * @type {boolean}
+     * @memberof GetApplication200ResponseCC
+     */
+    'usageCertRequired'?: boolean;
+    /**
+     * 
+     * @type {object}
+     * @memberof GetApplication200ResponseCC
+     */
+    'usageCertText'?: object;
+    /**
+     * 
+     * @type {boolean}
+     * @memberof GetApplication200ResponseCC
+     */
+    'launchpadEnabled'?: boolean;
+    /**
+     * 
+     * @type {boolean}
+     * @memberof GetApplication200ResponseCC
+     */
+    'passwordManaged'?: boolean;
+    /**
+     * 
+     * @type {ListApplications200ResponseInnerOwnerCC}
+     * @memberof GetApplication200ResponseCC
+     */
+    'owner'?: ListApplications200ResponseInnerOwnerCC;
+    /**
+     * 
+     * @type {number}
+     * @memberof GetApplication200ResponseCC
+     */
+    'dateCreated'?: number;
+    /**
+     * 
+     * @type {number}
+     * @memberof GetApplication200ResponseCC
+     */
+    'lastUpdated'?: number;
+    /**
+     * 
+     * @type {object}
+     * @memberof GetApplication200ResponseCC
+     */
+    'defaultAccessProfile'?: object;
+    /**
+     * 
+     * @type {string}
+     * @memberof GetApplication200ResponseCC
+     */
+    'service'?: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof GetApplication200ResponseCC
+     */
+    'selectedSsoMethod'?: string;
+    /**
+     * 
+     * @type {number}
+     * @memberof GetApplication200ResponseCC
+     */
+    'supportedSsoMethods'?: number;
+    /**
+     * 
+     * @type {object}
+     * @memberof GetApplication200ResponseCC
+     */
+    'offNetworkBlockedRoles'?: object;
+    /**
+     * 
+     * @type {string}
+     * @memberof GetApplication200ResponseCC
+     */
+    'supportedOffNetwork'?: string;
+    /**
+     * 
+     * @type {number}
+     * @memberof GetApplication200ResponseCC
+     */
+    'accountServiceId'?: number;
+    /**
+     * 
+     * @type {number}
+     * @memberof GetApplication200ResponseCC
+     */
+    'launcherCount'?: number;
+    /**
+     * 
+     * @type {string}
+     * @memberof GetApplication200ResponseCC
+     */
+    'accountServiceName'?: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof GetApplication200ResponseCC
+     */
+    'accountServiceExternalId'?: string;
+    /**
+     * 
+     * @type {boolean}
+     * @memberof GetApplication200ResponseCC
+     */
+    'accountServiceMatchAllAccounts'?: boolean;
+    /**
+     * 
+     * @type {string}
+     * @memberof GetApplication200ResponseCC
+     */
+    'externalId'?: string;
+    /**
+     * 
+     * @type {boolean}
+     * @memberof GetApplication200ResponseCC
+     */
+    'accountServiceUseForPasswordManagement'?: boolean;
+    /**
+     * 
+     * @type {string}
+     * @memberof GetApplication200ResponseCC
+     */
+    'accountServicePolicyId'?: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof GetApplication200ResponseCC
+     */
+    'accountServicePolicyName'?: string;
+    /**
+     * 
+     * @type {boolean}
+     * @memberof GetApplication200ResponseCC
+     */
+    'requireStrongAuthn'?: boolean;
+    /**
+     * 
+     * @type {Array<ListApplications200ResponseInnerAccountServicePoliciesInnerCC>}
+     * @memberof GetApplication200ResponseCC
+     */
+    'accountServicePolicies'?: Array<ListApplications200ResponseInnerAccountServicePoliciesInnerCC>;
+    /**
+     * 
+     * @type {string}
+     * @memberof GetApplication200ResponseCC
+     */
+    'xsdVersion'?: string;
+    /**
+     * 
+     * @type {Array<ListApplications200ResponseInnerAppProfilesInnerCC>}
+     * @memberof GetApplication200ResponseCC
+     */
+    'appProfiles'?: Array<ListApplications200ResponseInnerAppProfilesInnerCC>;
+    /**
+     * 
+     * @type {number}
+     * @memberof GetApplication200ResponseCC
+     */
+    'passwordServiceId'?: number;
+    /**
+     * 
+     * @type {object}
+     * @memberof GetApplication200ResponseCC
+     */
+    'accessProfileIds'?: object;
+}
+/**
+ * 
+ * @export
  * @interface GetIdentity200ResponseAuthCC
  */
 export interface GetIdentity200ResponseAuthCC {
@@ -1161,10 +1468,10 @@ export interface ListApplications200ResponseInnerCC {
     'passwordServiceId'?: number;
     /**
      * 
-     * @type {object}
+     * @type {Array<string>}
      * @memberof ListApplications200ResponseInnerCC
      */
-    'accessProfileIds'?: object;
+    'accessProfileIds'?: Array<string>;
 }
 /**
  * 
@@ -1968,7 +2275,7 @@ export const ApplicationsCCApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async getApplication(id: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ListApplications200ResponseInnerCC>> {
+        async getApplication(id: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<GetApplication200ResponseCC>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getApplication(id, axiosOptions);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -2042,7 +2349,7 @@ export const ApplicationsCCApiFactory = function (configuration?: Configuration,
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        getApplication(id: string, axiosOptions?: any): AxiosPromise<ListApplications200ResponseInnerCC> {
+        getApplication(id: string, axiosOptions?: any): AxiosPromise<GetApplication200ResponseCC> {
             return localVarFp.getApplication(id, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
