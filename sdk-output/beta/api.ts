@@ -60985,6 +60985,7 @@ export const SODPolicyBetaApiAxiosParamCreator = function (configuration?: Confi
          * @summary Create SOD policy
          * @param {SodPolicyBeta} sodPolicyBeta 
          * @param {*} [axiosOptions] Override http request option.
+         * @deprecated
          * @throws {RequiredError}
          */
         createSodPolicy: async (sodPolicyBeta: SodPolicyBeta, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
@@ -61030,6 +61031,7 @@ export const SODPolicyBetaApiAxiosParamCreator = function (configuration?: Confi
          * @param {string} id The ID of the SOD Policy to delete.
          * @param {boolean} [logical] Indicates whether this is a soft delete (logical true) or a hard delete.
          * @param {*} [axiosOptions] Override http request option.
+         * @deprecated
          * @throws {RequiredError}
          */
         deleteSodPolicy: async (id: string, logical?: boolean, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
@@ -61076,6 +61078,7 @@ export const SODPolicyBetaApiAxiosParamCreator = function (configuration?: Confi
          * @summary Delete SOD policy schedule
          * @param {string} id The ID of the SOD policy the schedule must be deleted for.
          * @param {*} [axiosOptions] Override http request option.
+         * @deprecated
          * @throws {RequiredError}
          */
         deleteSodPolicySchedule: async (id: string, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
@@ -61119,13 +61122,14 @@ export const SODPolicyBetaApiAxiosParamCreator = function (configuration?: Confi
          * @param {string} reportResultId The ID of the report reference to download.
          * @param {string} fileName Custom Name for the  file.
          * @param {*} [axiosOptions] Override http request option.
+         * @deprecated
          * @throws {RequiredError}
          */
-        downloadCustomViolationReport: async (reportResultId: string, fileName: string, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        getCustomViolationReport: async (reportResultId: string, fileName: string, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'reportResultId' is not null or undefined
-            assertParamExists('downloadCustomViolationReport', 'reportResultId', reportResultId)
+            assertParamExists('getCustomViolationReport', 'reportResultId', reportResultId)
             // verify required parameter 'fileName' is not null or undefined
-            assertParamExists('downloadCustomViolationReport', 'fileName', fileName)
+            assertParamExists('getCustomViolationReport', 'fileName', fileName)
             const localVarPath = `/sod-violation-report/{reportResultId}/download/{fileName}`
                 .replace(`{${"reportResultId"}}`, encodeURIComponent(String(reportResultId)))
                 .replace(`{${"fileName"}}`, encodeURIComponent(String(fileName)));
@@ -61164,11 +61168,12 @@ export const SODPolicyBetaApiAxiosParamCreator = function (configuration?: Confi
          * @summary Download violation report
          * @param {string} reportResultId The ID of the report reference to download.
          * @param {*} [axiosOptions] Override http request option.
+         * @deprecated
          * @throws {RequiredError}
          */
-        downloadDefaultViolationReport: async (reportResultId: string, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        getDefaultViolationReport: async (reportResultId: string, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'reportResultId' is not null or undefined
-            assertParamExists('downloadDefaultViolationReport', 'reportResultId', reportResultId)
+            assertParamExists('getDefaultViolationReport', 'reportResultId', reportResultId)
             const localVarPath = `/sod-violation-report/{reportResultId}/download`
                 .replace(`{${"reportResultId"}}`, encodeURIComponent(String(reportResultId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
@@ -61205,6 +61210,7 @@ export const SODPolicyBetaApiAxiosParamCreator = function (configuration?: Confi
          * This endpoint gets the status for a violation report for all policy run. Requires role of ORG_ADMIN.
          * @summary Get multi-report run task status
          * @param {*} [axiosOptions] Override http request option.
+         * @deprecated
          * @throws {RequiredError}
          */
         getSodAllReportRunStatus: async (axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
@@ -61244,6 +61250,7 @@ export const SODPolicyBetaApiAxiosParamCreator = function (configuration?: Confi
          * @summary Get SOD policy by ID
          * @param {string} id The ID of the object reference to retrieve.
          * @param {*} [axiosOptions] Override http request option.
+         * @deprecated
          * @throws {RequiredError}
          */
         getSodPolicy: async (id: string, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
@@ -61286,6 +61293,7 @@ export const SODPolicyBetaApiAxiosParamCreator = function (configuration?: Confi
          * @summary Get SOD policy schedule
          * @param {string} id The ID of the object reference to retrieve.
          * @param {*} [axiosOptions] Override http request option.
+         * @deprecated
          * @throws {RequiredError}
          */
         getSodPolicySchedule: async (id: string, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
@@ -61328,6 +61336,7 @@ export const SODPolicyBetaApiAxiosParamCreator = function (configuration?: Confi
          * @summary Get violation report run status
          * @param {string} reportResultId The ID of the report reference to retrieve.
          * @param {*} [axiosOptions] Override http request option.
+         * @deprecated
          * @throws {RequiredError}
          */
         getSodViolationReportRunStatus: async (reportResultId: string, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
@@ -61370,6 +61379,7 @@ export const SODPolicyBetaApiAxiosParamCreator = function (configuration?: Confi
          * @summary Get SOD violation report status
          * @param {string} id The ID of the object reference to retrieve.
          * @param {*} [axiosOptions] Override http request option.
+         * @deprecated
          * @throws {RequiredError}
          */
         getSodViolationReportStatus: async (id: string, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
@@ -61415,6 +61425,7 @@ export const SODPolicyBetaApiAxiosParamCreator = function (configuration?: Confi
          * @param {boolean} [count] If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
          * @param {string} [filters] Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq*  **name**: *eq*  **state**: *eq*
          * @param {*} [axiosOptions] Override http request option.
+         * @deprecated
          * @throws {RequiredError}
          */
         listSodPolicies: async (limit?: number, offset?: number, count?: boolean, filters?: string, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
@@ -61466,11 +61477,12 @@ export const SODPolicyBetaApiAxiosParamCreator = function (configuration?: Confi
             };
         },
         /**
-         * Allows updating SOD Policy fields other than [\"id\",\"created\",\"creatorId\",\"policyQuery\",\"type\"] using the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard. Requires role of ORG_ADMIN. This endpoint can only patch CONFLICTING_ACCESS_BASED type policies. Do not use this endpoint to patch general policies - doing so will build an API exception. 
+         * Allows updating SOD Policy fields other than [\"id\",\"created\",\"creatorId\",\"policyQuery\",\"type\"] using the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard. Requires role of ORG_ADMIN. This endpoint can only patch CONFLICTING_ACCESS_BASED type policies. Do not use this endpoint to patch general policies - doing so will build an API exception.
          * @summary Patch a SOD policy
          * @param {string} id The ID of the SOD policy being modified.
          * @param {Array<object>} requestBody A list of SOD Policy update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.  The following fields are patchable: * name * description * ownerRef * externalPolicyReference * compensatingControls * correctionAdvice * state * tags * violationOwnerAssignmentConfig * scheduled * conflictingAccessCriteria 
          * @param {*} [axiosOptions] Override http request option.
+         * @deprecated
          * @throws {RequiredError}
          */
         patchSodPolicy: async (id: string, requestBody: Array<object>, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
@@ -61514,102 +61526,19 @@ export const SODPolicyBetaApiAxiosParamCreator = function (configuration?: Confi
             };
         },
         /**
-         * Runs multi-policy report for the org. If a policy reports more than 5000 violations, the report mentions that the violation limit was exceeded for that policy. If the request is empty, the report runs for all policies. Otherwise, the report runs for only the filtered policy list provided. Requires role of ORG_ADMIN.
-         * @summary Runs all policies for org
-         * @param {MultiPolicyRequestBeta} [multiPolicyRequestBeta] 
-         * @param {*} [axiosOptions] Override http request option.
-         * @throws {RequiredError}
-         */
-        runSodAllPoliciesForOrg: async (multiPolicyRequestBeta?: MultiPolicyRequestBeta, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
-            const localVarPath = `/sod-violation-report/run`;
-            // use dummy base URL string because the URL constructor only accepts absolute URLs.
-            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
-            let baseOptions;
-            if (configuration) {
-                baseOptions = configuration.baseOptions;
-            }
-
-            const localVarRequestOptions = { method: 'POST', ...baseOptions, ...axiosOptions};
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-
-            // authentication UserContextAuth required
-            // oauth required
-            await setOAuthToObject(localVarHeaderParameter, "UserContextAuth", [], configuration)
-
-            // authentication UserContextAuth required
-            // oauth required
-            await setOAuthToObject(localVarHeaderParameter, "UserContextAuth", [], configuration)
-
-
-    
-            localVarHeaderParameter['Content-Type'] = 'application/json';
-
-            setSearchParams(localVarUrlObj, localVarQueryParameter);
-            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
-            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(multiPolicyRequestBeta, localVarRequestOptions, configuration)
-
-            return {
-                url: toPathString(localVarUrlObj),
-                axiosOptions: localVarRequestOptions,
-            };
-        },
-        /**
-         * This invokes processing of violation report for given SOD policy. If the policy reports more than 5000 violations, the report returns with violation limit exceeded message. Requires role of ORG_ADMIN.
-         * @summary Runs SOD policy violation report
-         * @param {string} id The SOD policy ID to run.
-         * @param {*} [axiosOptions] Override http request option.
-         * @throws {RequiredError}
-         */
-        runSodPolicy: async (id: string, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
-            // verify required parameter 'id' is not null or undefined
-            assertParamExists('runSodPolicy', 'id', id)
-            const localVarPath = `/sod-policies/{id}/violation-report/run`
-                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
-            // use dummy base URL string because the URL constructor only accepts absolute URLs.
-            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
-            let baseOptions;
-            if (configuration) {
-                baseOptions = configuration.baseOptions;
-            }
-
-            const localVarRequestOptions = { method: 'POST', ...baseOptions, ...axiosOptions};
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-
-            // authentication UserContextAuth required
-            // oauth required
-            await setOAuthToObject(localVarHeaderParameter, "UserContextAuth", [], configuration)
-
-            // authentication UserContextAuth required
-            // oauth required
-            await setOAuthToObject(localVarHeaderParameter, "UserContextAuth", [], configuration)
-
-
-    
-            setSearchParams(localVarUrlObj, localVarQueryParameter);
-            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
-            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
-
-            return {
-                url: toPathString(localVarUrlObj),
-                axiosOptions: localVarRequestOptions,
-            };
-        },
-        /**
          * This updates schedule for a specified SOD policy. Requires role of ORG_ADMIN.
          * @summary Update SOD Policy schedule
          * @param {string} id The ID of the SOD policy to update its schedule.
          * @param {SodPolicyScheduleBeta} sodPolicyScheduleBeta 
          * @param {*} [axiosOptions] Override http request option.
+         * @deprecated
          * @throws {RequiredError}
          */
-        updatePolicySchedule: async (id: string, sodPolicyScheduleBeta: SodPolicyScheduleBeta, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        putPolicySchedule: async (id: string, sodPolicyScheduleBeta: SodPolicyScheduleBeta, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'id' is not null or undefined
-            assertParamExists('updatePolicySchedule', 'id', id)
+            assertParamExists('putPolicySchedule', 'id', id)
             // verify required parameter 'sodPolicyScheduleBeta' is not null or undefined
-            assertParamExists('updatePolicySchedule', 'sodPolicyScheduleBeta', sodPolicyScheduleBeta)
+            assertParamExists('putPolicySchedule', 'sodPolicyScheduleBeta', sodPolicyScheduleBeta)
             const localVarPath = `/sod-policies/{id}/schedule`
                 .replace(`{${"id"}}`, encodeURIComponent(String(id)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
@@ -61651,13 +61580,14 @@ export const SODPolicyBetaApiAxiosParamCreator = function (configuration?: Confi
          * @param {string} id The ID of the SOD policy to update.
          * @param {SodPolicyBeta} sodPolicyBeta 
          * @param {*} [axiosOptions] Override http request option.
+         * @deprecated
          * @throws {RequiredError}
          */
-        updateSodPolicy: async (id: string, sodPolicyBeta: SodPolicyBeta, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        putSodPolicy: async (id: string, sodPolicyBeta: SodPolicyBeta, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'id' is not null or undefined
-            assertParamExists('updateSodPolicy', 'id', id)
+            assertParamExists('putSodPolicy', 'id', id)
             // verify required parameter 'sodPolicyBeta' is not null or undefined
-            assertParamExists('updateSodPolicy', 'sodPolicyBeta', sodPolicyBeta)
+            assertParamExists('putSodPolicy', 'sodPolicyBeta', sodPolicyBeta)
             const localVarPath = `/sod-policies/{id}`
                 .replace(`{${"id"}}`, encodeURIComponent(String(id)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
@@ -61693,6 +61623,92 @@ export const SODPolicyBetaApiAxiosParamCreator = function (configuration?: Confi
                 axiosOptions: localVarRequestOptions,
             };
         },
+        /**
+         * Runs multi-policy report for the org. If a policy reports more than 5000 violations, the report mentions that the violation limit was exceeded for that policy. If the request is empty, the report runs for all policies. Otherwise, the report runs for only the filtered policy list provided. Requires role of ORG_ADMIN.
+         * @summary Runs all policies for org
+         * @param {MultiPolicyRequestBeta} [multiPolicyRequestBeta] 
+         * @param {*} [axiosOptions] Override http request option.
+         * @deprecated
+         * @throws {RequiredError}
+         */
+        startSodAllPoliciesForOrg: async (multiPolicyRequestBeta?: MultiPolicyRequestBeta, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            const localVarPath = `/sod-violation-report/run`;
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'POST', ...baseOptions, ...axiosOptions};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication UserContextAuth required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "UserContextAuth", [], configuration)
+
+            // authentication UserContextAuth required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "UserContextAuth", [], configuration)
+
+
+    
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
+            localVarRequestOptions.data = serializeDataIfNeeded(multiPolicyRequestBeta, localVarRequestOptions, configuration)
+
+            return {
+                url: toPathString(localVarUrlObj),
+                axiosOptions: localVarRequestOptions,
+            };
+        },
+        /**
+         * This invokes processing of violation report for given SOD policy. If the policy reports more than 5000 violations, the report returns with violation limit exceeded message. Requires role of ORG_ADMIN.
+         * @summary Runs SOD policy violation report
+         * @param {string} id The SOD policy ID to run.
+         * @param {*} [axiosOptions] Override http request option.
+         * @deprecated
+         * @throws {RequiredError}
+         */
+        startSodPolicy: async (id: string, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'id' is not null or undefined
+            assertParamExists('startSodPolicy', 'id', id)
+            const localVarPath = `/sod-policies/{id}/violation-report/run`
+                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'POST', ...baseOptions, ...axiosOptions};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication UserContextAuth required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "UserContextAuth", [], configuration)
+
+            // authentication UserContextAuth required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "UserContextAuth", [], configuration)
+
+
+    
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                axiosOptions: localVarRequestOptions,
+            };
+        },
     }
 };
 
@@ -61708,6 +61724,7 @@ export const SODPolicyBetaApiFp = function(configuration?: Configuration) {
          * @summary Create SOD policy
          * @param {SodPolicyBeta} sodPolicyBeta 
          * @param {*} [axiosOptions] Override http request option.
+         * @deprecated
          * @throws {RequiredError}
          */
         async createSodPolicy(sodPolicyBeta: SodPolicyBeta, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SodPolicyBeta>> {
@@ -61720,6 +61737,7 @@ export const SODPolicyBetaApiFp = function(configuration?: Configuration) {
          * @param {string} id The ID of the SOD Policy to delete.
          * @param {boolean} [logical] Indicates whether this is a soft delete (logical true) or a hard delete.
          * @param {*} [axiosOptions] Override http request option.
+         * @deprecated
          * @throws {RequiredError}
          */
         async deleteSodPolicy(id: string, logical?: boolean, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
@@ -61731,6 +61749,7 @@ export const SODPolicyBetaApiFp = function(configuration?: Configuration) {
          * @summary Delete SOD policy schedule
          * @param {string} id The ID of the SOD policy the schedule must be deleted for.
          * @param {*} [axiosOptions] Override http request option.
+         * @deprecated
          * @throws {RequiredError}
          */
         async deleteSodPolicySchedule(id: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
@@ -61743,10 +61762,11 @@ export const SODPolicyBetaApiFp = function(configuration?: Configuration) {
          * @param {string} reportResultId The ID of the report reference to download.
          * @param {string} fileName Custom Name for the  file.
          * @param {*} [axiosOptions] Override http request option.
+         * @deprecated
          * @throws {RequiredError}
          */
-        async downloadCustomViolationReport(reportResultId: string, fileName: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<any>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.downloadCustomViolationReport(reportResultId, fileName, axiosOptions);
+        async getCustomViolationReport(reportResultId: string, fileName: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<any>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getCustomViolationReport(reportResultId, fileName, axiosOptions);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
@@ -61754,16 +61774,18 @@ export const SODPolicyBetaApiFp = function(configuration?: Configuration) {
          * @summary Download violation report
          * @param {string} reportResultId The ID of the report reference to download.
          * @param {*} [axiosOptions] Override http request option.
+         * @deprecated
          * @throws {RequiredError}
          */
-        async downloadDefaultViolationReport(reportResultId: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<any>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.downloadDefaultViolationReport(reportResultId, axiosOptions);
+        async getDefaultViolationReport(reportResultId: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<any>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getDefaultViolationReport(reportResultId, axiosOptions);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
          * This endpoint gets the status for a violation report for all policy run. Requires role of ORG_ADMIN.
          * @summary Get multi-report run task status
          * @param {*} [axiosOptions] Override http request option.
+         * @deprecated
          * @throws {RequiredError}
          */
         async getSodAllReportRunStatus(axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ReportResultReferenceBeta>> {
@@ -61775,6 +61797,7 @@ export const SODPolicyBetaApiFp = function(configuration?: Configuration) {
          * @summary Get SOD policy by ID
          * @param {string} id The ID of the object reference to retrieve.
          * @param {*} [axiosOptions] Override http request option.
+         * @deprecated
          * @throws {RequiredError}
          */
         async getSodPolicy(id: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SodPolicyBeta>> {
@@ -61786,6 +61809,7 @@ export const SODPolicyBetaApiFp = function(configuration?: Configuration) {
          * @summary Get SOD policy schedule
          * @param {string} id The ID of the object reference to retrieve.
          * @param {*} [axiosOptions] Override http request option.
+         * @deprecated
          * @throws {RequiredError}
          */
         async getSodPolicySchedule(id: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SodPolicyScheduleBeta>> {
@@ -61797,6 +61821,7 @@ export const SODPolicyBetaApiFp = function(configuration?: Configuration) {
          * @summary Get violation report run status
          * @param {string} reportResultId The ID of the report reference to retrieve.
          * @param {*} [axiosOptions] Override http request option.
+         * @deprecated
          * @throws {RequiredError}
          */
         async getSodViolationReportRunStatus(reportResultId: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ReportResultReferenceBeta>> {
@@ -61808,6 +61833,7 @@ export const SODPolicyBetaApiFp = function(configuration?: Configuration) {
          * @summary Get SOD violation report status
          * @param {string} id The ID of the object reference to retrieve.
          * @param {*} [axiosOptions] Override http request option.
+         * @deprecated
          * @throws {RequiredError}
          */
         async getSodViolationReportStatus(id: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ReportResultReferenceBeta>> {
@@ -61822,6 +61848,7 @@ export const SODPolicyBetaApiFp = function(configuration?: Configuration) {
          * @param {boolean} [count] If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
          * @param {string} [filters] Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq*  **name**: *eq*  **state**: *eq*
          * @param {*} [axiosOptions] Override http request option.
+         * @deprecated
          * @throws {RequiredError}
          */
         async listSodPolicies(limit?: number, offset?: number, count?: boolean, filters?: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<SodPolicyBeta>>> {
@@ -61829,37 +61856,16 @@ export const SODPolicyBetaApiFp = function(configuration?: Configuration) {
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
-         * Allows updating SOD Policy fields other than [\"id\",\"created\",\"creatorId\",\"policyQuery\",\"type\"] using the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard. Requires role of ORG_ADMIN. This endpoint can only patch CONFLICTING_ACCESS_BASED type policies. Do not use this endpoint to patch general policies - doing so will build an API exception. 
+         * Allows updating SOD Policy fields other than [\"id\",\"created\",\"creatorId\",\"policyQuery\",\"type\"] using the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard. Requires role of ORG_ADMIN. This endpoint can only patch CONFLICTING_ACCESS_BASED type policies. Do not use this endpoint to patch general policies - doing so will build an API exception.
          * @summary Patch a SOD policy
          * @param {string} id The ID of the SOD policy being modified.
          * @param {Array<object>} requestBody A list of SOD Policy update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.  The following fields are patchable: * name * description * ownerRef * externalPolicyReference * compensatingControls * correctionAdvice * state * tags * violationOwnerAssignmentConfig * scheduled * conflictingAccessCriteria 
          * @param {*} [axiosOptions] Override http request option.
+         * @deprecated
          * @throws {RequiredError}
          */
         async patchSodPolicy(id: string, requestBody: Array<object>, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SodPolicyBeta>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.patchSodPolicy(id, requestBody, axiosOptions);
-            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
-        },
-        /**
-         * Runs multi-policy report for the org. If a policy reports more than 5000 violations, the report mentions that the violation limit was exceeded for that policy. If the request is empty, the report runs for all policies. Otherwise, the report runs for only the filtered policy list provided. Requires role of ORG_ADMIN.
-         * @summary Runs all policies for org
-         * @param {MultiPolicyRequestBeta} [multiPolicyRequestBeta] 
-         * @param {*} [axiosOptions] Override http request option.
-         * @throws {RequiredError}
-         */
-        async runSodAllPoliciesForOrg(multiPolicyRequestBeta?: MultiPolicyRequestBeta, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ReportResultReferenceBeta>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.runSodAllPoliciesForOrg(multiPolicyRequestBeta, axiosOptions);
-            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
-        },
-        /**
-         * This invokes processing of violation report for given SOD policy. If the policy reports more than 5000 violations, the report returns with violation limit exceeded message. Requires role of ORG_ADMIN.
-         * @summary Runs SOD policy violation report
-         * @param {string} id The SOD policy ID to run.
-         * @param {*} [axiosOptions] Override http request option.
-         * @throws {RequiredError}
-         */
-        async runSodPolicy(id: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ReportResultReferenceBeta>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.runSodPolicy(id, axiosOptions);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
@@ -61868,10 +61874,11 @@ export const SODPolicyBetaApiFp = function(configuration?: Configuration) {
          * @param {string} id The ID of the SOD policy to update its schedule.
          * @param {SodPolicyScheduleBeta} sodPolicyScheduleBeta 
          * @param {*} [axiosOptions] Override http request option.
+         * @deprecated
          * @throws {RequiredError}
          */
-        async updatePolicySchedule(id: string, sodPolicyScheduleBeta: SodPolicyScheduleBeta, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SodPolicyScheduleBeta>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.updatePolicySchedule(id, sodPolicyScheduleBeta, axiosOptions);
+        async putPolicySchedule(id: string, sodPolicyScheduleBeta: SodPolicyScheduleBeta, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SodPolicyScheduleBeta>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.putPolicySchedule(id, sodPolicyScheduleBeta, axiosOptions);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
@@ -61880,10 +61887,35 @@ export const SODPolicyBetaApiFp = function(configuration?: Configuration) {
          * @param {string} id The ID of the SOD policy to update.
          * @param {SodPolicyBeta} sodPolicyBeta 
          * @param {*} [axiosOptions] Override http request option.
+         * @deprecated
          * @throws {RequiredError}
          */
-        async updateSodPolicy(id: string, sodPolicyBeta: SodPolicyBeta, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SodPolicyBeta>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.updateSodPolicy(id, sodPolicyBeta, axiosOptions);
+        async putSodPolicy(id: string, sodPolicyBeta: SodPolicyBeta, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SodPolicyBeta>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.putSodPolicy(id, sodPolicyBeta, axiosOptions);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * Runs multi-policy report for the org. If a policy reports more than 5000 violations, the report mentions that the violation limit was exceeded for that policy. If the request is empty, the report runs for all policies. Otherwise, the report runs for only the filtered policy list provided. Requires role of ORG_ADMIN.
+         * @summary Runs all policies for org
+         * @param {MultiPolicyRequestBeta} [multiPolicyRequestBeta] 
+         * @param {*} [axiosOptions] Override http request option.
+         * @deprecated
+         * @throws {RequiredError}
+         */
+        async startSodAllPoliciesForOrg(multiPolicyRequestBeta?: MultiPolicyRequestBeta, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ReportResultReferenceBeta>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.startSodAllPoliciesForOrg(multiPolicyRequestBeta, axiosOptions);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * This invokes processing of violation report for given SOD policy. If the policy reports more than 5000 violations, the report returns with violation limit exceeded message. Requires role of ORG_ADMIN.
+         * @summary Runs SOD policy violation report
+         * @param {string} id The SOD policy ID to run.
+         * @param {*} [axiosOptions] Override http request option.
+         * @deprecated
+         * @throws {RequiredError}
+         */
+        async startSodPolicy(id: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ReportResultReferenceBeta>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.startSodPolicy(id, axiosOptions);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
     }
@@ -61901,6 +61933,7 @@ export const SODPolicyBetaApiFactory = function (configuration?: Configuration, 
          * @summary Create SOD policy
          * @param {SodPolicyBeta} sodPolicyBeta 
          * @param {*} [axiosOptions] Override http request option.
+         * @deprecated
          * @throws {RequiredError}
          */
         createSodPolicy(sodPolicyBeta: SodPolicyBeta, axiosOptions?: any): AxiosPromise<SodPolicyBeta> {
@@ -61912,6 +61945,7 @@ export const SODPolicyBetaApiFactory = function (configuration?: Configuration, 
          * @param {string} id The ID of the SOD Policy to delete.
          * @param {boolean} [logical] Indicates whether this is a soft delete (logical true) or a hard delete.
          * @param {*} [axiosOptions] Override http request option.
+         * @deprecated
          * @throws {RequiredError}
          */
         deleteSodPolicy(id: string, logical?: boolean, axiosOptions?: any): AxiosPromise<void> {
@@ -61922,6 +61956,7 @@ export const SODPolicyBetaApiFactory = function (configuration?: Configuration, 
          * @summary Delete SOD policy schedule
          * @param {string} id The ID of the SOD policy the schedule must be deleted for.
          * @param {*} [axiosOptions] Override http request option.
+         * @deprecated
          * @throws {RequiredError}
          */
         deleteSodPolicySchedule(id: string, axiosOptions?: any): AxiosPromise<void> {
@@ -61933,25 +61968,28 @@ export const SODPolicyBetaApiFactory = function (configuration?: Configuration, 
          * @param {string} reportResultId The ID of the report reference to download.
          * @param {string} fileName Custom Name for the  file.
          * @param {*} [axiosOptions] Override http request option.
+         * @deprecated
          * @throws {RequiredError}
          */
-        downloadCustomViolationReport(reportResultId: string, fileName: string, axiosOptions?: any): AxiosPromise<any> {
-            return localVarFp.downloadCustomViolationReport(reportResultId, fileName, axiosOptions).then((request) => request(axios, basePath));
+        getCustomViolationReport(reportResultId: string, fileName: string, axiosOptions?: any): AxiosPromise<any> {
+            return localVarFp.getCustomViolationReport(reportResultId, fileName, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * This allows to download a violation report for a given report reference. Requires role of ORG_ADMIN.
          * @summary Download violation report
          * @param {string} reportResultId The ID of the report reference to download.
          * @param {*} [axiosOptions] Override http request option.
+         * @deprecated
          * @throws {RequiredError}
          */
-        downloadDefaultViolationReport(reportResultId: string, axiosOptions?: any): AxiosPromise<any> {
-            return localVarFp.downloadDefaultViolationReport(reportResultId, axiosOptions).then((request) => request(axios, basePath));
+        getDefaultViolationReport(reportResultId: string, axiosOptions?: any): AxiosPromise<any> {
+            return localVarFp.getDefaultViolationReport(reportResultId, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * This endpoint gets the status for a violation report for all policy run. Requires role of ORG_ADMIN.
          * @summary Get multi-report run task status
          * @param {*} [axiosOptions] Override http request option.
+         * @deprecated
          * @throws {RequiredError}
          */
         getSodAllReportRunStatus(axiosOptions?: any): AxiosPromise<ReportResultReferenceBeta> {
@@ -61962,6 +62000,7 @@ export const SODPolicyBetaApiFactory = function (configuration?: Configuration, 
          * @summary Get SOD policy by ID
          * @param {string} id The ID of the object reference to retrieve.
          * @param {*} [axiosOptions] Override http request option.
+         * @deprecated
          * @throws {RequiredError}
          */
         getSodPolicy(id: string, axiosOptions?: any): AxiosPromise<SodPolicyBeta> {
@@ -61972,6 +62011,7 @@ export const SODPolicyBetaApiFactory = function (configuration?: Configuration, 
          * @summary Get SOD policy schedule
          * @param {string} id The ID of the object reference to retrieve.
          * @param {*} [axiosOptions] Override http request option.
+         * @deprecated
          * @throws {RequiredError}
          */
         getSodPolicySchedule(id: string, axiosOptions?: any): AxiosPromise<SodPolicyScheduleBeta> {
@@ -61982,6 +62022,7 @@ export const SODPolicyBetaApiFactory = function (configuration?: Configuration, 
          * @summary Get violation report run status
          * @param {string} reportResultId The ID of the report reference to retrieve.
          * @param {*} [axiosOptions] Override http request option.
+         * @deprecated
          * @throws {RequiredError}
          */
         getSodViolationReportRunStatus(reportResultId: string, axiosOptions?: any): AxiosPromise<ReportResultReferenceBeta> {
@@ -61992,6 +62033,7 @@ export const SODPolicyBetaApiFactory = function (configuration?: Configuration, 
          * @summary Get SOD violation report status
          * @param {string} id The ID of the object reference to retrieve.
          * @param {*} [axiosOptions] Override http request option.
+         * @deprecated
          * @throws {RequiredError}
          */
         getSodViolationReportStatus(id: string, axiosOptions?: any): AxiosPromise<ReportResultReferenceBeta> {
@@ -62005,41 +62047,23 @@ export const SODPolicyBetaApiFactory = function (configuration?: Configuration, 
          * @param {boolean} [count] If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
          * @param {string} [filters] Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq*  **name**: *eq*  **state**: *eq*
          * @param {*} [axiosOptions] Override http request option.
+         * @deprecated
          * @throws {RequiredError}
          */
         listSodPolicies(limit?: number, offset?: number, count?: boolean, filters?: string, axiosOptions?: any): AxiosPromise<Array<SodPolicyBeta>> {
             return localVarFp.listSodPolicies(limit, offset, count, filters, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
-         * Allows updating SOD Policy fields other than [\"id\",\"created\",\"creatorId\",\"policyQuery\",\"type\"] using the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard. Requires role of ORG_ADMIN. This endpoint can only patch CONFLICTING_ACCESS_BASED type policies. Do not use this endpoint to patch general policies - doing so will build an API exception. 
+         * Allows updating SOD Policy fields other than [\"id\",\"created\",\"creatorId\",\"policyQuery\",\"type\"] using the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard. Requires role of ORG_ADMIN. This endpoint can only patch CONFLICTING_ACCESS_BASED type policies. Do not use this endpoint to patch general policies - doing so will build an API exception.
          * @summary Patch a SOD policy
          * @param {string} id The ID of the SOD policy being modified.
          * @param {Array<object>} requestBody A list of SOD Policy update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.  The following fields are patchable: * name * description * ownerRef * externalPolicyReference * compensatingControls * correctionAdvice * state * tags * violationOwnerAssignmentConfig * scheduled * conflictingAccessCriteria 
          * @param {*} [axiosOptions] Override http request option.
+         * @deprecated
          * @throws {RequiredError}
          */
         patchSodPolicy(id: string, requestBody: Array<object>, axiosOptions?: any): AxiosPromise<SodPolicyBeta> {
             return localVarFp.patchSodPolicy(id, requestBody, axiosOptions).then((request) => request(axios, basePath));
-        },
-        /**
-         * Runs multi-policy report for the org. If a policy reports more than 5000 violations, the report mentions that the violation limit was exceeded for that policy. If the request is empty, the report runs for all policies. Otherwise, the report runs for only the filtered policy list provided. Requires role of ORG_ADMIN.
-         * @summary Runs all policies for org
-         * @param {MultiPolicyRequestBeta} [multiPolicyRequestBeta] 
-         * @param {*} [axiosOptions] Override http request option.
-         * @throws {RequiredError}
-         */
-        runSodAllPoliciesForOrg(multiPolicyRequestBeta?: MultiPolicyRequestBeta, axiosOptions?: any): AxiosPromise<ReportResultReferenceBeta> {
-            return localVarFp.runSodAllPoliciesForOrg(multiPolicyRequestBeta, axiosOptions).then((request) => request(axios, basePath));
-        },
-        /**
-         * This invokes processing of violation report for given SOD policy. If the policy reports more than 5000 violations, the report returns with violation limit exceeded message. Requires role of ORG_ADMIN.
-         * @summary Runs SOD policy violation report
-         * @param {string} id The SOD policy ID to run.
-         * @param {*} [axiosOptions] Override http request option.
-         * @throws {RequiredError}
-         */
-        runSodPolicy(id: string, axiosOptions?: any): AxiosPromise<ReportResultReferenceBeta> {
-            return localVarFp.runSodPolicy(id, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * This updates schedule for a specified SOD policy. Requires role of ORG_ADMIN.
@@ -62047,10 +62071,11 @@ export const SODPolicyBetaApiFactory = function (configuration?: Configuration, 
          * @param {string} id The ID of the SOD policy to update its schedule.
          * @param {SodPolicyScheduleBeta} sodPolicyScheduleBeta 
          * @param {*} [axiosOptions] Override http request option.
+         * @deprecated
          * @throws {RequiredError}
          */
-        updatePolicySchedule(id: string, sodPolicyScheduleBeta: SodPolicyScheduleBeta, axiosOptions?: any): AxiosPromise<SodPolicyScheduleBeta> {
-            return localVarFp.updatePolicySchedule(id, sodPolicyScheduleBeta, axiosOptions).then((request) => request(axios, basePath));
+        putPolicySchedule(id: string, sodPolicyScheduleBeta: SodPolicyScheduleBeta, axiosOptions?: any): AxiosPromise<SodPolicyScheduleBeta> {
+            return localVarFp.putPolicySchedule(id, sodPolicyScheduleBeta, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * This updates a specified SOD policy. Requires role of ORG_ADMIN.
@@ -62058,10 +62083,33 @@ export const SODPolicyBetaApiFactory = function (configuration?: Configuration, 
          * @param {string} id The ID of the SOD policy to update.
          * @param {SodPolicyBeta} sodPolicyBeta 
          * @param {*} [axiosOptions] Override http request option.
+         * @deprecated
          * @throws {RequiredError}
          */
-        updateSodPolicy(id: string, sodPolicyBeta: SodPolicyBeta, axiosOptions?: any): AxiosPromise<SodPolicyBeta> {
-            return localVarFp.updateSodPolicy(id, sodPolicyBeta, axiosOptions).then((request) => request(axios, basePath));
+        putSodPolicy(id: string, sodPolicyBeta: SodPolicyBeta, axiosOptions?: any): AxiosPromise<SodPolicyBeta> {
+            return localVarFp.putSodPolicy(id, sodPolicyBeta, axiosOptions).then((request) => request(axios, basePath));
+        },
+        /**
+         * Runs multi-policy report for the org. If a policy reports more than 5000 violations, the report mentions that the violation limit was exceeded for that policy. If the request is empty, the report runs for all policies. Otherwise, the report runs for only the filtered policy list provided. Requires role of ORG_ADMIN.
+         * @summary Runs all policies for org
+         * @param {MultiPolicyRequestBeta} [multiPolicyRequestBeta] 
+         * @param {*} [axiosOptions] Override http request option.
+         * @deprecated
+         * @throws {RequiredError}
+         */
+        startSodAllPoliciesForOrg(multiPolicyRequestBeta?: MultiPolicyRequestBeta, axiosOptions?: any): AxiosPromise<ReportResultReferenceBeta> {
+            return localVarFp.startSodAllPoliciesForOrg(multiPolicyRequestBeta, axiosOptions).then((request) => request(axios, basePath));
+        },
+        /**
+         * This invokes processing of violation report for given SOD policy. If the policy reports more than 5000 violations, the report returns with violation limit exceeded message. Requires role of ORG_ADMIN.
+         * @summary Runs SOD policy violation report
+         * @param {string} id The SOD policy ID to run.
+         * @param {*} [axiosOptions] Override http request option.
+         * @deprecated
+         * @throws {RequiredError}
+         */
+        startSodPolicy(id: string, axiosOptions?: any): AxiosPromise<ReportResultReferenceBeta> {
+            return localVarFp.startSodPolicy(id, axiosOptions).then((request) => request(axios, basePath));
         },
     };
 };
@@ -62116,36 +62164,36 @@ export interface SODPolicyBetaApiDeleteSodPolicyScheduleRequest {
 }
 
 /**
- * Request parameters for downloadCustomViolationReport operation in SODPolicyBetaApi.
+ * Request parameters for getCustomViolationReport operation in SODPolicyBetaApi.
  * @export
- * @interface SODPolicyBetaApiDownloadCustomViolationReportRequest
+ * @interface SODPolicyBetaApiGetCustomViolationReportRequest
  */
-export interface SODPolicyBetaApiDownloadCustomViolationReportRequest {
+export interface SODPolicyBetaApiGetCustomViolationReportRequest {
     /**
      * The ID of the report reference to download.
      * @type {string}
-     * @memberof SODPolicyBetaApiDownloadCustomViolationReport
+     * @memberof SODPolicyBetaApiGetCustomViolationReport
      */
     readonly reportResultId: string
 
     /**
      * Custom Name for the  file.
      * @type {string}
-     * @memberof SODPolicyBetaApiDownloadCustomViolationReport
+     * @memberof SODPolicyBetaApiGetCustomViolationReport
      */
     readonly fileName: string
 }
 
 /**
- * Request parameters for downloadDefaultViolationReport operation in SODPolicyBetaApi.
+ * Request parameters for getDefaultViolationReport operation in SODPolicyBetaApi.
  * @export
- * @interface SODPolicyBetaApiDownloadDefaultViolationReportRequest
+ * @interface SODPolicyBetaApiGetDefaultViolationReportRequest
  */
-export interface SODPolicyBetaApiDownloadDefaultViolationReportRequest {
+export interface SODPolicyBetaApiGetDefaultViolationReportRequest {
     /**
      * The ID of the report reference to download.
      * @type {string}
-     * @memberof SODPolicyBetaApiDownloadDefaultViolationReport
+     * @memberof SODPolicyBetaApiGetDefaultViolationReport
      */
     readonly reportResultId: string
 }
@@ -62263,73 +62311,73 @@ export interface SODPolicyBetaApiPatchSodPolicyRequest {
 }
 
 /**
- * Request parameters for runSodAllPoliciesForOrg operation in SODPolicyBetaApi.
+ * Request parameters for putPolicySchedule operation in SODPolicyBetaApi.
  * @export
- * @interface SODPolicyBetaApiRunSodAllPoliciesForOrgRequest
+ * @interface SODPolicyBetaApiPutPolicyScheduleRequest
  */
-export interface SODPolicyBetaApiRunSodAllPoliciesForOrgRequest {
-    /**
-     * 
-     * @type {MultiPolicyRequestBeta}
-     * @memberof SODPolicyBetaApiRunSodAllPoliciesForOrg
-     */
-    readonly multiPolicyRequestBeta?: MultiPolicyRequestBeta
-}
-
-/**
- * Request parameters for runSodPolicy operation in SODPolicyBetaApi.
- * @export
- * @interface SODPolicyBetaApiRunSodPolicyRequest
- */
-export interface SODPolicyBetaApiRunSodPolicyRequest {
-    /**
-     * The SOD policy ID to run.
-     * @type {string}
-     * @memberof SODPolicyBetaApiRunSodPolicy
-     */
-    readonly id: string
-}
-
-/**
- * Request parameters for updatePolicySchedule operation in SODPolicyBetaApi.
- * @export
- * @interface SODPolicyBetaApiUpdatePolicyScheduleRequest
- */
-export interface SODPolicyBetaApiUpdatePolicyScheduleRequest {
+export interface SODPolicyBetaApiPutPolicyScheduleRequest {
     /**
      * The ID of the SOD policy to update its schedule.
      * @type {string}
-     * @memberof SODPolicyBetaApiUpdatePolicySchedule
+     * @memberof SODPolicyBetaApiPutPolicySchedule
      */
     readonly id: string
 
     /**
      * 
      * @type {SodPolicyScheduleBeta}
-     * @memberof SODPolicyBetaApiUpdatePolicySchedule
+     * @memberof SODPolicyBetaApiPutPolicySchedule
      */
     readonly sodPolicyScheduleBeta: SodPolicyScheduleBeta
 }
 
 /**
- * Request parameters for updateSodPolicy operation in SODPolicyBetaApi.
+ * Request parameters for putSodPolicy operation in SODPolicyBetaApi.
  * @export
- * @interface SODPolicyBetaApiUpdateSodPolicyRequest
+ * @interface SODPolicyBetaApiPutSodPolicyRequest
  */
-export interface SODPolicyBetaApiUpdateSodPolicyRequest {
+export interface SODPolicyBetaApiPutSodPolicyRequest {
     /**
      * The ID of the SOD policy to update.
      * @type {string}
-     * @memberof SODPolicyBetaApiUpdateSodPolicy
+     * @memberof SODPolicyBetaApiPutSodPolicy
      */
     readonly id: string
 
     /**
      * 
      * @type {SodPolicyBeta}
-     * @memberof SODPolicyBetaApiUpdateSodPolicy
+     * @memberof SODPolicyBetaApiPutSodPolicy
      */
     readonly sodPolicyBeta: SodPolicyBeta
+}
+
+/**
+ * Request parameters for startSodAllPoliciesForOrg operation in SODPolicyBetaApi.
+ * @export
+ * @interface SODPolicyBetaApiStartSodAllPoliciesForOrgRequest
+ */
+export interface SODPolicyBetaApiStartSodAllPoliciesForOrgRequest {
+    /**
+     * 
+     * @type {MultiPolicyRequestBeta}
+     * @memberof SODPolicyBetaApiStartSodAllPoliciesForOrg
+     */
+    readonly multiPolicyRequestBeta?: MultiPolicyRequestBeta
+}
+
+/**
+ * Request parameters for startSodPolicy operation in SODPolicyBetaApi.
+ * @export
+ * @interface SODPolicyBetaApiStartSodPolicyRequest
+ */
+export interface SODPolicyBetaApiStartSodPolicyRequest {
+    /**
+     * The SOD policy ID to run.
+     * @type {string}
+     * @memberof SODPolicyBetaApiStartSodPolicy
+     */
+    readonly id: string
 }
 
 /**
@@ -62344,6 +62392,7 @@ export class SODPolicyBetaApi extends BaseAPI {
      * @summary Create SOD policy
      * @param {SODPolicyBetaApiCreateSodPolicyRequest} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
+     * @deprecated
      * @throws {RequiredError}
      * @memberof SODPolicyBetaApi
      */
@@ -62356,6 +62405,7 @@ export class SODPolicyBetaApi extends BaseAPI {
      * @summary Delete SOD policy by ID
      * @param {SODPolicyBetaApiDeleteSodPolicyRequest} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
+     * @deprecated
      * @throws {RequiredError}
      * @memberof SODPolicyBetaApi
      */
@@ -62368,6 +62418,7 @@ export class SODPolicyBetaApi extends BaseAPI {
      * @summary Delete SOD policy schedule
      * @param {SODPolicyBetaApiDeleteSodPolicyScheduleRequest} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
+     * @deprecated
      * @throws {RequiredError}
      * @memberof SODPolicyBetaApi
      */
@@ -62378,31 +62429,34 @@ export class SODPolicyBetaApi extends BaseAPI {
     /**
      * This allows to download a specified named violation report for a given report reference. Requires role of ORG_ADMIN.
      * @summary Download custom violation report
-     * @param {SODPolicyBetaApiDownloadCustomViolationReportRequest} requestParameters Request parameters.
+     * @param {SODPolicyBetaApiGetCustomViolationReportRequest} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
+     * @deprecated
      * @throws {RequiredError}
      * @memberof SODPolicyBetaApi
      */
-    public downloadCustomViolationReport(requestParameters: SODPolicyBetaApiDownloadCustomViolationReportRequest, axiosOptions?: AxiosRequestConfig) {
-        return SODPolicyBetaApiFp(this.configuration).downloadCustomViolationReport(requestParameters.reportResultId, requestParameters.fileName, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public getCustomViolationReport(requestParameters: SODPolicyBetaApiGetCustomViolationReportRequest, axiosOptions?: AxiosRequestConfig) {
+        return SODPolicyBetaApiFp(this.configuration).getCustomViolationReport(requestParameters.reportResultId, requestParameters.fileName, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * This allows to download a violation report for a given report reference. Requires role of ORG_ADMIN.
      * @summary Download violation report
-     * @param {SODPolicyBetaApiDownloadDefaultViolationReportRequest} requestParameters Request parameters.
+     * @param {SODPolicyBetaApiGetDefaultViolationReportRequest} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
+     * @deprecated
      * @throws {RequiredError}
      * @memberof SODPolicyBetaApi
      */
-    public downloadDefaultViolationReport(requestParameters: SODPolicyBetaApiDownloadDefaultViolationReportRequest, axiosOptions?: AxiosRequestConfig) {
-        return SODPolicyBetaApiFp(this.configuration).downloadDefaultViolationReport(requestParameters.reportResultId, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public getDefaultViolationReport(requestParameters: SODPolicyBetaApiGetDefaultViolationReportRequest, axiosOptions?: AxiosRequestConfig) {
+        return SODPolicyBetaApiFp(this.configuration).getDefaultViolationReport(requestParameters.reportResultId, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * This endpoint gets the status for a violation report for all policy run. Requires role of ORG_ADMIN.
      * @summary Get multi-report run task status
      * @param {*} [axiosOptions] Override http request option.
+     * @deprecated
      * @throws {RequiredError}
      * @memberof SODPolicyBetaApi
      */
@@ -62415,6 +62469,7 @@ export class SODPolicyBetaApi extends BaseAPI {
      * @summary Get SOD policy by ID
      * @param {SODPolicyBetaApiGetSodPolicyRequest} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
+     * @deprecated
      * @throws {RequiredError}
      * @memberof SODPolicyBetaApi
      */
@@ -62427,6 +62482,7 @@ export class SODPolicyBetaApi extends BaseAPI {
      * @summary Get SOD policy schedule
      * @param {SODPolicyBetaApiGetSodPolicyScheduleRequest} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
+     * @deprecated
      * @throws {RequiredError}
      * @memberof SODPolicyBetaApi
      */
@@ -62439,6 +62495,7 @@ export class SODPolicyBetaApi extends BaseAPI {
      * @summary Get violation report run status
      * @param {SODPolicyBetaApiGetSodViolationReportRunStatusRequest} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
+     * @deprecated
      * @throws {RequiredError}
      * @memberof SODPolicyBetaApi
      */
@@ -62451,6 +62508,7 @@ export class SODPolicyBetaApi extends BaseAPI {
      * @summary Get SOD violation report status
      * @param {SODPolicyBetaApiGetSodViolationReportStatusRequest} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
+     * @deprecated
      * @throws {RequiredError}
      * @memberof SODPolicyBetaApi
      */
@@ -62463,6 +62521,7 @@ export class SODPolicyBetaApi extends BaseAPI {
      * @summary List SOD policies
      * @param {SODPolicyBetaApiListSodPoliciesRequest} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
+     * @deprecated
      * @throws {RequiredError}
      * @memberof SODPolicyBetaApi
      */
@@ -62471,10 +62530,11 @@ export class SODPolicyBetaApi extends BaseAPI {
     }
 
     /**
-     * Allows updating SOD Policy fields other than [\"id\",\"created\",\"creatorId\",\"policyQuery\",\"type\"] using the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard. Requires role of ORG_ADMIN. This endpoint can only patch CONFLICTING_ACCESS_BASED type policies. Do not use this endpoint to patch general policies - doing so will build an API exception. 
+     * Allows updating SOD Policy fields other than [\"id\",\"created\",\"creatorId\",\"policyQuery\",\"type\"] using the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard. Requires role of ORG_ADMIN. This endpoint can only patch CONFLICTING_ACCESS_BASED type policies. Do not use this endpoint to patch general policies - doing so will build an API exception.
      * @summary Patch a SOD policy
      * @param {SODPolicyBetaApiPatchSodPolicyRequest} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
+     * @deprecated
      * @throws {RequiredError}
      * @memberof SODPolicyBetaApi
      */
@@ -62483,51 +62543,55 @@ export class SODPolicyBetaApi extends BaseAPI {
     }
 
     /**
-     * Runs multi-policy report for the org. If a policy reports more than 5000 violations, the report mentions that the violation limit was exceeded for that policy. If the request is empty, the report runs for all policies. Otherwise, the report runs for only the filtered policy list provided. Requires role of ORG_ADMIN.
-     * @summary Runs all policies for org
-     * @param {SODPolicyBetaApiRunSodAllPoliciesForOrgRequest} requestParameters Request parameters.
-     * @param {*} [axiosOptions] Override http request option.
-     * @throws {RequiredError}
-     * @memberof SODPolicyBetaApi
-     */
-    public runSodAllPoliciesForOrg(requestParameters: SODPolicyBetaApiRunSodAllPoliciesForOrgRequest = {}, axiosOptions?: AxiosRequestConfig) {
-        return SODPolicyBetaApiFp(this.configuration).runSodAllPoliciesForOrg(requestParameters.multiPolicyRequestBeta, axiosOptions).then((request) => request(this.axios, this.basePath));
-    }
-
-    /**
-     * This invokes processing of violation report for given SOD policy. If the policy reports more than 5000 violations, the report returns with violation limit exceeded message. Requires role of ORG_ADMIN.
-     * @summary Runs SOD policy violation report
-     * @param {SODPolicyBetaApiRunSodPolicyRequest} requestParameters Request parameters.
-     * @param {*} [axiosOptions] Override http request option.
-     * @throws {RequiredError}
-     * @memberof SODPolicyBetaApi
-     */
-    public runSodPolicy(requestParameters: SODPolicyBetaApiRunSodPolicyRequest, axiosOptions?: AxiosRequestConfig) {
-        return SODPolicyBetaApiFp(this.configuration).runSodPolicy(requestParameters.id, axiosOptions).then((request) => request(this.axios, this.basePath));
-    }
-
-    /**
      * This updates schedule for a specified SOD policy. Requires role of ORG_ADMIN.
      * @summary Update SOD Policy schedule
-     * @param {SODPolicyBetaApiUpdatePolicyScheduleRequest} requestParameters Request parameters.
+     * @param {SODPolicyBetaApiPutPolicyScheduleRequest} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
+     * @deprecated
      * @throws {RequiredError}
      * @memberof SODPolicyBetaApi
      */
-    public updatePolicySchedule(requestParameters: SODPolicyBetaApiUpdatePolicyScheduleRequest, axiosOptions?: AxiosRequestConfig) {
-        return SODPolicyBetaApiFp(this.configuration).updatePolicySchedule(requestParameters.id, requestParameters.sodPolicyScheduleBeta, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public putPolicySchedule(requestParameters: SODPolicyBetaApiPutPolicyScheduleRequest, axiosOptions?: AxiosRequestConfig) {
+        return SODPolicyBetaApiFp(this.configuration).putPolicySchedule(requestParameters.id, requestParameters.sodPolicyScheduleBeta, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * This updates a specified SOD policy. Requires role of ORG_ADMIN.
      * @summary Update SOD policy by ID
-     * @param {SODPolicyBetaApiUpdateSodPolicyRequest} requestParameters Request parameters.
+     * @param {SODPolicyBetaApiPutSodPolicyRequest} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
+     * @deprecated
      * @throws {RequiredError}
      * @memberof SODPolicyBetaApi
      */
-    public updateSodPolicy(requestParameters: SODPolicyBetaApiUpdateSodPolicyRequest, axiosOptions?: AxiosRequestConfig) {
-        return SODPolicyBetaApiFp(this.configuration).updateSodPolicy(requestParameters.id, requestParameters.sodPolicyBeta, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public putSodPolicy(requestParameters: SODPolicyBetaApiPutSodPolicyRequest, axiosOptions?: AxiosRequestConfig) {
+        return SODPolicyBetaApiFp(this.configuration).putSodPolicy(requestParameters.id, requestParameters.sodPolicyBeta, axiosOptions).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Runs multi-policy report for the org. If a policy reports more than 5000 violations, the report mentions that the violation limit was exceeded for that policy. If the request is empty, the report runs for all policies. Otherwise, the report runs for only the filtered policy list provided. Requires role of ORG_ADMIN.
+     * @summary Runs all policies for org
+     * @param {SODPolicyBetaApiStartSodAllPoliciesForOrgRequest} requestParameters Request parameters.
+     * @param {*} [axiosOptions] Override http request option.
+     * @deprecated
+     * @throws {RequiredError}
+     * @memberof SODPolicyBetaApi
+     */
+    public startSodAllPoliciesForOrg(requestParameters: SODPolicyBetaApiStartSodAllPoliciesForOrgRequest = {}, axiosOptions?: AxiosRequestConfig) {
+        return SODPolicyBetaApiFp(this.configuration).startSodAllPoliciesForOrg(requestParameters.multiPolicyRequestBeta, axiosOptions).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * This invokes processing of violation report for given SOD policy. If the policy reports more than 5000 violations, the report returns with violation limit exceeded message. Requires role of ORG_ADMIN.
+     * @summary Runs SOD policy violation report
+     * @param {SODPolicyBetaApiStartSodPolicyRequest} requestParameters Request parameters.
+     * @param {*} [axiosOptions] Override http request option.
+     * @deprecated
+     * @throws {RequiredError}
+     * @memberof SODPolicyBetaApi
+     */
+    public startSodPolicy(requestParameters: SODPolicyBetaApiStartSodPolicyRequest, axiosOptions?: AxiosRequestConfig) {
+        return SODPolicyBetaApiFp(this.configuration).startSodPolicy(requestParameters.id, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 }
 
@@ -62540,14 +62604,15 @@ export const SODViolationsBetaApiAxiosParamCreator = function (configuration?: C
     return {
         /**
          * This API is used to check if granting some additional accesses would cause the subject to be in violation of any SOD policies. Returns the violations that would be caused.  A token with ORG_ADMIN or API authority is required to call this API.
-         * @summary Predict SOD violations for the given identity if they were granted the given access.
+         * @summary Predict SOD violations for identity.
          * @param {IdentityWithNewAccessBeta} identityWithNewAccessBeta 
          * @param {*} [axiosOptions] Override http request option.
+         * @deprecated
          * @throws {RequiredError}
          */
-        predictSodViolations: async (identityWithNewAccessBeta: IdentityWithNewAccessBeta, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        startPredictSodViolations: async (identityWithNewAccessBeta: IdentityWithNewAccessBeta, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'identityWithNewAccessBeta' is not null or undefined
-            assertParamExists('predictSodViolations', 'identityWithNewAccessBeta', identityWithNewAccessBeta)
+            assertParamExists('startPredictSodViolations', 'identityWithNewAccessBeta', identityWithNewAccessBeta)
             const localVarPath = `/sod-violations/predict`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -62594,13 +62659,14 @@ export const SODViolationsBetaApiFp = function(configuration?: Configuration) {
     return {
         /**
          * This API is used to check if granting some additional accesses would cause the subject to be in violation of any SOD policies. Returns the violations that would be caused.  A token with ORG_ADMIN or API authority is required to call this API.
-         * @summary Predict SOD violations for the given identity if they were granted the given access.
+         * @summary Predict SOD violations for identity.
          * @param {IdentityWithNewAccessBeta} identityWithNewAccessBeta 
          * @param {*} [axiosOptions] Override http request option.
+         * @deprecated
          * @throws {RequiredError}
          */
-        async predictSodViolations(identityWithNewAccessBeta: IdentityWithNewAccessBeta, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ViolationPredictionBeta>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.predictSodViolations(identityWithNewAccessBeta, axiosOptions);
+        async startPredictSodViolations(identityWithNewAccessBeta: IdentityWithNewAccessBeta, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ViolationPredictionBeta>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.startPredictSodViolations(identityWithNewAccessBeta, axiosOptions);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
     }
@@ -62615,27 +62681,28 @@ export const SODViolationsBetaApiFactory = function (configuration?: Configurati
     return {
         /**
          * This API is used to check if granting some additional accesses would cause the subject to be in violation of any SOD policies. Returns the violations that would be caused.  A token with ORG_ADMIN or API authority is required to call this API.
-         * @summary Predict SOD violations for the given identity if they were granted the given access.
+         * @summary Predict SOD violations for identity.
          * @param {IdentityWithNewAccessBeta} identityWithNewAccessBeta 
          * @param {*} [axiosOptions] Override http request option.
+         * @deprecated
          * @throws {RequiredError}
          */
-        predictSodViolations(identityWithNewAccessBeta: IdentityWithNewAccessBeta, axiosOptions?: any): AxiosPromise<ViolationPredictionBeta> {
-            return localVarFp.predictSodViolations(identityWithNewAccessBeta, axiosOptions).then((request) => request(axios, basePath));
+        startPredictSodViolations(identityWithNewAccessBeta: IdentityWithNewAccessBeta, axiosOptions?: any): AxiosPromise<ViolationPredictionBeta> {
+            return localVarFp.startPredictSodViolations(identityWithNewAccessBeta, axiosOptions).then((request) => request(axios, basePath));
         },
     };
 };
 
 /**
- * Request parameters for predictSodViolations operation in SODViolationsBetaApi.
+ * Request parameters for startPredictSodViolations operation in SODViolationsBetaApi.
  * @export
- * @interface SODViolationsBetaApiPredictSodViolationsRequest
+ * @interface SODViolationsBetaApiStartPredictSodViolationsRequest
  */
-export interface SODViolationsBetaApiPredictSodViolationsRequest {
+export interface SODViolationsBetaApiStartPredictSodViolationsRequest {
     /**
      * 
      * @type {IdentityWithNewAccessBeta}
-     * @memberof SODViolationsBetaApiPredictSodViolations
+     * @memberof SODViolationsBetaApiStartPredictSodViolations
      */
     readonly identityWithNewAccessBeta: IdentityWithNewAccessBeta
 }
@@ -62649,14 +62716,15 @@ export interface SODViolationsBetaApiPredictSodViolationsRequest {
 export class SODViolationsBetaApi extends BaseAPI {
     /**
      * This API is used to check if granting some additional accesses would cause the subject to be in violation of any SOD policies. Returns the violations that would be caused.  A token with ORG_ADMIN or API authority is required to call this API.
-     * @summary Predict SOD violations for the given identity if they were granted the given access.
-     * @param {SODViolationsBetaApiPredictSodViolationsRequest} requestParameters Request parameters.
+     * @summary Predict SOD violations for identity.
+     * @param {SODViolationsBetaApiStartPredictSodViolationsRequest} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
+     * @deprecated
      * @throws {RequiredError}
      * @memberof SODViolationsBetaApi
      */
-    public predictSodViolations(requestParameters: SODViolationsBetaApiPredictSodViolationsRequest, axiosOptions?: AxiosRequestConfig) {
-        return SODViolationsBetaApiFp(this.configuration).predictSodViolations(requestParameters.identityWithNewAccessBeta, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public startPredictSodViolations(requestParameters: SODViolationsBetaApiStartPredictSodViolationsRequest, axiosOptions?: AxiosRequestConfig) {
+        return SODViolationsBetaApiFp(this.configuration).startPredictSodViolations(requestParameters.identityWithNewAccessBeta, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 }
 

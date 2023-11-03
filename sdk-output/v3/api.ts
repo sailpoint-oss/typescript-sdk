@@ -37058,11 +37058,11 @@ export const SODPolicyApiAxiosParamCreator = function (configuration?: Configura
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        setPolicySchedule: async (id: string, sodPolicySchedule: SodPolicySchedule, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        putPolicySchedule: async (id: string, sodPolicySchedule: SodPolicySchedule, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'id' is not null or undefined
-            assertParamExists('setPolicySchedule', 'id', id)
+            assertParamExists('putPolicySchedule', 'id', id)
             // verify required parameter 'sodPolicySchedule' is not null or undefined
-            assertParamExists('setPolicySchedule', 'sodPolicySchedule', sodPolicySchedule)
+            assertParamExists('putPolicySchedule', 'sodPolicySchedule', sodPolicySchedule)
             const localVarPath = `/sod-policies/{id}/schedule`
                 .replace(`{${"id"}}`, encodeURIComponent(String(id)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
@@ -37106,11 +37106,11 @@ export const SODPolicyApiAxiosParamCreator = function (configuration?: Configura
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        setSodPolicy: async (id: string, sodPolicy: SodPolicy, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        putSodPolicy: async (id: string, sodPolicy: SodPolicy, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'id' is not null or undefined
-            assertParamExists('setSodPolicy', 'id', id)
+            assertParamExists('putSodPolicy', 'id', id)
             // verify required parameter 'sodPolicy' is not null or undefined
-            assertParamExists('setSodPolicy', 'sodPolicy', sodPolicy)
+            assertParamExists('putSodPolicy', 'sodPolicy', sodPolicy)
             const localVarPath = `/sod-policies/{id}`
                 .replace(`{${"id"}}`, encodeURIComponent(String(id)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
@@ -37427,8 +37427,8 @@ export const SODPolicyApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async setPolicySchedule(id: string, sodPolicySchedule: SodPolicySchedule, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SodPolicySchedule>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.setPolicySchedule(id, sodPolicySchedule, axiosOptions);
+        async putPolicySchedule(id: string, sodPolicySchedule: SodPolicySchedule, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SodPolicySchedule>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.putPolicySchedule(id, sodPolicySchedule, axiosOptions);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
@@ -37439,8 +37439,8 @@ export const SODPolicyApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async setSodPolicy(id: string, sodPolicy: SodPolicy, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SodPolicy>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.setSodPolicy(id, sodPolicy, axiosOptions);
+        async putSodPolicy(id: string, sodPolicy: SodPolicy, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SodPolicy>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.putSodPolicy(id, sodPolicy, axiosOptions);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
@@ -37619,8 +37619,8 @@ export const SODPolicyApiFactory = function (configuration?: Configuration, base
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        setPolicySchedule(id: string, sodPolicySchedule: SodPolicySchedule, axiosOptions?: any): AxiosPromise<SodPolicySchedule> {
-            return localVarFp.setPolicySchedule(id, sodPolicySchedule, axiosOptions).then((request) => request(axios, basePath));
+        putPolicySchedule(id: string, sodPolicySchedule: SodPolicySchedule, axiosOptions?: any): AxiosPromise<SodPolicySchedule> {
+            return localVarFp.putPolicySchedule(id, sodPolicySchedule, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * This updates a specified SOD policy. Requires role of ORG_ADMIN.
@@ -37630,8 +37630,8 @@ export const SODPolicyApiFactory = function (configuration?: Configuration, base
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        setSodPolicy(id: string, sodPolicy: SodPolicy, axiosOptions?: any): AxiosPromise<SodPolicy> {
-            return localVarFp.setSodPolicy(id, sodPolicy, axiosOptions).then((request) => request(axios, basePath));
+        putSodPolicy(id: string, sodPolicy: SodPolicy, axiosOptions?: any): AxiosPromise<SodPolicy> {
+            return localVarFp.putSodPolicy(id, sodPolicy, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * Runs the scheduled report for the policy retrieved by passed policy ID.  The report schedule is fetched from the policy retrieved by ID.
@@ -37863,43 +37863,43 @@ export interface SODPolicyApiPatchSodPolicyRequest {
 }
 
 /**
- * Request parameters for setPolicySchedule operation in SODPolicyApi.
+ * Request parameters for putPolicySchedule operation in SODPolicyApi.
  * @export
- * @interface SODPolicyApiSetPolicyScheduleRequest
+ * @interface SODPolicyApiPutPolicyScheduleRequest
  */
-export interface SODPolicyApiSetPolicyScheduleRequest {
+export interface SODPolicyApiPutPolicyScheduleRequest {
     /**
      * The ID of the SOD policy to update its schedule.
      * @type {string}
-     * @memberof SODPolicyApiSetPolicySchedule
+     * @memberof SODPolicyApiPutPolicySchedule
      */
     readonly id: string
 
     /**
      * 
      * @type {SodPolicySchedule}
-     * @memberof SODPolicyApiSetPolicySchedule
+     * @memberof SODPolicyApiPutPolicySchedule
      */
     readonly sodPolicySchedule: SodPolicySchedule
 }
 
 /**
- * Request parameters for setSodPolicy operation in SODPolicyApi.
+ * Request parameters for putSodPolicy operation in SODPolicyApi.
  * @export
- * @interface SODPolicyApiSetSodPolicyRequest
+ * @interface SODPolicyApiPutSodPolicyRequest
  */
-export interface SODPolicyApiSetSodPolicyRequest {
+export interface SODPolicyApiPutSodPolicyRequest {
     /**
      * The ID of the SOD policy to update.
      * @type {string}
-     * @memberof SODPolicyApiSetSodPolicy
+     * @memberof SODPolicyApiPutSodPolicy
      */
     readonly id: string
 
     /**
      * 
      * @type {SodPolicy}
-     * @memberof SODPolicyApiSetSodPolicy
+     * @memberof SODPolicyApiPutSodPolicy
      */
     readonly sodPolicy: SodPolicy
 }
@@ -38099,25 +38099,25 @@ export class SODPolicyApi extends BaseAPI {
     /**
      * This updates schedule for a specified SOD policy.
      * @summary Update SOD Policy schedule
-     * @param {SODPolicyApiSetPolicyScheduleRequest} requestParameters Request parameters.
+     * @param {SODPolicyApiPutPolicyScheduleRequest} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
      * @memberof SODPolicyApi
      */
-    public setPolicySchedule(requestParameters: SODPolicyApiSetPolicyScheduleRequest, axiosOptions?: AxiosRequestConfig) {
-        return SODPolicyApiFp(this.configuration).setPolicySchedule(requestParameters.id, requestParameters.sodPolicySchedule, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public putPolicySchedule(requestParameters: SODPolicyApiPutPolicyScheduleRequest, axiosOptions?: AxiosRequestConfig) {
+        return SODPolicyApiFp(this.configuration).putPolicySchedule(requestParameters.id, requestParameters.sodPolicySchedule, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * This updates a specified SOD policy. Requires role of ORG_ADMIN.
      * @summary Update SOD policy by ID
-     * @param {SODPolicyApiSetSodPolicyRequest} requestParameters Request parameters.
+     * @param {SODPolicyApiPutSodPolicyRequest} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
      * @memberof SODPolicyApi
      */
-    public setSodPolicy(requestParameters: SODPolicyApiSetSodPolicyRequest, axiosOptions?: AxiosRequestConfig) {
-        return SODPolicyApiFp(this.configuration).setSodPolicy(requestParameters.id, requestParameters.sodPolicy, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public putSodPolicy(requestParameters: SODPolicyApiPutSodPolicyRequest, axiosOptions?: AxiosRequestConfig) {
+        return SODPolicyApiFp(this.configuration).putSodPolicy(requestParameters.id, requestParameters.sodPolicy, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
