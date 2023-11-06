@@ -5,5 +5,5 @@ files:
     destinationFilename: package.json
 npmName: sailpoint-sdk
 npmRepository: sailpoint.com
-npmVersion: 1.2.3
+npmVersion: 1.3.0
 useSingleRequestParameter: true
