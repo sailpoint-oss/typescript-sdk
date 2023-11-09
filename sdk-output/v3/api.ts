@@ -2478,6 +2478,37 @@ export interface AccountsAsyncResult {
     'id': string;
 }
 /**
+ * Arguments for Account Export (ACCOUNTS)
+ * @export
+ * @interface AccountsExportReportArguments
+ */
+export interface AccountsExportReportArguments {
+    /**
+     * Id of the authoritative source to export related accounts e.g. identities
+     * @type {string}
+     * @memberof AccountsExportReportArguments
+     */
+    'application': string;
+    /**
+     * Name of the authoritative source for accounts export
+     * @type {string}
+     * @memberof AccountsExportReportArguments
+     */
+    'sourceName': string;
+    /**
+     * Use it to set default s3 bucket where generated report will be saved.  In case this argument is false and \'s3Bucket\' argument is null or absent there will be default s3Bucket assigned to the report.
+     * @type {boolean}
+     * @memberof AccountsExportReportArguments
+     */
+    'defaultS3Bucket': boolean;
+    /**
+     * If you want to be specific you could use this argument with defaultS3Bucket = false.
+     * @type {string}
+     * @memberof AccountsExportReportArguments
+     */
+    's3Bucket'?: string;
+}
+/**
  * 
  * @export
  * @interface ActivateCampaignOptions
@@ -8236,6 +8267,56 @@ export interface ISO3166 {
     'input'?: { [key: string]: any; };
 }
 /**
+ * Arguments for Identities details report (IDENTITIES_DETAILS)
+ * @export
+ * @interface IdentitiesDetailsReportArguments
+ */
+export interface IdentitiesDetailsReportArguments {
+    /**
+     * Boolean FLAG to specify if only correlated identities should be used in report processing
+     * @type {boolean}
+     * @memberof IdentitiesDetailsReportArguments
+     */
+    'correlatedOnly': boolean;
+    /**
+     * Use it to set default s3 bucket where generated report will be saved.  In case this argument is false and \'s3Bucket\' argument is null or absent there will be default s3Bucket assigned to the report.
+     * @type {boolean}
+     * @memberof IdentitiesDetailsReportArguments
+     */
+    'defaultS3Bucket': boolean;
+    /**
+     * If you want to be specific you could use this argument with defaultS3Bucket = false.
+     * @type {string}
+     * @memberof IdentitiesDetailsReportArguments
+     */
+    's3Bucket'?: string;
+}
+/**
+ * Arguments for Identities report (IDENTITIES)
+ * @export
+ * @interface IdentitiesReportArguments
+ */
+export interface IdentitiesReportArguments {
+    /**
+     * Boolean FLAG to specify if only correlated identities should be used in report processing
+     * @type {boolean}
+     * @memberof IdentitiesReportArguments
+     */
+    'correlatedOnly'?: boolean;
+    /**
+     * Use it to set default s3 bucket where generated report will be saved.  In case this argument is false and \'s3Bucket\' argument is null or absent there will be default s3Bucket assigned to the report.
+     * @type {boolean}
+     * @memberof IdentitiesReportArguments
+     */
+    'defaultS3Bucket': boolean;
+    /**
+     * If you want to be specific you could use this argument with defaultS3Bucket = false.
+     * @type {string}
+     * @memberof IdentitiesReportArguments
+     */
+    's3Bucket'?: string;
+}
+/**
  * @type IdentityAccess
  * @export
  */
@@ -9242,6 +9323,31 @@ export const IdentityProfileExportedObjectSelfTypeEnum = {
 
 export type IdentityProfileExportedObjectSelfTypeEnum = typeof IdentityProfileExportedObjectSelfTypeEnum[keyof typeof IdentityProfileExportedObjectSelfTypeEnum];
 
+/**
+ * Arguments for Identity Profile Identity Error report (IDENTITY_PROFILE_IDENTITY_ERROR)
+ * @export
+ * @interface IdentityProfileIdentityErrorReportArguments
+ */
+export interface IdentityProfileIdentityErrorReportArguments {
+    /**
+     * Source Id to be checked on errors of identity profiles aggregation
+     * @type {string}
+     * @memberof IdentityProfileIdentityErrorReportArguments
+     */
+    'authoritativeSource': string;
+    /**
+     * Use it to set default s3 bucket where generated report will be saved.  In case this argument is false and \'s3Bucket\' argument is null or absent there will be default s3Bucket assigned to the report.
+     * @type {boolean}
+     * @memberof IdentityProfileIdentityErrorReportArguments
+     */
+    'defaultS3Bucket': boolean;
+    /**
+     * If you want to be specific you could use this argument with defaultS3Bucket = false.
+     * @type {string}
+     * @memberof IdentityProfileIdentityErrorReportArguments
+     */
+    's3Bucket'?: string;
+}
 /**
  * The manager for the identity.
  * @export
@@ -11751,6 +11857,39 @@ export interface OriginalRequest {
     'source'?: AccountSource;
 }
 /**
+ * Arguments for Orphan Identities report (ORPHAN_IDENTITIES) and Uncorrelated Accounts report (UNCORRELATED_ACCOUNTS)
+ * @export
+ * @interface OrphanUncorrelatedReportArguments
+ */
+export interface OrphanUncorrelatedReportArguments {
+    /**
+     * Output report file formats. This are formats for calling get endpoint as a query parameter \'fileFormat\'.  In case report won\'t have this argument there will be [\'CSV\', \'PDF\'] as default.
+     * @type {Array<string>}
+     * @memberof OrphanUncorrelatedReportArguments
+     */
+    'selectedFormats'?: Array<OrphanUncorrelatedReportArgumentsSelectedFormatsEnum>;
+    /**
+     * Use it to set default s3 bucket where generated report will be saved.  In case this argument is false and \'s3Bucket\' argument is null or absent there will be default s3Bucket assigned to the report.
+     * @type {boolean}
+     * @memberof OrphanUncorrelatedReportArguments
+     */
+    'defaultS3Bucket': boolean;
+    /**
+     * If you want to be specific you could use this argument with defaultS3Bucket = false.
+     * @type {string}
+     * @memberof OrphanUncorrelatedReportArguments
+     */
+    's3Bucket'?: string;
+}
+
+export const OrphanUncorrelatedReportArgumentsSelectedFormatsEnum = {
+    Csv: 'CSV',
+    Pdf: 'PDF'
+} as const;
+
+export type OrphanUncorrelatedReportArgumentsSelectedFormatsEnum = typeof OrphanUncorrelatedReportArgumentsSelectedFormatsEnum[keyof typeof OrphanUncorrelatedReportArgumentsSelectedFormatsEnum];
+
+/**
  * 
  * @export
  * @interface Owner
@@ -13342,6 +13481,45 @@ export interface ReplaceAll {
     'input'?: { [key: string]: any; };
 }
 /**
+ * Details about report to be processed.
+ * @export
+ * @interface ReportDetails
+ */
+export interface ReportDetails {
+    /**
+     * Use this property to define what report should be processed in the RDE service.
+     * @type {string}
+     * @memberof ReportDetails
+     */
+    'reportType'?: ReportDetailsReportTypeEnum;
+    /**
+     * 
+     * @type {ReportDetailsArguments}
+     * @memberof ReportDetails
+     */
+    'arguments'?: ReportDetailsArguments;
+}
+
+export const ReportDetailsReportTypeEnum = {
+    Accounts: 'ACCOUNTS',
+    IdentitiesDetails: 'IDENTITIES_DETAILS',
+    Identities: 'IDENTITIES',
+    IdentityProfileIdentityError: 'IDENTITY_PROFILE_IDENTITY_ERROR',
+    OrphanIdentities: 'ORPHAN_IDENTITIES',
+    SearchExport: 'SEARCH_EXPORT',
+    UncorrelatedAccounts: 'UNCORRELATED_ACCOUNTS'
+} as const;
+
+export type ReportDetailsReportTypeEnum = typeof ReportDetailsReportTypeEnum[keyof typeof ReportDetailsReportTypeEnum];
+
+/**
+ * @type ReportDetailsArguments
+ * The string-object map(dictionary) with the arguments needed for report processing.
+ * @export
+ */
+export type ReportDetailsArguments = AccountsExportReportArguments | IdentitiesDetailsReportArguments | IdentitiesReportArguments | IdentityProfileIdentityErrorReportArguments | OrphanUncorrelatedReportArguments | SearchExportReportArguments;
+
+/**
  * 
  * @export
  * @interface ReportResultReference
@@ -13413,6 +13591,88 @@ export const ReportResultReferenceAllOfStatusEnum = {
 } as const;
 
 export type ReportResultReferenceAllOfStatusEnum = typeof ReportResultReferenceAllOfStatusEnum[keyof typeof ReportResultReferenceAllOfStatusEnum];
+
+/**
+ * Details about report result or current state.
+ * @export
+ * @interface ReportResults
+ */
+export interface ReportResults {
+    /**
+     * Use this property to define what report should be processed in the RDE service.
+     * @type {string}
+     * @memberof ReportResults
+     */
+    'reportType'?: ReportResultsReportTypeEnum;
+    /**
+     * Name of the task definition which is started to process requesting report. Usually the same as report name
+     * @type {string}
+     * @memberof ReportResults
+     */
+    'taskDefName'?: string;
+    /**
+     * Unique task definition identifier.
+     * @type {string}
+     * @memberof ReportResults
+     */
+    'id'?: string;
+    /**
+     * Report processing start date
+     * @type {string}
+     * @memberof ReportResults
+     */
+    'created'?: string;
+    /**
+     * Report current state or result status.
+     * @type {string}
+     * @memberof ReportResults
+     */
+    'status'?: ReportResultsStatusEnum;
+    /**
+     * Report processing time in ms.
+     * @type {number}
+     * @memberof ReportResults
+     */
+    'duration'?: number;
+    /**
+     * Report size in rows.
+     * @type {number}
+     * @memberof ReportResults
+     */
+    'rows'?: number;
+    /**
+     * Output report file formats. This are formats for calling get endpoint as a query parameter \'fileFormat\'.  In case report won\'t have this argument there will be [\'CSV\', \'PDF\'] as default.
+     * @type {Array<string>}
+     * @memberof ReportResults
+     */
+    'availableFormats'?: Array<ReportResultsAvailableFormatsEnum>;
+}
+
+export const ReportResultsReportTypeEnum = {
+    Accounts: 'ACCOUNTS',
+    IdentitiesDetails: 'IDENTITIES_DETAILS',
+    Identities: 'IDENTITIES',
+    IdentityProfileIdentityError: 'IDENTITY_PROFILE_IDENTITY_ERROR',
+    OrphanIdentities: 'ORPHAN_IDENTITIES',
+    SearchExport: 'SEARCH_EXPORT',
+    UncorrelatedAccounts: 'UNCORRELATED_ACCOUNTS'
+} as const;
+
+export type ReportResultsReportTypeEnum = typeof ReportResultsReportTypeEnum[keyof typeof ReportResultsReportTypeEnum];
+export const ReportResultsStatusEnum = {
+    Success: 'SUCCESS',
+    Failure: 'FAILURE',
+    Warning: 'WARNING',
+    Terminated: 'TERMINATED'
+} as const;
+
+export type ReportResultsStatusEnum = typeof ReportResultsStatusEnum[keyof typeof ReportResultsStatusEnum];
+export const ReportResultsAvailableFormatsEnum = {
+    Csv: 'CSV',
+    Pdf: 'PDF'
+} as const;
+
+export type ReportResultsAvailableFormatsEnum = typeof ReportResultsAvailableFormatsEnum[keyof typeof ReportResultsAvailableFormatsEnum];
 
 /**
  * type of a Report
@@ -15784,6 +16044,55 @@ export interface SearchArgumentsOwner {
 export type SearchDocument = AccessProfileDocument | AccountActivityDocument | AccountDocument | AggregationDocument | EntitlementDocument | EventDocument | IdentityDocument | RoleDocument;
 
 /**
+ * Arguments for Search Export report (SEARCH_EXPORT)
+ * @export
+ * @interface SearchExportReportArguments
+ */
+export interface SearchExportReportArguments {
+    /**
+     * The names of the Elasticsearch indices in which to search. If none are provided, then all indices will be searched.
+     * @type {Array<Index>}
+     * @memberof SearchExportReportArguments
+     */
+    'indices'?: Array<Index>;
+    /**
+     * The filters to be applied for each filtered field name.
+     * @type {{ [key: string]: Filter; }}
+     * @memberof SearchExportReportArguments
+     */
+    'filters'?: { [key: string]: Filter; };
+    /**
+     * 
+     * @type {Query}
+     * @memberof SearchExportReportArguments
+     */
+    'query': Query;
+    /**
+     * Indicates whether nested objects from returned search results should be included.
+     * @type {boolean}
+     * @memberof SearchExportReportArguments
+     */
+    'includeNested'?: boolean;
+    /**
+     * The fields to be used to sort the search results. Use + or - to specify the sort direction.
+     * @type {Array<string>}
+     * @memberof SearchExportReportArguments
+     */
+    'sort'?: Array<string>;
+    /**
+     * Use it to set default s3 bucket where generated report will be saved.  In case this argument is false and \'s3Bucket\' argument is null or absent there will be default s3Bucket assigned to the report.
+     * @type {boolean}
+     * @memberof SearchExportReportArguments
+     */
+    'defaultS3Bucket': boolean;
+    /**
+     * If you want to be specific you could use this argument with defaultS3Bucket = false.
+     * @type {string}
+     * @memberof SearchExportReportArguments
+     */
+    's3Bucket'?: string;
+}
+/**
  * Enum representing the currently supported filter aggregation types. Additional values may be added in the future without notice.
  * @export
  * @enum {string}
@@ -17841,6 +18150,192 @@ export const TaggedObjectDtoTypeEnum = {
 
 export type TaggedObjectDtoTypeEnum = typeof TaggedObjectDtoTypeEnum[keyof typeof TaggedObjectDtoTypeEnum];
 
+/**
+ * Details about job or task type, state and lifecycle.
+ * @export
+ * @interface TaskResultDetails
+ */
+export interface TaskResultDetails {
+    /**
+     * Type of the job or task underlying in the report processing. It could be a quartz task, QPOC or MENTOS jobs or a refresh/sync task.
+     * @type {string}
+     * @memberof TaskResultDetails
+     */
+    'type'?: TaskResultDetailsTypeEnum;
+    /**
+     * Unique task definition identifier.
+     * @type {string}
+     * @memberof TaskResultDetails
+     */
+    'id'?: string;
+    /**
+     * Use this property to define what report should be processed in the RDE service.
+     * @type {object}
+     * @memberof TaskResultDetails
+     */
+    'reportType'?: TaskResultDetailsReportTypeEnum;
+    /**
+     * Description of the report purpose and/or contents.
+     * @type {string}
+     * @memberof TaskResultDetails
+     */
+    'description'?: string;
+    /**
+     * Name of the parent task/report if exists.
+     * @type {string}
+     * @memberof TaskResultDetails
+     */
+    'parentName'?: string | null;
+    /**
+     * Name of the report processing initiator.
+     * @type {string}
+     * @memberof TaskResultDetails
+     */
+    'launcher'?: string;
+    /**
+     * Report creation date
+     * @type {string}
+     * @memberof TaskResultDetails
+     */
+    'created'?: string;
+    /**
+     * Report start date
+     * @type {string}
+     * @memberof TaskResultDetails
+     */
+    'launched'?: string | null;
+    /**
+     * Report completion date
+     * @type {string}
+     * @memberof TaskResultDetails
+     */
+    'completed'?: string | null;
+    /**
+     * Report completion status.
+     * @type {string}
+     * @memberof TaskResultDetails
+     */
+    'completionStatus'?: TaskResultDetailsCompletionStatusEnum;
+    /**
+     * List of the messages dedicated to the report.  From task definition perspective here usually should be warnings or errors.
+     * @type {Array<TaskResultDetailsMessagesInner>}
+     * @memberof TaskResultDetails
+     */
+    'messages'?: Array<TaskResultDetailsMessagesInner>;
+    /**
+     * Task definition results, if necessary.
+     * @type {Array<TaskResultDetailsReturnsInner>}
+     * @memberof TaskResultDetails
+     */
+    'returns'?: Array<TaskResultDetailsReturnsInner>;
+    /**
+     * Extra attributes map(dictionary) needed for the report.
+     * @type {{ [key: string]: object; }}
+     * @memberof TaskResultDetails
+     */
+    'attributes'?: { [key: string]: object; };
+    /**
+     * Current report state.
+     * @type {string}
+     * @memberof TaskResultDetails
+     */
+    'progress'?: string | null;
+}
+
+export const TaskResultDetailsTypeEnum = {
+    Quartz: 'QUARTZ',
+    Qpoc: 'QPOC',
+    Mentos: 'MENTOS',
+    QueuedTask: 'QUEUED_TASK'
+} as const;
+
+export type TaskResultDetailsTypeEnum = typeof TaskResultDetailsTypeEnum[keyof typeof TaskResultDetailsTypeEnum];
+export const TaskResultDetailsReportTypeEnum = {
+    Accounts: 'ACCOUNTS',
+    IdentitiesDetails: 'IDENTITIES_DETAILS',
+    Identities: 'IDENTITIES',
+    IdentityProfileIdentityError: 'IDENTITY_PROFILE_IDENTITY_ERROR',
+    OrphanIdentities: 'ORPHAN_IDENTITIES',
+    SearchExport: 'SEARCH_EXPORT',
+    UncorrelatedAccounts: 'UNCORRELATED_ACCOUNTS'
+} as const;
+
+export type TaskResultDetailsReportTypeEnum = typeof TaskResultDetailsReportTypeEnum[keyof typeof TaskResultDetailsReportTypeEnum];
+export const TaskResultDetailsCompletionStatusEnum = {
+    Success: 'SUCCESS',
+    Warning: 'WARNING',
+    Error: 'ERROR',
+    Terminated: 'TERMINATED',
+    TempError: 'TEMP_ERROR'
+} as const;
+
+export type TaskResultDetailsCompletionStatusEnum = typeof TaskResultDetailsCompletionStatusEnum[keyof typeof TaskResultDetailsCompletionStatusEnum];
+
+/**
+ * 
+ * @export
+ * @interface TaskResultDetailsMessagesInner
+ */
+export interface TaskResultDetailsMessagesInner {
+    /**
+     * Type of the message.
+     * @type {string}
+     * @memberof TaskResultDetailsMessagesInner
+     */
+    'type'?: TaskResultDetailsMessagesInnerTypeEnum;
+    /**
+     * Flag whether message is an error.
+     * @type {boolean}
+     * @memberof TaskResultDetailsMessagesInner
+     */
+    'error'?: boolean;
+    /**
+     * Flag whether message is a warning.
+     * @type {boolean}
+     * @memberof TaskResultDetailsMessagesInner
+     */
+    'warning'?: boolean;
+    /**
+     * Message string identifier.
+     * @type {string}
+     * @memberof TaskResultDetailsMessagesInner
+     */
+    'key'?: string;
+    /**
+     * Message context with the locale based language.
+     * @type {string}
+     * @memberof TaskResultDetailsMessagesInner
+     */
+    'localizedText'?: string;
+}
+
+export const TaskResultDetailsMessagesInnerTypeEnum = {
+    Info: 'INFO',
+    Warn: 'WARN',
+    Error: 'ERROR'
+} as const;
+
+export type TaskResultDetailsMessagesInnerTypeEnum = typeof TaskResultDetailsMessagesInnerTypeEnum[keyof typeof TaskResultDetailsMessagesInnerTypeEnum];
+
+/**
+ * 
+ * @export
+ * @interface TaskResultDetailsReturnsInner
+ */
+export interface TaskResultDetailsReturnsInner {
+    /**
+     * Attribute description.
+     * @type {string}
+     * @memberof TaskResultDetailsReturnsInner
+     */
+    'displayLabel'?: string;
+    /**
+     * System or database attribute name.
+     * @type {string}
+     * @memberof TaskResultDetailsReturnsInner
+     */
+    'attributeName'?: string;
+}
 /**
  * Task result.
  * @export
@@ -35418,6 +35913,460 @@ export class PublicIdentitiesConfigApi extends BaseAPI {
      */
     public updatePublicIdentityConfig(requestParameters: PublicIdentitiesConfigApiUpdatePublicIdentityConfigRequest, axiosOptions?: AxiosRequestConfig) {
         return PublicIdentitiesConfigApiFp(this.configuration).updatePublicIdentityConfig(requestParameters.publicIdentityConfig, axiosOptions).then((request) => request(this.axios, this.basePath));
+    }
+}
+
+
+/**
+ * ReportsDataExtractionApi - axios parameter creator
+ * @export
+ */
+export const ReportsDataExtractionApiAxiosParamCreator = function (configuration?: Configuration) {
+    return {
+        /**
+         * Cancels a running report.
+         * @summary Cancel Report
+         * @param {string} id ID of the running Report to cancel
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        cancelReport: async (id: string, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'id' is not null or undefined
+            assertParamExists('cancelReport', 'id', id)
+            const localVarPath = `/reports/{id}/cancel`
+                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'POST', ...baseOptions, ...axiosOptions};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication UserContextAuth required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "UserContextAuth", [], configuration)
+
+            // authentication UserContextAuth required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "UserContextAuth", [], configuration)
+
+
+    
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                axiosOptions: localVarRequestOptions,
+            };
+        },
+        /**
+         * Gets a report in file format.
+         * @summary Get Report File
+         * @param {string} taskResultId Unique identifier of the task result which handled report
+         * @param {'csv' | 'pdf'} fileFormat Output format of the requested report file
+         * @param {string} [name] preferred Report file name, by default will be used report name from task result.
+         * @param {boolean} [auditable] Enables auditing for current report download. Will create an audit event and sent it to the REPORT cloud-audit kafka topic.  Event will be created if there is any result present by requested taskResultId.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        getReport: async (taskResultId: string, fileFormat: 'csv' | 'pdf', name?: string, auditable?: boolean, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'taskResultId' is not null or undefined
+            assertParamExists('getReport', 'taskResultId', taskResultId)
+            // verify required parameter 'fileFormat' is not null or undefined
+            assertParamExists('getReport', 'fileFormat', fileFormat)
+            const localVarPath = `/reports/{taskResultId}`
+                .replace(`{${"taskResultId"}}`, encodeURIComponent(String(taskResultId)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...axiosOptions};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication UserContextAuth required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "UserContextAuth", [], configuration)
+
+            // authentication UserContextAuth required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "UserContextAuth", [], configuration)
+
+            if (fileFormat !== undefined) {
+                localVarQueryParameter['fileFormat'] = fileFormat;
+            }
+
+            if (name !== undefined) {
+                localVarQueryParameter['name'] = name;
+            }
+
+            if (auditable !== undefined) {
+                localVarQueryParameter['auditable'] = auditable;
+            }
+
+
+    
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                axiosOptions: localVarRequestOptions,
+            };
+        },
+        /**
+         * Get the report results for a report that was run or is running. Returns empty report result in case there are no active task definitions with used in payload task definition name.
+         * @summary Get Report Result
+         * @param {string} taskResultId Unique identifier of the task result which handled report
+         * @param {boolean} [completed] state of task result to apply ordering when results are fetching from the DB
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        getReportResult: async (taskResultId: string, completed?: boolean, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'taskResultId' is not null or undefined
+            assertParamExists('getReportResult', 'taskResultId', taskResultId)
+            const localVarPath = `/reports/{taskResultId}/result`
+                .replace(`{${"taskResultId"}}`, encodeURIComponent(String(taskResultId)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...axiosOptions};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication UserContextAuth required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "UserContextAuth", [], configuration)
+
+            // authentication UserContextAuth required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "UserContextAuth", [], configuration)
+
+            if (completed !== undefined) {
+                localVarQueryParameter['completed'] = completed;
+            }
+
+
+    
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                axiosOptions: localVarRequestOptions,
+            };
+        },
+        /**
+         * Runs a report according to input report details. If non-concurrent task is already running then it returns, otherwise new task creates and returns.
+         * @summary Run Report
+         * @param {ReportDetails} reportDetails 
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        startReport: async (reportDetails: ReportDetails, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'reportDetails' is not null or undefined
+            assertParamExists('startReport', 'reportDetails', reportDetails)
+            const localVarPath = `/reports/run`;
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'POST', ...baseOptions, ...axiosOptions};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication UserContextAuth required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "UserContextAuth", [], configuration)
+
+            // authentication UserContextAuth required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "UserContextAuth", [], configuration)
+
+
+    
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
+            localVarRequestOptions.data = serializeDataIfNeeded(reportDetails, localVarRequestOptions, configuration)
+
+            return {
+                url: toPathString(localVarUrlObj),
+                axiosOptions: localVarRequestOptions,
+            };
+        },
+    }
+};
+
+/**
+ * ReportsDataExtractionApi - functional programming interface
+ * @export
+ */
+export const ReportsDataExtractionApiFp = function(configuration?: Configuration) {
+    const localVarAxiosParamCreator = ReportsDataExtractionApiAxiosParamCreator(configuration)
+    return {
+        /**
+         * Cancels a running report.
+         * @summary Cancel Report
+         * @param {string} id ID of the running Report to cancel
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        async cancelReport(id: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.cancelReport(id, axiosOptions);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * Gets a report in file format.
+         * @summary Get Report File
+         * @param {string} taskResultId Unique identifier of the task result which handled report
+         * @param {'csv' | 'pdf'} fileFormat Output format of the requested report file
+         * @param {string} [name] preferred Report file name, by default will be used report name from task result.
+         * @param {boolean} [auditable] Enables auditing for current report download. Will create an audit event and sent it to the REPORT cloud-audit kafka topic.  Event will be created if there is any result present by requested taskResultId.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        async getReport(taskResultId: string, fileFormat: 'csv' | 'pdf', name?: string, auditable?: boolean, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<any>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getReport(taskResultId, fileFormat, name, auditable, axiosOptions);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * Get the report results for a report that was run or is running. Returns empty report result in case there are no active task definitions with used in payload task definition name.
+         * @summary Get Report Result
+         * @param {string} taskResultId Unique identifier of the task result which handled report
+         * @param {boolean} [completed] state of task result to apply ordering when results are fetching from the DB
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        async getReportResult(taskResultId: string, completed?: boolean, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ReportResults>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getReportResult(taskResultId, completed, axiosOptions);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * Runs a report according to input report details. If non-concurrent task is already running then it returns, otherwise new task creates and returns.
+         * @summary Run Report
+         * @param {ReportDetails} reportDetails 
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        async startReport(reportDetails: ReportDetails, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<TaskResultDetails>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.startReport(reportDetails, axiosOptions);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+    }
+};
+
+/**
+ * ReportsDataExtractionApi - factory interface
+ * @export
+ */
+export const ReportsDataExtractionApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
+    const localVarFp = ReportsDataExtractionApiFp(configuration)
+    return {
+        /**
+         * Cancels a running report.
+         * @summary Cancel Report
+         * @param {string} id ID of the running Report to cancel
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        cancelReport(id: string, axiosOptions?: any): AxiosPromise<void> {
+            return localVarFp.cancelReport(id, axiosOptions).then((request) => request(axios, basePath));
+        },
+        /**
+         * Gets a report in file format.
+         * @summary Get Report File
+         * @param {string} taskResultId Unique identifier of the task result which handled report
+         * @param {'csv' | 'pdf'} fileFormat Output format of the requested report file
+         * @param {string} [name] preferred Report file name, by default will be used report name from task result.
+         * @param {boolean} [auditable] Enables auditing for current report download. Will create an audit event and sent it to the REPORT cloud-audit kafka topic.  Event will be created if there is any result present by requested taskResultId.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        getReport(taskResultId: string, fileFormat: 'csv' | 'pdf', name?: string, auditable?: boolean, axiosOptions?: any): AxiosPromise<any> {
+            return localVarFp.getReport(taskResultId, fileFormat, name, auditable, axiosOptions).then((request) => request(axios, basePath));
+        },
+        /**
+         * Get the report results for a report that was run or is running. Returns empty report result in case there are no active task definitions with used in payload task definition name.
+         * @summary Get Report Result
+         * @param {string} taskResultId Unique identifier of the task result which handled report
+         * @param {boolean} [completed] state of task result to apply ordering when results are fetching from the DB
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        getReportResult(taskResultId: string, completed?: boolean, axiosOptions?: any): AxiosPromise<ReportResults> {
+            return localVarFp.getReportResult(taskResultId, completed, axiosOptions).then((request) => request(axios, basePath));
+        },
+        /**
+         * Runs a report according to input report details. If non-concurrent task is already running then it returns, otherwise new task creates and returns.
+         * @summary Run Report
+         * @param {ReportDetails} reportDetails 
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        startReport(reportDetails: ReportDetails, axiosOptions?: any): AxiosPromise<TaskResultDetails> {
+            return localVarFp.startReport(reportDetails, axiosOptions).then((request) => request(axios, basePath));
+        },
+    };
+};
+
+/**
+ * Request parameters for cancelReport operation in ReportsDataExtractionApi.
+ * @export
+ * @interface ReportsDataExtractionApiCancelReportRequest
+ */
+export interface ReportsDataExtractionApiCancelReportRequest {
+    /**
+     * ID of the running Report to cancel
+     * @type {string}
+     * @memberof ReportsDataExtractionApiCancelReport
+     */
+    readonly id: string
+}
+
+/**
+ * Request parameters for getReport operation in ReportsDataExtractionApi.
+ * @export
+ * @interface ReportsDataExtractionApiGetReportRequest
+ */
+export interface ReportsDataExtractionApiGetReportRequest {
+    /**
+     * Unique identifier of the task result which handled report
+     * @type {string}
+     * @memberof ReportsDataExtractionApiGetReport
+     */
+    readonly taskResultId: string
+
+    /**
+     * Output format of the requested report file
+     * @type {'csv' | 'pdf'}
+     * @memberof ReportsDataExtractionApiGetReport
+     */
+    readonly fileFormat: 'csv' | 'pdf'
+
+    /**
+     * preferred Report file name, by default will be used report name from task result.
+     * @type {string}
+     * @memberof ReportsDataExtractionApiGetReport
+     */
+    readonly name?: string
+
+    /**
+     * Enables auditing for current report download. Will create an audit event and sent it to the REPORT cloud-audit kafka topic.  Event will be created if there is any result present by requested taskResultId.
+     * @type {boolean}
+     * @memberof ReportsDataExtractionApiGetReport
+     */
+    readonly auditable?: boolean
+}
+
+/**
+ * Request parameters for getReportResult operation in ReportsDataExtractionApi.
+ * @export
+ * @interface ReportsDataExtractionApiGetReportResultRequest
+ */
+export interface ReportsDataExtractionApiGetReportResultRequest {
+    /**
+     * Unique identifier of the task result which handled report
+     * @type {string}
+     * @memberof ReportsDataExtractionApiGetReportResult
+     */
+    readonly taskResultId: string
+
+    /**
+     * state of task result to apply ordering when results are fetching from the DB
+     * @type {boolean}
+     * @memberof ReportsDataExtractionApiGetReportResult
+     */
+    readonly completed?: boolean
+}
+
+/**
+ * Request parameters for startReport operation in ReportsDataExtractionApi.
+ * @export
+ * @interface ReportsDataExtractionApiStartReportRequest
+ */
+export interface ReportsDataExtractionApiStartReportRequest {
+    /**
+     * 
+     * @type {ReportDetails}
+     * @memberof ReportsDataExtractionApiStartReport
+     */
+    readonly reportDetails: ReportDetails
+}
+
+/**
+ * ReportsDataExtractionApi - object-oriented interface
+ * @export
+ * @class ReportsDataExtractionApi
+ * @extends {BaseAPI}
+ */
+export class ReportsDataExtractionApi extends BaseAPI {
+    /**
+     * Cancels a running report.
+     * @summary Cancel Report
+     * @param {ReportsDataExtractionApiCancelReportRequest} requestParameters Request parameters.
+     * @param {*} [axiosOptions] Override http request option.
+     * @throws {RequiredError}
+     * @memberof ReportsDataExtractionApi
+     */
+    public cancelReport(requestParameters: ReportsDataExtractionApiCancelReportRequest, axiosOptions?: AxiosRequestConfig) {
+        return ReportsDataExtractionApiFp(this.configuration).cancelReport(requestParameters.id, axiosOptions).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Gets a report in file format.
+     * @summary Get Report File
+     * @param {ReportsDataExtractionApiGetReportRequest} requestParameters Request parameters.
+     * @param {*} [axiosOptions] Override http request option.
+     * @throws {RequiredError}
+     * @memberof ReportsDataExtractionApi
+     */
+    public getReport(requestParameters: ReportsDataExtractionApiGetReportRequest, axiosOptions?: AxiosRequestConfig) {
+        return ReportsDataExtractionApiFp(this.configuration).getReport(requestParameters.taskResultId, requestParameters.fileFormat, requestParameters.name, requestParameters.auditable, axiosOptions).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Get the report results for a report that was run or is running. Returns empty report result in case there are no active task definitions with used in payload task definition name.
+     * @summary Get Report Result
+     * @param {ReportsDataExtractionApiGetReportResultRequest} requestParameters Request parameters.
+     * @param {*} [axiosOptions] Override http request option.
+     * @throws {RequiredError}
+     * @memberof ReportsDataExtractionApi
+     */
+    public getReportResult(requestParameters: ReportsDataExtractionApiGetReportResultRequest, axiosOptions?: AxiosRequestConfig) {
+        return ReportsDataExtractionApiFp(this.configuration).getReportResult(requestParameters.taskResultId, requestParameters.completed, axiosOptions).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Runs a report according to input report details. If non-concurrent task is already running then it returns, otherwise new task creates and returns.
+     * @summary Run Report
+     * @param {ReportsDataExtractionApiStartReportRequest} requestParameters Request parameters.
+     * @param {*} [axiosOptions] Override http request option.
+     * @throws {RequiredError}
+     * @memberof ReportsDataExtractionApi
+     */
+    public startReport(requestParameters: ReportsDataExtractionApiStartReportRequest, axiosOptions?: AxiosRequestConfig) {
+        return ReportsDataExtractionApiFp(this.configuration).startReport(requestParameters.reportDetails, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 }
 
