@@ -2101,176 +2101,6 @@ export interface AccountAttributesCreateAttributes {
     'sourceId': string;
 }
 /**
- * Account
- * @export
- * @interface AccountDocument
- */
-export interface AccountDocument {
-    /**
-     * The unique ID of the referenced object.
-     * @type {string}
-     * @memberof AccountDocument
-     */
-    'id': string;
-    /**
-     * The human readable name of the referenced object.
-     * @type {string}
-     * @memberof AccountDocument
-     */
-    'name': string;
-    /**
-     * 
-     * @type {DocumentType}
-     * @memberof AccountDocument
-     */
-    '_type': DocumentType;
-    /**
-     * The ID of the account
-     * @type {string}
-     * @memberof AccountDocument
-     */
-    'accountId'?: string;
-    /**
-     * 
-     * @type {AccountSource}
-     * @memberof AccountDocument
-     */
-    'source'?: AccountSource;
-    /**
-     * Indicates if the account is disabled
-     * @type {boolean}
-     * @memberof AccountDocument
-     */
-    'disabled'?: boolean;
-    /**
-     * Indicates if the account is locked
-     * @type {boolean}
-     * @memberof AccountDocument
-     */
-    'locked'?: boolean;
-    /**
-     * 
-     * @type {boolean}
-     * @memberof AccountDocument
-     */
-    'privileged'?: boolean;
-    /**
-     * Indicates if the account has been manually correlated to an identity
-     * @type {boolean}
-     * @memberof AccountDocument
-     */
-    'manuallyCorrelated'?: boolean;
-    /**
-     * A date-time in ISO-8601 format
-     * @type {string}
-     * @memberof AccountDocument
-     */
-    'passwordLastSet'?: string | null;
-    /**
-     * a map or dictionary of key/value pairs
-     * @type {{ [key: string]: any; }}
-     * @memberof AccountDocument
-     */
-    'entitlementAttributes'?: { [key: string]: any; } | null;
-    /**
-     * A date-time in ISO-8601 format
-     * @type {string}
-     * @memberof AccountDocument
-     */
-    'created'?: string | null;
-    /**
-     * A date-time in ISO-8601 format
-     * @type {string}
-     * @memberof AccountDocument
-     */
-    'modified'?: string | null;
-    /**
-     * a map or dictionary of key/value pairs
-     * @type {{ [key: string]: any; }}
-     * @memberof AccountDocument
-     */
-    'attributes'?: { [key: string]: any; };
-    /**
-     * 
-     * @type {DisplayReference}
-     * @memberof AccountDocument
-     */
-    'identity'?: DisplayReference;
-    /**
-     * 
-     * @type {Array<AccessProfileEntitlement>}
-     * @memberof AccountDocument
-     */
-    'access'?: Array<AccessProfileEntitlement>;
-    /**
-     * The number of entitlements assigned to the account
-     * @type {number}
-     * @memberof AccountDocument
-     */
-    'entitlementCount'?: number;
-    /**
-     * Indicates if the account is not correlated to an identity
-     * @type {boolean}
-     * @memberof AccountDocument
-     */
-    'uncorrelated'?: boolean;
-    /**
-     * 
-     * @type {Array<string>}
-     * @memberof AccountDocument
-     */
-    'tags'?: Array<string>;
-}
-/**
- * 
- * @export
- * @interface AccountDocumentAllOf
- */
-export interface AccountDocumentAllOf {
-    /**
-     * A date-time in ISO-8601 format
-     * @type {string}
-     * @memberof AccountDocumentAllOf
-     */
-    'modified'?: string | null;
-    /**
-     * a map or dictionary of key/value pairs
-     * @type {{ [key: string]: any; }}
-     * @memberof AccountDocumentAllOf
-     */
-    'attributes'?: { [key: string]: any; };
-    /**
-     * 
-     * @type {DisplayReference}
-     * @memberof AccountDocumentAllOf
-     */
-    'identity'?: DisplayReference;
-    /**
-     * 
-     * @type {Array<AccessProfileEntitlement>}
-     * @memberof AccountDocumentAllOf
-     */
-    'access'?: Array<AccessProfileEntitlement>;
-    /**
-     * The number of entitlements assigned to the account
-     * @type {number}
-     * @memberof AccountDocumentAllOf
-     */
-    'entitlementCount'?: number;
-    /**
-     * Indicates if the account is not correlated to an identity
-     * @type {boolean}
-     * @memberof AccountDocumentAllOf
-     */
-    'uncorrelated'?: boolean;
-    /**
-     * 
-     * @type {Array<string>}
-     * @memberof AccountDocumentAllOf
-     */
-    'tags'?: Array<string>;
-}
-/**
  * 
  * @export
  * @interface AccountRequest
@@ -2572,189 +2402,6 @@ export const AdminReviewReassignReassignToTypeEnum = {
 
 export type AdminReviewReassignReassignToTypeEnum = typeof AdminReviewReassignReassignToTypeEnum[keyof typeof AdminReviewReassignReassignToTypeEnum];
 
-/**
- * Aggregation
- * @export
- * @interface Aggregation
- */
-export interface Aggregation {
-    /**
-     * 
-     * @type {string}
-     * @memberof Aggregation
-     */
-    'id': string;
-    /**
-     * 
-     * @type {string}
-     * @memberof Aggregation
-     */
-    'name': string;
-    /**
-     * 
-     * @type {DocumentType}
-     * @memberof Aggregation
-     */
-    '_type': DocumentType;
-    /**
-     * 
-     * @type {string}
-     * @memberof Aggregation
-     */
-    'status'?: string;
-    /**
-     * 
-     * @type {number}
-     * @memberof Aggregation
-     */
-    'duration'?: number;
-    /**
-     * 
-     * @type {number}
-     * @memberof Aggregation
-     */
-    'avgDuration'?: number;
-    /**
-     * 
-     * @type {number}
-     * @memberof Aggregation
-     */
-    'changedAccounts'?: number;
-    /**
-     * A date-time in ISO-8601 format
-     * @type {string}
-     * @memberof Aggregation
-     */
-    'nextScheduled'?: string | null;
-    /**
-     * A date-time in ISO-8601 format
-     * @type {string}
-     * @memberof Aggregation
-     */
-    'startTime'?: string | null;
-    /**
-     * John Doe
-     * @type {string}
-     * @memberof Aggregation
-     */
-    'sourceOwner'?: string;
-}
-/**
- * 
- * @export
- * @interface AggregationAllOf
- */
-export interface AggregationAllOf {
-    /**
-     * 
-     * @type {string}
-     * @memberof AggregationAllOf
-     */
-    'status'?: string;
-    /**
-     * 
-     * @type {number}
-     * @memberof AggregationAllOf
-     */
-    'duration'?: number;
-    /**
-     * 
-     * @type {number}
-     * @memberof AggregationAllOf
-     */
-    'avgDuration'?: number;
-    /**
-     * 
-     * @type {number}
-     * @memberof AggregationAllOf
-     */
-    'changedAccounts'?: number;
-    /**
-     * A date-time in ISO-8601 format
-     * @type {string}
-     * @memberof AggregationAllOf
-     */
-    'nextScheduled'?: string | null;
-    /**
-     * A date-time in ISO-8601 format
-     * @type {string}
-     * @memberof AggregationAllOf
-     */
-    'startTime'?: string | null;
-    /**
-     * John Doe
-     * @type {string}
-     * @memberof AggregationAllOf
-     */
-    'sourceOwner'?: string;
-}
-/**
- * Aggregation
- * @export
- * @interface AggregationDocument
- */
-export interface AggregationDocument {
-    /**
-     * 
-     * @type {string}
-     * @memberof AggregationDocument
-     */
-    'id': string;
-    /**
-     * 
-     * @type {string}
-     * @memberof AggregationDocument
-     */
-    'name': string;
-    /**
-     * 
-     * @type {DocumentType}
-     * @memberof AggregationDocument
-     */
-    '_type': DocumentType;
-    /**
-     * 
-     * @type {string}
-     * @memberof AggregationDocument
-     */
-    'status'?: string;
-    /**
-     * 
-     * @type {number}
-     * @memberof AggregationDocument
-     */
-    'duration'?: number;
-    /**
-     * 
-     * @type {number}
-     * @memberof AggregationDocument
-     */
-    'avgDuration'?: number;
-    /**
-     * 
-     * @type {number}
-     * @memberof AggregationDocument
-     */
-    'changedAccounts'?: number;
-    /**
-     * A date-time in ISO-8601 format
-     * @type {string}
-     * @memberof AggregationDocument
-     */
-    'nextScheduled'?: string | null;
-    /**
-     * A date-time in ISO-8601 format
-     * @type {string}
-     * @memberof AggregationDocument
-     */
-    'startTime'?: string | null;
-    /**
-     * John Doe
-     * @type {string}
-     * @memberof AggregationDocument
-     */
-    'sourceOwner'?: string;
-}
 /**
  * 
  * @export
@@ -16041,7 +15688,7 @@ export interface SearchArgumentsOwner {
  * @type SearchDocument
  * @export
  */
-export type SearchDocument = AccessProfileDocument | AccountActivityDocument | AccountDocument | AggregationDocument | EntitlementDocument | EventDocument | IdentityDocument | RoleDocument;
+export type SearchDocument = AccessProfileDocument | AccountActivityDocument | EntitlementDocument | EventDocument | IdentityDocument | RoleDocument;
 
 /**
  * Arguments for Search Export report (SEARCH_EXPORT)
@@ -40733,7 +40380,7 @@ export const SearchApiAxiosParamCreator = function (configuration?: Configuratio
         /**
          * Fetches a single document from the specified index, using the specified document ID.
          * @summary Get a Document by ID
-         * @param {string} index The index from which to fetch the specified document.  The currently supported index names are: *accessprofiles*, *accountactivities*, *accounts*, *aggregations*, *entitlements*, *events*, *identities*, and *roles*. 
+         * @param {string} index The index from which to fetch the specified document.  The currently supported index names are: *accessprofiles*, *accountactivities*, *entitlements*, *events*, *identities*, and *roles*. 
          * @param {string} id ID of the requested document.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
@@ -40873,7 +40520,7 @@ export const SearchApiFp = function(configuration?: Configuration) {
         /**
          * Fetches a single document from the specified index, using the specified document ID.
          * @summary Get a Document by ID
-         * @param {string} index The index from which to fetch the specified document.  The currently supported index names are: *accessprofiles*, *accountactivities*, *accounts*, *aggregations*, *entitlements*, *events*, *identities*, and *roles*. 
+         * @param {string} index The index from which to fetch the specified document.  The currently supported index names are: *accessprofiles*, *accountactivities*, *entitlements*, *events*, *identities*, and *roles*. 
          * @param {string} id ID of the requested document.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
@@ -40932,7 +40579,7 @@ export const SearchApiFactory = function (configuration?: Configuration, basePat
         /**
          * Fetches a single document from the specified index, using the specified document ID.
          * @summary Get a Document by ID
-         * @param {string} index The index from which to fetch the specified document.  The currently supported index names are: *accessprofiles*, *accountactivities*, *accounts*, *aggregations*, *entitlements*, *events*, *identities*, and *roles*. 
+         * @param {string} index The index from which to fetch the specified document.  The currently supported index names are: *accessprofiles*, *accountactivities*, *entitlements*, *events*, *identities*, and *roles*. 
          * @param {string} id ID of the requested document.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
@@ -41012,7 +40659,7 @@ export interface SearchApiSearchCountRequest {
  */
 export interface SearchApiSearchGetRequest {
     /**
-     * The index from which to fetch the specified document.  The currently supported index names are: *accessprofiles*, *accountactivities*, *accounts*, *aggregations*, *entitlements*, *events*, *identities*, and *roles*. 
+     * The index from which to fetch the specified document.  The currently supported index names are: *accessprofiles*, *accountactivities*, *entitlements*, *events*, *identities*, and *roles*. 
      * @type {string}
      * @memberof SearchApiSearchGet
      */
