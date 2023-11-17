@@ -7415,6 +7415,19 @@ export interface CreateDomainDkim405ResponseBeta {
 /**
  * 
  * @export
+ * @interface CreateFormDefinitionFileRequestRequestBeta
+ */
+export interface CreateFormDefinitionFileRequestRequestBeta {
+    /**
+     * File specifying the multipart
+     * @type {any}
+     * @memberof CreateFormDefinitionFileRequestRequestBeta
+     */
+    'file': any;
+}
+/**
+ * 
+ * @export
  * @interface CreateFormDefinitionRequestBeta
  */
 export interface CreateFormDefinitionRequestBeta {
@@ -9527,6 +9540,31 @@ export interface FormDefinitionDynamicSchemaResponseBeta {
      * @memberof FormDefinitionDynamicSchemaResponseBeta
      */
     'outputSchema'?: { [key: string]: object; };
+}
+/**
+ * 
+ * @export
+ * @interface FormDefinitionFileUploadResponseBeta
+ */
+export interface FormDefinitionFileUploadResponseBeta {
+    /**
+     * Created is the date the file was uploaded
+     * @type {string}
+     * @memberof FormDefinitionFileUploadResponseBeta
+     */
+    'created'?: string;
+    /**
+     * fileId is a unique ULID that serves as an identifier for the form definition file
+     * @type {string}
+     * @memberof FormDefinitionFileUploadResponseBeta
+     */
+    'fileId'?: string;
+    /**
+     * FormDefinitionID is a unique guid identifying this form definition
+     * @type {string}
+     * @memberof FormDefinitionFileUploadResponseBeta
+     */
+    'formDefinitionId'?: string;
 }
 /**
  * 
@@ -35488,6 +35526,59 @@ export const CustomFormsBetaApiAxiosParamCreator = function (configuration?: Con
             };
         },
         /**
+         * Parameter `{formDefinitionID}` should match a form definition ID.
+         * @summary Upload new form definition file.
+         * @param {string} formDefinitionID FormDefinitionID  String specifying FormDefinitionID
+         * @param {any} file File specifying the multipart
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        createFormDefinitionFileRequest: async (formDefinitionID: string, file: any, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'formDefinitionID' is not null or undefined
+            assertParamExists('createFormDefinitionFileRequest', 'formDefinitionID', formDefinitionID)
+            // verify required parameter 'file' is not null or undefined
+            assertParamExists('createFormDefinitionFileRequest', 'file', file)
+            const localVarPath = `/form-definitions/{formDefinitionID}/upload`
+                .replace(`{${"formDefinitionID"}}`, encodeURIComponent(String(formDefinitionID)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'POST', ...baseOptions, ...axiosOptions};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            const localVarFormParams = new ((configuration && configuration.formDataCtor) || FormData)();
+
+            // authentication UserContextAuth required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "UserContextAuth", [], configuration)
+
+            // authentication UserContextAuth required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "UserContextAuth", [], configuration)
+
+
+            if (file !== undefined) { 
+                localVarFormParams.append('file', file as any);
+            }
+    
+    
+            localVarHeaderParameter['Content-Type'] = 'multipart/form-data';
+    
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
+            localVarRequestOptions.data = localVarFormParams;
+
+            return {
+                url: toPathString(localVarUrlObj),
+                axiosOptions: localVarRequestOptions,
+            };
+        },
+        /**
          * 
          * @summary Creates a form instance.
          * @param {CreateFormInstanceRequestBeta} [body] Body is the request payload to create a form instance
@@ -35630,6 +35721,52 @@ export const CustomFormsBetaApiAxiosParamCreator = function (configuration?: Con
             };
         },
         /**
+         * 
+         * @summary Download definition file by fileId.
+         * @param {string} formDefinitionID FormDefinitionID  Form definition ID
+         * @param {string} fileID FileID  String specifying the hashed name of the uploaded file we are retrieving.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        getFileFromS3: async (formDefinitionID: string, fileID: string, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'formDefinitionID' is not null or undefined
+            assertParamExists('getFileFromS3', 'formDefinitionID', formDefinitionID)
+            // verify required parameter 'fileID' is not null or undefined
+            assertParamExists('getFileFromS3', 'fileID', fileID)
+            const localVarPath = `/form-definitions/{formDefinitionID}/file/{fileID}`
+                .replace(`{${"formDefinitionID"}}`, encodeURIComponent(String(formDefinitionID)))
+                .replace(`{${"fileID"}}`, encodeURIComponent(String(fileID)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...axiosOptions};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication UserContextAuth required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "UserContextAuth", [], configuration)
+
+            // authentication UserContextAuth required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "UserContextAuth", [], configuration)
+
+
+    
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                axiosOptions: localVarRequestOptions,
+            };
+        },
+        /**
          * Parameter `{formDefinitionID}` should match a form definition ID.
          * @summary Return a form definition.
          * @param {string} formDefinitionID Form definition ID
@@ -35683,6 +35820,52 @@ export const CustomFormsBetaApiAxiosParamCreator = function (configuration?: Con
             assertParamExists('getFormInstanceByKey', 'formInstanceID', formInstanceID)
             const localVarPath = `/form-instances/{formInstanceID}`
                 .replace(`{${"formInstanceID"}}`, encodeURIComponent(String(formInstanceID)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...axiosOptions};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication UserContextAuth required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "UserContextAuth", [], configuration)
+
+            // authentication UserContextAuth required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "UserContextAuth", [], configuration)
+
+
+    
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                axiosOptions: localVarRequestOptions,
+            };
+        },
+        /**
+         * 
+         * @summary Download instance file by fileId.
+         * @param {string} formInstanceID FormInstanceID  Form instance ID
+         * @param {string} fileID FileID  String specifying the hashed name of the uploaded file we are retrieving.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        getFormInstanceFile: async (formInstanceID: string, fileID: string, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'formInstanceID' is not null or undefined
+            assertParamExists('getFormInstanceFile', 'formInstanceID', formInstanceID)
+            // verify required parameter 'fileID' is not null or undefined
+            assertParamExists('getFormInstanceFile', 'fileID', fileID)
+            const localVarPath = `/form-instances/{formInstanceID}/file/{fileID}`
+                .replace(`{${"formInstanceID"}}`, encodeURIComponent(String(formInstanceID)))
+                .replace(`{${"fileID"}}`, encodeURIComponent(String(fileID)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -36131,6 +36314,18 @@ export const CustomFormsBetaApiFp = function(configuration?: Configuration) {
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
+         * Parameter `{formDefinitionID}` should match a form definition ID.
+         * @summary Upload new form definition file.
+         * @param {string} formDefinitionID FormDefinitionID  String specifying FormDefinitionID
+         * @param {any} file File specifying the multipart
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        async createFormDefinitionFileRequest(formDefinitionID: string, file: any, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<FormDefinitionFileUploadResponseBeta>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.createFormDefinitionFileRequest(formDefinitionID, file, axiosOptions);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
          * 
          * @summary Creates a form instance.
          * @param {CreateFormInstanceRequestBeta} [body] Body is the request payload to create a form instance
@@ -36167,6 +36362,18 @@ export const CustomFormsBetaApiFp = function(configuration?: Configuration) {
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
+         * 
+         * @summary Download definition file by fileId.
+         * @param {string} formDefinitionID FormDefinitionID  Form definition ID
+         * @param {string} fileID FileID  String specifying the hashed name of the uploaded file we are retrieving.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        async getFileFromS3(formDefinitionID: string, fileID: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<any>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getFileFromS3(formDefinitionID, fileID, axiosOptions);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
          * Parameter `{formDefinitionID}` should match a form definition ID.
          * @summary Return a form definition.
          * @param {string} formDefinitionID Form definition ID
@@ -36186,6 +36393,18 @@ export const CustomFormsBetaApiFp = function(configuration?: Configuration) {
          */
         async getFormInstanceByKey(formInstanceID: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<FormInstanceResponseBeta>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getFormInstanceByKey(formInstanceID, axiosOptions);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * 
+         * @summary Download instance file by fileId.
+         * @param {string} formInstanceID FormInstanceID  Form instance ID
+         * @param {string} fileID FileID  String specifying the hashed name of the uploaded file we are retrieving.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        async getFormInstanceFile(formInstanceID: string, fileID: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<any>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getFormInstanceFile(formInstanceID, fileID, axiosOptions);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
@@ -36317,6 +36536,17 @@ export const CustomFormsBetaApiFactory = function (configuration?: Configuration
             return localVarFp.createFormDefinitionDynamicSchema(body, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
+         * Parameter `{formDefinitionID}` should match a form definition ID.
+         * @summary Upload new form definition file.
+         * @param {string} formDefinitionID FormDefinitionID  String specifying FormDefinitionID
+         * @param {any} file File specifying the multipart
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        createFormDefinitionFileRequest(formDefinitionID: string, file: any, axiosOptions?: any): AxiosPromise<FormDefinitionFileUploadResponseBeta> {
+            return localVarFp.createFormDefinitionFileRequest(formDefinitionID, file, axiosOptions).then((request) => request(axios, basePath));
+        },
+        /**
          * 
          * @summary Creates a form instance.
          * @param {CreateFormInstanceRequestBeta} [body] Body is the request payload to create a form instance
@@ -36350,6 +36580,17 @@ export const CustomFormsBetaApiFactory = function (configuration?: Configuration
             return localVarFp.exportFormDefinitionsByTenant(offset, limit, filters, sorters, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
+         * 
+         * @summary Download definition file by fileId.
+         * @param {string} formDefinitionID FormDefinitionID  Form definition ID
+         * @param {string} fileID FileID  String specifying the hashed name of the uploaded file we are retrieving.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        getFileFromS3(formDefinitionID: string, fileID: string, axiosOptions?: any): AxiosPromise<any> {
+            return localVarFp.getFileFromS3(formDefinitionID, fileID, axiosOptions).then((request) => request(axios, basePath));
+        },
+        /**
          * Parameter `{formDefinitionID}` should match a form definition ID.
          * @summary Return a form definition.
          * @param {string} formDefinitionID Form definition ID
@@ -36368,6 +36609,17 @@ export const CustomFormsBetaApiFactory = function (configuration?: Configuration
          */
         getFormInstanceByKey(formInstanceID: string, axiosOptions?: any): AxiosPromise<FormInstanceResponseBeta> {
             return localVarFp.getFormInstanceByKey(formInstanceID, axiosOptions).then((request) => request(axios, basePath));
+        },
+        /**
+         * 
+         * @summary Download instance file by fileId.
+         * @param {string} formInstanceID FormInstanceID  Form instance ID
+         * @param {string} fileID FileID  String specifying the hashed name of the uploaded file we are retrieving.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        getFormInstanceFile(formInstanceID: string, fileID: string, axiosOptions?: any): AxiosPromise<any> {
+            return localVarFp.getFormInstanceFile(formInstanceID, fileID, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * 
@@ -36491,6 +36743,27 @@ export interface CustomFormsBetaApiCreateFormDefinitionDynamicSchemaRequest {
 }
 
 /**
+ * Request parameters for createFormDefinitionFileRequest operation in CustomFormsBetaApi.
+ * @export
+ * @interface CustomFormsBetaApiCreateFormDefinitionFileRequestRequest
+ */
+export interface CustomFormsBetaApiCreateFormDefinitionFileRequestRequest {
+    /**
+     * FormDefinitionID  String specifying FormDefinitionID
+     * @type {string}
+     * @memberof CustomFormsBetaApiCreateFormDefinitionFileRequest
+     */
+    readonly formDefinitionID: string
+
+    /**
+     * File specifying the multipart
+     * @type {any}
+     * @memberof CustomFormsBetaApiCreateFormDefinitionFileRequest
+     */
+    readonly file: any
+}
+
+/**
  * Request parameters for createFormInstance operation in CustomFormsBetaApi.
  * @export
  * @interface CustomFormsBetaApiCreateFormInstanceRequest
@@ -36554,6 +36827,27 @@ export interface CustomFormsBetaApiExportFormDefinitionsByTenantRequest {
 }
 
 /**
+ * Request parameters for getFileFromS3 operation in CustomFormsBetaApi.
+ * @export
+ * @interface CustomFormsBetaApiGetFileFromS3Request
+ */
+export interface CustomFormsBetaApiGetFileFromS3Request {
+    /**
+     * FormDefinitionID  Form definition ID
+     * @type {string}
+     * @memberof CustomFormsBetaApiGetFileFromS3
+     */
+    readonly formDefinitionID: string
+
+    /**
+     * FileID  String specifying the hashed name of the uploaded file we are retrieving.
+     * @type {string}
+     * @memberof CustomFormsBetaApiGetFileFromS3
+     */
+    readonly fileID: string
+}
+
+/**
  * Request parameters for getFormDefinitionByKey operation in CustomFormsBetaApi.
  * @export
  * @interface CustomFormsBetaApiGetFormDefinitionByKeyRequest
@@ -36579,6 +36873,27 @@ export interface CustomFormsBetaApiGetFormInstanceByKeyRequest {
      * @memberof CustomFormsBetaApiGetFormInstanceByKey
      */
     readonly formInstanceID: string
+}
+
+/**
+ * Request parameters for getFormInstanceFile operation in CustomFormsBetaApi.
+ * @export
+ * @interface CustomFormsBetaApiGetFormInstanceFileRequest
+ */
+export interface CustomFormsBetaApiGetFormInstanceFileRequest {
+    /**
+     * FormInstanceID  Form instance ID
+     * @type {string}
+     * @memberof CustomFormsBetaApiGetFormInstanceFile
+     */
+    readonly formInstanceID: string
+
+    /**
+     * FileID  String specifying the hashed name of the uploaded file we are retrieving.
+     * @type {string}
+     * @memberof CustomFormsBetaApiGetFormInstanceFile
+     */
+    readonly fileID: string
 }
 
 /**
@@ -36781,6 +37096,18 @@ export class CustomFormsBetaApi extends BaseAPI {
     }
 
     /**
+     * Parameter `{formDefinitionID}` should match a form definition ID.
+     * @summary Upload new form definition file.
+     * @param {CustomFormsBetaApiCreateFormDefinitionFileRequestRequest} requestParameters Request parameters.
+     * @param {*} [axiosOptions] Override http request option.
+     * @throws {RequiredError}
+     * @memberof CustomFormsBetaApi
+     */
+    public createFormDefinitionFileRequest(requestParameters: CustomFormsBetaApiCreateFormDefinitionFileRequestRequest, axiosOptions?: AxiosRequestConfig) {
+        return CustomFormsBetaApiFp(this.configuration).createFormDefinitionFileRequest(requestParameters.formDefinitionID, requestParameters.file, axiosOptions).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
      * 
      * @summary Creates a form instance.
      * @param {CustomFormsBetaApiCreateFormInstanceRequest} requestParameters Request parameters.
@@ -36817,6 +37144,18 @@ export class CustomFormsBetaApi extends BaseAPI {
     }
 
     /**
+     * 
+     * @summary Download definition file by fileId.
+     * @param {CustomFormsBetaApiGetFileFromS3Request} requestParameters Request parameters.
+     * @param {*} [axiosOptions] Override http request option.
+     * @throws {RequiredError}
+     * @memberof CustomFormsBetaApi
+     */
+    public getFileFromS3(requestParameters: CustomFormsBetaApiGetFileFromS3Request, axiosOptions?: AxiosRequestConfig) {
+        return CustomFormsBetaApiFp(this.configuration).getFileFromS3(requestParameters.formDefinitionID, requestParameters.fileID, axiosOptions).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
      * Parameter `{formDefinitionID}` should match a form definition ID.
      * @summary Return a form definition.
      * @param {CustomFormsBetaApiGetFormDefinitionByKeyRequest} requestParameters Request parameters.
@@ -36838,6 +37177,18 @@ export class CustomFormsBetaApi extends BaseAPI {
      */
     public getFormInstanceByKey(requestParameters: CustomFormsBetaApiGetFormInstanceByKeyRequest, axiosOptions?: AxiosRequestConfig) {
         return CustomFormsBetaApiFp(this.configuration).getFormInstanceByKey(requestParameters.formInstanceID, axiosOptions).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * 
+     * @summary Download instance file by fileId.
+     * @param {CustomFormsBetaApiGetFormInstanceFileRequest} requestParameters Request parameters.
+     * @param {*} [axiosOptions] Override http request option.
+     * @throws {RequiredError}
+     * @memberof CustomFormsBetaApi
+     */
+    public getFormInstanceFile(requestParameters: CustomFormsBetaApiGetFormInstanceFileRequest, axiosOptions?: AxiosRequestConfig) {
+        return CustomFormsBetaApiFp(this.configuration).getFormInstanceFile(requestParameters.formInstanceID, requestParameters.fileID, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
