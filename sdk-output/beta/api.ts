@@ -46679,7 +46679,7 @@ export const IdentityAttributesBetaApiAxiosParamCreator = function (configuratio
         createIdentityAttribute: async (identityAttributeBeta: IdentityAttributeBeta, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'identityAttributeBeta' is not null or undefined
             assertParamExists('createIdentityAttribute', 'identityAttributeBeta', identityAttributeBeta)
-            const localVarPath = `/identity-attributes/{name}`;
+            const localVarPath = `/identity-attributes`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
