@@ -157,9 +157,14 @@ export class Configuration {
         this.tokenUrl = param.tokenUrl
         this.clientId = param.clientId;
         this.clientSecret = param.clientSecret;
-        const url = `${this.tokenUrl}?grant_type=client_credentials&client_id=${this.clientId}&client_secret=${this.clientSecret}`;
+        const url = `${this.tokenUrl}`;
+        const formData = new FormData()
+        formData .append('grant_type', 'client_credentials')
+        formData .append('client_id', this.clientId)
+        formData .append('client_secret', this.clientSecret)
+
         if (!this.accessToken) {
-            this.accessToken = this.getAccessToken(url);
+            this.accessToken = this.getAccessToken(url, formData);
         }
         
     }
@@ -227,9 +232,9 @@ export class Configuration {
 
     }
 
-    private async getAccessToken(url: string): Promise<string> {
+    private async getAccessToken(url: string, formData: FormData): Promise<string> {
         try {
-            const {data, status} = await axios.post(url)
+            const {data, status} = await axios.post(url, formData )
             if (status === 200) {
                 return data.access_token;
             } else {
