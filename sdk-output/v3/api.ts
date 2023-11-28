@@ -3815,6 +3815,24 @@ export interface Campaign {
      */
     'created'?: string;
     /**
+     * The total number of certifications in this campaign.
+     * @type {number}
+     * @memberof Campaign
+     */
+    'totalCertifications'?: number;
+    /**
+     * The number of completed certifications in this campaign.
+     * @type {number}
+     * @memberof Campaign
+     */
+    'completedCertifications'?: number;
+    /**
+     * A list of errors and warnings that have accumulated.
+     * @type {Array<CampaignAlert>}
+     * @memberof Campaign
+     */
+    'alerts'?: Array<CampaignAlert>;
+    /**
      * Modified time of the campaign
      * @type {string}
      * @memberof Campaign
@@ -3850,24 +3868,6 @@ export interface Campaign {
      * @memberof Campaign
      */
     'roleCompositionCampaignInfo'?: CampaignAllOfRoleCompositionCampaignInfo;
-    /**
-     * A list of errors and warnings that have accumulated.
-     * @type {Array<CampaignAlert>}
-     * @memberof Campaign
-     */
-    'alerts'?: Array<CampaignAlert>;
-    /**
-     * The total number of certifications in this campaign.
-     * @type {number}
-     * @memberof Campaign
-     */
-    'totalCertifications'?: number;
-    /**
-     * The number of completed certifications in this campaign.
-     * @type {number}
-     * @memberof Campaign
-     */
-    'completedCertifications'?: number;
     /**
      * A list of sources in the campaign that contain \\\"orphan entitlements\\\" (entitlements without a corresponding Managed Attribute). An empty list indicates the campaign has no orphan entitlements. Null indicates there may be unknown orphan entitlements in the campaign (the campaign was created before this feature was implemented).
      * @type {Array<CampaignAllOfSourcesWithOrphanEntitlements>}
@@ -3952,12 +3952,6 @@ export type CampaignAlertLevelEnum = typeof CampaignAlertLevelEnum[keyof typeof 
  */
 export interface CampaignAllOf {
     /**
-     * Created time of the campaign
-     * @type {string}
-     * @memberof CampaignAllOf
-     */
-    'created'?: string;
-    /**
      * Modified time of the campaign
      * @type {string}
      * @memberof CampaignAllOf
@@ -3999,24 +3993,6 @@ export interface CampaignAllOf {
      * @memberof CampaignAllOf
      */
     'roleCompositionCampaignInfo'?: CampaignAllOfRoleCompositionCampaignInfo;
-    /**
-     * A list of errors and warnings that have accumulated.
-     * @type {Array<CampaignAlert>}
-     * @memberof CampaignAllOf
-     */
-    'alerts'?: Array<CampaignAlert>;
-    /**
-     * The total number of certifications in this campaign.
-     * @type {number}
-     * @memberof CampaignAllOf
-     */
-    'totalCertifications'?: number;
-    /**
-     * The number of completed certifications in this campaign.
-     * @type {number}
-     * @memberof CampaignAllOf
-     */
-    'completedCertifications'?: number;
     /**
      * A list of sources in the campaign that contain \\\"orphan entitlements\\\" (entitlements without a corresponding Managed Attribute). An empty list indicates the campaign has no orphan entitlements. Null indicates there may be unknown orphan entitlements in the campaign (the campaign was created before this feature was implemented).
      * @type {Array<CampaignAllOfSourcesWithOrphanEntitlements>}
@@ -16414,6 +16390,30 @@ export interface SlimCampaign {
      * @memberof SlimCampaign
      */
     'correlatedStatus'?: SlimCampaignCorrelatedStatusEnum;
+    /**
+     * Created time of the campaign
+     * @type {string}
+     * @memberof SlimCampaign
+     */
+    'created'?: string;
+    /**
+     * The total number of certifications in this campaign.
+     * @type {number}
+     * @memberof SlimCampaign
+     */
+    'totalCertifications'?: number;
+    /**
+     * The number of completed certifications in this campaign.
+     * @type {number}
+     * @memberof SlimCampaign
+     */
+    'completedCertifications'?: number;
+    /**
+     * A list of errors and warnings that have accumulated.
+     * @type {Array<CampaignAlert>}
+     * @memberof SlimCampaign
+     */
+    'alerts'?: Array<CampaignAlert>;
 }
 
 export const SlimCampaignTypeEnum = {

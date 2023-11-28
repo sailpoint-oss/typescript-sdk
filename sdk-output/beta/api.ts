@@ -4722,6 +4722,24 @@ export interface CampaignBeta {
      */
     'created'?: string;
     /**
+     * The total number of certifications in this campaign.
+     * @type {number}
+     * @memberof CampaignBeta
+     */
+    'totalCertifications'?: number;
+    /**
+     * The number of completed certifications in this campaign.
+     * @type {number}
+     * @memberof CampaignBeta
+     */
+    'completedCertifications'?: number;
+    /**
+     * A list of errors and warnings that have accumulated.
+     * @type {Array<CampaignAlertBeta>}
+     * @memberof CampaignBeta
+     */
+    'alerts'?: Array<CampaignAlertBeta>;
+    /**
      * Modified time of the campaign
      * @type {string}
      * @memberof CampaignBeta
@@ -4757,24 +4775,6 @@ export interface CampaignBeta {
      * @memberof CampaignBeta
      */
     'roleCompositionCampaignInfo'?: FullcampaignAllOfRoleCompositionCampaignInfoBeta;
-    /**
-     * A list of errors and warnings that have accumulated.
-     * @type {Array<CampaignAlertBeta>}
-     * @memberof CampaignBeta
-     */
-    'alerts'?: Array<CampaignAlertBeta>;
-    /**
-     * The total number of certifications in this campaign.
-     * @type {number}
-     * @memberof CampaignBeta
-     */
-    'totalCertifications'?: number;
-    /**
-     * The number of completed certifications in this campaign.
-     * @type {number}
-     * @memberof CampaignBeta
-     */
-    'completedCertifications'?: number;
     /**
      * A list of sources in the campaign that contain \\\"orphan entitlements\\\" (entitlements without a corresponding Managed Attribute). An empty list indicates the campaign has no orphan entitlements. Null indicates there may be unknown orphan entitlements in the campaign (the campaign was created before this feature was implemented).
      * @type {Array<FullcampaignAllOfSourcesWithOrphanEntitlementsBeta>}
@@ -10329,12 +10329,6 @@ export interface FullAccountBeta {
  */
 export interface FullcampaignAllOfBeta {
     /**
-     * Created time of the campaign
-     * @type {string}
-     * @memberof FullcampaignAllOfBeta
-     */
-    'created'?: string;
-    /**
      * Modified time of the campaign
      * @type {string}
      * @memberof FullcampaignAllOfBeta
@@ -10376,24 +10370,6 @@ export interface FullcampaignAllOfBeta {
      * @memberof FullcampaignAllOfBeta
      */
     'roleCompositionCampaignInfo'?: FullcampaignAllOfRoleCompositionCampaignInfoBeta;
-    /**
-     * A list of errors and warnings that have accumulated.
-     * @type {Array<CampaignAlertBeta>}
-     * @memberof FullcampaignAllOfBeta
-     */
-    'alerts'?: Array<CampaignAlertBeta>;
-    /**
-     * The total number of certifications in this campaign.
-     * @type {number}
-     * @memberof FullcampaignAllOfBeta
-     */
-    'totalCertifications'?: number;
-    /**
-     * The number of completed certifications in this campaign.
-     * @type {number}
-     * @memberof FullcampaignAllOfBeta
-     */
-    'completedCertifications'?: number;
     /**
      * A list of sources in the campaign that contain \\\"orphan entitlements\\\" (entitlements without a corresponding Managed Attribute). An empty list indicates the campaign has no orphan entitlements. Null indicates there may be unknown orphan entitlements in the campaign (the campaign was created before this feature was implemented).
      * @type {Array<FullcampaignAllOfSourcesWithOrphanEntitlementsBeta>}
@@ -10726,6 +10702,24 @@ export interface FullcampaignBeta {
      */
     'created'?: string;
     /**
+     * The total number of certifications in this campaign.
+     * @type {number}
+     * @memberof FullcampaignBeta
+     */
+    'totalCertifications'?: number;
+    /**
+     * The number of completed certifications in this campaign.
+     * @type {number}
+     * @memberof FullcampaignBeta
+     */
+    'completedCertifications'?: number;
+    /**
+     * A list of errors and warnings that have accumulated.
+     * @type {Array<CampaignAlertBeta>}
+     * @memberof FullcampaignBeta
+     */
+    'alerts'?: Array<CampaignAlertBeta>;
+    /**
      * Modified time of the campaign
      * @type {string}
      * @memberof FullcampaignBeta
@@ -10761,24 +10755,6 @@ export interface FullcampaignBeta {
      * @memberof FullcampaignBeta
      */
     'roleCompositionCampaignInfo'?: FullcampaignAllOfRoleCompositionCampaignInfoBeta;
-    /**
-     * A list of errors and warnings that have accumulated.
-     * @type {Array<CampaignAlertBeta>}
-     * @memberof FullcampaignBeta
-     */
-    'alerts'?: Array<CampaignAlertBeta>;
-    /**
-     * The total number of certifications in this campaign.
-     * @type {number}
-     * @memberof FullcampaignBeta
-     */
-    'totalCertifications'?: number;
-    /**
-     * The number of completed certifications in this campaign.
-     * @type {number}
-     * @memberof FullcampaignBeta
-     */
-    'completedCertifications'?: number;
     /**
      * A list of sources in the campaign that contain \\\"orphan entitlements\\\" (entitlements without a corresponding Managed Attribute). An empty list indicates the campaign has no orphan entitlements. Null indicates there may be unknown orphan entitlements in the campaign (the campaign was created before this feature was implemented).
      * @type {Array<FullcampaignAllOfSourcesWithOrphanEntitlementsBeta>}
@@ -13350,6 +13326,87 @@ export type JsonPatchOperationBetaOpEnum = typeof JsonPatchOperationBetaOpEnum[k
  */
 export type JsonPatchOperationValueBeta = Array<ArrayInnerBeta> | number | object | string;
 
+/**
+ * 
+ * @export
+ * @interface KbaAnswerRequestBeta
+ */
+export interface KbaAnswerRequestBeta {
+    /**
+     * Kba answers
+     * @type {Array<KbaAnswerRequestItemBeta>}
+     * @memberof KbaAnswerRequestBeta
+     */
+    'answers': Array<KbaAnswerRequestItemBeta>;
+}
+/**
+ * 
+ * @export
+ * @interface KbaAnswerRequestItemBeta
+ */
+export interface KbaAnswerRequestItemBeta {
+    /**
+     * Question Id
+     * @type {string}
+     * @memberof KbaAnswerRequestItemBeta
+     */
+    'questionId': string;
+    /**
+     * An answer for the KBA question
+     * @type {string}
+     * @memberof KbaAnswerRequestItemBeta
+     */
+    'answer': string;
+}
+/**
+ * 
+ * @export
+ * @interface KbaAuthResponseBeta
+ */
+export interface KbaAuthResponseBeta {
+    /**
+     * 
+     * @type {Array<KbaAuthResponseItemBeta>}
+     * @memberof KbaAuthResponseBeta
+     */
+    'kbaAuthResponseItems'?: Array<KbaAuthResponseItemBeta>;
+    /**
+     * MFA Authentication status
+     * @type {string}
+     * @memberof KbaAuthResponseBeta
+     */
+    'status'?: KbaAuthResponseBetaStatusEnum;
+}
+
+export const KbaAuthResponseBetaStatusEnum = {
+    Pending: 'PENDING',
+    Success: 'SUCCESS',
+    Failed: 'FAILED',
+    Lockout: 'LOCKOUT',
+    NotEnoughData: 'NOT_ENOUGH_DATA'
+} as const;
+
+export type KbaAuthResponseBetaStatusEnum = typeof KbaAuthResponseBetaStatusEnum[keyof typeof KbaAuthResponseBetaStatusEnum];
+
+/**
+ * 
+ * @export
+ * @interface KbaAuthResponseItemBeta
+ */
+export interface KbaAuthResponseItemBeta {
+    /**
+     * The KBA question id
+     * @type {string}
+     * @memberof KbaAuthResponseItemBeta
+     */
+    'questionId'?: string | null;
+    /**
+     * Return true if verified
+     * @type {boolean}
+     * @memberof KbaAuthResponseItemBeta
+     */
+    'isVerified'?: boolean | null;
+}
 /**
  * 
  * @export
@@ -21904,6 +21961,70 @@ export const SendTestNotificationRequestDtoBetaMediumEnum = {
 export type SendTestNotificationRequestDtoBetaMediumEnum = typeof SendTestNotificationRequestDtoBetaMediumEnum[keyof typeof SendTestNotificationRequestDtoBetaMediumEnum];
 
 /**
+ * 
+ * @export
+ * @interface SendTokenRequestBeta
+ */
+export interface SendTokenRequestBeta {
+    /**
+     * User alias from table spt_identity field named \'name\'
+     * @type {string}
+     * @memberof SendTokenRequestBeta
+     */
+    'userAlias': string;
+    /**
+     * Token delivery type
+     * @type {string}
+     * @memberof SendTokenRequestBeta
+     */
+    'deliveryType': SendTokenRequestBetaDeliveryTypeEnum;
+}
+
+export const SendTokenRequestBetaDeliveryTypeEnum = {
+    SmsPersonal: 'SMS_PERSONAL',
+    VoicePersonal: 'VOICE_PERSONAL',
+    SmsWork: 'SMS_WORK',
+    VoiceWork: 'VOICE_WORK',
+    EmailWork: 'EMAIL_WORK',
+    EmailPersonal: 'EMAIL_PERSONAL'
+} as const;
+
+export type SendTokenRequestBetaDeliveryTypeEnum = typeof SendTokenRequestBetaDeliveryTypeEnum[keyof typeof SendTokenRequestBetaDeliveryTypeEnum];
+
+/**
+ * 
+ * @export
+ * @interface SendTokenResponseBeta
+ */
+export interface SendTokenResponseBeta {
+    /**
+     * The token request ID
+     * @type {string}
+     * @memberof SendTokenResponseBeta
+     */
+    'requestId'?: string | null;
+    /**
+     * Status of sending token
+     * @type {string}
+     * @memberof SendTokenResponseBeta
+     */
+    'status'?: SendTokenResponseBetaStatusEnum;
+    /**
+     * Error messages from token send request
+     * @type {string}
+     * @memberof SendTokenResponseBeta
+     */
+    'errorMessage'?: string | null;
+}
+
+export const SendTokenResponseBetaStatusEnum = {
+    Success: 'SUCCESS',
+    Failed: 'FAILED'
+} as const;
+
+export type SendTokenResponseBetaStatusEnum = typeof SendTokenResponseBetaStatusEnum[keyof typeof SendTokenResponseBetaStatusEnum];
+
+/**
  * Specification of a Service Desk integration.
  * @export
  * @interface ServiceDeskIntegrationDtoAllOfBeta
@@ -22420,6 +22541,30 @@ export interface SlimcampaignBeta {
      * @memberof SlimcampaignBeta
      */
     'correlatedStatus'?: SlimcampaignBetaCorrelatedStatusEnum;
+    /**
+     * Created time of the campaign
+     * @type {string}
+     * @memberof SlimcampaignBeta
+     */
+    'created'?: string;
+    /**
+     * The total number of certifications in this campaign.
+     * @type {number}
+     * @memberof SlimcampaignBeta
+     */
+    'totalCertifications'?: number;
+    /**
+     * The number of completed certifications in this campaign.
+     * @type {number}
+     * @memberof SlimcampaignBeta
+     */
+    'completedCertifications'?: number;
+    /**
+     * A list of errors and warnings that have accumulated.
+     * @type {Array<CampaignAlertBeta>}
+     * @memberof SlimcampaignBeta
+     */
+    'alerts'?: Array<CampaignAlertBeta>;
 }
 
 export const SlimcampaignBetaTypeEnum = {
@@ -25448,6 +25593,67 @@ export interface TestWorkflowRequestBeta {
     'input': object;
 }
 /**
+ * 
+ * @export
+ * @interface TokenAuthRequestBeta
+ */
+export interface TokenAuthRequestBeta {
+    /**
+     * Token value
+     * @type {string}
+     * @memberof TokenAuthRequestBeta
+     */
+    'token': string;
+    /**
+     * User alias from table spt_identity field named \'name\'
+     * @type {string}
+     * @memberof TokenAuthRequestBeta
+     */
+    'userAlias': string;
+    /**
+     * Token delivery type
+     * @type {string}
+     * @memberof TokenAuthRequestBeta
+     */
+    'deliveryType': TokenAuthRequestBetaDeliveryTypeEnum;
+}
+
+export const TokenAuthRequestBetaDeliveryTypeEnum = {
+    SmsPersonal: 'SMS_PERSONAL',
+    VoicePersonal: 'VOICE_PERSONAL',
+    SmsWork: 'SMS_WORK',
+    VoiceWork: 'VOICE_WORK',
+    EmailWork: 'EMAIL_WORK',
+    EmailPersonal: 'EMAIL_PERSONAL'
+} as const;
+
+export type TokenAuthRequestBetaDeliveryTypeEnum = typeof TokenAuthRequestBetaDeliveryTypeEnum[keyof typeof TokenAuthRequestBetaDeliveryTypeEnum];
+
+/**
+ * 
+ * @export
+ * @interface TokenAuthResponseBeta
+ */
+export interface TokenAuthResponseBeta {
+    /**
+     * MFA Authentication status
+     * @type {string}
+     * @memberof TokenAuthResponseBeta
+     */
+    'status'?: TokenAuthResponseBetaStatusEnum;
+}
+
+export const TokenAuthResponseBetaStatusEnum = {
+    Pending: 'PENDING',
+    Success: 'SUCCESS',
+    Failed: 'FAILED',
+    Lockout: 'LOCKOUT',
+    NotEnoughData: 'NOT_ENOUGH_DATA'
+} as const;
+
+export type TokenAuthResponseBetaStatusEnum = typeof TokenAuthResponseBetaStatusEnum[keyof typeof TokenAuthResponseBetaStatusEnum];
+
+/**
  * @type TransformAttributesBeta
  * Meta-data about the transform. Values in this list are specific to the type of transform to be executed.
  * @export
@@ -26100,6 +26306,55 @@ export interface ValueBeta {
      */
     'value'?: string;
 }
+/**
+ * 
+ * @export
+ * @interface VerificationPollRequestBeta
+ */
+export interface VerificationPollRequestBeta {
+    /**
+     * Verification request Id
+     * @type {string}
+     * @memberof VerificationPollRequestBeta
+     */
+    'requestId': string;
+}
+/**
+ * 
+ * @export
+ * @interface VerificationResponseBeta
+ */
+export interface VerificationResponseBeta {
+    /**
+     * The verificationPollRequest request ID
+     * @type {string}
+     * @memberof VerificationResponseBeta
+     */
+    'requestId'?: string | null;
+    /**
+     * MFA Authentication status
+     * @type {string}
+     * @memberof VerificationResponseBeta
+     */
+    'status'?: VerificationResponseBetaStatusEnum;
+    /**
+     * Error messages from MFA verification request
+     * @type {string}
+     * @memberof VerificationResponseBeta
+     */
+    'error'?: string | null;
+}
+
+export const VerificationResponseBetaStatusEnum = {
+    Pending: 'PENDING',
+    Success: 'SUCCESS',
+    Failed: 'FAILED',
+    Lockout: 'LOCKOUT',
+    NotEnoughData: 'NOT_ENOUGH_DATA'
+} as const;
+
+export type VerificationResponseBetaStatusEnum = typeof VerificationResponseBetaStatusEnum[keyof typeof VerificationResponseBetaStatusEnum];
+
 /**
  * 
  * @export
@@ -50785,6 +51040,421 @@ export class MFAConfigurationBetaApi extends BaseAPI {
      */
     public testMFAConfig(requestParameters: MFAConfigurationBetaApiTestMFAConfigRequest, axiosOptions?: AxiosRequestConfig) {
         return MFAConfigurationBetaApiFp(this.configuration).testMFAConfig(requestParameters.method, axiosOptions).then((request) => request(this.axios, this.basePath));
+    }
+}
+
+
+/**
+ * MFAControllerBetaApi - axios parameter creator
+ * @export
+ */
+export const MFAControllerBetaApiAxiosParamCreator = function (configuration?: Configuration) {
+    return {
+        /**
+         * This API send token request.
+         * @summary Create and send user token
+         * @param {SendTokenRequestBeta} sendTokenRequestBeta 
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        createSendToken: async (sendTokenRequestBeta: SendTokenRequestBeta, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'sendTokenRequestBeta' is not null or undefined
+            assertParamExists('createSendToken', 'sendTokenRequestBeta', sendTokenRequestBeta)
+            const localVarPath = `/mfa/token/send`;
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'POST', ...baseOptions, ...axiosOptions};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication UserContextAuth required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "UserContextAuth", [], configuration)
+
+            // authentication UserContextAuth required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "UserContextAuth", [], configuration)
+
+
+    
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
+            localVarRequestOptions.data = serializeDataIfNeeded(sendTokenRequestBeta, localVarRequestOptions, configuration)
+
+            return {
+                url: toPathString(localVarUrlObj),
+                axiosOptions: localVarRequestOptions,
+            };
+        },
+        /**
+         * This API poll the VerificationPollRequest for the specified MFA method. A token with ORG_ADMIN authority is required to call this API.
+         * @summary Polling MFA method by VerificationPollRequest
+         * @param {string} method The name of the MFA method. The currently supported method names are \&#39;okta-verify\&#39;, \&#39;duo-web\&#39;, \&#39;kba\&#39;,\&#39;token\&#39;, \&#39;rsa\&#39;
+         * @param {VerificationPollRequestBeta} verificationPollRequestBeta 
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        pingVerificationStatus: async (method: string, verificationPollRequestBeta: VerificationPollRequestBeta, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'method' is not null or undefined
+            assertParamExists('pingVerificationStatus', 'method', method)
+            // verify required parameter 'verificationPollRequestBeta' is not null or undefined
+            assertParamExists('pingVerificationStatus', 'verificationPollRequestBeta', verificationPollRequestBeta)
+            const localVarPath = `/mfa/{method}/poll`
+                .replace(`{${"method"}}`, encodeURIComponent(String(method)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'POST', ...baseOptions, ...axiosOptions};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication UserContextAuth required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "UserContextAuth", [], configuration)
+
+            // authentication UserContextAuth required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "UserContextAuth", [], configuration)
+
+
+    
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
+            localVarRequestOptions.data = serializeDataIfNeeded(verificationPollRequestBeta, localVarRequestOptions, configuration)
+
+            return {
+                url: toPathString(localVarUrlObj),
+                axiosOptions: localVarRequestOptions,
+            };
+        },
+        /**
+         * This API Authenticate user in KBA MFA method.
+         * @summary Authenticate KBA provided MFA method
+         * @param {KbaAnswerRequestBeta} kbaAnswerRequestBeta 
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        sendKbaAnswers: async (kbaAnswerRequestBeta: KbaAnswerRequestBeta, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'kbaAnswerRequestBeta' is not null or undefined
+            assertParamExists('sendKbaAnswers', 'kbaAnswerRequestBeta', kbaAnswerRequestBeta)
+            const localVarPath = `/mfa/kba/authenticate`;
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'POST', ...baseOptions, ...axiosOptions};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication UserContextAuth required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "UserContextAuth", [], configuration)
+
+            // authentication UserContextAuth required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "UserContextAuth", [], configuration)
+
+
+    
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
+            localVarRequestOptions.data = serializeDataIfNeeded(kbaAnswerRequestBeta, localVarRequestOptions, configuration)
+
+            return {
+                url: toPathString(localVarUrlObj),
+                axiosOptions: localVarRequestOptions,
+            };
+        },
+        /**
+         * This API Authenticate user in Token MFA method.
+         * @summary Authenticate Token provided MFA method
+         * @param {TokenAuthRequestBeta} tokenAuthRequestBeta 
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        sendTokenAuthRequest: async (tokenAuthRequestBeta: TokenAuthRequestBeta, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'tokenAuthRequestBeta' is not null or undefined
+            assertParamExists('sendTokenAuthRequest', 'tokenAuthRequestBeta', tokenAuthRequestBeta)
+            const localVarPath = `/mfa/token/authenticate`;
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'POST', ...baseOptions, ...axiosOptions};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication UserContextAuth required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "UserContextAuth", [], configuration)
+
+            // authentication UserContextAuth required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "UserContextAuth", [], configuration)
+
+
+    
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
+            localVarRequestOptions.data = serializeDataIfNeeded(tokenAuthRequestBeta, localVarRequestOptions, configuration)
+
+            return {
+                url: toPathString(localVarUrlObj),
+                axiosOptions: localVarRequestOptions,
+            };
+        },
+    }
+};
+
+/**
+ * MFAControllerBetaApi - functional programming interface
+ * @export
+ */
+export const MFAControllerBetaApiFp = function(configuration?: Configuration) {
+    const localVarAxiosParamCreator = MFAControllerBetaApiAxiosParamCreator(configuration)
+    return {
+        /**
+         * This API send token request.
+         * @summary Create and send user token
+         * @param {SendTokenRequestBeta} sendTokenRequestBeta 
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        async createSendToken(sendTokenRequestBeta: SendTokenRequestBeta, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SendTokenResponseBeta>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.createSendToken(sendTokenRequestBeta, axiosOptions);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * This API poll the VerificationPollRequest for the specified MFA method. A token with ORG_ADMIN authority is required to call this API.
+         * @summary Polling MFA method by VerificationPollRequest
+         * @param {string} method The name of the MFA method. The currently supported method names are \&#39;okta-verify\&#39;, \&#39;duo-web\&#39;, \&#39;kba\&#39;,\&#39;token\&#39;, \&#39;rsa\&#39;
+         * @param {VerificationPollRequestBeta} verificationPollRequestBeta 
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        async pingVerificationStatus(method: string, verificationPollRequestBeta: VerificationPollRequestBeta, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<VerificationResponseBeta>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.pingVerificationStatus(method, verificationPollRequestBeta, axiosOptions);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * This API Authenticate user in KBA MFA method.
+         * @summary Authenticate KBA provided MFA method
+         * @param {KbaAnswerRequestBeta} kbaAnswerRequestBeta 
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        async sendKbaAnswers(kbaAnswerRequestBeta: KbaAnswerRequestBeta, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<KbaAuthResponseBeta>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.sendKbaAnswers(kbaAnswerRequestBeta, axiosOptions);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * This API Authenticate user in Token MFA method.
+         * @summary Authenticate Token provided MFA method
+         * @param {TokenAuthRequestBeta} tokenAuthRequestBeta 
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        async sendTokenAuthRequest(tokenAuthRequestBeta: TokenAuthRequestBeta, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<TokenAuthResponseBeta>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.sendTokenAuthRequest(tokenAuthRequestBeta, axiosOptions);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+    }
+};
+
+/**
+ * MFAControllerBetaApi - factory interface
+ * @export
+ */
+export const MFAControllerBetaApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
+    const localVarFp = MFAControllerBetaApiFp(configuration)
+    return {
+        /**
+         * This API send token request.
+         * @summary Create and send user token
+         * @param {SendTokenRequestBeta} sendTokenRequestBeta 
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        createSendToken(sendTokenRequestBeta: SendTokenRequestBeta, axiosOptions?: any): AxiosPromise<SendTokenResponseBeta> {
+            return localVarFp.createSendToken(sendTokenRequestBeta, axiosOptions).then((request) => request(axios, basePath));
+        },
+        /**
+         * This API poll the VerificationPollRequest for the specified MFA method. A token with ORG_ADMIN authority is required to call this API.
+         * @summary Polling MFA method by VerificationPollRequest
+         * @param {string} method The name of the MFA method. The currently supported method names are \&#39;okta-verify\&#39;, \&#39;duo-web\&#39;, \&#39;kba\&#39;,\&#39;token\&#39;, \&#39;rsa\&#39;
+         * @param {VerificationPollRequestBeta} verificationPollRequestBeta 
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        pingVerificationStatus(method: string, verificationPollRequestBeta: VerificationPollRequestBeta, axiosOptions?: any): AxiosPromise<VerificationResponseBeta> {
+            return localVarFp.pingVerificationStatus(method, verificationPollRequestBeta, axiosOptions).then((request) => request(axios, basePath));
+        },
+        /**
+         * This API Authenticate user in KBA MFA method.
+         * @summary Authenticate KBA provided MFA method
+         * @param {KbaAnswerRequestBeta} kbaAnswerRequestBeta 
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        sendKbaAnswers(kbaAnswerRequestBeta: KbaAnswerRequestBeta, axiosOptions?: any): AxiosPromise<KbaAuthResponseBeta> {
+            return localVarFp.sendKbaAnswers(kbaAnswerRequestBeta, axiosOptions).then((request) => request(axios, basePath));
+        },
+        /**
+         * This API Authenticate user in Token MFA method.
+         * @summary Authenticate Token provided MFA method
+         * @param {TokenAuthRequestBeta} tokenAuthRequestBeta 
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        sendTokenAuthRequest(tokenAuthRequestBeta: TokenAuthRequestBeta, axiosOptions?: any): AxiosPromise<TokenAuthResponseBeta> {
+            return localVarFp.sendTokenAuthRequest(tokenAuthRequestBeta, axiosOptions).then((request) => request(axios, basePath));
+        },
+    };
+};
+
+/**
+ * Request parameters for createSendToken operation in MFAControllerBetaApi.
+ * @export
+ * @interface MFAControllerBetaApiCreateSendTokenRequest
+ */
+export interface MFAControllerBetaApiCreateSendTokenRequest {
+    /**
+     * 
+     * @type {SendTokenRequestBeta}
+     * @memberof MFAControllerBetaApiCreateSendToken
+     */
+    readonly sendTokenRequestBeta: SendTokenRequestBeta
+}
+
+/**
+ * Request parameters for pingVerificationStatus operation in MFAControllerBetaApi.
+ * @export
+ * @interface MFAControllerBetaApiPingVerificationStatusRequest
+ */
+export interface MFAControllerBetaApiPingVerificationStatusRequest {
+    /**
+     * The name of the MFA method. The currently supported method names are \&#39;okta-verify\&#39;, \&#39;duo-web\&#39;, \&#39;kba\&#39;,\&#39;token\&#39;, \&#39;rsa\&#39;
+     * @type {string}
+     * @memberof MFAControllerBetaApiPingVerificationStatus
+     */
+    readonly method: string
+
+    /**
+     * 
+     * @type {VerificationPollRequestBeta}
+     * @memberof MFAControllerBetaApiPingVerificationStatus
+     */
+    readonly verificationPollRequestBeta: VerificationPollRequestBeta
+}
+
+/**
+ * Request parameters for sendKbaAnswers operation in MFAControllerBetaApi.
+ * @export
+ * @interface MFAControllerBetaApiSendKbaAnswersRequest
+ */
+export interface MFAControllerBetaApiSendKbaAnswersRequest {
+    /**
+     * 
+     * @type {KbaAnswerRequestBeta}
+     * @memberof MFAControllerBetaApiSendKbaAnswers
+     */
+    readonly kbaAnswerRequestBeta: KbaAnswerRequestBeta
+}
+
+/**
+ * Request parameters for sendTokenAuthRequest operation in MFAControllerBetaApi.
+ * @export
+ * @interface MFAControllerBetaApiSendTokenAuthRequestRequest
+ */
+export interface MFAControllerBetaApiSendTokenAuthRequestRequest {
+    /**
+     * 
+     * @type {TokenAuthRequestBeta}
+     * @memberof MFAControllerBetaApiSendTokenAuthRequest
+     */
+    readonly tokenAuthRequestBeta: TokenAuthRequestBeta
+}
+
+/**
+ * MFAControllerBetaApi - object-oriented interface
+ * @export
+ * @class MFAControllerBetaApi
+ * @extends {BaseAPI}
+ */
+export class MFAControllerBetaApi extends BaseAPI {
+    /**
+     * This API send token request.
+     * @summary Create and send user token
+     * @param {MFAControllerBetaApiCreateSendTokenRequest} requestParameters Request parameters.
+     * @param {*} [axiosOptions] Override http request option.
+     * @throws {RequiredError}
+     * @memberof MFAControllerBetaApi
+     */
+    public createSendToken(requestParameters: MFAControllerBetaApiCreateSendTokenRequest, axiosOptions?: AxiosRequestConfig) {
+        return MFAControllerBetaApiFp(this.configuration).createSendToken(requestParameters.sendTokenRequestBeta, axiosOptions).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * This API poll the VerificationPollRequest for the specified MFA method. A token with ORG_ADMIN authority is required to call this API.
+     * @summary Polling MFA method by VerificationPollRequest
+     * @param {MFAControllerBetaApiPingVerificationStatusRequest} requestParameters Request parameters.
+     * @param {*} [axiosOptions] Override http request option.
+     * @throws {RequiredError}
+     * @memberof MFAControllerBetaApi
+     */
+    public pingVerificationStatus(requestParameters: MFAControllerBetaApiPingVerificationStatusRequest, axiosOptions?: AxiosRequestConfig) {
+        return MFAControllerBetaApiFp(this.configuration).pingVerificationStatus(requestParameters.method, requestParameters.verificationPollRequestBeta, axiosOptions).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * This API Authenticate user in KBA MFA method.
+     * @summary Authenticate KBA provided MFA method
+     * @param {MFAControllerBetaApiSendKbaAnswersRequest} requestParameters Request parameters.
+     * @param {*} [axiosOptions] Override http request option.
+     * @throws {RequiredError}
+     * @memberof MFAControllerBetaApi
+     */
+    public sendKbaAnswers(requestParameters: MFAControllerBetaApiSendKbaAnswersRequest, axiosOptions?: AxiosRequestConfig) {
+        return MFAControllerBetaApiFp(this.configuration).sendKbaAnswers(requestParameters.kbaAnswerRequestBeta, axiosOptions).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * This API Authenticate user in Token MFA method.
+     * @summary Authenticate Token provided MFA method
+     * @param {MFAControllerBetaApiSendTokenAuthRequestRequest} requestParameters Request parameters.
+     * @param {*} [axiosOptions] Override http request option.
+     * @throws {RequiredError}
+     * @memberof MFAControllerBetaApi
+     */
+    public sendTokenAuthRequest(requestParameters: MFAControllerBetaApiSendTokenAuthRequestRequest, axiosOptions?: AxiosRequestConfig) {
+        return MFAControllerBetaApiFp(this.configuration).sendTokenAuthRequest(requestParameters.tokenAuthRequestBeta, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 }
 
