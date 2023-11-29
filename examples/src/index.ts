@@ -1,4 +1,4 @@
-import { AccountsApi, Configuration, axiosRetry, Paginator, SearchApi, TransformsApi, TransformsApiCreateTransformRequest, Search, IdentityDocument} from "sailpoint-api-client"
+import { AccountsApi, Configuration, axiosRetry, Paginator, SearchApi, TransformsApi, TransformsApiCreateTransformRequest, Search, IdentityDocument, TransformsBetaApi, GovernanceGroupsBetaApi, GovernanceGroupsV2Api, AccountsCCApi, ConnectorsCCApi} from "sailpoint-api-client"
 
 const createTransform = async () => {
 
@@ -17,7 +17,7 @@ const createTransform = async () => {
         }
     }
     const val = await api.createTransform(transform)
-    console.log(val)
+    console.log(val.data)
 }
 
 const search = async () => {
@@ -57,7 +57,7 @@ const getPaginatedAccounts = async () => {
     
     const val = await Paginator.paginate(api, api.listAccounts, {limit: 20, sorters: "created"}, 10)
 
-    console.log(val)
+    console.log(val.data)
 
 }
 
@@ -80,6 +80,43 @@ const getPaginatedTransforms = async () => {
     console.log(val.data.length)
 
 }
+
+const listTransforms = async () => {
+
+    let apiConfig = new Configuration()
+    let api = new TransformsBetaApi(apiConfig)
+   
+    const val = await api.listTransforms()
+    console.log(val.data)
+}
+
+const listGovernanceGroups = async () => {
+
+    let apiConfig = new Configuration()
+    let api = new GovernanceGroupsV2Api(apiConfig)
+   
+    const val = await api.listWorkgroups()
+    console.log(val.data)
+}
+
+const listCCAccounts = async () => {
+
+    let apiConfig = new Configuration()
+    let api = new AccountsCCApi(apiConfig)
+   
+    const val = await api.listAccounts()
+    console.log(val.data)
+}
+
+const listConectors = async () => {
+
+    let apiConfig = new Configuration()
+    let api = new ConnectorsCCApi(apiConfig)
+   
+    const val = await api.listConnectors()
+    console.log(val.data)
+}
+
 
 
 
