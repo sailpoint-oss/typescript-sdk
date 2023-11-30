@@ -14,12 +14,13 @@
 
 
 import { Configuration } from '../configuration';
-import globalAxios, { AxiosPromise, AxiosInstance, AxiosRequestConfig } from 'axios';
+import type { AxiosPromise, AxiosInstance, AxiosRequestConfig } from 'axios';
+import globalAxios from 'axios';
 // Some imports not used depending on template conditions
 // @ts-ignore
 import { DUMMY_BASE_URL, assertParamExists, setApiKeyToObject, setBasicAuthToObject, setBearerAuthToObject, setOAuthToObject, setSearchParams, serializeDataIfNeeded, toPathString, createRequestFunction } from './common';
 // @ts-ignore
-import { BASE_PATH, COLLECTION_FORMATS, RequestArgs, BaseAPI, RequiredError } from './base';
+import { BASE_PATH, COLLECTION_FORMATS, RequestArgs, BaseAPI, RequiredError, operationServerMap  } from './base';
 
 /**
  * 
@@ -971,10 +972,10 @@ export interface GetIdentity200ResponseOrgCC {
 export interface ImportConnectorConfigRequestCC {
     /**
      * This is the connector config zip bundle which gets uploaded.
-     * @type {any}
+     * @type {File}
      * @memberof ImportConnectorConfigRequestCC
      */
-    'file'?: any;
+    'file'?: File;
 }
 /**
  * 
@@ -1671,10 +1672,10 @@ export interface LoadAccountsRequestCC {
     'disableOptimization'?: boolean;
     /**
      * 
-     * @type {any}
+     * @type {File}
      * @memberof LoadAccountsRequestCC
      */
-    'file'?: any;
+    'file'?: File;
 }
 /**
  * 
@@ -1684,10 +1685,10 @@ export interface LoadAccountsRequestCC {
 export interface LoadEntitlementsRequestCC {
     /**
      * 
-     * @type {any}
+     * @type {File}
      * @memberof LoadEntitlementsRequestCC
      */
-    'file'?: any;
+    'file'?: File;
 }
 /**
  * 
@@ -1774,10 +1775,10 @@ export interface UpdateUserPermissionsRequestCC {
      * @type {string}
      * @memberof UpdateUserPermissionsRequestCC
      */
-    'adminType'?: UpdateUserPermissionsRequestCCAdminTypeEnum;
+    'adminType'?: UpdateUserPermissionsRequestCCAdminTypeCC;
 }
 
-export const UpdateUserPermissionsRequestCCAdminTypeEnum = {
+export const UpdateUserPermissionsRequestCCAdminTypeCC = {
     Admin: 'ADMIN',
     CertAdmin: 'CERT_ADMIN',
     Helpdesk: 'HELPDESK',
@@ -1788,7 +1789,7 @@ export const UpdateUserPermissionsRequestCCAdminTypeEnum = {
     SourceSubadmin: 'SOURCE_SUBADMIN'
 } as const;
 
-export type UpdateUserPermissionsRequestCCAdminTypeEnum = typeof UpdateUserPermissionsRequestCCAdminTypeEnum[keyof typeof UpdateUserPermissionsRequestCCAdminTypeEnum];
+export type UpdateUserPermissionsRequestCCAdminTypeCC = typeof UpdateUserPermissionsRequestCCAdminTypeCC[keyof typeof UpdateUserPermissionsRequestCCAdminTypeCC];
 
 
 /**
@@ -1893,9 +1894,10 @@ export const AccountsCCApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async listAccounts(axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<ListAccounts200ResponseInnerCC>>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.listAccounts(axiosOptions);
-            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        async listAccounts(options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<ListAccounts200ResponseInnerCC>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.listAccounts(options);
+            const operationBasePath = operationServerMap['AccountsCCApi.listAccounts']?.[0]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
         /**
          * 
@@ -1904,9 +1906,10 @@ export const AccountsCCApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async removeAccount(id: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.removeAccount(id, axiosOptions);
-            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        async removeAccount(id: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.removeAccount(id, options);
+            const operationBasePath = operationServerMap['AccountsCCApi.removeAccount']?.[0]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
     }
 };
@@ -1921,21 +1924,23 @@ export const AccountsCCApiFactory = function (configuration?: Configuration, bas
         /**
          * 
          * @summary List Accounts
-         * @param {*} [axiosOptions] Override http request option.
+        * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        listAccounts(axiosOptions?: any): AxiosPromise<Array<ListAccounts200ResponseInnerCC>> {
-            return localVarFp.listAccounts(axiosOptions).then((request) => request(axios, basePath));
+    
+        listAccounts(options?: AxiosRequestConfig): AxiosPromise<Array<ListAccounts200ResponseInnerCC>> {
+            return localVarFp.listAccounts(options).then((request) => request(axios, basePath));
         },
         /**
          * 
          * @summary Remove Account
-         * @param {string} id 
-         * @param {*} [axiosOptions] Override http request option.
+         * @param {AccountsCCApiRemoveAccountRequest} requestParameters Request parameters.
+        * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        removeAccount(id: string, axiosOptions?: any): AxiosPromise<void> {
-            return localVarFp.removeAccount(id, axiosOptions).then((request) => request(axios, basePath));
+    
+        removeAccount(requestParameters: AccountsCCApiRemoveAccountRequest, options?: AxiosRequestConfig): AxiosPromise<void> {
+            return localVarFp.removeAccount(requestParameters.id, options).then((request) => request(axios, basePath));
         },
     };
 };
@@ -1968,8 +1973,8 @@ export class AccountsCCApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof AccountsCCApi
      */
-    public listAccounts(axiosOptions?: AxiosRequestConfig) {
-        return AccountsCCApiFp(this.configuration).listAccounts(axiosOptions).then((request) => request(this.axios, this.basePath));
+    public listAccounts(options?: AxiosRequestConfig) {
+        return AccountsCCApiFp(this.configuration).listAccounts(options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -1980,10 +1985,11 @@ export class AccountsCCApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof AccountsCCApi
      */
-    public removeAccount(requestParameters: AccountsCCApiRemoveAccountRequest, axiosOptions?: AxiosRequestConfig) {
-        return AccountsCCApiFp(this.configuration).removeAccount(requestParameters.id, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public removeAccount(requestParameters: AccountsCCApiRemoveAccountRequest, options?: AxiosRequestConfig) {
+        return AccountsCCApiFp(this.configuration).removeAccount(requestParameters.id, options).then((request) => request(this.axios, this.basePath));
     }
 }
+
 
 
 /**
@@ -2253,9 +2259,10 @@ export const ApplicationsCCApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async createApplication(createApplicationRequestCC?: CreateApplicationRequestCC, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<{ [key: string]: any; }>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.createApplication(createApplicationRequestCC, axiosOptions);
-            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        async createApplication(createApplicationRequestCC?: CreateApplicationRequestCC, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<{ [key: string]: any; }>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.createApplication(createApplicationRequestCC, options);
+            const operationBasePath = operationServerMap['ApplicationsCCApi.createApplication']?.[0]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
         /**
          * 
@@ -2264,9 +2271,10 @@ export const ApplicationsCCApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async deleteApplication(id: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.deleteApplication(id, axiosOptions);
-            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        async deleteApplication(id: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.deleteApplication(id, options);
+            const operationBasePath = operationServerMap['ApplicationsCCApi.deleteApplication']?.[0]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
         /**
          * 
@@ -2275,9 +2283,10 @@ export const ApplicationsCCApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async getApplication(id: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<GetApplication200ResponseCC>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.getApplication(id, axiosOptions);
-            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        async getApplication(id: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<GetApplication200ResponseCC>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getApplication(id, options);
+            const operationBasePath = operationServerMap['ApplicationsCCApi.getApplication']?.[0]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
         /**
          * 
@@ -2286,9 +2295,10 @@ export const ApplicationsCCApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async getApplicationAccessProfiles(id: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<{ [key: string]: any; }>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.getApplicationAccessProfiles(id, axiosOptions);
-            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        async getApplicationAccessProfiles(id: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<{ [key: string]: any; }>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getApplicationAccessProfiles(id, options);
+            const operationBasePath = operationServerMap['ApplicationsCCApi.getApplicationAccessProfiles']?.[0]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
         /**
          * 
@@ -2296,9 +2306,10 @@ export const ApplicationsCCApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async listApplications(axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<ListApplications200ResponseInnerCC>>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.listApplications(axiosOptions);
-            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        async listApplications(options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<ListApplications200ResponseInnerCC>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.listApplications(options);
+            const operationBasePath = operationServerMap['ApplicationsCCApi.listApplications']?.[0]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
         /**
          * 
@@ -2308,9 +2319,10 @@ export const ApplicationsCCApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async updateApplication(id: string, requestBody?: { [key: string]: any; }, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<{ [key: string]: any; }>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.updateApplication(id, requestBody, axiosOptions);
-            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        async updateApplication(id: string, requestBody?: { [key: string]: any; }, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<{ [key: string]: any; }>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.updateApplication(id, requestBody, options);
+            const operationBasePath = operationServerMap['ApplicationsCCApi.updateApplication']?.[0]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
     }
 };
@@ -2325,62 +2337,67 @@ export const ApplicationsCCApiFactory = function (configuration?: Configuration,
         /**
          * 
          * @summary Create Application
-         * @param {CreateApplicationRequestCC} [createApplicationRequestCC] 
-         * @param {*} [axiosOptions] Override http request option.
+         * @param {ApplicationsCCApiCreateApplicationRequest} requestParameters Request parameters.
+        * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        createApplication(createApplicationRequestCC?: CreateApplicationRequestCC, axiosOptions?: any): AxiosPromise<{ [key: string]: any; }> {
-            return localVarFp.createApplication(createApplicationRequestCC, axiosOptions).then((request) => request(axios, basePath));
+    
+        createApplication(requestParameters: ApplicationsCCApiCreateApplicationRequest = {}, options?: AxiosRequestConfig): AxiosPromise<{ [key: string]: any; }> {
+            return localVarFp.createApplication(requestParameters.createApplicationRequestCC, options).then((request) => request(axios, basePath));
         },
         /**
          * 
          * @summary Delete Application
-         * @param {string} id 
-         * @param {*} [axiosOptions] Override http request option.
+         * @param {ApplicationsCCApiDeleteApplicationRequest} requestParameters Request parameters.
+        * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        deleteApplication(id: string, axiosOptions?: any): AxiosPromise<void> {
-            return localVarFp.deleteApplication(id, axiosOptions).then((request) => request(axios, basePath));
+    
+        deleteApplication(requestParameters: ApplicationsCCApiDeleteApplicationRequest, options?: AxiosRequestConfig): AxiosPromise<void> {
+            return localVarFp.deleteApplication(requestParameters.id, options).then((request) => request(axios, basePath));
         },
         /**
          * 
          * @summary Get Single Application
-         * @param {string} id 
-         * @param {*} [axiosOptions] Override http request option.
+         * @param {ApplicationsCCApiGetApplicationRequest} requestParameters Request parameters.
+        * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        getApplication(id: string, axiosOptions?: any): AxiosPromise<GetApplication200ResponseCC> {
-            return localVarFp.getApplication(id, axiosOptions).then((request) => request(axios, basePath));
+    
+        getApplication(requestParameters: ApplicationsCCApiGetApplicationRequest, options?: AxiosRequestConfig): AxiosPromise<GetApplication200ResponseCC> {
+            return localVarFp.getApplication(requestParameters.id, options).then((request) => request(axios, basePath));
         },
         /**
          * 
          * @summary Get Access Profiles for Application
-         * @param {string} id 
-         * @param {*} [axiosOptions] Override http request option.
+         * @param {ApplicationsCCApiGetApplicationAccessProfilesRequest} requestParameters Request parameters.
+        * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        getApplicationAccessProfiles(id: string, axiosOptions?: any): AxiosPromise<{ [key: string]: any; }> {
-            return localVarFp.getApplicationAccessProfiles(id, axiosOptions).then((request) => request(axios, basePath));
+    
+        getApplicationAccessProfiles(requestParameters: ApplicationsCCApiGetApplicationAccessProfilesRequest, options?: AxiosRequestConfig): AxiosPromise<{ [key: string]: any; }> {
+            return localVarFp.getApplicationAccessProfiles(requestParameters.id, options).then((request) => request(axios, basePath));
         },
         /**
          * 
          * @summary List Applications
-         * @param {*} [axiosOptions] Override http request option.
+        * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        listApplications(axiosOptions?: any): AxiosPromise<Array<ListApplications200ResponseInnerCC>> {
-            return localVarFp.listApplications(axiosOptions).then((request) => request(axios, basePath));
+    
+        listApplications(options?: AxiosRequestConfig): AxiosPromise<Array<ListApplications200ResponseInnerCC>> {
+            return localVarFp.listApplications(options).then((request) => request(axios, basePath));
         },
         /**
          * 
          * @summary Update Application
-         * @param {string} id 
-         * @param {{ [key: string]: any; }} [requestBody] 
-         * @param {*} [axiosOptions] Override http request option.
+         * @param {ApplicationsCCApiUpdateApplicationRequest} requestParameters Request parameters.
+        * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        updateApplication(id: string, requestBody?: { [key: string]: any; }, axiosOptions?: any): AxiosPromise<{ [key: string]: any; }> {
-            return localVarFp.updateApplication(id, requestBody, axiosOptions).then((request) => request(axios, basePath));
+    
+        updateApplication(requestParameters: ApplicationsCCApiUpdateApplicationRequest, options?: AxiosRequestConfig): AxiosPromise<{ [key: string]: any; }> {
+            return localVarFp.updateApplication(requestParameters.id, requestParameters.requestBody, options).then((request) => request(axios, basePath));
         },
     };
 };
@@ -2477,8 +2494,8 @@ export class ApplicationsCCApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof ApplicationsCCApi
      */
-    public createApplication(requestParameters: ApplicationsCCApiCreateApplicationRequest = {}, axiosOptions?: AxiosRequestConfig) {
-        return ApplicationsCCApiFp(this.configuration).createApplication(requestParameters.createApplicationRequestCC, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public createApplication(requestParameters: ApplicationsCCApiCreateApplicationRequest = {}, options?: AxiosRequestConfig) {
+        return ApplicationsCCApiFp(this.configuration).createApplication(requestParameters.createApplicationRequestCC, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -2489,8 +2506,8 @@ export class ApplicationsCCApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof ApplicationsCCApi
      */
-    public deleteApplication(requestParameters: ApplicationsCCApiDeleteApplicationRequest, axiosOptions?: AxiosRequestConfig) {
-        return ApplicationsCCApiFp(this.configuration).deleteApplication(requestParameters.id, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public deleteApplication(requestParameters: ApplicationsCCApiDeleteApplicationRequest, options?: AxiosRequestConfig) {
+        return ApplicationsCCApiFp(this.configuration).deleteApplication(requestParameters.id, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -2501,8 +2518,8 @@ export class ApplicationsCCApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof ApplicationsCCApi
      */
-    public getApplication(requestParameters: ApplicationsCCApiGetApplicationRequest, axiosOptions?: AxiosRequestConfig) {
-        return ApplicationsCCApiFp(this.configuration).getApplication(requestParameters.id, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public getApplication(requestParameters: ApplicationsCCApiGetApplicationRequest, options?: AxiosRequestConfig) {
+        return ApplicationsCCApiFp(this.configuration).getApplication(requestParameters.id, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -2513,8 +2530,8 @@ export class ApplicationsCCApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof ApplicationsCCApi
      */
-    public getApplicationAccessProfiles(requestParameters: ApplicationsCCApiGetApplicationAccessProfilesRequest, axiosOptions?: AxiosRequestConfig) {
-        return ApplicationsCCApiFp(this.configuration).getApplicationAccessProfiles(requestParameters.id, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public getApplicationAccessProfiles(requestParameters: ApplicationsCCApiGetApplicationAccessProfilesRequest, options?: AxiosRequestConfig) {
+        return ApplicationsCCApiFp(this.configuration).getApplicationAccessProfiles(requestParameters.id, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -2524,8 +2541,8 @@ export class ApplicationsCCApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof ApplicationsCCApi
      */
-    public listApplications(axiosOptions?: AxiosRequestConfig) {
-        return ApplicationsCCApiFp(this.configuration).listApplications(axiosOptions).then((request) => request(this.axios, this.basePath));
+    public listApplications(options?: AxiosRequestConfig) {
+        return ApplicationsCCApiFp(this.configuration).listApplications(options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -2536,10 +2553,11 @@ export class ApplicationsCCApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof ApplicationsCCApi
      */
-    public updateApplication(requestParameters: ApplicationsCCApiUpdateApplicationRequest, axiosOptions?: AxiosRequestConfig) {
-        return ApplicationsCCApiFp(this.configuration).updateApplication(requestParameters.id, requestParameters.requestBody, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public updateApplication(requestParameters: ApplicationsCCApiUpdateApplicationRequest, options?: AxiosRequestConfig) {
+        return ApplicationsCCApiFp(this.configuration).updateApplication(requestParameters.id, requestParameters.requestBody, options).then((request) => request(this.axios, this.basePath));
     }
 }
+
 
 
 /**
@@ -2582,7 +2600,7 @@ export const ConnectorsCCApiAxiosParamCreator = function (configuration?: Config
             // oauth required
             await setOAuthToObject(localVarHeaderParameter, "UserContextAuth", [], configuration)
 
-            if (contentType !== undefined && contentType !== null) {
+            if (contentType != null) {
                 localVarHeaderParameter['Content-Type'] = String(contentType);
             }
 
@@ -2708,11 +2726,11 @@ export const ConnectorsCCApiAxiosParamCreator = function (configuration?: Config
          * 
          * @summary Import Connector Config
          * @param {string} id 
-         * @param {any} [file] This is the connector config zip bundle which gets uploaded.
+         * @param {File} [file] This is the connector config zip bundle which gets uploaded.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        importConnectorConfig: async (id: string, file?: any, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        importConnectorConfig: async (id: string, file?: File, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'id' is not null or undefined
             assertParamExists('importConnectorConfig', 'id', id)
             const localVarPath = `/cc/api/connector/import/{id}`
@@ -2815,9 +2833,10 @@ export const ConnectorsCCApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async createConnector(contentType?: string, name?: string, description?: string, className?: string, directConnect?: boolean, status?: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.createConnector(contentType, name, description, className, directConnect, status, axiosOptions);
-            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        async createConnector(contentType?: string, name?: string, description?: string, className?: string, directConnect?: boolean, status?: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.createConnector(contentType, name, description, className, directConnect, status, options);
+            const operationBasePath = operationServerMap['ConnectorsCCApi.createConnector']?.[0]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
         /**
          * 
@@ -2826,9 +2845,10 @@ export const ConnectorsCCApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async deleteConnector(id: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.deleteConnector(id, axiosOptions);
-            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        async deleteConnector(id: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.deleteConnector(id, options);
+            const operationBasePath = operationServerMap['ConnectorsCCApi.deleteConnector']?.[0]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
         /**
          * 
@@ -2837,21 +2857,23 @@ export const ConnectorsCCApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async exportConnectorConfig(id: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.exportConnectorConfig(id, axiosOptions);
-            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        async exportConnectorConfig(id: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.exportConnectorConfig(id, options);
+            const operationBasePath = operationServerMap['ConnectorsCCApi.exportConnectorConfig']?.[0]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
         /**
          * 
          * @summary Import Connector Config
          * @param {string} id 
-         * @param {any} [file] This is the connector config zip bundle which gets uploaded.
+         * @param {File} [file] This is the connector config zip bundle which gets uploaded.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async importConnectorConfig(id: string, file?: any, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.importConnectorConfig(id, file, axiosOptions);
-            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        async importConnectorConfig(id: string, file?: File, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.importConnectorConfig(id, file, options);
+            const operationBasePath = operationServerMap['ConnectorsCCApi.importConnectorConfig']?.[0]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
         /**
          * 
@@ -2859,9 +2881,10 @@ export const ConnectorsCCApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async listConnectors(axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ListConnectors200ResponseCC>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.listConnectors(axiosOptions);
-            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        async listConnectors(options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ListConnectors200ResponseCC>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.listConnectors(options);
+            const operationBasePath = operationServerMap['ConnectorsCCApi.listConnectors']?.[0]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
     }
 };
@@ -2876,57 +2899,56 @@ export const ConnectorsCCApiFactory = function (configuration?: Configuration, b
         /**
          * 
          * @summary Create Connector
-         * @param {string} [contentType] 
-         * @param {string} [name] 
-         * @param {string} [description] 
-         * @param {string} [className] 
-         * @param {boolean} [directConnect] 
-         * @param {string} [status] 
-         * @param {*} [axiosOptions] Override http request option.
+         * @param {ConnectorsCCApiCreateConnectorRequest} requestParameters Request parameters.
+        * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        createConnector(contentType?: string, name?: string, description?: string, className?: string, directConnect?: boolean, status?: string, axiosOptions?: any): AxiosPromise<void> {
-            return localVarFp.createConnector(contentType, name, description, className, directConnect, status, axiosOptions).then((request) => request(axios, basePath));
+    
+        createConnector(requestParameters: ConnectorsCCApiCreateConnectorRequest = {}, options?: AxiosRequestConfig): AxiosPromise<void> {
+            return localVarFp.createConnector(requestParameters.contentType, requestParameters.name, requestParameters.description, requestParameters.className, requestParameters.directConnect, requestParameters.status, options).then((request) => request(axios, basePath));
         },
         /**
          * 
          * @summary Delete Connector
-         * @param {string} id 
-         * @param {*} [axiosOptions] Override http request option.
+         * @param {ConnectorsCCApiDeleteConnectorRequest} requestParameters Request parameters.
+        * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        deleteConnector(id: string, axiosOptions?: any): AxiosPromise<void> {
-            return localVarFp.deleteConnector(id, axiosOptions).then((request) => request(axios, basePath));
+    
+        deleteConnector(requestParameters: ConnectorsCCApiDeleteConnectorRequest, options?: AxiosRequestConfig): AxiosPromise<void> {
+            return localVarFp.deleteConnector(requestParameters.id, options).then((request) => request(axios, basePath));
         },
         /**
          * 
          * @summary Export Connector Config
-         * @param {string} id 
-         * @param {*} [axiosOptions] Override http request option.
+         * @param {ConnectorsCCApiExportConnectorConfigRequest} requestParameters Request parameters.
+        * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        exportConnectorConfig(id: string, axiosOptions?: any): AxiosPromise<void> {
-            return localVarFp.exportConnectorConfig(id, axiosOptions).then((request) => request(axios, basePath));
+    
+        exportConnectorConfig(requestParameters: ConnectorsCCApiExportConnectorConfigRequest, options?: AxiosRequestConfig): AxiosPromise<void> {
+            return localVarFp.exportConnectorConfig(requestParameters.id, options).then((request) => request(axios, basePath));
         },
         /**
          * 
          * @summary Import Connector Config
-         * @param {string} id 
-         * @param {any} [file] This is the connector config zip bundle which gets uploaded.
-         * @param {*} [axiosOptions] Override http request option.
+         * @param {ConnectorsCCApiImportConnectorConfigRequest} requestParameters Request parameters.
+        * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        importConnectorConfig(id: string, file?: any, axiosOptions?: any): AxiosPromise<void> {
-            return localVarFp.importConnectorConfig(id, file, axiosOptions).then((request) => request(axios, basePath));
+    
+        importConnectorConfig(requestParameters: ConnectorsCCApiImportConnectorConfigRequest, options?: AxiosRequestConfig): AxiosPromise<void> {
+            return localVarFp.importConnectorConfig(requestParameters.id, requestParameters.file, options).then((request) => request(axios, basePath));
         },
         /**
          * 
          * @summary List Connectors
-         * @param {*} [axiosOptions] Override http request option.
+        * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        listConnectors(axiosOptions?: any): AxiosPromise<ListConnectors200ResponseCC> {
-            return localVarFp.listConnectors(axiosOptions).then((request) => request(axios, basePath));
+    
+        listConnectors(options?: AxiosRequestConfig): AxiosPromise<ListConnectors200ResponseCC> {
+            return localVarFp.listConnectors(options).then((request) => request(axios, basePath));
         },
     };
 };
@@ -3023,10 +3045,10 @@ export interface ConnectorsCCApiImportConnectorConfigRequest {
 
     /**
      * This is the connector config zip bundle which gets uploaded.
-     * @type {any}
+     * @type {File}
      * @memberof ConnectorsCCApiImportConnectorConfig
      */
-    readonly file?: any
+    readonly file?: File
 }
 
 /**
@@ -3044,8 +3066,8 @@ export class ConnectorsCCApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof ConnectorsCCApi
      */
-    public createConnector(requestParameters: ConnectorsCCApiCreateConnectorRequest = {}, axiosOptions?: AxiosRequestConfig) {
-        return ConnectorsCCApiFp(this.configuration).createConnector(requestParameters.contentType, requestParameters.name, requestParameters.description, requestParameters.className, requestParameters.directConnect, requestParameters.status, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public createConnector(requestParameters: ConnectorsCCApiCreateConnectorRequest = {}, options?: AxiosRequestConfig) {
+        return ConnectorsCCApiFp(this.configuration).createConnector(requestParameters.contentType, requestParameters.name, requestParameters.description, requestParameters.className, requestParameters.directConnect, requestParameters.status, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -3056,8 +3078,8 @@ export class ConnectorsCCApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof ConnectorsCCApi
      */
-    public deleteConnector(requestParameters: ConnectorsCCApiDeleteConnectorRequest, axiosOptions?: AxiosRequestConfig) {
-        return ConnectorsCCApiFp(this.configuration).deleteConnector(requestParameters.id, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public deleteConnector(requestParameters: ConnectorsCCApiDeleteConnectorRequest, options?: AxiosRequestConfig) {
+        return ConnectorsCCApiFp(this.configuration).deleteConnector(requestParameters.id, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -3068,8 +3090,8 @@ export class ConnectorsCCApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof ConnectorsCCApi
      */
-    public exportConnectorConfig(requestParameters: ConnectorsCCApiExportConnectorConfigRequest, axiosOptions?: AxiosRequestConfig) {
-        return ConnectorsCCApiFp(this.configuration).exportConnectorConfig(requestParameters.id, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public exportConnectorConfig(requestParameters: ConnectorsCCApiExportConnectorConfigRequest, options?: AxiosRequestConfig) {
+        return ConnectorsCCApiFp(this.configuration).exportConnectorConfig(requestParameters.id, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -3080,8 +3102,8 @@ export class ConnectorsCCApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof ConnectorsCCApi
      */
-    public importConnectorConfig(requestParameters: ConnectorsCCApiImportConnectorConfigRequest, axiosOptions?: AxiosRequestConfig) {
-        return ConnectorsCCApiFp(this.configuration).importConnectorConfig(requestParameters.id, requestParameters.file, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public importConnectorConfig(requestParameters: ConnectorsCCApiImportConnectorConfigRequest, options?: AxiosRequestConfig) {
+        return ConnectorsCCApiFp(this.configuration).importConnectorConfig(requestParameters.id, requestParameters.file, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -3091,10 +3113,11 @@ export class ConnectorsCCApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof ConnectorsCCApi
      */
-    public listConnectors(axiosOptions?: AxiosRequestConfig) {
-        return ConnectorsCCApiFp(this.configuration).listConnectors(axiosOptions).then((request) => request(this.axios, this.basePath));
+    public listConnectors(options?: AxiosRequestConfig) {
+        return ConnectorsCCApiFp(this.configuration).listConnectors(options).then((request) => request(this.axios, this.basePath));
     }
 }
+
 
 
 /**
@@ -3162,9 +3185,10 @@ export const SourcesAccountsCCApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async exportAccountFeed(id: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.exportAccountFeed(id, axiosOptions);
-            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        async exportAccountFeed(id: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.exportAccountFeed(id, options);
+            const operationBasePath = operationServerMap['SourcesAccountsCCApi.exportAccountFeed']?.[0]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
     }
 };
@@ -3179,12 +3203,13 @@ export const SourcesAccountsCCApiFactory = function (configuration?: Configurati
         /**
          * Exports a CSV of the accounts for a particular source.
          * @summary Export Account Feed
-         * @param {string} id 
-         * @param {*} [axiosOptions] Override http request option.
+         * @param {SourcesAccountsCCApiExportAccountFeedRequest} requestParameters Request parameters.
+        * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        exportAccountFeed(id: string, axiosOptions?: any): AxiosPromise<void> {
-            return localVarFp.exportAccountFeed(id, axiosOptions).then((request) => request(axios, basePath));
+    
+        exportAccountFeed(requestParameters: SourcesAccountsCCApiExportAccountFeedRequest, options?: AxiosRequestConfig): AxiosPromise<void> {
+            return localVarFp.exportAccountFeed(requestParameters.id, options).then((request) => request(axios, basePath));
         },
     };
 };
@@ -3218,10 +3243,11 @@ export class SourcesAccountsCCApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof SourcesAccountsCCApi
      */
-    public exportAccountFeed(requestParameters: SourcesAccountsCCApiExportAccountFeedRequest, axiosOptions?: AxiosRequestConfig) {
-        return SourcesAccountsCCApiFp(this.configuration).exportAccountFeed(requestParameters.id, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public exportAccountFeed(requestParameters: SourcesAccountsCCApiExportAccountFeedRequest, options?: AxiosRequestConfig) {
+        return SourcesAccountsCCApiFp(this.configuration).exportAccountFeed(requestParameters.id, options).then((request) => request(this.axios, this.basePath));
     }
 }
+
 
 
 /**
@@ -3236,11 +3262,11 @@ export const SourcesAggregationCCApiAxiosParamCreator = function (configuration?
          * @param {string} id 
          * @param {string} [contentType] 
          * @param {boolean} [disableOptimization] 
-         * @param {any} [file] 
+         * @param {File} [file] 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        loadAccounts: async (id: string, contentType?: string, disableOptimization?: boolean, file?: any, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        loadAccounts: async (id: string, contentType?: string, disableOptimization?: boolean, file?: File, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'id' is not null or undefined
             assertParamExists('loadAccounts', 'id', id)
             const localVarPath = `/cc/api/source/loadAccounts/{id}`
@@ -3265,7 +3291,7 @@ export const SourcesAggregationCCApiAxiosParamCreator = function (configuration?
             // oauth required
             await setOAuthToObject(localVarHeaderParameter, "UserContextAuth", [], configuration)
 
-            if (contentType !== undefined && contentType !== null) {
+            if (contentType != null) {
                 localVarHeaderParameter['Content-Type'] = String(contentType);
             }
 
@@ -3296,11 +3322,11 @@ export const SourcesAggregationCCApiAxiosParamCreator = function (configuration?
          * @summary Account Aggregation (File)
          * @param {string} id 
          * @param {string} [contentType] 
-         * @param {any} [file] 
+         * @param {File} [file] 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        loadEntitlements: async (id: string, contentType?: string, file?: any, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        loadEntitlements: async (id: string, contentType?: string, file?: File, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'id' is not null or undefined
             assertParamExists('loadEntitlements', 'id', id)
             const localVarPath = `/cc/api/source/loadEntitlements/{id}`
@@ -3325,7 +3351,7 @@ export const SourcesAggregationCCApiAxiosParamCreator = function (configuration?
             // oauth required
             await setOAuthToObject(localVarHeaderParameter, "UserContextAuth", [], configuration)
 
-            if (contentType !== undefined && contentType !== null) {
+            if (contentType != null) {
                 localVarHeaderParameter['Content-Type'] = String(contentType);
             }
 
@@ -3363,26 +3389,28 @@ export const SourcesAggregationCCApiFp = function(configuration?: Configuration)
          * @param {string} id 
          * @param {string} [contentType] 
          * @param {boolean} [disableOptimization] 
-         * @param {any} [file] 
+         * @param {File} [file] 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async loadAccounts(id: string, contentType?: string, disableOptimization?: boolean, file?: any, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<{ [key: string]: any; }>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.loadAccounts(id, contentType, disableOptimization, file, axiosOptions);
-            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        async loadAccounts(id: string, contentType?: string, disableOptimization?: boolean, file?: File, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<{ [key: string]: any; }>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.loadAccounts(id, contentType, disableOptimization, file, options);
+            const operationBasePath = operationServerMap['SourcesAggregationCCApi.loadAccounts']?.[0]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
         /**
          * Aggregates a delimited file for the given source.  This only works for file-based sources.
          * @summary Account Aggregation (File)
          * @param {string} id 
          * @param {string} [contentType] 
-         * @param {any} [file] 
+         * @param {File} [file] 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async loadEntitlements(id: string, contentType?: string, file?: any, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<{ [key: string]: any; }>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.loadEntitlements(id, contentType, file, axiosOptions);
-            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        async loadEntitlements(id: string, contentType?: string, file?: File, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<{ [key: string]: any; }>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.loadEntitlements(id, contentType, file, options);
+            const operationBasePath = operationServerMap['SourcesAggregationCCApi.loadEntitlements']?.[0]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
     }
 };
@@ -3397,27 +3425,24 @@ export const SourcesAggregationCCApiFactory = function (configuration?: Configur
         /**
          * Aggregates a delimited file for the given source.  This only works for file-based sources.
          * @summary Account Aggregation (File)
-         * @param {string} id 
-         * @param {string} [contentType] 
-         * @param {boolean} [disableOptimization] 
-         * @param {any} [file] 
-         * @param {*} [axiosOptions] Override http request option.
+         * @param {SourcesAggregationCCApiLoadAccountsRequest} requestParameters Request parameters.
+        * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        loadAccounts(id: string, contentType?: string, disableOptimization?: boolean, file?: any, axiosOptions?: any): AxiosPromise<{ [key: string]: any; }> {
-            return localVarFp.loadAccounts(id, contentType, disableOptimization, file, axiosOptions).then((request) => request(axios, basePath));
+    
+        loadAccounts(requestParameters: SourcesAggregationCCApiLoadAccountsRequest, options?: AxiosRequestConfig): AxiosPromise<{ [key: string]: any; }> {
+            return localVarFp.loadAccounts(requestParameters.id, requestParameters.contentType, requestParameters.disableOptimization, requestParameters.file, options).then((request) => request(axios, basePath));
         },
         /**
          * Aggregates a delimited file for the given source.  This only works for file-based sources.
          * @summary Account Aggregation (File)
-         * @param {string} id 
-         * @param {string} [contentType] 
-         * @param {any} [file] 
-         * @param {*} [axiosOptions] Override http request option.
+         * @param {SourcesAggregationCCApiLoadEntitlementsRequest} requestParameters Request parameters.
+        * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        loadEntitlements(id: string, contentType?: string, file?: any, axiosOptions?: any): AxiosPromise<{ [key: string]: any; }> {
-            return localVarFp.loadEntitlements(id, contentType, file, axiosOptions).then((request) => request(axios, basePath));
+    
+        loadEntitlements(requestParameters: SourcesAggregationCCApiLoadEntitlementsRequest, options?: AxiosRequestConfig): AxiosPromise<{ [key: string]: any; }> {
+            return localVarFp.loadEntitlements(requestParameters.id, requestParameters.contentType, requestParameters.file, options).then((request) => request(axios, basePath));
         },
     };
 };
@@ -3451,10 +3476,10 @@ export interface SourcesAggregationCCApiLoadAccountsRequest {
 
     /**
      * 
-     * @type {any}
+     * @type {File}
      * @memberof SourcesAggregationCCApiLoadAccounts
      */
-    readonly file?: any
+    readonly file?: File
 }
 
 /**
@@ -3479,10 +3504,10 @@ export interface SourcesAggregationCCApiLoadEntitlementsRequest {
 
     /**
      * 
-     * @type {any}
+     * @type {File}
      * @memberof SourcesAggregationCCApiLoadEntitlements
      */
-    readonly file?: any
+    readonly file?: File
 }
 
 /**
@@ -3500,8 +3525,8 @@ export class SourcesAggregationCCApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof SourcesAggregationCCApi
      */
-    public loadAccounts(requestParameters: SourcesAggregationCCApiLoadAccountsRequest, axiosOptions?: AxiosRequestConfig) {
-        return SourcesAggregationCCApiFp(this.configuration).loadAccounts(requestParameters.id, requestParameters.contentType, requestParameters.disableOptimization, requestParameters.file, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public loadAccounts(requestParameters: SourcesAggregationCCApiLoadAccountsRequest, options?: AxiosRequestConfig) {
+        return SourcesAggregationCCApiFp(this.configuration).loadAccounts(requestParameters.id, requestParameters.contentType, requestParameters.disableOptimization, requestParameters.file, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -3512,10 +3537,11 @@ export class SourcesAggregationCCApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof SourcesAggregationCCApi
      */
-    public loadEntitlements(requestParameters: SourcesAggregationCCApiLoadEntitlementsRequest, axiosOptions?: AxiosRequestConfig) {
-        return SourcesAggregationCCApiFp(this.configuration).loadEntitlements(requestParameters.id, requestParameters.contentType, requestParameters.file, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public loadEntitlements(requestParameters: SourcesAggregationCCApiLoadEntitlementsRequest, options?: AxiosRequestConfig) {
+        return SourcesAggregationCCApiFp(this.configuration).loadEntitlements(requestParameters.id, requestParameters.contentType, requestParameters.file, options).then((request) => request(this.axios, this.basePath));
     }
 }
+
 
 
 /**
@@ -3553,7 +3579,7 @@ export const SystemCCApiAxiosParamCreator = function (configuration?: Configurat
             // oauth required
             await setOAuthToObject(localVarHeaderParameter, "UserContextAuth", [], configuration)
 
-            if (contentType !== undefined && contentType !== null) {
+            if (contentType != null) {
                 localVarHeaderParameter['Content-Type'] = String(contentType);
             }
 
@@ -3589,9 +3615,10 @@ export const SystemCCApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async refreshIdentities(contentType?: string, refreshIdentitiesRequestCC?: RefreshIdentitiesRequestCC, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<{ [key: string]: any; }>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.refreshIdentities(contentType, refreshIdentitiesRequestCC, axiosOptions);
-            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        async refreshIdentities(contentType?: string, refreshIdentitiesRequestCC?: RefreshIdentitiesRequestCC, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<{ [key: string]: any; }>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.refreshIdentities(contentType, refreshIdentitiesRequestCC, options);
+            const operationBasePath = operationServerMap['SystemCCApi.refreshIdentities']?.[0]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
     }
 };
@@ -3606,13 +3633,13 @@ export const SystemCCApiFactory = function (configuration?: Configuration, baseP
         /**
          * This kicks off an identity refresh for a specified set of identity attributes.  This can be a long running process.  IdentityNow has pre-scheduled versions of this task at set intervals and events already, so only run this when directed by SailPoint.  _Note: If the identities specified by the filter do not exist, a full identity refresh will be run.  Use with caution._  Refresh Arguments:  | Key                   | Description                                        | |-----------------------|----------------------------------------------------| | correlateEntitlements | Analyzes entitlements, access profiles, and roles. | | promoteAttributes     | Calculates identity attributes.                    | | refreshManagerStatus  | Calculates manager correlation and manager status. | | synchronizeAttributes | Performs attribute sync provisioning.              | | pruneIdentities       | Removes any identities which don\'t have accounts.  | | provision             | Provisions any assigned roles or access profiles.  |
          * @summary Refresh Identities
-         * @param {string} [contentType] 
-         * @param {RefreshIdentitiesRequestCC} [refreshIdentitiesRequestCC] 
-         * @param {*} [axiosOptions] Override http request option.
+         * @param {SystemCCApiRefreshIdentitiesRequest} requestParameters Request parameters.
+        * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        refreshIdentities(contentType?: string, refreshIdentitiesRequestCC?: RefreshIdentitiesRequestCC, axiosOptions?: any): AxiosPromise<{ [key: string]: any; }> {
-            return localVarFp.refreshIdentities(contentType, refreshIdentitiesRequestCC, axiosOptions).then((request) => request(axios, basePath));
+    
+        refreshIdentities(requestParameters: SystemCCApiRefreshIdentitiesRequest = {}, options?: AxiosRequestConfig): AxiosPromise<{ [key: string]: any; }> {
+            return localVarFp.refreshIdentities(requestParameters.contentType, requestParameters.refreshIdentitiesRequestCC, options).then((request) => request(axios, basePath));
         },
     };
 };
@@ -3653,10 +3680,11 @@ export class SystemCCApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof SystemCCApi
      */
-    public refreshIdentities(requestParameters: SystemCCApiRefreshIdentitiesRequest = {}, axiosOptions?: AxiosRequestConfig) {
-        return SystemCCApiFp(this.configuration).refreshIdentities(requestParameters.contentType, requestParameters.refreshIdentitiesRequestCC, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public refreshIdentities(requestParameters: SystemCCApiRefreshIdentitiesRequest = {}, options?: AxiosRequestConfig) {
+        return SystemCCApiFp(this.configuration).refreshIdentities(requestParameters.contentType, requestParameters.refreshIdentitiesRequestCC, options).then((request) => request(this.axios, this.basePath));
     }
 }
+
 
 
 /**
@@ -3766,9 +3794,10 @@ export const UserCCApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async getIdentity(id: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<GetIdentity200ResponseCC>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.getIdentity(id, axiosOptions);
-            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        async getIdentity(id: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<GetIdentity200ResponseCC>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getIdentity(id, options);
+            const operationBasePath = operationServerMap['UserCCApi.getIdentity']?.[0]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
         /**
          * 
@@ -3777,9 +3806,10 @@ export const UserCCApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async updateUserPermissions(updateUserPermissionsRequestCC?: UpdateUserPermissionsRequestCC, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.updateUserPermissions(updateUserPermissionsRequestCC, axiosOptions);
-            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        async updateUserPermissions(updateUserPermissionsRequestCC?: UpdateUserPermissionsRequestCC, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.updateUserPermissions(updateUserPermissionsRequestCC, options);
+            const operationBasePath = operationServerMap['UserCCApi.updateUserPermissions']?.[0]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
     }
 };
@@ -3794,22 +3824,24 @@ export const UserCCApiFactory = function (configuration?: Configuration, basePat
         /**
          * 
          * @summary Get Single Identity
-         * @param {string} id 
-         * @param {*} [axiosOptions] Override http request option.
+         * @param {UserCCApiGetIdentityRequest} requestParameters Request parameters.
+        * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        getIdentity(id: string, axiosOptions?: any): AxiosPromise<GetIdentity200ResponseCC> {
-            return localVarFp.getIdentity(id, axiosOptions).then((request) => request(axios, basePath));
+    
+        getIdentity(requestParameters: UserCCApiGetIdentityRequest, options?: AxiosRequestConfig): AxiosPromise<GetIdentity200ResponseCC> {
+            return localVarFp.getIdentity(requestParameters.id, options).then((request) => request(axios, basePath));
         },
         /**
          * 
          * @summary Update User Permissions
-         * @param {UpdateUserPermissionsRequestCC} [updateUserPermissionsRequestCC] 
-         * @param {*} [axiosOptions] Override http request option.
+         * @param {UserCCApiUpdateUserPermissionsRequest} requestParameters Request parameters.
+        * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        updateUserPermissions(updateUserPermissionsRequestCC?: UpdateUserPermissionsRequestCC, axiosOptions?: any): AxiosPromise<void> {
-            return localVarFp.updateUserPermissions(updateUserPermissionsRequestCC, axiosOptions).then((request) => request(axios, basePath));
+    
+        updateUserPermissions(requestParameters: UserCCApiUpdateUserPermissionsRequest = {}, options?: AxiosRequestConfig): AxiosPromise<void> {
+            return localVarFp.updateUserPermissions(requestParameters.updateUserPermissionsRequestCC, options).then((request) => request(axios, basePath));
         },
     };
 };
@@ -3857,8 +3889,8 @@ export class UserCCApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof UserCCApi
      */
-    public getIdentity(requestParameters: UserCCApiGetIdentityRequest, axiosOptions?: AxiosRequestConfig) {
-        return UserCCApiFp(this.configuration).getIdentity(requestParameters.id, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public getIdentity(requestParameters: UserCCApiGetIdentityRequest, options?: AxiosRequestConfig) {
+        return UserCCApiFp(this.configuration).getIdentity(requestParameters.id, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -3869,9 +3901,10 @@ export class UserCCApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof UserCCApi
      */
-    public updateUserPermissions(requestParameters: UserCCApiUpdateUserPermissionsRequest = {}, axiosOptions?: AxiosRequestConfig) {
-        return UserCCApiFp(this.configuration).updateUserPermissions(requestParameters.updateUserPermissionsRequestCC, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public updateUserPermissions(requestParameters: UserCCApiUpdateUserPermissionsRequest = {}, options?: AxiosRequestConfig) {
+        return UserCCApiFp(this.configuration).updateUserPermissions(requestParameters.updateUserPermissionsRequestCC, options).then((request) => request(this.axios, this.basePath));
     }
 }
+
 
 

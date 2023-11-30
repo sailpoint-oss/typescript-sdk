@@ -36,25 +36,25 @@ jobs:
       - name: Build V3 SDK
         id: buildV3
         run: |
-          java -jar openapi-generator-cli.jar generate -i api-specs/idn/sailpoint-api.v3.yaml -g typescript-axios -o sdk-output/v3 --global-property skipFormModel=false --config sdk-resources/v3-config.yaml
+          java -jar openapi-generator-cli-7.1.0.jar generate -i api-specs/idn/sailpoint-api.v3.yaml -g typescript-axios -o sdk-output/v3 --global-property skipFormModel=false --config sdk-resources/v3-config.yaml
 
       - name: Build Beta SDK
         id: buildBeta
         if: steps.buildV3.outcome == 'success'
         run: |
-          java -jar openapi-generator-cli.jar generate -i api-specs/idn/sailpoint-api.beta.yaml -g typescript-axios -o sdk-output/beta --global-property skipFormModel=false --config sdk-resources/beta-config.yaml --api-name-suffix BetaApi --model-name-suffix Beta
+          java -jar openapi-generator-cli-7.1.0.jar generate -i api-specs/idn/sailpoint-api.beta.yaml -g typescript-axios -o sdk-output/beta --global-property skipFormModel=false --config sdk-resources/beta-config.yaml --api-name-suffix BetaApi --model-name-suffix Beta
       
       - name: Build V2 SDK
         id: buildV2
         if: steps.buildBeta.outcome == 'success'
         run: |
-          java -jar openapi-generator-cli.jar generate -i api-specs/idn/sailpoint-api.v2.yaml -g typescript-axios -o sdk-output/v2 --global-property skipFormModel=false --config sdk-resources/v2-config.yaml --api-name-suffix V2Api --model-name-suffix V2
+          java -jar openapi-generator-cli-7.1.0.jar generate -i api-specs/idn/sailpoint-api.v2.yaml -g typescript-axios -o sdk-output/v2 --global-property skipFormModel=false --config sdk-resources/v2-config.yaml --api-name-suffix V2Api --model-name-suffix V2
       
       - name: Build CC SDK
         id: buildCC
         if: steps.buildV2.outcome == 'success'
         run: |
-          java -jar openapi-generator-cli.jar generate -i api-specs/idn/sailpoint-api.cc.yaml -g typescript-axios -o sdk-output/cc --global-property skipFormModel=false --config sdk-resources/cc-config.yaml --api-name-suffix CCApi --model-name-suffix CC
+          java -jar openapi-generator-cli-7.1.0.jar generate -i api-specs/idn/sailpoint-api.cc.yaml -g typescript-axios -o sdk-output/cc --global-property skipFormModel=false --config sdk-resources/cc-config.yaml --api-name-suffix CCApi --model-name-suffix CC
       
       - name: Run npm install and build Typescript SDK
         id: buildSDK

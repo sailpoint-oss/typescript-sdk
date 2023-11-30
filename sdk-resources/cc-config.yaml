@@ -7,3 +7,4 @@ npmName: sailpoint-sdk
 npmRepository: sailpoint.com
 npmVersion: 1.3.0
 useSingleRequestParameter: true
+enumNameSuffix: CC

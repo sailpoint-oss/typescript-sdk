@@ -14,12 +14,13 @@
 
 
 import { Configuration } from '../configuration';
-import globalAxios, { AxiosPromise, AxiosInstance, AxiosRequestConfig } from 'axios';
+import type { AxiosPromise, AxiosInstance, AxiosRequestConfig } from 'axios';
+import globalAxios from 'axios';
 // Some imports not used depending on template conditions
 // @ts-ignore
 import { DUMMY_BASE_URL, assertParamExists, setApiKeyToObject, setBasicAuthToObject, setBearerAuthToObject, setOAuthToObject, setSearchParams, serializeDataIfNeeded, toPathString, createRequestFunction } from './common';
 // @ts-ignore
-import { BASE_PATH, COLLECTION_FORMATS, RequestArgs, BaseAPI, RequiredError } from './base';
+import { BASE_PATH, COLLECTION_FORMATS, RequestArgs, BaseAPI, RequiredError, operationServerMap  } from './base';
 
 /**
  * 
@@ -189,15 +190,15 @@ export interface GetOrgSettings200ResponseSystemNotificationConfigV2 {
      * @type {string}
      * @memberof GetOrgSettings200ResponseSystemNotificationConfigV2
      */
-    'recipientType'?: GetOrgSettings200ResponseSystemNotificationConfigV2RecipientTypeEnum;
+    'recipientType'?: GetOrgSettings200ResponseSystemNotificationConfigV2RecipientTypeV2;
 }
 
-export const GetOrgSettings200ResponseSystemNotificationConfigV2RecipientTypeEnum = {
+export const GetOrgSettings200ResponseSystemNotificationConfigV2RecipientTypeV2 = {
     AllAdmins: 'allAdmins',
     SpecificIdentities: 'specificIdentities'
 } as const;
 
-export type GetOrgSettings200ResponseSystemNotificationConfigV2RecipientTypeEnum = typeof GetOrgSettings200ResponseSystemNotificationConfigV2RecipientTypeEnum[keyof typeof GetOrgSettings200ResponseSystemNotificationConfigV2RecipientTypeEnum];
+export type GetOrgSettings200ResponseSystemNotificationConfigV2RecipientTypeV2 = typeof GetOrgSettings200ResponseSystemNotificationConfigV2RecipientTypeV2[keyof typeof GetOrgSettings200ResponseSystemNotificationConfigV2RecipientTypeV2];
 
 /**
  * 
@@ -252,7 +253,7 @@ export interface GetOrgSettings200ResponseV2 {
      * @type {string}
      * @memberof GetOrgSettings200ResponseV2
      */
-    'status'?: GetOrgSettings200ResponseV2StatusEnum;
+    'status'?: GetOrgSettings200ResponseV2StatusV2;
     /**
      * 
      * @type {number}
@@ -372,7 +373,7 @@ export interface GetOrgSettings200ResponseV2 {
      * @type {string}
      * @memberof GetOrgSettings200ResponseV2
      */
-    'passwordReplayState'?: GetOrgSettings200ResponseV2PasswordReplayStateEnum;
+    'passwordReplayState'?: GetOrgSettings200ResponseV2PasswordReplayStateV2;
     /**
      * 
      * @type {GetOrgSettings200ResponseSystemNotificationConfigV2}
@@ -417,21 +418,21 @@ export interface GetOrgSettings200ResponseV2 {
     'ssoPartnerSource'?: string;
 }
 
-export const GetOrgSettings200ResponseV2StatusEnum = {
+export const GetOrgSettings200ResponseV2StatusV2 = {
     Inactive: 'inactive',
     Active: 'active',
     Demo: 'demo',
     Test: 'test'
 } as const;
 
-export type GetOrgSettings200ResponseV2StatusEnum = typeof GetOrgSettings200ResponseV2StatusEnum[keyof typeof GetOrgSettings200ResponseV2StatusEnum];
-export const GetOrgSettings200ResponseV2PasswordReplayStateEnum = {
+export type GetOrgSettings200ResponseV2StatusV2 = typeof GetOrgSettings200ResponseV2StatusV2[keyof typeof GetOrgSettings200ResponseV2StatusV2];
+export const GetOrgSettings200ResponseV2PasswordReplayStateV2 = {
     Enabled: 'enabled',
     Passive: 'passive',
     Disabled: 'disabled'
 } as const;
 
-export type GetOrgSettings200ResponseV2PasswordReplayStateEnum = typeof GetOrgSettings200ResponseV2PasswordReplayStateEnum[keyof typeof GetOrgSettings200ResponseV2PasswordReplayStateEnum];
+export type GetOrgSettings200ResponseV2PasswordReplayStateV2 = typeof GetOrgSettings200ResponseV2PasswordReplayStateV2[keyof typeof GetOrgSettings200ResponseV2PasswordReplayStateV2];
 
 /**
  * 
@@ -695,7 +696,7 @@ export interface UpdateOrgSettingsRequestV2 {
      * @type {string}
      * @memberof UpdateOrgSettingsRequestV2
      */
-    'passwordReplayState'?: UpdateOrgSettingsRequestV2PasswordReplayStateEnum;
+    'passwordReplayState'?: UpdateOrgSettingsRequestV2PasswordReplayStateV2;
     /**
      * 
      * @type {string}
@@ -764,13 +765,13 @@ export interface UpdateOrgSettingsRequestV2 {
     'approvalConfig'?: GetOrgSettings200ResponseApprovalConfigV2;
 }
 
-export const UpdateOrgSettingsRequestV2PasswordReplayStateEnum = {
+export const UpdateOrgSettingsRequestV2PasswordReplayStateV2 = {
     Enabled: 'enabled',
     Passive: 'passive',
     Disabled: 'disabled'
 } as const;
 
-export type UpdateOrgSettingsRequestV2PasswordReplayStateEnum = typeof UpdateOrgSettingsRequestV2PasswordReplayStateEnum[keyof typeof UpdateOrgSettingsRequestV2PasswordReplayStateEnum];
+export type UpdateOrgSettingsRequestV2PasswordReplayStateV2 = typeof UpdateOrgSettingsRequestV2PasswordReplayStateV2[keyof typeof UpdateOrgSettingsRequestV2PasswordReplayStateV2];
 
 
 /**
@@ -1216,9 +1217,10 @@ export const GovernanceGroupsV2ApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async bulkDeleteWorkGroups(bulkDeleteWorkGroupsRequestV2: BulkDeleteWorkGroupsRequestV2, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<BulkDeleteWorkGroups200ResponseV2>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.bulkDeleteWorkGroups(bulkDeleteWorkGroupsRequestV2, axiosOptions);
-            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        async bulkDeleteWorkGroups(bulkDeleteWorkGroupsRequestV2: BulkDeleteWorkGroupsRequestV2, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<BulkDeleteWorkGroups200ResponseV2>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.bulkDeleteWorkGroups(bulkDeleteWorkGroupsRequestV2, options);
+            const operationBasePath = operationServerMap['GovernanceGroupsV2Api.bulkDeleteWorkGroups']?.[0]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
         /**
          * This API allows you to create a work group
@@ -1227,9 +1229,10 @@ export const GovernanceGroupsV2ApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async createWorkgroup(createWorkgroupRequestV2: CreateWorkgroupRequestV2, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<ListWorkgroups200ResponseInnerV2>>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.createWorkgroup(createWorkgroupRequestV2, axiosOptions);
-            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        async createWorkgroup(createWorkgroupRequestV2: CreateWorkgroupRequestV2, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<ListWorkgroups200ResponseInnerV2>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.createWorkgroup(createWorkgroupRequestV2, options);
+            const operationBasePath = operationServerMap['GovernanceGroupsV2Api.createWorkgroup']?.[0]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
         /**
          * This API deletes a single workgroup based on the ID
@@ -1238,9 +1241,10 @@ export const GovernanceGroupsV2ApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async deleteWorkgroup(workgroupId: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.deleteWorkgroup(workgroupId, axiosOptions);
-            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        async deleteWorkgroup(workgroupId: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.deleteWorkgroup(workgroupId, options);
+            const operationBasePath = operationServerMap['GovernanceGroupsV2Api.deleteWorkgroup']?.[0]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
         /**
          * This API returns the details for a single workgroup based on the ID
@@ -1249,9 +1253,10 @@ export const GovernanceGroupsV2ApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async getWorkgroup(workgroupId: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ListWorkgroups200ResponseInnerV2>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.getWorkgroup(workgroupId, axiosOptions);
-            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        async getWorkgroup(workgroupId: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ListWorkgroups200ResponseInnerV2>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getWorkgroup(workgroupId, options);
+            const operationBasePath = operationServerMap['GovernanceGroupsV2Api.getWorkgroup']?.[0]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
         /**
          * This API returns the connections of a work group
@@ -1260,9 +1265,10 @@ export const GovernanceGroupsV2ApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async listWorkgroupConnections(workgroupId: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<ListWorkgroupConnections200ResponseInnerV2>>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.listWorkgroupConnections(workgroupId, axiosOptions);
-            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        async listWorkgroupConnections(workgroupId: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<ListWorkgroupConnections200ResponseInnerV2>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.listWorkgroupConnections(workgroupId, options);
+            const operationBasePath = operationServerMap['GovernanceGroupsV2Api.listWorkgroupConnections']?.[0]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
         /**
          * This API returns the members of a work group
@@ -1274,9 +1280,10 @@ export const GovernanceGroupsV2ApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async listWorkgroupMembers(workgroupId: string, limit?: number, offset?: number, filters?: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<ListWorkgroupMembers200ResponseInnerV2>>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.listWorkgroupMembers(workgroupId, limit, offset, filters, axiosOptions);
-            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        async listWorkgroupMembers(workgroupId: string, limit?: number, offset?: number, filters?: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<ListWorkgroupMembers200ResponseInnerV2>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.listWorkgroupMembers(workgroupId, limit, offset, filters, options);
+            const operationBasePath = operationServerMap['GovernanceGroupsV2Api.listWorkgroupMembers']?.[0]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
         /**
          * This API returns a list of work groups
@@ -1287,9 +1294,10 @@ export const GovernanceGroupsV2ApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async listWorkgroups(limit?: number, offset?: number, filters?: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<ListWorkgroups200ResponseInnerV2>>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.listWorkgroups(limit, offset, filters, axiosOptions);
-            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        async listWorkgroups(limit?: number, offset?: number, filters?: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<ListWorkgroups200ResponseInnerV2>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.listWorkgroups(limit, offset, filters, options);
+            const operationBasePath = operationServerMap['GovernanceGroupsV2Api.listWorkgroups']?.[0]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
         /**
          * This API allows you to modify the members of a work group
@@ -1299,9 +1307,10 @@ export const GovernanceGroupsV2ApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async modifyWorkgroupMembers(workgroupId: string, modifyWorkgroupMembersRequestV2: ModifyWorkgroupMembersRequestV2, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.modifyWorkgroupMembers(workgroupId, modifyWorkgroupMembersRequestV2, axiosOptions);
-            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        async modifyWorkgroupMembers(workgroupId: string, modifyWorkgroupMembersRequestV2: ModifyWorkgroupMembersRequestV2, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.modifyWorkgroupMembers(workgroupId, modifyWorkgroupMembersRequestV2, options);
+            const operationBasePath = operationServerMap['GovernanceGroupsV2Api.modifyWorkgroupMembers']?.[0]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
         /**
          * This API updates and returns the details for a single workgroup based on the ID
@@ -1311,9 +1320,10 @@ export const GovernanceGroupsV2ApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async updateWorkgroup(workgroupId: string, createWorkgroupRequestV2: CreateWorkgroupRequestV2, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ListWorkgroups200ResponseInnerV2>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.updateWorkgroup(workgroupId, createWorkgroupRequestV2, axiosOptions);
-            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        async updateWorkgroup(workgroupId: string, createWorkgroupRequestV2: CreateWorkgroupRequestV2, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ListWorkgroups200ResponseInnerV2>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.updateWorkgroup(workgroupId, createWorkgroupRequestV2, options);
+            const operationBasePath = operationServerMap['GovernanceGroupsV2Api.updateWorkgroup']?.[0]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
     }
 };
@@ -1328,99 +1338,101 @@ export const GovernanceGroupsV2ApiFactory = function (configuration?: Configurat
         /**
          * This API allows you to bulk-delete work groups
          * @summary Bulk delete work groups
-         * @param {BulkDeleteWorkGroupsRequestV2} bulkDeleteWorkGroupsRequestV2 Work group ids to delete
-         * @param {*} [axiosOptions] Override http request option.
+         * @param {GovernanceGroupsV2ApiBulkDeleteWorkGroupsRequest} requestParameters Request parameters.
+        * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        bulkDeleteWorkGroups(bulkDeleteWorkGroupsRequestV2: BulkDeleteWorkGroupsRequestV2, axiosOptions?: any): AxiosPromise<BulkDeleteWorkGroups200ResponseV2> {
-            return localVarFp.bulkDeleteWorkGroups(bulkDeleteWorkGroupsRequestV2, axiosOptions).then((request) => request(axios, basePath));
+    
+        bulkDeleteWorkGroups(requestParameters: GovernanceGroupsV2ApiBulkDeleteWorkGroupsRequest, options?: AxiosRequestConfig): AxiosPromise<BulkDeleteWorkGroups200ResponseV2> {
+            return localVarFp.bulkDeleteWorkGroups(requestParameters.bulkDeleteWorkGroupsRequestV2, options).then((request) => request(axios, basePath));
         },
         /**
          * This API allows you to create a work group
          * @summary Create Work Group
-         * @param {CreateWorkgroupRequestV2} createWorkgroupRequestV2 Work group to create.
-         * @param {*} [axiosOptions] Override http request option.
+         * @param {GovernanceGroupsV2ApiCreateWorkgroupRequest} requestParameters Request parameters.
+        * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        createWorkgroup(createWorkgroupRequestV2: CreateWorkgroupRequestV2, axiosOptions?: any): AxiosPromise<Array<ListWorkgroups200ResponseInnerV2>> {
-            return localVarFp.createWorkgroup(createWorkgroupRequestV2, axiosOptions).then((request) => request(axios, basePath));
+    
+        createWorkgroup(requestParameters: GovernanceGroupsV2ApiCreateWorkgroupRequest, options?: AxiosRequestConfig): AxiosPromise<Array<ListWorkgroups200ResponseInnerV2>> {
+            return localVarFp.createWorkgroup(requestParameters.createWorkgroupRequestV2, options).then((request) => request(axios, basePath));
         },
         /**
          * This API deletes a single workgroup based on the ID
          * @summary Delete Work Group By Id
-         * @param {string} workgroupId The workgroup ID
-         * @param {*} [axiosOptions] Override http request option.
+         * @param {GovernanceGroupsV2ApiDeleteWorkgroupRequest} requestParameters Request parameters.
+        * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        deleteWorkgroup(workgroupId: string, axiosOptions?: any): AxiosPromise<void> {
-            return localVarFp.deleteWorkgroup(workgroupId, axiosOptions).then((request) => request(axios, basePath));
+    
+        deleteWorkgroup(requestParameters: GovernanceGroupsV2ApiDeleteWorkgroupRequest, options?: AxiosRequestConfig): AxiosPromise<void> {
+            return localVarFp.deleteWorkgroup(requestParameters.workgroupId, options).then((request) => request(axios, basePath));
         },
         /**
          * This API returns the details for a single workgroup based on the ID
          * @summary Get Work Group By Id
-         * @param {string} workgroupId The workgroup ID
-         * @param {*} [axiosOptions] Override http request option.
+         * @param {GovernanceGroupsV2ApiGetWorkgroupRequest} requestParameters Request parameters.
+        * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        getWorkgroup(workgroupId: string, axiosOptions?: any): AxiosPromise<ListWorkgroups200ResponseInnerV2> {
-            return localVarFp.getWorkgroup(workgroupId, axiosOptions).then((request) => request(axios, basePath));
+    
+        getWorkgroup(requestParameters: GovernanceGroupsV2ApiGetWorkgroupRequest, options?: AxiosRequestConfig): AxiosPromise<ListWorkgroups200ResponseInnerV2> {
+            return localVarFp.getWorkgroup(requestParameters.workgroupId, options).then((request) => request(axios, basePath));
         },
         /**
          * This API returns the connections of a work group
          * @summary List Work Group Connections
-         * @param {string} workgroupId The workgroup ID
-         * @param {*} [axiosOptions] Override http request option.
+         * @param {GovernanceGroupsV2ApiListWorkgroupConnectionsRequest} requestParameters Request parameters.
+        * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        listWorkgroupConnections(workgroupId: string, axiosOptions?: any): AxiosPromise<Array<ListWorkgroupConnections200ResponseInnerV2>> {
-            return localVarFp.listWorkgroupConnections(workgroupId, axiosOptions).then((request) => request(axios, basePath));
+    
+        listWorkgroupConnections(requestParameters: GovernanceGroupsV2ApiListWorkgroupConnectionsRequest, options?: AxiosRequestConfig): AxiosPromise<Array<ListWorkgroupConnections200ResponseInnerV2>> {
+            return localVarFp.listWorkgroupConnections(requestParameters.workgroupId, options).then((request) => request(axios, basePath));
         },
         /**
          * This API returns the members of a work group
          * @summary List Work Group Members
-         * @param {string} workgroupId The workgroup ID
-         * @param {number} [limit] Max number of results to return
-         * @param {number} [offset] Offset into the full result set. Usually specified with *limit* to paginate through the results.
-         * @param {string} [filters] Filter results using the following syntax. [{property:name, value: \&quot;Tyler\&quot;, operation: EQ}]
-         * @param {*} [axiosOptions] Override http request option.
+         * @param {GovernanceGroupsV2ApiListWorkgroupMembersRequest} requestParameters Request parameters.
+        * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        listWorkgroupMembers(workgroupId: string, limit?: number, offset?: number, filters?: string, axiosOptions?: any): AxiosPromise<Array<ListWorkgroupMembers200ResponseInnerV2>> {
-            return localVarFp.listWorkgroupMembers(workgroupId, limit, offset, filters, axiosOptions).then((request) => request(axios, basePath));
+    
+        listWorkgroupMembers(requestParameters: GovernanceGroupsV2ApiListWorkgroupMembersRequest, options?: AxiosRequestConfig): AxiosPromise<Array<ListWorkgroupMembers200ResponseInnerV2>> {
+            return localVarFp.listWorkgroupMembers(requestParameters.workgroupId, requestParameters.limit, requestParameters.offset, requestParameters.filters, options).then((request) => request(axios, basePath));
         },
         /**
          * This API returns a list of work groups
          * @summary List Work Groups
-         * @param {number} [limit] Max number of results to return
-         * @param {number} [offset] Offset into the full result set. Usually specified with *limit* to paginate through the results.
-         * @param {string} [filters] Filter results using the following syntax. [{property:name, value: \&quot;Tyler\&quot;, operation: EQ}]
-         * @param {*} [axiosOptions] Override http request option.
+         * @param {GovernanceGroupsV2ApiListWorkgroupsRequest} requestParameters Request parameters.
+        * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        listWorkgroups(limit?: number, offset?: number, filters?: string, axiosOptions?: any): AxiosPromise<Array<ListWorkgroups200ResponseInnerV2>> {
-            return localVarFp.listWorkgroups(limit, offset, filters, axiosOptions).then((request) => request(axios, basePath));
+    
+        listWorkgroups(requestParameters: GovernanceGroupsV2ApiListWorkgroupsRequest = {}, options?: AxiosRequestConfig): AxiosPromise<Array<ListWorkgroups200ResponseInnerV2>> {
+            return localVarFp.listWorkgroups(requestParameters.limit, requestParameters.offset, requestParameters.filters, options).then((request) => request(axios, basePath));
         },
         /**
          * This API allows you to modify the members of a work group
          * @summary Modify Work Group Members
-         * @param {string} workgroupId The workgroup ID
-         * @param {ModifyWorkgroupMembersRequestV2} modifyWorkgroupMembersRequestV2 Add/Remove workgroup member ids.
-         * @param {*} [axiosOptions] Override http request option.
+         * @param {GovernanceGroupsV2ApiModifyWorkgroupMembersRequest} requestParameters Request parameters.
+        * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        modifyWorkgroupMembers(workgroupId: string, modifyWorkgroupMembersRequestV2: ModifyWorkgroupMembersRequestV2, axiosOptions?: any): AxiosPromise<void> {
-            return localVarFp.modifyWorkgroupMembers(workgroupId, modifyWorkgroupMembersRequestV2, axiosOptions).then((request) => request(axios, basePath));
+    
+        modifyWorkgroupMembers(requestParameters: GovernanceGroupsV2ApiModifyWorkgroupMembersRequest, options?: AxiosRequestConfig): AxiosPromise<void> {
+            return localVarFp.modifyWorkgroupMembers(requestParameters.workgroupId, requestParameters.modifyWorkgroupMembersRequestV2, options).then((request) => request(axios, basePath));
         },
         /**
          * This API updates and returns the details for a single workgroup based on the ID
          * @summary Update Work Group By Id
-         * @param {string} workgroupId The workgroup ID
-         * @param {CreateWorkgroupRequestV2} createWorkgroupRequestV2 Work group to modify.
-         * @param {*} [axiosOptions] Override http request option.
+         * @param {GovernanceGroupsV2ApiUpdateWorkgroupRequest} requestParameters Request parameters.
+        * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        updateWorkgroup(workgroupId: string, createWorkgroupRequestV2: CreateWorkgroupRequestV2, axiosOptions?: any): AxiosPromise<ListWorkgroups200ResponseInnerV2> {
-            return localVarFp.updateWorkgroup(workgroupId, createWorkgroupRequestV2, axiosOptions).then((request) => request(axios, basePath));
+    
+        updateWorkgroup(requestParameters: GovernanceGroupsV2ApiUpdateWorkgroupRequest, options?: AxiosRequestConfig): AxiosPromise<ListWorkgroups200ResponseInnerV2> {
+            return localVarFp.updateWorkgroup(requestParameters.workgroupId, requestParameters.createWorkgroupRequestV2, options).then((request) => request(axios, basePath));
         },
     };
 };
@@ -1615,8 +1627,8 @@ export class GovernanceGroupsV2Api extends BaseAPI {
      * @throws {RequiredError}
      * @memberof GovernanceGroupsV2Api
      */
-    public bulkDeleteWorkGroups(requestParameters: GovernanceGroupsV2ApiBulkDeleteWorkGroupsRequest, axiosOptions?: AxiosRequestConfig) {
-        return GovernanceGroupsV2ApiFp(this.configuration).bulkDeleteWorkGroups(requestParameters.bulkDeleteWorkGroupsRequestV2, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public bulkDeleteWorkGroups(requestParameters: GovernanceGroupsV2ApiBulkDeleteWorkGroupsRequest, options?: AxiosRequestConfig) {
+        return GovernanceGroupsV2ApiFp(this.configuration).bulkDeleteWorkGroups(requestParameters.bulkDeleteWorkGroupsRequestV2, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -1627,8 +1639,8 @@ export class GovernanceGroupsV2Api extends BaseAPI {
      * @throws {RequiredError}
      * @memberof GovernanceGroupsV2Api
      */
-    public createWorkgroup(requestParameters: GovernanceGroupsV2ApiCreateWorkgroupRequest, axiosOptions?: AxiosRequestConfig) {
-        return GovernanceGroupsV2ApiFp(this.configuration).createWorkgroup(requestParameters.createWorkgroupRequestV2, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public createWorkgroup(requestParameters: GovernanceGroupsV2ApiCreateWorkgroupRequest, options?: AxiosRequestConfig) {
+        return GovernanceGroupsV2ApiFp(this.configuration).createWorkgroup(requestParameters.createWorkgroupRequestV2, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -1639,8 +1651,8 @@ export class GovernanceGroupsV2Api extends BaseAPI {
      * @throws {RequiredError}
      * @memberof GovernanceGroupsV2Api
      */
-    public deleteWorkgroup(requestParameters: GovernanceGroupsV2ApiDeleteWorkgroupRequest, axiosOptions?: AxiosRequestConfig) {
-        return GovernanceGroupsV2ApiFp(this.configuration).deleteWorkgroup(requestParameters.workgroupId, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public deleteWorkgroup(requestParameters: GovernanceGroupsV2ApiDeleteWorkgroupRequest, options?: AxiosRequestConfig) {
+        return GovernanceGroupsV2ApiFp(this.configuration).deleteWorkgroup(requestParameters.workgroupId, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -1651,8 +1663,8 @@ export class GovernanceGroupsV2Api extends BaseAPI {
      * @throws {RequiredError}
      * @memberof GovernanceGroupsV2Api
      */
-    public getWorkgroup(requestParameters: GovernanceGroupsV2ApiGetWorkgroupRequest, axiosOptions?: AxiosRequestConfig) {
-        return GovernanceGroupsV2ApiFp(this.configuration).getWorkgroup(requestParameters.workgroupId, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public getWorkgroup(requestParameters: GovernanceGroupsV2ApiGetWorkgroupRequest, options?: AxiosRequestConfig) {
+        return GovernanceGroupsV2ApiFp(this.configuration).getWorkgroup(requestParameters.workgroupId, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -1663,8 +1675,8 @@ export class GovernanceGroupsV2Api extends BaseAPI {
      * @throws {RequiredError}
      * @memberof GovernanceGroupsV2Api
      */
-    public listWorkgroupConnections(requestParameters: GovernanceGroupsV2ApiListWorkgroupConnectionsRequest, axiosOptions?: AxiosRequestConfig) {
-        return GovernanceGroupsV2ApiFp(this.configuration).listWorkgroupConnections(requestParameters.workgroupId, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public listWorkgroupConnections(requestParameters: GovernanceGroupsV2ApiListWorkgroupConnectionsRequest, options?: AxiosRequestConfig) {
+        return GovernanceGroupsV2ApiFp(this.configuration).listWorkgroupConnections(requestParameters.workgroupId, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -1675,8 +1687,8 @@ export class GovernanceGroupsV2Api extends BaseAPI {
      * @throws {RequiredError}
      * @memberof GovernanceGroupsV2Api
      */
-    public listWorkgroupMembers(requestParameters: GovernanceGroupsV2ApiListWorkgroupMembersRequest, axiosOptions?: AxiosRequestConfig) {
-        return GovernanceGroupsV2ApiFp(this.configuration).listWorkgroupMembers(requestParameters.workgroupId, requestParameters.limit, requestParameters.offset, requestParameters.filters, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public listWorkgroupMembers(requestParameters: GovernanceGroupsV2ApiListWorkgroupMembersRequest, options?: AxiosRequestConfig) {
+        return GovernanceGroupsV2ApiFp(this.configuration).listWorkgroupMembers(requestParameters.workgroupId, requestParameters.limit, requestParameters.offset, requestParameters.filters, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -1687,8 +1699,8 @@ export class GovernanceGroupsV2Api extends BaseAPI {
      * @throws {RequiredError}
      * @memberof GovernanceGroupsV2Api
      */
-    public listWorkgroups(requestParameters: GovernanceGroupsV2ApiListWorkgroupsRequest = {}, axiosOptions?: AxiosRequestConfig) {
-        return GovernanceGroupsV2ApiFp(this.configuration).listWorkgroups(requestParameters.limit, requestParameters.offset, requestParameters.filters, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public listWorkgroups(requestParameters: GovernanceGroupsV2ApiListWorkgroupsRequest = {}, options?: AxiosRequestConfig) {
+        return GovernanceGroupsV2ApiFp(this.configuration).listWorkgroups(requestParameters.limit, requestParameters.offset, requestParameters.filters, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -1699,8 +1711,8 @@ export class GovernanceGroupsV2Api extends BaseAPI {
      * @throws {RequiredError}
      * @memberof GovernanceGroupsV2Api
      */
-    public modifyWorkgroupMembers(requestParameters: GovernanceGroupsV2ApiModifyWorkgroupMembersRequest, axiosOptions?: AxiosRequestConfig) {
-        return GovernanceGroupsV2ApiFp(this.configuration).modifyWorkgroupMembers(requestParameters.workgroupId, requestParameters.modifyWorkgroupMembersRequestV2, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public modifyWorkgroupMembers(requestParameters: GovernanceGroupsV2ApiModifyWorkgroupMembersRequest, options?: AxiosRequestConfig) {
+        return GovernanceGroupsV2ApiFp(this.configuration).modifyWorkgroupMembers(requestParameters.workgroupId, requestParameters.modifyWorkgroupMembersRequestV2, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -1711,10 +1723,11 @@ export class GovernanceGroupsV2Api extends BaseAPI {
      * @throws {RequiredError}
      * @memberof GovernanceGroupsV2Api
      */
-    public updateWorkgroup(requestParameters: GovernanceGroupsV2ApiUpdateWorkgroupRequest, axiosOptions?: AxiosRequestConfig) {
-        return GovernanceGroupsV2ApiFp(this.configuration).updateWorkgroup(requestParameters.workgroupId, requestParameters.createWorkgroupRequestV2, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public updateWorkgroup(requestParameters: GovernanceGroupsV2ApiUpdateWorkgroupRequest, options?: AxiosRequestConfig) {
+        return GovernanceGroupsV2ApiFp(this.configuration).updateWorkgroup(requestParameters.workgroupId, requestParameters.createWorkgroupRequestV2, options).then((request) => request(this.axios, this.basePath));
     }
 }
+
 
 
 /**
@@ -1805,9 +1818,10 @@ export const OrgV2ApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async getOrgSettings(axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<GetOrgSettings200ResponseV2>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.getOrgSettings(axiosOptions);
-            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        async getOrgSettings(options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<GetOrgSettings200ResponseV2>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getOrgSettings(options);
+            const operationBasePath = operationServerMap['OrgV2Api.getOrgSettings']?.[0]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
         /**
          * Updates one or more attributes for your org.
@@ -1816,9 +1830,10 @@ export const OrgV2ApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async updateOrgSettings(updateOrgSettingsRequestV2: UpdateOrgSettingsRequestV2, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<GetOrgSettings200ResponseV2>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.updateOrgSettings(updateOrgSettingsRequestV2, axiosOptions);
-            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        async updateOrgSettings(updateOrgSettingsRequestV2: UpdateOrgSettingsRequestV2, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<GetOrgSettings200ResponseV2>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.updateOrgSettings(updateOrgSettingsRequestV2, options);
+            const operationBasePath = operationServerMap['OrgV2Api.updateOrgSettings']?.[0]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
     }
 };
@@ -1833,21 +1848,23 @@ export const OrgV2ApiFactory = function (configuration?: Configuration, basePath
         /**
          * Retrieves information and operational settings for your org (as determined by the URL domain).
          * @summary Retrieves your org settings.
-         * @param {*} [axiosOptions] Override http request option.
+        * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        getOrgSettings(axiosOptions?: any): AxiosPromise<GetOrgSettings200ResponseV2> {
-            return localVarFp.getOrgSettings(axiosOptions).then((request) => request(axios, basePath));
+    
+        getOrgSettings(options?: AxiosRequestConfig): AxiosPromise<GetOrgSettings200ResponseV2> {
+            return localVarFp.getOrgSettings(options).then((request) => request(axios, basePath));
         },
         /**
          * Updates one or more attributes for your org.
          * @summary Updates one or more org attributes.
-         * @param {UpdateOrgSettingsRequestV2} updateOrgSettingsRequestV2 Org settings to update.
-         * @param {*} [axiosOptions] Override http request option.
+         * @param {OrgV2ApiUpdateOrgSettingsRequest} requestParameters Request parameters.
+        * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        updateOrgSettings(updateOrgSettingsRequestV2: UpdateOrgSettingsRequestV2, axiosOptions?: any): AxiosPromise<GetOrgSettings200ResponseV2> {
-            return localVarFp.updateOrgSettings(updateOrgSettingsRequestV2, axiosOptions).then((request) => request(axios, basePath));
+    
+        updateOrgSettings(requestParameters: OrgV2ApiUpdateOrgSettingsRequest, options?: AxiosRequestConfig): AxiosPromise<GetOrgSettings200ResponseV2> {
+            return localVarFp.updateOrgSettings(requestParameters.updateOrgSettingsRequestV2, options).then((request) => request(axios, basePath));
         },
     };
 };
@@ -1880,8 +1897,8 @@ export class OrgV2Api extends BaseAPI {
      * @throws {RequiredError}
      * @memberof OrgV2Api
      */
-    public getOrgSettings(axiosOptions?: AxiosRequestConfig) {
-        return OrgV2ApiFp(this.configuration).getOrgSettings(axiosOptions).then((request) => request(this.axios, this.basePath));
+    public getOrgSettings(options?: AxiosRequestConfig) {
+        return OrgV2ApiFp(this.configuration).getOrgSettings(options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -1892,9 +1909,10 @@ export class OrgV2Api extends BaseAPI {
      * @throws {RequiredError}
      * @memberof OrgV2Api
      */
-    public updateOrgSettings(requestParameters: OrgV2ApiUpdateOrgSettingsRequest, axiosOptions?: AxiosRequestConfig) {
-        return OrgV2ApiFp(this.configuration).updateOrgSettings(requestParameters.updateOrgSettingsRequestV2, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public updateOrgSettings(requestParameters: OrgV2ApiUpdateOrgSettingsRequest, options?: AxiosRequestConfig) {
+        return OrgV2ApiFp(this.configuration).updateOrgSettings(requestParameters.updateOrgSettingsRequestV2, options).then((request) => request(this.axios, this.basePath));
     }
 }
+
 
 

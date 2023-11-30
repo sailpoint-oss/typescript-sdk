@@ -64,8 +64,22 @@ export class BaseAPI {
  * @extends {Error}
  */
 export class RequiredError extends Error {
-    name: "RequiredError" = "RequiredError";
     constructor(public field: string, msg?: string) {
         super(msg);
+        this.name = "RequiredError"
     }
+}
+
+interface ServerMap {
+    [key: string]: {
+        url: string,
+        description: string,
+    }[];
+}
+
+/**
+ *
+ * @export
+ */
+export const operationServerMap: ServerMap = {
 }
