@@ -40530,48 +40530,6 @@ export const IAIAccessRequestRecommendationsBetaApiAxiosParamCreator = function 
                 axiosOptions: localVarRequestOptions,
             };
         },
-        /**
-         * The getMessageCatalogs API returns message catalog based on the language headers in the requested object.
-         * @summary Get Message catalogs
-         * @param {'recommender' | 'access-request-recommender'} catalogId The ID of the message catalog.
-         * @param {*} [axiosOptions] Override http request option.
-         * @throws {RequiredError}
-         */
-        getMessageCatalogs: async (catalogId: 'recommender' | 'access-request-recommender', axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
-            // verify required parameter 'catalogId' is not null or undefined
-            assertParamExists('getMessageCatalogs', 'catalogId', catalogId)
-            const localVarPath = `/translation-catalogs/{catalog-id}`
-                .replace(`{${"catalog-id"}}`, encodeURIComponent(String(catalogId)));
-            // use dummy base URL string because the URL constructor only accepts absolute URLs.
-            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
-            let baseOptions;
-            if (configuration) {
-                baseOptions = configuration.baseOptions;
-            }
-
-            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...axiosOptions};
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-
-            // authentication UserContextAuth required
-            // oauth required
-            await setOAuthToObject(localVarHeaderParameter, "UserContextAuth", [], configuration)
-
-            // authentication UserContextAuth required
-            // oauth required
-            await setOAuthToObject(localVarHeaderParameter, "UserContextAuth", [], configuration)
-
-
-    
-            setSearchParams(localVarUrlObj, localVarQueryParameter);
-            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
-            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
-
-            return {
-                url: toPathString(localVarUrlObj),
-                axiosOptions: localVarRequestOptions,
-            };
-        },
     }
 };
 
@@ -40688,17 +40646,6 @@ export const IAIAccessRequestRecommendationsBetaApiFp = function(configuration?:
             const localVarAxiosArgs = await localVarAxiosParamCreator.getAccessRequestRecommendationsViewedItems(limit, offset, count, filters, sorters, axiosOptions);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
-        /**
-         * The getMessageCatalogs API returns message catalog based on the language headers in the requested object.
-         * @summary Get Message catalogs
-         * @param {'recommender' | 'access-request-recommender'} catalogId The ID of the message catalog.
-         * @param {*} [axiosOptions] Override http request option.
-         * @throws {RequiredError}
-         */
-        async getMessageCatalogs(catalogId: 'recommender' | 'access-request-recommender', axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<MessageCatalogDtoBeta>>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.getMessageCatalogs(catalogId, axiosOptions);
-            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
-        },
     }
 };
 
@@ -40806,16 +40753,6 @@ export const IAIAccessRequestRecommendationsBetaApiFactory = function (configura
          */
         getAccessRequestRecommendationsViewedItems(limit?: number, offset?: number, count?: boolean, filters?: string, sorters?: string, axiosOptions?: any): AxiosPromise<Array<AccessRequestRecommendationActionItemResponseDtoBeta>> {
             return localVarFp.getAccessRequestRecommendationsViewedItems(limit, offset, count, filters, sorters, axiosOptions).then((request) => request(axios, basePath));
-        },
-        /**
-         * The getMessageCatalogs API returns message catalog based on the language headers in the requested object.
-         * @summary Get Message catalogs
-         * @param {'recommender' | 'access-request-recommender'} catalogId The ID of the message catalog.
-         * @param {*} [axiosOptions] Override http request option.
-         * @throws {RequiredError}
-         */
-        getMessageCatalogs(catalogId: 'recommender' | 'access-request-recommender', axiosOptions?: any): AxiosPromise<Array<MessageCatalogDtoBeta>> {
-            return localVarFp.getMessageCatalogs(catalogId, axiosOptions).then((request) => request(axios, basePath));
         },
     };
 };
@@ -41059,20 +40996,6 @@ export interface IAIAccessRequestRecommendationsBetaApiGetAccessRequestRecommend
 }
 
 /**
- * Request parameters for getMessageCatalogs operation in IAIAccessRequestRecommendationsBetaApi.
- * @export
- * @interface IAIAccessRequestRecommendationsBetaApiGetMessageCatalogsRequest
- */
-export interface IAIAccessRequestRecommendationsBetaApiGetMessageCatalogsRequest {
-    /**
-     * The ID of the message catalog.
-     * @type {'recommender' | 'access-request-recommender'}
-     * @memberof IAIAccessRequestRecommendationsBetaApiGetMessageCatalogs
-     */
-    readonly catalogId: 'recommender' | 'access-request-recommender'
-}
-
-/**
  * IAIAccessRequestRecommendationsBetaApi - object-oriented interface
  * @export
  * @class IAIAccessRequestRecommendationsBetaApi
@@ -41173,18 +41096,6 @@ export class IAIAccessRequestRecommendationsBetaApi extends BaseAPI {
      */
     public getAccessRequestRecommendationsViewedItems(requestParameters: IAIAccessRequestRecommendationsBetaApiGetAccessRequestRecommendationsViewedItemsRequest = {}, axiosOptions?: AxiosRequestConfig) {
         return IAIAccessRequestRecommendationsBetaApiFp(this.configuration).getAccessRequestRecommendationsViewedItems(requestParameters.limit, requestParameters.offset, requestParameters.count, requestParameters.filters, requestParameters.sorters, axiosOptions).then((request) => request(this.axios, this.basePath));
-    }
-
-    /**
-     * The getMessageCatalogs API returns message catalog based on the language headers in the requested object.
-     * @summary Get Message catalogs
-     * @param {IAIAccessRequestRecommendationsBetaApiGetMessageCatalogsRequest} requestParameters Request parameters.
-     * @param {*} [axiosOptions] Override http request option.
-     * @throws {RequiredError}
-     * @memberof IAIAccessRequestRecommendationsBetaApi
-     */
-    public getMessageCatalogs(requestParameters: IAIAccessRequestRecommendationsBetaApiGetMessageCatalogsRequest, axiosOptions?: AxiosRequestConfig) {
-        return IAIAccessRequestRecommendationsBetaApiFp(this.configuration).getMessageCatalogs(requestParameters.catalogId, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 }
 
@@ -41551,6 +41462,133 @@ export class IAICommonAccessBetaApi extends BaseAPI {
      */
     public updateCommonAccessStatusInBulk(requestParameters: IAICommonAccessBetaApiUpdateCommonAccessStatusInBulkRequest, axiosOptions?: AxiosRequestConfig) {
         return IAICommonAccessBetaApiFp(this.configuration).updateCommonAccessStatusInBulk(requestParameters.commonAccessIDStatusBeta, axiosOptions).then((request) => request(this.axios, this.basePath));
+    }
+}
+
+
+/**
+ * IAIMessageCatalogsBetaApi - axios parameter creator
+ * @export
+ */
+export const IAIMessageCatalogsBetaApiAxiosParamCreator = function (configuration?: Configuration) {
+    return {
+        /**
+         * The getMessageCatalogs API returns message catalog based on the language headers in the requested object.
+         * @summary Get Message catalogs
+         * @param {'recommender' | 'access-request-recommender'} catalogId The ID of the message catalog.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        getMessageCatalogs: async (catalogId: 'recommender' | 'access-request-recommender', axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'catalogId' is not null or undefined
+            assertParamExists('getMessageCatalogs', 'catalogId', catalogId)
+            const localVarPath = `/translation-catalogs/{catalog-id}`
+                .replace(`{${"catalog-id"}}`, encodeURIComponent(String(catalogId)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...axiosOptions};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication UserContextAuth required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "UserContextAuth", [], configuration)
+
+            // authentication UserContextAuth required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "UserContextAuth", [], configuration)
+
+
+    
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                axiosOptions: localVarRequestOptions,
+            };
+        },
+    }
+};
+
+/**
+ * IAIMessageCatalogsBetaApi - functional programming interface
+ * @export
+ */
+export const IAIMessageCatalogsBetaApiFp = function(configuration?: Configuration) {
+    const localVarAxiosParamCreator = IAIMessageCatalogsBetaApiAxiosParamCreator(configuration)
+    return {
+        /**
+         * The getMessageCatalogs API returns message catalog based on the language headers in the requested object.
+         * @summary Get Message catalogs
+         * @param {'recommender' | 'access-request-recommender'} catalogId The ID of the message catalog.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        async getMessageCatalogs(catalogId: 'recommender' | 'access-request-recommender', axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<MessageCatalogDtoBeta>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getMessageCatalogs(catalogId, axiosOptions);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+    }
+};
+
+/**
+ * IAIMessageCatalogsBetaApi - factory interface
+ * @export
+ */
+export const IAIMessageCatalogsBetaApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
+    const localVarFp = IAIMessageCatalogsBetaApiFp(configuration)
+    return {
+        /**
+         * The getMessageCatalogs API returns message catalog based on the language headers in the requested object.
+         * @summary Get Message catalogs
+         * @param {'recommender' | 'access-request-recommender'} catalogId The ID of the message catalog.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        getMessageCatalogs(catalogId: 'recommender' | 'access-request-recommender', axiosOptions?: any): AxiosPromise<Array<MessageCatalogDtoBeta>> {
+            return localVarFp.getMessageCatalogs(catalogId, axiosOptions).then((request) => request(axios, basePath));
+        },
+    };
+};
+
+/**
+ * Request parameters for getMessageCatalogs operation in IAIMessageCatalogsBetaApi.
+ * @export
+ * @interface IAIMessageCatalogsBetaApiGetMessageCatalogsRequest
+ */
+export interface IAIMessageCatalogsBetaApiGetMessageCatalogsRequest {
+    /**
+     * The ID of the message catalog.
+     * @type {'recommender' | 'access-request-recommender'}
+     * @memberof IAIMessageCatalogsBetaApiGetMessageCatalogs
+     */
+    readonly catalogId: 'recommender' | 'access-request-recommender'
+}
+
+/**
+ * IAIMessageCatalogsBetaApi - object-oriented interface
+ * @export
+ * @class IAIMessageCatalogsBetaApi
+ * @extends {BaseAPI}
+ */
+export class IAIMessageCatalogsBetaApi extends BaseAPI {
+    /**
+     * The getMessageCatalogs API returns message catalog based on the language headers in the requested object.
+     * @summary Get Message catalogs
+     * @param {IAIMessageCatalogsBetaApiGetMessageCatalogsRequest} requestParameters Request parameters.
+     * @param {*} [axiosOptions] Override http request option.
+     * @throws {RequiredError}
+     * @memberof IAIMessageCatalogsBetaApi
+     */
+    public getMessageCatalogs(requestParameters: IAIMessageCatalogsBetaApiGetMessageCatalogsRequest, axiosOptions?: AxiosRequestConfig) {
+        return IAIMessageCatalogsBetaApiFp(this.configuration).getMessageCatalogs(requestParameters.catalogId, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 }
 
@@ -42861,48 +42899,6 @@ export class IAIPeerGroupStrategiesBetaApi extends BaseAPI {
 export const IAIRecommendationsBetaApiAxiosParamCreator = function (configuration?: Configuration) {
     return {
         /**
-         * The getMessageCatalogs API returns message catalog based on the language headers in the requested object.
-         * @summary Get Message catalogs
-         * @param {'recommender' | 'access-request-recommender'} catalogId The ID of the message catalog.
-         * @param {*} [axiosOptions] Override http request option.
-         * @throws {RequiredError}
-         */
-        getMessageCatalogs: async (catalogId: 'recommender' | 'access-request-recommender', axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
-            // verify required parameter 'catalogId' is not null or undefined
-            assertParamExists('getMessageCatalogs', 'catalogId', catalogId)
-            const localVarPath = `/translation-catalogs/{catalog-id}`
-                .replace(`{${"catalog-id"}}`, encodeURIComponent(String(catalogId)));
-            // use dummy base URL string because the URL constructor only accepts absolute URLs.
-            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
-            let baseOptions;
-            if (configuration) {
-                baseOptions = configuration.baseOptions;
-            }
-
-            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...axiosOptions};
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-
-            // authentication UserContextAuth required
-            // oauth required
-            await setOAuthToObject(localVarHeaderParameter, "UserContextAuth", [], configuration)
-
-            // authentication UserContextAuth required
-            // oauth required
-            await setOAuthToObject(localVarHeaderParameter, "UserContextAuth", [], configuration)
-
-
-    
-            setSearchParams(localVarUrlObj, localVarQueryParameter);
-            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
-            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
-
-            return {
-                url: toPathString(localVarUrlObj),
-                axiosOptions: localVarRequestOptions,
-            };
-        },
-        /**
          * The getRecommendations API returns recommendations based on the requested object. The recommendations are invoked by IdentityIQ and IdentityNow plug-ins that retrieve recommendations based on the performed calculations.
          * @summary Returns a Recommendation Based on Object
          * @param {RecommendationRequestDtoBeta} recommendationRequestDtoBeta 
@@ -43039,17 +43035,6 @@ export const IAIRecommendationsBetaApiFp = function(configuration?: Configuratio
     const localVarAxiosParamCreator = IAIRecommendationsBetaApiAxiosParamCreator(configuration)
     return {
         /**
-         * The getMessageCatalogs API returns message catalog based on the language headers in the requested object.
-         * @summary Get Message catalogs
-         * @param {'recommender' | 'access-request-recommender'} catalogId The ID of the message catalog.
-         * @param {*} [axiosOptions] Override http request option.
-         * @throws {RequiredError}
-         */
-        async getMessageCatalogs(catalogId: 'recommender' | 'access-request-recommender', axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<MessageCatalogDtoBeta>>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.getMessageCatalogs(catalogId, axiosOptions);
-            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
-        },
-        /**
          * The getRecommendations API returns recommendations based on the requested object. The recommendations are invoked by IdentityIQ and IdentityNow plug-ins that retrieve recommendations based on the performed calculations.
          * @summary Returns a Recommendation Based on Object
          * @param {RecommendationRequestDtoBeta} recommendationRequestDtoBeta 
@@ -43092,16 +43077,6 @@ export const IAIRecommendationsBetaApiFactory = function (configuration?: Config
     const localVarFp = IAIRecommendationsBetaApiFp(configuration)
     return {
         /**
-         * The getMessageCatalogs API returns message catalog based on the language headers in the requested object.
-         * @summary Get Message catalogs
-         * @param {'recommender' | 'access-request-recommender'} catalogId The ID of the message catalog.
-         * @param {*} [axiosOptions] Override http request option.
-         * @throws {RequiredError}
-         */
-        getMessageCatalogs(catalogId: 'recommender' | 'access-request-recommender', axiosOptions?: any): AxiosPromise<Array<MessageCatalogDtoBeta>> {
-            return localVarFp.getMessageCatalogs(catalogId, axiosOptions).then((request) => request(axios, basePath));
-        },
-        /**
          * The getRecommendations API returns recommendations based on the requested object. The recommendations are invoked by IdentityIQ and IdentityNow plug-ins that retrieve recommendations based on the performed calculations.
          * @summary Returns a Recommendation Based on Object
          * @param {RecommendationRequestDtoBeta} recommendationRequestDtoBeta 
@@ -43132,20 +43107,6 @@ export const IAIRecommendationsBetaApiFactory = function (configuration?: Config
         },
     };
 };
-
-/**
- * Request parameters for getMessageCatalogs operation in IAIRecommendationsBetaApi.
- * @export
- * @interface IAIRecommendationsBetaApiGetMessageCatalogsRequest
- */
-export interface IAIRecommendationsBetaApiGetMessageCatalogsRequest {
-    /**
-     * The ID of the message catalog.
-     * @type {'recommender' | 'access-request-recommender'}
-     * @memberof IAIRecommendationsBetaApiGetMessageCatalogs
-     */
-    readonly catalogId: 'recommender' | 'access-request-recommender'
-}
 
 /**
  * Request parameters for getRecommendations operation in IAIRecommendationsBetaApi.
@@ -43182,18 +43143,6 @@ export interface IAIRecommendationsBetaApiUpdateRecommendationsConfigRequest {
  * @extends {BaseAPI}
  */
 export class IAIRecommendationsBetaApi extends BaseAPI {
-    /**
-     * The getMessageCatalogs API returns message catalog based on the language headers in the requested object.
-     * @summary Get Message catalogs
-     * @param {IAIRecommendationsBetaApiGetMessageCatalogsRequest} requestParameters Request parameters.
-     * @param {*} [axiosOptions] Override http request option.
-     * @throws {RequiredError}
-     * @memberof IAIRecommendationsBetaApi
-     */
-    public getMessageCatalogs(requestParameters: IAIRecommendationsBetaApiGetMessageCatalogsRequest, axiosOptions?: AxiosRequestConfig) {
-        return IAIRecommendationsBetaApiFp(this.configuration).getMessageCatalogs(requestParameters.catalogId, axiosOptions).then((request) => request(this.axios, this.basePath));
-    }
-
     /**
      * The getRecommendations API returns recommendations based on the requested object. The recommendations are invoked by IdentityIQ and IdentityNow plug-ins that retrieve recommendations based on the performed calculations.
      * @summary Returns a Recommendation Based on Object
