@@ -1,4 +1,4 @@
-templateDir: ./sdk-resources/cc-resources
+templateDir: ./sdk-resources/resources
 files:
   package.mustache:
     templateType: SupportingFiles

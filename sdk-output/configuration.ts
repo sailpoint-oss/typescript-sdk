@@ -98,28 +98,7 @@ export class Configuration {
      * @type {string}
      * @memberof Configuration
      */
-     basePathBeta?: string;
-    /**
-     * override base path
-     *
-     * @type {string}
-     * @memberof Configuration
-     */
-     basePathV3?: string;
-     /**
-     * override base path
-     *
-     * @type {string}
-     * @memberof Configuration
-     */
-     basePathV2?: string;
-     /**
-     * override base path
-     *
-     * @type {string}
-     * @memberof Configuration
-     */
-     basePathCC?: string;
+     basePath?: string;
     /**
      * base options for axios calls
      *
@@ -150,11 +129,7 @@ export class Configuration {
         }
 
         this.accessToken = param.accessToken
-
-        this.basePathBeta = param.baseurl + `/beta`
-        this.basePathV3 = param.baseurl + `/v3`
-        this.basePathV2 = param.baseurl + `/v2`
-        this.basePathCC = param.baseurl
+        this.basePath = param.baseurl
         this.tokenUrl = param.tokenUrl
         this.clientId = param.clientId;
         this.clientSecret = param.clientSecret;

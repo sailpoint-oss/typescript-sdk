@@ -1,4 +1,4 @@
-templateDir: ./sdk-resources/v3-resources
+templateDir: ./sdk-resources/resources
 files:
   package.mustache:
     templateType: SupportingFiles
@@ -7,3 +7,4 @@ npmName: sailpoint-sdk
 npmRepository: sailpoint.com
 npmVersion: 1.3.0
 useSingleRequestParameter: true
+apiVersion: v3
