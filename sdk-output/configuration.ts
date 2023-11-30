@@ -3,6 +3,7 @@ import * as os from 'os';
 import * as path from 'path';
 import * as yaml from "js-yaml";
 import * as fs from "fs";
+import FormData from 'form-data'
 import { IAxiosRetryConfig } from "axios-retry";
 
 export interface ConfigurationParameters {
