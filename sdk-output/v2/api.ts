@@ -1627,8 +1627,8 @@ export class GovernanceGroupsV2Api extends BaseAPI {
      * @throws {RequiredError}
      * @memberof GovernanceGroupsV2Api
      */
-    public bulkDeleteWorkGroups(requestParameters: GovernanceGroupsV2ApiBulkDeleteWorkGroupsRequest, options?: AxiosRequestConfig) {
-        return GovernanceGroupsV2ApiFp(this.configuration).bulkDeleteWorkGroups(requestParameters.bulkDeleteWorkGroupsRequestV2, options).then((request) => request(this.axios, this.basePath));
+    public bulkDeleteWorkGroups(requestParameters: GovernanceGroupsV2ApiBulkDeleteWorkGroupsRequest, axiosOptions?: AxiosRequestConfig) {
+        return GovernanceGroupsV2ApiFp(this.configuration).bulkDeleteWorkGroups(requestParameters.bulkDeleteWorkGroupsRequestV2, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -1639,8 +1639,8 @@ export class GovernanceGroupsV2Api extends BaseAPI {
      * @throws {RequiredError}
      * @memberof GovernanceGroupsV2Api
      */
-    public createWorkgroup(requestParameters: GovernanceGroupsV2ApiCreateWorkgroupRequest, options?: AxiosRequestConfig) {
-        return GovernanceGroupsV2ApiFp(this.configuration).createWorkgroup(requestParameters.createWorkgroupRequestV2, options).then((request) => request(this.axios, this.basePath));
+    public createWorkgroup(requestParameters: GovernanceGroupsV2ApiCreateWorkgroupRequest, axiosOptions?: AxiosRequestConfig) {
+        return GovernanceGroupsV2ApiFp(this.configuration).createWorkgroup(requestParameters.createWorkgroupRequestV2, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -1651,8 +1651,8 @@ export class GovernanceGroupsV2Api extends BaseAPI {
      * @throws {RequiredError}
      * @memberof GovernanceGroupsV2Api
      */
-    public deleteWorkgroup(requestParameters: GovernanceGroupsV2ApiDeleteWorkgroupRequest, options?: AxiosRequestConfig) {
-        return GovernanceGroupsV2ApiFp(this.configuration).deleteWorkgroup(requestParameters.workgroupId, options).then((request) => request(this.axios, this.basePath));
+    public deleteWorkgroup(requestParameters: GovernanceGroupsV2ApiDeleteWorkgroupRequest, axiosOptions?: AxiosRequestConfig) {
+        return GovernanceGroupsV2ApiFp(this.configuration).deleteWorkgroup(requestParameters.workgroupId, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -1663,8 +1663,8 @@ export class GovernanceGroupsV2Api extends BaseAPI {
      * @throws {RequiredError}
      * @memberof GovernanceGroupsV2Api
      */
-    public getWorkgroup(requestParameters: GovernanceGroupsV2ApiGetWorkgroupRequest, options?: AxiosRequestConfig) {
-        return GovernanceGroupsV2ApiFp(this.configuration).getWorkgroup(requestParameters.workgroupId, options).then((request) => request(this.axios, this.basePath));
+    public getWorkgroup(requestParameters: GovernanceGroupsV2ApiGetWorkgroupRequest, axiosOptions?: AxiosRequestConfig) {
+        return GovernanceGroupsV2ApiFp(this.configuration).getWorkgroup(requestParameters.workgroupId, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -1675,8 +1675,8 @@ export class GovernanceGroupsV2Api extends BaseAPI {
      * @throws {RequiredError}
      * @memberof GovernanceGroupsV2Api
      */
-    public listWorkgroupConnections(requestParameters: GovernanceGroupsV2ApiListWorkgroupConnectionsRequest, options?: AxiosRequestConfig) {
-        return GovernanceGroupsV2ApiFp(this.configuration).listWorkgroupConnections(requestParameters.workgroupId, options).then((request) => request(this.axios, this.basePath));
+    public listWorkgroupConnections(requestParameters: GovernanceGroupsV2ApiListWorkgroupConnectionsRequest, axiosOptions?: AxiosRequestConfig) {
+        return GovernanceGroupsV2ApiFp(this.configuration).listWorkgroupConnections(requestParameters.workgroupId, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -1687,8 +1687,8 @@ export class GovernanceGroupsV2Api extends BaseAPI {
      * @throws {RequiredError}
      * @memberof GovernanceGroupsV2Api
      */
-    public listWorkgroupMembers(requestParameters: GovernanceGroupsV2ApiListWorkgroupMembersRequest, options?: AxiosRequestConfig) {
-        return GovernanceGroupsV2ApiFp(this.configuration).listWorkgroupMembers(requestParameters.workgroupId, requestParameters.limit, requestParameters.offset, requestParameters.filters, options).then((request) => request(this.axios, this.basePath));
+    public listWorkgroupMembers(requestParameters: GovernanceGroupsV2ApiListWorkgroupMembersRequest, axiosOptions?: AxiosRequestConfig) {
+        return GovernanceGroupsV2ApiFp(this.configuration).listWorkgroupMembers(requestParameters.workgroupId, requestParameters.limit, requestParameters.offset, requestParameters.filters, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -1699,8 +1699,8 @@ export class GovernanceGroupsV2Api extends BaseAPI {
      * @throws {RequiredError}
      * @memberof GovernanceGroupsV2Api
      */
-    public listWorkgroups(requestParameters: GovernanceGroupsV2ApiListWorkgroupsRequest = {}, options?: AxiosRequestConfig) {
-        return GovernanceGroupsV2ApiFp(this.configuration).listWorkgroups(requestParameters.limit, requestParameters.offset, requestParameters.filters, options).then((request) => request(this.axios, this.basePath));
+    public listWorkgroups(requestParameters: GovernanceGroupsV2ApiListWorkgroupsRequest = {}, axiosOptions?: AxiosRequestConfig) {
+        return GovernanceGroupsV2ApiFp(this.configuration).listWorkgroups(requestParameters.limit, requestParameters.offset, requestParameters.filters, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -1711,8 +1711,8 @@ export class GovernanceGroupsV2Api extends BaseAPI {
      * @throws {RequiredError}
      * @memberof GovernanceGroupsV2Api
      */
-    public modifyWorkgroupMembers(requestParameters: GovernanceGroupsV2ApiModifyWorkgroupMembersRequest, options?: AxiosRequestConfig) {
-        return GovernanceGroupsV2ApiFp(this.configuration).modifyWorkgroupMembers(requestParameters.workgroupId, requestParameters.modifyWorkgroupMembersRequestV2, options).then((request) => request(this.axios, this.basePath));
+    public modifyWorkgroupMembers(requestParameters: GovernanceGroupsV2ApiModifyWorkgroupMembersRequest, axiosOptions?: AxiosRequestConfig) {
+        return GovernanceGroupsV2ApiFp(this.configuration).modifyWorkgroupMembers(requestParameters.workgroupId, requestParameters.modifyWorkgroupMembersRequestV2, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -1723,8 +1723,8 @@ export class GovernanceGroupsV2Api extends BaseAPI {
      * @throws {RequiredError}
      * @memberof GovernanceGroupsV2Api
      */
-    public updateWorkgroup(requestParameters: GovernanceGroupsV2ApiUpdateWorkgroupRequest, options?: AxiosRequestConfig) {
-        return GovernanceGroupsV2ApiFp(this.configuration).updateWorkgroup(requestParameters.workgroupId, requestParameters.createWorkgroupRequestV2, options).then((request) => request(this.axios, this.basePath));
+    public updateWorkgroup(requestParameters: GovernanceGroupsV2ApiUpdateWorkgroupRequest, axiosOptions?: AxiosRequestConfig) {
+        return GovernanceGroupsV2ApiFp(this.configuration).updateWorkgroup(requestParameters.workgroupId, requestParameters.createWorkgroupRequestV2, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 }
 
@@ -1897,8 +1897,8 @@ export class OrgV2Api extends BaseAPI {
      * @throws {RequiredError}
      * @memberof OrgV2Api
      */
-    public getOrgSettings(options?: AxiosRequestConfig) {
-        return OrgV2ApiFp(this.configuration).getOrgSettings(options).then((request) => request(this.axios, this.basePath));
+    public getOrgSettings(axiosOptions?: AxiosRequestConfig) {
+        return OrgV2ApiFp(this.configuration).getOrgSettings(axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -1909,8 +1909,8 @@ export class OrgV2Api extends BaseAPI {
      * @throws {RequiredError}
      * @memberof OrgV2Api
      */
-    public updateOrgSettings(requestParameters: OrgV2ApiUpdateOrgSettingsRequest, options?: AxiosRequestConfig) {
-        return OrgV2ApiFp(this.configuration).updateOrgSettings(requestParameters.updateOrgSettingsRequestV2, options).then((request) => request(this.axios, this.basePath));
+    public updateOrgSettings(requestParameters: OrgV2ApiUpdateOrgSettingsRequest, axiosOptions?: AxiosRequestConfig) {
+        return OrgV2ApiFp(this.configuration).updateOrgSettings(requestParameters.updateOrgSettingsRequestV2, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 }
 

@@ -1973,8 +1973,8 @@ export class AccountsCCApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof AccountsCCApi
      */
-    public listAccounts(options?: AxiosRequestConfig) {
-        return AccountsCCApiFp(this.configuration).listAccounts(options).then((request) => request(this.axios, this.basePath));
+    public listAccounts(axiosOptions?: AxiosRequestConfig) {
+        return AccountsCCApiFp(this.configuration).listAccounts(axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -1985,8 +1985,8 @@ export class AccountsCCApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof AccountsCCApi
      */
-    public removeAccount(requestParameters: AccountsCCApiRemoveAccountRequest, options?: AxiosRequestConfig) {
-        return AccountsCCApiFp(this.configuration).removeAccount(requestParameters.id, options).then((request) => request(this.axios, this.basePath));
+    public removeAccount(requestParameters: AccountsCCApiRemoveAccountRequest, axiosOptions?: AxiosRequestConfig) {
+        return AccountsCCApiFp(this.configuration).removeAccount(requestParameters.id, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 }
 
@@ -2494,8 +2494,8 @@ export class ApplicationsCCApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof ApplicationsCCApi
      */
-    public createApplication(requestParameters: ApplicationsCCApiCreateApplicationRequest = {}, options?: AxiosRequestConfig) {
-        return ApplicationsCCApiFp(this.configuration).createApplication(requestParameters.createApplicationRequestCC, options).then((request) => request(this.axios, this.basePath));
+    public createApplication(requestParameters: ApplicationsCCApiCreateApplicationRequest = {}, axiosOptions?: AxiosRequestConfig) {
+        return ApplicationsCCApiFp(this.configuration).createApplication(requestParameters.createApplicationRequestCC, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -2506,8 +2506,8 @@ export class ApplicationsCCApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof ApplicationsCCApi
      */
-    public deleteApplication(requestParameters: ApplicationsCCApiDeleteApplicationRequest, options?: AxiosRequestConfig) {
-        return ApplicationsCCApiFp(this.configuration).deleteApplication(requestParameters.id, options).then((request) => request(this.axios, this.basePath));
+    public deleteApplication(requestParameters: ApplicationsCCApiDeleteApplicationRequest, axiosOptions?: AxiosRequestConfig) {
+        return ApplicationsCCApiFp(this.configuration).deleteApplication(requestParameters.id, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -2518,8 +2518,8 @@ export class ApplicationsCCApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof ApplicationsCCApi
      */
-    public getApplication(requestParameters: ApplicationsCCApiGetApplicationRequest, options?: AxiosRequestConfig) {
-        return ApplicationsCCApiFp(this.configuration).getApplication(requestParameters.id, options).then((request) => request(this.axios, this.basePath));
+    public getApplication(requestParameters: ApplicationsCCApiGetApplicationRequest, axiosOptions?: AxiosRequestConfig) {
+        return ApplicationsCCApiFp(this.configuration).getApplication(requestParameters.id, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -2530,8 +2530,8 @@ export class ApplicationsCCApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof ApplicationsCCApi
      */
-    public getApplicationAccessProfiles(requestParameters: ApplicationsCCApiGetApplicationAccessProfilesRequest, options?: AxiosRequestConfig) {
-        return ApplicationsCCApiFp(this.configuration).getApplicationAccessProfiles(requestParameters.id, options).then((request) => request(this.axios, this.basePath));
+    public getApplicationAccessProfiles(requestParameters: ApplicationsCCApiGetApplicationAccessProfilesRequest, axiosOptions?: AxiosRequestConfig) {
+        return ApplicationsCCApiFp(this.configuration).getApplicationAccessProfiles(requestParameters.id, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -2541,8 +2541,8 @@ export class ApplicationsCCApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof ApplicationsCCApi
      */
-    public listApplications(options?: AxiosRequestConfig) {
-        return ApplicationsCCApiFp(this.configuration).listApplications(options).then((request) => request(this.axios, this.basePath));
+    public listApplications(axiosOptions?: AxiosRequestConfig) {
+        return ApplicationsCCApiFp(this.configuration).listApplications(axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -2553,8 +2553,8 @@ export class ApplicationsCCApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof ApplicationsCCApi
      */
-    public updateApplication(requestParameters: ApplicationsCCApiUpdateApplicationRequest, options?: AxiosRequestConfig) {
-        return ApplicationsCCApiFp(this.configuration).updateApplication(requestParameters.id, requestParameters.requestBody, options).then((request) => request(this.axios, this.basePath));
+    public updateApplication(requestParameters: ApplicationsCCApiUpdateApplicationRequest, axiosOptions?: AxiosRequestConfig) {
+        return ApplicationsCCApiFp(this.configuration).updateApplication(requestParameters.id, requestParameters.requestBody, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 }
 
@@ -3066,8 +3066,8 @@ export class ConnectorsCCApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof ConnectorsCCApi
      */
-    public createConnector(requestParameters: ConnectorsCCApiCreateConnectorRequest = {}, options?: AxiosRequestConfig) {
-        return ConnectorsCCApiFp(this.configuration).createConnector(requestParameters.contentType, requestParameters.name, requestParameters.description, requestParameters.className, requestParameters.directConnect, requestParameters.status, options).then((request) => request(this.axios, this.basePath));
+    public createConnector(requestParameters: ConnectorsCCApiCreateConnectorRequest = {}, axiosOptions?: AxiosRequestConfig) {
+        return ConnectorsCCApiFp(this.configuration).createConnector(requestParameters.contentType, requestParameters.name, requestParameters.description, requestParameters.className, requestParameters.directConnect, requestParameters.status, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -3078,8 +3078,8 @@ export class ConnectorsCCApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof ConnectorsCCApi
      */
-    public deleteConnector(requestParameters: ConnectorsCCApiDeleteConnectorRequest, options?: AxiosRequestConfig) {
-        return ConnectorsCCApiFp(this.configuration).deleteConnector(requestParameters.id, options).then((request) => request(this.axios, this.basePath));
+    public deleteConnector(requestParameters: ConnectorsCCApiDeleteConnectorRequest, axiosOptions?: AxiosRequestConfig) {
+        return ConnectorsCCApiFp(this.configuration).deleteConnector(requestParameters.id, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -3090,8 +3090,8 @@ export class ConnectorsCCApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof ConnectorsCCApi
      */
-    public exportConnectorConfig(requestParameters: ConnectorsCCApiExportConnectorConfigRequest, options?: AxiosRequestConfig) {
-        return ConnectorsCCApiFp(this.configuration).exportConnectorConfig(requestParameters.id, options).then((request) => request(this.axios, this.basePath));
+    public exportConnectorConfig(requestParameters: ConnectorsCCApiExportConnectorConfigRequest, axiosOptions?: AxiosRequestConfig) {
+        return ConnectorsCCApiFp(this.configuration).exportConnectorConfig(requestParameters.id, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -3102,8 +3102,8 @@ export class ConnectorsCCApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof ConnectorsCCApi
      */
-    public importConnectorConfig(requestParameters: ConnectorsCCApiImportConnectorConfigRequest, options?: AxiosRequestConfig) {
-        return ConnectorsCCApiFp(this.configuration).importConnectorConfig(requestParameters.id, requestParameters.file, options).then((request) => request(this.axios, this.basePath));
+    public importConnectorConfig(requestParameters: ConnectorsCCApiImportConnectorConfigRequest, axiosOptions?: AxiosRequestConfig) {
+        return ConnectorsCCApiFp(this.configuration).importConnectorConfig(requestParameters.id, requestParameters.file, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -3113,8 +3113,8 @@ export class ConnectorsCCApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof ConnectorsCCApi
      */
-    public listConnectors(options?: AxiosRequestConfig) {
-        return ConnectorsCCApiFp(this.configuration).listConnectors(options).then((request) => request(this.axios, this.basePath));
+    public listConnectors(axiosOptions?: AxiosRequestConfig) {
+        return ConnectorsCCApiFp(this.configuration).listConnectors(axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 }
 
@@ -3243,8 +3243,8 @@ export class SourcesAccountsCCApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof SourcesAccountsCCApi
      */
-    public exportAccountFeed(requestParameters: SourcesAccountsCCApiExportAccountFeedRequest, options?: AxiosRequestConfig) {
-        return SourcesAccountsCCApiFp(this.configuration).exportAccountFeed(requestParameters.id, options).then((request) => request(this.axios, this.basePath));
+    public exportAccountFeed(requestParameters: SourcesAccountsCCApiExportAccountFeedRequest, axiosOptions?: AxiosRequestConfig) {
+        return SourcesAccountsCCApiFp(this.configuration).exportAccountFeed(requestParameters.id, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 }
 
@@ -3525,8 +3525,8 @@ export class SourcesAggregationCCApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof SourcesAggregationCCApi
      */
-    public loadAccounts(requestParameters: SourcesAggregationCCApiLoadAccountsRequest, options?: AxiosRequestConfig) {
-        return SourcesAggregationCCApiFp(this.configuration).loadAccounts(requestParameters.id, requestParameters.contentType, requestParameters.disableOptimization, requestParameters.file, options).then((request) => request(this.axios, this.basePath));
+    public loadAccounts(requestParameters: SourcesAggregationCCApiLoadAccountsRequest, axiosOptions?: AxiosRequestConfig) {
+        return SourcesAggregationCCApiFp(this.configuration).loadAccounts(requestParameters.id, requestParameters.contentType, requestParameters.disableOptimization, requestParameters.file, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -3537,8 +3537,8 @@ export class SourcesAggregationCCApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof SourcesAggregationCCApi
      */
-    public loadEntitlements(requestParameters: SourcesAggregationCCApiLoadEntitlementsRequest, options?: AxiosRequestConfig) {
-        return SourcesAggregationCCApiFp(this.configuration).loadEntitlements(requestParameters.id, requestParameters.contentType, requestParameters.file, options).then((request) => request(this.axios, this.basePath));
+    public loadEntitlements(requestParameters: SourcesAggregationCCApiLoadEntitlementsRequest, axiosOptions?: AxiosRequestConfig) {
+        return SourcesAggregationCCApiFp(this.configuration).loadEntitlements(requestParameters.id, requestParameters.contentType, requestParameters.file, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 }
 
@@ -3680,8 +3680,8 @@ export class SystemCCApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof SystemCCApi
      */
-    public refreshIdentities(requestParameters: SystemCCApiRefreshIdentitiesRequest = {}, options?: AxiosRequestConfig) {
-        return SystemCCApiFp(this.configuration).refreshIdentities(requestParameters.contentType, requestParameters.refreshIdentitiesRequestCC, options).then((request) => request(this.axios, this.basePath));
+    public refreshIdentities(requestParameters: SystemCCApiRefreshIdentitiesRequest = {}, axiosOptions?: AxiosRequestConfig) {
+        return SystemCCApiFp(this.configuration).refreshIdentities(requestParameters.contentType, requestParameters.refreshIdentitiesRequestCC, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 }
 
@@ -3889,8 +3889,8 @@ export class UserCCApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof UserCCApi
      */
-    public getIdentity(requestParameters: UserCCApiGetIdentityRequest, options?: AxiosRequestConfig) {
-        return UserCCApiFp(this.configuration).getIdentity(requestParameters.id, options).then((request) => request(this.axios, this.basePath));
+    public getIdentity(requestParameters: UserCCApiGetIdentityRequest, axiosOptions?: AxiosRequestConfig) {
+        return UserCCApiFp(this.configuration).getIdentity(requestParameters.id, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -3901,8 +3901,8 @@ export class UserCCApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof UserCCApi
      */
-    public updateUserPermissions(requestParameters: UserCCApiUpdateUserPermissionsRequest = {}, options?: AxiosRequestConfig) {
-        return UserCCApiFp(this.configuration).updateUserPermissions(requestParameters.updateUserPermissionsRequestCC, options).then((request) => request(this.axios, this.basePath));
+    public updateUserPermissions(requestParameters: UserCCApiUpdateUserPermissionsRequest = {}, axiosOptions?: AxiosRequestConfig) {
+        return UserCCApiFp(this.configuration).updateUserPermissions(requestParameters.updateUserPermissionsRequestCC, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 }
 

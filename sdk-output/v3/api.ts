@@ -17970,8 +17970,8 @@ export class AccessProfilesApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof AccessProfilesApi
      */
-    public createAccessProfile(requestParameters: AccessProfilesApiCreateAccessProfileRequest, options?: AxiosRequestConfig) {
-        return AccessProfilesApiFp(this.configuration).createAccessProfile(requestParameters.accessProfile, options).then((request) => request(this.axios, this.basePath));
+    public createAccessProfile(requestParameters: AccessProfilesApiCreateAccessProfileRequest, axiosOptions?: AxiosRequestConfig) {
+        return AccessProfilesApiFp(this.configuration).createAccessProfile(requestParameters.accessProfile, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -17982,8 +17982,8 @@ export class AccessProfilesApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof AccessProfilesApi
      */
-    public deleteAccessProfile(requestParameters: AccessProfilesApiDeleteAccessProfileRequest, options?: AxiosRequestConfig) {
-        return AccessProfilesApiFp(this.configuration).deleteAccessProfile(requestParameters.id, options).then((request) => request(this.axios, this.basePath));
+    public deleteAccessProfile(requestParameters: AccessProfilesApiDeleteAccessProfileRequest, axiosOptions?: AxiosRequestConfig) {
+        return AccessProfilesApiFp(this.configuration).deleteAccessProfile(requestParameters.id, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -17994,8 +17994,8 @@ export class AccessProfilesApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof AccessProfilesApi
      */
-    public deleteAccessProfilesInBulk(requestParameters: AccessProfilesApiDeleteAccessProfilesInBulkRequest, options?: AxiosRequestConfig) {
-        return AccessProfilesApiFp(this.configuration).deleteAccessProfilesInBulk(requestParameters.accessProfileBulkDeleteRequest, options).then((request) => request(this.axios, this.basePath));
+    public deleteAccessProfilesInBulk(requestParameters: AccessProfilesApiDeleteAccessProfilesInBulkRequest, axiosOptions?: AxiosRequestConfig) {
+        return AccessProfilesApiFp(this.configuration).deleteAccessProfilesInBulk(requestParameters.accessProfileBulkDeleteRequest, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -18006,8 +18006,8 @@ export class AccessProfilesApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof AccessProfilesApi
      */
-    public getAccessProfile(requestParameters: AccessProfilesApiGetAccessProfileRequest, options?: AxiosRequestConfig) {
-        return AccessProfilesApiFp(this.configuration).getAccessProfile(requestParameters.id, options).then((request) => request(this.axios, this.basePath));
+    public getAccessProfile(requestParameters: AccessProfilesApiGetAccessProfileRequest, axiosOptions?: AxiosRequestConfig) {
+        return AccessProfilesApiFp(this.configuration).getAccessProfile(requestParameters.id, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -18018,8 +18018,8 @@ export class AccessProfilesApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof AccessProfilesApi
      */
-    public getAccessProfileEntitlements(requestParameters: AccessProfilesApiGetAccessProfileEntitlementsRequest, options?: AxiosRequestConfig) {
-        return AccessProfilesApiFp(this.configuration).getAccessProfileEntitlements(requestParameters.id, requestParameters.limit, requestParameters.offset, requestParameters.count, requestParameters.filters, requestParameters.sorters, options).then((request) => request(this.axios, this.basePath));
+    public getAccessProfileEntitlements(requestParameters: AccessProfilesApiGetAccessProfileEntitlementsRequest, axiosOptions?: AxiosRequestConfig) {
+        return AccessProfilesApiFp(this.configuration).getAccessProfileEntitlements(requestParameters.id, requestParameters.limit, requestParameters.offset, requestParameters.count, requestParameters.filters, requestParameters.sorters, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -18030,8 +18030,8 @@ export class AccessProfilesApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof AccessProfilesApi
      */
-    public listAccessProfiles(requestParameters: AccessProfilesApiListAccessProfilesRequest = {}, options?: AxiosRequestConfig) {
-        return AccessProfilesApiFp(this.configuration).listAccessProfiles(requestParameters.forSubadmin, requestParameters.limit, requestParameters.offset, requestParameters.count, requestParameters.filters, requestParameters.sorters, requestParameters.forSegmentIds, requestParameters.includeUnsegmented, options).then((request) => request(this.axios, this.basePath));
+    public listAccessProfiles(requestParameters: AccessProfilesApiListAccessProfilesRequest = {}, axiosOptions?: AxiosRequestConfig) {
+        return AccessProfilesApiFp(this.configuration).listAccessProfiles(requestParameters.forSubadmin, requestParameters.limit, requestParameters.offset, requestParameters.count, requestParameters.filters, requestParameters.sorters, requestParameters.forSegmentIds, requestParameters.includeUnsegmented, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -18042,8 +18042,8 @@ export class AccessProfilesApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof AccessProfilesApi
      */
-    public patchAccessProfile(requestParameters: AccessProfilesApiPatchAccessProfileRequest, options?: AxiosRequestConfig) {
-        return AccessProfilesApiFp(this.configuration).patchAccessProfile(requestParameters.id, requestParameters.jsonPatchOperation, options).then((request) => request(this.axios, this.basePath));
+    public patchAccessProfile(requestParameters: AccessProfilesApiPatchAccessProfileRequest, axiosOptions?: AxiosRequestConfig) {
+        return AccessProfilesApiFp(this.configuration).patchAccessProfile(requestParameters.id, requestParameters.jsonPatchOperation, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 }
 
@@ -18751,8 +18751,8 @@ export class AccessRequestApprovalsApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof AccessRequestApprovalsApi
      */
-    public approveAccessRequest(requestParameters: AccessRequestApprovalsApiApproveAccessRequestRequest, options?: AxiosRequestConfig) {
-        return AccessRequestApprovalsApiFp(this.configuration).approveAccessRequest(requestParameters.approvalId, requestParameters.commentDto, options).then((request) => request(this.axios, this.basePath));
+    public approveAccessRequest(requestParameters: AccessRequestApprovalsApiApproveAccessRequestRequest, axiosOptions?: AxiosRequestConfig) {
+        return AccessRequestApprovalsApiFp(this.configuration).approveAccessRequest(requestParameters.approvalId, requestParameters.commentDto, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -18763,8 +18763,8 @@ export class AccessRequestApprovalsApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof AccessRequestApprovalsApi
      */
-    public forwardAccessRequest(requestParameters: AccessRequestApprovalsApiForwardAccessRequestRequest, options?: AxiosRequestConfig) {
-        return AccessRequestApprovalsApiFp(this.configuration).forwardAccessRequest(requestParameters.approvalId, requestParameters.forwardApprovalDto, options).then((request) => request(this.axios, this.basePath));
+    public forwardAccessRequest(requestParameters: AccessRequestApprovalsApiForwardAccessRequestRequest, axiosOptions?: AxiosRequestConfig) {
+        return AccessRequestApprovalsApiFp(this.configuration).forwardAccessRequest(requestParameters.approvalId, requestParameters.forwardApprovalDto, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -18775,8 +18775,8 @@ export class AccessRequestApprovalsApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof AccessRequestApprovalsApi
      */
-    public getAccessRequestApprovalSummary(requestParameters: AccessRequestApprovalsApiGetAccessRequestApprovalSummaryRequest = {}, options?: AxiosRequestConfig) {
-        return AccessRequestApprovalsApiFp(this.configuration).getAccessRequestApprovalSummary(requestParameters.ownerId, requestParameters.fromDate, options).then((request) => request(this.axios, this.basePath));
+    public getAccessRequestApprovalSummary(requestParameters: AccessRequestApprovalsApiGetAccessRequestApprovalSummaryRequest = {}, axiosOptions?: AxiosRequestConfig) {
+        return AccessRequestApprovalsApiFp(this.configuration).getAccessRequestApprovalSummary(requestParameters.ownerId, requestParameters.fromDate, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -18787,8 +18787,8 @@ export class AccessRequestApprovalsApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof AccessRequestApprovalsApi
      */
-    public listCompletedApprovals(requestParameters: AccessRequestApprovalsApiListCompletedApprovalsRequest = {}, options?: AxiosRequestConfig) {
-        return AccessRequestApprovalsApiFp(this.configuration).listCompletedApprovals(requestParameters.ownerId, requestParameters.limit, requestParameters.offset, requestParameters.count, requestParameters.filters, requestParameters.sorters, options).then((request) => request(this.axios, this.basePath));
+    public listCompletedApprovals(requestParameters: AccessRequestApprovalsApiListCompletedApprovalsRequest = {}, axiosOptions?: AxiosRequestConfig) {
+        return AccessRequestApprovalsApiFp(this.configuration).listCompletedApprovals(requestParameters.ownerId, requestParameters.limit, requestParameters.offset, requestParameters.count, requestParameters.filters, requestParameters.sorters, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -18799,8 +18799,8 @@ export class AccessRequestApprovalsApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof AccessRequestApprovalsApi
      */
-    public listPendingApprovals(requestParameters: AccessRequestApprovalsApiListPendingApprovalsRequest = {}, options?: AxiosRequestConfig) {
-        return AccessRequestApprovalsApiFp(this.configuration).listPendingApprovals(requestParameters.ownerId, requestParameters.limit, requestParameters.offset, requestParameters.count, requestParameters.filters, requestParameters.sorters, options).then((request) => request(this.axios, this.basePath));
+    public listPendingApprovals(requestParameters: AccessRequestApprovalsApiListPendingApprovalsRequest = {}, axiosOptions?: AxiosRequestConfig) {
+        return AccessRequestApprovalsApiFp(this.configuration).listPendingApprovals(requestParameters.ownerId, requestParameters.limit, requestParameters.offset, requestParameters.count, requestParameters.filters, requestParameters.sorters, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -18811,8 +18811,8 @@ export class AccessRequestApprovalsApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof AccessRequestApprovalsApi
      */
-    public rejectAccessRequest(requestParameters: AccessRequestApprovalsApiRejectAccessRequestRequest, options?: AxiosRequestConfig) {
-        return AccessRequestApprovalsApiFp(this.configuration).rejectAccessRequest(requestParameters.approvalId, requestParameters.commentDto, options).then((request) => request(this.axios, this.basePath));
+    public rejectAccessRequest(requestParameters: AccessRequestApprovalsApiRejectAccessRequestRequest, axiosOptions?: AxiosRequestConfig) {
+        return AccessRequestApprovalsApiFp(this.configuration).rejectAccessRequest(requestParameters.approvalId, requestParameters.commentDto, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 }
 
@@ -19348,8 +19348,8 @@ export class AccessRequestsApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof AccessRequestsApi
      */
-    public cancelAccessRequest(requestParameters: AccessRequestsApiCancelAccessRequestRequest, options?: AxiosRequestConfig) {
-        return AccessRequestsApiFp(this.configuration).cancelAccessRequest(requestParameters.cancelAccessRequest, options).then((request) => request(this.axios, this.basePath));
+    public cancelAccessRequest(requestParameters: AccessRequestsApiCancelAccessRequestRequest, axiosOptions?: AxiosRequestConfig) {
+        return AccessRequestsApiFp(this.configuration).cancelAccessRequest(requestParameters.cancelAccessRequest, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -19360,8 +19360,8 @@ export class AccessRequestsApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof AccessRequestsApi
      */
-    public createAccessRequest(requestParameters: AccessRequestsApiCreateAccessRequestRequest, options?: AxiosRequestConfig) {
-        return AccessRequestsApiFp(this.configuration).createAccessRequest(requestParameters.accessRequest, options).then((request) => request(this.axios, this.basePath));
+    public createAccessRequest(requestParameters: AccessRequestsApiCreateAccessRequestRequest, axiosOptions?: AxiosRequestConfig) {
+        return AccessRequestsApiFp(this.configuration).createAccessRequest(requestParameters.accessRequest, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -19371,8 +19371,8 @@ export class AccessRequestsApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof AccessRequestsApi
      */
-    public getAccessRequestConfig(options?: AxiosRequestConfig) {
-        return AccessRequestsApiFp(this.configuration).getAccessRequestConfig(options).then((request) => request(this.axios, this.basePath));
+    public getAccessRequestConfig(axiosOptions?: AxiosRequestConfig) {
+        return AccessRequestsApiFp(this.configuration).getAccessRequestConfig(axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -19383,8 +19383,8 @@ export class AccessRequestsApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof AccessRequestsApi
      */
-    public listAccessRequestStatus(requestParameters: AccessRequestsApiListAccessRequestStatusRequest = {}, options?: AxiosRequestConfig) {
-        return AccessRequestsApiFp(this.configuration).listAccessRequestStatus(requestParameters.requestedFor, requestParameters.requestedBy, requestParameters.regardingIdentity, requestParameters.assignedTo, requestParameters.count, requestParameters.limit, requestParameters.offset, requestParameters.filters, requestParameters.sorters, options).then((request) => request(this.axios, this.basePath));
+    public listAccessRequestStatus(requestParameters: AccessRequestsApiListAccessRequestStatusRequest = {}, axiosOptions?: AxiosRequestConfig) {
+        return AccessRequestsApiFp(this.configuration).listAccessRequestStatus(requestParameters.requestedFor, requestParameters.requestedBy, requestParameters.regardingIdentity, requestParameters.assignedTo, requestParameters.count, requestParameters.limit, requestParameters.offset, requestParameters.filters, requestParameters.sorters, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -19395,8 +19395,8 @@ export class AccessRequestsApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof AccessRequestsApi
      */
-    public setAccessRequestConfig(requestParameters: AccessRequestsApiSetAccessRequestConfigRequest, options?: AxiosRequestConfig) {
-        return AccessRequestsApiFp(this.configuration).setAccessRequestConfig(requestParameters.accessRequestConfig, options).then((request) => request(this.axios, this.basePath));
+    public setAccessRequestConfig(requestParameters: AccessRequestsApiSetAccessRequestConfigRequest, axiosOptions?: AxiosRequestConfig) {
+        return AccessRequestsApiFp(this.configuration).setAccessRequestConfig(requestParameters.accessRequestConfig, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 }
 
@@ -19696,8 +19696,8 @@ export class AccountActivitiesApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof AccountActivitiesApi
      */
-    public getAccountActivity(requestParameters: AccountActivitiesApiGetAccountActivityRequest, options?: AxiosRequestConfig) {
-        return AccountActivitiesApiFp(this.configuration).getAccountActivity(requestParameters.id, options).then((request) => request(this.axios, this.basePath));
+    public getAccountActivity(requestParameters: AccountActivitiesApiGetAccountActivityRequest, axiosOptions?: AxiosRequestConfig) {
+        return AccountActivitiesApiFp(this.configuration).getAccountActivity(requestParameters.id, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -19708,8 +19708,8 @@ export class AccountActivitiesApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof AccountActivitiesApi
      */
-    public listAccountActivities(requestParameters: AccountActivitiesApiListAccountActivitiesRequest = {}, options?: AxiosRequestConfig) {
-        return AccountActivitiesApiFp(this.configuration).listAccountActivities(requestParameters.requestedFor, requestParameters.requestedBy, requestParameters.regardingIdentity, requestParameters.limit, requestParameters.offset, requestParameters.count, requestParameters.filters, requestParameters.sorters, options).then((request) => request(this.axios, this.basePath));
+    public listAccountActivities(requestParameters: AccountActivitiesApiListAccountActivitiesRequest = {}, axiosOptions?: AxiosRequestConfig) {
+        return AccountActivitiesApiFp(this.configuration).listAccountActivities(requestParameters.requestedFor, requestParameters.requestedBy, requestParameters.regardingIdentity, requestParameters.limit, requestParameters.offset, requestParameters.count, requestParameters.filters, requestParameters.sorters, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 }
 
@@ -19890,8 +19890,8 @@ export class AccountUsagesApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof AccountUsagesApi
      */
-    public getUsagesByAccountId(requestParameters: AccountUsagesApiGetUsagesByAccountIdRequest, options?: AxiosRequestConfig) {
-        return AccountUsagesApiFp(this.configuration).getUsagesByAccountId(requestParameters.accountId, requestParameters.limit, requestParameters.offset, requestParameters.count, requestParameters.sorters, options).then((request) => request(this.axios, this.basePath));
+    public getUsagesByAccountId(requestParameters: AccountUsagesApiGetUsagesByAccountIdRequest, axiosOptions?: AxiosRequestConfig) {
+        return AccountUsagesApiFp(this.configuration).getUsagesByAccountId(requestParameters.accountId, requestParameters.limit, requestParameters.offset, requestParameters.count, requestParameters.sorters, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 }
 
@@ -20974,8 +20974,8 @@ export class AccountsApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof AccountsApi
      */
-    public createAccount(requestParameters: AccountsApiCreateAccountRequest, options?: AxiosRequestConfig) {
-        return AccountsApiFp(this.configuration).createAccount(requestParameters.accountAttributesCreate, options).then((request) => request(this.axios, this.basePath));
+    public createAccount(requestParameters: AccountsApiCreateAccountRequest, axiosOptions?: AxiosRequestConfig) {
+        return AccountsApiFp(this.configuration).createAccount(requestParameters.accountAttributesCreate, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -20986,8 +20986,8 @@ export class AccountsApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof AccountsApi
      */
-    public deleteAccount(requestParameters: AccountsApiDeleteAccountRequest, options?: AxiosRequestConfig) {
-        return AccountsApiFp(this.configuration).deleteAccount(requestParameters.id, options).then((request) => request(this.axios, this.basePath));
+    public deleteAccount(requestParameters: AccountsApiDeleteAccountRequest, axiosOptions?: AxiosRequestConfig) {
+        return AccountsApiFp(this.configuration).deleteAccount(requestParameters.id, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -20998,8 +20998,8 @@ export class AccountsApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof AccountsApi
      */
-    public disableAccount(requestParameters: AccountsApiDisableAccountRequest, options?: AxiosRequestConfig) {
-        return AccountsApiFp(this.configuration).disableAccount(requestParameters.id, requestParameters.accountToggleRequest, options).then((request) => request(this.axios, this.basePath));
+    public disableAccount(requestParameters: AccountsApiDisableAccountRequest, axiosOptions?: AxiosRequestConfig) {
+        return AccountsApiFp(this.configuration).disableAccount(requestParameters.id, requestParameters.accountToggleRequest, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -21010,8 +21010,8 @@ export class AccountsApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof AccountsApi
      */
-    public enableAccount(requestParameters: AccountsApiEnableAccountRequest, options?: AxiosRequestConfig) {
-        return AccountsApiFp(this.configuration).enableAccount(requestParameters.id, requestParameters.accountToggleRequest, options).then((request) => request(this.axios, this.basePath));
+    public enableAccount(requestParameters: AccountsApiEnableAccountRequest, axiosOptions?: AxiosRequestConfig) {
+        return AccountsApiFp(this.configuration).enableAccount(requestParameters.id, requestParameters.accountToggleRequest, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -21022,8 +21022,8 @@ export class AccountsApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof AccountsApi
      */
-    public getAccount(requestParameters: AccountsApiGetAccountRequest, options?: AxiosRequestConfig) {
-        return AccountsApiFp(this.configuration).getAccount(requestParameters.id, options).then((request) => request(this.axios, this.basePath));
+    public getAccount(requestParameters: AccountsApiGetAccountRequest, axiosOptions?: AxiosRequestConfig) {
+        return AccountsApiFp(this.configuration).getAccount(requestParameters.id, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -21034,8 +21034,8 @@ export class AccountsApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof AccountsApi
      */
-    public getAccountEntitlements(requestParameters: AccountsApiGetAccountEntitlementsRequest, options?: AxiosRequestConfig) {
-        return AccountsApiFp(this.configuration).getAccountEntitlements(requestParameters.id, requestParameters.limit, requestParameters.offset, requestParameters.count, options).then((request) => request(this.axios, this.basePath));
+    public getAccountEntitlements(requestParameters: AccountsApiGetAccountEntitlementsRequest, axiosOptions?: AxiosRequestConfig) {
+        return AccountsApiFp(this.configuration).getAccountEntitlements(requestParameters.id, requestParameters.limit, requestParameters.offset, requestParameters.count, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -21046,8 +21046,8 @@ export class AccountsApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof AccountsApi
      */
-    public listAccounts(requestParameters: AccountsApiListAccountsRequest = {}, options?: AxiosRequestConfig) {
-        return AccountsApiFp(this.configuration).listAccounts(requestParameters.limit, requestParameters.offset, requestParameters.count, requestParameters.filters, requestParameters.sorters, options).then((request) => request(this.axios, this.basePath));
+    public listAccounts(requestParameters: AccountsApiListAccountsRequest = {}, axiosOptions?: AxiosRequestConfig) {
+        return AccountsApiFp(this.configuration).listAccounts(requestParameters.limit, requestParameters.offset, requestParameters.count, requestParameters.filters, requestParameters.sorters, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -21058,8 +21058,8 @@ export class AccountsApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof AccountsApi
      */
-    public putAccount(requestParameters: AccountsApiPutAccountRequest, options?: AxiosRequestConfig) {
-        return AccountsApiFp(this.configuration).putAccount(requestParameters.id, requestParameters.accountAttributes, options).then((request) => request(this.axios, this.basePath));
+    public putAccount(requestParameters: AccountsApiPutAccountRequest, axiosOptions?: AxiosRequestConfig) {
+        return AccountsApiFp(this.configuration).putAccount(requestParameters.id, requestParameters.accountAttributes, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -21070,8 +21070,8 @@ export class AccountsApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof AccountsApi
      */
-    public reloadAccount(requestParameters: AccountsApiReloadAccountRequest, options?: AxiosRequestConfig) {
-        return AccountsApiFp(this.configuration).reloadAccount(requestParameters.id, options).then((request) => request(this.axios, this.basePath));
+    public reloadAccount(requestParameters: AccountsApiReloadAccountRequest, axiosOptions?: AxiosRequestConfig) {
+        return AccountsApiFp(this.configuration).reloadAccount(requestParameters.id, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -21082,8 +21082,8 @@ export class AccountsApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof AccountsApi
      */
-    public unlockAccount(requestParameters: AccountsApiUnlockAccountRequest, options?: AxiosRequestConfig) {
-        return AccountsApiFp(this.configuration).unlockAccount(requestParameters.id, requestParameters.accountUnlockRequest, options).then((request) => request(this.axios, this.basePath));
+    public unlockAccount(requestParameters: AccountsApiUnlockAccountRequest, axiosOptions?: AxiosRequestConfig) {
+        return AccountsApiFp(this.configuration).unlockAccount(requestParameters.id, requestParameters.accountUnlockRequest, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -21094,8 +21094,8 @@ export class AccountsApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof AccountsApi
      */
-    public updateAccount(requestParameters: AccountsApiUpdateAccountRequest, options?: AxiosRequestConfig) {
-        return AccountsApiFp(this.configuration).updateAccount(requestParameters.id, requestParameters.jsonPatchOperation, options).then((request) => request(this.axios, this.basePath));
+    public updateAccount(requestParameters: AccountsApiUpdateAccountRequest, axiosOptions?: AxiosRequestConfig) {
+        return AccountsApiFp(this.configuration).updateAccount(requestParameters.id, requestParameters.jsonPatchOperation, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 }
 
@@ -21317,8 +21317,8 @@ export class AuthUserApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof AuthUserApi
      */
-    public getAuthUser(requestParameters: AuthUserApiGetAuthUserRequest, options?: AxiosRequestConfig) {
-        return AuthUserApiFp(this.configuration).getAuthUser(requestParameters.id, options).then((request) => request(this.axios, this.basePath));
+    public getAuthUser(requestParameters: AuthUserApiGetAuthUserRequest, axiosOptions?: AxiosRequestConfig) {
+        return AuthUserApiFp(this.configuration).getAuthUser(requestParameters.id, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -21329,8 +21329,8 @@ export class AuthUserApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof AuthUserApi
      */
-    public patchAuthUser(requestParameters: AuthUserApiPatchAuthUserRequest, options?: AxiosRequestConfig) {
-        return AuthUserApiFp(this.configuration).patchAuthUser(requestParameters.id, requestParameters.jsonPatchOperation, options).then((request) => request(this.axios, this.basePath));
+    public patchAuthUser(requestParameters: AuthUserApiPatchAuthUserRequest, axiosOptions?: AxiosRequestConfig) {
+        return AuthUserApiFp(this.configuration).patchAuthUser(requestParameters.id, requestParameters.jsonPatchOperation, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 }
 
@@ -21820,8 +21820,8 @@ export class CertificationCampaignFiltersApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof CertificationCampaignFiltersApi
      */
-    public createCampaignFilter(requestParameters: CertificationCampaignFiltersApiCreateCampaignFilterRequest, options?: AxiosRequestConfig) {
-        return CertificationCampaignFiltersApiFp(this.configuration).createCampaignFilter(requestParameters.campaignFilterDetails, options).then((request) => request(this.axios, this.basePath));
+    public createCampaignFilter(requestParameters: CertificationCampaignFiltersApiCreateCampaignFilterRequest, axiosOptions?: AxiosRequestConfig) {
+        return CertificationCampaignFiltersApiFp(this.configuration).createCampaignFilter(requestParameters.campaignFilterDetails, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -21832,8 +21832,8 @@ export class CertificationCampaignFiltersApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof CertificationCampaignFiltersApi
      */
-    public deleteCampaignFilters(requestParameters: CertificationCampaignFiltersApiDeleteCampaignFiltersRequest, options?: AxiosRequestConfig) {
-        return CertificationCampaignFiltersApiFp(this.configuration).deleteCampaignFilters(requestParameters.requestBody, options).then((request) => request(this.axios, this.basePath));
+    public deleteCampaignFilters(requestParameters: CertificationCampaignFiltersApiDeleteCampaignFiltersRequest, axiosOptions?: AxiosRequestConfig) {
+        return CertificationCampaignFiltersApiFp(this.configuration).deleteCampaignFilters(requestParameters.requestBody, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -21844,8 +21844,8 @@ export class CertificationCampaignFiltersApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof CertificationCampaignFiltersApi
      */
-    public getCampaignFilterById(requestParameters: CertificationCampaignFiltersApiGetCampaignFilterByIdRequest, options?: AxiosRequestConfig) {
-        return CertificationCampaignFiltersApiFp(this.configuration).getCampaignFilterById(requestParameters.filterId, options).then((request) => request(this.axios, this.basePath));
+    public getCampaignFilterById(requestParameters: CertificationCampaignFiltersApiGetCampaignFilterByIdRequest, axiosOptions?: AxiosRequestConfig) {
+        return CertificationCampaignFiltersApiFp(this.configuration).getCampaignFilterById(requestParameters.filterId, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -21856,8 +21856,8 @@ export class CertificationCampaignFiltersApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof CertificationCampaignFiltersApi
      */
-    public listCampaignFilters(requestParameters: CertificationCampaignFiltersApiListCampaignFiltersRequest = {}, options?: AxiosRequestConfig) {
-        return CertificationCampaignFiltersApiFp(this.configuration).listCampaignFilters(requestParameters.limit, requestParameters.start, requestParameters.includeSystemFilters, options).then((request) => request(this.axios, this.basePath));
+    public listCampaignFilters(requestParameters: CertificationCampaignFiltersApiListCampaignFiltersRequest = {}, axiosOptions?: AxiosRequestConfig) {
+        return CertificationCampaignFiltersApiFp(this.configuration).listCampaignFilters(requestParameters.limit, requestParameters.start, requestParameters.includeSystemFilters, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -21868,8 +21868,8 @@ export class CertificationCampaignFiltersApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof CertificationCampaignFiltersApi
      */
-    public updateCampaignFilter(requestParameters: CertificationCampaignFiltersApiUpdateCampaignFilterRequest, options?: AxiosRequestConfig) {
-        return CertificationCampaignFiltersApiFp(this.configuration).updateCampaignFilter(requestParameters.filterId, requestParameters.campaignFilterDetails, options).then((request) => request(this.axios, this.basePath));
+    public updateCampaignFilter(requestParameters: CertificationCampaignFiltersApiUpdateCampaignFilterRequest, axiosOptions?: AxiosRequestConfig) {
+        return CertificationCampaignFiltersApiFp(this.configuration).updateCampaignFilter(requestParameters.filterId, requestParameters.campaignFilterDetails, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 }
 
@@ -23854,8 +23854,8 @@ export class CertificationCampaignsApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof CertificationCampaignsApi
      */
-    public completeCampaign(requestParameters: CertificationCampaignsApiCompleteCampaignRequest, options?: AxiosRequestConfig) {
-        return CertificationCampaignsApiFp(this.configuration).completeCampaign(requestParameters.id, requestParameters.campaignCompleteOptions, options).then((request) => request(this.axios, this.basePath));
+    public completeCampaign(requestParameters: CertificationCampaignsApiCompleteCampaignRequest, axiosOptions?: AxiosRequestConfig) {
+        return CertificationCampaignsApiFp(this.configuration).completeCampaign(requestParameters.id, requestParameters.campaignCompleteOptions, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -23866,8 +23866,8 @@ export class CertificationCampaignsApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof CertificationCampaignsApi
      */
-    public createCampaign(requestParameters: CertificationCampaignsApiCreateCampaignRequest, options?: AxiosRequestConfig) {
-        return CertificationCampaignsApiFp(this.configuration).createCampaign(requestParameters.campaign, options).then((request) => request(this.axios, this.basePath));
+    public createCampaign(requestParameters: CertificationCampaignsApiCreateCampaignRequest, axiosOptions?: AxiosRequestConfig) {
+        return CertificationCampaignsApiFp(this.configuration).createCampaign(requestParameters.campaign, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -23878,8 +23878,8 @@ export class CertificationCampaignsApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof CertificationCampaignsApi
      */
-    public createCampaignTemplate(requestParameters: CertificationCampaignsApiCreateCampaignTemplateRequest, options?: AxiosRequestConfig) {
-        return CertificationCampaignsApiFp(this.configuration).createCampaignTemplate(requestParameters.campaignTemplate, options).then((request) => request(this.axios, this.basePath));
+    public createCampaignTemplate(requestParameters: CertificationCampaignsApiCreateCampaignTemplateRequest, axiosOptions?: AxiosRequestConfig) {
+        return CertificationCampaignsApiFp(this.configuration).createCampaignTemplate(requestParameters.campaignTemplate, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -23890,8 +23890,8 @@ export class CertificationCampaignsApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof CertificationCampaignsApi
      */
-    public deleteCampaignTemplate(requestParameters: CertificationCampaignsApiDeleteCampaignTemplateRequest, options?: AxiosRequestConfig) {
-        return CertificationCampaignsApiFp(this.configuration).deleteCampaignTemplate(requestParameters.id, options).then((request) => request(this.axios, this.basePath));
+    public deleteCampaignTemplate(requestParameters: CertificationCampaignsApiDeleteCampaignTemplateRequest, axiosOptions?: AxiosRequestConfig) {
+        return CertificationCampaignsApiFp(this.configuration).deleteCampaignTemplate(requestParameters.id, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -23902,8 +23902,8 @@ export class CertificationCampaignsApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof CertificationCampaignsApi
      */
-    public deleteCampaignTemplateSchedule(requestParameters: CertificationCampaignsApiDeleteCampaignTemplateScheduleRequest, options?: AxiosRequestConfig) {
-        return CertificationCampaignsApiFp(this.configuration).deleteCampaignTemplateSchedule(requestParameters.id, options).then((request) => request(this.axios, this.basePath));
+    public deleteCampaignTemplateSchedule(requestParameters: CertificationCampaignsApiDeleteCampaignTemplateScheduleRequest, axiosOptions?: AxiosRequestConfig) {
+        return CertificationCampaignsApiFp(this.configuration).deleteCampaignTemplateSchedule(requestParameters.id, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -23914,8 +23914,8 @@ export class CertificationCampaignsApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof CertificationCampaignsApi
      */
-    public deleteCampaigns(requestParameters: CertificationCampaignsApiDeleteCampaignsRequest, options?: AxiosRequestConfig) {
-        return CertificationCampaignsApiFp(this.configuration).deleteCampaigns(requestParameters.campaignsDeleteRequest, options).then((request) => request(this.axios, this.basePath));
+    public deleteCampaigns(requestParameters: CertificationCampaignsApiDeleteCampaignsRequest, axiosOptions?: AxiosRequestConfig) {
+        return CertificationCampaignsApiFp(this.configuration).deleteCampaigns(requestParameters.campaignsDeleteRequest, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -23926,8 +23926,8 @@ export class CertificationCampaignsApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof CertificationCampaignsApi
      */
-    public getActiveCampaigns(requestParameters: CertificationCampaignsApiGetActiveCampaignsRequest = {}, options?: AxiosRequestConfig) {
-        return CertificationCampaignsApiFp(this.configuration).getActiveCampaigns(requestParameters.detail, requestParameters.limit, requestParameters.offset, requestParameters.count, requestParameters.filters, requestParameters.sorters, options).then((request) => request(this.axios, this.basePath));
+    public getActiveCampaigns(requestParameters: CertificationCampaignsApiGetActiveCampaignsRequest = {}, axiosOptions?: AxiosRequestConfig) {
+        return CertificationCampaignsApiFp(this.configuration).getActiveCampaigns(requestParameters.detail, requestParameters.limit, requestParameters.offset, requestParameters.count, requestParameters.filters, requestParameters.sorters, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -23938,8 +23938,8 @@ export class CertificationCampaignsApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof CertificationCampaignsApi
      */
-    public getCampaign(requestParameters: CertificationCampaignsApiGetCampaignRequest, options?: AxiosRequestConfig) {
-        return CertificationCampaignsApiFp(this.configuration).getCampaign(requestParameters.id, options).then((request) => request(this.axios, this.basePath));
+    public getCampaign(requestParameters: CertificationCampaignsApiGetCampaignRequest, axiosOptions?: AxiosRequestConfig) {
+        return CertificationCampaignsApiFp(this.configuration).getCampaign(requestParameters.id, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -23950,8 +23950,8 @@ export class CertificationCampaignsApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof CertificationCampaignsApi
      */
-    public getCampaignReports(requestParameters: CertificationCampaignsApiGetCampaignReportsRequest, options?: AxiosRequestConfig) {
-        return CertificationCampaignsApiFp(this.configuration).getCampaignReports(requestParameters.id, options).then((request) => request(this.axios, this.basePath));
+    public getCampaignReports(requestParameters: CertificationCampaignsApiGetCampaignReportsRequest, axiosOptions?: AxiosRequestConfig) {
+        return CertificationCampaignsApiFp(this.configuration).getCampaignReports(requestParameters.id, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -23961,8 +23961,8 @@ export class CertificationCampaignsApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof CertificationCampaignsApi
      */
-    public getCampaignReportsConfig(options?: AxiosRequestConfig) {
-        return CertificationCampaignsApiFp(this.configuration).getCampaignReportsConfig(options).then((request) => request(this.axios, this.basePath));
+    public getCampaignReportsConfig(axiosOptions?: AxiosRequestConfig) {
+        return CertificationCampaignsApiFp(this.configuration).getCampaignReportsConfig(axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -23973,8 +23973,8 @@ export class CertificationCampaignsApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof CertificationCampaignsApi
      */
-    public getCampaignTemplate(requestParameters: CertificationCampaignsApiGetCampaignTemplateRequest, options?: AxiosRequestConfig) {
-        return CertificationCampaignsApiFp(this.configuration).getCampaignTemplate(requestParameters.id, options).then((request) => request(this.axios, this.basePath));
+    public getCampaignTemplate(requestParameters: CertificationCampaignsApiGetCampaignTemplateRequest, axiosOptions?: AxiosRequestConfig) {
+        return CertificationCampaignsApiFp(this.configuration).getCampaignTemplate(requestParameters.id, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -23985,8 +23985,8 @@ export class CertificationCampaignsApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof CertificationCampaignsApi
      */
-    public getCampaignTemplateSchedule(requestParameters: CertificationCampaignsApiGetCampaignTemplateScheduleRequest, options?: AxiosRequestConfig) {
-        return CertificationCampaignsApiFp(this.configuration).getCampaignTemplateSchedule(requestParameters.id, options).then((request) => request(this.axios, this.basePath));
+    public getCampaignTemplateSchedule(requestParameters: CertificationCampaignsApiGetCampaignTemplateScheduleRequest, axiosOptions?: AxiosRequestConfig) {
+        return CertificationCampaignsApiFp(this.configuration).getCampaignTemplateSchedule(requestParameters.id, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -23997,8 +23997,8 @@ export class CertificationCampaignsApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof CertificationCampaignsApi
      */
-    public listCampaignTemplates(requestParameters: CertificationCampaignsApiListCampaignTemplatesRequest = {}, options?: AxiosRequestConfig) {
-        return CertificationCampaignsApiFp(this.configuration).listCampaignTemplates(requestParameters.limit, requestParameters.offset, requestParameters.count, requestParameters.sorters, requestParameters.filters, options).then((request) => request(this.axios, this.basePath));
+    public listCampaignTemplates(requestParameters: CertificationCampaignsApiListCampaignTemplatesRequest = {}, axiosOptions?: AxiosRequestConfig) {
+        return CertificationCampaignsApiFp(this.configuration).listCampaignTemplates(requestParameters.limit, requestParameters.offset, requestParameters.count, requestParameters.sorters, requestParameters.filters, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -24009,8 +24009,8 @@ export class CertificationCampaignsApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof CertificationCampaignsApi
      */
-    public move(requestParameters: CertificationCampaignsApiMoveRequest, options?: AxiosRequestConfig) {
-        return CertificationCampaignsApiFp(this.configuration).move(requestParameters.id, requestParameters.adminReviewReassign, options).then((request) => request(this.axios, this.basePath));
+    public move(requestParameters: CertificationCampaignsApiMoveRequest, axiosOptions?: AxiosRequestConfig) {
+        return CertificationCampaignsApiFp(this.configuration).move(requestParameters.id, requestParameters.adminReviewReassign, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -24021,8 +24021,8 @@ export class CertificationCampaignsApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof CertificationCampaignsApi
      */
-    public patchCampaignTemplate(requestParameters: CertificationCampaignsApiPatchCampaignTemplateRequest, options?: AxiosRequestConfig) {
-        return CertificationCampaignsApiFp(this.configuration).patchCampaignTemplate(requestParameters.id, requestParameters.jsonPatchOperation, options).then((request) => request(this.axios, this.basePath));
+    public patchCampaignTemplate(requestParameters: CertificationCampaignsApiPatchCampaignTemplateRequest, axiosOptions?: AxiosRequestConfig) {
+        return CertificationCampaignsApiFp(this.configuration).patchCampaignTemplate(requestParameters.id, requestParameters.jsonPatchOperation, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -24033,8 +24033,8 @@ export class CertificationCampaignsApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof CertificationCampaignsApi
      */
-    public setCampaignReportsConfig(requestParameters: CertificationCampaignsApiSetCampaignReportsConfigRequest, options?: AxiosRequestConfig) {
-        return CertificationCampaignsApiFp(this.configuration).setCampaignReportsConfig(requestParameters.campaignReportsConfig, options).then((request) => request(this.axios, this.basePath));
+    public setCampaignReportsConfig(requestParameters: CertificationCampaignsApiSetCampaignReportsConfigRequest, axiosOptions?: AxiosRequestConfig) {
+        return CertificationCampaignsApiFp(this.configuration).setCampaignReportsConfig(requestParameters.campaignReportsConfig, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -24045,8 +24045,8 @@ export class CertificationCampaignsApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof CertificationCampaignsApi
      */
-    public setCampaignTemplateSchedule(requestParameters: CertificationCampaignsApiSetCampaignTemplateScheduleRequest, options?: AxiosRequestConfig) {
-        return CertificationCampaignsApiFp(this.configuration).setCampaignTemplateSchedule(requestParameters.id, requestParameters.schedule, options).then((request) => request(this.axios, this.basePath));
+    public setCampaignTemplateSchedule(requestParameters: CertificationCampaignsApiSetCampaignTemplateScheduleRequest, axiosOptions?: AxiosRequestConfig) {
+        return CertificationCampaignsApiFp(this.configuration).setCampaignTemplateSchedule(requestParameters.id, requestParameters.schedule, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -24057,8 +24057,8 @@ export class CertificationCampaignsApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof CertificationCampaignsApi
      */
-    public startCampaign(requestParameters: CertificationCampaignsApiStartCampaignRequest, options?: AxiosRequestConfig) {
-        return CertificationCampaignsApiFp(this.configuration).startCampaign(requestParameters.id, requestParameters.activateCampaignOptions, options).then((request) => request(this.axios, this.basePath));
+    public startCampaign(requestParameters: CertificationCampaignsApiStartCampaignRequest, axiosOptions?: AxiosRequestConfig) {
+        return CertificationCampaignsApiFp(this.configuration).startCampaign(requestParameters.id, requestParameters.activateCampaignOptions, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -24069,8 +24069,8 @@ export class CertificationCampaignsApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof CertificationCampaignsApi
      */
-    public startCampaignRemediationScan(requestParameters: CertificationCampaignsApiStartCampaignRemediationScanRequest, options?: AxiosRequestConfig) {
-        return CertificationCampaignsApiFp(this.configuration).startCampaignRemediationScan(requestParameters.id, options).then((request) => request(this.axios, this.basePath));
+    public startCampaignRemediationScan(requestParameters: CertificationCampaignsApiStartCampaignRemediationScanRequest, axiosOptions?: AxiosRequestConfig) {
+        return CertificationCampaignsApiFp(this.configuration).startCampaignRemediationScan(requestParameters.id, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -24081,8 +24081,8 @@ export class CertificationCampaignsApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof CertificationCampaignsApi
      */
-    public startCampaignReport(requestParameters: CertificationCampaignsApiStartCampaignReportRequest, options?: AxiosRequestConfig) {
-        return CertificationCampaignsApiFp(this.configuration).startCampaignReport(requestParameters.id, requestParameters.type, options).then((request) => request(this.axios, this.basePath));
+    public startCampaignReport(requestParameters: CertificationCampaignsApiStartCampaignReportRequest, axiosOptions?: AxiosRequestConfig) {
+        return CertificationCampaignsApiFp(this.configuration).startCampaignReport(requestParameters.id, requestParameters.type, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -24093,8 +24093,8 @@ export class CertificationCampaignsApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof CertificationCampaignsApi
      */
-    public startGenerateCampaignTemplate(requestParameters: CertificationCampaignsApiStartGenerateCampaignTemplateRequest, options?: AxiosRequestConfig) {
-        return CertificationCampaignsApiFp(this.configuration).startGenerateCampaignTemplate(requestParameters.id, options).then((request) => request(this.axios, this.basePath));
+    public startGenerateCampaignTemplate(requestParameters: CertificationCampaignsApiStartGenerateCampaignTemplateRequest, axiosOptions?: AxiosRequestConfig) {
+        return CertificationCampaignsApiFp(this.configuration).startGenerateCampaignTemplate(requestParameters.id, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -24105,8 +24105,8 @@ export class CertificationCampaignsApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof CertificationCampaignsApi
      */
-    public updateCampaign(requestParameters: CertificationCampaignsApiUpdateCampaignRequest, options?: AxiosRequestConfig) {
-        return CertificationCampaignsApiFp(this.configuration).updateCampaign(requestParameters.id, requestParameters.jsonPatchOperation, options).then((request) => request(this.axios, this.basePath));
+    public updateCampaign(requestParameters: CertificationCampaignsApiUpdateCampaignRequest, axiosOptions?: AxiosRequestConfig) {
+        return CertificationCampaignsApiFp(this.configuration).updateCampaign(requestParameters.id, requestParameters.jsonPatchOperation, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 }
 
@@ -24647,8 +24647,8 @@ export class CertificationSummariesApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof CertificationSummariesApi
      */
-    public getIdentityAccessSummaries(requestParameters: CertificationSummariesApiGetIdentityAccessSummariesRequest, options?: AxiosRequestConfig) {
-        return CertificationSummariesApiFp(this.configuration).getIdentityAccessSummaries(requestParameters.id, requestParameters.type, requestParameters.limit, requestParameters.offset, requestParameters.count, requestParameters.filters, requestParameters.sorters, options).then((request) => request(this.axios, this.basePath));
+    public getIdentityAccessSummaries(requestParameters: CertificationSummariesApiGetIdentityAccessSummariesRequest, axiosOptions?: AxiosRequestConfig) {
+        return CertificationSummariesApiFp(this.configuration).getIdentityAccessSummaries(requestParameters.id, requestParameters.type, requestParameters.limit, requestParameters.offset, requestParameters.count, requestParameters.filters, requestParameters.sorters, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -24659,8 +24659,8 @@ export class CertificationSummariesApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof CertificationSummariesApi
      */
-    public getIdentityDecisionSummary(requestParameters: CertificationSummariesApiGetIdentityDecisionSummaryRequest, options?: AxiosRequestConfig) {
-        return CertificationSummariesApiFp(this.configuration).getIdentityDecisionSummary(requestParameters.id, requestParameters.filters, options).then((request) => request(this.axios, this.basePath));
+    public getIdentityDecisionSummary(requestParameters: CertificationSummariesApiGetIdentityDecisionSummaryRequest, axiosOptions?: AxiosRequestConfig) {
+        return CertificationSummariesApiFp(this.configuration).getIdentityDecisionSummary(requestParameters.id, requestParameters.filters, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -24671,8 +24671,8 @@ export class CertificationSummariesApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof CertificationSummariesApi
      */
-    public getIdentitySummaries(requestParameters: CertificationSummariesApiGetIdentitySummariesRequest, options?: AxiosRequestConfig) {
-        return CertificationSummariesApiFp(this.configuration).getIdentitySummaries(requestParameters.id, requestParameters.limit, requestParameters.offset, requestParameters.count, requestParameters.filters, requestParameters.sorters, options).then((request) => request(this.axios, this.basePath));
+    public getIdentitySummaries(requestParameters: CertificationSummariesApiGetIdentitySummariesRequest, axiosOptions?: AxiosRequestConfig) {
+        return CertificationSummariesApiFp(this.configuration).getIdentitySummaries(requestParameters.id, requestParameters.limit, requestParameters.offset, requestParameters.count, requestParameters.filters, requestParameters.sorters, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -24683,8 +24683,8 @@ export class CertificationSummariesApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof CertificationSummariesApi
      */
-    public getIdentitySummary(requestParameters: CertificationSummariesApiGetIdentitySummaryRequest, options?: AxiosRequestConfig) {
-        return CertificationSummariesApiFp(this.configuration).getIdentitySummary(requestParameters.id, requestParameters.identitySummaryId, options).then((request) => request(this.axios, this.basePath));
+    public getIdentitySummary(requestParameters: CertificationSummariesApiGetIdentitySummaryRequest, axiosOptions?: AxiosRequestConfig) {
+        return CertificationSummariesApiFp(this.configuration).getIdentitySummary(requestParameters.id, requestParameters.identitySummaryId, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 }
 
@@ -26006,8 +26006,8 @@ export class CertificationsApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof CertificationsApi
      */
-    public getCertificationTask(requestParameters: CertificationsApiGetCertificationTaskRequest, options?: AxiosRequestConfig) {
-        return CertificationsApiFp(this.configuration).getCertificationTask(requestParameters.id, options).then((request) => request(this.axios, this.basePath));
+    public getCertificationTask(requestParameters: CertificationsApiGetCertificationTaskRequest, axiosOptions?: AxiosRequestConfig) {
+        return CertificationsApiFp(this.configuration).getCertificationTask(requestParameters.id, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -26018,8 +26018,8 @@ export class CertificationsApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof CertificationsApi
      */
-    public getIdentityCertification(requestParameters: CertificationsApiGetIdentityCertificationRequest, options?: AxiosRequestConfig) {
-        return CertificationsApiFp(this.configuration).getIdentityCertification(requestParameters.id, options).then((request) => request(this.axios, this.basePath));
+    public getIdentityCertification(requestParameters: CertificationsApiGetIdentityCertificationRequest, axiosOptions?: AxiosRequestConfig) {
+        return CertificationsApiFp(this.configuration).getIdentityCertification(requestParameters.id, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -26030,8 +26030,8 @@ export class CertificationsApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof CertificationsApi
      */
-    public getIdentityCertificationItemPermissions(requestParameters: CertificationsApiGetIdentityCertificationItemPermissionsRequest, options?: AxiosRequestConfig) {
-        return CertificationsApiFp(this.configuration).getIdentityCertificationItemPermissions(requestParameters.certificationId, requestParameters.itemId, requestParameters.filters, requestParameters.limit, requestParameters.offset, requestParameters.count, options).then((request) => request(this.axios, this.basePath));
+    public getIdentityCertificationItemPermissions(requestParameters: CertificationsApiGetIdentityCertificationItemPermissionsRequest, axiosOptions?: AxiosRequestConfig) {
+        return CertificationsApiFp(this.configuration).getIdentityCertificationItemPermissions(requestParameters.certificationId, requestParameters.itemId, requestParameters.filters, requestParameters.limit, requestParameters.offset, requestParameters.count, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -26042,8 +26042,8 @@ export class CertificationsApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof CertificationsApi
      */
-    public getPendingCertificationTasks(requestParameters: CertificationsApiGetPendingCertificationTasksRequest = {}, options?: AxiosRequestConfig) {
-        return CertificationsApiFp(this.configuration).getPendingCertificationTasks(requestParameters.reviewerIdentity, requestParameters.limit, requestParameters.offset, requestParameters.count, requestParameters.filters, options).then((request) => request(this.axios, this.basePath));
+    public getPendingCertificationTasks(requestParameters: CertificationsApiGetPendingCertificationTasksRequest = {}, axiosOptions?: AxiosRequestConfig) {
+        return CertificationsApiFp(this.configuration).getPendingCertificationTasks(requestParameters.reviewerIdentity, requestParameters.limit, requestParameters.offset, requestParameters.count, requestParameters.filters, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -26054,8 +26054,8 @@ export class CertificationsApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof CertificationsApi
      */
-    public listCertificationReviewers(requestParameters: CertificationsApiListCertificationReviewersRequest, options?: AxiosRequestConfig) {
-        return CertificationsApiFp(this.configuration).listCertificationReviewers(requestParameters.id, requestParameters.limit, requestParameters.offset, requestParameters.count, requestParameters.filters, requestParameters.sorters, options).then((request) => request(this.axios, this.basePath));
+    public listCertificationReviewers(requestParameters: CertificationsApiListCertificationReviewersRequest, axiosOptions?: AxiosRequestConfig) {
+        return CertificationsApiFp(this.configuration).listCertificationReviewers(requestParameters.id, requestParameters.limit, requestParameters.offset, requestParameters.count, requestParameters.filters, requestParameters.sorters, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -26066,8 +26066,8 @@ export class CertificationsApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof CertificationsApi
      */
-    public listIdentityAccessReviewItems(requestParameters: CertificationsApiListIdentityAccessReviewItemsRequest, options?: AxiosRequestConfig) {
-        return CertificationsApiFp(this.configuration).listIdentityAccessReviewItems(requestParameters.id, requestParameters.limit, requestParameters.offset, requestParameters.count, requestParameters.filters, requestParameters.sorters, requestParameters.entitlements, requestParameters.accessProfiles, requestParameters.roles, options).then((request) => request(this.axios, this.basePath));
+    public listIdentityAccessReviewItems(requestParameters: CertificationsApiListIdentityAccessReviewItemsRequest, axiosOptions?: AxiosRequestConfig) {
+        return CertificationsApiFp(this.configuration).listIdentityAccessReviewItems(requestParameters.id, requestParameters.limit, requestParameters.offset, requestParameters.count, requestParameters.filters, requestParameters.sorters, requestParameters.entitlements, requestParameters.accessProfiles, requestParameters.roles, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -26078,8 +26078,8 @@ export class CertificationsApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof CertificationsApi
      */
-    public listIdentityCertifications(requestParameters: CertificationsApiListIdentityCertificationsRequest = {}, options?: AxiosRequestConfig) {
-        return CertificationsApiFp(this.configuration).listIdentityCertifications(requestParameters.reviewerIdentity, requestParameters.limit, requestParameters.offset, requestParameters.count, requestParameters.filters, requestParameters.sorters, options).then((request) => request(this.axios, this.basePath));
+    public listIdentityCertifications(requestParameters: CertificationsApiListIdentityCertificationsRequest = {}, axiosOptions?: AxiosRequestConfig) {
+        return CertificationsApiFp(this.configuration).listIdentityCertifications(requestParameters.reviewerIdentity, requestParameters.limit, requestParameters.offset, requestParameters.count, requestParameters.filters, requestParameters.sorters, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -26090,8 +26090,8 @@ export class CertificationsApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof CertificationsApi
      */
-    public makeIdentityDecision(requestParameters: CertificationsApiMakeIdentityDecisionRequest, options?: AxiosRequestConfig) {
-        return CertificationsApiFp(this.configuration).makeIdentityDecision(requestParameters.id, requestParameters.reviewDecision, options).then((request) => request(this.axios, this.basePath));
+    public makeIdentityDecision(requestParameters: CertificationsApiMakeIdentityDecisionRequest, axiosOptions?: AxiosRequestConfig) {
+        return CertificationsApiFp(this.configuration).makeIdentityDecision(requestParameters.id, requestParameters.reviewDecision, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -26102,8 +26102,8 @@ export class CertificationsApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof CertificationsApi
      */
-    public reassignIdentityCertifications(requestParameters: CertificationsApiReassignIdentityCertificationsRequest, options?: AxiosRequestConfig) {
-        return CertificationsApiFp(this.configuration).reassignIdentityCertifications(requestParameters.id, requestParameters.reviewReassign, options).then((request) => request(this.axios, this.basePath));
+    public reassignIdentityCertifications(requestParameters: CertificationsApiReassignIdentityCertificationsRequest, axiosOptions?: AxiosRequestConfig) {
+        return CertificationsApiFp(this.configuration).reassignIdentityCertifications(requestParameters.id, requestParameters.reviewReassign, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -26114,8 +26114,8 @@ export class CertificationsApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof CertificationsApi
      */
-    public signOffIdentityCertification(requestParameters: CertificationsApiSignOffIdentityCertificationRequest, options?: AxiosRequestConfig) {
-        return CertificationsApiFp(this.configuration).signOffIdentityCertification(requestParameters.id, options).then((request) => request(this.axios, this.basePath));
+    public signOffIdentityCertification(requestParameters: CertificationsApiSignOffIdentityCertificationRequest, axiosOptions?: AxiosRequestConfig) {
+        return CertificationsApiFp(this.configuration).signOffIdentityCertification(requestParameters.id, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -26126,8 +26126,8 @@ export class CertificationsApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof CertificationsApi
      */
-    public submitReassignCertsAsync(requestParameters: CertificationsApiSubmitReassignCertsAsyncRequest, options?: AxiosRequestConfig) {
-        return CertificationsApiFp(this.configuration).submitReassignCertsAsync(requestParameters.id, requestParameters.reviewReassign, options).then((request) => request(this.axios, this.basePath));
+    public submitReassignCertsAsync(requestParameters: CertificationsApiSubmitReassignCertsAsyncRequest, axiosOptions?: AxiosRequestConfig) {
+        return CertificationsApiFp(this.configuration).submitReassignCertsAsync(requestParameters.id, requestParameters.reviewReassign, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 }
 
@@ -26398,8 +26398,8 @@ export class GlobalTenantSecuritySettingsApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof GlobalTenantSecuritySettingsApi
      */
-    public createAuthOrgNetworkConfig(requestParameters: GlobalTenantSecuritySettingsApiCreateAuthOrgNetworkConfigRequest, options?: AxiosRequestConfig) {
-        return GlobalTenantSecuritySettingsApiFp(this.configuration).createAuthOrgNetworkConfig(requestParameters.networkConfiguration, options).then((request) => request(this.axios, this.basePath));
+    public createAuthOrgNetworkConfig(requestParameters: GlobalTenantSecuritySettingsApiCreateAuthOrgNetworkConfigRequest, axiosOptions?: AxiosRequestConfig) {
+        return GlobalTenantSecuritySettingsApiFp(this.configuration).createAuthOrgNetworkConfig(requestParameters.networkConfiguration, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -26409,8 +26409,8 @@ export class GlobalTenantSecuritySettingsApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof GlobalTenantSecuritySettingsApi
      */
-    public getAuthOrgNetworkConfig(options?: AxiosRequestConfig) {
-        return GlobalTenantSecuritySettingsApiFp(this.configuration).getAuthOrgNetworkConfig(options).then((request) => request(this.axios, this.basePath));
+    public getAuthOrgNetworkConfig(axiosOptions?: AxiosRequestConfig) {
+        return GlobalTenantSecuritySettingsApiFp(this.configuration).getAuthOrgNetworkConfig(axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -26421,8 +26421,8 @@ export class GlobalTenantSecuritySettingsApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof GlobalTenantSecuritySettingsApi
      */
-    public patchAuthOrgNetworkConfig(requestParameters: GlobalTenantSecuritySettingsApiPatchAuthOrgNetworkConfigRequest, options?: AxiosRequestConfig) {
-        return GlobalTenantSecuritySettingsApiFp(this.configuration).patchAuthOrgNetworkConfig(requestParameters.jsonPatchOperation, options).then((request) => request(this.axios, this.basePath));
+    public patchAuthOrgNetworkConfig(requestParameters: GlobalTenantSecuritySettingsApiPatchAuthOrgNetworkConfigRequest, axiosOptions?: AxiosRequestConfig) {
+        return GlobalTenantSecuritySettingsApiFp(this.configuration).patchAuthOrgNetworkConfig(requestParameters.jsonPatchOperation, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 }
 
@@ -27214,8 +27214,8 @@ export class IdentityProfilesApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof IdentityProfilesApi
      */
-    public deleteIdentityProfile(requestParameters: IdentityProfilesApiDeleteIdentityProfileRequest, options?: AxiosRequestConfig) {
-        return IdentityProfilesApiFp(this.configuration).deleteIdentityProfile(requestParameters.identityProfileId, options).then((request) => request(this.axios, this.basePath));
+    public deleteIdentityProfile(requestParameters: IdentityProfilesApiDeleteIdentityProfileRequest, axiosOptions?: AxiosRequestConfig) {
+        return IdentityProfilesApiFp(this.configuration).deleteIdentityProfile(requestParameters.identityProfileId, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -27226,8 +27226,8 @@ export class IdentityProfilesApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof IdentityProfilesApi
      */
-    public deleteIdentityProfiles(requestParameters: IdentityProfilesApiDeleteIdentityProfilesRequest, options?: AxiosRequestConfig) {
-        return IdentityProfilesApiFp(this.configuration).deleteIdentityProfiles(requestParameters.requestBody, options).then((request) => request(this.axios, this.basePath));
+    public deleteIdentityProfiles(requestParameters: IdentityProfilesApiDeleteIdentityProfilesRequest, axiosOptions?: AxiosRequestConfig) {
+        return IdentityProfilesApiFp(this.configuration).deleteIdentityProfiles(requestParameters.requestBody, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -27238,8 +27238,8 @@ export class IdentityProfilesApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof IdentityProfilesApi
      */
-    public exportIdentityProfiles(requestParameters: IdentityProfilesApiExportIdentityProfilesRequest = {}, options?: AxiosRequestConfig) {
-        return IdentityProfilesApiFp(this.configuration).exportIdentityProfiles(requestParameters.limit, requestParameters.offset, requestParameters.count, requestParameters.filters, requestParameters.sorters, options).then((request) => request(this.axios, this.basePath));
+    public exportIdentityProfiles(requestParameters: IdentityProfilesApiExportIdentityProfilesRequest = {}, axiosOptions?: AxiosRequestConfig) {
+        return IdentityProfilesApiFp(this.configuration).exportIdentityProfiles(requestParameters.limit, requestParameters.offset, requestParameters.count, requestParameters.filters, requestParameters.sorters, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -27250,8 +27250,8 @@ export class IdentityProfilesApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof IdentityProfilesApi
      */
-    public getDefaultIdentityAttributeConfig(requestParameters: IdentityProfilesApiGetDefaultIdentityAttributeConfigRequest, options?: AxiosRequestConfig) {
-        return IdentityProfilesApiFp(this.configuration).getDefaultIdentityAttributeConfig(requestParameters.identityProfileId, options).then((request) => request(this.axios, this.basePath));
+    public getDefaultIdentityAttributeConfig(requestParameters: IdentityProfilesApiGetDefaultIdentityAttributeConfigRequest, axiosOptions?: AxiosRequestConfig) {
+        return IdentityProfilesApiFp(this.configuration).getDefaultIdentityAttributeConfig(requestParameters.identityProfileId, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -27262,8 +27262,8 @@ export class IdentityProfilesApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof IdentityProfilesApi
      */
-    public getIdentityProfile(requestParameters: IdentityProfilesApiGetIdentityProfileRequest, options?: AxiosRequestConfig) {
-        return IdentityProfilesApiFp(this.configuration).getIdentityProfile(requestParameters.identityProfileId, options).then((request) => request(this.axios, this.basePath));
+    public getIdentityProfile(requestParameters: IdentityProfilesApiGetIdentityProfileRequest, axiosOptions?: AxiosRequestConfig) {
+        return IdentityProfilesApiFp(this.configuration).getIdentityProfile(requestParameters.identityProfileId, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -27274,8 +27274,8 @@ export class IdentityProfilesApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof IdentityProfilesApi
      */
-    public importIdentityProfiles(requestParameters: IdentityProfilesApiImportIdentityProfilesRequest, options?: AxiosRequestConfig) {
-        return IdentityProfilesApiFp(this.configuration).importIdentityProfiles(requestParameters.identityProfileExportedObject, options).then((request) => request(this.axios, this.basePath));
+    public importIdentityProfiles(requestParameters: IdentityProfilesApiImportIdentityProfilesRequest, axiosOptions?: AxiosRequestConfig) {
+        return IdentityProfilesApiFp(this.configuration).importIdentityProfiles(requestParameters.identityProfileExportedObject, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -27286,8 +27286,8 @@ export class IdentityProfilesApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof IdentityProfilesApi
      */
-    public listIdentityProfiles(requestParameters: IdentityProfilesApiListIdentityProfilesRequest = {}, options?: AxiosRequestConfig) {
-        return IdentityProfilesApiFp(this.configuration).listIdentityProfiles(requestParameters.limit, requestParameters.offset, requestParameters.count, requestParameters.filters, requestParameters.sorters, options).then((request) => request(this.axios, this.basePath));
+    public listIdentityProfiles(requestParameters: IdentityProfilesApiListIdentityProfilesRequest = {}, axiosOptions?: AxiosRequestConfig) {
+        return IdentityProfilesApiFp(this.configuration).listIdentityProfiles(requestParameters.limit, requestParameters.offset, requestParameters.count, requestParameters.filters, requestParameters.sorters, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -27298,8 +27298,8 @@ export class IdentityProfilesApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof IdentityProfilesApi
      */
-    public syncIdentityProfile(requestParameters: IdentityProfilesApiSyncIdentityProfileRequest, options?: AxiosRequestConfig) {
-        return IdentityProfilesApiFp(this.configuration).syncIdentityProfile(requestParameters.identityProfileId, options).then((request) => request(this.axios, this.basePath));
+    public syncIdentityProfile(requestParameters: IdentityProfilesApiSyncIdentityProfileRequest, axiosOptions?: AxiosRequestConfig) {
+        return IdentityProfilesApiFp(this.configuration).syncIdentityProfile(requestParameters.identityProfileId, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 }
 
@@ -27953,8 +27953,8 @@ export class LifecycleStatesApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof LifecycleStatesApi
      */
-    public createLifecycleState(requestParameters: LifecycleStatesApiCreateLifecycleStateRequest, options?: AxiosRequestConfig) {
-        return LifecycleStatesApiFp(this.configuration).createLifecycleState(requestParameters.identityProfileId, requestParameters.lifecycleState, options).then((request) => request(this.axios, this.basePath));
+    public createLifecycleState(requestParameters: LifecycleStatesApiCreateLifecycleStateRequest, axiosOptions?: AxiosRequestConfig) {
+        return LifecycleStatesApiFp(this.configuration).createLifecycleState(requestParameters.identityProfileId, requestParameters.lifecycleState, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -27965,8 +27965,8 @@ export class LifecycleStatesApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof LifecycleStatesApi
      */
-    public deleteLifecycleState(requestParameters: LifecycleStatesApiDeleteLifecycleStateRequest, options?: AxiosRequestConfig) {
-        return LifecycleStatesApiFp(this.configuration).deleteLifecycleState(requestParameters.identityProfileId, requestParameters.lifecycleStateId, options).then((request) => request(this.axios, this.basePath));
+    public deleteLifecycleState(requestParameters: LifecycleStatesApiDeleteLifecycleStateRequest, axiosOptions?: AxiosRequestConfig) {
+        return LifecycleStatesApiFp(this.configuration).deleteLifecycleState(requestParameters.identityProfileId, requestParameters.lifecycleStateId, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -27977,8 +27977,8 @@ export class LifecycleStatesApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof LifecycleStatesApi
      */
-    public getLifecycleState(requestParameters: LifecycleStatesApiGetLifecycleStateRequest, options?: AxiosRequestConfig) {
-        return LifecycleStatesApiFp(this.configuration).getLifecycleState(requestParameters.identityProfileId, requestParameters.lifecycleStateId, options).then((request) => request(this.axios, this.basePath));
+    public getLifecycleState(requestParameters: LifecycleStatesApiGetLifecycleStateRequest, axiosOptions?: AxiosRequestConfig) {
+        return LifecycleStatesApiFp(this.configuration).getLifecycleState(requestParameters.identityProfileId, requestParameters.lifecycleStateId, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -27989,8 +27989,8 @@ export class LifecycleStatesApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof LifecycleStatesApi
      */
-    public listLifecycleStates(requestParameters: LifecycleStatesApiListLifecycleStatesRequest, options?: AxiosRequestConfig) {
-        return LifecycleStatesApiFp(this.configuration).listLifecycleStates(requestParameters.identityProfileId, requestParameters.limit, requestParameters.offset, requestParameters.count, requestParameters.sorters, options).then((request) => request(this.axios, this.basePath));
+    public listLifecycleStates(requestParameters: LifecycleStatesApiListLifecycleStatesRequest, axiosOptions?: AxiosRequestConfig) {
+        return LifecycleStatesApiFp(this.configuration).listLifecycleStates(requestParameters.identityProfileId, requestParameters.limit, requestParameters.offset, requestParameters.count, requestParameters.sorters, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -28001,8 +28001,8 @@ export class LifecycleStatesApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof LifecycleStatesApi
      */
-    public setLifecycleState(requestParameters: LifecycleStatesApiSetLifecycleStateRequest, options?: AxiosRequestConfig) {
-        return LifecycleStatesApiFp(this.configuration).setLifecycleState(requestParameters.identityId, requestParameters.setLifecycleStateRequest, options).then((request) => request(this.axios, this.basePath));
+    public setLifecycleState(requestParameters: LifecycleStatesApiSetLifecycleStateRequest, axiosOptions?: AxiosRequestConfig) {
+        return LifecycleStatesApiFp(this.configuration).setLifecycleState(requestParameters.identityId, requestParameters.setLifecycleStateRequest, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -28013,8 +28013,8 @@ export class LifecycleStatesApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof LifecycleStatesApi
      */
-    public updateLifecycleStates(requestParameters: LifecycleStatesApiUpdateLifecycleStatesRequest, options?: AxiosRequestConfig) {
-        return LifecycleStatesApiFp(this.configuration).updateLifecycleStates(requestParameters.identityProfileId, requestParameters.lifecycleStateId, requestParameters.jsonPatchOperation, options).then((request) => request(this.axios, this.basePath));
+    public updateLifecycleStates(requestParameters: LifecycleStatesApiUpdateLifecycleStatesRequest, axiosOptions?: AxiosRequestConfig) {
+        return LifecycleStatesApiFp(this.configuration).updateLifecycleStates(requestParameters.identityProfileId, requestParameters.lifecycleStateId, requestParameters.jsonPatchOperation, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 }
 
@@ -31021,8 +31021,8 @@ export class NonEmployeeLifecycleManagementApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof NonEmployeeLifecycleManagementApi
      */
-    public approveNonEmployeeRequest(requestParameters: NonEmployeeLifecycleManagementApiApproveNonEmployeeRequestRequest, options?: AxiosRequestConfig) {
-        return NonEmployeeLifecycleManagementApiFp(this.configuration).approveNonEmployeeRequest(requestParameters.id, requestParameters.nonEmployeeApprovalDecision, options).then((request) => request(this.axios, this.basePath));
+    public approveNonEmployeeRequest(requestParameters: NonEmployeeLifecycleManagementApiApproveNonEmployeeRequestRequest, axiosOptions?: AxiosRequestConfig) {
+        return NonEmployeeLifecycleManagementApiFp(this.configuration).approveNonEmployeeRequest(requestParameters.id, requestParameters.nonEmployeeApprovalDecision, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -31033,8 +31033,8 @@ export class NonEmployeeLifecycleManagementApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof NonEmployeeLifecycleManagementApi
      */
-    public createNonEmployeeRecord(requestParameters: NonEmployeeLifecycleManagementApiCreateNonEmployeeRecordRequest, options?: AxiosRequestConfig) {
-        return NonEmployeeLifecycleManagementApiFp(this.configuration).createNonEmployeeRecord(requestParameters.nonEmployeeRequestBody, options).then((request) => request(this.axios, this.basePath));
+    public createNonEmployeeRecord(requestParameters: NonEmployeeLifecycleManagementApiCreateNonEmployeeRecordRequest, axiosOptions?: AxiosRequestConfig) {
+        return NonEmployeeLifecycleManagementApiFp(this.configuration).createNonEmployeeRecord(requestParameters.nonEmployeeRequestBody, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -31045,8 +31045,8 @@ export class NonEmployeeLifecycleManagementApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof NonEmployeeLifecycleManagementApi
      */
-    public createNonEmployeeRequest(requestParameters: NonEmployeeLifecycleManagementApiCreateNonEmployeeRequestRequest, options?: AxiosRequestConfig) {
-        return NonEmployeeLifecycleManagementApiFp(this.configuration).createNonEmployeeRequest(requestParameters.nonEmployeeRequestBody, options).then((request) => request(this.axios, this.basePath));
+    public createNonEmployeeRequest(requestParameters: NonEmployeeLifecycleManagementApiCreateNonEmployeeRequestRequest, axiosOptions?: AxiosRequestConfig) {
+        return NonEmployeeLifecycleManagementApiFp(this.configuration).createNonEmployeeRequest(requestParameters.nonEmployeeRequestBody, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -31057,8 +31057,8 @@ export class NonEmployeeLifecycleManagementApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof NonEmployeeLifecycleManagementApi
      */
-    public createNonEmployeeSource(requestParameters: NonEmployeeLifecycleManagementApiCreateNonEmployeeSourceRequest, options?: AxiosRequestConfig) {
-        return NonEmployeeLifecycleManagementApiFp(this.configuration).createNonEmployeeSource(requestParameters.nonEmployeeSourceRequestBody, options).then((request) => request(this.axios, this.basePath));
+    public createNonEmployeeSource(requestParameters: NonEmployeeLifecycleManagementApiCreateNonEmployeeSourceRequest, axiosOptions?: AxiosRequestConfig) {
+        return NonEmployeeLifecycleManagementApiFp(this.configuration).createNonEmployeeSource(requestParameters.nonEmployeeSourceRequestBody, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -31069,8 +31069,8 @@ export class NonEmployeeLifecycleManagementApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof NonEmployeeLifecycleManagementApi
      */
-    public createNonEmployeeSourceSchemaAttributes(requestParameters: NonEmployeeLifecycleManagementApiCreateNonEmployeeSourceSchemaAttributesRequest, options?: AxiosRequestConfig) {
-        return NonEmployeeLifecycleManagementApiFp(this.configuration).createNonEmployeeSourceSchemaAttributes(requestParameters.sourceId, requestParameters.nonEmployeeSchemaAttributeBody, options).then((request) => request(this.axios, this.basePath));
+    public createNonEmployeeSourceSchemaAttributes(requestParameters: NonEmployeeLifecycleManagementApiCreateNonEmployeeSourceSchemaAttributesRequest, axiosOptions?: AxiosRequestConfig) {
+        return NonEmployeeLifecycleManagementApiFp(this.configuration).createNonEmployeeSourceSchemaAttributes(requestParameters.sourceId, requestParameters.nonEmployeeSchemaAttributeBody, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -31081,8 +31081,8 @@ export class NonEmployeeLifecycleManagementApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof NonEmployeeLifecycleManagementApi
      */
-    public deleteNonEmployeeRecord(requestParameters: NonEmployeeLifecycleManagementApiDeleteNonEmployeeRecordRequest, options?: AxiosRequestConfig) {
-        return NonEmployeeLifecycleManagementApiFp(this.configuration).deleteNonEmployeeRecord(requestParameters.id, options).then((request) => request(this.axios, this.basePath));
+    public deleteNonEmployeeRecord(requestParameters: NonEmployeeLifecycleManagementApiDeleteNonEmployeeRecordRequest, axiosOptions?: AxiosRequestConfig) {
+        return NonEmployeeLifecycleManagementApiFp(this.configuration).deleteNonEmployeeRecord(requestParameters.id, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -31093,8 +31093,8 @@ export class NonEmployeeLifecycleManagementApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof NonEmployeeLifecycleManagementApi
      */
-    public deleteNonEmployeeRecordsInBulk(requestParameters: NonEmployeeLifecycleManagementApiDeleteNonEmployeeRecordsInBulkRequest, options?: AxiosRequestConfig) {
-        return NonEmployeeLifecycleManagementApiFp(this.configuration).deleteNonEmployeeRecordsInBulk(requestParameters.deleteNonEmployeeRecordsInBulkRequest, options).then((request) => request(this.axios, this.basePath));
+    public deleteNonEmployeeRecordsInBulk(requestParameters: NonEmployeeLifecycleManagementApiDeleteNonEmployeeRecordsInBulkRequest, axiosOptions?: AxiosRequestConfig) {
+        return NonEmployeeLifecycleManagementApiFp(this.configuration).deleteNonEmployeeRecordsInBulk(requestParameters.deleteNonEmployeeRecordsInBulkRequest, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -31105,8 +31105,8 @@ export class NonEmployeeLifecycleManagementApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof NonEmployeeLifecycleManagementApi
      */
-    public deleteNonEmployeeRequest(requestParameters: NonEmployeeLifecycleManagementApiDeleteNonEmployeeRequestRequest, options?: AxiosRequestConfig) {
-        return NonEmployeeLifecycleManagementApiFp(this.configuration).deleteNonEmployeeRequest(requestParameters.id, options).then((request) => request(this.axios, this.basePath));
+    public deleteNonEmployeeRequest(requestParameters: NonEmployeeLifecycleManagementApiDeleteNonEmployeeRequestRequest, axiosOptions?: AxiosRequestConfig) {
+        return NonEmployeeLifecycleManagementApiFp(this.configuration).deleteNonEmployeeRequest(requestParameters.id, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -31117,8 +31117,8 @@ export class NonEmployeeLifecycleManagementApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof NonEmployeeLifecycleManagementApi
      */
-    public deleteNonEmployeeSchemaAttribute(requestParameters: NonEmployeeLifecycleManagementApiDeleteNonEmployeeSchemaAttributeRequest, options?: AxiosRequestConfig) {
-        return NonEmployeeLifecycleManagementApiFp(this.configuration).deleteNonEmployeeSchemaAttribute(requestParameters.attributeId, requestParameters.sourceId, options).then((request) => request(this.axios, this.basePath));
+    public deleteNonEmployeeSchemaAttribute(requestParameters: NonEmployeeLifecycleManagementApiDeleteNonEmployeeSchemaAttributeRequest, axiosOptions?: AxiosRequestConfig) {
+        return NonEmployeeLifecycleManagementApiFp(this.configuration).deleteNonEmployeeSchemaAttribute(requestParameters.attributeId, requestParameters.sourceId, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -31129,8 +31129,8 @@ export class NonEmployeeLifecycleManagementApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof NonEmployeeLifecycleManagementApi
      */
-    public deleteNonEmployeeSource(requestParameters: NonEmployeeLifecycleManagementApiDeleteNonEmployeeSourceRequest, options?: AxiosRequestConfig) {
-        return NonEmployeeLifecycleManagementApiFp(this.configuration).deleteNonEmployeeSource(requestParameters.sourceId, options).then((request) => request(this.axios, this.basePath));
+    public deleteNonEmployeeSource(requestParameters: NonEmployeeLifecycleManagementApiDeleteNonEmployeeSourceRequest, axiosOptions?: AxiosRequestConfig) {
+        return NonEmployeeLifecycleManagementApiFp(this.configuration).deleteNonEmployeeSource(requestParameters.sourceId, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -31141,8 +31141,8 @@ export class NonEmployeeLifecycleManagementApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof NonEmployeeLifecycleManagementApi
      */
-    public deleteNonEmployeeSourceSchemaAttributes(requestParameters: NonEmployeeLifecycleManagementApiDeleteNonEmployeeSourceSchemaAttributesRequest, options?: AxiosRequestConfig) {
-        return NonEmployeeLifecycleManagementApiFp(this.configuration).deleteNonEmployeeSourceSchemaAttributes(requestParameters.sourceId, options).then((request) => request(this.axios, this.basePath));
+    public deleteNonEmployeeSourceSchemaAttributes(requestParameters: NonEmployeeLifecycleManagementApiDeleteNonEmployeeSourceSchemaAttributesRequest, axiosOptions?: AxiosRequestConfig) {
+        return NonEmployeeLifecycleManagementApiFp(this.configuration).deleteNonEmployeeSourceSchemaAttributes(requestParameters.sourceId, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -31153,8 +31153,8 @@ export class NonEmployeeLifecycleManagementApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof NonEmployeeLifecycleManagementApi
      */
-    public exportNonEmployeeRecords(requestParameters: NonEmployeeLifecycleManagementApiExportNonEmployeeRecordsRequest, options?: AxiosRequestConfig) {
-        return NonEmployeeLifecycleManagementApiFp(this.configuration).exportNonEmployeeRecords(requestParameters.id, options).then((request) => request(this.axios, this.basePath));
+    public exportNonEmployeeRecords(requestParameters: NonEmployeeLifecycleManagementApiExportNonEmployeeRecordsRequest, axiosOptions?: AxiosRequestConfig) {
+        return NonEmployeeLifecycleManagementApiFp(this.configuration).exportNonEmployeeRecords(requestParameters.id, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -31165,8 +31165,8 @@ export class NonEmployeeLifecycleManagementApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof NonEmployeeLifecycleManagementApi
      */
-    public exportNonEmployeeSourceSchemaTemplate(requestParameters: NonEmployeeLifecycleManagementApiExportNonEmployeeSourceSchemaTemplateRequest, options?: AxiosRequestConfig) {
-        return NonEmployeeLifecycleManagementApiFp(this.configuration).exportNonEmployeeSourceSchemaTemplate(requestParameters.id, options).then((request) => request(this.axios, this.basePath));
+    public exportNonEmployeeSourceSchemaTemplate(requestParameters: NonEmployeeLifecycleManagementApiExportNonEmployeeSourceSchemaTemplateRequest, axiosOptions?: AxiosRequestConfig) {
+        return NonEmployeeLifecycleManagementApiFp(this.configuration).exportNonEmployeeSourceSchemaTemplate(requestParameters.id, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -31177,8 +31177,8 @@ export class NonEmployeeLifecycleManagementApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof NonEmployeeLifecycleManagementApi
      */
-    public getNonEmployeeApproval(requestParameters: NonEmployeeLifecycleManagementApiGetNonEmployeeApprovalRequest, options?: AxiosRequestConfig) {
-        return NonEmployeeLifecycleManagementApiFp(this.configuration).getNonEmployeeApproval(requestParameters.id, requestParameters.includeDetail, options).then((request) => request(this.axios, this.basePath));
+    public getNonEmployeeApproval(requestParameters: NonEmployeeLifecycleManagementApiGetNonEmployeeApprovalRequest, axiosOptions?: AxiosRequestConfig) {
+        return NonEmployeeLifecycleManagementApiFp(this.configuration).getNonEmployeeApproval(requestParameters.id, requestParameters.includeDetail, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -31189,8 +31189,8 @@ export class NonEmployeeLifecycleManagementApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof NonEmployeeLifecycleManagementApi
      */
-    public getNonEmployeeApprovalSummary(requestParameters: NonEmployeeLifecycleManagementApiGetNonEmployeeApprovalSummaryRequest, options?: AxiosRequestConfig) {
-        return NonEmployeeLifecycleManagementApiFp(this.configuration).getNonEmployeeApprovalSummary(requestParameters.requestedFor, options).then((request) => request(this.axios, this.basePath));
+    public getNonEmployeeApprovalSummary(requestParameters: NonEmployeeLifecycleManagementApiGetNonEmployeeApprovalSummaryRequest, axiosOptions?: AxiosRequestConfig) {
+        return NonEmployeeLifecycleManagementApiFp(this.configuration).getNonEmployeeApprovalSummary(requestParameters.requestedFor, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -31201,8 +31201,8 @@ export class NonEmployeeLifecycleManagementApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof NonEmployeeLifecycleManagementApi
      */
-    public getNonEmployeeBulkUploadStatus(requestParameters: NonEmployeeLifecycleManagementApiGetNonEmployeeBulkUploadStatusRequest, options?: AxiosRequestConfig) {
-        return NonEmployeeLifecycleManagementApiFp(this.configuration).getNonEmployeeBulkUploadStatus(requestParameters.id, options).then((request) => request(this.axios, this.basePath));
+    public getNonEmployeeBulkUploadStatus(requestParameters: NonEmployeeLifecycleManagementApiGetNonEmployeeBulkUploadStatusRequest, axiosOptions?: AxiosRequestConfig) {
+        return NonEmployeeLifecycleManagementApiFp(this.configuration).getNonEmployeeBulkUploadStatus(requestParameters.id, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -31213,8 +31213,8 @@ export class NonEmployeeLifecycleManagementApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof NonEmployeeLifecycleManagementApi
      */
-    public getNonEmployeeRecord(requestParameters: NonEmployeeLifecycleManagementApiGetNonEmployeeRecordRequest, options?: AxiosRequestConfig) {
-        return NonEmployeeLifecycleManagementApiFp(this.configuration).getNonEmployeeRecord(requestParameters.id, options).then((request) => request(this.axios, this.basePath));
+    public getNonEmployeeRecord(requestParameters: NonEmployeeLifecycleManagementApiGetNonEmployeeRecordRequest, axiosOptions?: AxiosRequestConfig) {
+        return NonEmployeeLifecycleManagementApiFp(this.configuration).getNonEmployeeRecord(requestParameters.id, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -31225,8 +31225,8 @@ export class NonEmployeeLifecycleManagementApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof NonEmployeeLifecycleManagementApi
      */
-    public getNonEmployeeRequest(requestParameters: NonEmployeeLifecycleManagementApiGetNonEmployeeRequestRequest, options?: AxiosRequestConfig) {
-        return NonEmployeeLifecycleManagementApiFp(this.configuration).getNonEmployeeRequest(requestParameters.id, options).then((request) => request(this.axios, this.basePath));
+    public getNonEmployeeRequest(requestParameters: NonEmployeeLifecycleManagementApiGetNonEmployeeRequestRequest, axiosOptions?: AxiosRequestConfig) {
+        return NonEmployeeLifecycleManagementApiFp(this.configuration).getNonEmployeeRequest(requestParameters.id, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -31237,8 +31237,8 @@ export class NonEmployeeLifecycleManagementApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof NonEmployeeLifecycleManagementApi
      */
-    public getNonEmployeeRequestSummary(requestParameters: NonEmployeeLifecycleManagementApiGetNonEmployeeRequestSummaryRequest, options?: AxiosRequestConfig) {
-        return NonEmployeeLifecycleManagementApiFp(this.configuration).getNonEmployeeRequestSummary(requestParameters.requestedFor, options).then((request) => request(this.axios, this.basePath));
+    public getNonEmployeeRequestSummary(requestParameters: NonEmployeeLifecycleManagementApiGetNonEmployeeRequestSummaryRequest, axiosOptions?: AxiosRequestConfig) {
+        return NonEmployeeLifecycleManagementApiFp(this.configuration).getNonEmployeeRequestSummary(requestParameters.requestedFor, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -31249,8 +31249,8 @@ export class NonEmployeeLifecycleManagementApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof NonEmployeeLifecycleManagementApi
      */
-    public getNonEmployeeSchemaAttribute(requestParameters: NonEmployeeLifecycleManagementApiGetNonEmployeeSchemaAttributeRequest, options?: AxiosRequestConfig) {
-        return NonEmployeeLifecycleManagementApiFp(this.configuration).getNonEmployeeSchemaAttribute(requestParameters.attributeId, requestParameters.sourceId, options).then((request) => request(this.axios, this.basePath));
+    public getNonEmployeeSchemaAttribute(requestParameters: NonEmployeeLifecycleManagementApiGetNonEmployeeSchemaAttributeRequest, axiosOptions?: AxiosRequestConfig) {
+        return NonEmployeeLifecycleManagementApiFp(this.configuration).getNonEmployeeSchemaAttribute(requestParameters.attributeId, requestParameters.sourceId, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -31261,8 +31261,8 @@ export class NonEmployeeLifecycleManagementApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof NonEmployeeLifecycleManagementApi
      */
-    public getNonEmployeeSource(requestParameters: NonEmployeeLifecycleManagementApiGetNonEmployeeSourceRequest, options?: AxiosRequestConfig) {
-        return NonEmployeeLifecycleManagementApiFp(this.configuration).getNonEmployeeSource(requestParameters.sourceId, options).then((request) => request(this.axios, this.basePath));
+    public getNonEmployeeSource(requestParameters: NonEmployeeLifecycleManagementApiGetNonEmployeeSourceRequest, axiosOptions?: AxiosRequestConfig) {
+        return NonEmployeeLifecycleManagementApiFp(this.configuration).getNonEmployeeSource(requestParameters.sourceId, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -31273,8 +31273,8 @@ export class NonEmployeeLifecycleManagementApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof NonEmployeeLifecycleManagementApi
      */
-    public getNonEmployeeSourceSchemaAttributes(requestParameters: NonEmployeeLifecycleManagementApiGetNonEmployeeSourceSchemaAttributesRequest, options?: AxiosRequestConfig) {
-        return NonEmployeeLifecycleManagementApiFp(this.configuration).getNonEmployeeSourceSchemaAttributes(requestParameters.sourceId, options).then((request) => request(this.axios, this.basePath));
+    public getNonEmployeeSourceSchemaAttributes(requestParameters: NonEmployeeLifecycleManagementApiGetNonEmployeeSourceSchemaAttributesRequest, axiosOptions?: AxiosRequestConfig) {
+        return NonEmployeeLifecycleManagementApiFp(this.configuration).getNonEmployeeSourceSchemaAttributes(requestParameters.sourceId, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -31285,8 +31285,8 @@ export class NonEmployeeLifecycleManagementApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof NonEmployeeLifecycleManagementApi
      */
-    public importNonEmployeeRecordsInBulk(requestParameters: NonEmployeeLifecycleManagementApiImportNonEmployeeRecordsInBulkRequest, options?: AxiosRequestConfig) {
-        return NonEmployeeLifecycleManagementApiFp(this.configuration).importNonEmployeeRecordsInBulk(requestParameters.id, requestParameters.data, options).then((request) => request(this.axios, this.basePath));
+    public importNonEmployeeRecordsInBulk(requestParameters: NonEmployeeLifecycleManagementApiImportNonEmployeeRecordsInBulkRequest, axiosOptions?: AxiosRequestConfig) {
+        return NonEmployeeLifecycleManagementApiFp(this.configuration).importNonEmployeeRecordsInBulk(requestParameters.id, requestParameters.data, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -31297,8 +31297,8 @@ export class NonEmployeeLifecycleManagementApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof NonEmployeeLifecycleManagementApi
      */
-    public listNonEmployeeApprovals(requestParameters: NonEmployeeLifecycleManagementApiListNonEmployeeApprovalsRequest = {}, options?: AxiosRequestConfig) {
-        return NonEmployeeLifecycleManagementApiFp(this.configuration).listNonEmployeeApprovals(requestParameters.requestedFor, requestParameters.limit, requestParameters.offset, requestParameters.count, requestParameters.filters, requestParameters.sorters, options).then((request) => request(this.axios, this.basePath));
+    public listNonEmployeeApprovals(requestParameters: NonEmployeeLifecycleManagementApiListNonEmployeeApprovalsRequest = {}, axiosOptions?: AxiosRequestConfig) {
+        return NonEmployeeLifecycleManagementApiFp(this.configuration).listNonEmployeeApprovals(requestParameters.requestedFor, requestParameters.limit, requestParameters.offset, requestParameters.count, requestParameters.filters, requestParameters.sorters, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -31309,8 +31309,8 @@ export class NonEmployeeLifecycleManagementApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof NonEmployeeLifecycleManagementApi
      */
-    public listNonEmployeeRecords(requestParameters: NonEmployeeLifecycleManagementApiListNonEmployeeRecordsRequest = {}, options?: AxiosRequestConfig) {
-        return NonEmployeeLifecycleManagementApiFp(this.configuration).listNonEmployeeRecords(requestParameters.limit, requestParameters.offset, requestParameters.count, requestParameters.sorters, requestParameters.filters, options).then((request) => request(this.axios, this.basePath));
+    public listNonEmployeeRecords(requestParameters: NonEmployeeLifecycleManagementApiListNonEmployeeRecordsRequest = {}, axiosOptions?: AxiosRequestConfig) {
+        return NonEmployeeLifecycleManagementApiFp(this.configuration).listNonEmployeeRecords(requestParameters.limit, requestParameters.offset, requestParameters.count, requestParameters.sorters, requestParameters.filters, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -31321,8 +31321,8 @@ export class NonEmployeeLifecycleManagementApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof NonEmployeeLifecycleManagementApi
      */
-    public listNonEmployeeRequests(requestParameters: NonEmployeeLifecycleManagementApiListNonEmployeeRequestsRequest, options?: AxiosRequestConfig) {
-        return NonEmployeeLifecycleManagementApiFp(this.configuration).listNonEmployeeRequests(requestParameters.requestedFor, requestParameters.limit, requestParameters.offset, requestParameters.count, requestParameters.sorters, requestParameters.filters, options).then((request) => request(this.axios, this.basePath));
+    public listNonEmployeeRequests(requestParameters: NonEmployeeLifecycleManagementApiListNonEmployeeRequestsRequest, axiosOptions?: AxiosRequestConfig) {
+        return NonEmployeeLifecycleManagementApiFp(this.configuration).listNonEmployeeRequests(requestParameters.requestedFor, requestParameters.limit, requestParameters.offset, requestParameters.count, requestParameters.sorters, requestParameters.filters, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -31333,8 +31333,8 @@ export class NonEmployeeLifecycleManagementApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof NonEmployeeLifecycleManagementApi
      */
-    public listNonEmployeeSources(requestParameters: NonEmployeeLifecycleManagementApiListNonEmployeeSourcesRequest, options?: AxiosRequestConfig) {
-        return NonEmployeeLifecycleManagementApiFp(this.configuration).listNonEmployeeSources(requestParameters.requestedFor, requestParameters.limit, requestParameters.offset, requestParameters.count, requestParameters.nonEmployeeCount, requestParameters.sorters, options).then((request) => request(this.axios, this.basePath));
+    public listNonEmployeeSources(requestParameters: NonEmployeeLifecycleManagementApiListNonEmployeeSourcesRequest, axiosOptions?: AxiosRequestConfig) {
+        return NonEmployeeLifecycleManagementApiFp(this.configuration).listNonEmployeeSources(requestParameters.requestedFor, requestParameters.limit, requestParameters.offset, requestParameters.count, requestParameters.nonEmployeeCount, requestParameters.sorters, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -31345,8 +31345,8 @@ export class NonEmployeeLifecycleManagementApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof NonEmployeeLifecycleManagementApi
      */
-    public patchNonEmployeeRecord(requestParameters: NonEmployeeLifecycleManagementApiPatchNonEmployeeRecordRequest, options?: AxiosRequestConfig) {
-        return NonEmployeeLifecycleManagementApiFp(this.configuration).patchNonEmployeeRecord(requestParameters.id, requestParameters.jsonPatchOperation, options).then((request) => request(this.axios, this.basePath));
+    public patchNonEmployeeRecord(requestParameters: NonEmployeeLifecycleManagementApiPatchNonEmployeeRecordRequest, axiosOptions?: AxiosRequestConfig) {
+        return NonEmployeeLifecycleManagementApiFp(this.configuration).patchNonEmployeeRecord(requestParameters.id, requestParameters.jsonPatchOperation, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -31357,8 +31357,8 @@ export class NonEmployeeLifecycleManagementApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof NonEmployeeLifecycleManagementApi
      */
-    public patchNonEmployeeSchemaAttribute(requestParameters: NonEmployeeLifecycleManagementApiPatchNonEmployeeSchemaAttributeRequest, options?: AxiosRequestConfig) {
-        return NonEmployeeLifecycleManagementApiFp(this.configuration).patchNonEmployeeSchemaAttribute(requestParameters.attributeId, requestParameters.sourceId, requestParameters.jsonPatchOperation, options).then((request) => request(this.axios, this.basePath));
+    public patchNonEmployeeSchemaAttribute(requestParameters: NonEmployeeLifecycleManagementApiPatchNonEmployeeSchemaAttributeRequest, axiosOptions?: AxiosRequestConfig) {
+        return NonEmployeeLifecycleManagementApiFp(this.configuration).patchNonEmployeeSchemaAttribute(requestParameters.attributeId, requestParameters.sourceId, requestParameters.jsonPatchOperation, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -31369,8 +31369,8 @@ export class NonEmployeeLifecycleManagementApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof NonEmployeeLifecycleManagementApi
      */
-    public patchNonEmployeeSource(requestParameters: NonEmployeeLifecycleManagementApiPatchNonEmployeeSourceRequest, options?: AxiosRequestConfig) {
-        return NonEmployeeLifecycleManagementApiFp(this.configuration).patchNonEmployeeSource(requestParameters.sourceId, requestParameters.jsonPatchOperation, options).then((request) => request(this.axios, this.basePath));
+    public patchNonEmployeeSource(requestParameters: NonEmployeeLifecycleManagementApiPatchNonEmployeeSourceRequest, axiosOptions?: AxiosRequestConfig) {
+        return NonEmployeeLifecycleManagementApiFp(this.configuration).patchNonEmployeeSource(requestParameters.sourceId, requestParameters.jsonPatchOperation, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -31381,8 +31381,8 @@ export class NonEmployeeLifecycleManagementApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof NonEmployeeLifecycleManagementApi
      */
-    public rejectNonEmployeeRequest(requestParameters: NonEmployeeLifecycleManagementApiRejectNonEmployeeRequestRequest, options?: AxiosRequestConfig) {
-        return NonEmployeeLifecycleManagementApiFp(this.configuration).rejectNonEmployeeRequest(requestParameters.id, requestParameters.nonEmployeeRejectApprovalDecision, options).then((request) => request(this.axios, this.basePath));
+    public rejectNonEmployeeRequest(requestParameters: NonEmployeeLifecycleManagementApiRejectNonEmployeeRequestRequest, axiosOptions?: AxiosRequestConfig) {
+        return NonEmployeeLifecycleManagementApiFp(this.configuration).rejectNonEmployeeRequest(requestParameters.id, requestParameters.nonEmployeeRejectApprovalDecision, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -31393,8 +31393,8 @@ export class NonEmployeeLifecycleManagementApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof NonEmployeeLifecycleManagementApi
      */
-    public updateNonEmployeeRecord(requestParameters: NonEmployeeLifecycleManagementApiUpdateNonEmployeeRecordRequest, options?: AxiosRequestConfig) {
-        return NonEmployeeLifecycleManagementApiFp(this.configuration).updateNonEmployeeRecord(requestParameters.id, requestParameters.nonEmployeeRequestBody, options).then((request) => request(this.axios, this.basePath));
+    public updateNonEmployeeRecord(requestParameters: NonEmployeeLifecycleManagementApiUpdateNonEmployeeRecordRequest, axiosOptions?: AxiosRequestConfig) {
+        return NonEmployeeLifecycleManagementApiFp(this.configuration).updateNonEmployeeRecord(requestParameters.id, requestParameters.nonEmployeeRequestBody, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 }
 
@@ -31856,8 +31856,8 @@ export class OAuthClientsApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof OAuthClientsApi
      */
-    public createOauthClient(requestParameters: OAuthClientsApiCreateOauthClientRequest, options?: AxiosRequestConfig) {
-        return OAuthClientsApiFp(this.configuration).createOauthClient(requestParameters.createOAuthClientRequest, options).then((request) => request(this.axios, this.basePath));
+    public createOauthClient(requestParameters: OAuthClientsApiCreateOauthClientRequest, axiosOptions?: AxiosRequestConfig) {
+        return OAuthClientsApiFp(this.configuration).createOauthClient(requestParameters.createOAuthClientRequest, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -31868,8 +31868,8 @@ export class OAuthClientsApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof OAuthClientsApi
      */
-    public deleteOauthClient(requestParameters: OAuthClientsApiDeleteOauthClientRequest, options?: AxiosRequestConfig) {
-        return OAuthClientsApiFp(this.configuration).deleteOauthClient(requestParameters.id, options).then((request) => request(this.axios, this.basePath));
+    public deleteOauthClient(requestParameters: OAuthClientsApiDeleteOauthClientRequest, axiosOptions?: AxiosRequestConfig) {
+        return OAuthClientsApiFp(this.configuration).deleteOauthClient(requestParameters.id, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -31880,8 +31880,8 @@ export class OAuthClientsApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof OAuthClientsApi
      */
-    public getOauthClient(requestParameters: OAuthClientsApiGetOauthClientRequest, options?: AxiosRequestConfig) {
-        return OAuthClientsApiFp(this.configuration).getOauthClient(requestParameters.id, options).then((request) => request(this.axios, this.basePath));
+    public getOauthClient(requestParameters: OAuthClientsApiGetOauthClientRequest, axiosOptions?: AxiosRequestConfig) {
+        return OAuthClientsApiFp(this.configuration).getOauthClient(requestParameters.id, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -31892,8 +31892,8 @@ export class OAuthClientsApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof OAuthClientsApi
      */
-    public listOauthClients(requestParameters: OAuthClientsApiListOauthClientsRequest = {}, options?: AxiosRequestConfig) {
-        return OAuthClientsApiFp(this.configuration).listOauthClients(requestParameters.filters, options).then((request) => request(this.axios, this.basePath));
+    public listOauthClients(requestParameters: OAuthClientsApiListOauthClientsRequest = {}, axiosOptions?: AxiosRequestConfig) {
+        return OAuthClientsApiFp(this.configuration).listOauthClients(requestParameters.filters, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -31904,8 +31904,8 @@ export class OAuthClientsApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof OAuthClientsApi
      */
-    public patchOauthClient(requestParameters: OAuthClientsApiPatchOauthClientRequest, options?: AxiosRequestConfig) {
-        return OAuthClientsApiFp(this.configuration).patchOauthClient(requestParameters.id, requestParameters.jsonPatchOperation, options).then((request) => request(this.axios, this.basePath));
+    public patchOauthClient(requestParameters: OAuthClientsApiPatchOauthClientRequest, axiosOptions?: AxiosRequestConfig) {
+        return OAuthClientsApiFp(this.configuration).patchOauthClient(requestParameters.id, requestParameters.jsonPatchOperation, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 }
 
@@ -32176,8 +32176,8 @@ export class PasswordConfigurationApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof PasswordConfigurationApi
      */
-    public createPasswordOrgConfig(requestParameters: PasswordConfigurationApiCreatePasswordOrgConfigRequest, options?: AxiosRequestConfig) {
-        return PasswordConfigurationApiFp(this.configuration).createPasswordOrgConfig(requestParameters.passwordOrgConfig, options).then((request) => request(this.axios, this.basePath));
+    public createPasswordOrgConfig(requestParameters: PasswordConfigurationApiCreatePasswordOrgConfigRequest, axiosOptions?: AxiosRequestConfig) {
+        return PasswordConfigurationApiFp(this.configuration).createPasswordOrgConfig(requestParameters.passwordOrgConfig, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -32187,8 +32187,8 @@ export class PasswordConfigurationApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof PasswordConfigurationApi
      */
-    public getPasswordOrgConfig(options?: AxiosRequestConfig) {
-        return PasswordConfigurationApiFp(this.configuration).getPasswordOrgConfig(options).then((request) => request(this.axios, this.basePath));
+    public getPasswordOrgConfig(axiosOptions?: AxiosRequestConfig) {
+        return PasswordConfigurationApiFp(this.configuration).getPasswordOrgConfig(axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -32199,8 +32199,8 @@ export class PasswordConfigurationApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof PasswordConfigurationApi
      */
-    public putPasswordOrgConfig(requestParameters: PasswordConfigurationApiPutPasswordOrgConfigRequest, options?: AxiosRequestConfig) {
-        return PasswordConfigurationApiFp(this.configuration).putPasswordOrgConfig(requestParameters.passwordOrgConfig, options).then((request) => request(this.axios, this.basePath));
+    public putPasswordOrgConfig(requestParameters: PasswordConfigurationApiPutPasswordOrgConfigRequest, axiosOptions?: AxiosRequestConfig) {
+        return PasswordConfigurationApiFp(this.configuration).putPasswordOrgConfig(requestParameters.passwordOrgConfig, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 }
 
@@ -32392,8 +32392,8 @@ export class PasswordDictionaryApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof PasswordDictionaryApi
      */
-    public getPasswordDictionary(options?: AxiosRequestConfig) {
-        return PasswordDictionaryApiFp(this.configuration).getPasswordDictionary(options).then((request) => request(this.axios, this.basePath));
+    public getPasswordDictionary(axiosOptions?: AxiosRequestConfig) {
+        return PasswordDictionaryApiFp(this.configuration).getPasswordDictionary(axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -32404,8 +32404,8 @@ export class PasswordDictionaryApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof PasswordDictionaryApi
      */
-    public updatePasswordDictionary(requestParameters: PasswordDictionaryApiUpdatePasswordDictionaryRequest = {}, options?: AxiosRequestConfig) {
-        return PasswordDictionaryApiFp(this.configuration).updatePasswordDictionary(requestParameters.file, options).then((request) => request(this.axios, this.basePath));
+    public updatePasswordDictionary(requestParameters: PasswordDictionaryApiUpdatePasswordDictionaryRequest = {}, axiosOptions?: AxiosRequestConfig) {
+        return PasswordDictionaryApiFp(this.configuration).updatePasswordDictionary(requestParameters.file, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 }
 
@@ -32696,8 +32696,8 @@ export class PasswordManagementApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof PasswordManagementApi
      */
-    public getPasswordChangeStatus(requestParameters: PasswordManagementApiGetPasswordChangeStatusRequest, options?: AxiosRequestConfig) {
-        return PasswordManagementApiFp(this.configuration).getPasswordChangeStatus(requestParameters.id, options).then((request) => request(this.axios, this.basePath));
+    public getPasswordChangeStatus(requestParameters: PasswordManagementApiGetPasswordChangeStatusRequest, axiosOptions?: AxiosRequestConfig) {
+        return PasswordManagementApiFp(this.configuration).getPasswordChangeStatus(requestParameters.id, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -32708,8 +32708,8 @@ export class PasswordManagementApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof PasswordManagementApi
      */
-    public queryPasswordInfo(requestParameters: PasswordManagementApiQueryPasswordInfoRequest, options?: AxiosRequestConfig) {
-        return PasswordManagementApiFp(this.configuration).queryPasswordInfo(requestParameters.passwordInfoQueryDTO, options).then((request) => request(this.axios, this.basePath));
+    public queryPasswordInfo(requestParameters: PasswordManagementApiQueryPasswordInfoRequest, axiosOptions?: AxiosRequestConfig) {
+        return PasswordManagementApiFp(this.configuration).queryPasswordInfo(requestParameters.passwordInfoQueryDTO, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -32720,8 +32720,8 @@ export class PasswordManagementApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof PasswordManagementApi
      */
-    public setPassword(requestParameters: PasswordManagementApiSetPasswordRequest, options?: AxiosRequestConfig) {
-        return PasswordManagementApiFp(this.configuration).setPassword(requestParameters.passwordChangeRequest, options).then((request) => request(this.axios, this.basePath));
+    public setPassword(requestParameters: PasswordManagementApiSetPasswordRequest, axiosOptions?: AxiosRequestConfig) {
+        return PasswordManagementApiFp(this.configuration).setPassword(requestParameters.passwordChangeRequest, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 }
 
@@ -33209,8 +33209,8 @@ export class PasswordSyncGroupsApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof PasswordSyncGroupsApi
      */
-    public createPasswordSyncGroup(requestParameters: PasswordSyncGroupsApiCreatePasswordSyncGroupRequest, options?: AxiosRequestConfig) {
-        return PasswordSyncGroupsApiFp(this.configuration).createPasswordSyncGroup(requestParameters.passwordSyncGroup, options).then((request) => request(this.axios, this.basePath));
+    public createPasswordSyncGroup(requestParameters: PasswordSyncGroupsApiCreatePasswordSyncGroupRequest, axiosOptions?: AxiosRequestConfig) {
+        return PasswordSyncGroupsApiFp(this.configuration).createPasswordSyncGroup(requestParameters.passwordSyncGroup, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -33221,8 +33221,8 @@ export class PasswordSyncGroupsApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof PasswordSyncGroupsApi
      */
-    public deletePasswordSyncGroup(requestParameters: PasswordSyncGroupsApiDeletePasswordSyncGroupRequest, options?: AxiosRequestConfig) {
-        return PasswordSyncGroupsApiFp(this.configuration).deletePasswordSyncGroup(requestParameters.id, options).then((request) => request(this.axios, this.basePath));
+    public deletePasswordSyncGroup(requestParameters: PasswordSyncGroupsApiDeletePasswordSyncGroupRequest, axiosOptions?: AxiosRequestConfig) {
+        return PasswordSyncGroupsApiFp(this.configuration).deletePasswordSyncGroup(requestParameters.id, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -33233,8 +33233,8 @@ export class PasswordSyncGroupsApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof PasswordSyncGroupsApi
      */
-    public getPasswordSyncGroup(requestParameters: PasswordSyncGroupsApiGetPasswordSyncGroupRequest, options?: AxiosRequestConfig) {
-        return PasswordSyncGroupsApiFp(this.configuration).getPasswordSyncGroup(requestParameters.id, options).then((request) => request(this.axios, this.basePath));
+    public getPasswordSyncGroup(requestParameters: PasswordSyncGroupsApiGetPasswordSyncGroupRequest, axiosOptions?: AxiosRequestConfig) {
+        return PasswordSyncGroupsApiFp(this.configuration).getPasswordSyncGroup(requestParameters.id, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -33245,8 +33245,8 @@ export class PasswordSyncGroupsApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof PasswordSyncGroupsApi
      */
-    public getPasswordSyncGroups(requestParameters: PasswordSyncGroupsApiGetPasswordSyncGroupsRequest = {}, options?: AxiosRequestConfig) {
-        return PasswordSyncGroupsApiFp(this.configuration).getPasswordSyncGroups(requestParameters.limit, requestParameters.offset, requestParameters.count, options).then((request) => request(this.axios, this.basePath));
+    public getPasswordSyncGroups(requestParameters: PasswordSyncGroupsApiGetPasswordSyncGroupsRequest = {}, axiosOptions?: AxiosRequestConfig) {
+        return PasswordSyncGroupsApiFp(this.configuration).getPasswordSyncGroups(requestParameters.limit, requestParameters.offset, requestParameters.count, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -33257,8 +33257,8 @@ export class PasswordSyncGroupsApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof PasswordSyncGroupsApi
      */
-    public updatePasswordSyncGroup(requestParameters: PasswordSyncGroupsApiUpdatePasswordSyncGroupRequest, options?: AxiosRequestConfig) {
-        return PasswordSyncGroupsApiFp(this.configuration).updatePasswordSyncGroup(requestParameters.id, requestParameters.passwordSyncGroup, options).then((request) => request(this.axios, this.basePath));
+    public updatePasswordSyncGroup(requestParameters: PasswordSyncGroupsApiUpdatePasswordSyncGroupRequest, axiosOptions?: AxiosRequestConfig) {
+        return PasswordSyncGroupsApiFp(this.configuration).updatePasswordSyncGroup(requestParameters.id, requestParameters.passwordSyncGroup, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 }
 
@@ -33654,8 +33654,8 @@ export class PersonalAccessTokensApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof PersonalAccessTokensApi
      */
-    public createPersonalAccessToken(requestParameters: PersonalAccessTokensApiCreatePersonalAccessTokenRequest, options?: AxiosRequestConfig) {
-        return PersonalAccessTokensApiFp(this.configuration).createPersonalAccessToken(requestParameters.createPersonalAccessTokenRequest, options).then((request) => request(this.axios, this.basePath));
+    public createPersonalAccessToken(requestParameters: PersonalAccessTokensApiCreatePersonalAccessTokenRequest, axiosOptions?: AxiosRequestConfig) {
+        return PersonalAccessTokensApiFp(this.configuration).createPersonalAccessToken(requestParameters.createPersonalAccessTokenRequest, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -33666,8 +33666,8 @@ export class PersonalAccessTokensApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof PersonalAccessTokensApi
      */
-    public deletePersonalAccessToken(requestParameters: PersonalAccessTokensApiDeletePersonalAccessTokenRequest, options?: AxiosRequestConfig) {
-        return PersonalAccessTokensApiFp(this.configuration).deletePersonalAccessToken(requestParameters.id, options).then((request) => request(this.axios, this.basePath));
+    public deletePersonalAccessToken(requestParameters: PersonalAccessTokensApiDeletePersonalAccessTokenRequest, axiosOptions?: AxiosRequestConfig) {
+        return PersonalAccessTokensApiFp(this.configuration).deletePersonalAccessToken(requestParameters.id, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -33678,8 +33678,8 @@ export class PersonalAccessTokensApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof PersonalAccessTokensApi
      */
-    public listPersonalAccessTokens(requestParameters: PersonalAccessTokensApiListPersonalAccessTokensRequest = {}, options?: AxiosRequestConfig) {
-        return PersonalAccessTokensApiFp(this.configuration).listPersonalAccessTokens(requestParameters.ownerId, requestParameters.filters, options).then((request) => request(this.axios, this.basePath));
+    public listPersonalAccessTokens(requestParameters: PersonalAccessTokensApiListPersonalAccessTokensRequest = {}, axiosOptions?: AxiosRequestConfig) {
+        return PersonalAccessTokensApiFp(this.configuration).listPersonalAccessTokens(requestParameters.ownerId, requestParameters.filters, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -33690,8 +33690,8 @@ export class PersonalAccessTokensApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof PersonalAccessTokensApi
      */
-    public patchPersonalAccessToken(requestParameters: PersonalAccessTokensApiPatchPersonalAccessTokenRequest, options?: AxiosRequestConfig) {
-        return PersonalAccessTokensApiFp(this.configuration).patchPersonalAccessToken(requestParameters.id, requestParameters.jsonPatchOperation, options).then((request) => request(this.axios, this.basePath));
+    public patchPersonalAccessToken(requestParameters: PersonalAccessTokensApiPatchPersonalAccessTokenRequest, axiosOptions?: AxiosRequestConfig) {
+        return PersonalAccessTokensApiFp(this.configuration).patchPersonalAccessToken(requestParameters.id, requestParameters.jsonPatchOperation, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 }
 
@@ -33886,8 +33886,8 @@ export class PublicIdentitiesApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof PublicIdentitiesApi
      */
-    public getPublicIdentities(requestParameters: PublicIdentitiesApiGetPublicIdentitiesRequest = {}, options?: AxiosRequestConfig) {
-        return PublicIdentitiesApiFp(this.configuration).getPublicIdentities(requestParameters.limit, requestParameters.offset, requestParameters.count, requestParameters.filters, requestParameters.addCoreFilters, requestParameters.sorters, options).then((request) => request(this.axios, this.basePath));
+    public getPublicIdentities(requestParameters: PublicIdentitiesApiGetPublicIdentitiesRequest = {}, axiosOptions?: AxiosRequestConfig) {
+        return PublicIdentitiesApiFp(this.configuration).getPublicIdentities(requestParameters.limit, requestParameters.offset, requestParameters.count, requestParameters.filters, requestParameters.addCoreFilters, requestParameters.sorters, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 }
 
@@ -34076,8 +34076,8 @@ export class PublicIdentitiesConfigApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof PublicIdentitiesConfigApi
      */
-    public getPublicIdentityConfig(options?: AxiosRequestConfig) {
-        return PublicIdentitiesConfigApiFp(this.configuration).getPublicIdentityConfig(options).then((request) => request(this.axios, this.basePath));
+    public getPublicIdentityConfig(axiosOptions?: AxiosRequestConfig) {
+        return PublicIdentitiesConfigApiFp(this.configuration).getPublicIdentityConfig(axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -34088,8 +34088,8 @@ export class PublicIdentitiesConfigApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof PublicIdentitiesConfigApi
      */
-    public updatePublicIdentityConfig(requestParameters: PublicIdentitiesConfigApiUpdatePublicIdentityConfigRequest, options?: AxiosRequestConfig) {
-        return PublicIdentitiesConfigApiFp(this.configuration).updatePublicIdentityConfig(requestParameters.publicIdentityConfig, options).then((request) => request(this.axios, this.basePath));
+    public updatePublicIdentityConfig(requestParameters: PublicIdentitiesConfigApiUpdatePublicIdentityConfigRequest, axiosOptions?: AxiosRequestConfig) {
+        return PublicIdentitiesConfigApiFp(this.configuration).updatePublicIdentityConfig(requestParameters.publicIdentityConfig, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 }
 
@@ -34511,8 +34511,8 @@ export class ReportsDataExtractionApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof ReportsDataExtractionApi
      */
-    public cancelReport(requestParameters: ReportsDataExtractionApiCancelReportRequest, options?: AxiosRequestConfig) {
-        return ReportsDataExtractionApiFp(this.configuration).cancelReport(requestParameters.id, options).then((request) => request(this.axios, this.basePath));
+    public cancelReport(requestParameters: ReportsDataExtractionApiCancelReportRequest, axiosOptions?: AxiosRequestConfig) {
+        return ReportsDataExtractionApiFp(this.configuration).cancelReport(requestParameters.id, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -34523,8 +34523,8 @@ export class ReportsDataExtractionApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof ReportsDataExtractionApi
      */
-    public getReport(requestParameters: ReportsDataExtractionApiGetReportRequest, options?: AxiosRequestConfig) {
-        return ReportsDataExtractionApiFp(this.configuration).getReport(requestParameters.taskResultId, requestParameters.fileFormat, requestParameters.name, requestParameters.auditable, options).then((request) => request(this.axios, this.basePath));
+    public getReport(requestParameters: ReportsDataExtractionApiGetReportRequest, axiosOptions?: AxiosRequestConfig) {
+        return ReportsDataExtractionApiFp(this.configuration).getReport(requestParameters.taskResultId, requestParameters.fileFormat, requestParameters.name, requestParameters.auditable, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -34535,8 +34535,8 @@ export class ReportsDataExtractionApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof ReportsDataExtractionApi
      */
-    public getReportResult(requestParameters: ReportsDataExtractionApiGetReportResultRequest, options?: AxiosRequestConfig) {
-        return ReportsDataExtractionApiFp(this.configuration).getReportResult(requestParameters.taskResultId, requestParameters.completed, options).then((request) => request(this.axios, this.basePath));
+    public getReportResult(requestParameters: ReportsDataExtractionApiGetReportResultRequest, axiosOptions?: AxiosRequestConfig) {
+        return ReportsDataExtractionApiFp(this.configuration).getReportResult(requestParameters.taskResultId, requestParameters.completed, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -34547,8 +34547,8 @@ export class ReportsDataExtractionApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof ReportsDataExtractionApi
      */
-    public startReport(requestParameters: ReportsDataExtractionApiStartReportRequest, options?: AxiosRequestConfig) {
-        return ReportsDataExtractionApiFp(this.configuration).startReport(requestParameters.reportDetails, options).then((request) => request(this.axios, this.basePath));
+    public startReport(requestParameters: ReportsDataExtractionApiStartReportRequest, axiosOptions?: AxiosRequestConfig) {
+        return ReportsDataExtractionApiFp(this.configuration).startReport(requestParameters.reportDetails, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 }
 
@@ -34790,8 +34790,8 @@ export class RequestableObjectsApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof RequestableObjectsApi
      */
-    public listRequestableObjects(requestParameters: RequestableObjectsApiListRequestableObjectsRequest = {}, options?: AxiosRequestConfig) {
-        return RequestableObjectsApiFp(this.configuration).listRequestableObjects(requestParameters.identityId, requestParameters.types, requestParameters.term, requestParameters.statuses, requestParameters.limit, requestParameters.offset, requestParameters.count, requestParameters.filters, requestParameters.sorters, options).then((request) => request(this.axios, this.basePath));
+    public listRequestableObjects(requestParameters: RequestableObjectsApiListRequestableObjectsRequest = {}, axiosOptions?: AxiosRequestConfig) {
+        return RequestableObjectsApiFp(this.configuration).listRequestableObjects(requestParameters.identityId, requestParameters.types, requestParameters.term, requestParameters.statuses, requestParameters.limit, requestParameters.offset, requestParameters.count, requestParameters.filters, requestParameters.sorters, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 }
 
@@ -35569,8 +35569,8 @@ export class RolesApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof RolesApi
      */
-    public createRole(requestParameters: RolesApiCreateRoleRequest, options?: AxiosRequestConfig) {
-        return RolesApiFp(this.configuration).createRole(requestParameters.role, options).then((request) => request(this.axios, this.basePath));
+    public createRole(requestParameters: RolesApiCreateRoleRequest, axiosOptions?: AxiosRequestConfig) {
+        return RolesApiFp(this.configuration).createRole(requestParameters.role, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -35581,8 +35581,8 @@ export class RolesApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof RolesApi
      */
-    public deleteBulkRoles(requestParameters: RolesApiDeleteBulkRolesRequest, options?: AxiosRequestConfig) {
-        return RolesApiFp(this.configuration).deleteBulkRoles(requestParameters.roleBulkDeleteRequest, options).then((request) => request(this.axios, this.basePath));
+    public deleteBulkRoles(requestParameters: RolesApiDeleteBulkRolesRequest, axiosOptions?: AxiosRequestConfig) {
+        return RolesApiFp(this.configuration).deleteBulkRoles(requestParameters.roleBulkDeleteRequest, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -35593,8 +35593,8 @@ export class RolesApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof RolesApi
      */
-    public deleteRole(requestParameters: RolesApiDeleteRoleRequest, options?: AxiosRequestConfig) {
-        return RolesApiFp(this.configuration).deleteRole(requestParameters.id, options).then((request) => request(this.axios, this.basePath));
+    public deleteRole(requestParameters: RolesApiDeleteRoleRequest, axiosOptions?: AxiosRequestConfig) {
+        return RolesApiFp(this.configuration).deleteRole(requestParameters.id, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -35605,8 +35605,8 @@ export class RolesApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof RolesApi
      */
-    public getRole(requestParameters: RolesApiGetRoleRequest, options?: AxiosRequestConfig) {
-        return RolesApiFp(this.configuration).getRole(requestParameters.id, options).then((request) => request(this.axios, this.basePath));
+    public getRole(requestParameters: RolesApiGetRoleRequest, axiosOptions?: AxiosRequestConfig) {
+        return RolesApiFp(this.configuration).getRole(requestParameters.id, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -35617,8 +35617,8 @@ export class RolesApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof RolesApi
      */
-    public getRoleAssignedIdentities(requestParameters: RolesApiGetRoleAssignedIdentitiesRequest, options?: AxiosRequestConfig) {
-        return RolesApiFp(this.configuration).getRoleAssignedIdentities(requestParameters.id, requestParameters.limit, requestParameters.offset, requestParameters.count, requestParameters.filters, requestParameters.sorters, options).then((request) => request(this.axios, this.basePath));
+    public getRoleAssignedIdentities(requestParameters: RolesApiGetRoleAssignedIdentitiesRequest, axiosOptions?: AxiosRequestConfig) {
+        return RolesApiFp(this.configuration).getRoleAssignedIdentities(requestParameters.id, requestParameters.limit, requestParameters.offset, requestParameters.count, requestParameters.filters, requestParameters.sorters, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -35629,8 +35629,8 @@ export class RolesApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof RolesApi
      */
-    public listRoles(requestParameters: RolesApiListRolesRequest = {}, options?: AxiosRequestConfig) {
-        return RolesApiFp(this.configuration).listRoles(requestParameters.forSubadmin, requestParameters.limit, requestParameters.offset, requestParameters.count, requestParameters.filters, requestParameters.sorters, requestParameters.forSegmentIds, requestParameters.includeUnsegmented, options).then((request) => request(this.axios, this.basePath));
+    public listRoles(requestParameters: RolesApiListRolesRequest = {}, axiosOptions?: AxiosRequestConfig) {
+        return RolesApiFp(this.configuration).listRoles(requestParameters.forSubadmin, requestParameters.limit, requestParameters.offset, requestParameters.count, requestParameters.filters, requestParameters.sorters, requestParameters.forSegmentIds, requestParameters.includeUnsegmented, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -35641,8 +35641,8 @@ export class RolesApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof RolesApi
      */
-    public patchRole(requestParameters: RolesApiPatchRoleRequest, options?: AxiosRequestConfig) {
-        return RolesApiFp(this.configuration).patchRole(requestParameters.id, requestParameters.jsonPatchOperation, options).then((request) => request(this.axios, this.basePath));
+    public patchRole(requestParameters: RolesApiPatchRoleRequest, axiosOptions?: AxiosRequestConfig) {
+        return RolesApiFp(this.configuration).patchRole(requestParameters.id, requestParameters.jsonPatchOperation, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 }
 
@@ -37124,8 +37124,8 @@ export class SODPolicyApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof SODPolicyApi
      */
-    public createSodPolicy(requestParameters: SODPolicyApiCreateSodPolicyRequest, options?: AxiosRequestConfig) {
-        return SODPolicyApiFp(this.configuration).createSodPolicy(requestParameters.sodPolicy, options).then((request) => request(this.axios, this.basePath));
+    public createSodPolicy(requestParameters: SODPolicyApiCreateSodPolicyRequest, axiosOptions?: AxiosRequestConfig) {
+        return SODPolicyApiFp(this.configuration).createSodPolicy(requestParameters.sodPolicy, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -37136,8 +37136,8 @@ export class SODPolicyApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof SODPolicyApi
      */
-    public deleteSodPolicy(requestParameters: SODPolicyApiDeleteSodPolicyRequest, options?: AxiosRequestConfig) {
-        return SODPolicyApiFp(this.configuration).deleteSodPolicy(requestParameters.id, requestParameters.logical, options).then((request) => request(this.axios, this.basePath));
+    public deleteSodPolicy(requestParameters: SODPolicyApiDeleteSodPolicyRequest, axiosOptions?: AxiosRequestConfig) {
+        return SODPolicyApiFp(this.configuration).deleteSodPolicy(requestParameters.id, requestParameters.logical, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -37148,8 +37148,8 @@ export class SODPolicyApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof SODPolicyApi
      */
-    public deleteSodPolicySchedule(requestParameters: SODPolicyApiDeleteSodPolicyScheduleRequest, options?: AxiosRequestConfig) {
-        return SODPolicyApiFp(this.configuration).deleteSodPolicySchedule(requestParameters.id, options).then((request) => request(this.axios, this.basePath));
+    public deleteSodPolicySchedule(requestParameters: SODPolicyApiDeleteSodPolicyScheduleRequest, axiosOptions?: AxiosRequestConfig) {
+        return SODPolicyApiFp(this.configuration).deleteSodPolicySchedule(requestParameters.id, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -37160,8 +37160,8 @@ export class SODPolicyApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof SODPolicyApi
      */
-    public getCustomViolationReport(requestParameters: SODPolicyApiGetCustomViolationReportRequest, options?: AxiosRequestConfig) {
-        return SODPolicyApiFp(this.configuration).getCustomViolationReport(requestParameters.reportResultId, requestParameters.fileName, options).then((request) => request(this.axios, this.basePath));
+    public getCustomViolationReport(requestParameters: SODPolicyApiGetCustomViolationReportRequest, axiosOptions?: AxiosRequestConfig) {
+        return SODPolicyApiFp(this.configuration).getCustomViolationReport(requestParameters.reportResultId, requestParameters.fileName, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -37172,8 +37172,8 @@ export class SODPolicyApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof SODPolicyApi
      */
-    public getDefaultViolationReport(requestParameters: SODPolicyApiGetDefaultViolationReportRequest, options?: AxiosRequestConfig) {
-        return SODPolicyApiFp(this.configuration).getDefaultViolationReport(requestParameters.reportResultId, options).then((request) => request(this.axios, this.basePath));
+    public getDefaultViolationReport(requestParameters: SODPolicyApiGetDefaultViolationReportRequest, axiosOptions?: AxiosRequestConfig) {
+        return SODPolicyApiFp(this.configuration).getDefaultViolationReport(requestParameters.reportResultId, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -37183,8 +37183,8 @@ export class SODPolicyApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof SODPolicyApi
      */
-    public getSodAllReportRunStatus(options?: AxiosRequestConfig) {
-        return SODPolicyApiFp(this.configuration).getSodAllReportRunStatus(options).then((request) => request(this.axios, this.basePath));
+    public getSodAllReportRunStatus(axiosOptions?: AxiosRequestConfig) {
+        return SODPolicyApiFp(this.configuration).getSodAllReportRunStatus(axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -37195,8 +37195,8 @@ export class SODPolicyApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof SODPolicyApi
      */
-    public getSodPolicy(requestParameters: SODPolicyApiGetSodPolicyRequest, options?: AxiosRequestConfig) {
-        return SODPolicyApiFp(this.configuration).getSodPolicy(requestParameters.id, options).then((request) => request(this.axios, this.basePath));
+    public getSodPolicy(requestParameters: SODPolicyApiGetSodPolicyRequest, axiosOptions?: AxiosRequestConfig) {
+        return SODPolicyApiFp(this.configuration).getSodPolicy(requestParameters.id, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -37207,8 +37207,8 @@ export class SODPolicyApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof SODPolicyApi
      */
-    public getSodPolicySchedule(requestParameters: SODPolicyApiGetSodPolicyScheduleRequest, options?: AxiosRequestConfig) {
-        return SODPolicyApiFp(this.configuration).getSodPolicySchedule(requestParameters.id, options).then((request) => request(this.axios, this.basePath));
+    public getSodPolicySchedule(requestParameters: SODPolicyApiGetSodPolicyScheduleRequest, axiosOptions?: AxiosRequestConfig) {
+        return SODPolicyApiFp(this.configuration).getSodPolicySchedule(requestParameters.id, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -37219,8 +37219,8 @@ export class SODPolicyApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof SODPolicyApi
      */
-    public getSodViolationReportRunStatus(requestParameters: SODPolicyApiGetSodViolationReportRunStatusRequest, options?: AxiosRequestConfig) {
-        return SODPolicyApiFp(this.configuration).getSodViolationReportRunStatus(requestParameters.reportResultId, options).then((request) => request(this.axios, this.basePath));
+    public getSodViolationReportRunStatus(requestParameters: SODPolicyApiGetSodViolationReportRunStatusRequest, axiosOptions?: AxiosRequestConfig) {
+        return SODPolicyApiFp(this.configuration).getSodViolationReportRunStatus(requestParameters.reportResultId, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -37231,8 +37231,8 @@ export class SODPolicyApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof SODPolicyApi
      */
-    public getSodViolationReportStatus(requestParameters: SODPolicyApiGetSodViolationReportStatusRequest, options?: AxiosRequestConfig) {
-        return SODPolicyApiFp(this.configuration).getSodViolationReportStatus(requestParameters.id, options).then((request) => request(this.axios, this.basePath));
+    public getSodViolationReportStatus(requestParameters: SODPolicyApiGetSodViolationReportStatusRequest, axiosOptions?: AxiosRequestConfig) {
+        return SODPolicyApiFp(this.configuration).getSodViolationReportStatus(requestParameters.id, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -37243,8 +37243,8 @@ export class SODPolicyApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof SODPolicyApi
      */
-    public listSodPolicies(requestParameters: SODPolicyApiListSodPoliciesRequest = {}, options?: AxiosRequestConfig) {
-        return SODPolicyApiFp(this.configuration).listSodPolicies(requestParameters.limit, requestParameters.offset, requestParameters.count, requestParameters.filters, options).then((request) => request(this.axios, this.basePath));
+    public listSodPolicies(requestParameters: SODPolicyApiListSodPoliciesRequest = {}, axiosOptions?: AxiosRequestConfig) {
+        return SODPolicyApiFp(this.configuration).listSodPolicies(requestParameters.limit, requestParameters.offset, requestParameters.count, requestParameters.filters, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -37255,8 +37255,8 @@ export class SODPolicyApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof SODPolicyApi
      */
-    public patchSodPolicy(requestParameters: SODPolicyApiPatchSodPolicyRequest, options?: AxiosRequestConfig) {
-        return SODPolicyApiFp(this.configuration).patchSodPolicy(requestParameters.id, requestParameters.jsonPatchOperation, options).then((request) => request(this.axios, this.basePath));
+    public patchSodPolicy(requestParameters: SODPolicyApiPatchSodPolicyRequest, axiosOptions?: AxiosRequestConfig) {
+        return SODPolicyApiFp(this.configuration).patchSodPolicy(requestParameters.id, requestParameters.jsonPatchOperation, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -37267,8 +37267,8 @@ export class SODPolicyApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof SODPolicyApi
      */
-    public putPolicySchedule(requestParameters: SODPolicyApiPutPolicyScheduleRequest, options?: AxiosRequestConfig) {
-        return SODPolicyApiFp(this.configuration).putPolicySchedule(requestParameters.id, requestParameters.sodPolicySchedule, options).then((request) => request(this.axios, this.basePath));
+    public putPolicySchedule(requestParameters: SODPolicyApiPutPolicyScheduleRequest, axiosOptions?: AxiosRequestConfig) {
+        return SODPolicyApiFp(this.configuration).putPolicySchedule(requestParameters.id, requestParameters.sodPolicySchedule, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -37279,8 +37279,8 @@ export class SODPolicyApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof SODPolicyApi
      */
-    public putSodPolicy(requestParameters: SODPolicyApiPutSodPolicyRequest, options?: AxiosRequestConfig) {
-        return SODPolicyApiFp(this.configuration).putSodPolicy(requestParameters.id, requestParameters.sodPolicy, options).then((request) => request(this.axios, this.basePath));
+    public putSodPolicy(requestParameters: SODPolicyApiPutSodPolicyRequest, axiosOptions?: AxiosRequestConfig) {
+        return SODPolicyApiFp(this.configuration).putSodPolicy(requestParameters.id, requestParameters.sodPolicy, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -37291,8 +37291,8 @@ export class SODPolicyApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof SODPolicyApi
      */
-    public startEvaluateSodPolicy(requestParameters: SODPolicyApiStartEvaluateSodPolicyRequest, options?: AxiosRequestConfig) {
-        return SODPolicyApiFp(this.configuration).startEvaluateSodPolicy(requestParameters.id, options).then((request) => request(this.axios, this.basePath));
+    public startEvaluateSodPolicy(requestParameters: SODPolicyApiStartEvaluateSodPolicyRequest, axiosOptions?: AxiosRequestConfig) {
+        return SODPolicyApiFp(this.configuration).startEvaluateSodPolicy(requestParameters.id, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -37303,8 +37303,8 @@ export class SODPolicyApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof SODPolicyApi
      */
-    public startSodAllPoliciesForOrg(requestParameters: SODPolicyApiStartSodAllPoliciesForOrgRequest = {}, options?: AxiosRequestConfig) {
-        return SODPolicyApiFp(this.configuration).startSodAllPoliciesForOrg(requestParameters.multiPolicyRequest, options).then((request) => request(this.axios, this.basePath));
+    public startSodAllPoliciesForOrg(requestParameters: SODPolicyApiStartSodAllPoliciesForOrgRequest = {}, axiosOptions?: AxiosRequestConfig) {
+        return SODPolicyApiFp(this.configuration).startSodAllPoliciesForOrg(requestParameters.multiPolicyRequest, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -37315,8 +37315,8 @@ export class SODPolicyApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof SODPolicyApi
      */
-    public startSodPolicy(requestParameters: SODPolicyApiStartSodPolicyRequest, options?: AxiosRequestConfig) {
-        return SODPolicyApiFp(this.configuration).startSodPolicy(requestParameters.id, options).then((request) => request(this.axios, this.basePath));
+    public startSodPolicy(requestParameters: SODPolicyApiStartSodPolicyRequest, axiosOptions?: AxiosRequestConfig) {
+        return SODPolicyApiFp(this.configuration).startSodPolicy(requestParameters.id, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 }
 
@@ -37528,8 +37528,8 @@ export class SODViolationsApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof SODViolationsApi
      */
-    public startPredictSodViolations(requestParameters: SODViolationsApiStartPredictSodViolationsRequest, options?: AxiosRequestConfig) {
-        return SODViolationsApiFp(this.configuration).startPredictSodViolations(requestParameters.identityWithNewAccess, options).then((request) => request(this.axios, this.basePath));
+    public startPredictSodViolations(requestParameters: SODViolationsApiStartPredictSodViolationsRequest, axiosOptions?: AxiosRequestConfig) {
+        return SODViolationsApiFp(this.configuration).startPredictSodViolations(requestParameters.identityWithNewAccess, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -37540,8 +37540,8 @@ export class SODViolationsApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof SODViolationsApi
      */
-    public startViolationCheck(requestParameters: SODViolationsApiStartViolationCheckRequest, options?: AxiosRequestConfig) {
-        return SODViolationsApiFp(this.configuration).startViolationCheck(requestParameters.identityWithNewAccess1, options).then((request) => request(this.axios, this.basePath));
+    public startViolationCheck(requestParameters: SODViolationsApiStartViolationCheckRequest, axiosOptions?: AxiosRequestConfig) {
+        return SODViolationsApiFp(this.configuration).startViolationCheck(requestParameters.identityWithNewAccess1, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 }
 
@@ -38135,8 +38135,8 @@ export class SavedSearchApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof SavedSearchApi
      */
-    public createSavedSearch(requestParameters: SavedSearchApiCreateSavedSearchRequest, options?: AxiosRequestConfig) {
-        return SavedSearchApiFp(this.configuration).createSavedSearch(requestParameters.createSavedSearchRequest, options).then((request) => request(this.axios, this.basePath));
+    public createSavedSearch(requestParameters: SavedSearchApiCreateSavedSearchRequest, axiosOptions?: AxiosRequestConfig) {
+        return SavedSearchApiFp(this.configuration).createSavedSearch(requestParameters.createSavedSearchRequest, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -38147,8 +38147,8 @@ export class SavedSearchApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof SavedSearchApi
      */
-    public deleteSavedSearch(requestParameters: SavedSearchApiDeleteSavedSearchRequest, options?: AxiosRequestConfig) {
-        return SavedSearchApiFp(this.configuration).deleteSavedSearch(requestParameters.id, options).then((request) => request(this.axios, this.basePath));
+    public deleteSavedSearch(requestParameters: SavedSearchApiDeleteSavedSearchRequest, axiosOptions?: AxiosRequestConfig) {
+        return SavedSearchApiFp(this.configuration).deleteSavedSearch(requestParameters.id, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -38159,8 +38159,8 @@ export class SavedSearchApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof SavedSearchApi
      */
-    public executeSavedSearch(requestParameters: SavedSearchApiExecuteSavedSearchRequest, options?: AxiosRequestConfig) {
-        return SavedSearchApiFp(this.configuration).executeSavedSearch(requestParameters.id, requestParameters.searchArguments, options).then((request) => request(this.axios, this.basePath));
+    public executeSavedSearch(requestParameters: SavedSearchApiExecuteSavedSearchRequest, axiosOptions?: AxiosRequestConfig) {
+        return SavedSearchApiFp(this.configuration).executeSavedSearch(requestParameters.id, requestParameters.searchArguments, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -38171,8 +38171,8 @@ export class SavedSearchApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof SavedSearchApi
      */
-    public getSavedSearch(requestParameters: SavedSearchApiGetSavedSearchRequest, options?: AxiosRequestConfig) {
-        return SavedSearchApiFp(this.configuration).getSavedSearch(requestParameters.id, options).then((request) => request(this.axios, this.basePath));
+    public getSavedSearch(requestParameters: SavedSearchApiGetSavedSearchRequest, axiosOptions?: AxiosRequestConfig) {
+        return SavedSearchApiFp(this.configuration).getSavedSearch(requestParameters.id, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -38183,8 +38183,8 @@ export class SavedSearchApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof SavedSearchApi
      */
-    public listSavedSearches(requestParameters: SavedSearchApiListSavedSearchesRequest = {}, options?: AxiosRequestConfig) {
-        return SavedSearchApiFp(this.configuration).listSavedSearches(requestParameters.offset, requestParameters.limit, requestParameters.count, requestParameters.filters, options).then((request) => request(this.axios, this.basePath));
+    public listSavedSearches(requestParameters: SavedSearchApiListSavedSearchesRequest = {}, axiosOptions?: AxiosRequestConfig) {
+        return SavedSearchApiFp(this.configuration).listSavedSearches(requestParameters.offset, requestParameters.limit, requestParameters.count, requestParameters.filters, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -38195,8 +38195,8 @@ export class SavedSearchApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof SavedSearchApi
      */
-    public putSavedSearch(requestParameters: SavedSearchApiPutSavedSearchRequest, options?: AxiosRequestConfig) {
-        return SavedSearchApiFp(this.configuration).putSavedSearch(requestParameters.id, requestParameters.savedSearch, options).then((request) => request(this.axios, this.basePath));
+    public putSavedSearch(requestParameters: SavedSearchApiPutSavedSearchRequest, axiosOptions?: AxiosRequestConfig) {
+        return SavedSearchApiFp(this.configuration).putSavedSearch(requestParameters.id, requestParameters.savedSearch, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 }
 
@@ -38790,8 +38790,8 @@ export class ScheduledSearchApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof ScheduledSearchApi
      */
-    public createScheduledSearch(requestParameters: ScheduledSearchApiCreateScheduledSearchRequest, options?: AxiosRequestConfig) {
-        return ScheduledSearchApiFp(this.configuration).createScheduledSearch(requestParameters.createScheduledSearchRequest, options).then((request) => request(this.axios, this.basePath));
+    public createScheduledSearch(requestParameters: ScheduledSearchApiCreateScheduledSearchRequest, axiosOptions?: AxiosRequestConfig) {
+        return ScheduledSearchApiFp(this.configuration).createScheduledSearch(requestParameters.createScheduledSearchRequest, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -38802,8 +38802,8 @@ export class ScheduledSearchApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof ScheduledSearchApi
      */
-    public deleteScheduledSearch(requestParameters: ScheduledSearchApiDeleteScheduledSearchRequest, options?: AxiosRequestConfig) {
-        return ScheduledSearchApiFp(this.configuration).deleteScheduledSearch(requestParameters.id, options).then((request) => request(this.axios, this.basePath));
+    public deleteScheduledSearch(requestParameters: ScheduledSearchApiDeleteScheduledSearchRequest, axiosOptions?: AxiosRequestConfig) {
+        return ScheduledSearchApiFp(this.configuration).deleteScheduledSearch(requestParameters.id, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -38814,8 +38814,8 @@ export class ScheduledSearchApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof ScheduledSearchApi
      */
-    public getScheduledSearch(requestParameters: ScheduledSearchApiGetScheduledSearchRequest, options?: AxiosRequestConfig) {
-        return ScheduledSearchApiFp(this.configuration).getScheduledSearch(requestParameters.id, options).then((request) => request(this.axios, this.basePath));
+    public getScheduledSearch(requestParameters: ScheduledSearchApiGetScheduledSearchRequest, axiosOptions?: AxiosRequestConfig) {
+        return ScheduledSearchApiFp(this.configuration).getScheduledSearch(requestParameters.id, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -38826,8 +38826,8 @@ export class ScheduledSearchApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof ScheduledSearchApi
      */
-    public listScheduledSearch(requestParameters: ScheduledSearchApiListScheduledSearchRequest = {}, options?: AxiosRequestConfig) {
-        return ScheduledSearchApiFp(this.configuration).listScheduledSearch(requestParameters.offset, requestParameters.limit, requestParameters.count, requestParameters.filters, options).then((request) => request(this.axios, this.basePath));
+    public listScheduledSearch(requestParameters: ScheduledSearchApiListScheduledSearchRequest = {}, axiosOptions?: AxiosRequestConfig) {
+        return ScheduledSearchApiFp(this.configuration).listScheduledSearch(requestParameters.offset, requestParameters.limit, requestParameters.count, requestParameters.filters, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -38838,8 +38838,8 @@ export class ScheduledSearchApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof ScheduledSearchApi
      */
-    public unsubscribeScheduledSearch(requestParameters: ScheduledSearchApiUnsubscribeScheduledSearchRequest, options?: AxiosRequestConfig) {
-        return ScheduledSearchApiFp(this.configuration).unsubscribeScheduledSearch(requestParameters.id, requestParameters.typedReference, options).then((request) => request(this.axios, this.basePath));
+    public unsubscribeScheduledSearch(requestParameters: ScheduledSearchApiUnsubscribeScheduledSearchRequest, axiosOptions?: AxiosRequestConfig) {
+        return ScheduledSearchApiFp(this.configuration).unsubscribeScheduledSearch(requestParameters.id, requestParameters.typedReference, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -38850,8 +38850,8 @@ export class ScheduledSearchApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof ScheduledSearchApi
      */
-    public updateScheduledSearch(requestParameters: ScheduledSearchApiUpdateScheduledSearchRequest, options?: AxiosRequestConfig) {
-        return ScheduledSearchApiFp(this.configuration).updateScheduledSearch(requestParameters.id, requestParameters.scheduledSearch, options).then((request) => request(this.axios, this.basePath));
+    public updateScheduledSearch(requestParameters: ScheduledSearchApiUpdateScheduledSearchRequest, axiosOptions?: AxiosRequestConfig) {
+        return ScheduledSearchApiFp(this.configuration).updateScheduledSearch(requestParameters.id, requestParameters.scheduledSearch, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 }
 
@@ -39313,8 +39313,8 @@ export class SearchApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof SearchApi
      */
-    public searchAggregate(requestParameters: SearchApiSearchAggregateRequest, options?: AxiosRequestConfig) {
-        return SearchApiFp(this.configuration).searchAggregate(requestParameters.search, requestParameters.offset, requestParameters.limit, requestParameters.count, options).then((request) => request(this.axios, this.basePath));
+    public searchAggregate(requestParameters: SearchApiSearchAggregateRequest, axiosOptions?: AxiosRequestConfig) {
+        return SearchApiFp(this.configuration).searchAggregate(requestParameters.search, requestParameters.offset, requestParameters.limit, requestParameters.count, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -39325,8 +39325,8 @@ export class SearchApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof SearchApi
      */
-    public searchCount(requestParameters: SearchApiSearchCountRequest, options?: AxiosRequestConfig) {
-        return SearchApiFp(this.configuration).searchCount(requestParameters.search, options).then((request) => request(this.axios, this.basePath));
+    public searchCount(requestParameters: SearchApiSearchCountRequest, axiosOptions?: AxiosRequestConfig) {
+        return SearchApiFp(this.configuration).searchCount(requestParameters.search, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -39337,8 +39337,8 @@ export class SearchApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof SearchApi
      */
-    public searchGet(requestParameters: SearchApiSearchGetRequest, options?: AxiosRequestConfig) {
-        return SearchApiFp(this.configuration).searchGet(requestParameters.index, requestParameters.id, options).then((request) => request(this.axios, this.basePath));
+    public searchGet(requestParameters: SearchApiSearchGetRequest, axiosOptions?: AxiosRequestConfig) {
+        return SearchApiFp(this.configuration).searchGet(requestParameters.index, requestParameters.id, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -39349,8 +39349,8 @@ export class SearchApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof SearchApi
      */
-    public searchPost(requestParameters: SearchApiSearchPostRequest, options?: AxiosRequestConfig) {
-        return SearchApiFp(this.configuration).searchPost(requestParameters.search, requestParameters.offset, requestParameters.limit, requestParameters.count, options).then((request) => request(this.axios, this.basePath));
+    public searchPost(requestParameters: SearchApiSearchPostRequest, axiosOptions?: AxiosRequestConfig) {
+        return SearchApiFp(this.configuration).searchPost(requestParameters.search, requestParameters.offset, requestParameters.limit, requestParameters.count, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 }
 
@@ -39838,8 +39838,8 @@ export class SegmentsApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof SegmentsApi
      */
-    public createSegment(requestParameters: SegmentsApiCreateSegmentRequest, options?: AxiosRequestConfig) {
-        return SegmentsApiFp(this.configuration).createSegment(requestParameters.segment, options).then((request) => request(this.axios, this.basePath));
+    public createSegment(requestParameters: SegmentsApiCreateSegmentRequest, axiosOptions?: AxiosRequestConfig) {
+        return SegmentsApiFp(this.configuration).createSegment(requestParameters.segment, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -39850,8 +39850,8 @@ export class SegmentsApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof SegmentsApi
      */
-    public deleteSegment(requestParameters: SegmentsApiDeleteSegmentRequest, options?: AxiosRequestConfig) {
-        return SegmentsApiFp(this.configuration).deleteSegment(requestParameters.id, options).then((request) => request(this.axios, this.basePath));
+    public deleteSegment(requestParameters: SegmentsApiDeleteSegmentRequest, axiosOptions?: AxiosRequestConfig) {
+        return SegmentsApiFp(this.configuration).deleteSegment(requestParameters.id, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -39862,8 +39862,8 @@ export class SegmentsApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof SegmentsApi
      */
-    public getSegment(requestParameters: SegmentsApiGetSegmentRequest, options?: AxiosRequestConfig) {
-        return SegmentsApiFp(this.configuration).getSegment(requestParameters.id, options).then((request) => request(this.axios, this.basePath));
+    public getSegment(requestParameters: SegmentsApiGetSegmentRequest, axiosOptions?: AxiosRequestConfig) {
+        return SegmentsApiFp(this.configuration).getSegment(requestParameters.id, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -39874,8 +39874,8 @@ export class SegmentsApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof SegmentsApi
      */
-    public listSegments(requestParameters: SegmentsApiListSegmentsRequest = {}, options?: AxiosRequestConfig) {
-        return SegmentsApiFp(this.configuration).listSegments(requestParameters.limit, requestParameters.offset, requestParameters.count, options).then((request) => request(this.axios, this.basePath));
+    public listSegments(requestParameters: SegmentsApiListSegmentsRequest = {}, axiosOptions?: AxiosRequestConfig) {
+        return SegmentsApiFp(this.configuration).listSegments(requestParameters.limit, requestParameters.offset, requestParameters.count, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -39886,8 +39886,8 @@ export class SegmentsApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof SegmentsApi
      */
-    public patchSegment(requestParameters: SegmentsApiPatchSegmentRequest, options?: AxiosRequestConfig) {
-        return SegmentsApiFp(this.configuration).patchSegment(requestParameters.id, requestParameters.requestBody, options).then((request) => request(this.axios, this.basePath));
+    public patchSegment(requestParameters: SegmentsApiPatchSegmentRequest, axiosOptions?: AxiosRequestConfig) {
+        return SegmentsApiFp(this.configuration).patchSegment(requestParameters.id, requestParameters.requestBody, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 }
 
@@ -40772,8 +40772,8 @@ export class ServiceDeskIntegrationApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof ServiceDeskIntegrationApi
      */
-    public createServiceDeskIntegration(requestParameters: ServiceDeskIntegrationApiCreateServiceDeskIntegrationRequest, options?: AxiosRequestConfig) {
-        return ServiceDeskIntegrationApiFp(this.configuration).createServiceDeskIntegration(requestParameters.serviceDeskIntegrationDto, options).then((request) => request(this.axios, this.basePath));
+    public createServiceDeskIntegration(requestParameters: ServiceDeskIntegrationApiCreateServiceDeskIntegrationRequest, axiosOptions?: AxiosRequestConfig) {
+        return ServiceDeskIntegrationApiFp(this.configuration).createServiceDeskIntegration(requestParameters.serviceDeskIntegrationDto, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -40784,8 +40784,8 @@ export class ServiceDeskIntegrationApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof ServiceDeskIntegrationApi
      */
-    public deleteServiceDeskIntegration(requestParameters: ServiceDeskIntegrationApiDeleteServiceDeskIntegrationRequest, options?: AxiosRequestConfig) {
-        return ServiceDeskIntegrationApiFp(this.configuration).deleteServiceDeskIntegration(requestParameters.id, options).then((request) => request(this.axios, this.basePath));
+    public deleteServiceDeskIntegration(requestParameters: ServiceDeskIntegrationApiDeleteServiceDeskIntegrationRequest, axiosOptions?: AxiosRequestConfig) {
+        return ServiceDeskIntegrationApiFp(this.configuration).deleteServiceDeskIntegration(requestParameters.id, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -40796,8 +40796,8 @@ export class ServiceDeskIntegrationApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof ServiceDeskIntegrationApi
      */
-    public getServiceDeskIntegration(requestParameters: ServiceDeskIntegrationApiGetServiceDeskIntegrationRequest, options?: AxiosRequestConfig) {
-        return ServiceDeskIntegrationApiFp(this.configuration).getServiceDeskIntegration(requestParameters.id, options).then((request) => request(this.axios, this.basePath));
+    public getServiceDeskIntegration(requestParameters: ServiceDeskIntegrationApiGetServiceDeskIntegrationRequest, axiosOptions?: AxiosRequestConfig) {
+        return ServiceDeskIntegrationApiFp(this.configuration).getServiceDeskIntegration(requestParameters.id, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -40808,8 +40808,8 @@ export class ServiceDeskIntegrationApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof ServiceDeskIntegrationApi
      */
-    public getServiceDeskIntegrationTemplate(requestParameters: ServiceDeskIntegrationApiGetServiceDeskIntegrationTemplateRequest, options?: AxiosRequestConfig) {
-        return ServiceDeskIntegrationApiFp(this.configuration).getServiceDeskIntegrationTemplate(requestParameters.scriptName, options).then((request) => request(this.axios, this.basePath));
+    public getServiceDeskIntegrationTemplate(requestParameters: ServiceDeskIntegrationApiGetServiceDeskIntegrationTemplateRequest, axiosOptions?: AxiosRequestConfig) {
+        return ServiceDeskIntegrationApiFp(this.configuration).getServiceDeskIntegrationTemplate(requestParameters.scriptName, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -40819,8 +40819,8 @@ export class ServiceDeskIntegrationApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof ServiceDeskIntegrationApi
      */
-    public getServiceDeskIntegrationTypes(options?: AxiosRequestConfig) {
-        return ServiceDeskIntegrationApiFp(this.configuration).getServiceDeskIntegrationTypes(options).then((request) => request(this.axios, this.basePath));
+    public getServiceDeskIntegrationTypes(axiosOptions?: AxiosRequestConfig) {
+        return ServiceDeskIntegrationApiFp(this.configuration).getServiceDeskIntegrationTypes(axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -40831,8 +40831,8 @@ export class ServiceDeskIntegrationApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof ServiceDeskIntegrationApi
      */
-    public getServiceDeskIntegrations(requestParameters: ServiceDeskIntegrationApiGetServiceDeskIntegrationsRequest = {}, options?: AxiosRequestConfig) {
-        return ServiceDeskIntegrationApiFp(this.configuration).getServiceDeskIntegrations(requestParameters.offset, requestParameters.limit, requestParameters.sorters, requestParameters.filters, requestParameters.count, options).then((request) => request(this.axios, this.basePath));
+    public getServiceDeskIntegrations(requestParameters: ServiceDeskIntegrationApiGetServiceDeskIntegrationsRequest = {}, axiosOptions?: AxiosRequestConfig) {
+        return ServiceDeskIntegrationApiFp(this.configuration).getServiceDeskIntegrations(requestParameters.offset, requestParameters.limit, requestParameters.sorters, requestParameters.filters, requestParameters.count, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -40842,8 +40842,8 @@ export class ServiceDeskIntegrationApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof ServiceDeskIntegrationApi
      */
-    public getStatusCheckDetails(options?: AxiosRequestConfig) {
-        return ServiceDeskIntegrationApiFp(this.configuration).getStatusCheckDetails(options).then((request) => request(this.axios, this.basePath));
+    public getStatusCheckDetails(axiosOptions?: AxiosRequestConfig) {
+        return ServiceDeskIntegrationApiFp(this.configuration).getStatusCheckDetails(axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -40854,8 +40854,8 @@ export class ServiceDeskIntegrationApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof ServiceDeskIntegrationApi
      */
-    public patchServiceDeskIntegration(requestParameters: ServiceDeskIntegrationApiPatchServiceDeskIntegrationRequest, options?: AxiosRequestConfig) {
-        return ServiceDeskIntegrationApiFp(this.configuration).patchServiceDeskIntegration(requestParameters.id, requestParameters.jsonPatch, options).then((request) => request(this.axios, this.basePath));
+    public patchServiceDeskIntegration(requestParameters: ServiceDeskIntegrationApiPatchServiceDeskIntegrationRequest, axiosOptions?: AxiosRequestConfig) {
+        return ServiceDeskIntegrationApiFp(this.configuration).patchServiceDeskIntegration(requestParameters.id, requestParameters.jsonPatch, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -40866,8 +40866,8 @@ export class ServiceDeskIntegrationApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof ServiceDeskIntegrationApi
      */
-    public putServiceDeskIntegration(requestParameters: ServiceDeskIntegrationApiPutServiceDeskIntegrationRequest, options?: AxiosRequestConfig) {
-        return ServiceDeskIntegrationApiFp(this.configuration).putServiceDeskIntegration(requestParameters.id, requestParameters.serviceDeskIntegrationDto, options).then((request) => request(this.axios, this.basePath));
+    public putServiceDeskIntegration(requestParameters: ServiceDeskIntegrationApiPutServiceDeskIntegrationRequest, axiosOptions?: AxiosRequestConfig) {
+        return ServiceDeskIntegrationApiFp(this.configuration).putServiceDeskIntegration(requestParameters.id, requestParameters.serviceDeskIntegrationDto, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -40878,8 +40878,8 @@ export class ServiceDeskIntegrationApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof ServiceDeskIntegrationApi
      */
-    public updateStatusCheckDetails(requestParameters: ServiceDeskIntegrationApiUpdateStatusCheckDetailsRequest, options?: AxiosRequestConfig) {
-        return ServiceDeskIntegrationApiFp(this.configuration).updateStatusCheckDetails(requestParameters.queuedCheckConfigDetails, options).then((request) => request(this.axios, this.basePath));
+    public updateStatusCheckDetails(requestParameters: ServiceDeskIntegrationApiUpdateStatusCheckDetailsRequest, axiosOptions?: AxiosRequestConfig) {
+        return ServiceDeskIntegrationApiFp(this.configuration).updateStatusCheckDetails(requestParameters.queuedCheckConfigDetails, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 }
 
@@ -41139,8 +41139,8 @@ export class SourceUsagesApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof SourceUsagesApi
      */
-    public getStatusBySourceId(requestParameters: SourceUsagesApiGetStatusBySourceIdRequest, options?: AxiosRequestConfig) {
-        return SourceUsagesApiFp(this.configuration).getStatusBySourceId(requestParameters.sourceId, options).then((request) => request(this.axios, this.basePath));
+    public getStatusBySourceId(requestParameters: SourceUsagesApiGetStatusBySourceIdRequest, axiosOptions?: AxiosRequestConfig) {
+        return SourceUsagesApiFp(this.configuration).getStatusBySourceId(requestParameters.sourceId, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -41151,8 +41151,8 @@ export class SourceUsagesApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof SourceUsagesApi
      */
-    public getUsagesBySourceId(requestParameters: SourceUsagesApiGetUsagesBySourceIdRequest, options?: AxiosRequestConfig) {
-        return SourceUsagesApiFp(this.configuration).getUsagesBySourceId(requestParameters.sourceId, requestParameters.limit, requestParameters.offset, requestParameters.count, requestParameters.sorters, options).then((request) => request(this.axios, this.basePath));
+    public getUsagesBySourceId(requestParameters: SourceUsagesApiGetUsagesBySourceIdRequest, axiosOptions?: AxiosRequestConfig) {
+        return SourceUsagesApiFp(this.configuration).getUsagesBySourceId(requestParameters.sourceId, requestParameters.limit, requestParameters.offset, requestParameters.count, requestParameters.sorters, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 }
 
@@ -43570,8 +43570,8 @@ export class SourcesApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof SourcesApi
      */
-    public createProvisioningPolicy(requestParameters: SourcesApiCreateProvisioningPolicyRequest, options?: AxiosRequestConfig) {
-        return SourcesApiFp(this.configuration).createProvisioningPolicy(requestParameters.sourceId, requestParameters.provisioningPolicyDto, options).then((request) => request(this.axios, this.basePath));
+    public createProvisioningPolicy(requestParameters: SourcesApiCreateProvisioningPolicyRequest, axiosOptions?: AxiosRequestConfig) {
+        return SourcesApiFp(this.configuration).createProvisioningPolicy(requestParameters.sourceId, requestParameters.provisioningPolicyDto, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -43582,8 +43582,8 @@ export class SourcesApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof SourcesApi
      */
-    public createSource(requestParameters: SourcesApiCreateSourceRequest, options?: AxiosRequestConfig) {
-        return SourcesApiFp(this.configuration).createSource(requestParameters.source, requestParameters.provisionAsCsv, options).then((request) => request(this.axios, this.basePath));
+    public createSource(requestParameters: SourcesApiCreateSourceRequest, axiosOptions?: AxiosRequestConfig) {
+        return SourcesApiFp(this.configuration).createSource(requestParameters.source, requestParameters.provisionAsCsv, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -43594,8 +43594,8 @@ export class SourcesApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof SourcesApi
      */
-    public createSourceSchema(requestParameters: SourcesApiCreateSourceSchemaRequest, options?: AxiosRequestConfig) {
-        return SourcesApiFp(this.configuration).createSourceSchema(requestParameters.sourceId, requestParameters.schema, options).then((request) => request(this.axios, this.basePath));
+    public createSourceSchema(requestParameters: SourcesApiCreateSourceSchemaRequest, axiosOptions?: AxiosRequestConfig) {
+        return SourcesApiFp(this.configuration).createSourceSchema(requestParameters.sourceId, requestParameters.schema, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -43606,8 +43606,8 @@ export class SourcesApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof SourcesApi
      */
-    public deleteProvisioningPolicy(requestParameters: SourcesApiDeleteProvisioningPolicyRequest, options?: AxiosRequestConfig) {
-        return SourcesApiFp(this.configuration).deleteProvisioningPolicy(requestParameters.sourceId, requestParameters.usageType, options).then((request) => request(this.axios, this.basePath));
+    public deleteProvisioningPolicy(requestParameters: SourcesApiDeleteProvisioningPolicyRequest, axiosOptions?: AxiosRequestConfig) {
+        return SourcesApiFp(this.configuration).deleteProvisioningPolicy(requestParameters.sourceId, requestParameters.usageType, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -43618,8 +43618,8 @@ export class SourcesApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof SourcesApi
      */
-    public deleteSource(requestParameters: SourcesApiDeleteSourceRequest, options?: AxiosRequestConfig) {
-        return SourcesApiFp(this.configuration).deleteSource(requestParameters.id, options).then((request) => request(this.axios, this.basePath));
+    public deleteSource(requestParameters: SourcesApiDeleteSourceRequest, axiosOptions?: AxiosRequestConfig) {
+        return SourcesApiFp(this.configuration).deleteSource(requestParameters.id, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -43630,8 +43630,8 @@ export class SourcesApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof SourcesApi
      */
-    public deleteSourceSchema(requestParameters: SourcesApiDeleteSourceSchemaRequest, options?: AxiosRequestConfig) {
-        return SourcesApiFp(this.configuration).deleteSourceSchema(requestParameters.sourceId, requestParameters.schemaId, options).then((request) => request(this.axios, this.basePath));
+    public deleteSourceSchema(requestParameters: SourcesApiDeleteSourceSchemaRequest, axiosOptions?: AxiosRequestConfig) {
+        return SourcesApiFp(this.configuration).deleteSourceSchema(requestParameters.sourceId, requestParameters.schemaId, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -43642,8 +43642,8 @@ export class SourcesApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof SourcesApi
      */
-    public getAccountsSchema(requestParameters: SourcesApiGetAccountsSchemaRequest, options?: AxiosRequestConfig) {
-        return SourcesApiFp(this.configuration).getAccountsSchema(requestParameters.id, options).then((request) => request(this.axios, this.basePath));
+    public getAccountsSchema(requestParameters: SourcesApiGetAccountsSchemaRequest, axiosOptions?: AxiosRequestConfig) {
+        return SourcesApiFp(this.configuration).getAccountsSchema(requestParameters.id, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -43654,8 +43654,8 @@ export class SourcesApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof SourcesApi
      */
-    public getEntitlementsSchema(requestParameters: SourcesApiGetEntitlementsSchemaRequest, options?: AxiosRequestConfig) {
-        return SourcesApiFp(this.configuration).getEntitlementsSchema(requestParameters.id, requestParameters.schemaName, options).then((request) => request(this.axios, this.basePath));
+    public getEntitlementsSchema(requestParameters: SourcesApiGetEntitlementsSchemaRequest, axiosOptions?: AxiosRequestConfig) {
+        return SourcesApiFp(this.configuration).getEntitlementsSchema(requestParameters.id, requestParameters.schemaName, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -43666,8 +43666,8 @@ export class SourcesApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof SourcesApi
      */
-    public getProvisioningPolicy(requestParameters: SourcesApiGetProvisioningPolicyRequest, options?: AxiosRequestConfig) {
-        return SourcesApiFp(this.configuration).getProvisioningPolicy(requestParameters.sourceId, requestParameters.usageType, options).then((request) => request(this.axios, this.basePath));
+    public getProvisioningPolicy(requestParameters: SourcesApiGetProvisioningPolicyRequest, axiosOptions?: AxiosRequestConfig) {
+        return SourcesApiFp(this.configuration).getProvisioningPolicy(requestParameters.sourceId, requestParameters.usageType, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -43678,8 +43678,8 @@ export class SourcesApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof SourcesApi
      */
-    public getSource(requestParameters: SourcesApiGetSourceRequest, options?: AxiosRequestConfig) {
-        return SourcesApiFp(this.configuration).getSource(requestParameters.id, options).then((request) => request(this.axios, this.basePath));
+    public getSource(requestParameters: SourcesApiGetSourceRequest, axiosOptions?: AxiosRequestConfig) {
+        return SourcesApiFp(this.configuration).getSource(requestParameters.id, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -43690,8 +43690,8 @@ export class SourcesApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof SourcesApi
      */
-    public getSourceHealth(requestParameters: SourcesApiGetSourceHealthRequest, options?: AxiosRequestConfig) {
-        return SourcesApiFp(this.configuration).getSourceHealth(requestParameters.sourceId, options).then((request) => request(this.axios, this.basePath));
+    public getSourceHealth(requestParameters: SourcesApiGetSourceHealthRequest, axiosOptions?: AxiosRequestConfig) {
+        return SourcesApiFp(this.configuration).getSourceHealth(requestParameters.sourceId, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -43702,8 +43702,8 @@ export class SourcesApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof SourcesApi
      */
-    public getSourceSchema(requestParameters: SourcesApiGetSourceSchemaRequest, options?: AxiosRequestConfig) {
-        return SourcesApiFp(this.configuration).getSourceSchema(requestParameters.sourceId, requestParameters.schemaId, options).then((request) => request(this.axios, this.basePath));
+    public getSourceSchema(requestParameters: SourcesApiGetSourceSchemaRequest, axiosOptions?: AxiosRequestConfig) {
+        return SourcesApiFp(this.configuration).getSourceSchema(requestParameters.sourceId, requestParameters.schemaId, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -43714,8 +43714,8 @@ export class SourcesApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof SourcesApi
      */
-    public importAccountsSchema(requestParameters: SourcesApiImportAccountsSchemaRequest, options?: AxiosRequestConfig) {
-        return SourcesApiFp(this.configuration).importAccountsSchema(requestParameters.id, requestParameters.file, options).then((request) => request(this.axios, this.basePath));
+    public importAccountsSchema(requestParameters: SourcesApiImportAccountsSchemaRequest, axiosOptions?: AxiosRequestConfig) {
+        return SourcesApiFp(this.configuration).importAccountsSchema(requestParameters.id, requestParameters.file, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -43726,8 +43726,8 @@ export class SourcesApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof SourcesApi
      */
-    public importConnectorFile(requestParameters: SourcesApiImportConnectorFileRequest, options?: AxiosRequestConfig) {
-        return SourcesApiFp(this.configuration).importConnectorFile(requestParameters.sourceId, requestParameters.file, options).then((request) => request(this.axios, this.basePath));
+    public importConnectorFile(requestParameters: SourcesApiImportConnectorFileRequest, axiosOptions?: AxiosRequestConfig) {
+        return SourcesApiFp(this.configuration).importConnectorFile(requestParameters.sourceId, requestParameters.file, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -43738,8 +43738,8 @@ export class SourcesApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof SourcesApi
      */
-    public importEntitlementsSchema(requestParameters: SourcesApiImportEntitlementsSchemaRequest, options?: AxiosRequestConfig) {
-        return SourcesApiFp(this.configuration).importEntitlementsSchema(requestParameters.id, requestParameters.schemaName, requestParameters.file, options).then((request) => request(this.axios, this.basePath));
+    public importEntitlementsSchema(requestParameters: SourcesApiImportEntitlementsSchemaRequest, axiosOptions?: AxiosRequestConfig) {
+        return SourcesApiFp(this.configuration).importEntitlementsSchema(requestParameters.id, requestParameters.schemaName, requestParameters.file, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -43750,8 +43750,8 @@ export class SourcesApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof SourcesApi
      */
-    public listProvisioningPolicies(requestParameters: SourcesApiListProvisioningPoliciesRequest, options?: AxiosRequestConfig) {
-        return SourcesApiFp(this.configuration).listProvisioningPolicies(requestParameters.sourceId, options).then((request) => request(this.axios, this.basePath));
+    public listProvisioningPolicies(requestParameters: SourcesApiListProvisioningPoliciesRequest, axiosOptions?: AxiosRequestConfig) {
+        return SourcesApiFp(this.configuration).listProvisioningPolicies(requestParameters.sourceId, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -43762,8 +43762,8 @@ export class SourcesApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof SourcesApi
      */
-    public listSourceSchemas(requestParameters: SourcesApiListSourceSchemasRequest, options?: AxiosRequestConfig) {
-        return SourcesApiFp(this.configuration).listSourceSchemas(requestParameters.sourceId, requestParameters.includeTypes, options).then((request) => request(this.axios, this.basePath));
+    public listSourceSchemas(requestParameters: SourcesApiListSourceSchemasRequest, axiosOptions?: AxiosRequestConfig) {
+        return SourcesApiFp(this.configuration).listSourceSchemas(requestParameters.sourceId, requestParameters.includeTypes, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -43774,8 +43774,8 @@ export class SourcesApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof SourcesApi
      */
-    public listSources(requestParameters: SourcesApiListSourcesRequest = {}, options?: AxiosRequestConfig) {
-        return SourcesApiFp(this.configuration).listSources(requestParameters.limit, requestParameters.offset, requestParameters.count, requestParameters.filters, requestParameters.sorters, requestParameters.forSubadmin, options).then((request) => request(this.axios, this.basePath));
+    public listSources(requestParameters: SourcesApiListSourcesRequest = {}, axiosOptions?: AxiosRequestConfig) {
+        return SourcesApiFp(this.configuration).listSources(requestParameters.limit, requestParameters.offset, requestParameters.count, requestParameters.filters, requestParameters.sorters, requestParameters.forSubadmin, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -43786,8 +43786,8 @@ export class SourcesApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof SourcesApi
      */
-    public putProvisioningPolicy(requestParameters: SourcesApiPutProvisioningPolicyRequest, options?: AxiosRequestConfig) {
-        return SourcesApiFp(this.configuration).putProvisioningPolicy(requestParameters.sourceId, requestParameters.usageType, requestParameters.provisioningPolicyDto, options).then((request) => request(this.axios, this.basePath));
+    public putProvisioningPolicy(requestParameters: SourcesApiPutProvisioningPolicyRequest, axiosOptions?: AxiosRequestConfig) {
+        return SourcesApiFp(this.configuration).putProvisioningPolicy(requestParameters.sourceId, requestParameters.usageType, requestParameters.provisioningPolicyDto, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -43798,8 +43798,8 @@ export class SourcesApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof SourcesApi
      */
-    public putSource(requestParameters: SourcesApiPutSourceRequest, options?: AxiosRequestConfig) {
-        return SourcesApiFp(this.configuration).putSource(requestParameters.id, requestParameters.source, options).then((request) => request(this.axios, this.basePath));
+    public putSource(requestParameters: SourcesApiPutSourceRequest, axiosOptions?: AxiosRequestConfig) {
+        return SourcesApiFp(this.configuration).putSource(requestParameters.id, requestParameters.source, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -43810,8 +43810,8 @@ export class SourcesApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof SourcesApi
      */
-    public putSourceSchema(requestParameters: SourcesApiPutSourceSchemaRequest, options?: AxiosRequestConfig) {
-        return SourcesApiFp(this.configuration).putSourceSchema(requestParameters.sourceId, requestParameters.schemaId, requestParameters.schema, options).then((request) => request(this.axios, this.basePath));
+    public putSourceSchema(requestParameters: SourcesApiPutSourceSchemaRequest, axiosOptions?: AxiosRequestConfig) {
+        return SourcesApiFp(this.configuration).putSourceSchema(requestParameters.sourceId, requestParameters.schemaId, requestParameters.schema, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -43822,8 +43822,8 @@ export class SourcesApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof SourcesApi
      */
-    public updateProvisioningPoliciesInBulk(requestParameters: SourcesApiUpdateProvisioningPoliciesInBulkRequest, options?: AxiosRequestConfig) {
-        return SourcesApiFp(this.configuration).updateProvisioningPoliciesInBulk(requestParameters.sourceId, requestParameters.provisioningPolicyDto, options).then((request) => request(this.axios, this.basePath));
+    public updateProvisioningPoliciesInBulk(requestParameters: SourcesApiUpdateProvisioningPoliciesInBulkRequest, axiosOptions?: AxiosRequestConfig) {
+        return SourcesApiFp(this.configuration).updateProvisioningPoliciesInBulk(requestParameters.sourceId, requestParameters.provisioningPolicyDto, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -43834,8 +43834,8 @@ export class SourcesApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof SourcesApi
      */
-    public updateProvisioningPolicy(requestParameters: SourcesApiUpdateProvisioningPolicyRequest, options?: AxiosRequestConfig) {
-        return SourcesApiFp(this.configuration).updateProvisioningPolicy(requestParameters.sourceId, requestParameters.usageType, requestParameters.jsonPatchOperation, options).then((request) => request(this.axios, this.basePath));
+    public updateProvisioningPolicy(requestParameters: SourcesApiUpdateProvisioningPolicyRequest, axiosOptions?: AxiosRequestConfig) {
+        return SourcesApiFp(this.configuration).updateProvisioningPolicy(requestParameters.sourceId, requestParameters.usageType, requestParameters.jsonPatchOperation, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -43846,8 +43846,8 @@ export class SourcesApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof SourcesApi
      */
-    public updateSource(requestParameters: SourcesApiUpdateSourceRequest, options?: AxiosRequestConfig) {
-        return SourcesApiFp(this.configuration).updateSource(requestParameters.id, requestParameters.jsonPatchOperation, options).then((request) => request(this.axios, this.basePath));
+    public updateSource(requestParameters: SourcesApiUpdateSourceRequest, axiosOptions?: AxiosRequestConfig) {
+        return SourcesApiFp(this.configuration).updateSource(requestParameters.id, requestParameters.jsonPatchOperation, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -43858,8 +43858,8 @@ export class SourcesApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof SourcesApi
      */
-    public updateSourceSchema(requestParameters: SourcesApiUpdateSourceSchemaRequest, options?: AxiosRequestConfig) {
-        return SourcesApiFp(this.configuration).updateSourceSchema(requestParameters.sourceId, requestParameters.schemaId, requestParameters.jsonPatchOperation, options).then((request) => request(this.axios, this.basePath));
+    public updateSourceSchema(requestParameters: SourcesApiUpdateSourceSchemaRequest, axiosOptions?: AxiosRequestConfig) {
+        return SourcesApiFp(this.configuration).updateSourceSchema(requestParameters.sourceId, requestParameters.schemaId, requestParameters.jsonPatchOperation, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 }
 
@@ -44689,8 +44689,8 @@ export class TaggedObjectsApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof TaggedObjectsApi
      */
-    public deleteTaggedObject(requestParameters: TaggedObjectsApiDeleteTaggedObjectRequest, options?: AxiosRequestConfig) {
-        return TaggedObjectsApiFp(this.configuration).deleteTaggedObject(requestParameters.type, requestParameters.id, options).then((request) => request(this.axios, this.basePath));
+    public deleteTaggedObject(requestParameters: TaggedObjectsApiDeleteTaggedObjectRequest, axiosOptions?: AxiosRequestConfig) {
+        return TaggedObjectsApiFp(this.configuration).deleteTaggedObject(requestParameters.type, requestParameters.id, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -44701,8 +44701,8 @@ export class TaggedObjectsApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof TaggedObjectsApi
      */
-    public deleteTagsToManyObject(requestParameters: TaggedObjectsApiDeleteTagsToManyObjectRequest, options?: AxiosRequestConfig) {
-        return TaggedObjectsApiFp(this.configuration).deleteTagsToManyObject(requestParameters.bulkTaggedObject, options).then((request) => request(this.axios, this.basePath));
+    public deleteTagsToManyObject(requestParameters: TaggedObjectsApiDeleteTagsToManyObjectRequest, axiosOptions?: AxiosRequestConfig) {
+        return TaggedObjectsApiFp(this.configuration).deleteTagsToManyObject(requestParameters.bulkTaggedObject, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -44713,8 +44713,8 @@ export class TaggedObjectsApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof TaggedObjectsApi
      */
-    public getTaggedObject(requestParameters: TaggedObjectsApiGetTaggedObjectRequest, options?: AxiosRequestConfig) {
-        return TaggedObjectsApiFp(this.configuration).getTaggedObject(requestParameters.type, requestParameters.id, options).then((request) => request(this.axios, this.basePath));
+    public getTaggedObject(requestParameters: TaggedObjectsApiGetTaggedObjectRequest, axiosOptions?: AxiosRequestConfig) {
+        return TaggedObjectsApiFp(this.configuration).getTaggedObject(requestParameters.type, requestParameters.id, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -44725,8 +44725,8 @@ export class TaggedObjectsApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof TaggedObjectsApi
      */
-    public listTaggedObjects(requestParameters: TaggedObjectsApiListTaggedObjectsRequest = {}, options?: AxiosRequestConfig) {
-        return TaggedObjectsApiFp(this.configuration).listTaggedObjects(requestParameters.limit, requestParameters.offset, requestParameters.count, requestParameters.filters, options).then((request) => request(this.axios, this.basePath));
+    public listTaggedObjects(requestParameters: TaggedObjectsApiListTaggedObjectsRequest = {}, axiosOptions?: AxiosRequestConfig) {
+        return TaggedObjectsApiFp(this.configuration).listTaggedObjects(requestParameters.limit, requestParameters.offset, requestParameters.count, requestParameters.filters, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -44737,8 +44737,8 @@ export class TaggedObjectsApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof TaggedObjectsApi
      */
-    public listTaggedObjectsByType(requestParameters: TaggedObjectsApiListTaggedObjectsByTypeRequest, options?: AxiosRequestConfig) {
-        return TaggedObjectsApiFp(this.configuration).listTaggedObjectsByType(requestParameters.type, requestParameters.limit, requestParameters.offset, requestParameters.count, requestParameters.filters, options).then((request) => request(this.axios, this.basePath));
+    public listTaggedObjectsByType(requestParameters: TaggedObjectsApiListTaggedObjectsByTypeRequest, axiosOptions?: AxiosRequestConfig) {
+        return TaggedObjectsApiFp(this.configuration).listTaggedObjectsByType(requestParameters.type, requestParameters.limit, requestParameters.offset, requestParameters.count, requestParameters.filters, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -44749,8 +44749,8 @@ export class TaggedObjectsApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof TaggedObjectsApi
      */
-    public putTaggedObject(requestParameters: TaggedObjectsApiPutTaggedObjectRequest, options?: AxiosRequestConfig) {
-        return TaggedObjectsApiFp(this.configuration).putTaggedObject(requestParameters.type, requestParameters.id, requestParameters.taggedObject, options).then((request) => request(this.axios, this.basePath));
+    public putTaggedObject(requestParameters: TaggedObjectsApiPutTaggedObjectRequest, axiosOptions?: AxiosRequestConfig) {
+        return TaggedObjectsApiFp(this.configuration).putTaggedObject(requestParameters.type, requestParameters.id, requestParameters.taggedObject, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -44761,8 +44761,8 @@ export class TaggedObjectsApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof TaggedObjectsApi
      */
-    public setTagToObject(requestParameters: TaggedObjectsApiSetTagToObjectRequest, options?: AxiosRequestConfig) {
-        return TaggedObjectsApiFp(this.configuration).setTagToObject(requestParameters.taggedObject, options).then((request) => request(this.axios, this.basePath));
+    public setTagToObject(requestParameters: TaggedObjectsApiSetTagToObjectRequest, axiosOptions?: AxiosRequestConfig) {
+        return TaggedObjectsApiFp(this.configuration).setTagToObject(requestParameters.taggedObject, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -44773,8 +44773,8 @@ export class TaggedObjectsApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof TaggedObjectsApi
      */
-    public setTagsToManyObjects(requestParameters: TaggedObjectsApiSetTagsToManyObjectsRequest, options?: AxiosRequestConfig) {
-        return TaggedObjectsApiFp(this.configuration).setTagsToManyObjects(requestParameters.bulkTaggedObject, options).then((request) => request(this.axios, this.basePath));
+    public setTagsToManyObjects(requestParameters: TaggedObjectsApiSetTagsToManyObjectsRequest, axiosOptions?: AxiosRequestConfig) {
+        return TaggedObjectsApiFp(this.configuration).setTagsToManyObjects(requestParameters.bulkTaggedObject, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 }
 
@@ -45337,8 +45337,8 @@ export class TransformsApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof TransformsApi
      */
-    public createTransform(requestParameters: TransformsApiCreateTransformRequest, options?: AxiosRequestConfig) {
-        return TransformsApiFp(this.configuration).createTransform(requestParameters.transform, options).then((request) => request(this.axios, this.basePath));
+    public createTransform(requestParameters: TransformsApiCreateTransformRequest, axiosOptions?: AxiosRequestConfig) {
+        return TransformsApiFp(this.configuration).createTransform(requestParameters.transform, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -45349,8 +45349,8 @@ export class TransformsApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof TransformsApi
      */
-    public deleteTransform(requestParameters: TransformsApiDeleteTransformRequest, options?: AxiosRequestConfig) {
-        return TransformsApiFp(this.configuration).deleteTransform(requestParameters.id, options).then((request) => request(this.axios, this.basePath));
+    public deleteTransform(requestParameters: TransformsApiDeleteTransformRequest, axiosOptions?: AxiosRequestConfig) {
+        return TransformsApiFp(this.configuration).deleteTransform(requestParameters.id, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -45361,8 +45361,8 @@ export class TransformsApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof TransformsApi
      */
-    public getTransform(requestParameters: TransformsApiGetTransformRequest, options?: AxiosRequestConfig) {
-        return TransformsApiFp(this.configuration).getTransform(requestParameters.id, options).then((request) => request(this.axios, this.basePath));
+    public getTransform(requestParameters: TransformsApiGetTransformRequest, axiosOptions?: AxiosRequestConfig) {
+        return TransformsApiFp(this.configuration).getTransform(requestParameters.id, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -45373,8 +45373,8 @@ export class TransformsApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof TransformsApi
      */
-    public listTransforms(requestParameters: TransformsApiListTransformsRequest = {}, options?: AxiosRequestConfig) {
-        return TransformsApiFp(this.configuration).listTransforms(requestParameters.offset, requestParameters.limit, requestParameters.count, requestParameters.name, requestParameters.filters, options).then((request) => request(this.axios, this.basePath));
+    public listTransforms(requestParameters: TransformsApiListTransformsRequest = {}, axiosOptions?: AxiosRequestConfig) {
+        return TransformsApiFp(this.configuration).listTransforms(requestParameters.offset, requestParameters.limit, requestParameters.count, requestParameters.name, requestParameters.filters, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -45385,8 +45385,8 @@ export class TransformsApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof TransformsApi
      */
-    public updateTransform(requestParameters: TransformsApiUpdateTransformRequest, options?: AxiosRequestConfig) {
-        return TransformsApiFp(this.configuration).updateTransform(requestParameters.id, requestParameters.transform, options).then((request) => request(this.axios, this.basePath));
+    public updateTransform(requestParameters: TransformsApiUpdateTransformRequest, axiosOptions?: AxiosRequestConfig) {
+        return TransformsApiFp(this.configuration).updateTransform(requestParameters.id, requestParameters.transform, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 }
 
@@ -46505,8 +46505,8 @@ export class WorkItemsApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof WorkItemsApi
      */
-    public approveApprovalItem(requestParameters: WorkItemsApiApproveApprovalItemRequest, options?: AxiosRequestConfig) {
-        return WorkItemsApiFp(this.configuration).approveApprovalItem(requestParameters.id, requestParameters.approvalItemId, options).then((request) => request(this.axios, this.basePath));
+    public approveApprovalItem(requestParameters: WorkItemsApiApproveApprovalItemRequest, axiosOptions?: AxiosRequestConfig) {
+        return WorkItemsApiFp(this.configuration).approveApprovalItem(requestParameters.id, requestParameters.approvalItemId, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -46517,8 +46517,8 @@ export class WorkItemsApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof WorkItemsApi
      */
-    public approveApprovalItemsInBulk(requestParameters: WorkItemsApiApproveApprovalItemsInBulkRequest, options?: AxiosRequestConfig) {
-        return WorkItemsApiFp(this.configuration).approveApprovalItemsInBulk(requestParameters.id, options).then((request) => request(this.axios, this.basePath));
+    public approveApprovalItemsInBulk(requestParameters: WorkItemsApiApproveApprovalItemsInBulkRequest, axiosOptions?: AxiosRequestConfig) {
+        return WorkItemsApiFp(this.configuration).approveApprovalItemsInBulk(requestParameters.id, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -46529,8 +46529,8 @@ export class WorkItemsApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof WorkItemsApi
      */
-    public completeWorkItem(requestParameters: WorkItemsApiCompleteWorkItemRequest, options?: AxiosRequestConfig) {
-        return WorkItemsApiFp(this.configuration).completeWorkItem(requestParameters.id, options).then((request) => request(this.axios, this.basePath));
+    public completeWorkItem(requestParameters: WorkItemsApiCompleteWorkItemRequest, axiosOptions?: AxiosRequestConfig) {
+        return WorkItemsApiFp(this.configuration).completeWorkItem(requestParameters.id, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -46541,8 +46541,8 @@ export class WorkItemsApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof WorkItemsApi
      */
-    public getCompletedWorkItems(requestParameters: WorkItemsApiGetCompletedWorkItemsRequest = {}, options?: AxiosRequestConfig) {
-        return WorkItemsApiFp(this.configuration).getCompletedWorkItems(requestParameters.ownerId, requestParameters.limit, requestParameters.offset, requestParameters.count, options).then((request) => request(this.axios, this.basePath));
+    public getCompletedWorkItems(requestParameters: WorkItemsApiGetCompletedWorkItemsRequest = {}, axiosOptions?: AxiosRequestConfig) {
+        return WorkItemsApiFp(this.configuration).getCompletedWorkItems(requestParameters.ownerId, requestParameters.limit, requestParameters.offset, requestParameters.count, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -46553,8 +46553,8 @@ export class WorkItemsApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof WorkItemsApi
      */
-    public getCountCompletedWorkItems(requestParameters: WorkItemsApiGetCountCompletedWorkItemsRequest = {}, options?: AxiosRequestConfig) {
-        return WorkItemsApiFp(this.configuration).getCountCompletedWorkItems(requestParameters.ownerId, options).then((request) => request(this.axios, this.basePath));
+    public getCountCompletedWorkItems(requestParameters: WorkItemsApiGetCountCompletedWorkItemsRequest = {}, axiosOptions?: AxiosRequestConfig) {
+        return WorkItemsApiFp(this.configuration).getCountCompletedWorkItems(requestParameters.ownerId, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -46565,8 +46565,8 @@ export class WorkItemsApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof WorkItemsApi
      */
-    public getCountWorkItems(requestParameters: WorkItemsApiGetCountWorkItemsRequest = {}, options?: AxiosRequestConfig) {
-        return WorkItemsApiFp(this.configuration).getCountWorkItems(requestParameters.ownerId, options).then((request) => request(this.axios, this.basePath));
+    public getCountWorkItems(requestParameters: WorkItemsApiGetCountWorkItemsRequest = {}, axiosOptions?: AxiosRequestConfig) {
+        return WorkItemsApiFp(this.configuration).getCountWorkItems(requestParameters.ownerId, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -46577,8 +46577,8 @@ export class WorkItemsApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof WorkItemsApi
      */
-    public getWorkItem(requestParameters: WorkItemsApiGetWorkItemRequest, options?: AxiosRequestConfig) {
-        return WorkItemsApiFp(this.configuration).getWorkItem(requestParameters.id, options).then((request) => request(this.axios, this.basePath));
+    public getWorkItem(requestParameters: WorkItemsApiGetWorkItemRequest, axiosOptions?: AxiosRequestConfig) {
+        return WorkItemsApiFp(this.configuration).getWorkItem(requestParameters.id, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -46589,8 +46589,8 @@ export class WorkItemsApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof WorkItemsApi
      */
-    public getWorkItemsSummary(requestParameters: WorkItemsApiGetWorkItemsSummaryRequest = {}, options?: AxiosRequestConfig) {
-        return WorkItemsApiFp(this.configuration).getWorkItemsSummary(requestParameters.ownerId, options).then((request) => request(this.axios, this.basePath));
+    public getWorkItemsSummary(requestParameters: WorkItemsApiGetWorkItemsSummaryRequest = {}, axiosOptions?: AxiosRequestConfig) {
+        return WorkItemsApiFp(this.configuration).getWorkItemsSummary(requestParameters.ownerId, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -46601,8 +46601,8 @@ export class WorkItemsApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof WorkItemsApi
      */
-    public listWorkItems(requestParameters: WorkItemsApiListWorkItemsRequest = {}, options?: AxiosRequestConfig) {
-        return WorkItemsApiFp(this.configuration).listWorkItems(requestParameters.limit, requestParameters.offset, requestParameters.count, requestParameters.ownerId, options).then((request) => request(this.axios, this.basePath));
+    public listWorkItems(requestParameters: WorkItemsApiListWorkItemsRequest = {}, axiosOptions?: AxiosRequestConfig) {
+        return WorkItemsApiFp(this.configuration).listWorkItems(requestParameters.limit, requestParameters.offset, requestParameters.count, requestParameters.ownerId, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -46613,8 +46613,8 @@ export class WorkItemsApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof WorkItemsApi
      */
-    public rejectApprovalItem(requestParameters: WorkItemsApiRejectApprovalItemRequest, options?: AxiosRequestConfig) {
-        return WorkItemsApiFp(this.configuration).rejectApprovalItem(requestParameters.id, requestParameters.approvalItemId, options).then((request) => request(this.axios, this.basePath));
+    public rejectApprovalItem(requestParameters: WorkItemsApiRejectApprovalItemRequest, axiosOptions?: AxiosRequestConfig) {
+        return WorkItemsApiFp(this.configuration).rejectApprovalItem(requestParameters.id, requestParameters.approvalItemId, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -46625,8 +46625,8 @@ export class WorkItemsApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof WorkItemsApi
      */
-    public rejectApprovalItemsInBulk(requestParameters: WorkItemsApiRejectApprovalItemsInBulkRequest, options?: AxiosRequestConfig) {
-        return WorkItemsApiFp(this.configuration).rejectApprovalItemsInBulk(requestParameters.id, options).then((request) => request(this.axios, this.basePath));
+    public rejectApprovalItemsInBulk(requestParameters: WorkItemsApiRejectApprovalItemsInBulkRequest, axiosOptions?: AxiosRequestConfig) {
+        return WorkItemsApiFp(this.configuration).rejectApprovalItemsInBulk(requestParameters.id, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -46637,8 +46637,8 @@ export class WorkItemsApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof WorkItemsApi
      */
-    public submitAccountSelection(requestParameters: WorkItemsApiSubmitAccountSelectionRequest, options?: AxiosRequestConfig) {
-        return WorkItemsApiFp(this.configuration).submitAccountSelection(requestParameters.id, requestParameters.requestBody, options).then((request) => request(this.axios, this.basePath));
+    public submitAccountSelection(requestParameters: WorkItemsApiSubmitAccountSelectionRequest, axiosOptions?: AxiosRequestConfig) {
+        return WorkItemsApiFp(this.configuration).submitAccountSelection(requestParameters.id, requestParameters.requestBody, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 }
 

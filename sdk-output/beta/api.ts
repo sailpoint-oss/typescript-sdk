@@ -27231,8 +27231,8 @@ export class AccessProfilesBetaApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof AccessProfilesBetaApi
      */
-    public createAccessProfile(requestParameters: AccessProfilesBetaApiCreateAccessProfileRequest, options?: AxiosRequestConfig) {
-        return AccessProfilesBetaApiFp(this.configuration).createAccessProfile(requestParameters.accessProfileBeta, options).then((request) => request(this.axios, this.basePath));
+    public createAccessProfile(requestParameters: AccessProfilesBetaApiCreateAccessProfileRequest, axiosOptions?: AxiosRequestConfig) {
+        return AccessProfilesBetaApiFp(this.configuration).createAccessProfile(requestParameters.accessProfileBeta, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -27243,8 +27243,8 @@ export class AccessProfilesBetaApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof AccessProfilesBetaApi
      */
-    public deleteAccessProfile(requestParameters: AccessProfilesBetaApiDeleteAccessProfileRequest, options?: AxiosRequestConfig) {
-        return AccessProfilesBetaApiFp(this.configuration).deleteAccessProfile(requestParameters.id, options).then((request) => request(this.axios, this.basePath));
+    public deleteAccessProfile(requestParameters: AccessProfilesBetaApiDeleteAccessProfileRequest, axiosOptions?: AxiosRequestConfig) {
+        return AccessProfilesBetaApiFp(this.configuration).deleteAccessProfile(requestParameters.id, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -27255,8 +27255,8 @@ export class AccessProfilesBetaApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof AccessProfilesBetaApi
      */
-    public deleteAccessProfilesInBulk(requestParameters: AccessProfilesBetaApiDeleteAccessProfilesInBulkRequest, options?: AxiosRequestConfig) {
-        return AccessProfilesBetaApiFp(this.configuration).deleteAccessProfilesInBulk(requestParameters.accessProfileBulkDeleteRequestBeta, options).then((request) => request(this.axios, this.basePath));
+    public deleteAccessProfilesInBulk(requestParameters: AccessProfilesBetaApiDeleteAccessProfilesInBulkRequest, axiosOptions?: AxiosRequestConfig) {
+        return AccessProfilesBetaApiFp(this.configuration).deleteAccessProfilesInBulk(requestParameters.accessProfileBulkDeleteRequestBeta, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -27267,8 +27267,8 @@ export class AccessProfilesBetaApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof AccessProfilesBetaApi
      */
-    public getAccessProfile(requestParameters: AccessProfilesBetaApiGetAccessProfileRequest, options?: AxiosRequestConfig) {
-        return AccessProfilesBetaApiFp(this.configuration).getAccessProfile(requestParameters.id, options).then((request) => request(this.axios, this.basePath));
+    public getAccessProfile(requestParameters: AccessProfilesBetaApiGetAccessProfileRequest, axiosOptions?: AxiosRequestConfig) {
+        return AccessProfilesBetaApiFp(this.configuration).getAccessProfile(requestParameters.id, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -27279,8 +27279,8 @@ export class AccessProfilesBetaApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof AccessProfilesBetaApi
      */
-    public getAccessProfileEntitlements(requestParameters: AccessProfilesBetaApiGetAccessProfileEntitlementsRequest, options?: AxiosRequestConfig) {
-        return AccessProfilesBetaApiFp(this.configuration).getAccessProfileEntitlements(requestParameters.id, requestParameters.limit, requestParameters.offset, requestParameters.count, requestParameters.filters, requestParameters.sorters, options).then((request) => request(this.axios, this.basePath));
+    public getAccessProfileEntitlements(requestParameters: AccessProfilesBetaApiGetAccessProfileEntitlementsRequest, axiosOptions?: AxiosRequestConfig) {
+        return AccessProfilesBetaApiFp(this.configuration).getAccessProfileEntitlements(requestParameters.id, requestParameters.limit, requestParameters.offset, requestParameters.count, requestParameters.filters, requestParameters.sorters, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -27291,8 +27291,8 @@ export class AccessProfilesBetaApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof AccessProfilesBetaApi
      */
-    public listAccessProfiles(requestParameters: AccessProfilesBetaApiListAccessProfilesRequest = {}, options?: AxiosRequestConfig) {
-        return AccessProfilesBetaApiFp(this.configuration).listAccessProfiles(requestParameters.forSubadmin, requestParameters.limit, requestParameters.offset, requestParameters.count, requestParameters.filters, requestParameters.sorters, requestParameters.forSegmentIds, requestParameters.includeUnsegmented, options).then((request) => request(this.axios, this.basePath));
+    public listAccessProfiles(requestParameters: AccessProfilesBetaApiListAccessProfilesRequest = {}, axiosOptions?: AxiosRequestConfig) {
+        return AccessProfilesBetaApiFp(this.configuration).listAccessProfiles(requestParameters.forSubadmin, requestParameters.limit, requestParameters.offset, requestParameters.count, requestParameters.filters, requestParameters.sorters, requestParameters.forSegmentIds, requestParameters.includeUnsegmented, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -27303,8 +27303,8 @@ export class AccessProfilesBetaApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof AccessProfilesBetaApi
      */
-    public patchAccessProfile(requestParameters: AccessProfilesBetaApiPatchAccessProfileRequest, options?: AxiosRequestConfig) {
-        return AccessProfilesBetaApiFp(this.configuration).patchAccessProfile(requestParameters.id, requestParameters.jsonPatchOperationBeta, options).then((request) => request(this.axios, this.basePath));
+    public patchAccessProfile(requestParameters: AccessProfilesBetaApiPatchAccessProfileRequest, axiosOptions?: AxiosRequestConfig) {
+        return AccessProfilesBetaApiFp(this.configuration).patchAccessProfile(requestParameters.id, requestParameters.jsonPatchOperationBeta, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 }
 
@@ -28012,8 +28012,8 @@ export class AccessRequestApprovalsBetaApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof AccessRequestApprovalsBetaApi
      */
-    public approveAccessRequest(requestParameters: AccessRequestApprovalsBetaApiApproveAccessRequestRequest, options?: AxiosRequestConfig) {
-        return AccessRequestApprovalsBetaApiFp(this.configuration).approveAccessRequest(requestParameters.approvalId, requestParameters.commentDtoBeta, options).then((request) => request(this.axios, this.basePath));
+    public approveAccessRequest(requestParameters: AccessRequestApprovalsBetaApiApproveAccessRequestRequest, axiosOptions?: AxiosRequestConfig) {
+        return AccessRequestApprovalsBetaApiFp(this.configuration).approveAccessRequest(requestParameters.approvalId, requestParameters.commentDtoBeta, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -28024,8 +28024,8 @@ export class AccessRequestApprovalsBetaApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof AccessRequestApprovalsBetaApi
      */
-    public forwardAccessRequest(requestParameters: AccessRequestApprovalsBetaApiForwardAccessRequestRequest, options?: AxiosRequestConfig) {
-        return AccessRequestApprovalsBetaApiFp(this.configuration).forwardAccessRequest(requestParameters.approvalId, requestParameters.forwardApprovalDtoBeta, options).then((request) => request(this.axios, this.basePath));
+    public forwardAccessRequest(requestParameters: AccessRequestApprovalsBetaApiForwardAccessRequestRequest, axiosOptions?: AxiosRequestConfig) {
+        return AccessRequestApprovalsBetaApiFp(this.configuration).forwardAccessRequest(requestParameters.approvalId, requestParameters.forwardApprovalDtoBeta, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -28036,8 +28036,8 @@ export class AccessRequestApprovalsBetaApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof AccessRequestApprovalsBetaApi
      */
-    public getAccessRequestApprovalSummary(requestParameters: AccessRequestApprovalsBetaApiGetAccessRequestApprovalSummaryRequest = {}, options?: AxiosRequestConfig) {
-        return AccessRequestApprovalsBetaApiFp(this.configuration).getAccessRequestApprovalSummary(requestParameters.ownerId, requestParameters.fromDate, options).then((request) => request(this.axios, this.basePath));
+    public getAccessRequestApprovalSummary(requestParameters: AccessRequestApprovalsBetaApiGetAccessRequestApprovalSummaryRequest = {}, axiosOptions?: AxiosRequestConfig) {
+        return AccessRequestApprovalsBetaApiFp(this.configuration).getAccessRequestApprovalSummary(requestParameters.ownerId, requestParameters.fromDate, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -28048,8 +28048,8 @@ export class AccessRequestApprovalsBetaApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof AccessRequestApprovalsBetaApi
      */
-    public listCompletedApprovals(requestParameters: AccessRequestApprovalsBetaApiListCompletedApprovalsRequest = {}, options?: AxiosRequestConfig) {
-        return AccessRequestApprovalsBetaApiFp(this.configuration).listCompletedApprovals(requestParameters.ownerId, requestParameters.limit, requestParameters.offset, requestParameters.count, requestParameters.filters, requestParameters.sorters, options).then((request) => request(this.axios, this.basePath));
+    public listCompletedApprovals(requestParameters: AccessRequestApprovalsBetaApiListCompletedApprovalsRequest = {}, axiosOptions?: AxiosRequestConfig) {
+        return AccessRequestApprovalsBetaApiFp(this.configuration).listCompletedApprovals(requestParameters.ownerId, requestParameters.limit, requestParameters.offset, requestParameters.count, requestParameters.filters, requestParameters.sorters, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -28060,8 +28060,8 @@ export class AccessRequestApprovalsBetaApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof AccessRequestApprovalsBetaApi
      */
-    public listPendingApprovals(requestParameters: AccessRequestApprovalsBetaApiListPendingApprovalsRequest = {}, options?: AxiosRequestConfig) {
-        return AccessRequestApprovalsBetaApiFp(this.configuration).listPendingApprovals(requestParameters.ownerId, requestParameters.limit, requestParameters.offset, requestParameters.count, requestParameters.filters, requestParameters.sorters, options).then((request) => request(this.axios, this.basePath));
+    public listPendingApprovals(requestParameters: AccessRequestApprovalsBetaApiListPendingApprovalsRequest = {}, axiosOptions?: AxiosRequestConfig) {
+        return AccessRequestApprovalsBetaApiFp(this.configuration).listPendingApprovals(requestParameters.ownerId, requestParameters.limit, requestParameters.offset, requestParameters.count, requestParameters.filters, requestParameters.sorters, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -28072,8 +28072,8 @@ export class AccessRequestApprovalsBetaApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof AccessRequestApprovalsBetaApi
      */
-    public rejectAccessRequest(requestParameters: AccessRequestApprovalsBetaApiRejectAccessRequestRequest, options?: AxiosRequestConfig) {
-        return AccessRequestApprovalsBetaApiFp(this.configuration).rejectAccessRequest(requestParameters.approvalId, requestParameters.commentDtoBeta, options).then((request) => request(this.axios, this.basePath));
+    public rejectAccessRequest(requestParameters: AccessRequestApprovalsBetaApiRejectAccessRequestRequest, axiosOptions?: AxiosRequestConfig) {
+        return AccessRequestApprovalsBetaApiFp(this.configuration).rejectAccessRequest(requestParameters.approvalId, requestParameters.commentDtoBeta, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 }
 
@@ -28690,8 +28690,8 @@ export class AccessRequestsBetaApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof AccessRequestsBetaApi
      */
-    public cancelAccessRequest(requestParameters: AccessRequestsBetaApiCancelAccessRequestRequest, options?: AxiosRequestConfig) {
-        return AccessRequestsBetaApiFp(this.configuration).cancelAccessRequest(requestParameters.cancelAccessRequestBeta, options).then((request) => request(this.axios, this.basePath));
+    public cancelAccessRequest(requestParameters: AccessRequestsBetaApiCancelAccessRequestRequest, axiosOptions?: AxiosRequestConfig) {
+        return AccessRequestsBetaApiFp(this.configuration).cancelAccessRequest(requestParameters.cancelAccessRequestBeta, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -28702,8 +28702,8 @@ export class AccessRequestsBetaApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof AccessRequestsBetaApi
      */
-    public closeAccessRequest(requestParameters: AccessRequestsBetaApiCloseAccessRequestRequest, options?: AxiosRequestConfig) {
-        return AccessRequestsBetaApiFp(this.configuration).closeAccessRequest(requestParameters.closeAccessRequestBeta, options).then((request) => request(this.axios, this.basePath));
+    public closeAccessRequest(requestParameters: AccessRequestsBetaApiCloseAccessRequestRequest, axiosOptions?: AxiosRequestConfig) {
+        return AccessRequestsBetaApiFp(this.configuration).closeAccessRequest(requestParameters.closeAccessRequestBeta, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -28714,8 +28714,8 @@ export class AccessRequestsBetaApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof AccessRequestsBetaApi
      */
-    public createAccessRequest(requestParameters: AccessRequestsBetaApiCreateAccessRequestRequest, options?: AxiosRequestConfig) {
-        return AccessRequestsBetaApiFp(this.configuration).createAccessRequest(requestParameters.accessRequestBeta, options).then((request) => request(this.axios, this.basePath));
+    public createAccessRequest(requestParameters: AccessRequestsBetaApiCreateAccessRequestRequest, axiosOptions?: AxiosRequestConfig) {
+        return AccessRequestsBetaApiFp(this.configuration).createAccessRequest(requestParameters.accessRequestBeta, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -28725,8 +28725,8 @@ export class AccessRequestsBetaApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof AccessRequestsBetaApi
      */
-    public getAccessRequestConfig(options?: AxiosRequestConfig) {
-        return AccessRequestsBetaApiFp(this.configuration).getAccessRequestConfig(options).then((request) => request(this.axios, this.basePath));
+    public getAccessRequestConfig(axiosOptions?: AxiosRequestConfig) {
+        return AccessRequestsBetaApiFp(this.configuration).getAccessRequestConfig(axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -28737,8 +28737,8 @@ export class AccessRequestsBetaApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof AccessRequestsBetaApi
      */
-    public listAccessRequestStatus(requestParameters: AccessRequestsBetaApiListAccessRequestStatusRequest = {}, options?: AxiosRequestConfig) {
-        return AccessRequestsBetaApiFp(this.configuration).listAccessRequestStatus(requestParameters.requestedFor, requestParameters.requestedBy, requestParameters.regardingIdentity, requestParameters.assignedTo, requestParameters.count, requestParameters.limit, requestParameters.offset, requestParameters.filters, requestParameters.sorters, options).then((request) => request(this.axios, this.basePath));
+    public listAccessRequestStatus(requestParameters: AccessRequestsBetaApiListAccessRequestStatusRequest = {}, axiosOptions?: AxiosRequestConfig) {
+        return AccessRequestsBetaApiFp(this.configuration).listAccessRequestStatus(requestParameters.requestedFor, requestParameters.requestedBy, requestParameters.regardingIdentity, requestParameters.assignedTo, requestParameters.count, requestParameters.limit, requestParameters.offset, requestParameters.filters, requestParameters.sorters, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -28749,8 +28749,8 @@ export class AccessRequestsBetaApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof AccessRequestsBetaApi
      */
-    public setAccessRequestConfig(requestParameters: AccessRequestsBetaApiSetAccessRequestConfigRequest, options?: AxiosRequestConfig) {
-        return AccessRequestsBetaApiFp(this.configuration).setAccessRequestConfig(requestParameters.accessRequestConfigBeta, options).then((request) => request(this.axios, this.basePath));
+    public setAccessRequestConfig(requestParameters: AccessRequestsBetaApiSetAccessRequestConfigRequest, axiosOptions?: AxiosRequestConfig) {
+        return AccessRequestsBetaApiFp(this.configuration).setAccessRequestConfig(requestParameters.accessRequestConfigBeta, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 }
 
@@ -29063,8 +29063,8 @@ export class AccountActivitiesBetaApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof AccountActivitiesBetaApi
      */
-    public getAccountActivity(requestParameters: AccountActivitiesBetaApiGetAccountActivityRequest, options?: AxiosRequestConfig) {
-        return AccountActivitiesBetaApiFp(this.configuration).getAccountActivity(requestParameters.id, options).then((request) => request(this.axios, this.basePath));
+    public getAccountActivity(requestParameters: AccountActivitiesBetaApiGetAccountActivityRequest, axiosOptions?: AxiosRequestConfig) {
+        return AccountActivitiesBetaApiFp(this.configuration).getAccountActivity(requestParameters.id, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -29075,8 +29075,8 @@ export class AccountActivitiesBetaApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof AccountActivitiesBetaApi
      */
-    public listAccountActivities(requestParameters: AccountActivitiesBetaApiListAccountActivitiesRequest = {}, options?: AxiosRequestConfig) {
-        return AccountActivitiesBetaApiFp(this.configuration).listAccountActivities(requestParameters.requestedFor, requestParameters.requestedBy, requestParameters.regardingIdentity, requestParameters.type, requestParameters.limit, requestParameters.offset, requestParameters.count, requestParameters.filters, requestParameters.sorters, options).then((request) => request(this.axios, this.basePath));
+    public listAccountActivities(requestParameters: AccountActivitiesBetaApiListAccountActivitiesRequest = {}, axiosOptions?: AxiosRequestConfig) {
+        return AccountActivitiesBetaApiFp(this.configuration).listAccountActivities(requestParameters.requestedFor, requestParameters.requestedBy, requestParameters.regardingIdentity, requestParameters.type, requestParameters.limit, requestParameters.offset, requestParameters.count, requestParameters.filters, requestParameters.sorters, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 }
 
@@ -29205,8 +29205,8 @@ export class AccountAggregationsBetaApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof AccountAggregationsBetaApi
      */
-    public getAccountAggregationStatus(requestParameters: AccountAggregationsBetaApiGetAccountAggregationStatusRequest, options?: AxiosRequestConfig) {
-        return AccountAggregationsBetaApiFp(this.configuration).getAccountAggregationStatus(requestParameters.id, options).then((request) => request(this.axios, this.basePath));
+    public getAccountAggregationStatus(requestParameters: AccountAggregationsBetaApiGetAccountAggregationStatusRequest, axiosOptions?: AxiosRequestConfig) {
+        return AccountAggregationsBetaApiFp(this.configuration).getAccountAggregationStatus(requestParameters.id, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 }
 
@@ -29387,8 +29387,8 @@ export class AccountUsagesBetaApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof AccountUsagesBetaApi
      */
-    public getUsagesByAccountId(requestParameters: AccountUsagesBetaApiGetUsagesByAccountIdRequest, options?: AxiosRequestConfig) {
-        return AccountUsagesBetaApiFp(this.configuration).getUsagesByAccountId(requestParameters.accountId, requestParameters.limit, requestParameters.offset, requestParameters.count, requestParameters.sorters, options).then((request) => request(this.axios, this.basePath));
+    public getUsagesByAccountId(requestParameters: AccountUsagesBetaApiGetUsagesByAccountIdRequest, axiosOptions?: AxiosRequestConfig) {
+        return AccountUsagesBetaApiFp(this.configuration).getUsagesByAccountId(requestParameters.accountId, requestParameters.limit, requestParameters.offset, requestParameters.count, requestParameters.sorters, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 }
 
@@ -30804,8 +30804,8 @@ export class AccountsBetaApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof AccountsBetaApi
      */
-    public createAccount(requestParameters: AccountsBetaApiCreateAccountRequest, options?: AxiosRequestConfig) {
-        return AccountsBetaApiFp(this.configuration).createAccount(requestParameters.accountAttributesCreateBeta, options).then((request) => request(this.axios, this.basePath));
+    public createAccount(requestParameters: AccountsBetaApiCreateAccountRequest, axiosOptions?: AxiosRequestConfig) {
+        return AccountsBetaApiFp(this.configuration).createAccount(requestParameters.accountAttributesCreateBeta, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -30816,8 +30816,8 @@ export class AccountsBetaApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof AccountsBetaApi
      */
-    public deleteAccount(requestParameters: AccountsBetaApiDeleteAccountRequest, options?: AxiosRequestConfig) {
-        return AccountsBetaApiFp(this.configuration).deleteAccount(requestParameters.id, options).then((request) => request(this.axios, this.basePath));
+    public deleteAccount(requestParameters: AccountsBetaApiDeleteAccountRequest, axiosOptions?: AxiosRequestConfig) {
+        return AccountsBetaApiFp(this.configuration).deleteAccount(requestParameters.id, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -30828,8 +30828,8 @@ export class AccountsBetaApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof AccountsBetaApi
      */
-    public disableAccount(requestParameters: AccountsBetaApiDisableAccountRequest, options?: AxiosRequestConfig) {
-        return AccountsBetaApiFp(this.configuration).disableAccount(requestParameters.id, requestParameters.accountToggleRequestBeta, options).then((request) => request(this.axios, this.basePath));
+    public disableAccount(requestParameters: AccountsBetaApiDisableAccountRequest, axiosOptions?: AxiosRequestConfig) {
+        return AccountsBetaApiFp(this.configuration).disableAccount(requestParameters.id, requestParameters.accountToggleRequestBeta, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -30840,8 +30840,8 @@ export class AccountsBetaApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof AccountsBetaApi
      */
-    public disableAccountForIdentity(requestParameters: AccountsBetaApiDisableAccountForIdentityRequest, options?: AxiosRequestConfig) {
-        return AccountsBetaApiFp(this.configuration).disableAccountForIdentity(requestParameters.id, options).then((request) => request(this.axios, this.basePath));
+    public disableAccountForIdentity(requestParameters: AccountsBetaApiDisableAccountForIdentityRequest, axiosOptions?: AxiosRequestConfig) {
+        return AccountsBetaApiFp(this.configuration).disableAccountForIdentity(requestParameters.id, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -30852,8 +30852,8 @@ export class AccountsBetaApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof AccountsBetaApi
      */
-    public disableAccountsForIdentities(requestParameters: AccountsBetaApiDisableAccountsForIdentitiesRequest, options?: AxiosRequestConfig) {
-        return AccountsBetaApiFp(this.configuration).disableAccountsForIdentities(requestParameters.identitiesAccountsBulkRequestBeta, options).then((request) => request(this.axios, this.basePath));
+    public disableAccountsForIdentities(requestParameters: AccountsBetaApiDisableAccountsForIdentitiesRequest, axiosOptions?: AxiosRequestConfig) {
+        return AccountsBetaApiFp(this.configuration).disableAccountsForIdentities(requestParameters.identitiesAccountsBulkRequestBeta, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -30864,8 +30864,8 @@ export class AccountsBetaApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof AccountsBetaApi
      */
-    public enableAccount(requestParameters: AccountsBetaApiEnableAccountRequest, options?: AxiosRequestConfig) {
-        return AccountsBetaApiFp(this.configuration).enableAccount(requestParameters.id, requestParameters.accountToggleRequestBeta, options).then((request) => request(this.axios, this.basePath));
+    public enableAccount(requestParameters: AccountsBetaApiEnableAccountRequest, axiosOptions?: AxiosRequestConfig) {
+        return AccountsBetaApiFp(this.configuration).enableAccount(requestParameters.id, requestParameters.accountToggleRequestBeta, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -30876,8 +30876,8 @@ export class AccountsBetaApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof AccountsBetaApi
      */
-    public enableAccountForIdentity(requestParameters: AccountsBetaApiEnableAccountForIdentityRequest, options?: AxiosRequestConfig) {
-        return AccountsBetaApiFp(this.configuration).enableAccountForIdentity(requestParameters.id, options).then((request) => request(this.axios, this.basePath));
+    public enableAccountForIdentity(requestParameters: AccountsBetaApiEnableAccountForIdentityRequest, axiosOptions?: AxiosRequestConfig) {
+        return AccountsBetaApiFp(this.configuration).enableAccountForIdentity(requestParameters.id, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -30888,8 +30888,8 @@ export class AccountsBetaApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof AccountsBetaApi
      */
-    public enableAccountsForIdentities(requestParameters: AccountsBetaApiEnableAccountsForIdentitiesRequest, options?: AxiosRequestConfig) {
-        return AccountsBetaApiFp(this.configuration).enableAccountsForIdentities(requestParameters.identitiesAccountsBulkRequestBeta, options).then((request) => request(this.axios, this.basePath));
+    public enableAccountsForIdentities(requestParameters: AccountsBetaApiEnableAccountsForIdentitiesRequest, axiosOptions?: AxiosRequestConfig) {
+        return AccountsBetaApiFp(this.configuration).enableAccountsForIdentities(requestParameters.identitiesAccountsBulkRequestBeta, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -30900,8 +30900,8 @@ export class AccountsBetaApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof AccountsBetaApi
      */
-    public getAccount(requestParameters: AccountsBetaApiGetAccountRequest, options?: AxiosRequestConfig) {
-        return AccountsBetaApiFp(this.configuration).getAccount(requestParameters.id, options).then((request) => request(this.axios, this.basePath));
+    public getAccount(requestParameters: AccountsBetaApiGetAccountRequest, axiosOptions?: AxiosRequestConfig) {
+        return AccountsBetaApiFp(this.configuration).getAccount(requestParameters.id, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -30912,8 +30912,8 @@ export class AccountsBetaApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof AccountsBetaApi
      */
-    public getAccountEntitlements(requestParameters: AccountsBetaApiGetAccountEntitlementsRequest, options?: AxiosRequestConfig) {
-        return AccountsBetaApiFp(this.configuration).getAccountEntitlements(requestParameters.id, requestParameters.offset, requestParameters.limit, requestParameters.count, options).then((request) => request(this.axios, this.basePath));
+    public getAccountEntitlements(requestParameters: AccountsBetaApiGetAccountEntitlementsRequest, axiosOptions?: AxiosRequestConfig) {
+        return AccountsBetaApiFp(this.configuration).getAccountEntitlements(requestParameters.id, requestParameters.offset, requestParameters.limit, requestParameters.count, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -30924,8 +30924,8 @@ export class AccountsBetaApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof AccountsBetaApi
      */
-    public listAccounts(requestParameters: AccountsBetaApiListAccountsRequest = {}, options?: AxiosRequestConfig) {
-        return AccountsBetaApiFp(this.configuration).listAccounts(requestParameters.detailLevel, requestParameters.limit, requestParameters.offset, requestParameters.count, requestParameters.filters, requestParameters.sorters, options).then((request) => request(this.axios, this.basePath));
+    public listAccounts(requestParameters: AccountsBetaApiListAccountsRequest = {}, axiosOptions?: AxiosRequestConfig) {
+        return AccountsBetaApiFp(this.configuration).listAccounts(requestParameters.detailLevel, requestParameters.limit, requestParameters.offset, requestParameters.count, requestParameters.filters, requestParameters.sorters, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -30936,8 +30936,8 @@ export class AccountsBetaApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof AccountsBetaApi
      */
-    public putAccount(requestParameters: AccountsBetaApiPutAccountRequest, options?: AxiosRequestConfig) {
-        return AccountsBetaApiFp(this.configuration).putAccount(requestParameters.id, requestParameters.accountAttributesBeta, options).then((request) => request(this.axios, this.basePath));
+    public putAccount(requestParameters: AccountsBetaApiPutAccountRequest, axiosOptions?: AxiosRequestConfig) {
+        return AccountsBetaApiFp(this.configuration).putAccount(requestParameters.id, requestParameters.accountAttributesBeta, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -30948,8 +30948,8 @@ export class AccountsBetaApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof AccountsBetaApi
      */
-    public reloadAccount(requestParameters: AccountsBetaApiReloadAccountRequest, options?: AxiosRequestConfig) {
-        return AccountsBetaApiFp(this.configuration).reloadAccount(requestParameters.id, options).then((request) => request(this.axios, this.basePath));
+    public reloadAccount(requestParameters: AccountsBetaApiReloadAccountRequest, axiosOptions?: AxiosRequestConfig) {
+        return AccountsBetaApiFp(this.configuration).reloadAccount(requestParameters.id, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -30960,8 +30960,8 @@ export class AccountsBetaApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof AccountsBetaApi
      */
-    public unlockAccount(requestParameters: AccountsBetaApiUnlockAccountRequest, options?: AxiosRequestConfig) {
-        return AccountsBetaApiFp(this.configuration).unlockAccount(requestParameters.id, requestParameters.accountUnlockRequestBeta, options).then((request) => request(this.axios, this.basePath));
+    public unlockAccount(requestParameters: AccountsBetaApiUnlockAccountRequest, axiosOptions?: AxiosRequestConfig) {
+        return AccountsBetaApiFp(this.configuration).unlockAccount(requestParameters.id, requestParameters.accountUnlockRequestBeta, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -30972,8 +30972,8 @@ export class AccountsBetaApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof AccountsBetaApi
      */
-    public updateAccount(requestParameters: AccountsBetaApiUpdateAccountRequest, options?: AxiosRequestConfig) {
-        return AccountsBetaApiFp(this.configuration).updateAccount(requestParameters.id, requestParameters.requestBody, options).then((request) => request(this.axios, this.basePath));
+    public updateAccount(requestParameters: AccountsBetaApiUpdateAccountRequest, axiosOptions?: AxiosRequestConfig) {
+        return AccountsBetaApiFp(this.configuration).updateAccount(requestParameters.id, requestParameters.requestBody, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 }
 
@@ -33033,8 +33033,8 @@ export class CertificationCampaignsBetaApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof CertificationCampaignsBetaApi
      */
-    public completeCampaign(requestParameters: CertificationCampaignsBetaApiCompleteCampaignRequest, options?: AxiosRequestConfig) {
-        return CertificationCampaignsBetaApiFp(this.configuration).completeCampaign(requestParameters.id, requestParameters.completeCampaignOptionsBeta, options).then((request) => request(this.axios, this.basePath));
+    public completeCampaign(requestParameters: CertificationCampaignsBetaApiCompleteCampaignRequest, axiosOptions?: AxiosRequestConfig) {
+        return CertificationCampaignsBetaApiFp(this.configuration).completeCampaign(requestParameters.id, requestParameters.completeCampaignOptionsBeta, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -33046,8 +33046,8 @@ export class CertificationCampaignsBetaApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof CertificationCampaignsBetaApi
      */
-    public createCampaign(requestParameters: CertificationCampaignsBetaApiCreateCampaignRequest, options?: AxiosRequestConfig) {
-        return CertificationCampaignsBetaApiFp(this.configuration).createCampaign(requestParameters.campaignBeta, options).then((request) => request(this.axios, this.basePath));
+    public createCampaign(requestParameters: CertificationCampaignsBetaApiCreateCampaignRequest, axiosOptions?: AxiosRequestConfig) {
+        return CertificationCampaignsBetaApiFp(this.configuration).createCampaign(requestParameters.campaignBeta, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -33059,8 +33059,8 @@ export class CertificationCampaignsBetaApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof CertificationCampaignsBetaApi
      */
-    public createCampaignTemplate(requestParameters: CertificationCampaignsBetaApiCreateCampaignTemplateRequest, options?: AxiosRequestConfig) {
-        return CertificationCampaignsBetaApiFp(this.configuration).createCampaignTemplate(requestParameters.campaignTemplateBeta, options).then((request) => request(this.axios, this.basePath));
+    public createCampaignTemplate(requestParameters: CertificationCampaignsBetaApiCreateCampaignTemplateRequest, axiosOptions?: AxiosRequestConfig) {
+        return CertificationCampaignsBetaApiFp(this.configuration).createCampaignTemplate(requestParameters.campaignTemplateBeta, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -33072,8 +33072,8 @@ export class CertificationCampaignsBetaApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof CertificationCampaignsBetaApi
      */
-    public deleteCampaignTemplate(requestParameters: CertificationCampaignsBetaApiDeleteCampaignTemplateRequest, options?: AxiosRequestConfig) {
-        return CertificationCampaignsBetaApiFp(this.configuration).deleteCampaignTemplate(requestParameters.id, options).then((request) => request(this.axios, this.basePath));
+    public deleteCampaignTemplate(requestParameters: CertificationCampaignsBetaApiDeleteCampaignTemplateRequest, axiosOptions?: AxiosRequestConfig) {
+        return CertificationCampaignsBetaApiFp(this.configuration).deleteCampaignTemplate(requestParameters.id, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -33085,8 +33085,8 @@ export class CertificationCampaignsBetaApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof CertificationCampaignsBetaApi
      */
-    public deleteCampaignTemplateSchedule(requestParameters: CertificationCampaignsBetaApiDeleteCampaignTemplateScheduleRequest, options?: AxiosRequestConfig) {
-        return CertificationCampaignsBetaApiFp(this.configuration).deleteCampaignTemplateSchedule(requestParameters.id, options).then((request) => request(this.axios, this.basePath));
+    public deleteCampaignTemplateSchedule(requestParameters: CertificationCampaignsBetaApiDeleteCampaignTemplateScheduleRequest, axiosOptions?: AxiosRequestConfig) {
+        return CertificationCampaignsBetaApiFp(this.configuration).deleteCampaignTemplateSchedule(requestParameters.id, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -33098,8 +33098,8 @@ export class CertificationCampaignsBetaApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof CertificationCampaignsBetaApi
      */
-    public deleteCampaigns(requestParameters: CertificationCampaignsBetaApiDeleteCampaignsRequest, options?: AxiosRequestConfig) {
-        return CertificationCampaignsBetaApiFp(this.configuration).deleteCampaigns(requestParameters.deleteCampaignsRequestBeta, options).then((request) => request(this.axios, this.basePath));
+    public deleteCampaigns(requestParameters: CertificationCampaignsBetaApiDeleteCampaignsRequest, axiosOptions?: AxiosRequestConfig) {
+        return CertificationCampaignsBetaApiFp(this.configuration).deleteCampaigns(requestParameters.deleteCampaignsRequestBeta, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -33111,8 +33111,8 @@ export class CertificationCampaignsBetaApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof CertificationCampaignsBetaApi
      */
-    public getActiveCampaigns(requestParameters: CertificationCampaignsBetaApiGetActiveCampaignsRequest = {}, options?: AxiosRequestConfig) {
-        return CertificationCampaignsBetaApiFp(this.configuration).getActiveCampaigns(requestParameters.detail, requestParameters.limit, requestParameters.offset, requestParameters.count, requestParameters.filters, requestParameters.sorters, options).then((request) => request(this.axios, this.basePath));
+    public getActiveCampaigns(requestParameters: CertificationCampaignsBetaApiGetActiveCampaignsRequest = {}, axiosOptions?: AxiosRequestConfig) {
+        return CertificationCampaignsBetaApiFp(this.configuration).getActiveCampaigns(requestParameters.detail, requestParameters.limit, requestParameters.offset, requestParameters.count, requestParameters.filters, requestParameters.sorters, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -33124,8 +33124,8 @@ export class CertificationCampaignsBetaApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof CertificationCampaignsBetaApi
      */
-    public getCampaign(requestParameters: CertificationCampaignsBetaApiGetCampaignRequest, options?: AxiosRequestConfig) {
-        return CertificationCampaignsBetaApiFp(this.configuration).getCampaign(requestParameters.id, options).then((request) => request(this.axios, this.basePath));
+    public getCampaign(requestParameters: CertificationCampaignsBetaApiGetCampaignRequest, axiosOptions?: AxiosRequestConfig) {
+        return CertificationCampaignsBetaApiFp(this.configuration).getCampaign(requestParameters.id, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -33137,8 +33137,8 @@ export class CertificationCampaignsBetaApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof CertificationCampaignsBetaApi
      */
-    public getCampaignReports(requestParameters: CertificationCampaignsBetaApiGetCampaignReportsRequest, options?: AxiosRequestConfig) {
-        return CertificationCampaignsBetaApiFp(this.configuration).getCampaignReports(requestParameters.id, options).then((request) => request(this.axios, this.basePath));
+    public getCampaignReports(requestParameters: CertificationCampaignsBetaApiGetCampaignReportsRequest, axiosOptions?: AxiosRequestConfig) {
+        return CertificationCampaignsBetaApiFp(this.configuration).getCampaignReports(requestParameters.id, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -33149,8 +33149,8 @@ export class CertificationCampaignsBetaApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof CertificationCampaignsBetaApi
      */
-    public getCampaignReportsConfig(options?: AxiosRequestConfig) {
-        return CertificationCampaignsBetaApiFp(this.configuration).getCampaignReportsConfig(options).then((request) => request(this.axios, this.basePath));
+    public getCampaignReportsConfig(axiosOptions?: AxiosRequestConfig) {
+        return CertificationCampaignsBetaApiFp(this.configuration).getCampaignReportsConfig(axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -33162,8 +33162,8 @@ export class CertificationCampaignsBetaApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof CertificationCampaignsBetaApi
      */
-    public getCampaignTemplate(requestParameters: CertificationCampaignsBetaApiGetCampaignTemplateRequest, options?: AxiosRequestConfig) {
-        return CertificationCampaignsBetaApiFp(this.configuration).getCampaignTemplate(requestParameters.id, options).then((request) => request(this.axios, this.basePath));
+    public getCampaignTemplate(requestParameters: CertificationCampaignsBetaApiGetCampaignTemplateRequest, axiosOptions?: AxiosRequestConfig) {
+        return CertificationCampaignsBetaApiFp(this.configuration).getCampaignTemplate(requestParameters.id, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -33175,8 +33175,8 @@ export class CertificationCampaignsBetaApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof CertificationCampaignsBetaApi
      */
-    public getCampaignTemplateSchedule(requestParameters: CertificationCampaignsBetaApiGetCampaignTemplateScheduleRequest, options?: AxiosRequestConfig) {
-        return CertificationCampaignsBetaApiFp(this.configuration).getCampaignTemplateSchedule(requestParameters.id, options).then((request) => request(this.axios, this.basePath));
+    public getCampaignTemplateSchedule(requestParameters: CertificationCampaignsBetaApiGetCampaignTemplateScheduleRequest, axiosOptions?: AxiosRequestConfig) {
+        return CertificationCampaignsBetaApiFp(this.configuration).getCampaignTemplateSchedule(requestParameters.id, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -33188,8 +33188,8 @@ export class CertificationCampaignsBetaApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof CertificationCampaignsBetaApi
      */
-    public listCampaignTemplates(requestParameters: CertificationCampaignsBetaApiListCampaignTemplatesRequest = {}, options?: AxiosRequestConfig) {
-        return CertificationCampaignsBetaApiFp(this.configuration).listCampaignTemplates(requestParameters.limit, requestParameters.offset, requestParameters.count, requestParameters.sorters, requestParameters.filters, options).then((request) => request(this.axios, this.basePath));
+    public listCampaignTemplates(requestParameters: CertificationCampaignsBetaApiListCampaignTemplatesRequest = {}, axiosOptions?: AxiosRequestConfig) {
+        return CertificationCampaignsBetaApiFp(this.configuration).listCampaignTemplates(requestParameters.limit, requestParameters.offset, requestParameters.count, requestParameters.sorters, requestParameters.filters, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -33201,8 +33201,8 @@ export class CertificationCampaignsBetaApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof CertificationCampaignsBetaApi
      */
-    public move(requestParameters: CertificationCampaignsBetaApiMoveRequest, options?: AxiosRequestConfig) {
-        return CertificationCampaignsBetaApiFp(this.configuration).move(requestParameters.id, requestParameters.adminReviewReassignBeta, options).then((request) => request(this.axios, this.basePath));
+    public move(requestParameters: CertificationCampaignsBetaApiMoveRequest, axiosOptions?: AxiosRequestConfig) {
+        return CertificationCampaignsBetaApiFp(this.configuration).move(requestParameters.id, requestParameters.adminReviewReassignBeta, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -33214,8 +33214,8 @@ export class CertificationCampaignsBetaApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof CertificationCampaignsBetaApi
      */
-    public patchCampaignTemplate(requestParameters: CertificationCampaignsBetaApiPatchCampaignTemplateRequest, options?: AxiosRequestConfig) {
-        return CertificationCampaignsBetaApiFp(this.configuration).patchCampaignTemplate(requestParameters.id, requestParameters.jsonPatchOperationBeta, options).then((request) => request(this.axios, this.basePath));
+    public patchCampaignTemplate(requestParameters: CertificationCampaignsBetaApiPatchCampaignTemplateRequest, axiosOptions?: AxiosRequestConfig) {
+        return CertificationCampaignsBetaApiFp(this.configuration).patchCampaignTemplate(requestParameters.id, requestParameters.jsonPatchOperationBeta, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -33227,8 +33227,8 @@ export class CertificationCampaignsBetaApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof CertificationCampaignsBetaApi
      */
-    public setCampaignReportsConfig(requestParameters: CertificationCampaignsBetaApiSetCampaignReportsConfigRequest, options?: AxiosRequestConfig) {
-        return CertificationCampaignsBetaApiFp(this.configuration).setCampaignReportsConfig(requestParameters.campaignReportsConfigBeta, options).then((request) => request(this.axios, this.basePath));
+    public setCampaignReportsConfig(requestParameters: CertificationCampaignsBetaApiSetCampaignReportsConfigRequest, axiosOptions?: AxiosRequestConfig) {
+        return CertificationCampaignsBetaApiFp(this.configuration).setCampaignReportsConfig(requestParameters.campaignReportsConfigBeta, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -33240,8 +33240,8 @@ export class CertificationCampaignsBetaApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof CertificationCampaignsBetaApi
      */
-    public setCampaignTemplateSchedule(requestParameters: CertificationCampaignsBetaApiSetCampaignTemplateScheduleRequest, options?: AxiosRequestConfig) {
-        return CertificationCampaignsBetaApiFp(this.configuration).setCampaignTemplateSchedule(requestParameters.id, requestParameters.scheduleBeta, options).then((request) => request(this.axios, this.basePath));
+    public setCampaignTemplateSchedule(requestParameters: CertificationCampaignsBetaApiSetCampaignTemplateScheduleRequest, axiosOptions?: AxiosRequestConfig) {
+        return CertificationCampaignsBetaApiFp(this.configuration).setCampaignTemplateSchedule(requestParameters.id, requestParameters.scheduleBeta, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -33253,8 +33253,8 @@ export class CertificationCampaignsBetaApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof CertificationCampaignsBetaApi
      */
-    public startCampaign(requestParameters: CertificationCampaignsBetaApiStartCampaignRequest, options?: AxiosRequestConfig) {
-        return CertificationCampaignsBetaApiFp(this.configuration).startCampaign(requestParameters.id, requestParameters.activateCampaignOptionsBeta, options).then((request) => request(this.axios, this.basePath));
+    public startCampaign(requestParameters: CertificationCampaignsBetaApiStartCampaignRequest, axiosOptions?: AxiosRequestConfig) {
+        return CertificationCampaignsBetaApiFp(this.configuration).startCampaign(requestParameters.id, requestParameters.activateCampaignOptionsBeta, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -33266,8 +33266,8 @@ export class CertificationCampaignsBetaApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof CertificationCampaignsBetaApi
      */
-    public startCampaignRemediationScan(requestParameters: CertificationCampaignsBetaApiStartCampaignRemediationScanRequest, options?: AxiosRequestConfig) {
-        return CertificationCampaignsBetaApiFp(this.configuration).startCampaignRemediationScan(requestParameters.id, options).then((request) => request(this.axios, this.basePath));
+    public startCampaignRemediationScan(requestParameters: CertificationCampaignsBetaApiStartCampaignRemediationScanRequest, axiosOptions?: AxiosRequestConfig) {
+        return CertificationCampaignsBetaApiFp(this.configuration).startCampaignRemediationScan(requestParameters.id, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -33279,8 +33279,8 @@ export class CertificationCampaignsBetaApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof CertificationCampaignsBetaApi
      */
-    public startCampaignReport(requestParameters: CertificationCampaignsBetaApiStartCampaignReportRequest, options?: AxiosRequestConfig) {
-        return CertificationCampaignsBetaApiFp(this.configuration).startCampaignReport(requestParameters.id, requestParameters.type, options).then((request) => request(this.axios, this.basePath));
+    public startCampaignReport(requestParameters: CertificationCampaignsBetaApiStartCampaignReportRequest, axiosOptions?: AxiosRequestConfig) {
+        return CertificationCampaignsBetaApiFp(this.configuration).startCampaignReport(requestParameters.id, requestParameters.type, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -33292,8 +33292,8 @@ export class CertificationCampaignsBetaApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof CertificationCampaignsBetaApi
      */
-    public startGenerateCampaignTemplate(requestParameters: CertificationCampaignsBetaApiStartGenerateCampaignTemplateRequest, options?: AxiosRequestConfig) {
-        return CertificationCampaignsBetaApiFp(this.configuration).startGenerateCampaignTemplate(requestParameters.id, options).then((request) => request(this.axios, this.basePath));
+    public startGenerateCampaignTemplate(requestParameters: CertificationCampaignsBetaApiStartGenerateCampaignTemplateRequest, axiosOptions?: AxiosRequestConfig) {
+        return CertificationCampaignsBetaApiFp(this.configuration).startGenerateCampaignTemplate(requestParameters.id, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -33305,8 +33305,8 @@ export class CertificationCampaignsBetaApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof CertificationCampaignsBetaApi
      */
-    public updateCampaign(requestParameters: CertificationCampaignsBetaApiUpdateCampaignRequest, options?: AxiosRequestConfig) {
-        return CertificationCampaignsBetaApiFp(this.configuration).updateCampaign(requestParameters.id, requestParameters.requestBody, options).then((request) => request(this.axios, this.basePath));
+    public updateCampaign(requestParameters: CertificationCampaignsBetaApiUpdateCampaignRequest, axiosOptions?: AxiosRequestConfig) {
+        return CertificationCampaignsBetaApiFp(this.configuration).updateCampaign(requestParameters.id, requestParameters.requestBody, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 }
 
@@ -33924,8 +33924,8 @@ export class CertificationsBetaApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof CertificationsBetaApi
      */
-    public getIdentityCertificationItemPermissions(requestParameters: CertificationsBetaApiGetIdentityCertificationItemPermissionsRequest, options?: AxiosRequestConfig) {
-        return CertificationsBetaApiFp(this.configuration).getIdentityCertificationItemPermissions(requestParameters.certificationId, requestParameters.itemId, requestParameters.filters, requestParameters.limit, requestParameters.offset, requestParameters.count, options).then((request) => request(this.axios, this.basePath));
+    public getIdentityCertificationItemPermissions(requestParameters: CertificationsBetaApiGetIdentityCertificationItemPermissionsRequest, axiosOptions?: AxiosRequestConfig) {
+        return CertificationsBetaApiFp(this.configuration).getIdentityCertificationItemPermissions(requestParameters.certificationId, requestParameters.itemId, requestParameters.filters, requestParameters.limit, requestParameters.offset, requestParameters.count, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -33936,8 +33936,8 @@ export class CertificationsBetaApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof CertificationsBetaApi
      */
-    public getIdentityCertificationPendingTasks(requestParameters: CertificationsBetaApiGetIdentityCertificationPendingTasksRequest, options?: AxiosRequestConfig) {
-        return CertificationsBetaApiFp(this.configuration).getIdentityCertificationPendingTasks(requestParameters.id, options).then((request) => request(this.axios, this.basePath));
+    public getIdentityCertificationPendingTasks(requestParameters: CertificationsBetaApiGetIdentityCertificationPendingTasksRequest, axiosOptions?: AxiosRequestConfig) {
+        return CertificationsBetaApiFp(this.configuration).getIdentityCertificationPendingTasks(requestParameters.id, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -33948,8 +33948,8 @@ export class CertificationsBetaApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof CertificationsBetaApi
      */
-    public getIdentityCertificationTaskStatus(requestParameters: CertificationsBetaApiGetIdentityCertificationTaskStatusRequest, options?: AxiosRequestConfig) {
-        return CertificationsBetaApiFp(this.configuration).getIdentityCertificationTaskStatus(requestParameters.id, requestParameters.taskId, options).then((request) => request(this.axios, this.basePath));
+    public getIdentityCertificationTaskStatus(requestParameters: CertificationsBetaApiGetIdentityCertificationTaskStatusRequest, axiosOptions?: AxiosRequestConfig) {
+        return CertificationsBetaApiFp(this.configuration).getIdentityCertificationTaskStatus(requestParameters.id, requestParameters.taskId, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -33961,8 +33961,8 @@ export class CertificationsBetaApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof CertificationsBetaApi
      */
-    public listCertificationReviewers(requestParameters: CertificationsBetaApiListCertificationReviewersRequest, options?: AxiosRequestConfig) {
-        return CertificationsBetaApiFp(this.configuration).listCertificationReviewers(requestParameters.id, requestParameters.limit, requestParameters.offset, requestParameters.count, requestParameters.filters, requestParameters.sorters, options).then((request) => request(this.axios, this.basePath));
+    public listCertificationReviewers(requestParameters: CertificationsBetaApiListCertificationReviewersRequest, axiosOptions?: AxiosRequestConfig) {
+        return CertificationsBetaApiFp(this.configuration).listCertificationReviewers(requestParameters.id, requestParameters.limit, requestParameters.offset, requestParameters.count, requestParameters.filters, requestParameters.sorters, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -33974,8 +33974,8 @@ export class CertificationsBetaApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof CertificationsBetaApi
      */
-    public submitReassignCertsAsync(requestParameters: CertificationsBetaApiSubmitReassignCertsAsyncRequest, options?: AxiosRequestConfig) {
-        return CertificationsBetaApiFp(this.configuration).submitReassignCertsAsync(requestParameters.id, requestParameters.reviewReassignBeta, options).then((request) => request(this.axios, this.basePath));
+    public submitReassignCertsAsync(requestParameters: CertificationsBetaApiSubmitReassignCertsAsyncRequest, axiosOptions?: AxiosRequestConfig) {
+        return CertificationsBetaApiFp(this.configuration).submitReassignCertsAsync(requestParameters.id, requestParameters.reviewReassignBeta, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 }
 
@@ -34495,8 +34495,8 @@ export class ConnectorRuleManagementBetaApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof ConnectorRuleManagementBetaApi
      */
-    public createConnectorRule(requestParameters: ConnectorRuleManagementBetaApiCreateConnectorRuleRequest, options?: AxiosRequestConfig) {
-        return ConnectorRuleManagementBetaApiFp(this.configuration).createConnectorRule(requestParameters.connectorRuleCreateRequestBeta, options).then((request) => request(this.axios, this.basePath));
+    public createConnectorRule(requestParameters: ConnectorRuleManagementBetaApiCreateConnectorRuleRequest, axiosOptions?: AxiosRequestConfig) {
+        return ConnectorRuleManagementBetaApiFp(this.configuration).createConnectorRule(requestParameters.connectorRuleCreateRequestBeta, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -34507,8 +34507,8 @@ export class ConnectorRuleManagementBetaApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof ConnectorRuleManagementBetaApi
      */
-    public deleteConnectorRule(requestParameters: ConnectorRuleManagementBetaApiDeleteConnectorRuleRequest, options?: AxiosRequestConfig) {
-        return ConnectorRuleManagementBetaApiFp(this.configuration).deleteConnectorRule(requestParameters.id, options).then((request) => request(this.axios, this.basePath));
+    public deleteConnectorRule(requestParameters: ConnectorRuleManagementBetaApiDeleteConnectorRuleRequest, axiosOptions?: AxiosRequestConfig) {
+        return ConnectorRuleManagementBetaApiFp(this.configuration).deleteConnectorRule(requestParameters.id, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -34519,8 +34519,8 @@ export class ConnectorRuleManagementBetaApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof ConnectorRuleManagementBetaApi
      */
-    public getConnectorRule(requestParameters: ConnectorRuleManagementBetaApiGetConnectorRuleRequest, options?: AxiosRequestConfig) {
-        return ConnectorRuleManagementBetaApiFp(this.configuration).getConnectorRule(requestParameters.id, options).then((request) => request(this.axios, this.basePath));
+    public getConnectorRule(requestParameters: ConnectorRuleManagementBetaApiGetConnectorRuleRequest, axiosOptions?: AxiosRequestConfig) {
+        return ConnectorRuleManagementBetaApiFp(this.configuration).getConnectorRule(requestParameters.id, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -34530,8 +34530,8 @@ export class ConnectorRuleManagementBetaApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof ConnectorRuleManagementBetaApi
      */
-    public getConnectorRuleList(options?: AxiosRequestConfig) {
-        return ConnectorRuleManagementBetaApiFp(this.configuration).getConnectorRuleList(options).then((request) => request(this.axios, this.basePath));
+    public getConnectorRuleList(axiosOptions?: AxiosRequestConfig) {
+        return ConnectorRuleManagementBetaApiFp(this.configuration).getConnectorRuleList(axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -34542,8 +34542,8 @@ export class ConnectorRuleManagementBetaApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof ConnectorRuleManagementBetaApi
      */
-    public updateConnectorRule(requestParameters: ConnectorRuleManagementBetaApiUpdateConnectorRuleRequest, options?: AxiosRequestConfig) {
-        return ConnectorRuleManagementBetaApiFp(this.configuration).updateConnectorRule(requestParameters.id, requestParameters.connectorRuleUpdateRequestBeta, options).then((request) => request(this.axios, this.basePath));
+    public updateConnectorRule(requestParameters: ConnectorRuleManagementBetaApiUpdateConnectorRuleRequest, axiosOptions?: AxiosRequestConfig) {
+        return ConnectorRuleManagementBetaApiFp(this.configuration).updateConnectorRule(requestParameters.id, requestParameters.connectorRuleUpdateRequestBeta, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -34554,8 +34554,8 @@ export class ConnectorRuleManagementBetaApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof ConnectorRuleManagementBetaApi
      */
-    public validateConnectorRule(requestParameters: ConnectorRuleManagementBetaApiValidateConnectorRuleRequest, options?: AxiosRequestConfig) {
-        return ConnectorRuleManagementBetaApiFp(this.configuration).validateConnectorRule(requestParameters.sourceCodeBeta, options).then((request) => request(this.axios, this.basePath));
+    public validateConnectorRule(requestParameters: ConnectorRuleManagementBetaApiValidateConnectorRuleRequest, axiosOptions?: AxiosRequestConfig) {
+        return ConnectorRuleManagementBetaApiFp(this.configuration).validateConnectorRule(requestParameters.sourceCodeBeta, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 }
 
@@ -34737,8 +34737,8 @@ export class ConnectorsBetaApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof ConnectorsBetaApi
      */
-    public getConnectorList(requestParameters: ConnectorsBetaApiGetConnectorListRequest = {}, options?: AxiosRequestConfig) {
-        return ConnectorsBetaApiFp(this.configuration).getConnectorList(requestParameters.filters, requestParameters.limit, requestParameters.offset, requestParameters.count, requestParameters.locale, options).then((request) => request(this.axios, this.basePath));
+    public getConnectorList(requestParameters: ConnectorsBetaApiGetConnectorListRequest = {}, axiosOptions?: AxiosRequestConfig) {
+        return ConnectorsBetaApiFp(this.configuration).getConnectorList(requestParameters.filters, requestParameters.limit, requestParameters.offset, requestParameters.count, requestParameters.locale, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 }
 
@@ -36431,8 +36431,8 @@ export class CustomFormsBetaApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof CustomFormsBetaApi
      */
-    public createFormDefinition(requestParameters: CustomFormsBetaApiCreateFormDefinitionRequest = {}, options?: AxiosRequestConfig) {
-        return CustomFormsBetaApiFp(this.configuration).createFormDefinition(requestParameters.body, options).then((request) => request(this.axios, this.basePath));
+    public createFormDefinition(requestParameters: CustomFormsBetaApiCreateFormDefinitionRequest = {}, axiosOptions?: AxiosRequestConfig) {
+        return CustomFormsBetaApiFp(this.configuration).createFormDefinition(requestParameters.body, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -36443,8 +36443,8 @@ export class CustomFormsBetaApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof CustomFormsBetaApi
      */
-    public createFormDefinitionDynamicSchema(requestParameters: CustomFormsBetaApiCreateFormDefinitionDynamicSchemaRequest = {}, options?: AxiosRequestConfig) {
-        return CustomFormsBetaApiFp(this.configuration).createFormDefinitionDynamicSchema(requestParameters.body, options).then((request) => request(this.axios, this.basePath));
+    public createFormDefinitionDynamicSchema(requestParameters: CustomFormsBetaApiCreateFormDefinitionDynamicSchemaRequest = {}, axiosOptions?: AxiosRequestConfig) {
+        return CustomFormsBetaApiFp(this.configuration).createFormDefinitionDynamicSchema(requestParameters.body, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -36455,8 +36455,8 @@ export class CustomFormsBetaApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof CustomFormsBetaApi
      */
-    public createFormDefinitionFileRequest(requestParameters: CustomFormsBetaApiCreateFormDefinitionFileRequestRequest, options?: AxiosRequestConfig) {
-        return CustomFormsBetaApiFp(this.configuration).createFormDefinitionFileRequest(requestParameters.formDefinitionID, requestParameters.file, options).then((request) => request(this.axios, this.basePath));
+    public createFormDefinitionFileRequest(requestParameters: CustomFormsBetaApiCreateFormDefinitionFileRequestRequest, axiosOptions?: AxiosRequestConfig) {
+        return CustomFormsBetaApiFp(this.configuration).createFormDefinitionFileRequest(requestParameters.formDefinitionID, requestParameters.file, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -36467,8 +36467,8 @@ export class CustomFormsBetaApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof CustomFormsBetaApi
      */
-    public createFormInstance(requestParameters: CustomFormsBetaApiCreateFormInstanceRequest = {}, options?: AxiosRequestConfig) {
-        return CustomFormsBetaApiFp(this.configuration).createFormInstance(requestParameters.body, options).then((request) => request(this.axios, this.basePath));
+    public createFormInstance(requestParameters: CustomFormsBetaApiCreateFormInstanceRequest = {}, axiosOptions?: AxiosRequestConfig) {
+        return CustomFormsBetaApiFp(this.configuration).createFormInstance(requestParameters.body, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -36479,8 +36479,8 @@ export class CustomFormsBetaApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof CustomFormsBetaApi
      */
-    public deleteFormDefinition(requestParameters: CustomFormsBetaApiDeleteFormDefinitionRequest, options?: AxiosRequestConfig) {
-        return CustomFormsBetaApiFp(this.configuration).deleteFormDefinition(requestParameters.formDefinitionID, options).then((request) => request(this.axios, this.basePath));
+    public deleteFormDefinition(requestParameters: CustomFormsBetaApiDeleteFormDefinitionRequest, axiosOptions?: AxiosRequestConfig) {
+        return CustomFormsBetaApiFp(this.configuration).deleteFormDefinition(requestParameters.formDefinitionID, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -36491,8 +36491,8 @@ export class CustomFormsBetaApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof CustomFormsBetaApi
      */
-    public exportFormDefinitionsByTenant(requestParameters: CustomFormsBetaApiExportFormDefinitionsByTenantRequest = {}, options?: AxiosRequestConfig) {
-        return CustomFormsBetaApiFp(this.configuration).exportFormDefinitionsByTenant(requestParameters.offset, requestParameters.limit, requestParameters.filters, requestParameters.sorters, options).then((request) => request(this.axios, this.basePath));
+    public exportFormDefinitionsByTenant(requestParameters: CustomFormsBetaApiExportFormDefinitionsByTenantRequest = {}, axiosOptions?: AxiosRequestConfig) {
+        return CustomFormsBetaApiFp(this.configuration).exportFormDefinitionsByTenant(requestParameters.offset, requestParameters.limit, requestParameters.filters, requestParameters.sorters, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -36503,8 +36503,8 @@ export class CustomFormsBetaApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof CustomFormsBetaApi
      */
-    public getFileFromS3(requestParameters: CustomFormsBetaApiGetFileFromS3Request, options?: AxiosRequestConfig) {
-        return CustomFormsBetaApiFp(this.configuration).getFileFromS3(requestParameters.formDefinitionID, requestParameters.fileID, options).then((request) => request(this.axios, this.basePath));
+    public getFileFromS3(requestParameters: CustomFormsBetaApiGetFileFromS3Request, axiosOptions?: AxiosRequestConfig) {
+        return CustomFormsBetaApiFp(this.configuration).getFileFromS3(requestParameters.formDefinitionID, requestParameters.fileID, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -36515,8 +36515,8 @@ export class CustomFormsBetaApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof CustomFormsBetaApi
      */
-    public getFormDefinitionByKey(requestParameters: CustomFormsBetaApiGetFormDefinitionByKeyRequest, options?: AxiosRequestConfig) {
-        return CustomFormsBetaApiFp(this.configuration).getFormDefinitionByKey(requestParameters.formDefinitionID, options).then((request) => request(this.axios, this.basePath));
+    public getFormDefinitionByKey(requestParameters: CustomFormsBetaApiGetFormDefinitionByKeyRequest, axiosOptions?: AxiosRequestConfig) {
+        return CustomFormsBetaApiFp(this.configuration).getFormDefinitionByKey(requestParameters.formDefinitionID, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -36527,8 +36527,8 @@ export class CustomFormsBetaApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof CustomFormsBetaApi
      */
-    public getFormInstanceByKey(requestParameters: CustomFormsBetaApiGetFormInstanceByKeyRequest, options?: AxiosRequestConfig) {
-        return CustomFormsBetaApiFp(this.configuration).getFormInstanceByKey(requestParameters.formInstanceID, options).then((request) => request(this.axios, this.basePath));
+    public getFormInstanceByKey(requestParameters: CustomFormsBetaApiGetFormInstanceByKeyRequest, axiosOptions?: AxiosRequestConfig) {
+        return CustomFormsBetaApiFp(this.configuration).getFormInstanceByKey(requestParameters.formInstanceID, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -36539,8 +36539,8 @@ export class CustomFormsBetaApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof CustomFormsBetaApi
      */
-    public getFormInstanceFile(requestParameters: CustomFormsBetaApiGetFormInstanceFileRequest, options?: AxiosRequestConfig) {
-        return CustomFormsBetaApiFp(this.configuration).getFormInstanceFile(requestParameters.formInstanceID, requestParameters.fileID, options).then((request) => request(this.axios, this.basePath));
+    public getFormInstanceFile(requestParameters: CustomFormsBetaApiGetFormInstanceFileRequest, axiosOptions?: AxiosRequestConfig) {
+        return CustomFormsBetaApiFp(this.configuration).getFormInstanceFile(requestParameters.formInstanceID, requestParameters.fileID, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -36551,8 +36551,8 @@ export class CustomFormsBetaApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof CustomFormsBetaApi
      */
-    public importFormDefinitions(requestParameters: CustomFormsBetaApiImportFormDefinitionsRequest = {}, options?: AxiosRequestConfig) {
-        return CustomFormsBetaApiFp(this.configuration).importFormDefinitions(requestParameters.body, options).then((request) => request(this.axios, this.basePath));
+    public importFormDefinitions(requestParameters: CustomFormsBetaApiImportFormDefinitionsRequest = {}, axiosOptions?: AxiosRequestConfig) {
+        return CustomFormsBetaApiFp(this.configuration).importFormDefinitions(requestParameters.body, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -36563,8 +36563,8 @@ export class CustomFormsBetaApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof CustomFormsBetaApi
      */
-    public patchFormDefinition(requestParameters: CustomFormsBetaApiPatchFormDefinitionRequest, options?: AxiosRequestConfig) {
-        return CustomFormsBetaApiFp(this.configuration).patchFormDefinition(requestParameters.formDefinitionID, requestParameters.body, options).then((request) => request(this.axios, this.basePath));
+    public patchFormDefinition(requestParameters: CustomFormsBetaApiPatchFormDefinitionRequest, axiosOptions?: AxiosRequestConfig) {
+        return CustomFormsBetaApiFp(this.configuration).patchFormDefinition(requestParameters.formDefinitionID, requestParameters.body, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -36575,8 +36575,8 @@ export class CustomFormsBetaApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof CustomFormsBetaApi
      */
-    public patchFormInstance(requestParameters: CustomFormsBetaApiPatchFormInstanceRequest, options?: AxiosRequestConfig) {
-        return CustomFormsBetaApiFp(this.configuration).patchFormInstance(requestParameters.formInstanceID, requestParameters.body, options).then((request) => request(this.axios, this.basePath));
+    public patchFormInstance(requestParameters: CustomFormsBetaApiPatchFormInstanceRequest, axiosOptions?: AxiosRequestConfig) {
+        return CustomFormsBetaApiFp(this.configuration).patchFormInstance(requestParameters.formInstanceID, requestParameters.body, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -36587,8 +36587,8 @@ export class CustomFormsBetaApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof CustomFormsBetaApi
      */
-    public searchFormDefinitionsByTenant(requestParameters: CustomFormsBetaApiSearchFormDefinitionsByTenantRequest = {}, options?: AxiosRequestConfig) {
-        return CustomFormsBetaApiFp(this.configuration).searchFormDefinitionsByTenant(requestParameters.offset, requestParameters.limit, requestParameters.filters, requestParameters.sorters, options).then((request) => request(this.axios, this.basePath));
+    public searchFormDefinitionsByTenant(requestParameters: CustomFormsBetaApiSearchFormDefinitionsByTenantRequest = {}, axiosOptions?: AxiosRequestConfig) {
+        return CustomFormsBetaApiFp(this.configuration).searchFormDefinitionsByTenant(requestParameters.offset, requestParameters.limit, requestParameters.filters, requestParameters.sorters, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -36599,8 +36599,8 @@ export class CustomFormsBetaApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof CustomFormsBetaApi
      */
-    public searchFormElementDataByElementID(requestParameters: CustomFormsBetaApiSearchFormElementDataByElementIDRequest, options?: AxiosRequestConfig) {
-        return CustomFormsBetaApiFp(this.configuration).searchFormElementDataByElementID(requestParameters.formInstanceID, requestParameters.formElementID, requestParameters.limit, requestParameters.filters, options).then((request) => request(this.axios, this.basePath));
+    public searchFormElementDataByElementID(requestParameters: CustomFormsBetaApiSearchFormElementDataByElementIDRequest, axiosOptions?: AxiosRequestConfig) {
+        return CustomFormsBetaApiFp(this.configuration).searchFormElementDataByElementID(requestParameters.formInstanceID, requestParameters.formElementID, requestParameters.limit, requestParameters.filters, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -36610,8 +36610,8 @@ export class CustomFormsBetaApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof CustomFormsBetaApi
      */
-    public searchFormInstancesByTenant(options?: AxiosRequestConfig) {
-        return CustomFormsBetaApiFp(this.configuration).searchFormInstancesByTenant(options).then((request) => request(this.axios, this.basePath));
+    public searchFormInstancesByTenant(axiosOptions?: AxiosRequestConfig) {
+        return CustomFormsBetaApiFp(this.configuration).searchFormInstancesByTenant(axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -36621,8 +36621,8 @@ export class CustomFormsBetaApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof CustomFormsBetaApi
      */
-    public searchPreDefinedSelectOptions(options?: AxiosRequestConfig) {
-        return CustomFormsBetaApiFp(this.configuration).searchPreDefinedSelectOptions(options).then((request) => request(this.axios, this.basePath));
+    public searchPreDefinedSelectOptions(axiosOptions?: AxiosRequestConfig) {
+        return CustomFormsBetaApiFp(this.configuration).searchPreDefinedSelectOptions(axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -36633,8 +36633,8 @@ export class CustomFormsBetaApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof CustomFormsBetaApi
      */
-    public showPreviewDataSource(requestParameters: CustomFormsBetaApiShowPreviewDataSourceRequest, options?: AxiosRequestConfig) {
-        return CustomFormsBetaApiFp(this.configuration).showPreviewDataSource(requestParameters.formDefinitionID, requestParameters.limit, requestParameters.filters, requestParameters.query, requestParameters.formElementPreviewRequestBeta, options).then((request) => request(this.axios, this.basePath));
+    public showPreviewDataSource(requestParameters: CustomFormsBetaApiShowPreviewDataSourceRequest, axiosOptions?: AxiosRequestConfig) {
+        return CustomFormsBetaApiFp(this.configuration).showPreviewDataSource(requestParameters.formDefinitionID, requestParameters.limit, requestParameters.filters, requestParameters.query, requestParameters.formElementPreviewRequestBeta, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 }
 
@@ -36949,8 +36949,8 @@ export class CustomPasswordInstructionsBetaApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof CustomPasswordInstructionsBetaApi
      */
-    public createCustomPasswordInstructions(requestParameters: CustomPasswordInstructionsBetaApiCreateCustomPasswordInstructionsRequest, options?: AxiosRequestConfig) {
-        return CustomPasswordInstructionsBetaApiFp(this.configuration).createCustomPasswordInstructions(requestParameters.customPasswordInstructionBeta, options).then((request) => request(this.axios, this.basePath));
+    public createCustomPasswordInstructions(requestParameters: CustomPasswordInstructionsBetaApiCreateCustomPasswordInstructionsRequest, axiosOptions?: AxiosRequestConfig) {
+        return CustomPasswordInstructionsBetaApiFp(this.configuration).createCustomPasswordInstructions(requestParameters.customPasswordInstructionBeta, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -36961,8 +36961,8 @@ export class CustomPasswordInstructionsBetaApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof CustomPasswordInstructionsBetaApi
      */
-    public deleteCustomPasswordInstructions(requestParameters: CustomPasswordInstructionsBetaApiDeleteCustomPasswordInstructionsRequest, options?: AxiosRequestConfig) {
-        return CustomPasswordInstructionsBetaApiFp(this.configuration).deleteCustomPasswordInstructions(requestParameters.pageId, requestParameters.locale, options).then((request) => request(this.axios, this.basePath));
+    public deleteCustomPasswordInstructions(requestParameters: CustomPasswordInstructionsBetaApiDeleteCustomPasswordInstructionsRequest, axiosOptions?: AxiosRequestConfig) {
+        return CustomPasswordInstructionsBetaApiFp(this.configuration).deleteCustomPasswordInstructions(requestParameters.pageId, requestParameters.locale, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -36973,8 +36973,8 @@ export class CustomPasswordInstructionsBetaApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof CustomPasswordInstructionsBetaApi
      */
-    public getCustomPasswordInstructions(requestParameters: CustomPasswordInstructionsBetaApiGetCustomPasswordInstructionsRequest, options?: AxiosRequestConfig) {
-        return CustomPasswordInstructionsBetaApiFp(this.configuration).getCustomPasswordInstructions(requestParameters.pageId, requestParameters.locale, options).then((request) => request(this.axios, this.basePath));
+    public getCustomPasswordInstructions(requestParameters: CustomPasswordInstructionsBetaApiGetCustomPasswordInstructionsRequest, axiosOptions?: AxiosRequestConfig) {
+        return CustomPasswordInstructionsBetaApiFp(this.configuration).getCustomPasswordInstructions(requestParameters.pageId, requestParameters.locale, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 }
 
@@ -37955,8 +37955,8 @@ export class EntitlementsBetaApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof EntitlementsBetaApi
      */
-    public getEntitlement(requestParameters: EntitlementsBetaApiGetEntitlementRequest, options?: AxiosRequestConfig) {
-        return EntitlementsBetaApiFp(this.configuration).getEntitlement(requestParameters.id, options).then((request) => request(this.axios, this.basePath));
+    public getEntitlement(requestParameters: EntitlementsBetaApiGetEntitlementRequest, axiosOptions?: AxiosRequestConfig) {
+        return EntitlementsBetaApiFp(this.configuration).getEntitlement(requestParameters.id, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -37967,8 +37967,8 @@ export class EntitlementsBetaApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof EntitlementsBetaApi
      */
-    public getEntitlementRequestConfig(requestParameters: EntitlementsBetaApiGetEntitlementRequestConfigRequest, options?: AxiosRequestConfig) {
-        return EntitlementsBetaApiFp(this.configuration).getEntitlementRequestConfig(requestParameters.id, options).then((request) => request(this.axios, this.basePath));
+    public getEntitlementRequestConfig(requestParameters: EntitlementsBetaApiGetEntitlementRequestConfigRequest, axiosOptions?: AxiosRequestConfig) {
+        return EntitlementsBetaApiFp(this.configuration).getEntitlementRequestConfig(requestParameters.id, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -37979,8 +37979,8 @@ export class EntitlementsBetaApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof EntitlementsBetaApi
      */
-    public listEntitlementChildren(requestParameters: EntitlementsBetaApiListEntitlementChildrenRequest, options?: AxiosRequestConfig) {
-        return EntitlementsBetaApiFp(this.configuration).listEntitlementChildren(requestParameters.id, requestParameters.limit, requestParameters.offset, requestParameters.count, requestParameters.sorters, requestParameters.filters, options).then((request) => request(this.axios, this.basePath));
+    public listEntitlementChildren(requestParameters: EntitlementsBetaApiListEntitlementChildrenRequest, axiosOptions?: AxiosRequestConfig) {
+        return EntitlementsBetaApiFp(this.configuration).listEntitlementChildren(requestParameters.id, requestParameters.limit, requestParameters.offset, requestParameters.count, requestParameters.sorters, requestParameters.filters, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -37991,8 +37991,8 @@ export class EntitlementsBetaApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof EntitlementsBetaApi
      */
-    public listEntitlementParents(requestParameters: EntitlementsBetaApiListEntitlementParentsRequest, options?: AxiosRequestConfig) {
-        return EntitlementsBetaApiFp(this.configuration).listEntitlementParents(requestParameters.id, requestParameters.limit, requestParameters.offset, requestParameters.count, requestParameters.sorters, requestParameters.filters, options).then((request) => request(this.axios, this.basePath));
+    public listEntitlementParents(requestParameters: EntitlementsBetaApiListEntitlementParentsRequest, axiosOptions?: AxiosRequestConfig) {
+        return EntitlementsBetaApiFp(this.configuration).listEntitlementParents(requestParameters.id, requestParameters.limit, requestParameters.offset, requestParameters.count, requestParameters.sorters, requestParameters.filters, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -38003,8 +38003,8 @@ export class EntitlementsBetaApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof EntitlementsBetaApi
      */
-    public listEntitlements(requestParameters: EntitlementsBetaApiListEntitlementsRequest = {}, options?: AxiosRequestConfig) {
-        return EntitlementsBetaApiFp(this.configuration).listEntitlements(requestParameters.accountId, requestParameters.segmentedForIdentity, requestParameters.forSegmentIds, requestParameters.includeUnsegmented, requestParameters.offset, requestParameters.limit, requestParameters.count, requestParameters.sorters, requestParameters.filters, options).then((request) => request(this.axios, this.basePath));
+    public listEntitlements(requestParameters: EntitlementsBetaApiListEntitlementsRequest = {}, axiosOptions?: AxiosRequestConfig) {
+        return EntitlementsBetaApiFp(this.configuration).listEntitlements(requestParameters.accountId, requestParameters.segmentedForIdentity, requestParameters.forSegmentIds, requestParameters.includeUnsegmented, requestParameters.offset, requestParameters.limit, requestParameters.count, requestParameters.sorters, requestParameters.filters, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -38015,8 +38015,8 @@ export class EntitlementsBetaApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof EntitlementsBetaApi
      */
-    public patchEntitlement(requestParameters: EntitlementsBetaApiPatchEntitlementRequest, options?: AxiosRequestConfig) {
-        return EntitlementsBetaApiFp(this.configuration).patchEntitlement(requestParameters.id, requestParameters.jsonPatchOperationBeta, options).then((request) => request(this.axios, this.basePath));
+    public patchEntitlement(requestParameters: EntitlementsBetaApiPatchEntitlementRequest, axiosOptions?: AxiosRequestConfig) {
+        return EntitlementsBetaApiFp(this.configuration).patchEntitlement(requestParameters.id, requestParameters.jsonPatchOperationBeta, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -38027,8 +38027,8 @@ export class EntitlementsBetaApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof EntitlementsBetaApi
      */
-    public putEntitlementRequestConfig(requestParameters: EntitlementsBetaApiPutEntitlementRequestConfigRequest, options?: AxiosRequestConfig) {
-        return EntitlementsBetaApiFp(this.configuration).putEntitlementRequestConfig(requestParameters.id, requestParameters.entitlementRequestConfigBeta, options).then((request) => request(this.axios, this.basePath));
+    public putEntitlementRequestConfig(requestParameters: EntitlementsBetaApiPutEntitlementRequestConfigRequest, axiosOptions?: AxiosRequestConfig) {
+        return EntitlementsBetaApiFp(this.configuration).putEntitlementRequestConfig(requestParameters.id, requestParameters.entitlementRequestConfigBeta, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -38039,8 +38039,8 @@ export class EntitlementsBetaApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof EntitlementsBetaApi
      */
-    public updateEntitlementsInBulk(requestParameters: EntitlementsBetaApiUpdateEntitlementsInBulkRequest, options?: AxiosRequestConfig) {
-        return EntitlementsBetaApiFp(this.configuration).updateEntitlementsInBulk(requestParameters.entitlementBulkUpdateRequestBeta, options).then((request) => request(this.axios, this.basePath));
+    public updateEntitlementsInBulk(requestParameters: EntitlementsBetaApiUpdateEntitlementsInBulkRequest, axiosOptions?: AxiosRequestConfig) {
+        return EntitlementsBetaApiFp(this.configuration).updateEntitlementsInBulk(requestParameters.entitlementBulkUpdateRequestBeta, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 }
 
@@ -39081,8 +39081,8 @@ export class GovernanceGroupsBetaApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof GovernanceGroupsBetaApi
      */
-    public createWorkgroup(requestParameters: GovernanceGroupsBetaApiCreateWorkgroupRequest, options?: AxiosRequestConfig) {
-        return GovernanceGroupsBetaApiFp(this.configuration).createWorkgroup(requestParameters.workgroupDtoBeta, options).then((request) => request(this.axios, this.basePath));
+    public createWorkgroup(requestParameters: GovernanceGroupsBetaApiCreateWorkgroupRequest, axiosOptions?: AxiosRequestConfig) {
+        return GovernanceGroupsBetaApiFp(this.configuration).createWorkgroup(requestParameters.workgroupDtoBeta, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -39093,8 +39093,8 @@ export class GovernanceGroupsBetaApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof GovernanceGroupsBetaApi
      */
-    public deleteWorkgroup(requestParameters: GovernanceGroupsBetaApiDeleteWorkgroupRequest, options?: AxiosRequestConfig) {
-        return GovernanceGroupsBetaApiFp(this.configuration).deleteWorkgroup(requestParameters.id, options).then((request) => request(this.axios, this.basePath));
+    public deleteWorkgroup(requestParameters: GovernanceGroupsBetaApiDeleteWorkgroupRequest, axiosOptions?: AxiosRequestConfig) {
+        return GovernanceGroupsBetaApiFp(this.configuration).deleteWorkgroup(requestParameters.id, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -39105,8 +39105,8 @@ export class GovernanceGroupsBetaApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof GovernanceGroupsBetaApi
      */
-    public deleteWorkgroupMembers(requestParameters: GovernanceGroupsBetaApiDeleteWorkgroupMembersRequest, options?: AxiosRequestConfig) {
-        return GovernanceGroupsBetaApiFp(this.configuration).deleteWorkgroupMembers(requestParameters.workgroupId, requestParameters.bulkWorkgroupMembersRequestInnerBeta, options).then((request) => request(this.axios, this.basePath));
+    public deleteWorkgroupMembers(requestParameters: GovernanceGroupsBetaApiDeleteWorkgroupMembersRequest, axiosOptions?: AxiosRequestConfig) {
+        return GovernanceGroupsBetaApiFp(this.configuration).deleteWorkgroupMembers(requestParameters.workgroupId, requestParameters.bulkWorkgroupMembersRequestInnerBeta, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -39117,8 +39117,8 @@ export class GovernanceGroupsBetaApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof GovernanceGroupsBetaApi
      */
-    public deleteWorkgroupsInBulk(requestParameters: GovernanceGroupsBetaApiDeleteWorkgroupsInBulkRequest, options?: AxiosRequestConfig) {
-        return GovernanceGroupsBetaApiFp(this.configuration).deleteWorkgroupsInBulk(requestParameters.workgroupBulkDeleteRequestBeta, options).then((request) => request(this.axios, this.basePath));
+    public deleteWorkgroupsInBulk(requestParameters: GovernanceGroupsBetaApiDeleteWorkgroupsInBulkRequest, axiosOptions?: AxiosRequestConfig) {
+        return GovernanceGroupsBetaApiFp(this.configuration).deleteWorkgroupsInBulk(requestParameters.workgroupBulkDeleteRequestBeta, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -39129,8 +39129,8 @@ export class GovernanceGroupsBetaApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof GovernanceGroupsBetaApi
      */
-    public getWorkgroup(requestParameters: GovernanceGroupsBetaApiGetWorkgroupRequest, options?: AxiosRequestConfig) {
-        return GovernanceGroupsBetaApiFp(this.configuration).getWorkgroup(requestParameters.id, options).then((request) => request(this.axios, this.basePath));
+    public getWorkgroup(requestParameters: GovernanceGroupsBetaApiGetWorkgroupRequest, axiosOptions?: AxiosRequestConfig) {
+        return GovernanceGroupsBetaApiFp(this.configuration).getWorkgroup(requestParameters.id, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -39141,8 +39141,8 @@ export class GovernanceGroupsBetaApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof GovernanceGroupsBetaApi
      */
-    public listConnections(requestParameters: GovernanceGroupsBetaApiListConnectionsRequest, options?: AxiosRequestConfig) {
-        return GovernanceGroupsBetaApiFp(this.configuration).listConnections(requestParameters.workgroupId, requestParameters.offset, requestParameters.limit, requestParameters.count, requestParameters.sorters, options).then((request) => request(this.axios, this.basePath));
+    public listConnections(requestParameters: GovernanceGroupsBetaApiListConnectionsRequest, axiosOptions?: AxiosRequestConfig) {
+        return GovernanceGroupsBetaApiFp(this.configuration).listConnections(requestParameters.workgroupId, requestParameters.offset, requestParameters.limit, requestParameters.count, requestParameters.sorters, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -39153,8 +39153,8 @@ export class GovernanceGroupsBetaApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof GovernanceGroupsBetaApi
      */
-    public listWorkgroupMembers(requestParameters: GovernanceGroupsBetaApiListWorkgroupMembersRequest, options?: AxiosRequestConfig) {
-        return GovernanceGroupsBetaApiFp(this.configuration).listWorkgroupMembers(requestParameters.workgroupId, requestParameters.offset, requestParameters.limit, requestParameters.count, requestParameters.sorters, options).then((request) => request(this.axios, this.basePath));
+    public listWorkgroupMembers(requestParameters: GovernanceGroupsBetaApiListWorkgroupMembersRequest, axiosOptions?: AxiosRequestConfig) {
+        return GovernanceGroupsBetaApiFp(this.configuration).listWorkgroupMembers(requestParameters.workgroupId, requestParameters.offset, requestParameters.limit, requestParameters.count, requestParameters.sorters, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -39165,8 +39165,8 @@ export class GovernanceGroupsBetaApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof GovernanceGroupsBetaApi
      */
-    public listWorkgroups(requestParameters: GovernanceGroupsBetaApiListWorkgroupsRequest = {}, options?: AxiosRequestConfig) {
-        return GovernanceGroupsBetaApiFp(this.configuration).listWorkgroups(requestParameters.offset, requestParameters.limit, requestParameters.count, requestParameters.filters, requestParameters.sorters, options).then((request) => request(this.axios, this.basePath));
+    public listWorkgroups(requestParameters: GovernanceGroupsBetaApiListWorkgroupsRequest = {}, axiosOptions?: AxiosRequestConfig) {
+        return GovernanceGroupsBetaApiFp(this.configuration).listWorkgroups(requestParameters.offset, requestParameters.limit, requestParameters.count, requestParameters.filters, requestParameters.sorters, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -39177,8 +39177,8 @@ export class GovernanceGroupsBetaApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof GovernanceGroupsBetaApi
      */
-    public patchWorkgroup(requestParameters: GovernanceGroupsBetaApiPatchWorkgroupRequest, options?: AxiosRequestConfig) {
-        return GovernanceGroupsBetaApiFp(this.configuration).patchWorkgroup(requestParameters.id, requestParameters.jsonPatchOperationBeta, options).then((request) => request(this.axios, this.basePath));
+    public patchWorkgroup(requestParameters: GovernanceGroupsBetaApiPatchWorkgroupRequest, axiosOptions?: AxiosRequestConfig) {
+        return GovernanceGroupsBetaApiFp(this.configuration).patchWorkgroup(requestParameters.id, requestParameters.jsonPatchOperationBeta, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -39189,8 +39189,8 @@ export class GovernanceGroupsBetaApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof GovernanceGroupsBetaApi
      */
-    public updateWorkgroupMembers(requestParameters: GovernanceGroupsBetaApiUpdateWorkgroupMembersRequest, options?: AxiosRequestConfig) {
-        return GovernanceGroupsBetaApiFp(this.configuration).updateWorkgroupMembers(requestParameters.workgroupId, requestParameters.bulkWorkgroupMembersRequestInnerBeta, options).then((request) => request(this.axios, this.basePath));
+    public updateWorkgroupMembers(requestParameters: GovernanceGroupsBetaApiUpdateWorkgroupMembersRequest, axiosOptions?: AxiosRequestConfig) {
+        return GovernanceGroupsBetaApiFp(this.configuration).updateWorkgroupMembers(requestParameters.workgroupId, requestParameters.bulkWorkgroupMembersRequestInnerBeta, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 }
 
@@ -40118,8 +40118,8 @@ export class IAIAccessRequestRecommendationsBetaApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof IAIAccessRequestRecommendationsBetaApi
      */
-    public addAccessRequestRecommendationsIgnoredItem(requestParameters: IAIAccessRequestRecommendationsBetaApiAddAccessRequestRecommendationsIgnoredItemRequest, options?: AxiosRequestConfig) {
-        return IAIAccessRequestRecommendationsBetaApiFp(this.configuration).addAccessRequestRecommendationsIgnoredItem(requestParameters.accessRequestRecommendationActionItemDtoBeta, options).then((request) => request(this.axios, this.basePath));
+    public addAccessRequestRecommendationsIgnoredItem(requestParameters: IAIAccessRequestRecommendationsBetaApiAddAccessRequestRecommendationsIgnoredItemRequest, axiosOptions?: AxiosRequestConfig) {
+        return IAIAccessRequestRecommendationsBetaApiFp(this.configuration).addAccessRequestRecommendationsIgnoredItem(requestParameters.accessRequestRecommendationActionItemDtoBeta, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -40130,8 +40130,8 @@ export class IAIAccessRequestRecommendationsBetaApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof IAIAccessRequestRecommendationsBetaApi
      */
-    public addAccessRequestRecommendationsRequestedItem(requestParameters: IAIAccessRequestRecommendationsBetaApiAddAccessRequestRecommendationsRequestedItemRequest, options?: AxiosRequestConfig) {
-        return IAIAccessRequestRecommendationsBetaApiFp(this.configuration).addAccessRequestRecommendationsRequestedItem(requestParameters.accessRequestRecommendationActionItemDtoBeta, options).then((request) => request(this.axios, this.basePath));
+    public addAccessRequestRecommendationsRequestedItem(requestParameters: IAIAccessRequestRecommendationsBetaApiAddAccessRequestRecommendationsRequestedItemRequest, axiosOptions?: AxiosRequestConfig) {
+        return IAIAccessRequestRecommendationsBetaApiFp(this.configuration).addAccessRequestRecommendationsRequestedItem(requestParameters.accessRequestRecommendationActionItemDtoBeta, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -40142,8 +40142,8 @@ export class IAIAccessRequestRecommendationsBetaApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof IAIAccessRequestRecommendationsBetaApi
      */
-    public addAccessRequestRecommendationsViewedItem(requestParameters: IAIAccessRequestRecommendationsBetaApiAddAccessRequestRecommendationsViewedItemRequest, options?: AxiosRequestConfig) {
-        return IAIAccessRequestRecommendationsBetaApiFp(this.configuration).addAccessRequestRecommendationsViewedItem(requestParameters.accessRequestRecommendationActionItemDtoBeta, options).then((request) => request(this.axios, this.basePath));
+    public addAccessRequestRecommendationsViewedItem(requestParameters: IAIAccessRequestRecommendationsBetaApiAddAccessRequestRecommendationsViewedItemRequest, axiosOptions?: AxiosRequestConfig) {
+        return IAIAccessRequestRecommendationsBetaApiFp(this.configuration).addAccessRequestRecommendationsViewedItem(requestParameters.accessRequestRecommendationActionItemDtoBeta, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -40154,8 +40154,8 @@ export class IAIAccessRequestRecommendationsBetaApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof IAIAccessRequestRecommendationsBetaApi
      */
-    public addAccessRequestRecommendationsViewedItems(requestParameters: IAIAccessRequestRecommendationsBetaApiAddAccessRequestRecommendationsViewedItemsRequest, options?: AxiosRequestConfig) {
-        return IAIAccessRequestRecommendationsBetaApiFp(this.configuration).addAccessRequestRecommendationsViewedItems(requestParameters.accessRequestRecommendationActionItemDtoBeta, options).then((request) => request(this.axios, this.basePath));
+    public addAccessRequestRecommendationsViewedItems(requestParameters: IAIAccessRequestRecommendationsBetaApiAddAccessRequestRecommendationsViewedItemsRequest, axiosOptions?: AxiosRequestConfig) {
+        return IAIAccessRequestRecommendationsBetaApiFp(this.configuration).addAccessRequestRecommendationsViewedItems(requestParameters.accessRequestRecommendationActionItemDtoBeta, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -40166,8 +40166,8 @@ export class IAIAccessRequestRecommendationsBetaApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof IAIAccessRequestRecommendationsBetaApi
      */
-    public getAccessRequestRecommendations(requestParameters: IAIAccessRequestRecommendationsBetaApiGetAccessRequestRecommendationsRequest = {}, options?: AxiosRequestConfig) {
-        return IAIAccessRequestRecommendationsBetaApiFp(this.configuration).getAccessRequestRecommendations(requestParameters.identityId, requestParameters.limit, requestParameters.offset, requestParameters.count, requestParameters.includeTranslationMessages, requestParameters.filters, requestParameters.sorters, options).then((request) => request(this.axios, this.basePath));
+    public getAccessRequestRecommendations(requestParameters: IAIAccessRequestRecommendationsBetaApiGetAccessRequestRecommendationsRequest = {}, axiosOptions?: AxiosRequestConfig) {
+        return IAIAccessRequestRecommendationsBetaApiFp(this.configuration).getAccessRequestRecommendations(requestParameters.identityId, requestParameters.limit, requestParameters.offset, requestParameters.count, requestParameters.includeTranslationMessages, requestParameters.filters, requestParameters.sorters, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -40178,8 +40178,8 @@ export class IAIAccessRequestRecommendationsBetaApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof IAIAccessRequestRecommendationsBetaApi
      */
-    public getAccessRequestRecommendationsIgnoredItems(requestParameters: IAIAccessRequestRecommendationsBetaApiGetAccessRequestRecommendationsIgnoredItemsRequest = {}, options?: AxiosRequestConfig) {
-        return IAIAccessRequestRecommendationsBetaApiFp(this.configuration).getAccessRequestRecommendationsIgnoredItems(requestParameters.limit, requestParameters.offset, requestParameters.count, requestParameters.filters, requestParameters.sorters, options).then((request) => request(this.axios, this.basePath));
+    public getAccessRequestRecommendationsIgnoredItems(requestParameters: IAIAccessRequestRecommendationsBetaApiGetAccessRequestRecommendationsIgnoredItemsRequest = {}, axiosOptions?: AxiosRequestConfig) {
+        return IAIAccessRequestRecommendationsBetaApiFp(this.configuration).getAccessRequestRecommendationsIgnoredItems(requestParameters.limit, requestParameters.offset, requestParameters.count, requestParameters.filters, requestParameters.sorters, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -40190,8 +40190,8 @@ export class IAIAccessRequestRecommendationsBetaApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof IAIAccessRequestRecommendationsBetaApi
      */
-    public getAccessRequestRecommendationsRequestedItems(requestParameters: IAIAccessRequestRecommendationsBetaApiGetAccessRequestRecommendationsRequestedItemsRequest = {}, options?: AxiosRequestConfig) {
-        return IAIAccessRequestRecommendationsBetaApiFp(this.configuration).getAccessRequestRecommendationsRequestedItems(requestParameters.limit, requestParameters.offset, requestParameters.count, requestParameters.filters, requestParameters.sorters, options).then((request) => request(this.axios, this.basePath));
+    public getAccessRequestRecommendationsRequestedItems(requestParameters: IAIAccessRequestRecommendationsBetaApiGetAccessRequestRecommendationsRequestedItemsRequest = {}, axiosOptions?: AxiosRequestConfig) {
+        return IAIAccessRequestRecommendationsBetaApiFp(this.configuration).getAccessRequestRecommendationsRequestedItems(requestParameters.limit, requestParameters.offset, requestParameters.count, requestParameters.filters, requestParameters.sorters, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -40202,8 +40202,8 @@ export class IAIAccessRequestRecommendationsBetaApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof IAIAccessRequestRecommendationsBetaApi
      */
-    public getAccessRequestRecommendationsViewedItems(requestParameters: IAIAccessRequestRecommendationsBetaApiGetAccessRequestRecommendationsViewedItemsRequest = {}, options?: AxiosRequestConfig) {
-        return IAIAccessRequestRecommendationsBetaApiFp(this.configuration).getAccessRequestRecommendationsViewedItems(requestParameters.limit, requestParameters.offset, requestParameters.count, requestParameters.filters, requestParameters.sorters, options).then((request) => request(this.axios, this.basePath));
+    public getAccessRequestRecommendationsViewedItems(requestParameters: IAIAccessRequestRecommendationsBetaApiGetAccessRequestRecommendationsViewedItemsRequest = {}, axiosOptions?: AxiosRequestConfig) {
+        return IAIAccessRequestRecommendationsBetaApiFp(this.configuration).getAccessRequestRecommendationsViewedItems(requestParameters.limit, requestParameters.offset, requestParameters.count, requestParameters.filters, requestParameters.sorters, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 }
 
@@ -40547,8 +40547,8 @@ export class IAICommonAccessBetaApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof IAICommonAccessBetaApi
      */
-    public createCommonAccess(requestParameters: IAICommonAccessBetaApiCreateCommonAccessRequest, options?: AxiosRequestConfig) {
-        return IAICommonAccessBetaApiFp(this.configuration).createCommonAccess(requestParameters.commonAccessItemRequestBeta, options).then((request) => request(this.axios, this.basePath));
+    public createCommonAccess(requestParameters: IAICommonAccessBetaApiCreateCommonAccessRequest, axiosOptions?: AxiosRequestConfig) {
+        return IAICommonAccessBetaApiFp(this.configuration).createCommonAccess(requestParameters.commonAccessItemRequestBeta, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -40559,8 +40559,8 @@ export class IAICommonAccessBetaApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof IAICommonAccessBetaApi
      */
-    public getCommonAccess(requestParameters: IAICommonAccessBetaApiGetCommonAccessRequest = {}, options?: AxiosRequestConfig) {
-        return IAICommonAccessBetaApiFp(this.configuration).getCommonAccess(requestParameters.offset, requestParameters.limit, requestParameters.count, requestParameters.filters, requestParameters.sorters, options).then((request) => request(this.axios, this.basePath));
+    public getCommonAccess(requestParameters: IAICommonAccessBetaApiGetCommonAccessRequest = {}, axiosOptions?: AxiosRequestConfig) {
+        return IAICommonAccessBetaApiFp(this.configuration).getCommonAccess(requestParameters.offset, requestParameters.limit, requestParameters.count, requestParameters.filters, requestParameters.sorters, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -40571,8 +40571,8 @@ export class IAICommonAccessBetaApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof IAICommonAccessBetaApi
      */
-    public updateCommonAccessStatusInBulk(requestParameters: IAICommonAccessBetaApiUpdateCommonAccessStatusInBulkRequest, options?: AxiosRequestConfig) {
-        return IAICommonAccessBetaApiFp(this.configuration).updateCommonAccessStatusInBulk(requestParameters.commonAccessIDStatusBeta, options).then((request) => request(this.axios, this.basePath));
+    public updateCommonAccessStatusInBulk(requestParameters: IAICommonAccessBetaApiUpdateCommonAccessStatusInBulkRequest, axiosOptions?: AxiosRequestConfig) {
+        return IAICommonAccessBetaApiFp(this.configuration).updateCommonAccessStatusInBulk(requestParameters.commonAccessIDStatusBeta, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 }
 
@@ -40701,8 +40701,8 @@ export class IAIMessageCatalogsBetaApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof IAIMessageCatalogsBetaApi
      */
-    public getMessageCatalogs(requestParameters: IAIMessageCatalogsBetaApiGetMessageCatalogsRequest, options?: AxiosRequestConfig) {
-        return IAIMessageCatalogsBetaApiFp(this.configuration).getMessageCatalogs(requestParameters.catalogId, options).then((request) => request(this.axios, this.basePath));
+    public getMessageCatalogs(requestParameters: IAIMessageCatalogsBetaApiGetMessageCatalogsRequest, axiosOptions?: AxiosRequestConfig) {
+        return IAIMessageCatalogsBetaApiFp(this.configuration).getMessageCatalogs(requestParameters.catalogId, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 }
 
@@ -41738,8 +41738,8 @@ export class IAIOutliersBetaApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof IAIOutliersBetaApi
      */
-    public exportOutliersZip(requestParameters: IAIOutliersBetaApiExportOutliersZipRequest = {}, options?: AxiosRequestConfig) {
-        return IAIOutliersBetaApiFp(this.configuration).exportOutliersZip(requestParameters.type, options).then((request) => request(this.axios, this.basePath));
+    public exportOutliersZip(requestParameters: IAIOutliersBetaApiExportOutliersZipRequest = {}, axiosOptions?: AxiosRequestConfig) {
+        return IAIOutliersBetaApiFp(this.configuration).exportOutliersZip(requestParameters.type, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -41750,8 +41750,8 @@ export class IAIOutliersBetaApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof IAIOutliersBetaApi
      */
-    public getIdentityOutlierSnapshots(requestParameters: IAIOutliersBetaApiGetIdentityOutlierSnapshotsRequest = {}, options?: AxiosRequestConfig) {
-        return IAIOutliersBetaApiFp(this.configuration).getIdentityOutlierSnapshots(requestParameters.limit, requestParameters.offset, requestParameters.type, requestParameters.filters, requestParameters.sorters, options).then((request) => request(this.axios, this.basePath));
+    public getIdentityOutlierSnapshots(requestParameters: IAIOutliersBetaApiGetIdentityOutlierSnapshotsRequest = {}, axiosOptions?: AxiosRequestConfig) {
+        return IAIOutliersBetaApiFp(this.configuration).getIdentityOutlierSnapshots(requestParameters.limit, requestParameters.offset, requestParameters.type, requestParameters.filters, requestParameters.sorters, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -41762,8 +41762,8 @@ export class IAIOutliersBetaApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof IAIOutliersBetaApi
      */
-    public getIdentityOutliers(requestParameters: IAIOutliersBetaApiGetIdentityOutliersRequest = {}, options?: AxiosRequestConfig) {
-        return IAIOutliersBetaApiFp(this.configuration).getIdentityOutliers(requestParameters.limit, requestParameters.offset, requestParameters.count, requestParameters.type, requestParameters.filters, requestParameters.sorters, options).then((request) => request(this.axios, this.basePath));
+    public getIdentityOutliers(requestParameters: IAIOutliersBetaApiGetIdentityOutliersRequest = {}, axiosOptions?: AxiosRequestConfig) {
+        return IAIOutliersBetaApiFp(this.configuration).getIdentityOutliers(requestParameters.limit, requestParameters.offset, requestParameters.count, requestParameters.type, requestParameters.filters, requestParameters.sorters, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -41774,8 +41774,8 @@ export class IAIOutliersBetaApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof IAIOutliersBetaApi
      */
-    public getLatestIdentityOutlierSnapshots(requestParameters: IAIOutliersBetaApiGetLatestIdentityOutlierSnapshotsRequest = {}, options?: AxiosRequestConfig) {
-        return IAIOutliersBetaApiFp(this.configuration).getLatestIdentityOutlierSnapshots(requestParameters.type, options).then((request) => request(this.axios, this.basePath));
+    public getLatestIdentityOutlierSnapshots(requestParameters: IAIOutliersBetaApiGetLatestIdentityOutlierSnapshotsRequest = {}, axiosOptions?: AxiosRequestConfig) {
+        return IAIOutliersBetaApiFp(this.configuration).getLatestIdentityOutlierSnapshots(requestParameters.type, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -41786,8 +41786,8 @@ export class IAIOutliersBetaApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof IAIOutliersBetaApi
      */
-    public getOutlierContributingFeatureSummary(requestParameters: IAIOutliersBetaApiGetOutlierContributingFeatureSummaryRequest, options?: AxiosRequestConfig) {
-        return IAIOutliersBetaApiFp(this.configuration).getOutlierContributingFeatureSummary(requestParameters.outlierFeatureId, options).then((request) => request(this.axios, this.basePath));
+    public getOutlierContributingFeatureSummary(requestParameters: IAIOutliersBetaApiGetOutlierContributingFeatureSummaryRequest, axiosOptions?: AxiosRequestConfig) {
+        return IAIOutliersBetaApiFp(this.configuration).getOutlierContributingFeatureSummary(requestParameters.outlierFeatureId, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -41798,8 +41798,8 @@ export class IAIOutliersBetaApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof IAIOutliersBetaApi
      */
-    public getPeerGroupOutliersContributingFeatures(requestParameters: IAIOutliersBetaApiGetPeerGroupOutliersContributingFeaturesRequest, options?: AxiosRequestConfig) {
-        return IAIOutliersBetaApiFp(this.configuration).getPeerGroupOutliersContributingFeatures(requestParameters.outlierId, requestParameters.limit, requestParameters.offset, requestParameters.count, requestParameters.includeTranslationMessages, requestParameters.sorters, options).then((request) => request(this.axios, this.basePath));
+    public getPeerGroupOutliersContributingFeatures(requestParameters: IAIOutliersBetaApiGetPeerGroupOutliersContributingFeaturesRequest, axiosOptions?: AxiosRequestConfig) {
+        return IAIOutliersBetaApiFp(this.configuration).getPeerGroupOutliersContributingFeatures(requestParameters.outlierId, requestParameters.limit, requestParameters.offset, requestParameters.count, requestParameters.includeTranslationMessages, requestParameters.sorters, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -41810,8 +41810,8 @@ export class IAIOutliersBetaApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof IAIOutliersBetaApi
      */
-    public ignoreIdentityOutliers(requestParameters: IAIOutliersBetaApiIgnoreIdentityOutliersRequest, options?: AxiosRequestConfig) {
-        return IAIOutliersBetaApiFp(this.configuration).ignoreIdentityOutliers(requestParameters.requestBody, options).then((request) => request(this.axios, this.basePath));
+    public ignoreIdentityOutliers(requestParameters: IAIOutliersBetaApiIgnoreIdentityOutliersRequest, axiosOptions?: AxiosRequestConfig) {
+        return IAIOutliersBetaApiFp(this.configuration).ignoreIdentityOutliers(requestParameters.requestBody, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -41822,8 +41822,8 @@ export class IAIOutliersBetaApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof IAIOutliersBetaApi
      */
-    public listOutliersContributingFeatureAccessItems(requestParameters: IAIOutliersBetaApiListOutliersContributingFeatureAccessItemsRequest, options?: AxiosRequestConfig) {
-        return IAIOutliersBetaApiFp(this.configuration).listOutliersContributingFeatureAccessItems(requestParameters.outlierId, requestParameters.contributingFeatureName, requestParameters.limit, requestParameters.offset, requestParameters.count, requestParameters.accessType, requestParameters.sorters, options).then((request) => request(this.axios, this.basePath));
+    public listOutliersContributingFeatureAccessItems(requestParameters: IAIOutliersBetaApiListOutliersContributingFeatureAccessItemsRequest, axiosOptions?: AxiosRequestConfig) {
+        return IAIOutliersBetaApiFp(this.configuration).listOutliersContributingFeatureAccessItems(requestParameters.outlierId, requestParameters.contributingFeatureName, requestParameters.limit, requestParameters.offset, requestParameters.count, requestParameters.accessType, requestParameters.sorters, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -41834,8 +41834,8 @@ export class IAIOutliersBetaApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof IAIOutliersBetaApi
      */
-    public unIgnoreIdentityOutliers(requestParameters: IAIOutliersBetaApiUnIgnoreIdentityOutliersRequest, options?: AxiosRequestConfig) {
-        return IAIOutliersBetaApiFp(this.configuration).unIgnoreIdentityOutliers(requestParameters.requestBody, options).then((request) => request(this.axios, this.basePath));
+    public unIgnoreIdentityOutliers(requestParameters: IAIOutliersBetaApiUnIgnoreIdentityOutliersRequest, axiosOptions?: AxiosRequestConfig) {
+        return IAIOutliersBetaApiFp(this.configuration).unIgnoreIdentityOutliers(requestParameters.requestBody, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 }
 
@@ -42051,8 +42051,8 @@ export class IAIPeerGroupStrategiesBetaApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof IAIPeerGroupStrategiesBetaApi
      */
-    public getPeerGroupOutliers(requestParameters: IAIPeerGroupStrategiesBetaApiGetPeerGroupOutliersRequest, options?: AxiosRequestConfig) {
-        return IAIPeerGroupStrategiesBetaApiFp(this.configuration).getPeerGroupOutliers(requestParameters.strategy, requestParameters.limit, requestParameters.offset, requestParameters.count, options).then((request) => request(this.axios, this.basePath));
+    public getPeerGroupOutliers(requestParameters: IAIPeerGroupStrategiesBetaApiGetPeerGroupOutliersRequest, axiosOptions?: AxiosRequestConfig) {
+        return IAIPeerGroupStrategiesBetaApiFp(this.configuration).getPeerGroupOutliers(requestParameters.strategy, requestParameters.limit, requestParameters.offset, requestParameters.count, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 }
 
@@ -42323,8 +42323,8 @@ export class IAIRecommendationsBetaApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof IAIRecommendationsBetaApi
      */
-    public getRecommendations(requestParameters: IAIRecommendationsBetaApiGetRecommendationsRequest, options?: AxiosRequestConfig) {
-        return IAIRecommendationsBetaApiFp(this.configuration).getRecommendations(requestParameters.recommendationRequestDtoBeta, options).then((request) => request(this.axios, this.basePath));
+    public getRecommendations(requestParameters: IAIRecommendationsBetaApiGetRecommendationsRequest, axiosOptions?: AxiosRequestConfig) {
+        return IAIRecommendationsBetaApiFp(this.configuration).getRecommendations(requestParameters.recommendationRequestDtoBeta, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -42334,8 +42334,8 @@ export class IAIRecommendationsBetaApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof IAIRecommendationsBetaApi
      */
-    public getRecommendationsConfig(options?: AxiosRequestConfig) {
-        return IAIRecommendationsBetaApiFp(this.configuration).getRecommendationsConfig(options).then((request) => request(this.axios, this.basePath));
+    public getRecommendationsConfig(axiosOptions?: AxiosRequestConfig) {
+        return IAIRecommendationsBetaApiFp(this.configuration).getRecommendationsConfig(axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -42346,8 +42346,8 @@ export class IAIRecommendationsBetaApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof IAIRecommendationsBetaApi
      */
-    public updateRecommendationsConfig(requestParameters: IAIRecommendationsBetaApiUpdateRecommendationsConfigRequest, options?: AxiosRequestConfig) {
-        return IAIRecommendationsBetaApiFp(this.configuration).updateRecommendationsConfig(requestParameters.recommendationConfigDtoBeta, options).then((request) => request(this.axios, this.basePath));
+    public updateRecommendationsConfig(requestParameters: IAIRecommendationsBetaApiUpdateRecommendationsConfigRequest, axiosOptions?: AxiosRequestConfig) {
+        return IAIRecommendationsBetaApiFp(this.configuration).updateRecommendationsConfig(requestParameters.recommendationConfigDtoBeta, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 }
 
@@ -45128,8 +45128,8 @@ export class IAIRoleMiningBetaApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof IAIRoleMiningBetaApi
      */
-    public createPotentialRoleProvisionRequest(requestParameters: IAIRoleMiningBetaApiCreatePotentialRoleProvisionRequestRequest, options?: AxiosRequestConfig) {
-        return IAIRoleMiningBetaApiFp(this.configuration).createPotentialRoleProvisionRequest(requestParameters.sessionId, requestParameters.potentialRoleId, requestParameters.minEntitlementPopularity, requestParameters.includeCommonAccess, requestParameters.roleMiningPotentialRoleProvisionRequestBeta, options).then((request) => request(this.axios, this.basePath));
+    public createPotentialRoleProvisionRequest(requestParameters: IAIRoleMiningBetaApiCreatePotentialRoleProvisionRequestRequest, axiosOptions?: AxiosRequestConfig) {
+        return IAIRoleMiningBetaApiFp(this.configuration).createPotentialRoleProvisionRequest(requestParameters.sessionId, requestParameters.potentialRoleId, requestParameters.minEntitlementPopularity, requestParameters.includeCommonAccess, requestParameters.roleMiningPotentialRoleProvisionRequestBeta, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -45140,8 +45140,8 @@ export class IAIRoleMiningBetaApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof IAIRoleMiningBetaApi
      */
-    public createRoleMiningSessions(requestParameters: IAIRoleMiningBetaApiCreateRoleMiningSessionsRequest, options?: AxiosRequestConfig) {
-        return IAIRoleMiningBetaApiFp(this.configuration).createRoleMiningSessions(requestParameters.roleMiningSessionDtoBeta, options).then((request) => request(this.axios, this.basePath));
+    public createRoleMiningSessions(requestParameters: IAIRoleMiningBetaApiCreateRoleMiningSessionsRequest, axiosOptions?: AxiosRequestConfig) {
+        return IAIRoleMiningBetaApiFp(this.configuration).createRoleMiningSessions(requestParameters.roleMiningSessionDtoBeta, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -45152,8 +45152,8 @@ export class IAIRoleMiningBetaApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof IAIRoleMiningBetaApi
      */
-    public downloadRoleMiningPotentialRoleZip(requestParameters: IAIRoleMiningBetaApiDownloadRoleMiningPotentialRoleZipRequest, options?: AxiosRequestConfig) {
-        return IAIRoleMiningBetaApiFp(this.configuration).downloadRoleMiningPotentialRoleZip(requestParameters.sessionId, requestParameters.potentialRoleId, requestParameters.exportId, options).then((request) => request(this.axios, this.basePath));
+    public downloadRoleMiningPotentialRoleZip(requestParameters: IAIRoleMiningBetaApiDownloadRoleMiningPotentialRoleZipRequest, axiosOptions?: AxiosRequestConfig) {
+        return IAIRoleMiningBetaApiFp(this.configuration).downloadRoleMiningPotentialRoleZip(requestParameters.sessionId, requestParameters.potentialRoleId, requestParameters.exportId, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -45164,8 +45164,8 @@ export class IAIRoleMiningBetaApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof IAIRoleMiningBetaApi
      */
-    public exportRoleMiningPotentialRole(requestParameters: IAIRoleMiningBetaApiExportRoleMiningPotentialRoleRequest, options?: AxiosRequestConfig) {
-        return IAIRoleMiningBetaApiFp(this.configuration).exportRoleMiningPotentialRole(requestParameters.sessionId, requestParameters.potentialRoleId, options).then((request) => request(this.axios, this.basePath));
+    public exportRoleMiningPotentialRole(requestParameters: IAIRoleMiningBetaApiExportRoleMiningPotentialRoleRequest, axiosOptions?: AxiosRequestConfig) {
+        return IAIRoleMiningBetaApiFp(this.configuration).exportRoleMiningPotentialRole(requestParameters.sessionId, requestParameters.potentialRoleId, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -45176,8 +45176,8 @@ export class IAIRoleMiningBetaApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof IAIRoleMiningBetaApi
      */
-    public exportRoleMiningPotentialRoleAsync(requestParameters: IAIRoleMiningBetaApiExportRoleMiningPotentialRoleAsyncRequest, options?: AxiosRequestConfig) {
-        return IAIRoleMiningBetaApiFp(this.configuration).exportRoleMiningPotentialRoleAsync(requestParameters.sessionId, requestParameters.potentialRoleId, requestParameters.roleMiningPotentialRoleExportRequestBeta, options).then((request) => request(this.axios, this.basePath));
+    public exportRoleMiningPotentialRoleAsync(requestParameters: IAIRoleMiningBetaApiExportRoleMiningPotentialRoleAsyncRequest, axiosOptions?: AxiosRequestConfig) {
+        return IAIRoleMiningBetaApiFp(this.configuration).exportRoleMiningPotentialRoleAsync(requestParameters.sessionId, requestParameters.potentialRoleId, requestParameters.roleMiningPotentialRoleExportRequestBeta, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -45188,8 +45188,8 @@ export class IAIRoleMiningBetaApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof IAIRoleMiningBetaApi
      */
-    public exportRoleMiningPotentialRoleStatus(requestParameters: IAIRoleMiningBetaApiExportRoleMiningPotentialRoleStatusRequest, options?: AxiosRequestConfig) {
-        return IAIRoleMiningBetaApiFp(this.configuration).exportRoleMiningPotentialRoleStatus(requestParameters.sessionId, requestParameters.potentialRoleId, requestParameters.exportId, options).then((request) => request(this.axios, this.basePath));
+    public exportRoleMiningPotentialRoleStatus(requestParameters: IAIRoleMiningBetaApiExportRoleMiningPotentialRoleStatusRequest, axiosOptions?: AxiosRequestConfig) {
+        return IAIRoleMiningBetaApiFp(this.configuration).exportRoleMiningPotentialRoleStatus(requestParameters.sessionId, requestParameters.potentialRoleId, requestParameters.exportId, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -45200,8 +45200,8 @@ export class IAIRoleMiningBetaApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof IAIRoleMiningBetaApi
      */
-    public getAllPotentialRoleSummaries(requestParameters: IAIRoleMiningBetaApiGetAllPotentialRoleSummariesRequest = {}, options?: AxiosRequestConfig) {
-        return IAIRoleMiningBetaApiFp(this.configuration).getAllPotentialRoleSummaries(requestParameters.sorters, requestParameters.filters, requestParameters.offset, requestParameters.limit, requestParameters.count, options).then((request) => request(this.axios, this.basePath));
+    public getAllPotentialRoleSummaries(requestParameters: IAIRoleMiningBetaApiGetAllPotentialRoleSummariesRequest = {}, axiosOptions?: AxiosRequestConfig) {
+        return IAIRoleMiningBetaApiFp(this.configuration).getAllPotentialRoleSummaries(requestParameters.sorters, requestParameters.filters, requestParameters.offset, requestParameters.limit, requestParameters.count, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -45212,8 +45212,8 @@ export class IAIRoleMiningBetaApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof IAIRoleMiningBetaApi
      */
-    public getEntitlementDistributionPotentialRole(requestParameters: IAIRoleMiningBetaApiGetEntitlementDistributionPotentialRoleRequest, options?: AxiosRequestConfig) {
-        return IAIRoleMiningBetaApiFp(this.configuration).getEntitlementDistributionPotentialRole(requestParameters.sessionId, requestParameters.potentialRoleId, requestParameters.includeCommonAccess, options).then((request) => request(this.axios, this.basePath));
+    public getEntitlementDistributionPotentialRole(requestParameters: IAIRoleMiningBetaApiGetEntitlementDistributionPotentialRoleRequest, axiosOptions?: AxiosRequestConfig) {
+        return IAIRoleMiningBetaApiFp(this.configuration).getEntitlementDistributionPotentialRole(requestParameters.sessionId, requestParameters.potentialRoleId, requestParameters.includeCommonAccess, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -45224,8 +45224,8 @@ export class IAIRoleMiningBetaApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof IAIRoleMiningBetaApi
      */
-    public getEntitlementsPotentialRole(requestParameters: IAIRoleMiningBetaApiGetEntitlementsPotentialRoleRequest, options?: AxiosRequestConfig) {
-        return IAIRoleMiningBetaApiFp(this.configuration).getEntitlementsPotentialRole(requestParameters.sessionId, requestParameters.potentialRoleId, requestParameters.includeCommonAccess, requestParameters.sorters, requestParameters.filters, requestParameters.offset, requestParameters.limit, requestParameters.count, options).then((request) => request(this.axios, this.basePath));
+    public getEntitlementsPotentialRole(requestParameters: IAIRoleMiningBetaApiGetEntitlementsPotentialRoleRequest, axiosOptions?: AxiosRequestConfig) {
+        return IAIRoleMiningBetaApiFp(this.configuration).getEntitlementsPotentialRole(requestParameters.sessionId, requestParameters.potentialRoleId, requestParameters.includeCommonAccess, requestParameters.sorters, requestParameters.filters, requestParameters.offset, requestParameters.limit, requestParameters.count, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -45236,8 +45236,8 @@ export class IAIRoleMiningBetaApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof IAIRoleMiningBetaApi
      */
-    public getExcludedEntitlementsPotentialRole(requestParameters: IAIRoleMiningBetaApiGetExcludedEntitlementsPotentialRoleRequest, options?: AxiosRequestConfig) {
-        return IAIRoleMiningBetaApiFp(this.configuration).getExcludedEntitlementsPotentialRole(requestParameters.sessionId, requestParameters.potentialRoleId, requestParameters.sorters, requestParameters.filters, requestParameters.offset, requestParameters.limit, requestParameters.count, options).then((request) => request(this.axios, this.basePath));
+    public getExcludedEntitlementsPotentialRole(requestParameters: IAIRoleMiningBetaApiGetExcludedEntitlementsPotentialRoleRequest, axiosOptions?: AxiosRequestConfig) {
+        return IAIRoleMiningBetaApiFp(this.configuration).getExcludedEntitlementsPotentialRole(requestParameters.sessionId, requestParameters.potentialRoleId, requestParameters.sorters, requestParameters.filters, requestParameters.offset, requestParameters.limit, requestParameters.count, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -45248,8 +45248,8 @@ export class IAIRoleMiningBetaApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof IAIRoleMiningBetaApi
      */
-    public getIdentitiesPotentialRole(requestParameters: IAIRoleMiningBetaApiGetIdentitiesPotentialRoleRequest, options?: AxiosRequestConfig) {
-        return IAIRoleMiningBetaApiFp(this.configuration).getIdentitiesPotentialRole(requestParameters.sessionId, requestParameters.potentialRoleId, requestParameters.sorters, requestParameters.filters, requestParameters.offset, requestParameters.limit, requestParameters.count, options).then((request) => request(this.axios, this.basePath));
+    public getIdentitiesPotentialRole(requestParameters: IAIRoleMiningBetaApiGetIdentitiesPotentialRoleRequest, axiosOptions?: AxiosRequestConfig) {
+        return IAIRoleMiningBetaApiFp(this.configuration).getIdentitiesPotentialRole(requestParameters.sessionId, requestParameters.potentialRoleId, requestParameters.sorters, requestParameters.filters, requestParameters.offset, requestParameters.limit, requestParameters.count, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -45260,8 +45260,8 @@ export class IAIRoleMiningBetaApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof IAIRoleMiningBetaApi
      */
-    public getPotentialRole(requestParameters: IAIRoleMiningBetaApiGetPotentialRoleRequest, options?: AxiosRequestConfig) {
-        return IAIRoleMiningBetaApiFp(this.configuration).getPotentialRole(requestParameters.sessionId, requestParameters.potentialRoleId, options).then((request) => request(this.axios, this.basePath));
+    public getPotentialRole(requestParameters: IAIRoleMiningBetaApiGetPotentialRoleRequest, axiosOptions?: AxiosRequestConfig) {
+        return IAIRoleMiningBetaApiFp(this.configuration).getPotentialRole(requestParameters.sessionId, requestParameters.potentialRoleId, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -45272,8 +45272,8 @@ export class IAIRoleMiningBetaApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof IAIRoleMiningBetaApi
      */
-    public getPotentialRoleApplications(requestParameters: IAIRoleMiningBetaApiGetPotentialRoleApplicationsRequest, options?: AxiosRequestConfig) {
-        return IAIRoleMiningBetaApiFp(this.configuration).getPotentialRoleApplications(requestParameters.sessionId, requestParameters.potentialRoleId, requestParameters.offset, requestParameters.limit, requestParameters.count, options).then((request) => request(this.axios, this.basePath));
+    public getPotentialRoleApplications(requestParameters: IAIRoleMiningBetaApiGetPotentialRoleApplicationsRequest, axiosOptions?: AxiosRequestConfig) {
+        return IAIRoleMiningBetaApiFp(this.configuration).getPotentialRoleApplications(requestParameters.sessionId, requestParameters.potentialRoleId, requestParameters.offset, requestParameters.limit, requestParameters.count, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -45284,8 +45284,8 @@ export class IAIRoleMiningBetaApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof IAIRoleMiningBetaApi
      */
-    public getPotentialRoleSourceIdentityUsage(requestParameters: IAIRoleMiningBetaApiGetPotentialRoleSourceIdentityUsageRequest, options?: AxiosRequestConfig) {
-        return IAIRoleMiningBetaApiFp(this.configuration).getPotentialRoleSourceIdentityUsage(requestParameters.potentialRoleId, requestParameters.sourceId, requestParameters.sorters, requestParameters.offset, requestParameters.limit, requestParameters.count, options).then((request) => request(this.axios, this.basePath));
+    public getPotentialRoleSourceIdentityUsage(requestParameters: IAIRoleMiningBetaApiGetPotentialRoleSourceIdentityUsageRequest, axiosOptions?: AxiosRequestConfig) {
+        return IAIRoleMiningBetaApiFp(this.configuration).getPotentialRoleSourceIdentityUsage(requestParameters.potentialRoleId, requestParameters.sourceId, requestParameters.sorters, requestParameters.offset, requestParameters.limit, requestParameters.count, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -45296,8 +45296,8 @@ export class IAIRoleMiningBetaApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof IAIRoleMiningBetaApi
      */
-    public getPotentialRoleSummaries(requestParameters: IAIRoleMiningBetaApiGetPotentialRoleSummariesRequest, options?: AxiosRequestConfig) {
-        return IAIRoleMiningBetaApiFp(this.configuration).getPotentialRoleSummaries(requestParameters.sessionId, requestParameters.sorters, requestParameters.filters, requestParameters.offset, requestParameters.limit, requestParameters.count, options).then((request) => request(this.axios, this.basePath));
+    public getPotentialRoleSummaries(requestParameters: IAIRoleMiningBetaApiGetPotentialRoleSummariesRequest, axiosOptions?: AxiosRequestConfig) {
+        return IAIRoleMiningBetaApiFp(this.configuration).getPotentialRoleSummaries(requestParameters.sessionId, requestParameters.sorters, requestParameters.filters, requestParameters.offset, requestParameters.limit, requestParameters.count, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -45308,8 +45308,8 @@ export class IAIRoleMiningBetaApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof IAIRoleMiningBetaApi
      */
-    public getRoleMiningPotentialRole(requestParameters: IAIRoleMiningBetaApiGetRoleMiningPotentialRoleRequest, options?: AxiosRequestConfig) {
-        return IAIRoleMiningBetaApiFp(this.configuration).getRoleMiningPotentialRole(requestParameters.potentialRoleId, options).then((request) => request(this.axios, this.basePath));
+    public getRoleMiningPotentialRole(requestParameters: IAIRoleMiningBetaApiGetRoleMiningPotentialRoleRequest, axiosOptions?: AxiosRequestConfig) {
+        return IAIRoleMiningBetaApiFp(this.configuration).getRoleMiningPotentialRole(requestParameters.potentialRoleId, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -45320,8 +45320,8 @@ export class IAIRoleMiningBetaApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof IAIRoleMiningBetaApi
      */
-    public getRoleMiningSession(requestParameters: IAIRoleMiningBetaApiGetRoleMiningSessionRequest, options?: AxiosRequestConfig) {
-        return IAIRoleMiningBetaApiFp(this.configuration).getRoleMiningSession(requestParameters.sessionId, options).then((request) => request(this.axios, this.basePath));
+    public getRoleMiningSession(requestParameters: IAIRoleMiningBetaApiGetRoleMiningSessionRequest, axiosOptions?: AxiosRequestConfig) {
+        return IAIRoleMiningBetaApiFp(this.configuration).getRoleMiningSession(requestParameters.sessionId, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -45332,8 +45332,8 @@ export class IAIRoleMiningBetaApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof IAIRoleMiningBetaApi
      */
-    public getRoleMiningSessionStatus(requestParameters: IAIRoleMiningBetaApiGetRoleMiningSessionStatusRequest, options?: AxiosRequestConfig) {
-        return IAIRoleMiningBetaApiFp(this.configuration).getRoleMiningSessionStatus(requestParameters.sessionId, options).then((request) => request(this.axios, this.basePath));
+    public getRoleMiningSessionStatus(requestParameters: IAIRoleMiningBetaApiGetRoleMiningSessionStatusRequest, axiosOptions?: AxiosRequestConfig) {
+        return IAIRoleMiningBetaApiFp(this.configuration).getRoleMiningSessionStatus(requestParameters.sessionId, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -45344,8 +45344,8 @@ export class IAIRoleMiningBetaApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof IAIRoleMiningBetaApi
      */
-    public getRoleMiningSessions(requestParameters: IAIRoleMiningBetaApiGetRoleMiningSessionsRequest = {}, options?: AxiosRequestConfig) {
-        return IAIRoleMiningBetaApiFp(this.configuration).getRoleMiningSessions(requestParameters.filters, requestParameters.sorters, requestParameters.offset, requestParameters.limit, requestParameters.count, options).then((request) => request(this.axios, this.basePath));
+    public getRoleMiningSessions(requestParameters: IAIRoleMiningBetaApiGetRoleMiningSessionsRequest = {}, axiosOptions?: AxiosRequestConfig) {
+        return IAIRoleMiningBetaApiFp(this.configuration).getRoleMiningSessions(requestParameters.filters, requestParameters.sorters, requestParameters.offset, requestParameters.limit, requestParameters.count, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -45356,8 +45356,8 @@ export class IAIRoleMiningBetaApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof IAIRoleMiningBetaApi
      */
-    public getSavedPotentialRoles(requestParameters: IAIRoleMiningBetaApiGetSavedPotentialRolesRequest = {}, options?: AxiosRequestConfig) {
-        return IAIRoleMiningBetaApiFp(this.configuration).getSavedPotentialRoles(requestParameters.sorters, requestParameters.offset, requestParameters.limit, requestParameters.count, options).then((request) => request(this.axios, this.basePath));
+    public getSavedPotentialRoles(requestParameters: IAIRoleMiningBetaApiGetSavedPotentialRolesRequest = {}, axiosOptions?: AxiosRequestConfig) {
+        return IAIRoleMiningBetaApiFp(this.configuration).getSavedPotentialRoles(requestParameters.sorters, requestParameters.offset, requestParameters.limit, requestParameters.count, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -45368,8 +45368,8 @@ export class IAIRoleMiningBetaApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof IAIRoleMiningBetaApi
      */
-    public patchPotentialRole(requestParameters: IAIRoleMiningBetaApiPatchPotentialRoleRequest, options?: AxiosRequestConfig) {
-        return IAIRoleMiningBetaApiFp(this.configuration).patchPotentialRole(requestParameters.sessionId, requestParameters.potentialRoleId, requestParameters.patchPotentialRoleRequestInnerBeta, options).then((request) => request(this.axios, this.basePath));
+    public patchPotentialRole(requestParameters: IAIRoleMiningBetaApiPatchPotentialRoleRequest, axiosOptions?: AxiosRequestConfig) {
+        return IAIRoleMiningBetaApiFp(this.configuration).patchPotentialRole(requestParameters.sessionId, requestParameters.potentialRoleId, requestParameters.patchPotentialRoleRequestInnerBeta, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -45380,8 +45380,8 @@ export class IAIRoleMiningBetaApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof IAIRoleMiningBetaApi
      */
-    public patchPotentialRole_1(requestParameters: IAIRoleMiningBetaApiPatchPotentialRole0Request, options?: AxiosRequestConfig) {
-        return IAIRoleMiningBetaApiFp(this.configuration).patchPotentialRole_1(requestParameters.sessionId, requestParameters.potentialRoleId, requestParameters.patchPotentialRoleRequestInnerBeta, options).then((request) => request(this.axios, this.basePath));
+    public patchPotentialRole_1(requestParameters: IAIRoleMiningBetaApiPatchPotentialRole0Request, axiosOptions?: AxiosRequestConfig) {
+        return IAIRoleMiningBetaApiFp(this.configuration).patchPotentialRole_1(requestParameters.sessionId, requestParameters.potentialRoleId, requestParameters.patchPotentialRoleRequestInnerBeta, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -45392,8 +45392,8 @@ export class IAIRoleMiningBetaApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof IAIRoleMiningBetaApi
      */
-    public patchRoleMiningSession(requestParameters: IAIRoleMiningBetaApiPatchRoleMiningSessionRequest, options?: AxiosRequestConfig) {
-        return IAIRoleMiningBetaApiFp(this.configuration).patchRoleMiningSession(requestParameters.sessionId, requestParameters.jsonPatchOperationBeta, options).then((request) => request(this.axios, this.basePath));
+    public patchRoleMiningSession(requestParameters: IAIRoleMiningBetaApiPatchRoleMiningSessionRequest, axiosOptions?: AxiosRequestConfig) {
+        return IAIRoleMiningBetaApiFp(this.configuration).patchRoleMiningSession(requestParameters.sessionId, requestParameters.jsonPatchOperationBeta, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -45404,8 +45404,8 @@ export class IAIRoleMiningBetaApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof IAIRoleMiningBetaApi
      */
-    public updateEntitlementsPotentialRole(requestParameters: IAIRoleMiningBetaApiUpdateEntitlementsPotentialRoleRequest, options?: AxiosRequestConfig) {
-        return IAIRoleMiningBetaApiFp(this.configuration).updateEntitlementsPotentialRole(requestParameters.sessionId, requestParameters.potentialRoleId, requestParameters.roleMiningPotentialRoleEditEntitlementsBeta, options).then((request) => request(this.axios, this.basePath));
+    public updateEntitlementsPotentialRole(requestParameters: IAIRoleMiningBetaApiUpdateEntitlementsPotentialRoleRequest, axiosOptions?: AxiosRequestConfig) {
+        return IAIRoleMiningBetaApiFp(this.configuration).updateEntitlementsPotentialRole(requestParameters.sessionId, requestParameters.potentialRoleId, requestParameters.roleMiningPotentialRoleEditEntitlementsBeta, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 }
 
@@ -45997,8 +45997,8 @@ export class IdentitiesBetaApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof IdentitiesBetaApi
      */
-    public deleteIdentity(requestParameters: IdentitiesBetaApiDeleteIdentityRequest, options?: AxiosRequestConfig) {
-        return IdentitiesBetaApiFp(this.configuration).deleteIdentity(requestParameters.id, options).then((request) => request(this.axios, this.basePath));
+    public deleteIdentity(requestParameters: IdentitiesBetaApiDeleteIdentityRequest, axiosOptions?: AxiosRequestConfig) {
+        return IdentitiesBetaApiFp(this.configuration).deleteIdentity(requestParameters.id, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -46009,8 +46009,8 @@ export class IdentitiesBetaApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof IdentitiesBetaApi
      */
-    public getIdentity(requestParameters: IdentitiesBetaApiGetIdentityRequest, options?: AxiosRequestConfig) {
-        return IdentitiesBetaApiFp(this.configuration).getIdentity(requestParameters.id, options).then((request) => request(this.axios, this.basePath));
+    public getIdentity(requestParameters: IdentitiesBetaApiGetIdentityRequest, axiosOptions?: AxiosRequestConfig) {
+        return IdentitiesBetaApiFp(this.configuration).getIdentity(requestParameters.id, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -46021,8 +46021,8 @@ export class IdentitiesBetaApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof IdentitiesBetaApi
      */
-    public getIdentityOwnershipDetails(requestParameters: IdentitiesBetaApiGetIdentityOwnershipDetailsRequest, options?: AxiosRequestConfig) {
-        return IdentitiesBetaApiFp(this.configuration).getIdentityOwnershipDetails(requestParameters.identityId, options).then((request) => request(this.axios, this.basePath));
+    public getIdentityOwnershipDetails(requestParameters: IdentitiesBetaApiGetIdentityOwnershipDetailsRequest, axiosOptions?: AxiosRequestConfig) {
+        return IdentitiesBetaApiFp(this.configuration).getIdentityOwnershipDetails(requestParameters.identityId, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -46033,8 +46033,8 @@ export class IdentitiesBetaApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof IdentitiesBetaApi
      */
-    public listIdentities(requestParameters: IdentitiesBetaApiListIdentitiesRequest = {}, options?: AxiosRequestConfig) {
-        return IdentitiesBetaApiFp(this.configuration).listIdentities(requestParameters.filters, requestParameters.sorters, requestParameters.defaultFilter, requestParameters.count, requestParameters.limit, requestParameters.offset, options).then((request) => request(this.axios, this.basePath));
+    public listIdentities(requestParameters: IdentitiesBetaApiListIdentitiesRequest = {}, axiosOptions?: AxiosRequestConfig) {
+        return IdentitiesBetaApiFp(this.configuration).listIdentities(requestParameters.filters, requestParameters.sorters, requestParameters.defaultFilter, requestParameters.count, requestParameters.limit, requestParameters.offset, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -46045,8 +46045,8 @@ export class IdentitiesBetaApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof IdentitiesBetaApi
      */
-    public startIdentityProcessing(requestParameters: IdentitiesBetaApiStartIdentityProcessingRequest, options?: AxiosRequestConfig) {
-        return IdentitiesBetaApiFp(this.configuration).startIdentityProcessing(requestParameters.processIdentitiesRequestBeta, options).then((request) => request(this.axios, this.basePath));
+    public startIdentityProcessing(requestParameters: IdentitiesBetaApiStartIdentityProcessingRequest, axiosOptions?: AxiosRequestConfig) {
+        return IdentitiesBetaApiFp(this.configuration).startIdentityProcessing(requestParameters.processIdentitiesRequestBeta, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -46057,8 +46057,8 @@ export class IdentitiesBetaApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof IdentitiesBetaApi
      */
-    public synchronizeAttributesForIdentity(requestParameters: IdentitiesBetaApiSynchronizeAttributesForIdentityRequest, options?: AxiosRequestConfig) {
-        return IdentitiesBetaApiFp(this.configuration).synchronizeAttributesForIdentity(requestParameters.identityId, options).then((request) => request(this.axios, this.basePath));
+    public synchronizeAttributesForIdentity(requestParameters: IdentitiesBetaApiSynchronizeAttributesForIdentityRequest, axiosOptions?: AxiosRequestConfig) {
+        return IdentitiesBetaApiFp(this.configuration).synchronizeAttributesForIdentity(requestParameters.identityId, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 }
 
@@ -46648,8 +46648,8 @@ export class IdentityAttributesBetaApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof IdentityAttributesBetaApi
      */
-    public createIdentityAttribute(requestParameters: IdentityAttributesBetaApiCreateIdentityAttributeRequest, options?: AxiosRequestConfig) {
-        return IdentityAttributesBetaApiFp(this.configuration).createIdentityAttribute(requestParameters.identityAttributeBeta, options).then((request) => request(this.axios, this.basePath));
+    public createIdentityAttribute(requestParameters: IdentityAttributesBetaApiCreateIdentityAttributeRequest, axiosOptions?: AxiosRequestConfig) {
+        return IdentityAttributesBetaApiFp(this.configuration).createIdentityAttribute(requestParameters.identityAttributeBeta, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -46660,8 +46660,8 @@ export class IdentityAttributesBetaApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof IdentityAttributesBetaApi
      */
-    public deleteIdentityAttribute(requestParameters: IdentityAttributesBetaApiDeleteIdentityAttributeRequest, options?: AxiosRequestConfig) {
-        return IdentityAttributesBetaApiFp(this.configuration).deleteIdentityAttribute(requestParameters.name, options).then((request) => request(this.axios, this.basePath));
+    public deleteIdentityAttribute(requestParameters: IdentityAttributesBetaApiDeleteIdentityAttributeRequest, axiosOptions?: AxiosRequestConfig) {
+        return IdentityAttributesBetaApiFp(this.configuration).deleteIdentityAttribute(requestParameters.name, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -46672,8 +46672,8 @@ export class IdentityAttributesBetaApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof IdentityAttributesBetaApi
      */
-    public deleteIdentityAttributesInBulk(requestParameters: IdentityAttributesBetaApiDeleteIdentityAttributesInBulkRequest, options?: AxiosRequestConfig) {
-        return IdentityAttributesBetaApiFp(this.configuration).deleteIdentityAttributesInBulk(requestParameters.identityAttributeNamesBeta, options).then((request) => request(this.axios, this.basePath));
+    public deleteIdentityAttributesInBulk(requestParameters: IdentityAttributesBetaApiDeleteIdentityAttributesInBulkRequest, axiosOptions?: AxiosRequestConfig) {
+        return IdentityAttributesBetaApiFp(this.configuration).deleteIdentityAttributesInBulk(requestParameters.identityAttributeNamesBeta, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -46684,8 +46684,8 @@ export class IdentityAttributesBetaApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof IdentityAttributesBetaApi
      */
-    public getIdentityAttribute(requestParameters: IdentityAttributesBetaApiGetIdentityAttributeRequest, options?: AxiosRequestConfig) {
-        return IdentityAttributesBetaApiFp(this.configuration).getIdentityAttribute(requestParameters.name, options).then((request) => request(this.axios, this.basePath));
+    public getIdentityAttribute(requestParameters: IdentityAttributesBetaApiGetIdentityAttributeRequest, axiosOptions?: AxiosRequestConfig) {
+        return IdentityAttributesBetaApiFp(this.configuration).getIdentityAttribute(requestParameters.name, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -46696,8 +46696,8 @@ export class IdentityAttributesBetaApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof IdentityAttributesBetaApi
      */
-    public listIdentityAttributes(requestParameters: IdentityAttributesBetaApiListIdentityAttributesRequest = {}, options?: AxiosRequestConfig) {
-        return IdentityAttributesBetaApiFp(this.configuration).listIdentityAttributes(requestParameters.includeSystem, requestParameters.includeSilent, requestParameters.searchableOnly, requestParameters.count, options).then((request) => request(this.axios, this.basePath));
+    public listIdentityAttributes(requestParameters: IdentityAttributesBetaApiListIdentityAttributesRequest = {}, axiosOptions?: AxiosRequestConfig) {
+        return IdentityAttributesBetaApiFp(this.configuration).listIdentityAttributes(requestParameters.includeSystem, requestParameters.includeSilent, requestParameters.searchableOnly, requestParameters.count, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -46708,8 +46708,8 @@ export class IdentityAttributesBetaApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof IdentityAttributesBetaApi
      */
-    public putIdentityAttribute(requestParameters: IdentityAttributesBetaApiPutIdentityAttributeRequest, options?: AxiosRequestConfig) {
-        return IdentityAttributesBetaApiFp(this.configuration).putIdentityAttribute(requestParameters.name, requestParameters.identityAttributeBeta, options).then((request) => request(this.axios, this.basePath));
+    public putIdentityAttribute(requestParameters: IdentityAttributesBetaApiPutIdentityAttributeRequest, axiosOptions?: AxiosRequestConfig) {
+        return IdentityAttributesBetaApiFp(this.configuration).putIdentityAttribute(requestParameters.name, requestParameters.identityAttributeBeta, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 }
 
@@ -48120,8 +48120,8 @@ export class IdentityHistoryBetaApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof IdentityHistoryBetaApi
      */
-    public compareIdentitySnapshots(requestParameters: IdentityHistoryBetaApiCompareIdentitySnapshotsRequest, options?: AxiosRequestConfig) {
-        return IdentityHistoryBetaApiFp(this.configuration).compareIdentitySnapshots(requestParameters.id, requestParameters.snapshot1, requestParameters.snapshot2, requestParameters.accessItemTypes, requestParameters.limit, requestParameters.offset, requestParameters.count, options).then((request) => request(this.axios, this.basePath));
+    public compareIdentitySnapshots(requestParameters: IdentityHistoryBetaApiCompareIdentitySnapshotsRequest, axiosOptions?: AxiosRequestConfig) {
+        return IdentityHistoryBetaApiFp(this.configuration).compareIdentitySnapshots(requestParameters.id, requestParameters.snapshot1, requestParameters.snapshot2, requestParameters.accessItemTypes, requestParameters.limit, requestParameters.offset, requestParameters.count, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -48132,8 +48132,8 @@ export class IdentityHistoryBetaApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof IdentityHistoryBetaApi
      */
-    public compareIdentitySnapshotsAccessType(requestParameters: IdentityHistoryBetaApiCompareIdentitySnapshotsAccessTypeRequest, options?: AxiosRequestConfig) {
-        return IdentityHistoryBetaApiFp(this.configuration).compareIdentitySnapshotsAccessType(requestParameters.id, requestParameters.accessType, requestParameters.accessAssociated, requestParameters.snapshot1, requestParameters.snapshot2, requestParameters.limit, requestParameters.offset, requestParameters.count, options).then((request) => request(this.axios, this.basePath));
+    public compareIdentitySnapshotsAccessType(requestParameters: IdentityHistoryBetaApiCompareIdentitySnapshotsAccessTypeRequest, axiosOptions?: AxiosRequestConfig) {
+        return IdentityHistoryBetaApiFp(this.configuration).compareIdentitySnapshotsAccessType(requestParameters.id, requestParameters.accessType, requestParameters.accessAssociated, requestParameters.snapshot1, requestParameters.snapshot2, requestParameters.limit, requestParameters.offset, requestParameters.count, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -48144,8 +48144,8 @@ export class IdentityHistoryBetaApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof IdentityHistoryBetaApi
      */
-    public getHistoricalIdentity(requestParameters: IdentityHistoryBetaApiGetHistoricalIdentityRequest, options?: AxiosRequestConfig) {
-        return IdentityHistoryBetaApiFp(this.configuration).getHistoricalIdentity(requestParameters.id, options).then((request) => request(this.axios, this.basePath));
+    public getHistoricalIdentity(requestParameters: IdentityHistoryBetaApiGetHistoricalIdentityRequest, axiosOptions?: AxiosRequestConfig) {
+        return IdentityHistoryBetaApiFp(this.configuration).getHistoricalIdentity(requestParameters.id, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -48156,8 +48156,8 @@ export class IdentityHistoryBetaApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof IdentityHistoryBetaApi
      */
-    public getHistoricalIdentityEvents(requestParameters: IdentityHistoryBetaApiGetHistoricalIdentityEventsRequest, options?: AxiosRequestConfig) {
-        return IdentityHistoryBetaApiFp(this.configuration).getHistoricalIdentityEvents(requestParameters.id, requestParameters.from, requestParameters.eventTypes, requestParameters.accessItemTypes, requestParameters.limit, requestParameters.offset, requestParameters.count, options).then((request) => request(this.axios, this.basePath));
+    public getHistoricalIdentityEvents(requestParameters: IdentityHistoryBetaApiGetHistoricalIdentityEventsRequest, axiosOptions?: AxiosRequestConfig) {
+        return IdentityHistoryBetaApiFp(this.configuration).getHistoricalIdentityEvents(requestParameters.id, requestParameters.from, requestParameters.eventTypes, requestParameters.accessItemTypes, requestParameters.limit, requestParameters.offset, requestParameters.count, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -48168,8 +48168,8 @@ export class IdentityHistoryBetaApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof IdentityHistoryBetaApi
      */
-    public getIdentitySnapshot(requestParameters: IdentityHistoryBetaApiGetIdentitySnapshotRequest, options?: AxiosRequestConfig) {
-        return IdentityHistoryBetaApiFp(this.configuration).getIdentitySnapshot(requestParameters.id, requestParameters.date, options).then((request) => request(this.axios, this.basePath));
+    public getIdentitySnapshot(requestParameters: IdentityHistoryBetaApiGetIdentitySnapshotRequest, axiosOptions?: AxiosRequestConfig) {
+        return IdentityHistoryBetaApiFp(this.configuration).getIdentitySnapshot(requestParameters.id, requestParameters.date, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -48180,8 +48180,8 @@ export class IdentityHistoryBetaApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof IdentityHistoryBetaApi
      */
-    public getIdentitySnapshotSummary(requestParameters: IdentityHistoryBetaApiGetIdentitySnapshotSummaryRequest, options?: AxiosRequestConfig) {
-        return IdentityHistoryBetaApiFp(this.configuration).getIdentitySnapshotSummary(requestParameters.id, requestParameters.before, requestParameters.interval, requestParameters.timeZone, requestParameters.limit, requestParameters.offset, requestParameters.count, options).then((request) => request(this.axios, this.basePath));
+    public getIdentitySnapshotSummary(requestParameters: IdentityHistoryBetaApiGetIdentitySnapshotSummaryRequest, axiosOptions?: AxiosRequestConfig) {
+        return IdentityHistoryBetaApiFp(this.configuration).getIdentitySnapshotSummary(requestParameters.id, requestParameters.before, requestParameters.interval, requestParameters.timeZone, requestParameters.limit, requestParameters.offset, requestParameters.count, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -48192,8 +48192,8 @@ export class IdentityHistoryBetaApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof IdentityHistoryBetaApi
      */
-    public getIdentityStartDate(requestParameters: IdentityHistoryBetaApiGetIdentityStartDateRequest, options?: AxiosRequestConfig) {
-        return IdentityHistoryBetaApiFp(this.configuration).getIdentityStartDate(requestParameters.id, options).then((request) => request(this.axios, this.basePath));
+    public getIdentityStartDate(requestParameters: IdentityHistoryBetaApiGetIdentityStartDateRequest, axiosOptions?: AxiosRequestConfig) {
+        return IdentityHistoryBetaApiFp(this.configuration).getIdentityStartDate(requestParameters.id, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -48204,8 +48204,8 @@ export class IdentityHistoryBetaApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof IdentityHistoryBetaApi
      */
-    public listHistoricalIdentities(requestParameters: IdentityHistoryBetaApiListHistoricalIdentitiesRequest = {}, options?: AxiosRequestConfig) {
-        return IdentityHistoryBetaApiFp(this.configuration).listHistoricalIdentities(requestParameters.startsWithQuery, requestParameters.isDeleted, requestParameters.isActive, requestParameters.limit, requestParameters.offset, options).then((request) => request(this.axios, this.basePath));
+    public listHistoricalIdentities(requestParameters: IdentityHistoryBetaApiListHistoricalIdentitiesRequest = {}, axiosOptions?: AxiosRequestConfig) {
+        return IdentityHistoryBetaApiFp(this.configuration).listHistoricalIdentities(requestParameters.startsWithQuery, requestParameters.isDeleted, requestParameters.isActive, requestParameters.limit, requestParameters.offset, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -48216,8 +48216,8 @@ export class IdentityHistoryBetaApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof IdentityHistoryBetaApi
      */
-    public listIdentityAccessItems(requestParameters: IdentityHistoryBetaApiListIdentityAccessItemsRequest, options?: AxiosRequestConfig) {
-        return IdentityHistoryBetaApiFp(this.configuration).listIdentityAccessItems(requestParameters.id, requestParameters.type, options).then((request) => request(this.axios, this.basePath));
+    public listIdentityAccessItems(requestParameters: IdentityHistoryBetaApiListIdentityAccessItemsRequest, axiosOptions?: AxiosRequestConfig) {
+        return IdentityHistoryBetaApiFp(this.configuration).listIdentityAccessItems(requestParameters.id, requestParameters.type, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -48228,8 +48228,8 @@ export class IdentityHistoryBetaApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof IdentityHistoryBetaApi
      */
-    public listIdentitySnapshotAccessItems(requestParameters: IdentityHistoryBetaApiListIdentitySnapshotAccessItemsRequest, options?: AxiosRequestConfig) {
-        return IdentityHistoryBetaApiFp(this.configuration).listIdentitySnapshotAccessItems(requestParameters.id, requestParameters.date, requestParameters.type, options).then((request) => request(this.axios, this.basePath));
+    public listIdentitySnapshotAccessItems(requestParameters: IdentityHistoryBetaApiListIdentitySnapshotAccessItemsRequest, axiosOptions?: AxiosRequestConfig) {
+        return IdentityHistoryBetaApiFp(this.configuration).listIdentitySnapshotAccessItems(requestParameters.id, requestParameters.date, requestParameters.type, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -48240,8 +48240,8 @@ export class IdentityHistoryBetaApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof IdentityHistoryBetaApi
      */
-    public listIdentitySnapshots(requestParameters: IdentityHistoryBetaApiListIdentitySnapshotsRequest, options?: AxiosRequestConfig) {
-        return IdentityHistoryBetaApiFp(this.configuration).listIdentitySnapshots(requestParameters.id, requestParameters.start, requestParameters.interval, requestParameters.limit, requestParameters.offset, requestParameters.count, options).then((request) => request(this.axios, this.basePath));
+    public listIdentitySnapshots(requestParameters: IdentityHistoryBetaApiListIdentitySnapshotsRequest, axiosOptions?: AxiosRequestConfig) {
+        return IdentityHistoryBetaApiFp(this.configuration).listIdentitySnapshots(requestParameters.id, requestParameters.start, requestParameters.interval, requestParameters.limit, requestParameters.offset, requestParameters.count, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 }
 
@@ -49304,8 +49304,8 @@ export class IdentityProfilesBetaApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof IdentityProfilesBetaApi
      */
-    public createIdentityProfile(requestParameters: IdentityProfilesBetaApiCreateIdentityProfileRequest, options?: AxiosRequestConfig) {
-        return IdentityProfilesBetaApiFp(this.configuration).createIdentityProfile(requestParameters.identityProfileBeta, options).then((request) => request(this.axios, this.basePath));
+    public createIdentityProfile(requestParameters: IdentityProfilesBetaApiCreateIdentityProfileRequest, axiosOptions?: AxiosRequestConfig) {
+        return IdentityProfilesBetaApiFp(this.configuration).createIdentityProfile(requestParameters.identityProfileBeta, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -49316,8 +49316,8 @@ export class IdentityProfilesBetaApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof IdentityProfilesBetaApi
      */
-    public deleteIdentityProfile(requestParameters: IdentityProfilesBetaApiDeleteIdentityProfileRequest, options?: AxiosRequestConfig) {
-        return IdentityProfilesBetaApiFp(this.configuration).deleteIdentityProfile(requestParameters.identityProfileId, options).then((request) => request(this.axios, this.basePath));
+    public deleteIdentityProfile(requestParameters: IdentityProfilesBetaApiDeleteIdentityProfileRequest, axiosOptions?: AxiosRequestConfig) {
+        return IdentityProfilesBetaApiFp(this.configuration).deleteIdentityProfile(requestParameters.identityProfileId, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -49328,8 +49328,8 @@ export class IdentityProfilesBetaApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof IdentityProfilesBetaApi
      */
-    public deleteIdentityProfiles(requestParameters: IdentityProfilesBetaApiDeleteIdentityProfilesRequest, options?: AxiosRequestConfig) {
-        return IdentityProfilesBetaApiFp(this.configuration).deleteIdentityProfiles(requestParameters.requestBody, options).then((request) => request(this.axios, this.basePath));
+    public deleteIdentityProfiles(requestParameters: IdentityProfilesBetaApiDeleteIdentityProfilesRequest, axiosOptions?: AxiosRequestConfig) {
+        return IdentityProfilesBetaApiFp(this.configuration).deleteIdentityProfiles(requestParameters.requestBody, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -49340,8 +49340,8 @@ export class IdentityProfilesBetaApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof IdentityProfilesBetaApi
      */
-    public exportIdentityProfiles(requestParameters: IdentityProfilesBetaApiExportIdentityProfilesRequest = {}, options?: AxiosRequestConfig) {
-        return IdentityProfilesBetaApiFp(this.configuration).exportIdentityProfiles(requestParameters.limit, requestParameters.offset, requestParameters.count, requestParameters.filters, requestParameters.sorters, options).then((request) => request(this.axios, this.basePath));
+    public exportIdentityProfiles(requestParameters: IdentityProfilesBetaApiExportIdentityProfilesRequest = {}, axiosOptions?: AxiosRequestConfig) {
+        return IdentityProfilesBetaApiFp(this.configuration).exportIdentityProfiles(requestParameters.limit, requestParameters.offset, requestParameters.count, requestParameters.filters, requestParameters.sorters, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -49352,8 +49352,8 @@ export class IdentityProfilesBetaApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof IdentityProfilesBetaApi
      */
-    public generateIdentityPreview(requestParameters: IdentityProfilesBetaApiGenerateIdentityPreviewRequest, options?: AxiosRequestConfig) {
-        return IdentityProfilesBetaApiFp(this.configuration).generateIdentityPreview(requestParameters.identityPreviewRequestBeta, options).then((request) => request(this.axios, this.basePath));
+    public generateIdentityPreview(requestParameters: IdentityProfilesBetaApiGenerateIdentityPreviewRequest, axiosOptions?: AxiosRequestConfig) {
+        return IdentityProfilesBetaApiFp(this.configuration).generateIdentityPreview(requestParameters.identityPreviewRequestBeta, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -49364,8 +49364,8 @@ export class IdentityProfilesBetaApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof IdentityProfilesBetaApi
      */
-    public getDefaultIdentityAttributeConfig(requestParameters: IdentityProfilesBetaApiGetDefaultIdentityAttributeConfigRequest, options?: AxiosRequestConfig) {
-        return IdentityProfilesBetaApiFp(this.configuration).getDefaultIdentityAttributeConfig(requestParameters.identityProfileId, options).then((request) => request(this.axios, this.basePath));
+    public getDefaultIdentityAttributeConfig(requestParameters: IdentityProfilesBetaApiGetDefaultIdentityAttributeConfigRequest, axiosOptions?: AxiosRequestConfig) {
+        return IdentityProfilesBetaApiFp(this.configuration).getDefaultIdentityAttributeConfig(requestParameters.identityProfileId, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -49376,8 +49376,8 @@ export class IdentityProfilesBetaApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof IdentityProfilesBetaApi
      */
-    public getIdentityProfile(requestParameters: IdentityProfilesBetaApiGetIdentityProfileRequest, options?: AxiosRequestConfig) {
-        return IdentityProfilesBetaApiFp(this.configuration).getIdentityProfile(requestParameters.identityProfileId, options).then((request) => request(this.axios, this.basePath));
+    public getIdentityProfile(requestParameters: IdentityProfilesBetaApiGetIdentityProfileRequest, axiosOptions?: AxiosRequestConfig) {
+        return IdentityProfilesBetaApiFp(this.configuration).getIdentityProfile(requestParameters.identityProfileId, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -49388,8 +49388,8 @@ export class IdentityProfilesBetaApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof IdentityProfilesBetaApi
      */
-    public importIdentityProfiles(requestParameters: IdentityProfilesBetaApiImportIdentityProfilesRequest, options?: AxiosRequestConfig) {
-        return IdentityProfilesBetaApiFp(this.configuration).importIdentityProfiles(requestParameters.identityProfileExportedObjectBeta, options).then((request) => request(this.axios, this.basePath));
+    public importIdentityProfiles(requestParameters: IdentityProfilesBetaApiImportIdentityProfilesRequest, axiosOptions?: AxiosRequestConfig) {
+        return IdentityProfilesBetaApiFp(this.configuration).importIdentityProfiles(requestParameters.identityProfileExportedObjectBeta, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -49400,8 +49400,8 @@ export class IdentityProfilesBetaApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof IdentityProfilesBetaApi
      */
-    public listIdentityProfiles(requestParameters: IdentityProfilesBetaApiListIdentityProfilesRequest = {}, options?: AxiosRequestConfig) {
-        return IdentityProfilesBetaApiFp(this.configuration).listIdentityProfiles(requestParameters.limit, requestParameters.offset, requestParameters.count, requestParameters.filters, requestParameters.sorters, options).then((request) => request(this.axios, this.basePath));
+    public listIdentityProfiles(requestParameters: IdentityProfilesBetaApiListIdentityProfilesRequest = {}, axiosOptions?: AxiosRequestConfig) {
+        return IdentityProfilesBetaApiFp(this.configuration).listIdentityProfiles(requestParameters.limit, requestParameters.offset, requestParameters.count, requestParameters.filters, requestParameters.sorters, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -49412,8 +49412,8 @@ export class IdentityProfilesBetaApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof IdentityProfilesBetaApi
      */
-    public syncIdentityProfile(requestParameters: IdentityProfilesBetaApiSyncIdentityProfileRequest, options?: AxiosRequestConfig) {
-        return IdentityProfilesBetaApiFp(this.configuration).syncIdentityProfile(requestParameters.identityProfileId, options).then((request) => request(this.axios, this.basePath));
+    public syncIdentityProfile(requestParameters: IdentityProfilesBetaApiSyncIdentityProfileRequest, axiosOptions?: AxiosRequestConfig) {
+        return IdentityProfilesBetaApiFp(this.configuration).syncIdentityProfile(requestParameters.identityProfileId, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -49424,8 +49424,8 @@ export class IdentityProfilesBetaApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof IdentityProfilesBetaApi
      */
-    public updateIdentityProfile(requestParameters: IdentityProfilesBetaApiUpdateIdentityProfileRequest, options?: AxiosRequestConfig) {
-        return IdentityProfilesBetaApiFp(this.configuration).updateIdentityProfile(requestParameters.identityProfileId, requestParameters.jsonPatchOperationBeta, options).then((request) => request(this.axios, this.basePath));
+    public updateIdentityProfile(requestParameters: IdentityProfilesBetaApiUpdateIdentityProfileRequest, axiosOptions?: AxiosRequestConfig) {
+        return IdentityProfilesBetaApiFp(this.configuration).updateIdentityProfile(requestParameters.identityProfileId, requestParameters.jsonPatchOperationBeta, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 }
 
@@ -49671,8 +49671,8 @@ export class LifecycleStatesBetaApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof LifecycleStatesBetaApi
      */
-    public listLifecycleStates(requestParameters: LifecycleStatesBetaApiListLifecycleStatesRequest, options?: AxiosRequestConfig) {
-        return LifecycleStatesBetaApiFp(this.configuration).listLifecycleStates(requestParameters.identityProfileId, requestParameters.lifecycleStateId, options).then((request) => request(this.axios, this.basePath));
+    public listLifecycleStates(requestParameters: LifecycleStatesBetaApiListLifecycleStatesRequest, axiosOptions?: AxiosRequestConfig) {
+        return LifecycleStatesBetaApiFp(this.configuration).listLifecycleStates(requestParameters.identityProfileId, requestParameters.lifecycleStateId, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -49683,8 +49683,8 @@ export class LifecycleStatesBetaApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof LifecycleStatesBetaApi
      */
-    public updateLifecycleStates(requestParameters: LifecycleStatesBetaApiUpdateLifecycleStatesRequest, options?: AxiosRequestConfig) {
-        return LifecycleStatesBetaApiFp(this.configuration).updateLifecycleStates(requestParameters.identityProfileId, requestParameters.lifecycleStateId, requestParameters.jsonPatchOperationBeta, options).then((request) => request(this.axios, this.basePath));
+    public updateLifecycleStates(requestParameters: LifecycleStatesBetaApiUpdateLifecycleStatesRequest, axiosOptions?: AxiosRequestConfig) {
+        return LifecycleStatesBetaApiFp(this.configuration).updateLifecycleStates(requestParameters.identityProfileId, requestParameters.lifecycleStateId, requestParameters.jsonPatchOperationBeta, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 }
 
@@ -50172,8 +50172,8 @@ export class MFAConfigurationBetaApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof MFAConfigurationBetaApi
      */
-    public deleteMFAConfig(requestParameters: MFAConfigurationBetaApiDeleteMFAConfigRequest, options?: AxiosRequestConfig) {
-        return MFAConfigurationBetaApiFp(this.configuration).deleteMFAConfig(requestParameters.method, options).then((request) => request(this.axios, this.basePath));
+    public deleteMFAConfig(requestParameters: MFAConfigurationBetaApiDeleteMFAConfigRequest, axiosOptions?: AxiosRequestConfig) {
+        return MFAConfigurationBetaApiFp(this.configuration).deleteMFAConfig(requestParameters.method, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -50183,8 +50183,8 @@ export class MFAConfigurationBetaApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof MFAConfigurationBetaApi
      */
-    public getMFADuoConfig(options?: AxiosRequestConfig) {
-        return MFAConfigurationBetaApiFp(this.configuration).getMFADuoConfig(options).then((request) => request(this.axios, this.basePath));
+    public getMFADuoConfig(axiosOptions?: AxiosRequestConfig) {
+        return MFAConfigurationBetaApiFp(this.configuration).getMFADuoConfig(axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -50194,8 +50194,8 @@ export class MFAConfigurationBetaApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof MFAConfigurationBetaApi
      */
-    public getMFAOktaConfig(options?: AxiosRequestConfig) {
-        return MFAConfigurationBetaApiFp(this.configuration).getMFAOktaConfig(options).then((request) => request(this.axios, this.basePath));
+    public getMFAOktaConfig(axiosOptions?: AxiosRequestConfig) {
+        return MFAConfigurationBetaApiFp(this.configuration).getMFAOktaConfig(axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -50206,8 +50206,8 @@ export class MFAConfigurationBetaApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof MFAConfigurationBetaApi
      */
-    public setMFADuoConfig(requestParameters: MFAConfigurationBetaApiSetMFADuoConfigRequest, options?: AxiosRequestConfig) {
-        return MFAConfigurationBetaApiFp(this.configuration).setMFADuoConfig(requestParameters.mfaDuoConfigBeta, options).then((request) => request(this.axios, this.basePath));
+    public setMFADuoConfig(requestParameters: MFAConfigurationBetaApiSetMFADuoConfigRequest, axiosOptions?: AxiosRequestConfig) {
+        return MFAConfigurationBetaApiFp(this.configuration).setMFADuoConfig(requestParameters.mfaDuoConfigBeta, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -50218,8 +50218,8 @@ export class MFAConfigurationBetaApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof MFAConfigurationBetaApi
      */
-    public setMFAOktaConfig(requestParameters: MFAConfigurationBetaApiSetMFAOktaConfigRequest, options?: AxiosRequestConfig) {
-        return MFAConfigurationBetaApiFp(this.configuration).setMFAOktaConfig(requestParameters.mfaOktaConfigBeta, options).then((request) => request(this.axios, this.basePath));
+    public setMFAOktaConfig(requestParameters: MFAConfigurationBetaApiSetMFAOktaConfigRequest, axiosOptions?: AxiosRequestConfig) {
+        return MFAConfigurationBetaApiFp(this.configuration).setMFAOktaConfig(requestParameters.mfaOktaConfigBeta, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -50230,8 +50230,8 @@ export class MFAConfigurationBetaApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof MFAConfigurationBetaApi
      */
-    public testMFAConfig(requestParameters: MFAConfigurationBetaApiTestMFAConfigRequest, options?: AxiosRequestConfig) {
-        return MFAConfigurationBetaApiFp(this.configuration).testMFAConfig(requestParameters.method, options).then((request) => request(this.axios, this.basePath));
+    public testMFAConfig(requestParameters: MFAConfigurationBetaApiTestMFAConfigRequest, axiosOptions?: AxiosRequestConfig) {
+        return MFAConfigurationBetaApiFp(this.configuration).testMFAConfig(requestParameters.method, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 }
 
@@ -50779,8 +50779,8 @@ export class MFAControllerBetaApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof MFAControllerBetaApi
      */
-    public createSendToken(requestParameters: MFAControllerBetaApiCreateSendTokenRequest, options?: AxiosRequestConfig) {
-        return MFAControllerBetaApiFp(this.configuration).createSendToken(requestParameters.sendTokenRequestBeta, options).then((request) => request(this.axios, this.basePath));
+    public createSendToken(requestParameters: MFAControllerBetaApiCreateSendTokenRequest, axiosOptions?: AxiosRequestConfig) {
+        return MFAControllerBetaApiFp(this.configuration).createSendToken(requestParameters.sendTokenRequestBeta, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -50791,8 +50791,8 @@ export class MFAControllerBetaApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof MFAControllerBetaApi
      */
-    public pingVerificationStatus(requestParameters: MFAControllerBetaApiPingVerificationStatusRequest, options?: AxiosRequestConfig) {
-        return MFAControllerBetaApiFp(this.configuration).pingVerificationStatus(requestParameters.method, requestParameters.verificationPollRequestBeta, options).then((request) => request(this.axios, this.basePath));
+    public pingVerificationStatus(requestParameters: MFAControllerBetaApiPingVerificationStatusRequest, axiosOptions?: AxiosRequestConfig) {
+        return MFAControllerBetaApiFp(this.configuration).pingVerificationStatus(requestParameters.method, requestParameters.verificationPollRequestBeta, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -50803,8 +50803,8 @@ export class MFAControllerBetaApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof MFAControllerBetaApi
      */
-    public sendDuoVerifyRequest(requestParameters: MFAControllerBetaApiSendDuoVerifyRequestRequest, options?: AxiosRequestConfig) {
-        return MFAControllerBetaApiFp(this.configuration).sendDuoVerifyRequest(requestParameters.duoVerificationRequestBeta, options).then((request) => request(this.axios, this.basePath));
+    public sendDuoVerifyRequest(requestParameters: MFAControllerBetaApiSendDuoVerifyRequestRequest, axiosOptions?: AxiosRequestConfig) {
+        return MFAControllerBetaApiFp(this.configuration).sendDuoVerifyRequest(requestParameters.duoVerificationRequestBeta, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -50815,8 +50815,8 @@ export class MFAControllerBetaApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof MFAControllerBetaApi
      */
-    public sendKbaAnswers(requestParameters: MFAControllerBetaApiSendKbaAnswersRequest, options?: AxiosRequestConfig) {
-        return MFAControllerBetaApiFp(this.configuration).sendKbaAnswers(requestParameters.kbaAnswerRequestBeta, options).then((request) => request(this.axios, this.basePath));
+    public sendKbaAnswers(requestParameters: MFAControllerBetaApiSendKbaAnswersRequest, axiosOptions?: AxiosRequestConfig) {
+        return MFAControllerBetaApiFp(this.configuration).sendKbaAnswers(requestParameters.kbaAnswerRequestBeta, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -50827,8 +50827,8 @@ export class MFAControllerBetaApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof MFAControllerBetaApi
      */
-    public sendOktaVerifyRequest(requestParameters: MFAControllerBetaApiSendOktaVerifyRequestRequest, options?: AxiosRequestConfig) {
-        return MFAControllerBetaApiFp(this.configuration).sendOktaVerifyRequest(requestParameters.oktaVerificationRequestBeta, options).then((request) => request(this.axios, this.basePath));
+    public sendOktaVerifyRequest(requestParameters: MFAControllerBetaApiSendOktaVerifyRequestRequest, axiosOptions?: AxiosRequestConfig) {
+        return MFAControllerBetaApiFp(this.configuration).sendOktaVerifyRequest(requestParameters.oktaVerificationRequestBeta, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -50839,8 +50839,8 @@ export class MFAControllerBetaApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof MFAControllerBetaApi
      */
-    public sendTokenAuthRequest(requestParameters: MFAControllerBetaApiSendTokenAuthRequestRequest, options?: AxiosRequestConfig) {
-        return MFAControllerBetaApiFp(this.configuration).sendTokenAuthRequest(requestParameters.tokenAuthRequestBeta, options).then((request) => request(this.axios, this.basePath));
+    public sendTokenAuthRequest(requestParameters: MFAControllerBetaApiSendTokenAuthRequestRequest, axiosOptions?: AxiosRequestConfig) {
+        return MFAControllerBetaApiFp(this.configuration).sendTokenAuthRequest(requestParameters.tokenAuthRequestBeta, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 }
 
@@ -51077,8 +51077,8 @@ export class ManagedClientsBetaApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof ManagedClientsBetaApi
      */
-    public getManagedClientStatus(requestParameters: ManagedClientsBetaApiGetManagedClientStatusRequest, options?: AxiosRequestConfig) {
-        return ManagedClientsBetaApiFp(this.configuration).getManagedClientStatus(requestParameters.id, requestParameters.type, options).then((request) => request(this.axios, this.basePath));
+    public getManagedClientStatus(requestParameters: ManagedClientsBetaApiGetManagedClientStatusRequest, axiosOptions?: AxiosRequestConfig) {
+        return ManagedClientsBetaApiFp(this.configuration).getManagedClientStatus(requestParameters.id, requestParameters.type, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -51089,8 +51089,8 @@ export class ManagedClientsBetaApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof ManagedClientsBetaApi
      */
-    public updateManagedClientStatus(requestParameters: ManagedClientsBetaApiUpdateManagedClientStatusRequest, options?: AxiosRequestConfig) {
-        return ManagedClientsBetaApiFp(this.configuration).updateManagedClientStatus(requestParameters.id, requestParameters.managedClientStatusBeta, options).then((request) => request(this.axios, this.basePath));
+    public updateManagedClientStatus(requestParameters: ManagedClientsBetaApiUpdateManagedClientStatusRequest, axiosOptions?: AxiosRequestConfig) {
+        return ManagedClientsBetaApiFp(this.configuration).updateManagedClientStatus(requestParameters.id, requestParameters.managedClientStatusBeta, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 }
 
@@ -51510,8 +51510,8 @@ export class ManagedClustersBetaApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof ManagedClustersBetaApi
      */
-    public getClientLogConfiguration(requestParameters: ManagedClustersBetaApiGetClientLogConfigurationRequest, options?: AxiosRequestConfig) {
-        return ManagedClustersBetaApiFp(this.configuration).getClientLogConfiguration(requestParameters.id, options).then((request) => request(this.axios, this.basePath));
+    public getClientLogConfiguration(requestParameters: ManagedClustersBetaApiGetClientLogConfigurationRequest, axiosOptions?: AxiosRequestConfig) {
+        return ManagedClustersBetaApiFp(this.configuration).getClientLogConfiguration(requestParameters.id, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -51522,8 +51522,8 @@ export class ManagedClustersBetaApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof ManagedClustersBetaApi
      */
-    public getManagedCluster(requestParameters: ManagedClustersBetaApiGetManagedClusterRequest, options?: AxiosRequestConfig) {
-        return ManagedClustersBetaApiFp(this.configuration).getManagedCluster(requestParameters.id, options).then((request) => request(this.axios, this.basePath));
+    public getManagedCluster(requestParameters: ManagedClustersBetaApiGetManagedClusterRequest, axiosOptions?: AxiosRequestConfig) {
+        return ManagedClustersBetaApiFp(this.configuration).getManagedCluster(requestParameters.id, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -51534,8 +51534,8 @@ export class ManagedClustersBetaApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof ManagedClustersBetaApi
      */
-    public getManagedClusters(requestParameters: ManagedClustersBetaApiGetManagedClustersRequest = {}, options?: AxiosRequestConfig) {
-        return ManagedClustersBetaApiFp(this.configuration).getManagedClusters(requestParameters.offset, requestParameters.limit, requestParameters.count, requestParameters.filters, options).then((request) => request(this.axios, this.basePath));
+    public getManagedClusters(requestParameters: ManagedClustersBetaApiGetManagedClustersRequest = {}, axiosOptions?: AxiosRequestConfig) {
+        return ManagedClustersBetaApiFp(this.configuration).getManagedClusters(requestParameters.offset, requestParameters.limit, requestParameters.count, requestParameters.filters, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -51546,8 +51546,8 @@ export class ManagedClustersBetaApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof ManagedClustersBetaApi
      */
-    public putClientLogConfiguration(requestParameters: ManagedClustersBetaApiPutClientLogConfigurationRequest, options?: AxiosRequestConfig) {
-        return ManagedClustersBetaApiFp(this.configuration).putClientLogConfiguration(requestParameters.id, requestParameters.clientLogConfigurationBeta, options).then((request) => request(this.axios, this.basePath));
+    public putClientLogConfiguration(requestParameters: ManagedClustersBetaApiPutClientLogConfigurationRequest, axiosOptions?: AxiosRequestConfig) {
+        return ManagedClustersBetaApiFp(this.configuration).putClientLogConfiguration(requestParameters.id, requestParameters.clientLogConfigurationBeta, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 }
 
@@ -54556,8 +54556,8 @@ export class NonEmployeeLifecycleManagementBetaApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof NonEmployeeLifecycleManagementBetaApi
      */
-    public approveNonEmployeeRequest(requestParameters: NonEmployeeLifecycleManagementBetaApiApproveNonEmployeeRequestRequest, options?: AxiosRequestConfig) {
-        return NonEmployeeLifecycleManagementBetaApiFp(this.configuration).approveNonEmployeeRequest(requestParameters.id, requestParameters.nonEmployeeApprovalDecisionBeta, options).then((request) => request(this.axios, this.basePath));
+    public approveNonEmployeeRequest(requestParameters: NonEmployeeLifecycleManagementBetaApiApproveNonEmployeeRequestRequest, axiosOptions?: AxiosRequestConfig) {
+        return NonEmployeeLifecycleManagementBetaApiFp(this.configuration).approveNonEmployeeRequest(requestParameters.id, requestParameters.nonEmployeeApprovalDecisionBeta, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -54568,8 +54568,8 @@ export class NonEmployeeLifecycleManagementBetaApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof NonEmployeeLifecycleManagementBetaApi
      */
-    public createNonEmployeeRecord(requestParameters: NonEmployeeLifecycleManagementBetaApiCreateNonEmployeeRecordRequest, options?: AxiosRequestConfig) {
-        return NonEmployeeLifecycleManagementBetaApiFp(this.configuration).createNonEmployeeRecord(requestParameters.nonEmployeeRequestBodyBeta, options).then((request) => request(this.axios, this.basePath));
+    public createNonEmployeeRecord(requestParameters: NonEmployeeLifecycleManagementBetaApiCreateNonEmployeeRecordRequest, axiosOptions?: AxiosRequestConfig) {
+        return NonEmployeeLifecycleManagementBetaApiFp(this.configuration).createNonEmployeeRecord(requestParameters.nonEmployeeRequestBodyBeta, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -54580,8 +54580,8 @@ export class NonEmployeeLifecycleManagementBetaApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof NonEmployeeLifecycleManagementBetaApi
      */
-    public createNonEmployeeRequest(requestParameters: NonEmployeeLifecycleManagementBetaApiCreateNonEmployeeRequestRequest, options?: AxiosRequestConfig) {
-        return NonEmployeeLifecycleManagementBetaApiFp(this.configuration).createNonEmployeeRequest(requestParameters.nonEmployeeRequestBodyBeta, options).then((request) => request(this.axios, this.basePath));
+    public createNonEmployeeRequest(requestParameters: NonEmployeeLifecycleManagementBetaApiCreateNonEmployeeRequestRequest, axiosOptions?: AxiosRequestConfig) {
+        return NonEmployeeLifecycleManagementBetaApiFp(this.configuration).createNonEmployeeRequest(requestParameters.nonEmployeeRequestBodyBeta, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -54592,8 +54592,8 @@ export class NonEmployeeLifecycleManagementBetaApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof NonEmployeeLifecycleManagementBetaApi
      */
-    public createNonEmployeeSource(requestParameters: NonEmployeeLifecycleManagementBetaApiCreateNonEmployeeSourceRequest, options?: AxiosRequestConfig) {
-        return NonEmployeeLifecycleManagementBetaApiFp(this.configuration).createNonEmployeeSource(requestParameters.nonEmployeeSourceRequestBodyBeta, options).then((request) => request(this.axios, this.basePath));
+    public createNonEmployeeSource(requestParameters: NonEmployeeLifecycleManagementBetaApiCreateNonEmployeeSourceRequest, axiosOptions?: AxiosRequestConfig) {
+        return NonEmployeeLifecycleManagementBetaApiFp(this.configuration).createNonEmployeeSource(requestParameters.nonEmployeeSourceRequestBodyBeta, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -54604,8 +54604,8 @@ export class NonEmployeeLifecycleManagementBetaApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof NonEmployeeLifecycleManagementBetaApi
      */
-    public createNonEmployeeSourceSchemaAttributes(requestParameters: NonEmployeeLifecycleManagementBetaApiCreateNonEmployeeSourceSchemaAttributesRequest, options?: AxiosRequestConfig) {
-        return NonEmployeeLifecycleManagementBetaApiFp(this.configuration).createNonEmployeeSourceSchemaAttributes(requestParameters.sourceId, requestParameters.nonEmployeeSchemaAttributeBodyBeta, options).then((request) => request(this.axios, this.basePath));
+    public createNonEmployeeSourceSchemaAttributes(requestParameters: NonEmployeeLifecycleManagementBetaApiCreateNonEmployeeSourceSchemaAttributesRequest, axiosOptions?: AxiosRequestConfig) {
+        return NonEmployeeLifecycleManagementBetaApiFp(this.configuration).createNonEmployeeSourceSchemaAttributes(requestParameters.sourceId, requestParameters.nonEmployeeSchemaAttributeBodyBeta, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -54616,8 +54616,8 @@ export class NonEmployeeLifecycleManagementBetaApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof NonEmployeeLifecycleManagementBetaApi
      */
-    public deleteNonEmployeeRecord(requestParameters: NonEmployeeLifecycleManagementBetaApiDeleteNonEmployeeRecordRequest, options?: AxiosRequestConfig) {
-        return NonEmployeeLifecycleManagementBetaApiFp(this.configuration).deleteNonEmployeeRecord(requestParameters.id, options).then((request) => request(this.axios, this.basePath));
+    public deleteNonEmployeeRecord(requestParameters: NonEmployeeLifecycleManagementBetaApiDeleteNonEmployeeRecordRequest, axiosOptions?: AxiosRequestConfig) {
+        return NonEmployeeLifecycleManagementBetaApiFp(this.configuration).deleteNonEmployeeRecord(requestParameters.id, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -54628,8 +54628,8 @@ export class NonEmployeeLifecycleManagementBetaApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof NonEmployeeLifecycleManagementBetaApi
      */
-    public deleteNonEmployeeRecordInBulk(requestParameters: NonEmployeeLifecycleManagementBetaApiDeleteNonEmployeeRecordInBulkRequest, options?: AxiosRequestConfig) {
-        return NonEmployeeLifecycleManagementBetaApiFp(this.configuration).deleteNonEmployeeRecordInBulk(requestParameters.deleteNonEmployeeRecordInBulkRequestBeta, options).then((request) => request(this.axios, this.basePath));
+    public deleteNonEmployeeRecordInBulk(requestParameters: NonEmployeeLifecycleManagementBetaApiDeleteNonEmployeeRecordInBulkRequest, axiosOptions?: AxiosRequestConfig) {
+        return NonEmployeeLifecycleManagementBetaApiFp(this.configuration).deleteNonEmployeeRecordInBulk(requestParameters.deleteNonEmployeeRecordInBulkRequestBeta, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -54640,8 +54640,8 @@ export class NonEmployeeLifecycleManagementBetaApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof NonEmployeeLifecycleManagementBetaApi
      */
-    public deleteNonEmployeeRequest(requestParameters: NonEmployeeLifecycleManagementBetaApiDeleteNonEmployeeRequestRequest, options?: AxiosRequestConfig) {
-        return NonEmployeeLifecycleManagementBetaApiFp(this.configuration).deleteNonEmployeeRequest(requestParameters.id, options).then((request) => request(this.axios, this.basePath));
+    public deleteNonEmployeeRequest(requestParameters: NonEmployeeLifecycleManagementBetaApiDeleteNonEmployeeRequestRequest, axiosOptions?: AxiosRequestConfig) {
+        return NonEmployeeLifecycleManagementBetaApiFp(this.configuration).deleteNonEmployeeRequest(requestParameters.id, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -54652,8 +54652,8 @@ export class NonEmployeeLifecycleManagementBetaApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof NonEmployeeLifecycleManagementBetaApi
      */
-    public deleteNonEmployeeSchemaAttribute(requestParameters: NonEmployeeLifecycleManagementBetaApiDeleteNonEmployeeSchemaAttributeRequest, options?: AxiosRequestConfig) {
-        return NonEmployeeLifecycleManagementBetaApiFp(this.configuration).deleteNonEmployeeSchemaAttribute(requestParameters.attributeId, requestParameters.sourceId, options).then((request) => request(this.axios, this.basePath));
+    public deleteNonEmployeeSchemaAttribute(requestParameters: NonEmployeeLifecycleManagementBetaApiDeleteNonEmployeeSchemaAttributeRequest, axiosOptions?: AxiosRequestConfig) {
+        return NonEmployeeLifecycleManagementBetaApiFp(this.configuration).deleteNonEmployeeSchemaAttribute(requestParameters.attributeId, requestParameters.sourceId, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -54664,8 +54664,8 @@ export class NonEmployeeLifecycleManagementBetaApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof NonEmployeeLifecycleManagementBetaApi
      */
-    public deleteNonEmployeeSource(requestParameters: NonEmployeeLifecycleManagementBetaApiDeleteNonEmployeeSourceRequest, options?: AxiosRequestConfig) {
-        return NonEmployeeLifecycleManagementBetaApiFp(this.configuration).deleteNonEmployeeSource(requestParameters.sourceId, options).then((request) => request(this.axios, this.basePath));
+    public deleteNonEmployeeSource(requestParameters: NonEmployeeLifecycleManagementBetaApiDeleteNonEmployeeSourceRequest, axiosOptions?: AxiosRequestConfig) {
+        return NonEmployeeLifecycleManagementBetaApiFp(this.configuration).deleteNonEmployeeSource(requestParameters.sourceId, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -54676,8 +54676,8 @@ export class NonEmployeeLifecycleManagementBetaApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof NonEmployeeLifecycleManagementBetaApi
      */
-    public deleteNonEmployeeSourceSchemaAttributes(requestParameters: NonEmployeeLifecycleManagementBetaApiDeleteNonEmployeeSourceSchemaAttributesRequest, options?: AxiosRequestConfig) {
-        return NonEmployeeLifecycleManagementBetaApiFp(this.configuration).deleteNonEmployeeSourceSchemaAttributes(requestParameters.sourceId, options).then((request) => request(this.axios, this.basePath));
+    public deleteNonEmployeeSourceSchemaAttributes(requestParameters: NonEmployeeLifecycleManagementBetaApiDeleteNonEmployeeSourceSchemaAttributesRequest, axiosOptions?: AxiosRequestConfig) {
+        return NonEmployeeLifecycleManagementBetaApiFp(this.configuration).deleteNonEmployeeSourceSchemaAttributes(requestParameters.sourceId, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -54688,8 +54688,8 @@ export class NonEmployeeLifecycleManagementBetaApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof NonEmployeeLifecycleManagementBetaApi
      */
-    public exportNonEmployeeRecords(requestParameters: NonEmployeeLifecycleManagementBetaApiExportNonEmployeeRecordsRequest, options?: AxiosRequestConfig) {
-        return NonEmployeeLifecycleManagementBetaApiFp(this.configuration).exportNonEmployeeRecords(requestParameters.id, options).then((request) => request(this.axios, this.basePath));
+    public exportNonEmployeeRecords(requestParameters: NonEmployeeLifecycleManagementBetaApiExportNonEmployeeRecordsRequest, axiosOptions?: AxiosRequestConfig) {
+        return NonEmployeeLifecycleManagementBetaApiFp(this.configuration).exportNonEmployeeRecords(requestParameters.id, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -54700,8 +54700,8 @@ export class NonEmployeeLifecycleManagementBetaApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof NonEmployeeLifecycleManagementBetaApi
      */
-    public exportNonEmployeeSourceSchemaTemplate(requestParameters: NonEmployeeLifecycleManagementBetaApiExportNonEmployeeSourceSchemaTemplateRequest, options?: AxiosRequestConfig) {
-        return NonEmployeeLifecycleManagementBetaApiFp(this.configuration).exportNonEmployeeSourceSchemaTemplate(requestParameters.id, options).then((request) => request(this.axios, this.basePath));
+    public exportNonEmployeeSourceSchemaTemplate(requestParameters: NonEmployeeLifecycleManagementBetaApiExportNonEmployeeSourceSchemaTemplateRequest, axiosOptions?: AxiosRequestConfig) {
+        return NonEmployeeLifecycleManagementBetaApiFp(this.configuration).exportNonEmployeeSourceSchemaTemplate(requestParameters.id, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -54712,8 +54712,8 @@ export class NonEmployeeLifecycleManagementBetaApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof NonEmployeeLifecycleManagementBetaApi
      */
-    public getNonEmployeeApproval(requestParameters: NonEmployeeLifecycleManagementBetaApiGetNonEmployeeApprovalRequest, options?: AxiosRequestConfig) {
-        return NonEmployeeLifecycleManagementBetaApiFp(this.configuration).getNonEmployeeApproval(requestParameters.id, requestParameters.includeDetail, options).then((request) => request(this.axios, this.basePath));
+    public getNonEmployeeApproval(requestParameters: NonEmployeeLifecycleManagementBetaApiGetNonEmployeeApprovalRequest, axiosOptions?: AxiosRequestConfig) {
+        return NonEmployeeLifecycleManagementBetaApiFp(this.configuration).getNonEmployeeApproval(requestParameters.id, requestParameters.includeDetail, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -54724,8 +54724,8 @@ export class NonEmployeeLifecycleManagementBetaApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof NonEmployeeLifecycleManagementBetaApi
      */
-    public getNonEmployeeApprovalSummary(requestParameters: NonEmployeeLifecycleManagementBetaApiGetNonEmployeeApprovalSummaryRequest, options?: AxiosRequestConfig) {
-        return NonEmployeeLifecycleManagementBetaApiFp(this.configuration).getNonEmployeeApprovalSummary(requestParameters.requestedFor, options).then((request) => request(this.axios, this.basePath));
+    public getNonEmployeeApprovalSummary(requestParameters: NonEmployeeLifecycleManagementBetaApiGetNonEmployeeApprovalSummaryRequest, axiosOptions?: AxiosRequestConfig) {
+        return NonEmployeeLifecycleManagementBetaApiFp(this.configuration).getNonEmployeeApprovalSummary(requestParameters.requestedFor, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -54736,8 +54736,8 @@ export class NonEmployeeLifecycleManagementBetaApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof NonEmployeeLifecycleManagementBetaApi
      */
-    public getNonEmployeeBulkUploadStatus(requestParameters: NonEmployeeLifecycleManagementBetaApiGetNonEmployeeBulkUploadStatusRequest, options?: AxiosRequestConfig) {
-        return NonEmployeeLifecycleManagementBetaApiFp(this.configuration).getNonEmployeeBulkUploadStatus(requestParameters.id, options).then((request) => request(this.axios, this.basePath));
+    public getNonEmployeeBulkUploadStatus(requestParameters: NonEmployeeLifecycleManagementBetaApiGetNonEmployeeBulkUploadStatusRequest, axiosOptions?: AxiosRequestConfig) {
+        return NonEmployeeLifecycleManagementBetaApiFp(this.configuration).getNonEmployeeBulkUploadStatus(requestParameters.id, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -54748,8 +54748,8 @@ export class NonEmployeeLifecycleManagementBetaApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof NonEmployeeLifecycleManagementBetaApi
      */
-    public getNonEmployeeRecord(requestParameters: NonEmployeeLifecycleManagementBetaApiGetNonEmployeeRecordRequest, options?: AxiosRequestConfig) {
-        return NonEmployeeLifecycleManagementBetaApiFp(this.configuration).getNonEmployeeRecord(requestParameters.id, options).then((request) => request(this.axios, this.basePath));
+    public getNonEmployeeRecord(requestParameters: NonEmployeeLifecycleManagementBetaApiGetNonEmployeeRecordRequest, axiosOptions?: AxiosRequestConfig) {
+        return NonEmployeeLifecycleManagementBetaApiFp(this.configuration).getNonEmployeeRecord(requestParameters.id, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -54760,8 +54760,8 @@ export class NonEmployeeLifecycleManagementBetaApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof NonEmployeeLifecycleManagementBetaApi
      */
-    public getNonEmployeeRequest(requestParameters: NonEmployeeLifecycleManagementBetaApiGetNonEmployeeRequestRequest, options?: AxiosRequestConfig) {
-        return NonEmployeeLifecycleManagementBetaApiFp(this.configuration).getNonEmployeeRequest(requestParameters.id, options).then((request) => request(this.axios, this.basePath));
+    public getNonEmployeeRequest(requestParameters: NonEmployeeLifecycleManagementBetaApiGetNonEmployeeRequestRequest, axiosOptions?: AxiosRequestConfig) {
+        return NonEmployeeLifecycleManagementBetaApiFp(this.configuration).getNonEmployeeRequest(requestParameters.id, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -54772,8 +54772,8 @@ export class NonEmployeeLifecycleManagementBetaApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof NonEmployeeLifecycleManagementBetaApi
      */
-    public getNonEmployeeRequestSummary(requestParameters: NonEmployeeLifecycleManagementBetaApiGetNonEmployeeRequestSummaryRequest, options?: AxiosRequestConfig) {
-        return NonEmployeeLifecycleManagementBetaApiFp(this.configuration).getNonEmployeeRequestSummary(requestParameters.requestedFor, options).then((request) => request(this.axios, this.basePath));
+    public getNonEmployeeRequestSummary(requestParameters: NonEmployeeLifecycleManagementBetaApiGetNonEmployeeRequestSummaryRequest, axiosOptions?: AxiosRequestConfig) {
+        return NonEmployeeLifecycleManagementBetaApiFp(this.configuration).getNonEmployeeRequestSummary(requestParameters.requestedFor, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -54784,8 +54784,8 @@ export class NonEmployeeLifecycleManagementBetaApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof NonEmployeeLifecycleManagementBetaApi
      */
-    public getNonEmployeeSchemaAttribute(requestParameters: NonEmployeeLifecycleManagementBetaApiGetNonEmployeeSchemaAttributeRequest, options?: AxiosRequestConfig) {
-        return NonEmployeeLifecycleManagementBetaApiFp(this.configuration).getNonEmployeeSchemaAttribute(requestParameters.attributeId, requestParameters.sourceId, options).then((request) => request(this.axios, this.basePath));
+    public getNonEmployeeSchemaAttribute(requestParameters: NonEmployeeLifecycleManagementBetaApiGetNonEmployeeSchemaAttributeRequest, axiosOptions?: AxiosRequestConfig) {
+        return NonEmployeeLifecycleManagementBetaApiFp(this.configuration).getNonEmployeeSchemaAttribute(requestParameters.attributeId, requestParameters.sourceId, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -54796,8 +54796,8 @@ export class NonEmployeeLifecycleManagementBetaApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof NonEmployeeLifecycleManagementBetaApi
      */
-    public getNonEmployeeSource(requestParameters: NonEmployeeLifecycleManagementBetaApiGetNonEmployeeSourceRequest, options?: AxiosRequestConfig) {
-        return NonEmployeeLifecycleManagementBetaApiFp(this.configuration).getNonEmployeeSource(requestParameters.sourceId, options).then((request) => request(this.axios, this.basePath));
+    public getNonEmployeeSource(requestParameters: NonEmployeeLifecycleManagementBetaApiGetNonEmployeeSourceRequest, axiosOptions?: AxiosRequestConfig) {
+        return NonEmployeeLifecycleManagementBetaApiFp(this.configuration).getNonEmployeeSource(requestParameters.sourceId, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -54808,8 +54808,8 @@ export class NonEmployeeLifecycleManagementBetaApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof NonEmployeeLifecycleManagementBetaApi
      */
-    public getNonEmployeeSourceSchemaAttributes(requestParameters: NonEmployeeLifecycleManagementBetaApiGetNonEmployeeSourceSchemaAttributesRequest, options?: AxiosRequestConfig) {
-        return NonEmployeeLifecycleManagementBetaApiFp(this.configuration).getNonEmployeeSourceSchemaAttributes(requestParameters.sourceId, options).then((request) => request(this.axios, this.basePath));
+    public getNonEmployeeSourceSchemaAttributes(requestParameters: NonEmployeeLifecycleManagementBetaApiGetNonEmployeeSourceSchemaAttributesRequest, axiosOptions?: AxiosRequestConfig) {
+        return NonEmployeeLifecycleManagementBetaApiFp(this.configuration).getNonEmployeeSourceSchemaAttributes(requestParameters.sourceId, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -54820,8 +54820,8 @@ export class NonEmployeeLifecycleManagementBetaApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof NonEmployeeLifecycleManagementBetaApi
      */
-    public importNonEmployeeRecordsInBulk(requestParameters: NonEmployeeLifecycleManagementBetaApiImportNonEmployeeRecordsInBulkRequest, options?: AxiosRequestConfig) {
-        return NonEmployeeLifecycleManagementBetaApiFp(this.configuration).importNonEmployeeRecordsInBulk(requestParameters.id, requestParameters.data, options).then((request) => request(this.axios, this.basePath));
+    public importNonEmployeeRecordsInBulk(requestParameters: NonEmployeeLifecycleManagementBetaApiImportNonEmployeeRecordsInBulkRequest, axiosOptions?: AxiosRequestConfig) {
+        return NonEmployeeLifecycleManagementBetaApiFp(this.configuration).importNonEmployeeRecordsInBulk(requestParameters.id, requestParameters.data, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -54832,8 +54832,8 @@ export class NonEmployeeLifecycleManagementBetaApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof NonEmployeeLifecycleManagementBetaApi
      */
-    public listNonEmployeeApproval(requestParameters: NonEmployeeLifecycleManagementBetaApiListNonEmployeeApprovalRequest = {}, options?: AxiosRequestConfig) {
-        return NonEmployeeLifecycleManagementBetaApiFp(this.configuration).listNonEmployeeApproval(requestParameters.requestedFor, requestParameters.limit, requestParameters.offset, requestParameters.count, requestParameters.filters, requestParameters.sorters, options).then((request) => request(this.axios, this.basePath));
+    public listNonEmployeeApproval(requestParameters: NonEmployeeLifecycleManagementBetaApiListNonEmployeeApprovalRequest = {}, axiosOptions?: AxiosRequestConfig) {
+        return NonEmployeeLifecycleManagementBetaApiFp(this.configuration).listNonEmployeeApproval(requestParameters.requestedFor, requestParameters.limit, requestParameters.offset, requestParameters.count, requestParameters.filters, requestParameters.sorters, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -54844,8 +54844,8 @@ export class NonEmployeeLifecycleManagementBetaApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof NonEmployeeLifecycleManagementBetaApi
      */
-    public listNonEmployeeRecords(requestParameters: NonEmployeeLifecycleManagementBetaApiListNonEmployeeRecordsRequest = {}, options?: AxiosRequestConfig) {
-        return NonEmployeeLifecycleManagementBetaApiFp(this.configuration).listNonEmployeeRecords(requestParameters.limit, requestParameters.offset, requestParameters.count, requestParameters.sorters, requestParameters.filters, options).then((request) => request(this.axios, this.basePath));
+    public listNonEmployeeRecords(requestParameters: NonEmployeeLifecycleManagementBetaApiListNonEmployeeRecordsRequest = {}, axiosOptions?: AxiosRequestConfig) {
+        return NonEmployeeLifecycleManagementBetaApiFp(this.configuration).listNonEmployeeRecords(requestParameters.limit, requestParameters.offset, requestParameters.count, requestParameters.sorters, requestParameters.filters, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -54856,8 +54856,8 @@ export class NonEmployeeLifecycleManagementBetaApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof NonEmployeeLifecycleManagementBetaApi
      */
-    public listNonEmployeeRequests(requestParameters: NonEmployeeLifecycleManagementBetaApiListNonEmployeeRequestsRequest, options?: AxiosRequestConfig) {
-        return NonEmployeeLifecycleManagementBetaApiFp(this.configuration).listNonEmployeeRequests(requestParameters.requestedFor, requestParameters.limit, requestParameters.offset, requestParameters.count, requestParameters.sorters, requestParameters.filters, options).then((request) => request(this.axios, this.basePath));
+    public listNonEmployeeRequests(requestParameters: NonEmployeeLifecycleManagementBetaApiListNonEmployeeRequestsRequest, axiosOptions?: AxiosRequestConfig) {
+        return NonEmployeeLifecycleManagementBetaApiFp(this.configuration).listNonEmployeeRequests(requestParameters.requestedFor, requestParameters.limit, requestParameters.offset, requestParameters.count, requestParameters.sorters, requestParameters.filters, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -54868,8 +54868,8 @@ export class NonEmployeeLifecycleManagementBetaApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof NonEmployeeLifecycleManagementBetaApi
      */
-    public listNonEmployeeSources(requestParameters: NonEmployeeLifecycleManagementBetaApiListNonEmployeeSourcesRequest, options?: AxiosRequestConfig) {
-        return NonEmployeeLifecycleManagementBetaApiFp(this.configuration).listNonEmployeeSources(requestParameters.requestedFor, requestParameters.nonEmployeeCount, requestParameters.limit, requestParameters.offset, requestParameters.count, requestParameters.sorters, options).then((request) => request(this.axios, this.basePath));
+    public listNonEmployeeSources(requestParameters: NonEmployeeLifecycleManagementBetaApiListNonEmployeeSourcesRequest, axiosOptions?: AxiosRequestConfig) {
+        return NonEmployeeLifecycleManagementBetaApiFp(this.configuration).listNonEmployeeSources(requestParameters.requestedFor, requestParameters.nonEmployeeCount, requestParameters.limit, requestParameters.offset, requestParameters.count, requestParameters.sorters, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -54880,8 +54880,8 @@ export class NonEmployeeLifecycleManagementBetaApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof NonEmployeeLifecycleManagementBetaApi
      */
-    public patchNonEmployeeRecord(requestParameters: NonEmployeeLifecycleManagementBetaApiPatchNonEmployeeRecordRequest, options?: AxiosRequestConfig) {
-        return NonEmployeeLifecycleManagementBetaApiFp(this.configuration).patchNonEmployeeRecord(requestParameters.id, requestParameters.jsonPatchOperationBeta, options).then((request) => request(this.axios, this.basePath));
+    public patchNonEmployeeRecord(requestParameters: NonEmployeeLifecycleManagementBetaApiPatchNonEmployeeRecordRequest, axiosOptions?: AxiosRequestConfig) {
+        return NonEmployeeLifecycleManagementBetaApiFp(this.configuration).patchNonEmployeeRecord(requestParameters.id, requestParameters.jsonPatchOperationBeta, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -54892,8 +54892,8 @@ export class NonEmployeeLifecycleManagementBetaApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof NonEmployeeLifecycleManagementBetaApi
      */
-    public patchNonEmployeeSchemaAttribute(requestParameters: NonEmployeeLifecycleManagementBetaApiPatchNonEmployeeSchemaAttributeRequest, options?: AxiosRequestConfig) {
-        return NonEmployeeLifecycleManagementBetaApiFp(this.configuration).patchNonEmployeeSchemaAttribute(requestParameters.attributeId, requestParameters.sourceId, requestParameters.jsonPatchOperationBeta, options).then((request) => request(this.axios, this.basePath));
+    public patchNonEmployeeSchemaAttribute(requestParameters: NonEmployeeLifecycleManagementBetaApiPatchNonEmployeeSchemaAttributeRequest, axiosOptions?: AxiosRequestConfig) {
+        return NonEmployeeLifecycleManagementBetaApiFp(this.configuration).patchNonEmployeeSchemaAttribute(requestParameters.attributeId, requestParameters.sourceId, requestParameters.jsonPatchOperationBeta, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -54904,8 +54904,8 @@ export class NonEmployeeLifecycleManagementBetaApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof NonEmployeeLifecycleManagementBetaApi
      */
-    public patchNonEmployeeSource(requestParameters: NonEmployeeLifecycleManagementBetaApiPatchNonEmployeeSourceRequest, options?: AxiosRequestConfig) {
-        return NonEmployeeLifecycleManagementBetaApiFp(this.configuration).patchNonEmployeeSource(requestParameters.sourceId, requestParameters.jsonPatchOperationBeta, options).then((request) => request(this.axios, this.basePath));
+    public patchNonEmployeeSource(requestParameters: NonEmployeeLifecycleManagementBetaApiPatchNonEmployeeSourceRequest, axiosOptions?: AxiosRequestConfig) {
+        return NonEmployeeLifecycleManagementBetaApiFp(this.configuration).patchNonEmployeeSource(requestParameters.sourceId, requestParameters.jsonPatchOperationBeta, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -54916,8 +54916,8 @@ export class NonEmployeeLifecycleManagementBetaApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof NonEmployeeLifecycleManagementBetaApi
      */
-    public rejectNonEmployeeRequest(requestParameters: NonEmployeeLifecycleManagementBetaApiRejectNonEmployeeRequestRequest, options?: AxiosRequestConfig) {
-        return NonEmployeeLifecycleManagementBetaApiFp(this.configuration).rejectNonEmployeeRequest(requestParameters.id, requestParameters.nonEmployeeRejectApprovalDecisionBeta, options).then((request) => request(this.axios, this.basePath));
+    public rejectNonEmployeeRequest(requestParameters: NonEmployeeLifecycleManagementBetaApiRejectNonEmployeeRequestRequest, axiosOptions?: AxiosRequestConfig) {
+        return NonEmployeeLifecycleManagementBetaApiFp(this.configuration).rejectNonEmployeeRequest(requestParameters.id, requestParameters.nonEmployeeRejectApprovalDecisionBeta, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -54928,8 +54928,8 @@ export class NonEmployeeLifecycleManagementBetaApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof NonEmployeeLifecycleManagementBetaApi
      */
-    public updateNonEmployeeRecord(requestParameters: NonEmployeeLifecycleManagementBetaApiUpdateNonEmployeeRecordRequest, options?: AxiosRequestConfig) {
-        return NonEmployeeLifecycleManagementBetaApiFp(this.configuration).updateNonEmployeeRecord(requestParameters.id, requestParameters.nonEmployeeRequestBodyBeta, options).then((request) => request(this.axios, this.basePath));
+    public updateNonEmployeeRecord(requestParameters: NonEmployeeLifecycleManagementBetaApiUpdateNonEmployeeRecordRequest, axiosOptions?: AxiosRequestConfig) {
+        return NonEmployeeLifecycleManagementBetaApiFp(this.configuration).updateNonEmployeeRecord(requestParameters.id, requestParameters.nonEmployeeRequestBodyBeta, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 }
 
@@ -56339,8 +56339,8 @@ export class NotificationsBetaApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof NotificationsBetaApi
      */
-    public createDomainDkim(requestParameters: NotificationsBetaApiCreateDomainDkimRequest, options?: AxiosRequestConfig) {
-        return NotificationsBetaApiFp(this.configuration).createDomainDkim(requestParameters.domainAddressBeta, options).then((request) => request(this.axios, this.basePath));
+    public createDomainDkim(requestParameters: NotificationsBetaApiCreateDomainDkimRequest, axiosOptions?: AxiosRequestConfig) {
+        return NotificationsBetaApiFp(this.configuration).createDomainDkim(requestParameters.domainAddressBeta, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -56351,8 +56351,8 @@ export class NotificationsBetaApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof NotificationsBetaApi
      */
-    public createNotificationTemplate(requestParameters: NotificationsBetaApiCreateNotificationTemplateRequest, options?: AxiosRequestConfig) {
-        return NotificationsBetaApiFp(this.configuration).createNotificationTemplate(requestParameters.templateDtoBeta, options).then((request) => request(this.axios, this.basePath));
+    public createNotificationTemplate(requestParameters: NotificationsBetaApiCreateNotificationTemplateRequest, axiosOptions?: AxiosRequestConfig) {
+        return NotificationsBetaApiFp(this.configuration).createNotificationTemplate(requestParameters.templateDtoBeta, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -56363,8 +56363,8 @@ export class NotificationsBetaApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof NotificationsBetaApi
      */
-    public createVerifiedFromAddress(requestParameters: NotificationsBetaApiCreateVerifiedFromAddressRequest, options?: AxiosRequestConfig) {
-        return NotificationsBetaApiFp(this.configuration).createVerifiedFromAddress(requestParameters.emailStatusDtoBeta, options).then((request) => request(this.axios, this.basePath));
+    public createVerifiedFromAddress(requestParameters: NotificationsBetaApiCreateVerifiedFromAddressRequest, axiosOptions?: AxiosRequestConfig) {
+        return NotificationsBetaApiFp(this.configuration).createVerifiedFromAddress(requestParameters.emailStatusDtoBeta, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -56375,8 +56375,8 @@ export class NotificationsBetaApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof NotificationsBetaApi
      */
-    public deleteNotificationTemplatesInBulk(requestParameters: NotificationsBetaApiDeleteNotificationTemplatesInBulkRequest, options?: AxiosRequestConfig) {
-        return NotificationsBetaApiFp(this.configuration).deleteNotificationTemplatesInBulk(requestParameters.templateBulkDeleteDtoBeta, options).then((request) => request(this.axios, this.basePath));
+    public deleteNotificationTemplatesInBulk(requestParameters: NotificationsBetaApiDeleteNotificationTemplatesInBulkRequest, axiosOptions?: AxiosRequestConfig) {
+        return NotificationsBetaApiFp(this.configuration).deleteNotificationTemplatesInBulk(requestParameters.templateBulkDeleteDtoBeta, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -56387,8 +56387,8 @@ export class NotificationsBetaApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof NotificationsBetaApi
      */
-    public deleteVerifiedFromAddress(requestParameters: NotificationsBetaApiDeleteVerifiedFromAddressRequest, options?: AxiosRequestConfig) {
-        return NotificationsBetaApiFp(this.configuration).deleteVerifiedFromAddress(requestParameters.id, options).then((request) => request(this.axios, this.basePath));
+    public deleteVerifiedFromAddress(requestParameters: NotificationsBetaApiDeleteVerifiedFromAddressRequest, axiosOptions?: AxiosRequestConfig) {
+        return NotificationsBetaApiFp(this.configuration).deleteVerifiedFromAddress(requestParameters.id, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -56398,8 +56398,8 @@ export class NotificationsBetaApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof NotificationsBetaApi
      */
-    public getDkimAttributes(options?: AxiosRequestConfig) {
-        return NotificationsBetaApiFp(this.configuration).getDkimAttributes(options).then((request) => request(this.axios, this.basePath));
+    public getDkimAttributes(axiosOptions?: AxiosRequestConfig) {
+        return NotificationsBetaApiFp(this.configuration).getDkimAttributes(axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -56410,8 +56410,8 @@ export class NotificationsBetaApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof NotificationsBetaApi
      */
-    public getMailFromAttributes(requestParameters: NotificationsBetaApiGetMailFromAttributesRequest, options?: AxiosRequestConfig) {
-        return NotificationsBetaApiFp(this.configuration).getMailFromAttributes(requestParameters.id, options).then((request) => request(this.axios, this.basePath));
+    public getMailFromAttributes(requestParameters: NotificationsBetaApiGetMailFromAttributesRequest, axiosOptions?: AxiosRequestConfig) {
+        return NotificationsBetaApiFp(this.configuration).getMailFromAttributes(requestParameters.id, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -56422,8 +56422,8 @@ export class NotificationsBetaApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof NotificationsBetaApi
      */
-    public getNotificationPreference(requestParameters: NotificationsBetaApiGetNotificationPreferenceRequest, options?: AxiosRequestConfig) {
-        return NotificationsBetaApiFp(this.configuration).getNotificationPreference(requestParameters.key, options).then((request) => request(this.axios, this.basePath));
+    public getNotificationPreference(requestParameters: NotificationsBetaApiGetNotificationPreferenceRequest, axiosOptions?: AxiosRequestConfig) {
+        return NotificationsBetaApiFp(this.configuration).getNotificationPreference(requestParameters.key, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -56434,8 +56434,8 @@ export class NotificationsBetaApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof NotificationsBetaApi
      */
-    public getNotificationTemplate(requestParameters: NotificationsBetaApiGetNotificationTemplateRequest, options?: AxiosRequestConfig) {
-        return NotificationsBetaApiFp(this.configuration).getNotificationTemplate(requestParameters.id, options).then((request) => request(this.axios, this.basePath));
+    public getNotificationTemplate(requestParameters: NotificationsBetaApiGetNotificationTemplateRequest, axiosOptions?: AxiosRequestConfig) {
+        return NotificationsBetaApiFp(this.configuration).getNotificationTemplate(requestParameters.id, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -56445,8 +56445,8 @@ export class NotificationsBetaApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof NotificationsBetaApi
      */
-    public getNotificationsTemplateContext(options?: AxiosRequestConfig) {
-        return NotificationsBetaApiFp(this.configuration).getNotificationsTemplateContext(options).then((request) => request(this.axios, this.basePath));
+    public getNotificationsTemplateContext(axiosOptions?: AxiosRequestConfig) {
+        return NotificationsBetaApiFp(this.configuration).getNotificationsTemplateContext(axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -56457,8 +56457,8 @@ export class NotificationsBetaApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof NotificationsBetaApi
      */
-    public listFromAddresses(requestParameters: NotificationsBetaApiListFromAddressesRequest = {}, options?: AxiosRequestConfig) {
-        return NotificationsBetaApiFp(this.configuration).listFromAddresses(requestParameters.limit, requestParameters.offset, requestParameters.count, requestParameters.filters, requestParameters.sorters, options).then((request) => request(this.axios, this.basePath));
+    public listFromAddresses(requestParameters: NotificationsBetaApiListFromAddressesRequest = {}, axiosOptions?: AxiosRequestConfig) {
+        return NotificationsBetaApiFp(this.configuration).listFromAddresses(requestParameters.limit, requestParameters.offset, requestParameters.count, requestParameters.filters, requestParameters.sorters, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -56469,8 +56469,8 @@ export class NotificationsBetaApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof NotificationsBetaApi
      */
-    public listNotificationTemplateDefaults(requestParameters: NotificationsBetaApiListNotificationTemplateDefaultsRequest = {}, options?: AxiosRequestConfig) {
-        return NotificationsBetaApiFp(this.configuration).listNotificationTemplateDefaults(requestParameters.limit, requestParameters.offset, requestParameters.filters, options).then((request) => request(this.axios, this.basePath));
+    public listNotificationTemplateDefaults(requestParameters: NotificationsBetaApiListNotificationTemplateDefaultsRequest = {}, axiosOptions?: AxiosRequestConfig) {
+        return NotificationsBetaApiFp(this.configuration).listNotificationTemplateDefaults(requestParameters.limit, requestParameters.offset, requestParameters.filters, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -56481,8 +56481,8 @@ export class NotificationsBetaApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof NotificationsBetaApi
      */
-    public listNotificationTemplates(requestParameters: NotificationsBetaApiListNotificationTemplatesRequest = {}, options?: AxiosRequestConfig) {
-        return NotificationsBetaApiFp(this.configuration).listNotificationTemplates(requestParameters.limit, requestParameters.offset, requestParameters.filters, options).then((request) => request(this.axios, this.basePath));
+    public listNotificationTemplates(requestParameters: NotificationsBetaApiListNotificationTemplatesRequest = {}, axiosOptions?: AxiosRequestConfig) {
+        return NotificationsBetaApiFp(this.configuration).listNotificationTemplates(requestParameters.limit, requestParameters.offset, requestParameters.filters, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -56493,8 +56493,8 @@ export class NotificationsBetaApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof NotificationsBetaApi
      */
-    public putMailFromAttributes(requestParameters: NotificationsBetaApiPutMailFromAttributesRequest, options?: AxiosRequestConfig) {
-        return NotificationsBetaApiFp(this.configuration).putMailFromAttributes(requestParameters.mailFromAttributesDtoBeta, options).then((request) => request(this.axios, this.basePath));
+    public putMailFromAttributes(requestParameters: NotificationsBetaApiPutMailFromAttributesRequest, axiosOptions?: AxiosRequestConfig) {
+        return NotificationsBetaApiFp(this.configuration).putMailFromAttributes(requestParameters.mailFromAttributesDtoBeta, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -56505,8 +56505,8 @@ export class NotificationsBetaApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof NotificationsBetaApi
      */
-    public putNotificationPreference(requestParameters: NotificationsBetaApiPutNotificationPreferenceRequest, options?: AxiosRequestConfig) {
-        return NotificationsBetaApiFp(this.configuration).putNotificationPreference(requestParameters.key, requestParameters.preferencesDtoBeta, options).then((request) => request(this.axios, this.basePath));
+    public putNotificationPreference(requestParameters: NotificationsBetaApiPutNotificationPreferenceRequest, axiosOptions?: AxiosRequestConfig) {
+        return NotificationsBetaApiFp(this.configuration).putNotificationPreference(requestParameters.key, requestParameters.preferencesDtoBeta, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -56517,8 +56517,8 @@ export class NotificationsBetaApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof NotificationsBetaApi
      */
-    public sendTestNotification(requestParameters: NotificationsBetaApiSendTestNotificationRequest, options?: AxiosRequestConfig) {
-        return NotificationsBetaApiFp(this.configuration).sendTestNotification(requestParameters.sendTestNotificationRequestDtoBeta, options).then((request) => request(this.axios, this.basePath));
+    public sendTestNotification(requestParameters: NotificationsBetaApiSendTestNotificationRequest, axiosOptions?: AxiosRequestConfig) {
+        return NotificationsBetaApiFp(this.configuration).sendTestNotification(requestParameters.sendTestNotificationRequestDtoBeta, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 }
 
@@ -56980,8 +56980,8 @@ export class OAuthClientsBetaApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof OAuthClientsBetaApi
      */
-    public createOauthClient(requestParameters: OAuthClientsBetaApiCreateOauthClientRequest, options?: AxiosRequestConfig) {
-        return OAuthClientsBetaApiFp(this.configuration).createOauthClient(requestParameters.createOAuthClientRequestBeta, options).then((request) => request(this.axios, this.basePath));
+    public createOauthClient(requestParameters: OAuthClientsBetaApiCreateOauthClientRequest, axiosOptions?: AxiosRequestConfig) {
+        return OAuthClientsBetaApiFp(this.configuration).createOauthClient(requestParameters.createOAuthClientRequestBeta, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -56992,8 +56992,8 @@ export class OAuthClientsBetaApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof OAuthClientsBetaApi
      */
-    public deleteOauthClient(requestParameters: OAuthClientsBetaApiDeleteOauthClientRequest, options?: AxiosRequestConfig) {
-        return OAuthClientsBetaApiFp(this.configuration).deleteOauthClient(requestParameters.id, options).then((request) => request(this.axios, this.basePath));
+    public deleteOauthClient(requestParameters: OAuthClientsBetaApiDeleteOauthClientRequest, axiosOptions?: AxiosRequestConfig) {
+        return OAuthClientsBetaApiFp(this.configuration).deleteOauthClient(requestParameters.id, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -57004,8 +57004,8 @@ export class OAuthClientsBetaApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof OAuthClientsBetaApi
      */
-    public getOauthClient(requestParameters: OAuthClientsBetaApiGetOauthClientRequest, options?: AxiosRequestConfig) {
-        return OAuthClientsBetaApiFp(this.configuration).getOauthClient(requestParameters.id, options).then((request) => request(this.axios, this.basePath));
+    public getOauthClient(requestParameters: OAuthClientsBetaApiGetOauthClientRequest, axiosOptions?: AxiosRequestConfig) {
+        return OAuthClientsBetaApiFp(this.configuration).getOauthClient(requestParameters.id, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -57016,8 +57016,8 @@ export class OAuthClientsBetaApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof OAuthClientsBetaApi
      */
-    public listOauthClients(requestParameters: OAuthClientsBetaApiListOauthClientsRequest = {}, options?: AxiosRequestConfig) {
-        return OAuthClientsBetaApiFp(this.configuration).listOauthClients(requestParameters.filters, options).then((request) => request(this.axios, this.basePath));
+    public listOauthClients(requestParameters: OAuthClientsBetaApiListOauthClientsRequest = {}, axiosOptions?: AxiosRequestConfig) {
+        return OAuthClientsBetaApiFp(this.configuration).listOauthClients(requestParameters.filters, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -57028,8 +57028,8 @@ export class OAuthClientsBetaApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof OAuthClientsBetaApi
      */
-    public patchOauthClient(requestParameters: OAuthClientsBetaApiPatchOauthClientRequest, options?: AxiosRequestConfig) {
-        return OAuthClientsBetaApiFp(this.configuration).patchOauthClient(requestParameters.id, requestParameters.jsonPatchOperationBeta, options).then((request) => request(this.axios, this.basePath));
+    public patchOauthClient(requestParameters: OAuthClientsBetaApiPatchOauthClientRequest, axiosOptions?: AxiosRequestConfig) {
+        return OAuthClientsBetaApiFp(this.configuration).patchOauthClient(requestParameters.id, requestParameters.jsonPatchOperationBeta, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 }
 
@@ -57277,8 +57277,8 @@ export class OrgConfigBetaApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof OrgConfigBetaApi
      */
-    public getOrgConfig(options?: AxiosRequestConfig) {
-        return OrgConfigBetaApiFp(this.configuration).getOrgConfig(options).then((request) => request(this.axios, this.basePath));
+    public getOrgConfig(axiosOptions?: AxiosRequestConfig) {
+        return OrgConfigBetaApiFp(this.configuration).getOrgConfig(axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -57288,8 +57288,8 @@ export class OrgConfigBetaApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof OrgConfigBetaApi
      */
-    public getValidTimeZones(options?: AxiosRequestConfig) {
-        return OrgConfigBetaApiFp(this.configuration).getValidTimeZones(options).then((request) => request(this.axios, this.basePath));
+    public getValidTimeZones(axiosOptions?: AxiosRequestConfig) {
+        return OrgConfigBetaApiFp(this.configuration).getValidTimeZones(axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -57300,8 +57300,8 @@ export class OrgConfigBetaApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof OrgConfigBetaApi
      */
-    public patchOrgConfig(requestParameters: OrgConfigBetaApiPatchOrgConfigRequest, options?: AxiosRequestConfig) {
-        return OrgConfigBetaApiFp(this.configuration).patchOrgConfig(requestParameters.jsonPatchOperationBeta, options).then((request) => request(this.axios, this.basePath));
+    public patchOrgConfig(requestParameters: OrgConfigBetaApiPatchOrgConfigRequest, axiosOptions?: AxiosRequestConfig) {
+        return OrgConfigBetaApiFp(this.configuration).patchOrgConfig(requestParameters.jsonPatchOperationBeta, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 }
 
@@ -57572,8 +57572,8 @@ export class PasswordConfigurationBetaApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof PasswordConfigurationBetaApi
      */
-    public createPasswordOrgConfig(requestParameters: PasswordConfigurationBetaApiCreatePasswordOrgConfigRequest, options?: AxiosRequestConfig) {
-        return PasswordConfigurationBetaApiFp(this.configuration).createPasswordOrgConfig(requestParameters.passwordOrgConfigBeta, options).then((request) => request(this.axios, this.basePath));
+    public createPasswordOrgConfig(requestParameters: PasswordConfigurationBetaApiCreatePasswordOrgConfigRequest, axiosOptions?: AxiosRequestConfig) {
+        return PasswordConfigurationBetaApiFp(this.configuration).createPasswordOrgConfig(requestParameters.passwordOrgConfigBeta, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -57583,8 +57583,8 @@ export class PasswordConfigurationBetaApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof PasswordConfigurationBetaApi
      */
-    public getPasswordOrgConfig(options?: AxiosRequestConfig) {
-        return PasswordConfigurationBetaApiFp(this.configuration).getPasswordOrgConfig(options).then((request) => request(this.axios, this.basePath));
+    public getPasswordOrgConfig(axiosOptions?: AxiosRequestConfig) {
+        return PasswordConfigurationBetaApiFp(this.configuration).getPasswordOrgConfig(axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -57595,8 +57595,8 @@ export class PasswordConfigurationBetaApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof PasswordConfigurationBetaApi
      */
-    public putPasswordOrgConfig(requestParameters: PasswordConfigurationBetaApiPutPasswordOrgConfigRequest, options?: AxiosRequestConfig) {
-        return PasswordConfigurationBetaApiFp(this.configuration).putPasswordOrgConfig(requestParameters.passwordOrgConfigBeta, options).then((request) => request(this.axios, this.basePath));
+    public putPasswordOrgConfig(requestParameters: PasswordConfigurationBetaApiPutPasswordOrgConfigRequest, axiosOptions?: AxiosRequestConfig) {
+        return PasswordConfigurationBetaApiFp(this.configuration).putPasswordOrgConfig(requestParameters.passwordOrgConfigBeta, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 }
 
@@ -57788,8 +57788,8 @@ export class PasswordDictionaryBetaApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof PasswordDictionaryBetaApi
      */
-    public getPasswordDictionary(options?: AxiosRequestConfig) {
-        return PasswordDictionaryBetaApiFp(this.configuration).getPasswordDictionary(options).then((request) => request(this.axios, this.basePath));
+    public getPasswordDictionary(axiosOptions?: AxiosRequestConfig) {
+        return PasswordDictionaryBetaApiFp(this.configuration).getPasswordDictionary(axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -57800,8 +57800,8 @@ export class PasswordDictionaryBetaApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof PasswordDictionaryBetaApi
      */
-    public updatePasswordDictionary(requestParameters: PasswordDictionaryBetaApiUpdatePasswordDictionaryRequest = {}, options?: AxiosRequestConfig) {
-        return PasswordDictionaryBetaApiFp(this.configuration).updatePasswordDictionary(requestParameters.file, options).then((request) => request(this.axios, this.basePath));
+    public updatePasswordDictionary(requestParameters: PasswordDictionaryBetaApiUpdatePasswordDictionaryRequest = {}, axiosOptions?: AxiosRequestConfig) {
+        return PasswordDictionaryBetaApiFp(this.configuration).updatePasswordDictionary(requestParameters.file, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 }
 
@@ -58173,8 +58173,8 @@ export class PasswordManagementBetaApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof PasswordManagementBetaApi
      */
-    public generateDigitToken(requestParameters: PasswordManagementBetaApiGenerateDigitTokenRequest, options?: AxiosRequestConfig) {
-        return PasswordManagementBetaApiFp(this.configuration).generateDigitToken(requestParameters.passwordDigitTokenResetBeta, options).then((request) => request(this.axios, this.basePath));
+    public generateDigitToken(requestParameters: PasswordManagementBetaApiGenerateDigitTokenRequest, axiosOptions?: AxiosRequestConfig) {
+        return PasswordManagementBetaApiFp(this.configuration).generateDigitToken(requestParameters.passwordDigitTokenResetBeta, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -58185,8 +58185,8 @@ export class PasswordManagementBetaApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof PasswordManagementBetaApi
      */
-    public getIdentityPasswordChangeStatus(requestParameters: PasswordManagementBetaApiGetIdentityPasswordChangeStatusRequest, options?: AxiosRequestConfig) {
-        return PasswordManagementBetaApiFp(this.configuration).getIdentityPasswordChangeStatus(requestParameters.id, options).then((request) => request(this.axios, this.basePath));
+    public getIdentityPasswordChangeStatus(requestParameters: PasswordManagementBetaApiGetIdentityPasswordChangeStatusRequest, axiosOptions?: AxiosRequestConfig) {
+        return PasswordManagementBetaApiFp(this.configuration).getIdentityPasswordChangeStatus(requestParameters.id, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -58197,8 +58197,8 @@ export class PasswordManagementBetaApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof PasswordManagementBetaApi
      */
-    public queryPasswordInfo(requestParameters: PasswordManagementBetaApiQueryPasswordInfoRequest, options?: AxiosRequestConfig) {
-        return PasswordManagementBetaApiFp(this.configuration).queryPasswordInfo(requestParameters.passwordInfoQueryDTOBeta, options).then((request) => request(this.axios, this.basePath));
+    public queryPasswordInfo(requestParameters: PasswordManagementBetaApiQueryPasswordInfoRequest, axiosOptions?: AxiosRequestConfig) {
+        return PasswordManagementBetaApiFp(this.configuration).queryPasswordInfo(requestParameters.passwordInfoQueryDTOBeta, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -58209,8 +58209,8 @@ export class PasswordManagementBetaApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof PasswordManagementBetaApi
      */
-    public setIdentityPassword(requestParameters: PasswordManagementBetaApiSetIdentityPasswordRequest, options?: AxiosRequestConfig) {
-        return PasswordManagementBetaApiFp(this.configuration).setIdentityPassword(requestParameters.passwordChangeRequestBeta, options).then((request) => request(this.axios, this.basePath));
+    public setIdentityPassword(requestParameters: PasswordManagementBetaApiSetIdentityPasswordRequest, axiosOptions?: AxiosRequestConfig) {
+        return PasswordManagementBetaApiFp(this.configuration).setIdentityPassword(requestParameters.passwordChangeRequestBeta, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 }
 
@@ -58698,8 +58698,8 @@ export class PasswordSyncGroupsBetaApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof PasswordSyncGroupsBetaApi
      */
-    public createPasswordSyncGroup(requestParameters: PasswordSyncGroupsBetaApiCreatePasswordSyncGroupRequest, options?: AxiosRequestConfig) {
-        return PasswordSyncGroupsBetaApiFp(this.configuration).createPasswordSyncGroup(requestParameters.passwordSyncGroupBeta, options).then((request) => request(this.axios, this.basePath));
+    public createPasswordSyncGroup(requestParameters: PasswordSyncGroupsBetaApiCreatePasswordSyncGroupRequest, axiosOptions?: AxiosRequestConfig) {
+        return PasswordSyncGroupsBetaApiFp(this.configuration).createPasswordSyncGroup(requestParameters.passwordSyncGroupBeta, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -58710,8 +58710,8 @@ export class PasswordSyncGroupsBetaApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof PasswordSyncGroupsBetaApi
      */
-    public deletePasswordSyncGroup(requestParameters: PasswordSyncGroupsBetaApiDeletePasswordSyncGroupRequest, options?: AxiosRequestConfig) {
-        return PasswordSyncGroupsBetaApiFp(this.configuration).deletePasswordSyncGroup(requestParameters.id, options).then((request) => request(this.axios, this.basePath));
+    public deletePasswordSyncGroup(requestParameters: PasswordSyncGroupsBetaApiDeletePasswordSyncGroupRequest, axiosOptions?: AxiosRequestConfig) {
+        return PasswordSyncGroupsBetaApiFp(this.configuration).deletePasswordSyncGroup(requestParameters.id, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -58722,8 +58722,8 @@ export class PasswordSyncGroupsBetaApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof PasswordSyncGroupsBetaApi
      */
-    public getPasswordSyncGroup(requestParameters: PasswordSyncGroupsBetaApiGetPasswordSyncGroupRequest, options?: AxiosRequestConfig) {
-        return PasswordSyncGroupsBetaApiFp(this.configuration).getPasswordSyncGroup(requestParameters.id, options).then((request) => request(this.axios, this.basePath));
+    public getPasswordSyncGroup(requestParameters: PasswordSyncGroupsBetaApiGetPasswordSyncGroupRequest, axiosOptions?: AxiosRequestConfig) {
+        return PasswordSyncGroupsBetaApiFp(this.configuration).getPasswordSyncGroup(requestParameters.id, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -58734,8 +58734,8 @@ export class PasswordSyncGroupsBetaApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof PasswordSyncGroupsBetaApi
      */
-    public getPasswordSyncGroups(requestParameters: PasswordSyncGroupsBetaApiGetPasswordSyncGroupsRequest = {}, options?: AxiosRequestConfig) {
-        return PasswordSyncGroupsBetaApiFp(this.configuration).getPasswordSyncGroups(requestParameters.limit, requestParameters.offset, requestParameters.count, options).then((request) => request(this.axios, this.basePath));
+    public getPasswordSyncGroups(requestParameters: PasswordSyncGroupsBetaApiGetPasswordSyncGroupsRequest = {}, axiosOptions?: AxiosRequestConfig) {
+        return PasswordSyncGroupsBetaApiFp(this.configuration).getPasswordSyncGroups(requestParameters.limit, requestParameters.offset, requestParameters.count, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -58746,8 +58746,8 @@ export class PasswordSyncGroupsBetaApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof PasswordSyncGroupsBetaApi
      */
-    public updatePasswordSyncGroup(requestParameters: PasswordSyncGroupsBetaApiUpdatePasswordSyncGroupRequest, options?: AxiosRequestConfig) {
-        return PasswordSyncGroupsBetaApiFp(this.configuration).updatePasswordSyncGroup(requestParameters.id, requestParameters.passwordSyncGroupBeta, options).then((request) => request(this.axios, this.basePath));
+    public updatePasswordSyncGroup(requestParameters: PasswordSyncGroupsBetaApiUpdatePasswordSyncGroupRequest, axiosOptions?: AxiosRequestConfig) {
+        return PasswordSyncGroupsBetaApiFp(this.configuration).updatePasswordSyncGroup(requestParameters.id, requestParameters.passwordSyncGroupBeta, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 }
 
@@ -59143,8 +59143,8 @@ export class PersonalAccessTokensBetaApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof PersonalAccessTokensBetaApi
      */
-    public createPersonalAccessToken(requestParameters: PersonalAccessTokensBetaApiCreatePersonalAccessTokenRequest, options?: AxiosRequestConfig) {
-        return PersonalAccessTokensBetaApiFp(this.configuration).createPersonalAccessToken(requestParameters.createPersonalAccessTokenRequestBeta, options).then((request) => request(this.axios, this.basePath));
+    public createPersonalAccessToken(requestParameters: PersonalAccessTokensBetaApiCreatePersonalAccessTokenRequest, axiosOptions?: AxiosRequestConfig) {
+        return PersonalAccessTokensBetaApiFp(this.configuration).createPersonalAccessToken(requestParameters.createPersonalAccessTokenRequestBeta, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -59155,8 +59155,8 @@ export class PersonalAccessTokensBetaApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof PersonalAccessTokensBetaApi
      */
-    public deletePersonalAccessToken(requestParameters: PersonalAccessTokensBetaApiDeletePersonalAccessTokenRequest, options?: AxiosRequestConfig) {
-        return PersonalAccessTokensBetaApiFp(this.configuration).deletePersonalAccessToken(requestParameters.id, options).then((request) => request(this.axios, this.basePath));
+    public deletePersonalAccessToken(requestParameters: PersonalAccessTokensBetaApiDeletePersonalAccessTokenRequest, axiosOptions?: AxiosRequestConfig) {
+        return PersonalAccessTokensBetaApiFp(this.configuration).deletePersonalAccessToken(requestParameters.id, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -59167,8 +59167,8 @@ export class PersonalAccessTokensBetaApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof PersonalAccessTokensBetaApi
      */
-    public listPersonalAccessTokens(requestParameters: PersonalAccessTokensBetaApiListPersonalAccessTokensRequest = {}, options?: AxiosRequestConfig) {
-        return PersonalAccessTokensBetaApiFp(this.configuration).listPersonalAccessTokens(requestParameters.ownerId, requestParameters.filters, options).then((request) => request(this.axios, this.basePath));
+    public listPersonalAccessTokens(requestParameters: PersonalAccessTokensBetaApiListPersonalAccessTokensRequest = {}, axiosOptions?: AxiosRequestConfig) {
+        return PersonalAccessTokensBetaApiFp(this.configuration).listPersonalAccessTokens(requestParameters.ownerId, requestParameters.filters, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -59179,8 +59179,8 @@ export class PersonalAccessTokensBetaApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof PersonalAccessTokensBetaApi
      */
-    public patchPersonalAccessToken(requestParameters: PersonalAccessTokensBetaApiPatchPersonalAccessTokenRequest, options?: AxiosRequestConfig) {
-        return PersonalAccessTokensBetaApiFp(this.configuration).patchPersonalAccessToken(requestParameters.id, requestParameters.jsonPatchOperationBeta, options).then((request) => request(this.axios, this.basePath));
+    public patchPersonalAccessToken(requestParameters: PersonalAccessTokensBetaApiPatchPersonalAccessTokenRequest, axiosOptions?: AxiosRequestConfig) {
+        return PersonalAccessTokensBetaApiFp(this.configuration).patchPersonalAccessToken(requestParameters.id, requestParameters.jsonPatchOperationBeta, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 }
 
@@ -59369,8 +59369,8 @@ export class PublicIdentitiesConfigBetaApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof PublicIdentitiesConfigBetaApi
      */
-    public getPublicIdentityConfig(options?: AxiosRequestConfig) {
-        return PublicIdentitiesConfigBetaApiFp(this.configuration).getPublicIdentityConfig(options).then((request) => request(this.axios, this.basePath));
+    public getPublicIdentityConfig(axiosOptions?: AxiosRequestConfig) {
+        return PublicIdentitiesConfigBetaApiFp(this.configuration).getPublicIdentityConfig(axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -59381,8 +59381,8 @@ export class PublicIdentitiesConfigBetaApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof PublicIdentitiesConfigBetaApi
      */
-    public updatePublicIdentityConfig(requestParameters: PublicIdentitiesConfigBetaApiUpdatePublicIdentityConfigRequest, options?: AxiosRequestConfig) {
-        return PublicIdentitiesConfigBetaApiFp(this.configuration).updatePublicIdentityConfig(requestParameters.publicIdentityConfigBeta, options).then((request) => request(this.axios, this.basePath));
+    public updatePublicIdentityConfig(requestParameters: PublicIdentitiesConfigBetaApiUpdatePublicIdentityConfigRequest, axiosOptions?: AxiosRequestConfig) {
+        return PublicIdentitiesConfigBetaApiFp(this.configuration).updatePublicIdentityConfig(requestParameters.publicIdentityConfigBeta, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 }
 
@@ -59616,8 +59616,8 @@ export class RequestableObjectsBetaApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof RequestableObjectsBetaApi
      */
-    public listRequestableObjects(requestParameters: RequestableObjectsBetaApiListRequestableObjectsRequest = {}, options?: AxiosRequestConfig) {
-        return RequestableObjectsBetaApiFp(this.configuration).listRequestableObjects(requestParameters.identityId, requestParameters.types, requestParameters.term, requestParameters.statuses, requestParameters.limit, requestParameters.offset, requestParameters.count, requestParameters.filters, requestParameters.sorters, options).then((request) => request(this.axios, this.basePath));
+    public listRequestableObjects(requestParameters: RequestableObjectsBetaApiListRequestableObjectsRequest = {}, axiosOptions?: AxiosRequestConfig) {
+        return RequestableObjectsBetaApiFp(this.configuration).listRequestableObjects(requestParameters.identityId, requestParameters.types, requestParameters.term, requestParameters.statuses, requestParameters.limit, requestParameters.offset, requestParameters.count, requestParameters.filters, requestParameters.sorters, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 }
 
@@ -60552,8 +60552,8 @@ export class RoleInsightsBetaApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof RoleInsightsBetaApi
      */
-    public createRoleInsightRequests(options?: AxiosRequestConfig) {
-        return RoleInsightsBetaApiFp(this.configuration).createRoleInsightRequests(options).then((request) => request(this.axios, this.basePath));
+    public createRoleInsightRequests(axiosOptions?: AxiosRequestConfig) {
+        return RoleInsightsBetaApiFp(this.configuration).createRoleInsightRequests(axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -60564,8 +60564,8 @@ export class RoleInsightsBetaApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof RoleInsightsBetaApi
      */
-    public downloadRoleInsightsEntitlementsChanges(requestParameters: RoleInsightsBetaApiDownloadRoleInsightsEntitlementsChangesRequest, options?: AxiosRequestConfig) {
-        return RoleInsightsBetaApiFp(this.configuration).downloadRoleInsightsEntitlementsChanges(requestParameters.insightId, requestParameters.sorters, requestParameters.filters, options).then((request) => request(this.axios, this.basePath));
+    public downloadRoleInsightsEntitlementsChanges(requestParameters: RoleInsightsBetaApiDownloadRoleInsightsEntitlementsChangesRequest, axiosOptions?: AxiosRequestConfig) {
+        return RoleInsightsBetaApiFp(this.configuration).downloadRoleInsightsEntitlementsChanges(requestParameters.insightId, requestParameters.sorters, requestParameters.filters, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -60576,8 +60576,8 @@ export class RoleInsightsBetaApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof RoleInsightsBetaApi
      */
-    public getEntitlementChangesIdentities(requestParameters: RoleInsightsBetaApiGetEntitlementChangesIdentitiesRequest, options?: AxiosRequestConfig) {
-        return RoleInsightsBetaApiFp(this.configuration).getEntitlementChangesIdentities(requestParameters.insightId, requestParameters.entitlementId, requestParameters.hasEntitlement, requestParameters.offset, requestParameters.limit, requestParameters.count, requestParameters.sorters, requestParameters.filters, options).then((request) => request(this.axios, this.basePath));
+    public getEntitlementChangesIdentities(requestParameters: RoleInsightsBetaApiGetEntitlementChangesIdentitiesRequest, axiosOptions?: AxiosRequestConfig) {
+        return RoleInsightsBetaApiFp(this.configuration).getEntitlementChangesIdentities(requestParameters.insightId, requestParameters.entitlementId, requestParameters.hasEntitlement, requestParameters.offset, requestParameters.limit, requestParameters.count, requestParameters.sorters, requestParameters.filters, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -60588,8 +60588,8 @@ export class RoleInsightsBetaApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof RoleInsightsBetaApi
      */
-    public getRoleInsight(requestParameters: RoleInsightsBetaApiGetRoleInsightRequest, options?: AxiosRequestConfig) {
-        return RoleInsightsBetaApiFp(this.configuration).getRoleInsight(requestParameters.insightId, options).then((request) => request(this.axios, this.basePath));
+    public getRoleInsight(requestParameters: RoleInsightsBetaApiGetRoleInsightRequest, axiosOptions?: AxiosRequestConfig) {
+        return RoleInsightsBetaApiFp(this.configuration).getRoleInsight(requestParameters.insightId, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -60600,8 +60600,8 @@ export class RoleInsightsBetaApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof RoleInsightsBetaApi
      */
-    public getRoleInsights(requestParameters: RoleInsightsBetaApiGetRoleInsightsRequest = {}, options?: AxiosRequestConfig) {
-        return RoleInsightsBetaApiFp(this.configuration).getRoleInsights(requestParameters.offset, requestParameters.limit, requestParameters.count, requestParameters.sorters, requestParameters.filters, options).then((request) => request(this.axios, this.basePath));
+    public getRoleInsights(requestParameters: RoleInsightsBetaApiGetRoleInsightsRequest = {}, axiosOptions?: AxiosRequestConfig) {
+        return RoleInsightsBetaApiFp(this.configuration).getRoleInsights(requestParameters.offset, requestParameters.limit, requestParameters.count, requestParameters.sorters, requestParameters.filters, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -60612,8 +60612,8 @@ export class RoleInsightsBetaApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof RoleInsightsBetaApi
      */
-    public getRoleInsightsCurrentEntitlements(requestParameters: RoleInsightsBetaApiGetRoleInsightsCurrentEntitlementsRequest, options?: AxiosRequestConfig) {
-        return RoleInsightsBetaApiFp(this.configuration).getRoleInsightsCurrentEntitlements(requestParameters.insightId, requestParameters.filters, options).then((request) => request(this.axios, this.basePath));
+    public getRoleInsightsCurrentEntitlements(requestParameters: RoleInsightsBetaApiGetRoleInsightsCurrentEntitlementsRequest, axiosOptions?: AxiosRequestConfig) {
+        return RoleInsightsBetaApiFp(this.configuration).getRoleInsightsCurrentEntitlements(requestParameters.insightId, requestParameters.filters, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -60624,8 +60624,8 @@ export class RoleInsightsBetaApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof RoleInsightsBetaApi
      */
-    public getRoleInsightsEntitlementsChanges(requestParameters: RoleInsightsBetaApiGetRoleInsightsEntitlementsChangesRequest, options?: AxiosRequestConfig) {
-        return RoleInsightsBetaApiFp(this.configuration).getRoleInsightsEntitlementsChanges(requestParameters.insightId, requestParameters.sorters, requestParameters.filters, options).then((request) => request(this.axios, this.basePath));
+    public getRoleInsightsEntitlementsChanges(requestParameters: RoleInsightsBetaApiGetRoleInsightsEntitlementsChangesRequest, axiosOptions?: AxiosRequestConfig) {
+        return RoleInsightsBetaApiFp(this.configuration).getRoleInsightsEntitlementsChanges(requestParameters.insightId, requestParameters.sorters, requestParameters.filters, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -60637,8 +60637,8 @@ export class RoleInsightsBetaApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof RoleInsightsBetaApi
      */
-    public getRoleInsightsRequests(requestParameters: RoleInsightsBetaApiGetRoleInsightsRequestsRequest, options?: AxiosRequestConfig) {
-        return RoleInsightsBetaApiFp(this.configuration).getRoleInsightsRequests(requestParameters.id, options).then((request) => request(this.axios, this.basePath));
+    public getRoleInsightsRequests(requestParameters: RoleInsightsBetaApiGetRoleInsightsRequestsRequest, axiosOptions?: AxiosRequestConfig) {
+        return RoleInsightsBetaApiFp(this.configuration).getRoleInsightsRequests(requestParameters.id, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -60648,8 +60648,8 @@ export class RoleInsightsBetaApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof RoleInsightsBetaApi
      */
-    public getRoleInsightsSummary(options?: AxiosRequestConfig) {
-        return RoleInsightsBetaApiFp(this.configuration).getRoleInsightsSummary(options).then((request) => request(this.axios, this.basePath));
+    public getRoleInsightsSummary(axiosOptions?: AxiosRequestConfig) {
+        return RoleInsightsBetaApiFp(this.configuration).getRoleInsightsSummary(axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 }
 
@@ -61427,8 +61427,8 @@ export class RolesBetaApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof RolesBetaApi
      */
-    public bulkDeleteRoles(requestParameters: RolesBetaApiBulkDeleteRolesRequest, options?: AxiosRequestConfig) {
-        return RolesBetaApiFp(this.configuration).bulkDeleteRoles(requestParameters.roleBulkDeleteRequestBeta, options).then((request) => request(this.axios, this.basePath));
+    public bulkDeleteRoles(requestParameters: RolesBetaApiBulkDeleteRolesRequest, axiosOptions?: AxiosRequestConfig) {
+        return RolesBetaApiFp(this.configuration).bulkDeleteRoles(requestParameters.roleBulkDeleteRequestBeta, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -61439,8 +61439,8 @@ export class RolesBetaApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof RolesBetaApi
      */
-    public createRole(requestParameters: RolesBetaApiCreateRoleRequest, options?: AxiosRequestConfig) {
-        return RolesBetaApiFp(this.configuration).createRole(requestParameters.roleBeta, options).then((request) => request(this.axios, this.basePath));
+    public createRole(requestParameters: RolesBetaApiCreateRoleRequest, axiosOptions?: AxiosRequestConfig) {
+        return RolesBetaApiFp(this.configuration).createRole(requestParameters.roleBeta, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -61451,8 +61451,8 @@ export class RolesBetaApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof RolesBetaApi
      */
-    public deleteRole(requestParameters: RolesBetaApiDeleteRoleRequest, options?: AxiosRequestConfig) {
-        return RolesBetaApiFp(this.configuration).deleteRole(requestParameters.id, options).then((request) => request(this.axios, this.basePath));
+    public deleteRole(requestParameters: RolesBetaApiDeleteRoleRequest, axiosOptions?: AxiosRequestConfig) {
+        return RolesBetaApiFp(this.configuration).deleteRole(requestParameters.id, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -61463,8 +61463,8 @@ export class RolesBetaApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof RolesBetaApi
      */
-    public getRole(requestParameters: RolesBetaApiGetRoleRequest, options?: AxiosRequestConfig) {
-        return RolesBetaApiFp(this.configuration).getRole(requestParameters.id, options).then((request) => request(this.axios, this.basePath));
+    public getRole(requestParameters: RolesBetaApiGetRoleRequest, axiosOptions?: AxiosRequestConfig) {
+        return RolesBetaApiFp(this.configuration).getRole(requestParameters.id, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -61475,8 +61475,8 @@ export class RolesBetaApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof RolesBetaApi
      */
-    public getRoleAssignedIdentities(requestParameters: RolesBetaApiGetRoleAssignedIdentitiesRequest, options?: AxiosRequestConfig) {
-        return RolesBetaApiFp(this.configuration).getRoleAssignedIdentities(requestParameters.id, requestParameters.limit, requestParameters.offset, requestParameters.count, requestParameters.filters, requestParameters.sorters, options).then((request) => request(this.axios, this.basePath));
+    public getRoleAssignedIdentities(requestParameters: RolesBetaApiGetRoleAssignedIdentitiesRequest, axiosOptions?: AxiosRequestConfig) {
+        return RolesBetaApiFp(this.configuration).getRoleAssignedIdentities(requestParameters.id, requestParameters.limit, requestParameters.offset, requestParameters.count, requestParameters.filters, requestParameters.sorters, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -61487,8 +61487,8 @@ export class RolesBetaApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof RolesBetaApi
      */
-    public listRoles(requestParameters: RolesBetaApiListRolesRequest = {}, options?: AxiosRequestConfig) {
-        return RolesBetaApiFp(this.configuration).listRoles(requestParameters.forSubadmin, requestParameters.limit, requestParameters.offset, requestParameters.count, requestParameters.filters, requestParameters.sorters, requestParameters.forSegmentIds, requestParameters.includeUnsegmented, options).then((request) => request(this.axios, this.basePath));
+    public listRoles(requestParameters: RolesBetaApiListRolesRequest = {}, axiosOptions?: AxiosRequestConfig) {
+        return RolesBetaApiFp(this.configuration).listRoles(requestParameters.forSubadmin, requestParameters.limit, requestParameters.offset, requestParameters.count, requestParameters.filters, requestParameters.sorters, requestParameters.forSegmentIds, requestParameters.includeUnsegmented, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -61499,8 +61499,8 @@ export class RolesBetaApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof RolesBetaApi
      */
-    public patchRole(requestParameters: RolesBetaApiPatchRoleRequest, options?: AxiosRequestConfig) {
-        return RolesBetaApiFp(this.configuration).patchRole(requestParameters.id, requestParameters.jsonPatchOperationBeta, options).then((request) => request(this.axios, this.basePath));
+    public patchRole(requestParameters: RolesBetaApiPatchRoleRequest, axiosOptions?: AxiosRequestConfig) {
+        return RolesBetaApiFp(this.configuration).patchRole(requestParameters.id, requestParameters.jsonPatchOperationBeta, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 }
 
@@ -62952,8 +62952,8 @@ export class SODPolicyBetaApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof SODPolicyBetaApi
      */
-    public createSodPolicy(requestParameters: SODPolicyBetaApiCreateSodPolicyRequest, options?: AxiosRequestConfig) {
-        return SODPolicyBetaApiFp(this.configuration).createSodPolicy(requestParameters.sodPolicyBeta, options).then((request) => request(this.axios, this.basePath));
+    public createSodPolicy(requestParameters: SODPolicyBetaApiCreateSodPolicyRequest, axiosOptions?: AxiosRequestConfig) {
+        return SODPolicyBetaApiFp(this.configuration).createSodPolicy(requestParameters.sodPolicyBeta, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -62965,8 +62965,8 @@ export class SODPolicyBetaApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof SODPolicyBetaApi
      */
-    public deleteSodPolicy(requestParameters: SODPolicyBetaApiDeleteSodPolicyRequest, options?: AxiosRequestConfig) {
-        return SODPolicyBetaApiFp(this.configuration).deleteSodPolicy(requestParameters.id, requestParameters.logical, options).then((request) => request(this.axios, this.basePath));
+    public deleteSodPolicy(requestParameters: SODPolicyBetaApiDeleteSodPolicyRequest, axiosOptions?: AxiosRequestConfig) {
+        return SODPolicyBetaApiFp(this.configuration).deleteSodPolicy(requestParameters.id, requestParameters.logical, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -62978,8 +62978,8 @@ export class SODPolicyBetaApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof SODPolicyBetaApi
      */
-    public deleteSodPolicySchedule(requestParameters: SODPolicyBetaApiDeleteSodPolicyScheduleRequest, options?: AxiosRequestConfig) {
-        return SODPolicyBetaApiFp(this.configuration).deleteSodPolicySchedule(requestParameters.id, options).then((request) => request(this.axios, this.basePath));
+    public deleteSodPolicySchedule(requestParameters: SODPolicyBetaApiDeleteSodPolicyScheduleRequest, axiosOptions?: AxiosRequestConfig) {
+        return SODPolicyBetaApiFp(this.configuration).deleteSodPolicySchedule(requestParameters.id, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -62991,8 +62991,8 @@ export class SODPolicyBetaApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof SODPolicyBetaApi
      */
-    public getCustomViolationReport(requestParameters: SODPolicyBetaApiGetCustomViolationReportRequest, options?: AxiosRequestConfig) {
-        return SODPolicyBetaApiFp(this.configuration).getCustomViolationReport(requestParameters.reportResultId, requestParameters.fileName, options).then((request) => request(this.axios, this.basePath));
+    public getCustomViolationReport(requestParameters: SODPolicyBetaApiGetCustomViolationReportRequest, axiosOptions?: AxiosRequestConfig) {
+        return SODPolicyBetaApiFp(this.configuration).getCustomViolationReport(requestParameters.reportResultId, requestParameters.fileName, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -63004,8 +63004,8 @@ export class SODPolicyBetaApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof SODPolicyBetaApi
      */
-    public getDefaultViolationReport(requestParameters: SODPolicyBetaApiGetDefaultViolationReportRequest, options?: AxiosRequestConfig) {
-        return SODPolicyBetaApiFp(this.configuration).getDefaultViolationReport(requestParameters.reportResultId, options).then((request) => request(this.axios, this.basePath));
+    public getDefaultViolationReport(requestParameters: SODPolicyBetaApiGetDefaultViolationReportRequest, axiosOptions?: AxiosRequestConfig) {
+        return SODPolicyBetaApiFp(this.configuration).getDefaultViolationReport(requestParameters.reportResultId, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -63016,8 +63016,8 @@ export class SODPolicyBetaApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof SODPolicyBetaApi
      */
-    public getSodAllReportRunStatus(options?: AxiosRequestConfig) {
-        return SODPolicyBetaApiFp(this.configuration).getSodAllReportRunStatus(options).then((request) => request(this.axios, this.basePath));
+    public getSodAllReportRunStatus(axiosOptions?: AxiosRequestConfig) {
+        return SODPolicyBetaApiFp(this.configuration).getSodAllReportRunStatus(axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -63029,8 +63029,8 @@ export class SODPolicyBetaApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof SODPolicyBetaApi
      */
-    public getSodPolicy(requestParameters: SODPolicyBetaApiGetSodPolicyRequest, options?: AxiosRequestConfig) {
-        return SODPolicyBetaApiFp(this.configuration).getSodPolicy(requestParameters.id, options).then((request) => request(this.axios, this.basePath));
+    public getSodPolicy(requestParameters: SODPolicyBetaApiGetSodPolicyRequest, axiosOptions?: AxiosRequestConfig) {
+        return SODPolicyBetaApiFp(this.configuration).getSodPolicy(requestParameters.id, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -63042,8 +63042,8 @@ export class SODPolicyBetaApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof SODPolicyBetaApi
      */
-    public getSodPolicySchedule(requestParameters: SODPolicyBetaApiGetSodPolicyScheduleRequest, options?: AxiosRequestConfig) {
-        return SODPolicyBetaApiFp(this.configuration).getSodPolicySchedule(requestParameters.id, options).then((request) => request(this.axios, this.basePath));
+    public getSodPolicySchedule(requestParameters: SODPolicyBetaApiGetSodPolicyScheduleRequest, axiosOptions?: AxiosRequestConfig) {
+        return SODPolicyBetaApiFp(this.configuration).getSodPolicySchedule(requestParameters.id, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -63055,8 +63055,8 @@ export class SODPolicyBetaApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof SODPolicyBetaApi
      */
-    public getSodViolationReportRunStatus(requestParameters: SODPolicyBetaApiGetSodViolationReportRunStatusRequest, options?: AxiosRequestConfig) {
-        return SODPolicyBetaApiFp(this.configuration).getSodViolationReportRunStatus(requestParameters.reportResultId, options).then((request) => request(this.axios, this.basePath));
+    public getSodViolationReportRunStatus(requestParameters: SODPolicyBetaApiGetSodViolationReportRunStatusRequest, axiosOptions?: AxiosRequestConfig) {
+        return SODPolicyBetaApiFp(this.configuration).getSodViolationReportRunStatus(requestParameters.reportResultId, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -63068,8 +63068,8 @@ export class SODPolicyBetaApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof SODPolicyBetaApi
      */
-    public getSodViolationReportStatus(requestParameters: SODPolicyBetaApiGetSodViolationReportStatusRequest, options?: AxiosRequestConfig) {
-        return SODPolicyBetaApiFp(this.configuration).getSodViolationReportStatus(requestParameters.id, options).then((request) => request(this.axios, this.basePath));
+    public getSodViolationReportStatus(requestParameters: SODPolicyBetaApiGetSodViolationReportStatusRequest, axiosOptions?: AxiosRequestConfig) {
+        return SODPolicyBetaApiFp(this.configuration).getSodViolationReportStatus(requestParameters.id, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -63081,8 +63081,8 @@ export class SODPolicyBetaApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof SODPolicyBetaApi
      */
-    public listSodPolicies(requestParameters: SODPolicyBetaApiListSodPoliciesRequest = {}, options?: AxiosRequestConfig) {
-        return SODPolicyBetaApiFp(this.configuration).listSodPolicies(requestParameters.limit, requestParameters.offset, requestParameters.count, requestParameters.filters, options).then((request) => request(this.axios, this.basePath));
+    public listSodPolicies(requestParameters: SODPolicyBetaApiListSodPoliciesRequest = {}, axiosOptions?: AxiosRequestConfig) {
+        return SODPolicyBetaApiFp(this.configuration).listSodPolicies(requestParameters.limit, requestParameters.offset, requestParameters.count, requestParameters.filters, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -63094,8 +63094,8 @@ export class SODPolicyBetaApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof SODPolicyBetaApi
      */
-    public patchSodPolicy(requestParameters: SODPolicyBetaApiPatchSodPolicyRequest, options?: AxiosRequestConfig) {
-        return SODPolicyBetaApiFp(this.configuration).patchSodPolicy(requestParameters.id, requestParameters.requestBody, options).then((request) => request(this.axios, this.basePath));
+    public patchSodPolicy(requestParameters: SODPolicyBetaApiPatchSodPolicyRequest, axiosOptions?: AxiosRequestConfig) {
+        return SODPolicyBetaApiFp(this.configuration).patchSodPolicy(requestParameters.id, requestParameters.requestBody, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -63107,8 +63107,8 @@ export class SODPolicyBetaApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof SODPolicyBetaApi
      */
-    public putPolicySchedule(requestParameters: SODPolicyBetaApiPutPolicyScheduleRequest, options?: AxiosRequestConfig) {
-        return SODPolicyBetaApiFp(this.configuration).putPolicySchedule(requestParameters.id, requestParameters.sodPolicyScheduleBeta, options).then((request) => request(this.axios, this.basePath));
+    public putPolicySchedule(requestParameters: SODPolicyBetaApiPutPolicyScheduleRequest, axiosOptions?: AxiosRequestConfig) {
+        return SODPolicyBetaApiFp(this.configuration).putPolicySchedule(requestParameters.id, requestParameters.sodPolicyScheduleBeta, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -63120,8 +63120,8 @@ export class SODPolicyBetaApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof SODPolicyBetaApi
      */
-    public putSodPolicy(requestParameters: SODPolicyBetaApiPutSodPolicyRequest, options?: AxiosRequestConfig) {
-        return SODPolicyBetaApiFp(this.configuration).putSodPolicy(requestParameters.id, requestParameters.sodPolicyBeta, options).then((request) => request(this.axios, this.basePath));
+    public putSodPolicy(requestParameters: SODPolicyBetaApiPutSodPolicyRequest, axiosOptions?: AxiosRequestConfig) {
+        return SODPolicyBetaApiFp(this.configuration).putSodPolicy(requestParameters.id, requestParameters.sodPolicyBeta, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -63133,8 +63133,8 @@ export class SODPolicyBetaApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof SODPolicyBetaApi
      */
-    public startSodAllPoliciesForOrg(requestParameters: SODPolicyBetaApiStartSodAllPoliciesForOrgRequest = {}, options?: AxiosRequestConfig) {
-        return SODPolicyBetaApiFp(this.configuration).startSodAllPoliciesForOrg(requestParameters.multiPolicyRequestBeta, options).then((request) => request(this.axios, this.basePath));
+    public startSodAllPoliciesForOrg(requestParameters: SODPolicyBetaApiStartSodAllPoliciesForOrgRequest = {}, axiosOptions?: AxiosRequestConfig) {
+        return SODPolicyBetaApiFp(this.configuration).startSodAllPoliciesForOrg(requestParameters.multiPolicyRequestBeta, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -63146,8 +63146,8 @@ export class SODPolicyBetaApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof SODPolicyBetaApi
      */
-    public startSodPolicy(requestParameters: SODPolicyBetaApiStartSodPolicyRequest, options?: AxiosRequestConfig) {
-        return SODPolicyBetaApiFp(this.configuration).startSodPolicy(requestParameters.id, options).then((request) => request(this.axios, this.basePath));
+    public startSodPolicy(requestParameters: SODPolicyBetaApiStartSodPolicyRequest, axiosOptions?: AxiosRequestConfig) {
+        return SODPolicyBetaApiFp(this.configuration).startSodPolicy(requestParameters.id, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 }
 
@@ -63282,8 +63282,8 @@ export class SODViolationsBetaApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof SODViolationsBetaApi
      */
-    public startPredictSodViolations(requestParameters: SODViolationsBetaApiStartPredictSodViolationsRequest, options?: AxiosRequestConfig) {
-        return SODViolationsBetaApiFp(this.configuration).startPredictSodViolations(requestParameters.identityWithNewAccessBeta, options).then((request) => request(this.axios, this.basePath));
+    public startPredictSodViolations(requestParameters: SODViolationsBetaApiStartPredictSodViolationsRequest, axiosOptions?: AxiosRequestConfig) {
+        return SODViolationsBetaApiFp(this.configuration).startPredictSodViolations(requestParameters.identityWithNewAccessBeta, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 }
 
@@ -63901,8 +63901,8 @@ export class SPConfigBetaApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof SPConfigBetaApi
      */
-    public exportSpConfig(requestParameters: SPConfigBetaApiExportSpConfigRequest, options?: AxiosRequestConfig) {
-        return SPConfigBetaApiFp(this.configuration).exportSpConfig(requestParameters.exportPayloadBeta, options).then((request) => request(this.axios, this.basePath));
+    public exportSpConfig(requestParameters: SPConfigBetaApiExportSpConfigRequest, axiosOptions?: AxiosRequestConfig) {
+        return SPConfigBetaApiFp(this.configuration).exportSpConfig(requestParameters.exportPayloadBeta, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -63913,8 +63913,8 @@ export class SPConfigBetaApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof SPConfigBetaApi
      */
-    public getSpConfigExport(requestParameters: SPConfigBetaApiGetSpConfigExportRequest, options?: AxiosRequestConfig) {
-        return SPConfigBetaApiFp(this.configuration).getSpConfigExport(requestParameters.id, options).then((request) => request(this.axios, this.basePath));
+    public getSpConfigExport(requestParameters: SPConfigBetaApiGetSpConfigExportRequest, axiosOptions?: AxiosRequestConfig) {
+        return SPConfigBetaApiFp(this.configuration).getSpConfigExport(requestParameters.id, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -63925,8 +63925,8 @@ export class SPConfigBetaApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof SPConfigBetaApi
      */
-    public getSpConfigExportStatus(requestParameters: SPConfigBetaApiGetSpConfigExportStatusRequest, options?: AxiosRequestConfig) {
-        return SPConfigBetaApiFp(this.configuration).getSpConfigExportStatus(requestParameters.id, options).then((request) => request(this.axios, this.basePath));
+    public getSpConfigExportStatus(requestParameters: SPConfigBetaApiGetSpConfigExportStatusRequest, axiosOptions?: AxiosRequestConfig) {
+        return SPConfigBetaApiFp(this.configuration).getSpConfigExportStatus(requestParameters.id, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -63937,8 +63937,8 @@ export class SPConfigBetaApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof SPConfigBetaApi
      */
-    public getSpConfigImport(requestParameters: SPConfigBetaApiGetSpConfigImportRequest, options?: AxiosRequestConfig) {
-        return SPConfigBetaApiFp(this.configuration).getSpConfigImport(requestParameters.id, options).then((request) => request(this.axios, this.basePath));
+    public getSpConfigImport(requestParameters: SPConfigBetaApiGetSpConfigImportRequest, axiosOptions?: AxiosRequestConfig) {
+        return SPConfigBetaApiFp(this.configuration).getSpConfigImport(requestParameters.id, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -63949,8 +63949,8 @@ export class SPConfigBetaApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof SPConfigBetaApi
      */
-    public getSpConfigImportStatus(requestParameters: SPConfigBetaApiGetSpConfigImportStatusRequest, options?: AxiosRequestConfig) {
-        return SPConfigBetaApiFp(this.configuration).getSpConfigImportStatus(requestParameters.id, options).then((request) => request(this.axios, this.basePath));
+    public getSpConfigImportStatus(requestParameters: SPConfigBetaApiGetSpConfigImportStatusRequest, axiosOptions?: AxiosRequestConfig) {
+        return SPConfigBetaApiFp(this.configuration).getSpConfigImportStatus(requestParameters.id, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -63961,8 +63961,8 @@ export class SPConfigBetaApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof SPConfigBetaApi
      */
-    public importSpConfig(requestParameters: SPConfigBetaApiImportSpConfigRequest, options?: AxiosRequestConfig) {
-        return SPConfigBetaApiFp(this.configuration).importSpConfig(requestParameters.data, requestParameters.preview, requestParameters._options, options).then((request) => request(this.axios, this.basePath));
+    public importSpConfig(requestParameters: SPConfigBetaApiImportSpConfigRequest, axiosOptions?: AxiosRequestConfig) {
+        return SPConfigBetaApiFp(this.configuration).importSpConfig(requestParameters.data, requestParameters.preview, requestParameters._options, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -63972,8 +63972,8 @@ export class SPConfigBetaApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof SPConfigBetaApi
      */
-    public listSpConfigObjects(options?: AxiosRequestConfig) {
-        return SPConfigBetaApiFp(this.configuration).listSpConfigObjects(options).then((request) => request(this.axios, this.basePath));
+    public listSpConfigObjects(axiosOptions?: AxiosRequestConfig) {
+        return SPConfigBetaApiFp(this.configuration).listSpConfigObjects(axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 }
 
@@ -64414,8 +64414,8 @@ export class SearchAttributeConfigurationBetaApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof SearchAttributeConfigurationBetaApi
      */
-    public createSearchAttributeConfig(requestParameters: SearchAttributeConfigurationBetaApiCreateSearchAttributeConfigRequest, options?: AxiosRequestConfig) {
-        return SearchAttributeConfigurationBetaApiFp(this.configuration).createSearchAttributeConfig(requestParameters.searchAttributeConfigBeta, options).then((request) => request(this.axios, this.basePath));
+    public createSearchAttributeConfig(requestParameters: SearchAttributeConfigurationBetaApiCreateSearchAttributeConfigRequest, axiosOptions?: AxiosRequestConfig) {
+        return SearchAttributeConfigurationBetaApiFp(this.configuration).createSearchAttributeConfig(requestParameters.searchAttributeConfigBeta, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -64426,8 +64426,8 @@ export class SearchAttributeConfigurationBetaApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof SearchAttributeConfigurationBetaApi
      */
-    public deleteSearchAttributeConfig(requestParameters: SearchAttributeConfigurationBetaApiDeleteSearchAttributeConfigRequest, options?: AxiosRequestConfig) {
-        return SearchAttributeConfigurationBetaApiFp(this.configuration).deleteSearchAttributeConfig(requestParameters.name, options).then((request) => request(this.axios, this.basePath));
+    public deleteSearchAttributeConfig(requestParameters: SearchAttributeConfigurationBetaApiDeleteSearchAttributeConfigRequest, axiosOptions?: AxiosRequestConfig) {
+        return SearchAttributeConfigurationBetaApiFp(this.configuration).deleteSearchAttributeConfig(requestParameters.name, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -64437,8 +64437,8 @@ export class SearchAttributeConfigurationBetaApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof SearchAttributeConfigurationBetaApi
      */
-    public getSearchAttributeConfig(options?: AxiosRequestConfig) {
-        return SearchAttributeConfigurationBetaApiFp(this.configuration).getSearchAttributeConfig(options).then((request) => request(this.axios, this.basePath));
+    public getSearchAttributeConfig(axiosOptions?: AxiosRequestConfig) {
+        return SearchAttributeConfigurationBetaApiFp(this.configuration).getSearchAttributeConfig(axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -64449,8 +64449,8 @@ export class SearchAttributeConfigurationBetaApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof SearchAttributeConfigurationBetaApi
      */
-    public getSingleSearchAttributeConfig(requestParameters: SearchAttributeConfigurationBetaApiGetSingleSearchAttributeConfigRequest, options?: AxiosRequestConfig) {
-        return SearchAttributeConfigurationBetaApiFp(this.configuration).getSingleSearchAttributeConfig(requestParameters.name, options).then((request) => request(this.axios, this.basePath));
+    public getSingleSearchAttributeConfig(requestParameters: SearchAttributeConfigurationBetaApiGetSingleSearchAttributeConfigRequest, axiosOptions?: AxiosRequestConfig) {
+        return SearchAttributeConfigurationBetaApiFp(this.configuration).getSingleSearchAttributeConfig(requestParameters.name, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -64461,8 +64461,8 @@ export class SearchAttributeConfigurationBetaApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof SearchAttributeConfigurationBetaApi
      */
-    public patchSearchAttributeConfig(requestParameters: SearchAttributeConfigurationBetaApiPatchSearchAttributeConfigRequest, options?: AxiosRequestConfig) {
-        return SearchAttributeConfigurationBetaApiFp(this.configuration).patchSearchAttributeConfig(requestParameters.name, requestParameters.jsonPatchOperationBeta, options).then((request) => request(this.axios, this.basePath));
+    public patchSearchAttributeConfig(requestParameters: SearchAttributeConfigurationBetaApiPatchSearchAttributeConfigRequest, axiosOptions?: AxiosRequestConfig) {
+        return SearchAttributeConfigurationBetaApiFp(this.configuration).patchSearchAttributeConfig(requestParameters.name, requestParameters.jsonPatchOperationBeta, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 }
 
@@ -64950,8 +64950,8 @@ export class SegmentsBetaApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof SegmentsBetaApi
      */
-    public createSegment(requestParameters: SegmentsBetaApiCreateSegmentRequest, options?: AxiosRequestConfig) {
-        return SegmentsBetaApiFp(this.configuration).createSegment(requestParameters.segmentBeta, options).then((request) => request(this.axios, this.basePath));
+    public createSegment(requestParameters: SegmentsBetaApiCreateSegmentRequest, axiosOptions?: AxiosRequestConfig) {
+        return SegmentsBetaApiFp(this.configuration).createSegment(requestParameters.segmentBeta, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -64962,8 +64962,8 @@ export class SegmentsBetaApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof SegmentsBetaApi
      */
-    public deleteSegment(requestParameters: SegmentsBetaApiDeleteSegmentRequest, options?: AxiosRequestConfig) {
-        return SegmentsBetaApiFp(this.configuration).deleteSegment(requestParameters.id, options).then((request) => request(this.axios, this.basePath));
+    public deleteSegment(requestParameters: SegmentsBetaApiDeleteSegmentRequest, axiosOptions?: AxiosRequestConfig) {
+        return SegmentsBetaApiFp(this.configuration).deleteSegment(requestParameters.id, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -64974,8 +64974,8 @@ export class SegmentsBetaApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof SegmentsBetaApi
      */
-    public getSegment(requestParameters: SegmentsBetaApiGetSegmentRequest, options?: AxiosRequestConfig) {
-        return SegmentsBetaApiFp(this.configuration).getSegment(requestParameters.id, options).then((request) => request(this.axios, this.basePath));
+    public getSegment(requestParameters: SegmentsBetaApiGetSegmentRequest, axiosOptions?: AxiosRequestConfig) {
+        return SegmentsBetaApiFp(this.configuration).getSegment(requestParameters.id, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -64986,8 +64986,8 @@ export class SegmentsBetaApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof SegmentsBetaApi
      */
-    public listSegments(requestParameters: SegmentsBetaApiListSegmentsRequest = {}, options?: AxiosRequestConfig) {
-        return SegmentsBetaApiFp(this.configuration).listSegments(requestParameters.limit, requestParameters.offset, requestParameters.count, options).then((request) => request(this.axios, this.basePath));
+    public listSegments(requestParameters: SegmentsBetaApiListSegmentsRequest = {}, axiosOptions?: AxiosRequestConfig) {
+        return SegmentsBetaApiFp(this.configuration).listSegments(requestParameters.limit, requestParameters.offset, requestParameters.count, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -64998,8 +64998,8 @@ export class SegmentsBetaApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof SegmentsBetaApi
      */
-    public patchSegment(requestParameters: SegmentsBetaApiPatchSegmentRequest, options?: AxiosRequestConfig) {
-        return SegmentsBetaApiFp(this.configuration).patchSegment(requestParameters.id, requestParameters.requestBody, options).then((request) => request(this.axios, this.basePath));
+    public patchSegment(requestParameters: SegmentsBetaApiPatchSegmentRequest, axiosOptions?: AxiosRequestConfig) {
+        return SegmentsBetaApiFp(this.configuration).patchSegment(requestParameters.id, requestParameters.requestBody, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 }
 
@@ -65884,8 +65884,8 @@ export class ServiceDeskIntegrationBetaApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof ServiceDeskIntegrationBetaApi
      */
-    public createServiceDeskIntegration(requestParameters: ServiceDeskIntegrationBetaApiCreateServiceDeskIntegrationRequest, options?: AxiosRequestConfig) {
-        return ServiceDeskIntegrationBetaApiFp(this.configuration).createServiceDeskIntegration(requestParameters.serviceDeskIntegrationDtoBeta, options).then((request) => request(this.axios, this.basePath));
+    public createServiceDeskIntegration(requestParameters: ServiceDeskIntegrationBetaApiCreateServiceDeskIntegrationRequest, axiosOptions?: AxiosRequestConfig) {
+        return ServiceDeskIntegrationBetaApiFp(this.configuration).createServiceDeskIntegration(requestParameters.serviceDeskIntegrationDtoBeta, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -65896,8 +65896,8 @@ export class ServiceDeskIntegrationBetaApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof ServiceDeskIntegrationBetaApi
      */
-    public deleteServiceDeskIntegration(requestParameters: ServiceDeskIntegrationBetaApiDeleteServiceDeskIntegrationRequest, options?: AxiosRequestConfig) {
-        return ServiceDeskIntegrationBetaApiFp(this.configuration).deleteServiceDeskIntegration(requestParameters.id, options).then((request) => request(this.axios, this.basePath));
+    public deleteServiceDeskIntegration(requestParameters: ServiceDeskIntegrationBetaApiDeleteServiceDeskIntegrationRequest, axiosOptions?: AxiosRequestConfig) {
+        return ServiceDeskIntegrationBetaApiFp(this.configuration).deleteServiceDeskIntegration(requestParameters.id, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -65908,8 +65908,8 @@ export class ServiceDeskIntegrationBetaApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof ServiceDeskIntegrationBetaApi
      */
-    public getServiceDeskIntegration(requestParameters: ServiceDeskIntegrationBetaApiGetServiceDeskIntegrationRequest, options?: AxiosRequestConfig) {
-        return ServiceDeskIntegrationBetaApiFp(this.configuration).getServiceDeskIntegration(requestParameters.id, options).then((request) => request(this.axios, this.basePath));
+    public getServiceDeskIntegration(requestParameters: ServiceDeskIntegrationBetaApiGetServiceDeskIntegrationRequest, axiosOptions?: AxiosRequestConfig) {
+        return ServiceDeskIntegrationBetaApiFp(this.configuration).getServiceDeskIntegration(requestParameters.id, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -65920,8 +65920,8 @@ export class ServiceDeskIntegrationBetaApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof ServiceDeskIntegrationBetaApi
      */
-    public getServiceDeskIntegrationList(requestParameters: ServiceDeskIntegrationBetaApiGetServiceDeskIntegrationListRequest = {}, options?: AxiosRequestConfig) {
-        return ServiceDeskIntegrationBetaApiFp(this.configuration).getServiceDeskIntegrationList(requestParameters.offset, requestParameters.limit, requestParameters.sorters, requestParameters.filters, requestParameters.count, options).then((request) => request(this.axios, this.basePath));
+    public getServiceDeskIntegrationList(requestParameters: ServiceDeskIntegrationBetaApiGetServiceDeskIntegrationListRequest = {}, axiosOptions?: AxiosRequestConfig) {
+        return ServiceDeskIntegrationBetaApiFp(this.configuration).getServiceDeskIntegrationList(requestParameters.offset, requestParameters.limit, requestParameters.sorters, requestParameters.filters, requestParameters.count, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -65932,8 +65932,8 @@ export class ServiceDeskIntegrationBetaApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof ServiceDeskIntegrationBetaApi
      */
-    public getServiceDeskIntegrationTemplate(requestParameters: ServiceDeskIntegrationBetaApiGetServiceDeskIntegrationTemplateRequest, options?: AxiosRequestConfig) {
-        return ServiceDeskIntegrationBetaApiFp(this.configuration).getServiceDeskIntegrationTemplate(requestParameters.scriptName, options).then((request) => request(this.axios, this.basePath));
+    public getServiceDeskIntegrationTemplate(requestParameters: ServiceDeskIntegrationBetaApiGetServiceDeskIntegrationTemplateRequest, axiosOptions?: AxiosRequestConfig) {
+        return ServiceDeskIntegrationBetaApiFp(this.configuration).getServiceDeskIntegrationTemplate(requestParameters.scriptName, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -65943,8 +65943,8 @@ export class ServiceDeskIntegrationBetaApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof ServiceDeskIntegrationBetaApi
      */
-    public getServiceDeskIntegrationTypes(options?: AxiosRequestConfig) {
-        return ServiceDeskIntegrationBetaApiFp(this.configuration).getServiceDeskIntegrationTypes(options).then((request) => request(this.axios, this.basePath));
+    public getServiceDeskIntegrationTypes(axiosOptions?: AxiosRequestConfig) {
+        return ServiceDeskIntegrationBetaApiFp(this.configuration).getServiceDeskIntegrationTypes(axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -65954,8 +65954,8 @@ export class ServiceDeskIntegrationBetaApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof ServiceDeskIntegrationBetaApi
      */
-    public getStatusCheckDetails(options?: AxiosRequestConfig) {
-        return ServiceDeskIntegrationBetaApiFp(this.configuration).getStatusCheckDetails(options).then((request) => request(this.axios, this.basePath));
+    public getStatusCheckDetails(axiosOptions?: AxiosRequestConfig) {
+        return ServiceDeskIntegrationBetaApiFp(this.configuration).getStatusCheckDetails(axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -65966,8 +65966,8 @@ export class ServiceDeskIntegrationBetaApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof ServiceDeskIntegrationBetaApi
      */
-    public patchServiceDeskIntegration(requestParameters: ServiceDeskIntegrationBetaApiPatchServiceDeskIntegrationRequest, options?: AxiosRequestConfig) {
-        return ServiceDeskIntegrationBetaApiFp(this.configuration).patchServiceDeskIntegration(requestParameters.id, requestParameters.jsonPatchBeta, options).then((request) => request(this.axios, this.basePath));
+    public patchServiceDeskIntegration(requestParameters: ServiceDeskIntegrationBetaApiPatchServiceDeskIntegrationRequest, axiosOptions?: AxiosRequestConfig) {
+        return ServiceDeskIntegrationBetaApiFp(this.configuration).patchServiceDeskIntegration(requestParameters.id, requestParameters.jsonPatchBeta, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -65978,8 +65978,8 @@ export class ServiceDeskIntegrationBetaApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof ServiceDeskIntegrationBetaApi
      */
-    public putServiceDeskIntegration(requestParameters: ServiceDeskIntegrationBetaApiPutServiceDeskIntegrationRequest, options?: AxiosRequestConfig) {
-        return ServiceDeskIntegrationBetaApiFp(this.configuration).putServiceDeskIntegration(requestParameters.id, requestParameters.serviceDeskIntegrationDtoBeta, options).then((request) => request(this.axios, this.basePath));
+    public putServiceDeskIntegration(requestParameters: ServiceDeskIntegrationBetaApiPutServiceDeskIntegrationRequest, axiosOptions?: AxiosRequestConfig) {
+        return ServiceDeskIntegrationBetaApiFp(this.configuration).putServiceDeskIntegration(requestParameters.id, requestParameters.serviceDeskIntegrationDtoBeta, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -65990,8 +65990,8 @@ export class ServiceDeskIntegrationBetaApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof ServiceDeskIntegrationBetaApi
      */
-    public updateStatusCheckDetails(requestParameters: ServiceDeskIntegrationBetaApiUpdateStatusCheckDetailsRequest, options?: AxiosRequestConfig) {
-        return ServiceDeskIntegrationBetaApiFp(this.configuration).updateStatusCheckDetails(requestParameters.queuedCheckConfigDetailsBeta, options).then((request) => request(this.axios, this.basePath));
+    public updateStatusCheckDetails(requestParameters: ServiceDeskIntegrationBetaApiUpdateStatusCheckDetailsRequest, axiosOptions?: AxiosRequestConfig) {
+        return ServiceDeskIntegrationBetaApiFp(this.configuration).updateStatusCheckDetails(requestParameters.queuedCheckConfigDetailsBeta, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 }
 
@@ -66251,8 +66251,8 @@ export class SourceUsagesBetaApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof SourceUsagesBetaApi
      */
-    public getStatusBySourceId(requestParameters: SourceUsagesBetaApiGetStatusBySourceIdRequest, options?: AxiosRequestConfig) {
-        return SourceUsagesBetaApiFp(this.configuration).getStatusBySourceId(requestParameters.sourceId, options).then((request) => request(this.axios, this.basePath));
+    public getStatusBySourceId(requestParameters: SourceUsagesBetaApiGetStatusBySourceIdRequest, axiosOptions?: AxiosRequestConfig) {
+        return SourceUsagesBetaApiFp(this.configuration).getStatusBySourceId(requestParameters.sourceId, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -66263,8 +66263,8 @@ export class SourceUsagesBetaApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof SourceUsagesBetaApi
      */
-    public getUsagesBySourceId(requestParameters: SourceUsagesBetaApiGetUsagesBySourceIdRequest, options?: AxiosRequestConfig) {
-        return SourceUsagesBetaApiFp(this.configuration).getUsagesBySourceId(requestParameters.sourceId, requestParameters.limit, requestParameters.offset, requestParameters.count, requestParameters.sorters, options).then((request) => request(this.axios, this.basePath));
+    public getUsagesBySourceId(requestParameters: SourceUsagesBetaApiGetUsagesBySourceIdRequest, axiosOptions?: AxiosRequestConfig) {
+        return SourceUsagesBetaApiFp(this.configuration).getUsagesBySourceId(requestParameters.sourceId, requestParameters.limit, requestParameters.offset, requestParameters.count, requestParameters.sorters, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 }
 
@@ -69667,8 +69667,8 @@ export class SourcesBetaApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof SourcesBetaApi
      */
-    public _delete(requestParameters: SourcesBetaApiDeleteRequest, options?: AxiosRequestConfig) {
-        return SourcesBetaApiFp(this.configuration)._delete(requestParameters.id, options).then((request) => request(this.axios, this.basePath));
+    public _delete(requestParameters: SourcesBetaApiDeleteRequest, axiosOptions?: AxiosRequestConfig) {
+        return SourcesBetaApiFp(this.configuration)._delete(requestParameters.id, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -69679,8 +69679,8 @@ export class SourcesBetaApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof SourcesBetaApi
      */
-    public createProvisioningPolicy(requestParameters: SourcesBetaApiCreateProvisioningPolicyRequest, options?: AxiosRequestConfig) {
-        return SourcesBetaApiFp(this.configuration).createProvisioningPolicy(requestParameters.sourceId, requestParameters.provisioningPolicyDtoBeta, options).then((request) => request(this.axios, this.basePath));
+    public createProvisioningPolicy(requestParameters: SourcesBetaApiCreateProvisioningPolicyRequest, axiosOptions?: AxiosRequestConfig) {
+        return SourcesBetaApiFp(this.configuration).createProvisioningPolicy(requestParameters.sourceId, requestParameters.provisioningPolicyDtoBeta, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -69691,8 +69691,8 @@ export class SourcesBetaApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof SourcesBetaApi
      */
-    public createSource(requestParameters: SourcesBetaApiCreateSourceRequest, options?: AxiosRequestConfig) {
-        return SourcesBetaApiFp(this.configuration).createSource(requestParameters.sourceBeta, requestParameters.provisionAsCsv, options).then((request) => request(this.axios, this.basePath));
+    public createSource(requestParameters: SourcesBetaApiCreateSourceRequest, axiosOptions?: AxiosRequestConfig) {
+        return SourcesBetaApiFp(this.configuration).createSource(requestParameters.sourceBeta, requestParameters.provisionAsCsv, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -69703,8 +69703,8 @@ export class SourcesBetaApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof SourcesBetaApi
      */
-    public createSourceSchema(requestParameters: SourcesBetaApiCreateSourceSchemaRequest, options?: AxiosRequestConfig) {
-        return SourcesBetaApiFp(this.configuration).createSourceSchema(requestParameters.sourceId, requestParameters.schemaBeta, options).then((request) => request(this.axios, this.basePath));
+    public createSourceSchema(requestParameters: SourcesBetaApiCreateSourceSchemaRequest, axiosOptions?: AxiosRequestConfig) {
+        return SourcesBetaApiFp(this.configuration).createSourceSchema(requestParameters.sourceId, requestParameters.schemaBeta, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -69715,8 +69715,8 @@ export class SourcesBetaApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof SourcesBetaApi
      */
-    public deleteNativeChangeDetectionConfig(requestParameters: SourcesBetaApiDeleteNativeChangeDetectionConfigRequest, options?: AxiosRequestConfig) {
-        return SourcesBetaApiFp(this.configuration).deleteNativeChangeDetectionConfig(requestParameters.id, options).then((request) => request(this.axios, this.basePath));
+    public deleteNativeChangeDetectionConfig(requestParameters: SourcesBetaApiDeleteNativeChangeDetectionConfigRequest, axiosOptions?: AxiosRequestConfig) {
+        return SourcesBetaApiFp(this.configuration).deleteNativeChangeDetectionConfig(requestParameters.id, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -69727,8 +69727,8 @@ export class SourcesBetaApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof SourcesBetaApi
      */
-    public deleteProvisioningPolicy(requestParameters: SourcesBetaApiDeleteProvisioningPolicyRequest, options?: AxiosRequestConfig) {
-        return SourcesBetaApiFp(this.configuration).deleteProvisioningPolicy(requestParameters.sourceId, requestParameters.usageType, options).then((request) => request(this.axios, this.basePath));
+    public deleteProvisioningPolicy(requestParameters: SourcesBetaApiDeleteProvisioningPolicyRequest, axiosOptions?: AxiosRequestConfig) {
+        return SourcesBetaApiFp(this.configuration).deleteProvisioningPolicy(requestParameters.sourceId, requestParameters.usageType, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -69739,8 +69739,8 @@ export class SourcesBetaApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof SourcesBetaApi
      */
-    public deleteSourceSchema(requestParameters: SourcesBetaApiDeleteSourceSchemaRequest, options?: AxiosRequestConfig) {
-        return SourcesBetaApiFp(this.configuration).deleteSourceSchema(requestParameters.sourceId, requestParameters.schemaId, options).then((request) => request(this.axios, this.basePath));
+    public deleteSourceSchema(requestParameters: SourcesBetaApiDeleteSourceSchemaRequest, axiosOptions?: AxiosRequestConfig) {
+        return SourcesBetaApiFp(this.configuration).deleteSourceSchema(requestParameters.sourceId, requestParameters.schemaId, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -69751,8 +69751,8 @@ export class SourcesBetaApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof SourcesBetaApi
      */
-    public getNativeChangeDetectionConfig(requestParameters: SourcesBetaApiGetNativeChangeDetectionConfigRequest, options?: AxiosRequestConfig) {
-        return SourcesBetaApiFp(this.configuration).getNativeChangeDetectionConfig(requestParameters.id, options).then((request) => request(this.axios, this.basePath));
+    public getNativeChangeDetectionConfig(requestParameters: SourcesBetaApiGetNativeChangeDetectionConfigRequest, axiosOptions?: AxiosRequestConfig) {
+        return SourcesBetaApiFp(this.configuration).getNativeChangeDetectionConfig(requestParameters.id, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -69763,8 +69763,8 @@ export class SourcesBetaApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof SourcesBetaApi
      */
-    public getProvisioningPolicy(requestParameters: SourcesBetaApiGetProvisioningPolicyRequest, options?: AxiosRequestConfig) {
-        return SourcesBetaApiFp(this.configuration).getProvisioningPolicy(requestParameters.sourceId, requestParameters.usageType, options).then((request) => request(this.axios, this.basePath));
+    public getProvisioningPolicy(requestParameters: SourcesBetaApiGetProvisioningPolicyRequest, axiosOptions?: AxiosRequestConfig) {
+        return SourcesBetaApiFp(this.configuration).getProvisioningPolicy(requestParameters.sourceId, requestParameters.usageType, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -69775,8 +69775,8 @@ export class SourcesBetaApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof SourcesBetaApi
      */
-    public getSource(requestParameters: SourcesBetaApiGetSourceRequest, options?: AxiosRequestConfig) {
-        return SourcesBetaApiFp(this.configuration).getSource(requestParameters.id, options).then((request) => request(this.axios, this.basePath));
+    public getSource(requestParameters: SourcesBetaApiGetSourceRequest, axiosOptions?: AxiosRequestConfig) {
+        return SourcesBetaApiFp(this.configuration).getSource(requestParameters.id, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -69787,8 +69787,8 @@ export class SourcesBetaApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof SourcesBetaApi
      */
-    public getSourceAccountsSchema(requestParameters: SourcesBetaApiGetSourceAccountsSchemaRequest, options?: AxiosRequestConfig) {
-        return SourcesBetaApiFp(this.configuration).getSourceAccountsSchema(requestParameters.id, options).then((request) => request(this.axios, this.basePath));
+    public getSourceAccountsSchema(requestParameters: SourcesBetaApiGetSourceAccountsSchemaRequest, axiosOptions?: AxiosRequestConfig) {
+        return SourcesBetaApiFp(this.configuration).getSourceAccountsSchema(requestParameters.id, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -69799,8 +69799,8 @@ export class SourcesBetaApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof SourcesBetaApi
      */
-    public getSourceAttrSyncConfig(requestParameters: SourcesBetaApiGetSourceAttrSyncConfigRequest, options?: AxiosRequestConfig) {
-        return SourcesBetaApiFp(this.configuration).getSourceAttrSyncConfig(requestParameters.id, options).then((request) => request(this.axios, this.basePath));
+    public getSourceAttrSyncConfig(requestParameters: SourcesBetaApiGetSourceAttrSyncConfigRequest, axiosOptions?: AxiosRequestConfig) {
+        return SourcesBetaApiFp(this.configuration).getSourceAttrSyncConfig(requestParameters.id, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -69811,8 +69811,8 @@ export class SourcesBetaApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof SourcesBetaApi
      */
-    public getSourceConfig(requestParameters: SourcesBetaApiGetSourceConfigRequest, options?: AxiosRequestConfig) {
-        return SourcesBetaApiFp(this.configuration).getSourceConfig(requestParameters.id, requestParameters.locale, options).then((request) => request(this.axios, this.basePath));
+    public getSourceConfig(requestParameters: SourcesBetaApiGetSourceConfigRequest, axiosOptions?: AxiosRequestConfig) {
+        return SourcesBetaApiFp(this.configuration).getSourceConfig(requestParameters.id, requestParameters.locale, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -69822,8 +69822,8 @@ export class SourcesBetaApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof SourcesBetaApi
      */
-    public getSourceEntitlementRequestConfig(options?: AxiosRequestConfig) {
-        return SourcesBetaApiFp(this.configuration).getSourceEntitlementRequestConfig(options).then((request) => request(this.axios, this.basePath));
+    public getSourceEntitlementRequestConfig(axiosOptions?: AxiosRequestConfig) {
+        return SourcesBetaApiFp(this.configuration).getSourceEntitlementRequestConfig(axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -69834,8 +69834,8 @@ export class SourcesBetaApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof SourcesBetaApi
      */
-    public getSourceEntitlementsSchema(requestParameters: SourcesBetaApiGetSourceEntitlementsSchemaRequest, options?: AxiosRequestConfig) {
-        return SourcesBetaApiFp(this.configuration).getSourceEntitlementsSchema(requestParameters.id, requestParameters.schemaName, options).then((request) => request(this.axios, this.basePath));
+    public getSourceEntitlementsSchema(requestParameters: SourcesBetaApiGetSourceEntitlementsSchemaRequest, axiosOptions?: AxiosRequestConfig) {
+        return SourcesBetaApiFp(this.configuration).getSourceEntitlementsSchema(requestParameters.id, requestParameters.schemaName, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -69846,8 +69846,8 @@ export class SourcesBetaApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof SourcesBetaApi
      */
-    public getSourceSchema(requestParameters: SourcesBetaApiGetSourceSchemaRequest, options?: AxiosRequestConfig) {
-        return SourcesBetaApiFp(this.configuration).getSourceSchema(requestParameters.sourceId, requestParameters.schemaId, options).then((request) => request(this.axios, this.basePath));
+    public getSourceSchema(requestParameters: SourcesBetaApiGetSourceSchemaRequest, axiosOptions?: AxiosRequestConfig) {
+        return SourcesBetaApiFp(this.configuration).getSourceSchema(requestParameters.sourceId, requestParameters.schemaId, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -69858,8 +69858,8 @@ export class SourcesBetaApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof SourcesBetaApi
      */
-    public importSourceAccountsSchema(requestParameters: SourcesBetaApiImportSourceAccountsSchemaRequest, options?: AxiosRequestConfig) {
-        return SourcesBetaApiFp(this.configuration).importSourceAccountsSchema(requestParameters.id, requestParameters.file, options).then((request) => request(this.axios, this.basePath));
+    public importSourceAccountsSchema(requestParameters: SourcesBetaApiImportSourceAccountsSchemaRequest, axiosOptions?: AxiosRequestConfig) {
+        return SourcesBetaApiFp(this.configuration).importSourceAccountsSchema(requestParameters.id, requestParameters.file, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -69870,8 +69870,8 @@ export class SourcesBetaApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof SourcesBetaApi
      */
-    public importSourceConnectorFile(requestParameters: SourcesBetaApiImportSourceConnectorFileRequest, options?: AxiosRequestConfig) {
-        return SourcesBetaApiFp(this.configuration).importSourceConnectorFile(requestParameters.sourceId, requestParameters.file, options).then((request) => request(this.axios, this.basePath));
+    public importSourceConnectorFile(requestParameters: SourcesBetaApiImportSourceConnectorFileRequest, axiosOptions?: AxiosRequestConfig) {
+        return SourcesBetaApiFp(this.configuration).importSourceConnectorFile(requestParameters.sourceId, requestParameters.file, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -69882,8 +69882,8 @@ export class SourcesBetaApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof SourcesBetaApi
      */
-    public importSourceEntitlementsSchema(requestParameters: SourcesBetaApiImportSourceEntitlementsSchemaRequest, options?: AxiosRequestConfig) {
-        return SourcesBetaApiFp(this.configuration).importSourceEntitlementsSchema(requestParameters.id, requestParameters.schemaName, requestParameters.file, options).then((request) => request(this.axios, this.basePath));
+    public importSourceEntitlementsSchema(requestParameters: SourcesBetaApiImportSourceEntitlementsSchemaRequest, axiosOptions?: AxiosRequestConfig) {
+        return SourcesBetaApiFp(this.configuration).importSourceEntitlementsSchema(requestParameters.id, requestParameters.schemaName, requestParameters.file, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -69894,8 +69894,8 @@ export class SourcesBetaApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof SourcesBetaApi
      */
-    public listProvisioningPolicies(requestParameters: SourcesBetaApiListProvisioningPoliciesRequest, options?: AxiosRequestConfig) {
-        return SourcesBetaApiFp(this.configuration).listProvisioningPolicies(requestParameters.sourceId, options).then((request) => request(this.axios, this.basePath));
+    public listProvisioningPolicies(requestParameters: SourcesBetaApiListProvisioningPoliciesRequest, axiosOptions?: AxiosRequestConfig) {
+        return SourcesBetaApiFp(this.configuration).listProvisioningPolicies(requestParameters.sourceId, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -69906,8 +69906,8 @@ export class SourcesBetaApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof SourcesBetaApi
      */
-    public listSourceSchemas(requestParameters: SourcesBetaApiListSourceSchemasRequest, options?: AxiosRequestConfig) {
-        return SourcesBetaApiFp(this.configuration).listSourceSchemas(requestParameters.sourceId, requestParameters.includeTypes, options).then((request) => request(this.axios, this.basePath));
+    public listSourceSchemas(requestParameters: SourcesBetaApiListSourceSchemasRequest, axiosOptions?: AxiosRequestConfig) {
+        return SourcesBetaApiFp(this.configuration).listSourceSchemas(requestParameters.sourceId, requestParameters.includeTypes, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -69918,8 +69918,8 @@ export class SourcesBetaApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof SourcesBetaApi
      */
-    public listSources(requestParameters: SourcesBetaApiListSourcesRequest = {}, options?: AxiosRequestConfig) {
-        return SourcesBetaApiFp(this.configuration).listSources(requestParameters.limit, requestParameters.offset, requestParameters.count, requestParameters.filters, requestParameters.sorters, requestParameters.forSubadmin, options).then((request) => request(this.axios, this.basePath));
+    public listSources(requestParameters: SourcesBetaApiListSourcesRequest = {}, axiosOptions?: AxiosRequestConfig) {
+        return SourcesBetaApiFp(this.configuration).listSources(requestParameters.limit, requestParameters.offset, requestParameters.count, requestParameters.filters, requestParameters.sorters, requestParameters.forSubadmin, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -69930,8 +69930,8 @@ export class SourcesBetaApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof SourcesBetaApi
      */
-    public peekResourceObjects(requestParameters: SourcesBetaApiPeekResourceObjectsRequest, options?: AxiosRequestConfig) {
-        return SourcesBetaApiFp(this.configuration).peekResourceObjects(requestParameters.sourceId, requestParameters.resourceObjectsRequestBeta, options).then((request) => request(this.axios, this.basePath));
+    public peekResourceObjects(requestParameters: SourcesBetaApiPeekResourceObjectsRequest, axiosOptions?: AxiosRequestConfig) {
+        return SourcesBetaApiFp(this.configuration).peekResourceObjects(requestParameters.sourceId, requestParameters.resourceObjectsRequestBeta, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -69942,8 +69942,8 @@ export class SourcesBetaApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof SourcesBetaApi
      */
-    public pingCluster(requestParameters: SourcesBetaApiPingClusterRequest, options?: AxiosRequestConfig) {
-        return SourcesBetaApiFp(this.configuration).pingCluster(requestParameters.sourceId, options).then((request) => request(this.axios, this.basePath));
+    public pingCluster(requestParameters: SourcesBetaApiPingClusterRequest, axiosOptions?: AxiosRequestConfig) {
+        return SourcesBetaApiFp(this.configuration).pingCluster(requestParameters.sourceId, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -69954,8 +69954,8 @@ export class SourcesBetaApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof SourcesBetaApi
      */
-    public putNativeChangeDetectionConfig(requestParameters: SourcesBetaApiPutNativeChangeDetectionConfigRequest, options?: AxiosRequestConfig) {
-        return SourcesBetaApiFp(this.configuration).putNativeChangeDetectionConfig(requestParameters.id, requestParameters.nativeChangeDetectionConfigBeta, options).then((request) => request(this.axios, this.basePath));
+    public putNativeChangeDetectionConfig(requestParameters: SourcesBetaApiPutNativeChangeDetectionConfigRequest, axiosOptions?: AxiosRequestConfig) {
+        return SourcesBetaApiFp(this.configuration).putNativeChangeDetectionConfig(requestParameters.id, requestParameters.nativeChangeDetectionConfigBeta, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -69966,8 +69966,8 @@ export class SourcesBetaApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof SourcesBetaApi
      */
-    public putProvisioningPolicy(requestParameters: SourcesBetaApiPutProvisioningPolicyRequest, options?: AxiosRequestConfig) {
-        return SourcesBetaApiFp(this.configuration).putProvisioningPolicy(requestParameters.sourceId, requestParameters.usageType, requestParameters.provisioningPolicyDtoBeta, options).then((request) => request(this.axios, this.basePath));
+    public putProvisioningPolicy(requestParameters: SourcesBetaApiPutProvisioningPolicyRequest, axiosOptions?: AxiosRequestConfig) {
+        return SourcesBetaApiFp(this.configuration).putProvisioningPolicy(requestParameters.sourceId, requestParameters.usageType, requestParameters.provisioningPolicyDtoBeta, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -69978,8 +69978,8 @@ export class SourcesBetaApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof SourcesBetaApi
      */
-    public putSource(requestParameters: SourcesBetaApiPutSourceRequest, options?: AxiosRequestConfig) {
-        return SourcesBetaApiFp(this.configuration).putSource(requestParameters.id, requestParameters.sourceBeta, options).then((request) => request(this.axios, this.basePath));
+    public putSource(requestParameters: SourcesBetaApiPutSourceRequest, axiosOptions?: AxiosRequestConfig) {
+        return SourcesBetaApiFp(this.configuration).putSource(requestParameters.id, requestParameters.sourceBeta, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -69990,8 +69990,8 @@ export class SourcesBetaApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof SourcesBetaApi
      */
-    public putSourceAttrSyncConfig(requestParameters: SourcesBetaApiPutSourceAttrSyncConfigRequest, options?: AxiosRequestConfig) {
-        return SourcesBetaApiFp(this.configuration).putSourceAttrSyncConfig(requestParameters.id, requestParameters.attrSyncSourceConfigBeta, options).then((request) => request(this.axios, this.basePath));
+    public putSourceAttrSyncConfig(requestParameters: SourcesBetaApiPutSourceAttrSyncConfigRequest, axiosOptions?: AxiosRequestConfig) {
+        return SourcesBetaApiFp(this.configuration).putSourceAttrSyncConfig(requestParameters.id, requestParameters.attrSyncSourceConfigBeta, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -70002,8 +70002,8 @@ export class SourcesBetaApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof SourcesBetaApi
      */
-    public putSourceSchema(requestParameters: SourcesBetaApiPutSourceSchemaRequest, options?: AxiosRequestConfig) {
-        return SourcesBetaApiFp(this.configuration).putSourceSchema(requestParameters.sourceId, requestParameters.schemaId, requestParameters.schemaBeta, options).then((request) => request(this.axios, this.basePath));
+    public putSourceSchema(requestParameters: SourcesBetaApiPutSourceSchemaRequest, axiosOptions?: AxiosRequestConfig) {
+        return SourcesBetaApiFp(this.configuration).putSourceSchema(requestParameters.sourceId, requestParameters.schemaId, requestParameters.schemaBeta, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -70014,8 +70014,8 @@ export class SourcesBetaApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof SourcesBetaApi
      */
-    public syncAttributesForSource(requestParameters: SourcesBetaApiSyncAttributesForSourceRequest, options?: AxiosRequestConfig) {
-        return SourcesBetaApiFp(this.configuration).syncAttributesForSource(requestParameters.id, options).then((request) => request(this.axios, this.basePath));
+    public syncAttributesForSource(requestParameters: SourcesBetaApiSyncAttributesForSourceRequest, axiosOptions?: AxiosRequestConfig) {
+        return SourcesBetaApiFp(this.configuration).syncAttributesForSource(requestParameters.id, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -70026,8 +70026,8 @@ export class SourcesBetaApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof SourcesBetaApi
      */
-    public testSourceConfiguration(requestParameters: SourcesBetaApiTestSourceConfigurationRequest, options?: AxiosRequestConfig) {
-        return SourcesBetaApiFp(this.configuration).testSourceConfiguration(requestParameters.sourceId, options).then((request) => request(this.axios, this.basePath));
+    public testSourceConfiguration(requestParameters: SourcesBetaApiTestSourceConfigurationRequest, axiosOptions?: AxiosRequestConfig) {
+        return SourcesBetaApiFp(this.configuration).testSourceConfiguration(requestParameters.sourceId, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -70038,8 +70038,8 @@ export class SourcesBetaApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof SourcesBetaApi
      */
-    public testSourceConnection(requestParameters: SourcesBetaApiTestSourceConnectionRequest, options?: AxiosRequestConfig) {
-        return SourcesBetaApiFp(this.configuration).testSourceConnection(requestParameters.sourceId, options).then((request) => request(this.axios, this.basePath));
+    public testSourceConnection(requestParameters: SourcesBetaApiTestSourceConnectionRequest, axiosOptions?: AxiosRequestConfig) {
+        return SourcesBetaApiFp(this.configuration).testSourceConnection(requestParameters.sourceId, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -70050,8 +70050,8 @@ export class SourcesBetaApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof SourcesBetaApi
      */
-    public updateProvisioningPoliciesInBulk(requestParameters: SourcesBetaApiUpdateProvisioningPoliciesInBulkRequest, options?: AxiosRequestConfig) {
-        return SourcesBetaApiFp(this.configuration).updateProvisioningPoliciesInBulk(requestParameters.sourceId, requestParameters.provisioningPolicyDtoBeta, options).then((request) => request(this.axios, this.basePath));
+    public updateProvisioningPoliciesInBulk(requestParameters: SourcesBetaApiUpdateProvisioningPoliciesInBulkRequest, axiosOptions?: AxiosRequestConfig) {
+        return SourcesBetaApiFp(this.configuration).updateProvisioningPoliciesInBulk(requestParameters.sourceId, requestParameters.provisioningPolicyDtoBeta, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -70062,8 +70062,8 @@ export class SourcesBetaApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof SourcesBetaApi
      */
-    public updateProvisioningPolicy(requestParameters: SourcesBetaApiUpdateProvisioningPolicyRequest, options?: AxiosRequestConfig) {
-        return SourcesBetaApiFp(this.configuration).updateProvisioningPolicy(requestParameters.sourceId, requestParameters.usageType, requestParameters.jsonPatchOperationBeta, options).then((request) => request(this.axios, this.basePath));
+    public updateProvisioningPolicy(requestParameters: SourcesBetaApiUpdateProvisioningPolicyRequest, axiosOptions?: AxiosRequestConfig) {
+        return SourcesBetaApiFp(this.configuration).updateProvisioningPolicy(requestParameters.sourceId, requestParameters.usageType, requestParameters.jsonPatchOperationBeta, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -70074,8 +70074,8 @@ export class SourcesBetaApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof SourcesBetaApi
      */
-    public updateSource(requestParameters: SourcesBetaApiUpdateSourceRequest, options?: AxiosRequestConfig) {
-        return SourcesBetaApiFp(this.configuration).updateSource(requestParameters.id, requestParameters.jsonPatchOperationBeta, options).then((request) => request(this.axios, this.basePath));
+    public updateSource(requestParameters: SourcesBetaApiUpdateSourceRequest, axiosOptions?: AxiosRequestConfig) {
+        return SourcesBetaApiFp(this.configuration).updateSource(requestParameters.id, requestParameters.jsonPatchOperationBeta, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -70086,8 +70086,8 @@ export class SourcesBetaApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof SourcesBetaApi
      */
-    public updateSourceEntitlementRequestConfig(requestParameters: SourcesBetaApiUpdateSourceEntitlementRequestConfigRequest, options?: AxiosRequestConfig) {
-        return SourcesBetaApiFp(this.configuration).updateSourceEntitlementRequestConfig(requestParameters.sourceEntitlementRequestConfigBeta, options).then((request) => request(this.axios, this.basePath));
+    public updateSourceEntitlementRequestConfig(requestParameters: SourcesBetaApiUpdateSourceEntitlementRequestConfigRequest, axiosOptions?: AxiosRequestConfig) {
+        return SourcesBetaApiFp(this.configuration).updateSourceEntitlementRequestConfig(requestParameters.sourceEntitlementRequestConfigBeta, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -70098,8 +70098,8 @@ export class SourcesBetaApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof SourcesBetaApi
      */
-    public updateSourceSchema(requestParameters: SourcesBetaApiUpdateSourceSchemaRequest, options?: AxiosRequestConfig) {
-        return SourcesBetaApiFp(this.configuration).updateSourceSchema(requestParameters.sourceId, requestParameters.schemaId, requestParameters.jsonPatchOperationBeta, options).then((request) => request(this.axios, this.basePath));
+    public updateSourceSchema(requestParameters: SourcesBetaApiUpdateSourceSchemaRequest, axiosOptions?: AxiosRequestConfig) {
+        return SourcesBetaApiFp(this.configuration).updateSourceSchema(requestParameters.sourceId, requestParameters.schemaId, requestParameters.jsonPatchOperationBeta, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 }
 
@@ -70954,8 +70954,8 @@ export class TaggedObjectsBetaApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof TaggedObjectsBetaApi
      */
-    public deleteTaggedObject(requestParameters: TaggedObjectsBetaApiDeleteTaggedObjectRequest, options?: AxiosRequestConfig) {
-        return TaggedObjectsBetaApiFp(this.configuration).deleteTaggedObject(requestParameters.type, requestParameters.id, options).then((request) => request(this.axios, this.basePath));
+    public deleteTaggedObject(requestParameters: TaggedObjectsBetaApiDeleteTaggedObjectRequest, axiosOptions?: AxiosRequestConfig) {
+        return TaggedObjectsBetaApiFp(this.configuration).deleteTaggedObject(requestParameters.type, requestParameters.id, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -70966,8 +70966,8 @@ export class TaggedObjectsBetaApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof TaggedObjectsBetaApi
      */
-    public deleteTagsToManyObject(requestParameters: TaggedObjectsBetaApiDeleteTagsToManyObjectRequest, options?: AxiosRequestConfig) {
-        return TaggedObjectsBetaApiFp(this.configuration).deleteTagsToManyObject(requestParameters.bulkTaggedObjectBeta, options).then((request) => request(this.axios, this.basePath));
+    public deleteTagsToManyObject(requestParameters: TaggedObjectsBetaApiDeleteTagsToManyObjectRequest, axiosOptions?: AxiosRequestConfig) {
+        return TaggedObjectsBetaApiFp(this.configuration).deleteTagsToManyObject(requestParameters.bulkTaggedObjectBeta, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -70978,8 +70978,8 @@ export class TaggedObjectsBetaApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof TaggedObjectsBetaApi
      */
-    public getTaggedObject(requestParameters: TaggedObjectsBetaApiGetTaggedObjectRequest, options?: AxiosRequestConfig) {
-        return TaggedObjectsBetaApiFp(this.configuration).getTaggedObject(requestParameters.type, requestParameters.id, options).then((request) => request(this.axios, this.basePath));
+    public getTaggedObject(requestParameters: TaggedObjectsBetaApiGetTaggedObjectRequest, axiosOptions?: AxiosRequestConfig) {
+        return TaggedObjectsBetaApiFp(this.configuration).getTaggedObject(requestParameters.type, requestParameters.id, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -70990,8 +70990,8 @@ export class TaggedObjectsBetaApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof TaggedObjectsBetaApi
      */
-    public listTaggedObjects(requestParameters: TaggedObjectsBetaApiListTaggedObjectsRequest = {}, options?: AxiosRequestConfig) {
-        return TaggedObjectsBetaApiFp(this.configuration).listTaggedObjects(requestParameters.limit, requestParameters.offset, requestParameters.count, requestParameters.filters, options).then((request) => request(this.axios, this.basePath));
+    public listTaggedObjects(requestParameters: TaggedObjectsBetaApiListTaggedObjectsRequest = {}, axiosOptions?: AxiosRequestConfig) {
+        return TaggedObjectsBetaApiFp(this.configuration).listTaggedObjects(requestParameters.limit, requestParameters.offset, requestParameters.count, requestParameters.filters, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -71002,8 +71002,8 @@ export class TaggedObjectsBetaApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof TaggedObjectsBetaApi
      */
-    public listTaggedObjectsByType(requestParameters: TaggedObjectsBetaApiListTaggedObjectsByTypeRequest, options?: AxiosRequestConfig) {
-        return TaggedObjectsBetaApiFp(this.configuration).listTaggedObjectsByType(requestParameters.type, requestParameters.limit, requestParameters.offset, requestParameters.count, requestParameters.filters, options).then((request) => request(this.axios, this.basePath));
+    public listTaggedObjectsByType(requestParameters: TaggedObjectsBetaApiListTaggedObjectsByTypeRequest, axiosOptions?: AxiosRequestConfig) {
+        return TaggedObjectsBetaApiFp(this.configuration).listTaggedObjectsByType(requestParameters.type, requestParameters.limit, requestParameters.offset, requestParameters.count, requestParameters.filters, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -71014,8 +71014,8 @@ export class TaggedObjectsBetaApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof TaggedObjectsBetaApi
      */
-    public putTaggedObject(requestParameters: TaggedObjectsBetaApiPutTaggedObjectRequest, options?: AxiosRequestConfig) {
-        return TaggedObjectsBetaApiFp(this.configuration).putTaggedObject(requestParameters.type, requestParameters.id, requestParameters.taggedObjectBeta, options).then((request) => request(this.axios, this.basePath));
+    public putTaggedObject(requestParameters: TaggedObjectsBetaApiPutTaggedObjectRequest, axiosOptions?: AxiosRequestConfig) {
+        return TaggedObjectsBetaApiFp(this.configuration).putTaggedObject(requestParameters.type, requestParameters.id, requestParameters.taggedObjectBeta, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -71026,8 +71026,8 @@ export class TaggedObjectsBetaApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof TaggedObjectsBetaApi
      */
-    public setTagToObject(requestParameters: TaggedObjectsBetaApiSetTagToObjectRequest, options?: AxiosRequestConfig) {
-        return TaggedObjectsBetaApiFp(this.configuration).setTagToObject(requestParameters.taggedObjectBeta, options).then((request) => request(this.axios, this.basePath));
+    public setTagToObject(requestParameters: TaggedObjectsBetaApiSetTagToObjectRequest, axiosOptions?: AxiosRequestConfig) {
+        return TaggedObjectsBetaApiFp(this.configuration).setTagToObject(requestParameters.taggedObjectBeta, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -71038,8 +71038,8 @@ export class TaggedObjectsBetaApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof TaggedObjectsBetaApi
      */
-    public setTagsToManyObjects(requestParameters: TaggedObjectsBetaApiSetTagsToManyObjectsRequest, options?: AxiosRequestConfig) {
-        return TaggedObjectsBetaApiFp(this.configuration).setTagsToManyObjects(requestParameters.bulkTaggedObjectBeta, options).then((request) => request(this.axios, this.basePath));
+    public setTagsToManyObjects(requestParameters: TaggedObjectsBetaApiSetTagsToManyObjectsRequest, axiosOptions?: AxiosRequestConfig) {
+        return TaggedObjectsBetaApiFp(this.configuration).setTagsToManyObjects(requestParameters.bulkTaggedObjectBeta, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 }
 
@@ -71656,8 +71656,8 @@ export class TaskManagementBetaApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof TaskManagementBetaApi
      */
-    public getPendingTaskHeaders(requestParameters: TaskManagementBetaApiGetPendingTaskHeadersRequest = {}, options?: AxiosRequestConfig) {
-        return TaskManagementBetaApiFp(this.configuration).getPendingTaskHeaders(requestParameters.offset, requestParameters.limit, requestParameters.count, options).then((request) => request(this.axios, this.basePath));
+    public getPendingTaskHeaders(requestParameters: TaskManagementBetaApiGetPendingTaskHeadersRequest = {}, axiosOptions?: AxiosRequestConfig) {
+        return TaskManagementBetaApiFp(this.configuration).getPendingTaskHeaders(requestParameters.offset, requestParameters.limit, requestParameters.count, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -71668,8 +71668,8 @@ export class TaskManagementBetaApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof TaskManagementBetaApi
      */
-    public getPendingTasks(requestParameters: TaskManagementBetaApiGetPendingTasksRequest = {}, options?: AxiosRequestConfig) {
-        return TaskManagementBetaApiFp(this.configuration).getPendingTasks(requestParameters.offset, requestParameters.limit, requestParameters.count, options).then((request) => request(this.axios, this.basePath));
+    public getPendingTasks(requestParameters: TaskManagementBetaApiGetPendingTasksRequest = {}, axiosOptions?: AxiosRequestConfig) {
+        return TaskManagementBetaApiFp(this.configuration).getPendingTasks(requestParameters.offset, requestParameters.limit, requestParameters.count, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -71680,8 +71680,8 @@ export class TaskManagementBetaApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof TaskManagementBetaApi
      */
-    public getTaskStatus(requestParameters: TaskManagementBetaApiGetTaskStatusRequest, options?: AxiosRequestConfig) {
-        return TaskManagementBetaApiFp(this.configuration).getTaskStatus(requestParameters.id, options).then((request) => request(this.axios, this.basePath));
+    public getTaskStatus(requestParameters: TaskManagementBetaApiGetTaskStatusRequest, axiosOptions?: AxiosRequestConfig) {
+        return TaskManagementBetaApiFp(this.configuration).getTaskStatus(requestParameters.id, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -71692,8 +71692,8 @@ export class TaskManagementBetaApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof TaskManagementBetaApi
      */
-    public getTaskStatusList(requestParameters: TaskManagementBetaApiGetTaskStatusListRequest = {}, options?: AxiosRequestConfig) {
-        return TaskManagementBetaApiFp(this.configuration).getTaskStatusList(requestParameters.limit, requestParameters.offset, requestParameters.count, requestParameters.filters, requestParameters.sorters, options).then((request) => request(this.axios, this.basePath));
+    public getTaskStatusList(requestParameters: TaskManagementBetaApiGetTaskStatusListRequest = {}, axiosOptions?: AxiosRequestConfig) {
+        return TaskManagementBetaApiFp(this.configuration).getTaskStatusList(requestParameters.limit, requestParameters.offset, requestParameters.count, requestParameters.filters, requestParameters.sorters, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -71704,8 +71704,8 @@ export class TaskManagementBetaApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof TaskManagementBetaApi
      */
-    public updateTaskStatus(requestParameters: TaskManagementBetaApiUpdateTaskStatusRequest, options?: AxiosRequestConfig) {
-        return TaskManagementBetaApiFp(this.configuration).updateTaskStatus(requestParameters.id, requestParameters.jsonPatchBeta, options).then((request) => request(this.axios, this.basePath));
+    public updateTaskStatus(requestParameters: TaskManagementBetaApiUpdateTaskStatusRequest, axiosOptions?: AxiosRequestConfig) {
+        return TaskManagementBetaApiFp(this.configuration).updateTaskStatus(requestParameters.id, requestParameters.jsonPatchBeta, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 }
 
@@ -72217,8 +72217,8 @@ export class TransformsBetaApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof TransformsBetaApi
      */
-    public createTransform(requestParameters: TransformsBetaApiCreateTransformRequest, options?: AxiosRequestConfig) {
-        return TransformsBetaApiFp(this.configuration).createTransform(requestParameters.transformBeta, options).then((request) => request(this.axios, this.basePath));
+    public createTransform(requestParameters: TransformsBetaApiCreateTransformRequest, axiosOptions?: AxiosRequestConfig) {
+        return TransformsBetaApiFp(this.configuration).createTransform(requestParameters.transformBeta, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -72229,8 +72229,8 @@ export class TransformsBetaApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof TransformsBetaApi
      */
-    public deleteTransform(requestParameters: TransformsBetaApiDeleteTransformRequest, options?: AxiosRequestConfig) {
-        return TransformsBetaApiFp(this.configuration).deleteTransform(requestParameters.id, options).then((request) => request(this.axios, this.basePath));
+    public deleteTransform(requestParameters: TransformsBetaApiDeleteTransformRequest, axiosOptions?: AxiosRequestConfig) {
+        return TransformsBetaApiFp(this.configuration).deleteTransform(requestParameters.id, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -72241,8 +72241,8 @@ export class TransformsBetaApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof TransformsBetaApi
      */
-    public getTransform(requestParameters: TransformsBetaApiGetTransformRequest, options?: AxiosRequestConfig) {
-        return TransformsBetaApiFp(this.configuration).getTransform(requestParameters.id, options).then((request) => request(this.axios, this.basePath));
+    public getTransform(requestParameters: TransformsBetaApiGetTransformRequest, axiosOptions?: AxiosRequestConfig) {
+        return TransformsBetaApiFp(this.configuration).getTransform(requestParameters.id, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -72253,8 +72253,8 @@ export class TransformsBetaApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof TransformsBetaApi
      */
-    public listTransforms(requestParameters: TransformsBetaApiListTransformsRequest = {}, options?: AxiosRequestConfig) {
-        return TransformsBetaApiFp(this.configuration).listTransforms(requestParameters.offset, requestParameters.limit, requestParameters.count, requestParameters.name, requestParameters.filters, options).then((request) => request(this.axios, this.basePath));
+    public listTransforms(requestParameters: TransformsBetaApiListTransformsRequest = {}, axiosOptions?: AxiosRequestConfig) {
+        return TransformsBetaApiFp(this.configuration).listTransforms(requestParameters.offset, requestParameters.limit, requestParameters.count, requestParameters.name, requestParameters.filters, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -72265,8 +72265,8 @@ export class TransformsBetaApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof TransformsBetaApi
      */
-    public updateTransform(requestParameters: TransformsBetaApiUpdateTransformRequest, options?: AxiosRequestConfig) {
-        return TransformsBetaApiFp(this.configuration).updateTransform(requestParameters.id, requestParameters.transformBeta, options).then((request) => request(this.axios, this.basePath));
+    public updateTransform(requestParameters: TransformsBetaApiUpdateTransformRequest, axiosOptions?: AxiosRequestConfig) {
+        return TransformsBetaApiFp(this.configuration).updateTransform(requestParameters.id, requestParameters.transformBeta, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 }
 
@@ -73313,8 +73313,8 @@ export class TriggersBetaApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof TriggersBetaApi
      */
-    public completeTriggerInvocation(requestParameters: TriggersBetaApiCompleteTriggerInvocationRequest, options?: AxiosRequestConfig) {
-        return TriggersBetaApiFp(this.configuration).completeTriggerInvocation(requestParameters.id, requestParameters.completeInvocationBeta, options).then((request) => request(this.axios, this.basePath));
+    public completeTriggerInvocation(requestParameters: TriggersBetaApiCompleteTriggerInvocationRequest, axiosOptions?: AxiosRequestConfig) {
+        return TriggersBetaApiFp(this.configuration).completeTriggerInvocation(requestParameters.id, requestParameters.completeInvocationBeta, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -73325,8 +73325,8 @@ export class TriggersBetaApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof TriggersBetaApi
      */
-    public createSubscription(requestParameters: TriggersBetaApiCreateSubscriptionRequest, options?: AxiosRequestConfig) {
-        return TriggersBetaApiFp(this.configuration).createSubscription(requestParameters.subscriptionPostRequestBeta, options).then((request) => request(this.axios, this.basePath));
+    public createSubscription(requestParameters: TriggersBetaApiCreateSubscriptionRequest, axiosOptions?: AxiosRequestConfig) {
+        return TriggersBetaApiFp(this.configuration).createSubscription(requestParameters.subscriptionPostRequestBeta, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -73337,8 +73337,8 @@ export class TriggersBetaApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof TriggersBetaApi
      */
-    public deleteSubscription(requestParameters: TriggersBetaApiDeleteSubscriptionRequest, options?: AxiosRequestConfig) {
-        return TriggersBetaApiFp(this.configuration).deleteSubscription(requestParameters.id, options).then((request) => request(this.axios, this.basePath));
+    public deleteSubscription(requestParameters: TriggersBetaApiDeleteSubscriptionRequest, axiosOptions?: AxiosRequestConfig) {
+        return TriggersBetaApiFp(this.configuration).deleteSubscription(requestParameters.id, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -73349,8 +73349,8 @@ export class TriggersBetaApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof TriggersBetaApi
      */
-    public listSubscriptions(requestParameters: TriggersBetaApiListSubscriptionsRequest = {}, options?: AxiosRequestConfig) {
-        return TriggersBetaApiFp(this.configuration).listSubscriptions(requestParameters.limit, requestParameters.offset, requestParameters.count, requestParameters.filters, requestParameters.sorters, options).then((request) => request(this.axios, this.basePath));
+    public listSubscriptions(requestParameters: TriggersBetaApiListSubscriptionsRequest = {}, axiosOptions?: AxiosRequestConfig) {
+        return TriggersBetaApiFp(this.configuration).listSubscriptions(requestParameters.limit, requestParameters.offset, requestParameters.count, requestParameters.filters, requestParameters.sorters, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -73361,8 +73361,8 @@ export class TriggersBetaApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof TriggersBetaApi
      */
-    public listTriggerInvocationStatus(requestParameters: TriggersBetaApiListTriggerInvocationStatusRequest = {}, options?: AxiosRequestConfig) {
-        return TriggersBetaApiFp(this.configuration).listTriggerInvocationStatus(requestParameters.limit, requestParameters.offset, requestParameters.count, requestParameters.filters, requestParameters.sorters, options).then((request) => request(this.axios, this.basePath));
+    public listTriggerInvocationStatus(requestParameters: TriggersBetaApiListTriggerInvocationStatusRequest = {}, axiosOptions?: AxiosRequestConfig) {
+        return TriggersBetaApiFp(this.configuration).listTriggerInvocationStatus(requestParameters.limit, requestParameters.offset, requestParameters.count, requestParameters.filters, requestParameters.sorters, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -73373,8 +73373,8 @@ export class TriggersBetaApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof TriggersBetaApi
      */
-    public listTriggers(requestParameters: TriggersBetaApiListTriggersRequest = {}, options?: AxiosRequestConfig) {
-        return TriggersBetaApiFp(this.configuration).listTriggers(requestParameters.limit, requestParameters.offset, requestParameters.count, requestParameters.filters, requestParameters.sorters, options).then((request) => request(this.axios, this.basePath));
+    public listTriggers(requestParameters: TriggersBetaApiListTriggersRequest = {}, axiosOptions?: AxiosRequestConfig) {
+        return TriggersBetaApiFp(this.configuration).listTriggers(requestParameters.limit, requestParameters.offset, requestParameters.count, requestParameters.filters, requestParameters.sorters, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -73385,8 +73385,8 @@ export class TriggersBetaApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof TriggersBetaApi
      */
-    public patchSubscription(requestParameters: TriggersBetaApiPatchSubscriptionRequest, options?: AxiosRequestConfig) {
-        return TriggersBetaApiFp(this.configuration).patchSubscription(requestParameters.id, requestParameters.subscriptionPatchRequestInnerBeta, options).then((request) => request(this.axios, this.basePath));
+    public patchSubscription(requestParameters: TriggersBetaApiPatchSubscriptionRequest, axiosOptions?: AxiosRequestConfig) {
+        return TriggersBetaApiFp(this.configuration).patchSubscription(requestParameters.id, requestParameters.subscriptionPatchRequestInnerBeta, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -73397,8 +73397,8 @@ export class TriggersBetaApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof TriggersBetaApi
      */
-    public startTestTriggerInvocation(requestParameters: TriggersBetaApiStartTestTriggerInvocationRequest, options?: AxiosRequestConfig) {
-        return TriggersBetaApiFp(this.configuration).startTestTriggerInvocation(requestParameters.testInvocationBeta, options).then((request) => request(this.axios, this.basePath));
+    public startTestTriggerInvocation(requestParameters: TriggersBetaApiStartTestTriggerInvocationRequest, axiosOptions?: AxiosRequestConfig) {
+        return TriggersBetaApiFp(this.configuration).startTestTriggerInvocation(requestParameters.testInvocationBeta, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -73409,8 +73409,8 @@ export class TriggersBetaApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof TriggersBetaApi
      */
-    public testSubscriptionFilter(requestParameters: TriggersBetaApiTestSubscriptionFilterRequest, options?: AxiosRequestConfig) {
-        return TriggersBetaApiFp(this.configuration).testSubscriptionFilter(requestParameters.validateFilterInputDtoBeta, options).then((request) => request(this.axios, this.basePath));
+    public testSubscriptionFilter(requestParameters: TriggersBetaApiTestSubscriptionFilterRequest, axiosOptions?: AxiosRequestConfig) {
+        return TriggersBetaApiFp(this.configuration).testSubscriptionFilter(requestParameters.validateFilterInputDtoBeta, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -73421,8 +73421,8 @@ export class TriggersBetaApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof TriggersBetaApi
      */
-    public updateSubscription(requestParameters: TriggersBetaApiUpdateSubscriptionRequest, options?: AxiosRequestConfig) {
-        return TriggersBetaApiFp(this.configuration).updateSubscription(requestParameters.id, requestParameters.subscriptionPutRequestBeta, options).then((request) => request(this.axios, this.basePath));
+    public updateSubscription(requestParameters: TriggersBetaApiUpdateSubscriptionRequest, axiosOptions?: AxiosRequestConfig) {
+        return TriggersBetaApiFp(this.configuration).updateSubscription(requestParameters.id, requestParameters.subscriptionPutRequestBeta, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 }
 
@@ -74647,8 +74647,8 @@ export class WorkItemsBetaApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof WorkItemsBetaApi
      */
-    public approveApprovalItem(requestParameters: WorkItemsBetaApiApproveApprovalItemRequest, options?: AxiosRequestConfig) {
-        return WorkItemsBetaApiFp(this.configuration).approveApprovalItem(requestParameters.id, requestParameters.approvalItemId, options).then((request) => request(this.axios, this.basePath));
+    public approveApprovalItem(requestParameters: WorkItemsBetaApiApproveApprovalItemRequest, axiosOptions?: AxiosRequestConfig) {
+        return WorkItemsBetaApiFp(this.configuration).approveApprovalItem(requestParameters.id, requestParameters.approvalItemId, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -74659,8 +74659,8 @@ export class WorkItemsBetaApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof WorkItemsBetaApi
      */
-    public approveApprovalItemsInBulk(requestParameters: WorkItemsBetaApiApproveApprovalItemsInBulkRequest, options?: AxiosRequestConfig) {
-        return WorkItemsBetaApiFp(this.configuration).approveApprovalItemsInBulk(requestParameters.id, options).then((request) => request(this.axios, this.basePath));
+    public approveApprovalItemsInBulk(requestParameters: WorkItemsBetaApiApproveApprovalItemsInBulkRequest, axiosOptions?: AxiosRequestConfig) {
+        return WorkItemsBetaApiFp(this.configuration).approveApprovalItemsInBulk(requestParameters.id, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -74671,8 +74671,8 @@ export class WorkItemsBetaApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof WorkItemsBetaApi
      */
-    public completeWorkItem(requestParameters: WorkItemsBetaApiCompleteWorkItemRequest, options?: AxiosRequestConfig) {
-        return WorkItemsBetaApiFp(this.configuration).completeWorkItem(requestParameters.id, options).then((request) => request(this.axios, this.basePath));
+    public completeWorkItem(requestParameters: WorkItemsBetaApiCompleteWorkItemRequest, axiosOptions?: AxiosRequestConfig) {
+        return WorkItemsBetaApiFp(this.configuration).completeWorkItem(requestParameters.id, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -74683,8 +74683,8 @@ export class WorkItemsBetaApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof WorkItemsBetaApi
      */
-    public forwardWorkItem(requestParameters: WorkItemsBetaApiForwardWorkItemRequest, options?: AxiosRequestConfig) {
-        return WorkItemsBetaApiFp(this.configuration).forwardWorkItem(requestParameters.id, requestParameters.workItemForwardBeta, options).then((request) => request(this.axios, this.basePath));
+    public forwardWorkItem(requestParameters: WorkItemsBetaApiForwardWorkItemRequest, axiosOptions?: AxiosRequestConfig) {
+        return WorkItemsBetaApiFp(this.configuration).forwardWorkItem(requestParameters.id, requestParameters.workItemForwardBeta, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -74695,8 +74695,8 @@ export class WorkItemsBetaApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof WorkItemsBetaApi
      */
-    public getCompletedWorkItems(requestParameters: WorkItemsBetaApiGetCompletedWorkItemsRequest = {}, options?: AxiosRequestConfig) {
-        return WorkItemsBetaApiFp(this.configuration).getCompletedWorkItems(requestParameters.ownerId, requestParameters.limit, requestParameters.offset, requestParameters.count, options).then((request) => request(this.axios, this.basePath));
+    public getCompletedWorkItems(requestParameters: WorkItemsBetaApiGetCompletedWorkItemsRequest = {}, axiosOptions?: AxiosRequestConfig) {
+        return WorkItemsBetaApiFp(this.configuration).getCompletedWorkItems(requestParameters.ownerId, requestParameters.limit, requestParameters.offset, requestParameters.count, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -74707,8 +74707,8 @@ export class WorkItemsBetaApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof WorkItemsBetaApi
      */
-    public getCountCompletedWorkItems(requestParameters: WorkItemsBetaApiGetCountCompletedWorkItemsRequest = {}, options?: AxiosRequestConfig) {
-        return WorkItemsBetaApiFp(this.configuration).getCountCompletedWorkItems(requestParameters.ownerId, options).then((request) => request(this.axios, this.basePath));
+    public getCountCompletedWorkItems(requestParameters: WorkItemsBetaApiGetCountCompletedWorkItemsRequest = {}, axiosOptions?: AxiosRequestConfig) {
+        return WorkItemsBetaApiFp(this.configuration).getCountCompletedWorkItems(requestParameters.ownerId, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -74719,8 +74719,8 @@ export class WorkItemsBetaApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof WorkItemsBetaApi
      */
-    public getCountWorkItems(requestParameters: WorkItemsBetaApiGetCountWorkItemsRequest = {}, options?: AxiosRequestConfig) {
-        return WorkItemsBetaApiFp(this.configuration).getCountWorkItems(requestParameters.ownerId, options).then((request) => request(this.axios, this.basePath));
+    public getCountWorkItems(requestParameters: WorkItemsBetaApiGetCountWorkItemsRequest = {}, axiosOptions?: AxiosRequestConfig) {
+        return WorkItemsBetaApiFp(this.configuration).getCountWorkItems(requestParameters.ownerId, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -74731,8 +74731,8 @@ export class WorkItemsBetaApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof WorkItemsBetaApi
      */
-    public getWorkItem(requestParameters: WorkItemsBetaApiGetWorkItemRequest, options?: AxiosRequestConfig) {
-        return WorkItemsBetaApiFp(this.configuration).getWorkItem(requestParameters.id, requestParameters.ownerId, options).then((request) => request(this.axios, this.basePath));
+    public getWorkItem(requestParameters: WorkItemsBetaApiGetWorkItemRequest, axiosOptions?: AxiosRequestConfig) {
+        return WorkItemsBetaApiFp(this.configuration).getWorkItem(requestParameters.id, requestParameters.ownerId, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -74743,8 +74743,8 @@ export class WorkItemsBetaApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof WorkItemsBetaApi
      */
-    public getWorkItemsSummary(requestParameters: WorkItemsBetaApiGetWorkItemsSummaryRequest = {}, options?: AxiosRequestConfig) {
-        return WorkItemsBetaApiFp(this.configuration).getWorkItemsSummary(requestParameters.ownerId, options).then((request) => request(this.axios, this.basePath));
+    public getWorkItemsSummary(requestParameters: WorkItemsBetaApiGetWorkItemsSummaryRequest = {}, axiosOptions?: AxiosRequestConfig) {
+        return WorkItemsBetaApiFp(this.configuration).getWorkItemsSummary(requestParameters.ownerId, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -74755,8 +74755,8 @@ export class WorkItemsBetaApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof WorkItemsBetaApi
      */
-    public listWorkItems(requestParameters: WorkItemsBetaApiListWorkItemsRequest = {}, options?: AxiosRequestConfig) {
-        return WorkItemsBetaApiFp(this.configuration).listWorkItems(requestParameters.limit, requestParameters.offset, requestParameters.count, requestParameters.ownerId, options).then((request) => request(this.axios, this.basePath));
+    public listWorkItems(requestParameters: WorkItemsBetaApiListWorkItemsRequest = {}, axiosOptions?: AxiosRequestConfig) {
+        return WorkItemsBetaApiFp(this.configuration).listWorkItems(requestParameters.limit, requestParameters.offset, requestParameters.count, requestParameters.ownerId, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -74767,8 +74767,8 @@ export class WorkItemsBetaApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof WorkItemsBetaApi
      */
-    public rejectApprovalItem(requestParameters: WorkItemsBetaApiRejectApprovalItemRequest, options?: AxiosRequestConfig) {
-        return WorkItemsBetaApiFp(this.configuration).rejectApprovalItem(requestParameters.id, requestParameters.approvalItemId, options).then((request) => request(this.axios, this.basePath));
+    public rejectApprovalItem(requestParameters: WorkItemsBetaApiRejectApprovalItemRequest, axiosOptions?: AxiosRequestConfig) {
+        return WorkItemsBetaApiFp(this.configuration).rejectApprovalItem(requestParameters.id, requestParameters.approvalItemId, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -74779,8 +74779,8 @@ export class WorkItemsBetaApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof WorkItemsBetaApi
      */
-    public rejectApprovalItemsInBulk(requestParameters: WorkItemsBetaApiRejectApprovalItemsInBulkRequest, options?: AxiosRequestConfig) {
-        return WorkItemsBetaApiFp(this.configuration).rejectApprovalItemsInBulk(requestParameters.id, options).then((request) => request(this.axios, this.basePath));
+    public rejectApprovalItemsInBulk(requestParameters: WorkItemsBetaApiRejectApprovalItemsInBulkRequest, axiosOptions?: AxiosRequestConfig) {
+        return WorkItemsBetaApiFp(this.configuration).rejectApprovalItemsInBulk(requestParameters.id, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -74791,8 +74791,8 @@ export class WorkItemsBetaApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof WorkItemsBetaApi
      */
-    public submitAccountSelection(requestParameters: WorkItemsBetaApiSubmitAccountSelectionRequest, options?: AxiosRequestConfig) {
-        return WorkItemsBetaApiFp(this.configuration).submitAccountSelection(requestParameters.id, requestParameters.requestBody, options).then((request) => request(this.axios, this.basePath));
+    public submitAccountSelection(requestParameters: WorkItemsBetaApiSubmitAccountSelectionRequest, axiosOptions?: AxiosRequestConfig) {
+        return WorkItemsBetaApiFp(this.configuration).submitAccountSelection(requestParameters.id, requestParameters.requestBody, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 }
 
@@ -75536,8 +75536,8 @@ export class WorkReassignmentBetaApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof WorkReassignmentBetaApi
      */
-    public createReassignmentConfiguration(requestParameters: WorkReassignmentBetaApiCreateReassignmentConfigurationRequest, options?: AxiosRequestConfig) {
-        return WorkReassignmentBetaApiFp(this.configuration).createReassignmentConfiguration(requestParameters.configurationItemRequestBeta, options).then((request) => request(this.axios, this.basePath));
+    public createReassignmentConfiguration(requestParameters: WorkReassignmentBetaApiCreateReassignmentConfigurationRequest, axiosOptions?: AxiosRequestConfig) {
+        return WorkReassignmentBetaApiFp(this.configuration).createReassignmentConfiguration(requestParameters.configurationItemRequestBeta, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -75548,8 +75548,8 @@ export class WorkReassignmentBetaApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof WorkReassignmentBetaApi
      */
-    public deleteReassignmentConfiguration(requestParameters: WorkReassignmentBetaApiDeleteReassignmentConfigurationRequest, options?: AxiosRequestConfig) {
-        return WorkReassignmentBetaApiFp(this.configuration).deleteReassignmentConfiguration(requestParameters.identityId, options).then((request) => request(this.axios, this.basePath));
+    public deleteReassignmentConfiguration(requestParameters: WorkReassignmentBetaApiDeleteReassignmentConfigurationRequest, axiosOptions?: AxiosRequestConfig) {
+        return WorkReassignmentBetaApiFp(this.configuration).deleteReassignmentConfiguration(requestParameters.identityId, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -75560,8 +75560,8 @@ export class WorkReassignmentBetaApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof WorkReassignmentBetaApi
      */
-    public getEvaluateReassignmentConfiguration(requestParameters: WorkReassignmentBetaApiGetEvaluateReassignmentConfigurationRequest, options?: AxiosRequestConfig) {
-        return WorkReassignmentBetaApiFp(this.configuration).getEvaluateReassignmentConfiguration(requestParameters.identityId, requestParameters.configType, requestParameters.exclusionFilters, options).then((request) => request(this.axios, this.basePath));
+    public getEvaluateReassignmentConfiguration(requestParameters: WorkReassignmentBetaApiGetEvaluateReassignmentConfigurationRequest, axiosOptions?: AxiosRequestConfig) {
+        return WorkReassignmentBetaApiFp(this.configuration).getEvaluateReassignmentConfiguration(requestParameters.identityId, requestParameters.configType, requestParameters.exclusionFilters, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -75571,8 +75571,8 @@ export class WorkReassignmentBetaApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof WorkReassignmentBetaApi
      */
-    public getReassignmentConfigTypes(options?: AxiosRequestConfig) {
-        return WorkReassignmentBetaApiFp(this.configuration).getReassignmentConfigTypes(options).then((request) => request(this.axios, this.basePath));
+    public getReassignmentConfigTypes(axiosOptions?: AxiosRequestConfig) {
+        return WorkReassignmentBetaApiFp(this.configuration).getReassignmentConfigTypes(axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -75583,8 +75583,8 @@ export class WorkReassignmentBetaApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof WorkReassignmentBetaApi
      */
-    public getReassignmentConfiguration(requestParameters: WorkReassignmentBetaApiGetReassignmentConfigurationRequest, options?: AxiosRequestConfig) {
-        return WorkReassignmentBetaApiFp(this.configuration).getReassignmentConfiguration(requestParameters.identityId, options).then((request) => request(this.axios, this.basePath));
+    public getReassignmentConfiguration(requestParameters: WorkReassignmentBetaApiGetReassignmentConfigurationRequest, axiosOptions?: AxiosRequestConfig) {
+        return WorkReassignmentBetaApiFp(this.configuration).getReassignmentConfiguration(requestParameters.identityId, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -75594,8 +75594,8 @@ export class WorkReassignmentBetaApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof WorkReassignmentBetaApi
      */
-    public getTenantConfigConfiguration(options?: AxiosRequestConfig) {
-        return WorkReassignmentBetaApiFp(this.configuration).getTenantConfigConfiguration(options).then((request) => request(this.axios, this.basePath));
+    public getTenantConfigConfiguration(axiosOptions?: AxiosRequestConfig) {
+        return WorkReassignmentBetaApiFp(this.configuration).getTenantConfigConfiguration(axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -75605,8 +75605,8 @@ export class WorkReassignmentBetaApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof WorkReassignmentBetaApi
      */
-    public listReassignmentConfigurations(options?: AxiosRequestConfig) {
-        return WorkReassignmentBetaApiFp(this.configuration).listReassignmentConfigurations(options).then((request) => request(this.axios, this.basePath));
+    public listReassignmentConfigurations(axiosOptions?: AxiosRequestConfig) {
+        return WorkReassignmentBetaApiFp(this.configuration).listReassignmentConfigurations(axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -75617,8 +75617,8 @@ export class WorkReassignmentBetaApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof WorkReassignmentBetaApi
      */
-    public putReassignmentConfig(requestParameters: WorkReassignmentBetaApiPutReassignmentConfigRequest, options?: AxiosRequestConfig) {
-        return WorkReassignmentBetaApiFp(this.configuration).putReassignmentConfig(requestParameters.identityId, requestParameters.configurationItemRequestBeta, options).then((request) => request(this.axios, this.basePath));
+    public putReassignmentConfig(requestParameters: WorkReassignmentBetaApiPutReassignmentConfigRequest, axiosOptions?: AxiosRequestConfig) {
+        return WorkReassignmentBetaApiFp(this.configuration).putReassignmentConfig(requestParameters.identityId, requestParameters.configurationItemRequestBeta, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -75629,8 +75629,8 @@ export class WorkReassignmentBetaApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof WorkReassignmentBetaApi
      */
-    public putTenantConfiguration(requestParameters: WorkReassignmentBetaApiPutTenantConfigurationRequest, options?: AxiosRequestConfig) {
-        return WorkReassignmentBetaApiFp(this.configuration).putTenantConfiguration(requestParameters.tenantConfigurationRequestBeta, options).then((request) => request(this.axios, this.basePath));
+    public putTenantConfiguration(requestParameters: WorkReassignmentBetaApiPutTenantConfigurationRequest, axiosOptions?: AxiosRequestConfig) {
+        return WorkReassignmentBetaApiFp(this.configuration).putTenantConfiguration(requestParameters.tenantConfigurationRequestBeta, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 }
 
@@ -77250,8 +77250,8 @@ export class WorkflowsBetaApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof WorkflowsBetaApi
      */
-    public cancelWorkflowExecution(requestParameters: WorkflowsBetaApiCancelWorkflowExecutionRequest, options?: AxiosRequestConfig) {
-        return WorkflowsBetaApiFp(this.configuration).cancelWorkflowExecution(requestParameters.id, options).then((request) => request(this.axios, this.basePath));
+    public cancelWorkflowExecution(requestParameters: WorkflowsBetaApiCancelWorkflowExecutionRequest, axiosOptions?: AxiosRequestConfig) {
+        return WorkflowsBetaApiFp(this.configuration).cancelWorkflowExecution(requestParameters.id, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -77262,8 +77262,8 @@ export class WorkflowsBetaApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof WorkflowsBetaApi
      */
-    public createWorkflow(requestParameters: WorkflowsBetaApiCreateWorkflowRequest, options?: AxiosRequestConfig) {
-        return WorkflowsBetaApiFp(this.configuration).createWorkflow(requestParameters.createWorkflowRequestBeta, options).then((request) => request(this.axios, this.basePath));
+    public createWorkflow(requestParameters: WorkflowsBetaApiCreateWorkflowRequest, axiosOptions?: AxiosRequestConfig) {
+        return WorkflowsBetaApiFp(this.configuration).createWorkflow(requestParameters.createWorkflowRequestBeta, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -77274,8 +77274,8 @@ export class WorkflowsBetaApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof WorkflowsBetaApi
      */
-    public deleteWorkflow(requestParameters: WorkflowsBetaApiDeleteWorkflowRequest, options?: AxiosRequestConfig) {
-        return WorkflowsBetaApiFp(this.configuration).deleteWorkflow(requestParameters.id, options).then((request) => request(this.axios, this.basePath));
+    public deleteWorkflow(requestParameters: WorkflowsBetaApiDeleteWorkflowRequest, axiosOptions?: AxiosRequestConfig) {
+        return WorkflowsBetaApiFp(this.configuration).deleteWorkflow(requestParameters.id, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -77286,8 +77286,8 @@ export class WorkflowsBetaApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof WorkflowsBetaApi
      */
-    public getWorkflow(requestParameters: WorkflowsBetaApiGetWorkflowRequest, options?: AxiosRequestConfig) {
-        return WorkflowsBetaApiFp(this.configuration).getWorkflow(requestParameters.id, options).then((request) => request(this.axios, this.basePath));
+    public getWorkflow(requestParameters: WorkflowsBetaApiGetWorkflowRequest, axiosOptions?: AxiosRequestConfig) {
+        return WorkflowsBetaApiFp(this.configuration).getWorkflow(requestParameters.id, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -77298,8 +77298,8 @@ export class WorkflowsBetaApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof WorkflowsBetaApi
      */
-    public getWorkflowExecution(requestParameters: WorkflowsBetaApiGetWorkflowExecutionRequest, options?: AxiosRequestConfig) {
-        return WorkflowsBetaApiFp(this.configuration).getWorkflowExecution(requestParameters.id, options).then((request) => request(this.axios, this.basePath));
+    public getWorkflowExecution(requestParameters: WorkflowsBetaApiGetWorkflowExecutionRequest, axiosOptions?: AxiosRequestConfig) {
+        return WorkflowsBetaApiFp(this.configuration).getWorkflowExecution(requestParameters.id, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -77310,8 +77310,8 @@ export class WorkflowsBetaApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof WorkflowsBetaApi
      */
-    public getWorkflowExecutionHistory(requestParameters: WorkflowsBetaApiGetWorkflowExecutionHistoryRequest, options?: AxiosRequestConfig) {
-        return WorkflowsBetaApiFp(this.configuration).getWorkflowExecutionHistory(requestParameters.id, options).then((request) => request(this.axios, this.basePath));
+    public getWorkflowExecutionHistory(requestParameters: WorkflowsBetaApiGetWorkflowExecutionHistoryRequest, axiosOptions?: AxiosRequestConfig) {
+        return WorkflowsBetaApiFp(this.configuration).getWorkflowExecutionHistory(requestParameters.id, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -77322,8 +77322,8 @@ export class WorkflowsBetaApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof WorkflowsBetaApi
      */
-    public listCompleteWorkflowLibrary(requestParameters: WorkflowsBetaApiListCompleteWorkflowLibraryRequest = {}, options?: AxiosRequestConfig) {
-        return WorkflowsBetaApiFp(this.configuration).listCompleteWorkflowLibrary(requestParameters.limit, requestParameters.offset, options).then((request) => request(this.axios, this.basePath));
+    public listCompleteWorkflowLibrary(requestParameters: WorkflowsBetaApiListCompleteWorkflowLibraryRequest = {}, axiosOptions?: AxiosRequestConfig) {
+        return WorkflowsBetaApiFp(this.configuration).listCompleteWorkflowLibrary(requestParameters.limit, requestParameters.offset, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -77334,8 +77334,8 @@ export class WorkflowsBetaApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof WorkflowsBetaApi
      */
-    public listWorkflowExecutions(requestParameters: WorkflowsBetaApiListWorkflowExecutionsRequest, options?: AxiosRequestConfig) {
-        return WorkflowsBetaApiFp(this.configuration).listWorkflowExecutions(requestParameters.id, requestParameters.limit, requestParameters.offset, requestParameters.count, requestParameters.filters, options).then((request) => request(this.axios, this.basePath));
+    public listWorkflowExecutions(requestParameters: WorkflowsBetaApiListWorkflowExecutionsRequest, axiosOptions?: AxiosRequestConfig) {
+        return WorkflowsBetaApiFp(this.configuration).listWorkflowExecutions(requestParameters.id, requestParameters.limit, requestParameters.offset, requestParameters.count, requestParameters.filters, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -77346,8 +77346,8 @@ export class WorkflowsBetaApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof WorkflowsBetaApi
      */
-    public listWorkflowLibraryActions(requestParameters: WorkflowsBetaApiListWorkflowLibraryActionsRequest = {}, options?: AxiosRequestConfig) {
-        return WorkflowsBetaApiFp(this.configuration).listWorkflowLibraryActions(requestParameters.limit, requestParameters.offset, requestParameters.filters, options).then((request) => request(this.axios, this.basePath));
+    public listWorkflowLibraryActions(requestParameters: WorkflowsBetaApiListWorkflowLibraryActionsRequest = {}, axiosOptions?: AxiosRequestConfig) {
+        return WorkflowsBetaApiFp(this.configuration).listWorkflowLibraryActions(requestParameters.limit, requestParameters.offset, requestParameters.filters, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -77357,8 +77357,8 @@ export class WorkflowsBetaApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof WorkflowsBetaApi
      */
-    public listWorkflowLibraryOperators(options?: AxiosRequestConfig) {
-        return WorkflowsBetaApiFp(this.configuration).listWorkflowLibraryOperators(options).then((request) => request(this.axios, this.basePath));
+    public listWorkflowLibraryOperators(axiosOptions?: AxiosRequestConfig) {
+        return WorkflowsBetaApiFp(this.configuration).listWorkflowLibraryOperators(axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -77369,8 +77369,8 @@ export class WorkflowsBetaApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof WorkflowsBetaApi
      */
-    public listWorkflowLibraryTriggers(requestParameters: WorkflowsBetaApiListWorkflowLibraryTriggersRequest = {}, options?: AxiosRequestConfig) {
-        return WorkflowsBetaApiFp(this.configuration).listWorkflowLibraryTriggers(requestParameters.limit, requestParameters.offset, requestParameters.filters, options).then((request) => request(this.axios, this.basePath));
+    public listWorkflowLibraryTriggers(requestParameters: WorkflowsBetaApiListWorkflowLibraryTriggersRequest = {}, axiosOptions?: AxiosRequestConfig) {
+        return WorkflowsBetaApiFp(this.configuration).listWorkflowLibraryTriggers(requestParameters.limit, requestParameters.offset, requestParameters.filters, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -77380,8 +77380,8 @@ export class WorkflowsBetaApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof WorkflowsBetaApi
      */
-    public listWorkflows(options?: AxiosRequestConfig) {
-        return WorkflowsBetaApiFp(this.configuration).listWorkflows(options).then((request) => request(this.axios, this.basePath));
+    public listWorkflows(axiosOptions?: AxiosRequestConfig) {
+        return WorkflowsBetaApiFp(this.configuration).listWorkflows(axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -77392,8 +77392,8 @@ export class WorkflowsBetaApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof WorkflowsBetaApi
      */
-    public patchWorkflow(requestParameters: WorkflowsBetaApiPatchWorkflowRequest, options?: AxiosRequestConfig) {
-        return WorkflowsBetaApiFp(this.configuration).patchWorkflow(requestParameters.id, requestParameters.jsonPatchOperationBeta, options).then((request) => request(this.axios, this.basePath));
+    public patchWorkflow(requestParameters: WorkflowsBetaApiPatchWorkflowRequest, axiosOptions?: AxiosRequestConfig) {
+        return WorkflowsBetaApiFp(this.configuration).patchWorkflow(requestParameters.id, requestParameters.jsonPatchOperationBeta, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -77404,8 +77404,8 @@ export class WorkflowsBetaApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof WorkflowsBetaApi
      */
-    public postExternalExecuteWorkflow(requestParameters: WorkflowsBetaApiPostExternalExecuteWorkflowRequest, options?: AxiosRequestConfig) {
-        return WorkflowsBetaApiFp(this.configuration).postExternalExecuteWorkflow(requestParameters.id, requestParameters.postExternalExecuteWorkflowRequestBeta, options).then((request) => request(this.axios, this.basePath));
+    public postExternalExecuteWorkflow(requestParameters: WorkflowsBetaApiPostExternalExecuteWorkflowRequest, axiosOptions?: AxiosRequestConfig) {
+        return WorkflowsBetaApiFp(this.configuration).postExternalExecuteWorkflow(requestParameters.id, requestParameters.postExternalExecuteWorkflowRequestBeta, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -77416,8 +77416,8 @@ export class WorkflowsBetaApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof WorkflowsBetaApi
      */
-    public postWorkflowExternalTrigger(requestParameters: WorkflowsBetaApiPostWorkflowExternalTriggerRequest, options?: AxiosRequestConfig) {
-        return WorkflowsBetaApiFp(this.configuration).postWorkflowExternalTrigger(requestParameters.id, options).then((request) => request(this.axios, this.basePath));
+    public postWorkflowExternalTrigger(requestParameters: WorkflowsBetaApiPostWorkflowExternalTriggerRequest, axiosOptions?: AxiosRequestConfig) {
+        return WorkflowsBetaApiFp(this.configuration).postWorkflowExternalTrigger(requestParameters.id, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -77428,8 +77428,8 @@ export class WorkflowsBetaApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof WorkflowsBetaApi
      */
-    public testExternalExecuteWorkflow(requestParameters: WorkflowsBetaApiTestExternalExecuteWorkflowRequest, options?: AxiosRequestConfig) {
-        return WorkflowsBetaApiFp(this.configuration).testExternalExecuteWorkflow(requestParameters.id, requestParameters.testExternalExecuteWorkflowRequestBeta, options).then((request) => request(this.axios, this.basePath));
+    public testExternalExecuteWorkflow(requestParameters: WorkflowsBetaApiTestExternalExecuteWorkflowRequest, axiosOptions?: AxiosRequestConfig) {
+        return WorkflowsBetaApiFp(this.configuration).testExternalExecuteWorkflow(requestParameters.id, requestParameters.testExternalExecuteWorkflowRequestBeta, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -77440,8 +77440,8 @@ export class WorkflowsBetaApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof WorkflowsBetaApi
      */
-    public testWorkflow(requestParameters: WorkflowsBetaApiTestWorkflowRequest, options?: AxiosRequestConfig) {
-        return WorkflowsBetaApiFp(this.configuration).testWorkflow(requestParameters.id, requestParameters.testWorkflowRequestBeta, options).then((request) => request(this.axios, this.basePath));
+    public testWorkflow(requestParameters: WorkflowsBetaApiTestWorkflowRequest, axiosOptions?: AxiosRequestConfig) {
+        return WorkflowsBetaApiFp(this.configuration).testWorkflow(requestParameters.id, requestParameters.testWorkflowRequestBeta, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -77452,8 +77452,8 @@ export class WorkflowsBetaApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof WorkflowsBetaApi
      */
-    public updateWorkflow(requestParameters: WorkflowsBetaApiUpdateWorkflowRequest, options?: AxiosRequestConfig) {
-        return WorkflowsBetaApiFp(this.configuration).updateWorkflow(requestParameters.id, requestParameters.workflowBodyBeta, options).then((request) => request(this.axios, this.basePath));
+    public updateWorkflow(requestParameters: WorkflowsBetaApiUpdateWorkflowRequest, axiosOptions?: AxiosRequestConfig) {
+        return WorkflowsBetaApiFp(this.configuration).updateWorkflow(requestParameters.id, requestParameters.workflowBodyBeta, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 }
 
