@@ -17586,8 +17586,8 @@ export const AccessProfilesApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async createAccessProfile(accessProfile: AccessProfile, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<AccessProfile>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.createAccessProfile(accessProfile, options);
+        async createAccessProfile(accessProfile: AccessProfile, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<AccessProfile>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.createAccessProfile(accessProfile, axiosOptions);
             const operationBasePath = operationServerMap['AccessProfilesApi.createAccessProfile']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -17598,8 +17598,8 @@ export const AccessProfilesApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async deleteAccessProfile(id: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.deleteAccessProfile(id, options);
+        async deleteAccessProfile(id: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.deleteAccessProfile(id, axiosOptions);
             const operationBasePath = operationServerMap['AccessProfilesApi.deleteAccessProfile']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -17610,8 +17610,8 @@ export const AccessProfilesApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async deleteAccessProfilesInBulk(accessProfileBulkDeleteRequest: AccessProfileBulkDeleteRequest, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<AccessProfileBulkDeleteResponse>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.deleteAccessProfilesInBulk(accessProfileBulkDeleteRequest, options);
+        async deleteAccessProfilesInBulk(accessProfileBulkDeleteRequest: AccessProfileBulkDeleteRequest, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<AccessProfileBulkDeleteResponse>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.deleteAccessProfilesInBulk(accessProfileBulkDeleteRequest, axiosOptions);
             const operationBasePath = operationServerMap['AccessProfilesApi.deleteAccessProfilesInBulk']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -17622,8 +17622,8 @@ export const AccessProfilesApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async getAccessProfile(id: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<AccessProfile>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.getAccessProfile(id, options);
+        async getAccessProfile(id: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<AccessProfile>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getAccessProfile(id, axiosOptions);
             const operationBasePath = operationServerMap['AccessProfilesApi.getAccessProfile']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -17639,8 +17639,8 @@ export const AccessProfilesApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async getAccessProfileEntitlements(id: string, limit?: number, offset?: number, count?: boolean, filters?: string, sorters?: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Entitlement>>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.getAccessProfileEntitlements(id, limit, offset, count, filters, sorters, options);
+        async getAccessProfileEntitlements(id: string, limit?: number, offset?: number, count?: boolean, filters?: string, sorters?: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Entitlement>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getAccessProfileEntitlements(id, limit, offset, count, filters, sorters, axiosOptions);
             const operationBasePath = operationServerMap['AccessProfilesApi.getAccessProfileEntitlements']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -17658,8 +17658,8 @@ export const AccessProfilesApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async listAccessProfiles(forSubadmin?: string, limit?: number, offset?: number, count?: boolean, filters?: string, sorters?: string, forSegmentIds?: string, includeUnsegmented?: boolean, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<AccessProfile>>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.listAccessProfiles(forSubadmin, limit, offset, count, filters, sorters, forSegmentIds, includeUnsegmented, options);
+        async listAccessProfiles(forSubadmin?: string, limit?: number, offset?: number, count?: boolean, filters?: string, sorters?: string, forSegmentIds?: string, includeUnsegmented?: boolean, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<AccessProfile>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.listAccessProfiles(forSubadmin, limit, offset, count, filters, sorters, forSegmentIds, includeUnsegmented, axiosOptions);
             const operationBasePath = operationServerMap['AccessProfilesApi.listAccessProfiles']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -17671,8 +17671,8 @@ export const AccessProfilesApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async patchAccessProfile(id: string, jsonPatchOperation: Array<JsonPatchOperation>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<AccessProfile>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.patchAccessProfile(id, jsonPatchOperation, options);
+        async patchAccessProfile(id: string, jsonPatchOperation: Array<JsonPatchOperation>, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<AccessProfile>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.patchAccessProfile(id, jsonPatchOperation, axiosOptions);
             const operationBasePath = operationServerMap['AccessProfilesApi.patchAccessProfile']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -18397,8 +18397,8 @@ export const AccessRequestApprovalsApiFp = function(configuration?: Configuratio
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async approveAccessRequest(approvalId: string, commentDto?: CommentDto, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<object>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.approveAccessRequest(approvalId, commentDto, options);
+        async approveAccessRequest(approvalId: string, commentDto?: CommentDto, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<object>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.approveAccessRequest(approvalId, commentDto, axiosOptions);
             const operationBasePath = operationServerMap['AccessRequestApprovalsApi.approveAccessRequest']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -18410,8 +18410,8 @@ export const AccessRequestApprovalsApiFp = function(configuration?: Configuratio
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async forwardAccessRequest(approvalId: string, forwardApprovalDto: ForwardApprovalDto, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<object>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.forwardAccessRequest(approvalId, forwardApprovalDto, options);
+        async forwardAccessRequest(approvalId: string, forwardApprovalDto: ForwardApprovalDto, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<object>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.forwardAccessRequest(approvalId, forwardApprovalDto, axiosOptions);
             const operationBasePath = operationServerMap['AccessRequestApprovalsApi.forwardAccessRequest']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -18423,8 +18423,8 @@ export const AccessRequestApprovalsApiFp = function(configuration?: Configuratio
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async getAccessRequestApprovalSummary(ownerId?: string, fromDate?: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ApprovalSummary>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.getAccessRequestApprovalSummary(ownerId, fromDate, options);
+        async getAccessRequestApprovalSummary(ownerId?: string, fromDate?: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ApprovalSummary>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getAccessRequestApprovalSummary(ownerId, fromDate, axiosOptions);
             const operationBasePath = operationServerMap['AccessRequestApprovalsApi.getAccessRequestApprovalSummary']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -18440,8 +18440,8 @@ export const AccessRequestApprovalsApiFp = function(configuration?: Configuratio
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async listCompletedApprovals(ownerId?: string, limit?: number, offset?: number, count?: boolean, filters?: string, sorters?: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<CompletedApproval>>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.listCompletedApprovals(ownerId, limit, offset, count, filters, sorters, options);
+        async listCompletedApprovals(ownerId?: string, limit?: number, offset?: number, count?: boolean, filters?: string, sorters?: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<CompletedApproval>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.listCompletedApprovals(ownerId, limit, offset, count, filters, sorters, axiosOptions);
             const operationBasePath = operationServerMap['AccessRequestApprovalsApi.listCompletedApprovals']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -18457,8 +18457,8 @@ export const AccessRequestApprovalsApiFp = function(configuration?: Configuratio
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async listPendingApprovals(ownerId?: string, limit?: number, offset?: number, count?: boolean, filters?: string, sorters?: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<PendingApproval>>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.listPendingApprovals(ownerId, limit, offset, count, filters, sorters, options);
+        async listPendingApprovals(ownerId?: string, limit?: number, offset?: number, count?: boolean, filters?: string, sorters?: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<PendingApproval>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.listPendingApprovals(ownerId, limit, offset, count, filters, sorters, axiosOptions);
             const operationBasePath = operationServerMap['AccessRequestApprovalsApi.listPendingApprovals']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -18470,8 +18470,8 @@ export const AccessRequestApprovalsApiFp = function(configuration?: Configuratio
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async rejectAccessRequest(approvalId: string, commentDto?: CommentDto, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<object>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.rejectAccessRequest(approvalId, commentDto, options);
+        async rejectAccessRequest(approvalId: string, commentDto?: CommentDto, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<object>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.rejectAccessRequest(approvalId, commentDto, axiosOptions);
             const operationBasePath = operationServerMap['AccessRequestApprovalsApi.rejectAccessRequest']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -19094,8 +19094,8 @@ export const AccessRequestsApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async cancelAccessRequest(cancelAccessRequest: CancelAccessRequest, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<object>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.cancelAccessRequest(cancelAccessRequest, options);
+        async cancelAccessRequest(cancelAccessRequest: CancelAccessRequest, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<object>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.cancelAccessRequest(cancelAccessRequest, axiosOptions);
             const operationBasePath = operationServerMap['AccessRequestsApi.cancelAccessRequest']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -19106,8 +19106,8 @@ export const AccessRequestsApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async createAccessRequest(accessRequest: AccessRequest, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<object>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.createAccessRequest(accessRequest, options);
+        async createAccessRequest(accessRequest: AccessRequest, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<object>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.createAccessRequest(accessRequest, axiosOptions);
             const operationBasePath = operationServerMap['AccessRequestsApi.createAccessRequest']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -19117,8 +19117,8 @@ export const AccessRequestsApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async getAccessRequestConfig(options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<AccessRequestConfig>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.getAccessRequestConfig(options);
+        async getAccessRequestConfig(axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<AccessRequestConfig>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getAccessRequestConfig(axiosOptions);
             const operationBasePath = operationServerMap['AccessRequestsApi.getAccessRequestConfig']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -19137,8 +19137,8 @@ export const AccessRequestsApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async listAccessRequestStatus(requestedFor?: string, requestedBy?: string, regardingIdentity?: string, assignedTo?: string, count?: boolean, limit?: number, offset?: number, filters?: string, sorters?: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<RequestedItemStatus>>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.listAccessRequestStatus(requestedFor, requestedBy, regardingIdentity, assignedTo, count, limit, offset, filters, sorters, options);
+        async listAccessRequestStatus(requestedFor?: string, requestedBy?: string, regardingIdentity?: string, assignedTo?: string, count?: boolean, limit?: number, offset?: number, filters?: string, sorters?: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<RequestedItemStatus>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.listAccessRequestStatus(requestedFor, requestedBy, regardingIdentity, assignedTo, count, limit, offset, filters, sorters, axiosOptions);
             const operationBasePath = operationServerMap['AccessRequestsApi.listAccessRequestStatus']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -19149,8 +19149,8 @@ export const AccessRequestsApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async setAccessRequestConfig(accessRequestConfig: AccessRequestConfig, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<AccessRequestConfig>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.setAccessRequestConfig(accessRequestConfig, options);
+        async setAccessRequestConfig(accessRequestConfig: AccessRequestConfig, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<AccessRequestConfig>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.setAccessRequestConfig(accessRequestConfig, axiosOptions);
             const operationBasePath = operationServerMap['AccessRequestsApi.setAccessRequestConfig']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -19545,8 +19545,8 @@ export const AccountActivitiesApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async getAccountActivity(id: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<AccountActivity>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.getAccountActivity(id, options);
+        async getAccountActivity(id: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<AccountActivity>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getAccountActivity(id, axiosOptions);
             const operationBasePath = operationServerMap['AccountActivitiesApi.getAccountActivity']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -19564,8 +19564,8 @@ export const AccountActivitiesApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async listAccountActivities(requestedFor?: string, requestedBy?: string, regardingIdentity?: string, limit?: number, offset?: number, count?: boolean, filters?: string, sorters?: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<AccountActivity>>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.listAccountActivities(requestedFor, requestedBy, regardingIdentity, limit, offset, count, filters, sorters, options);
+        async listAccountActivities(requestedFor?: string, requestedBy?: string, regardingIdentity?: string, limit?: number, offset?: number, count?: boolean, filters?: string, sorters?: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<AccountActivity>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.listAccountActivities(requestedFor, requestedBy, regardingIdentity, limit, offset, count, filters, sorters, axiosOptions);
             const operationBasePath = operationServerMap['AccountActivitiesApi.listAccountActivities']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -19804,8 +19804,8 @@ export const AccountUsagesApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async getUsagesByAccountId(accountId: string, limit?: number, offset?: number, count?: boolean, sorters?: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<AccountUsage>>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.getUsagesByAccountId(accountId, limit, offset, count, sorters, options);
+        async getUsagesByAccountId(accountId: string, limit?: number, offset?: number, count?: boolean, sorters?: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<AccountUsage>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getUsagesByAccountId(accountId, limit, offset, count, sorters, axiosOptions);
             const operationBasePath = operationServerMap['AccountUsagesApi.getUsagesByAccountId']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -20450,8 +20450,8 @@ export const AccountsApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async createAccount(accountAttributesCreate: AccountAttributesCreate, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<AccountsAsyncResult>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.createAccount(accountAttributesCreate, options);
+        async createAccount(accountAttributesCreate: AccountAttributesCreate, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<AccountsAsyncResult>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.createAccount(accountAttributesCreate, axiosOptions);
             const operationBasePath = operationServerMap['AccountsApi.createAccount']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -20462,8 +20462,8 @@ export const AccountsApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async deleteAccount(id: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<AccountsAsyncResult>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.deleteAccount(id, options);
+        async deleteAccount(id: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<AccountsAsyncResult>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.deleteAccount(id, axiosOptions);
             const operationBasePath = operationServerMap['AccountsApi.deleteAccount']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -20475,8 +20475,8 @@ export const AccountsApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async disableAccount(id: string, accountToggleRequest: AccountToggleRequest, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<AccountsAsyncResult>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.disableAccount(id, accountToggleRequest, options);
+        async disableAccount(id: string, accountToggleRequest: AccountToggleRequest, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<AccountsAsyncResult>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.disableAccount(id, accountToggleRequest, axiosOptions);
             const operationBasePath = operationServerMap['AccountsApi.disableAccount']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -20488,8 +20488,8 @@ export const AccountsApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async enableAccount(id: string, accountToggleRequest: AccountToggleRequest, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<AccountsAsyncResult>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.enableAccount(id, accountToggleRequest, options);
+        async enableAccount(id: string, accountToggleRequest: AccountToggleRequest, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<AccountsAsyncResult>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.enableAccount(id, accountToggleRequest, axiosOptions);
             const operationBasePath = operationServerMap['AccountsApi.enableAccount']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -20500,8 +20500,8 @@ export const AccountsApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async getAccount(id: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Account>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.getAccount(id, options);
+        async getAccount(id: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Account>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getAccount(id, axiosOptions);
             const operationBasePath = operationServerMap['AccountsApi.getAccount']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -20515,8 +20515,8 @@ export const AccountsApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async getAccountEntitlements(id: string, limit?: number, offset?: number, count?: boolean, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<EntitlementDto>>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.getAccountEntitlements(id, limit, offset, count, options);
+        async getAccountEntitlements(id: string, limit?: number, offset?: number, count?: boolean, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<EntitlementDto>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getAccountEntitlements(id, limit, offset, count, axiosOptions);
             const operationBasePath = operationServerMap['AccountsApi.getAccountEntitlements']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -20531,8 +20531,8 @@ export const AccountsApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async listAccounts(limit?: number, offset?: number, count?: boolean, filters?: string, sorters?: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Account>>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.listAccounts(limit, offset, count, filters, sorters, options);
+        async listAccounts(limit?: number, offset?: number, count?: boolean, filters?: string, sorters?: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Account>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.listAccounts(limit, offset, count, filters, sorters, axiosOptions);
             const operationBasePath = operationServerMap['AccountsApi.listAccounts']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -20544,8 +20544,8 @@ export const AccountsApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async putAccount(id: string, accountAttributes: AccountAttributes, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<AccountsAsyncResult>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.putAccount(id, accountAttributes, options);
+        async putAccount(id: string, accountAttributes: AccountAttributes, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<AccountsAsyncResult>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.putAccount(id, accountAttributes, axiosOptions);
             const operationBasePath = operationServerMap['AccountsApi.putAccount']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -20556,8 +20556,8 @@ export const AccountsApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async reloadAccount(id: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<AccountsAsyncResult>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.reloadAccount(id, options);
+        async reloadAccount(id: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<AccountsAsyncResult>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.reloadAccount(id, axiosOptions);
             const operationBasePath = operationServerMap['AccountsApi.reloadAccount']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -20569,8 +20569,8 @@ export const AccountsApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async unlockAccount(id: string, accountUnlockRequest: AccountUnlockRequest, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<AccountsAsyncResult>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.unlockAccount(id, accountUnlockRequest, options);
+        async unlockAccount(id: string, accountUnlockRequest: AccountUnlockRequest, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<AccountsAsyncResult>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.unlockAccount(id, accountUnlockRequest, axiosOptions);
             const operationBasePath = operationServerMap['AccountsApi.unlockAccount']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -20582,8 +20582,8 @@ export const AccountsApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async updateAccount(id: string, jsonPatchOperation: Array<JsonPatchOperation>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<object>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.updateAccount(id, jsonPatchOperation, options);
+        async updateAccount(id: string, jsonPatchOperation: Array<JsonPatchOperation>, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<object>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.updateAccount(id, jsonPatchOperation, axiosOptions);
             const operationBasePath = operationServerMap['AccountsApi.updateAccount']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -21214,8 +21214,8 @@ export const AuthUserApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async getAuthUser(id: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<AuthUser>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.getAuthUser(id, options);
+        async getAuthUser(id: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<AuthUser>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getAuthUser(id, axiosOptions);
             const operationBasePath = operationServerMap['AuthUserApi.getAuthUser']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -21227,8 +21227,8 @@ export const AuthUserApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async patchAuthUser(id: string, jsonPatchOperation: Array<JsonPatchOperation>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<AuthUser>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.patchAuthUser(id, jsonPatchOperation, options);
+        async patchAuthUser(id: string, jsonPatchOperation: Array<JsonPatchOperation>, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<AuthUser>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.patchAuthUser(id, jsonPatchOperation, axiosOptions);
             const operationBasePath = operationServerMap['AuthUserApi.patchAuthUser']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -21590,8 +21590,8 @@ export const CertificationCampaignFiltersApiFp = function(configuration?: Config
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async createCampaignFilter(campaignFilterDetails: CampaignFilterDetails, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<CampaignFilterDetails>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.createCampaignFilter(campaignFilterDetails, options);
+        async createCampaignFilter(campaignFilterDetails: CampaignFilterDetails, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<CampaignFilterDetails>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.createCampaignFilter(campaignFilterDetails, axiosOptions);
             const operationBasePath = operationServerMap['CertificationCampaignFiltersApi.createCampaignFilter']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -21602,8 +21602,8 @@ export const CertificationCampaignFiltersApiFp = function(configuration?: Config
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async deleteCampaignFilters(requestBody: Array<string>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.deleteCampaignFilters(requestBody, options);
+        async deleteCampaignFilters(requestBody: Array<string>, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.deleteCampaignFilters(requestBody, axiosOptions);
             const operationBasePath = operationServerMap['CertificationCampaignFiltersApi.deleteCampaignFilters']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -21614,8 +21614,8 @@ export const CertificationCampaignFiltersApiFp = function(configuration?: Config
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async getCampaignFilterById(filterId: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<CampaignFilterDetails>>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.getCampaignFilterById(filterId, options);
+        async getCampaignFilterById(filterId: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<CampaignFilterDetails>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getCampaignFilterById(filterId, axiosOptions);
             const operationBasePath = operationServerMap['CertificationCampaignFiltersApi.getCampaignFilterById']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -21628,8 +21628,8 @@ export const CertificationCampaignFiltersApiFp = function(configuration?: Config
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async listCampaignFilters(limit?: number, start?: number, includeSystemFilters?: boolean, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<CampaignFilterDetails>>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.listCampaignFilters(limit, start, includeSystemFilters, options);
+        async listCampaignFilters(limit?: number, start?: number, includeSystemFilters?: boolean, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<CampaignFilterDetails>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.listCampaignFilters(limit, start, includeSystemFilters, axiosOptions);
             const operationBasePath = operationServerMap['CertificationCampaignFiltersApi.listCampaignFilters']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -21641,8 +21641,8 @@ export const CertificationCampaignFiltersApiFp = function(configuration?: Config
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async updateCampaignFilter(filterId: string, campaignFilterDetails: CampaignFilterDetails, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<CampaignFilterDetails>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.updateCampaignFilter(filterId, campaignFilterDetails, options);
+        async updateCampaignFilter(filterId: string, campaignFilterDetails: CampaignFilterDetails, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<CampaignFilterDetails>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.updateCampaignFilter(filterId, campaignFilterDetails, axiosOptions);
             const operationBasePath = operationServerMap['CertificationCampaignFiltersApi.updateCampaignFilter']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -22908,8 +22908,8 @@ export const CertificationCampaignsApiFp = function(configuration?: Configuratio
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async completeCampaign(id: string, campaignCompleteOptions?: CampaignCompleteOptions, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<object>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.completeCampaign(id, campaignCompleteOptions, options);
+        async completeCampaign(id: string, campaignCompleteOptions?: CampaignCompleteOptions, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<object>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.completeCampaign(id, campaignCompleteOptions, axiosOptions);
             const operationBasePath = operationServerMap['CertificationCampaignsApi.completeCampaign']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -22920,8 +22920,8 @@ export const CertificationCampaignsApiFp = function(configuration?: Configuratio
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async createCampaign(campaign: Campaign, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Campaign>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.createCampaign(campaign, options);
+        async createCampaign(campaign: Campaign, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Campaign>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.createCampaign(campaign, axiosOptions);
             const operationBasePath = operationServerMap['CertificationCampaignsApi.createCampaign']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -22932,8 +22932,8 @@ export const CertificationCampaignsApiFp = function(configuration?: Configuratio
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async createCampaignTemplate(campaignTemplate: CampaignTemplate, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<CampaignTemplate>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.createCampaignTemplate(campaignTemplate, options);
+        async createCampaignTemplate(campaignTemplate: CampaignTemplate, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<CampaignTemplate>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.createCampaignTemplate(campaignTemplate, axiosOptions);
             const operationBasePath = operationServerMap['CertificationCampaignsApi.createCampaignTemplate']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -22944,8 +22944,8 @@ export const CertificationCampaignsApiFp = function(configuration?: Configuratio
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async deleteCampaignTemplate(id: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.deleteCampaignTemplate(id, options);
+        async deleteCampaignTemplate(id: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.deleteCampaignTemplate(id, axiosOptions);
             const operationBasePath = operationServerMap['CertificationCampaignsApi.deleteCampaignTemplate']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -22956,8 +22956,8 @@ export const CertificationCampaignsApiFp = function(configuration?: Configuratio
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async deleteCampaignTemplateSchedule(id: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.deleteCampaignTemplateSchedule(id, options);
+        async deleteCampaignTemplateSchedule(id: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.deleteCampaignTemplateSchedule(id, axiosOptions);
             const operationBasePath = operationServerMap['CertificationCampaignsApi.deleteCampaignTemplateSchedule']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -22968,8 +22968,8 @@ export const CertificationCampaignsApiFp = function(configuration?: Configuratio
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async deleteCampaigns(campaignsDeleteRequest: CampaignsDeleteRequest, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<object>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.deleteCampaigns(campaignsDeleteRequest, options);
+        async deleteCampaigns(campaignsDeleteRequest: CampaignsDeleteRequest, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<object>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.deleteCampaigns(campaignsDeleteRequest, axiosOptions);
             const operationBasePath = operationServerMap['CertificationCampaignsApi.deleteCampaigns']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -22985,8 +22985,8 @@ export const CertificationCampaignsApiFp = function(configuration?: Configuratio
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async getActiveCampaigns(detail?: GetActiveCampaignsDetailEnum, limit?: number, offset?: number, count?: boolean, filters?: string, sorters?: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<GetActiveCampaigns200ResponseInner>>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.getActiveCampaigns(detail, limit, offset, count, filters, sorters, options);
+        async getActiveCampaigns(detail?: GetActiveCampaignsDetailEnum, limit?: number, offset?: number, count?: boolean, filters?: string, sorters?: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<GetActiveCampaigns200ResponseInner>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getActiveCampaigns(detail, limit, offset, count, filters, sorters, axiosOptions);
             const operationBasePath = operationServerMap['CertificationCampaignsApi.getActiveCampaigns']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -22997,8 +22997,8 @@ export const CertificationCampaignsApiFp = function(configuration?: Configuratio
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async getCampaign(id: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SlimCampaign>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.getCampaign(id, options);
+        async getCampaign(id: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SlimCampaign>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getCampaign(id, axiosOptions);
             const operationBasePath = operationServerMap['CertificationCampaignsApi.getCampaign']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -23009,8 +23009,8 @@ export const CertificationCampaignsApiFp = function(configuration?: Configuratio
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async getCampaignReports(id: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<CampaignReport>>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.getCampaignReports(id, options);
+        async getCampaignReports(id: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<CampaignReport>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getCampaignReports(id, axiosOptions);
             const operationBasePath = operationServerMap['CertificationCampaignsApi.getCampaignReports']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -23020,8 +23020,8 @@ export const CertificationCampaignsApiFp = function(configuration?: Configuratio
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async getCampaignReportsConfig(options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<CampaignReportsConfig>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.getCampaignReportsConfig(options);
+        async getCampaignReportsConfig(axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<CampaignReportsConfig>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getCampaignReportsConfig(axiosOptions);
             const operationBasePath = operationServerMap['CertificationCampaignsApi.getCampaignReportsConfig']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -23032,8 +23032,8 @@ export const CertificationCampaignsApiFp = function(configuration?: Configuratio
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async getCampaignTemplate(id: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<CampaignTemplate>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.getCampaignTemplate(id, options);
+        async getCampaignTemplate(id: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<CampaignTemplate>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getCampaignTemplate(id, axiosOptions);
             const operationBasePath = operationServerMap['CertificationCampaignsApi.getCampaignTemplate']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -23044,8 +23044,8 @@ export const CertificationCampaignsApiFp = function(configuration?: Configuratio
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async getCampaignTemplateSchedule(id: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Schedule>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.getCampaignTemplateSchedule(id, options);
+        async getCampaignTemplateSchedule(id: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Schedule>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getCampaignTemplateSchedule(id, axiosOptions);
             const operationBasePath = operationServerMap['CertificationCampaignsApi.getCampaignTemplateSchedule']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -23060,8 +23060,8 @@ export const CertificationCampaignsApiFp = function(configuration?: Configuratio
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async listCampaignTemplates(limit?: number, offset?: number, count?: boolean, sorters?: string, filters?: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<CampaignTemplate>>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.listCampaignTemplates(limit, offset, count, sorters, filters, options);
+        async listCampaignTemplates(limit?: number, offset?: number, count?: boolean, sorters?: string, filters?: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<CampaignTemplate>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.listCampaignTemplates(limit, offset, count, sorters, filters, axiosOptions);
             const operationBasePath = operationServerMap['CertificationCampaignsApi.listCampaignTemplates']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -23073,8 +23073,8 @@ export const CertificationCampaignsApiFp = function(configuration?: Configuratio
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async move(id: string, adminReviewReassign: AdminReviewReassign, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<CertificationTask>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.move(id, adminReviewReassign, options);
+        async move(id: string, adminReviewReassign: AdminReviewReassign, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<CertificationTask>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.move(id, adminReviewReassign, axiosOptions);
             const operationBasePath = operationServerMap['CertificationCampaignsApi.move']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -23086,8 +23086,8 @@ export const CertificationCampaignsApiFp = function(configuration?: Configuratio
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async patchCampaignTemplate(id: string, jsonPatchOperation: Array<JsonPatchOperation>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<CampaignTemplate>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.patchCampaignTemplate(id, jsonPatchOperation, options);
+        async patchCampaignTemplate(id: string, jsonPatchOperation: Array<JsonPatchOperation>, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<CampaignTemplate>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.patchCampaignTemplate(id, jsonPatchOperation, axiosOptions);
             const operationBasePath = operationServerMap['CertificationCampaignsApi.patchCampaignTemplate']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -23098,8 +23098,8 @@ export const CertificationCampaignsApiFp = function(configuration?: Configuratio
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async setCampaignReportsConfig(campaignReportsConfig: CampaignReportsConfig, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<CampaignReportsConfig>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.setCampaignReportsConfig(campaignReportsConfig, options);
+        async setCampaignReportsConfig(campaignReportsConfig: CampaignReportsConfig, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<CampaignReportsConfig>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.setCampaignReportsConfig(campaignReportsConfig, axiosOptions);
             const operationBasePath = operationServerMap['CertificationCampaignsApi.setCampaignReportsConfig']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -23111,8 +23111,8 @@ export const CertificationCampaignsApiFp = function(configuration?: Configuratio
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async setCampaignTemplateSchedule(id: string, schedule?: Schedule, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.setCampaignTemplateSchedule(id, schedule, options);
+        async setCampaignTemplateSchedule(id: string, schedule?: Schedule, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.setCampaignTemplateSchedule(id, schedule, axiosOptions);
             const operationBasePath = operationServerMap['CertificationCampaignsApi.setCampaignTemplateSchedule']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -23124,8 +23124,8 @@ export const CertificationCampaignsApiFp = function(configuration?: Configuratio
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async startCampaign(id: string, activateCampaignOptions?: ActivateCampaignOptions, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<object>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.startCampaign(id, activateCampaignOptions, options);
+        async startCampaign(id: string, activateCampaignOptions?: ActivateCampaignOptions, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<object>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.startCampaign(id, activateCampaignOptions, axiosOptions);
             const operationBasePath = operationServerMap['CertificationCampaignsApi.startCampaign']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -23136,8 +23136,8 @@ export const CertificationCampaignsApiFp = function(configuration?: Configuratio
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async startCampaignRemediationScan(id: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<object>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.startCampaignRemediationScan(id, options);
+        async startCampaignRemediationScan(id: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<object>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.startCampaignRemediationScan(id, axiosOptions);
             const operationBasePath = operationServerMap['CertificationCampaignsApi.startCampaignRemediationScan']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -23149,8 +23149,8 @@ export const CertificationCampaignsApiFp = function(configuration?: Configuratio
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async startCampaignReport(id: string, type: ReportType, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<object>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.startCampaignReport(id, type, options);
+        async startCampaignReport(id: string, type: ReportType, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<object>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.startCampaignReport(id, type, axiosOptions);
             const operationBasePath = operationServerMap['CertificationCampaignsApi.startCampaignReport']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -23161,8 +23161,8 @@ export const CertificationCampaignsApiFp = function(configuration?: Configuratio
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async startGenerateCampaignTemplate(id: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<CampaignReference>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.startGenerateCampaignTemplate(id, options);
+        async startGenerateCampaignTemplate(id: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<CampaignReference>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.startGenerateCampaignTemplate(id, axiosOptions);
             const operationBasePath = operationServerMap['CertificationCampaignsApi.startGenerateCampaignTemplate']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -23174,8 +23174,8 @@ export const CertificationCampaignsApiFp = function(configuration?: Configuratio
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async updateCampaign(id: string, jsonPatchOperation: Array<JsonPatchOperation>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SlimCampaign>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.updateCampaign(id, jsonPatchOperation, options);
+        async updateCampaign(id: string, jsonPatchOperation: Array<JsonPatchOperation>, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SlimCampaign>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.updateCampaign(id, jsonPatchOperation, axiosOptions);
             const operationBasePath = operationServerMap['CertificationCampaignsApi.updateCampaign']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -24380,8 +24380,8 @@ export const CertificationSummariesApiFp = function(configuration?: Configuratio
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async getIdentityAccessSummaries(id: string, type: GetIdentityAccessSummariesTypeEnum, limit?: number, offset?: number, count?: boolean, filters?: string, sorters?: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<AccessSummary>>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.getIdentityAccessSummaries(id, type, limit, offset, count, filters, sorters, options);
+        async getIdentityAccessSummaries(id: string, type: GetIdentityAccessSummariesTypeEnum, limit?: number, offset?: number, count?: boolean, filters?: string, sorters?: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<AccessSummary>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getIdentityAccessSummaries(id, type, limit, offset, count, filters, sorters, axiosOptions);
             const operationBasePath = operationServerMap['CertificationSummariesApi.getIdentityAccessSummaries']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -24393,8 +24393,8 @@ export const CertificationSummariesApiFp = function(configuration?: Configuratio
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async getIdentityDecisionSummary(id: string, filters?: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<IdentityCertDecisionSummary>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.getIdentityDecisionSummary(id, filters, options);
+        async getIdentityDecisionSummary(id: string, filters?: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<IdentityCertDecisionSummary>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getIdentityDecisionSummary(id, filters, axiosOptions);
             const operationBasePath = operationServerMap['CertificationSummariesApi.getIdentityDecisionSummary']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -24410,8 +24410,8 @@ export const CertificationSummariesApiFp = function(configuration?: Configuratio
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async getIdentitySummaries(id: string, limit?: number, offset?: number, count?: boolean, filters?: string, sorters?: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<CertificationIdentitySummary>>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.getIdentitySummaries(id, limit, offset, count, filters, sorters, options);
+        async getIdentitySummaries(id: string, limit?: number, offset?: number, count?: boolean, filters?: string, sorters?: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<CertificationIdentitySummary>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getIdentitySummaries(id, limit, offset, count, filters, sorters, axiosOptions);
             const operationBasePath = operationServerMap['CertificationSummariesApi.getIdentitySummaries']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -24423,8 +24423,8 @@ export const CertificationSummariesApiFp = function(configuration?: Configuratio
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async getIdentitySummary(id: string, identitySummaryId: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<CertificationIdentitySummary>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.getIdentitySummary(id, identitySummaryId, options);
+        async getIdentitySummary(id: string, identitySummaryId: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<CertificationIdentitySummary>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getIdentitySummary(id, identitySummaryId, axiosOptions);
             const operationBasePath = operationServerMap['CertificationSummariesApi.getIdentitySummary']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -25338,8 +25338,8 @@ export const CertificationsApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async getCertificationTask(id: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<CertificationTask>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.getCertificationTask(id, options);
+        async getCertificationTask(id: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<CertificationTask>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getCertificationTask(id, axiosOptions);
             const operationBasePath = operationServerMap['CertificationsApi.getCertificationTask']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -25350,8 +25350,8 @@ export const CertificationsApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async getIdentityCertification(id: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<IdentityCertificationDto>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.getIdentityCertification(id, options);
+        async getIdentityCertification(id: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<IdentityCertificationDto>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getIdentityCertification(id, axiosOptions);
             const operationBasePath = operationServerMap['CertificationsApi.getIdentityCertification']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -25367,8 +25367,8 @@ export const CertificationsApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async getIdentityCertificationItemPermissions(certificationId: string, itemId: string, filters?: string, limit?: number, offset?: number, count?: boolean, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<PermissionDto>>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.getIdentityCertificationItemPermissions(certificationId, itemId, filters, limit, offset, count, options);
+        async getIdentityCertificationItemPermissions(certificationId: string, itemId: string, filters?: string, limit?: number, offset?: number, count?: boolean, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<PermissionDto>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getIdentityCertificationItemPermissions(certificationId, itemId, filters, limit, offset, count, axiosOptions);
             const operationBasePath = operationServerMap['CertificationsApi.getIdentityCertificationItemPermissions']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -25383,8 +25383,8 @@ export const CertificationsApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async getPendingCertificationTasks(reviewerIdentity?: string, limit?: number, offset?: number, count?: boolean, filters?: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<CertificationTask>>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.getPendingCertificationTasks(reviewerIdentity, limit, offset, count, filters, options);
+        async getPendingCertificationTasks(reviewerIdentity?: string, limit?: number, offset?: number, count?: boolean, filters?: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<CertificationTask>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getPendingCertificationTasks(reviewerIdentity, limit, offset, count, filters, axiosOptions);
             const operationBasePath = operationServerMap['CertificationsApi.getPendingCertificationTasks']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -25400,8 +25400,8 @@ export const CertificationsApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async listCertificationReviewers(id: string, limit?: number, offset?: number, count?: boolean, filters?: string, sorters?: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<IdentityReferenceWithNameAndEmail>>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.listCertificationReviewers(id, limit, offset, count, filters, sorters, options);
+        async listCertificationReviewers(id: string, limit?: number, offset?: number, count?: boolean, filters?: string, sorters?: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<IdentityReferenceWithNameAndEmail>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.listCertificationReviewers(id, limit, offset, count, filters, sorters, axiosOptions);
             const operationBasePath = operationServerMap['CertificationsApi.listCertificationReviewers']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -25420,8 +25420,8 @@ export const CertificationsApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async listIdentityAccessReviewItems(id: string, limit?: number, offset?: number, count?: boolean, filters?: string, sorters?: string, entitlements?: string, accessProfiles?: string, roles?: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<AccessReviewItem>>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.listIdentityAccessReviewItems(id, limit, offset, count, filters, sorters, entitlements, accessProfiles, roles, options);
+        async listIdentityAccessReviewItems(id: string, limit?: number, offset?: number, count?: boolean, filters?: string, sorters?: string, entitlements?: string, accessProfiles?: string, roles?: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<AccessReviewItem>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.listIdentityAccessReviewItems(id, limit, offset, count, filters, sorters, entitlements, accessProfiles, roles, axiosOptions);
             const operationBasePath = operationServerMap['CertificationsApi.listIdentityAccessReviewItems']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -25437,8 +25437,8 @@ export const CertificationsApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async listIdentityCertifications(reviewerIdentity?: string, limit?: number, offset?: number, count?: boolean, filters?: string, sorters?: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<IdentityCertificationDto>>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.listIdentityCertifications(reviewerIdentity, limit, offset, count, filters, sorters, options);
+        async listIdentityCertifications(reviewerIdentity?: string, limit?: number, offset?: number, count?: boolean, filters?: string, sorters?: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<IdentityCertificationDto>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.listIdentityCertifications(reviewerIdentity, limit, offset, count, filters, sorters, axiosOptions);
             const operationBasePath = operationServerMap['CertificationsApi.listIdentityCertifications']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -25450,8 +25450,8 @@ export const CertificationsApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async makeIdentityDecision(id: string, reviewDecision: Array<ReviewDecision>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<IdentityCertificationDto>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.makeIdentityDecision(id, reviewDecision, options);
+        async makeIdentityDecision(id: string, reviewDecision: Array<ReviewDecision>, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<IdentityCertificationDto>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.makeIdentityDecision(id, reviewDecision, axiosOptions);
             const operationBasePath = operationServerMap['CertificationsApi.makeIdentityDecision']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -25463,8 +25463,8 @@ export const CertificationsApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async reassignIdentityCertifications(id: string, reviewReassign: ReviewReassign, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<IdentityCertificationDto>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.reassignIdentityCertifications(id, reviewReassign, options);
+        async reassignIdentityCertifications(id: string, reviewReassign: ReviewReassign, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<IdentityCertificationDto>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.reassignIdentityCertifications(id, reviewReassign, axiosOptions);
             const operationBasePath = operationServerMap['CertificationsApi.reassignIdentityCertifications']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -25475,8 +25475,8 @@ export const CertificationsApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async signOffIdentityCertification(id: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<IdentityCertificationDto>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.signOffIdentityCertification(id, options);
+        async signOffIdentityCertification(id: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<IdentityCertificationDto>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.signOffIdentityCertification(id, axiosOptions);
             const operationBasePath = operationServerMap['CertificationsApi.signOffIdentityCertification']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -25488,8 +25488,8 @@ export const CertificationsApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async submitReassignCertsAsync(id: string, reviewReassign: ReviewReassign, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<CertificationTask>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.submitReassignCertsAsync(id, reviewReassign, options);
+        async submitReassignCertsAsync(id: string, reviewReassign: ReviewReassign, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<CertificationTask>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.submitReassignCertsAsync(id, reviewReassign, axiosOptions);
             const operationBasePath = operationServerMap['CertificationsApi.submitReassignCertsAsync']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -26282,8 +26282,8 @@ export const GlobalTenantSecuritySettingsApiFp = function(configuration?: Config
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async createAuthOrgNetworkConfig(networkConfiguration: NetworkConfiguration, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<NetworkConfiguration>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.createAuthOrgNetworkConfig(networkConfiguration, options);
+        async createAuthOrgNetworkConfig(networkConfiguration: NetworkConfiguration, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<NetworkConfiguration>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.createAuthOrgNetworkConfig(networkConfiguration, axiosOptions);
             const operationBasePath = operationServerMap['GlobalTenantSecuritySettingsApi.createAuthOrgNetworkConfig']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -26293,8 +26293,8 @@ export const GlobalTenantSecuritySettingsApiFp = function(configuration?: Config
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async getAuthOrgNetworkConfig(options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<NetworkConfiguration>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.getAuthOrgNetworkConfig(options);
+        async getAuthOrgNetworkConfig(axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<NetworkConfiguration>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getAuthOrgNetworkConfig(axiosOptions);
             const operationBasePath = operationServerMap['GlobalTenantSecuritySettingsApi.getAuthOrgNetworkConfig']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -26305,8 +26305,8 @@ export const GlobalTenantSecuritySettingsApiFp = function(configuration?: Config
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async patchAuthOrgNetworkConfig(jsonPatchOperation: Array<JsonPatchOperation>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<NetworkConfiguration>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.patchAuthOrgNetworkConfig(jsonPatchOperation, options);
+        async patchAuthOrgNetworkConfig(jsonPatchOperation: Array<JsonPatchOperation>, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<NetworkConfiguration>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.patchAuthOrgNetworkConfig(jsonPatchOperation, axiosOptions);
             const operationBasePath = operationServerMap['GlobalTenantSecuritySettingsApi.patchAuthOrgNetworkConfig']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -26833,8 +26833,8 @@ export const IdentityProfilesApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async deleteIdentityProfile(identityProfileId: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<TaskResultSimplified>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.deleteIdentityProfile(identityProfileId, options);
+        async deleteIdentityProfile(identityProfileId: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<TaskResultSimplified>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.deleteIdentityProfile(identityProfileId, axiosOptions);
             const operationBasePath = operationServerMap['IdentityProfilesApi.deleteIdentityProfile']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -26845,8 +26845,8 @@ export const IdentityProfilesApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async deleteIdentityProfiles(requestBody: Array<string>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<TaskResultSimplified>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.deleteIdentityProfiles(requestBody, options);
+        async deleteIdentityProfiles(requestBody: Array<string>, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<TaskResultSimplified>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.deleteIdentityProfiles(requestBody, axiosOptions);
             const operationBasePath = operationServerMap['IdentityProfilesApi.deleteIdentityProfiles']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -26861,8 +26861,8 @@ export const IdentityProfilesApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async exportIdentityProfiles(limit?: number, offset?: number, count?: boolean, filters?: string, sorters?: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<IdentityProfileExportedObject>>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.exportIdentityProfiles(limit, offset, count, filters, sorters, options);
+        async exportIdentityProfiles(limit?: number, offset?: number, count?: boolean, filters?: string, sorters?: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<IdentityProfileExportedObject>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.exportIdentityProfiles(limit, offset, count, filters, sorters, axiosOptions);
             const operationBasePath = operationServerMap['IdentityProfilesApi.exportIdentityProfiles']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -26873,8 +26873,8 @@ export const IdentityProfilesApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async getDefaultIdentityAttributeConfig(identityProfileId: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<IdentityAttributeConfig>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.getDefaultIdentityAttributeConfig(identityProfileId, options);
+        async getDefaultIdentityAttributeConfig(identityProfileId: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<IdentityAttributeConfig>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getDefaultIdentityAttributeConfig(identityProfileId, axiosOptions);
             const operationBasePath = operationServerMap['IdentityProfilesApi.getDefaultIdentityAttributeConfig']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -26885,8 +26885,8 @@ export const IdentityProfilesApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async getIdentityProfile(identityProfileId: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<IdentityProfile>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.getIdentityProfile(identityProfileId, options);
+        async getIdentityProfile(identityProfileId: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<IdentityProfile>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getIdentityProfile(identityProfileId, axiosOptions);
             const operationBasePath = operationServerMap['IdentityProfilesApi.getIdentityProfile']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -26897,8 +26897,8 @@ export const IdentityProfilesApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async importIdentityProfiles(identityProfileExportedObject: Array<IdentityProfileExportedObject>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ObjectImportResult>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.importIdentityProfiles(identityProfileExportedObject, options);
+        async importIdentityProfiles(identityProfileExportedObject: Array<IdentityProfileExportedObject>, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ObjectImportResult>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.importIdentityProfiles(identityProfileExportedObject, axiosOptions);
             const operationBasePath = operationServerMap['IdentityProfilesApi.importIdentityProfiles']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -26913,8 +26913,8 @@ export const IdentityProfilesApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async listIdentityProfiles(limit?: number, offset?: number, count?: boolean, filters?: string, sorters?: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<IdentityProfile>>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.listIdentityProfiles(limit, offset, count, filters, sorters, options);
+        async listIdentityProfiles(limit?: number, offset?: number, count?: boolean, filters?: string, sorters?: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<IdentityProfile>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.listIdentityProfiles(limit, offset, count, filters, sorters, axiosOptions);
             const operationBasePath = operationServerMap['IdentityProfilesApi.listIdentityProfiles']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -26925,8 +26925,8 @@ export const IdentityProfilesApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async syncIdentityProfile(identityProfileId: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<object>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.syncIdentityProfile(identityProfileId, options);
+        async syncIdentityProfile(identityProfileId: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<object>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.syncIdentityProfile(identityProfileId, axiosOptions);
             const operationBasePath = operationServerMap['IdentityProfilesApi.syncIdentityProfile']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -27631,8 +27631,8 @@ export const LifecycleStatesApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async createLifecycleState(identityProfileId: string, lifecycleState: LifecycleState, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<LifecycleState>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.createLifecycleState(identityProfileId, lifecycleState, options);
+        async createLifecycleState(identityProfileId: string, lifecycleState: LifecycleState, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<LifecycleState>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.createLifecycleState(identityProfileId, lifecycleState, axiosOptions);
             const operationBasePath = operationServerMap['LifecycleStatesApi.createLifecycleState']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -27644,8 +27644,8 @@ export const LifecycleStatesApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async deleteLifecycleState(identityProfileId: string, lifecycleStateId: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<LifecyclestateDeleted>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.deleteLifecycleState(identityProfileId, lifecycleStateId, options);
+        async deleteLifecycleState(identityProfileId: string, lifecycleStateId: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<LifecyclestateDeleted>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.deleteLifecycleState(identityProfileId, lifecycleStateId, axiosOptions);
             const operationBasePath = operationServerMap['LifecycleStatesApi.deleteLifecycleState']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -27657,8 +27657,8 @@ export const LifecycleStatesApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async getLifecycleState(identityProfileId: string, lifecycleStateId: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<LifecycleState>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.getLifecycleState(identityProfileId, lifecycleStateId, options);
+        async getLifecycleState(identityProfileId: string, lifecycleStateId: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<LifecycleState>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getLifecycleState(identityProfileId, lifecycleStateId, axiosOptions);
             const operationBasePath = operationServerMap['LifecycleStatesApi.getLifecycleState']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -27673,8 +27673,8 @@ export const LifecycleStatesApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async listLifecycleStates(identityProfileId: string, limit?: number, offset?: number, count?: boolean, sorters?: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<LifecycleState>>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.listLifecycleStates(identityProfileId, limit, offset, count, sorters, options);
+        async listLifecycleStates(identityProfileId: string, limit?: number, offset?: number, count?: boolean, sorters?: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<LifecycleState>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.listLifecycleStates(identityProfileId, limit, offset, count, sorters, axiosOptions);
             const operationBasePath = operationServerMap['LifecycleStatesApi.listLifecycleStates']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -27686,8 +27686,8 @@ export const LifecycleStatesApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async setLifecycleState(identityId: string, setLifecycleStateRequest: SetLifecycleStateRequest, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SetLifecycleState200Response>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.setLifecycleState(identityId, setLifecycleStateRequest, options);
+        async setLifecycleState(identityId: string, setLifecycleStateRequest: SetLifecycleStateRequest, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SetLifecycleState200Response>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.setLifecycleState(identityId, setLifecycleStateRequest, axiosOptions);
             const operationBasePath = operationServerMap['LifecycleStatesApi.setLifecycleState']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -27700,8 +27700,8 @@ export const LifecycleStatesApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async updateLifecycleStates(identityProfileId: string, lifecycleStateId: string, jsonPatchOperation: Array<JsonPatchOperation>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<LifecycleState>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.updateLifecycleStates(identityProfileId, lifecycleStateId, jsonPatchOperation, options);
+        async updateLifecycleStates(identityProfileId: string, lifecycleStateId: string, jsonPatchOperation: Array<JsonPatchOperation>, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<LifecycleState>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.updateLifecycleStates(identityProfileId, lifecycleStateId, jsonPatchOperation, axiosOptions);
             const operationBasePath = operationServerMap['LifecycleStatesApi.updateLifecycleStates']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -29569,8 +29569,8 @@ export const NonEmployeeLifecycleManagementApiFp = function(configuration?: Conf
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async approveNonEmployeeRequest(id: string, nonEmployeeApprovalDecision: NonEmployeeApprovalDecision, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<NonEmployeeApprovalItem>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.approveNonEmployeeRequest(id, nonEmployeeApprovalDecision, options);
+        async approveNonEmployeeRequest(id: string, nonEmployeeApprovalDecision: NonEmployeeApprovalDecision, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<NonEmployeeApprovalItem>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.approveNonEmployeeRequest(id, nonEmployeeApprovalDecision, axiosOptions);
             const operationBasePath = operationServerMap['NonEmployeeLifecycleManagementApi.approveNonEmployeeRequest']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -29581,8 +29581,8 @@ export const NonEmployeeLifecycleManagementApiFp = function(configuration?: Conf
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async createNonEmployeeRecord(nonEmployeeRequestBody: NonEmployeeRequestBody, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<NonEmployeeRecord>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.createNonEmployeeRecord(nonEmployeeRequestBody, options);
+        async createNonEmployeeRecord(nonEmployeeRequestBody: NonEmployeeRequestBody, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<NonEmployeeRecord>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.createNonEmployeeRecord(nonEmployeeRequestBody, axiosOptions);
             const operationBasePath = operationServerMap['NonEmployeeLifecycleManagementApi.createNonEmployeeRecord']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -29593,8 +29593,8 @@ export const NonEmployeeLifecycleManagementApiFp = function(configuration?: Conf
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async createNonEmployeeRequest(nonEmployeeRequestBody: NonEmployeeRequestBody, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<NonEmployeeRequest>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.createNonEmployeeRequest(nonEmployeeRequestBody, options);
+        async createNonEmployeeRequest(nonEmployeeRequestBody: NonEmployeeRequestBody, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<NonEmployeeRequest>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.createNonEmployeeRequest(nonEmployeeRequestBody, axiosOptions);
             const operationBasePath = operationServerMap['NonEmployeeLifecycleManagementApi.createNonEmployeeRequest']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -29605,8 +29605,8 @@ export const NonEmployeeLifecycleManagementApiFp = function(configuration?: Conf
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async createNonEmployeeSource(nonEmployeeSourceRequestBody: NonEmployeeSourceRequestBody, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<NonEmployeeSourceWithCloudExternalId>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.createNonEmployeeSource(nonEmployeeSourceRequestBody, options);
+        async createNonEmployeeSource(nonEmployeeSourceRequestBody: NonEmployeeSourceRequestBody, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<NonEmployeeSourceWithCloudExternalId>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.createNonEmployeeSource(nonEmployeeSourceRequestBody, axiosOptions);
             const operationBasePath = operationServerMap['NonEmployeeLifecycleManagementApi.createNonEmployeeSource']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -29618,8 +29618,8 @@ export const NonEmployeeLifecycleManagementApiFp = function(configuration?: Conf
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async createNonEmployeeSourceSchemaAttributes(sourceId: string, nonEmployeeSchemaAttributeBody: NonEmployeeSchemaAttributeBody, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<NonEmployeeSchemaAttribute>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.createNonEmployeeSourceSchemaAttributes(sourceId, nonEmployeeSchemaAttributeBody, options);
+        async createNonEmployeeSourceSchemaAttributes(sourceId: string, nonEmployeeSchemaAttributeBody: NonEmployeeSchemaAttributeBody, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<NonEmployeeSchemaAttribute>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.createNonEmployeeSourceSchemaAttributes(sourceId, nonEmployeeSchemaAttributeBody, axiosOptions);
             const operationBasePath = operationServerMap['NonEmployeeLifecycleManagementApi.createNonEmployeeSourceSchemaAttributes']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -29630,8 +29630,8 @@ export const NonEmployeeLifecycleManagementApiFp = function(configuration?: Conf
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async deleteNonEmployeeRecord(id: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.deleteNonEmployeeRecord(id, options);
+        async deleteNonEmployeeRecord(id: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.deleteNonEmployeeRecord(id, axiosOptions);
             const operationBasePath = operationServerMap['NonEmployeeLifecycleManagementApi.deleteNonEmployeeRecord']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -29642,8 +29642,8 @@ export const NonEmployeeLifecycleManagementApiFp = function(configuration?: Conf
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async deleteNonEmployeeRecordsInBulk(deleteNonEmployeeRecordsInBulkRequest: DeleteNonEmployeeRecordsInBulkRequest, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.deleteNonEmployeeRecordsInBulk(deleteNonEmployeeRecordsInBulkRequest, options);
+        async deleteNonEmployeeRecordsInBulk(deleteNonEmployeeRecordsInBulkRequest: DeleteNonEmployeeRecordsInBulkRequest, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.deleteNonEmployeeRecordsInBulk(deleteNonEmployeeRecordsInBulkRequest, axiosOptions);
             const operationBasePath = operationServerMap['NonEmployeeLifecycleManagementApi.deleteNonEmployeeRecordsInBulk']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -29654,8 +29654,8 @@ export const NonEmployeeLifecycleManagementApiFp = function(configuration?: Conf
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async deleteNonEmployeeRequest(id: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.deleteNonEmployeeRequest(id, options);
+        async deleteNonEmployeeRequest(id: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.deleteNonEmployeeRequest(id, axiosOptions);
             const operationBasePath = operationServerMap['NonEmployeeLifecycleManagementApi.deleteNonEmployeeRequest']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -29667,8 +29667,8 @@ export const NonEmployeeLifecycleManagementApiFp = function(configuration?: Conf
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async deleteNonEmployeeSchemaAttribute(attributeId: string, sourceId: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.deleteNonEmployeeSchemaAttribute(attributeId, sourceId, options);
+        async deleteNonEmployeeSchemaAttribute(attributeId: string, sourceId: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.deleteNonEmployeeSchemaAttribute(attributeId, sourceId, axiosOptions);
             const operationBasePath = operationServerMap['NonEmployeeLifecycleManagementApi.deleteNonEmployeeSchemaAttribute']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -29679,8 +29679,8 @@ export const NonEmployeeLifecycleManagementApiFp = function(configuration?: Conf
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async deleteNonEmployeeSource(sourceId: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.deleteNonEmployeeSource(sourceId, options);
+        async deleteNonEmployeeSource(sourceId: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.deleteNonEmployeeSource(sourceId, axiosOptions);
             const operationBasePath = operationServerMap['NonEmployeeLifecycleManagementApi.deleteNonEmployeeSource']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -29691,8 +29691,8 @@ export const NonEmployeeLifecycleManagementApiFp = function(configuration?: Conf
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async deleteNonEmployeeSourceSchemaAttributes(sourceId: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.deleteNonEmployeeSourceSchemaAttributes(sourceId, options);
+        async deleteNonEmployeeSourceSchemaAttributes(sourceId: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.deleteNonEmployeeSourceSchemaAttributes(sourceId, axiosOptions);
             const operationBasePath = operationServerMap['NonEmployeeLifecycleManagementApi.deleteNonEmployeeSourceSchemaAttributes']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -29703,8 +29703,8 @@ export const NonEmployeeLifecycleManagementApiFp = function(configuration?: Conf
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async exportNonEmployeeRecords(id: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.exportNonEmployeeRecords(id, options);
+        async exportNonEmployeeRecords(id: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.exportNonEmployeeRecords(id, axiosOptions);
             const operationBasePath = operationServerMap['NonEmployeeLifecycleManagementApi.exportNonEmployeeRecords']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -29715,8 +29715,8 @@ export const NonEmployeeLifecycleManagementApiFp = function(configuration?: Conf
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async exportNonEmployeeSourceSchemaTemplate(id: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.exportNonEmployeeSourceSchemaTemplate(id, options);
+        async exportNonEmployeeSourceSchemaTemplate(id: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.exportNonEmployeeSourceSchemaTemplate(id, axiosOptions);
             const operationBasePath = operationServerMap['NonEmployeeLifecycleManagementApi.exportNonEmployeeSourceSchemaTemplate']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -29728,8 +29728,8 @@ export const NonEmployeeLifecycleManagementApiFp = function(configuration?: Conf
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async getNonEmployeeApproval(id: string, includeDetail?: boolean, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<NonEmployeeApprovalItemDetail>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.getNonEmployeeApproval(id, includeDetail, options);
+        async getNonEmployeeApproval(id: string, includeDetail?: boolean, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<NonEmployeeApprovalItemDetail>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getNonEmployeeApproval(id, includeDetail, axiosOptions);
             const operationBasePath = operationServerMap['NonEmployeeLifecycleManagementApi.getNonEmployeeApproval']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -29740,8 +29740,8 @@ export const NonEmployeeLifecycleManagementApiFp = function(configuration?: Conf
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async getNonEmployeeApprovalSummary(requestedFor: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<NonEmployeeApprovalSummary>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.getNonEmployeeApprovalSummary(requestedFor, options);
+        async getNonEmployeeApprovalSummary(requestedFor: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<NonEmployeeApprovalSummary>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getNonEmployeeApprovalSummary(requestedFor, axiosOptions);
             const operationBasePath = operationServerMap['NonEmployeeLifecycleManagementApi.getNonEmployeeApprovalSummary']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -29752,8 +29752,8 @@ export const NonEmployeeLifecycleManagementApiFp = function(configuration?: Conf
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async getNonEmployeeBulkUploadStatus(id: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<NonEmployeeBulkUploadStatus>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.getNonEmployeeBulkUploadStatus(id, options);
+        async getNonEmployeeBulkUploadStatus(id: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<NonEmployeeBulkUploadStatus>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getNonEmployeeBulkUploadStatus(id, axiosOptions);
             const operationBasePath = operationServerMap['NonEmployeeLifecycleManagementApi.getNonEmployeeBulkUploadStatus']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -29764,8 +29764,8 @@ export const NonEmployeeLifecycleManagementApiFp = function(configuration?: Conf
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async getNonEmployeeRecord(id: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<NonEmployeeRecord>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.getNonEmployeeRecord(id, options);
+        async getNonEmployeeRecord(id: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<NonEmployeeRecord>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getNonEmployeeRecord(id, axiosOptions);
             const operationBasePath = operationServerMap['NonEmployeeLifecycleManagementApi.getNonEmployeeRecord']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -29776,8 +29776,8 @@ export const NonEmployeeLifecycleManagementApiFp = function(configuration?: Conf
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async getNonEmployeeRequest(id: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<NonEmployeeRequest>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.getNonEmployeeRequest(id, options);
+        async getNonEmployeeRequest(id: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<NonEmployeeRequest>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getNonEmployeeRequest(id, axiosOptions);
             const operationBasePath = operationServerMap['NonEmployeeLifecycleManagementApi.getNonEmployeeRequest']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -29788,8 +29788,8 @@ export const NonEmployeeLifecycleManagementApiFp = function(configuration?: Conf
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async getNonEmployeeRequestSummary(requestedFor: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<NonEmployeeRequestSummary>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.getNonEmployeeRequestSummary(requestedFor, options);
+        async getNonEmployeeRequestSummary(requestedFor: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<NonEmployeeRequestSummary>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getNonEmployeeRequestSummary(requestedFor, axiosOptions);
             const operationBasePath = operationServerMap['NonEmployeeLifecycleManagementApi.getNonEmployeeRequestSummary']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -29801,8 +29801,8 @@ export const NonEmployeeLifecycleManagementApiFp = function(configuration?: Conf
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async getNonEmployeeSchemaAttribute(attributeId: string, sourceId: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<NonEmployeeSchemaAttribute>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.getNonEmployeeSchemaAttribute(attributeId, sourceId, options);
+        async getNonEmployeeSchemaAttribute(attributeId: string, sourceId: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<NonEmployeeSchemaAttribute>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getNonEmployeeSchemaAttribute(attributeId, sourceId, axiosOptions);
             const operationBasePath = operationServerMap['NonEmployeeLifecycleManagementApi.getNonEmployeeSchemaAttribute']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -29813,8 +29813,8 @@ export const NonEmployeeLifecycleManagementApiFp = function(configuration?: Conf
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async getNonEmployeeSource(sourceId: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<NonEmployeeSource>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.getNonEmployeeSource(sourceId, options);
+        async getNonEmployeeSource(sourceId: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<NonEmployeeSource>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getNonEmployeeSource(sourceId, axiosOptions);
             const operationBasePath = operationServerMap['NonEmployeeLifecycleManagementApi.getNonEmployeeSource']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -29825,8 +29825,8 @@ export const NonEmployeeLifecycleManagementApiFp = function(configuration?: Conf
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async getNonEmployeeSourceSchemaAttributes(sourceId: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<NonEmployeeSchemaAttribute>>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.getNonEmployeeSourceSchemaAttributes(sourceId, options);
+        async getNonEmployeeSourceSchemaAttributes(sourceId: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<NonEmployeeSchemaAttribute>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getNonEmployeeSourceSchemaAttributes(sourceId, axiosOptions);
             const operationBasePath = operationServerMap['NonEmployeeLifecycleManagementApi.getNonEmployeeSourceSchemaAttributes']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -29838,8 +29838,8 @@ export const NonEmployeeLifecycleManagementApiFp = function(configuration?: Conf
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async importNonEmployeeRecordsInBulk(id: string, data: File, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<NonEmployeeBulkUploadJob>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.importNonEmployeeRecordsInBulk(id, data, options);
+        async importNonEmployeeRecordsInBulk(id: string, data: File, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<NonEmployeeBulkUploadJob>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.importNonEmployeeRecordsInBulk(id, data, axiosOptions);
             const operationBasePath = operationServerMap['NonEmployeeLifecycleManagementApi.importNonEmployeeRecordsInBulk']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -29855,8 +29855,8 @@ export const NonEmployeeLifecycleManagementApiFp = function(configuration?: Conf
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async listNonEmployeeApprovals(requestedFor?: string, limit?: number, offset?: number, count?: boolean, filters?: string, sorters?: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<NonEmployeeApprovalItem>>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.listNonEmployeeApprovals(requestedFor, limit, offset, count, filters, sorters, options);
+        async listNonEmployeeApprovals(requestedFor?: string, limit?: number, offset?: number, count?: boolean, filters?: string, sorters?: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<NonEmployeeApprovalItem>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.listNonEmployeeApprovals(requestedFor, limit, offset, count, filters, sorters, axiosOptions);
             const operationBasePath = operationServerMap['NonEmployeeLifecycleManagementApi.listNonEmployeeApprovals']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -29871,8 +29871,8 @@ export const NonEmployeeLifecycleManagementApiFp = function(configuration?: Conf
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async listNonEmployeeRecords(limit?: number, offset?: number, count?: boolean, sorters?: string, filters?: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<NonEmployeeRecord>>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.listNonEmployeeRecords(limit, offset, count, sorters, filters, options);
+        async listNonEmployeeRecords(limit?: number, offset?: number, count?: boolean, sorters?: string, filters?: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<NonEmployeeRecord>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.listNonEmployeeRecords(limit, offset, count, sorters, filters, axiosOptions);
             const operationBasePath = operationServerMap['NonEmployeeLifecycleManagementApi.listNonEmployeeRecords']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -29888,8 +29888,8 @@ export const NonEmployeeLifecycleManagementApiFp = function(configuration?: Conf
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async listNonEmployeeRequests(requestedFor: string, limit?: number, offset?: number, count?: boolean, sorters?: string, filters?: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<NonEmployeeRequest>>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.listNonEmployeeRequests(requestedFor, limit, offset, count, sorters, filters, options);
+        async listNonEmployeeRequests(requestedFor: string, limit?: number, offset?: number, count?: boolean, sorters?: string, filters?: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<NonEmployeeRequest>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.listNonEmployeeRequests(requestedFor, limit, offset, count, sorters, filters, axiosOptions);
             const operationBasePath = operationServerMap['NonEmployeeLifecycleManagementApi.listNonEmployeeRequests']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -29905,8 +29905,8 @@ export const NonEmployeeLifecycleManagementApiFp = function(configuration?: Conf
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async listNonEmployeeSources(requestedFor: string, limit?: number, offset?: number, count?: boolean, nonEmployeeCount?: boolean, sorters?: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<NonEmployeeSourceWithNECount>>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.listNonEmployeeSources(requestedFor, limit, offset, count, nonEmployeeCount, sorters, options);
+        async listNonEmployeeSources(requestedFor: string, limit?: number, offset?: number, count?: boolean, nonEmployeeCount?: boolean, sorters?: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<NonEmployeeSourceWithNECount>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.listNonEmployeeSources(requestedFor, limit, offset, count, nonEmployeeCount, sorters, axiosOptions);
             const operationBasePath = operationServerMap['NonEmployeeLifecycleManagementApi.listNonEmployeeSources']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -29918,8 +29918,8 @@ export const NonEmployeeLifecycleManagementApiFp = function(configuration?: Conf
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async patchNonEmployeeRecord(id: string, jsonPatchOperation: Array<JsonPatchOperation>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<NonEmployeeRecord>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.patchNonEmployeeRecord(id, jsonPatchOperation, options);
+        async patchNonEmployeeRecord(id: string, jsonPatchOperation: Array<JsonPatchOperation>, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<NonEmployeeRecord>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.patchNonEmployeeRecord(id, jsonPatchOperation, axiosOptions);
             const operationBasePath = operationServerMap['NonEmployeeLifecycleManagementApi.patchNonEmployeeRecord']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -29932,8 +29932,8 @@ export const NonEmployeeLifecycleManagementApiFp = function(configuration?: Conf
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async patchNonEmployeeSchemaAttribute(attributeId: string, sourceId: string, jsonPatchOperation: Array<JsonPatchOperation>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<NonEmployeeSchemaAttribute>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.patchNonEmployeeSchemaAttribute(attributeId, sourceId, jsonPatchOperation, options);
+        async patchNonEmployeeSchemaAttribute(attributeId: string, sourceId: string, jsonPatchOperation: Array<JsonPatchOperation>, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<NonEmployeeSchemaAttribute>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.patchNonEmployeeSchemaAttribute(attributeId, sourceId, jsonPatchOperation, axiosOptions);
             const operationBasePath = operationServerMap['NonEmployeeLifecycleManagementApi.patchNonEmployeeSchemaAttribute']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -29945,8 +29945,8 @@ export const NonEmployeeLifecycleManagementApiFp = function(configuration?: Conf
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async patchNonEmployeeSource(sourceId: string, jsonPatchOperation: Array<JsonPatchOperation>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<NonEmployeeSource>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.patchNonEmployeeSource(sourceId, jsonPatchOperation, options);
+        async patchNonEmployeeSource(sourceId: string, jsonPatchOperation: Array<JsonPatchOperation>, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<NonEmployeeSource>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.patchNonEmployeeSource(sourceId, jsonPatchOperation, axiosOptions);
             const operationBasePath = operationServerMap['NonEmployeeLifecycleManagementApi.patchNonEmployeeSource']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -29958,8 +29958,8 @@ export const NonEmployeeLifecycleManagementApiFp = function(configuration?: Conf
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async rejectNonEmployeeRequest(id: string, nonEmployeeRejectApprovalDecision: NonEmployeeRejectApprovalDecision, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<NonEmployeeApprovalItem>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.rejectNonEmployeeRequest(id, nonEmployeeRejectApprovalDecision, options);
+        async rejectNonEmployeeRequest(id: string, nonEmployeeRejectApprovalDecision: NonEmployeeRejectApprovalDecision, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<NonEmployeeApprovalItem>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.rejectNonEmployeeRequest(id, nonEmployeeRejectApprovalDecision, axiosOptions);
             const operationBasePath = operationServerMap['NonEmployeeLifecycleManagementApi.rejectNonEmployeeRequest']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -29971,8 +29971,8 @@ export const NonEmployeeLifecycleManagementApiFp = function(configuration?: Conf
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async updateNonEmployeeRecord(id: string, nonEmployeeRequestBody: NonEmployeeRequestBody, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<NonEmployeeRecord>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.updateNonEmployeeRecord(id, nonEmployeeRequestBody, options);
+        async updateNonEmployeeRecord(id: string, nonEmployeeRequestBody: NonEmployeeRequestBody, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<NonEmployeeRecord>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.updateNonEmployeeRecord(id, nonEmployeeRequestBody, axiosOptions);
             const operationBasePath = operationServerMap['NonEmployeeLifecycleManagementApi.updateNonEmployeeRecord']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -31642,8 +31642,8 @@ export const OAuthClientsApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async createOauthClient(createOAuthClientRequest: CreateOAuthClientRequest, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<CreateOAuthClientResponse>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.createOauthClient(createOAuthClientRequest, options);
+        async createOauthClient(createOAuthClientRequest: CreateOAuthClientRequest, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<CreateOAuthClientResponse>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.createOauthClient(createOAuthClientRequest, axiosOptions);
             const operationBasePath = operationServerMap['OAuthClientsApi.createOauthClient']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -31654,8 +31654,8 @@ export const OAuthClientsApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async deleteOauthClient(id: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.deleteOauthClient(id, options);
+        async deleteOauthClient(id: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.deleteOauthClient(id, axiosOptions);
             const operationBasePath = operationServerMap['OAuthClientsApi.deleteOauthClient']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -31666,8 +31666,8 @@ export const OAuthClientsApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async getOauthClient(id: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<GetOAuthClientResponse>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.getOauthClient(id, options);
+        async getOauthClient(id: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<GetOAuthClientResponse>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getOauthClient(id, axiosOptions);
             const operationBasePath = operationServerMap['OAuthClientsApi.getOauthClient']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -31678,8 +31678,8 @@ export const OAuthClientsApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async listOauthClients(filters?: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<GetOAuthClientResponse>>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.listOauthClients(filters, options);
+        async listOauthClients(filters?: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<GetOAuthClientResponse>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.listOauthClients(filters, axiosOptions);
             const operationBasePath = operationServerMap['OAuthClientsApi.listOauthClients']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -31691,8 +31691,8 @@ export const OAuthClientsApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async patchOauthClient(id: string, jsonPatchOperation: Array<JsonPatchOperation>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<GetOAuthClientResponse>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.patchOauthClient(id, jsonPatchOperation, options);
+        async patchOauthClient(id: string, jsonPatchOperation: Array<JsonPatchOperation>, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<GetOAuthClientResponse>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.patchOauthClient(id, jsonPatchOperation, axiosOptions);
             const operationBasePath = operationServerMap['OAuthClientsApi.patchOauthClient']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -32060,8 +32060,8 @@ export const PasswordConfigurationApiFp = function(configuration?: Configuration
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async createPasswordOrgConfig(passwordOrgConfig: PasswordOrgConfig, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<PasswordOrgConfig>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.createPasswordOrgConfig(passwordOrgConfig, options);
+        async createPasswordOrgConfig(passwordOrgConfig: PasswordOrgConfig, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<PasswordOrgConfig>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.createPasswordOrgConfig(passwordOrgConfig, axiosOptions);
             const operationBasePath = operationServerMap['PasswordConfigurationApi.createPasswordOrgConfig']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -32071,8 +32071,8 @@ export const PasswordConfigurationApiFp = function(configuration?: Configuration
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async getPasswordOrgConfig(options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<PasswordOrgConfig>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.getPasswordOrgConfig(options);
+        async getPasswordOrgConfig(axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<PasswordOrgConfig>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getPasswordOrgConfig(axiosOptions);
             const operationBasePath = operationServerMap['PasswordConfigurationApi.getPasswordOrgConfig']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -32083,8 +32083,8 @@ export const PasswordConfigurationApiFp = function(configuration?: Configuration
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async putPasswordOrgConfig(passwordOrgConfig: PasswordOrgConfig, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<PasswordOrgConfig>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.putPasswordOrgConfig(passwordOrgConfig, options);
+        async putPasswordOrgConfig(passwordOrgConfig: PasswordOrgConfig, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<PasswordOrgConfig>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.putPasswordOrgConfig(passwordOrgConfig, axiosOptions);
             const operationBasePath = operationServerMap['PasswordConfigurationApi.putPasswordOrgConfig']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -32313,8 +32313,8 @@ export const PasswordDictionaryApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async getPasswordDictionary(options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<string>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.getPasswordDictionary(options);
+        async getPasswordDictionary(axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<string>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getPasswordDictionary(axiosOptions);
             const operationBasePath = operationServerMap['PasswordDictionaryApi.getPasswordDictionary']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -32325,8 +32325,8 @@ export const PasswordDictionaryApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async updatePasswordDictionary(file?: File, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.updatePasswordDictionary(file, options);
+        async updatePasswordDictionary(file?: File, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.updatePasswordDictionary(file, axiosOptions);
             const operationBasePath = operationServerMap['PasswordDictionaryApi.updatePasswordDictionary']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -32564,8 +32564,8 @@ export const PasswordManagementApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async getPasswordChangeStatus(id: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<PasswordStatus>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.getPasswordChangeStatus(id, options);
+        async getPasswordChangeStatus(id: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<PasswordStatus>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getPasswordChangeStatus(id, axiosOptions);
             const operationBasePath = operationServerMap['PasswordManagementApi.getPasswordChangeStatus']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -32576,8 +32576,8 @@ export const PasswordManagementApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async queryPasswordInfo(passwordInfoQueryDTO: PasswordInfoQueryDTO, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<PasswordInfo>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.queryPasswordInfo(passwordInfoQueryDTO, options);
+        async queryPasswordInfo(passwordInfoQueryDTO: PasswordInfoQueryDTO, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<PasswordInfo>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.queryPasswordInfo(passwordInfoQueryDTO, axiosOptions);
             const operationBasePath = operationServerMap['PasswordManagementApi.queryPasswordInfo']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -32588,8 +32588,8 @@ export const PasswordManagementApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async setPassword(passwordChangeRequest: PasswordChangeRequest, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<PasswordChangeResponse>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.setPassword(passwordChangeRequest, options);
+        async setPassword(passwordChangeRequest: PasswordChangeRequest, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<PasswordChangeResponse>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.setPassword(passwordChangeRequest, axiosOptions);
             const operationBasePath = operationServerMap['PasswordManagementApi.setPassword']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -32979,8 +32979,8 @@ export const PasswordSyncGroupsApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async createPasswordSyncGroup(passwordSyncGroup: PasswordSyncGroup, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<PasswordSyncGroup>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.createPasswordSyncGroup(passwordSyncGroup, options);
+        async createPasswordSyncGroup(passwordSyncGroup: PasswordSyncGroup, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<PasswordSyncGroup>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.createPasswordSyncGroup(passwordSyncGroup, axiosOptions);
             const operationBasePath = operationServerMap['PasswordSyncGroupsApi.createPasswordSyncGroup']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -32991,8 +32991,8 @@ export const PasswordSyncGroupsApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async deletePasswordSyncGroup(id: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.deletePasswordSyncGroup(id, options);
+        async deletePasswordSyncGroup(id: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.deletePasswordSyncGroup(id, axiosOptions);
             const operationBasePath = operationServerMap['PasswordSyncGroupsApi.deletePasswordSyncGroup']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -33003,8 +33003,8 @@ export const PasswordSyncGroupsApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async getPasswordSyncGroup(id: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<PasswordSyncGroup>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.getPasswordSyncGroup(id, options);
+        async getPasswordSyncGroup(id: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<PasswordSyncGroup>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getPasswordSyncGroup(id, axiosOptions);
             const operationBasePath = operationServerMap['PasswordSyncGroupsApi.getPasswordSyncGroup']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -33017,8 +33017,8 @@ export const PasswordSyncGroupsApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async getPasswordSyncGroups(limit?: number, offset?: number, count?: boolean, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<PasswordSyncGroup>>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.getPasswordSyncGroups(limit, offset, count, options);
+        async getPasswordSyncGroups(limit?: number, offset?: number, count?: boolean, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<PasswordSyncGroup>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getPasswordSyncGroups(limit, offset, count, axiosOptions);
             const operationBasePath = operationServerMap['PasswordSyncGroupsApi.getPasswordSyncGroups']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -33030,8 +33030,8 @@ export const PasswordSyncGroupsApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async updatePasswordSyncGroup(id: string, passwordSyncGroup: PasswordSyncGroup, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<PasswordSyncGroup>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.updatePasswordSyncGroup(id, passwordSyncGroup, options);
+        async updatePasswordSyncGroup(id: string, passwordSyncGroup: PasswordSyncGroup, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<PasswordSyncGroup>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.updatePasswordSyncGroup(id, passwordSyncGroup, axiosOptions);
             const operationBasePath = operationServerMap['PasswordSyncGroupsApi.updatePasswordSyncGroup']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -33469,8 +33469,8 @@ export const PersonalAccessTokensApiFp = function(configuration?: Configuration)
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async createPersonalAccessToken(createPersonalAccessTokenRequest: CreatePersonalAccessTokenRequest, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<CreatePersonalAccessTokenResponse>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.createPersonalAccessToken(createPersonalAccessTokenRequest, options);
+        async createPersonalAccessToken(createPersonalAccessTokenRequest: CreatePersonalAccessTokenRequest, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<CreatePersonalAccessTokenResponse>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.createPersonalAccessToken(createPersonalAccessTokenRequest, axiosOptions);
             const operationBasePath = operationServerMap['PersonalAccessTokensApi.createPersonalAccessToken']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -33481,8 +33481,8 @@ export const PersonalAccessTokensApiFp = function(configuration?: Configuration)
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async deletePersonalAccessToken(id: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.deletePersonalAccessToken(id, options);
+        async deletePersonalAccessToken(id: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.deletePersonalAccessToken(id, axiosOptions);
             const operationBasePath = operationServerMap['PersonalAccessTokensApi.deletePersonalAccessToken']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -33494,8 +33494,8 @@ export const PersonalAccessTokensApiFp = function(configuration?: Configuration)
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async listPersonalAccessTokens(ownerId?: string, filters?: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<GetPersonalAccessTokenResponse>>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.listPersonalAccessTokens(ownerId, filters, options);
+        async listPersonalAccessTokens(ownerId?: string, filters?: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<GetPersonalAccessTokenResponse>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.listPersonalAccessTokens(ownerId, filters, axiosOptions);
             const operationBasePath = operationServerMap['PersonalAccessTokensApi.listPersonalAccessTokens']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -33507,8 +33507,8 @@ export const PersonalAccessTokensApiFp = function(configuration?: Configuration)
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async patchPersonalAccessToken(id: string, jsonPatchOperation: Array<JsonPatchOperation>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<GetPersonalAccessTokenResponse>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.patchPersonalAccessToken(id, jsonPatchOperation, options);
+        async patchPersonalAccessToken(id: string, jsonPatchOperation: Array<JsonPatchOperation>, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<GetPersonalAccessTokenResponse>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.patchPersonalAccessToken(id, jsonPatchOperation, axiosOptions);
             const operationBasePath = operationServerMap['PersonalAccessTokensApi.patchPersonalAccessToken']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -33793,8 +33793,8 @@ export const PublicIdentitiesApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async getPublicIdentities(limit?: number, offset?: number, count?: boolean, filters?: string, addCoreFilters?: boolean, sorters?: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<PublicIdentity>>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.getPublicIdentities(limit, offset, count, filters, addCoreFilters, sorters, options);
+        async getPublicIdentities(limit?: number, offset?: number, count?: boolean, filters?: string, addCoreFilters?: boolean, sorters?: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<PublicIdentity>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getPublicIdentities(limit, offset, count, filters, addCoreFilters, sorters, axiosOptions);
             const operationBasePath = operationServerMap['PublicIdentitiesApi.getPublicIdentities']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -33997,8 +33997,8 @@ export const PublicIdentitiesConfigApiFp = function(configuration?: Configuratio
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async getPublicIdentityConfig(options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<PublicIdentityConfig>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.getPublicIdentityConfig(options);
+        async getPublicIdentityConfig(axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<PublicIdentityConfig>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getPublicIdentityConfig(axiosOptions);
             const operationBasePath = operationServerMap['PublicIdentitiesConfigApi.getPublicIdentityConfig']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -34009,8 +34009,8 @@ export const PublicIdentitiesConfigApiFp = function(configuration?: Configuratio
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async updatePublicIdentityConfig(publicIdentityConfig: PublicIdentityConfig, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<PublicIdentityConfig>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.updatePublicIdentityConfig(publicIdentityConfig, options);
+        async updatePublicIdentityConfig(publicIdentityConfig: PublicIdentityConfig, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<PublicIdentityConfig>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.updatePublicIdentityConfig(publicIdentityConfig, axiosOptions);
             const operationBasePath = operationServerMap['PublicIdentitiesConfigApi.updatePublicIdentityConfig']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -34310,8 +34310,8 @@ export const ReportsDataExtractionApiFp = function(configuration?: Configuration
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async cancelReport(id: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.cancelReport(id, options);
+        async cancelReport(id: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.cancelReport(id, axiosOptions);
             const operationBasePath = operationServerMap['ReportsDataExtractionApi.cancelReport']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -34325,8 +34325,8 @@ export const ReportsDataExtractionApiFp = function(configuration?: Configuration
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async getReport(taskResultId: string, fileFormat: GetReportFileFormatEnum, name?: string, auditable?: boolean, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<File>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.getReport(taskResultId, fileFormat, name, auditable, options);
+        async getReport(taskResultId: string, fileFormat: GetReportFileFormatEnum, name?: string, auditable?: boolean, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<File>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getReport(taskResultId, fileFormat, name, auditable, axiosOptions);
             const operationBasePath = operationServerMap['ReportsDataExtractionApi.getReport']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -34338,8 +34338,8 @@ export const ReportsDataExtractionApiFp = function(configuration?: Configuration
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async getReportResult(taskResultId: string, completed?: boolean, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ReportResults>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.getReportResult(taskResultId, completed, options);
+        async getReportResult(taskResultId: string, completed?: boolean, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ReportResults>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getReportResult(taskResultId, completed, axiosOptions);
             const operationBasePath = operationServerMap['ReportsDataExtractionApi.getReportResult']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -34350,8 +34350,8 @@ export const ReportsDataExtractionApiFp = function(configuration?: Configuration
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async startReport(reportDetails: ReportDetails, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<TaskResultDetails>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.startReport(reportDetails, options);
+        async startReport(reportDetails: ReportDetails, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<TaskResultDetails>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.startReport(reportDetails, axiosOptions);
             const operationBasePath = operationServerMap['ReportsDataExtractionApi.startReport']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -34676,8 +34676,8 @@ export const RequestableObjectsApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async listRequestableObjects(identityId?: string, types?: Array<RequestableObjectType>, term?: string, statuses?: Array<RequestableObjectRequestStatus>, limit?: number, offset?: number, count?: boolean, filters?: string, sorters?: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<RequestableObject>>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.listRequestableObjects(identityId, types, term, statuses, limit, offset, count, filters, sorters, options);
+        async listRequestableObjects(identityId?: string, types?: Array<RequestableObjectType>, term?: string, statuses?: Array<RequestableObjectRequestStatus>, limit?: number, offset?: number, count?: boolean, filters?: string, sorters?: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<RequestableObject>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.listRequestableObjects(identityId, types, term, statuses, limit, offset, count, filters, sorters, axiosOptions);
             const operationBasePath = operationServerMap['RequestableObjectsApi.listRequestableObjects']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -35185,8 +35185,8 @@ export const RolesApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async createRole(role: Role, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Role>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.createRole(role, options);
+        async createRole(role: Role, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Role>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.createRole(role, axiosOptions);
             const operationBasePath = operationServerMap['RolesApi.createRole']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -35197,8 +35197,8 @@ export const RolesApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async deleteBulkRoles(roleBulkDeleteRequest: RoleBulkDeleteRequest, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<TaskResultDto>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.deleteBulkRoles(roleBulkDeleteRequest, options);
+        async deleteBulkRoles(roleBulkDeleteRequest: RoleBulkDeleteRequest, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<TaskResultDto>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.deleteBulkRoles(roleBulkDeleteRequest, axiosOptions);
             const operationBasePath = operationServerMap['RolesApi.deleteBulkRoles']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -35209,8 +35209,8 @@ export const RolesApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async deleteRole(id: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.deleteRole(id, options);
+        async deleteRole(id: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.deleteRole(id, axiosOptions);
             const operationBasePath = operationServerMap['RolesApi.deleteRole']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -35221,8 +35221,8 @@ export const RolesApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async getRole(id: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Role>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.getRole(id, options);
+        async getRole(id: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Role>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getRole(id, axiosOptions);
             const operationBasePath = operationServerMap['RolesApi.getRole']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -35238,8 +35238,8 @@ export const RolesApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async getRoleAssignedIdentities(id: string, limit?: number, offset?: number, count?: boolean, filters?: string, sorters?: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<RoleIdentity>>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.getRoleAssignedIdentities(id, limit, offset, count, filters, sorters, options);
+        async getRoleAssignedIdentities(id: string, limit?: number, offset?: number, count?: boolean, filters?: string, sorters?: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<RoleIdentity>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getRoleAssignedIdentities(id, limit, offset, count, filters, sorters, axiosOptions);
             const operationBasePath = operationServerMap['RolesApi.getRoleAssignedIdentities']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -35257,8 +35257,8 @@ export const RolesApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async listRoles(forSubadmin?: string, limit?: number, offset?: number, count?: boolean, filters?: string, sorters?: string, forSegmentIds?: string, includeUnsegmented?: boolean, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Role>>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.listRoles(forSubadmin, limit, offset, count, filters, sorters, forSegmentIds, includeUnsegmented, options);
+        async listRoles(forSubadmin?: string, limit?: number, offset?: number, count?: boolean, filters?: string, sorters?: string, forSegmentIds?: string, includeUnsegmented?: boolean, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Role>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.listRoles(forSubadmin, limit, offset, count, filters, sorters, forSegmentIds, includeUnsegmented, axiosOptions);
             const operationBasePath = operationServerMap['RolesApi.listRoles']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -35270,8 +35270,8 @@ export const RolesApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async patchRole(id: string, jsonPatchOperation: Array<JsonPatchOperation>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Role>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.patchRole(id, jsonPatchOperation, options);
+        async patchRole(id: string, jsonPatchOperation: Array<JsonPatchOperation>, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Role>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.patchRole(id, jsonPatchOperation, axiosOptions);
             const operationBasePath = operationServerMap['RolesApi.patchRole']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -36426,8 +36426,8 @@ export const SODPolicyApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async createSodPolicy(sodPolicy: SodPolicy, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SodPolicy>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.createSodPolicy(sodPolicy, options);
+        async createSodPolicy(sodPolicy: SodPolicy, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SodPolicy>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.createSodPolicy(sodPolicy, axiosOptions);
             const operationBasePath = operationServerMap['SODPolicyApi.createSodPolicy']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -36439,8 +36439,8 @@ export const SODPolicyApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async deleteSodPolicy(id: string, logical?: boolean, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.deleteSodPolicy(id, logical, options);
+        async deleteSodPolicy(id: string, logical?: boolean, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.deleteSodPolicy(id, logical, axiosOptions);
             const operationBasePath = operationServerMap['SODPolicyApi.deleteSodPolicy']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -36451,8 +36451,8 @@ export const SODPolicyApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async deleteSodPolicySchedule(id: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.deleteSodPolicySchedule(id, options);
+        async deleteSodPolicySchedule(id: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.deleteSodPolicySchedule(id, axiosOptions);
             const operationBasePath = operationServerMap['SODPolicyApi.deleteSodPolicySchedule']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -36464,8 +36464,8 @@ export const SODPolicyApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async getCustomViolationReport(reportResultId: string, fileName: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<File>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.getCustomViolationReport(reportResultId, fileName, options);
+        async getCustomViolationReport(reportResultId: string, fileName: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<File>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getCustomViolationReport(reportResultId, fileName, axiosOptions);
             const operationBasePath = operationServerMap['SODPolicyApi.getCustomViolationReport']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -36476,8 +36476,8 @@ export const SODPolicyApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async getDefaultViolationReport(reportResultId: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<File>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.getDefaultViolationReport(reportResultId, options);
+        async getDefaultViolationReport(reportResultId: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<File>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getDefaultViolationReport(reportResultId, axiosOptions);
             const operationBasePath = operationServerMap['SODPolicyApi.getDefaultViolationReport']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -36487,8 +36487,8 @@ export const SODPolicyApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async getSodAllReportRunStatus(options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ReportResultReference>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.getSodAllReportRunStatus(options);
+        async getSodAllReportRunStatus(axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ReportResultReference>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getSodAllReportRunStatus(axiosOptions);
             const operationBasePath = operationServerMap['SODPolicyApi.getSodAllReportRunStatus']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -36499,8 +36499,8 @@ export const SODPolicyApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async getSodPolicy(id: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SodPolicy>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.getSodPolicy(id, options);
+        async getSodPolicy(id: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SodPolicy>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getSodPolicy(id, axiosOptions);
             const operationBasePath = operationServerMap['SODPolicyApi.getSodPolicy']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -36511,8 +36511,8 @@ export const SODPolicyApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async getSodPolicySchedule(id: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SodPolicySchedule>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.getSodPolicySchedule(id, options);
+        async getSodPolicySchedule(id: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SodPolicySchedule>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getSodPolicySchedule(id, axiosOptions);
             const operationBasePath = operationServerMap['SODPolicyApi.getSodPolicySchedule']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -36523,8 +36523,8 @@ export const SODPolicyApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async getSodViolationReportRunStatus(reportResultId: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ReportResultReference>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.getSodViolationReportRunStatus(reportResultId, options);
+        async getSodViolationReportRunStatus(reportResultId: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ReportResultReference>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getSodViolationReportRunStatus(reportResultId, axiosOptions);
             const operationBasePath = operationServerMap['SODPolicyApi.getSodViolationReportRunStatus']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -36535,8 +36535,8 @@ export const SODPolicyApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async getSodViolationReportStatus(id: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ReportResultReference>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.getSodViolationReportStatus(id, options);
+        async getSodViolationReportStatus(id: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ReportResultReference>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getSodViolationReportStatus(id, axiosOptions);
             const operationBasePath = operationServerMap['SODPolicyApi.getSodViolationReportStatus']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -36550,8 +36550,8 @@ export const SODPolicyApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async listSodPolicies(limit?: number, offset?: number, count?: boolean, filters?: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<SodPolicy>>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.listSodPolicies(limit, offset, count, filters, options);
+        async listSodPolicies(limit?: number, offset?: number, count?: boolean, filters?: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<SodPolicy>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.listSodPolicies(limit, offset, count, filters, axiosOptions);
             const operationBasePath = operationServerMap['SODPolicyApi.listSodPolicies']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -36563,8 +36563,8 @@ export const SODPolicyApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async patchSodPolicy(id: string, jsonPatchOperation: Array<JsonPatchOperation>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SodPolicy>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.patchSodPolicy(id, jsonPatchOperation, options);
+        async patchSodPolicy(id: string, jsonPatchOperation: Array<JsonPatchOperation>, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SodPolicy>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.patchSodPolicy(id, jsonPatchOperation, axiosOptions);
             const operationBasePath = operationServerMap['SODPolicyApi.patchSodPolicy']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -36576,8 +36576,8 @@ export const SODPolicyApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async putPolicySchedule(id: string, sodPolicySchedule: SodPolicySchedule, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SodPolicySchedule>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.putPolicySchedule(id, sodPolicySchedule, options);
+        async putPolicySchedule(id: string, sodPolicySchedule: SodPolicySchedule, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SodPolicySchedule>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.putPolicySchedule(id, sodPolicySchedule, axiosOptions);
             const operationBasePath = operationServerMap['SODPolicyApi.putPolicySchedule']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -36589,8 +36589,8 @@ export const SODPolicyApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async putSodPolicy(id: string, sodPolicy: SodPolicy, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SodPolicy>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.putSodPolicy(id, sodPolicy, options);
+        async putSodPolicy(id: string, sodPolicy: SodPolicy, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SodPolicy>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.putSodPolicy(id, sodPolicy, axiosOptions);
             const operationBasePath = operationServerMap['SODPolicyApi.putSodPolicy']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -36601,8 +36601,8 @@ export const SODPolicyApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async startEvaluateSodPolicy(id: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ReportResultReference>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.startEvaluateSodPolicy(id, options);
+        async startEvaluateSodPolicy(id: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ReportResultReference>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.startEvaluateSodPolicy(id, axiosOptions);
             const operationBasePath = operationServerMap['SODPolicyApi.startEvaluateSodPolicy']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -36613,8 +36613,8 @@ export const SODPolicyApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async startSodAllPoliciesForOrg(multiPolicyRequest?: MultiPolicyRequest, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ReportResultReference>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.startSodAllPoliciesForOrg(multiPolicyRequest, options);
+        async startSodAllPoliciesForOrg(multiPolicyRequest?: MultiPolicyRequest, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ReportResultReference>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.startSodAllPoliciesForOrg(multiPolicyRequest, axiosOptions);
             const operationBasePath = operationServerMap['SODPolicyApi.startSodAllPoliciesForOrg']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -36625,8 +36625,8 @@ export const SODPolicyApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async startSodPolicy(id: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ReportResultReference>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.startSodPolicy(id, options);
+        async startSodPolicy(id: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ReportResultReference>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.startSodPolicy(id, axiosOptions);
             const operationBasePath = operationServerMap['SODPolicyApi.startSodPolicy']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -37433,8 +37433,8 @@ export const SODViolationsApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async startPredictSodViolations(identityWithNewAccess: IdentityWithNewAccess, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ViolationPrediction>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.startPredictSodViolations(identityWithNewAccess, options);
+        async startPredictSodViolations(identityWithNewAccess: IdentityWithNewAccess, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ViolationPrediction>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.startPredictSodViolations(identityWithNewAccess, axiosOptions);
             const operationBasePath = operationServerMap['SODViolationsApi.startPredictSodViolations']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -37445,8 +37445,8 @@ export const SODViolationsApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async startViolationCheck(identityWithNewAccess1: IdentityWithNewAccess1, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SodViolationCheck>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.startViolationCheck(identityWithNewAccess1, options);
+        async startViolationCheck(identityWithNewAccess1: IdentityWithNewAccess1, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SodViolationCheck>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.startViolationCheck(identityWithNewAccess1, axiosOptions);
             const operationBasePath = operationServerMap['SODViolationsApi.startViolationCheck']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -37852,8 +37852,8 @@ export const SavedSearchApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async createSavedSearch(createSavedSearchRequest: CreateSavedSearchRequest, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SavedSearch>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.createSavedSearch(createSavedSearchRequest, options);
+        async createSavedSearch(createSavedSearchRequest: CreateSavedSearchRequest, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SavedSearch>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.createSavedSearch(createSavedSearchRequest, axiosOptions);
             const operationBasePath = operationServerMap['SavedSearchApi.createSavedSearch']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -37864,8 +37864,8 @@ export const SavedSearchApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async deleteSavedSearch(id: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.deleteSavedSearch(id, options);
+        async deleteSavedSearch(id: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.deleteSavedSearch(id, axiosOptions);
             const operationBasePath = operationServerMap['SavedSearchApi.deleteSavedSearch']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -37877,8 +37877,8 @@ export const SavedSearchApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async executeSavedSearch(id: string, searchArguments: SearchArguments, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.executeSavedSearch(id, searchArguments, options);
+        async executeSavedSearch(id: string, searchArguments: SearchArguments, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.executeSavedSearch(id, searchArguments, axiosOptions);
             const operationBasePath = operationServerMap['SavedSearchApi.executeSavedSearch']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -37889,8 +37889,8 @@ export const SavedSearchApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async getSavedSearch(id: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SavedSearch>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.getSavedSearch(id, options);
+        async getSavedSearch(id: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SavedSearch>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getSavedSearch(id, axiosOptions);
             const operationBasePath = operationServerMap['SavedSearchApi.getSavedSearch']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -37904,8 +37904,8 @@ export const SavedSearchApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async listSavedSearches(offset?: number, limit?: number, count?: boolean, filters?: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<SavedSearch>>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.listSavedSearches(offset, limit, count, filters, options);
+        async listSavedSearches(offset?: number, limit?: number, count?: boolean, filters?: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<SavedSearch>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.listSavedSearches(offset, limit, count, filters, axiosOptions);
             const operationBasePath = operationServerMap['SavedSearchApi.listSavedSearches']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -37917,8 +37917,8 @@ export const SavedSearchApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async putSavedSearch(id: string, savedSearch: SavedSearch, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SavedSearch>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.putSavedSearch(id, savedSearch, options);
+        async putSavedSearch(id: string, savedSearch: SavedSearch, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SavedSearch>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.putSavedSearch(id, savedSearch, axiosOptions);
             const operationBasePath = operationServerMap['SavedSearchApi.putSavedSearch']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -38507,8 +38507,8 @@ export const ScheduledSearchApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async createScheduledSearch(createScheduledSearchRequest: CreateScheduledSearchRequest, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ScheduledSearch>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.createScheduledSearch(createScheduledSearchRequest, options);
+        async createScheduledSearch(createScheduledSearchRequest: CreateScheduledSearchRequest, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ScheduledSearch>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.createScheduledSearch(createScheduledSearchRequest, axiosOptions);
             const operationBasePath = operationServerMap['ScheduledSearchApi.createScheduledSearch']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -38519,8 +38519,8 @@ export const ScheduledSearchApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async deleteScheduledSearch(id: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.deleteScheduledSearch(id, options);
+        async deleteScheduledSearch(id: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.deleteScheduledSearch(id, axiosOptions);
             const operationBasePath = operationServerMap['ScheduledSearchApi.deleteScheduledSearch']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -38531,8 +38531,8 @@ export const ScheduledSearchApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async getScheduledSearch(id: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ScheduledSearch>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.getScheduledSearch(id, options);
+        async getScheduledSearch(id: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ScheduledSearch>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getScheduledSearch(id, axiosOptions);
             const operationBasePath = operationServerMap['ScheduledSearchApi.getScheduledSearch']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -38546,8 +38546,8 @@ export const ScheduledSearchApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async listScheduledSearch(offset?: number, limit?: number, count?: boolean, filters?: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<ScheduledSearch>>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.listScheduledSearch(offset, limit, count, filters, options);
+        async listScheduledSearch(offset?: number, limit?: number, count?: boolean, filters?: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<ScheduledSearch>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.listScheduledSearch(offset, limit, count, filters, axiosOptions);
             const operationBasePath = operationServerMap['ScheduledSearchApi.listScheduledSearch']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -38559,8 +38559,8 @@ export const ScheduledSearchApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async unsubscribeScheduledSearch(id: string, typedReference: TypedReference, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.unsubscribeScheduledSearch(id, typedReference, options);
+        async unsubscribeScheduledSearch(id: string, typedReference: TypedReference, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.unsubscribeScheduledSearch(id, typedReference, axiosOptions);
             const operationBasePath = operationServerMap['ScheduledSearchApi.unsubscribeScheduledSearch']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -38572,8 +38572,8 @@ export const ScheduledSearchApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async updateScheduledSearch(id: string, scheduledSearch: ScheduledSearch, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ScheduledSearch>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.updateScheduledSearch(id, scheduledSearch, options);
+        async updateScheduledSearch(id: string, scheduledSearch: ScheduledSearch, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ScheduledSearch>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.updateScheduledSearch(id, scheduledSearch, axiosOptions);
             const operationBasePath = operationServerMap['ScheduledSearchApi.updateScheduledSearch']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -39091,8 +39091,8 @@ export const SearchApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async searchAggregate(search: Search, offset?: number, limit?: number, count?: boolean, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<AggregationResult>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.searchAggregate(search, offset, limit, count, options);
+        async searchAggregate(search: Search, offset?: number, limit?: number, count?: boolean, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<AggregationResult>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.searchAggregate(search, offset, limit, count, axiosOptions);
             const operationBasePath = operationServerMap['SearchApi.searchAggregate']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -39103,8 +39103,8 @@ export const SearchApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async searchCount(search: Search, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.searchCount(search, options);
+        async searchCount(search: Search, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.searchCount(search, axiosOptions);
             const operationBasePath = operationServerMap['SearchApi.searchCount']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -39116,8 +39116,8 @@ export const SearchApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async searchGet(index: string, id: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SearchDocument>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.searchGet(index, id, options);
+        async searchGet(index: string, id: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SearchDocument>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.searchGet(index, id, axiosOptions);
             const operationBasePath = operationServerMap['SearchApi.searchGet']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -39131,8 +39131,8 @@ export const SearchApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async searchPost(search: Search, offset?: number, limit?: number, count?: boolean, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<SearchDocument>>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.searchPost(search, offset, limit, count, options);
+        async searchPost(search: Search, offset?: number, limit?: number, count?: boolean, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<SearchDocument>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.searchPost(search, offset, limit, count, axiosOptions);
             const operationBasePath = operationServerMap['SearchApi.searchPost']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -39608,8 +39608,8 @@ export const SegmentsApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async createSegment(segment: Segment, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Segment>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.createSegment(segment, options);
+        async createSegment(segment: Segment, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Segment>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.createSegment(segment, axiosOptions);
             const operationBasePath = operationServerMap['SegmentsApi.createSegment']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -39620,8 +39620,8 @@ export const SegmentsApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async deleteSegment(id: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.deleteSegment(id, options);
+        async deleteSegment(id: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.deleteSegment(id, axiosOptions);
             const operationBasePath = operationServerMap['SegmentsApi.deleteSegment']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -39632,8 +39632,8 @@ export const SegmentsApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async getSegment(id: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Segment>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.getSegment(id, options);
+        async getSegment(id: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Segment>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getSegment(id, axiosOptions);
             const operationBasePath = operationServerMap['SegmentsApi.getSegment']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -39646,8 +39646,8 @@ export const SegmentsApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async listSegments(limit?: number, offset?: number, count?: boolean, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Segment>>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.listSegments(limit, offset, count, options);
+        async listSegments(limit?: number, offset?: number, count?: boolean, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Segment>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.listSegments(limit, offset, count, axiosOptions);
             const operationBasePath = operationServerMap['SegmentsApi.listSegments']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -39659,8 +39659,8 @@ export const SegmentsApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async patchSegment(id: string, requestBody: Array<object>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Segment>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.patchSegment(id, requestBody, options);
+        async patchSegment(id: string, requestBody: Array<object>, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Segment>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.patchSegment(id, requestBody, axiosOptions);
             const operationBasePath = operationServerMap['SegmentsApi.patchSegment']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -40365,8 +40365,8 @@ export const ServiceDeskIntegrationApiFp = function(configuration?: Configuratio
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async createServiceDeskIntegration(serviceDeskIntegrationDto: ServiceDeskIntegrationDto, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ServiceDeskIntegrationDto>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.createServiceDeskIntegration(serviceDeskIntegrationDto, options);
+        async createServiceDeskIntegration(serviceDeskIntegrationDto: ServiceDeskIntegrationDto, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ServiceDeskIntegrationDto>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.createServiceDeskIntegration(serviceDeskIntegrationDto, axiosOptions);
             const operationBasePath = operationServerMap['ServiceDeskIntegrationApi.createServiceDeskIntegration']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -40377,8 +40377,8 @@ export const ServiceDeskIntegrationApiFp = function(configuration?: Configuratio
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async deleteServiceDeskIntegration(id: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.deleteServiceDeskIntegration(id, options);
+        async deleteServiceDeskIntegration(id: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.deleteServiceDeskIntegration(id, axiosOptions);
             const operationBasePath = operationServerMap['ServiceDeskIntegrationApi.deleteServiceDeskIntegration']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -40389,8 +40389,8 @@ export const ServiceDeskIntegrationApiFp = function(configuration?: Configuratio
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async getServiceDeskIntegration(id: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ServiceDeskIntegrationDto>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.getServiceDeskIntegration(id, options);
+        async getServiceDeskIntegration(id: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ServiceDeskIntegrationDto>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getServiceDeskIntegration(id, axiosOptions);
             const operationBasePath = operationServerMap['ServiceDeskIntegrationApi.getServiceDeskIntegration']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -40401,8 +40401,8 @@ export const ServiceDeskIntegrationApiFp = function(configuration?: Configuratio
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async getServiceDeskIntegrationTemplate(scriptName: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ServiceDeskIntegrationTemplateDto>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.getServiceDeskIntegrationTemplate(scriptName, options);
+        async getServiceDeskIntegrationTemplate(scriptName: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ServiceDeskIntegrationTemplateDto>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getServiceDeskIntegrationTemplate(scriptName, axiosOptions);
             const operationBasePath = operationServerMap['ServiceDeskIntegrationApi.getServiceDeskIntegrationTemplate']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -40412,8 +40412,8 @@ export const ServiceDeskIntegrationApiFp = function(configuration?: Configuratio
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async getServiceDeskIntegrationTypes(options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<ServiceDeskIntegrationTemplateType>>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.getServiceDeskIntegrationTypes(options);
+        async getServiceDeskIntegrationTypes(axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<ServiceDeskIntegrationTemplateType>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getServiceDeskIntegrationTypes(axiosOptions);
             const operationBasePath = operationServerMap['ServiceDeskIntegrationApi.getServiceDeskIntegrationTypes']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -40428,8 +40428,8 @@ export const ServiceDeskIntegrationApiFp = function(configuration?: Configuratio
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async getServiceDeskIntegrations(offset?: number, limit?: number, sorters?: string, filters?: string, count?: boolean, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<ServiceDeskIntegrationDto>>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.getServiceDeskIntegrations(offset, limit, sorters, filters, count, options);
+        async getServiceDeskIntegrations(offset?: number, limit?: number, sorters?: string, filters?: string, count?: boolean, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<ServiceDeskIntegrationDto>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getServiceDeskIntegrations(offset, limit, sorters, filters, count, axiosOptions);
             const operationBasePath = operationServerMap['ServiceDeskIntegrationApi.getServiceDeskIntegrations']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -40439,8 +40439,8 @@ export const ServiceDeskIntegrationApiFp = function(configuration?: Configuratio
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async getStatusCheckDetails(options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<QueuedCheckConfigDetails>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.getStatusCheckDetails(options);
+        async getStatusCheckDetails(axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<QueuedCheckConfigDetails>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getStatusCheckDetails(axiosOptions);
             const operationBasePath = operationServerMap['ServiceDeskIntegrationApi.getStatusCheckDetails']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -40452,8 +40452,8 @@ export const ServiceDeskIntegrationApiFp = function(configuration?: Configuratio
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async patchServiceDeskIntegration(id: string, jsonPatch: JsonPatch, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ServiceDeskIntegrationDto>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.patchServiceDeskIntegration(id, jsonPatch, options);
+        async patchServiceDeskIntegration(id: string, jsonPatch: JsonPatch, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ServiceDeskIntegrationDto>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.patchServiceDeskIntegration(id, jsonPatch, axiosOptions);
             const operationBasePath = operationServerMap['ServiceDeskIntegrationApi.patchServiceDeskIntegration']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -40465,8 +40465,8 @@ export const ServiceDeskIntegrationApiFp = function(configuration?: Configuratio
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async putServiceDeskIntegration(id: string, serviceDeskIntegrationDto: ServiceDeskIntegrationDto, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ServiceDeskIntegrationDto>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.putServiceDeskIntegration(id, serviceDeskIntegrationDto, options);
+        async putServiceDeskIntegration(id: string, serviceDeskIntegrationDto: ServiceDeskIntegrationDto, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ServiceDeskIntegrationDto>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.putServiceDeskIntegration(id, serviceDeskIntegrationDto, axiosOptions);
             const operationBasePath = operationServerMap['ServiceDeskIntegrationApi.putServiceDeskIntegration']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -40477,8 +40477,8 @@ export const ServiceDeskIntegrationApiFp = function(configuration?: Configuratio
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async updateStatusCheckDetails(queuedCheckConfigDetails: QueuedCheckConfigDetails, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<QueuedCheckConfigDetails>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.updateStatusCheckDetails(queuedCheckConfigDetails, options);
+        async updateStatusCheckDetails(queuedCheckConfigDetails: QueuedCheckConfigDetails, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<QueuedCheckConfigDetails>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.updateStatusCheckDetails(queuedCheckConfigDetails, axiosOptions);
             const operationBasePath = operationServerMap['ServiceDeskIntegrationApi.updateStatusCheckDetails']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -41012,8 +41012,8 @@ export const SourceUsagesApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async getStatusBySourceId(sourceId: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SourceUsageStatus>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.getStatusBySourceId(sourceId, options);
+        async getStatusBySourceId(sourceId: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SourceUsageStatus>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getStatusBySourceId(sourceId, axiosOptions);
             const operationBasePath = operationServerMap['SourceUsagesApi.getStatusBySourceId']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -41028,8 +41028,8 @@ export const SourceUsagesApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async getUsagesBySourceId(sourceId: string, limit?: number, offset?: number, count?: boolean, sorters?: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<SourceUsage>>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.getUsagesBySourceId(sourceId, limit, offset, count, sorters, options);
+        async getUsagesBySourceId(sourceId: string, limit?: number, offset?: number, count?: boolean, sorters?: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<SourceUsage>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getUsagesBySourceId(sourceId, limit, offset, count, sorters, axiosOptions);
             const operationBasePath = operationServerMap['SourceUsagesApi.getUsagesBySourceId']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -42393,8 +42393,8 @@ export const SourcesApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async createProvisioningPolicy(sourceId: string, provisioningPolicyDto: ProvisioningPolicyDto, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ProvisioningPolicyDto>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.createProvisioningPolicy(sourceId, provisioningPolicyDto, options);
+        async createProvisioningPolicy(sourceId: string, provisioningPolicyDto: ProvisioningPolicyDto, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ProvisioningPolicyDto>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.createProvisioningPolicy(sourceId, provisioningPolicyDto, axiosOptions);
             const operationBasePath = operationServerMap['SourcesApi.createProvisioningPolicy']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -42406,8 +42406,8 @@ export const SourcesApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async createSource(source: Source, provisionAsCsv?: boolean, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Source>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.createSource(source, provisionAsCsv, options);
+        async createSource(source: Source, provisionAsCsv?: boolean, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Source>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.createSource(source, provisionAsCsv, axiosOptions);
             const operationBasePath = operationServerMap['SourcesApi.createSource']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -42419,8 +42419,8 @@ export const SourcesApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async createSourceSchema(sourceId: string, schema: Schema, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Schema>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.createSourceSchema(sourceId, schema, options);
+        async createSourceSchema(sourceId: string, schema: Schema, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Schema>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.createSourceSchema(sourceId, schema, axiosOptions);
             const operationBasePath = operationServerMap['SourcesApi.createSourceSchema']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -42432,8 +42432,8 @@ export const SourcesApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async deleteProvisioningPolicy(sourceId: string, usageType: UsageType, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.deleteProvisioningPolicy(sourceId, usageType, options);
+        async deleteProvisioningPolicy(sourceId: string, usageType: UsageType, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.deleteProvisioningPolicy(sourceId, usageType, axiosOptions);
             const operationBasePath = operationServerMap['SourcesApi.deleteProvisioningPolicy']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -42444,8 +42444,8 @@ export const SourcesApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async deleteSource(id: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<DeleteSource202Response>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.deleteSource(id, options);
+        async deleteSource(id: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<DeleteSource202Response>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.deleteSource(id, axiosOptions);
             const operationBasePath = operationServerMap['SourcesApi.deleteSource']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -42457,8 +42457,8 @@ export const SourcesApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async deleteSourceSchema(sourceId: string, schemaId: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.deleteSourceSchema(sourceId, schemaId, options);
+        async deleteSourceSchema(sourceId: string, schemaId: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.deleteSourceSchema(sourceId, schemaId, axiosOptions);
             const operationBasePath = operationServerMap['SourcesApi.deleteSourceSchema']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -42469,8 +42469,8 @@ export const SourcesApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async getAccountsSchema(id: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.getAccountsSchema(id, options);
+        async getAccountsSchema(id: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getAccountsSchema(id, axiosOptions);
             const operationBasePath = operationServerMap['SourcesApi.getAccountsSchema']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -42482,8 +42482,8 @@ export const SourcesApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async getEntitlementsSchema(id: string, schemaName?: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.getEntitlementsSchema(id, schemaName, options);
+        async getEntitlementsSchema(id: string, schemaName?: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getEntitlementsSchema(id, schemaName, axiosOptions);
             const operationBasePath = operationServerMap['SourcesApi.getEntitlementsSchema']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -42495,8 +42495,8 @@ export const SourcesApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async getProvisioningPolicy(sourceId: string, usageType: UsageType, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ProvisioningPolicyDto>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.getProvisioningPolicy(sourceId, usageType, options);
+        async getProvisioningPolicy(sourceId: string, usageType: UsageType, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ProvisioningPolicyDto>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getProvisioningPolicy(sourceId, usageType, axiosOptions);
             const operationBasePath = operationServerMap['SourcesApi.getProvisioningPolicy']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -42507,8 +42507,8 @@ export const SourcesApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async getSource(id: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Source>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.getSource(id, options);
+        async getSource(id: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Source>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getSource(id, axiosOptions);
             const operationBasePath = operationServerMap['SourcesApi.getSource']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -42519,8 +42519,8 @@ export const SourcesApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async getSourceHealth(sourceId: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SourceHealthDto>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.getSourceHealth(sourceId, options);
+        async getSourceHealth(sourceId: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SourceHealthDto>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getSourceHealth(sourceId, axiosOptions);
             const operationBasePath = operationServerMap['SourcesApi.getSourceHealth']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -42532,8 +42532,8 @@ export const SourcesApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async getSourceSchema(sourceId: string, schemaId: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Schema>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.getSourceSchema(sourceId, schemaId, options);
+        async getSourceSchema(sourceId: string, schemaId: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Schema>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getSourceSchema(sourceId, schemaId, axiosOptions);
             const operationBasePath = operationServerMap['SourcesApi.getSourceSchema']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -42545,8 +42545,8 @@ export const SourcesApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async importAccountsSchema(id: string, file?: File, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Schema>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.importAccountsSchema(id, file, options);
+        async importAccountsSchema(id: string, file?: File, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Schema>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.importAccountsSchema(id, file, axiosOptions);
             const operationBasePath = operationServerMap['SourcesApi.importAccountsSchema']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -42558,8 +42558,8 @@ export const SourcesApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async importConnectorFile(sourceId: string, file?: File, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Source>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.importConnectorFile(sourceId, file, options);
+        async importConnectorFile(sourceId: string, file?: File, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Source>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.importConnectorFile(sourceId, file, axiosOptions);
             const operationBasePath = operationServerMap['SourcesApi.importConnectorFile']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -42572,8 +42572,8 @@ export const SourcesApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async importEntitlementsSchema(id: string, schemaName?: string, file?: File, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Schema>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.importEntitlementsSchema(id, schemaName, file, options);
+        async importEntitlementsSchema(id: string, schemaName?: string, file?: File, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Schema>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.importEntitlementsSchema(id, schemaName, file, axiosOptions);
             const operationBasePath = operationServerMap['SourcesApi.importEntitlementsSchema']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -42584,8 +42584,8 @@ export const SourcesApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async listProvisioningPolicies(sourceId: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<ProvisioningPolicyDto>>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.listProvisioningPolicies(sourceId, options);
+        async listProvisioningPolicies(sourceId: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<ProvisioningPolicyDto>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.listProvisioningPolicies(sourceId, axiosOptions);
             const operationBasePath = operationServerMap['SourcesApi.listProvisioningPolicies']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -42597,8 +42597,8 @@ export const SourcesApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async listSourceSchemas(sourceId: string, includeTypes?: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Schema>>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.listSourceSchemas(sourceId, includeTypes, options);
+        async listSourceSchemas(sourceId: string, includeTypes?: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Schema>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.listSourceSchemas(sourceId, includeTypes, axiosOptions);
             const operationBasePath = operationServerMap['SourcesApi.listSourceSchemas']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -42614,8 +42614,8 @@ export const SourcesApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async listSources(limit?: number, offset?: number, count?: boolean, filters?: string, sorters?: string, forSubadmin?: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Source>>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.listSources(limit, offset, count, filters, sorters, forSubadmin, options);
+        async listSources(limit?: number, offset?: number, count?: boolean, filters?: string, sorters?: string, forSubadmin?: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Source>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.listSources(limit, offset, count, filters, sorters, forSubadmin, axiosOptions);
             const operationBasePath = operationServerMap['SourcesApi.listSources']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -42628,8 +42628,8 @@ export const SourcesApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async putProvisioningPolicy(sourceId: string, usageType: UsageType, provisioningPolicyDto: ProvisioningPolicyDto, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ProvisioningPolicyDto>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.putProvisioningPolicy(sourceId, usageType, provisioningPolicyDto, options);
+        async putProvisioningPolicy(sourceId: string, usageType: UsageType, provisioningPolicyDto: ProvisioningPolicyDto, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ProvisioningPolicyDto>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.putProvisioningPolicy(sourceId, usageType, provisioningPolicyDto, axiosOptions);
             const operationBasePath = operationServerMap['SourcesApi.putProvisioningPolicy']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -42641,8 +42641,8 @@ export const SourcesApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async putSource(id: string, source: Source, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Source>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.putSource(id, source, options);
+        async putSource(id: string, source: Source, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Source>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.putSource(id, source, axiosOptions);
             const operationBasePath = operationServerMap['SourcesApi.putSource']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -42655,8 +42655,8 @@ export const SourcesApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async putSourceSchema(sourceId: string, schemaId: string, schema: Schema, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Schema>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.putSourceSchema(sourceId, schemaId, schema, options);
+        async putSourceSchema(sourceId: string, schemaId: string, schema: Schema, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Schema>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.putSourceSchema(sourceId, schemaId, schema, axiosOptions);
             const operationBasePath = operationServerMap['SourcesApi.putSourceSchema']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -42668,8 +42668,8 @@ export const SourcesApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async updateProvisioningPoliciesInBulk(sourceId: string, provisioningPolicyDto: Array<ProvisioningPolicyDto>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<ProvisioningPolicyDto>>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.updateProvisioningPoliciesInBulk(sourceId, provisioningPolicyDto, options);
+        async updateProvisioningPoliciesInBulk(sourceId: string, provisioningPolicyDto: Array<ProvisioningPolicyDto>, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<ProvisioningPolicyDto>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.updateProvisioningPoliciesInBulk(sourceId, provisioningPolicyDto, axiosOptions);
             const operationBasePath = operationServerMap['SourcesApi.updateProvisioningPoliciesInBulk']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -42682,8 +42682,8 @@ export const SourcesApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async updateProvisioningPolicy(sourceId: string, usageType: UsageType, jsonPatchOperation: Array<JsonPatchOperation>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ProvisioningPolicyDto>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.updateProvisioningPolicy(sourceId, usageType, jsonPatchOperation, options);
+        async updateProvisioningPolicy(sourceId: string, usageType: UsageType, jsonPatchOperation: Array<JsonPatchOperation>, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ProvisioningPolicyDto>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.updateProvisioningPolicy(sourceId, usageType, jsonPatchOperation, axiosOptions);
             const operationBasePath = operationServerMap['SourcesApi.updateProvisioningPolicy']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -42695,8 +42695,8 @@ export const SourcesApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async updateSource(id: string, jsonPatchOperation: Array<JsonPatchOperation>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Source>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.updateSource(id, jsonPatchOperation, options);
+        async updateSource(id: string, jsonPatchOperation: Array<JsonPatchOperation>, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Source>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.updateSource(id, jsonPatchOperation, axiosOptions);
             const operationBasePath = operationServerMap['SourcesApi.updateSource']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -42709,8 +42709,8 @@ export const SourcesApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async updateSourceSchema(sourceId: string, schemaId: string, jsonPatchOperation: Array<JsonPatchOperation>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Schema>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.updateSourceSchema(sourceId, schemaId, jsonPatchOperation, options);
+        async updateSourceSchema(sourceId: string, schemaId: string, jsonPatchOperation: Array<JsonPatchOperation>, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Schema>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.updateSourceSchema(sourceId, schemaId, jsonPatchOperation, axiosOptions);
             const operationBasePath = operationServerMap['SourcesApi.updateSourceSchema']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -44285,8 +44285,8 @@ export const TaggedObjectsApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async deleteTaggedObject(type: DeleteTaggedObjectTypeEnum, id: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.deleteTaggedObject(type, id, options);
+        async deleteTaggedObject(type: DeleteTaggedObjectTypeEnum, id: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.deleteTaggedObject(type, id, axiosOptions);
             const operationBasePath = operationServerMap['TaggedObjectsApi.deleteTaggedObject']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -44297,8 +44297,8 @@ export const TaggedObjectsApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async deleteTagsToManyObject(bulkTaggedObject: BulkTaggedObject, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.deleteTagsToManyObject(bulkTaggedObject, options);
+        async deleteTagsToManyObject(bulkTaggedObject: BulkTaggedObject, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.deleteTagsToManyObject(bulkTaggedObject, axiosOptions);
             const operationBasePath = operationServerMap['TaggedObjectsApi.deleteTagsToManyObject']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -44310,8 +44310,8 @@ export const TaggedObjectsApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async getTaggedObject(type: GetTaggedObjectTypeEnum, id: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<TaggedObject>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.getTaggedObject(type, id, options);
+        async getTaggedObject(type: GetTaggedObjectTypeEnum, id: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<TaggedObject>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getTaggedObject(type, id, axiosOptions);
             const operationBasePath = operationServerMap['TaggedObjectsApi.getTaggedObject']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -44325,8 +44325,8 @@ export const TaggedObjectsApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async listTaggedObjects(limit?: number, offset?: number, count?: boolean, filters?: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<TaggedObject>>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.listTaggedObjects(limit, offset, count, filters, options);
+        async listTaggedObjects(limit?: number, offset?: number, count?: boolean, filters?: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<TaggedObject>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.listTaggedObjects(limit, offset, count, filters, axiosOptions);
             const operationBasePath = operationServerMap['TaggedObjectsApi.listTaggedObjects']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -44341,8 +44341,8 @@ export const TaggedObjectsApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async listTaggedObjectsByType(type: ListTaggedObjectsByTypeTypeEnum, limit?: number, offset?: number, count?: boolean, filters?: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<TaggedObject>>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.listTaggedObjectsByType(type, limit, offset, count, filters, options);
+        async listTaggedObjectsByType(type: ListTaggedObjectsByTypeTypeEnum, limit?: number, offset?: number, count?: boolean, filters?: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<TaggedObject>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.listTaggedObjectsByType(type, limit, offset, count, filters, axiosOptions);
             const operationBasePath = operationServerMap['TaggedObjectsApi.listTaggedObjectsByType']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -44355,8 +44355,8 @@ export const TaggedObjectsApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async putTaggedObject(type: PutTaggedObjectTypeEnum, id: string, taggedObject: TaggedObject, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<TaggedObject>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.putTaggedObject(type, id, taggedObject, options);
+        async putTaggedObject(type: PutTaggedObjectTypeEnum, id: string, taggedObject: TaggedObject, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<TaggedObject>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.putTaggedObject(type, id, taggedObject, axiosOptions);
             const operationBasePath = operationServerMap['TaggedObjectsApi.putTaggedObject']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -44367,8 +44367,8 @@ export const TaggedObjectsApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async setTagToObject(taggedObject: TaggedObject, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.setTagToObject(taggedObject, options);
+        async setTagToObject(taggedObject: TaggedObject, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.setTagToObject(taggedObject, axiosOptions);
             const operationBasePath = operationServerMap['TaggedObjectsApi.setTagToObject']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -44379,8 +44379,8 @@ export const TaggedObjectsApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async setTagsToManyObjects(bulkTaggedObject: BulkTaggedObject, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<BulkTaggedObject>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.setTagsToManyObjects(bulkTaggedObject, options);
+        async setTagsToManyObjects(bulkTaggedObject: BulkTaggedObject, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<BulkTaggedObject>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.setTagsToManyObjects(bulkTaggedObject, axiosOptions);
             const operationBasePath = operationServerMap['TaggedObjectsApi.setTagsToManyObjects']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -45091,8 +45091,8 @@ export const TransformsApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async createTransform(transform: Transform, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<TransformRead>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.createTransform(transform, options);
+        async createTransform(transform: Transform, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<TransformRead>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.createTransform(transform, axiosOptions);
             const operationBasePath = operationServerMap['TransformsApi.createTransform']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -45103,8 +45103,8 @@ export const TransformsApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async deleteTransform(id: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.deleteTransform(id, options);
+        async deleteTransform(id: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.deleteTransform(id, axiosOptions);
             const operationBasePath = operationServerMap['TransformsApi.deleteTransform']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -45115,8 +45115,8 @@ export const TransformsApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async getTransform(id: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<TransformRead>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.getTransform(id, options);
+        async getTransform(id: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<TransformRead>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getTransform(id, axiosOptions);
             const operationBasePath = operationServerMap['TransformsApi.getTransform']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -45131,8 +45131,8 @@ export const TransformsApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async listTransforms(offset?: number, limit?: number, count?: boolean, name?: string, filters?: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<TransformRead>>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.listTransforms(offset, limit, count, name, filters, options);
+        async listTransforms(offset?: number, limit?: number, count?: boolean, name?: string, filters?: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<TransformRead>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.listTransforms(offset, limit, count, name, filters, axiosOptions);
             const operationBasePath = operationServerMap['TransformsApi.listTransforms']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -45144,8 +45144,8 @@ export const TransformsApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async updateTransform(id: string, transform?: Transform, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<TransformRead>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.updateTransform(id, transform, options);
+        async updateTransform(id: string, transform?: Transform, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<TransformRead>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.updateTransform(id, transform, axiosOptions);
             const operationBasePath = operationServerMap['TransformsApi.updateTransform']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -45969,8 +45969,8 @@ export const WorkItemsApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async approveApprovalItem(id: string, approvalItemId: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<WorkItems>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.approveApprovalItem(id, approvalItemId, options);
+        async approveApprovalItem(id: string, approvalItemId: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<WorkItems>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.approveApprovalItem(id, approvalItemId, axiosOptions);
             const operationBasePath = operationServerMap['WorkItemsApi.approveApprovalItem']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -45981,8 +45981,8 @@ export const WorkItemsApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async approveApprovalItemsInBulk(id: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<WorkItems>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.approveApprovalItemsInBulk(id, options);
+        async approveApprovalItemsInBulk(id: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<WorkItems>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.approveApprovalItemsInBulk(id, axiosOptions);
             const operationBasePath = operationServerMap['WorkItemsApi.approveApprovalItemsInBulk']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -45993,8 +45993,8 @@ export const WorkItemsApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async completeWorkItem(id: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<WorkItems>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.completeWorkItem(id, options);
+        async completeWorkItem(id: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<WorkItems>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.completeWorkItem(id, axiosOptions);
             const operationBasePath = operationServerMap['WorkItemsApi.completeWorkItem']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -46008,8 +46008,8 @@ export const WorkItemsApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async getCompletedWorkItems(ownerId?: string, limit?: number, offset?: number, count?: boolean, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<WorkItems>>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.getCompletedWorkItems(ownerId, limit, offset, count, options);
+        async getCompletedWorkItems(ownerId?: string, limit?: number, offset?: number, count?: boolean, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<WorkItems>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getCompletedWorkItems(ownerId, limit, offset, count, axiosOptions);
             const operationBasePath = operationServerMap['WorkItemsApi.getCompletedWorkItems']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -46020,8 +46020,8 @@ export const WorkItemsApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async getCountCompletedWorkItems(ownerId?: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<WorkItemsCount>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.getCountCompletedWorkItems(ownerId, options);
+        async getCountCompletedWorkItems(ownerId?: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<WorkItemsCount>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getCountCompletedWorkItems(ownerId, axiosOptions);
             const operationBasePath = operationServerMap['WorkItemsApi.getCountCompletedWorkItems']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -46032,8 +46032,8 @@ export const WorkItemsApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async getCountWorkItems(ownerId?: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<WorkItemsCount>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.getCountWorkItems(ownerId, options);
+        async getCountWorkItems(ownerId?: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<WorkItemsCount>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getCountWorkItems(ownerId, axiosOptions);
             const operationBasePath = operationServerMap['WorkItemsApi.getCountWorkItems']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -46044,8 +46044,8 @@ export const WorkItemsApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async getWorkItem(id: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<WorkItems>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.getWorkItem(id, options);
+        async getWorkItem(id: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<WorkItems>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getWorkItem(id, axiosOptions);
             const operationBasePath = operationServerMap['WorkItemsApi.getWorkItem']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -46056,8 +46056,8 @@ export const WorkItemsApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async getWorkItemsSummary(ownerId?: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<WorkItemsSummary>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.getWorkItemsSummary(ownerId, options);
+        async getWorkItemsSummary(ownerId?: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<WorkItemsSummary>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getWorkItemsSummary(ownerId, axiosOptions);
             const operationBasePath = operationServerMap['WorkItemsApi.getWorkItemsSummary']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -46071,8 +46071,8 @@ export const WorkItemsApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async listWorkItems(limit?: number, offset?: number, count?: boolean, ownerId?: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<WorkItems>>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.listWorkItems(limit, offset, count, ownerId, options);
+        async listWorkItems(limit?: number, offset?: number, count?: boolean, ownerId?: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<WorkItems>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.listWorkItems(limit, offset, count, ownerId, axiosOptions);
             const operationBasePath = operationServerMap['WorkItemsApi.listWorkItems']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -46084,8 +46084,8 @@ export const WorkItemsApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async rejectApprovalItem(id: string, approvalItemId: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<WorkItems>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.rejectApprovalItem(id, approvalItemId, options);
+        async rejectApprovalItem(id: string, approvalItemId: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<WorkItems>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.rejectApprovalItem(id, approvalItemId, axiosOptions);
             const operationBasePath = operationServerMap['WorkItemsApi.rejectApprovalItem']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -46096,8 +46096,8 @@ export const WorkItemsApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async rejectApprovalItemsInBulk(id: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<WorkItems>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.rejectApprovalItemsInBulk(id, options);
+        async rejectApprovalItemsInBulk(id: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<WorkItems>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.rejectApprovalItemsInBulk(id, axiosOptions);
             const operationBasePath = operationServerMap['WorkItemsApi.rejectApprovalItemsInBulk']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -46109,8 +46109,8 @@ export const WorkItemsApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async submitAccountSelection(id: string, requestBody: { [key: string]: any; }, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<WorkItems>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.submitAccountSelection(id, requestBody, options);
+        async submitAccountSelection(id: string, requestBody: { [key: string]: any; }, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<WorkItems>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.submitAccountSelection(id, requestBody, axiosOptions);
             const operationBasePath = operationServerMap['WorkItemsApi.submitAccountSelection']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },

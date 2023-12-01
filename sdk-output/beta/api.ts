@@ -26847,8 +26847,8 @@ export const AccessProfilesBetaApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async createAccessProfile(accessProfileBeta: AccessProfileBeta, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<AccessProfileBeta>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.createAccessProfile(accessProfileBeta, options);
+        async createAccessProfile(accessProfileBeta: AccessProfileBeta, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<AccessProfileBeta>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.createAccessProfile(accessProfileBeta, axiosOptions);
             const operationBasePath = operationServerMap['AccessProfilesBetaApi.createAccessProfile']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -26859,8 +26859,8 @@ export const AccessProfilesBetaApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async deleteAccessProfile(id: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.deleteAccessProfile(id, options);
+        async deleteAccessProfile(id: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.deleteAccessProfile(id, axiosOptions);
             const operationBasePath = operationServerMap['AccessProfilesBetaApi.deleteAccessProfile']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -26871,8 +26871,8 @@ export const AccessProfilesBetaApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async deleteAccessProfilesInBulk(accessProfileBulkDeleteRequestBeta: AccessProfileBulkDeleteRequestBeta, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<AccessProfileBulkDeleteResponseBeta>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.deleteAccessProfilesInBulk(accessProfileBulkDeleteRequestBeta, options);
+        async deleteAccessProfilesInBulk(accessProfileBulkDeleteRequestBeta: AccessProfileBulkDeleteRequestBeta, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<AccessProfileBulkDeleteResponseBeta>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.deleteAccessProfilesInBulk(accessProfileBulkDeleteRequestBeta, axiosOptions);
             const operationBasePath = operationServerMap['AccessProfilesBetaApi.deleteAccessProfilesInBulk']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -26883,8 +26883,8 @@ export const AccessProfilesBetaApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async getAccessProfile(id: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<AccessProfileBeta>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.getAccessProfile(id, options);
+        async getAccessProfile(id: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<AccessProfileBeta>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getAccessProfile(id, axiosOptions);
             const operationBasePath = operationServerMap['AccessProfilesBetaApi.getAccessProfile']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -26900,8 +26900,8 @@ export const AccessProfilesBetaApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async getAccessProfileEntitlements(id: string, limit?: number, offset?: number, count?: boolean, filters?: string, sorters?: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<EntitlementBeta>>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.getAccessProfileEntitlements(id, limit, offset, count, filters, sorters, options);
+        async getAccessProfileEntitlements(id: string, limit?: number, offset?: number, count?: boolean, filters?: string, sorters?: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<EntitlementBeta>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getAccessProfileEntitlements(id, limit, offset, count, filters, sorters, axiosOptions);
             const operationBasePath = operationServerMap['AccessProfilesBetaApi.getAccessProfileEntitlements']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -26919,8 +26919,8 @@ export const AccessProfilesBetaApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async listAccessProfiles(forSubadmin?: string, limit?: number, offset?: number, count?: boolean, filters?: string, sorters?: string, forSegmentIds?: string, includeUnsegmented?: boolean, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<AccessProfileBeta>>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.listAccessProfiles(forSubadmin, limit, offset, count, filters, sorters, forSegmentIds, includeUnsegmented, options);
+        async listAccessProfiles(forSubadmin?: string, limit?: number, offset?: number, count?: boolean, filters?: string, sorters?: string, forSegmentIds?: string, includeUnsegmented?: boolean, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<AccessProfileBeta>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.listAccessProfiles(forSubadmin, limit, offset, count, filters, sorters, forSegmentIds, includeUnsegmented, axiosOptions);
             const operationBasePath = operationServerMap['AccessProfilesBetaApi.listAccessProfiles']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -26932,8 +26932,8 @@ export const AccessProfilesBetaApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async patchAccessProfile(id: string, jsonPatchOperationBeta: Array<JsonPatchOperationBeta>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<AccessProfileBeta>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.patchAccessProfile(id, jsonPatchOperationBeta, options);
+        async patchAccessProfile(id: string, jsonPatchOperationBeta: Array<JsonPatchOperationBeta>, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<AccessProfileBeta>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.patchAccessProfile(id, jsonPatchOperationBeta, axiosOptions);
             const operationBasePath = operationServerMap['AccessProfilesBetaApi.patchAccessProfile']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -27658,8 +27658,8 @@ export const AccessRequestApprovalsBetaApiFp = function(configuration?: Configur
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async approveAccessRequest(approvalId: string, commentDtoBeta?: CommentDtoBeta, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<object>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.approveAccessRequest(approvalId, commentDtoBeta, options);
+        async approveAccessRequest(approvalId: string, commentDtoBeta?: CommentDtoBeta, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<object>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.approveAccessRequest(approvalId, commentDtoBeta, axiosOptions);
             const operationBasePath = operationServerMap['AccessRequestApprovalsBetaApi.approveAccessRequest']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -27671,8 +27671,8 @@ export const AccessRequestApprovalsBetaApiFp = function(configuration?: Configur
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async forwardAccessRequest(approvalId: string, forwardApprovalDtoBeta: ForwardApprovalDtoBeta, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<object>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.forwardAccessRequest(approvalId, forwardApprovalDtoBeta, options);
+        async forwardAccessRequest(approvalId: string, forwardApprovalDtoBeta: ForwardApprovalDtoBeta, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<object>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.forwardAccessRequest(approvalId, forwardApprovalDtoBeta, axiosOptions);
             const operationBasePath = operationServerMap['AccessRequestApprovalsBetaApi.forwardAccessRequest']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -27684,8 +27684,8 @@ export const AccessRequestApprovalsBetaApiFp = function(configuration?: Configur
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async getAccessRequestApprovalSummary(ownerId?: string, fromDate?: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ApprovalSummaryBeta>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.getAccessRequestApprovalSummary(ownerId, fromDate, options);
+        async getAccessRequestApprovalSummary(ownerId?: string, fromDate?: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ApprovalSummaryBeta>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getAccessRequestApprovalSummary(ownerId, fromDate, axiosOptions);
             const operationBasePath = operationServerMap['AccessRequestApprovalsBetaApi.getAccessRequestApprovalSummary']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -27701,8 +27701,8 @@ export const AccessRequestApprovalsBetaApiFp = function(configuration?: Configur
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async listCompletedApprovals(ownerId?: string, limit?: number, offset?: number, count?: boolean, filters?: string, sorters?: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<CompletedApprovalBeta>>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.listCompletedApprovals(ownerId, limit, offset, count, filters, sorters, options);
+        async listCompletedApprovals(ownerId?: string, limit?: number, offset?: number, count?: boolean, filters?: string, sorters?: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<CompletedApprovalBeta>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.listCompletedApprovals(ownerId, limit, offset, count, filters, sorters, axiosOptions);
             const operationBasePath = operationServerMap['AccessRequestApprovalsBetaApi.listCompletedApprovals']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -27718,8 +27718,8 @@ export const AccessRequestApprovalsBetaApiFp = function(configuration?: Configur
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async listPendingApprovals(ownerId?: string, limit?: number, offset?: number, count?: boolean, filters?: string, sorters?: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<PendingApprovalBeta>>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.listPendingApprovals(ownerId, limit, offset, count, filters, sorters, options);
+        async listPendingApprovals(ownerId?: string, limit?: number, offset?: number, count?: boolean, filters?: string, sorters?: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<PendingApprovalBeta>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.listPendingApprovals(ownerId, limit, offset, count, filters, sorters, axiosOptions);
             const operationBasePath = operationServerMap['AccessRequestApprovalsBetaApi.listPendingApprovals']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -27731,8 +27731,8 @@ export const AccessRequestApprovalsBetaApiFp = function(configuration?: Configur
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async rejectAccessRequest(approvalId: string, commentDtoBeta?: CommentDtoBeta, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<object>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.rejectAccessRequest(approvalId, commentDtoBeta, options);
+        async rejectAccessRequest(approvalId: string, commentDtoBeta?: CommentDtoBeta, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<object>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.rejectAccessRequest(approvalId, commentDtoBeta, axiosOptions);
             const operationBasePath = operationServerMap['AccessRequestApprovalsBetaApi.rejectAccessRequest']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -28399,8 +28399,8 @@ export const AccessRequestsBetaApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async cancelAccessRequest(cancelAccessRequestBeta: CancelAccessRequestBeta, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<object>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.cancelAccessRequest(cancelAccessRequestBeta, options);
+        async cancelAccessRequest(cancelAccessRequestBeta: CancelAccessRequestBeta, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<object>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.cancelAccessRequest(cancelAccessRequestBeta, axiosOptions);
             const operationBasePath = operationServerMap['AccessRequestsBetaApi.cancelAccessRequest']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -28411,8 +28411,8 @@ export const AccessRequestsBetaApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async closeAccessRequest(closeAccessRequestBeta: CloseAccessRequestBeta, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<object>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.closeAccessRequest(closeAccessRequestBeta, options);
+        async closeAccessRequest(closeAccessRequestBeta: CloseAccessRequestBeta, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<object>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.closeAccessRequest(closeAccessRequestBeta, axiosOptions);
             const operationBasePath = operationServerMap['AccessRequestsBetaApi.closeAccessRequest']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -28423,8 +28423,8 @@ export const AccessRequestsBetaApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async createAccessRequest(accessRequestBeta: AccessRequestBeta, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<object>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.createAccessRequest(accessRequestBeta, options);
+        async createAccessRequest(accessRequestBeta: AccessRequestBeta, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<object>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.createAccessRequest(accessRequestBeta, axiosOptions);
             const operationBasePath = operationServerMap['AccessRequestsBetaApi.createAccessRequest']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -28434,8 +28434,8 @@ export const AccessRequestsBetaApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async getAccessRequestConfig(options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<AccessRequestConfigBeta>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.getAccessRequestConfig(options);
+        async getAccessRequestConfig(axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<AccessRequestConfigBeta>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getAccessRequestConfig(axiosOptions);
             const operationBasePath = operationServerMap['AccessRequestsBetaApi.getAccessRequestConfig']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -28454,8 +28454,8 @@ export const AccessRequestsBetaApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async listAccessRequestStatus(requestedFor?: string, requestedBy?: string, regardingIdentity?: string, assignedTo?: string, count?: boolean, limit?: number, offset?: number, filters?: string, sorters?: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<RequestedItemStatusBeta>>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.listAccessRequestStatus(requestedFor, requestedBy, regardingIdentity, assignedTo, count, limit, offset, filters, sorters, options);
+        async listAccessRequestStatus(requestedFor?: string, requestedBy?: string, regardingIdentity?: string, assignedTo?: string, count?: boolean, limit?: number, offset?: number, filters?: string, sorters?: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<RequestedItemStatusBeta>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.listAccessRequestStatus(requestedFor, requestedBy, regardingIdentity, assignedTo, count, limit, offset, filters, sorters, axiosOptions);
             const operationBasePath = operationServerMap['AccessRequestsBetaApi.listAccessRequestStatus']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -28466,8 +28466,8 @@ export const AccessRequestsBetaApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async setAccessRequestConfig(accessRequestConfigBeta: AccessRequestConfigBeta, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<AccessRequestConfigBeta>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.setAccessRequestConfig(accessRequestConfigBeta, options);
+        async setAccessRequestConfig(accessRequestConfigBeta: AccessRequestConfigBeta, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<AccessRequestConfigBeta>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.setAccessRequestConfig(accessRequestConfigBeta, axiosOptions);
             const operationBasePath = operationServerMap['AccessRequestsBetaApi.setAccessRequestConfig']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -28904,8 +28904,8 @@ export const AccountActivitiesBetaApiFp = function(configuration?: Configuration
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async getAccountActivity(id: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<CancelableAccountActivityBeta>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.getAccountActivity(id, options);
+        async getAccountActivity(id: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<CancelableAccountActivityBeta>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getAccountActivity(id, axiosOptions);
             const operationBasePath = operationServerMap['AccountActivitiesBetaApi.getAccountActivity']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -28924,8 +28924,8 @@ export const AccountActivitiesBetaApiFp = function(configuration?: Configuration
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async listAccountActivities(requestedFor?: string, requestedBy?: string, regardingIdentity?: string, type?: string, limit?: number, offset?: number, count?: boolean, filters?: string, sorters?: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<CancelableAccountActivityBeta>>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.listAccountActivities(requestedFor, requestedBy, regardingIdentity, type, limit, offset, count, filters, sorters, options);
+        async listAccountActivities(requestedFor?: string, requestedBy?: string, regardingIdentity?: string, type?: string, limit?: number, offset?: number, count?: boolean, filters?: string, sorters?: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<CancelableAccountActivityBeta>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.listAccountActivities(requestedFor, requestedBy, regardingIdentity, type, limit, offset, count, filters, sorters, axiosOptions);
             const operationBasePath = operationServerMap['AccountActivitiesBetaApi.listAccountActivities']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -29147,8 +29147,8 @@ export const AccountAggregationsBetaApiFp = function(configuration?: Configurati
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async getAccountAggregationStatus(id: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<AccountAggregationStatusBeta>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.getAccountAggregationStatus(id, options);
+        async getAccountAggregationStatus(id: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<AccountAggregationStatusBeta>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getAccountAggregationStatus(id, axiosOptions);
             const operationBasePath = operationServerMap['AccountAggregationsBetaApi.getAccountAggregationStatus']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -29301,8 +29301,8 @@ export const AccountUsagesBetaApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async getUsagesByAccountId(accountId: string, limit?: number, offset?: number, count?: boolean, sorters?: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<AccountUsageBeta>>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.getUsagesByAccountId(accountId, limit, offset, count, sorters, options);
+        async getUsagesByAccountId(accountId: string, limit?: number, offset?: number, count?: boolean, sorters?: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<AccountUsageBeta>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getUsagesByAccountId(accountId, limit, offset, count, sorters, axiosOptions);
             const operationBasePath = operationServerMap['AccountUsagesBetaApi.getUsagesByAccountId']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -30124,8 +30124,8 @@ export const AccountsBetaApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async createAccount(accountAttributesCreateBeta: AccountAttributesCreateBeta, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<AccountsAsyncResultBeta>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.createAccount(accountAttributesCreateBeta, options);
+        async createAccount(accountAttributesCreateBeta: AccountAttributesCreateBeta, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<AccountsAsyncResultBeta>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.createAccount(accountAttributesCreateBeta, axiosOptions);
             const operationBasePath = operationServerMap['AccountsBetaApi.createAccount']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -30136,8 +30136,8 @@ export const AccountsBetaApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async deleteAccount(id: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<AccountsAsyncResultBeta>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.deleteAccount(id, options);
+        async deleteAccount(id: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<AccountsAsyncResultBeta>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.deleteAccount(id, axiosOptions);
             const operationBasePath = operationServerMap['AccountsBetaApi.deleteAccount']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -30149,8 +30149,8 @@ export const AccountsBetaApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async disableAccount(id: string, accountToggleRequestBeta: AccountToggleRequestBeta, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<AccountsAsyncResultBeta>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.disableAccount(id, accountToggleRequestBeta, options);
+        async disableAccount(id: string, accountToggleRequestBeta: AccountToggleRequestBeta, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<AccountsAsyncResultBeta>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.disableAccount(id, accountToggleRequestBeta, axiosOptions);
             const operationBasePath = operationServerMap['AccountsBetaApi.disableAccount']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -30161,8 +30161,8 @@ export const AccountsBetaApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async disableAccountForIdentity(id: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<object>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.disableAccountForIdentity(id, options);
+        async disableAccountForIdentity(id: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<object>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.disableAccountForIdentity(id, axiosOptions);
             const operationBasePath = operationServerMap['AccountsBetaApi.disableAccountForIdentity']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -30173,8 +30173,8 @@ export const AccountsBetaApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async disableAccountsForIdentities(identitiesAccountsBulkRequestBeta: IdentitiesAccountsBulkRequestBeta, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<BulkIdentitiesAccountsResponseBeta>>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.disableAccountsForIdentities(identitiesAccountsBulkRequestBeta, options);
+        async disableAccountsForIdentities(identitiesAccountsBulkRequestBeta: IdentitiesAccountsBulkRequestBeta, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<BulkIdentitiesAccountsResponseBeta>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.disableAccountsForIdentities(identitiesAccountsBulkRequestBeta, axiosOptions);
             const operationBasePath = operationServerMap['AccountsBetaApi.disableAccountsForIdentities']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -30186,8 +30186,8 @@ export const AccountsBetaApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async enableAccount(id: string, accountToggleRequestBeta: AccountToggleRequestBeta, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<AccountsAsyncResultBeta>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.enableAccount(id, accountToggleRequestBeta, options);
+        async enableAccount(id: string, accountToggleRequestBeta: AccountToggleRequestBeta, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<AccountsAsyncResultBeta>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.enableAccount(id, accountToggleRequestBeta, axiosOptions);
             const operationBasePath = operationServerMap['AccountsBetaApi.enableAccount']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -30198,8 +30198,8 @@ export const AccountsBetaApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async enableAccountForIdentity(id: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<object>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.enableAccountForIdentity(id, options);
+        async enableAccountForIdentity(id: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<object>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.enableAccountForIdentity(id, axiosOptions);
             const operationBasePath = operationServerMap['AccountsBetaApi.enableAccountForIdentity']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -30210,8 +30210,8 @@ export const AccountsBetaApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async enableAccountsForIdentities(identitiesAccountsBulkRequestBeta: IdentitiesAccountsBulkRequestBeta, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<BulkIdentitiesAccountsResponseBeta>>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.enableAccountsForIdentities(identitiesAccountsBulkRequestBeta, options);
+        async enableAccountsForIdentities(identitiesAccountsBulkRequestBeta: IdentitiesAccountsBulkRequestBeta, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<BulkIdentitiesAccountsResponseBeta>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.enableAccountsForIdentities(identitiesAccountsBulkRequestBeta, axiosOptions);
             const operationBasePath = operationServerMap['AccountsBetaApi.enableAccountsForIdentities']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -30222,8 +30222,8 @@ export const AccountsBetaApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async getAccount(id: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<AccountBeta>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.getAccount(id, options);
+        async getAccount(id: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<AccountBeta>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getAccount(id, axiosOptions);
             const operationBasePath = operationServerMap['AccountsBetaApi.getAccount']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -30237,8 +30237,8 @@ export const AccountsBetaApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async getAccountEntitlements(id: string, offset?: number, limit?: number, count?: boolean, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<EntitlementBeta>>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.getAccountEntitlements(id, offset, limit, count, options);
+        async getAccountEntitlements(id: string, offset?: number, limit?: number, count?: boolean, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<EntitlementBeta>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getAccountEntitlements(id, offset, limit, count, axiosOptions);
             const operationBasePath = operationServerMap['AccountsBetaApi.getAccountEntitlements']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -30254,8 +30254,8 @@ export const AccountsBetaApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async listAccounts(detailLevel?: ListAccountsDetailLevelBeta, limit?: number, offset?: number, count?: boolean, filters?: string, sorters?: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<ListAccounts200ResponseInnerBeta>>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.listAccounts(detailLevel, limit, offset, count, filters, sorters, options);
+        async listAccounts(detailLevel?: ListAccountsDetailLevelBeta, limit?: number, offset?: number, count?: boolean, filters?: string, sorters?: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<ListAccounts200ResponseInnerBeta>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.listAccounts(detailLevel, limit, offset, count, filters, sorters, axiosOptions);
             const operationBasePath = operationServerMap['AccountsBetaApi.listAccounts']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -30267,8 +30267,8 @@ export const AccountsBetaApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async putAccount(id: string, accountAttributesBeta: AccountAttributesBeta, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<AccountsAsyncResultBeta>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.putAccount(id, accountAttributesBeta, options);
+        async putAccount(id: string, accountAttributesBeta: AccountAttributesBeta, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<AccountsAsyncResultBeta>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.putAccount(id, accountAttributesBeta, axiosOptions);
             const operationBasePath = operationServerMap['AccountsBetaApi.putAccount']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -30279,8 +30279,8 @@ export const AccountsBetaApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async reloadAccount(id: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<AccountsAsyncResultBeta>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.reloadAccount(id, options);
+        async reloadAccount(id: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<AccountsAsyncResultBeta>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.reloadAccount(id, axiosOptions);
             const operationBasePath = operationServerMap['AccountsBetaApi.reloadAccount']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -30292,8 +30292,8 @@ export const AccountsBetaApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async unlockAccount(id: string, accountUnlockRequestBeta: AccountUnlockRequestBeta, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<AccountsAsyncResultBeta>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.unlockAccount(id, accountUnlockRequestBeta, options);
+        async unlockAccount(id: string, accountUnlockRequestBeta: AccountUnlockRequestBeta, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<AccountsAsyncResultBeta>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.unlockAccount(id, accountUnlockRequestBeta, axiosOptions);
             const operationBasePath = operationServerMap['AccountsBetaApi.unlockAccount']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -30305,8 +30305,8 @@ export const AccountsBetaApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async updateAccount(id: string, requestBody: Array<object>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<object>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.updateAccount(id, requestBody, options);
+        async updateAccount(id: string, requestBody: Array<object>, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<object>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.updateAccount(id, requestBody, axiosOptions);
             const operationBasePath = operationServerMap['AccountsBetaApi.updateAccount']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -32043,8 +32043,8 @@ export const CertificationCampaignsBetaApiFp = function(configuration?: Configur
          * @deprecated
          * @throws {RequiredError}
          */
-        async completeCampaign(id: string, completeCampaignOptionsBeta?: CompleteCampaignOptionsBeta, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<object>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.completeCampaign(id, completeCampaignOptionsBeta, options);
+        async completeCampaign(id: string, completeCampaignOptionsBeta?: CompleteCampaignOptionsBeta, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<object>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.completeCampaign(id, completeCampaignOptionsBeta, axiosOptions);
             const operationBasePath = operationServerMap['CertificationCampaignsBetaApi.completeCampaign']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -32056,8 +32056,8 @@ export const CertificationCampaignsBetaApiFp = function(configuration?: Configur
          * @deprecated
          * @throws {RequiredError}
          */
-        async createCampaign(campaignBeta: CampaignBeta, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<CampaignBeta>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.createCampaign(campaignBeta, options);
+        async createCampaign(campaignBeta: CampaignBeta, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<CampaignBeta>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.createCampaign(campaignBeta, axiosOptions);
             const operationBasePath = operationServerMap['CertificationCampaignsBetaApi.createCampaign']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -32069,8 +32069,8 @@ export const CertificationCampaignsBetaApiFp = function(configuration?: Configur
          * @deprecated
          * @throws {RequiredError}
          */
-        async createCampaignTemplate(campaignTemplateBeta: CampaignTemplateBeta, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<CampaignTemplateBeta>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.createCampaignTemplate(campaignTemplateBeta, options);
+        async createCampaignTemplate(campaignTemplateBeta: CampaignTemplateBeta, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<CampaignTemplateBeta>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.createCampaignTemplate(campaignTemplateBeta, axiosOptions);
             const operationBasePath = operationServerMap['CertificationCampaignsBetaApi.createCampaignTemplate']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -32082,8 +32082,8 @@ export const CertificationCampaignsBetaApiFp = function(configuration?: Configur
          * @deprecated
          * @throws {RequiredError}
          */
-        async deleteCampaignTemplate(id: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.deleteCampaignTemplate(id, options);
+        async deleteCampaignTemplate(id: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.deleteCampaignTemplate(id, axiosOptions);
             const operationBasePath = operationServerMap['CertificationCampaignsBetaApi.deleteCampaignTemplate']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -32095,8 +32095,8 @@ export const CertificationCampaignsBetaApiFp = function(configuration?: Configur
          * @deprecated
          * @throws {RequiredError}
          */
-        async deleteCampaignTemplateSchedule(id: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.deleteCampaignTemplateSchedule(id, options);
+        async deleteCampaignTemplateSchedule(id: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.deleteCampaignTemplateSchedule(id, axiosOptions);
             const operationBasePath = operationServerMap['CertificationCampaignsBetaApi.deleteCampaignTemplateSchedule']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -32108,8 +32108,8 @@ export const CertificationCampaignsBetaApiFp = function(configuration?: Configur
          * @deprecated
          * @throws {RequiredError}
          */
-        async deleteCampaigns(deleteCampaignsRequestBeta: DeleteCampaignsRequestBeta, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<object>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.deleteCampaigns(deleteCampaignsRequestBeta, options);
+        async deleteCampaigns(deleteCampaignsRequestBeta: DeleteCampaignsRequestBeta, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<object>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.deleteCampaigns(deleteCampaignsRequestBeta, axiosOptions);
             const operationBasePath = operationServerMap['CertificationCampaignsBetaApi.deleteCampaigns']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -32126,8 +32126,8 @@ export const CertificationCampaignsBetaApiFp = function(configuration?: Configur
          * @deprecated
          * @throws {RequiredError}
          */
-        async getActiveCampaigns(detail?: GetActiveCampaignsDetailBeta, limit?: number, offset?: number, count?: boolean, filters?: string, sorters?: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<GetActiveCampaigns200ResponseInnerBeta>>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.getActiveCampaigns(detail, limit, offset, count, filters, sorters, options);
+        async getActiveCampaigns(detail?: GetActiveCampaignsDetailBeta, limit?: number, offset?: number, count?: boolean, filters?: string, sorters?: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<GetActiveCampaigns200ResponseInnerBeta>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getActiveCampaigns(detail, limit, offset, count, filters, sorters, axiosOptions);
             const operationBasePath = operationServerMap['CertificationCampaignsBetaApi.getActiveCampaigns']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -32139,8 +32139,8 @@ export const CertificationCampaignsBetaApiFp = function(configuration?: Configur
          * @deprecated
          * @throws {RequiredError}
          */
-        async getCampaign(id: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SlimcampaignBeta>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.getCampaign(id, options);
+        async getCampaign(id: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SlimcampaignBeta>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getCampaign(id, axiosOptions);
             const operationBasePath = operationServerMap['CertificationCampaignsBetaApi.getCampaign']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -32152,8 +32152,8 @@ export const CertificationCampaignsBetaApiFp = function(configuration?: Configur
          * @deprecated
          * @throws {RequiredError}
          */
-        async getCampaignReports(id: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<CampaignReportBeta>>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.getCampaignReports(id, options);
+        async getCampaignReports(id: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<CampaignReportBeta>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getCampaignReports(id, axiosOptions);
             const operationBasePath = operationServerMap['CertificationCampaignsBetaApi.getCampaignReports']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -32164,8 +32164,8 @@ export const CertificationCampaignsBetaApiFp = function(configuration?: Configur
          * @deprecated
          * @throws {RequiredError}
          */
-        async getCampaignReportsConfig(options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<CampaignReportsConfigBeta>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.getCampaignReportsConfig(options);
+        async getCampaignReportsConfig(axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<CampaignReportsConfigBeta>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getCampaignReportsConfig(axiosOptions);
             const operationBasePath = operationServerMap['CertificationCampaignsBetaApi.getCampaignReportsConfig']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -32177,8 +32177,8 @@ export const CertificationCampaignsBetaApiFp = function(configuration?: Configur
          * @deprecated
          * @throws {RequiredError}
          */
-        async getCampaignTemplate(id: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<CampaignTemplateBeta>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.getCampaignTemplate(id, options);
+        async getCampaignTemplate(id: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<CampaignTemplateBeta>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getCampaignTemplate(id, axiosOptions);
             const operationBasePath = operationServerMap['CertificationCampaignsBetaApi.getCampaignTemplate']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -32190,8 +32190,8 @@ export const CertificationCampaignsBetaApiFp = function(configuration?: Configur
          * @deprecated
          * @throws {RequiredError}
          */
-        async getCampaignTemplateSchedule(id: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ScheduleBeta>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.getCampaignTemplateSchedule(id, options);
+        async getCampaignTemplateSchedule(id: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ScheduleBeta>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getCampaignTemplateSchedule(id, axiosOptions);
             const operationBasePath = operationServerMap['CertificationCampaignsBetaApi.getCampaignTemplateSchedule']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -32207,8 +32207,8 @@ export const CertificationCampaignsBetaApiFp = function(configuration?: Configur
          * @deprecated
          * @throws {RequiredError}
          */
-        async listCampaignTemplates(limit?: number, offset?: number, count?: boolean, sorters?: string, filters?: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<CampaignTemplateBeta>>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.listCampaignTemplates(limit, offset, count, sorters, filters, options);
+        async listCampaignTemplates(limit?: number, offset?: number, count?: boolean, sorters?: string, filters?: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<CampaignTemplateBeta>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.listCampaignTemplates(limit, offset, count, sorters, filters, axiosOptions);
             const operationBasePath = operationServerMap['CertificationCampaignsBetaApi.listCampaignTemplates']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -32221,8 +32221,8 @@ export const CertificationCampaignsBetaApiFp = function(configuration?: Configur
          * @deprecated
          * @throws {RequiredError}
          */
-        async move(id: string, adminReviewReassignBeta: AdminReviewReassignBeta, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<CertificationTaskBeta>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.move(id, adminReviewReassignBeta, options);
+        async move(id: string, adminReviewReassignBeta: AdminReviewReassignBeta, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<CertificationTaskBeta>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.move(id, adminReviewReassignBeta, axiosOptions);
             const operationBasePath = operationServerMap['CertificationCampaignsBetaApi.move']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -32235,8 +32235,8 @@ export const CertificationCampaignsBetaApiFp = function(configuration?: Configur
          * @deprecated
          * @throws {RequiredError}
          */
-        async patchCampaignTemplate(id: string, jsonPatchOperationBeta: Array<JsonPatchOperationBeta>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<CampaignTemplateBeta>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.patchCampaignTemplate(id, jsonPatchOperationBeta, options);
+        async patchCampaignTemplate(id: string, jsonPatchOperationBeta: Array<JsonPatchOperationBeta>, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<CampaignTemplateBeta>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.patchCampaignTemplate(id, jsonPatchOperationBeta, axiosOptions);
             const operationBasePath = operationServerMap['CertificationCampaignsBetaApi.patchCampaignTemplate']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -32248,8 +32248,8 @@ export const CertificationCampaignsBetaApiFp = function(configuration?: Configur
          * @deprecated
          * @throws {RequiredError}
          */
-        async setCampaignReportsConfig(campaignReportsConfigBeta: CampaignReportsConfigBeta, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<CampaignReportsConfigBeta>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.setCampaignReportsConfig(campaignReportsConfigBeta, options);
+        async setCampaignReportsConfig(campaignReportsConfigBeta: CampaignReportsConfigBeta, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<CampaignReportsConfigBeta>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.setCampaignReportsConfig(campaignReportsConfigBeta, axiosOptions);
             const operationBasePath = operationServerMap['CertificationCampaignsBetaApi.setCampaignReportsConfig']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -32262,8 +32262,8 @@ export const CertificationCampaignsBetaApiFp = function(configuration?: Configur
          * @deprecated
          * @throws {RequiredError}
          */
-        async setCampaignTemplateSchedule(id: string, scheduleBeta?: ScheduleBeta, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.setCampaignTemplateSchedule(id, scheduleBeta, options);
+        async setCampaignTemplateSchedule(id: string, scheduleBeta?: ScheduleBeta, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.setCampaignTemplateSchedule(id, scheduleBeta, axiosOptions);
             const operationBasePath = operationServerMap['CertificationCampaignsBetaApi.setCampaignTemplateSchedule']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -32276,8 +32276,8 @@ export const CertificationCampaignsBetaApiFp = function(configuration?: Configur
          * @deprecated
          * @throws {RequiredError}
          */
-        async startCampaign(id: string, activateCampaignOptionsBeta?: ActivateCampaignOptionsBeta, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<object>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.startCampaign(id, activateCampaignOptionsBeta, options);
+        async startCampaign(id: string, activateCampaignOptionsBeta?: ActivateCampaignOptionsBeta, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<object>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.startCampaign(id, activateCampaignOptionsBeta, axiosOptions);
             const operationBasePath = operationServerMap['CertificationCampaignsBetaApi.startCampaign']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -32289,8 +32289,8 @@ export const CertificationCampaignsBetaApiFp = function(configuration?: Configur
          * @deprecated
          * @throws {RequiredError}
          */
-        async startCampaignRemediationScan(id: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<object>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.startCampaignRemediationScan(id, options);
+        async startCampaignRemediationScan(id: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<object>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.startCampaignRemediationScan(id, axiosOptions);
             const operationBasePath = operationServerMap['CertificationCampaignsBetaApi.startCampaignRemediationScan']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -32303,8 +32303,8 @@ export const CertificationCampaignsBetaApiFp = function(configuration?: Configur
          * @deprecated
          * @throws {RequiredError}
          */
-        async startCampaignReport(id: string, type: ReportTypeBeta, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<object>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.startCampaignReport(id, type, options);
+        async startCampaignReport(id: string, type: ReportTypeBeta, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<object>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.startCampaignReport(id, type, axiosOptions);
             const operationBasePath = operationServerMap['CertificationCampaignsBetaApi.startCampaignReport']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -32316,8 +32316,8 @@ export const CertificationCampaignsBetaApiFp = function(configuration?: Configur
          * @deprecated
          * @throws {RequiredError}
          */
-        async startGenerateCampaignTemplate(id: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<CampaignReferenceBeta>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.startGenerateCampaignTemplate(id, options);
+        async startGenerateCampaignTemplate(id: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<CampaignReferenceBeta>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.startGenerateCampaignTemplate(id, axiosOptions);
             const operationBasePath = operationServerMap['CertificationCampaignsBetaApi.startGenerateCampaignTemplate']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -32330,8 +32330,8 @@ export const CertificationCampaignsBetaApiFp = function(configuration?: Configur
          * @deprecated
          * @throws {RequiredError}
          */
-        async updateCampaign(id: string, requestBody: Array<object>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SlimcampaignBeta>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.updateCampaign(id, requestBody, options);
+        async updateCampaign(id: string, requestBody: Array<object>, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SlimcampaignBeta>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.updateCampaign(id, requestBody, axiosOptions);
             const operationBasePath = operationServerMap['CertificationCampaignsBetaApi.updateCampaign']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -33621,8 +33621,8 @@ export const CertificationsBetaApiFp = function(configuration?: Configuration) {
          * @deprecated
          * @throws {RequiredError}
          */
-        async getIdentityCertificationItemPermissions(certificationId: string, itemId: string, filters?: string, limit?: number, offset?: number, count?: boolean, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<PermissionDtoBeta>>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.getIdentityCertificationItemPermissions(certificationId, itemId, filters, limit, offset, count, options);
+        async getIdentityCertificationItemPermissions(certificationId: string, itemId: string, filters?: string, limit?: number, offset?: number, count?: boolean, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<PermissionDtoBeta>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getIdentityCertificationItemPermissions(certificationId, itemId, filters, limit, offset, count, axiosOptions);
             const operationBasePath = operationServerMap['CertificationsBetaApi.getIdentityCertificationItemPermissions']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -33633,8 +33633,8 @@ export const CertificationsBetaApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async getIdentityCertificationPendingTasks(id: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<IdentityCertificationTaskBeta>>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.getIdentityCertificationPendingTasks(id, options);
+        async getIdentityCertificationPendingTasks(id: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<IdentityCertificationTaskBeta>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getIdentityCertificationPendingTasks(id, axiosOptions);
             const operationBasePath = operationServerMap['CertificationsBetaApi.getIdentityCertificationPendingTasks']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -33646,8 +33646,8 @@ export const CertificationsBetaApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async getIdentityCertificationTaskStatus(id: string, taskId: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<IdentityCertificationTaskBeta>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.getIdentityCertificationTaskStatus(id, taskId, options);
+        async getIdentityCertificationTaskStatus(id: string, taskId: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<IdentityCertificationTaskBeta>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getIdentityCertificationTaskStatus(id, taskId, axiosOptions);
             const operationBasePath = operationServerMap['CertificationsBetaApi.getIdentityCertificationTaskStatus']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -33664,8 +33664,8 @@ export const CertificationsBetaApiFp = function(configuration?: Configuration) {
          * @deprecated
          * @throws {RequiredError}
          */
-        async listCertificationReviewers(id: string, limit?: number, offset?: number, count?: boolean, filters?: string, sorters?: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<IdentityReferenceWithNameAndEmailBeta>>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.listCertificationReviewers(id, limit, offset, count, filters, sorters, options);
+        async listCertificationReviewers(id: string, limit?: number, offset?: number, count?: boolean, filters?: string, sorters?: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<IdentityReferenceWithNameAndEmailBeta>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.listCertificationReviewers(id, limit, offset, count, filters, sorters, axiosOptions);
             const operationBasePath = operationServerMap['CertificationsBetaApi.listCertificationReviewers']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -33678,8 +33678,8 @@ export const CertificationsBetaApiFp = function(configuration?: Configuration) {
          * @deprecated
          * @throws {RequiredError}
          */
-        async submitReassignCertsAsync(id: string, reviewReassignBeta: ReviewReassignBeta, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<IdentityCertificationTaskBeta>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.submitReassignCertsAsync(id, reviewReassignBeta, options);
+        async submitReassignCertsAsync(id: string, reviewReassignBeta: ReviewReassignBeta, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<IdentityCertificationTaskBeta>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.submitReassignCertsAsync(id, reviewReassignBeta, axiosOptions);
             const operationBasePath = operationServerMap['CertificationsBetaApi.submitReassignCertsAsync']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -34260,8 +34260,8 @@ export const ConnectorRuleManagementBetaApiFp = function(configuration?: Configu
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async createConnectorRule(connectorRuleCreateRequestBeta: ConnectorRuleCreateRequestBeta, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ConnectorRuleResponseBeta>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.createConnectorRule(connectorRuleCreateRequestBeta, options);
+        async createConnectorRule(connectorRuleCreateRequestBeta: ConnectorRuleCreateRequestBeta, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ConnectorRuleResponseBeta>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.createConnectorRule(connectorRuleCreateRequestBeta, axiosOptions);
             const operationBasePath = operationServerMap['ConnectorRuleManagementBetaApi.createConnectorRule']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -34272,8 +34272,8 @@ export const ConnectorRuleManagementBetaApiFp = function(configuration?: Configu
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async deleteConnectorRule(id: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.deleteConnectorRule(id, options);
+        async deleteConnectorRule(id: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.deleteConnectorRule(id, axiosOptions);
             const operationBasePath = operationServerMap['ConnectorRuleManagementBetaApi.deleteConnectorRule']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -34284,8 +34284,8 @@ export const ConnectorRuleManagementBetaApiFp = function(configuration?: Configu
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async getConnectorRule(id: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ConnectorRuleResponseBeta>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.getConnectorRule(id, options);
+        async getConnectorRule(id: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ConnectorRuleResponseBeta>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getConnectorRule(id, axiosOptions);
             const operationBasePath = operationServerMap['ConnectorRuleManagementBetaApi.getConnectorRule']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -34295,8 +34295,8 @@ export const ConnectorRuleManagementBetaApiFp = function(configuration?: Configu
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async getConnectorRuleList(options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<ConnectorRuleResponseBeta>>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.getConnectorRuleList(options);
+        async getConnectorRuleList(axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<ConnectorRuleResponseBeta>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getConnectorRuleList(axiosOptions);
             const operationBasePath = operationServerMap['ConnectorRuleManagementBetaApi.getConnectorRuleList']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -34308,8 +34308,8 @@ export const ConnectorRuleManagementBetaApiFp = function(configuration?: Configu
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async updateConnectorRule(id: string, connectorRuleUpdateRequestBeta?: ConnectorRuleUpdateRequestBeta, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ConnectorRuleResponseBeta>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.updateConnectorRule(id, connectorRuleUpdateRequestBeta, options);
+        async updateConnectorRule(id: string, connectorRuleUpdateRequestBeta?: ConnectorRuleUpdateRequestBeta, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ConnectorRuleResponseBeta>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.updateConnectorRule(id, connectorRuleUpdateRequestBeta, axiosOptions);
             const operationBasePath = operationServerMap['ConnectorRuleManagementBetaApi.updateConnectorRule']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -34320,8 +34320,8 @@ export const ConnectorRuleManagementBetaApiFp = function(configuration?: Configu
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async validateConnectorRule(sourceCodeBeta: SourceCodeBeta, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ConnectorRuleValidationResponseBeta>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.validateConnectorRule(sourceCodeBeta, options);
+        async validateConnectorRule(sourceCodeBeta: SourceCodeBeta, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ConnectorRuleValidationResponseBeta>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.validateConnectorRule(sourceCodeBeta, axiosOptions);
             const operationBasePath = operationServerMap['ConnectorRuleManagementBetaApi.validateConnectorRule']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -34651,8 +34651,8 @@ export const ConnectorsBetaApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async getConnectorList(filters?: string, limit?: number, offset?: number, count?: boolean, locale?: GetConnectorListLocaleBeta, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<V3ConnectorDtoBeta>>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.getConnectorList(filters, limit, offset, count, locale, options);
+        async getConnectorList(filters?: string, limit?: number, offset?: number, count?: boolean, locale?: GetConnectorListLocaleBeta, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<V3ConnectorDtoBeta>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getConnectorList(filters, limit, offset, count, locale, axiosOptions);
             const operationBasePath = operationServerMap['ConnectorsBetaApi.getConnectorList']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -35632,8 +35632,8 @@ export const CustomFormsBetaApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async createFormDefinition(body?: CreateFormDefinitionRequestBeta, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<FormDefinitionResponseBeta>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.createFormDefinition(body, options);
+        async createFormDefinition(body?: CreateFormDefinitionRequestBeta, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<FormDefinitionResponseBeta>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.createFormDefinition(body, axiosOptions);
             const operationBasePath = operationServerMap['CustomFormsBetaApi.createFormDefinition']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -35644,8 +35644,8 @@ export const CustomFormsBetaApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async createFormDefinitionDynamicSchema(body?: FormDefinitionDynamicSchemaRequestBeta, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<FormDefinitionDynamicSchemaResponseBeta>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.createFormDefinitionDynamicSchema(body, options);
+        async createFormDefinitionDynamicSchema(body?: FormDefinitionDynamicSchemaRequestBeta, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<FormDefinitionDynamicSchemaResponseBeta>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.createFormDefinitionDynamicSchema(body, axiosOptions);
             const operationBasePath = operationServerMap['CustomFormsBetaApi.createFormDefinitionDynamicSchema']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -35657,8 +35657,8 @@ export const CustomFormsBetaApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async createFormDefinitionFileRequest(formDefinitionID: string, file: File, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<FormDefinitionFileUploadResponseBeta>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.createFormDefinitionFileRequest(formDefinitionID, file, options);
+        async createFormDefinitionFileRequest(formDefinitionID: string, file: File, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<FormDefinitionFileUploadResponseBeta>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.createFormDefinitionFileRequest(formDefinitionID, file, axiosOptions);
             const operationBasePath = operationServerMap['CustomFormsBetaApi.createFormDefinitionFileRequest']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -35669,8 +35669,8 @@ export const CustomFormsBetaApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async createFormInstance(body?: CreateFormInstanceRequestBeta, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<FormInstanceResponseBeta>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.createFormInstance(body, options);
+        async createFormInstance(body?: CreateFormInstanceRequestBeta, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<FormInstanceResponseBeta>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.createFormInstance(body, axiosOptions);
             const operationBasePath = operationServerMap['CustomFormsBetaApi.createFormInstance']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -35681,8 +35681,8 @@ export const CustomFormsBetaApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async deleteFormDefinition(formDefinitionID: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<object>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.deleteFormDefinition(formDefinitionID, options);
+        async deleteFormDefinition(formDefinitionID: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<object>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.deleteFormDefinition(formDefinitionID, axiosOptions);
             const operationBasePath = operationServerMap['CustomFormsBetaApi.deleteFormDefinition']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -35696,8 +35696,8 @@ export const CustomFormsBetaApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async exportFormDefinitionsByTenant(offset?: number, limit?: number, filters?: string, sorters?: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<ExportFormDefinitionsByTenant200ResponseInnerBeta>>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.exportFormDefinitionsByTenant(offset, limit, filters, sorters, options);
+        async exportFormDefinitionsByTenant(offset?: number, limit?: number, filters?: string, sorters?: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<ExportFormDefinitionsByTenant200ResponseInnerBeta>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.exportFormDefinitionsByTenant(offset, limit, filters, sorters, axiosOptions);
             const operationBasePath = operationServerMap['CustomFormsBetaApi.exportFormDefinitionsByTenant']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -35709,8 +35709,8 @@ export const CustomFormsBetaApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async getFileFromS3(formDefinitionID: string, fileID: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<File>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.getFileFromS3(formDefinitionID, fileID, options);
+        async getFileFromS3(formDefinitionID: string, fileID: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<File>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getFileFromS3(formDefinitionID, fileID, axiosOptions);
             const operationBasePath = operationServerMap['CustomFormsBetaApi.getFileFromS3']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -35721,8 +35721,8 @@ export const CustomFormsBetaApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async getFormDefinitionByKey(formDefinitionID: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<FormDefinitionResponseBeta>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.getFormDefinitionByKey(formDefinitionID, options);
+        async getFormDefinitionByKey(formDefinitionID: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<FormDefinitionResponseBeta>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getFormDefinitionByKey(formDefinitionID, axiosOptions);
             const operationBasePath = operationServerMap['CustomFormsBetaApi.getFormDefinitionByKey']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -35733,8 +35733,8 @@ export const CustomFormsBetaApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async getFormInstanceByKey(formInstanceID: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<FormInstanceResponseBeta>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.getFormInstanceByKey(formInstanceID, options);
+        async getFormInstanceByKey(formInstanceID: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<FormInstanceResponseBeta>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getFormInstanceByKey(formInstanceID, axiosOptions);
             const operationBasePath = operationServerMap['CustomFormsBetaApi.getFormInstanceByKey']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -35746,8 +35746,8 @@ export const CustomFormsBetaApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async getFormInstanceFile(formInstanceID: string, fileID: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<File>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.getFormInstanceFile(formInstanceID, fileID, options);
+        async getFormInstanceFile(formInstanceID: string, fileID: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<File>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getFormInstanceFile(formInstanceID, fileID, axiosOptions);
             const operationBasePath = operationServerMap['CustomFormsBetaApi.getFormInstanceFile']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -35758,8 +35758,8 @@ export const CustomFormsBetaApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async importFormDefinitions(body?: Array<ExportFormDefinitionsByTenant200ResponseInnerBeta>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ImportFormDefinitions202ResponseBeta>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.importFormDefinitions(body, options);
+        async importFormDefinitions(body?: Array<ExportFormDefinitionsByTenant200ResponseInnerBeta>, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ImportFormDefinitions202ResponseBeta>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.importFormDefinitions(body, axiosOptions);
             const operationBasePath = operationServerMap['CustomFormsBetaApi.importFormDefinitions']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -35771,8 +35771,8 @@ export const CustomFormsBetaApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async patchFormDefinition(formDefinitionID: string, body?: Array<{ [key: string]: object; }>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<FormDefinitionResponseBeta>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.patchFormDefinition(formDefinitionID, body, options);
+        async patchFormDefinition(formDefinitionID: string, body?: Array<{ [key: string]: object; }>, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<FormDefinitionResponseBeta>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.patchFormDefinition(formDefinitionID, body, axiosOptions);
             const operationBasePath = operationServerMap['CustomFormsBetaApi.patchFormDefinition']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -35784,8 +35784,8 @@ export const CustomFormsBetaApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async patchFormInstance(formInstanceID: string, body?: Array<{ [key: string]: object; }>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<FormInstanceResponseBeta>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.patchFormInstance(formInstanceID, body, options);
+        async patchFormInstance(formInstanceID: string, body?: Array<{ [key: string]: object; }>, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<FormInstanceResponseBeta>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.patchFormInstance(formInstanceID, body, axiosOptions);
             const operationBasePath = operationServerMap['CustomFormsBetaApi.patchFormInstance']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -35799,8 +35799,8 @@ export const CustomFormsBetaApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async searchFormDefinitionsByTenant(offset?: number, limit?: number, filters?: string, sorters?: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ListFormDefinitionsByTenantResponseBeta>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.searchFormDefinitionsByTenant(offset, limit, filters, sorters, options);
+        async searchFormDefinitionsByTenant(offset?: number, limit?: number, filters?: string, sorters?: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ListFormDefinitionsByTenantResponseBeta>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.searchFormDefinitionsByTenant(offset, limit, filters, sorters, axiosOptions);
             const operationBasePath = operationServerMap['CustomFormsBetaApi.searchFormDefinitionsByTenant']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -35814,8 +35814,8 @@ export const CustomFormsBetaApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async searchFormElementDataByElementID(formInstanceID: string, formElementID: string, limit?: number, filters?: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ListFormElementDataByElementIDResponseBeta>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.searchFormElementDataByElementID(formInstanceID, formElementID, limit, filters, options);
+        async searchFormElementDataByElementID(formInstanceID: string, formElementID: string, limit?: number, filters?: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ListFormElementDataByElementIDResponseBeta>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.searchFormElementDataByElementID(formInstanceID, formElementID, limit, filters, axiosOptions);
             const operationBasePath = operationServerMap['CustomFormsBetaApi.searchFormElementDataByElementID']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -35825,8 +35825,8 @@ export const CustomFormsBetaApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async searchFormInstancesByTenant(options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ListFormInstancesByTenantResponseBeta>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.searchFormInstancesByTenant(options);
+        async searchFormInstancesByTenant(axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ListFormInstancesByTenantResponseBeta>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.searchFormInstancesByTenant(axiosOptions);
             const operationBasePath = operationServerMap['CustomFormsBetaApi.searchFormInstancesByTenant']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -35836,8 +35836,8 @@ export const CustomFormsBetaApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async searchPreDefinedSelectOptions(options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ListPredefinedSelectOptionsResponseBeta>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.searchPreDefinedSelectOptions(options);
+        async searchPreDefinedSelectOptions(axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ListPredefinedSelectOptionsResponseBeta>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.searchPreDefinedSelectOptions(axiosOptions);
             const operationBasePath = operationServerMap['CustomFormsBetaApi.searchPreDefinedSelectOptions']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -35852,8 +35852,8 @@ export const CustomFormsBetaApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async showPreviewDataSource(formDefinitionID: string, limit?: number, filters?: string, query?: string, formElementPreviewRequestBeta?: FormElementPreviewRequestBeta, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<PreviewDataSourceResponseBeta>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.showPreviewDataSource(formDefinitionID, limit, filters, query, formElementPreviewRequestBeta, options);
+        async showPreviewDataSource(formDefinitionID: string, limit?: number, filters?: string, query?: string, formElementPreviewRequestBeta?: FormElementPreviewRequestBeta, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<PreviewDataSourceResponseBeta>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.showPreviewDataSource(formDefinitionID, limit, filters, query, formElementPreviewRequestBeta, axiosOptions);
             const operationBasePath = operationServerMap['CustomFormsBetaApi.showPreviewDataSource']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -36801,8 +36801,8 @@ export const CustomPasswordInstructionsBetaApiFp = function(configuration?: Conf
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async createCustomPasswordInstructions(customPasswordInstructionBeta: CustomPasswordInstructionBeta, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<CustomPasswordInstructionBeta>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.createCustomPasswordInstructions(customPasswordInstructionBeta, options);
+        async createCustomPasswordInstructions(customPasswordInstructionBeta: CustomPasswordInstructionBeta, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<CustomPasswordInstructionBeta>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.createCustomPasswordInstructions(customPasswordInstructionBeta, axiosOptions);
             const operationBasePath = operationServerMap['CustomPasswordInstructionsBetaApi.createCustomPasswordInstructions']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -36814,8 +36814,8 @@ export const CustomPasswordInstructionsBetaApiFp = function(configuration?: Conf
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async deleteCustomPasswordInstructions(pageId: DeleteCustomPasswordInstructionsPageIdBeta, locale?: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.deleteCustomPasswordInstructions(pageId, locale, options);
+        async deleteCustomPasswordInstructions(pageId: DeleteCustomPasswordInstructionsPageIdBeta, locale?: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.deleteCustomPasswordInstructions(pageId, locale, axiosOptions);
             const operationBasePath = operationServerMap['CustomPasswordInstructionsBetaApi.deleteCustomPasswordInstructions']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -36827,8 +36827,8 @@ export const CustomPasswordInstructionsBetaApiFp = function(configuration?: Conf
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async getCustomPasswordInstructions(pageId: GetCustomPasswordInstructionsPageIdBeta, locale?: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<CustomPasswordInstructionBeta>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.getCustomPasswordInstructions(pageId, locale, options);
+        async getCustomPasswordInstructions(pageId: GetCustomPasswordInstructionsPageIdBeta, locale?: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<CustomPasswordInstructionBeta>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getCustomPasswordInstructions(pageId, locale, axiosOptions);
             const operationBasePath = operationServerMap['CustomPasswordInstructionsBetaApi.getCustomPasswordInstructions']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -37478,8 +37478,8 @@ export const EntitlementsBetaApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async getEntitlement(id: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<EntitlementBeta>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.getEntitlement(id, options);
+        async getEntitlement(id: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<EntitlementBeta>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getEntitlement(id, axiosOptions);
             const operationBasePath = operationServerMap['EntitlementsBetaApi.getEntitlement']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -37490,8 +37490,8 @@ export const EntitlementsBetaApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async getEntitlementRequestConfig(id: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<EntitlementRequestConfigBeta>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.getEntitlementRequestConfig(id, options);
+        async getEntitlementRequestConfig(id: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<EntitlementRequestConfigBeta>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getEntitlementRequestConfig(id, axiosOptions);
             const operationBasePath = operationServerMap['EntitlementsBetaApi.getEntitlementRequestConfig']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -37507,8 +37507,8 @@ export const EntitlementsBetaApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async listEntitlementChildren(id: string, limit?: number, offset?: number, count?: boolean, sorters?: string, filters?: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<EntitlementBeta>>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.listEntitlementChildren(id, limit, offset, count, sorters, filters, options);
+        async listEntitlementChildren(id: string, limit?: number, offset?: number, count?: boolean, sorters?: string, filters?: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<EntitlementBeta>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.listEntitlementChildren(id, limit, offset, count, sorters, filters, axiosOptions);
             const operationBasePath = operationServerMap['EntitlementsBetaApi.listEntitlementChildren']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -37524,8 +37524,8 @@ export const EntitlementsBetaApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async listEntitlementParents(id: string, limit?: number, offset?: number, count?: boolean, sorters?: string, filters?: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<EntitlementBeta>>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.listEntitlementParents(id, limit, offset, count, sorters, filters, options);
+        async listEntitlementParents(id: string, limit?: number, offset?: number, count?: boolean, sorters?: string, filters?: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<EntitlementBeta>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.listEntitlementParents(id, limit, offset, count, sorters, filters, axiosOptions);
             const operationBasePath = operationServerMap['EntitlementsBetaApi.listEntitlementParents']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -37544,8 +37544,8 @@ export const EntitlementsBetaApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async listEntitlements(accountId?: string, segmentedForIdentity?: string, forSegmentIds?: string, includeUnsegmented?: boolean, offset?: number, limit?: number, count?: boolean, sorters?: string, filters?: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<EntitlementBeta>>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.listEntitlements(accountId, segmentedForIdentity, forSegmentIds, includeUnsegmented, offset, limit, count, sorters, filters, options);
+        async listEntitlements(accountId?: string, segmentedForIdentity?: string, forSegmentIds?: string, includeUnsegmented?: boolean, offset?: number, limit?: number, count?: boolean, sorters?: string, filters?: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<EntitlementBeta>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.listEntitlements(accountId, segmentedForIdentity, forSegmentIds, includeUnsegmented, offset, limit, count, sorters, filters, axiosOptions);
             const operationBasePath = operationServerMap['EntitlementsBetaApi.listEntitlements']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -37557,8 +37557,8 @@ export const EntitlementsBetaApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async patchEntitlement(id: string, jsonPatchOperationBeta?: Array<JsonPatchOperationBeta>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<EntitlementBeta>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.patchEntitlement(id, jsonPatchOperationBeta, options);
+        async patchEntitlement(id: string, jsonPatchOperationBeta?: Array<JsonPatchOperationBeta>, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<EntitlementBeta>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.patchEntitlement(id, jsonPatchOperationBeta, axiosOptions);
             const operationBasePath = operationServerMap['EntitlementsBetaApi.patchEntitlement']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -37570,8 +37570,8 @@ export const EntitlementsBetaApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async putEntitlementRequestConfig(id: string, entitlementRequestConfigBeta: EntitlementRequestConfigBeta, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<EntitlementRequestConfigBeta>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.putEntitlementRequestConfig(id, entitlementRequestConfigBeta, options);
+        async putEntitlementRequestConfig(id: string, entitlementRequestConfigBeta: EntitlementRequestConfigBeta, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<EntitlementRequestConfigBeta>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.putEntitlementRequestConfig(id, entitlementRequestConfigBeta, axiosOptions);
             const operationBasePath = operationServerMap['EntitlementsBetaApi.putEntitlementRequestConfig']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -37582,8 +37582,8 @@ export const EntitlementsBetaApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async updateEntitlementsInBulk(entitlementBulkUpdateRequestBeta: EntitlementBulkUpdateRequestBeta, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.updateEntitlementsInBulk(entitlementBulkUpdateRequestBeta, options);
+        async updateEntitlementsInBulk(entitlementBulkUpdateRequestBeta: EntitlementBulkUpdateRequestBeta, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.updateEntitlementsInBulk(entitlementBulkUpdateRequestBeta, axiosOptions);
             const operationBasePath = operationServerMap['EntitlementsBetaApi.updateEntitlementsInBulk']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -38570,8 +38570,8 @@ export const GovernanceGroupsBetaApiFp = function(configuration?: Configuration)
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async createWorkgroup(workgroupDtoBeta: WorkgroupDtoBeta, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<WorkgroupDtoBeta>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.createWorkgroup(workgroupDtoBeta, options);
+        async createWorkgroup(workgroupDtoBeta: WorkgroupDtoBeta, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<WorkgroupDtoBeta>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.createWorkgroup(workgroupDtoBeta, axiosOptions);
             const operationBasePath = operationServerMap['GovernanceGroupsBetaApi.createWorkgroup']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -38582,8 +38582,8 @@ export const GovernanceGroupsBetaApiFp = function(configuration?: Configuration)
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async deleteWorkgroup(id: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.deleteWorkgroup(id, options);
+        async deleteWorkgroup(id: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.deleteWorkgroup(id, axiosOptions);
             const operationBasePath = operationServerMap['GovernanceGroupsBetaApi.deleteWorkgroup']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -38595,8 +38595,8 @@ export const GovernanceGroupsBetaApiFp = function(configuration?: Configuration)
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async deleteWorkgroupMembers(workgroupId: string, bulkWorkgroupMembersRequestInnerBeta: Array<BulkWorkgroupMembersRequestInnerBeta>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<WorkgroupMemberDeleteItemBeta>>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.deleteWorkgroupMembers(workgroupId, bulkWorkgroupMembersRequestInnerBeta, options);
+        async deleteWorkgroupMembers(workgroupId: string, bulkWorkgroupMembersRequestInnerBeta: Array<BulkWorkgroupMembersRequestInnerBeta>, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<WorkgroupMemberDeleteItemBeta>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.deleteWorkgroupMembers(workgroupId, bulkWorkgroupMembersRequestInnerBeta, axiosOptions);
             const operationBasePath = operationServerMap['GovernanceGroupsBetaApi.deleteWorkgroupMembers']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -38607,8 +38607,8 @@ export const GovernanceGroupsBetaApiFp = function(configuration?: Configuration)
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async deleteWorkgroupsInBulk(workgroupBulkDeleteRequestBeta: WorkgroupBulkDeleteRequestBeta, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<WorkgroupDeleteItemBeta>>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.deleteWorkgroupsInBulk(workgroupBulkDeleteRequestBeta, options);
+        async deleteWorkgroupsInBulk(workgroupBulkDeleteRequestBeta: WorkgroupBulkDeleteRequestBeta, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<WorkgroupDeleteItemBeta>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.deleteWorkgroupsInBulk(workgroupBulkDeleteRequestBeta, axiosOptions);
             const operationBasePath = operationServerMap['GovernanceGroupsBetaApi.deleteWorkgroupsInBulk']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -38619,8 +38619,8 @@ export const GovernanceGroupsBetaApiFp = function(configuration?: Configuration)
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async getWorkgroup(id: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<WorkgroupDtoBeta>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.getWorkgroup(id, options);
+        async getWorkgroup(id: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<WorkgroupDtoBeta>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getWorkgroup(id, axiosOptions);
             const operationBasePath = operationServerMap['GovernanceGroupsBetaApi.getWorkgroup']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -38635,8 +38635,8 @@ export const GovernanceGroupsBetaApiFp = function(configuration?: Configuration)
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async listConnections(workgroupId: string, offset?: number, limit?: number, count?: boolean, sorters?: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<WorkgroupConnectionDtoBeta>>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.listConnections(workgroupId, offset, limit, count, sorters, options);
+        async listConnections(workgroupId: string, offset?: number, limit?: number, count?: boolean, sorters?: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<WorkgroupConnectionDtoBeta>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.listConnections(workgroupId, offset, limit, count, sorters, axiosOptions);
             const operationBasePath = operationServerMap['GovernanceGroupsBetaApi.listConnections']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -38651,8 +38651,8 @@ export const GovernanceGroupsBetaApiFp = function(configuration?: Configuration)
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async listWorkgroupMembers(workgroupId: string, offset?: number, limit?: number, count?: boolean, sorters?: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<ListWorkgroupMembers200ResponseInnerBeta>>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.listWorkgroupMembers(workgroupId, offset, limit, count, sorters, options);
+        async listWorkgroupMembers(workgroupId: string, offset?: number, limit?: number, count?: boolean, sorters?: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<ListWorkgroupMembers200ResponseInnerBeta>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.listWorkgroupMembers(workgroupId, offset, limit, count, sorters, axiosOptions);
             const operationBasePath = operationServerMap['GovernanceGroupsBetaApi.listWorkgroupMembers']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -38667,8 +38667,8 @@ export const GovernanceGroupsBetaApiFp = function(configuration?: Configuration)
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async listWorkgroups(offset?: number, limit?: number, count?: boolean, filters?: string, sorters?: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<WorkgroupDtoBeta>>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.listWorkgroups(offset, limit, count, filters, sorters, options);
+        async listWorkgroups(offset?: number, limit?: number, count?: boolean, filters?: string, sorters?: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<WorkgroupDtoBeta>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.listWorkgroups(offset, limit, count, filters, sorters, axiosOptions);
             const operationBasePath = operationServerMap['GovernanceGroupsBetaApi.listWorkgroups']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -38680,8 +38680,8 @@ export const GovernanceGroupsBetaApiFp = function(configuration?: Configuration)
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async patchWorkgroup(id: string, jsonPatchOperationBeta?: Array<JsonPatchOperationBeta>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<WorkgroupDtoBeta>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.patchWorkgroup(id, jsonPatchOperationBeta, options);
+        async patchWorkgroup(id: string, jsonPatchOperationBeta?: Array<JsonPatchOperationBeta>, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<WorkgroupDtoBeta>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.patchWorkgroup(id, jsonPatchOperationBeta, axiosOptions);
             const operationBasePath = operationServerMap['GovernanceGroupsBetaApi.patchWorkgroup']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -38693,8 +38693,8 @@ export const GovernanceGroupsBetaApiFp = function(configuration?: Configuration)
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async updateWorkgroupMembers(workgroupId: string, bulkWorkgroupMembersRequestInnerBeta: Array<BulkWorkgroupMembersRequestInnerBeta>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<WorkgroupMemberAddItemBeta>>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.updateWorkgroupMembers(workgroupId, bulkWorkgroupMembersRequestInnerBeta, options);
+        async updateWorkgroupMembers(workgroupId: string, bulkWorkgroupMembersRequestInnerBeta: Array<BulkWorkgroupMembersRequestInnerBeta>, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<WorkgroupMemberAddItemBeta>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.updateWorkgroupMembers(workgroupId, bulkWorkgroupMembersRequestInnerBeta, axiosOptions);
             const operationBasePath = operationServerMap['GovernanceGroupsBetaApi.updateWorkgroupMembers']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -39657,8 +39657,8 @@ export const IAIAccessRequestRecommendationsBetaApiFp = function(configuration?:
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async addAccessRequestRecommendationsIgnoredItem(accessRequestRecommendationActionItemDtoBeta: AccessRequestRecommendationActionItemDtoBeta, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<AccessRequestRecommendationActionItemResponseDtoBeta>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.addAccessRequestRecommendationsIgnoredItem(accessRequestRecommendationActionItemDtoBeta, options);
+        async addAccessRequestRecommendationsIgnoredItem(accessRequestRecommendationActionItemDtoBeta: AccessRequestRecommendationActionItemDtoBeta, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<AccessRequestRecommendationActionItemResponseDtoBeta>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.addAccessRequestRecommendationsIgnoredItem(accessRequestRecommendationActionItemDtoBeta, axiosOptions);
             const operationBasePath = operationServerMap['IAIAccessRequestRecommendationsBetaApi.addAccessRequestRecommendationsIgnoredItem']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -39669,8 +39669,8 @@ export const IAIAccessRequestRecommendationsBetaApiFp = function(configuration?:
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async addAccessRequestRecommendationsRequestedItem(accessRequestRecommendationActionItemDtoBeta: AccessRequestRecommendationActionItemDtoBeta, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<AccessRequestRecommendationActionItemResponseDtoBeta>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.addAccessRequestRecommendationsRequestedItem(accessRequestRecommendationActionItemDtoBeta, options);
+        async addAccessRequestRecommendationsRequestedItem(accessRequestRecommendationActionItemDtoBeta: AccessRequestRecommendationActionItemDtoBeta, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<AccessRequestRecommendationActionItemResponseDtoBeta>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.addAccessRequestRecommendationsRequestedItem(accessRequestRecommendationActionItemDtoBeta, axiosOptions);
             const operationBasePath = operationServerMap['IAIAccessRequestRecommendationsBetaApi.addAccessRequestRecommendationsRequestedItem']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -39681,8 +39681,8 @@ export const IAIAccessRequestRecommendationsBetaApiFp = function(configuration?:
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async addAccessRequestRecommendationsViewedItem(accessRequestRecommendationActionItemDtoBeta: AccessRequestRecommendationActionItemDtoBeta, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<AccessRequestRecommendationActionItemResponseDtoBeta>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.addAccessRequestRecommendationsViewedItem(accessRequestRecommendationActionItemDtoBeta, options);
+        async addAccessRequestRecommendationsViewedItem(accessRequestRecommendationActionItemDtoBeta: AccessRequestRecommendationActionItemDtoBeta, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<AccessRequestRecommendationActionItemResponseDtoBeta>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.addAccessRequestRecommendationsViewedItem(accessRequestRecommendationActionItemDtoBeta, axiosOptions);
             const operationBasePath = operationServerMap['IAIAccessRequestRecommendationsBetaApi.addAccessRequestRecommendationsViewedItem']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -39693,8 +39693,8 @@ export const IAIAccessRequestRecommendationsBetaApiFp = function(configuration?:
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async addAccessRequestRecommendationsViewedItems(accessRequestRecommendationActionItemDtoBeta: Array<AccessRequestRecommendationActionItemDtoBeta>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<AccessRequestRecommendationActionItemResponseDtoBeta>>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.addAccessRequestRecommendationsViewedItems(accessRequestRecommendationActionItemDtoBeta, options);
+        async addAccessRequestRecommendationsViewedItems(accessRequestRecommendationActionItemDtoBeta: Array<AccessRequestRecommendationActionItemDtoBeta>, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<AccessRequestRecommendationActionItemResponseDtoBeta>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.addAccessRequestRecommendationsViewedItems(accessRequestRecommendationActionItemDtoBeta, axiosOptions);
             const operationBasePath = operationServerMap['IAIAccessRequestRecommendationsBetaApi.addAccessRequestRecommendationsViewedItems']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -39711,8 +39711,8 @@ export const IAIAccessRequestRecommendationsBetaApiFp = function(configuration?:
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async getAccessRequestRecommendations(identityId?: string, limit?: number, offset?: number, count?: boolean, includeTranslationMessages?: boolean, filters?: string, sorters?: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<AccessRequestRecommendationItemDetailBeta>>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.getAccessRequestRecommendations(identityId, limit, offset, count, includeTranslationMessages, filters, sorters, options);
+        async getAccessRequestRecommendations(identityId?: string, limit?: number, offset?: number, count?: boolean, includeTranslationMessages?: boolean, filters?: string, sorters?: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<AccessRequestRecommendationItemDetailBeta>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getAccessRequestRecommendations(identityId, limit, offset, count, includeTranslationMessages, filters, sorters, axiosOptions);
             const operationBasePath = operationServerMap['IAIAccessRequestRecommendationsBetaApi.getAccessRequestRecommendations']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -39727,8 +39727,8 @@ export const IAIAccessRequestRecommendationsBetaApiFp = function(configuration?:
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async getAccessRequestRecommendationsIgnoredItems(limit?: number, offset?: number, count?: boolean, filters?: string, sorters?: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<AccessRequestRecommendationActionItemResponseDtoBeta>>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.getAccessRequestRecommendationsIgnoredItems(limit, offset, count, filters, sorters, options);
+        async getAccessRequestRecommendationsIgnoredItems(limit?: number, offset?: number, count?: boolean, filters?: string, sorters?: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<AccessRequestRecommendationActionItemResponseDtoBeta>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getAccessRequestRecommendationsIgnoredItems(limit, offset, count, filters, sorters, axiosOptions);
             const operationBasePath = operationServerMap['IAIAccessRequestRecommendationsBetaApi.getAccessRequestRecommendationsIgnoredItems']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -39743,8 +39743,8 @@ export const IAIAccessRequestRecommendationsBetaApiFp = function(configuration?:
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async getAccessRequestRecommendationsRequestedItems(limit?: number, offset?: number, count?: boolean, filters?: string, sorters?: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<AccessRequestRecommendationActionItemResponseDtoBeta>>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.getAccessRequestRecommendationsRequestedItems(limit, offset, count, filters, sorters, options);
+        async getAccessRequestRecommendationsRequestedItems(limit?: number, offset?: number, count?: boolean, filters?: string, sorters?: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<AccessRequestRecommendationActionItemResponseDtoBeta>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getAccessRequestRecommendationsRequestedItems(limit, offset, count, filters, sorters, axiosOptions);
             const operationBasePath = operationServerMap['IAIAccessRequestRecommendationsBetaApi.getAccessRequestRecommendationsRequestedItems']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -39759,8 +39759,8 @@ export const IAIAccessRequestRecommendationsBetaApiFp = function(configuration?:
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async getAccessRequestRecommendationsViewedItems(limit?: number, offset?: number, count?: boolean, filters?: string, sorters?: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<AccessRequestRecommendationActionItemResponseDtoBeta>>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.getAccessRequestRecommendationsViewedItems(limit, offset, count, filters, sorters, options);
+        async getAccessRequestRecommendationsViewedItems(limit?: number, offset?: number, count?: boolean, filters?: string, sorters?: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<AccessRequestRecommendationActionItemResponseDtoBeta>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getAccessRequestRecommendationsViewedItems(limit, offset, count, filters, sorters, axiosOptions);
             const operationBasePath = operationServerMap['IAIAccessRequestRecommendationsBetaApi.getAccessRequestRecommendationsViewedItems']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -40383,8 +40383,8 @@ export const IAICommonAccessBetaApiFp = function(configuration?: Configuration) 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async createCommonAccess(commonAccessItemRequestBeta: CommonAccessItemRequestBeta, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<CommonAccessItemResponseBeta>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.createCommonAccess(commonAccessItemRequestBeta, options);
+        async createCommonAccess(commonAccessItemRequestBeta: CommonAccessItemRequestBeta, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<CommonAccessItemResponseBeta>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.createCommonAccess(commonAccessItemRequestBeta, axiosOptions);
             const operationBasePath = operationServerMap['IAICommonAccessBetaApi.createCommonAccess']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -40399,8 +40399,8 @@ export const IAICommonAccessBetaApiFp = function(configuration?: Configuration) 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async getCommonAccess(offset?: number, limit?: number, count?: boolean, filters?: string, sorters?: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<CommonAccessResponseBeta>>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.getCommonAccess(offset, limit, count, filters, sorters, options);
+        async getCommonAccess(offset?: number, limit?: number, count?: boolean, filters?: string, sorters?: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<CommonAccessResponseBeta>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getCommonAccess(offset, limit, count, filters, sorters, axiosOptions);
             const operationBasePath = operationServerMap['IAICommonAccessBetaApi.getCommonAccess']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -40411,8 +40411,8 @@ export const IAICommonAccessBetaApiFp = function(configuration?: Configuration) 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async updateCommonAccessStatusInBulk(commonAccessIDStatusBeta: Array<CommonAccessIDStatusBeta>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<object>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.updateCommonAccessStatusInBulk(commonAccessIDStatusBeta, options);
+        async updateCommonAccessStatusInBulk(commonAccessIDStatusBeta: Array<CommonAccessIDStatusBeta>, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<object>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.updateCommonAccessStatusInBulk(commonAccessIDStatusBeta, axiosOptions);
             const operationBasePath = operationServerMap['IAICommonAccessBetaApi.updateCommonAccessStatusInBulk']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -40643,8 +40643,8 @@ export const IAIMessageCatalogsBetaApiFp = function(configuration?: Configuratio
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async getMessageCatalogs(catalogId: GetMessageCatalogsCatalogIdBeta, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<MessageCatalogDtoBeta>>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.getMessageCatalogs(catalogId, options);
+        async getMessageCatalogs(catalogId: GetMessageCatalogsCatalogIdBeta, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<MessageCatalogDtoBeta>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getMessageCatalogs(catalogId, axiosOptions);
             const operationBasePath = operationServerMap['IAIMessageCatalogsBetaApi.getMessageCatalogs']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -41224,8 +41224,8 @@ export const IAIOutliersBetaApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async exportOutliersZip(type?: ExportOutliersZipTypeBeta, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<File>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.exportOutliersZip(type, options);
+        async exportOutliersZip(type?: ExportOutliersZipTypeBeta, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<File>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.exportOutliersZip(type, axiosOptions);
             const operationBasePath = operationServerMap['IAIOutliersBetaApi.exportOutliersZip']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -41240,8 +41240,8 @@ export const IAIOutliersBetaApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async getIdentityOutlierSnapshots(limit?: number, offset?: number, type?: GetIdentityOutlierSnapshotsTypeBeta, filters?: string, sorters?: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<OutlierSummaryBeta>>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.getIdentityOutlierSnapshots(limit, offset, type, filters, sorters, options);
+        async getIdentityOutlierSnapshots(limit?: number, offset?: number, type?: GetIdentityOutlierSnapshotsTypeBeta, filters?: string, sorters?: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<OutlierSummaryBeta>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getIdentityOutlierSnapshots(limit, offset, type, filters, sorters, axiosOptions);
             const operationBasePath = operationServerMap['IAIOutliersBetaApi.getIdentityOutlierSnapshots']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -41257,8 +41257,8 @@ export const IAIOutliersBetaApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async getIdentityOutliers(limit?: number, offset?: number, count?: boolean, type?: GetIdentityOutliersTypeBeta, filters?: string, sorters?: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<OutlierBeta>>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.getIdentityOutliers(limit, offset, count, type, filters, sorters, options);
+        async getIdentityOutliers(limit?: number, offset?: number, count?: boolean, type?: GetIdentityOutliersTypeBeta, filters?: string, sorters?: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<OutlierBeta>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getIdentityOutliers(limit, offset, count, type, filters, sorters, axiosOptions);
             const operationBasePath = operationServerMap['IAIOutliersBetaApi.getIdentityOutliers']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -41269,8 +41269,8 @@ export const IAIOutliersBetaApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async getLatestIdentityOutlierSnapshots(type?: GetLatestIdentityOutlierSnapshotsTypeBeta, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<LatestOutlierSummaryBeta>>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.getLatestIdentityOutlierSnapshots(type, options);
+        async getLatestIdentityOutlierSnapshots(type?: GetLatestIdentityOutlierSnapshotsTypeBeta, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<LatestOutlierSummaryBeta>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getLatestIdentityOutlierSnapshots(type, axiosOptions);
             const operationBasePath = operationServerMap['IAIOutliersBetaApi.getLatestIdentityOutlierSnapshots']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -41281,8 +41281,8 @@ export const IAIOutliersBetaApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async getOutlierContributingFeatureSummary(outlierFeatureId: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<OutlierFeatureSummaryBeta>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.getOutlierContributingFeatureSummary(outlierFeatureId, options);
+        async getOutlierContributingFeatureSummary(outlierFeatureId: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<OutlierFeatureSummaryBeta>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getOutlierContributingFeatureSummary(outlierFeatureId, axiosOptions);
             const operationBasePath = operationServerMap['IAIOutliersBetaApi.getOutlierContributingFeatureSummary']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -41298,8 +41298,8 @@ export const IAIOutliersBetaApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async getPeerGroupOutliersContributingFeatures(outlierId: string, limit?: number, offset?: number, count?: boolean, includeTranslationMessages?: string, sorters?: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<OutlierContributingFeatureBeta>>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.getPeerGroupOutliersContributingFeatures(outlierId, limit, offset, count, includeTranslationMessages, sorters, options);
+        async getPeerGroupOutliersContributingFeatures(outlierId: string, limit?: number, offset?: number, count?: boolean, includeTranslationMessages?: string, sorters?: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<OutlierContributingFeatureBeta>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getPeerGroupOutliersContributingFeatures(outlierId, limit, offset, count, includeTranslationMessages, sorters, axiosOptions);
             const operationBasePath = operationServerMap['IAIOutliersBetaApi.getPeerGroupOutliersContributingFeatures']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -41310,8 +41310,8 @@ export const IAIOutliersBetaApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async ignoreIdentityOutliers(requestBody: Array<string>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.ignoreIdentityOutliers(requestBody, options);
+        async ignoreIdentityOutliers(requestBody: Array<string>, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.ignoreIdentityOutliers(requestBody, axiosOptions);
             const operationBasePath = operationServerMap['IAIOutliersBetaApi.ignoreIdentityOutliers']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -41328,8 +41328,8 @@ export const IAIOutliersBetaApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async listOutliersContributingFeatureAccessItems(outlierId: string, contributingFeatureName: ListOutliersContributingFeatureAccessItemsContributingFeatureNameBeta, limit?: number, offset?: number, count?: boolean, accessType?: string, sorters?: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<OutliersContributingFeatureAccessItemsBeta>>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.listOutliersContributingFeatureAccessItems(outlierId, contributingFeatureName, limit, offset, count, accessType, sorters, options);
+        async listOutliersContributingFeatureAccessItems(outlierId: string, contributingFeatureName: ListOutliersContributingFeatureAccessItemsContributingFeatureNameBeta, limit?: number, offset?: number, count?: boolean, accessType?: string, sorters?: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<OutliersContributingFeatureAccessItemsBeta>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.listOutliersContributingFeatureAccessItems(outlierId, contributingFeatureName, limit, offset, count, accessType, sorters, axiosOptions);
             const operationBasePath = operationServerMap['IAIOutliersBetaApi.listOutliersContributingFeatureAccessItems']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -41340,8 +41340,8 @@ export const IAIOutliersBetaApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async unIgnoreIdentityOutliers(requestBody: Array<string>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.unIgnoreIdentityOutliers(requestBody, options);
+        async unIgnoreIdentityOutliers(requestBody: Array<string>, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.unIgnoreIdentityOutliers(requestBody, axiosOptions);
             const operationBasePath = operationServerMap['IAIOutliersBetaApi.unIgnoreIdentityOutliers']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -41970,8 +41970,8 @@ export const IAIPeerGroupStrategiesBetaApiFp = function(configuration?: Configur
          * @deprecated
          * @throws {RequiredError}
          */
-        async getPeerGroupOutliers(strategy: string, limit?: number, offset?: number, count?: boolean, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<PeerGroupMemberBeta>>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.getPeerGroupOutliers(strategy, limit, offset, count, options);
+        async getPeerGroupOutliers(strategy: string, limit?: number, offset?: number, count?: boolean, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<PeerGroupMemberBeta>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getPeerGroupOutliers(strategy, limit, offset, count, axiosOptions);
             const operationBasePath = operationServerMap['IAIPeerGroupStrategiesBetaApi.getPeerGroupOutliers']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -42207,8 +42207,8 @@ export const IAIRecommendationsBetaApiFp = function(configuration?: Configuratio
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async getRecommendations(recommendationRequestDtoBeta: RecommendationRequestDtoBeta, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<RecommendationResponseDtoBeta>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.getRecommendations(recommendationRequestDtoBeta, options);
+        async getRecommendations(recommendationRequestDtoBeta: RecommendationRequestDtoBeta, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<RecommendationResponseDtoBeta>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getRecommendations(recommendationRequestDtoBeta, axiosOptions);
             const operationBasePath = operationServerMap['IAIRecommendationsBetaApi.getRecommendations']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -42218,8 +42218,8 @@ export const IAIRecommendationsBetaApiFp = function(configuration?: Configuratio
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async getRecommendationsConfig(options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<RecommendationConfigDtoBeta>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.getRecommendationsConfig(options);
+        async getRecommendationsConfig(axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<RecommendationConfigDtoBeta>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getRecommendationsConfig(axiosOptions);
             const operationBasePath = operationServerMap['IAIRecommendationsBetaApi.getRecommendationsConfig']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -42230,8 +42230,8 @@ export const IAIRecommendationsBetaApiFp = function(configuration?: Configuratio
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async updateRecommendationsConfig(recommendationConfigDtoBeta: RecommendationConfigDtoBeta, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<RecommendationConfigDtoBeta>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.updateRecommendationsConfig(recommendationConfigDtoBeta, options);
+        async updateRecommendationsConfig(recommendationConfigDtoBeta: RecommendationConfigDtoBeta, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<RecommendationConfigDtoBeta>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.updateRecommendationsConfig(recommendationConfigDtoBeta, axiosOptions);
             const operationBasePath = operationServerMap['IAIRecommendationsBetaApi.updateRecommendationsConfig']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -43703,8 +43703,8 @@ export const IAIRoleMiningBetaApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async createPotentialRoleProvisionRequest(sessionId: string, potentialRoleId: string, minEntitlementPopularity?: number, includeCommonAccess?: boolean, roleMiningPotentialRoleProvisionRequestBeta?: RoleMiningPotentialRoleProvisionRequestBeta, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<RoleMiningPotentialRoleSummaryBeta>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.createPotentialRoleProvisionRequest(sessionId, potentialRoleId, minEntitlementPopularity, includeCommonAccess, roleMiningPotentialRoleProvisionRequestBeta, options);
+        async createPotentialRoleProvisionRequest(sessionId: string, potentialRoleId: string, minEntitlementPopularity?: number, includeCommonAccess?: boolean, roleMiningPotentialRoleProvisionRequestBeta?: RoleMiningPotentialRoleProvisionRequestBeta, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<RoleMiningPotentialRoleSummaryBeta>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.createPotentialRoleProvisionRequest(sessionId, potentialRoleId, minEntitlementPopularity, includeCommonAccess, roleMiningPotentialRoleProvisionRequestBeta, axiosOptions);
             const operationBasePath = operationServerMap['IAIRoleMiningBetaApi.createPotentialRoleProvisionRequest']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -43715,8 +43715,8 @@ export const IAIRoleMiningBetaApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async createRoleMiningSessions(roleMiningSessionDtoBeta: RoleMiningSessionDtoBeta, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<RoleMiningSessionResponseBeta>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.createRoleMiningSessions(roleMiningSessionDtoBeta, options);
+        async createRoleMiningSessions(roleMiningSessionDtoBeta: RoleMiningSessionDtoBeta, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<RoleMiningSessionResponseBeta>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.createRoleMiningSessions(roleMiningSessionDtoBeta, axiosOptions);
             const operationBasePath = operationServerMap['IAIRoleMiningBetaApi.createRoleMiningSessions']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -43729,8 +43729,8 @@ export const IAIRoleMiningBetaApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async downloadRoleMiningPotentialRoleZip(sessionId: string, potentialRoleId: string, exportId: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<File>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.downloadRoleMiningPotentialRoleZip(sessionId, potentialRoleId, exportId, options);
+        async downloadRoleMiningPotentialRoleZip(sessionId: string, potentialRoleId: string, exportId: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<File>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.downloadRoleMiningPotentialRoleZip(sessionId, potentialRoleId, exportId, axiosOptions);
             const operationBasePath = operationServerMap['IAIRoleMiningBetaApi.downloadRoleMiningPotentialRoleZip']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -43742,8 +43742,8 @@ export const IAIRoleMiningBetaApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async exportRoleMiningPotentialRole(sessionId: string, potentialRoleId: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<File>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.exportRoleMiningPotentialRole(sessionId, potentialRoleId, options);
+        async exportRoleMiningPotentialRole(sessionId: string, potentialRoleId: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<File>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.exportRoleMiningPotentialRole(sessionId, potentialRoleId, axiosOptions);
             const operationBasePath = operationServerMap['IAIRoleMiningBetaApi.exportRoleMiningPotentialRole']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -43756,8 +43756,8 @@ export const IAIRoleMiningBetaApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async exportRoleMiningPotentialRoleAsync(sessionId: string, potentialRoleId: string, roleMiningPotentialRoleExportRequestBeta?: RoleMiningPotentialRoleExportRequestBeta, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<RoleMiningPotentialRoleExportResponseBeta>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.exportRoleMiningPotentialRoleAsync(sessionId, potentialRoleId, roleMiningPotentialRoleExportRequestBeta, options);
+        async exportRoleMiningPotentialRoleAsync(sessionId: string, potentialRoleId: string, roleMiningPotentialRoleExportRequestBeta?: RoleMiningPotentialRoleExportRequestBeta, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<RoleMiningPotentialRoleExportResponseBeta>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.exportRoleMiningPotentialRoleAsync(sessionId, potentialRoleId, roleMiningPotentialRoleExportRequestBeta, axiosOptions);
             const operationBasePath = operationServerMap['IAIRoleMiningBetaApi.exportRoleMiningPotentialRoleAsync']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -43770,8 +43770,8 @@ export const IAIRoleMiningBetaApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async exportRoleMiningPotentialRoleStatus(sessionId: string, potentialRoleId: string, exportId: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<RoleMiningPotentialRoleExportResponseBeta>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.exportRoleMiningPotentialRoleStatus(sessionId, potentialRoleId, exportId, options);
+        async exportRoleMiningPotentialRoleStatus(sessionId: string, potentialRoleId: string, exportId: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<RoleMiningPotentialRoleExportResponseBeta>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.exportRoleMiningPotentialRoleStatus(sessionId, potentialRoleId, exportId, axiosOptions);
             const operationBasePath = operationServerMap['IAIRoleMiningBetaApi.exportRoleMiningPotentialRoleStatus']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -43786,8 +43786,8 @@ export const IAIRoleMiningBetaApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async getAllPotentialRoleSummaries(sorters?: string, filters?: string, offset?: number, limit?: number, count?: boolean, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<RoleMiningPotentialRoleSummaryBeta>>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.getAllPotentialRoleSummaries(sorters, filters, offset, limit, count, options);
+        async getAllPotentialRoleSummaries(sorters?: string, filters?: string, offset?: number, limit?: number, count?: boolean, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<RoleMiningPotentialRoleSummaryBeta>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getAllPotentialRoleSummaries(sorters, filters, offset, limit, count, axiosOptions);
             const operationBasePath = operationServerMap['IAIRoleMiningBetaApi.getAllPotentialRoleSummaries']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -43800,8 +43800,8 @@ export const IAIRoleMiningBetaApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async getEntitlementDistributionPotentialRole(sessionId: string, potentialRoleId: string, includeCommonAccess?: boolean, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<{ [key: string]: number; }>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.getEntitlementDistributionPotentialRole(sessionId, potentialRoleId, includeCommonAccess, options);
+        async getEntitlementDistributionPotentialRole(sessionId: string, potentialRoleId: string, includeCommonAccess?: boolean, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<{ [key: string]: number; }>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getEntitlementDistributionPotentialRole(sessionId, potentialRoleId, includeCommonAccess, axiosOptions);
             const operationBasePath = operationServerMap['IAIRoleMiningBetaApi.getEntitlementDistributionPotentialRole']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -43819,8 +43819,8 @@ export const IAIRoleMiningBetaApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async getEntitlementsPotentialRole(sessionId: string, potentialRoleId: string, includeCommonAccess?: boolean, sorters?: string, filters?: string, offset?: number, limit?: number, count?: boolean, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<RoleMiningEntitlementBeta>>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.getEntitlementsPotentialRole(sessionId, potentialRoleId, includeCommonAccess, sorters, filters, offset, limit, count, options);
+        async getEntitlementsPotentialRole(sessionId: string, potentialRoleId: string, includeCommonAccess?: boolean, sorters?: string, filters?: string, offset?: number, limit?: number, count?: boolean, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<RoleMiningEntitlementBeta>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getEntitlementsPotentialRole(sessionId, potentialRoleId, includeCommonAccess, sorters, filters, offset, limit, count, axiosOptions);
             const operationBasePath = operationServerMap['IAIRoleMiningBetaApi.getEntitlementsPotentialRole']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -43837,8 +43837,8 @@ export const IAIRoleMiningBetaApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async getExcludedEntitlementsPotentialRole(sessionId: string, potentialRoleId: string, sorters?: string, filters?: string, offset?: number, limit?: number, count?: boolean, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<RoleMiningEntitlementBeta>>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.getExcludedEntitlementsPotentialRole(sessionId, potentialRoleId, sorters, filters, offset, limit, count, options);
+        async getExcludedEntitlementsPotentialRole(sessionId: string, potentialRoleId: string, sorters?: string, filters?: string, offset?: number, limit?: number, count?: boolean, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<RoleMiningEntitlementBeta>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getExcludedEntitlementsPotentialRole(sessionId, potentialRoleId, sorters, filters, offset, limit, count, axiosOptions);
             const operationBasePath = operationServerMap['IAIRoleMiningBetaApi.getExcludedEntitlementsPotentialRole']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -43855,8 +43855,8 @@ export const IAIRoleMiningBetaApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async getIdentitiesPotentialRole(sessionId: string, potentialRoleId: string, sorters?: string, filters?: string, offset?: number, limit?: number, count?: boolean, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<RoleMiningIdentityBeta>>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.getIdentitiesPotentialRole(sessionId, potentialRoleId, sorters, filters, offset, limit, count, options);
+        async getIdentitiesPotentialRole(sessionId: string, potentialRoleId: string, sorters?: string, filters?: string, offset?: number, limit?: number, count?: boolean, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<RoleMiningIdentityBeta>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getIdentitiesPotentialRole(sessionId, potentialRoleId, sorters, filters, offset, limit, count, axiosOptions);
             const operationBasePath = operationServerMap['IAIRoleMiningBetaApi.getIdentitiesPotentialRole']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -43868,8 +43868,8 @@ export const IAIRoleMiningBetaApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async getPotentialRole(sessionId: string, potentialRoleId: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<RoleMiningPotentialRoleBeta>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.getPotentialRole(sessionId, potentialRoleId, options);
+        async getPotentialRole(sessionId: string, potentialRoleId: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<RoleMiningPotentialRoleBeta>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getPotentialRole(sessionId, potentialRoleId, axiosOptions);
             const operationBasePath = operationServerMap['IAIRoleMiningBetaApi.getPotentialRole']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -43884,8 +43884,8 @@ export const IAIRoleMiningBetaApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async getPotentialRoleApplications(sessionId: string, potentialRoleId: string, offset?: number, limit?: number, count?: boolean, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<RoleMiningPotentialRoleApplicationBeta>>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.getPotentialRoleApplications(sessionId, potentialRoleId, offset, limit, count, options);
+        async getPotentialRoleApplications(sessionId: string, potentialRoleId: string, offset?: number, limit?: number, count?: boolean, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<RoleMiningPotentialRoleApplicationBeta>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getPotentialRoleApplications(sessionId, potentialRoleId, offset, limit, count, axiosOptions);
             const operationBasePath = operationServerMap['IAIRoleMiningBetaApi.getPotentialRoleApplications']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -43901,8 +43901,8 @@ export const IAIRoleMiningBetaApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async getPotentialRoleSourceIdentityUsage(potentialRoleId: string, sourceId: string, sorters?: string, offset?: number, limit?: number, count?: boolean, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<RoleMiningPotentialRoleSourceUsageBeta>>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.getPotentialRoleSourceIdentityUsage(potentialRoleId, sourceId, sorters, offset, limit, count, options);
+        async getPotentialRoleSourceIdentityUsage(potentialRoleId: string, sourceId: string, sorters?: string, offset?: number, limit?: number, count?: boolean, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<RoleMiningPotentialRoleSourceUsageBeta>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getPotentialRoleSourceIdentityUsage(potentialRoleId, sourceId, sorters, offset, limit, count, axiosOptions);
             const operationBasePath = operationServerMap['IAIRoleMiningBetaApi.getPotentialRoleSourceIdentityUsage']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -43918,8 +43918,8 @@ export const IAIRoleMiningBetaApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async getPotentialRoleSummaries(sessionId: string, sorters?: string, filters?: string, offset?: number, limit?: number, count?: boolean, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<RoleMiningPotentialRoleSummaryBeta>>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.getPotentialRoleSummaries(sessionId, sorters, filters, offset, limit, count, options);
+        async getPotentialRoleSummaries(sessionId: string, sorters?: string, filters?: string, offset?: number, limit?: number, count?: boolean, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<RoleMiningPotentialRoleSummaryBeta>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getPotentialRoleSummaries(sessionId, sorters, filters, offset, limit, count, axiosOptions);
             const operationBasePath = operationServerMap['IAIRoleMiningBetaApi.getPotentialRoleSummaries']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -43930,8 +43930,8 @@ export const IAIRoleMiningBetaApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async getRoleMiningPotentialRole(potentialRoleId: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<RoleMiningPotentialRoleBeta>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.getRoleMiningPotentialRole(potentialRoleId, options);
+        async getRoleMiningPotentialRole(potentialRoleId: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<RoleMiningPotentialRoleBeta>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getRoleMiningPotentialRole(potentialRoleId, axiosOptions);
             const operationBasePath = operationServerMap['IAIRoleMiningBetaApi.getRoleMiningPotentialRole']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -43942,8 +43942,8 @@ export const IAIRoleMiningBetaApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async getRoleMiningSession(sessionId: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<RoleMiningSessionResponseBeta>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.getRoleMiningSession(sessionId, options);
+        async getRoleMiningSession(sessionId: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<RoleMiningSessionResponseBeta>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getRoleMiningSession(sessionId, axiosOptions);
             const operationBasePath = operationServerMap['IAIRoleMiningBetaApi.getRoleMiningSession']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -43954,8 +43954,8 @@ export const IAIRoleMiningBetaApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async getRoleMiningSessionStatus(sessionId: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<RoleMiningSessionStatusBeta>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.getRoleMiningSessionStatus(sessionId, options);
+        async getRoleMiningSessionStatus(sessionId: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<RoleMiningSessionStatusBeta>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getRoleMiningSessionStatus(sessionId, axiosOptions);
             const operationBasePath = operationServerMap['IAIRoleMiningBetaApi.getRoleMiningSessionStatus']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -43970,8 +43970,8 @@ export const IAIRoleMiningBetaApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async getRoleMiningSessions(filters?: string, sorters?: string, offset?: number, limit?: number, count?: boolean, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<RoleMiningSessionDtoBeta>>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.getRoleMiningSessions(filters, sorters, offset, limit, count, options);
+        async getRoleMiningSessions(filters?: string, sorters?: string, offset?: number, limit?: number, count?: boolean, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<RoleMiningSessionDtoBeta>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getRoleMiningSessions(filters, sorters, offset, limit, count, axiosOptions);
             const operationBasePath = operationServerMap['IAIRoleMiningBetaApi.getRoleMiningSessions']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -43985,8 +43985,8 @@ export const IAIRoleMiningBetaApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async getSavedPotentialRoles(sorters?: string, offset?: number, limit?: number, count?: boolean, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<RoleMiningSessionDraftRoleDtoBeta>>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.getSavedPotentialRoles(sorters, offset, limit, count, options);
+        async getSavedPotentialRoles(sorters?: string, offset?: number, limit?: number, count?: boolean, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<RoleMiningSessionDraftRoleDtoBeta>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getSavedPotentialRoles(sorters, offset, limit, count, axiosOptions);
             const operationBasePath = operationServerMap['IAIRoleMiningBetaApi.getSavedPotentialRoles']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -43999,8 +43999,8 @@ export const IAIRoleMiningBetaApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async patchPotentialRole(sessionId: string, potentialRoleId: string, patchPotentialRoleRequestInnerBeta: Array<PatchPotentialRoleRequestInnerBeta>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<object>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.patchPotentialRole(sessionId, potentialRoleId, patchPotentialRoleRequestInnerBeta, options);
+        async patchPotentialRole(sessionId: string, potentialRoleId: string, patchPotentialRoleRequestInnerBeta: Array<PatchPotentialRoleRequestInnerBeta>, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<object>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.patchPotentialRole(sessionId, potentialRoleId, patchPotentialRoleRequestInnerBeta, axiosOptions);
             const operationBasePath = operationServerMap['IAIRoleMiningBetaApi.patchPotentialRole']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -44013,8 +44013,8 @@ export const IAIRoleMiningBetaApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async patchPotentialRole_1(sessionId: string, potentialRoleId: string, patchPotentialRoleRequestInnerBeta: Array<PatchPotentialRoleRequestInnerBeta>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<object>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.patchPotentialRole_1(sessionId, potentialRoleId, patchPotentialRoleRequestInnerBeta, options);
+        async patchPotentialRole_1(sessionId: string, potentialRoleId: string, patchPotentialRoleRequestInnerBeta: Array<PatchPotentialRoleRequestInnerBeta>, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<object>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.patchPotentialRole_1(sessionId, potentialRoleId, patchPotentialRoleRequestInnerBeta, axiosOptions);
             const operationBasePath = operationServerMap['IAIRoleMiningBetaApi.patchPotentialRole_1']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -44026,8 +44026,8 @@ export const IAIRoleMiningBetaApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async patchRoleMiningSession(sessionId: string, jsonPatchOperationBeta: Array<JsonPatchOperationBeta>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<object>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.patchRoleMiningSession(sessionId, jsonPatchOperationBeta, options);
+        async patchRoleMiningSession(sessionId: string, jsonPatchOperationBeta: Array<JsonPatchOperationBeta>, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<object>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.patchRoleMiningSession(sessionId, jsonPatchOperationBeta, axiosOptions);
             const operationBasePath = operationServerMap['IAIRoleMiningBetaApi.patchRoleMiningSession']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -44040,8 +44040,8 @@ export const IAIRoleMiningBetaApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async updateEntitlementsPotentialRole(sessionId: string, potentialRoleId: string, roleMiningPotentialRoleEditEntitlementsBeta: RoleMiningPotentialRoleEditEntitlementsBeta, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<RoleMiningPotentialRoleBeta>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.updateEntitlementsPotentialRole(sessionId, potentialRoleId, roleMiningPotentialRoleEditEntitlementsBeta, options);
+        async updateEntitlementsPotentialRole(sessionId: string, potentialRoleId: string, roleMiningPotentialRoleEditEntitlementsBeta: RoleMiningPotentialRoleEditEntitlementsBeta, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<RoleMiningPotentialRoleBeta>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.updateEntitlementsPotentialRole(sessionId, potentialRoleId, roleMiningPotentialRoleEditEntitlementsBeta, axiosOptions);
             const operationBasePath = operationServerMap['IAIRoleMiningBetaApi.updateEntitlementsPotentialRole']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -45714,8 +45714,8 @@ export const IdentitiesBetaApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async deleteIdentity(id: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.deleteIdentity(id, options);
+        async deleteIdentity(id: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.deleteIdentity(id, axiosOptions);
             const operationBasePath = operationServerMap['IdentitiesBetaApi.deleteIdentity']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -45726,8 +45726,8 @@ export const IdentitiesBetaApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async getIdentity(id: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<IdentityBeta>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.getIdentity(id, options);
+        async getIdentity(id: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<IdentityBeta>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getIdentity(id, axiosOptions);
             const operationBasePath = operationServerMap['IdentitiesBetaApi.getIdentity']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -45738,8 +45738,8 @@ export const IdentitiesBetaApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async getIdentityOwnershipDetails(identityId: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<IdentityOwnershipAssociationDetailsBeta>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.getIdentityOwnershipDetails(identityId, options);
+        async getIdentityOwnershipDetails(identityId: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<IdentityOwnershipAssociationDetailsBeta>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getIdentityOwnershipDetails(identityId, axiosOptions);
             const operationBasePath = operationServerMap['IdentitiesBetaApi.getIdentityOwnershipDetails']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -45755,8 +45755,8 @@ export const IdentitiesBetaApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async listIdentities(filters?: string, sorters?: string, defaultFilter?: ListIdentitiesDefaultFilterBeta, count?: boolean, limit?: number, offset?: number, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<IdentityBeta>>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.listIdentities(filters, sorters, defaultFilter, count, limit, offset, options);
+        async listIdentities(filters?: string, sorters?: string, defaultFilter?: ListIdentitiesDefaultFilterBeta, count?: boolean, limit?: number, offset?: number, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<IdentityBeta>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.listIdentities(filters, sorters, defaultFilter, count, limit, offset, axiosOptions);
             const operationBasePath = operationServerMap['IdentitiesBetaApi.listIdentities']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -45767,8 +45767,8 @@ export const IdentitiesBetaApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async startIdentityProcessing(processIdentitiesRequestBeta: ProcessIdentitiesRequestBeta, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<TaskResultResponseBeta>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.startIdentityProcessing(processIdentitiesRequestBeta, options);
+        async startIdentityProcessing(processIdentitiesRequestBeta: ProcessIdentitiesRequestBeta, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<TaskResultResponseBeta>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.startIdentityProcessing(processIdentitiesRequestBeta, axiosOptions);
             const operationBasePath = operationServerMap['IdentitiesBetaApi.startIdentityProcessing']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -45779,8 +45779,8 @@ export const IdentitiesBetaApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async synchronizeAttributesForIdentity(identityId: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<IdentitySyncJobBeta>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.synchronizeAttributesForIdentity(identityId, options);
+        async synchronizeAttributesForIdentity(identityId: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<IdentitySyncJobBeta>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.synchronizeAttributesForIdentity(identityId, axiosOptions);
             const operationBasePath = operationServerMap['IdentitiesBetaApi.synchronizeAttributesForIdentity']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -46373,8 +46373,8 @@ export const IdentityAttributesBetaApiFp = function(configuration?: Configuratio
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async createIdentityAttribute(identityAttributeBeta: IdentityAttributeBeta, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<IdentityAttributeBeta>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.createIdentityAttribute(identityAttributeBeta, options);
+        async createIdentityAttribute(identityAttributeBeta: IdentityAttributeBeta, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<IdentityAttributeBeta>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.createIdentityAttribute(identityAttributeBeta, axiosOptions);
             const operationBasePath = operationServerMap['IdentityAttributesBetaApi.createIdentityAttribute']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -46385,8 +46385,8 @@ export const IdentityAttributesBetaApiFp = function(configuration?: Configuratio
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async deleteIdentityAttribute(name: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.deleteIdentityAttribute(name, options);
+        async deleteIdentityAttribute(name: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.deleteIdentityAttribute(name, axiosOptions);
             const operationBasePath = operationServerMap['IdentityAttributesBetaApi.deleteIdentityAttribute']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -46397,8 +46397,8 @@ export const IdentityAttributesBetaApiFp = function(configuration?: Configuratio
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async deleteIdentityAttributesInBulk(identityAttributeNamesBeta: IdentityAttributeNamesBeta, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.deleteIdentityAttributesInBulk(identityAttributeNamesBeta, options);
+        async deleteIdentityAttributesInBulk(identityAttributeNamesBeta: IdentityAttributeNamesBeta, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.deleteIdentityAttributesInBulk(identityAttributeNamesBeta, axiosOptions);
             const operationBasePath = operationServerMap['IdentityAttributesBetaApi.deleteIdentityAttributesInBulk']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -46409,8 +46409,8 @@ export const IdentityAttributesBetaApiFp = function(configuration?: Configuratio
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async getIdentityAttribute(name: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<IdentityAttributeBeta>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.getIdentityAttribute(name, options);
+        async getIdentityAttribute(name: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<IdentityAttributeBeta>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getIdentityAttribute(name, axiosOptions);
             const operationBasePath = operationServerMap['IdentityAttributesBetaApi.getIdentityAttribute']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -46424,8 +46424,8 @@ export const IdentityAttributesBetaApiFp = function(configuration?: Configuratio
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async listIdentityAttributes(includeSystem?: boolean, includeSilent?: boolean, searchableOnly?: boolean, count?: boolean, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<IdentityAttributeBeta>>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.listIdentityAttributes(includeSystem, includeSilent, searchableOnly, count, options);
+        async listIdentityAttributes(includeSystem?: boolean, includeSilent?: boolean, searchableOnly?: boolean, count?: boolean, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<IdentityAttributeBeta>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.listIdentityAttributes(includeSystem, includeSilent, searchableOnly, count, axiosOptions);
             const operationBasePath = operationServerMap['IdentityAttributesBetaApi.listIdentityAttributes']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -46437,8 +46437,8 @@ export const IdentityAttributesBetaApiFp = function(configuration?: Configuratio
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async putIdentityAttribute(name: string, identityAttributeBeta: IdentityAttributeBeta, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<IdentityAttributeBeta>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.putIdentityAttribute(name, identityAttributeBeta, options);
+        async putIdentityAttribute(name: string, identityAttributeBeta: IdentityAttributeBeta, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<IdentityAttributeBeta>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.putIdentityAttribute(name, identityAttributeBeta, axiosOptions);
             const operationBasePath = operationServerMap['IdentityAttributesBetaApi.putIdentityAttribute']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -47394,8 +47394,8 @@ export const IdentityHistoryBetaApiFp = function(configuration?: Configuration) 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async compareIdentitySnapshots(id: string, snapshot1?: string, snapshot2?: string, accessItemTypes?: Array<string>, limit?: number, offset?: number, count?: boolean, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<IdentityCompareResponseBeta>>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.compareIdentitySnapshots(id, snapshot1, snapshot2, accessItemTypes, limit, offset, count, options);
+        async compareIdentitySnapshots(id: string, snapshot1?: string, snapshot2?: string, accessItemTypes?: Array<string>, limit?: number, offset?: number, count?: boolean, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<IdentityCompareResponseBeta>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.compareIdentitySnapshots(id, snapshot1, snapshot2, accessItemTypes, limit, offset, count, axiosOptions);
             const operationBasePath = operationServerMap['IdentityHistoryBetaApi.compareIdentitySnapshots']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -47413,8 +47413,8 @@ export const IdentityHistoryBetaApiFp = function(configuration?: Configuration) 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async compareIdentitySnapshotsAccessType(id: string, accessType: string, accessAssociated?: boolean, snapshot1?: string, snapshot2?: string, limit?: number, offset?: number, count?: boolean, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<AccessItemDiffBeta>>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.compareIdentitySnapshotsAccessType(id, accessType, accessAssociated, snapshot1, snapshot2, limit, offset, count, options);
+        async compareIdentitySnapshotsAccessType(id: string, accessType: string, accessAssociated?: boolean, snapshot1?: string, snapshot2?: string, limit?: number, offset?: number, count?: boolean, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<AccessItemDiffBeta>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.compareIdentitySnapshotsAccessType(id, accessType, accessAssociated, snapshot1, snapshot2, limit, offset, count, axiosOptions);
             const operationBasePath = operationServerMap['IdentityHistoryBetaApi.compareIdentitySnapshotsAccessType']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -47425,8 +47425,8 @@ export const IdentityHistoryBetaApiFp = function(configuration?: Configuration) 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async getHistoricalIdentity(id: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<IdentityHistoryResponseBeta>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.getHistoricalIdentity(id, options);
+        async getHistoricalIdentity(id: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<IdentityHistoryResponseBeta>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getHistoricalIdentity(id, axiosOptions);
             const operationBasePath = operationServerMap['IdentityHistoryBetaApi.getHistoricalIdentity']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -47443,8 +47443,8 @@ export const IdentityHistoryBetaApiFp = function(configuration?: Configuration) 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async getHistoricalIdentityEvents(id: string, from?: string, eventTypes?: Array<string>, accessItemTypes?: Array<string>, limit?: number, offset?: number, count?: boolean, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<GetHistoricalIdentityEvents200ResponseInnerBeta>>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.getHistoricalIdentityEvents(id, from, eventTypes, accessItemTypes, limit, offset, count, options);
+        async getHistoricalIdentityEvents(id: string, from?: string, eventTypes?: Array<string>, accessItemTypes?: Array<string>, limit?: number, offset?: number, count?: boolean, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<GetHistoricalIdentityEvents200ResponseInnerBeta>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getHistoricalIdentityEvents(id, from, eventTypes, accessItemTypes, limit, offset, count, axiosOptions);
             const operationBasePath = operationServerMap['IdentityHistoryBetaApi.getHistoricalIdentityEvents']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -47456,8 +47456,8 @@ export const IdentityHistoryBetaApiFp = function(configuration?: Configuration) 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async getIdentitySnapshot(id: string, date: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<IdentityHistoryResponseBeta>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.getIdentitySnapshot(id, date, options);
+        async getIdentitySnapshot(id: string, date: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<IdentityHistoryResponseBeta>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getIdentitySnapshot(id, date, axiosOptions);
             const operationBasePath = operationServerMap['IdentityHistoryBetaApi.getIdentitySnapshot']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -47474,8 +47474,8 @@ export const IdentityHistoryBetaApiFp = function(configuration?: Configuration) 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async getIdentitySnapshotSummary(id: string, before?: string, interval?: GetIdentitySnapshotSummaryIntervalBeta, timeZone?: string, limit?: number, offset?: number, count?: boolean, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<MetricResponseBeta>>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.getIdentitySnapshotSummary(id, before, interval, timeZone, limit, offset, count, options);
+        async getIdentitySnapshotSummary(id: string, before?: string, interval?: GetIdentitySnapshotSummaryIntervalBeta, timeZone?: string, limit?: number, offset?: number, count?: boolean, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<MetricResponseBeta>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getIdentitySnapshotSummary(id, before, interval, timeZone, limit, offset, count, axiosOptions);
             const operationBasePath = operationServerMap['IdentityHistoryBetaApi.getIdentitySnapshotSummary']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -47486,8 +47486,8 @@ export const IdentityHistoryBetaApiFp = function(configuration?: Configuration) 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async getIdentityStartDate(id: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<string>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.getIdentityStartDate(id, options);
+        async getIdentityStartDate(id: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<string>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getIdentityStartDate(id, axiosOptions);
             const operationBasePath = operationServerMap['IdentityHistoryBetaApi.getIdentityStartDate']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -47502,8 +47502,8 @@ export const IdentityHistoryBetaApiFp = function(configuration?: Configuration) 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async listHistoricalIdentities(startsWithQuery?: string, isDeleted?: boolean, isActive?: boolean, limit?: number, offset?: number, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<IdentityListItemBeta>>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.listHistoricalIdentities(startsWithQuery, isDeleted, isActive, limit, offset, options);
+        async listHistoricalIdentities(startsWithQuery?: string, isDeleted?: boolean, isActive?: boolean, limit?: number, offset?: number, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<IdentityListItemBeta>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.listHistoricalIdentities(startsWithQuery, isDeleted, isActive, limit, offset, axiosOptions);
             const operationBasePath = operationServerMap['IdentityHistoryBetaApi.listHistoricalIdentities']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -47515,8 +47515,8 @@ export const IdentityHistoryBetaApiFp = function(configuration?: Configuration) 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async listIdentityAccessItems(id: string, type?: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<ListIdentityAccessItems200ResponseInnerBeta>>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.listIdentityAccessItems(id, type, options);
+        async listIdentityAccessItems(id: string, type?: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<ListIdentityAccessItems200ResponseInnerBeta>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.listIdentityAccessItems(id, type, axiosOptions);
             const operationBasePath = operationServerMap['IdentityHistoryBetaApi.listIdentityAccessItems']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -47529,8 +47529,8 @@ export const IdentityHistoryBetaApiFp = function(configuration?: Configuration) 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async listIdentitySnapshotAccessItems(id: string, date: string, type?: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<ListIdentityAccessItems200ResponseInnerBeta>>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.listIdentitySnapshotAccessItems(id, date, type, options);
+        async listIdentitySnapshotAccessItems(id: string, date: string, type?: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<ListIdentityAccessItems200ResponseInnerBeta>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.listIdentitySnapshotAccessItems(id, date, type, axiosOptions);
             const operationBasePath = operationServerMap['IdentityHistoryBetaApi.listIdentitySnapshotAccessItems']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -47546,8 +47546,8 @@ export const IdentityHistoryBetaApiFp = function(configuration?: Configuration) 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async listIdentitySnapshots(id: string, start?: string, interval?: ListIdentitySnapshotsIntervalBeta, limit?: number, offset?: number, count?: boolean, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<IdentitySnapshotSummaryResponseBeta>>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.listIdentitySnapshots(id, start, interval, limit, offset, count, options);
+        async listIdentitySnapshots(id: string, start?: string, interval?: ListIdentitySnapshotsIntervalBeta, limit?: number, offset?: number, count?: boolean, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<IdentitySnapshotSummaryResponseBeta>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.listIdentitySnapshots(id, start, interval, limit, offset, count, axiosOptions);
             const operationBasePath = operationServerMap['IdentityHistoryBetaApi.listIdentitySnapshots']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -48804,8 +48804,8 @@ export const IdentityProfilesBetaApiFp = function(configuration?: Configuration)
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async createIdentityProfile(identityProfileBeta: IdentityProfileBeta, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<IdentityProfileBeta>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.createIdentityProfile(identityProfileBeta, options);
+        async createIdentityProfile(identityProfileBeta: IdentityProfileBeta, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<IdentityProfileBeta>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.createIdentityProfile(identityProfileBeta, axiosOptions);
             const operationBasePath = operationServerMap['IdentityProfilesBetaApi.createIdentityProfile']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -48816,8 +48816,8 @@ export const IdentityProfilesBetaApiFp = function(configuration?: Configuration)
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async deleteIdentityProfile(identityProfileId: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<TaskResultSimplifiedBeta>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.deleteIdentityProfile(identityProfileId, options);
+        async deleteIdentityProfile(identityProfileId: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<TaskResultSimplifiedBeta>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.deleteIdentityProfile(identityProfileId, axiosOptions);
             const operationBasePath = operationServerMap['IdentityProfilesBetaApi.deleteIdentityProfile']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -48828,8 +48828,8 @@ export const IdentityProfilesBetaApiFp = function(configuration?: Configuration)
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async deleteIdentityProfiles(requestBody: Array<string>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<TaskResultSimplifiedBeta>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.deleteIdentityProfiles(requestBody, options);
+        async deleteIdentityProfiles(requestBody: Array<string>, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<TaskResultSimplifiedBeta>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.deleteIdentityProfiles(requestBody, axiosOptions);
             const operationBasePath = operationServerMap['IdentityProfilesBetaApi.deleteIdentityProfiles']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -48844,8 +48844,8 @@ export const IdentityProfilesBetaApiFp = function(configuration?: Configuration)
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async exportIdentityProfiles(limit?: number, offset?: number, count?: boolean, filters?: string, sorters?: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<IdentityProfileExportedObjectBeta>>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.exportIdentityProfiles(limit, offset, count, filters, sorters, options);
+        async exportIdentityProfiles(limit?: number, offset?: number, count?: boolean, filters?: string, sorters?: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<IdentityProfileExportedObjectBeta>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.exportIdentityProfiles(limit, offset, count, filters, sorters, axiosOptions);
             const operationBasePath = operationServerMap['IdentityProfilesBetaApi.exportIdentityProfiles']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -48856,8 +48856,8 @@ export const IdentityProfilesBetaApiFp = function(configuration?: Configuration)
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async generateIdentityPreview(identityPreviewRequestBeta: IdentityPreviewRequestBeta, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<IdentityPreviewResponseBeta>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.generateIdentityPreview(identityPreviewRequestBeta, options);
+        async generateIdentityPreview(identityPreviewRequestBeta: IdentityPreviewRequestBeta, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<IdentityPreviewResponseBeta>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.generateIdentityPreview(identityPreviewRequestBeta, axiosOptions);
             const operationBasePath = operationServerMap['IdentityProfilesBetaApi.generateIdentityPreview']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -48868,8 +48868,8 @@ export const IdentityProfilesBetaApiFp = function(configuration?: Configuration)
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async getDefaultIdentityAttributeConfig(identityProfileId: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<IdentityAttributeConfigBeta>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.getDefaultIdentityAttributeConfig(identityProfileId, options);
+        async getDefaultIdentityAttributeConfig(identityProfileId: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<IdentityAttributeConfigBeta>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getDefaultIdentityAttributeConfig(identityProfileId, axiosOptions);
             const operationBasePath = operationServerMap['IdentityProfilesBetaApi.getDefaultIdentityAttributeConfig']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -48880,8 +48880,8 @@ export const IdentityProfilesBetaApiFp = function(configuration?: Configuration)
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async getIdentityProfile(identityProfileId: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<IdentityProfileBeta>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.getIdentityProfile(identityProfileId, options);
+        async getIdentityProfile(identityProfileId: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<IdentityProfileBeta>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getIdentityProfile(identityProfileId, axiosOptions);
             const operationBasePath = operationServerMap['IdentityProfilesBetaApi.getIdentityProfile']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -48892,8 +48892,8 @@ export const IdentityProfilesBetaApiFp = function(configuration?: Configuration)
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async importIdentityProfiles(identityProfileExportedObjectBeta: Array<IdentityProfileExportedObjectBeta>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ObjectImportResultBeta>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.importIdentityProfiles(identityProfileExportedObjectBeta, options);
+        async importIdentityProfiles(identityProfileExportedObjectBeta: Array<IdentityProfileExportedObjectBeta>, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ObjectImportResultBeta>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.importIdentityProfiles(identityProfileExportedObjectBeta, axiosOptions);
             const operationBasePath = operationServerMap['IdentityProfilesBetaApi.importIdentityProfiles']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -48908,8 +48908,8 @@ export const IdentityProfilesBetaApiFp = function(configuration?: Configuration)
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async listIdentityProfiles(limit?: number, offset?: number, count?: boolean, filters?: string, sorters?: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<IdentityProfileBeta>>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.listIdentityProfiles(limit, offset, count, filters, sorters, options);
+        async listIdentityProfiles(limit?: number, offset?: number, count?: boolean, filters?: string, sorters?: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<IdentityProfileBeta>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.listIdentityProfiles(limit, offset, count, filters, sorters, axiosOptions);
             const operationBasePath = operationServerMap['IdentityProfilesBetaApi.listIdentityProfiles']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -48920,8 +48920,8 @@ export const IdentityProfilesBetaApiFp = function(configuration?: Configuration)
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async syncIdentityProfile(identityProfileId: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<object>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.syncIdentityProfile(identityProfileId, options);
+        async syncIdentityProfile(identityProfileId: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<object>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.syncIdentityProfile(identityProfileId, axiosOptions);
             const operationBasePath = operationServerMap['IdentityProfilesBetaApi.syncIdentityProfile']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -48933,8 +48933,8 @@ export const IdentityProfilesBetaApiFp = function(configuration?: Configuration)
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async updateIdentityProfile(identityProfileId: string, jsonPatchOperationBeta: Array<JsonPatchOperationBeta>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<IdentityProfileBeta>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.updateIdentityProfile(identityProfileId, jsonPatchOperationBeta, options);
+        async updateIdentityProfile(identityProfileId: string, jsonPatchOperationBeta: Array<JsonPatchOperationBeta>, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<IdentityProfileBeta>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.updateIdentityProfile(identityProfileId, jsonPatchOperationBeta, axiosOptions);
             const operationBasePath = operationServerMap['IdentityProfilesBetaApi.updateIdentityProfile']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -49553,8 +49553,8 @@ export const LifecycleStatesBetaApiFp = function(configuration?: Configuration) 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async listLifecycleStates(identityProfileId: string, lifecycleStateId: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<LifecycleStateBeta>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.listLifecycleStates(identityProfileId, lifecycleStateId, options);
+        async listLifecycleStates(identityProfileId: string, lifecycleStateId: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<LifecycleStateBeta>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.listLifecycleStates(identityProfileId, lifecycleStateId, axiosOptions);
             const operationBasePath = operationServerMap['LifecycleStatesBetaApi.listLifecycleStates']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -49567,8 +49567,8 @@ export const LifecycleStatesBetaApiFp = function(configuration?: Configuration) 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async updateLifecycleStates(identityProfileId: string, lifecycleStateId: string, jsonPatchOperationBeta: Array<JsonPatchOperationBeta>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<LifecycleStateBeta>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.updateLifecycleStates(identityProfileId, lifecycleStateId, jsonPatchOperationBeta, options);
+        async updateLifecycleStates(identityProfileId: string, lifecycleStateId: string, jsonPatchOperationBeta: Array<JsonPatchOperationBeta>, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<LifecycleStateBeta>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.updateLifecycleStates(identityProfileId, lifecycleStateId, jsonPatchOperationBeta, axiosOptions);
             const operationBasePath = operationServerMap['LifecycleStatesBetaApi.updateLifecycleStates']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -49961,8 +49961,8 @@ export const MFAConfigurationBetaApiFp = function(configuration?: Configuration)
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async deleteMFAConfig(method: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<MfaOktaConfigBeta>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.deleteMFAConfig(method, options);
+        async deleteMFAConfig(method: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<MfaOktaConfigBeta>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.deleteMFAConfig(method, axiosOptions);
             const operationBasePath = operationServerMap['MFAConfigurationBetaApi.deleteMFAConfig']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -49972,8 +49972,8 @@ export const MFAConfigurationBetaApiFp = function(configuration?: Configuration)
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async getMFADuoConfig(options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<MfaDuoConfigBeta>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.getMFADuoConfig(options);
+        async getMFADuoConfig(axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<MfaDuoConfigBeta>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getMFADuoConfig(axiosOptions);
             const operationBasePath = operationServerMap['MFAConfigurationBetaApi.getMFADuoConfig']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -49983,8 +49983,8 @@ export const MFAConfigurationBetaApiFp = function(configuration?: Configuration)
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async getMFAOktaConfig(options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<MfaOktaConfigBeta>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.getMFAOktaConfig(options);
+        async getMFAOktaConfig(axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<MfaOktaConfigBeta>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getMFAOktaConfig(axiosOptions);
             const operationBasePath = operationServerMap['MFAConfigurationBetaApi.getMFAOktaConfig']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -49995,8 +49995,8 @@ export const MFAConfigurationBetaApiFp = function(configuration?: Configuration)
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async setMFADuoConfig(mfaDuoConfigBeta: MfaDuoConfigBeta, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<MfaDuoConfigBeta>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.setMFADuoConfig(mfaDuoConfigBeta, options);
+        async setMFADuoConfig(mfaDuoConfigBeta: MfaDuoConfigBeta, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<MfaDuoConfigBeta>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.setMFADuoConfig(mfaDuoConfigBeta, axiosOptions);
             const operationBasePath = operationServerMap['MFAConfigurationBetaApi.setMFADuoConfig']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -50007,8 +50007,8 @@ export const MFAConfigurationBetaApiFp = function(configuration?: Configuration)
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async setMFAOktaConfig(mfaOktaConfigBeta: MfaOktaConfigBeta, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<MfaOktaConfigBeta>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.setMFAOktaConfig(mfaOktaConfigBeta, options);
+        async setMFAOktaConfig(mfaOktaConfigBeta: MfaOktaConfigBeta, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<MfaOktaConfigBeta>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.setMFAOktaConfig(mfaOktaConfigBeta, axiosOptions);
             const operationBasePath = operationServerMap['MFAConfigurationBetaApi.setMFAOktaConfig']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -50019,8 +50019,8 @@ export const MFAConfigurationBetaApiFp = function(configuration?: Configuration)
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async testMFAConfig(method: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<MfaConfigTestResponseBeta>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.testMFAConfig(method, options);
+        async testMFAConfig(method: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<MfaConfigTestResponseBeta>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.testMFAConfig(method, axiosOptions);
             const operationBasePath = operationServerMap['MFAConfigurationBetaApi.testMFAConfig']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -50528,8 +50528,8 @@ export const MFAControllerBetaApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async createSendToken(sendTokenRequestBeta: SendTokenRequestBeta, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SendTokenResponseBeta>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.createSendToken(sendTokenRequestBeta, options);
+        async createSendToken(sendTokenRequestBeta: SendTokenRequestBeta, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SendTokenResponseBeta>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.createSendToken(sendTokenRequestBeta, axiosOptions);
             const operationBasePath = operationServerMap['MFAControllerBetaApi.createSendToken']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -50541,21 +50541,9 @@ export const MFAControllerBetaApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async pingVerificationStatus(method: string, verificationPollRequestBeta: VerificationPollRequestBeta, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<VerificationResponseBeta>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.pingVerificationStatus(method, verificationPollRequestBeta, options);
+        async pingVerificationStatus(method: string, verificationPollRequestBeta: VerificationPollRequestBeta, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<VerificationResponseBeta>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.pingVerificationStatus(method, verificationPollRequestBeta, axiosOptions);
             const operationBasePath = operationServerMap['MFAControllerBetaApi.pingVerificationStatus']?.[0]?.url;
-            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
-        },
-        /**
-         * This API Authenticates the user via Duo-Web MFA method.
-         * @summary Verifying authentication via Duo method
-         * @param {DuoVerificationRequestBeta} duoVerificationRequestBeta 
-         * @param {*} [axiosOptions] Override http request option.
-         * @throws {RequiredError}
-         */
-        async sendDuoVerifyRequest(duoVerificationRequestBeta: DuoVerificationRequestBeta, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<VerificationResponseBeta>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.sendDuoVerifyRequest(duoVerificationRequestBeta, options);
-            const operationBasePath = operationServerMap['MFAControllerBetaApi.sendDuoVerifyRequest']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
         /**
@@ -50567,7 +50555,8 @@ export const MFAControllerBetaApiFp = function(configuration?: Configuration) {
          */
         async sendDuoVerifyRequest(duoVerificationRequestBeta: DuoVerificationRequestBeta, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<VerificationResponseBeta>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.sendDuoVerifyRequest(duoVerificationRequestBeta, axiosOptions);
-            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+            const operationBasePath = operationServerMap['MFAControllerBetaApi.sendDuoVerifyRequest']?.[0]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
         /**
          * This API Authenticate user in KBA MFA method.
@@ -50576,21 +50565,9 @@ export const MFAControllerBetaApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async sendKbaAnswers(kbaAnswerRequestBeta: KbaAnswerRequestBeta, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<KbaAuthResponseBeta>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.sendKbaAnswers(kbaAnswerRequestBeta, options);
+        async sendKbaAnswers(kbaAnswerRequestBeta: KbaAnswerRequestBeta, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<KbaAuthResponseBeta>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.sendKbaAnswers(kbaAnswerRequestBeta, axiosOptions);
             const operationBasePath = operationServerMap['MFAControllerBetaApi.sendKbaAnswers']?.[0]?.url;
-            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
-        },
-        /**
-         * This API Authenticates the user via Okta-Verify MFA method. Request requires a header called \'slpt-forwarding\', and it must contain a remote IP Address of caller.
-         * @summary Verifying authentication via Okta method
-         * @param {OktaVerificationRequestBeta} oktaVerificationRequestBeta 
-         * @param {*} [axiosOptions] Override http request option.
-         * @throws {RequiredError}
-         */
-        async sendOktaVerifyRequest(oktaVerificationRequestBeta: OktaVerificationRequestBeta, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<VerificationResponseBeta>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.sendOktaVerifyRequest(oktaVerificationRequestBeta, options);
-            const operationBasePath = operationServerMap['MFAControllerBetaApi.sendOktaVerifyRequest']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
         /**
@@ -50602,7 +50579,8 @@ export const MFAControllerBetaApiFp = function(configuration?: Configuration) {
          */
         async sendOktaVerifyRequest(oktaVerificationRequestBeta: OktaVerificationRequestBeta, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<VerificationResponseBeta>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.sendOktaVerifyRequest(oktaVerificationRequestBeta, axiosOptions);
-            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+            const operationBasePath = operationServerMap['MFAControllerBetaApi.sendOktaVerifyRequest']?.[0]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
         /**
          * This API Authenticate user in Token MFA method.
@@ -50611,8 +50589,8 @@ export const MFAControllerBetaApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async sendTokenAuthRequest(tokenAuthRequestBeta: TokenAuthRequestBeta, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<TokenAuthResponseBeta>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.sendTokenAuthRequest(tokenAuthRequestBeta, options);
+        async sendTokenAuthRequest(tokenAuthRequestBeta: TokenAuthRequestBeta, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<TokenAuthResponseBeta>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.sendTokenAuthRequest(tokenAuthRequestBeta, axiosOptions);
             const operationBasePath = operationServerMap['MFAControllerBetaApi.sendTokenAuthRequest']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -50660,16 +50638,6 @@ export const MFAControllerBetaApiFactory = function (configuration?: Configurati
             return localVarFp.sendDuoVerifyRequest(requestParameters.duoVerificationRequestBeta, options).then((request) => request(axios, basePath));
         },
         /**
-         * This API Authenticates the user via Duo-Web MFA method.
-         * @summary Verifying authentication via Duo method
-         * @param {DuoVerificationRequestBeta} duoVerificationRequestBeta 
-         * @param {*} [axiosOptions] Override http request option.
-         * @throws {RequiredError}
-         */
-        sendDuoVerifyRequest(duoVerificationRequestBeta: DuoVerificationRequestBeta, axiosOptions?: any): AxiosPromise<VerificationResponseBeta> {
-            return localVarFp.sendDuoVerifyRequest(duoVerificationRequestBeta, axiosOptions).then((request) => request(axios, basePath));
-        },
-        /**
          * This API Authenticate user in KBA MFA method.
          * @summary Authenticate KBA provided MFA method
          * @param {MFAControllerBetaApiSendKbaAnswersRequest} requestParameters Request parameters.
@@ -50690,16 +50658,6 @@ export const MFAControllerBetaApiFactory = function (configuration?: Configurati
     
         sendOktaVerifyRequest(requestParameters: MFAControllerBetaApiSendOktaVerifyRequestRequest, options?: AxiosRequestConfig): AxiosPromise<VerificationResponseBeta> {
             return localVarFp.sendOktaVerifyRequest(requestParameters.oktaVerificationRequestBeta, options).then((request) => request(axios, basePath));
-        },
-        /**
-         * This API Authenticates the user via Okta-Verify MFA method. Request requires a header called \'slpt-forwarding\', and it must contain a remote IP Address of caller.
-         * @summary Verifying authentication via Okta method
-         * @param {OktaVerificationRequestBeta} oktaVerificationRequestBeta 
-         * @param {*} [axiosOptions] Override http request option.
-         * @throws {RequiredError}
-         */
-        sendOktaVerifyRequest(oktaVerificationRequestBeta: OktaVerificationRequestBeta, axiosOptions?: any): AxiosPromise<VerificationResponseBeta> {
-            return localVarFp.sendOktaVerifyRequest(oktaVerificationRequestBeta, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * This API Authenticate user in Token MFA method.
@@ -50850,18 +50808,6 @@ export class MFAControllerBetaApi extends BaseAPI {
     }
 
     /**
-     * This API Authenticates the user via Duo-Web MFA method.
-     * @summary Verifying authentication via Duo method
-     * @param {MFAControllerBetaApiSendDuoVerifyRequestRequest} requestParameters Request parameters.
-     * @param {*} [axiosOptions] Override http request option.
-     * @throws {RequiredError}
-     * @memberof MFAControllerBetaApi
-     */
-    public sendDuoVerifyRequest(requestParameters: MFAControllerBetaApiSendDuoVerifyRequestRequest, axiosOptions?: AxiosRequestConfig) {
-        return MFAControllerBetaApiFp(this.configuration).sendDuoVerifyRequest(requestParameters.duoVerificationRequestBeta, axiosOptions).then((request) => request(this.axios, this.basePath));
-    }
-
-    /**
      * This API Authenticate user in KBA MFA method.
      * @summary Authenticate KBA provided MFA method
      * @param {MFAControllerBetaApiSendKbaAnswersRequest} requestParameters Request parameters.
@@ -50883,18 +50829,6 @@ export class MFAControllerBetaApi extends BaseAPI {
      */
     public sendOktaVerifyRequest(requestParameters: MFAControllerBetaApiSendOktaVerifyRequestRequest, options?: AxiosRequestConfig) {
         return MFAControllerBetaApiFp(this.configuration).sendOktaVerifyRequest(requestParameters.oktaVerificationRequestBeta, options).then((request) => request(this.axios, this.basePath));
-    }
-
-    /**
-     * This API Authenticates the user via Okta-Verify MFA method. Request requires a header called \'slpt-forwarding\', and it must contain a remote IP Address of caller.
-     * @summary Verifying authentication via Okta method
-     * @param {MFAControllerBetaApiSendOktaVerifyRequestRequest} requestParameters Request parameters.
-     * @param {*} [axiosOptions] Override http request option.
-     * @throws {RequiredError}
-     * @memberof MFAControllerBetaApi
-     */
-    public sendOktaVerifyRequest(requestParameters: MFAControllerBetaApiSendOktaVerifyRequestRequest, axiosOptions?: AxiosRequestConfig) {
-        return MFAControllerBetaApiFp(this.configuration).sendOktaVerifyRequest(requestParameters.oktaVerificationRequestBeta, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -51033,8 +50967,8 @@ export const ManagedClientsBetaApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async getManagedClientStatus(id: string, type: ManagedClientTypeBeta, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ManagedClientStatusBeta>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.getManagedClientStatus(id, type, options);
+        async getManagedClientStatus(id: string, type: ManagedClientTypeBeta, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ManagedClientStatusBeta>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getManagedClientStatus(id, type, axiosOptions);
             const operationBasePath = operationServerMap['ManagedClientsBetaApi.getManagedClientStatus']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -51046,8 +50980,8 @@ export const ManagedClientsBetaApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async updateManagedClientStatus(id: string, managedClientStatusBeta: ManagedClientStatusBeta, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ManagedClientStatusAggResponseBeta>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.updateManagedClientStatus(id, managedClientStatusBeta, options);
+        async updateManagedClientStatus(id: string, managedClientStatusBeta: ManagedClientStatusBeta, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ManagedClientStatusAggResponseBeta>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.updateManagedClientStatus(id, managedClientStatusBeta, axiosOptions);
             const operationBasePath = operationServerMap['ManagedClientsBetaApi.updateManagedClientStatus']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -51375,8 +51309,8 @@ export const ManagedClustersBetaApiFp = function(configuration?: Configuration) 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async getClientLogConfiguration(id: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ClientLogConfigurationBeta>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.getClientLogConfiguration(id, options);
+        async getClientLogConfiguration(id: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ClientLogConfigurationBeta>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getClientLogConfiguration(id, axiosOptions);
             const operationBasePath = operationServerMap['ManagedClustersBetaApi.getClientLogConfiguration']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -51387,8 +51321,8 @@ export const ManagedClustersBetaApiFp = function(configuration?: Configuration) 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async getManagedCluster(id: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ManagedClusterBeta>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.getManagedCluster(id, options);
+        async getManagedCluster(id: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ManagedClusterBeta>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getManagedCluster(id, axiosOptions);
             const operationBasePath = operationServerMap['ManagedClustersBetaApi.getManagedCluster']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -51402,8 +51336,8 @@ export const ManagedClustersBetaApiFp = function(configuration?: Configuration) 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async getManagedClusters(offset?: number, limit?: number, count?: boolean, filters?: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<ManagedClusterBeta>>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.getManagedClusters(offset, limit, count, filters, options);
+        async getManagedClusters(offset?: number, limit?: number, count?: boolean, filters?: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<ManagedClusterBeta>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getManagedClusters(offset, limit, count, filters, axiosOptions);
             const operationBasePath = operationServerMap['ManagedClustersBetaApi.getManagedClusters']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -51415,8 +51349,8 @@ export const ManagedClustersBetaApiFp = function(configuration?: Configuration) 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async putClientLogConfiguration(id: string, clientLogConfigurationBeta: ClientLogConfigurationBeta | null, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ClientLogConfigurationBeta>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.putClientLogConfiguration(id, clientLogConfigurationBeta, options);
+        async putClientLogConfiguration(id: string, clientLogConfigurationBeta: ClientLogConfigurationBeta | null, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ClientLogConfigurationBeta>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.putClientLogConfiguration(id, clientLogConfigurationBeta, axiosOptions);
             const operationBasePath = operationServerMap['ManagedClustersBetaApi.putClientLogConfiguration']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -53170,8 +53104,8 @@ export const NonEmployeeLifecycleManagementBetaApiFp = function(configuration?: 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async approveNonEmployeeRequest(id: string, nonEmployeeApprovalDecisionBeta: NonEmployeeApprovalDecisionBeta, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<NonEmployeeApprovalItemBeta>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.approveNonEmployeeRequest(id, nonEmployeeApprovalDecisionBeta, options);
+        async approveNonEmployeeRequest(id: string, nonEmployeeApprovalDecisionBeta: NonEmployeeApprovalDecisionBeta, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<NonEmployeeApprovalItemBeta>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.approveNonEmployeeRequest(id, nonEmployeeApprovalDecisionBeta, axiosOptions);
             const operationBasePath = operationServerMap['NonEmployeeLifecycleManagementBetaApi.approveNonEmployeeRequest']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -53182,8 +53116,8 @@ export const NonEmployeeLifecycleManagementBetaApiFp = function(configuration?: 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async createNonEmployeeRecord(nonEmployeeRequestBodyBeta: NonEmployeeRequestBodyBeta, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<NonEmployeeRecordBeta>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.createNonEmployeeRecord(nonEmployeeRequestBodyBeta, options);
+        async createNonEmployeeRecord(nonEmployeeRequestBodyBeta: NonEmployeeRequestBodyBeta, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<NonEmployeeRecordBeta>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.createNonEmployeeRecord(nonEmployeeRequestBodyBeta, axiosOptions);
             const operationBasePath = operationServerMap['NonEmployeeLifecycleManagementBetaApi.createNonEmployeeRecord']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -53194,8 +53128,8 @@ export const NonEmployeeLifecycleManagementBetaApiFp = function(configuration?: 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async createNonEmployeeRequest(nonEmployeeRequestBodyBeta: NonEmployeeRequestBodyBeta, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<NonEmployeeRequestBeta>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.createNonEmployeeRequest(nonEmployeeRequestBodyBeta, options);
+        async createNonEmployeeRequest(nonEmployeeRequestBodyBeta: NonEmployeeRequestBodyBeta, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<NonEmployeeRequestBeta>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.createNonEmployeeRequest(nonEmployeeRequestBodyBeta, axiosOptions);
             const operationBasePath = operationServerMap['NonEmployeeLifecycleManagementBetaApi.createNonEmployeeRequest']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -53206,8 +53140,8 @@ export const NonEmployeeLifecycleManagementBetaApiFp = function(configuration?: 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async createNonEmployeeSource(nonEmployeeSourceRequestBodyBeta: NonEmployeeSourceRequestBodyBeta, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<NonEmployeeSourceWithCloudExternalIdBeta>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.createNonEmployeeSource(nonEmployeeSourceRequestBodyBeta, options);
+        async createNonEmployeeSource(nonEmployeeSourceRequestBodyBeta: NonEmployeeSourceRequestBodyBeta, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<NonEmployeeSourceWithCloudExternalIdBeta>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.createNonEmployeeSource(nonEmployeeSourceRequestBodyBeta, axiosOptions);
             const operationBasePath = operationServerMap['NonEmployeeLifecycleManagementBetaApi.createNonEmployeeSource']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -53219,8 +53153,8 @@ export const NonEmployeeLifecycleManagementBetaApiFp = function(configuration?: 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async createNonEmployeeSourceSchemaAttributes(sourceId: string, nonEmployeeSchemaAttributeBodyBeta: NonEmployeeSchemaAttributeBodyBeta, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<NonEmployeeSchemaAttributeBeta>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.createNonEmployeeSourceSchemaAttributes(sourceId, nonEmployeeSchemaAttributeBodyBeta, options);
+        async createNonEmployeeSourceSchemaAttributes(sourceId: string, nonEmployeeSchemaAttributeBodyBeta: NonEmployeeSchemaAttributeBodyBeta, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<NonEmployeeSchemaAttributeBeta>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.createNonEmployeeSourceSchemaAttributes(sourceId, nonEmployeeSchemaAttributeBodyBeta, axiosOptions);
             const operationBasePath = operationServerMap['NonEmployeeLifecycleManagementBetaApi.createNonEmployeeSourceSchemaAttributes']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -53231,8 +53165,8 @@ export const NonEmployeeLifecycleManagementBetaApiFp = function(configuration?: 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async deleteNonEmployeeRecord(id: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.deleteNonEmployeeRecord(id, options);
+        async deleteNonEmployeeRecord(id: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.deleteNonEmployeeRecord(id, axiosOptions);
             const operationBasePath = operationServerMap['NonEmployeeLifecycleManagementBetaApi.deleteNonEmployeeRecord']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -53243,8 +53177,8 @@ export const NonEmployeeLifecycleManagementBetaApiFp = function(configuration?: 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async deleteNonEmployeeRecordInBulk(deleteNonEmployeeRecordInBulkRequestBeta: DeleteNonEmployeeRecordInBulkRequestBeta, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.deleteNonEmployeeRecordInBulk(deleteNonEmployeeRecordInBulkRequestBeta, options);
+        async deleteNonEmployeeRecordInBulk(deleteNonEmployeeRecordInBulkRequestBeta: DeleteNonEmployeeRecordInBulkRequestBeta, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.deleteNonEmployeeRecordInBulk(deleteNonEmployeeRecordInBulkRequestBeta, axiosOptions);
             const operationBasePath = operationServerMap['NonEmployeeLifecycleManagementBetaApi.deleteNonEmployeeRecordInBulk']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -53255,8 +53189,8 @@ export const NonEmployeeLifecycleManagementBetaApiFp = function(configuration?: 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async deleteNonEmployeeRequest(id: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.deleteNonEmployeeRequest(id, options);
+        async deleteNonEmployeeRequest(id: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.deleteNonEmployeeRequest(id, axiosOptions);
             const operationBasePath = operationServerMap['NonEmployeeLifecycleManagementBetaApi.deleteNonEmployeeRequest']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -53268,8 +53202,8 @@ export const NonEmployeeLifecycleManagementBetaApiFp = function(configuration?: 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async deleteNonEmployeeSchemaAttribute(attributeId: string, sourceId: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.deleteNonEmployeeSchemaAttribute(attributeId, sourceId, options);
+        async deleteNonEmployeeSchemaAttribute(attributeId: string, sourceId: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.deleteNonEmployeeSchemaAttribute(attributeId, sourceId, axiosOptions);
             const operationBasePath = operationServerMap['NonEmployeeLifecycleManagementBetaApi.deleteNonEmployeeSchemaAttribute']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -53280,8 +53214,8 @@ export const NonEmployeeLifecycleManagementBetaApiFp = function(configuration?: 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async deleteNonEmployeeSource(sourceId: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.deleteNonEmployeeSource(sourceId, options);
+        async deleteNonEmployeeSource(sourceId: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.deleteNonEmployeeSource(sourceId, axiosOptions);
             const operationBasePath = operationServerMap['NonEmployeeLifecycleManagementBetaApi.deleteNonEmployeeSource']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -53292,8 +53226,8 @@ export const NonEmployeeLifecycleManagementBetaApiFp = function(configuration?: 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async deleteNonEmployeeSourceSchemaAttributes(sourceId: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.deleteNonEmployeeSourceSchemaAttributes(sourceId, options);
+        async deleteNonEmployeeSourceSchemaAttributes(sourceId: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.deleteNonEmployeeSourceSchemaAttributes(sourceId, axiosOptions);
             const operationBasePath = operationServerMap['NonEmployeeLifecycleManagementBetaApi.deleteNonEmployeeSourceSchemaAttributes']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -53304,8 +53238,8 @@ export const NonEmployeeLifecycleManagementBetaApiFp = function(configuration?: 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async exportNonEmployeeRecords(id: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.exportNonEmployeeRecords(id, options);
+        async exportNonEmployeeRecords(id: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.exportNonEmployeeRecords(id, axiosOptions);
             const operationBasePath = operationServerMap['NonEmployeeLifecycleManagementBetaApi.exportNonEmployeeRecords']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -53316,8 +53250,8 @@ export const NonEmployeeLifecycleManagementBetaApiFp = function(configuration?: 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async exportNonEmployeeSourceSchemaTemplate(id: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.exportNonEmployeeSourceSchemaTemplate(id, options);
+        async exportNonEmployeeSourceSchemaTemplate(id: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.exportNonEmployeeSourceSchemaTemplate(id, axiosOptions);
             const operationBasePath = operationServerMap['NonEmployeeLifecycleManagementBetaApi.exportNonEmployeeSourceSchemaTemplate']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -53329,8 +53263,8 @@ export const NonEmployeeLifecycleManagementBetaApiFp = function(configuration?: 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async getNonEmployeeApproval(id: string, includeDetail?: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<NonEmployeeApprovalItemDetailBeta>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.getNonEmployeeApproval(id, includeDetail, options);
+        async getNonEmployeeApproval(id: string, includeDetail?: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<NonEmployeeApprovalItemDetailBeta>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getNonEmployeeApproval(id, includeDetail, axiosOptions);
             const operationBasePath = operationServerMap['NonEmployeeLifecycleManagementBetaApi.getNonEmployeeApproval']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -53341,8 +53275,8 @@ export const NonEmployeeLifecycleManagementBetaApiFp = function(configuration?: 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async getNonEmployeeApprovalSummary(requestedFor: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<NonEmployeeApprovalSummaryBeta>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.getNonEmployeeApprovalSummary(requestedFor, options);
+        async getNonEmployeeApprovalSummary(requestedFor: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<NonEmployeeApprovalSummaryBeta>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getNonEmployeeApprovalSummary(requestedFor, axiosOptions);
             const operationBasePath = operationServerMap['NonEmployeeLifecycleManagementBetaApi.getNonEmployeeApprovalSummary']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -53353,8 +53287,8 @@ export const NonEmployeeLifecycleManagementBetaApiFp = function(configuration?: 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async getNonEmployeeBulkUploadStatus(id: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<NonEmployeeBulkUploadStatusBeta>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.getNonEmployeeBulkUploadStatus(id, options);
+        async getNonEmployeeBulkUploadStatus(id: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<NonEmployeeBulkUploadStatusBeta>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getNonEmployeeBulkUploadStatus(id, axiosOptions);
             const operationBasePath = operationServerMap['NonEmployeeLifecycleManagementBetaApi.getNonEmployeeBulkUploadStatus']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -53365,8 +53299,8 @@ export const NonEmployeeLifecycleManagementBetaApiFp = function(configuration?: 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async getNonEmployeeRecord(id: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<NonEmployeeRecordBeta>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.getNonEmployeeRecord(id, options);
+        async getNonEmployeeRecord(id: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<NonEmployeeRecordBeta>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getNonEmployeeRecord(id, axiosOptions);
             const operationBasePath = operationServerMap['NonEmployeeLifecycleManagementBetaApi.getNonEmployeeRecord']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -53377,8 +53311,8 @@ export const NonEmployeeLifecycleManagementBetaApiFp = function(configuration?: 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async getNonEmployeeRequest(id: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<NonEmployeeRequestBeta>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.getNonEmployeeRequest(id, options);
+        async getNonEmployeeRequest(id: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<NonEmployeeRequestBeta>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getNonEmployeeRequest(id, axiosOptions);
             const operationBasePath = operationServerMap['NonEmployeeLifecycleManagementBetaApi.getNonEmployeeRequest']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -53389,8 +53323,8 @@ export const NonEmployeeLifecycleManagementBetaApiFp = function(configuration?: 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async getNonEmployeeRequestSummary(requestedFor: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<NonEmployeeRequestSummaryBeta>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.getNonEmployeeRequestSummary(requestedFor, options);
+        async getNonEmployeeRequestSummary(requestedFor: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<NonEmployeeRequestSummaryBeta>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getNonEmployeeRequestSummary(requestedFor, axiosOptions);
             const operationBasePath = operationServerMap['NonEmployeeLifecycleManagementBetaApi.getNonEmployeeRequestSummary']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -53402,8 +53336,8 @@ export const NonEmployeeLifecycleManagementBetaApiFp = function(configuration?: 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async getNonEmployeeSchemaAttribute(attributeId: string, sourceId: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<NonEmployeeSchemaAttributeBeta>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.getNonEmployeeSchemaAttribute(attributeId, sourceId, options);
+        async getNonEmployeeSchemaAttribute(attributeId: string, sourceId: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<NonEmployeeSchemaAttributeBeta>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getNonEmployeeSchemaAttribute(attributeId, sourceId, axiosOptions);
             const operationBasePath = operationServerMap['NonEmployeeLifecycleManagementBetaApi.getNonEmployeeSchemaAttribute']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -53414,8 +53348,8 @@ export const NonEmployeeLifecycleManagementBetaApiFp = function(configuration?: 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async getNonEmployeeSource(sourceId: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<NonEmployeeSourceBeta>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.getNonEmployeeSource(sourceId, options);
+        async getNonEmployeeSource(sourceId: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<NonEmployeeSourceBeta>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getNonEmployeeSource(sourceId, axiosOptions);
             const operationBasePath = operationServerMap['NonEmployeeLifecycleManagementBetaApi.getNonEmployeeSource']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -53426,8 +53360,8 @@ export const NonEmployeeLifecycleManagementBetaApiFp = function(configuration?: 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async getNonEmployeeSourceSchemaAttributes(sourceId: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<NonEmployeeSchemaAttributeBeta>>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.getNonEmployeeSourceSchemaAttributes(sourceId, options);
+        async getNonEmployeeSourceSchemaAttributes(sourceId: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<NonEmployeeSchemaAttributeBeta>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getNonEmployeeSourceSchemaAttributes(sourceId, axiosOptions);
             const operationBasePath = operationServerMap['NonEmployeeLifecycleManagementBetaApi.getNonEmployeeSourceSchemaAttributes']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -53439,8 +53373,8 @@ export const NonEmployeeLifecycleManagementBetaApiFp = function(configuration?: 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async importNonEmployeeRecordsInBulk(id: string, data: File, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<NonEmployeeBulkUploadJobBeta>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.importNonEmployeeRecordsInBulk(id, data, options);
+        async importNonEmployeeRecordsInBulk(id: string, data: File, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<NonEmployeeBulkUploadJobBeta>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.importNonEmployeeRecordsInBulk(id, data, axiosOptions);
             const operationBasePath = operationServerMap['NonEmployeeLifecycleManagementBetaApi.importNonEmployeeRecordsInBulk']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -53456,8 +53390,8 @@ export const NonEmployeeLifecycleManagementBetaApiFp = function(configuration?: 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async listNonEmployeeApproval(requestedFor?: string, limit?: number, offset?: number, count?: boolean, filters?: string, sorters?: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<NonEmployeeApprovalItemBeta>>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.listNonEmployeeApproval(requestedFor, limit, offset, count, filters, sorters, options);
+        async listNonEmployeeApproval(requestedFor?: string, limit?: number, offset?: number, count?: boolean, filters?: string, sorters?: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<NonEmployeeApprovalItemBeta>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.listNonEmployeeApproval(requestedFor, limit, offset, count, filters, sorters, axiosOptions);
             const operationBasePath = operationServerMap['NonEmployeeLifecycleManagementBetaApi.listNonEmployeeApproval']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -53472,8 +53406,8 @@ export const NonEmployeeLifecycleManagementBetaApiFp = function(configuration?: 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async listNonEmployeeRecords(limit?: number, offset?: number, count?: boolean, sorters?: string, filters?: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<NonEmployeeRecordBeta>>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.listNonEmployeeRecords(limit, offset, count, sorters, filters, options);
+        async listNonEmployeeRecords(limit?: number, offset?: number, count?: boolean, sorters?: string, filters?: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<NonEmployeeRecordBeta>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.listNonEmployeeRecords(limit, offset, count, sorters, filters, axiosOptions);
             const operationBasePath = operationServerMap['NonEmployeeLifecycleManagementBetaApi.listNonEmployeeRecords']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -53489,8 +53423,8 @@ export const NonEmployeeLifecycleManagementBetaApiFp = function(configuration?: 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async listNonEmployeeRequests(requestedFor: string, limit?: number, offset?: number, count?: boolean, sorters?: string, filters?: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<NonEmployeeRequestBeta>>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.listNonEmployeeRequests(requestedFor, limit, offset, count, sorters, filters, options);
+        async listNonEmployeeRequests(requestedFor: string, limit?: number, offset?: number, count?: boolean, sorters?: string, filters?: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<NonEmployeeRequestBeta>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.listNonEmployeeRequests(requestedFor, limit, offset, count, sorters, filters, axiosOptions);
             const operationBasePath = operationServerMap['NonEmployeeLifecycleManagementBetaApi.listNonEmployeeRequests']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -53506,8 +53440,8 @@ export const NonEmployeeLifecycleManagementBetaApiFp = function(configuration?: 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async listNonEmployeeSources(requestedFor: string, nonEmployeeCount: boolean, limit?: number, offset?: number, count?: boolean, sorters?: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<NonEmployeeSourceWithNECountBeta>>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.listNonEmployeeSources(requestedFor, nonEmployeeCount, limit, offset, count, sorters, options);
+        async listNonEmployeeSources(requestedFor: string, nonEmployeeCount: boolean, limit?: number, offset?: number, count?: boolean, sorters?: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<NonEmployeeSourceWithNECountBeta>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.listNonEmployeeSources(requestedFor, nonEmployeeCount, limit, offset, count, sorters, axiosOptions);
             const operationBasePath = operationServerMap['NonEmployeeLifecycleManagementBetaApi.listNonEmployeeSources']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -53519,8 +53453,8 @@ export const NonEmployeeLifecycleManagementBetaApiFp = function(configuration?: 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async patchNonEmployeeRecord(id: string, jsonPatchOperationBeta: Array<JsonPatchOperationBeta>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<NonEmployeeRecordBeta>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.patchNonEmployeeRecord(id, jsonPatchOperationBeta, options);
+        async patchNonEmployeeRecord(id: string, jsonPatchOperationBeta: Array<JsonPatchOperationBeta>, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<NonEmployeeRecordBeta>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.patchNonEmployeeRecord(id, jsonPatchOperationBeta, axiosOptions);
             const operationBasePath = operationServerMap['NonEmployeeLifecycleManagementBetaApi.patchNonEmployeeRecord']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -53533,8 +53467,8 @@ export const NonEmployeeLifecycleManagementBetaApiFp = function(configuration?: 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async patchNonEmployeeSchemaAttribute(attributeId: string, sourceId: string, jsonPatchOperationBeta: Array<JsonPatchOperationBeta>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<NonEmployeeSchemaAttributeBeta>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.patchNonEmployeeSchemaAttribute(attributeId, sourceId, jsonPatchOperationBeta, options);
+        async patchNonEmployeeSchemaAttribute(attributeId: string, sourceId: string, jsonPatchOperationBeta: Array<JsonPatchOperationBeta>, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<NonEmployeeSchemaAttributeBeta>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.patchNonEmployeeSchemaAttribute(attributeId, sourceId, jsonPatchOperationBeta, axiosOptions);
             const operationBasePath = operationServerMap['NonEmployeeLifecycleManagementBetaApi.patchNonEmployeeSchemaAttribute']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -53546,8 +53480,8 @@ export const NonEmployeeLifecycleManagementBetaApiFp = function(configuration?: 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async patchNonEmployeeSource(sourceId: string, jsonPatchOperationBeta: Array<JsonPatchOperationBeta>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<NonEmployeeSourceBeta>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.patchNonEmployeeSource(sourceId, jsonPatchOperationBeta, options);
+        async patchNonEmployeeSource(sourceId: string, jsonPatchOperationBeta: Array<JsonPatchOperationBeta>, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<NonEmployeeSourceBeta>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.patchNonEmployeeSource(sourceId, jsonPatchOperationBeta, axiosOptions);
             const operationBasePath = operationServerMap['NonEmployeeLifecycleManagementBetaApi.patchNonEmployeeSource']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -53559,8 +53493,8 @@ export const NonEmployeeLifecycleManagementBetaApiFp = function(configuration?: 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async rejectNonEmployeeRequest(id: string, nonEmployeeRejectApprovalDecisionBeta: NonEmployeeRejectApprovalDecisionBeta, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<NonEmployeeApprovalItemBeta>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.rejectNonEmployeeRequest(id, nonEmployeeRejectApprovalDecisionBeta, options);
+        async rejectNonEmployeeRequest(id: string, nonEmployeeRejectApprovalDecisionBeta: NonEmployeeRejectApprovalDecisionBeta, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<NonEmployeeApprovalItemBeta>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.rejectNonEmployeeRequest(id, nonEmployeeRejectApprovalDecisionBeta, axiosOptions);
             const operationBasePath = operationServerMap['NonEmployeeLifecycleManagementBetaApi.rejectNonEmployeeRequest']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -53572,8 +53506,8 @@ export const NonEmployeeLifecycleManagementBetaApiFp = function(configuration?: 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async updateNonEmployeeRecord(id: string, nonEmployeeRequestBodyBeta: NonEmployeeRequestBodyBeta, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<NonEmployeeRecordBeta>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.updateNonEmployeeRecord(id, nonEmployeeRequestBodyBeta, options);
+        async updateNonEmployeeRecord(id: string, nonEmployeeRequestBodyBeta: NonEmployeeRequestBodyBeta, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<NonEmployeeRecordBeta>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.updateNonEmployeeRecord(id, nonEmployeeRequestBodyBeta, axiosOptions);
             const operationBasePath = operationServerMap['NonEmployeeLifecycleManagementBetaApi.updateNonEmployeeRecord']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -55752,8 +55686,8 @@ export const NotificationsBetaApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async createDomainDkim(domainAddressBeta: DomainAddressBeta, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<DomainStatusDtoBeta>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.createDomainDkim(domainAddressBeta, options);
+        async createDomainDkim(domainAddressBeta: DomainAddressBeta, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<DomainStatusDtoBeta>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.createDomainDkim(domainAddressBeta, axiosOptions);
             const operationBasePath = operationServerMap['NotificationsBetaApi.createDomainDkim']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -55764,8 +55698,8 @@ export const NotificationsBetaApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async createNotificationTemplate(templateDtoBeta: TemplateDtoBeta, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<TemplateDtoBeta>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.createNotificationTemplate(templateDtoBeta, options);
+        async createNotificationTemplate(templateDtoBeta: TemplateDtoBeta, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<TemplateDtoBeta>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.createNotificationTemplate(templateDtoBeta, axiosOptions);
             const operationBasePath = operationServerMap['NotificationsBetaApi.createNotificationTemplate']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -55776,8 +55710,8 @@ export const NotificationsBetaApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async createVerifiedFromAddress(emailStatusDtoBeta: EmailStatusDtoBeta, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<EmailStatusDtoBeta>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.createVerifiedFromAddress(emailStatusDtoBeta, options);
+        async createVerifiedFromAddress(emailStatusDtoBeta: EmailStatusDtoBeta, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<EmailStatusDtoBeta>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.createVerifiedFromAddress(emailStatusDtoBeta, axiosOptions);
             const operationBasePath = operationServerMap['NotificationsBetaApi.createVerifiedFromAddress']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -55788,8 +55722,8 @@ export const NotificationsBetaApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async deleteNotificationTemplatesInBulk(templateBulkDeleteDtoBeta: Array<TemplateBulkDeleteDtoBeta>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.deleteNotificationTemplatesInBulk(templateBulkDeleteDtoBeta, options);
+        async deleteNotificationTemplatesInBulk(templateBulkDeleteDtoBeta: Array<TemplateBulkDeleteDtoBeta>, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.deleteNotificationTemplatesInBulk(templateBulkDeleteDtoBeta, axiosOptions);
             const operationBasePath = operationServerMap['NotificationsBetaApi.deleteNotificationTemplatesInBulk']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -55800,8 +55734,8 @@ export const NotificationsBetaApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async deleteVerifiedFromAddress(id: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.deleteVerifiedFromAddress(id, options);
+        async deleteVerifiedFromAddress(id: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.deleteVerifiedFromAddress(id, axiosOptions);
             const operationBasePath = operationServerMap['NotificationsBetaApi.deleteVerifiedFromAddress']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -55811,8 +55745,8 @@ export const NotificationsBetaApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async getDkimAttributes(options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<DkimAttributesBeta>>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.getDkimAttributes(options);
+        async getDkimAttributes(axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<DkimAttributesBeta>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getDkimAttributes(axiosOptions);
             const operationBasePath = operationServerMap['NotificationsBetaApi.getDkimAttributes']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -55823,8 +55757,8 @@ export const NotificationsBetaApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async getMailFromAttributes(id: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<MailFromAttributesBeta>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.getMailFromAttributes(id, options);
+        async getMailFromAttributes(id: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<MailFromAttributesBeta>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getMailFromAttributes(id, axiosOptions);
             const operationBasePath = operationServerMap['NotificationsBetaApi.getMailFromAttributes']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -55835,8 +55769,8 @@ export const NotificationsBetaApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async getNotificationPreference(key: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<PreferencesDtoBeta>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.getNotificationPreference(key, options);
+        async getNotificationPreference(key: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<PreferencesDtoBeta>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getNotificationPreference(key, axiosOptions);
             const operationBasePath = operationServerMap['NotificationsBetaApi.getNotificationPreference']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -55847,8 +55781,8 @@ export const NotificationsBetaApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async getNotificationTemplate(id: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<TemplateDtoBeta>>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.getNotificationTemplate(id, options);
+        async getNotificationTemplate(id: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<TemplateDtoBeta>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getNotificationTemplate(id, axiosOptions);
             const operationBasePath = operationServerMap['NotificationsBetaApi.getNotificationTemplate']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -55858,8 +55792,8 @@ export const NotificationsBetaApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async getNotificationsTemplateContext(options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<NotificationTemplateContextBeta>>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.getNotificationsTemplateContext(options);
+        async getNotificationsTemplateContext(axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<NotificationTemplateContextBeta>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getNotificationsTemplateContext(axiosOptions);
             const operationBasePath = operationServerMap['NotificationsBetaApi.getNotificationsTemplateContext']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -55874,8 +55808,8 @@ export const NotificationsBetaApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async listFromAddresses(limit?: number, offset?: number, count?: boolean, filters?: string, sorters?: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<EmailStatusDtoBeta>>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.listFromAddresses(limit, offset, count, filters, sorters, options);
+        async listFromAddresses(limit?: number, offset?: number, count?: boolean, filters?: string, sorters?: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<EmailStatusDtoBeta>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.listFromAddresses(limit, offset, count, filters, sorters, axiosOptions);
             const operationBasePath = operationServerMap['NotificationsBetaApi.listFromAddresses']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -55888,8 +55822,8 @@ export const NotificationsBetaApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async listNotificationTemplateDefaults(limit?: number, offset?: number, filters?: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<TemplateDtoDefaultBeta>>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.listNotificationTemplateDefaults(limit, offset, filters, options);
+        async listNotificationTemplateDefaults(limit?: number, offset?: number, filters?: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<TemplateDtoDefaultBeta>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.listNotificationTemplateDefaults(limit, offset, filters, axiosOptions);
             const operationBasePath = operationServerMap['NotificationsBetaApi.listNotificationTemplateDefaults']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -55902,8 +55836,8 @@ export const NotificationsBetaApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async listNotificationTemplates(limit?: number, offset?: number, filters?: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<TemplateDtoBeta>>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.listNotificationTemplates(limit, offset, filters, options);
+        async listNotificationTemplates(limit?: number, offset?: number, filters?: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<TemplateDtoBeta>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.listNotificationTemplates(limit, offset, filters, axiosOptions);
             const operationBasePath = operationServerMap['NotificationsBetaApi.listNotificationTemplates']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -55914,8 +55848,8 @@ export const NotificationsBetaApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async putMailFromAttributes(mailFromAttributesDtoBeta: MailFromAttributesDtoBeta, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<MailFromAttributesBeta>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.putMailFromAttributes(mailFromAttributesDtoBeta, options);
+        async putMailFromAttributes(mailFromAttributesDtoBeta: MailFromAttributesDtoBeta, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<MailFromAttributesBeta>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.putMailFromAttributes(mailFromAttributesDtoBeta, axiosOptions);
             const operationBasePath = operationServerMap['NotificationsBetaApi.putMailFromAttributes']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -55927,8 +55861,8 @@ export const NotificationsBetaApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async putNotificationPreference(key: string, preferencesDtoBeta: PreferencesDtoBeta, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<PreferencesDtoBeta>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.putNotificationPreference(key, preferencesDtoBeta, options);
+        async putNotificationPreference(key: string, preferencesDtoBeta: PreferencesDtoBeta, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<PreferencesDtoBeta>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.putNotificationPreference(key, preferencesDtoBeta, axiosOptions);
             const operationBasePath = operationServerMap['NotificationsBetaApi.putNotificationPreference']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -55939,8 +55873,8 @@ export const NotificationsBetaApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async sendTestNotification(sendTestNotificationRequestDtoBeta: SendTestNotificationRequestDtoBeta, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.sendTestNotification(sendTestNotificationRequestDtoBeta, options);
+        async sendTestNotification(sendTestNotificationRequestDtoBeta: SendTestNotificationRequestDtoBeta, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.sendTestNotification(sendTestNotificationRequestDtoBeta, axiosOptions);
             const operationBasePath = operationServerMap['NotificationsBetaApi.sendTestNotification']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -56832,8 +56766,8 @@ export const OAuthClientsBetaApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async createOauthClient(createOAuthClientRequestBeta: CreateOAuthClientRequestBeta, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<CreateOAuthClientResponseBeta>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.createOauthClient(createOAuthClientRequestBeta, options);
+        async createOauthClient(createOAuthClientRequestBeta: CreateOAuthClientRequestBeta, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<CreateOAuthClientResponseBeta>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.createOauthClient(createOAuthClientRequestBeta, axiosOptions);
             const operationBasePath = operationServerMap['OAuthClientsBetaApi.createOauthClient']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -56844,8 +56778,8 @@ export const OAuthClientsBetaApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async deleteOauthClient(id: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.deleteOauthClient(id, options);
+        async deleteOauthClient(id: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.deleteOauthClient(id, axiosOptions);
             const operationBasePath = operationServerMap['OAuthClientsBetaApi.deleteOauthClient']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -56856,8 +56790,8 @@ export const OAuthClientsBetaApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async getOauthClient(id: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<GetOAuthClientResponseBeta>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.getOauthClient(id, options);
+        async getOauthClient(id: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<GetOAuthClientResponseBeta>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getOauthClient(id, axiosOptions);
             const operationBasePath = operationServerMap['OAuthClientsBetaApi.getOauthClient']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -56868,8 +56802,8 @@ export const OAuthClientsBetaApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async listOauthClients(filters?: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<GetOAuthClientResponseBeta>>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.listOauthClients(filters, options);
+        async listOauthClients(filters?: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<GetOAuthClientResponseBeta>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.listOauthClients(filters, axiosOptions);
             const operationBasePath = operationServerMap['OAuthClientsBetaApi.listOauthClients']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -56881,8 +56815,8 @@ export const OAuthClientsBetaApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async patchOauthClient(id: string, jsonPatchOperationBeta: Array<JsonPatchOperationBeta>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<GetOAuthClientResponseBeta>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.patchOauthClient(id, jsonPatchOperationBeta, options);
+        async patchOauthClient(id: string, jsonPatchOperationBeta: Array<JsonPatchOperationBeta>, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<GetOAuthClientResponseBeta>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.patchOauthClient(id, jsonPatchOperationBeta, axiosOptions);
             const operationBasePath = operationServerMap['OAuthClientsBetaApi.patchOauthClient']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -57243,8 +57177,8 @@ export const OrgConfigBetaApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async getOrgConfig(options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<OrgConfigBeta>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.getOrgConfig(options);
+        async getOrgConfig(axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<OrgConfigBeta>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getOrgConfig(axiosOptions);
             const operationBasePath = operationServerMap['OrgConfigBetaApi.getOrgConfig']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -57254,8 +57188,8 @@ export const OrgConfigBetaApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async getValidTimeZones(options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<string>>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.getValidTimeZones(options);
+        async getValidTimeZones(axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<string>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getValidTimeZones(axiosOptions);
             const operationBasePath = operationServerMap['OrgConfigBetaApi.getValidTimeZones']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -57266,8 +57200,8 @@ export const OrgConfigBetaApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async patchOrgConfig(jsonPatchOperationBeta: Array<JsonPatchOperationBeta>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<OrgConfigBeta>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.patchOrgConfig(jsonPatchOperationBeta, options);
+        async patchOrgConfig(jsonPatchOperationBeta: Array<JsonPatchOperationBeta>, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<OrgConfigBeta>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.patchOrgConfig(jsonPatchOperationBeta, axiosOptions);
             const operationBasePath = operationServerMap['OrgConfigBetaApi.patchOrgConfig']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -57522,8 +57456,8 @@ export const PasswordConfigurationBetaApiFp = function(configuration?: Configura
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async createPasswordOrgConfig(passwordOrgConfigBeta: PasswordOrgConfigBeta, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<PasswordOrgConfigBeta>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.createPasswordOrgConfig(passwordOrgConfigBeta, options);
+        async createPasswordOrgConfig(passwordOrgConfigBeta: PasswordOrgConfigBeta, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<PasswordOrgConfigBeta>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.createPasswordOrgConfig(passwordOrgConfigBeta, axiosOptions);
             const operationBasePath = operationServerMap['PasswordConfigurationBetaApi.createPasswordOrgConfig']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -57533,8 +57467,8 @@ export const PasswordConfigurationBetaApiFp = function(configuration?: Configura
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async getPasswordOrgConfig(options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<PasswordOrgConfigBeta>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.getPasswordOrgConfig(options);
+        async getPasswordOrgConfig(axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<PasswordOrgConfigBeta>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getPasswordOrgConfig(axiosOptions);
             const operationBasePath = operationServerMap['PasswordConfigurationBetaApi.getPasswordOrgConfig']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -57545,8 +57479,8 @@ export const PasswordConfigurationBetaApiFp = function(configuration?: Configura
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async putPasswordOrgConfig(passwordOrgConfigBeta: PasswordOrgConfigBeta, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<PasswordOrgConfigBeta>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.putPasswordOrgConfig(passwordOrgConfigBeta, options);
+        async putPasswordOrgConfig(passwordOrgConfigBeta: PasswordOrgConfigBeta, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<PasswordOrgConfigBeta>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.putPasswordOrgConfig(passwordOrgConfigBeta, axiosOptions);
             const operationBasePath = operationServerMap['PasswordConfigurationBetaApi.putPasswordOrgConfig']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -57775,8 +57709,8 @@ export const PasswordDictionaryBetaApiFp = function(configuration?: Configuratio
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async getPasswordDictionary(options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<string>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.getPasswordDictionary(options);
+        async getPasswordDictionary(axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<string>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getPasswordDictionary(axiosOptions);
             const operationBasePath = operationServerMap['PasswordDictionaryBetaApi.getPasswordDictionary']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -57787,8 +57721,8 @@ export const PasswordDictionaryBetaApiFp = function(configuration?: Configuratio
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async updatePasswordDictionary(file?: File, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.updatePasswordDictionary(file, options);
+        async updatePasswordDictionary(file?: File, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.updatePasswordDictionary(file, axiosOptions);
             const operationBasePath = operationServerMap['PasswordDictionaryBetaApi.updatePasswordDictionary']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -58070,8 +58004,8 @@ export const PasswordManagementBetaApiFp = function(configuration?: Configuratio
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async generateDigitToken(passwordDigitTokenResetBeta: PasswordDigitTokenResetBeta, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<PasswordDigitTokenBeta>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.generateDigitToken(passwordDigitTokenResetBeta, options);
+        async generateDigitToken(passwordDigitTokenResetBeta: PasswordDigitTokenResetBeta, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<PasswordDigitTokenBeta>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.generateDigitToken(passwordDigitTokenResetBeta, axiosOptions);
             const operationBasePath = operationServerMap['PasswordManagementBetaApi.generateDigitToken']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -58082,8 +58016,8 @@ export const PasswordManagementBetaApiFp = function(configuration?: Configuratio
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async getIdentityPasswordChangeStatus(id: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<PasswordStatusBeta>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.getIdentityPasswordChangeStatus(id, options);
+        async getIdentityPasswordChangeStatus(id: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<PasswordStatusBeta>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getIdentityPasswordChangeStatus(id, axiosOptions);
             const operationBasePath = operationServerMap['PasswordManagementBetaApi.getIdentityPasswordChangeStatus']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -58094,8 +58028,8 @@ export const PasswordManagementBetaApiFp = function(configuration?: Configuratio
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async queryPasswordInfo(passwordInfoQueryDTOBeta: PasswordInfoQueryDTOBeta, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<PasswordInfoBeta>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.queryPasswordInfo(passwordInfoQueryDTOBeta, options);
+        async queryPasswordInfo(passwordInfoQueryDTOBeta: PasswordInfoQueryDTOBeta, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<PasswordInfoBeta>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.queryPasswordInfo(passwordInfoQueryDTOBeta, axiosOptions);
             const operationBasePath = operationServerMap['PasswordManagementBetaApi.queryPasswordInfo']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -58106,8 +58040,8 @@ export const PasswordManagementBetaApiFp = function(configuration?: Configuratio
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async setIdentityPassword(passwordChangeRequestBeta: PasswordChangeRequestBeta, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<PasswordChangeResponseBeta>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.setIdentityPassword(passwordChangeRequestBeta, options);
+        async setIdentityPassword(passwordChangeRequestBeta: PasswordChangeRequestBeta, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<PasswordChangeResponseBeta>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.setIdentityPassword(passwordChangeRequestBeta, axiosOptions);
             const operationBasePath = operationServerMap['PasswordManagementBetaApi.setIdentityPassword']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -58534,8 +58468,8 @@ export const PasswordSyncGroupsBetaApiFp = function(configuration?: Configuratio
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async createPasswordSyncGroup(passwordSyncGroupBeta: PasswordSyncGroupBeta, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<PasswordSyncGroupBeta>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.createPasswordSyncGroup(passwordSyncGroupBeta, options);
+        async createPasswordSyncGroup(passwordSyncGroupBeta: PasswordSyncGroupBeta, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<PasswordSyncGroupBeta>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.createPasswordSyncGroup(passwordSyncGroupBeta, axiosOptions);
             const operationBasePath = operationServerMap['PasswordSyncGroupsBetaApi.createPasswordSyncGroup']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -58546,8 +58480,8 @@ export const PasswordSyncGroupsBetaApiFp = function(configuration?: Configuratio
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async deletePasswordSyncGroup(id: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.deletePasswordSyncGroup(id, options);
+        async deletePasswordSyncGroup(id: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.deletePasswordSyncGroup(id, axiosOptions);
             const operationBasePath = operationServerMap['PasswordSyncGroupsBetaApi.deletePasswordSyncGroup']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -58558,8 +58492,8 @@ export const PasswordSyncGroupsBetaApiFp = function(configuration?: Configuratio
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async getPasswordSyncGroup(id: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<PasswordSyncGroupBeta>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.getPasswordSyncGroup(id, options);
+        async getPasswordSyncGroup(id: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<PasswordSyncGroupBeta>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getPasswordSyncGroup(id, axiosOptions);
             const operationBasePath = operationServerMap['PasswordSyncGroupsBetaApi.getPasswordSyncGroup']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -58572,8 +58506,8 @@ export const PasswordSyncGroupsBetaApiFp = function(configuration?: Configuratio
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async getPasswordSyncGroups(limit?: number, offset?: number, count?: boolean, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<PasswordSyncGroupBeta>>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.getPasswordSyncGroups(limit, offset, count, options);
+        async getPasswordSyncGroups(limit?: number, offset?: number, count?: boolean, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<PasswordSyncGroupBeta>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getPasswordSyncGroups(limit, offset, count, axiosOptions);
             const operationBasePath = operationServerMap['PasswordSyncGroupsBetaApi.getPasswordSyncGroups']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -58585,8 +58519,8 @@ export const PasswordSyncGroupsBetaApiFp = function(configuration?: Configuratio
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async updatePasswordSyncGroup(id: string, passwordSyncGroupBeta: PasswordSyncGroupBeta, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<PasswordSyncGroupBeta>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.updatePasswordSyncGroup(id, passwordSyncGroupBeta, options);
+        async updatePasswordSyncGroup(id: string, passwordSyncGroupBeta: PasswordSyncGroupBeta, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<PasswordSyncGroupBeta>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.updatePasswordSyncGroup(id, passwordSyncGroupBeta, axiosOptions);
             const operationBasePath = operationServerMap['PasswordSyncGroupsBetaApi.updatePasswordSyncGroup']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -59024,8 +58958,8 @@ export const PersonalAccessTokensBetaApiFp = function(configuration?: Configurat
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async createPersonalAccessToken(createPersonalAccessTokenRequestBeta: CreatePersonalAccessTokenRequestBeta, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<CreatePersonalAccessTokenResponseBeta>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.createPersonalAccessToken(createPersonalAccessTokenRequestBeta, options);
+        async createPersonalAccessToken(createPersonalAccessTokenRequestBeta: CreatePersonalAccessTokenRequestBeta, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<CreatePersonalAccessTokenResponseBeta>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.createPersonalAccessToken(createPersonalAccessTokenRequestBeta, axiosOptions);
             const operationBasePath = operationServerMap['PersonalAccessTokensBetaApi.createPersonalAccessToken']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -59036,8 +58970,8 @@ export const PersonalAccessTokensBetaApiFp = function(configuration?: Configurat
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async deletePersonalAccessToken(id: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.deletePersonalAccessToken(id, options);
+        async deletePersonalAccessToken(id: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.deletePersonalAccessToken(id, axiosOptions);
             const operationBasePath = operationServerMap['PersonalAccessTokensBetaApi.deletePersonalAccessToken']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -59049,8 +58983,8 @@ export const PersonalAccessTokensBetaApiFp = function(configuration?: Configurat
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async listPersonalAccessTokens(ownerId?: string, filters?: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<GetPersonalAccessTokenResponseBeta>>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.listPersonalAccessTokens(ownerId, filters, options);
+        async listPersonalAccessTokens(ownerId?: string, filters?: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<GetPersonalAccessTokenResponseBeta>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.listPersonalAccessTokens(ownerId, filters, axiosOptions);
             const operationBasePath = operationServerMap['PersonalAccessTokensBetaApi.listPersonalAccessTokens']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -59062,8 +58996,8 @@ export const PersonalAccessTokensBetaApiFp = function(configuration?: Configurat
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async patchPersonalAccessToken(id: string, jsonPatchOperationBeta: Array<JsonPatchOperationBeta>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<GetPersonalAccessTokenResponseBeta>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.patchPersonalAccessToken(id, jsonPatchOperationBeta, options);
+        async patchPersonalAccessToken(id: string, jsonPatchOperationBeta: Array<JsonPatchOperationBeta>, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<GetPersonalAccessTokenResponseBeta>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.patchPersonalAccessToken(id, jsonPatchOperationBeta, axiosOptions);
             const operationBasePath = operationServerMap['PersonalAccessTokensBetaApi.patchPersonalAccessToken']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -59356,8 +59290,8 @@ export const PublicIdentitiesConfigBetaApiFp = function(configuration?: Configur
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async getPublicIdentityConfig(options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<PublicIdentityConfigBeta>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.getPublicIdentityConfig(options);
+        async getPublicIdentityConfig(axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<PublicIdentityConfigBeta>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getPublicIdentityConfig(axiosOptions);
             const operationBasePath = operationServerMap['PublicIdentitiesConfigBetaApi.getPublicIdentityConfig']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -59368,8 +59302,8 @@ export const PublicIdentitiesConfigBetaApiFp = function(configuration?: Configur
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async updatePublicIdentityConfig(publicIdentityConfigBeta: PublicIdentityConfigBeta, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<PublicIdentityConfigBeta>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.updatePublicIdentityConfig(publicIdentityConfigBeta, options);
+        async updatePublicIdentityConfig(publicIdentityConfigBeta: PublicIdentityConfigBeta, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<PublicIdentityConfigBeta>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.updatePublicIdentityConfig(publicIdentityConfigBeta, axiosOptions);
             const operationBasePath = operationServerMap['PublicIdentitiesConfigBetaApi.updatePublicIdentityConfig']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -59568,8 +59502,8 @@ export const RequestableObjectsBetaApiFp = function(configuration?: Configuratio
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async listRequestableObjects(identityId?: string, types?: Array<RequestableObjectTypeBeta>, term?: string, statuses?: Array<RequestableObjectRequestStatusBeta>, limit?: number, offset?: number, count?: boolean, filters?: string, sorters?: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<RequestableObjectBeta>>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.listRequestableObjects(identityId, types, term, statuses, limit, offset, count, filters, sorters, options);
+        async listRequestableObjects(identityId?: string, types?: Array<RequestableObjectTypeBeta>, term?: string, statuses?: Array<RequestableObjectRequestStatusBeta>, limit?: number, offset?: number, count?: boolean, filters?: string, sorters?: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<RequestableObjectBeta>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.listRequestableObjects(identityId, types, term, statuses, limit, offset, count, filters, sorters, axiosOptions);
             const operationBasePath = operationServerMap['RequestableObjectsBetaApi.listRequestableObjects']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -60164,8 +60098,8 @@ export const RoleInsightsBetaApiFp = function(configuration?: Configuration) {
          * @deprecated
          * @throws {RequiredError}
          */
-        async createRoleInsightRequests(options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<RoleInsightsResponseBeta>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.createRoleInsightRequests(options);
+        async createRoleInsightRequests(axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<RoleInsightsResponseBeta>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.createRoleInsightRequests(axiosOptions);
             const operationBasePath = operationServerMap['RoleInsightsBetaApi.createRoleInsightRequests']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -60178,8 +60112,8 @@ export const RoleInsightsBetaApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async downloadRoleInsightsEntitlementsChanges(insightId: string, sorters?: string, filters?: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<string>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.downloadRoleInsightsEntitlementsChanges(insightId, sorters, filters, options);
+        async downloadRoleInsightsEntitlementsChanges(insightId: string, sorters?: string, filters?: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<string>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.downloadRoleInsightsEntitlementsChanges(insightId, sorters, filters, axiosOptions);
             const operationBasePath = operationServerMap['RoleInsightsBetaApi.downloadRoleInsightsEntitlementsChanges']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -60197,8 +60131,8 @@ export const RoleInsightsBetaApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async getEntitlementChangesIdentities(insightId: string, entitlementId: string, hasEntitlement?: boolean, offset?: number, limit?: number, count?: boolean, sorters?: string, filters?: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<RoleInsightsIdentitiesBeta>>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.getEntitlementChangesIdentities(insightId, entitlementId, hasEntitlement, offset, limit, count, sorters, filters, options);
+        async getEntitlementChangesIdentities(insightId: string, entitlementId: string, hasEntitlement?: boolean, offset?: number, limit?: number, count?: boolean, sorters?: string, filters?: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<RoleInsightsIdentitiesBeta>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getEntitlementChangesIdentities(insightId, entitlementId, hasEntitlement, offset, limit, count, sorters, filters, axiosOptions);
             const operationBasePath = operationServerMap['RoleInsightsBetaApi.getEntitlementChangesIdentities']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -60209,8 +60143,8 @@ export const RoleInsightsBetaApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async getRoleInsight(insightId: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<RoleInsightBeta>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.getRoleInsight(insightId, options);
+        async getRoleInsight(insightId: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<RoleInsightBeta>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getRoleInsight(insightId, axiosOptions);
             const operationBasePath = operationServerMap['RoleInsightsBetaApi.getRoleInsight']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -60225,8 +60159,8 @@ export const RoleInsightsBetaApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async getRoleInsights(offset?: number, limit?: number, count?: boolean, sorters?: string, filters?: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<RoleInsightBeta>>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.getRoleInsights(offset, limit, count, sorters, filters, options);
+        async getRoleInsights(offset?: number, limit?: number, count?: boolean, sorters?: string, filters?: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<RoleInsightBeta>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getRoleInsights(offset, limit, count, sorters, filters, axiosOptions);
             const operationBasePath = operationServerMap['RoleInsightsBetaApi.getRoleInsights']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -60238,8 +60172,8 @@ export const RoleInsightsBetaApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async getRoleInsightsCurrentEntitlements(insightId: string, filters?: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<RoleInsightsEntitlementBeta>>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.getRoleInsightsCurrentEntitlements(insightId, filters, options);
+        async getRoleInsightsCurrentEntitlements(insightId: string, filters?: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<RoleInsightsEntitlementBeta>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getRoleInsightsCurrentEntitlements(insightId, filters, axiosOptions);
             const operationBasePath = operationServerMap['RoleInsightsBetaApi.getRoleInsightsCurrentEntitlements']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -60252,8 +60186,8 @@ export const RoleInsightsBetaApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async getRoleInsightsEntitlementsChanges(insightId: string, sorters?: string, filters?: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<RoleInsightsEntitlementChangesBeta>>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.getRoleInsightsEntitlementsChanges(insightId, sorters, filters, options);
+        async getRoleInsightsEntitlementsChanges(insightId: string, sorters?: string, filters?: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<RoleInsightsEntitlementChangesBeta>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getRoleInsightsEntitlementsChanges(insightId, sorters, filters, axiosOptions);
             const operationBasePath = operationServerMap['RoleInsightsBetaApi.getRoleInsightsEntitlementsChanges']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -60265,8 +60199,8 @@ export const RoleInsightsBetaApiFp = function(configuration?: Configuration) {
          * @deprecated
          * @throws {RequiredError}
          */
-        async getRoleInsightsRequests(id: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<RoleInsightsResponseBeta>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.getRoleInsightsRequests(id, options);
+        async getRoleInsightsRequests(id: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<RoleInsightsResponseBeta>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getRoleInsightsRequests(id, axiosOptions);
             const operationBasePath = operationServerMap['RoleInsightsBetaApi.getRoleInsightsRequests']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -60276,8 +60210,8 @@ export const RoleInsightsBetaApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async getRoleInsightsSummary(options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<RoleInsightsSummaryBeta>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.getRoleInsightsSummary(options);
+        async getRoleInsightsSummary(axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<RoleInsightsSummaryBeta>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getRoleInsightsSummary(axiosOptions);
             const operationBasePath = operationServerMap['RoleInsightsBetaApi.getRoleInsightsSummary']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -61109,8 +61043,8 @@ export const RolesBetaApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async bulkDeleteRoles(roleBulkDeleteRequestBeta: RoleBulkDeleteRequestBeta, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<TaskResultDtoBeta>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.bulkDeleteRoles(roleBulkDeleteRequestBeta, options);
+        async bulkDeleteRoles(roleBulkDeleteRequestBeta: RoleBulkDeleteRequestBeta, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<TaskResultDtoBeta>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.bulkDeleteRoles(roleBulkDeleteRequestBeta, axiosOptions);
             const operationBasePath = operationServerMap['RolesBetaApi.bulkDeleteRoles']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -61121,8 +61055,8 @@ export const RolesBetaApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async createRole(roleBeta: RoleBeta, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<RoleBeta>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.createRole(roleBeta, options);
+        async createRole(roleBeta: RoleBeta, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<RoleBeta>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.createRole(roleBeta, axiosOptions);
             const operationBasePath = operationServerMap['RolesBetaApi.createRole']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -61133,8 +61067,8 @@ export const RolesBetaApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async deleteRole(id: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.deleteRole(id, options);
+        async deleteRole(id: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.deleteRole(id, axiosOptions);
             const operationBasePath = operationServerMap['RolesBetaApi.deleteRole']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -61145,8 +61079,8 @@ export const RolesBetaApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async getRole(id: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<RoleBeta>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.getRole(id, options);
+        async getRole(id: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<RoleBeta>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getRole(id, axiosOptions);
             const operationBasePath = operationServerMap['RolesBetaApi.getRole']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -61162,8 +61096,8 @@ export const RolesBetaApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async getRoleAssignedIdentities(id: string, limit?: number, offset?: number, count?: boolean, filters?: string, sorters?: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<RoleIdentityBeta>>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.getRoleAssignedIdentities(id, limit, offset, count, filters, sorters, options);
+        async getRoleAssignedIdentities(id: string, limit?: number, offset?: number, count?: boolean, filters?: string, sorters?: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<RoleIdentityBeta>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getRoleAssignedIdentities(id, limit, offset, count, filters, sorters, axiosOptions);
             const operationBasePath = operationServerMap['RolesBetaApi.getRoleAssignedIdentities']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -61181,8 +61115,8 @@ export const RolesBetaApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async listRoles(forSubadmin?: string, limit?: number, offset?: number, count?: boolean, filters?: string, sorters?: string, forSegmentIds?: string, includeUnsegmented?: boolean, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<RoleBeta>>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.listRoles(forSubadmin, limit, offset, count, filters, sorters, forSegmentIds, includeUnsegmented, options);
+        async listRoles(forSubadmin?: string, limit?: number, offset?: number, count?: boolean, filters?: string, sorters?: string, forSegmentIds?: string, includeUnsegmented?: boolean, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<RoleBeta>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.listRoles(forSubadmin, limit, offset, count, filters, sorters, forSegmentIds, includeUnsegmented, axiosOptions);
             const operationBasePath = operationServerMap['RolesBetaApi.listRoles']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -61194,8 +61128,8 @@ export const RolesBetaApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async patchRole(id: string, jsonPatchOperationBeta: Array<JsonPatchOperationBeta>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<RoleBeta>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.patchRole(id, jsonPatchOperationBeta, options);
+        async patchRole(id: string, jsonPatchOperationBeta: Array<JsonPatchOperationBeta>, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<RoleBeta>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.patchRole(id, jsonPatchOperationBeta, axiosOptions);
             const operationBasePath = operationServerMap['RolesBetaApi.patchRole']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -62325,8 +62259,8 @@ export const SODPolicyBetaApiFp = function(configuration?: Configuration) {
          * @deprecated
          * @throws {RequiredError}
          */
-        async createSodPolicy(sodPolicyBeta: SodPolicyBeta, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SodPolicyBeta>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.createSodPolicy(sodPolicyBeta, options);
+        async createSodPolicy(sodPolicyBeta: SodPolicyBeta, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SodPolicyBeta>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.createSodPolicy(sodPolicyBeta, axiosOptions);
             const operationBasePath = operationServerMap['SODPolicyBetaApi.createSodPolicy']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -62339,8 +62273,8 @@ export const SODPolicyBetaApiFp = function(configuration?: Configuration) {
          * @deprecated
          * @throws {RequiredError}
          */
-        async deleteSodPolicy(id: string, logical?: boolean, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.deleteSodPolicy(id, logical, options);
+        async deleteSodPolicy(id: string, logical?: boolean, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.deleteSodPolicy(id, logical, axiosOptions);
             const operationBasePath = operationServerMap['SODPolicyBetaApi.deleteSodPolicy']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -62352,8 +62286,8 @@ export const SODPolicyBetaApiFp = function(configuration?: Configuration) {
          * @deprecated
          * @throws {RequiredError}
          */
-        async deleteSodPolicySchedule(id: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.deleteSodPolicySchedule(id, options);
+        async deleteSodPolicySchedule(id: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.deleteSodPolicySchedule(id, axiosOptions);
             const operationBasePath = operationServerMap['SODPolicyBetaApi.deleteSodPolicySchedule']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -62366,8 +62300,8 @@ export const SODPolicyBetaApiFp = function(configuration?: Configuration) {
          * @deprecated
          * @throws {RequiredError}
          */
-        async getCustomViolationReport(reportResultId: string, fileName: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<File>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.getCustomViolationReport(reportResultId, fileName, options);
+        async getCustomViolationReport(reportResultId: string, fileName: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<File>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getCustomViolationReport(reportResultId, fileName, axiosOptions);
             const operationBasePath = operationServerMap['SODPolicyBetaApi.getCustomViolationReport']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -62379,8 +62313,8 @@ export const SODPolicyBetaApiFp = function(configuration?: Configuration) {
          * @deprecated
          * @throws {RequiredError}
          */
-        async getDefaultViolationReport(reportResultId: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<File>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.getDefaultViolationReport(reportResultId, options);
+        async getDefaultViolationReport(reportResultId: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<File>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getDefaultViolationReport(reportResultId, axiosOptions);
             const operationBasePath = operationServerMap['SODPolicyBetaApi.getDefaultViolationReport']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -62391,8 +62325,8 @@ export const SODPolicyBetaApiFp = function(configuration?: Configuration) {
          * @deprecated
          * @throws {RequiredError}
          */
-        async getSodAllReportRunStatus(options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ReportResultReferenceBeta>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.getSodAllReportRunStatus(options);
+        async getSodAllReportRunStatus(axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ReportResultReferenceBeta>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getSodAllReportRunStatus(axiosOptions);
             const operationBasePath = operationServerMap['SODPolicyBetaApi.getSodAllReportRunStatus']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -62404,8 +62338,8 @@ export const SODPolicyBetaApiFp = function(configuration?: Configuration) {
          * @deprecated
          * @throws {RequiredError}
          */
-        async getSodPolicy(id: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SodPolicyBeta>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.getSodPolicy(id, options);
+        async getSodPolicy(id: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SodPolicyBeta>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getSodPolicy(id, axiosOptions);
             const operationBasePath = operationServerMap['SODPolicyBetaApi.getSodPolicy']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -62417,8 +62351,8 @@ export const SODPolicyBetaApiFp = function(configuration?: Configuration) {
          * @deprecated
          * @throws {RequiredError}
          */
-        async getSodPolicySchedule(id: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SodPolicyScheduleBeta>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.getSodPolicySchedule(id, options);
+        async getSodPolicySchedule(id: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SodPolicyScheduleBeta>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getSodPolicySchedule(id, axiosOptions);
             const operationBasePath = operationServerMap['SODPolicyBetaApi.getSodPolicySchedule']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -62430,8 +62364,8 @@ export const SODPolicyBetaApiFp = function(configuration?: Configuration) {
          * @deprecated
          * @throws {RequiredError}
          */
-        async getSodViolationReportRunStatus(reportResultId: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ReportResultReferenceBeta>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.getSodViolationReportRunStatus(reportResultId, options);
+        async getSodViolationReportRunStatus(reportResultId: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ReportResultReferenceBeta>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getSodViolationReportRunStatus(reportResultId, axiosOptions);
             const operationBasePath = operationServerMap['SODPolicyBetaApi.getSodViolationReportRunStatus']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -62443,8 +62377,8 @@ export const SODPolicyBetaApiFp = function(configuration?: Configuration) {
          * @deprecated
          * @throws {RequiredError}
          */
-        async getSodViolationReportStatus(id: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ReportResultReferenceBeta>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.getSodViolationReportStatus(id, options);
+        async getSodViolationReportStatus(id: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ReportResultReferenceBeta>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getSodViolationReportStatus(id, axiosOptions);
             const operationBasePath = operationServerMap['SODPolicyBetaApi.getSodViolationReportStatus']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -62459,8 +62393,8 @@ export const SODPolicyBetaApiFp = function(configuration?: Configuration) {
          * @deprecated
          * @throws {RequiredError}
          */
-        async listSodPolicies(limit?: number, offset?: number, count?: boolean, filters?: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<SodPolicyBeta>>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.listSodPolicies(limit, offset, count, filters, options);
+        async listSodPolicies(limit?: number, offset?: number, count?: boolean, filters?: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<SodPolicyBeta>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.listSodPolicies(limit, offset, count, filters, axiosOptions);
             const operationBasePath = operationServerMap['SODPolicyBetaApi.listSodPolicies']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -62473,8 +62407,8 @@ export const SODPolicyBetaApiFp = function(configuration?: Configuration) {
          * @deprecated
          * @throws {RequiredError}
          */
-        async patchSodPolicy(id: string, requestBody: Array<object>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SodPolicyBeta>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.patchSodPolicy(id, requestBody, options);
+        async patchSodPolicy(id: string, requestBody: Array<object>, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SodPolicyBeta>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.patchSodPolicy(id, requestBody, axiosOptions);
             const operationBasePath = operationServerMap['SODPolicyBetaApi.patchSodPolicy']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -62487,8 +62421,8 @@ export const SODPolicyBetaApiFp = function(configuration?: Configuration) {
          * @deprecated
          * @throws {RequiredError}
          */
-        async putPolicySchedule(id: string, sodPolicyScheduleBeta: SodPolicyScheduleBeta, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SodPolicyScheduleBeta>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.putPolicySchedule(id, sodPolicyScheduleBeta, options);
+        async putPolicySchedule(id: string, sodPolicyScheduleBeta: SodPolicyScheduleBeta, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SodPolicyScheduleBeta>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.putPolicySchedule(id, sodPolicyScheduleBeta, axiosOptions);
             const operationBasePath = operationServerMap['SODPolicyBetaApi.putPolicySchedule']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -62501,8 +62435,8 @@ export const SODPolicyBetaApiFp = function(configuration?: Configuration) {
          * @deprecated
          * @throws {RequiredError}
          */
-        async putSodPolicy(id: string, sodPolicyBeta: SodPolicyBeta, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SodPolicyBeta>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.putSodPolicy(id, sodPolicyBeta, options);
+        async putSodPolicy(id: string, sodPolicyBeta: SodPolicyBeta, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SodPolicyBeta>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.putSodPolicy(id, sodPolicyBeta, axiosOptions);
             const operationBasePath = operationServerMap['SODPolicyBetaApi.putSodPolicy']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -62514,8 +62448,8 @@ export const SODPolicyBetaApiFp = function(configuration?: Configuration) {
          * @deprecated
          * @throws {RequiredError}
          */
-        async startSodAllPoliciesForOrg(multiPolicyRequestBeta?: MultiPolicyRequestBeta, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ReportResultReferenceBeta>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.startSodAllPoliciesForOrg(multiPolicyRequestBeta, options);
+        async startSodAllPoliciesForOrg(multiPolicyRequestBeta?: MultiPolicyRequestBeta, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ReportResultReferenceBeta>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.startSodAllPoliciesForOrg(multiPolicyRequestBeta, axiosOptions);
             const operationBasePath = operationServerMap['SODPolicyBetaApi.startSodAllPoliciesForOrg']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -62527,8 +62461,8 @@ export const SODPolicyBetaApiFp = function(configuration?: Configuration) {
          * @deprecated
          * @throws {RequiredError}
          */
-        async startSodPolicy(id: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ReportResultReferenceBeta>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.startSodPolicy(id, options);
+        async startSodPolicy(id: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ReportResultReferenceBeta>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.startSodPolicy(id, axiosOptions);
             const operationBasePath = operationServerMap['SODPolicyBetaApi.startSodPolicy']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -63288,8 +63222,8 @@ export const SODViolationsBetaApiFp = function(configuration?: Configuration) {
          * @deprecated
          * @throws {RequiredError}
          */
-        async startPredictSodViolations(identityWithNewAccessBeta: IdentityWithNewAccessBeta, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ViolationPredictionBeta>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.startPredictSodViolations(identityWithNewAccessBeta, options);
+        async startPredictSodViolations(identityWithNewAccessBeta: IdentityWithNewAccessBeta, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ViolationPredictionBeta>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.startPredictSodViolations(identityWithNewAccessBeta, axiosOptions);
             const operationBasePath = operationServerMap['SODViolationsBetaApi.startPredictSodViolations']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -63687,8 +63621,8 @@ export const SPConfigBetaApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async exportSpConfig(exportPayloadBeta: ExportPayloadBeta, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SpConfigJobBeta>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.exportSpConfig(exportPayloadBeta, options);
+        async exportSpConfig(exportPayloadBeta: ExportPayloadBeta, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SpConfigJobBeta>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.exportSpConfig(exportPayloadBeta, axiosOptions);
             const operationBasePath = operationServerMap['SPConfigBetaApi.exportSpConfig']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -63699,8 +63633,8 @@ export const SPConfigBetaApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async getSpConfigExport(id: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SpConfigExportResultsBeta>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.getSpConfigExport(id, options);
+        async getSpConfigExport(id: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SpConfigExportResultsBeta>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getSpConfigExport(id, axiosOptions);
             const operationBasePath = operationServerMap['SPConfigBetaApi.getSpConfigExport']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -63711,8 +63645,8 @@ export const SPConfigBetaApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async getSpConfigExportStatus(id: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SpConfigJobBeta>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.getSpConfigExportStatus(id, options);
+        async getSpConfigExportStatus(id: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SpConfigJobBeta>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getSpConfigExportStatus(id, axiosOptions);
             const operationBasePath = operationServerMap['SPConfigBetaApi.getSpConfigExportStatus']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -63723,8 +63657,8 @@ export const SPConfigBetaApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async getSpConfigImport(id: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SpConfigImportResultsBeta>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.getSpConfigImport(id, options);
+        async getSpConfigImport(id: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SpConfigImportResultsBeta>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getSpConfigImport(id, axiosOptions);
             const operationBasePath = operationServerMap['SPConfigBetaApi.getSpConfigImport']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -63735,8 +63669,8 @@ export const SPConfigBetaApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async getSpConfigImportStatus(id: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SpConfigJobBeta>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.getSpConfigImportStatus(id, options);
+        async getSpConfigImportStatus(id: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SpConfigJobBeta>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getSpConfigImportStatus(id, axiosOptions);
             const operationBasePath = operationServerMap['SPConfigBetaApi.getSpConfigImportStatus']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -63749,8 +63683,8 @@ export const SPConfigBetaApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async importSpConfig(data: File, preview?: boolean, _options?: ImportOptionsBeta, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SpConfigJobBeta>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.importSpConfig(data, preview, _options, options);
+        async importSpConfig(data: File, preview?: boolean, _options?: ImportOptionsBeta, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SpConfigJobBeta>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.importSpConfig(data, preview, _options, axiosOptions);
             const operationBasePath = operationServerMap['SPConfigBetaApi.importSpConfig']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -63760,8 +63694,8 @@ export const SPConfigBetaApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async listSpConfigObjects(options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<SpConfigObjectBeta>>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.listSpConfigObjects(options);
+        async listSpConfigObjects(axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<SpConfigObjectBeta>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.listSpConfigObjects(axiosOptions);
             const operationBasePath = operationServerMap['SPConfigBetaApi.listSpConfigObjects']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -64282,8 +64216,8 @@ export const SearchAttributeConfigurationBetaApiFp = function(configuration?: Co
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async createSearchAttributeConfig(searchAttributeConfigBeta: SearchAttributeConfigBeta, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<object>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.createSearchAttributeConfig(searchAttributeConfigBeta, options);
+        async createSearchAttributeConfig(searchAttributeConfigBeta: SearchAttributeConfigBeta, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<object>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.createSearchAttributeConfig(searchAttributeConfigBeta, axiosOptions);
             const operationBasePath = operationServerMap['SearchAttributeConfigurationBetaApi.createSearchAttributeConfig']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -64294,8 +64228,8 @@ export const SearchAttributeConfigurationBetaApiFp = function(configuration?: Co
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async deleteSearchAttributeConfig(name: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.deleteSearchAttributeConfig(name, options);
+        async deleteSearchAttributeConfig(name: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.deleteSearchAttributeConfig(name, axiosOptions);
             const operationBasePath = operationServerMap['SearchAttributeConfigurationBetaApi.deleteSearchAttributeConfig']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -64305,8 +64239,8 @@ export const SearchAttributeConfigurationBetaApiFp = function(configuration?: Co
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async getSearchAttributeConfig(options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<SearchAttributeConfigBeta>>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.getSearchAttributeConfig(options);
+        async getSearchAttributeConfig(axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<SearchAttributeConfigBeta>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getSearchAttributeConfig(axiosOptions);
             const operationBasePath = operationServerMap['SearchAttributeConfigurationBetaApi.getSearchAttributeConfig']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -64317,8 +64251,8 @@ export const SearchAttributeConfigurationBetaApiFp = function(configuration?: Co
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async getSingleSearchAttributeConfig(name: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<SearchAttributeConfigBeta>>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.getSingleSearchAttributeConfig(name, options);
+        async getSingleSearchAttributeConfig(name: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<SearchAttributeConfigBeta>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getSingleSearchAttributeConfig(name, axiosOptions);
             const operationBasePath = operationServerMap['SearchAttributeConfigurationBetaApi.getSingleSearchAttributeConfig']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -64330,8 +64264,8 @@ export const SearchAttributeConfigurationBetaApiFp = function(configuration?: Co
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async patchSearchAttributeConfig(name: string, jsonPatchOperationBeta: Array<JsonPatchOperationBeta>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SearchAttributeConfigBeta>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.patchSearchAttributeConfig(name, jsonPatchOperationBeta, options);
+        async patchSearchAttributeConfig(name: string, jsonPatchOperationBeta: Array<JsonPatchOperationBeta>, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SearchAttributeConfigBeta>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.patchSearchAttributeConfig(name, jsonPatchOperationBeta, axiosOptions);
             const operationBasePath = operationServerMap['SearchAttributeConfigurationBetaApi.patchSearchAttributeConfig']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -64786,8 +64720,8 @@ export const SegmentsBetaApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async createSegment(segmentBeta: SegmentBeta, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SegmentBeta>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.createSegment(segmentBeta, options);
+        async createSegment(segmentBeta: SegmentBeta, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SegmentBeta>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.createSegment(segmentBeta, axiosOptions);
             const operationBasePath = operationServerMap['SegmentsBetaApi.createSegment']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -64798,8 +64732,8 @@ export const SegmentsBetaApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async deleteSegment(id: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.deleteSegment(id, options);
+        async deleteSegment(id: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.deleteSegment(id, axiosOptions);
             const operationBasePath = operationServerMap['SegmentsBetaApi.deleteSegment']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -64810,8 +64744,8 @@ export const SegmentsBetaApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async getSegment(id: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SegmentBeta>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.getSegment(id, options);
+        async getSegment(id: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SegmentBeta>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getSegment(id, axiosOptions);
             const operationBasePath = operationServerMap['SegmentsBetaApi.getSegment']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -64824,8 +64758,8 @@ export const SegmentsBetaApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async listSegments(limit?: number, offset?: number, count?: boolean, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<SegmentBeta>>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.listSegments(limit, offset, count, options);
+        async listSegments(limit?: number, offset?: number, count?: boolean, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<SegmentBeta>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.listSegments(limit, offset, count, axiosOptions);
             const operationBasePath = operationServerMap['SegmentsBetaApi.listSegments']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -64837,8 +64771,8 @@ export const SegmentsBetaApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async patchSegment(id: string, requestBody: Array<object>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SegmentBeta>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.patchSegment(id, requestBody, options);
+        async patchSegment(id: string, requestBody: Array<object>, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SegmentBeta>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.patchSegment(id, requestBody, axiosOptions);
             const operationBasePath = operationServerMap['SegmentsBetaApi.patchSegment']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -65543,8 +65477,8 @@ export const ServiceDeskIntegrationBetaApiFp = function(configuration?: Configur
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async createServiceDeskIntegration(serviceDeskIntegrationDtoBeta: ServiceDeskIntegrationDtoBeta, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ServiceDeskIntegrationDtoBeta>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.createServiceDeskIntegration(serviceDeskIntegrationDtoBeta, options);
+        async createServiceDeskIntegration(serviceDeskIntegrationDtoBeta: ServiceDeskIntegrationDtoBeta, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ServiceDeskIntegrationDtoBeta>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.createServiceDeskIntegration(serviceDeskIntegrationDtoBeta, axiosOptions);
             const operationBasePath = operationServerMap['ServiceDeskIntegrationBetaApi.createServiceDeskIntegration']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -65555,8 +65489,8 @@ export const ServiceDeskIntegrationBetaApiFp = function(configuration?: Configur
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async deleteServiceDeskIntegration(id: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.deleteServiceDeskIntegration(id, options);
+        async deleteServiceDeskIntegration(id: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.deleteServiceDeskIntegration(id, axiosOptions);
             const operationBasePath = operationServerMap['ServiceDeskIntegrationBetaApi.deleteServiceDeskIntegration']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -65567,8 +65501,8 @@ export const ServiceDeskIntegrationBetaApiFp = function(configuration?: Configur
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async getServiceDeskIntegration(id: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ServiceDeskIntegrationDtoBeta>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.getServiceDeskIntegration(id, options);
+        async getServiceDeskIntegration(id: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ServiceDeskIntegrationDtoBeta>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getServiceDeskIntegration(id, axiosOptions);
             const operationBasePath = operationServerMap['ServiceDeskIntegrationBetaApi.getServiceDeskIntegration']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -65583,8 +65517,8 @@ export const ServiceDeskIntegrationBetaApiFp = function(configuration?: Configur
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async getServiceDeskIntegrationList(offset?: number, limit?: number, sorters?: string, filters?: string, count?: boolean, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<ServiceDeskIntegrationDtoBeta>>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.getServiceDeskIntegrationList(offset, limit, sorters, filters, count, options);
+        async getServiceDeskIntegrationList(offset?: number, limit?: number, sorters?: string, filters?: string, count?: boolean, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<ServiceDeskIntegrationDtoBeta>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getServiceDeskIntegrationList(offset, limit, sorters, filters, count, axiosOptions);
             const operationBasePath = operationServerMap['ServiceDeskIntegrationBetaApi.getServiceDeskIntegrationList']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -65595,8 +65529,8 @@ export const ServiceDeskIntegrationBetaApiFp = function(configuration?: Configur
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async getServiceDeskIntegrationTemplate(scriptName: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ServiceDeskIntegrationTemplateDtoBeta>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.getServiceDeskIntegrationTemplate(scriptName, options);
+        async getServiceDeskIntegrationTemplate(scriptName: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ServiceDeskIntegrationTemplateDtoBeta>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getServiceDeskIntegrationTemplate(scriptName, axiosOptions);
             const operationBasePath = operationServerMap['ServiceDeskIntegrationBetaApi.getServiceDeskIntegrationTemplate']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -65606,8 +65540,8 @@ export const ServiceDeskIntegrationBetaApiFp = function(configuration?: Configur
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async getServiceDeskIntegrationTypes(options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<ServiceDeskIntegrationTemplateTypeBeta>>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.getServiceDeskIntegrationTypes(options);
+        async getServiceDeskIntegrationTypes(axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<ServiceDeskIntegrationTemplateTypeBeta>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getServiceDeskIntegrationTypes(axiosOptions);
             const operationBasePath = operationServerMap['ServiceDeskIntegrationBetaApi.getServiceDeskIntegrationTypes']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -65617,8 +65551,8 @@ export const ServiceDeskIntegrationBetaApiFp = function(configuration?: Configur
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async getStatusCheckDetails(options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<QueuedCheckConfigDetailsBeta>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.getStatusCheckDetails(options);
+        async getStatusCheckDetails(axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<QueuedCheckConfigDetailsBeta>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getStatusCheckDetails(axiosOptions);
             const operationBasePath = operationServerMap['ServiceDeskIntegrationBetaApi.getStatusCheckDetails']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -65630,8 +65564,8 @@ export const ServiceDeskIntegrationBetaApiFp = function(configuration?: Configur
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async patchServiceDeskIntegration(id: string, jsonPatchBeta: JsonPatchBeta, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ServiceDeskIntegrationDtoBeta>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.patchServiceDeskIntegration(id, jsonPatchBeta, options);
+        async patchServiceDeskIntegration(id: string, jsonPatchBeta: JsonPatchBeta, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ServiceDeskIntegrationDtoBeta>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.patchServiceDeskIntegration(id, jsonPatchBeta, axiosOptions);
             const operationBasePath = operationServerMap['ServiceDeskIntegrationBetaApi.patchServiceDeskIntegration']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -65643,8 +65577,8 @@ export const ServiceDeskIntegrationBetaApiFp = function(configuration?: Configur
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async putServiceDeskIntegration(id: string, serviceDeskIntegrationDtoBeta: ServiceDeskIntegrationDtoBeta, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ServiceDeskIntegrationDtoBeta>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.putServiceDeskIntegration(id, serviceDeskIntegrationDtoBeta, options);
+        async putServiceDeskIntegration(id: string, serviceDeskIntegrationDtoBeta: ServiceDeskIntegrationDtoBeta, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ServiceDeskIntegrationDtoBeta>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.putServiceDeskIntegration(id, serviceDeskIntegrationDtoBeta, axiosOptions);
             const operationBasePath = operationServerMap['ServiceDeskIntegrationBetaApi.putServiceDeskIntegration']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -65655,8 +65589,8 @@ export const ServiceDeskIntegrationBetaApiFp = function(configuration?: Configur
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async updateStatusCheckDetails(queuedCheckConfigDetailsBeta: QueuedCheckConfigDetailsBeta, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<QueuedCheckConfigDetailsBeta>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.updateStatusCheckDetails(queuedCheckConfigDetailsBeta, options);
+        async updateStatusCheckDetails(queuedCheckConfigDetailsBeta: QueuedCheckConfigDetailsBeta, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<QueuedCheckConfigDetailsBeta>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.updateStatusCheckDetails(queuedCheckConfigDetailsBeta, axiosOptions);
             const operationBasePath = operationServerMap['ServiceDeskIntegrationBetaApi.updateStatusCheckDetails']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -66190,8 +66124,8 @@ export const SourceUsagesBetaApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async getStatusBySourceId(sourceId: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SourceUsageStatusBeta>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.getStatusBySourceId(sourceId, options);
+        async getStatusBySourceId(sourceId: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SourceUsageStatusBeta>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getStatusBySourceId(sourceId, axiosOptions);
             const operationBasePath = operationServerMap['SourceUsagesBetaApi.getStatusBySourceId']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -66206,8 +66140,8 @@ export const SourceUsagesBetaApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async getUsagesBySourceId(sourceId: string, limit?: number, offset?: number, count?: boolean, sorters?: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<SourceUsageBeta>>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.getUsagesBySourceId(sourceId, limit, offset, count, sorters, options);
+        async getUsagesBySourceId(sourceId: string, limit?: number, offset?: number, count?: boolean, sorters?: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<SourceUsageBeta>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getUsagesBySourceId(sourceId, limit, offset, count, sorters, axiosOptions);
             const operationBasePath = operationServerMap['SourceUsagesBetaApi.getUsagesBySourceId']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -68095,8 +68029,8 @@ export const SourcesBetaApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async _delete(id: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Delete202ResponseBeta>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator._delete(id, options);
+        async _delete(id: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Delete202ResponseBeta>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator._delete(id, axiosOptions);
             const operationBasePath = operationServerMap['SourcesBetaApi._delete']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -68108,8 +68042,8 @@ export const SourcesBetaApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async createProvisioningPolicy(sourceId: string, provisioningPolicyDtoBeta: ProvisioningPolicyDtoBeta, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ProvisioningPolicyDtoBeta>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.createProvisioningPolicy(sourceId, provisioningPolicyDtoBeta, options);
+        async createProvisioningPolicy(sourceId: string, provisioningPolicyDtoBeta: ProvisioningPolicyDtoBeta, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ProvisioningPolicyDtoBeta>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.createProvisioningPolicy(sourceId, provisioningPolicyDtoBeta, axiosOptions);
             const operationBasePath = operationServerMap['SourcesBetaApi.createProvisioningPolicy']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -68121,8 +68055,8 @@ export const SourcesBetaApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async createSource(sourceBeta: SourceBeta, provisionAsCsv?: boolean, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SourceBeta>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.createSource(sourceBeta, provisionAsCsv, options);
+        async createSource(sourceBeta: SourceBeta, provisionAsCsv?: boolean, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SourceBeta>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.createSource(sourceBeta, provisionAsCsv, axiosOptions);
             const operationBasePath = operationServerMap['SourcesBetaApi.createSource']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -68134,8 +68068,8 @@ export const SourcesBetaApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async createSourceSchema(sourceId: string, schemaBeta: SchemaBeta, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SchemaBeta>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.createSourceSchema(sourceId, schemaBeta, options);
+        async createSourceSchema(sourceId: string, schemaBeta: SchemaBeta, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SchemaBeta>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.createSourceSchema(sourceId, schemaBeta, axiosOptions);
             const operationBasePath = operationServerMap['SourcesBetaApi.createSourceSchema']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -68146,8 +68080,8 @@ export const SourcesBetaApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async deleteNativeChangeDetectionConfig(id: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.deleteNativeChangeDetectionConfig(id, options);
+        async deleteNativeChangeDetectionConfig(id: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.deleteNativeChangeDetectionConfig(id, axiosOptions);
             const operationBasePath = operationServerMap['SourcesBetaApi.deleteNativeChangeDetectionConfig']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -68159,8 +68093,8 @@ export const SourcesBetaApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async deleteProvisioningPolicy(sourceId: string, usageType: UsageTypeBeta, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.deleteProvisioningPolicy(sourceId, usageType, options);
+        async deleteProvisioningPolicy(sourceId: string, usageType: UsageTypeBeta, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.deleteProvisioningPolicy(sourceId, usageType, axiosOptions);
             const operationBasePath = operationServerMap['SourcesBetaApi.deleteProvisioningPolicy']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -68172,8 +68106,8 @@ export const SourcesBetaApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async deleteSourceSchema(sourceId: string, schemaId: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.deleteSourceSchema(sourceId, schemaId, options);
+        async deleteSourceSchema(sourceId: string, schemaId: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.deleteSourceSchema(sourceId, schemaId, axiosOptions);
             const operationBasePath = operationServerMap['SourcesBetaApi.deleteSourceSchema']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -68184,8 +68118,8 @@ export const SourcesBetaApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async getNativeChangeDetectionConfig(id: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<NativeChangeDetectionConfigBeta>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.getNativeChangeDetectionConfig(id, options);
+        async getNativeChangeDetectionConfig(id: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<NativeChangeDetectionConfigBeta>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getNativeChangeDetectionConfig(id, axiosOptions);
             const operationBasePath = operationServerMap['SourcesBetaApi.getNativeChangeDetectionConfig']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -68197,8 +68131,8 @@ export const SourcesBetaApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async getProvisioningPolicy(sourceId: string, usageType: UsageTypeBeta, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ProvisioningPolicyDtoBeta>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.getProvisioningPolicy(sourceId, usageType, options);
+        async getProvisioningPolicy(sourceId: string, usageType: UsageTypeBeta, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ProvisioningPolicyDtoBeta>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getProvisioningPolicy(sourceId, usageType, axiosOptions);
             const operationBasePath = operationServerMap['SourcesBetaApi.getProvisioningPolicy']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -68209,8 +68143,8 @@ export const SourcesBetaApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async getSource(id: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SourceBeta>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.getSource(id, options);
+        async getSource(id: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SourceBeta>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getSource(id, axiosOptions);
             const operationBasePath = operationServerMap['SourcesBetaApi.getSource']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -68221,8 +68155,8 @@ export const SourcesBetaApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async getSourceAccountsSchema(id: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.getSourceAccountsSchema(id, options);
+        async getSourceAccountsSchema(id: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getSourceAccountsSchema(id, axiosOptions);
             const operationBasePath = operationServerMap['SourcesBetaApi.getSourceAccountsSchema']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -68233,8 +68167,8 @@ export const SourcesBetaApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async getSourceAttrSyncConfig(id: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<AttrSyncSourceConfigBeta>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.getSourceAttrSyncConfig(id, options);
+        async getSourceAttrSyncConfig(id: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<AttrSyncSourceConfigBeta>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getSourceAttrSyncConfig(id, axiosOptions);
             const operationBasePath = operationServerMap['SourcesBetaApi.getSourceAttrSyncConfig']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -68246,8 +68180,8 @@ export const SourcesBetaApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async getSourceConfig(id: string, locale?: GetSourceConfigLocaleBeta, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ConnectorDetailBeta>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.getSourceConfig(id, locale, options);
+        async getSourceConfig(id: string, locale?: GetSourceConfigLocaleBeta, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ConnectorDetailBeta>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getSourceConfig(id, locale, axiosOptions);
             const operationBasePath = operationServerMap['SourcesBetaApi.getSourceConfig']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -68257,8 +68191,8 @@ export const SourcesBetaApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async getSourceEntitlementRequestConfig(options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SourceEntitlementRequestConfigBeta>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.getSourceEntitlementRequestConfig(options);
+        async getSourceEntitlementRequestConfig(axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SourceEntitlementRequestConfigBeta>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getSourceEntitlementRequestConfig(axiosOptions);
             const operationBasePath = operationServerMap['SourcesBetaApi.getSourceEntitlementRequestConfig']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -68270,8 +68204,8 @@ export const SourcesBetaApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async getSourceEntitlementsSchema(id: string, schemaName?: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.getSourceEntitlementsSchema(id, schemaName, options);
+        async getSourceEntitlementsSchema(id: string, schemaName?: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getSourceEntitlementsSchema(id, schemaName, axiosOptions);
             const operationBasePath = operationServerMap['SourcesBetaApi.getSourceEntitlementsSchema']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -68283,8 +68217,8 @@ export const SourcesBetaApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async getSourceSchema(sourceId: string, schemaId: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SchemaBeta>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.getSourceSchema(sourceId, schemaId, options);
+        async getSourceSchema(sourceId: string, schemaId: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SchemaBeta>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getSourceSchema(sourceId, schemaId, axiosOptions);
             const operationBasePath = operationServerMap['SourcesBetaApi.getSourceSchema']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -68296,8 +68230,8 @@ export const SourcesBetaApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async importSourceAccountsSchema(id: string, file?: File, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SchemaBeta>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.importSourceAccountsSchema(id, file, options);
+        async importSourceAccountsSchema(id: string, file?: File, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SchemaBeta>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.importSourceAccountsSchema(id, file, axiosOptions);
             const operationBasePath = operationServerMap['SourcesBetaApi.importSourceAccountsSchema']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -68309,8 +68243,8 @@ export const SourcesBetaApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async importSourceConnectorFile(sourceId: string, file?: File, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SourceBeta>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.importSourceConnectorFile(sourceId, file, options);
+        async importSourceConnectorFile(sourceId: string, file?: File, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SourceBeta>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.importSourceConnectorFile(sourceId, file, axiosOptions);
             const operationBasePath = operationServerMap['SourcesBetaApi.importSourceConnectorFile']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -68323,8 +68257,8 @@ export const SourcesBetaApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async importSourceEntitlementsSchema(id: string, schemaName?: string, file?: File, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SchemaBeta>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.importSourceEntitlementsSchema(id, schemaName, file, options);
+        async importSourceEntitlementsSchema(id: string, schemaName?: string, file?: File, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SchemaBeta>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.importSourceEntitlementsSchema(id, schemaName, file, axiosOptions);
             const operationBasePath = operationServerMap['SourcesBetaApi.importSourceEntitlementsSchema']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -68335,8 +68269,8 @@ export const SourcesBetaApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async listProvisioningPolicies(sourceId: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<ProvisioningPolicyDtoBeta>>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.listProvisioningPolicies(sourceId, options);
+        async listProvisioningPolicies(sourceId: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<ProvisioningPolicyDtoBeta>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.listProvisioningPolicies(sourceId, axiosOptions);
             const operationBasePath = operationServerMap['SourcesBetaApi.listProvisioningPolicies']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -68348,8 +68282,8 @@ export const SourcesBetaApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async listSourceSchemas(sourceId: string, includeTypes?: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<SchemaBeta>>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.listSourceSchemas(sourceId, includeTypes, options);
+        async listSourceSchemas(sourceId: string, includeTypes?: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<SchemaBeta>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.listSourceSchemas(sourceId, includeTypes, axiosOptions);
             const operationBasePath = operationServerMap['SourcesBetaApi.listSourceSchemas']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -68365,8 +68299,8 @@ export const SourcesBetaApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async listSources(limit?: number, offset?: number, count?: boolean, filters?: string, sorters?: string, forSubadmin?: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<SourceBeta>>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.listSources(limit, offset, count, filters, sorters, forSubadmin, options);
+        async listSources(limit?: number, offset?: number, count?: boolean, filters?: string, sorters?: string, forSubadmin?: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<SourceBeta>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.listSources(limit, offset, count, filters, sorters, forSubadmin, axiosOptions);
             const operationBasePath = operationServerMap['SourcesBetaApi.listSources']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -68378,8 +68312,8 @@ export const SourcesBetaApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async peekResourceObjects(sourceId: string, resourceObjectsRequestBeta: ResourceObjectsRequestBeta, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ResourceObjectsResponseBeta>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.peekResourceObjects(sourceId, resourceObjectsRequestBeta, options);
+        async peekResourceObjects(sourceId: string, resourceObjectsRequestBeta: ResourceObjectsRequestBeta, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ResourceObjectsResponseBeta>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.peekResourceObjects(sourceId, resourceObjectsRequestBeta, axiosOptions);
             const operationBasePath = operationServerMap['SourcesBetaApi.peekResourceObjects']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -68390,8 +68324,8 @@ export const SourcesBetaApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async pingCluster(sourceId: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<StatusResponseBeta>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.pingCluster(sourceId, options);
+        async pingCluster(sourceId: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<StatusResponseBeta>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.pingCluster(sourceId, axiosOptions);
             const operationBasePath = operationServerMap['SourcesBetaApi.pingCluster']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -68403,8 +68337,8 @@ export const SourcesBetaApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async putNativeChangeDetectionConfig(id: string, nativeChangeDetectionConfigBeta: NativeChangeDetectionConfigBeta, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<NativeChangeDetectionConfigBeta>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.putNativeChangeDetectionConfig(id, nativeChangeDetectionConfigBeta, options);
+        async putNativeChangeDetectionConfig(id: string, nativeChangeDetectionConfigBeta: NativeChangeDetectionConfigBeta, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<NativeChangeDetectionConfigBeta>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.putNativeChangeDetectionConfig(id, nativeChangeDetectionConfigBeta, axiosOptions);
             const operationBasePath = operationServerMap['SourcesBetaApi.putNativeChangeDetectionConfig']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -68417,8 +68351,8 @@ export const SourcesBetaApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async putProvisioningPolicy(sourceId: string, usageType: UsageTypeBeta, provisioningPolicyDtoBeta: ProvisioningPolicyDtoBeta, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ProvisioningPolicyDtoBeta>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.putProvisioningPolicy(sourceId, usageType, provisioningPolicyDtoBeta, options);
+        async putProvisioningPolicy(sourceId: string, usageType: UsageTypeBeta, provisioningPolicyDtoBeta: ProvisioningPolicyDtoBeta, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ProvisioningPolicyDtoBeta>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.putProvisioningPolicy(sourceId, usageType, provisioningPolicyDtoBeta, axiosOptions);
             const operationBasePath = operationServerMap['SourcesBetaApi.putProvisioningPolicy']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -68430,8 +68364,8 @@ export const SourcesBetaApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async putSource(id: string, sourceBeta: SourceBeta, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SourceBeta>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.putSource(id, sourceBeta, options);
+        async putSource(id: string, sourceBeta: SourceBeta, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SourceBeta>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.putSource(id, sourceBeta, axiosOptions);
             const operationBasePath = operationServerMap['SourcesBetaApi.putSource']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -68443,8 +68377,8 @@ export const SourcesBetaApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async putSourceAttrSyncConfig(id: string, attrSyncSourceConfigBeta: AttrSyncSourceConfigBeta, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<AttrSyncSourceConfigBeta>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.putSourceAttrSyncConfig(id, attrSyncSourceConfigBeta, options);
+        async putSourceAttrSyncConfig(id: string, attrSyncSourceConfigBeta: AttrSyncSourceConfigBeta, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<AttrSyncSourceConfigBeta>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.putSourceAttrSyncConfig(id, attrSyncSourceConfigBeta, axiosOptions);
             const operationBasePath = operationServerMap['SourcesBetaApi.putSourceAttrSyncConfig']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -68457,8 +68391,8 @@ export const SourcesBetaApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async putSourceSchema(sourceId: string, schemaId: string, schemaBeta: SchemaBeta, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SchemaBeta>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.putSourceSchema(sourceId, schemaId, schemaBeta, options);
+        async putSourceSchema(sourceId: string, schemaId: string, schemaBeta: SchemaBeta, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SchemaBeta>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.putSourceSchema(sourceId, schemaId, schemaBeta, axiosOptions);
             const operationBasePath = operationServerMap['SourcesBetaApi.putSourceSchema']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -68469,8 +68403,8 @@ export const SourcesBetaApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async syncAttributesForSource(id: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SourceSyncJobBeta>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.syncAttributesForSource(id, options);
+        async syncAttributesForSource(id: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SourceSyncJobBeta>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.syncAttributesForSource(id, axiosOptions);
             const operationBasePath = operationServerMap['SourcesBetaApi.syncAttributesForSource']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -68481,8 +68415,8 @@ export const SourcesBetaApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async testSourceConfiguration(sourceId: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<StatusResponseBeta>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.testSourceConfiguration(sourceId, options);
+        async testSourceConfiguration(sourceId: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<StatusResponseBeta>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.testSourceConfiguration(sourceId, axiosOptions);
             const operationBasePath = operationServerMap['SourcesBetaApi.testSourceConfiguration']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -68493,8 +68427,8 @@ export const SourcesBetaApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async testSourceConnection(sourceId: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<StatusResponseBeta>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.testSourceConnection(sourceId, options);
+        async testSourceConnection(sourceId: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<StatusResponseBeta>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.testSourceConnection(sourceId, axiosOptions);
             const operationBasePath = operationServerMap['SourcesBetaApi.testSourceConnection']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -68506,8 +68440,8 @@ export const SourcesBetaApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async updateProvisioningPoliciesInBulk(sourceId: string, provisioningPolicyDtoBeta: Array<ProvisioningPolicyDtoBeta>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<ProvisioningPolicyDtoBeta>>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.updateProvisioningPoliciesInBulk(sourceId, provisioningPolicyDtoBeta, options);
+        async updateProvisioningPoliciesInBulk(sourceId: string, provisioningPolicyDtoBeta: Array<ProvisioningPolicyDtoBeta>, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<ProvisioningPolicyDtoBeta>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.updateProvisioningPoliciesInBulk(sourceId, provisioningPolicyDtoBeta, axiosOptions);
             const operationBasePath = operationServerMap['SourcesBetaApi.updateProvisioningPoliciesInBulk']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -68520,8 +68454,8 @@ export const SourcesBetaApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async updateProvisioningPolicy(sourceId: string, usageType: UsageTypeBeta, jsonPatchOperationBeta: Array<JsonPatchOperationBeta>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ProvisioningPolicyDtoBeta>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.updateProvisioningPolicy(sourceId, usageType, jsonPatchOperationBeta, options);
+        async updateProvisioningPolicy(sourceId: string, usageType: UsageTypeBeta, jsonPatchOperationBeta: Array<JsonPatchOperationBeta>, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ProvisioningPolicyDtoBeta>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.updateProvisioningPolicy(sourceId, usageType, jsonPatchOperationBeta, axiosOptions);
             const operationBasePath = operationServerMap['SourcesBetaApi.updateProvisioningPolicy']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -68533,8 +68467,8 @@ export const SourcesBetaApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async updateSource(id: string, jsonPatchOperationBeta: Array<JsonPatchOperationBeta>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SourceBeta>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.updateSource(id, jsonPatchOperationBeta, options);
+        async updateSource(id: string, jsonPatchOperationBeta: Array<JsonPatchOperationBeta>, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SourceBeta>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.updateSource(id, jsonPatchOperationBeta, axiosOptions);
             const operationBasePath = operationServerMap['SourcesBetaApi.updateSource']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -68545,8 +68479,8 @@ export const SourcesBetaApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async updateSourceEntitlementRequestConfig(sourceEntitlementRequestConfigBeta: SourceEntitlementRequestConfigBeta, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SourceEntitlementRequestConfigBeta>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.updateSourceEntitlementRequestConfig(sourceEntitlementRequestConfigBeta, options);
+        async updateSourceEntitlementRequestConfig(sourceEntitlementRequestConfigBeta: SourceEntitlementRequestConfigBeta, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SourceEntitlementRequestConfigBeta>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.updateSourceEntitlementRequestConfig(sourceEntitlementRequestConfigBeta, axiosOptions);
             const operationBasePath = operationServerMap['SourcesBetaApi.updateSourceEntitlementRequestConfig']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -68559,8 +68493,8 @@ export const SourcesBetaApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async updateSourceSchema(sourceId: string, schemaId: string, jsonPatchOperationBeta: Array<JsonPatchOperationBeta>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SchemaBeta>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.updateSourceSchema(sourceId, schemaId, jsonPatchOperationBeta, options);
+        async updateSourceSchema(sourceId: string, schemaId: string, jsonPatchOperationBeta: Array<JsonPatchOperationBeta>, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SchemaBeta>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.updateSourceSchema(sourceId, schemaId, jsonPatchOperationBeta, axiosOptions);
             const operationBasePath = operationServerMap['SourcesBetaApi.updateSourceSchema']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -70616,8 +70550,8 @@ export const TaggedObjectsBetaApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async deleteTaggedObject(type: DeleteTaggedObjectTypeBeta, id: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.deleteTaggedObject(type, id, options);
+        async deleteTaggedObject(type: DeleteTaggedObjectTypeBeta, id: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.deleteTaggedObject(type, id, axiosOptions);
             const operationBasePath = operationServerMap['TaggedObjectsBetaApi.deleteTaggedObject']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -70628,8 +70562,8 @@ export const TaggedObjectsBetaApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async deleteTagsToManyObject(bulkTaggedObjectBeta: BulkTaggedObjectBeta, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.deleteTagsToManyObject(bulkTaggedObjectBeta, options);
+        async deleteTagsToManyObject(bulkTaggedObjectBeta: BulkTaggedObjectBeta, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.deleteTagsToManyObject(bulkTaggedObjectBeta, axiosOptions);
             const operationBasePath = operationServerMap['TaggedObjectsBetaApi.deleteTagsToManyObject']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -70641,8 +70575,8 @@ export const TaggedObjectsBetaApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async getTaggedObject(type: GetTaggedObjectTypeBeta, id: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<TaggedObjectBeta>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.getTaggedObject(type, id, options);
+        async getTaggedObject(type: GetTaggedObjectTypeBeta, id: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<TaggedObjectBeta>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getTaggedObject(type, id, axiosOptions);
             const operationBasePath = operationServerMap['TaggedObjectsBetaApi.getTaggedObject']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -70656,8 +70590,8 @@ export const TaggedObjectsBetaApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async listTaggedObjects(limit?: number, offset?: number, count?: boolean, filters?: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<TaggedObjectBeta>>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.listTaggedObjects(limit, offset, count, filters, options);
+        async listTaggedObjects(limit?: number, offset?: number, count?: boolean, filters?: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<TaggedObjectBeta>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.listTaggedObjects(limit, offset, count, filters, axiosOptions);
             const operationBasePath = operationServerMap['TaggedObjectsBetaApi.listTaggedObjects']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -70672,8 +70606,8 @@ export const TaggedObjectsBetaApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async listTaggedObjectsByType(type: ListTaggedObjectsByTypeTypeBeta, limit?: number, offset?: number, count?: boolean, filters?: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<TaggedObjectBeta>>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.listTaggedObjectsByType(type, limit, offset, count, filters, options);
+        async listTaggedObjectsByType(type: ListTaggedObjectsByTypeTypeBeta, limit?: number, offset?: number, count?: boolean, filters?: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<TaggedObjectBeta>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.listTaggedObjectsByType(type, limit, offset, count, filters, axiosOptions);
             const operationBasePath = operationServerMap['TaggedObjectsBetaApi.listTaggedObjectsByType']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -70686,8 +70620,8 @@ export const TaggedObjectsBetaApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async putTaggedObject(type: PutTaggedObjectTypeBeta, id: string, taggedObjectBeta: TaggedObjectBeta, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<TaggedObjectBeta>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.putTaggedObject(type, id, taggedObjectBeta, options);
+        async putTaggedObject(type: PutTaggedObjectTypeBeta, id: string, taggedObjectBeta: TaggedObjectBeta, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<TaggedObjectBeta>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.putTaggedObject(type, id, taggedObjectBeta, axiosOptions);
             const operationBasePath = operationServerMap['TaggedObjectsBetaApi.putTaggedObject']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -70698,8 +70632,8 @@ export const TaggedObjectsBetaApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async setTagToObject(taggedObjectBeta: TaggedObjectBeta, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.setTagToObject(taggedObjectBeta, options);
+        async setTagToObject(taggedObjectBeta: TaggedObjectBeta, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.setTagToObject(taggedObjectBeta, axiosOptions);
             const operationBasePath = operationServerMap['TaggedObjectsBetaApi.setTagToObject']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -70710,8 +70644,8 @@ export const TaggedObjectsBetaApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async setTagsToManyObjects(bulkTaggedObjectBeta: BulkTaggedObjectBeta, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<BulkTaggedObjectBeta>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.setTagsToManyObjects(bulkTaggedObjectBeta, options);
+        async setTagsToManyObjects(bulkTaggedObjectBeta: BulkTaggedObjectBeta, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<BulkTaggedObjectBeta>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.setTagsToManyObjects(bulkTaggedObjectBeta, axiosOptions);
             const operationBasePath = operationServerMap['TaggedObjectsBetaApi.setTagsToManyObjects']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -71446,8 +71380,8 @@ export const TaskManagementBetaApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async getPendingTaskHeaders(offset?: number, limit?: number, count?: boolean, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.getPendingTaskHeaders(offset, limit, count, options);
+        async getPendingTaskHeaders(offset?: number, limit?: number, count?: boolean, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getPendingTaskHeaders(offset, limit, count, axiosOptions);
             const operationBasePath = operationServerMap['TaskManagementBetaApi.getPendingTaskHeaders']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -71460,8 +71394,8 @@ export const TaskManagementBetaApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async getPendingTasks(offset?: number, limit?: number, count?: boolean, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<TaskStatusBeta>>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.getPendingTasks(offset, limit, count, options);
+        async getPendingTasks(offset?: number, limit?: number, count?: boolean, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<TaskStatusBeta>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getPendingTasks(offset, limit, count, axiosOptions);
             const operationBasePath = operationServerMap['TaskManagementBetaApi.getPendingTasks']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -71472,8 +71406,8 @@ export const TaskManagementBetaApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async getTaskStatus(id: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<TaskStatusBeta>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.getTaskStatus(id, options);
+        async getTaskStatus(id: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<TaskStatusBeta>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getTaskStatus(id, axiosOptions);
             const operationBasePath = operationServerMap['TaskManagementBetaApi.getTaskStatus']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -71488,8 +71422,8 @@ export const TaskManagementBetaApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async getTaskStatusList(limit?: number, offset?: number, count?: boolean, filters?: string, sorters?: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<TaskStatusBeta>>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.getTaskStatusList(limit, offset, count, filters, sorters, options);
+        async getTaskStatusList(limit?: number, offset?: number, count?: boolean, filters?: string, sorters?: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<TaskStatusBeta>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getTaskStatusList(limit, offset, count, filters, sorters, axiosOptions);
             const operationBasePath = operationServerMap['TaskManagementBetaApi.getTaskStatusList']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -71501,8 +71435,8 @@ export const TaskManagementBetaApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async updateTaskStatus(id: string, jsonPatchBeta: JsonPatchBeta, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<TaskStatusBeta>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.updateTaskStatus(id, jsonPatchBeta, options);
+        async updateTaskStatus(id: string, jsonPatchBeta: JsonPatchBeta, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<TaskStatusBeta>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.updateTaskStatus(id, jsonPatchBeta, axiosOptions);
             const operationBasePath = operationServerMap['TaskManagementBetaApi.updateTaskStatus']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -72037,8 +71971,8 @@ export const TransformsBetaApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async createTransform(transformBeta: TransformBeta, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<TransformReadBeta>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.createTransform(transformBeta, options);
+        async createTransform(transformBeta: TransformBeta, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<TransformReadBeta>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.createTransform(transformBeta, axiosOptions);
             const operationBasePath = operationServerMap['TransformsBetaApi.createTransform']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -72049,8 +71983,8 @@ export const TransformsBetaApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async deleteTransform(id: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.deleteTransform(id, options);
+        async deleteTransform(id: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.deleteTransform(id, axiosOptions);
             const operationBasePath = operationServerMap['TransformsBetaApi.deleteTransform']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -72061,8 +71995,8 @@ export const TransformsBetaApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async getTransform(id: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<TransformReadBeta>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.getTransform(id, options);
+        async getTransform(id: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<TransformReadBeta>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getTransform(id, axiosOptions);
             const operationBasePath = operationServerMap['TransformsBetaApi.getTransform']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -72077,8 +72011,8 @@ export const TransformsBetaApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async listTransforms(offset?: number, limit?: number, count?: boolean, name?: string, filters?: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<TransformReadBeta>>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.listTransforms(offset, limit, count, name, filters, options);
+        async listTransforms(offset?: number, limit?: number, count?: boolean, name?: string, filters?: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<TransformReadBeta>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.listTransforms(offset, limit, count, name, filters, axiosOptions);
             const operationBasePath = operationServerMap['TransformsBetaApi.listTransforms']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -72090,8 +72024,8 @@ export const TransformsBetaApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async updateTransform(id: string, transformBeta?: TransformBeta, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<TransformReadBeta>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.updateTransform(id, transformBeta, options);
+        async updateTransform(id: string, transformBeta?: TransformBeta, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<TransformReadBeta>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.updateTransform(id, transformBeta, axiosOptions);
             const operationBasePath = operationServerMap['TransformsBetaApi.updateTransform']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -72869,8 +72803,8 @@ export const TriggersBetaApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async completeTriggerInvocation(id: string, completeInvocationBeta: CompleteInvocationBeta, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.completeTriggerInvocation(id, completeInvocationBeta, options);
+        async completeTriggerInvocation(id: string, completeInvocationBeta: CompleteInvocationBeta, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.completeTriggerInvocation(id, completeInvocationBeta, axiosOptions);
             const operationBasePath = operationServerMap['TriggersBetaApi.completeTriggerInvocation']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -72881,8 +72815,8 @@ export const TriggersBetaApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async createSubscription(subscriptionPostRequestBeta: SubscriptionPostRequestBeta, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SubscriptionBeta>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.createSubscription(subscriptionPostRequestBeta, options);
+        async createSubscription(subscriptionPostRequestBeta: SubscriptionPostRequestBeta, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SubscriptionBeta>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.createSubscription(subscriptionPostRequestBeta, axiosOptions);
             const operationBasePath = operationServerMap['TriggersBetaApi.createSubscription']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -72893,8 +72827,8 @@ export const TriggersBetaApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async deleteSubscription(id: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.deleteSubscription(id, options);
+        async deleteSubscription(id: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.deleteSubscription(id, axiosOptions);
             const operationBasePath = operationServerMap['TriggersBetaApi.deleteSubscription']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -72909,8 +72843,8 @@ export const TriggersBetaApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async listSubscriptions(limit?: number, offset?: number, count?: boolean, filters?: string, sorters?: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<SubscriptionBeta>>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.listSubscriptions(limit, offset, count, filters, sorters, options);
+        async listSubscriptions(limit?: number, offset?: number, count?: boolean, filters?: string, sorters?: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<SubscriptionBeta>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.listSubscriptions(limit, offset, count, filters, sorters, axiosOptions);
             const operationBasePath = operationServerMap['TriggersBetaApi.listSubscriptions']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -72925,8 +72859,8 @@ export const TriggersBetaApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async listTriggerInvocationStatus(limit?: number, offset?: number, count?: boolean, filters?: string, sorters?: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<InvocationStatusBeta>>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.listTriggerInvocationStatus(limit, offset, count, filters, sorters, options);
+        async listTriggerInvocationStatus(limit?: number, offset?: number, count?: boolean, filters?: string, sorters?: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<InvocationStatusBeta>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.listTriggerInvocationStatus(limit, offset, count, filters, sorters, axiosOptions);
             const operationBasePath = operationServerMap['TriggersBetaApi.listTriggerInvocationStatus']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -72941,8 +72875,8 @@ export const TriggersBetaApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async listTriggers(limit?: number, offset?: number, count?: boolean, filters?: string, sorters?: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<TriggerBeta>>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.listTriggers(limit, offset, count, filters, sorters, options);
+        async listTriggers(limit?: number, offset?: number, count?: boolean, filters?: string, sorters?: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<TriggerBeta>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.listTriggers(limit, offset, count, filters, sorters, axiosOptions);
             const operationBasePath = operationServerMap['TriggersBetaApi.listTriggers']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -72954,8 +72888,8 @@ export const TriggersBetaApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async patchSubscription(id: string, subscriptionPatchRequestInnerBeta: Array<SubscriptionPatchRequestInnerBeta>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SubscriptionBeta>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.patchSubscription(id, subscriptionPatchRequestInnerBeta, options);
+        async patchSubscription(id: string, subscriptionPatchRequestInnerBeta: Array<SubscriptionPatchRequestInnerBeta>, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SubscriptionBeta>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.patchSubscription(id, subscriptionPatchRequestInnerBeta, axiosOptions);
             const operationBasePath = operationServerMap['TriggersBetaApi.patchSubscription']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -72966,8 +72900,8 @@ export const TriggersBetaApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async startTestTriggerInvocation(testInvocationBeta: TestInvocationBeta, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<InvocationBeta>>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.startTestTriggerInvocation(testInvocationBeta, options);
+        async startTestTriggerInvocation(testInvocationBeta: TestInvocationBeta, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<InvocationBeta>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.startTestTriggerInvocation(testInvocationBeta, axiosOptions);
             const operationBasePath = operationServerMap['TriggersBetaApi.startTestTriggerInvocation']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -72978,8 +72912,8 @@ export const TriggersBetaApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async testSubscriptionFilter(validateFilterInputDtoBeta: ValidateFilterInputDtoBeta, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ValidateFilterOutputDtoBeta>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.testSubscriptionFilter(validateFilterInputDtoBeta, options);
+        async testSubscriptionFilter(validateFilterInputDtoBeta: ValidateFilterInputDtoBeta, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ValidateFilterOutputDtoBeta>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.testSubscriptionFilter(validateFilterInputDtoBeta, axiosOptions);
             const operationBasePath = operationServerMap['TriggersBetaApi.testSubscriptionFilter']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -72991,8 +72925,8 @@ export const TriggersBetaApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async updateSubscription(id: string, subscriptionPutRequestBeta: SubscriptionPutRequestBeta, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SubscriptionBeta>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.updateSubscription(id, subscriptionPutRequestBeta, options);
+        async updateSubscription(id: string, subscriptionPutRequestBeta: SubscriptionPutRequestBeta, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SubscriptionBeta>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.updateSubscription(id, subscriptionPutRequestBeta, axiosOptions);
             const operationBasePath = operationServerMap['TriggersBetaApi.updateSubscription']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -74124,8 +74058,8 @@ export const WorkItemsBetaApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async approveApprovalItem(id: string, approvalItemId: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<WorkItemsBeta>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.approveApprovalItem(id, approvalItemId, options);
+        async approveApprovalItem(id: string, approvalItemId: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<WorkItemsBeta>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.approveApprovalItem(id, approvalItemId, axiosOptions);
             const operationBasePath = operationServerMap['WorkItemsBetaApi.approveApprovalItem']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -74136,8 +74070,8 @@ export const WorkItemsBetaApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async approveApprovalItemsInBulk(id: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<WorkItemsBeta>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.approveApprovalItemsInBulk(id, options);
+        async approveApprovalItemsInBulk(id: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<WorkItemsBeta>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.approveApprovalItemsInBulk(id, axiosOptions);
             const operationBasePath = operationServerMap['WorkItemsBetaApi.approveApprovalItemsInBulk']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -74148,8 +74082,8 @@ export const WorkItemsBetaApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async completeWorkItem(id: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<WorkItemsBeta>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.completeWorkItem(id, options);
+        async completeWorkItem(id: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<WorkItemsBeta>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.completeWorkItem(id, axiosOptions);
             const operationBasePath = operationServerMap['WorkItemsBetaApi.completeWorkItem']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -74161,8 +74095,8 @@ export const WorkItemsBetaApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async forwardWorkItem(id: string, workItemForwardBeta: WorkItemForwardBeta, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.forwardWorkItem(id, workItemForwardBeta, options);
+        async forwardWorkItem(id: string, workItemForwardBeta: WorkItemForwardBeta, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.forwardWorkItem(id, workItemForwardBeta, axiosOptions);
             const operationBasePath = operationServerMap['WorkItemsBetaApi.forwardWorkItem']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -74176,8 +74110,8 @@ export const WorkItemsBetaApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async getCompletedWorkItems(ownerId?: string, limit?: number, offset?: number, count?: boolean, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<WorkItemsBeta>>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.getCompletedWorkItems(ownerId, limit, offset, count, options);
+        async getCompletedWorkItems(ownerId?: string, limit?: number, offset?: number, count?: boolean, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<WorkItemsBeta>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getCompletedWorkItems(ownerId, limit, offset, count, axiosOptions);
             const operationBasePath = operationServerMap['WorkItemsBetaApi.getCompletedWorkItems']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -74188,8 +74122,8 @@ export const WorkItemsBetaApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async getCountCompletedWorkItems(ownerId?: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<WorkItemsCountBeta>>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.getCountCompletedWorkItems(ownerId, options);
+        async getCountCompletedWorkItems(ownerId?: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<WorkItemsCountBeta>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getCountCompletedWorkItems(ownerId, axiosOptions);
             const operationBasePath = operationServerMap['WorkItemsBetaApi.getCountCompletedWorkItems']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -74200,8 +74134,8 @@ export const WorkItemsBetaApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async getCountWorkItems(ownerId?: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<WorkItemsCountBeta>>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.getCountWorkItems(ownerId, options);
+        async getCountWorkItems(ownerId?: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<WorkItemsCountBeta>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getCountWorkItems(ownerId, axiosOptions);
             const operationBasePath = operationServerMap['WorkItemsBetaApi.getCountWorkItems']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -74213,8 +74147,8 @@ export const WorkItemsBetaApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async getWorkItem(id: string, ownerId?: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<WorkItemsBeta>>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.getWorkItem(id, ownerId, options);
+        async getWorkItem(id: string, ownerId?: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<WorkItemsBeta>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getWorkItem(id, ownerId, axiosOptions);
             const operationBasePath = operationServerMap['WorkItemsBetaApi.getWorkItem']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -74225,8 +74159,8 @@ export const WorkItemsBetaApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async getWorkItemsSummary(ownerId?: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<WorkItemsSummaryBeta>>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.getWorkItemsSummary(ownerId, options);
+        async getWorkItemsSummary(ownerId?: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<WorkItemsSummaryBeta>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getWorkItemsSummary(ownerId, axiosOptions);
             const operationBasePath = operationServerMap['WorkItemsBetaApi.getWorkItemsSummary']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -74240,8 +74174,8 @@ export const WorkItemsBetaApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async listWorkItems(limit?: number, offset?: number, count?: boolean, ownerId?: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<WorkItemsBeta>>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.listWorkItems(limit, offset, count, ownerId, options);
+        async listWorkItems(limit?: number, offset?: number, count?: boolean, ownerId?: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<WorkItemsBeta>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.listWorkItems(limit, offset, count, ownerId, axiosOptions);
             const operationBasePath = operationServerMap['WorkItemsBetaApi.listWorkItems']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -74253,8 +74187,8 @@ export const WorkItemsBetaApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async rejectApprovalItem(id: string, approvalItemId: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<WorkItemsBeta>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.rejectApprovalItem(id, approvalItemId, options);
+        async rejectApprovalItem(id: string, approvalItemId: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<WorkItemsBeta>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.rejectApprovalItem(id, approvalItemId, axiosOptions);
             const operationBasePath = operationServerMap['WorkItemsBetaApi.rejectApprovalItem']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -74265,8 +74199,8 @@ export const WorkItemsBetaApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async rejectApprovalItemsInBulk(id: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<WorkItemsBeta>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.rejectApprovalItemsInBulk(id, options);
+        async rejectApprovalItemsInBulk(id: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<WorkItemsBeta>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.rejectApprovalItemsInBulk(id, axiosOptions);
             const operationBasePath = operationServerMap['WorkItemsBetaApi.rejectApprovalItemsInBulk']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -74278,8 +74212,8 @@ export const WorkItemsBetaApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async submitAccountSelection(id: string, requestBody: { [key: string]: any; }, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<WorkItemsBeta>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.submitAccountSelection(id, requestBody, options);
+        async submitAccountSelection(id: string, requestBody: { [key: string]: any; }, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<WorkItemsBeta>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.submitAccountSelection(id, requestBody, axiosOptions);
             const operationBasePath = operationServerMap['WorkItemsBetaApi.submitAccountSelection']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -75272,8 +75206,8 @@ export const WorkReassignmentBetaApiFp = function(configuration?: Configuration)
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async createReassignmentConfiguration(configurationItemRequestBeta: ConfigurationItemRequestBeta, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ConfigurationItemResponseBeta>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.createReassignmentConfiguration(configurationItemRequestBeta, options);
+        async createReassignmentConfiguration(configurationItemRequestBeta: ConfigurationItemRequestBeta, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ConfigurationItemResponseBeta>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.createReassignmentConfiguration(configurationItemRequestBeta, axiosOptions);
             const operationBasePath = operationServerMap['WorkReassignmentBetaApi.createReassignmentConfiguration']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -75284,8 +75218,8 @@ export const WorkReassignmentBetaApiFp = function(configuration?: Configuration)
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async deleteReassignmentConfiguration(identityId: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.deleteReassignmentConfiguration(identityId, options);
+        async deleteReassignmentConfiguration(identityId: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.deleteReassignmentConfiguration(identityId, axiosOptions);
             const operationBasePath = operationServerMap['WorkReassignmentBetaApi.deleteReassignmentConfiguration']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -75298,8 +75232,8 @@ export const WorkReassignmentBetaApiFp = function(configuration?: Configuration)
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async getEvaluateReassignmentConfiguration(identityId: string, configType: ConfigTypeEnumBeta, exclusionFilters?: Array<string>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<EvaluateResponseBeta>>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.getEvaluateReassignmentConfiguration(identityId, configType, exclusionFilters, options);
+        async getEvaluateReassignmentConfiguration(identityId: string, configType: ConfigTypeEnumBeta, exclusionFilters?: Array<string>, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<EvaluateResponseBeta>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getEvaluateReassignmentConfiguration(identityId, configType, exclusionFilters, axiosOptions);
             const operationBasePath = operationServerMap['WorkReassignmentBetaApi.getEvaluateReassignmentConfiguration']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -75309,8 +75243,8 @@ export const WorkReassignmentBetaApiFp = function(configuration?: Configuration)
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async getReassignmentConfigTypes(options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<ConfigTypeBeta>>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.getReassignmentConfigTypes(options);
+        async getReassignmentConfigTypes(axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<ConfigTypeBeta>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getReassignmentConfigTypes(axiosOptions);
             const operationBasePath = operationServerMap['WorkReassignmentBetaApi.getReassignmentConfigTypes']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -75321,8 +75255,8 @@ export const WorkReassignmentBetaApiFp = function(configuration?: Configuration)
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async getReassignmentConfiguration(identityId: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ConfigurationResponseBeta>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.getReassignmentConfiguration(identityId, options);
+        async getReassignmentConfiguration(identityId: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ConfigurationResponseBeta>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getReassignmentConfiguration(identityId, axiosOptions);
             const operationBasePath = operationServerMap['WorkReassignmentBetaApi.getReassignmentConfiguration']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -75332,8 +75266,8 @@ export const WorkReassignmentBetaApiFp = function(configuration?: Configuration)
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async getTenantConfigConfiguration(options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<TenantConfigurationResponseBeta>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.getTenantConfigConfiguration(options);
+        async getTenantConfigConfiguration(axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<TenantConfigurationResponseBeta>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getTenantConfigConfiguration(axiosOptions);
             const operationBasePath = operationServerMap['WorkReassignmentBetaApi.getTenantConfigConfiguration']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -75343,8 +75277,8 @@ export const WorkReassignmentBetaApiFp = function(configuration?: Configuration)
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async listReassignmentConfigurations(options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<ConfigurationResponseBeta>>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.listReassignmentConfigurations(options);
+        async listReassignmentConfigurations(axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<ConfigurationResponseBeta>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.listReassignmentConfigurations(axiosOptions);
             const operationBasePath = operationServerMap['WorkReassignmentBetaApi.listReassignmentConfigurations']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -75356,8 +75290,8 @@ export const WorkReassignmentBetaApiFp = function(configuration?: Configuration)
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async putReassignmentConfig(identityId: string, configurationItemRequestBeta: ConfigurationItemRequestBeta, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ConfigurationItemResponseBeta>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.putReassignmentConfig(identityId, configurationItemRequestBeta, options);
+        async putReassignmentConfig(identityId: string, configurationItemRequestBeta: ConfigurationItemRequestBeta, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ConfigurationItemResponseBeta>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.putReassignmentConfig(identityId, configurationItemRequestBeta, axiosOptions);
             const operationBasePath = operationServerMap['WorkReassignmentBetaApi.putReassignmentConfig']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -75368,8 +75302,8 @@ export const WorkReassignmentBetaApiFp = function(configuration?: Configuration)
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async putTenantConfiguration(tenantConfigurationRequestBeta: TenantConfigurationRequestBeta, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<TenantConfigurationResponseBeta>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.putTenantConfiguration(tenantConfigurationRequestBeta, options);
+        async putTenantConfiguration(tenantConfigurationRequestBeta: TenantConfigurationRequestBeta, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<TenantConfigurationResponseBeta>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.putTenantConfiguration(tenantConfigurationRequestBeta, axiosOptions);
             const operationBasePath = operationServerMap['WorkReassignmentBetaApi.putTenantConfiguration']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -76549,8 +76483,8 @@ export const WorkflowsBetaApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async cancelWorkflowExecution(id: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.cancelWorkflowExecution(id, options);
+        async cancelWorkflowExecution(id: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.cancelWorkflowExecution(id, axiosOptions);
             const operationBasePath = operationServerMap['WorkflowsBetaApi.cancelWorkflowExecution']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -76561,8 +76495,8 @@ export const WorkflowsBetaApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async createWorkflow(createWorkflowRequestBeta: CreateWorkflowRequestBeta, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<WorkflowBeta>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.createWorkflow(createWorkflowRequestBeta, options);
+        async createWorkflow(createWorkflowRequestBeta: CreateWorkflowRequestBeta, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<WorkflowBeta>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.createWorkflow(createWorkflowRequestBeta, axiosOptions);
             const operationBasePath = operationServerMap['WorkflowsBetaApi.createWorkflow']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -76573,8 +76507,8 @@ export const WorkflowsBetaApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async deleteWorkflow(id: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.deleteWorkflow(id, options);
+        async deleteWorkflow(id: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.deleteWorkflow(id, axiosOptions);
             const operationBasePath = operationServerMap['WorkflowsBetaApi.deleteWorkflow']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -76585,8 +76519,8 @@ export const WorkflowsBetaApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async getWorkflow(id: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<WorkflowBeta>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.getWorkflow(id, options);
+        async getWorkflow(id: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<WorkflowBeta>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getWorkflow(id, axiosOptions);
             const operationBasePath = operationServerMap['WorkflowsBetaApi.getWorkflow']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -76597,8 +76531,8 @@ export const WorkflowsBetaApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async getWorkflowExecution(id: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<object>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.getWorkflowExecution(id, options);
+        async getWorkflowExecution(id: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<object>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getWorkflowExecution(id, axiosOptions);
             const operationBasePath = operationServerMap['WorkflowsBetaApi.getWorkflowExecution']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -76609,8 +76543,8 @@ export const WorkflowsBetaApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async getWorkflowExecutionHistory(id: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<WorkflowExecutionEventBeta>>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.getWorkflowExecutionHistory(id, options);
+        async getWorkflowExecutionHistory(id: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<WorkflowExecutionEventBeta>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getWorkflowExecutionHistory(id, axiosOptions);
             const operationBasePath = operationServerMap['WorkflowsBetaApi.getWorkflowExecutionHistory']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -76622,8 +76556,8 @@ export const WorkflowsBetaApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async listCompleteWorkflowLibrary(limit?: number, offset?: number, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<ListCompleteWorkflowLibrary200ResponseInnerBeta>>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.listCompleteWorkflowLibrary(limit, offset, options);
+        async listCompleteWorkflowLibrary(limit?: number, offset?: number, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<ListCompleteWorkflowLibrary200ResponseInnerBeta>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.listCompleteWorkflowLibrary(limit, offset, axiosOptions);
             const operationBasePath = operationServerMap['WorkflowsBetaApi.listCompleteWorkflowLibrary']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -76638,8 +76572,8 @@ export const WorkflowsBetaApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async listWorkflowExecutions(id: string, limit?: number, offset?: number, count?: boolean, filters?: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<WorkflowExecutionBeta>>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.listWorkflowExecutions(id, limit, offset, count, filters, options);
+        async listWorkflowExecutions(id: string, limit?: number, offset?: number, count?: boolean, filters?: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<WorkflowExecutionBeta>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.listWorkflowExecutions(id, limit, offset, count, filters, axiosOptions);
             const operationBasePath = operationServerMap['WorkflowsBetaApi.listWorkflowExecutions']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -76652,8 +76586,8 @@ export const WorkflowsBetaApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async listWorkflowLibraryActions(limit?: number, offset?: number, filters?: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<WorkflowLibraryActionBeta>>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.listWorkflowLibraryActions(limit, offset, filters, options);
+        async listWorkflowLibraryActions(limit?: number, offset?: number, filters?: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<WorkflowLibraryActionBeta>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.listWorkflowLibraryActions(limit, offset, filters, axiosOptions);
             const operationBasePath = operationServerMap['WorkflowsBetaApi.listWorkflowLibraryActions']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -76663,8 +76597,8 @@ export const WorkflowsBetaApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async listWorkflowLibraryOperators(options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<WorkflowLibraryOperatorBeta>>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.listWorkflowLibraryOperators(options);
+        async listWorkflowLibraryOperators(axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<WorkflowLibraryOperatorBeta>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.listWorkflowLibraryOperators(axiosOptions);
             const operationBasePath = operationServerMap['WorkflowsBetaApi.listWorkflowLibraryOperators']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -76677,8 +76611,8 @@ export const WorkflowsBetaApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async listWorkflowLibraryTriggers(limit?: number, offset?: number, filters?: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<WorkflowLibraryTriggerBeta>>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.listWorkflowLibraryTriggers(limit, offset, filters, options);
+        async listWorkflowLibraryTriggers(limit?: number, offset?: number, filters?: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<WorkflowLibraryTriggerBeta>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.listWorkflowLibraryTriggers(limit, offset, filters, axiosOptions);
             const operationBasePath = operationServerMap['WorkflowsBetaApi.listWorkflowLibraryTriggers']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -76688,8 +76622,8 @@ export const WorkflowsBetaApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async listWorkflows(options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<WorkflowBeta>>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.listWorkflows(options);
+        async listWorkflows(axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<WorkflowBeta>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.listWorkflows(axiosOptions);
             const operationBasePath = operationServerMap['WorkflowsBetaApi.listWorkflows']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -76701,8 +76635,8 @@ export const WorkflowsBetaApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async patchWorkflow(id: string, jsonPatchOperationBeta: Array<JsonPatchOperationBeta>, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<WorkflowBeta>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.patchWorkflow(id, jsonPatchOperationBeta, options);
+        async patchWorkflow(id: string, jsonPatchOperationBeta: Array<JsonPatchOperationBeta>, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<WorkflowBeta>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.patchWorkflow(id, jsonPatchOperationBeta, axiosOptions);
             const operationBasePath = operationServerMap['WorkflowsBetaApi.patchWorkflow']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -76714,8 +76648,8 @@ export const WorkflowsBetaApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async postExternalExecuteWorkflow(id: string, postExternalExecuteWorkflowRequestBeta?: PostExternalExecuteWorkflowRequestBeta, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<PostExternalExecuteWorkflow200ResponseBeta>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.postExternalExecuteWorkflow(id, postExternalExecuteWorkflowRequestBeta, options);
+        async postExternalExecuteWorkflow(id: string, postExternalExecuteWorkflowRequestBeta?: PostExternalExecuteWorkflowRequestBeta, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<PostExternalExecuteWorkflow200ResponseBeta>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.postExternalExecuteWorkflow(id, postExternalExecuteWorkflowRequestBeta, axiosOptions);
             const operationBasePath = operationServerMap['WorkflowsBetaApi.postExternalExecuteWorkflow']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -76726,8 +76660,8 @@ export const WorkflowsBetaApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async postWorkflowExternalTrigger(id: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<WorkflowOAuthClientBeta>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.postWorkflowExternalTrigger(id, options);
+        async postWorkflowExternalTrigger(id: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<WorkflowOAuthClientBeta>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.postWorkflowExternalTrigger(id, axiosOptions);
             const operationBasePath = operationServerMap['WorkflowsBetaApi.postWorkflowExternalTrigger']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -76739,8 +76673,8 @@ export const WorkflowsBetaApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async testExternalExecuteWorkflow(id: string, testExternalExecuteWorkflowRequestBeta?: TestExternalExecuteWorkflowRequestBeta, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<TestExternalExecuteWorkflow200ResponseBeta>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.testExternalExecuteWorkflow(id, testExternalExecuteWorkflowRequestBeta, options);
+        async testExternalExecuteWorkflow(id: string, testExternalExecuteWorkflowRequestBeta?: TestExternalExecuteWorkflowRequestBeta, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<TestExternalExecuteWorkflow200ResponseBeta>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.testExternalExecuteWorkflow(id, testExternalExecuteWorkflowRequestBeta, axiosOptions);
             const operationBasePath = operationServerMap['WorkflowsBetaApi.testExternalExecuteWorkflow']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -76752,8 +76686,8 @@ export const WorkflowsBetaApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async testWorkflow(id: string, testWorkflowRequestBeta: TestWorkflowRequestBeta, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<TestWorkflow200ResponseBeta>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.testWorkflow(id, testWorkflowRequestBeta, options);
+        async testWorkflow(id: string, testWorkflowRequestBeta: TestWorkflowRequestBeta, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<TestWorkflow200ResponseBeta>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.testWorkflow(id, testWorkflowRequestBeta, axiosOptions);
             const operationBasePath = operationServerMap['WorkflowsBetaApi.testWorkflow']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
@@ -76765,8 +76699,8 @@ export const WorkflowsBetaApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async updateWorkflow(id: string, workflowBodyBeta: WorkflowBodyBeta, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<WorkflowBeta>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.updateWorkflow(id, workflowBodyBeta, options);
+        async updateWorkflow(id: string, workflowBodyBeta: WorkflowBodyBeta, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<WorkflowBeta>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.updateWorkflow(id, workflowBodyBeta, axiosOptions);
             const operationBasePath = operationServerMap['WorkflowsBetaApi.updateWorkflow']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
