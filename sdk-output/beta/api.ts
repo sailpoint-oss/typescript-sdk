@@ -50559,6 +50559,17 @@ export const MFAControllerBetaApiFp = function(configuration?: Configuration) {
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
         /**
+         * This API Authenticates the user via Duo-Web MFA method.
+         * @summary Verifying authentication via Duo method
+         * @param {DuoVerificationRequestBeta} duoVerificationRequestBeta 
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        async sendDuoVerifyRequest(duoVerificationRequestBeta: DuoVerificationRequestBeta, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<VerificationResponseBeta>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.sendDuoVerifyRequest(duoVerificationRequestBeta, axiosOptions);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
          * This API Authenticate user in KBA MFA method.
          * @summary Authenticate KBA provided MFA method
          * @param {KbaAnswerRequestBeta} kbaAnswerRequestBeta 
@@ -50581,6 +50592,17 @@ export const MFAControllerBetaApiFp = function(configuration?: Configuration) {
             const localVarAxiosArgs = await localVarAxiosParamCreator.sendOktaVerifyRequest(oktaVerificationRequestBeta, options);
             const operationBasePath = operationServerMap['MFAControllerBetaApi.sendOktaVerifyRequest']?.[0]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
+        },
+        /**
+         * This API Authenticates the user via Okta-Verify MFA method. Request requires a header called \'slpt-forwarding\', and it must contain a remote IP Address of caller.
+         * @summary Verifying authentication via Okta method
+         * @param {OktaVerificationRequestBeta} oktaVerificationRequestBeta 
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        async sendOktaVerifyRequest(oktaVerificationRequestBeta: OktaVerificationRequestBeta, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<VerificationResponseBeta>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.sendOktaVerifyRequest(oktaVerificationRequestBeta, axiosOptions);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
          * This API Authenticate user in Token MFA method.
@@ -50638,6 +50660,16 @@ export const MFAControllerBetaApiFactory = function (configuration?: Configurati
             return localVarFp.sendDuoVerifyRequest(requestParameters.duoVerificationRequestBeta, options).then((request) => request(axios, basePath));
         },
         /**
+         * This API Authenticates the user via Duo-Web MFA method.
+         * @summary Verifying authentication via Duo method
+         * @param {DuoVerificationRequestBeta} duoVerificationRequestBeta 
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        sendDuoVerifyRequest(duoVerificationRequestBeta: DuoVerificationRequestBeta, axiosOptions?: any): AxiosPromise<VerificationResponseBeta> {
+            return localVarFp.sendDuoVerifyRequest(duoVerificationRequestBeta, axiosOptions).then((request) => request(axios, basePath));
+        },
+        /**
          * This API Authenticate user in KBA MFA method.
          * @summary Authenticate KBA provided MFA method
          * @param {MFAControllerBetaApiSendKbaAnswersRequest} requestParameters Request parameters.
@@ -50658,6 +50690,16 @@ export const MFAControllerBetaApiFactory = function (configuration?: Configurati
     
         sendOktaVerifyRequest(requestParameters: MFAControllerBetaApiSendOktaVerifyRequestRequest, options?: AxiosRequestConfig): AxiosPromise<VerificationResponseBeta> {
             return localVarFp.sendOktaVerifyRequest(requestParameters.oktaVerificationRequestBeta, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * This API Authenticates the user via Okta-Verify MFA method. Request requires a header called \'slpt-forwarding\', and it must contain a remote IP Address of caller.
+         * @summary Verifying authentication via Okta method
+         * @param {OktaVerificationRequestBeta} oktaVerificationRequestBeta 
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        sendOktaVerifyRequest(oktaVerificationRequestBeta: OktaVerificationRequestBeta, axiosOptions?: any): AxiosPromise<VerificationResponseBeta> {
+            return localVarFp.sendOktaVerifyRequest(oktaVerificationRequestBeta, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * This API Authenticate user in Token MFA method.
@@ -50808,6 +50850,18 @@ export class MFAControllerBetaApi extends BaseAPI {
     }
 
     /**
+     * This API Authenticates the user via Duo-Web MFA method.
+     * @summary Verifying authentication via Duo method
+     * @param {MFAControllerBetaApiSendDuoVerifyRequestRequest} requestParameters Request parameters.
+     * @param {*} [axiosOptions] Override http request option.
+     * @throws {RequiredError}
+     * @memberof MFAControllerBetaApi
+     */
+    public sendDuoVerifyRequest(requestParameters: MFAControllerBetaApiSendDuoVerifyRequestRequest, axiosOptions?: AxiosRequestConfig) {
+        return MFAControllerBetaApiFp(this.configuration).sendDuoVerifyRequest(requestParameters.duoVerificationRequestBeta, axiosOptions).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
      * This API Authenticate user in KBA MFA method.
      * @summary Authenticate KBA provided MFA method
      * @param {MFAControllerBetaApiSendKbaAnswersRequest} requestParameters Request parameters.
@@ -50829,6 +50883,18 @@ export class MFAControllerBetaApi extends BaseAPI {
      */
     public sendOktaVerifyRequest(requestParameters: MFAControllerBetaApiSendOktaVerifyRequestRequest, options?: AxiosRequestConfig) {
         return MFAControllerBetaApiFp(this.configuration).sendOktaVerifyRequest(requestParameters.oktaVerificationRequestBeta, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * This API Authenticates the user via Okta-Verify MFA method. Request requires a header called \'slpt-forwarding\', and it must contain a remote IP Address of caller.
+     * @summary Verifying authentication via Okta method
+     * @param {MFAControllerBetaApiSendOktaVerifyRequestRequest} requestParameters Request parameters.
+     * @param {*} [axiosOptions] Override http request option.
+     * @throws {RequiredError}
+     * @memberof MFAControllerBetaApi
+     */
+    public sendOktaVerifyRequest(requestParameters: MFAControllerBetaApiSendOktaVerifyRequestRequest, axiosOptions?: AxiosRequestConfig) {
+        return MFAControllerBetaApiFp(this.configuration).sendOktaVerifyRequest(requestParameters.oktaVerificationRequestBeta, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
