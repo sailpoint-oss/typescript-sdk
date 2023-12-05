@@ -67347,7 +67347,7 @@ export const SourcesBetaApiAxiosParamCreator = function (configuration?: Configu
             };
         },
         /**
-         * This API returns the existing attribute synchronization configuration for a source specified by the given ID. The response contains all attributes, regardless of whether they enabled or not. A token with ORG_ADMIN authority is required to call this API.
+         * This API returns the existing attribute synchronization configuration for a source specified by the given ID. The response contains all attributes, regardless of whether they enabled or not. A token with ORG_ADMIN or HELPDESK authority is required to call this API.
          * @summary Attribute Sync Config
          * @param {string} id The source id
          * @param {*} [axiosOptions] Override http request option.
@@ -68727,7 +68727,7 @@ export const SourcesBetaApiFp = function(configuration?: Configuration) {
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
-         * This API returns the existing attribute synchronization configuration for a source specified by the given ID. The response contains all attributes, regardless of whether they enabled or not. A token with ORG_ADMIN authority is required to call this API.
+         * This API returns the existing attribute synchronization configuration for a source specified by the given ID. The response contains all attributes, regardless of whether they enabled or not. A token with ORG_ADMIN or HELPDESK authority is required to call this API.
          * @summary Attribute Sync Config
          * @param {string} id The source id
          * @param {*} [axiosOptions] Override http request option.
@@ -69165,7 +69165,7 @@ export const SourcesBetaApiFactory = function (configuration?: Configuration, ba
             return localVarFp.getSourceAccountsSchema(id, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
-         * This API returns the existing attribute synchronization configuration for a source specified by the given ID. The response contains all attributes, regardless of whether they enabled or not. A token with ORG_ADMIN authority is required to call this API.
+         * This API returns the existing attribute synchronization configuration for a source specified by the given ID. The response contains all attributes, regardless of whether they enabled or not. A token with ORG_ADMIN or HELPDESK authority is required to call this API.
          * @summary Attribute Sync Config
          * @param {string} id The source id
          * @param {*} [axiosOptions] Override http request option.
@@ -70328,7 +70328,7 @@ export class SourcesBetaApi extends BaseAPI {
     }
 
     /**
-     * This API returns the existing attribute synchronization configuration for a source specified by the given ID. The response contains all attributes, regardless of whether they enabled or not. A token with ORG_ADMIN authority is required to call this API.
+     * This API returns the existing attribute synchronization configuration for a source specified by the given ID. The response contains all attributes, regardless of whether they enabled or not. A token with ORG_ADMIN or HELPDESK authority is required to call this API.
      * @summary Attribute Sync Config
      * @param {SourcesBetaApiGetSourceAttrSyncConfigRequest} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
