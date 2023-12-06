@@ -24178,6 +24178,170 @@ export const SourceUsageStatusBetaStatusEnum = {
 export type SourceUsageStatusBetaStatusEnum = typeof SourceUsageStatusBetaStatusEnum[keyof typeof SourceUsageStatusBetaStatusEnum];
 
 /**
+ * 
+ * @export
+ * @interface SpConfigExportJobAllOfBeta
+ */
+export interface SpConfigExportJobAllOfBeta {
+    /**
+     * Optional user defined description/name for export job.
+     * @type {string}
+     * @memberof SpConfigExportJobAllOfBeta
+     */
+    'description': string;
+}
+/**
+ * 
+ * @export
+ * @interface SpConfigExportJobBeta
+ */
+export interface SpConfigExportJobBeta {
+    /**
+     * Unique id assigned to this job.
+     * @type {string}
+     * @memberof SpConfigExportJobBeta
+     */
+    'jobId': string;
+    /**
+     * Status of the job.
+     * @type {string}
+     * @memberof SpConfigExportJobBeta
+     */
+    'status': SpConfigExportJobBetaStatusEnum;
+    /**
+     * Type of the job, either export or import.
+     * @type {string}
+     * @memberof SpConfigExportJobBeta
+     */
+    'type': SpConfigExportJobBetaTypeEnum;
+    /**
+     * The time until which the artifacts will be available for download.
+     * @type {string}
+     * @memberof SpConfigExportJobBeta
+     */
+    'expiration': string;
+    /**
+     * The time the job was started.
+     * @type {string}
+     * @memberof SpConfigExportJobBeta
+     */
+    'created': string;
+    /**
+     * The time of the last update to the job.
+     * @type {string}
+     * @memberof SpConfigExportJobBeta
+     */
+    'modified': string;
+    /**
+     * Optional user defined description/name for export job.
+     * @type {string}
+     * @memberof SpConfigExportJobBeta
+     */
+    'description': string;
+}
+
+export const SpConfigExportJobBetaStatusEnum = {
+    NotStarted: 'NOT_STARTED',
+    InProgress: 'IN_PROGRESS',
+    Complete: 'COMPLETE',
+    Cancelled: 'CANCELLED',
+    Failed: 'FAILED'
+} as const;
+
+export type SpConfigExportJobBetaStatusEnum = typeof SpConfigExportJobBetaStatusEnum[keyof typeof SpConfigExportJobBetaStatusEnum];
+export const SpConfigExportJobBetaTypeEnum = {
+    Export: 'EXPORT',
+    Import: 'IMPORT'
+} as const;
+
+export type SpConfigExportJobBetaTypeEnum = typeof SpConfigExportJobBetaTypeEnum[keyof typeof SpConfigExportJobBetaTypeEnum];
+
+/**
+ * 
+ * @export
+ * @interface SpConfigExportJobStatusAllOfBeta
+ */
+export interface SpConfigExportJobStatusAllOfBeta {
+    /**
+     * The time the job was completed.
+     * @type {string}
+     * @memberof SpConfigExportJobStatusAllOfBeta
+     */
+    'completed': string;
+}
+/**
+ * 
+ * @export
+ * @interface SpConfigExportJobStatusBeta
+ */
+export interface SpConfigExportJobStatusBeta {
+    /**
+     * Unique id assigned to this job.
+     * @type {string}
+     * @memberof SpConfigExportJobStatusBeta
+     */
+    'jobId': string;
+    /**
+     * Status of the job.
+     * @type {string}
+     * @memberof SpConfigExportJobStatusBeta
+     */
+    'status': SpConfigExportJobStatusBetaStatusEnum;
+    /**
+     * Type of the job, either export or import.
+     * @type {string}
+     * @memberof SpConfigExportJobStatusBeta
+     */
+    'type': SpConfigExportJobStatusBetaTypeEnum;
+    /**
+     * The time until which the artifacts will be available for download.
+     * @type {string}
+     * @memberof SpConfigExportJobStatusBeta
+     */
+    'expiration': string;
+    /**
+     * The time the job was started.
+     * @type {string}
+     * @memberof SpConfigExportJobStatusBeta
+     */
+    'created': string;
+    /**
+     * The time of the last update to the job.
+     * @type {string}
+     * @memberof SpConfigExportJobStatusBeta
+     */
+    'modified': string;
+    /**
+     * Optional user defined description/name for export job.
+     * @type {string}
+     * @memberof SpConfigExportJobStatusBeta
+     */
+    'description': string;
+    /**
+     * The time the job was completed.
+     * @type {string}
+     * @memberof SpConfigExportJobStatusBeta
+     */
+    'completed': string;
+}
+
+export const SpConfigExportJobStatusBetaStatusEnum = {
+    NotStarted: 'NOT_STARTED',
+    InProgress: 'IN_PROGRESS',
+    Complete: 'COMPLETE',
+    Cancelled: 'CANCELLED',
+    Failed: 'FAILED'
+} as const;
+
+export type SpConfigExportJobStatusBetaStatusEnum = typeof SpConfigExportJobStatusBetaStatusEnum[keyof typeof SpConfigExportJobStatusBetaStatusEnum];
+export const SpConfigExportJobStatusBetaTypeEnum = {
+    Export: 'EXPORT',
+    Import: 'IMPORT'
+} as const;
+
+export type SpConfigExportJobStatusBetaTypeEnum = typeof SpConfigExportJobStatusBetaTypeEnum[keyof typeof SpConfigExportJobStatusBetaTypeEnum];
+
+/**
  * Response model for config export download response.
  * @export
  * @interface SpConfigExportResultsBeta
@@ -24220,6 +24384,97 @@ export interface SpConfigExportResultsBeta {
      */
     'objects'?: Array<ConfigObjectBeta>;
 }
+/**
+ * 
+ * @export
+ * @interface SpConfigImportJobStatusAllOfBeta
+ */
+export interface SpConfigImportJobStatusAllOfBeta {
+    /**
+     * This message contains additional information about the overall status of the job.
+     * @type {string}
+     * @memberof SpConfigImportJobStatusAllOfBeta
+     */
+    'message': string;
+    /**
+     * The time the job was completed.
+     * @type {string}
+     * @memberof SpConfigImportJobStatusAllOfBeta
+     */
+    'completed': string;
+}
+/**
+ * 
+ * @export
+ * @interface SpConfigImportJobStatusBeta
+ */
+export interface SpConfigImportJobStatusBeta {
+    /**
+     * Unique id assigned to this job.
+     * @type {string}
+     * @memberof SpConfigImportJobStatusBeta
+     */
+    'jobId': string;
+    /**
+     * Status of the job.
+     * @type {string}
+     * @memberof SpConfigImportJobStatusBeta
+     */
+    'status': SpConfigImportJobStatusBetaStatusEnum;
+    /**
+     * Type of the job, either export or import.
+     * @type {string}
+     * @memberof SpConfigImportJobStatusBeta
+     */
+    'type': SpConfigImportJobStatusBetaTypeEnum;
+    /**
+     * The time until which the artifacts will be available for download.
+     * @type {string}
+     * @memberof SpConfigImportJobStatusBeta
+     */
+    'expiration': string;
+    /**
+     * The time the job was started.
+     * @type {string}
+     * @memberof SpConfigImportJobStatusBeta
+     */
+    'created': string;
+    /**
+     * The time of the last update to the job.
+     * @type {string}
+     * @memberof SpConfigImportJobStatusBeta
+     */
+    'modified': string;
+    /**
+     * This message contains additional information about the overall status of the job.
+     * @type {string}
+     * @memberof SpConfigImportJobStatusBeta
+     */
+    'message': string;
+    /**
+     * The time the job was completed.
+     * @type {string}
+     * @memberof SpConfigImportJobStatusBeta
+     */
+    'completed': string;
+}
+
+export const SpConfigImportJobStatusBetaStatusEnum = {
+    NotStarted: 'NOT_STARTED',
+    InProgress: 'IN_PROGRESS',
+    Complete: 'COMPLETE',
+    Cancelled: 'CANCELLED',
+    Failed: 'FAILED'
+} as const;
+
+export type SpConfigImportJobStatusBetaStatusEnum = typeof SpConfigImportJobStatusBetaStatusEnum[keyof typeof SpConfigImportJobStatusBetaStatusEnum];
+export const SpConfigImportJobStatusBetaTypeEnum = {
+    Export: 'EXPORT',
+    Import: 'IMPORT'
+} as const;
+
+export type SpConfigImportJobStatusBetaTypeEnum = typeof SpConfigImportJobStatusBetaTypeEnum[keyof typeof SpConfigImportJobStatusBetaTypeEnum];
+
 /**
  * Response Body for Config Import command.
  * @export
@@ -24264,18 +24519,6 @@ export interface SpConfigJobBeta {
      */
     'type': SpConfigJobBetaTypeEnum;
     /**
-     * This message contains additional information about the overall status of the job.
-     * @type {string}
-     * @memberof SpConfigJobBeta
-     */
-    'message': string;
-    /**
-     * Optional user defined description/name for export job.
-     * @type {string}
-     * @memberof SpConfigJobBeta
-     */
-    'description': string;
-    /**
      * The time until which the artifacts will be available for download.
      * @type {string}
      * @memberof SpConfigJobBeta
@@ -24293,12 +24536,6 @@ export interface SpConfigJobBeta {
      * @memberof SpConfigJobBeta
      */
     'modified': string;
-    /**
-     * The time the job was completed.
-     * @type {string}
-     * @memberof SpConfigJobBeta
-     */
-    'completed': string;
 }
 
 export const SpConfigJobBetaStatusEnum = {
@@ -64245,7 +64482,7 @@ export const SPConfigBetaApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async exportSpConfig(exportPayloadBeta: ExportPayloadBeta, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SpConfigJobBeta>> {
+        async exportSpConfig(exportPayloadBeta: ExportPayloadBeta, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SpConfigExportJobBeta>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.exportSpConfig(exportPayloadBeta, axiosOptions);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -64267,7 +64504,7 @@ export const SPConfigBetaApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async getSpConfigExportStatus(id: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SpConfigJobBeta>> {
+        async getSpConfigExportStatus(id: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SpConfigExportJobStatusBeta>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getSpConfigExportStatus(id, axiosOptions);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -64289,7 +64526,7 @@ export const SPConfigBetaApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async getSpConfigImportStatus(id: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SpConfigJobBeta>> {
+        async getSpConfigImportStatus(id: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SpConfigImportJobStatusBeta>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getSpConfigImportStatus(id, axiosOptions);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -64333,7 +64570,7 @@ export const SPConfigBetaApiFactory = function (configuration?: Configuration, b
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        exportSpConfig(exportPayloadBeta: ExportPayloadBeta, axiosOptions?: any): AxiosPromise<SpConfigJobBeta> {
+        exportSpConfig(exportPayloadBeta: ExportPayloadBeta, axiosOptions?: any): AxiosPromise<SpConfigExportJobBeta> {
             return localVarFp.exportSpConfig(exportPayloadBeta, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
@@ -64353,7 +64590,7 @@ export const SPConfigBetaApiFactory = function (configuration?: Configuration, b
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        getSpConfigExportStatus(id: string, axiosOptions?: any): AxiosPromise<SpConfigJobBeta> {
+        getSpConfigExportStatus(id: string, axiosOptions?: any): AxiosPromise<SpConfigExportJobStatusBeta> {
             return localVarFp.getSpConfigExportStatus(id, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
@@ -64373,7 +64610,7 @@ export const SPConfigBetaApiFactory = function (configuration?: Configuration, b
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        getSpConfigImportStatus(id: string, axiosOptions?: any): AxiosPromise<SpConfigJobBeta> {
+        getSpConfigImportStatus(id: string, axiosOptions?: any): AxiosPromise<SpConfigImportJobStatusBeta> {
             return localVarFp.getSpConfigImportStatus(id, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
