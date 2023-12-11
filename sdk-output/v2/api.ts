@@ -1219,7 +1219,8 @@ export const GovernanceGroupsV2ApiFp = function(configuration?: Configuration) {
          */
         async bulkDeleteWorkGroups(bulkDeleteWorkGroupsRequestV2: BulkDeleteWorkGroupsRequestV2, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<BulkDeleteWorkGroups200ResponseV2>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.bulkDeleteWorkGroups(bulkDeleteWorkGroupsRequestV2, axiosOptions);
-            const operationBasePath = operationServerMap['GovernanceGroupsV2Api.bulkDeleteWorkGroups']?.[0]?.url;
+            const serverMapIndex = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['GovernanceGroupsV2Api.bulkDeleteWorkGroups']?.[serverMapIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
         /**
@@ -1231,7 +1232,8 @@ export const GovernanceGroupsV2ApiFp = function(configuration?: Configuration) {
          */
         async createWorkgroup(createWorkgroupRequestV2: CreateWorkgroupRequestV2, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<ListWorkgroups200ResponseInnerV2>>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.createWorkgroup(createWorkgroupRequestV2, axiosOptions);
-            const operationBasePath = operationServerMap['GovernanceGroupsV2Api.createWorkgroup']?.[0]?.url;
+            const serverMapIndex = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['GovernanceGroupsV2Api.createWorkgroup']?.[serverMapIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
         /**
@@ -1243,7 +1245,8 @@ export const GovernanceGroupsV2ApiFp = function(configuration?: Configuration) {
          */
         async deleteWorkgroup(workgroupId: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.deleteWorkgroup(workgroupId, axiosOptions);
-            const operationBasePath = operationServerMap['GovernanceGroupsV2Api.deleteWorkgroup']?.[0]?.url;
+            const serverMapIndex = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['GovernanceGroupsV2Api.deleteWorkgroup']?.[serverMapIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
         /**
@@ -1255,7 +1258,8 @@ export const GovernanceGroupsV2ApiFp = function(configuration?: Configuration) {
          */
         async getWorkgroup(workgroupId: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ListWorkgroups200ResponseInnerV2>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getWorkgroup(workgroupId, axiosOptions);
-            const operationBasePath = operationServerMap['GovernanceGroupsV2Api.getWorkgroup']?.[0]?.url;
+            const serverMapIndex = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['GovernanceGroupsV2Api.getWorkgroup']?.[serverMapIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
         /**
@@ -1267,7 +1271,8 @@ export const GovernanceGroupsV2ApiFp = function(configuration?: Configuration) {
          */
         async listWorkgroupConnections(workgroupId: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<ListWorkgroupConnections200ResponseInnerV2>>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.listWorkgroupConnections(workgroupId, axiosOptions);
-            const operationBasePath = operationServerMap['GovernanceGroupsV2Api.listWorkgroupConnections']?.[0]?.url;
+            const serverMapIndex = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['GovernanceGroupsV2Api.listWorkgroupConnections']?.[serverMapIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
         /**
@@ -1282,7 +1287,8 @@ export const GovernanceGroupsV2ApiFp = function(configuration?: Configuration) {
          */
         async listWorkgroupMembers(workgroupId: string, limit?: number, offset?: number, filters?: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<ListWorkgroupMembers200ResponseInnerV2>>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.listWorkgroupMembers(workgroupId, limit, offset, filters, axiosOptions);
-            const operationBasePath = operationServerMap['GovernanceGroupsV2Api.listWorkgroupMembers']?.[0]?.url;
+            const serverMapIndex = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['GovernanceGroupsV2Api.listWorkgroupMembers']?.[serverMapIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
         /**
@@ -1296,7 +1302,8 @@ export const GovernanceGroupsV2ApiFp = function(configuration?: Configuration) {
          */
         async listWorkgroups(limit?: number, offset?: number, filters?: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<ListWorkgroups200ResponseInnerV2>>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.listWorkgroups(limit, offset, filters, axiosOptions);
-            const operationBasePath = operationServerMap['GovernanceGroupsV2Api.listWorkgroups']?.[0]?.url;
+            const serverMapIndex = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['GovernanceGroupsV2Api.listWorkgroups']?.[serverMapIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
         /**
@@ -1309,7 +1316,8 @@ export const GovernanceGroupsV2ApiFp = function(configuration?: Configuration) {
          */
         async modifyWorkgroupMembers(workgroupId: string, modifyWorkgroupMembersRequestV2: ModifyWorkgroupMembersRequestV2, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.modifyWorkgroupMembers(workgroupId, modifyWorkgroupMembersRequestV2, axiosOptions);
-            const operationBasePath = operationServerMap['GovernanceGroupsV2Api.modifyWorkgroupMembers']?.[0]?.url;
+            const serverMapIndex = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['GovernanceGroupsV2Api.modifyWorkgroupMembers']?.[serverMapIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
         /**
@@ -1322,7 +1330,8 @@ export const GovernanceGroupsV2ApiFp = function(configuration?: Configuration) {
          */
         async updateWorkgroup(workgroupId: string, createWorkgroupRequestV2: CreateWorkgroupRequestV2, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ListWorkgroups200ResponseInnerV2>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.updateWorkgroup(workgroupId, createWorkgroupRequestV2, axiosOptions);
-            const operationBasePath = operationServerMap['GovernanceGroupsV2Api.updateWorkgroup']?.[0]?.url;
+            const serverMapIndex = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['GovernanceGroupsV2Api.updateWorkgroup']?.[serverMapIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
     }
@@ -1820,7 +1829,8 @@ export const OrgV2ApiFp = function(configuration?: Configuration) {
          */
         async getOrgSettings(axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<GetOrgSettings200ResponseV2>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getOrgSettings(axiosOptions);
-            const operationBasePath = operationServerMap['OrgV2Api.getOrgSettings']?.[0]?.url;
+            const serverMapIndex = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['OrgV2Api.getOrgSettings']?.[serverMapIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
         /**
@@ -1832,7 +1842,8 @@ export const OrgV2ApiFp = function(configuration?: Configuration) {
          */
         async updateOrgSettings(updateOrgSettingsRequestV2: UpdateOrgSettingsRequestV2, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<GetOrgSettings200ResponseV2>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.updateOrgSettings(updateOrgSettingsRequestV2, axiosOptions);
-            const operationBasePath = operationServerMap['OrgV2Api.updateOrgSettings']?.[0]?.url;
+            const serverMapIndex = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['OrgV2Api.updateOrgSettings']?.[serverMapIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
     }

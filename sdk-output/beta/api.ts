@@ -27041,7 +27041,8 @@ export const AccessProfilesBetaApiFp = function(configuration?: Configuration) {
          */
         async createAccessProfile(accessProfileBeta: AccessProfileBeta, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<AccessProfileBeta>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.createAccessProfile(accessProfileBeta, axiosOptions);
-            const operationBasePath = operationServerMap['AccessProfilesBetaApi.createAccessProfile']?.[0]?.url;
+            const serverMapIndex = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['AccessProfilesBetaApi.createAccessProfile']?.[serverMapIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
         /**
@@ -27053,7 +27054,8 @@ export const AccessProfilesBetaApiFp = function(configuration?: Configuration) {
          */
         async deleteAccessProfile(id: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.deleteAccessProfile(id, axiosOptions);
-            const operationBasePath = operationServerMap['AccessProfilesBetaApi.deleteAccessProfile']?.[0]?.url;
+            const serverMapIndex = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['AccessProfilesBetaApi.deleteAccessProfile']?.[serverMapIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
         /**
@@ -27065,7 +27067,8 @@ export const AccessProfilesBetaApiFp = function(configuration?: Configuration) {
          */
         async deleteAccessProfilesInBulk(accessProfileBulkDeleteRequestBeta: AccessProfileBulkDeleteRequestBeta, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<AccessProfileBulkDeleteResponseBeta>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.deleteAccessProfilesInBulk(accessProfileBulkDeleteRequestBeta, axiosOptions);
-            const operationBasePath = operationServerMap['AccessProfilesBetaApi.deleteAccessProfilesInBulk']?.[0]?.url;
+            const serverMapIndex = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['AccessProfilesBetaApi.deleteAccessProfilesInBulk']?.[serverMapIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
         /**
@@ -27077,7 +27080,8 @@ export const AccessProfilesBetaApiFp = function(configuration?: Configuration) {
          */
         async getAccessProfile(id: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<AccessProfileBeta>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getAccessProfile(id, axiosOptions);
-            const operationBasePath = operationServerMap['AccessProfilesBetaApi.getAccessProfile']?.[0]?.url;
+            const serverMapIndex = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['AccessProfilesBetaApi.getAccessProfile']?.[serverMapIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
         /**
@@ -27094,7 +27098,8 @@ export const AccessProfilesBetaApiFp = function(configuration?: Configuration) {
          */
         async getAccessProfileEntitlements(id: string, limit?: number, offset?: number, count?: boolean, filters?: string, sorters?: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<EntitlementBeta>>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getAccessProfileEntitlements(id, limit, offset, count, filters, sorters, axiosOptions);
-            const operationBasePath = operationServerMap['AccessProfilesBetaApi.getAccessProfileEntitlements']?.[0]?.url;
+            const serverMapIndex = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['AccessProfilesBetaApi.getAccessProfileEntitlements']?.[serverMapIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
         /**
@@ -27113,7 +27118,8 @@ export const AccessProfilesBetaApiFp = function(configuration?: Configuration) {
          */
         async listAccessProfiles(forSubadmin?: string, limit?: number, offset?: number, count?: boolean, filters?: string, sorters?: string, forSegmentIds?: string, includeUnsegmented?: boolean, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<AccessProfileBeta>>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.listAccessProfiles(forSubadmin, limit, offset, count, filters, sorters, forSegmentIds, includeUnsegmented, axiosOptions);
-            const operationBasePath = operationServerMap['AccessProfilesBetaApi.listAccessProfiles']?.[0]?.url;
+            const serverMapIndex = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['AccessProfilesBetaApi.listAccessProfiles']?.[serverMapIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
         /**
@@ -27126,7 +27132,8 @@ export const AccessProfilesBetaApiFp = function(configuration?: Configuration) {
          */
         async patchAccessProfile(id: string, jsonPatchOperationBeta: Array<JsonPatchOperationBeta>, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<AccessProfileBeta>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.patchAccessProfile(id, jsonPatchOperationBeta, axiosOptions);
-            const operationBasePath = operationServerMap['AccessProfilesBetaApi.patchAccessProfile']?.[0]?.url;
+            const serverMapIndex = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['AccessProfilesBetaApi.patchAccessProfile']?.[serverMapIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
     }
@@ -27852,7 +27859,8 @@ export const AccessRequestApprovalsBetaApiFp = function(configuration?: Configur
          */
         async approveAccessRequest(approvalId: string, commentDtoBeta?: CommentDtoBeta, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<object>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.approveAccessRequest(approvalId, commentDtoBeta, axiosOptions);
-            const operationBasePath = operationServerMap['AccessRequestApprovalsBetaApi.approveAccessRequest']?.[0]?.url;
+            const serverMapIndex = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['AccessRequestApprovalsBetaApi.approveAccessRequest']?.[serverMapIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
         /**
@@ -27865,7 +27873,8 @@ export const AccessRequestApprovalsBetaApiFp = function(configuration?: Configur
          */
         async forwardAccessRequest(approvalId: string, forwardApprovalDtoBeta: ForwardApprovalDtoBeta, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<object>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.forwardAccessRequest(approvalId, forwardApprovalDtoBeta, axiosOptions);
-            const operationBasePath = operationServerMap['AccessRequestApprovalsBetaApi.forwardAccessRequest']?.[0]?.url;
+            const serverMapIndex = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['AccessRequestApprovalsBetaApi.forwardAccessRequest']?.[serverMapIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
         /**
@@ -27878,7 +27887,8 @@ export const AccessRequestApprovalsBetaApiFp = function(configuration?: Configur
          */
         async getAccessRequestApprovalSummary(ownerId?: string, fromDate?: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ApprovalSummaryBeta>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getAccessRequestApprovalSummary(ownerId, fromDate, axiosOptions);
-            const operationBasePath = operationServerMap['AccessRequestApprovalsBetaApi.getAccessRequestApprovalSummary']?.[0]?.url;
+            const serverMapIndex = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['AccessRequestApprovalsBetaApi.getAccessRequestApprovalSummary']?.[serverMapIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
         /**
@@ -27895,7 +27905,8 @@ export const AccessRequestApprovalsBetaApiFp = function(configuration?: Configur
          */
         async listCompletedApprovals(ownerId?: string, limit?: number, offset?: number, count?: boolean, filters?: string, sorters?: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<CompletedApprovalBeta>>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.listCompletedApprovals(ownerId, limit, offset, count, filters, sorters, axiosOptions);
-            const operationBasePath = operationServerMap['AccessRequestApprovalsBetaApi.listCompletedApprovals']?.[0]?.url;
+            const serverMapIndex = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['AccessRequestApprovalsBetaApi.listCompletedApprovals']?.[serverMapIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
         /**
@@ -27912,7 +27923,8 @@ export const AccessRequestApprovalsBetaApiFp = function(configuration?: Configur
          */
         async listPendingApprovals(ownerId?: string, limit?: number, offset?: number, count?: boolean, filters?: string, sorters?: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<PendingApprovalBeta>>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.listPendingApprovals(ownerId, limit, offset, count, filters, sorters, axiosOptions);
-            const operationBasePath = operationServerMap['AccessRequestApprovalsBetaApi.listPendingApprovals']?.[0]?.url;
+            const serverMapIndex = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['AccessRequestApprovalsBetaApi.listPendingApprovals']?.[serverMapIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
         /**
@@ -27925,7 +27937,8 @@ export const AccessRequestApprovalsBetaApiFp = function(configuration?: Configur
          */
         async rejectAccessRequest(approvalId: string, commentDtoBeta?: CommentDtoBeta, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<object>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.rejectAccessRequest(approvalId, commentDtoBeta, axiosOptions);
-            const operationBasePath = operationServerMap['AccessRequestApprovalsBetaApi.rejectAccessRequest']?.[0]?.url;
+            const serverMapIndex = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['AccessRequestApprovalsBetaApi.rejectAccessRequest']?.[serverMapIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
     }
@@ -28593,7 +28606,8 @@ export const AccessRequestsBetaApiFp = function(configuration?: Configuration) {
          */
         async cancelAccessRequest(cancelAccessRequestBeta: CancelAccessRequestBeta, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<object>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.cancelAccessRequest(cancelAccessRequestBeta, axiosOptions);
-            const operationBasePath = operationServerMap['AccessRequestsBetaApi.cancelAccessRequest']?.[0]?.url;
+            const serverMapIndex = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['AccessRequestsBetaApi.cancelAccessRequest']?.[serverMapIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
         /**
@@ -28605,7 +28619,8 @@ export const AccessRequestsBetaApiFp = function(configuration?: Configuration) {
          */
         async closeAccessRequest(closeAccessRequestBeta: CloseAccessRequestBeta, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<object>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.closeAccessRequest(closeAccessRequestBeta, axiosOptions);
-            const operationBasePath = operationServerMap['AccessRequestsBetaApi.closeAccessRequest']?.[0]?.url;
+            const serverMapIndex = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['AccessRequestsBetaApi.closeAccessRequest']?.[serverMapIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
         /**
@@ -28617,7 +28632,8 @@ export const AccessRequestsBetaApiFp = function(configuration?: Configuration) {
          */
         async createAccessRequest(accessRequestBeta: AccessRequestBeta, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<object>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.createAccessRequest(accessRequestBeta, axiosOptions);
-            const operationBasePath = operationServerMap['AccessRequestsBetaApi.createAccessRequest']?.[0]?.url;
+            const serverMapIndex = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['AccessRequestsBetaApi.createAccessRequest']?.[serverMapIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
         /**
@@ -28628,7 +28644,8 @@ export const AccessRequestsBetaApiFp = function(configuration?: Configuration) {
          */
         async getAccessRequestConfig(axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<AccessRequestConfigBeta>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getAccessRequestConfig(axiosOptions);
-            const operationBasePath = operationServerMap['AccessRequestsBetaApi.getAccessRequestConfig']?.[0]?.url;
+            const serverMapIndex = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['AccessRequestsBetaApi.getAccessRequestConfig']?.[serverMapIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
         /**
@@ -28648,7 +28665,8 @@ export const AccessRequestsBetaApiFp = function(configuration?: Configuration) {
          */
         async listAccessRequestStatus(requestedFor?: string, requestedBy?: string, regardingIdentity?: string, assignedTo?: string, count?: boolean, limit?: number, offset?: number, filters?: string, sorters?: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<RequestedItemStatusBeta>>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.listAccessRequestStatus(requestedFor, requestedBy, regardingIdentity, assignedTo, count, limit, offset, filters, sorters, axiosOptions);
-            const operationBasePath = operationServerMap['AccessRequestsBetaApi.listAccessRequestStatus']?.[0]?.url;
+            const serverMapIndex = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['AccessRequestsBetaApi.listAccessRequestStatus']?.[serverMapIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
         /**
@@ -28660,7 +28678,8 @@ export const AccessRequestsBetaApiFp = function(configuration?: Configuration) {
          */
         async setAccessRequestConfig(accessRequestConfigBeta: AccessRequestConfigBeta, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<AccessRequestConfigBeta>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.setAccessRequestConfig(accessRequestConfigBeta, axiosOptions);
-            const operationBasePath = operationServerMap['AccessRequestsBetaApi.setAccessRequestConfig']?.[0]?.url;
+            const serverMapIndex = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['AccessRequestsBetaApi.setAccessRequestConfig']?.[serverMapIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
     }
@@ -29098,7 +29117,8 @@ export const AccountActivitiesBetaApiFp = function(configuration?: Configuration
          */
         async getAccountActivity(id: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<CancelableAccountActivityBeta>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getAccountActivity(id, axiosOptions);
-            const operationBasePath = operationServerMap['AccountActivitiesBetaApi.getAccountActivity']?.[0]?.url;
+            const serverMapIndex = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['AccountActivitiesBetaApi.getAccountActivity']?.[serverMapIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
         /**
@@ -29118,7 +29138,8 @@ export const AccountActivitiesBetaApiFp = function(configuration?: Configuration
          */
         async listAccountActivities(requestedFor?: string, requestedBy?: string, regardingIdentity?: string, type?: string, limit?: number, offset?: number, count?: boolean, filters?: string, sorters?: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<CancelableAccountActivityBeta>>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.listAccountActivities(requestedFor, requestedBy, regardingIdentity, type, limit, offset, count, filters, sorters, axiosOptions);
-            const operationBasePath = operationServerMap['AccountActivitiesBetaApi.listAccountActivities']?.[0]?.url;
+            const serverMapIndex = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['AccountActivitiesBetaApi.listAccountActivities']?.[serverMapIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
     }
@@ -29341,7 +29362,8 @@ export const AccountAggregationsBetaApiFp = function(configuration?: Configurati
          */
         async getAccountAggregationStatus(id: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<AccountAggregationStatusBeta>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getAccountAggregationStatus(id, axiosOptions);
-            const operationBasePath = operationServerMap['AccountAggregationsBetaApi.getAccountAggregationStatus']?.[0]?.url;
+            const serverMapIndex = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['AccountAggregationsBetaApi.getAccountAggregationStatus']?.[serverMapIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
     }
@@ -29495,7 +29517,8 @@ export const AccountUsagesBetaApiFp = function(configuration?: Configuration) {
          */
         async getUsagesByAccountId(accountId: string, limit?: number, offset?: number, count?: boolean, sorters?: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<AccountUsageBeta>>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getUsagesByAccountId(accountId, limit, offset, count, sorters, axiosOptions);
-            const operationBasePath = operationServerMap['AccountUsagesBetaApi.getUsagesByAccountId']?.[0]?.url;
+            const serverMapIndex = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['AccountUsagesBetaApi.getUsagesByAccountId']?.[serverMapIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
     }
@@ -30318,7 +30341,8 @@ export const AccountsBetaApiFp = function(configuration?: Configuration) {
          */
         async createAccount(accountAttributesCreateBeta: AccountAttributesCreateBeta, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<AccountsAsyncResultBeta>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.createAccount(accountAttributesCreateBeta, axiosOptions);
-            const operationBasePath = operationServerMap['AccountsBetaApi.createAccount']?.[0]?.url;
+            const serverMapIndex = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['AccountsBetaApi.createAccount']?.[serverMapIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
         /**
@@ -30330,7 +30354,8 @@ export const AccountsBetaApiFp = function(configuration?: Configuration) {
          */
         async deleteAccount(id: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<AccountsAsyncResultBeta>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.deleteAccount(id, axiosOptions);
-            const operationBasePath = operationServerMap['AccountsBetaApi.deleteAccount']?.[0]?.url;
+            const serverMapIndex = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['AccountsBetaApi.deleteAccount']?.[serverMapIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
         /**
@@ -30343,7 +30368,8 @@ export const AccountsBetaApiFp = function(configuration?: Configuration) {
          */
         async disableAccount(id: string, accountToggleRequestBeta: AccountToggleRequestBeta, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<AccountsAsyncResultBeta>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.disableAccount(id, accountToggleRequestBeta, axiosOptions);
-            const operationBasePath = operationServerMap['AccountsBetaApi.disableAccount']?.[0]?.url;
+            const serverMapIndex = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['AccountsBetaApi.disableAccount']?.[serverMapIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
         /**
@@ -30355,7 +30381,8 @@ export const AccountsBetaApiFp = function(configuration?: Configuration) {
          */
         async disableAccountForIdentity(id: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<object>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.disableAccountForIdentity(id, axiosOptions);
-            const operationBasePath = operationServerMap['AccountsBetaApi.disableAccountForIdentity']?.[0]?.url;
+            const serverMapIndex = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['AccountsBetaApi.disableAccountForIdentity']?.[serverMapIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
         /**
@@ -30367,7 +30394,8 @@ export const AccountsBetaApiFp = function(configuration?: Configuration) {
          */
         async disableAccountsForIdentities(identitiesAccountsBulkRequestBeta: IdentitiesAccountsBulkRequestBeta, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<BulkIdentitiesAccountsResponseBeta>>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.disableAccountsForIdentities(identitiesAccountsBulkRequestBeta, axiosOptions);
-            const operationBasePath = operationServerMap['AccountsBetaApi.disableAccountsForIdentities']?.[0]?.url;
+            const serverMapIndex = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['AccountsBetaApi.disableAccountsForIdentities']?.[serverMapIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
         /**
@@ -30380,7 +30408,8 @@ export const AccountsBetaApiFp = function(configuration?: Configuration) {
          */
         async enableAccount(id: string, accountToggleRequestBeta: AccountToggleRequestBeta, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<AccountsAsyncResultBeta>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.enableAccount(id, accountToggleRequestBeta, axiosOptions);
-            const operationBasePath = operationServerMap['AccountsBetaApi.enableAccount']?.[0]?.url;
+            const serverMapIndex = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['AccountsBetaApi.enableAccount']?.[serverMapIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
         /**
@@ -30392,7 +30421,8 @@ export const AccountsBetaApiFp = function(configuration?: Configuration) {
          */
         async enableAccountForIdentity(id: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<object>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.enableAccountForIdentity(id, axiosOptions);
-            const operationBasePath = operationServerMap['AccountsBetaApi.enableAccountForIdentity']?.[0]?.url;
+            const serverMapIndex = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['AccountsBetaApi.enableAccountForIdentity']?.[serverMapIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
         /**
@@ -30404,7 +30434,8 @@ export const AccountsBetaApiFp = function(configuration?: Configuration) {
          */
         async enableAccountsForIdentities(identitiesAccountsBulkRequestBeta: IdentitiesAccountsBulkRequestBeta, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<BulkIdentitiesAccountsResponseBeta>>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.enableAccountsForIdentities(identitiesAccountsBulkRequestBeta, axiosOptions);
-            const operationBasePath = operationServerMap['AccountsBetaApi.enableAccountsForIdentities']?.[0]?.url;
+            const serverMapIndex = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['AccountsBetaApi.enableAccountsForIdentities']?.[serverMapIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
         /**
@@ -30416,7 +30447,8 @@ export const AccountsBetaApiFp = function(configuration?: Configuration) {
          */
         async getAccount(id: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<AccountBeta>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getAccount(id, axiosOptions);
-            const operationBasePath = operationServerMap['AccountsBetaApi.getAccount']?.[0]?.url;
+            const serverMapIndex = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['AccountsBetaApi.getAccount']?.[serverMapIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
         /**
@@ -30431,7 +30463,8 @@ export const AccountsBetaApiFp = function(configuration?: Configuration) {
          */
         async getAccountEntitlements(id: string, offset?: number, limit?: number, count?: boolean, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<EntitlementBeta>>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getAccountEntitlements(id, offset, limit, count, axiosOptions);
-            const operationBasePath = operationServerMap['AccountsBetaApi.getAccountEntitlements']?.[0]?.url;
+            const serverMapIndex = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['AccountsBetaApi.getAccountEntitlements']?.[serverMapIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
         /**
@@ -30448,7 +30481,8 @@ export const AccountsBetaApiFp = function(configuration?: Configuration) {
          */
         async listAccounts(detailLevel?: ListAccountsDetailLevelBeta, limit?: number, offset?: number, count?: boolean, filters?: string, sorters?: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<ListAccounts200ResponseInnerBeta>>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.listAccounts(detailLevel, limit, offset, count, filters, sorters, axiosOptions);
-            const operationBasePath = operationServerMap['AccountsBetaApi.listAccounts']?.[0]?.url;
+            const serverMapIndex = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['AccountsBetaApi.listAccounts']?.[serverMapIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
         /**
@@ -30461,7 +30495,8 @@ export const AccountsBetaApiFp = function(configuration?: Configuration) {
          */
         async putAccount(id: string, accountAttributesBeta: AccountAttributesBeta, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<AccountsAsyncResultBeta>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.putAccount(id, accountAttributesBeta, axiosOptions);
-            const operationBasePath = operationServerMap['AccountsBetaApi.putAccount']?.[0]?.url;
+            const serverMapIndex = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['AccountsBetaApi.putAccount']?.[serverMapIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
         /**
@@ -30473,7 +30508,8 @@ export const AccountsBetaApiFp = function(configuration?: Configuration) {
          */
         async reloadAccount(id: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<AccountsAsyncResultBeta>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.reloadAccount(id, axiosOptions);
-            const operationBasePath = operationServerMap['AccountsBetaApi.reloadAccount']?.[0]?.url;
+            const serverMapIndex = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['AccountsBetaApi.reloadAccount']?.[serverMapIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
         /**
@@ -30486,7 +30522,8 @@ export const AccountsBetaApiFp = function(configuration?: Configuration) {
          */
         async unlockAccount(id: string, accountUnlockRequestBeta: AccountUnlockRequestBeta, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<AccountsAsyncResultBeta>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.unlockAccount(id, accountUnlockRequestBeta, axiosOptions);
-            const operationBasePath = operationServerMap['AccountsBetaApi.unlockAccount']?.[0]?.url;
+            const serverMapIndex = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['AccountsBetaApi.unlockAccount']?.[serverMapIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
         /**
@@ -30499,7 +30536,8 @@ export const AccountsBetaApiFp = function(configuration?: Configuration) {
          */
         async updateAccount(id: string, requestBody: Array<object>, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<object>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.updateAccount(id, requestBody, axiosOptions);
-            const operationBasePath = operationServerMap['AccountsBetaApi.updateAccount']?.[0]?.url;
+            const serverMapIndex = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['AccountsBetaApi.updateAccount']?.[serverMapIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
     }
@@ -32237,7 +32275,8 @@ export const CertificationCampaignsBetaApiFp = function(configuration?: Configur
          */
         async completeCampaign(id: string, completeCampaignOptionsBeta?: CompleteCampaignOptionsBeta, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<object>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.completeCampaign(id, completeCampaignOptionsBeta, axiosOptions);
-            const operationBasePath = operationServerMap['CertificationCampaignsBetaApi.completeCampaign']?.[0]?.url;
+            const serverMapIndex = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['CertificationCampaignsBetaApi.completeCampaign']?.[serverMapIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
         /**
@@ -32250,7 +32289,8 @@ export const CertificationCampaignsBetaApiFp = function(configuration?: Configur
          */
         async createCampaign(campaignBeta: CampaignBeta, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<CampaignBeta>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.createCampaign(campaignBeta, axiosOptions);
-            const operationBasePath = operationServerMap['CertificationCampaignsBetaApi.createCampaign']?.[0]?.url;
+            const serverMapIndex = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['CertificationCampaignsBetaApi.createCampaign']?.[serverMapIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
         /**
@@ -32263,7 +32303,8 @@ export const CertificationCampaignsBetaApiFp = function(configuration?: Configur
          */
         async createCampaignTemplate(campaignTemplateBeta: CampaignTemplateBeta, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<CampaignTemplateBeta>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.createCampaignTemplate(campaignTemplateBeta, axiosOptions);
-            const operationBasePath = operationServerMap['CertificationCampaignsBetaApi.createCampaignTemplate']?.[0]?.url;
+            const serverMapIndex = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['CertificationCampaignsBetaApi.createCampaignTemplate']?.[serverMapIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
         /**
@@ -32276,7 +32317,8 @@ export const CertificationCampaignsBetaApiFp = function(configuration?: Configur
          */
         async deleteCampaignTemplate(id: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.deleteCampaignTemplate(id, axiosOptions);
-            const operationBasePath = operationServerMap['CertificationCampaignsBetaApi.deleteCampaignTemplate']?.[0]?.url;
+            const serverMapIndex = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['CertificationCampaignsBetaApi.deleteCampaignTemplate']?.[serverMapIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
         /**
@@ -32289,7 +32331,8 @@ export const CertificationCampaignsBetaApiFp = function(configuration?: Configur
          */
         async deleteCampaignTemplateSchedule(id: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.deleteCampaignTemplateSchedule(id, axiosOptions);
-            const operationBasePath = operationServerMap['CertificationCampaignsBetaApi.deleteCampaignTemplateSchedule']?.[0]?.url;
+            const serverMapIndex = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['CertificationCampaignsBetaApi.deleteCampaignTemplateSchedule']?.[serverMapIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
         /**
@@ -32302,7 +32345,8 @@ export const CertificationCampaignsBetaApiFp = function(configuration?: Configur
          */
         async deleteCampaigns(deleteCampaignsRequestBeta: DeleteCampaignsRequestBeta, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<object>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.deleteCampaigns(deleteCampaignsRequestBeta, axiosOptions);
-            const operationBasePath = operationServerMap['CertificationCampaignsBetaApi.deleteCampaigns']?.[0]?.url;
+            const serverMapIndex = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['CertificationCampaignsBetaApi.deleteCampaigns']?.[serverMapIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
         /**
@@ -32320,7 +32364,8 @@ export const CertificationCampaignsBetaApiFp = function(configuration?: Configur
          */
         async getActiveCampaigns(detail?: GetActiveCampaignsDetailBeta, limit?: number, offset?: number, count?: boolean, filters?: string, sorters?: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<GetActiveCampaigns200ResponseInnerBeta>>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getActiveCampaigns(detail, limit, offset, count, filters, sorters, axiosOptions);
-            const operationBasePath = operationServerMap['CertificationCampaignsBetaApi.getActiveCampaigns']?.[0]?.url;
+            const serverMapIndex = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['CertificationCampaignsBetaApi.getActiveCampaigns']?.[serverMapIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
         /**
@@ -32333,7 +32378,8 @@ export const CertificationCampaignsBetaApiFp = function(configuration?: Configur
          */
         async getCampaign(id: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SlimcampaignBeta>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getCampaign(id, axiosOptions);
-            const operationBasePath = operationServerMap['CertificationCampaignsBetaApi.getCampaign']?.[0]?.url;
+            const serverMapIndex = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['CertificationCampaignsBetaApi.getCampaign']?.[serverMapIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
         /**
@@ -32346,7 +32392,8 @@ export const CertificationCampaignsBetaApiFp = function(configuration?: Configur
          */
         async getCampaignReports(id: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<CampaignReportBeta>>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getCampaignReports(id, axiosOptions);
-            const operationBasePath = operationServerMap['CertificationCampaignsBetaApi.getCampaignReports']?.[0]?.url;
+            const serverMapIndex = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['CertificationCampaignsBetaApi.getCampaignReports']?.[serverMapIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
         /**
@@ -32358,7 +32405,8 @@ export const CertificationCampaignsBetaApiFp = function(configuration?: Configur
          */
         async getCampaignReportsConfig(axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<CampaignReportsConfigBeta>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getCampaignReportsConfig(axiosOptions);
-            const operationBasePath = operationServerMap['CertificationCampaignsBetaApi.getCampaignReportsConfig']?.[0]?.url;
+            const serverMapIndex = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['CertificationCampaignsBetaApi.getCampaignReportsConfig']?.[serverMapIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
         /**
@@ -32371,7 +32419,8 @@ export const CertificationCampaignsBetaApiFp = function(configuration?: Configur
          */
         async getCampaignTemplate(id: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<CampaignTemplateBeta>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getCampaignTemplate(id, axiosOptions);
-            const operationBasePath = operationServerMap['CertificationCampaignsBetaApi.getCampaignTemplate']?.[0]?.url;
+            const serverMapIndex = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['CertificationCampaignsBetaApi.getCampaignTemplate']?.[serverMapIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
         /**
@@ -32384,7 +32433,8 @@ export const CertificationCampaignsBetaApiFp = function(configuration?: Configur
          */
         async getCampaignTemplateSchedule(id: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ScheduleBeta>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getCampaignTemplateSchedule(id, axiosOptions);
-            const operationBasePath = operationServerMap['CertificationCampaignsBetaApi.getCampaignTemplateSchedule']?.[0]?.url;
+            const serverMapIndex = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['CertificationCampaignsBetaApi.getCampaignTemplateSchedule']?.[serverMapIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
         /**
@@ -32401,7 +32451,8 @@ export const CertificationCampaignsBetaApiFp = function(configuration?: Configur
          */
         async listCampaignTemplates(limit?: number, offset?: number, count?: boolean, sorters?: string, filters?: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<CampaignTemplateBeta>>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.listCampaignTemplates(limit, offset, count, sorters, filters, axiosOptions);
-            const operationBasePath = operationServerMap['CertificationCampaignsBetaApi.listCampaignTemplates']?.[0]?.url;
+            const serverMapIndex = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['CertificationCampaignsBetaApi.listCampaignTemplates']?.[serverMapIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
         /**
@@ -32415,7 +32466,8 @@ export const CertificationCampaignsBetaApiFp = function(configuration?: Configur
          */
         async move(id: string, adminReviewReassignBeta: AdminReviewReassignBeta, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<CertificationTaskBeta>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.move(id, adminReviewReassignBeta, axiosOptions);
-            const operationBasePath = operationServerMap['CertificationCampaignsBetaApi.move']?.[0]?.url;
+            const serverMapIndex = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['CertificationCampaignsBetaApi.move']?.[serverMapIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
         /**
@@ -32429,7 +32481,8 @@ export const CertificationCampaignsBetaApiFp = function(configuration?: Configur
          */
         async patchCampaignTemplate(id: string, jsonPatchOperationBeta: Array<JsonPatchOperationBeta>, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<CampaignTemplateBeta>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.patchCampaignTemplate(id, jsonPatchOperationBeta, axiosOptions);
-            const operationBasePath = operationServerMap['CertificationCampaignsBetaApi.patchCampaignTemplate']?.[0]?.url;
+            const serverMapIndex = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['CertificationCampaignsBetaApi.patchCampaignTemplate']?.[serverMapIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
         /**
@@ -32442,7 +32495,8 @@ export const CertificationCampaignsBetaApiFp = function(configuration?: Configur
          */
         async setCampaignReportsConfig(campaignReportsConfigBeta: CampaignReportsConfigBeta, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<CampaignReportsConfigBeta>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.setCampaignReportsConfig(campaignReportsConfigBeta, axiosOptions);
-            const operationBasePath = operationServerMap['CertificationCampaignsBetaApi.setCampaignReportsConfig']?.[0]?.url;
+            const serverMapIndex = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['CertificationCampaignsBetaApi.setCampaignReportsConfig']?.[serverMapIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
         /**
@@ -32456,7 +32510,8 @@ export const CertificationCampaignsBetaApiFp = function(configuration?: Configur
          */
         async setCampaignTemplateSchedule(id: string, scheduleBeta?: ScheduleBeta, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.setCampaignTemplateSchedule(id, scheduleBeta, axiosOptions);
-            const operationBasePath = operationServerMap['CertificationCampaignsBetaApi.setCampaignTemplateSchedule']?.[0]?.url;
+            const serverMapIndex = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['CertificationCampaignsBetaApi.setCampaignTemplateSchedule']?.[serverMapIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
         /**
@@ -32470,7 +32525,8 @@ export const CertificationCampaignsBetaApiFp = function(configuration?: Configur
          */
         async startCampaign(id: string, activateCampaignOptionsBeta?: ActivateCampaignOptionsBeta, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<object>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.startCampaign(id, activateCampaignOptionsBeta, axiosOptions);
-            const operationBasePath = operationServerMap['CertificationCampaignsBetaApi.startCampaign']?.[0]?.url;
+            const serverMapIndex = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['CertificationCampaignsBetaApi.startCampaign']?.[serverMapIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
         /**
@@ -32483,7 +32539,8 @@ export const CertificationCampaignsBetaApiFp = function(configuration?: Configur
          */
         async startCampaignRemediationScan(id: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<object>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.startCampaignRemediationScan(id, axiosOptions);
-            const operationBasePath = operationServerMap['CertificationCampaignsBetaApi.startCampaignRemediationScan']?.[0]?.url;
+            const serverMapIndex = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['CertificationCampaignsBetaApi.startCampaignRemediationScan']?.[serverMapIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
         /**
@@ -32497,7 +32554,8 @@ export const CertificationCampaignsBetaApiFp = function(configuration?: Configur
          */
         async startCampaignReport(id: string, type: ReportTypeBeta, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<object>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.startCampaignReport(id, type, axiosOptions);
-            const operationBasePath = operationServerMap['CertificationCampaignsBetaApi.startCampaignReport']?.[0]?.url;
+            const serverMapIndex = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['CertificationCampaignsBetaApi.startCampaignReport']?.[serverMapIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
         /**
@@ -32510,7 +32568,8 @@ export const CertificationCampaignsBetaApiFp = function(configuration?: Configur
          */
         async startGenerateCampaignTemplate(id: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<CampaignReferenceBeta>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.startGenerateCampaignTemplate(id, axiosOptions);
-            const operationBasePath = operationServerMap['CertificationCampaignsBetaApi.startGenerateCampaignTemplate']?.[0]?.url;
+            const serverMapIndex = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['CertificationCampaignsBetaApi.startGenerateCampaignTemplate']?.[serverMapIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
         /**
@@ -32524,7 +32583,8 @@ export const CertificationCampaignsBetaApiFp = function(configuration?: Configur
          */
         async updateCampaign(id: string, requestBody: Array<object>, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SlimcampaignBeta>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.updateCampaign(id, requestBody, axiosOptions);
-            const operationBasePath = operationServerMap['CertificationCampaignsBetaApi.updateCampaign']?.[0]?.url;
+            const serverMapIndex = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['CertificationCampaignsBetaApi.updateCampaign']?.[serverMapIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
     }
@@ -33815,7 +33875,8 @@ export const CertificationsBetaApiFp = function(configuration?: Configuration) {
          */
         async getIdentityCertificationItemPermissions(certificationId: string, itemId: string, filters?: string, limit?: number, offset?: number, count?: boolean, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<PermissionDtoBeta>>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getIdentityCertificationItemPermissions(certificationId, itemId, filters, limit, offset, count, axiosOptions);
-            const operationBasePath = operationServerMap['CertificationsBetaApi.getIdentityCertificationItemPermissions']?.[0]?.url;
+            const serverMapIndex = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['CertificationsBetaApi.getIdentityCertificationItemPermissions']?.[serverMapIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
         /**
@@ -33827,7 +33888,8 @@ export const CertificationsBetaApiFp = function(configuration?: Configuration) {
          */
         async getIdentityCertificationPendingTasks(id: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<IdentityCertificationTaskBeta>>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getIdentityCertificationPendingTasks(id, axiosOptions);
-            const operationBasePath = operationServerMap['CertificationsBetaApi.getIdentityCertificationPendingTasks']?.[0]?.url;
+            const serverMapIndex = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['CertificationsBetaApi.getIdentityCertificationPendingTasks']?.[serverMapIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
         /**
@@ -33840,7 +33902,8 @@ export const CertificationsBetaApiFp = function(configuration?: Configuration) {
          */
         async getIdentityCertificationTaskStatus(id: string, taskId: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<IdentityCertificationTaskBeta>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getIdentityCertificationTaskStatus(id, taskId, axiosOptions);
-            const operationBasePath = operationServerMap['CertificationsBetaApi.getIdentityCertificationTaskStatus']?.[0]?.url;
+            const serverMapIndex = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['CertificationsBetaApi.getIdentityCertificationTaskStatus']?.[serverMapIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
         /**
@@ -33858,7 +33921,8 @@ export const CertificationsBetaApiFp = function(configuration?: Configuration) {
          */
         async listCertificationReviewers(id: string, limit?: number, offset?: number, count?: boolean, filters?: string, sorters?: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<IdentityReferenceWithNameAndEmailBeta>>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.listCertificationReviewers(id, limit, offset, count, filters, sorters, axiosOptions);
-            const operationBasePath = operationServerMap['CertificationsBetaApi.listCertificationReviewers']?.[0]?.url;
+            const serverMapIndex = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['CertificationsBetaApi.listCertificationReviewers']?.[serverMapIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
         /**
@@ -33872,7 +33936,8 @@ export const CertificationsBetaApiFp = function(configuration?: Configuration) {
          */
         async submitReassignCertsAsync(id: string, reviewReassignBeta: ReviewReassignBeta, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<IdentityCertificationTaskBeta>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.submitReassignCertsAsync(id, reviewReassignBeta, axiosOptions);
-            const operationBasePath = operationServerMap['CertificationsBetaApi.submitReassignCertsAsync']?.[0]?.url;
+            const serverMapIndex = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['CertificationsBetaApi.submitReassignCertsAsync']?.[serverMapIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
     }
@@ -34454,7 +34519,8 @@ export const ConnectorRuleManagementBetaApiFp = function(configuration?: Configu
          */
         async createConnectorRule(connectorRuleCreateRequestBeta: ConnectorRuleCreateRequestBeta, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ConnectorRuleResponseBeta>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.createConnectorRule(connectorRuleCreateRequestBeta, axiosOptions);
-            const operationBasePath = operationServerMap['ConnectorRuleManagementBetaApi.createConnectorRule']?.[0]?.url;
+            const serverMapIndex = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['ConnectorRuleManagementBetaApi.createConnectorRule']?.[serverMapIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
         /**
@@ -34466,7 +34532,8 @@ export const ConnectorRuleManagementBetaApiFp = function(configuration?: Configu
          */
         async deleteConnectorRule(id: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.deleteConnectorRule(id, axiosOptions);
-            const operationBasePath = operationServerMap['ConnectorRuleManagementBetaApi.deleteConnectorRule']?.[0]?.url;
+            const serverMapIndex = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['ConnectorRuleManagementBetaApi.deleteConnectorRule']?.[serverMapIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
         /**
@@ -34478,7 +34545,8 @@ export const ConnectorRuleManagementBetaApiFp = function(configuration?: Configu
          */
         async getConnectorRule(id: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ConnectorRuleResponseBeta>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getConnectorRule(id, axiosOptions);
-            const operationBasePath = operationServerMap['ConnectorRuleManagementBetaApi.getConnectorRule']?.[0]?.url;
+            const serverMapIndex = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['ConnectorRuleManagementBetaApi.getConnectorRule']?.[serverMapIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
         /**
@@ -34489,7 +34557,8 @@ export const ConnectorRuleManagementBetaApiFp = function(configuration?: Configu
          */
         async getConnectorRuleList(axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<ConnectorRuleResponseBeta>>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getConnectorRuleList(axiosOptions);
-            const operationBasePath = operationServerMap['ConnectorRuleManagementBetaApi.getConnectorRuleList']?.[0]?.url;
+            const serverMapIndex = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['ConnectorRuleManagementBetaApi.getConnectorRuleList']?.[serverMapIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
         /**
@@ -34502,7 +34571,8 @@ export const ConnectorRuleManagementBetaApiFp = function(configuration?: Configu
          */
         async updateConnectorRule(id: string, connectorRuleUpdateRequestBeta?: ConnectorRuleUpdateRequestBeta, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ConnectorRuleResponseBeta>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.updateConnectorRule(id, connectorRuleUpdateRequestBeta, axiosOptions);
-            const operationBasePath = operationServerMap['ConnectorRuleManagementBetaApi.updateConnectorRule']?.[0]?.url;
+            const serverMapIndex = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['ConnectorRuleManagementBetaApi.updateConnectorRule']?.[serverMapIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
         /**
@@ -34514,7 +34584,8 @@ export const ConnectorRuleManagementBetaApiFp = function(configuration?: Configu
          */
         async validateConnectorRule(sourceCodeBeta: SourceCodeBeta, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ConnectorRuleValidationResponseBeta>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.validateConnectorRule(sourceCodeBeta, axiosOptions);
-            const operationBasePath = operationServerMap['ConnectorRuleManagementBetaApi.validateConnectorRule']?.[0]?.url;
+            const serverMapIndex = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['ConnectorRuleManagementBetaApi.validateConnectorRule']?.[serverMapIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
     }
@@ -34845,7 +34916,8 @@ export const ConnectorsBetaApiFp = function(configuration?: Configuration) {
          */
         async getConnectorList(filters?: string, limit?: number, offset?: number, count?: boolean, locale?: GetConnectorListLocaleBeta, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<V3ConnectorDtoBeta>>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getConnectorList(filters, limit, offset, count, locale, axiosOptions);
-            const operationBasePath = operationServerMap['ConnectorsBetaApi.getConnectorList']?.[0]?.url;
+            const serverMapIndex = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['ConnectorsBetaApi.getConnectorList']?.[serverMapIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
     }
@@ -35826,7 +35898,8 @@ export const CustomFormsBetaApiFp = function(configuration?: Configuration) {
          */
         async createFormDefinition(body?: CreateFormDefinitionRequestBeta, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<FormDefinitionResponseBeta>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.createFormDefinition(body, axiosOptions);
-            const operationBasePath = operationServerMap['CustomFormsBetaApi.createFormDefinition']?.[0]?.url;
+            const serverMapIndex = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['CustomFormsBetaApi.createFormDefinition']?.[serverMapIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
         /**
@@ -35838,7 +35911,8 @@ export const CustomFormsBetaApiFp = function(configuration?: Configuration) {
          */
         async createFormDefinitionDynamicSchema(body?: FormDefinitionDynamicSchemaRequestBeta, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<FormDefinitionDynamicSchemaResponseBeta>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.createFormDefinitionDynamicSchema(body, axiosOptions);
-            const operationBasePath = operationServerMap['CustomFormsBetaApi.createFormDefinitionDynamicSchema']?.[0]?.url;
+            const serverMapIndex = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['CustomFormsBetaApi.createFormDefinitionDynamicSchema']?.[serverMapIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
         /**
@@ -35851,7 +35925,8 @@ export const CustomFormsBetaApiFp = function(configuration?: Configuration) {
          */
         async createFormDefinitionFileRequest(formDefinitionID: string, file: File, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<FormDefinitionFileUploadResponseBeta>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.createFormDefinitionFileRequest(formDefinitionID, file, axiosOptions);
-            const operationBasePath = operationServerMap['CustomFormsBetaApi.createFormDefinitionFileRequest']?.[0]?.url;
+            const serverMapIndex = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['CustomFormsBetaApi.createFormDefinitionFileRequest']?.[serverMapIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
         /**
@@ -35863,7 +35938,8 @@ export const CustomFormsBetaApiFp = function(configuration?: Configuration) {
          */
         async createFormInstance(body?: CreateFormInstanceRequestBeta, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<FormInstanceResponseBeta>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.createFormInstance(body, axiosOptions);
-            const operationBasePath = operationServerMap['CustomFormsBetaApi.createFormInstance']?.[0]?.url;
+            const serverMapIndex = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['CustomFormsBetaApi.createFormInstance']?.[serverMapIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
         /**
@@ -35875,7 +35951,8 @@ export const CustomFormsBetaApiFp = function(configuration?: Configuration) {
          */
         async deleteFormDefinition(formDefinitionID: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<object>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.deleteFormDefinition(formDefinitionID, axiosOptions);
-            const operationBasePath = operationServerMap['CustomFormsBetaApi.deleteFormDefinition']?.[0]?.url;
+            const serverMapIndex = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['CustomFormsBetaApi.deleteFormDefinition']?.[serverMapIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
         /**
@@ -35890,7 +35967,8 @@ export const CustomFormsBetaApiFp = function(configuration?: Configuration) {
          */
         async exportFormDefinitionsByTenant(offset?: number, limit?: number, filters?: string, sorters?: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<ExportFormDefinitionsByTenant200ResponseInnerBeta>>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.exportFormDefinitionsByTenant(offset, limit, filters, sorters, axiosOptions);
-            const operationBasePath = operationServerMap['CustomFormsBetaApi.exportFormDefinitionsByTenant']?.[0]?.url;
+            const serverMapIndex = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['CustomFormsBetaApi.exportFormDefinitionsByTenant']?.[serverMapIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
         /**
@@ -35903,7 +35981,8 @@ export const CustomFormsBetaApiFp = function(configuration?: Configuration) {
          */
         async getFileFromS3(formDefinitionID: string, fileID: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<File>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getFileFromS3(formDefinitionID, fileID, axiosOptions);
-            const operationBasePath = operationServerMap['CustomFormsBetaApi.getFileFromS3']?.[0]?.url;
+            const serverMapIndex = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['CustomFormsBetaApi.getFileFromS3']?.[serverMapIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
         /**
@@ -35915,7 +35994,8 @@ export const CustomFormsBetaApiFp = function(configuration?: Configuration) {
          */
         async getFormDefinitionByKey(formDefinitionID: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<FormDefinitionResponseBeta>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getFormDefinitionByKey(formDefinitionID, axiosOptions);
-            const operationBasePath = operationServerMap['CustomFormsBetaApi.getFormDefinitionByKey']?.[0]?.url;
+            const serverMapIndex = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['CustomFormsBetaApi.getFormDefinitionByKey']?.[serverMapIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
         /**
@@ -35927,7 +36007,8 @@ export const CustomFormsBetaApiFp = function(configuration?: Configuration) {
          */
         async getFormInstanceByKey(formInstanceID: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<FormInstanceResponseBeta>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getFormInstanceByKey(formInstanceID, axiosOptions);
-            const operationBasePath = operationServerMap['CustomFormsBetaApi.getFormInstanceByKey']?.[0]?.url;
+            const serverMapIndex = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['CustomFormsBetaApi.getFormInstanceByKey']?.[serverMapIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
         /**
@@ -35940,7 +36021,8 @@ export const CustomFormsBetaApiFp = function(configuration?: Configuration) {
          */
         async getFormInstanceFile(formInstanceID: string, fileID: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<File>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getFormInstanceFile(formInstanceID, fileID, axiosOptions);
-            const operationBasePath = operationServerMap['CustomFormsBetaApi.getFormInstanceFile']?.[0]?.url;
+            const serverMapIndex = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['CustomFormsBetaApi.getFormInstanceFile']?.[serverMapIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
         /**
@@ -35952,7 +36034,8 @@ export const CustomFormsBetaApiFp = function(configuration?: Configuration) {
          */
         async importFormDefinitions(body?: Array<ExportFormDefinitionsByTenant200ResponseInnerBeta>, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ImportFormDefinitions202ResponseBeta>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.importFormDefinitions(body, axiosOptions);
-            const operationBasePath = operationServerMap['CustomFormsBetaApi.importFormDefinitions']?.[0]?.url;
+            const serverMapIndex = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['CustomFormsBetaApi.importFormDefinitions']?.[serverMapIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
         /**
@@ -35965,7 +36048,8 @@ export const CustomFormsBetaApiFp = function(configuration?: Configuration) {
          */
         async patchFormDefinition(formDefinitionID: string, body?: Array<{ [key: string]: object; }>, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<FormDefinitionResponseBeta>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.patchFormDefinition(formDefinitionID, body, axiosOptions);
-            const operationBasePath = operationServerMap['CustomFormsBetaApi.patchFormDefinition']?.[0]?.url;
+            const serverMapIndex = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['CustomFormsBetaApi.patchFormDefinition']?.[serverMapIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
         /**
@@ -35978,7 +36062,8 @@ export const CustomFormsBetaApiFp = function(configuration?: Configuration) {
          */
         async patchFormInstance(formInstanceID: string, body?: Array<{ [key: string]: object; }>, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<FormInstanceResponseBeta>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.patchFormInstance(formInstanceID, body, axiosOptions);
-            const operationBasePath = operationServerMap['CustomFormsBetaApi.patchFormInstance']?.[0]?.url;
+            const serverMapIndex = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['CustomFormsBetaApi.patchFormInstance']?.[serverMapIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
         /**
@@ -35993,7 +36078,8 @@ export const CustomFormsBetaApiFp = function(configuration?: Configuration) {
          */
         async searchFormDefinitionsByTenant(offset?: number, limit?: number, filters?: string, sorters?: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ListFormDefinitionsByTenantResponseBeta>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.searchFormDefinitionsByTenant(offset, limit, filters, sorters, axiosOptions);
-            const operationBasePath = operationServerMap['CustomFormsBetaApi.searchFormDefinitionsByTenant']?.[0]?.url;
+            const serverMapIndex = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['CustomFormsBetaApi.searchFormDefinitionsByTenant']?.[serverMapIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
         /**
@@ -36008,7 +36094,8 @@ export const CustomFormsBetaApiFp = function(configuration?: Configuration) {
          */
         async searchFormElementDataByElementID(formInstanceID: string, formElementID: string, limit?: number, filters?: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ListFormElementDataByElementIDResponseBeta>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.searchFormElementDataByElementID(formInstanceID, formElementID, limit, filters, axiosOptions);
-            const operationBasePath = operationServerMap['CustomFormsBetaApi.searchFormElementDataByElementID']?.[0]?.url;
+            const serverMapIndex = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['CustomFormsBetaApi.searchFormElementDataByElementID']?.[serverMapIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
         /**
@@ -36019,7 +36106,8 @@ export const CustomFormsBetaApiFp = function(configuration?: Configuration) {
          */
         async searchFormInstancesByTenant(axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ListFormInstancesByTenantResponseBeta>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.searchFormInstancesByTenant(axiosOptions);
-            const operationBasePath = operationServerMap['CustomFormsBetaApi.searchFormInstancesByTenant']?.[0]?.url;
+            const serverMapIndex = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['CustomFormsBetaApi.searchFormInstancesByTenant']?.[serverMapIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
         /**
@@ -36030,7 +36118,8 @@ export const CustomFormsBetaApiFp = function(configuration?: Configuration) {
          */
         async searchPreDefinedSelectOptions(axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ListPredefinedSelectOptionsResponseBeta>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.searchPreDefinedSelectOptions(axiosOptions);
-            const operationBasePath = operationServerMap['CustomFormsBetaApi.searchPreDefinedSelectOptions']?.[0]?.url;
+            const serverMapIndex = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['CustomFormsBetaApi.searchPreDefinedSelectOptions']?.[serverMapIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
         /**
@@ -36046,7 +36135,8 @@ export const CustomFormsBetaApiFp = function(configuration?: Configuration) {
          */
         async showPreviewDataSource(formDefinitionID: string, limit?: number, filters?: string, query?: string, formElementPreviewRequestBeta?: FormElementPreviewRequestBeta, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<PreviewDataSourceResponseBeta>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.showPreviewDataSource(formDefinitionID, limit, filters, query, formElementPreviewRequestBeta, axiosOptions);
-            const operationBasePath = operationServerMap['CustomFormsBetaApi.showPreviewDataSource']?.[0]?.url;
+            const serverMapIndex = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['CustomFormsBetaApi.showPreviewDataSource']?.[serverMapIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
     }
@@ -36995,7 +37085,8 @@ export const CustomPasswordInstructionsBetaApiFp = function(configuration?: Conf
          */
         async createCustomPasswordInstructions(customPasswordInstructionBeta: CustomPasswordInstructionBeta, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<CustomPasswordInstructionBeta>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.createCustomPasswordInstructions(customPasswordInstructionBeta, axiosOptions);
-            const operationBasePath = operationServerMap['CustomPasswordInstructionsBetaApi.createCustomPasswordInstructions']?.[0]?.url;
+            const serverMapIndex = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['CustomPasswordInstructionsBetaApi.createCustomPasswordInstructions']?.[serverMapIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
         /**
@@ -37008,7 +37099,8 @@ export const CustomPasswordInstructionsBetaApiFp = function(configuration?: Conf
          */
         async deleteCustomPasswordInstructions(pageId: DeleteCustomPasswordInstructionsPageIdBeta, locale?: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.deleteCustomPasswordInstructions(pageId, locale, axiosOptions);
-            const operationBasePath = operationServerMap['CustomPasswordInstructionsBetaApi.deleteCustomPasswordInstructions']?.[0]?.url;
+            const serverMapIndex = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['CustomPasswordInstructionsBetaApi.deleteCustomPasswordInstructions']?.[serverMapIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
         /**
@@ -37021,7 +37113,8 @@ export const CustomPasswordInstructionsBetaApiFp = function(configuration?: Conf
          */
         async getCustomPasswordInstructions(pageId: GetCustomPasswordInstructionsPageIdBeta, locale?: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<CustomPasswordInstructionBeta>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getCustomPasswordInstructions(pageId, locale, axiosOptions);
-            const operationBasePath = operationServerMap['CustomPasswordInstructionsBetaApi.getCustomPasswordInstructions']?.[0]?.url;
+            const serverMapIndex = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['CustomPasswordInstructionsBetaApi.getCustomPasswordInstructions']?.[serverMapIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
     }
@@ -37672,7 +37765,8 @@ export const EntitlementsBetaApiFp = function(configuration?: Configuration) {
          */
         async getEntitlement(id: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<EntitlementBeta>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getEntitlement(id, axiosOptions);
-            const operationBasePath = operationServerMap['EntitlementsBetaApi.getEntitlement']?.[0]?.url;
+            const serverMapIndex = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['EntitlementsBetaApi.getEntitlement']?.[serverMapIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
         /**
@@ -37684,7 +37778,8 @@ export const EntitlementsBetaApiFp = function(configuration?: Configuration) {
          */
         async getEntitlementRequestConfig(id: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<EntitlementRequestConfigBeta>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getEntitlementRequestConfig(id, axiosOptions);
-            const operationBasePath = operationServerMap['EntitlementsBetaApi.getEntitlementRequestConfig']?.[0]?.url;
+            const serverMapIndex = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['EntitlementsBetaApi.getEntitlementRequestConfig']?.[serverMapIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
         /**
@@ -37701,7 +37796,8 @@ export const EntitlementsBetaApiFp = function(configuration?: Configuration) {
          */
         async listEntitlementChildren(id: string, limit?: number, offset?: number, count?: boolean, sorters?: string, filters?: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<EntitlementBeta>>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.listEntitlementChildren(id, limit, offset, count, sorters, filters, axiosOptions);
-            const operationBasePath = operationServerMap['EntitlementsBetaApi.listEntitlementChildren']?.[0]?.url;
+            const serverMapIndex = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['EntitlementsBetaApi.listEntitlementChildren']?.[serverMapIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
         /**
@@ -37718,7 +37814,8 @@ export const EntitlementsBetaApiFp = function(configuration?: Configuration) {
          */
         async listEntitlementParents(id: string, limit?: number, offset?: number, count?: boolean, sorters?: string, filters?: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<EntitlementBeta>>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.listEntitlementParents(id, limit, offset, count, sorters, filters, axiosOptions);
-            const operationBasePath = operationServerMap['EntitlementsBetaApi.listEntitlementParents']?.[0]?.url;
+            const serverMapIndex = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['EntitlementsBetaApi.listEntitlementParents']?.[serverMapIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
         /**
@@ -37738,7 +37835,8 @@ export const EntitlementsBetaApiFp = function(configuration?: Configuration) {
          */
         async listEntitlements(accountId?: string, segmentedForIdentity?: string, forSegmentIds?: string, includeUnsegmented?: boolean, offset?: number, limit?: number, count?: boolean, sorters?: string, filters?: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<EntitlementBeta>>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.listEntitlements(accountId, segmentedForIdentity, forSegmentIds, includeUnsegmented, offset, limit, count, sorters, filters, axiosOptions);
-            const operationBasePath = operationServerMap['EntitlementsBetaApi.listEntitlements']?.[0]?.url;
+            const serverMapIndex = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['EntitlementsBetaApi.listEntitlements']?.[serverMapIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
         /**
@@ -37751,7 +37849,8 @@ export const EntitlementsBetaApiFp = function(configuration?: Configuration) {
          */
         async patchEntitlement(id: string, jsonPatchOperationBeta?: Array<JsonPatchOperationBeta>, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<EntitlementBeta>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.patchEntitlement(id, jsonPatchOperationBeta, axiosOptions);
-            const operationBasePath = operationServerMap['EntitlementsBetaApi.patchEntitlement']?.[0]?.url;
+            const serverMapIndex = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['EntitlementsBetaApi.patchEntitlement']?.[serverMapIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
         /**
@@ -37764,7 +37863,8 @@ export const EntitlementsBetaApiFp = function(configuration?: Configuration) {
          */
         async putEntitlementRequestConfig(id: string, entitlementRequestConfigBeta: EntitlementRequestConfigBeta, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<EntitlementRequestConfigBeta>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.putEntitlementRequestConfig(id, entitlementRequestConfigBeta, axiosOptions);
-            const operationBasePath = operationServerMap['EntitlementsBetaApi.putEntitlementRequestConfig']?.[0]?.url;
+            const serverMapIndex = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['EntitlementsBetaApi.putEntitlementRequestConfig']?.[serverMapIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
         /**
@@ -37776,7 +37876,8 @@ export const EntitlementsBetaApiFp = function(configuration?: Configuration) {
          */
         async updateEntitlementsInBulk(entitlementBulkUpdateRequestBeta: EntitlementBulkUpdateRequestBeta, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.updateEntitlementsInBulk(entitlementBulkUpdateRequestBeta, axiosOptions);
-            const operationBasePath = operationServerMap['EntitlementsBetaApi.updateEntitlementsInBulk']?.[0]?.url;
+            const serverMapIndex = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['EntitlementsBetaApi.updateEntitlementsInBulk']?.[serverMapIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
     }
@@ -38764,7 +38865,8 @@ export const GovernanceGroupsBetaApiFp = function(configuration?: Configuration)
          */
         async createWorkgroup(workgroupDtoBeta: WorkgroupDtoBeta, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<WorkgroupDtoBeta>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.createWorkgroup(workgroupDtoBeta, axiosOptions);
-            const operationBasePath = operationServerMap['GovernanceGroupsBetaApi.createWorkgroup']?.[0]?.url;
+            const serverMapIndex = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['GovernanceGroupsBetaApi.createWorkgroup']?.[serverMapIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
         /**
@@ -38776,7 +38878,8 @@ export const GovernanceGroupsBetaApiFp = function(configuration?: Configuration)
          */
         async deleteWorkgroup(id: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.deleteWorkgroup(id, axiosOptions);
-            const operationBasePath = operationServerMap['GovernanceGroupsBetaApi.deleteWorkgroup']?.[0]?.url;
+            const serverMapIndex = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['GovernanceGroupsBetaApi.deleteWorkgroup']?.[serverMapIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
         /**
@@ -38789,7 +38892,8 @@ export const GovernanceGroupsBetaApiFp = function(configuration?: Configuration)
          */
         async deleteWorkgroupMembers(workgroupId: string, bulkWorkgroupMembersRequestInnerBeta: Array<BulkWorkgroupMembersRequestInnerBeta>, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<WorkgroupMemberDeleteItemBeta>>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.deleteWorkgroupMembers(workgroupId, bulkWorkgroupMembersRequestInnerBeta, axiosOptions);
-            const operationBasePath = operationServerMap['GovernanceGroupsBetaApi.deleteWorkgroupMembers']?.[0]?.url;
+            const serverMapIndex = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['GovernanceGroupsBetaApi.deleteWorkgroupMembers']?.[serverMapIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
         /**
@@ -38801,7 +38905,8 @@ export const GovernanceGroupsBetaApiFp = function(configuration?: Configuration)
          */
         async deleteWorkgroupsInBulk(workgroupBulkDeleteRequestBeta: WorkgroupBulkDeleteRequestBeta, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<WorkgroupDeleteItemBeta>>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.deleteWorkgroupsInBulk(workgroupBulkDeleteRequestBeta, axiosOptions);
-            const operationBasePath = operationServerMap['GovernanceGroupsBetaApi.deleteWorkgroupsInBulk']?.[0]?.url;
+            const serverMapIndex = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['GovernanceGroupsBetaApi.deleteWorkgroupsInBulk']?.[serverMapIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
         /**
@@ -38813,7 +38918,8 @@ export const GovernanceGroupsBetaApiFp = function(configuration?: Configuration)
          */
         async getWorkgroup(id: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<WorkgroupDtoBeta>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getWorkgroup(id, axiosOptions);
-            const operationBasePath = operationServerMap['GovernanceGroupsBetaApi.getWorkgroup']?.[0]?.url;
+            const serverMapIndex = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['GovernanceGroupsBetaApi.getWorkgroup']?.[serverMapIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
         /**
@@ -38829,7 +38935,8 @@ export const GovernanceGroupsBetaApiFp = function(configuration?: Configuration)
          */
         async listConnections(workgroupId: string, offset?: number, limit?: number, count?: boolean, sorters?: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<WorkgroupConnectionDtoBeta>>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.listConnections(workgroupId, offset, limit, count, sorters, axiosOptions);
-            const operationBasePath = operationServerMap['GovernanceGroupsBetaApi.listConnections']?.[0]?.url;
+            const serverMapIndex = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['GovernanceGroupsBetaApi.listConnections']?.[serverMapIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
         /**
@@ -38845,7 +38952,8 @@ export const GovernanceGroupsBetaApiFp = function(configuration?: Configuration)
          */
         async listWorkgroupMembers(workgroupId: string, offset?: number, limit?: number, count?: boolean, sorters?: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<ListWorkgroupMembers200ResponseInnerBeta>>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.listWorkgroupMembers(workgroupId, offset, limit, count, sorters, axiosOptions);
-            const operationBasePath = operationServerMap['GovernanceGroupsBetaApi.listWorkgroupMembers']?.[0]?.url;
+            const serverMapIndex = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['GovernanceGroupsBetaApi.listWorkgroupMembers']?.[serverMapIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
         /**
@@ -38861,7 +38969,8 @@ export const GovernanceGroupsBetaApiFp = function(configuration?: Configuration)
          */
         async listWorkgroups(offset?: number, limit?: number, count?: boolean, filters?: string, sorters?: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<WorkgroupDtoBeta>>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.listWorkgroups(offset, limit, count, filters, sorters, axiosOptions);
-            const operationBasePath = operationServerMap['GovernanceGroupsBetaApi.listWorkgroups']?.[0]?.url;
+            const serverMapIndex = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['GovernanceGroupsBetaApi.listWorkgroups']?.[serverMapIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
         /**
@@ -38874,7 +38983,8 @@ export const GovernanceGroupsBetaApiFp = function(configuration?: Configuration)
          */
         async patchWorkgroup(id: string, jsonPatchOperationBeta?: Array<JsonPatchOperationBeta>, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<WorkgroupDtoBeta>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.patchWorkgroup(id, jsonPatchOperationBeta, axiosOptions);
-            const operationBasePath = operationServerMap['GovernanceGroupsBetaApi.patchWorkgroup']?.[0]?.url;
+            const serverMapIndex = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['GovernanceGroupsBetaApi.patchWorkgroup']?.[serverMapIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
         /**
@@ -38887,7 +38997,8 @@ export const GovernanceGroupsBetaApiFp = function(configuration?: Configuration)
          */
         async updateWorkgroupMembers(workgroupId: string, bulkWorkgroupMembersRequestInnerBeta: Array<BulkWorkgroupMembersRequestInnerBeta>, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<WorkgroupMemberAddItemBeta>>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.updateWorkgroupMembers(workgroupId, bulkWorkgroupMembersRequestInnerBeta, axiosOptions);
-            const operationBasePath = operationServerMap['GovernanceGroupsBetaApi.updateWorkgroupMembers']?.[0]?.url;
+            const serverMapIndex = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['GovernanceGroupsBetaApi.updateWorkgroupMembers']?.[serverMapIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
     }
@@ -39851,7 +39962,8 @@ export const IAIAccessRequestRecommendationsBetaApiFp = function(configuration?:
          */
         async addAccessRequestRecommendationsIgnoredItem(accessRequestRecommendationActionItemDtoBeta: AccessRequestRecommendationActionItemDtoBeta, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<AccessRequestRecommendationActionItemResponseDtoBeta>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.addAccessRequestRecommendationsIgnoredItem(accessRequestRecommendationActionItemDtoBeta, axiosOptions);
-            const operationBasePath = operationServerMap['IAIAccessRequestRecommendationsBetaApi.addAccessRequestRecommendationsIgnoredItem']?.[0]?.url;
+            const serverMapIndex = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['IAIAccessRequestRecommendationsBetaApi.addAccessRequestRecommendationsIgnoredItem']?.[serverMapIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
         /**
@@ -39863,7 +39975,8 @@ export const IAIAccessRequestRecommendationsBetaApiFp = function(configuration?:
          */
         async addAccessRequestRecommendationsRequestedItem(accessRequestRecommendationActionItemDtoBeta: AccessRequestRecommendationActionItemDtoBeta, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<AccessRequestRecommendationActionItemResponseDtoBeta>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.addAccessRequestRecommendationsRequestedItem(accessRequestRecommendationActionItemDtoBeta, axiosOptions);
-            const operationBasePath = operationServerMap['IAIAccessRequestRecommendationsBetaApi.addAccessRequestRecommendationsRequestedItem']?.[0]?.url;
+            const serverMapIndex = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['IAIAccessRequestRecommendationsBetaApi.addAccessRequestRecommendationsRequestedItem']?.[serverMapIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
         /**
@@ -39875,7 +39988,8 @@ export const IAIAccessRequestRecommendationsBetaApiFp = function(configuration?:
          */
         async addAccessRequestRecommendationsViewedItem(accessRequestRecommendationActionItemDtoBeta: AccessRequestRecommendationActionItemDtoBeta, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<AccessRequestRecommendationActionItemResponseDtoBeta>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.addAccessRequestRecommendationsViewedItem(accessRequestRecommendationActionItemDtoBeta, axiosOptions);
-            const operationBasePath = operationServerMap['IAIAccessRequestRecommendationsBetaApi.addAccessRequestRecommendationsViewedItem']?.[0]?.url;
+            const serverMapIndex = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['IAIAccessRequestRecommendationsBetaApi.addAccessRequestRecommendationsViewedItem']?.[serverMapIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
         /**
@@ -39887,7 +40001,8 @@ export const IAIAccessRequestRecommendationsBetaApiFp = function(configuration?:
          */
         async addAccessRequestRecommendationsViewedItems(accessRequestRecommendationActionItemDtoBeta: Array<AccessRequestRecommendationActionItemDtoBeta>, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<AccessRequestRecommendationActionItemResponseDtoBeta>>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.addAccessRequestRecommendationsViewedItems(accessRequestRecommendationActionItemDtoBeta, axiosOptions);
-            const operationBasePath = operationServerMap['IAIAccessRequestRecommendationsBetaApi.addAccessRequestRecommendationsViewedItems']?.[0]?.url;
+            const serverMapIndex = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['IAIAccessRequestRecommendationsBetaApi.addAccessRequestRecommendationsViewedItems']?.[serverMapIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
         /**
@@ -39905,7 +40020,8 @@ export const IAIAccessRequestRecommendationsBetaApiFp = function(configuration?:
          */
         async getAccessRequestRecommendations(identityId?: string, limit?: number, offset?: number, count?: boolean, includeTranslationMessages?: boolean, filters?: string, sorters?: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<AccessRequestRecommendationItemDetailBeta>>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getAccessRequestRecommendations(identityId, limit, offset, count, includeTranslationMessages, filters, sorters, axiosOptions);
-            const operationBasePath = operationServerMap['IAIAccessRequestRecommendationsBetaApi.getAccessRequestRecommendations']?.[0]?.url;
+            const serverMapIndex = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['IAIAccessRequestRecommendationsBetaApi.getAccessRequestRecommendations']?.[serverMapIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
         /**
@@ -39921,7 +40037,8 @@ export const IAIAccessRequestRecommendationsBetaApiFp = function(configuration?:
          */
         async getAccessRequestRecommendationsIgnoredItems(limit?: number, offset?: number, count?: boolean, filters?: string, sorters?: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<AccessRequestRecommendationActionItemResponseDtoBeta>>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getAccessRequestRecommendationsIgnoredItems(limit, offset, count, filters, sorters, axiosOptions);
-            const operationBasePath = operationServerMap['IAIAccessRequestRecommendationsBetaApi.getAccessRequestRecommendationsIgnoredItems']?.[0]?.url;
+            const serverMapIndex = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['IAIAccessRequestRecommendationsBetaApi.getAccessRequestRecommendationsIgnoredItems']?.[serverMapIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
         /**
@@ -39937,7 +40054,8 @@ export const IAIAccessRequestRecommendationsBetaApiFp = function(configuration?:
          */
         async getAccessRequestRecommendationsRequestedItems(limit?: number, offset?: number, count?: boolean, filters?: string, sorters?: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<AccessRequestRecommendationActionItemResponseDtoBeta>>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getAccessRequestRecommendationsRequestedItems(limit, offset, count, filters, sorters, axiosOptions);
-            const operationBasePath = operationServerMap['IAIAccessRequestRecommendationsBetaApi.getAccessRequestRecommendationsRequestedItems']?.[0]?.url;
+            const serverMapIndex = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['IAIAccessRequestRecommendationsBetaApi.getAccessRequestRecommendationsRequestedItems']?.[serverMapIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
         /**
@@ -39953,7 +40071,8 @@ export const IAIAccessRequestRecommendationsBetaApiFp = function(configuration?:
          */
         async getAccessRequestRecommendationsViewedItems(limit?: number, offset?: number, count?: boolean, filters?: string, sorters?: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<AccessRequestRecommendationActionItemResponseDtoBeta>>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getAccessRequestRecommendationsViewedItems(limit, offset, count, filters, sorters, axiosOptions);
-            const operationBasePath = operationServerMap['IAIAccessRequestRecommendationsBetaApi.getAccessRequestRecommendationsViewedItems']?.[0]?.url;
+            const serverMapIndex = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['IAIAccessRequestRecommendationsBetaApi.getAccessRequestRecommendationsViewedItems']?.[serverMapIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
     }
@@ -40577,7 +40696,8 @@ export const IAICommonAccessBetaApiFp = function(configuration?: Configuration) 
          */
         async createCommonAccess(commonAccessItemRequestBeta: CommonAccessItemRequestBeta, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<CommonAccessItemResponseBeta>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.createCommonAccess(commonAccessItemRequestBeta, axiosOptions);
-            const operationBasePath = operationServerMap['IAICommonAccessBetaApi.createCommonAccess']?.[0]?.url;
+            const serverMapIndex = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['IAICommonAccessBetaApi.createCommonAccess']?.[serverMapIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
         /**
@@ -40593,7 +40713,8 @@ export const IAICommonAccessBetaApiFp = function(configuration?: Configuration) 
          */
         async getCommonAccess(offset?: number, limit?: number, count?: boolean, filters?: string, sorters?: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<CommonAccessResponseBeta>>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getCommonAccess(offset, limit, count, filters, sorters, axiosOptions);
-            const operationBasePath = operationServerMap['IAICommonAccessBetaApi.getCommonAccess']?.[0]?.url;
+            const serverMapIndex = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['IAICommonAccessBetaApi.getCommonAccess']?.[serverMapIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
         /**
@@ -40605,7 +40726,8 @@ export const IAICommonAccessBetaApiFp = function(configuration?: Configuration) 
          */
         async updateCommonAccessStatusInBulk(commonAccessIDStatusBeta: Array<CommonAccessIDStatusBeta>, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<object>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.updateCommonAccessStatusInBulk(commonAccessIDStatusBeta, axiosOptions);
-            const operationBasePath = operationServerMap['IAICommonAccessBetaApi.updateCommonAccessStatusInBulk']?.[0]?.url;
+            const serverMapIndex = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['IAICommonAccessBetaApi.updateCommonAccessStatusInBulk']?.[serverMapIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
     }
@@ -40837,7 +40959,8 @@ export const IAIMessageCatalogsBetaApiFp = function(configuration?: Configuratio
          */
         async getMessageCatalogs(catalogId: GetMessageCatalogsCatalogIdBeta, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<MessageCatalogDtoBeta>>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getMessageCatalogs(catalogId, axiosOptions);
-            const operationBasePath = operationServerMap['IAIMessageCatalogsBetaApi.getMessageCatalogs']?.[0]?.url;
+            const serverMapIndex = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['IAIMessageCatalogsBetaApi.getMessageCatalogs']?.[serverMapIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
     }
@@ -41418,7 +41541,8 @@ export const IAIOutliersBetaApiFp = function(configuration?: Configuration) {
          */
         async exportOutliersZip(type?: ExportOutliersZipTypeBeta, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<File>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.exportOutliersZip(type, axiosOptions);
-            const operationBasePath = operationServerMap['IAIOutliersBetaApi.exportOutliersZip']?.[0]?.url;
+            const serverMapIndex = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['IAIOutliersBetaApi.exportOutliersZip']?.[serverMapIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
         /**
@@ -41434,7 +41558,8 @@ export const IAIOutliersBetaApiFp = function(configuration?: Configuration) {
          */
         async getIdentityOutlierSnapshots(limit?: number, offset?: number, type?: GetIdentityOutlierSnapshotsTypeBeta, filters?: string, sorters?: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<OutlierSummaryBeta>>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getIdentityOutlierSnapshots(limit, offset, type, filters, sorters, axiosOptions);
-            const operationBasePath = operationServerMap['IAIOutliersBetaApi.getIdentityOutlierSnapshots']?.[0]?.url;
+            const serverMapIndex = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['IAIOutliersBetaApi.getIdentityOutlierSnapshots']?.[serverMapIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
         /**
@@ -41451,7 +41576,8 @@ export const IAIOutliersBetaApiFp = function(configuration?: Configuration) {
          */
         async getIdentityOutliers(limit?: number, offset?: number, count?: boolean, type?: GetIdentityOutliersTypeBeta, filters?: string, sorters?: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<OutlierBeta>>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getIdentityOutliers(limit, offset, count, type, filters, sorters, axiosOptions);
-            const operationBasePath = operationServerMap['IAIOutliersBetaApi.getIdentityOutliers']?.[0]?.url;
+            const serverMapIndex = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['IAIOutliersBetaApi.getIdentityOutliers']?.[serverMapIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
         /**
@@ -41463,7 +41589,8 @@ export const IAIOutliersBetaApiFp = function(configuration?: Configuration) {
          */
         async getLatestIdentityOutlierSnapshots(type?: GetLatestIdentityOutlierSnapshotsTypeBeta, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<LatestOutlierSummaryBeta>>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getLatestIdentityOutlierSnapshots(type, axiosOptions);
-            const operationBasePath = operationServerMap['IAIOutliersBetaApi.getLatestIdentityOutlierSnapshots']?.[0]?.url;
+            const serverMapIndex = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['IAIOutliersBetaApi.getLatestIdentityOutlierSnapshots']?.[serverMapIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
         /**
@@ -41475,7 +41602,8 @@ export const IAIOutliersBetaApiFp = function(configuration?: Configuration) {
          */
         async getOutlierContributingFeatureSummary(outlierFeatureId: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<OutlierFeatureSummaryBeta>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getOutlierContributingFeatureSummary(outlierFeatureId, axiosOptions);
-            const operationBasePath = operationServerMap['IAIOutliersBetaApi.getOutlierContributingFeatureSummary']?.[0]?.url;
+            const serverMapIndex = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['IAIOutliersBetaApi.getOutlierContributingFeatureSummary']?.[serverMapIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
         /**
@@ -41492,7 +41620,8 @@ export const IAIOutliersBetaApiFp = function(configuration?: Configuration) {
          */
         async getPeerGroupOutliersContributingFeatures(outlierId: string, limit?: number, offset?: number, count?: boolean, includeTranslationMessages?: string, sorters?: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<OutlierContributingFeatureBeta>>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getPeerGroupOutliersContributingFeatures(outlierId, limit, offset, count, includeTranslationMessages, sorters, axiosOptions);
-            const operationBasePath = operationServerMap['IAIOutliersBetaApi.getPeerGroupOutliersContributingFeatures']?.[0]?.url;
+            const serverMapIndex = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['IAIOutliersBetaApi.getPeerGroupOutliersContributingFeatures']?.[serverMapIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
         /**
@@ -41504,7 +41633,8 @@ export const IAIOutliersBetaApiFp = function(configuration?: Configuration) {
          */
         async ignoreIdentityOutliers(requestBody: Array<string>, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.ignoreIdentityOutliers(requestBody, axiosOptions);
-            const operationBasePath = operationServerMap['IAIOutliersBetaApi.ignoreIdentityOutliers']?.[0]?.url;
+            const serverMapIndex = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['IAIOutliersBetaApi.ignoreIdentityOutliers']?.[serverMapIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
         /**
@@ -41522,7 +41652,8 @@ export const IAIOutliersBetaApiFp = function(configuration?: Configuration) {
          */
         async listOutliersContributingFeatureAccessItems(outlierId: string, contributingFeatureName: ListOutliersContributingFeatureAccessItemsContributingFeatureNameBeta, limit?: number, offset?: number, count?: boolean, accessType?: string, sorters?: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<OutliersContributingFeatureAccessItemsBeta>>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.listOutliersContributingFeatureAccessItems(outlierId, contributingFeatureName, limit, offset, count, accessType, sorters, axiosOptions);
-            const operationBasePath = operationServerMap['IAIOutliersBetaApi.listOutliersContributingFeatureAccessItems']?.[0]?.url;
+            const serverMapIndex = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['IAIOutliersBetaApi.listOutliersContributingFeatureAccessItems']?.[serverMapIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
         /**
@@ -41534,7 +41665,8 @@ export const IAIOutliersBetaApiFp = function(configuration?: Configuration) {
          */
         async unIgnoreIdentityOutliers(requestBody: Array<string>, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.unIgnoreIdentityOutliers(requestBody, axiosOptions);
-            const operationBasePath = operationServerMap['IAIOutliersBetaApi.unIgnoreIdentityOutliers']?.[0]?.url;
+            const serverMapIndex = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['IAIOutliersBetaApi.unIgnoreIdentityOutliers']?.[serverMapIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
     }
@@ -42164,7 +42296,8 @@ export const IAIPeerGroupStrategiesBetaApiFp = function(configuration?: Configur
          */
         async getPeerGroupOutliers(strategy: string, limit?: number, offset?: number, count?: boolean, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<PeerGroupMemberBeta>>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getPeerGroupOutliers(strategy, limit, offset, count, axiosOptions);
-            const operationBasePath = operationServerMap['IAIPeerGroupStrategiesBetaApi.getPeerGroupOutliers']?.[0]?.url;
+            const serverMapIndex = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['IAIPeerGroupStrategiesBetaApi.getPeerGroupOutliers']?.[serverMapIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
     }
@@ -42401,7 +42534,8 @@ export const IAIRecommendationsBetaApiFp = function(configuration?: Configuratio
          */
         async getRecommendations(recommendationRequestDtoBeta: RecommendationRequestDtoBeta, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<RecommendationResponseDtoBeta>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getRecommendations(recommendationRequestDtoBeta, axiosOptions);
-            const operationBasePath = operationServerMap['IAIRecommendationsBetaApi.getRecommendations']?.[0]?.url;
+            const serverMapIndex = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['IAIRecommendationsBetaApi.getRecommendations']?.[serverMapIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
         /**
@@ -42412,7 +42546,8 @@ export const IAIRecommendationsBetaApiFp = function(configuration?: Configuratio
          */
         async getRecommendationsConfig(axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<RecommendationConfigDtoBeta>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getRecommendationsConfig(axiosOptions);
-            const operationBasePath = operationServerMap['IAIRecommendationsBetaApi.getRecommendationsConfig']?.[0]?.url;
+            const serverMapIndex = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['IAIRecommendationsBetaApi.getRecommendationsConfig']?.[serverMapIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
         /**
@@ -42424,7 +42559,8 @@ export const IAIRecommendationsBetaApiFp = function(configuration?: Configuratio
          */
         async updateRecommendationsConfig(recommendationConfigDtoBeta: RecommendationConfigDtoBeta, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<RecommendationConfigDtoBeta>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.updateRecommendationsConfig(recommendationConfigDtoBeta, axiosOptions);
-            const operationBasePath = operationServerMap['IAIRecommendationsBetaApi.updateRecommendationsConfig']?.[0]?.url;
+            const serverMapIndex = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['IAIRecommendationsBetaApi.updateRecommendationsConfig']?.[serverMapIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
     }
@@ -43897,7 +44033,8 @@ export const IAIRoleMiningBetaApiFp = function(configuration?: Configuration) {
          */
         async createPotentialRoleProvisionRequest(sessionId: string, potentialRoleId: string, minEntitlementPopularity?: number, includeCommonAccess?: boolean, roleMiningPotentialRoleProvisionRequestBeta?: RoleMiningPotentialRoleProvisionRequestBeta, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<RoleMiningPotentialRoleSummaryBeta>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.createPotentialRoleProvisionRequest(sessionId, potentialRoleId, minEntitlementPopularity, includeCommonAccess, roleMiningPotentialRoleProvisionRequestBeta, axiosOptions);
-            const operationBasePath = operationServerMap['IAIRoleMiningBetaApi.createPotentialRoleProvisionRequest']?.[0]?.url;
+            const serverMapIndex = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['IAIRoleMiningBetaApi.createPotentialRoleProvisionRequest']?.[serverMapIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
         /**
@@ -43909,7 +44046,8 @@ export const IAIRoleMiningBetaApiFp = function(configuration?: Configuration) {
          */
         async createRoleMiningSessions(roleMiningSessionDtoBeta: RoleMiningSessionDtoBeta, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<RoleMiningSessionResponseBeta>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.createRoleMiningSessions(roleMiningSessionDtoBeta, axiosOptions);
-            const operationBasePath = operationServerMap['IAIRoleMiningBetaApi.createRoleMiningSessions']?.[0]?.url;
+            const serverMapIndex = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['IAIRoleMiningBetaApi.createRoleMiningSessions']?.[serverMapIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
         /**
@@ -43923,7 +44061,8 @@ export const IAIRoleMiningBetaApiFp = function(configuration?: Configuration) {
          */
         async downloadRoleMiningPotentialRoleZip(sessionId: string, potentialRoleId: string, exportId: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<File>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.downloadRoleMiningPotentialRoleZip(sessionId, potentialRoleId, exportId, axiosOptions);
-            const operationBasePath = operationServerMap['IAIRoleMiningBetaApi.downloadRoleMiningPotentialRoleZip']?.[0]?.url;
+            const serverMapIndex = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['IAIRoleMiningBetaApi.downloadRoleMiningPotentialRoleZip']?.[serverMapIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
         /**
@@ -43936,7 +44075,8 @@ export const IAIRoleMiningBetaApiFp = function(configuration?: Configuration) {
          */
         async exportRoleMiningPotentialRole(sessionId: string, potentialRoleId: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<File>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.exportRoleMiningPotentialRole(sessionId, potentialRoleId, axiosOptions);
-            const operationBasePath = operationServerMap['IAIRoleMiningBetaApi.exportRoleMiningPotentialRole']?.[0]?.url;
+            const serverMapIndex = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['IAIRoleMiningBetaApi.exportRoleMiningPotentialRole']?.[serverMapIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
         /**
@@ -43950,7 +44090,8 @@ export const IAIRoleMiningBetaApiFp = function(configuration?: Configuration) {
          */
         async exportRoleMiningPotentialRoleAsync(sessionId: string, potentialRoleId: string, roleMiningPotentialRoleExportRequestBeta?: RoleMiningPotentialRoleExportRequestBeta, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<RoleMiningPotentialRoleExportResponseBeta>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.exportRoleMiningPotentialRoleAsync(sessionId, potentialRoleId, roleMiningPotentialRoleExportRequestBeta, axiosOptions);
-            const operationBasePath = operationServerMap['IAIRoleMiningBetaApi.exportRoleMiningPotentialRoleAsync']?.[0]?.url;
+            const serverMapIndex = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['IAIRoleMiningBetaApi.exportRoleMiningPotentialRoleAsync']?.[serverMapIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
         /**
@@ -43964,7 +44105,8 @@ export const IAIRoleMiningBetaApiFp = function(configuration?: Configuration) {
          */
         async exportRoleMiningPotentialRoleStatus(sessionId: string, potentialRoleId: string, exportId: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<RoleMiningPotentialRoleExportResponseBeta>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.exportRoleMiningPotentialRoleStatus(sessionId, potentialRoleId, exportId, axiosOptions);
-            const operationBasePath = operationServerMap['IAIRoleMiningBetaApi.exportRoleMiningPotentialRoleStatus']?.[0]?.url;
+            const serverMapIndex = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['IAIRoleMiningBetaApi.exportRoleMiningPotentialRoleStatus']?.[serverMapIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
         /**
@@ -43980,7 +44122,8 @@ export const IAIRoleMiningBetaApiFp = function(configuration?: Configuration) {
          */
         async getAllPotentialRoleSummaries(sorters?: string, filters?: string, offset?: number, limit?: number, count?: boolean, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<RoleMiningPotentialRoleSummaryBeta>>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getAllPotentialRoleSummaries(sorters, filters, offset, limit, count, axiosOptions);
-            const operationBasePath = operationServerMap['IAIRoleMiningBetaApi.getAllPotentialRoleSummaries']?.[0]?.url;
+            const serverMapIndex = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['IAIRoleMiningBetaApi.getAllPotentialRoleSummaries']?.[serverMapIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
         /**
@@ -43994,7 +44137,8 @@ export const IAIRoleMiningBetaApiFp = function(configuration?: Configuration) {
          */
         async getEntitlementDistributionPotentialRole(sessionId: string, potentialRoleId: string, includeCommonAccess?: boolean, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<{ [key: string]: number; }>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getEntitlementDistributionPotentialRole(sessionId, potentialRoleId, includeCommonAccess, axiosOptions);
-            const operationBasePath = operationServerMap['IAIRoleMiningBetaApi.getEntitlementDistributionPotentialRole']?.[0]?.url;
+            const serverMapIndex = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['IAIRoleMiningBetaApi.getEntitlementDistributionPotentialRole']?.[serverMapIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
         /**
@@ -44013,7 +44157,8 @@ export const IAIRoleMiningBetaApiFp = function(configuration?: Configuration) {
          */
         async getEntitlementsPotentialRole(sessionId: string, potentialRoleId: string, includeCommonAccess?: boolean, sorters?: string, filters?: string, offset?: number, limit?: number, count?: boolean, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<RoleMiningEntitlementBeta>>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getEntitlementsPotentialRole(sessionId, potentialRoleId, includeCommonAccess, sorters, filters, offset, limit, count, axiosOptions);
-            const operationBasePath = operationServerMap['IAIRoleMiningBetaApi.getEntitlementsPotentialRole']?.[0]?.url;
+            const serverMapIndex = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['IAIRoleMiningBetaApi.getEntitlementsPotentialRole']?.[serverMapIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
         /**
@@ -44031,7 +44176,8 @@ export const IAIRoleMiningBetaApiFp = function(configuration?: Configuration) {
          */
         async getExcludedEntitlementsPotentialRole(sessionId: string, potentialRoleId: string, sorters?: string, filters?: string, offset?: number, limit?: number, count?: boolean, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<RoleMiningEntitlementBeta>>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getExcludedEntitlementsPotentialRole(sessionId, potentialRoleId, sorters, filters, offset, limit, count, axiosOptions);
-            const operationBasePath = operationServerMap['IAIRoleMiningBetaApi.getExcludedEntitlementsPotentialRole']?.[0]?.url;
+            const serverMapIndex = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['IAIRoleMiningBetaApi.getExcludedEntitlementsPotentialRole']?.[serverMapIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
         /**
@@ -44049,7 +44195,8 @@ export const IAIRoleMiningBetaApiFp = function(configuration?: Configuration) {
          */
         async getIdentitiesPotentialRole(sessionId: string, potentialRoleId: string, sorters?: string, filters?: string, offset?: number, limit?: number, count?: boolean, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<RoleMiningIdentityBeta>>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getIdentitiesPotentialRole(sessionId, potentialRoleId, sorters, filters, offset, limit, count, axiosOptions);
-            const operationBasePath = operationServerMap['IAIRoleMiningBetaApi.getIdentitiesPotentialRole']?.[0]?.url;
+            const serverMapIndex = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['IAIRoleMiningBetaApi.getIdentitiesPotentialRole']?.[serverMapIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
         /**
@@ -44062,7 +44209,8 @@ export const IAIRoleMiningBetaApiFp = function(configuration?: Configuration) {
          */
         async getPotentialRole(sessionId: string, potentialRoleId: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<RoleMiningPotentialRoleBeta>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getPotentialRole(sessionId, potentialRoleId, axiosOptions);
-            const operationBasePath = operationServerMap['IAIRoleMiningBetaApi.getPotentialRole']?.[0]?.url;
+            const serverMapIndex = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['IAIRoleMiningBetaApi.getPotentialRole']?.[serverMapIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
         /**
@@ -44078,7 +44226,8 @@ export const IAIRoleMiningBetaApiFp = function(configuration?: Configuration) {
          */
         async getPotentialRoleApplications(sessionId: string, potentialRoleId: string, offset?: number, limit?: number, count?: boolean, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<RoleMiningPotentialRoleApplicationBeta>>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getPotentialRoleApplications(sessionId, potentialRoleId, offset, limit, count, axiosOptions);
-            const operationBasePath = operationServerMap['IAIRoleMiningBetaApi.getPotentialRoleApplications']?.[0]?.url;
+            const serverMapIndex = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['IAIRoleMiningBetaApi.getPotentialRoleApplications']?.[serverMapIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
         /**
@@ -44095,7 +44244,8 @@ export const IAIRoleMiningBetaApiFp = function(configuration?: Configuration) {
          */
         async getPotentialRoleSourceIdentityUsage(potentialRoleId: string, sourceId: string, sorters?: string, offset?: number, limit?: number, count?: boolean, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<RoleMiningPotentialRoleSourceUsageBeta>>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getPotentialRoleSourceIdentityUsage(potentialRoleId, sourceId, sorters, offset, limit, count, axiosOptions);
-            const operationBasePath = operationServerMap['IAIRoleMiningBetaApi.getPotentialRoleSourceIdentityUsage']?.[0]?.url;
+            const serverMapIndex = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['IAIRoleMiningBetaApi.getPotentialRoleSourceIdentityUsage']?.[serverMapIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
         /**
@@ -44112,7 +44262,8 @@ export const IAIRoleMiningBetaApiFp = function(configuration?: Configuration) {
          */
         async getPotentialRoleSummaries(sessionId: string, sorters?: string, filters?: string, offset?: number, limit?: number, count?: boolean, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<RoleMiningPotentialRoleSummaryBeta>>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getPotentialRoleSummaries(sessionId, sorters, filters, offset, limit, count, axiosOptions);
-            const operationBasePath = operationServerMap['IAIRoleMiningBetaApi.getPotentialRoleSummaries']?.[0]?.url;
+            const serverMapIndex = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['IAIRoleMiningBetaApi.getPotentialRoleSummaries']?.[serverMapIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
         /**
@@ -44124,7 +44275,8 @@ export const IAIRoleMiningBetaApiFp = function(configuration?: Configuration) {
          */
         async getRoleMiningPotentialRole(potentialRoleId: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<RoleMiningPotentialRoleBeta>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getRoleMiningPotentialRole(potentialRoleId, axiosOptions);
-            const operationBasePath = operationServerMap['IAIRoleMiningBetaApi.getRoleMiningPotentialRole']?.[0]?.url;
+            const serverMapIndex = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['IAIRoleMiningBetaApi.getRoleMiningPotentialRole']?.[serverMapIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
         /**
@@ -44136,7 +44288,8 @@ export const IAIRoleMiningBetaApiFp = function(configuration?: Configuration) {
          */
         async getRoleMiningSession(sessionId: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<RoleMiningSessionResponseBeta>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getRoleMiningSession(sessionId, axiosOptions);
-            const operationBasePath = operationServerMap['IAIRoleMiningBetaApi.getRoleMiningSession']?.[0]?.url;
+            const serverMapIndex = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['IAIRoleMiningBetaApi.getRoleMiningSession']?.[serverMapIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
         /**
@@ -44148,7 +44301,8 @@ export const IAIRoleMiningBetaApiFp = function(configuration?: Configuration) {
          */
         async getRoleMiningSessionStatus(sessionId: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<RoleMiningSessionStatusBeta>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getRoleMiningSessionStatus(sessionId, axiosOptions);
-            const operationBasePath = operationServerMap['IAIRoleMiningBetaApi.getRoleMiningSessionStatus']?.[0]?.url;
+            const serverMapIndex = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['IAIRoleMiningBetaApi.getRoleMiningSessionStatus']?.[serverMapIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
         /**
@@ -44164,7 +44318,8 @@ export const IAIRoleMiningBetaApiFp = function(configuration?: Configuration) {
          */
         async getRoleMiningSessions(filters?: string, sorters?: string, offset?: number, limit?: number, count?: boolean, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<RoleMiningSessionDtoBeta>>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getRoleMiningSessions(filters, sorters, offset, limit, count, axiosOptions);
-            const operationBasePath = operationServerMap['IAIRoleMiningBetaApi.getRoleMiningSessions']?.[0]?.url;
+            const serverMapIndex = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['IAIRoleMiningBetaApi.getRoleMiningSessions']?.[serverMapIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
         /**
@@ -44179,7 +44334,8 @@ export const IAIRoleMiningBetaApiFp = function(configuration?: Configuration) {
          */
         async getSavedPotentialRoles(sorters?: string, offset?: number, limit?: number, count?: boolean, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<RoleMiningSessionDraftRoleDtoBeta>>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getSavedPotentialRoles(sorters, offset, limit, count, axiosOptions);
-            const operationBasePath = operationServerMap['IAIRoleMiningBetaApi.getSavedPotentialRoles']?.[0]?.url;
+            const serverMapIndex = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['IAIRoleMiningBetaApi.getSavedPotentialRoles']?.[serverMapIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
         /**
@@ -44193,7 +44349,8 @@ export const IAIRoleMiningBetaApiFp = function(configuration?: Configuration) {
          */
         async patchPotentialRole(sessionId: string, potentialRoleId: string, patchPotentialRoleRequestInnerBeta: Array<PatchPotentialRoleRequestInnerBeta>, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<object>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.patchPotentialRole(sessionId, potentialRoleId, patchPotentialRoleRequestInnerBeta, axiosOptions);
-            const operationBasePath = operationServerMap['IAIRoleMiningBetaApi.patchPotentialRole']?.[0]?.url;
+            const serverMapIndex = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['IAIRoleMiningBetaApi.patchPotentialRole']?.[serverMapIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
         /**
@@ -44207,7 +44364,8 @@ export const IAIRoleMiningBetaApiFp = function(configuration?: Configuration) {
          */
         async patchPotentialRole_1(sessionId: string, potentialRoleId: string, patchPotentialRoleRequestInnerBeta: Array<PatchPotentialRoleRequestInnerBeta>, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<object>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.patchPotentialRole_1(sessionId, potentialRoleId, patchPotentialRoleRequestInnerBeta, axiosOptions);
-            const operationBasePath = operationServerMap['IAIRoleMiningBetaApi.patchPotentialRole_1']?.[0]?.url;
+            const serverMapIndex = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['IAIRoleMiningBetaApi.patchPotentialRole_1']?.[serverMapIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
         /**
@@ -44220,7 +44378,8 @@ export const IAIRoleMiningBetaApiFp = function(configuration?: Configuration) {
          */
         async patchRoleMiningSession(sessionId: string, jsonPatchOperationBeta: Array<JsonPatchOperationBeta>, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<object>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.patchRoleMiningSession(sessionId, jsonPatchOperationBeta, axiosOptions);
-            const operationBasePath = operationServerMap['IAIRoleMiningBetaApi.patchRoleMiningSession']?.[0]?.url;
+            const serverMapIndex = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['IAIRoleMiningBetaApi.patchRoleMiningSession']?.[serverMapIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
         /**
@@ -44234,7 +44393,8 @@ export const IAIRoleMiningBetaApiFp = function(configuration?: Configuration) {
          */
         async updateEntitlementsPotentialRole(sessionId: string, potentialRoleId: string, roleMiningPotentialRoleEditEntitlementsBeta: RoleMiningPotentialRoleEditEntitlementsBeta, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<RoleMiningPotentialRoleBeta>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.updateEntitlementsPotentialRole(sessionId, potentialRoleId, roleMiningPotentialRoleEditEntitlementsBeta, axiosOptions);
-            const operationBasePath = operationServerMap['IAIRoleMiningBetaApi.updateEntitlementsPotentialRole']?.[0]?.url;
+            const serverMapIndex = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['IAIRoleMiningBetaApi.updateEntitlementsPotentialRole']?.[serverMapIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
     }
@@ -45908,7 +46068,8 @@ export const IdentitiesBetaApiFp = function(configuration?: Configuration) {
          */
         async deleteIdentity(id: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.deleteIdentity(id, axiosOptions);
-            const operationBasePath = operationServerMap['IdentitiesBetaApi.deleteIdentity']?.[0]?.url;
+            const serverMapIndex = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['IdentitiesBetaApi.deleteIdentity']?.[serverMapIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
         /**
@@ -45920,7 +46081,8 @@ export const IdentitiesBetaApiFp = function(configuration?: Configuration) {
          */
         async getIdentity(id: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<IdentityBeta>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getIdentity(id, axiosOptions);
-            const operationBasePath = operationServerMap['IdentitiesBetaApi.getIdentity']?.[0]?.url;
+            const serverMapIndex = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['IdentitiesBetaApi.getIdentity']?.[serverMapIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
         /**
@@ -45932,7 +46094,8 @@ export const IdentitiesBetaApiFp = function(configuration?: Configuration) {
          */
         async getIdentityOwnershipDetails(identityId: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<IdentityOwnershipAssociationDetailsBeta>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getIdentityOwnershipDetails(identityId, axiosOptions);
-            const operationBasePath = operationServerMap['IdentitiesBetaApi.getIdentityOwnershipDetails']?.[0]?.url;
+            const serverMapIndex = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['IdentitiesBetaApi.getIdentityOwnershipDetails']?.[serverMapIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
         /**
@@ -45949,7 +46112,8 @@ export const IdentitiesBetaApiFp = function(configuration?: Configuration) {
          */
         async listIdentities(filters?: string, sorters?: string, defaultFilter?: ListIdentitiesDefaultFilterBeta, count?: boolean, limit?: number, offset?: number, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<IdentityBeta>>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.listIdentities(filters, sorters, defaultFilter, count, limit, offset, axiosOptions);
-            const operationBasePath = operationServerMap['IdentitiesBetaApi.listIdentities']?.[0]?.url;
+            const serverMapIndex = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['IdentitiesBetaApi.listIdentities']?.[serverMapIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
         /**
@@ -45961,7 +46125,8 @@ export const IdentitiesBetaApiFp = function(configuration?: Configuration) {
          */
         async startIdentityProcessing(processIdentitiesRequestBeta: ProcessIdentitiesRequestBeta, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<TaskResultResponseBeta>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.startIdentityProcessing(processIdentitiesRequestBeta, axiosOptions);
-            const operationBasePath = operationServerMap['IdentitiesBetaApi.startIdentityProcessing']?.[0]?.url;
+            const serverMapIndex = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['IdentitiesBetaApi.startIdentityProcessing']?.[serverMapIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
         /**
@@ -45973,7 +46138,8 @@ export const IdentitiesBetaApiFp = function(configuration?: Configuration) {
          */
         async synchronizeAttributesForIdentity(identityId: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<IdentitySyncJobBeta>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.synchronizeAttributesForIdentity(identityId, axiosOptions);
-            const operationBasePath = operationServerMap['IdentitiesBetaApi.synchronizeAttributesForIdentity']?.[0]?.url;
+            const serverMapIndex = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['IdentitiesBetaApi.synchronizeAttributesForIdentity']?.[serverMapIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
     }
@@ -46567,7 +46733,8 @@ export const IdentityAttributesBetaApiFp = function(configuration?: Configuratio
          */
         async createIdentityAttribute(identityAttributeBeta: IdentityAttributeBeta, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<IdentityAttributeBeta>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.createIdentityAttribute(identityAttributeBeta, axiosOptions);
-            const operationBasePath = operationServerMap['IdentityAttributesBetaApi.createIdentityAttribute']?.[0]?.url;
+            const serverMapIndex = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['IdentityAttributesBetaApi.createIdentityAttribute']?.[serverMapIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
         /**
@@ -46579,7 +46746,8 @@ export const IdentityAttributesBetaApiFp = function(configuration?: Configuratio
          */
         async deleteIdentityAttribute(name: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.deleteIdentityAttribute(name, axiosOptions);
-            const operationBasePath = operationServerMap['IdentityAttributesBetaApi.deleteIdentityAttribute']?.[0]?.url;
+            const serverMapIndex = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['IdentityAttributesBetaApi.deleteIdentityAttribute']?.[serverMapIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
         /**
@@ -46591,7 +46759,8 @@ export const IdentityAttributesBetaApiFp = function(configuration?: Configuratio
          */
         async deleteIdentityAttributesInBulk(identityAttributeNamesBeta: IdentityAttributeNamesBeta, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.deleteIdentityAttributesInBulk(identityAttributeNamesBeta, axiosOptions);
-            const operationBasePath = operationServerMap['IdentityAttributesBetaApi.deleteIdentityAttributesInBulk']?.[0]?.url;
+            const serverMapIndex = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['IdentityAttributesBetaApi.deleteIdentityAttributesInBulk']?.[serverMapIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
         /**
@@ -46603,7 +46772,8 @@ export const IdentityAttributesBetaApiFp = function(configuration?: Configuratio
          */
         async getIdentityAttribute(name: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<IdentityAttributeBeta>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getIdentityAttribute(name, axiosOptions);
-            const operationBasePath = operationServerMap['IdentityAttributesBetaApi.getIdentityAttribute']?.[0]?.url;
+            const serverMapIndex = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['IdentityAttributesBetaApi.getIdentityAttribute']?.[serverMapIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
         /**
@@ -46618,7 +46788,8 @@ export const IdentityAttributesBetaApiFp = function(configuration?: Configuratio
          */
         async listIdentityAttributes(includeSystem?: boolean, includeSilent?: boolean, searchableOnly?: boolean, count?: boolean, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<IdentityAttributeBeta>>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.listIdentityAttributes(includeSystem, includeSilent, searchableOnly, count, axiosOptions);
-            const operationBasePath = operationServerMap['IdentityAttributesBetaApi.listIdentityAttributes']?.[0]?.url;
+            const serverMapIndex = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['IdentityAttributesBetaApi.listIdentityAttributes']?.[serverMapIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
         /**
@@ -46631,7 +46802,8 @@ export const IdentityAttributesBetaApiFp = function(configuration?: Configuratio
          */
         async putIdentityAttribute(name: string, identityAttributeBeta: IdentityAttributeBeta, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<IdentityAttributeBeta>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.putIdentityAttribute(name, identityAttributeBeta, axiosOptions);
-            const operationBasePath = operationServerMap['IdentityAttributesBetaApi.putIdentityAttribute']?.[0]?.url;
+            const serverMapIndex = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['IdentityAttributesBetaApi.putIdentityAttribute']?.[serverMapIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
     }
@@ -47588,7 +47760,8 @@ export const IdentityHistoryBetaApiFp = function(configuration?: Configuration) 
          */
         async compareIdentitySnapshots(id: string, snapshot1?: string, snapshot2?: string, accessItemTypes?: Array<string>, limit?: number, offset?: number, count?: boolean, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<IdentityCompareResponseBeta>>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.compareIdentitySnapshots(id, snapshot1, snapshot2, accessItemTypes, limit, offset, count, axiosOptions);
-            const operationBasePath = operationServerMap['IdentityHistoryBetaApi.compareIdentitySnapshots']?.[0]?.url;
+            const serverMapIndex = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['IdentityHistoryBetaApi.compareIdentitySnapshots']?.[serverMapIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
         /**
@@ -47607,7 +47780,8 @@ export const IdentityHistoryBetaApiFp = function(configuration?: Configuration) 
          */
         async compareIdentitySnapshotsAccessType(id: string, accessType: string, accessAssociated?: boolean, snapshot1?: string, snapshot2?: string, limit?: number, offset?: number, count?: boolean, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<AccessItemDiffBeta>>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.compareIdentitySnapshotsAccessType(id, accessType, accessAssociated, snapshot1, snapshot2, limit, offset, count, axiosOptions);
-            const operationBasePath = operationServerMap['IdentityHistoryBetaApi.compareIdentitySnapshotsAccessType']?.[0]?.url;
+            const serverMapIndex = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['IdentityHistoryBetaApi.compareIdentitySnapshotsAccessType']?.[serverMapIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
         /**
@@ -47619,7 +47793,8 @@ export const IdentityHistoryBetaApiFp = function(configuration?: Configuration) 
          */
         async getHistoricalIdentity(id: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<IdentityHistoryResponseBeta>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getHistoricalIdentity(id, axiosOptions);
-            const operationBasePath = operationServerMap['IdentityHistoryBetaApi.getHistoricalIdentity']?.[0]?.url;
+            const serverMapIndex = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['IdentityHistoryBetaApi.getHistoricalIdentity']?.[serverMapIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
         /**
@@ -47637,7 +47812,8 @@ export const IdentityHistoryBetaApiFp = function(configuration?: Configuration) 
          */
         async getHistoricalIdentityEvents(id: string, from?: string, eventTypes?: Array<string>, accessItemTypes?: Array<string>, limit?: number, offset?: number, count?: boolean, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<GetHistoricalIdentityEvents200ResponseInnerBeta>>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getHistoricalIdentityEvents(id, from, eventTypes, accessItemTypes, limit, offset, count, axiosOptions);
-            const operationBasePath = operationServerMap['IdentityHistoryBetaApi.getHistoricalIdentityEvents']?.[0]?.url;
+            const serverMapIndex = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['IdentityHistoryBetaApi.getHistoricalIdentityEvents']?.[serverMapIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
         /**
@@ -47650,7 +47826,8 @@ export const IdentityHistoryBetaApiFp = function(configuration?: Configuration) 
          */
         async getIdentitySnapshot(id: string, date: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<IdentityHistoryResponseBeta>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getIdentitySnapshot(id, date, axiosOptions);
-            const operationBasePath = operationServerMap['IdentityHistoryBetaApi.getIdentitySnapshot']?.[0]?.url;
+            const serverMapIndex = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['IdentityHistoryBetaApi.getIdentitySnapshot']?.[serverMapIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
         /**
@@ -47668,7 +47845,8 @@ export const IdentityHistoryBetaApiFp = function(configuration?: Configuration) 
          */
         async getIdentitySnapshotSummary(id: string, before?: string, interval?: GetIdentitySnapshotSummaryIntervalBeta, timeZone?: string, limit?: number, offset?: number, count?: boolean, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<MetricResponseBeta>>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getIdentitySnapshotSummary(id, before, interval, timeZone, limit, offset, count, axiosOptions);
-            const operationBasePath = operationServerMap['IdentityHistoryBetaApi.getIdentitySnapshotSummary']?.[0]?.url;
+            const serverMapIndex = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['IdentityHistoryBetaApi.getIdentitySnapshotSummary']?.[serverMapIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
         /**
@@ -47680,7 +47858,8 @@ export const IdentityHistoryBetaApiFp = function(configuration?: Configuration) 
          */
         async getIdentityStartDate(id: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<string>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getIdentityStartDate(id, axiosOptions);
-            const operationBasePath = operationServerMap['IdentityHistoryBetaApi.getIdentityStartDate']?.[0]?.url;
+            const serverMapIndex = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['IdentityHistoryBetaApi.getIdentityStartDate']?.[serverMapIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
         /**
@@ -47696,7 +47875,8 @@ export const IdentityHistoryBetaApiFp = function(configuration?: Configuration) 
          */
         async listHistoricalIdentities(startsWithQuery?: string, isDeleted?: boolean, isActive?: boolean, limit?: number, offset?: number, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<IdentityListItemBeta>>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.listHistoricalIdentities(startsWithQuery, isDeleted, isActive, limit, offset, axiosOptions);
-            const operationBasePath = operationServerMap['IdentityHistoryBetaApi.listHistoricalIdentities']?.[0]?.url;
+            const serverMapIndex = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['IdentityHistoryBetaApi.listHistoricalIdentities']?.[serverMapIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
         /**
@@ -47709,7 +47889,8 @@ export const IdentityHistoryBetaApiFp = function(configuration?: Configuration) 
          */
         async listIdentityAccessItems(id: string, type?: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<ListIdentityAccessItems200ResponseInnerBeta>>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.listIdentityAccessItems(id, type, axiosOptions);
-            const operationBasePath = operationServerMap['IdentityHistoryBetaApi.listIdentityAccessItems']?.[0]?.url;
+            const serverMapIndex = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['IdentityHistoryBetaApi.listIdentityAccessItems']?.[serverMapIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
         /**
@@ -47723,7 +47904,8 @@ export const IdentityHistoryBetaApiFp = function(configuration?: Configuration) 
          */
         async listIdentitySnapshotAccessItems(id: string, date: string, type?: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<ListIdentityAccessItems200ResponseInnerBeta>>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.listIdentitySnapshotAccessItems(id, date, type, axiosOptions);
-            const operationBasePath = operationServerMap['IdentityHistoryBetaApi.listIdentitySnapshotAccessItems']?.[0]?.url;
+            const serverMapIndex = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['IdentityHistoryBetaApi.listIdentitySnapshotAccessItems']?.[serverMapIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
         /**
@@ -47740,7 +47922,8 @@ export const IdentityHistoryBetaApiFp = function(configuration?: Configuration) 
          */
         async listIdentitySnapshots(id: string, start?: string, interval?: ListIdentitySnapshotsIntervalBeta, limit?: number, offset?: number, count?: boolean, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<IdentitySnapshotSummaryResponseBeta>>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.listIdentitySnapshots(id, start, interval, limit, offset, count, axiosOptions);
-            const operationBasePath = operationServerMap['IdentityHistoryBetaApi.listIdentitySnapshots']?.[0]?.url;
+            const serverMapIndex = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['IdentityHistoryBetaApi.listIdentitySnapshots']?.[serverMapIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
     }
@@ -48998,7 +49181,8 @@ export const IdentityProfilesBetaApiFp = function(configuration?: Configuration)
          */
         async createIdentityProfile(identityProfileBeta: IdentityProfileBeta, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<IdentityProfileBeta>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.createIdentityProfile(identityProfileBeta, axiosOptions);
-            const operationBasePath = operationServerMap['IdentityProfilesBetaApi.createIdentityProfile']?.[0]?.url;
+            const serverMapIndex = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['IdentityProfilesBetaApi.createIdentityProfile']?.[serverMapIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
         /**
@@ -49010,7 +49194,8 @@ export const IdentityProfilesBetaApiFp = function(configuration?: Configuration)
          */
         async deleteIdentityProfile(identityProfileId: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<TaskResultSimplifiedBeta>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.deleteIdentityProfile(identityProfileId, axiosOptions);
-            const operationBasePath = operationServerMap['IdentityProfilesBetaApi.deleteIdentityProfile']?.[0]?.url;
+            const serverMapIndex = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['IdentityProfilesBetaApi.deleteIdentityProfile']?.[serverMapIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
         /**
@@ -49022,7 +49207,8 @@ export const IdentityProfilesBetaApiFp = function(configuration?: Configuration)
          */
         async deleteIdentityProfiles(requestBody: Array<string>, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<TaskResultSimplifiedBeta>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.deleteIdentityProfiles(requestBody, axiosOptions);
-            const operationBasePath = operationServerMap['IdentityProfilesBetaApi.deleteIdentityProfiles']?.[0]?.url;
+            const serverMapIndex = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['IdentityProfilesBetaApi.deleteIdentityProfiles']?.[serverMapIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
         /**
@@ -49038,7 +49224,8 @@ export const IdentityProfilesBetaApiFp = function(configuration?: Configuration)
          */
         async exportIdentityProfiles(limit?: number, offset?: number, count?: boolean, filters?: string, sorters?: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<IdentityProfileExportedObjectBeta>>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.exportIdentityProfiles(limit, offset, count, filters, sorters, axiosOptions);
-            const operationBasePath = operationServerMap['IdentityProfilesBetaApi.exportIdentityProfiles']?.[0]?.url;
+            const serverMapIndex = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['IdentityProfilesBetaApi.exportIdentityProfiles']?.[serverMapIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
         /**
@@ -49050,7 +49237,8 @@ export const IdentityProfilesBetaApiFp = function(configuration?: Configuration)
          */
         async generateIdentityPreview(identityPreviewRequestBeta: IdentityPreviewRequestBeta, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<IdentityPreviewResponseBeta>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.generateIdentityPreview(identityPreviewRequestBeta, axiosOptions);
-            const operationBasePath = operationServerMap['IdentityProfilesBetaApi.generateIdentityPreview']?.[0]?.url;
+            const serverMapIndex = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['IdentityProfilesBetaApi.generateIdentityPreview']?.[serverMapIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
         /**
@@ -49062,7 +49250,8 @@ export const IdentityProfilesBetaApiFp = function(configuration?: Configuration)
          */
         async getDefaultIdentityAttributeConfig(identityProfileId: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<IdentityAttributeConfigBeta>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getDefaultIdentityAttributeConfig(identityProfileId, axiosOptions);
-            const operationBasePath = operationServerMap['IdentityProfilesBetaApi.getDefaultIdentityAttributeConfig']?.[0]?.url;
+            const serverMapIndex = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['IdentityProfilesBetaApi.getDefaultIdentityAttributeConfig']?.[serverMapIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
         /**
@@ -49074,7 +49263,8 @@ export const IdentityProfilesBetaApiFp = function(configuration?: Configuration)
          */
         async getIdentityProfile(identityProfileId: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<IdentityProfileBeta>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getIdentityProfile(identityProfileId, axiosOptions);
-            const operationBasePath = operationServerMap['IdentityProfilesBetaApi.getIdentityProfile']?.[0]?.url;
+            const serverMapIndex = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['IdentityProfilesBetaApi.getIdentityProfile']?.[serverMapIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
         /**
@@ -49086,7 +49276,8 @@ export const IdentityProfilesBetaApiFp = function(configuration?: Configuration)
          */
         async importIdentityProfiles(identityProfileExportedObjectBeta: Array<IdentityProfileExportedObjectBeta>, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ObjectImportResultBeta>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.importIdentityProfiles(identityProfileExportedObjectBeta, axiosOptions);
-            const operationBasePath = operationServerMap['IdentityProfilesBetaApi.importIdentityProfiles']?.[0]?.url;
+            const serverMapIndex = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['IdentityProfilesBetaApi.importIdentityProfiles']?.[serverMapIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
         /**
@@ -49102,7 +49293,8 @@ export const IdentityProfilesBetaApiFp = function(configuration?: Configuration)
          */
         async listIdentityProfiles(limit?: number, offset?: number, count?: boolean, filters?: string, sorters?: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<IdentityProfileBeta>>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.listIdentityProfiles(limit, offset, count, filters, sorters, axiosOptions);
-            const operationBasePath = operationServerMap['IdentityProfilesBetaApi.listIdentityProfiles']?.[0]?.url;
+            const serverMapIndex = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['IdentityProfilesBetaApi.listIdentityProfiles']?.[serverMapIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
         /**
@@ -49114,7 +49306,8 @@ export const IdentityProfilesBetaApiFp = function(configuration?: Configuration)
          */
         async syncIdentityProfile(identityProfileId: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<object>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.syncIdentityProfile(identityProfileId, axiosOptions);
-            const operationBasePath = operationServerMap['IdentityProfilesBetaApi.syncIdentityProfile']?.[0]?.url;
+            const serverMapIndex = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['IdentityProfilesBetaApi.syncIdentityProfile']?.[serverMapIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
         /**
@@ -49127,7 +49320,8 @@ export const IdentityProfilesBetaApiFp = function(configuration?: Configuration)
          */
         async updateIdentityProfile(identityProfileId: string, jsonPatchOperationBeta: Array<JsonPatchOperationBeta>, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<IdentityProfileBeta>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.updateIdentityProfile(identityProfileId, jsonPatchOperationBeta, axiosOptions);
-            const operationBasePath = operationServerMap['IdentityProfilesBetaApi.updateIdentityProfile']?.[0]?.url;
+            const serverMapIndex = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['IdentityProfilesBetaApi.updateIdentityProfile']?.[serverMapIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
     }
@@ -49747,7 +49941,8 @@ export const LifecycleStatesBetaApiFp = function(configuration?: Configuration) 
          */
         async listLifecycleStates(identityProfileId: string, lifecycleStateId: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<LifecycleStateBeta>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.listLifecycleStates(identityProfileId, lifecycleStateId, axiosOptions);
-            const operationBasePath = operationServerMap['LifecycleStatesBetaApi.listLifecycleStates']?.[0]?.url;
+            const serverMapIndex = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['LifecycleStatesBetaApi.listLifecycleStates']?.[serverMapIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
         /**
@@ -49761,7 +49956,8 @@ export const LifecycleStatesBetaApiFp = function(configuration?: Configuration) 
          */
         async updateLifecycleStates(identityProfileId: string, lifecycleStateId: string, jsonPatchOperationBeta: Array<JsonPatchOperationBeta>, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<LifecycleStateBeta>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.updateLifecycleStates(identityProfileId, lifecycleStateId, jsonPatchOperationBeta, axiosOptions);
-            const operationBasePath = operationServerMap['LifecycleStatesBetaApi.updateLifecycleStates']?.[0]?.url;
+            const serverMapIndex = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['LifecycleStatesBetaApi.updateLifecycleStates']?.[serverMapIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
     }
@@ -50155,7 +50351,8 @@ export const MFAConfigurationBetaApiFp = function(configuration?: Configuration)
          */
         async deleteMFAConfig(method: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<MfaOktaConfigBeta>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.deleteMFAConfig(method, axiosOptions);
-            const operationBasePath = operationServerMap['MFAConfigurationBetaApi.deleteMFAConfig']?.[0]?.url;
+            const serverMapIndex = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['MFAConfigurationBetaApi.deleteMFAConfig']?.[serverMapIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
         /**
@@ -50166,7 +50363,8 @@ export const MFAConfigurationBetaApiFp = function(configuration?: Configuration)
          */
         async getMFADuoConfig(axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<MfaDuoConfigBeta>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getMFADuoConfig(axiosOptions);
-            const operationBasePath = operationServerMap['MFAConfigurationBetaApi.getMFADuoConfig']?.[0]?.url;
+            const serverMapIndex = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['MFAConfigurationBetaApi.getMFADuoConfig']?.[serverMapIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
         /**
@@ -50177,7 +50375,8 @@ export const MFAConfigurationBetaApiFp = function(configuration?: Configuration)
          */
         async getMFAOktaConfig(axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<MfaOktaConfigBeta>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getMFAOktaConfig(axiosOptions);
-            const operationBasePath = operationServerMap['MFAConfigurationBetaApi.getMFAOktaConfig']?.[0]?.url;
+            const serverMapIndex = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['MFAConfigurationBetaApi.getMFAOktaConfig']?.[serverMapIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
         /**
@@ -50189,7 +50388,8 @@ export const MFAConfigurationBetaApiFp = function(configuration?: Configuration)
          */
         async setMFADuoConfig(mfaDuoConfigBeta: MfaDuoConfigBeta, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<MfaDuoConfigBeta>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.setMFADuoConfig(mfaDuoConfigBeta, axiosOptions);
-            const operationBasePath = operationServerMap['MFAConfigurationBetaApi.setMFADuoConfig']?.[0]?.url;
+            const serverMapIndex = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['MFAConfigurationBetaApi.setMFADuoConfig']?.[serverMapIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
         /**
@@ -50201,7 +50401,8 @@ export const MFAConfigurationBetaApiFp = function(configuration?: Configuration)
          */
         async setMFAOktaConfig(mfaOktaConfigBeta: MfaOktaConfigBeta, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<MfaOktaConfigBeta>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.setMFAOktaConfig(mfaOktaConfigBeta, axiosOptions);
-            const operationBasePath = operationServerMap['MFAConfigurationBetaApi.setMFAOktaConfig']?.[0]?.url;
+            const serverMapIndex = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['MFAConfigurationBetaApi.setMFAOktaConfig']?.[serverMapIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
         /**
@@ -50213,7 +50414,8 @@ export const MFAConfigurationBetaApiFp = function(configuration?: Configuration)
          */
         async testMFAConfig(method: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<MfaConfigTestResponseBeta>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.testMFAConfig(method, axiosOptions);
-            const operationBasePath = operationServerMap['MFAConfigurationBetaApi.testMFAConfig']?.[0]?.url;
+            const serverMapIndex = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['MFAConfigurationBetaApi.testMFAConfig']?.[serverMapIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
     }
@@ -50722,7 +50924,8 @@ export const MFAControllerBetaApiFp = function(configuration?: Configuration) {
          */
         async createSendToken(sendTokenRequestBeta: SendTokenRequestBeta, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SendTokenResponseBeta>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.createSendToken(sendTokenRequestBeta, axiosOptions);
-            const operationBasePath = operationServerMap['MFAControllerBetaApi.createSendToken']?.[0]?.url;
+            const serverMapIndex = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['MFAControllerBetaApi.createSendToken']?.[serverMapIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
         /**
@@ -50735,7 +50938,8 @@ export const MFAControllerBetaApiFp = function(configuration?: Configuration) {
          */
         async pingVerificationStatus(method: string, verificationPollRequestBeta: VerificationPollRequestBeta, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<VerificationResponseBeta>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.pingVerificationStatus(method, verificationPollRequestBeta, axiosOptions);
-            const operationBasePath = operationServerMap['MFAControllerBetaApi.pingVerificationStatus']?.[0]?.url;
+            const serverMapIndex = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['MFAControllerBetaApi.pingVerificationStatus']?.[serverMapIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
         /**
@@ -50747,7 +50951,8 @@ export const MFAControllerBetaApiFp = function(configuration?: Configuration) {
          */
         async sendDuoVerifyRequest(duoVerificationRequestBeta: DuoVerificationRequestBeta, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<VerificationResponseBeta>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.sendDuoVerifyRequest(duoVerificationRequestBeta, axiosOptions);
-            const operationBasePath = operationServerMap['MFAControllerBetaApi.sendDuoVerifyRequest']?.[0]?.url;
+            const serverMapIndex = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['MFAControllerBetaApi.sendDuoVerifyRequest']?.[serverMapIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
         /**
@@ -50759,7 +50964,8 @@ export const MFAControllerBetaApiFp = function(configuration?: Configuration) {
          */
         async sendKbaAnswers(kbaAnswerRequestBeta: KbaAnswerRequestBeta, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<KbaAuthResponseBeta>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.sendKbaAnswers(kbaAnswerRequestBeta, axiosOptions);
-            const operationBasePath = operationServerMap['MFAControllerBetaApi.sendKbaAnswers']?.[0]?.url;
+            const serverMapIndex = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['MFAControllerBetaApi.sendKbaAnswers']?.[serverMapIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
         /**
@@ -50771,7 +50977,8 @@ export const MFAControllerBetaApiFp = function(configuration?: Configuration) {
          */
         async sendOktaVerifyRequest(oktaVerificationRequestBeta: OktaVerificationRequestBeta, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<VerificationResponseBeta>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.sendOktaVerifyRequest(oktaVerificationRequestBeta, axiosOptions);
-            const operationBasePath = operationServerMap['MFAControllerBetaApi.sendOktaVerifyRequest']?.[0]?.url;
+            const serverMapIndex = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['MFAControllerBetaApi.sendOktaVerifyRequest']?.[serverMapIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
         /**
@@ -50783,7 +50990,8 @@ export const MFAControllerBetaApiFp = function(configuration?: Configuration) {
          */
         async sendTokenAuthRequest(tokenAuthRequestBeta: TokenAuthRequestBeta, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<TokenAuthResponseBeta>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.sendTokenAuthRequest(tokenAuthRequestBeta, axiosOptions);
-            const operationBasePath = operationServerMap['MFAControllerBetaApi.sendTokenAuthRequest']?.[0]?.url;
+            const serverMapIndex = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['MFAControllerBetaApi.sendTokenAuthRequest']?.[serverMapIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
     }
@@ -51161,7 +51369,8 @@ export const ManagedClientsBetaApiFp = function(configuration?: Configuration) {
          */
         async getManagedClientStatus(id: string, type: ManagedClientTypeBeta, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ManagedClientStatusBeta>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getManagedClientStatus(id, type, axiosOptions);
-            const operationBasePath = operationServerMap['ManagedClientsBetaApi.getManagedClientStatus']?.[0]?.url;
+            const serverMapIndex = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['ManagedClientsBetaApi.getManagedClientStatus']?.[serverMapIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
         /**
@@ -51174,7 +51383,8 @@ export const ManagedClientsBetaApiFp = function(configuration?: Configuration) {
          */
         async updateManagedClientStatus(id: string, managedClientStatusBeta: ManagedClientStatusBeta, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ManagedClientStatusAggResponseBeta>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.updateManagedClientStatus(id, managedClientStatusBeta, axiosOptions);
-            const operationBasePath = operationServerMap['ManagedClientsBetaApi.updateManagedClientStatus']?.[0]?.url;
+            const serverMapIndex = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['ManagedClientsBetaApi.updateManagedClientStatus']?.[serverMapIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
     }
@@ -51503,7 +51713,8 @@ export const ManagedClustersBetaApiFp = function(configuration?: Configuration) 
          */
         async getClientLogConfiguration(id: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ClientLogConfigurationBeta>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getClientLogConfiguration(id, axiosOptions);
-            const operationBasePath = operationServerMap['ManagedClustersBetaApi.getClientLogConfiguration']?.[0]?.url;
+            const serverMapIndex = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['ManagedClustersBetaApi.getClientLogConfiguration']?.[serverMapIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
         /**
@@ -51515,7 +51726,8 @@ export const ManagedClustersBetaApiFp = function(configuration?: Configuration) 
          */
         async getManagedCluster(id: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ManagedClusterBeta>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getManagedCluster(id, axiosOptions);
-            const operationBasePath = operationServerMap['ManagedClustersBetaApi.getManagedCluster']?.[0]?.url;
+            const serverMapIndex = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['ManagedClustersBetaApi.getManagedCluster']?.[serverMapIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
         /**
@@ -51530,7 +51742,8 @@ export const ManagedClustersBetaApiFp = function(configuration?: Configuration) 
          */
         async getManagedClusters(offset?: number, limit?: number, count?: boolean, filters?: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<ManagedClusterBeta>>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getManagedClusters(offset, limit, count, filters, axiosOptions);
-            const operationBasePath = operationServerMap['ManagedClustersBetaApi.getManagedClusters']?.[0]?.url;
+            const serverMapIndex = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['ManagedClustersBetaApi.getManagedClusters']?.[serverMapIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
         /**
@@ -51543,7 +51756,8 @@ export const ManagedClustersBetaApiFp = function(configuration?: Configuration) 
          */
         async putClientLogConfiguration(id: string, clientLogConfigurationBeta: ClientLogConfigurationBeta | null, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ClientLogConfigurationBeta>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.putClientLogConfiguration(id, clientLogConfigurationBeta, axiosOptions);
-            const operationBasePath = operationServerMap['ManagedClustersBetaApi.putClientLogConfiguration']?.[0]?.url;
+            const serverMapIndex = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['ManagedClustersBetaApi.putClientLogConfiguration']?.[serverMapIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
     }
@@ -53298,7 +53512,8 @@ export const NonEmployeeLifecycleManagementBetaApiFp = function(configuration?: 
          */
         async approveNonEmployeeRequest(id: string, nonEmployeeApprovalDecisionBeta: NonEmployeeApprovalDecisionBeta, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<NonEmployeeApprovalItemBeta>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.approveNonEmployeeRequest(id, nonEmployeeApprovalDecisionBeta, axiosOptions);
-            const operationBasePath = operationServerMap['NonEmployeeLifecycleManagementBetaApi.approveNonEmployeeRequest']?.[0]?.url;
+            const serverMapIndex = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['NonEmployeeLifecycleManagementBetaApi.approveNonEmployeeRequest']?.[serverMapIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
         /**
@@ -53310,7 +53525,8 @@ export const NonEmployeeLifecycleManagementBetaApiFp = function(configuration?: 
          */
         async createNonEmployeeRecord(nonEmployeeRequestBodyBeta: NonEmployeeRequestBodyBeta, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<NonEmployeeRecordBeta>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.createNonEmployeeRecord(nonEmployeeRequestBodyBeta, axiosOptions);
-            const operationBasePath = operationServerMap['NonEmployeeLifecycleManagementBetaApi.createNonEmployeeRecord']?.[0]?.url;
+            const serverMapIndex = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['NonEmployeeLifecycleManagementBetaApi.createNonEmployeeRecord']?.[serverMapIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
         /**
@@ -53322,7 +53538,8 @@ export const NonEmployeeLifecycleManagementBetaApiFp = function(configuration?: 
          */
         async createNonEmployeeRequest(nonEmployeeRequestBodyBeta: NonEmployeeRequestBodyBeta, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<NonEmployeeRequestBeta>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.createNonEmployeeRequest(nonEmployeeRequestBodyBeta, axiosOptions);
-            const operationBasePath = operationServerMap['NonEmployeeLifecycleManagementBetaApi.createNonEmployeeRequest']?.[0]?.url;
+            const serverMapIndex = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['NonEmployeeLifecycleManagementBetaApi.createNonEmployeeRequest']?.[serverMapIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
         /**
@@ -53334,7 +53551,8 @@ export const NonEmployeeLifecycleManagementBetaApiFp = function(configuration?: 
          */
         async createNonEmployeeSource(nonEmployeeSourceRequestBodyBeta: NonEmployeeSourceRequestBodyBeta, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<NonEmployeeSourceWithCloudExternalIdBeta>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.createNonEmployeeSource(nonEmployeeSourceRequestBodyBeta, axiosOptions);
-            const operationBasePath = operationServerMap['NonEmployeeLifecycleManagementBetaApi.createNonEmployeeSource']?.[0]?.url;
+            const serverMapIndex = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['NonEmployeeLifecycleManagementBetaApi.createNonEmployeeSource']?.[serverMapIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
         /**
@@ -53347,7 +53565,8 @@ export const NonEmployeeLifecycleManagementBetaApiFp = function(configuration?: 
          */
         async createNonEmployeeSourceSchemaAttributes(sourceId: string, nonEmployeeSchemaAttributeBodyBeta: NonEmployeeSchemaAttributeBodyBeta, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<NonEmployeeSchemaAttributeBeta>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.createNonEmployeeSourceSchemaAttributes(sourceId, nonEmployeeSchemaAttributeBodyBeta, axiosOptions);
-            const operationBasePath = operationServerMap['NonEmployeeLifecycleManagementBetaApi.createNonEmployeeSourceSchemaAttributes']?.[0]?.url;
+            const serverMapIndex = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['NonEmployeeLifecycleManagementBetaApi.createNonEmployeeSourceSchemaAttributes']?.[serverMapIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
         /**
@@ -53359,7 +53578,8 @@ export const NonEmployeeLifecycleManagementBetaApiFp = function(configuration?: 
          */
         async deleteNonEmployeeRecord(id: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.deleteNonEmployeeRecord(id, axiosOptions);
-            const operationBasePath = operationServerMap['NonEmployeeLifecycleManagementBetaApi.deleteNonEmployeeRecord']?.[0]?.url;
+            const serverMapIndex = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['NonEmployeeLifecycleManagementBetaApi.deleteNonEmployeeRecord']?.[serverMapIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
         /**
@@ -53371,7 +53591,8 @@ export const NonEmployeeLifecycleManagementBetaApiFp = function(configuration?: 
          */
         async deleteNonEmployeeRecordInBulk(deleteNonEmployeeRecordInBulkRequestBeta: DeleteNonEmployeeRecordInBulkRequestBeta, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.deleteNonEmployeeRecordInBulk(deleteNonEmployeeRecordInBulkRequestBeta, axiosOptions);
-            const operationBasePath = operationServerMap['NonEmployeeLifecycleManagementBetaApi.deleteNonEmployeeRecordInBulk']?.[0]?.url;
+            const serverMapIndex = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['NonEmployeeLifecycleManagementBetaApi.deleteNonEmployeeRecordInBulk']?.[serverMapIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
         /**
@@ -53383,7 +53604,8 @@ export const NonEmployeeLifecycleManagementBetaApiFp = function(configuration?: 
          */
         async deleteNonEmployeeRequest(id: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.deleteNonEmployeeRequest(id, axiosOptions);
-            const operationBasePath = operationServerMap['NonEmployeeLifecycleManagementBetaApi.deleteNonEmployeeRequest']?.[0]?.url;
+            const serverMapIndex = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['NonEmployeeLifecycleManagementBetaApi.deleteNonEmployeeRequest']?.[serverMapIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
         /**
@@ -53396,7 +53618,8 @@ export const NonEmployeeLifecycleManagementBetaApiFp = function(configuration?: 
          */
         async deleteNonEmployeeSchemaAttribute(attributeId: string, sourceId: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.deleteNonEmployeeSchemaAttribute(attributeId, sourceId, axiosOptions);
-            const operationBasePath = operationServerMap['NonEmployeeLifecycleManagementBetaApi.deleteNonEmployeeSchemaAttribute']?.[0]?.url;
+            const serverMapIndex = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['NonEmployeeLifecycleManagementBetaApi.deleteNonEmployeeSchemaAttribute']?.[serverMapIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
         /**
@@ -53408,7 +53631,8 @@ export const NonEmployeeLifecycleManagementBetaApiFp = function(configuration?: 
          */
         async deleteNonEmployeeSource(sourceId: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.deleteNonEmployeeSource(sourceId, axiosOptions);
-            const operationBasePath = operationServerMap['NonEmployeeLifecycleManagementBetaApi.deleteNonEmployeeSource']?.[0]?.url;
+            const serverMapIndex = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['NonEmployeeLifecycleManagementBetaApi.deleteNonEmployeeSource']?.[serverMapIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
         /**
@@ -53420,7 +53644,8 @@ export const NonEmployeeLifecycleManagementBetaApiFp = function(configuration?: 
          */
         async deleteNonEmployeeSourceSchemaAttributes(sourceId: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.deleteNonEmployeeSourceSchemaAttributes(sourceId, axiosOptions);
-            const operationBasePath = operationServerMap['NonEmployeeLifecycleManagementBetaApi.deleteNonEmployeeSourceSchemaAttributes']?.[0]?.url;
+            const serverMapIndex = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['NonEmployeeLifecycleManagementBetaApi.deleteNonEmployeeSourceSchemaAttributes']?.[serverMapIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
         /**
@@ -53432,7 +53657,8 @@ export const NonEmployeeLifecycleManagementBetaApiFp = function(configuration?: 
          */
         async exportNonEmployeeRecords(id: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.exportNonEmployeeRecords(id, axiosOptions);
-            const operationBasePath = operationServerMap['NonEmployeeLifecycleManagementBetaApi.exportNonEmployeeRecords']?.[0]?.url;
+            const serverMapIndex = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['NonEmployeeLifecycleManagementBetaApi.exportNonEmployeeRecords']?.[serverMapIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
         /**
@@ -53444,7 +53670,8 @@ export const NonEmployeeLifecycleManagementBetaApiFp = function(configuration?: 
          */
         async exportNonEmployeeSourceSchemaTemplate(id: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.exportNonEmployeeSourceSchemaTemplate(id, axiosOptions);
-            const operationBasePath = operationServerMap['NonEmployeeLifecycleManagementBetaApi.exportNonEmployeeSourceSchemaTemplate']?.[0]?.url;
+            const serverMapIndex = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['NonEmployeeLifecycleManagementBetaApi.exportNonEmployeeSourceSchemaTemplate']?.[serverMapIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
         /**
@@ -53457,7 +53684,8 @@ export const NonEmployeeLifecycleManagementBetaApiFp = function(configuration?: 
          */
         async getNonEmployeeApproval(id: string, includeDetail?: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<NonEmployeeApprovalItemDetailBeta>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getNonEmployeeApproval(id, includeDetail, axiosOptions);
-            const operationBasePath = operationServerMap['NonEmployeeLifecycleManagementBetaApi.getNonEmployeeApproval']?.[0]?.url;
+            const serverMapIndex = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['NonEmployeeLifecycleManagementBetaApi.getNonEmployeeApproval']?.[serverMapIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
         /**
@@ -53469,7 +53697,8 @@ export const NonEmployeeLifecycleManagementBetaApiFp = function(configuration?: 
          */
         async getNonEmployeeApprovalSummary(requestedFor: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<NonEmployeeApprovalSummaryBeta>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getNonEmployeeApprovalSummary(requestedFor, axiosOptions);
-            const operationBasePath = operationServerMap['NonEmployeeLifecycleManagementBetaApi.getNonEmployeeApprovalSummary']?.[0]?.url;
+            const serverMapIndex = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['NonEmployeeLifecycleManagementBetaApi.getNonEmployeeApprovalSummary']?.[serverMapIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
         /**
@@ -53481,7 +53710,8 @@ export const NonEmployeeLifecycleManagementBetaApiFp = function(configuration?: 
          */
         async getNonEmployeeBulkUploadStatus(id: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<NonEmployeeBulkUploadStatusBeta>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getNonEmployeeBulkUploadStatus(id, axiosOptions);
-            const operationBasePath = operationServerMap['NonEmployeeLifecycleManagementBetaApi.getNonEmployeeBulkUploadStatus']?.[0]?.url;
+            const serverMapIndex = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['NonEmployeeLifecycleManagementBetaApi.getNonEmployeeBulkUploadStatus']?.[serverMapIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
         /**
@@ -53493,7 +53723,8 @@ export const NonEmployeeLifecycleManagementBetaApiFp = function(configuration?: 
          */
         async getNonEmployeeRecord(id: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<NonEmployeeRecordBeta>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getNonEmployeeRecord(id, axiosOptions);
-            const operationBasePath = operationServerMap['NonEmployeeLifecycleManagementBetaApi.getNonEmployeeRecord']?.[0]?.url;
+            const serverMapIndex = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['NonEmployeeLifecycleManagementBetaApi.getNonEmployeeRecord']?.[serverMapIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
         /**
@@ -53505,7 +53736,8 @@ export const NonEmployeeLifecycleManagementBetaApiFp = function(configuration?: 
          */
         async getNonEmployeeRequest(id: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<NonEmployeeRequestBeta>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getNonEmployeeRequest(id, axiosOptions);
-            const operationBasePath = operationServerMap['NonEmployeeLifecycleManagementBetaApi.getNonEmployeeRequest']?.[0]?.url;
+            const serverMapIndex = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['NonEmployeeLifecycleManagementBetaApi.getNonEmployeeRequest']?.[serverMapIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
         /**
@@ -53517,7 +53749,8 @@ export const NonEmployeeLifecycleManagementBetaApiFp = function(configuration?: 
          */
         async getNonEmployeeRequestSummary(requestedFor: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<NonEmployeeRequestSummaryBeta>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getNonEmployeeRequestSummary(requestedFor, axiosOptions);
-            const operationBasePath = operationServerMap['NonEmployeeLifecycleManagementBetaApi.getNonEmployeeRequestSummary']?.[0]?.url;
+            const serverMapIndex = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['NonEmployeeLifecycleManagementBetaApi.getNonEmployeeRequestSummary']?.[serverMapIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
         /**
@@ -53530,7 +53763,8 @@ export const NonEmployeeLifecycleManagementBetaApiFp = function(configuration?: 
          */
         async getNonEmployeeSchemaAttribute(attributeId: string, sourceId: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<NonEmployeeSchemaAttributeBeta>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getNonEmployeeSchemaAttribute(attributeId, sourceId, axiosOptions);
-            const operationBasePath = operationServerMap['NonEmployeeLifecycleManagementBetaApi.getNonEmployeeSchemaAttribute']?.[0]?.url;
+            const serverMapIndex = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['NonEmployeeLifecycleManagementBetaApi.getNonEmployeeSchemaAttribute']?.[serverMapIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
         /**
@@ -53542,7 +53776,8 @@ export const NonEmployeeLifecycleManagementBetaApiFp = function(configuration?: 
          */
         async getNonEmployeeSource(sourceId: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<NonEmployeeSourceBeta>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getNonEmployeeSource(sourceId, axiosOptions);
-            const operationBasePath = operationServerMap['NonEmployeeLifecycleManagementBetaApi.getNonEmployeeSource']?.[0]?.url;
+            const serverMapIndex = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['NonEmployeeLifecycleManagementBetaApi.getNonEmployeeSource']?.[serverMapIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
         /**
@@ -53554,7 +53789,8 @@ export const NonEmployeeLifecycleManagementBetaApiFp = function(configuration?: 
          */
         async getNonEmployeeSourceSchemaAttributes(sourceId: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<NonEmployeeSchemaAttributeBeta>>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getNonEmployeeSourceSchemaAttributes(sourceId, axiosOptions);
-            const operationBasePath = operationServerMap['NonEmployeeLifecycleManagementBetaApi.getNonEmployeeSourceSchemaAttributes']?.[0]?.url;
+            const serverMapIndex = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['NonEmployeeLifecycleManagementBetaApi.getNonEmployeeSourceSchemaAttributes']?.[serverMapIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
         /**
@@ -53567,7 +53803,8 @@ export const NonEmployeeLifecycleManagementBetaApiFp = function(configuration?: 
          */
         async importNonEmployeeRecordsInBulk(id: string, data: File, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<NonEmployeeBulkUploadJobBeta>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.importNonEmployeeRecordsInBulk(id, data, axiosOptions);
-            const operationBasePath = operationServerMap['NonEmployeeLifecycleManagementBetaApi.importNonEmployeeRecordsInBulk']?.[0]?.url;
+            const serverMapIndex = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['NonEmployeeLifecycleManagementBetaApi.importNonEmployeeRecordsInBulk']?.[serverMapIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
         /**
@@ -53584,7 +53821,8 @@ export const NonEmployeeLifecycleManagementBetaApiFp = function(configuration?: 
          */
         async listNonEmployeeApproval(requestedFor?: string, limit?: number, offset?: number, count?: boolean, filters?: string, sorters?: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<NonEmployeeApprovalItemBeta>>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.listNonEmployeeApproval(requestedFor, limit, offset, count, filters, sorters, axiosOptions);
-            const operationBasePath = operationServerMap['NonEmployeeLifecycleManagementBetaApi.listNonEmployeeApproval']?.[0]?.url;
+            const serverMapIndex = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['NonEmployeeLifecycleManagementBetaApi.listNonEmployeeApproval']?.[serverMapIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
         /**
@@ -53600,7 +53838,8 @@ export const NonEmployeeLifecycleManagementBetaApiFp = function(configuration?: 
          */
         async listNonEmployeeRecords(limit?: number, offset?: number, count?: boolean, sorters?: string, filters?: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<NonEmployeeRecordBeta>>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.listNonEmployeeRecords(limit, offset, count, sorters, filters, axiosOptions);
-            const operationBasePath = operationServerMap['NonEmployeeLifecycleManagementBetaApi.listNonEmployeeRecords']?.[0]?.url;
+            const serverMapIndex = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['NonEmployeeLifecycleManagementBetaApi.listNonEmployeeRecords']?.[serverMapIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
         /**
@@ -53617,7 +53856,8 @@ export const NonEmployeeLifecycleManagementBetaApiFp = function(configuration?: 
          */
         async listNonEmployeeRequests(requestedFor: string, limit?: number, offset?: number, count?: boolean, sorters?: string, filters?: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<NonEmployeeRequestBeta>>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.listNonEmployeeRequests(requestedFor, limit, offset, count, sorters, filters, axiosOptions);
-            const operationBasePath = operationServerMap['NonEmployeeLifecycleManagementBetaApi.listNonEmployeeRequests']?.[0]?.url;
+            const serverMapIndex = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['NonEmployeeLifecycleManagementBetaApi.listNonEmployeeRequests']?.[serverMapIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
         /**
@@ -53634,7 +53874,8 @@ export const NonEmployeeLifecycleManagementBetaApiFp = function(configuration?: 
          */
         async listNonEmployeeSources(requestedFor: string, nonEmployeeCount: boolean, limit?: number, offset?: number, count?: boolean, sorters?: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<NonEmployeeSourceWithNECountBeta>>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.listNonEmployeeSources(requestedFor, nonEmployeeCount, limit, offset, count, sorters, axiosOptions);
-            const operationBasePath = operationServerMap['NonEmployeeLifecycleManagementBetaApi.listNonEmployeeSources']?.[0]?.url;
+            const serverMapIndex = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['NonEmployeeLifecycleManagementBetaApi.listNonEmployeeSources']?.[serverMapIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
         /**
@@ -53647,7 +53888,8 @@ export const NonEmployeeLifecycleManagementBetaApiFp = function(configuration?: 
          */
         async patchNonEmployeeRecord(id: string, jsonPatchOperationBeta: Array<JsonPatchOperationBeta>, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<NonEmployeeRecordBeta>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.patchNonEmployeeRecord(id, jsonPatchOperationBeta, axiosOptions);
-            const operationBasePath = operationServerMap['NonEmployeeLifecycleManagementBetaApi.patchNonEmployeeRecord']?.[0]?.url;
+            const serverMapIndex = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['NonEmployeeLifecycleManagementBetaApi.patchNonEmployeeRecord']?.[serverMapIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
         /**
@@ -53661,7 +53903,8 @@ export const NonEmployeeLifecycleManagementBetaApiFp = function(configuration?: 
          */
         async patchNonEmployeeSchemaAttribute(attributeId: string, sourceId: string, jsonPatchOperationBeta: Array<JsonPatchOperationBeta>, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<NonEmployeeSchemaAttributeBeta>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.patchNonEmployeeSchemaAttribute(attributeId, sourceId, jsonPatchOperationBeta, axiosOptions);
-            const operationBasePath = operationServerMap['NonEmployeeLifecycleManagementBetaApi.patchNonEmployeeSchemaAttribute']?.[0]?.url;
+            const serverMapIndex = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['NonEmployeeLifecycleManagementBetaApi.patchNonEmployeeSchemaAttribute']?.[serverMapIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
         /**
@@ -53674,7 +53917,8 @@ export const NonEmployeeLifecycleManagementBetaApiFp = function(configuration?: 
          */
         async patchNonEmployeeSource(sourceId: string, jsonPatchOperationBeta: Array<JsonPatchOperationBeta>, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<NonEmployeeSourceBeta>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.patchNonEmployeeSource(sourceId, jsonPatchOperationBeta, axiosOptions);
-            const operationBasePath = operationServerMap['NonEmployeeLifecycleManagementBetaApi.patchNonEmployeeSource']?.[0]?.url;
+            const serverMapIndex = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['NonEmployeeLifecycleManagementBetaApi.patchNonEmployeeSource']?.[serverMapIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
         /**
@@ -53687,7 +53931,8 @@ export const NonEmployeeLifecycleManagementBetaApiFp = function(configuration?: 
          */
         async rejectNonEmployeeRequest(id: string, nonEmployeeRejectApprovalDecisionBeta: NonEmployeeRejectApprovalDecisionBeta, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<NonEmployeeApprovalItemBeta>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.rejectNonEmployeeRequest(id, nonEmployeeRejectApprovalDecisionBeta, axiosOptions);
-            const operationBasePath = operationServerMap['NonEmployeeLifecycleManagementBetaApi.rejectNonEmployeeRequest']?.[0]?.url;
+            const serverMapIndex = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['NonEmployeeLifecycleManagementBetaApi.rejectNonEmployeeRequest']?.[serverMapIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
         /**
@@ -53700,7 +53945,8 @@ export const NonEmployeeLifecycleManagementBetaApiFp = function(configuration?: 
          */
         async updateNonEmployeeRecord(id: string, nonEmployeeRequestBodyBeta: NonEmployeeRequestBodyBeta, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<NonEmployeeRecordBeta>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.updateNonEmployeeRecord(id, nonEmployeeRequestBodyBeta, axiosOptions);
-            const operationBasePath = operationServerMap['NonEmployeeLifecycleManagementBetaApi.updateNonEmployeeRecord']?.[0]?.url;
+            const serverMapIndex = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['NonEmployeeLifecycleManagementBetaApi.updateNonEmployeeRecord']?.[serverMapIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
     }
@@ -55880,7 +56126,8 @@ export const NotificationsBetaApiFp = function(configuration?: Configuration) {
          */
         async createDomainDkim(domainAddressBeta: DomainAddressBeta, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<DomainStatusDtoBeta>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.createDomainDkim(domainAddressBeta, axiosOptions);
-            const operationBasePath = operationServerMap['NotificationsBetaApi.createDomainDkim']?.[0]?.url;
+            const serverMapIndex = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['NotificationsBetaApi.createDomainDkim']?.[serverMapIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
         /**
@@ -55892,7 +56139,8 @@ export const NotificationsBetaApiFp = function(configuration?: Configuration) {
          */
         async createNotificationTemplate(templateDtoBeta: TemplateDtoBeta, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<TemplateDtoBeta>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.createNotificationTemplate(templateDtoBeta, axiosOptions);
-            const operationBasePath = operationServerMap['NotificationsBetaApi.createNotificationTemplate']?.[0]?.url;
+            const serverMapIndex = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['NotificationsBetaApi.createNotificationTemplate']?.[serverMapIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
         /**
@@ -55904,7 +56152,8 @@ export const NotificationsBetaApiFp = function(configuration?: Configuration) {
          */
         async createVerifiedFromAddress(emailStatusDtoBeta: EmailStatusDtoBeta, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<EmailStatusDtoBeta>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.createVerifiedFromAddress(emailStatusDtoBeta, axiosOptions);
-            const operationBasePath = operationServerMap['NotificationsBetaApi.createVerifiedFromAddress']?.[0]?.url;
+            const serverMapIndex = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['NotificationsBetaApi.createVerifiedFromAddress']?.[serverMapIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
         /**
@@ -55916,7 +56165,8 @@ export const NotificationsBetaApiFp = function(configuration?: Configuration) {
          */
         async deleteNotificationTemplatesInBulk(templateBulkDeleteDtoBeta: Array<TemplateBulkDeleteDtoBeta>, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.deleteNotificationTemplatesInBulk(templateBulkDeleteDtoBeta, axiosOptions);
-            const operationBasePath = operationServerMap['NotificationsBetaApi.deleteNotificationTemplatesInBulk']?.[0]?.url;
+            const serverMapIndex = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['NotificationsBetaApi.deleteNotificationTemplatesInBulk']?.[serverMapIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
         /**
@@ -55928,7 +56178,8 @@ export const NotificationsBetaApiFp = function(configuration?: Configuration) {
          */
         async deleteVerifiedFromAddress(id: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.deleteVerifiedFromAddress(id, axiosOptions);
-            const operationBasePath = operationServerMap['NotificationsBetaApi.deleteVerifiedFromAddress']?.[0]?.url;
+            const serverMapIndex = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['NotificationsBetaApi.deleteVerifiedFromAddress']?.[serverMapIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
         /**
@@ -55939,7 +56190,8 @@ export const NotificationsBetaApiFp = function(configuration?: Configuration) {
          */
         async getDkimAttributes(axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<DkimAttributesBeta>>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getDkimAttributes(axiosOptions);
-            const operationBasePath = operationServerMap['NotificationsBetaApi.getDkimAttributes']?.[0]?.url;
+            const serverMapIndex = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['NotificationsBetaApi.getDkimAttributes']?.[serverMapIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
         /**
@@ -55951,7 +56203,8 @@ export const NotificationsBetaApiFp = function(configuration?: Configuration) {
          */
         async getMailFromAttributes(id: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<MailFromAttributesBeta>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getMailFromAttributes(id, axiosOptions);
-            const operationBasePath = operationServerMap['NotificationsBetaApi.getMailFromAttributes']?.[0]?.url;
+            const serverMapIndex = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['NotificationsBetaApi.getMailFromAttributes']?.[serverMapIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
         /**
@@ -55963,7 +56216,8 @@ export const NotificationsBetaApiFp = function(configuration?: Configuration) {
          */
         async getNotificationPreference(key: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<PreferencesDtoBeta>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getNotificationPreference(key, axiosOptions);
-            const operationBasePath = operationServerMap['NotificationsBetaApi.getNotificationPreference']?.[0]?.url;
+            const serverMapIndex = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['NotificationsBetaApi.getNotificationPreference']?.[serverMapIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
         /**
@@ -55975,7 +56229,8 @@ export const NotificationsBetaApiFp = function(configuration?: Configuration) {
          */
         async getNotificationTemplate(id: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<TemplateDtoBeta>>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getNotificationTemplate(id, axiosOptions);
-            const operationBasePath = operationServerMap['NotificationsBetaApi.getNotificationTemplate']?.[0]?.url;
+            const serverMapIndex = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['NotificationsBetaApi.getNotificationTemplate']?.[serverMapIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
         /**
@@ -55986,7 +56241,8 @@ export const NotificationsBetaApiFp = function(configuration?: Configuration) {
          */
         async getNotificationsTemplateContext(axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<NotificationTemplateContextBeta>>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getNotificationsTemplateContext(axiosOptions);
-            const operationBasePath = operationServerMap['NotificationsBetaApi.getNotificationsTemplateContext']?.[0]?.url;
+            const serverMapIndex = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['NotificationsBetaApi.getNotificationsTemplateContext']?.[serverMapIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
         /**
@@ -56002,7 +56258,8 @@ export const NotificationsBetaApiFp = function(configuration?: Configuration) {
          */
         async listFromAddresses(limit?: number, offset?: number, count?: boolean, filters?: string, sorters?: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<EmailStatusDtoBeta>>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.listFromAddresses(limit, offset, count, filters, sorters, axiosOptions);
-            const operationBasePath = operationServerMap['NotificationsBetaApi.listFromAddresses']?.[0]?.url;
+            const serverMapIndex = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['NotificationsBetaApi.listFromAddresses']?.[serverMapIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
         /**
@@ -56016,7 +56273,8 @@ export const NotificationsBetaApiFp = function(configuration?: Configuration) {
          */
         async listNotificationTemplateDefaults(limit?: number, offset?: number, filters?: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<TemplateDtoDefaultBeta>>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.listNotificationTemplateDefaults(limit, offset, filters, axiosOptions);
-            const operationBasePath = operationServerMap['NotificationsBetaApi.listNotificationTemplateDefaults']?.[0]?.url;
+            const serverMapIndex = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['NotificationsBetaApi.listNotificationTemplateDefaults']?.[serverMapIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
         /**
@@ -56030,7 +56288,8 @@ export const NotificationsBetaApiFp = function(configuration?: Configuration) {
          */
         async listNotificationTemplates(limit?: number, offset?: number, filters?: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<TemplateDtoBeta>>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.listNotificationTemplates(limit, offset, filters, axiosOptions);
-            const operationBasePath = operationServerMap['NotificationsBetaApi.listNotificationTemplates']?.[0]?.url;
+            const serverMapIndex = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['NotificationsBetaApi.listNotificationTemplates']?.[serverMapIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
         /**
@@ -56042,7 +56301,8 @@ export const NotificationsBetaApiFp = function(configuration?: Configuration) {
          */
         async putMailFromAttributes(mailFromAttributesDtoBeta: MailFromAttributesDtoBeta, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<MailFromAttributesBeta>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.putMailFromAttributes(mailFromAttributesDtoBeta, axiosOptions);
-            const operationBasePath = operationServerMap['NotificationsBetaApi.putMailFromAttributes']?.[0]?.url;
+            const serverMapIndex = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['NotificationsBetaApi.putMailFromAttributes']?.[serverMapIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
         /**
@@ -56055,7 +56315,8 @@ export const NotificationsBetaApiFp = function(configuration?: Configuration) {
          */
         async putNotificationPreference(key: string, preferencesDtoBeta: PreferencesDtoBeta, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<PreferencesDtoBeta>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.putNotificationPreference(key, preferencesDtoBeta, axiosOptions);
-            const operationBasePath = operationServerMap['NotificationsBetaApi.putNotificationPreference']?.[0]?.url;
+            const serverMapIndex = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['NotificationsBetaApi.putNotificationPreference']?.[serverMapIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
         /**
@@ -56067,7 +56328,8 @@ export const NotificationsBetaApiFp = function(configuration?: Configuration) {
          */
         async sendTestNotification(sendTestNotificationRequestDtoBeta: SendTestNotificationRequestDtoBeta, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.sendTestNotification(sendTestNotificationRequestDtoBeta, axiosOptions);
-            const operationBasePath = operationServerMap['NotificationsBetaApi.sendTestNotification']?.[0]?.url;
+            const serverMapIndex = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['NotificationsBetaApi.sendTestNotification']?.[serverMapIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
     }
@@ -56960,7 +57222,8 @@ export const OAuthClientsBetaApiFp = function(configuration?: Configuration) {
          */
         async createOauthClient(createOAuthClientRequestBeta: CreateOAuthClientRequestBeta, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<CreateOAuthClientResponseBeta>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.createOauthClient(createOAuthClientRequestBeta, axiosOptions);
-            const operationBasePath = operationServerMap['OAuthClientsBetaApi.createOauthClient']?.[0]?.url;
+            const serverMapIndex = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['OAuthClientsBetaApi.createOauthClient']?.[serverMapIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
         /**
@@ -56972,7 +57235,8 @@ export const OAuthClientsBetaApiFp = function(configuration?: Configuration) {
          */
         async deleteOauthClient(id: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.deleteOauthClient(id, axiosOptions);
-            const operationBasePath = operationServerMap['OAuthClientsBetaApi.deleteOauthClient']?.[0]?.url;
+            const serverMapIndex = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['OAuthClientsBetaApi.deleteOauthClient']?.[serverMapIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
         /**
@@ -56984,7 +57248,8 @@ export const OAuthClientsBetaApiFp = function(configuration?: Configuration) {
          */
         async getOauthClient(id: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<GetOAuthClientResponseBeta>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getOauthClient(id, axiosOptions);
-            const operationBasePath = operationServerMap['OAuthClientsBetaApi.getOauthClient']?.[0]?.url;
+            const serverMapIndex = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['OAuthClientsBetaApi.getOauthClient']?.[serverMapIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
         /**
@@ -56996,7 +57261,8 @@ export const OAuthClientsBetaApiFp = function(configuration?: Configuration) {
          */
         async listOauthClients(filters?: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<GetOAuthClientResponseBeta>>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.listOauthClients(filters, axiosOptions);
-            const operationBasePath = operationServerMap['OAuthClientsBetaApi.listOauthClients']?.[0]?.url;
+            const serverMapIndex = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['OAuthClientsBetaApi.listOauthClients']?.[serverMapIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
         /**
@@ -57009,7 +57275,8 @@ export const OAuthClientsBetaApiFp = function(configuration?: Configuration) {
          */
         async patchOauthClient(id: string, jsonPatchOperationBeta: Array<JsonPatchOperationBeta>, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<GetOAuthClientResponseBeta>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.patchOauthClient(id, jsonPatchOperationBeta, axiosOptions);
-            const operationBasePath = operationServerMap['OAuthClientsBetaApi.patchOauthClient']?.[0]?.url;
+            const serverMapIndex = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['OAuthClientsBetaApi.patchOauthClient']?.[serverMapIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
     }
@@ -57371,7 +57638,8 @@ export const OrgConfigBetaApiFp = function(configuration?: Configuration) {
          */
         async getOrgConfig(axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<OrgConfigBeta>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getOrgConfig(axiosOptions);
-            const operationBasePath = operationServerMap['OrgConfigBetaApi.getOrgConfig']?.[0]?.url;
+            const serverMapIndex = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['OrgConfigBetaApi.getOrgConfig']?.[serverMapIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
         /**
@@ -57382,7 +57650,8 @@ export const OrgConfigBetaApiFp = function(configuration?: Configuration) {
          */
         async getValidTimeZones(axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<string>>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getValidTimeZones(axiosOptions);
-            const operationBasePath = operationServerMap['OrgConfigBetaApi.getValidTimeZones']?.[0]?.url;
+            const serverMapIndex = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['OrgConfigBetaApi.getValidTimeZones']?.[serverMapIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
         /**
@@ -57394,7 +57663,8 @@ export const OrgConfigBetaApiFp = function(configuration?: Configuration) {
          */
         async patchOrgConfig(jsonPatchOperationBeta: Array<JsonPatchOperationBeta>, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<OrgConfigBeta>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.patchOrgConfig(jsonPatchOperationBeta, axiosOptions);
-            const operationBasePath = operationServerMap['OrgConfigBetaApi.patchOrgConfig']?.[0]?.url;
+            const serverMapIndex = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['OrgConfigBetaApi.patchOrgConfig']?.[serverMapIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
     }
@@ -57650,7 +57920,8 @@ export const PasswordConfigurationBetaApiFp = function(configuration?: Configura
          */
         async createPasswordOrgConfig(passwordOrgConfigBeta: PasswordOrgConfigBeta, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<PasswordOrgConfigBeta>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.createPasswordOrgConfig(passwordOrgConfigBeta, axiosOptions);
-            const operationBasePath = operationServerMap['PasswordConfigurationBetaApi.createPasswordOrgConfig']?.[0]?.url;
+            const serverMapIndex = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['PasswordConfigurationBetaApi.createPasswordOrgConfig']?.[serverMapIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
         /**
@@ -57661,7 +57932,8 @@ export const PasswordConfigurationBetaApiFp = function(configuration?: Configura
          */
         async getPasswordOrgConfig(axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<PasswordOrgConfigBeta>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getPasswordOrgConfig(axiosOptions);
-            const operationBasePath = operationServerMap['PasswordConfigurationBetaApi.getPasswordOrgConfig']?.[0]?.url;
+            const serverMapIndex = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['PasswordConfigurationBetaApi.getPasswordOrgConfig']?.[serverMapIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
         /**
@@ -57673,7 +57945,8 @@ export const PasswordConfigurationBetaApiFp = function(configuration?: Configura
          */
         async putPasswordOrgConfig(passwordOrgConfigBeta: PasswordOrgConfigBeta, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<PasswordOrgConfigBeta>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.putPasswordOrgConfig(passwordOrgConfigBeta, axiosOptions);
-            const operationBasePath = operationServerMap['PasswordConfigurationBetaApi.putPasswordOrgConfig']?.[0]?.url;
+            const serverMapIndex = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['PasswordConfigurationBetaApi.putPasswordOrgConfig']?.[serverMapIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
     }
@@ -57903,7 +58176,8 @@ export const PasswordDictionaryBetaApiFp = function(configuration?: Configuratio
          */
         async getPasswordDictionary(axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<string>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getPasswordDictionary(axiosOptions);
-            const operationBasePath = operationServerMap['PasswordDictionaryBetaApi.getPasswordDictionary']?.[0]?.url;
+            const serverMapIndex = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['PasswordDictionaryBetaApi.getPasswordDictionary']?.[serverMapIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
         /**
@@ -57915,7 +58189,8 @@ export const PasswordDictionaryBetaApiFp = function(configuration?: Configuratio
          */
         async updatePasswordDictionary(file?: File, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.updatePasswordDictionary(file, axiosOptions);
-            const operationBasePath = operationServerMap['PasswordDictionaryBetaApi.updatePasswordDictionary']?.[0]?.url;
+            const serverMapIndex = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['PasswordDictionaryBetaApi.updatePasswordDictionary']?.[serverMapIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
     }
@@ -58198,7 +58473,8 @@ export const PasswordManagementBetaApiFp = function(configuration?: Configuratio
          */
         async generateDigitToken(passwordDigitTokenResetBeta: PasswordDigitTokenResetBeta, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<PasswordDigitTokenBeta>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.generateDigitToken(passwordDigitTokenResetBeta, axiosOptions);
-            const operationBasePath = operationServerMap['PasswordManagementBetaApi.generateDigitToken']?.[0]?.url;
+            const serverMapIndex = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['PasswordManagementBetaApi.generateDigitToken']?.[serverMapIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
         /**
@@ -58210,7 +58486,8 @@ export const PasswordManagementBetaApiFp = function(configuration?: Configuratio
          */
         async getIdentityPasswordChangeStatus(id: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<PasswordStatusBeta>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getIdentityPasswordChangeStatus(id, axiosOptions);
-            const operationBasePath = operationServerMap['PasswordManagementBetaApi.getIdentityPasswordChangeStatus']?.[0]?.url;
+            const serverMapIndex = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['PasswordManagementBetaApi.getIdentityPasswordChangeStatus']?.[serverMapIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
         /**
@@ -58222,7 +58499,8 @@ export const PasswordManagementBetaApiFp = function(configuration?: Configuratio
          */
         async queryPasswordInfo(passwordInfoQueryDTOBeta: PasswordInfoQueryDTOBeta, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<PasswordInfoBeta>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.queryPasswordInfo(passwordInfoQueryDTOBeta, axiosOptions);
-            const operationBasePath = operationServerMap['PasswordManagementBetaApi.queryPasswordInfo']?.[0]?.url;
+            const serverMapIndex = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['PasswordManagementBetaApi.queryPasswordInfo']?.[serverMapIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
         /**
@@ -58234,7 +58512,8 @@ export const PasswordManagementBetaApiFp = function(configuration?: Configuratio
          */
         async setIdentityPassword(passwordChangeRequestBeta: PasswordChangeRequestBeta, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<PasswordChangeResponseBeta>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.setIdentityPassword(passwordChangeRequestBeta, axiosOptions);
-            const operationBasePath = operationServerMap['PasswordManagementBetaApi.setIdentityPassword']?.[0]?.url;
+            const serverMapIndex = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['PasswordManagementBetaApi.setIdentityPassword']?.[serverMapIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
     }
@@ -58662,7 +58941,8 @@ export const PasswordSyncGroupsBetaApiFp = function(configuration?: Configuratio
          */
         async createPasswordSyncGroup(passwordSyncGroupBeta: PasswordSyncGroupBeta, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<PasswordSyncGroupBeta>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.createPasswordSyncGroup(passwordSyncGroupBeta, axiosOptions);
-            const operationBasePath = operationServerMap['PasswordSyncGroupsBetaApi.createPasswordSyncGroup']?.[0]?.url;
+            const serverMapIndex = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['PasswordSyncGroupsBetaApi.createPasswordSyncGroup']?.[serverMapIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
         /**
@@ -58674,7 +58954,8 @@ export const PasswordSyncGroupsBetaApiFp = function(configuration?: Configuratio
          */
         async deletePasswordSyncGroup(id: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.deletePasswordSyncGroup(id, axiosOptions);
-            const operationBasePath = operationServerMap['PasswordSyncGroupsBetaApi.deletePasswordSyncGroup']?.[0]?.url;
+            const serverMapIndex = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['PasswordSyncGroupsBetaApi.deletePasswordSyncGroup']?.[serverMapIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
         /**
@@ -58686,7 +58967,8 @@ export const PasswordSyncGroupsBetaApiFp = function(configuration?: Configuratio
          */
         async getPasswordSyncGroup(id: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<PasswordSyncGroupBeta>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getPasswordSyncGroup(id, axiosOptions);
-            const operationBasePath = operationServerMap['PasswordSyncGroupsBetaApi.getPasswordSyncGroup']?.[0]?.url;
+            const serverMapIndex = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['PasswordSyncGroupsBetaApi.getPasswordSyncGroup']?.[serverMapIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
         /**
@@ -58700,7 +58982,8 @@ export const PasswordSyncGroupsBetaApiFp = function(configuration?: Configuratio
          */
         async getPasswordSyncGroups(limit?: number, offset?: number, count?: boolean, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<PasswordSyncGroupBeta>>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getPasswordSyncGroups(limit, offset, count, axiosOptions);
-            const operationBasePath = operationServerMap['PasswordSyncGroupsBetaApi.getPasswordSyncGroups']?.[0]?.url;
+            const serverMapIndex = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['PasswordSyncGroupsBetaApi.getPasswordSyncGroups']?.[serverMapIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
         /**
@@ -58713,7 +58996,8 @@ export const PasswordSyncGroupsBetaApiFp = function(configuration?: Configuratio
          */
         async updatePasswordSyncGroup(id: string, passwordSyncGroupBeta: PasswordSyncGroupBeta, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<PasswordSyncGroupBeta>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.updatePasswordSyncGroup(id, passwordSyncGroupBeta, axiosOptions);
-            const operationBasePath = operationServerMap['PasswordSyncGroupsBetaApi.updatePasswordSyncGroup']?.[0]?.url;
+            const serverMapIndex = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['PasswordSyncGroupsBetaApi.updatePasswordSyncGroup']?.[serverMapIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
     }
@@ -59152,7 +59436,8 @@ export const PersonalAccessTokensBetaApiFp = function(configuration?: Configurat
          */
         async createPersonalAccessToken(createPersonalAccessTokenRequestBeta: CreatePersonalAccessTokenRequestBeta, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<CreatePersonalAccessTokenResponseBeta>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.createPersonalAccessToken(createPersonalAccessTokenRequestBeta, axiosOptions);
-            const operationBasePath = operationServerMap['PersonalAccessTokensBetaApi.createPersonalAccessToken']?.[0]?.url;
+            const serverMapIndex = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['PersonalAccessTokensBetaApi.createPersonalAccessToken']?.[serverMapIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
         /**
@@ -59164,7 +59449,8 @@ export const PersonalAccessTokensBetaApiFp = function(configuration?: Configurat
          */
         async deletePersonalAccessToken(id: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.deletePersonalAccessToken(id, axiosOptions);
-            const operationBasePath = operationServerMap['PersonalAccessTokensBetaApi.deletePersonalAccessToken']?.[0]?.url;
+            const serverMapIndex = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['PersonalAccessTokensBetaApi.deletePersonalAccessToken']?.[serverMapIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
         /**
@@ -59177,7 +59463,8 @@ export const PersonalAccessTokensBetaApiFp = function(configuration?: Configurat
          */
         async listPersonalAccessTokens(ownerId?: string, filters?: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<GetPersonalAccessTokenResponseBeta>>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.listPersonalAccessTokens(ownerId, filters, axiosOptions);
-            const operationBasePath = operationServerMap['PersonalAccessTokensBetaApi.listPersonalAccessTokens']?.[0]?.url;
+            const serverMapIndex = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['PersonalAccessTokensBetaApi.listPersonalAccessTokens']?.[serverMapIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
         /**
@@ -59190,7 +59477,8 @@ export const PersonalAccessTokensBetaApiFp = function(configuration?: Configurat
          */
         async patchPersonalAccessToken(id: string, jsonPatchOperationBeta: Array<JsonPatchOperationBeta>, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<GetPersonalAccessTokenResponseBeta>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.patchPersonalAccessToken(id, jsonPatchOperationBeta, axiosOptions);
-            const operationBasePath = operationServerMap['PersonalAccessTokensBetaApi.patchPersonalAccessToken']?.[0]?.url;
+            const serverMapIndex = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['PersonalAccessTokensBetaApi.patchPersonalAccessToken']?.[serverMapIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
     }
@@ -59484,7 +59772,8 @@ export const PublicIdentitiesConfigBetaApiFp = function(configuration?: Configur
          */
         async getPublicIdentityConfig(axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<PublicIdentityConfigBeta>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getPublicIdentityConfig(axiosOptions);
-            const operationBasePath = operationServerMap['PublicIdentitiesConfigBetaApi.getPublicIdentityConfig']?.[0]?.url;
+            const serverMapIndex = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['PublicIdentitiesConfigBetaApi.getPublicIdentityConfig']?.[serverMapIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
         /**
@@ -59496,7 +59785,8 @@ export const PublicIdentitiesConfigBetaApiFp = function(configuration?: Configur
          */
         async updatePublicIdentityConfig(publicIdentityConfigBeta: PublicIdentityConfigBeta, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<PublicIdentityConfigBeta>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.updatePublicIdentityConfig(publicIdentityConfigBeta, axiosOptions);
-            const operationBasePath = operationServerMap['PublicIdentitiesConfigBetaApi.updatePublicIdentityConfig']?.[0]?.url;
+            const serverMapIndex = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['PublicIdentitiesConfigBetaApi.updatePublicIdentityConfig']?.[serverMapIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
     }
@@ -59696,7 +59986,8 @@ export const RequestableObjectsBetaApiFp = function(configuration?: Configuratio
          */
         async listRequestableObjects(identityId?: string, types?: Array<RequestableObjectTypeBeta>, term?: string, statuses?: Array<RequestableObjectRequestStatusBeta>, limit?: number, offset?: number, count?: boolean, filters?: string, sorters?: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<RequestableObjectBeta>>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.listRequestableObjects(identityId, types, term, statuses, limit, offset, count, filters, sorters, axiosOptions);
-            const operationBasePath = operationServerMap['RequestableObjectsBetaApi.listRequestableObjects']?.[0]?.url;
+            const serverMapIndex = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['RequestableObjectsBetaApi.listRequestableObjects']?.[serverMapIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
     }
@@ -60292,7 +60583,8 @@ export const RoleInsightsBetaApiFp = function(configuration?: Configuration) {
          */
         async createRoleInsightRequests(axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<RoleInsightsResponseBeta>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.createRoleInsightRequests(axiosOptions);
-            const operationBasePath = operationServerMap['RoleInsightsBetaApi.createRoleInsightRequests']?.[0]?.url;
+            const serverMapIndex = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['RoleInsightsBetaApi.createRoleInsightRequests']?.[serverMapIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
         /**
@@ -60306,7 +60598,8 @@ export const RoleInsightsBetaApiFp = function(configuration?: Configuration) {
          */
         async downloadRoleInsightsEntitlementsChanges(insightId: string, sorters?: string, filters?: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<string>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.downloadRoleInsightsEntitlementsChanges(insightId, sorters, filters, axiosOptions);
-            const operationBasePath = operationServerMap['RoleInsightsBetaApi.downloadRoleInsightsEntitlementsChanges']?.[0]?.url;
+            const serverMapIndex = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['RoleInsightsBetaApi.downloadRoleInsightsEntitlementsChanges']?.[serverMapIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
         /**
@@ -60325,7 +60618,8 @@ export const RoleInsightsBetaApiFp = function(configuration?: Configuration) {
          */
         async getEntitlementChangesIdentities(insightId: string, entitlementId: string, hasEntitlement?: boolean, offset?: number, limit?: number, count?: boolean, sorters?: string, filters?: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<RoleInsightsIdentitiesBeta>>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getEntitlementChangesIdentities(insightId, entitlementId, hasEntitlement, offset, limit, count, sorters, filters, axiosOptions);
-            const operationBasePath = operationServerMap['RoleInsightsBetaApi.getEntitlementChangesIdentities']?.[0]?.url;
+            const serverMapIndex = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['RoleInsightsBetaApi.getEntitlementChangesIdentities']?.[serverMapIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
         /**
@@ -60337,7 +60631,8 @@ export const RoleInsightsBetaApiFp = function(configuration?: Configuration) {
          */
         async getRoleInsight(insightId: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<RoleInsightBeta>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getRoleInsight(insightId, axiosOptions);
-            const operationBasePath = operationServerMap['RoleInsightsBetaApi.getRoleInsight']?.[0]?.url;
+            const serverMapIndex = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['RoleInsightsBetaApi.getRoleInsight']?.[serverMapIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
         /**
@@ -60353,7 +60648,8 @@ export const RoleInsightsBetaApiFp = function(configuration?: Configuration) {
          */
         async getRoleInsights(offset?: number, limit?: number, count?: boolean, sorters?: string, filters?: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<RoleInsightBeta>>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getRoleInsights(offset, limit, count, sorters, filters, axiosOptions);
-            const operationBasePath = operationServerMap['RoleInsightsBetaApi.getRoleInsights']?.[0]?.url;
+            const serverMapIndex = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['RoleInsightsBetaApi.getRoleInsights']?.[serverMapIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
         /**
@@ -60366,7 +60662,8 @@ export const RoleInsightsBetaApiFp = function(configuration?: Configuration) {
          */
         async getRoleInsightsCurrentEntitlements(insightId: string, filters?: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<RoleInsightsEntitlementBeta>>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getRoleInsightsCurrentEntitlements(insightId, filters, axiosOptions);
-            const operationBasePath = operationServerMap['RoleInsightsBetaApi.getRoleInsightsCurrentEntitlements']?.[0]?.url;
+            const serverMapIndex = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['RoleInsightsBetaApi.getRoleInsightsCurrentEntitlements']?.[serverMapIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
         /**
@@ -60380,7 +60677,8 @@ export const RoleInsightsBetaApiFp = function(configuration?: Configuration) {
          */
         async getRoleInsightsEntitlementsChanges(insightId: string, sorters?: string, filters?: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<RoleInsightsEntitlementChangesBeta>>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getRoleInsightsEntitlementsChanges(insightId, sorters, filters, axiosOptions);
-            const operationBasePath = operationServerMap['RoleInsightsBetaApi.getRoleInsightsEntitlementsChanges']?.[0]?.url;
+            const serverMapIndex = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['RoleInsightsBetaApi.getRoleInsightsEntitlementsChanges']?.[serverMapIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
         /**
@@ -60393,7 +60691,8 @@ export const RoleInsightsBetaApiFp = function(configuration?: Configuration) {
          */
         async getRoleInsightsRequests(id: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<RoleInsightsResponseBeta>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getRoleInsightsRequests(id, axiosOptions);
-            const operationBasePath = operationServerMap['RoleInsightsBetaApi.getRoleInsightsRequests']?.[0]?.url;
+            const serverMapIndex = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['RoleInsightsBetaApi.getRoleInsightsRequests']?.[serverMapIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
         /**
@@ -60404,7 +60703,8 @@ export const RoleInsightsBetaApiFp = function(configuration?: Configuration) {
          */
         async getRoleInsightsSummary(axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<RoleInsightsSummaryBeta>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getRoleInsightsSummary(axiosOptions);
-            const operationBasePath = operationServerMap['RoleInsightsBetaApi.getRoleInsightsSummary']?.[0]?.url;
+            const serverMapIndex = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['RoleInsightsBetaApi.getRoleInsightsSummary']?.[serverMapIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
     }
@@ -61237,7 +61537,8 @@ export const RolesBetaApiFp = function(configuration?: Configuration) {
          */
         async bulkDeleteRoles(roleBulkDeleteRequestBeta: RoleBulkDeleteRequestBeta, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<TaskResultDtoBeta>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.bulkDeleteRoles(roleBulkDeleteRequestBeta, axiosOptions);
-            const operationBasePath = operationServerMap['RolesBetaApi.bulkDeleteRoles']?.[0]?.url;
+            const serverMapIndex = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['RolesBetaApi.bulkDeleteRoles']?.[serverMapIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
         /**
@@ -61249,7 +61550,8 @@ export const RolesBetaApiFp = function(configuration?: Configuration) {
          */
         async createRole(roleBeta: RoleBeta, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<RoleBeta>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.createRole(roleBeta, axiosOptions);
-            const operationBasePath = operationServerMap['RolesBetaApi.createRole']?.[0]?.url;
+            const serverMapIndex = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['RolesBetaApi.createRole']?.[serverMapIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
         /**
@@ -61261,7 +61563,8 @@ export const RolesBetaApiFp = function(configuration?: Configuration) {
          */
         async deleteRole(id: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.deleteRole(id, axiosOptions);
-            const operationBasePath = operationServerMap['RolesBetaApi.deleteRole']?.[0]?.url;
+            const serverMapIndex = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['RolesBetaApi.deleteRole']?.[serverMapIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
         /**
@@ -61273,7 +61576,8 @@ export const RolesBetaApiFp = function(configuration?: Configuration) {
          */
         async getRole(id: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<RoleBeta>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getRole(id, axiosOptions);
-            const operationBasePath = operationServerMap['RolesBetaApi.getRole']?.[0]?.url;
+            const serverMapIndex = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['RolesBetaApi.getRole']?.[serverMapIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
         /**
@@ -61290,7 +61594,8 @@ export const RolesBetaApiFp = function(configuration?: Configuration) {
          */
         async getRoleAssignedIdentities(id: string, limit?: number, offset?: number, count?: boolean, filters?: string, sorters?: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<RoleIdentityBeta>>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getRoleAssignedIdentities(id, limit, offset, count, filters, sorters, axiosOptions);
-            const operationBasePath = operationServerMap['RolesBetaApi.getRoleAssignedIdentities']?.[0]?.url;
+            const serverMapIndex = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['RolesBetaApi.getRoleAssignedIdentities']?.[serverMapIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
         /**
@@ -61309,7 +61614,8 @@ export const RolesBetaApiFp = function(configuration?: Configuration) {
          */
         async listRoles(forSubadmin?: string, limit?: number, offset?: number, count?: boolean, filters?: string, sorters?: string, forSegmentIds?: string, includeUnsegmented?: boolean, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<RoleBeta>>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.listRoles(forSubadmin, limit, offset, count, filters, sorters, forSegmentIds, includeUnsegmented, axiosOptions);
-            const operationBasePath = operationServerMap['RolesBetaApi.listRoles']?.[0]?.url;
+            const serverMapIndex = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['RolesBetaApi.listRoles']?.[serverMapIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
         /**
@@ -61322,7 +61628,8 @@ export const RolesBetaApiFp = function(configuration?: Configuration) {
          */
         async patchRole(id: string, jsonPatchOperationBeta: Array<JsonPatchOperationBeta>, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<RoleBeta>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.patchRole(id, jsonPatchOperationBeta, axiosOptions);
-            const operationBasePath = operationServerMap['RolesBetaApi.patchRole']?.[0]?.url;
+            const serverMapIndex = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['RolesBetaApi.patchRole']?.[serverMapIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
     }
@@ -62453,7 +62760,8 @@ export const SODPolicyBetaApiFp = function(configuration?: Configuration) {
          */
         async createSodPolicy(sodPolicyBeta: SodPolicyBeta, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SodPolicyBeta>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.createSodPolicy(sodPolicyBeta, axiosOptions);
-            const operationBasePath = operationServerMap['SODPolicyBetaApi.createSodPolicy']?.[0]?.url;
+            const serverMapIndex = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['SODPolicyBetaApi.createSodPolicy']?.[serverMapIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
         /**
@@ -62467,7 +62775,8 @@ export const SODPolicyBetaApiFp = function(configuration?: Configuration) {
          */
         async deleteSodPolicy(id: string, logical?: boolean, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.deleteSodPolicy(id, logical, axiosOptions);
-            const operationBasePath = operationServerMap['SODPolicyBetaApi.deleteSodPolicy']?.[0]?.url;
+            const serverMapIndex = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['SODPolicyBetaApi.deleteSodPolicy']?.[serverMapIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
         /**
@@ -62480,7 +62789,8 @@ export const SODPolicyBetaApiFp = function(configuration?: Configuration) {
          */
         async deleteSodPolicySchedule(id: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.deleteSodPolicySchedule(id, axiosOptions);
-            const operationBasePath = operationServerMap['SODPolicyBetaApi.deleteSodPolicySchedule']?.[0]?.url;
+            const serverMapIndex = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['SODPolicyBetaApi.deleteSodPolicySchedule']?.[serverMapIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
         /**
@@ -62494,7 +62804,8 @@ export const SODPolicyBetaApiFp = function(configuration?: Configuration) {
          */
         async getCustomViolationReport(reportResultId: string, fileName: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<File>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getCustomViolationReport(reportResultId, fileName, axiosOptions);
-            const operationBasePath = operationServerMap['SODPolicyBetaApi.getCustomViolationReport']?.[0]?.url;
+            const serverMapIndex = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['SODPolicyBetaApi.getCustomViolationReport']?.[serverMapIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
         /**
@@ -62507,7 +62818,8 @@ export const SODPolicyBetaApiFp = function(configuration?: Configuration) {
          */
         async getDefaultViolationReport(reportResultId: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<File>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getDefaultViolationReport(reportResultId, axiosOptions);
-            const operationBasePath = operationServerMap['SODPolicyBetaApi.getDefaultViolationReport']?.[0]?.url;
+            const serverMapIndex = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['SODPolicyBetaApi.getDefaultViolationReport']?.[serverMapIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
         /**
@@ -62519,7 +62831,8 @@ export const SODPolicyBetaApiFp = function(configuration?: Configuration) {
          */
         async getSodAllReportRunStatus(axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ReportResultReferenceBeta>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getSodAllReportRunStatus(axiosOptions);
-            const operationBasePath = operationServerMap['SODPolicyBetaApi.getSodAllReportRunStatus']?.[0]?.url;
+            const serverMapIndex = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['SODPolicyBetaApi.getSodAllReportRunStatus']?.[serverMapIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
         /**
@@ -62532,7 +62845,8 @@ export const SODPolicyBetaApiFp = function(configuration?: Configuration) {
          */
         async getSodPolicy(id: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SodPolicyBeta>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getSodPolicy(id, axiosOptions);
-            const operationBasePath = operationServerMap['SODPolicyBetaApi.getSodPolicy']?.[0]?.url;
+            const serverMapIndex = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['SODPolicyBetaApi.getSodPolicy']?.[serverMapIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
         /**
@@ -62545,7 +62859,8 @@ export const SODPolicyBetaApiFp = function(configuration?: Configuration) {
          */
         async getSodPolicySchedule(id: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SodPolicyScheduleBeta>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getSodPolicySchedule(id, axiosOptions);
-            const operationBasePath = operationServerMap['SODPolicyBetaApi.getSodPolicySchedule']?.[0]?.url;
+            const serverMapIndex = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['SODPolicyBetaApi.getSodPolicySchedule']?.[serverMapIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
         /**
@@ -62558,7 +62873,8 @@ export const SODPolicyBetaApiFp = function(configuration?: Configuration) {
          */
         async getSodViolationReportRunStatus(reportResultId: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ReportResultReferenceBeta>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getSodViolationReportRunStatus(reportResultId, axiosOptions);
-            const operationBasePath = operationServerMap['SODPolicyBetaApi.getSodViolationReportRunStatus']?.[0]?.url;
+            const serverMapIndex = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['SODPolicyBetaApi.getSodViolationReportRunStatus']?.[serverMapIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
         /**
@@ -62571,7 +62887,8 @@ export const SODPolicyBetaApiFp = function(configuration?: Configuration) {
          */
         async getSodViolationReportStatus(id: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ReportResultReferenceBeta>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getSodViolationReportStatus(id, axiosOptions);
-            const operationBasePath = operationServerMap['SODPolicyBetaApi.getSodViolationReportStatus']?.[0]?.url;
+            const serverMapIndex = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['SODPolicyBetaApi.getSodViolationReportStatus']?.[serverMapIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
         /**
@@ -62587,7 +62904,8 @@ export const SODPolicyBetaApiFp = function(configuration?: Configuration) {
          */
         async listSodPolicies(limit?: number, offset?: number, count?: boolean, filters?: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<SodPolicyBeta>>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.listSodPolicies(limit, offset, count, filters, axiosOptions);
-            const operationBasePath = operationServerMap['SODPolicyBetaApi.listSodPolicies']?.[0]?.url;
+            const serverMapIndex = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['SODPolicyBetaApi.listSodPolicies']?.[serverMapIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
         /**
@@ -62601,7 +62919,8 @@ export const SODPolicyBetaApiFp = function(configuration?: Configuration) {
          */
         async patchSodPolicy(id: string, requestBody: Array<object>, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SodPolicyBeta>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.patchSodPolicy(id, requestBody, axiosOptions);
-            const operationBasePath = operationServerMap['SODPolicyBetaApi.patchSodPolicy']?.[0]?.url;
+            const serverMapIndex = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['SODPolicyBetaApi.patchSodPolicy']?.[serverMapIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
         /**
@@ -62615,7 +62934,8 @@ export const SODPolicyBetaApiFp = function(configuration?: Configuration) {
          */
         async putPolicySchedule(id: string, sodPolicyScheduleBeta: SodPolicyScheduleBeta, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SodPolicyScheduleBeta>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.putPolicySchedule(id, sodPolicyScheduleBeta, axiosOptions);
-            const operationBasePath = operationServerMap['SODPolicyBetaApi.putPolicySchedule']?.[0]?.url;
+            const serverMapIndex = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['SODPolicyBetaApi.putPolicySchedule']?.[serverMapIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
         /**
@@ -62629,7 +62949,8 @@ export const SODPolicyBetaApiFp = function(configuration?: Configuration) {
          */
         async putSodPolicy(id: string, sodPolicyBeta: SodPolicyBeta, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SodPolicyBeta>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.putSodPolicy(id, sodPolicyBeta, axiosOptions);
-            const operationBasePath = operationServerMap['SODPolicyBetaApi.putSodPolicy']?.[0]?.url;
+            const serverMapIndex = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['SODPolicyBetaApi.putSodPolicy']?.[serverMapIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
         /**
@@ -62642,7 +62963,8 @@ export const SODPolicyBetaApiFp = function(configuration?: Configuration) {
          */
         async startSodAllPoliciesForOrg(multiPolicyRequestBeta?: MultiPolicyRequestBeta, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ReportResultReferenceBeta>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.startSodAllPoliciesForOrg(multiPolicyRequestBeta, axiosOptions);
-            const operationBasePath = operationServerMap['SODPolicyBetaApi.startSodAllPoliciesForOrg']?.[0]?.url;
+            const serverMapIndex = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['SODPolicyBetaApi.startSodAllPoliciesForOrg']?.[serverMapIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
         /**
@@ -62655,7 +62977,8 @@ export const SODPolicyBetaApiFp = function(configuration?: Configuration) {
          */
         async startSodPolicy(id: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ReportResultReferenceBeta>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.startSodPolicy(id, axiosOptions);
-            const operationBasePath = operationServerMap['SODPolicyBetaApi.startSodPolicy']?.[0]?.url;
+            const serverMapIndex = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['SODPolicyBetaApi.startSodPolicy']?.[serverMapIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
     }
@@ -63416,7 +63739,8 @@ export const SODViolationsBetaApiFp = function(configuration?: Configuration) {
          */
         async startPredictSodViolations(identityWithNewAccessBeta: IdentityWithNewAccessBeta, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ViolationPredictionBeta>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.startPredictSodViolations(identityWithNewAccessBeta, axiosOptions);
-            const operationBasePath = operationServerMap['SODViolationsBetaApi.startPredictSodViolations']?.[0]?.url;
+            const serverMapIndex = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['SODViolationsBetaApi.startPredictSodViolations']?.[serverMapIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
     }
@@ -63815,7 +64139,8 @@ export const SPConfigBetaApiFp = function(configuration?: Configuration) {
          */
         async exportSpConfig(exportPayloadBeta: ExportPayloadBeta, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SpConfigExportJobBeta>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.exportSpConfig(exportPayloadBeta, axiosOptions);
-            const operationBasePath = operationServerMap['SPConfigBetaApi.exportSpConfig']?.[0]?.url;
+            const serverMapIndex = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['SPConfigBetaApi.exportSpConfig']?.[serverMapIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
         /**
@@ -63827,7 +64152,8 @@ export const SPConfigBetaApiFp = function(configuration?: Configuration) {
          */
         async getSpConfigExport(id: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SpConfigExportResultsBeta>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getSpConfigExport(id, axiosOptions);
-            const operationBasePath = operationServerMap['SPConfigBetaApi.getSpConfigExport']?.[0]?.url;
+            const serverMapIndex = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['SPConfigBetaApi.getSpConfigExport']?.[serverMapIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
         /**
@@ -63839,7 +64165,8 @@ export const SPConfigBetaApiFp = function(configuration?: Configuration) {
          */
         async getSpConfigExportStatus(id: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SpConfigExportJobStatusBeta>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getSpConfigExportStatus(id, axiosOptions);
-            const operationBasePath = operationServerMap['SPConfigBetaApi.getSpConfigExportStatus']?.[0]?.url;
+            const serverMapIndex = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['SPConfigBetaApi.getSpConfigExportStatus']?.[serverMapIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
         /**
@@ -63851,7 +64178,8 @@ export const SPConfigBetaApiFp = function(configuration?: Configuration) {
          */
         async getSpConfigImport(id: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SpConfigImportResultsBeta>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getSpConfigImport(id, axiosOptions);
-            const operationBasePath = operationServerMap['SPConfigBetaApi.getSpConfigImport']?.[0]?.url;
+            const serverMapIndex = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['SPConfigBetaApi.getSpConfigImport']?.[serverMapIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
         /**
@@ -63863,7 +64191,8 @@ export const SPConfigBetaApiFp = function(configuration?: Configuration) {
          */
         async getSpConfigImportStatus(id: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SpConfigImportJobStatusBeta>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getSpConfigImportStatus(id, axiosOptions);
-            const operationBasePath = operationServerMap['SPConfigBetaApi.getSpConfigImportStatus']?.[0]?.url;
+            const serverMapIndex = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['SPConfigBetaApi.getSpConfigImportStatus']?.[serverMapIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
         /**
@@ -63877,7 +64206,8 @@ export const SPConfigBetaApiFp = function(configuration?: Configuration) {
          */
         async importSpConfig(data: File, preview?: boolean, _options?: ImportOptionsBeta, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SpConfigJobBeta>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.importSpConfig(data, preview, _options, axiosOptions);
-            const operationBasePath = operationServerMap['SPConfigBetaApi.importSpConfig']?.[0]?.url;
+            const serverMapIndex = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['SPConfigBetaApi.importSpConfig']?.[serverMapIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
         /**
@@ -63888,7 +64218,8 @@ export const SPConfigBetaApiFp = function(configuration?: Configuration) {
          */
         async listSpConfigObjects(axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<SpConfigObjectBeta>>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.listSpConfigObjects(axiosOptions);
-            const operationBasePath = operationServerMap['SPConfigBetaApi.listSpConfigObjects']?.[0]?.url;
+            const serverMapIndex = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['SPConfigBetaApi.listSpConfigObjects']?.[serverMapIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
     }
@@ -64410,7 +64741,8 @@ export const SearchAttributeConfigurationBetaApiFp = function(configuration?: Co
          */
         async createSearchAttributeConfig(searchAttributeConfigBeta: SearchAttributeConfigBeta, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<object>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.createSearchAttributeConfig(searchAttributeConfigBeta, axiosOptions);
-            const operationBasePath = operationServerMap['SearchAttributeConfigurationBetaApi.createSearchAttributeConfig']?.[0]?.url;
+            const serverMapIndex = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['SearchAttributeConfigurationBetaApi.createSearchAttributeConfig']?.[serverMapIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
         /**
@@ -64422,7 +64754,8 @@ export const SearchAttributeConfigurationBetaApiFp = function(configuration?: Co
          */
         async deleteSearchAttributeConfig(name: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.deleteSearchAttributeConfig(name, axiosOptions);
-            const operationBasePath = operationServerMap['SearchAttributeConfigurationBetaApi.deleteSearchAttributeConfig']?.[0]?.url;
+            const serverMapIndex = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['SearchAttributeConfigurationBetaApi.deleteSearchAttributeConfig']?.[serverMapIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
         /**
@@ -64433,7 +64766,8 @@ export const SearchAttributeConfigurationBetaApiFp = function(configuration?: Co
          */
         async getSearchAttributeConfig(axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<SearchAttributeConfigBeta>>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getSearchAttributeConfig(axiosOptions);
-            const operationBasePath = operationServerMap['SearchAttributeConfigurationBetaApi.getSearchAttributeConfig']?.[0]?.url;
+            const serverMapIndex = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['SearchAttributeConfigurationBetaApi.getSearchAttributeConfig']?.[serverMapIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
         /**
@@ -64445,7 +64779,8 @@ export const SearchAttributeConfigurationBetaApiFp = function(configuration?: Co
          */
         async getSingleSearchAttributeConfig(name: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<SearchAttributeConfigBeta>>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getSingleSearchAttributeConfig(name, axiosOptions);
-            const operationBasePath = operationServerMap['SearchAttributeConfigurationBetaApi.getSingleSearchAttributeConfig']?.[0]?.url;
+            const serverMapIndex = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['SearchAttributeConfigurationBetaApi.getSingleSearchAttributeConfig']?.[serverMapIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
         /**
@@ -64458,7 +64793,8 @@ export const SearchAttributeConfigurationBetaApiFp = function(configuration?: Co
          */
         async patchSearchAttributeConfig(name: string, jsonPatchOperationBeta: Array<JsonPatchOperationBeta>, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SearchAttributeConfigBeta>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.patchSearchAttributeConfig(name, jsonPatchOperationBeta, axiosOptions);
-            const operationBasePath = operationServerMap['SearchAttributeConfigurationBetaApi.patchSearchAttributeConfig']?.[0]?.url;
+            const serverMapIndex = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['SearchAttributeConfigurationBetaApi.patchSearchAttributeConfig']?.[serverMapIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
     }
@@ -64914,7 +65250,8 @@ export const SegmentsBetaApiFp = function(configuration?: Configuration) {
          */
         async createSegment(segmentBeta: SegmentBeta, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SegmentBeta>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.createSegment(segmentBeta, axiosOptions);
-            const operationBasePath = operationServerMap['SegmentsBetaApi.createSegment']?.[0]?.url;
+            const serverMapIndex = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['SegmentsBetaApi.createSegment']?.[serverMapIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
         /**
@@ -64926,7 +65263,8 @@ export const SegmentsBetaApiFp = function(configuration?: Configuration) {
          */
         async deleteSegment(id: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.deleteSegment(id, axiosOptions);
-            const operationBasePath = operationServerMap['SegmentsBetaApi.deleteSegment']?.[0]?.url;
+            const serverMapIndex = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['SegmentsBetaApi.deleteSegment']?.[serverMapIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
         /**
@@ -64938,7 +65276,8 @@ export const SegmentsBetaApiFp = function(configuration?: Configuration) {
          */
         async getSegment(id: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SegmentBeta>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getSegment(id, axiosOptions);
-            const operationBasePath = operationServerMap['SegmentsBetaApi.getSegment']?.[0]?.url;
+            const serverMapIndex = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['SegmentsBetaApi.getSegment']?.[serverMapIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
         /**
@@ -64952,7 +65291,8 @@ export const SegmentsBetaApiFp = function(configuration?: Configuration) {
          */
         async listSegments(limit?: number, offset?: number, count?: boolean, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<SegmentBeta>>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.listSegments(limit, offset, count, axiosOptions);
-            const operationBasePath = operationServerMap['SegmentsBetaApi.listSegments']?.[0]?.url;
+            const serverMapIndex = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['SegmentsBetaApi.listSegments']?.[serverMapIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
         /**
@@ -64965,7 +65305,8 @@ export const SegmentsBetaApiFp = function(configuration?: Configuration) {
          */
         async patchSegment(id: string, requestBody: Array<object>, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SegmentBeta>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.patchSegment(id, requestBody, axiosOptions);
-            const operationBasePath = operationServerMap['SegmentsBetaApi.patchSegment']?.[0]?.url;
+            const serverMapIndex = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['SegmentsBetaApi.patchSegment']?.[serverMapIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
     }
@@ -65671,7 +66012,8 @@ export const ServiceDeskIntegrationBetaApiFp = function(configuration?: Configur
          */
         async createServiceDeskIntegration(serviceDeskIntegrationDtoBeta: ServiceDeskIntegrationDtoBeta, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ServiceDeskIntegrationDtoBeta>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.createServiceDeskIntegration(serviceDeskIntegrationDtoBeta, axiosOptions);
-            const operationBasePath = operationServerMap['ServiceDeskIntegrationBetaApi.createServiceDeskIntegration']?.[0]?.url;
+            const serverMapIndex = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['ServiceDeskIntegrationBetaApi.createServiceDeskIntegration']?.[serverMapIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
         /**
@@ -65683,7 +66025,8 @@ export const ServiceDeskIntegrationBetaApiFp = function(configuration?: Configur
          */
         async deleteServiceDeskIntegration(id: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.deleteServiceDeskIntegration(id, axiosOptions);
-            const operationBasePath = operationServerMap['ServiceDeskIntegrationBetaApi.deleteServiceDeskIntegration']?.[0]?.url;
+            const serverMapIndex = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['ServiceDeskIntegrationBetaApi.deleteServiceDeskIntegration']?.[serverMapIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
         /**
@@ -65695,7 +66038,8 @@ export const ServiceDeskIntegrationBetaApiFp = function(configuration?: Configur
          */
         async getServiceDeskIntegration(id: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ServiceDeskIntegrationDtoBeta>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getServiceDeskIntegration(id, axiosOptions);
-            const operationBasePath = operationServerMap['ServiceDeskIntegrationBetaApi.getServiceDeskIntegration']?.[0]?.url;
+            const serverMapIndex = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['ServiceDeskIntegrationBetaApi.getServiceDeskIntegration']?.[serverMapIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
         /**
@@ -65711,7 +66055,8 @@ export const ServiceDeskIntegrationBetaApiFp = function(configuration?: Configur
          */
         async getServiceDeskIntegrationList(offset?: number, limit?: number, sorters?: string, filters?: string, count?: boolean, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<ServiceDeskIntegrationDtoBeta>>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getServiceDeskIntegrationList(offset, limit, sorters, filters, count, axiosOptions);
-            const operationBasePath = operationServerMap['ServiceDeskIntegrationBetaApi.getServiceDeskIntegrationList']?.[0]?.url;
+            const serverMapIndex = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['ServiceDeskIntegrationBetaApi.getServiceDeskIntegrationList']?.[serverMapIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
         /**
@@ -65723,7 +66068,8 @@ export const ServiceDeskIntegrationBetaApiFp = function(configuration?: Configur
          */
         async getServiceDeskIntegrationTemplate(scriptName: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ServiceDeskIntegrationTemplateDtoBeta>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getServiceDeskIntegrationTemplate(scriptName, axiosOptions);
-            const operationBasePath = operationServerMap['ServiceDeskIntegrationBetaApi.getServiceDeskIntegrationTemplate']?.[0]?.url;
+            const serverMapIndex = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['ServiceDeskIntegrationBetaApi.getServiceDeskIntegrationTemplate']?.[serverMapIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
         /**
@@ -65734,7 +66080,8 @@ export const ServiceDeskIntegrationBetaApiFp = function(configuration?: Configur
          */
         async getServiceDeskIntegrationTypes(axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<ServiceDeskIntegrationTemplateTypeBeta>>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getServiceDeskIntegrationTypes(axiosOptions);
-            const operationBasePath = operationServerMap['ServiceDeskIntegrationBetaApi.getServiceDeskIntegrationTypes']?.[0]?.url;
+            const serverMapIndex = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['ServiceDeskIntegrationBetaApi.getServiceDeskIntegrationTypes']?.[serverMapIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
         /**
@@ -65745,7 +66092,8 @@ export const ServiceDeskIntegrationBetaApiFp = function(configuration?: Configur
          */
         async getStatusCheckDetails(axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<QueuedCheckConfigDetailsBeta>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getStatusCheckDetails(axiosOptions);
-            const operationBasePath = operationServerMap['ServiceDeskIntegrationBetaApi.getStatusCheckDetails']?.[0]?.url;
+            const serverMapIndex = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['ServiceDeskIntegrationBetaApi.getStatusCheckDetails']?.[serverMapIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
         /**
@@ -65758,7 +66106,8 @@ export const ServiceDeskIntegrationBetaApiFp = function(configuration?: Configur
          */
         async patchServiceDeskIntegration(id: string, jsonPatchBeta: JsonPatchBeta, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ServiceDeskIntegrationDtoBeta>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.patchServiceDeskIntegration(id, jsonPatchBeta, axiosOptions);
-            const operationBasePath = operationServerMap['ServiceDeskIntegrationBetaApi.patchServiceDeskIntegration']?.[0]?.url;
+            const serverMapIndex = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['ServiceDeskIntegrationBetaApi.patchServiceDeskIntegration']?.[serverMapIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
         /**
@@ -65771,7 +66120,8 @@ export const ServiceDeskIntegrationBetaApiFp = function(configuration?: Configur
          */
         async putServiceDeskIntegration(id: string, serviceDeskIntegrationDtoBeta: ServiceDeskIntegrationDtoBeta, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ServiceDeskIntegrationDtoBeta>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.putServiceDeskIntegration(id, serviceDeskIntegrationDtoBeta, axiosOptions);
-            const operationBasePath = operationServerMap['ServiceDeskIntegrationBetaApi.putServiceDeskIntegration']?.[0]?.url;
+            const serverMapIndex = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['ServiceDeskIntegrationBetaApi.putServiceDeskIntegration']?.[serverMapIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
         /**
@@ -65783,7 +66133,8 @@ export const ServiceDeskIntegrationBetaApiFp = function(configuration?: Configur
          */
         async updateStatusCheckDetails(queuedCheckConfigDetailsBeta: QueuedCheckConfigDetailsBeta, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<QueuedCheckConfigDetailsBeta>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.updateStatusCheckDetails(queuedCheckConfigDetailsBeta, axiosOptions);
-            const operationBasePath = operationServerMap['ServiceDeskIntegrationBetaApi.updateStatusCheckDetails']?.[0]?.url;
+            const serverMapIndex = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['ServiceDeskIntegrationBetaApi.updateStatusCheckDetails']?.[serverMapIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
     }
@@ -66318,7 +66669,8 @@ export const SourceUsagesBetaApiFp = function(configuration?: Configuration) {
          */
         async getStatusBySourceId(sourceId: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SourceUsageStatusBeta>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getStatusBySourceId(sourceId, axiosOptions);
-            const operationBasePath = operationServerMap['SourceUsagesBetaApi.getStatusBySourceId']?.[0]?.url;
+            const serverMapIndex = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['SourceUsagesBetaApi.getStatusBySourceId']?.[serverMapIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
         /**
@@ -66334,7 +66686,8 @@ export const SourceUsagesBetaApiFp = function(configuration?: Configuration) {
          */
         async getUsagesBySourceId(sourceId: string, limit?: number, offset?: number, count?: boolean, sorters?: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<SourceUsageBeta>>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getUsagesBySourceId(sourceId, limit, offset, count, sorters, axiosOptions);
-            const operationBasePath = operationServerMap['SourceUsagesBetaApi.getUsagesBySourceId']?.[0]?.url;
+            const serverMapIndex = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['SourceUsagesBetaApi.getUsagesBySourceId']?.[serverMapIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
     }
@@ -68223,7 +68576,8 @@ export const SourcesBetaApiFp = function(configuration?: Configuration) {
          */
         async _delete(id: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Delete202ResponseBeta>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator._delete(id, axiosOptions);
-            const operationBasePath = operationServerMap['SourcesBetaApi._delete']?.[0]?.url;
+            const serverMapIndex = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['SourcesBetaApi._delete']?.[serverMapIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
         /**
@@ -68236,7 +68590,8 @@ export const SourcesBetaApiFp = function(configuration?: Configuration) {
          */
         async createProvisioningPolicy(sourceId: string, provisioningPolicyDtoBeta: ProvisioningPolicyDtoBeta, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ProvisioningPolicyDtoBeta>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.createProvisioningPolicy(sourceId, provisioningPolicyDtoBeta, axiosOptions);
-            const operationBasePath = operationServerMap['SourcesBetaApi.createProvisioningPolicy']?.[0]?.url;
+            const serverMapIndex = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['SourcesBetaApi.createProvisioningPolicy']?.[serverMapIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
         /**
@@ -68249,7 +68604,8 @@ export const SourcesBetaApiFp = function(configuration?: Configuration) {
          */
         async createSource(sourceBeta: SourceBeta, provisionAsCsv?: boolean, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SourceBeta>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.createSource(sourceBeta, provisionAsCsv, axiosOptions);
-            const operationBasePath = operationServerMap['SourcesBetaApi.createSource']?.[0]?.url;
+            const serverMapIndex = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['SourcesBetaApi.createSource']?.[serverMapIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
         /**
@@ -68262,7 +68618,8 @@ export const SourcesBetaApiFp = function(configuration?: Configuration) {
          */
         async createSourceSchema(sourceId: string, schemaBeta: SchemaBeta, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SchemaBeta>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.createSourceSchema(sourceId, schemaBeta, axiosOptions);
-            const operationBasePath = operationServerMap['SourcesBetaApi.createSourceSchema']?.[0]?.url;
+            const serverMapIndex = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['SourcesBetaApi.createSourceSchema']?.[serverMapIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
         /**
@@ -68274,7 +68631,8 @@ export const SourcesBetaApiFp = function(configuration?: Configuration) {
          */
         async deleteNativeChangeDetectionConfig(id: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.deleteNativeChangeDetectionConfig(id, axiosOptions);
-            const operationBasePath = operationServerMap['SourcesBetaApi.deleteNativeChangeDetectionConfig']?.[0]?.url;
+            const serverMapIndex = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['SourcesBetaApi.deleteNativeChangeDetectionConfig']?.[serverMapIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
         /**
@@ -68287,7 +68645,8 @@ export const SourcesBetaApiFp = function(configuration?: Configuration) {
          */
         async deleteProvisioningPolicy(sourceId: string, usageType: UsageTypeBeta, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.deleteProvisioningPolicy(sourceId, usageType, axiosOptions);
-            const operationBasePath = operationServerMap['SourcesBetaApi.deleteProvisioningPolicy']?.[0]?.url;
+            const serverMapIndex = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['SourcesBetaApi.deleteProvisioningPolicy']?.[serverMapIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
         /**
@@ -68300,7 +68659,8 @@ export const SourcesBetaApiFp = function(configuration?: Configuration) {
          */
         async deleteSourceSchema(sourceId: string, schemaId: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.deleteSourceSchema(sourceId, schemaId, axiosOptions);
-            const operationBasePath = operationServerMap['SourcesBetaApi.deleteSourceSchema']?.[0]?.url;
+            const serverMapIndex = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['SourcesBetaApi.deleteSourceSchema']?.[serverMapIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
         /**
@@ -68312,7 +68672,8 @@ export const SourcesBetaApiFp = function(configuration?: Configuration) {
          */
         async getNativeChangeDetectionConfig(id: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<NativeChangeDetectionConfigBeta>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getNativeChangeDetectionConfig(id, axiosOptions);
-            const operationBasePath = operationServerMap['SourcesBetaApi.getNativeChangeDetectionConfig']?.[0]?.url;
+            const serverMapIndex = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['SourcesBetaApi.getNativeChangeDetectionConfig']?.[serverMapIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
         /**
@@ -68325,7 +68686,8 @@ export const SourcesBetaApiFp = function(configuration?: Configuration) {
          */
         async getProvisioningPolicy(sourceId: string, usageType: UsageTypeBeta, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ProvisioningPolicyDtoBeta>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getProvisioningPolicy(sourceId, usageType, axiosOptions);
-            const operationBasePath = operationServerMap['SourcesBetaApi.getProvisioningPolicy']?.[0]?.url;
+            const serverMapIndex = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['SourcesBetaApi.getProvisioningPolicy']?.[serverMapIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
         /**
@@ -68337,7 +68699,8 @@ export const SourcesBetaApiFp = function(configuration?: Configuration) {
          */
         async getSource(id: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SourceBeta>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getSource(id, axiosOptions);
-            const operationBasePath = operationServerMap['SourcesBetaApi.getSource']?.[0]?.url;
+            const serverMapIndex = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['SourcesBetaApi.getSource']?.[serverMapIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
         /**
@@ -68349,7 +68712,8 @@ export const SourcesBetaApiFp = function(configuration?: Configuration) {
          */
         async getSourceAccountsSchema(id: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getSourceAccountsSchema(id, axiosOptions);
-            const operationBasePath = operationServerMap['SourcesBetaApi.getSourceAccountsSchema']?.[0]?.url;
+            const serverMapIndex = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['SourcesBetaApi.getSourceAccountsSchema']?.[serverMapIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
         /**
@@ -68361,7 +68725,8 @@ export const SourcesBetaApiFp = function(configuration?: Configuration) {
          */
         async getSourceAttrSyncConfig(id: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<AttrSyncSourceConfigBeta>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getSourceAttrSyncConfig(id, axiosOptions);
-            const operationBasePath = operationServerMap['SourcesBetaApi.getSourceAttrSyncConfig']?.[0]?.url;
+            const serverMapIndex = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['SourcesBetaApi.getSourceAttrSyncConfig']?.[serverMapIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
         /**
@@ -68374,7 +68739,8 @@ export const SourcesBetaApiFp = function(configuration?: Configuration) {
          */
         async getSourceConfig(id: string, locale?: GetSourceConfigLocaleBeta, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ConnectorDetailBeta>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getSourceConfig(id, locale, axiosOptions);
-            const operationBasePath = operationServerMap['SourcesBetaApi.getSourceConfig']?.[0]?.url;
+            const serverMapIndex = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['SourcesBetaApi.getSourceConfig']?.[serverMapIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
         /**
@@ -68385,7 +68751,8 @@ export const SourcesBetaApiFp = function(configuration?: Configuration) {
          */
         async getSourceEntitlementRequestConfig(axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SourceEntitlementRequestConfigBeta>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getSourceEntitlementRequestConfig(axiosOptions);
-            const operationBasePath = operationServerMap['SourcesBetaApi.getSourceEntitlementRequestConfig']?.[0]?.url;
+            const serverMapIndex = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['SourcesBetaApi.getSourceEntitlementRequestConfig']?.[serverMapIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
         /**
@@ -68398,7 +68765,8 @@ export const SourcesBetaApiFp = function(configuration?: Configuration) {
          */
         async getSourceEntitlementsSchema(id: string, schemaName?: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getSourceEntitlementsSchema(id, schemaName, axiosOptions);
-            const operationBasePath = operationServerMap['SourcesBetaApi.getSourceEntitlementsSchema']?.[0]?.url;
+            const serverMapIndex = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['SourcesBetaApi.getSourceEntitlementsSchema']?.[serverMapIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
         /**
@@ -68411,7 +68779,8 @@ export const SourcesBetaApiFp = function(configuration?: Configuration) {
          */
         async getSourceSchema(sourceId: string, schemaId: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SchemaBeta>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getSourceSchema(sourceId, schemaId, axiosOptions);
-            const operationBasePath = operationServerMap['SourcesBetaApi.getSourceSchema']?.[0]?.url;
+            const serverMapIndex = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['SourcesBetaApi.getSourceSchema']?.[serverMapIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
         /**
@@ -68424,7 +68793,8 @@ export const SourcesBetaApiFp = function(configuration?: Configuration) {
          */
         async importSourceAccountsSchema(id: string, file?: File, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SchemaBeta>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.importSourceAccountsSchema(id, file, axiosOptions);
-            const operationBasePath = operationServerMap['SourcesBetaApi.importSourceAccountsSchema']?.[0]?.url;
+            const serverMapIndex = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['SourcesBetaApi.importSourceAccountsSchema']?.[serverMapIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
         /**
@@ -68437,7 +68807,8 @@ export const SourcesBetaApiFp = function(configuration?: Configuration) {
          */
         async importSourceConnectorFile(sourceId: string, file?: File, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SourceBeta>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.importSourceConnectorFile(sourceId, file, axiosOptions);
-            const operationBasePath = operationServerMap['SourcesBetaApi.importSourceConnectorFile']?.[0]?.url;
+            const serverMapIndex = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['SourcesBetaApi.importSourceConnectorFile']?.[serverMapIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
         /**
@@ -68451,7 +68822,8 @@ export const SourcesBetaApiFp = function(configuration?: Configuration) {
          */
         async importSourceEntitlementsSchema(id: string, schemaName?: string, file?: File, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SchemaBeta>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.importSourceEntitlementsSchema(id, schemaName, file, axiosOptions);
-            const operationBasePath = operationServerMap['SourcesBetaApi.importSourceEntitlementsSchema']?.[0]?.url;
+            const serverMapIndex = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['SourcesBetaApi.importSourceEntitlementsSchema']?.[serverMapIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
         /**
@@ -68463,7 +68835,8 @@ export const SourcesBetaApiFp = function(configuration?: Configuration) {
          */
         async listProvisioningPolicies(sourceId: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<ProvisioningPolicyDtoBeta>>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.listProvisioningPolicies(sourceId, axiosOptions);
-            const operationBasePath = operationServerMap['SourcesBetaApi.listProvisioningPolicies']?.[0]?.url;
+            const serverMapIndex = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['SourcesBetaApi.listProvisioningPolicies']?.[serverMapIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
         /**
@@ -68476,7 +68849,8 @@ export const SourcesBetaApiFp = function(configuration?: Configuration) {
          */
         async listSourceSchemas(sourceId: string, includeTypes?: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<SchemaBeta>>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.listSourceSchemas(sourceId, includeTypes, axiosOptions);
-            const operationBasePath = operationServerMap['SourcesBetaApi.listSourceSchemas']?.[0]?.url;
+            const serverMapIndex = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['SourcesBetaApi.listSourceSchemas']?.[serverMapIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
         /**
@@ -68493,7 +68867,8 @@ export const SourcesBetaApiFp = function(configuration?: Configuration) {
          */
         async listSources(limit?: number, offset?: number, count?: boolean, filters?: string, sorters?: string, forSubadmin?: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<SourceBeta>>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.listSources(limit, offset, count, filters, sorters, forSubadmin, axiosOptions);
-            const operationBasePath = operationServerMap['SourcesBetaApi.listSources']?.[0]?.url;
+            const serverMapIndex = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['SourcesBetaApi.listSources']?.[serverMapIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
         /**
@@ -68506,7 +68881,8 @@ export const SourcesBetaApiFp = function(configuration?: Configuration) {
          */
         async peekResourceObjects(sourceId: string, resourceObjectsRequestBeta: ResourceObjectsRequestBeta, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ResourceObjectsResponseBeta>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.peekResourceObjects(sourceId, resourceObjectsRequestBeta, axiosOptions);
-            const operationBasePath = operationServerMap['SourcesBetaApi.peekResourceObjects']?.[0]?.url;
+            const serverMapIndex = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['SourcesBetaApi.peekResourceObjects']?.[serverMapIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
         /**
@@ -68518,7 +68894,8 @@ export const SourcesBetaApiFp = function(configuration?: Configuration) {
          */
         async pingCluster(sourceId: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<StatusResponseBeta>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.pingCluster(sourceId, axiosOptions);
-            const operationBasePath = operationServerMap['SourcesBetaApi.pingCluster']?.[0]?.url;
+            const serverMapIndex = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['SourcesBetaApi.pingCluster']?.[serverMapIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
         /**
@@ -68531,7 +68908,8 @@ export const SourcesBetaApiFp = function(configuration?: Configuration) {
          */
         async putNativeChangeDetectionConfig(id: string, nativeChangeDetectionConfigBeta: NativeChangeDetectionConfigBeta, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<NativeChangeDetectionConfigBeta>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.putNativeChangeDetectionConfig(id, nativeChangeDetectionConfigBeta, axiosOptions);
-            const operationBasePath = operationServerMap['SourcesBetaApi.putNativeChangeDetectionConfig']?.[0]?.url;
+            const serverMapIndex = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['SourcesBetaApi.putNativeChangeDetectionConfig']?.[serverMapIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
         /**
@@ -68545,7 +68923,8 @@ export const SourcesBetaApiFp = function(configuration?: Configuration) {
          */
         async putProvisioningPolicy(sourceId: string, usageType: UsageTypeBeta, provisioningPolicyDtoBeta: ProvisioningPolicyDtoBeta, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ProvisioningPolicyDtoBeta>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.putProvisioningPolicy(sourceId, usageType, provisioningPolicyDtoBeta, axiosOptions);
-            const operationBasePath = operationServerMap['SourcesBetaApi.putProvisioningPolicy']?.[0]?.url;
+            const serverMapIndex = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['SourcesBetaApi.putProvisioningPolicy']?.[serverMapIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
         /**
@@ -68558,7 +68937,8 @@ export const SourcesBetaApiFp = function(configuration?: Configuration) {
          */
         async putSource(id: string, sourceBeta: SourceBeta, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SourceBeta>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.putSource(id, sourceBeta, axiosOptions);
-            const operationBasePath = operationServerMap['SourcesBetaApi.putSource']?.[0]?.url;
+            const serverMapIndex = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['SourcesBetaApi.putSource']?.[serverMapIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
         /**
@@ -68571,7 +68951,8 @@ export const SourcesBetaApiFp = function(configuration?: Configuration) {
          */
         async putSourceAttrSyncConfig(id: string, attrSyncSourceConfigBeta: AttrSyncSourceConfigBeta, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<AttrSyncSourceConfigBeta>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.putSourceAttrSyncConfig(id, attrSyncSourceConfigBeta, axiosOptions);
-            const operationBasePath = operationServerMap['SourcesBetaApi.putSourceAttrSyncConfig']?.[0]?.url;
+            const serverMapIndex = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['SourcesBetaApi.putSourceAttrSyncConfig']?.[serverMapIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
         /**
@@ -68585,7 +68966,8 @@ export const SourcesBetaApiFp = function(configuration?: Configuration) {
          */
         async putSourceSchema(sourceId: string, schemaId: string, schemaBeta: SchemaBeta, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SchemaBeta>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.putSourceSchema(sourceId, schemaId, schemaBeta, axiosOptions);
-            const operationBasePath = operationServerMap['SourcesBetaApi.putSourceSchema']?.[0]?.url;
+            const serverMapIndex = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['SourcesBetaApi.putSourceSchema']?.[serverMapIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
         /**
@@ -68597,7 +68979,8 @@ export const SourcesBetaApiFp = function(configuration?: Configuration) {
          */
         async syncAttributesForSource(id: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SourceSyncJobBeta>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.syncAttributesForSource(id, axiosOptions);
-            const operationBasePath = operationServerMap['SourcesBetaApi.syncAttributesForSource']?.[0]?.url;
+            const serverMapIndex = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['SourcesBetaApi.syncAttributesForSource']?.[serverMapIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
         /**
@@ -68609,7 +68992,8 @@ export const SourcesBetaApiFp = function(configuration?: Configuration) {
          */
         async testSourceConfiguration(sourceId: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<StatusResponseBeta>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.testSourceConfiguration(sourceId, axiosOptions);
-            const operationBasePath = operationServerMap['SourcesBetaApi.testSourceConfiguration']?.[0]?.url;
+            const serverMapIndex = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['SourcesBetaApi.testSourceConfiguration']?.[serverMapIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
         /**
@@ -68621,7 +69005,8 @@ export const SourcesBetaApiFp = function(configuration?: Configuration) {
          */
         async testSourceConnection(sourceId: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<StatusResponseBeta>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.testSourceConnection(sourceId, axiosOptions);
-            const operationBasePath = operationServerMap['SourcesBetaApi.testSourceConnection']?.[0]?.url;
+            const serverMapIndex = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['SourcesBetaApi.testSourceConnection']?.[serverMapIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
         /**
@@ -68634,7 +69019,8 @@ export const SourcesBetaApiFp = function(configuration?: Configuration) {
          */
         async updateProvisioningPoliciesInBulk(sourceId: string, provisioningPolicyDtoBeta: Array<ProvisioningPolicyDtoBeta>, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<ProvisioningPolicyDtoBeta>>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.updateProvisioningPoliciesInBulk(sourceId, provisioningPolicyDtoBeta, axiosOptions);
-            const operationBasePath = operationServerMap['SourcesBetaApi.updateProvisioningPoliciesInBulk']?.[0]?.url;
+            const serverMapIndex = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['SourcesBetaApi.updateProvisioningPoliciesInBulk']?.[serverMapIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
         /**
@@ -68648,7 +69034,8 @@ export const SourcesBetaApiFp = function(configuration?: Configuration) {
          */
         async updateProvisioningPolicy(sourceId: string, usageType: UsageTypeBeta, jsonPatchOperationBeta: Array<JsonPatchOperationBeta>, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ProvisioningPolicyDtoBeta>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.updateProvisioningPolicy(sourceId, usageType, jsonPatchOperationBeta, axiosOptions);
-            const operationBasePath = operationServerMap['SourcesBetaApi.updateProvisioningPolicy']?.[0]?.url;
+            const serverMapIndex = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['SourcesBetaApi.updateProvisioningPolicy']?.[serverMapIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
         /**
@@ -68661,7 +69048,8 @@ export const SourcesBetaApiFp = function(configuration?: Configuration) {
          */
         async updateSource(id: string, jsonPatchOperationBeta: Array<JsonPatchOperationBeta>, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SourceBeta>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.updateSource(id, jsonPatchOperationBeta, axiosOptions);
-            const operationBasePath = operationServerMap['SourcesBetaApi.updateSource']?.[0]?.url;
+            const serverMapIndex = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['SourcesBetaApi.updateSource']?.[serverMapIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
         /**
@@ -68673,7 +69061,8 @@ export const SourcesBetaApiFp = function(configuration?: Configuration) {
          */
         async updateSourceEntitlementRequestConfig(sourceEntitlementRequestConfigBeta: SourceEntitlementRequestConfigBeta, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SourceEntitlementRequestConfigBeta>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.updateSourceEntitlementRequestConfig(sourceEntitlementRequestConfigBeta, axiosOptions);
-            const operationBasePath = operationServerMap['SourcesBetaApi.updateSourceEntitlementRequestConfig']?.[0]?.url;
+            const serverMapIndex = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['SourcesBetaApi.updateSourceEntitlementRequestConfig']?.[serverMapIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
         /**
@@ -68687,7 +69076,8 @@ export const SourcesBetaApiFp = function(configuration?: Configuration) {
          */
         async updateSourceSchema(sourceId: string, schemaId: string, jsonPatchOperationBeta: Array<JsonPatchOperationBeta>, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SchemaBeta>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.updateSourceSchema(sourceId, schemaId, jsonPatchOperationBeta, axiosOptions);
-            const operationBasePath = operationServerMap['SourcesBetaApi.updateSourceSchema']?.[0]?.url;
+            const serverMapIndex = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['SourcesBetaApi.updateSourceSchema']?.[serverMapIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
     }
@@ -70744,7 +71134,8 @@ export const TaggedObjectsBetaApiFp = function(configuration?: Configuration) {
          */
         async deleteTaggedObject(type: DeleteTaggedObjectTypeBeta, id: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.deleteTaggedObject(type, id, axiosOptions);
-            const operationBasePath = operationServerMap['TaggedObjectsBetaApi.deleteTaggedObject']?.[0]?.url;
+            const serverMapIndex = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['TaggedObjectsBetaApi.deleteTaggedObject']?.[serverMapIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
         /**
@@ -70756,7 +71147,8 @@ export const TaggedObjectsBetaApiFp = function(configuration?: Configuration) {
          */
         async deleteTagsToManyObject(bulkTaggedObjectBeta: BulkTaggedObjectBeta, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.deleteTagsToManyObject(bulkTaggedObjectBeta, axiosOptions);
-            const operationBasePath = operationServerMap['TaggedObjectsBetaApi.deleteTagsToManyObject']?.[0]?.url;
+            const serverMapIndex = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['TaggedObjectsBetaApi.deleteTagsToManyObject']?.[serverMapIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
         /**
@@ -70769,7 +71161,8 @@ export const TaggedObjectsBetaApiFp = function(configuration?: Configuration) {
          */
         async getTaggedObject(type: GetTaggedObjectTypeBeta, id: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<TaggedObjectBeta>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getTaggedObject(type, id, axiosOptions);
-            const operationBasePath = operationServerMap['TaggedObjectsBetaApi.getTaggedObject']?.[0]?.url;
+            const serverMapIndex = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['TaggedObjectsBetaApi.getTaggedObject']?.[serverMapIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
         /**
@@ -70784,7 +71177,8 @@ export const TaggedObjectsBetaApiFp = function(configuration?: Configuration) {
          */
         async listTaggedObjects(limit?: number, offset?: number, count?: boolean, filters?: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<TaggedObjectBeta>>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.listTaggedObjects(limit, offset, count, filters, axiosOptions);
-            const operationBasePath = operationServerMap['TaggedObjectsBetaApi.listTaggedObjects']?.[0]?.url;
+            const serverMapIndex = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['TaggedObjectsBetaApi.listTaggedObjects']?.[serverMapIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
         /**
@@ -70800,7 +71194,8 @@ export const TaggedObjectsBetaApiFp = function(configuration?: Configuration) {
          */
         async listTaggedObjectsByType(type: ListTaggedObjectsByTypeTypeBeta, limit?: number, offset?: number, count?: boolean, filters?: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<TaggedObjectBeta>>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.listTaggedObjectsByType(type, limit, offset, count, filters, axiosOptions);
-            const operationBasePath = operationServerMap['TaggedObjectsBetaApi.listTaggedObjectsByType']?.[0]?.url;
+            const serverMapIndex = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['TaggedObjectsBetaApi.listTaggedObjectsByType']?.[serverMapIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
         /**
@@ -70814,7 +71209,8 @@ export const TaggedObjectsBetaApiFp = function(configuration?: Configuration) {
          */
         async putTaggedObject(type: PutTaggedObjectTypeBeta, id: string, taggedObjectBeta: TaggedObjectBeta, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<TaggedObjectBeta>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.putTaggedObject(type, id, taggedObjectBeta, axiosOptions);
-            const operationBasePath = operationServerMap['TaggedObjectsBetaApi.putTaggedObject']?.[0]?.url;
+            const serverMapIndex = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['TaggedObjectsBetaApi.putTaggedObject']?.[serverMapIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
         /**
@@ -70826,7 +71222,8 @@ export const TaggedObjectsBetaApiFp = function(configuration?: Configuration) {
          */
         async setTagToObject(taggedObjectBeta: TaggedObjectBeta, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.setTagToObject(taggedObjectBeta, axiosOptions);
-            const operationBasePath = operationServerMap['TaggedObjectsBetaApi.setTagToObject']?.[0]?.url;
+            const serverMapIndex = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['TaggedObjectsBetaApi.setTagToObject']?.[serverMapIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
         /**
@@ -70838,7 +71235,8 @@ export const TaggedObjectsBetaApiFp = function(configuration?: Configuration) {
          */
         async setTagsToManyObjects(bulkTaggedObjectBeta: BulkTaggedObjectBeta, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<BulkTaggedObjectBeta>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.setTagsToManyObjects(bulkTaggedObjectBeta, axiosOptions);
-            const operationBasePath = operationServerMap['TaggedObjectsBetaApi.setTagsToManyObjects']?.[0]?.url;
+            const serverMapIndex = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['TaggedObjectsBetaApi.setTagsToManyObjects']?.[serverMapIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
     }
@@ -71574,7 +71972,8 @@ export const TaskManagementBetaApiFp = function(configuration?: Configuration) {
          */
         async getPendingTaskHeaders(offset?: number, limit?: number, count?: boolean, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getPendingTaskHeaders(offset, limit, count, axiosOptions);
-            const operationBasePath = operationServerMap['TaskManagementBetaApi.getPendingTaskHeaders']?.[0]?.url;
+            const serverMapIndex = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['TaskManagementBetaApi.getPendingTaskHeaders']?.[serverMapIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
         /**
@@ -71588,7 +71987,8 @@ export const TaskManagementBetaApiFp = function(configuration?: Configuration) {
          */
         async getPendingTasks(offset?: number, limit?: number, count?: boolean, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<TaskStatusBeta>>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getPendingTasks(offset, limit, count, axiosOptions);
-            const operationBasePath = operationServerMap['TaskManagementBetaApi.getPendingTasks']?.[0]?.url;
+            const serverMapIndex = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['TaskManagementBetaApi.getPendingTasks']?.[serverMapIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
         /**
@@ -71600,7 +72000,8 @@ export const TaskManagementBetaApiFp = function(configuration?: Configuration) {
          */
         async getTaskStatus(id: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<TaskStatusBeta>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getTaskStatus(id, axiosOptions);
-            const operationBasePath = operationServerMap['TaskManagementBetaApi.getTaskStatus']?.[0]?.url;
+            const serverMapIndex = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['TaskManagementBetaApi.getTaskStatus']?.[serverMapIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
         /**
@@ -71616,7 +72017,8 @@ export const TaskManagementBetaApiFp = function(configuration?: Configuration) {
          */
         async getTaskStatusList(limit?: number, offset?: number, count?: boolean, filters?: string, sorters?: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<TaskStatusBeta>>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getTaskStatusList(limit, offset, count, filters, sorters, axiosOptions);
-            const operationBasePath = operationServerMap['TaskManagementBetaApi.getTaskStatusList']?.[0]?.url;
+            const serverMapIndex = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['TaskManagementBetaApi.getTaskStatusList']?.[serverMapIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
         /**
@@ -71629,7 +72031,8 @@ export const TaskManagementBetaApiFp = function(configuration?: Configuration) {
          */
         async updateTaskStatus(id: string, jsonPatchBeta: JsonPatchBeta, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<TaskStatusBeta>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.updateTaskStatus(id, jsonPatchBeta, axiosOptions);
-            const operationBasePath = operationServerMap['TaskManagementBetaApi.updateTaskStatus']?.[0]?.url;
+            const serverMapIndex = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['TaskManagementBetaApi.updateTaskStatus']?.[serverMapIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
     }
@@ -72165,7 +72568,8 @@ export const TransformsBetaApiFp = function(configuration?: Configuration) {
          */
         async createTransform(transformBeta: TransformBeta, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<TransformReadBeta>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.createTransform(transformBeta, axiosOptions);
-            const operationBasePath = operationServerMap['TransformsBetaApi.createTransform']?.[0]?.url;
+            const serverMapIndex = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['TransformsBetaApi.createTransform']?.[serverMapIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
         /**
@@ -72177,7 +72581,8 @@ export const TransformsBetaApiFp = function(configuration?: Configuration) {
          */
         async deleteTransform(id: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.deleteTransform(id, axiosOptions);
-            const operationBasePath = operationServerMap['TransformsBetaApi.deleteTransform']?.[0]?.url;
+            const serverMapIndex = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['TransformsBetaApi.deleteTransform']?.[serverMapIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
         /**
@@ -72189,7 +72594,8 @@ export const TransformsBetaApiFp = function(configuration?: Configuration) {
          */
         async getTransform(id: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<TransformReadBeta>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getTransform(id, axiosOptions);
-            const operationBasePath = operationServerMap['TransformsBetaApi.getTransform']?.[0]?.url;
+            const serverMapIndex = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['TransformsBetaApi.getTransform']?.[serverMapIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
         /**
@@ -72205,7 +72611,8 @@ export const TransformsBetaApiFp = function(configuration?: Configuration) {
          */
         async listTransforms(offset?: number, limit?: number, count?: boolean, name?: string, filters?: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<TransformReadBeta>>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.listTransforms(offset, limit, count, name, filters, axiosOptions);
-            const operationBasePath = operationServerMap['TransformsBetaApi.listTransforms']?.[0]?.url;
+            const serverMapIndex = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['TransformsBetaApi.listTransforms']?.[serverMapIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
         /**
@@ -72218,7 +72625,8 @@ export const TransformsBetaApiFp = function(configuration?: Configuration) {
          */
         async updateTransform(id: string, transformBeta?: TransformBeta, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<TransformReadBeta>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.updateTransform(id, transformBeta, axiosOptions);
-            const operationBasePath = operationServerMap['TransformsBetaApi.updateTransform']?.[0]?.url;
+            const serverMapIndex = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['TransformsBetaApi.updateTransform']?.[serverMapIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
     }
@@ -72997,7 +73405,8 @@ export const TriggersBetaApiFp = function(configuration?: Configuration) {
          */
         async completeTriggerInvocation(id: string, completeInvocationBeta: CompleteInvocationBeta, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.completeTriggerInvocation(id, completeInvocationBeta, axiosOptions);
-            const operationBasePath = operationServerMap['TriggersBetaApi.completeTriggerInvocation']?.[0]?.url;
+            const serverMapIndex = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['TriggersBetaApi.completeTriggerInvocation']?.[serverMapIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
         /**
@@ -73009,7 +73418,8 @@ export const TriggersBetaApiFp = function(configuration?: Configuration) {
          */
         async createSubscription(subscriptionPostRequestBeta: SubscriptionPostRequestBeta, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SubscriptionBeta>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.createSubscription(subscriptionPostRequestBeta, axiosOptions);
-            const operationBasePath = operationServerMap['TriggersBetaApi.createSubscription']?.[0]?.url;
+            const serverMapIndex = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['TriggersBetaApi.createSubscription']?.[serverMapIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
         /**
@@ -73021,7 +73431,8 @@ export const TriggersBetaApiFp = function(configuration?: Configuration) {
          */
         async deleteSubscription(id: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.deleteSubscription(id, axiosOptions);
-            const operationBasePath = operationServerMap['TriggersBetaApi.deleteSubscription']?.[0]?.url;
+            const serverMapIndex = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['TriggersBetaApi.deleteSubscription']?.[serverMapIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
         /**
@@ -73037,7 +73448,8 @@ export const TriggersBetaApiFp = function(configuration?: Configuration) {
          */
         async listSubscriptions(limit?: number, offset?: number, count?: boolean, filters?: string, sorters?: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<SubscriptionBeta>>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.listSubscriptions(limit, offset, count, filters, sorters, axiosOptions);
-            const operationBasePath = operationServerMap['TriggersBetaApi.listSubscriptions']?.[0]?.url;
+            const serverMapIndex = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['TriggersBetaApi.listSubscriptions']?.[serverMapIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
         /**
@@ -73053,7 +73465,8 @@ export const TriggersBetaApiFp = function(configuration?: Configuration) {
          */
         async listTriggerInvocationStatus(limit?: number, offset?: number, count?: boolean, filters?: string, sorters?: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<InvocationStatusBeta>>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.listTriggerInvocationStatus(limit, offset, count, filters, sorters, axiosOptions);
-            const operationBasePath = operationServerMap['TriggersBetaApi.listTriggerInvocationStatus']?.[0]?.url;
+            const serverMapIndex = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['TriggersBetaApi.listTriggerInvocationStatus']?.[serverMapIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
         /**
@@ -73069,7 +73482,8 @@ export const TriggersBetaApiFp = function(configuration?: Configuration) {
          */
         async listTriggers(limit?: number, offset?: number, count?: boolean, filters?: string, sorters?: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<TriggerBeta>>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.listTriggers(limit, offset, count, filters, sorters, axiosOptions);
-            const operationBasePath = operationServerMap['TriggersBetaApi.listTriggers']?.[0]?.url;
+            const serverMapIndex = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['TriggersBetaApi.listTriggers']?.[serverMapIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
         /**
@@ -73082,7 +73496,8 @@ export const TriggersBetaApiFp = function(configuration?: Configuration) {
          */
         async patchSubscription(id: string, subscriptionPatchRequestInnerBeta: Array<SubscriptionPatchRequestInnerBeta>, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SubscriptionBeta>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.patchSubscription(id, subscriptionPatchRequestInnerBeta, axiosOptions);
-            const operationBasePath = operationServerMap['TriggersBetaApi.patchSubscription']?.[0]?.url;
+            const serverMapIndex = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['TriggersBetaApi.patchSubscription']?.[serverMapIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
         /**
@@ -73094,7 +73509,8 @@ export const TriggersBetaApiFp = function(configuration?: Configuration) {
          */
         async startTestTriggerInvocation(testInvocationBeta: TestInvocationBeta, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<InvocationBeta>>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.startTestTriggerInvocation(testInvocationBeta, axiosOptions);
-            const operationBasePath = operationServerMap['TriggersBetaApi.startTestTriggerInvocation']?.[0]?.url;
+            const serverMapIndex = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['TriggersBetaApi.startTestTriggerInvocation']?.[serverMapIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
         /**
@@ -73106,7 +73522,8 @@ export const TriggersBetaApiFp = function(configuration?: Configuration) {
          */
         async testSubscriptionFilter(validateFilterInputDtoBeta: ValidateFilterInputDtoBeta, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ValidateFilterOutputDtoBeta>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.testSubscriptionFilter(validateFilterInputDtoBeta, axiosOptions);
-            const operationBasePath = operationServerMap['TriggersBetaApi.testSubscriptionFilter']?.[0]?.url;
+            const serverMapIndex = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['TriggersBetaApi.testSubscriptionFilter']?.[serverMapIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
         /**
@@ -73119,7 +73536,8 @@ export const TriggersBetaApiFp = function(configuration?: Configuration) {
          */
         async updateSubscription(id: string, subscriptionPutRequestBeta: SubscriptionPutRequestBeta, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SubscriptionBeta>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.updateSubscription(id, subscriptionPutRequestBeta, axiosOptions);
-            const operationBasePath = operationServerMap['TriggersBetaApi.updateSubscription']?.[0]?.url;
+            const serverMapIndex = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['TriggersBetaApi.updateSubscription']?.[serverMapIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
     }
@@ -74252,7 +74670,8 @@ export const WorkItemsBetaApiFp = function(configuration?: Configuration) {
          */
         async approveApprovalItem(id: string, approvalItemId: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<WorkItemsBeta>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.approveApprovalItem(id, approvalItemId, axiosOptions);
-            const operationBasePath = operationServerMap['WorkItemsBetaApi.approveApprovalItem']?.[0]?.url;
+            const serverMapIndex = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['WorkItemsBetaApi.approveApprovalItem']?.[serverMapIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
         /**
@@ -74264,7 +74683,8 @@ export const WorkItemsBetaApiFp = function(configuration?: Configuration) {
          */
         async approveApprovalItemsInBulk(id: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<WorkItemsBeta>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.approveApprovalItemsInBulk(id, axiosOptions);
-            const operationBasePath = operationServerMap['WorkItemsBetaApi.approveApprovalItemsInBulk']?.[0]?.url;
+            const serverMapIndex = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['WorkItemsBetaApi.approveApprovalItemsInBulk']?.[serverMapIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
         /**
@@ -74276,7 +74696,8 @@ export const WorkItemsBetaApiFp = function(configuration?: Configuration) {
          */
         async completeWorkItem(id: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<WorkItemsBeta>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.completeWorkItem(id, axiosOptions);
-            const operationBasePath = operationServerMap['WorkItemsBetaApi.completeWorkItem']?.[0]?.url;
+            const serverMapIndex = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['WorkItemsBetaApi.completeWorkItem']?.[serverMapIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
         /**
@@ -74289,7 +74710,8 @@ export const WorkItemsBetaApiFp = function(configuration?: Configuration) {
          */
         async forwardWorkItem(id: string, workItemForwardBeta: WorkItemForwardBeta, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.forwardWorkItem(id, workItemForwardBeta, axiosOptions);
-            const operationBasePath = operationServerMap['WorkItemsBetaApi.forwardWorkItem']?.[0]?.url;
+            const serverMapIndex = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['WorkItemsBetaApi.forwardWorkItem']?.[serverMapIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
         /**
@@ -74304,7 +74726,8 @@ export const WorkItemsBetaApiFp = function(configuration?: Configuration) {
          */
         async getCompletedWorkItems(ownerId?: string, limit?: number, offset?: number, count?: boolean, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<WorkItemsBeta>>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getCompletedWorkItems(ownerId, limit, offset, count, axiosOptions);
-            const operationBasePath = operationServerMap['WorkItemsBetaApi.getCompletedWorkItems']?.[0]?.url;
+            const serverMapIndex = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['WorkItemsBetaApi.getCompletedWorkItems']?.[serverMapIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
         /**
@@ -74316,7 +74739,8 @@ export const WorkItemsBetaApiFp = function(configuration?: Configuration) {
          */
         async getCountCompletedWorkItems(ownerId?: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<WorkItemsCountBeta>>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getCountCompletedWorkItems(ownerId, axiosOptions);
-            const operationBasePath = operationServerMap['WorkItemsBetaApi.getCountCompletedWorkItems']?.[0]?.url;
+            const serverMapIndex = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['WorkItemsBetaApi.getCountCompletedWorkItems']?.[serverMapIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
         /**
@@ -74328,7 +74752,8 @@ export const WorkItemsBetaApiFp = function(configuration?: Configuration) {
          */
         async getCountWorkItems(ownerId?: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<WorkItemsCountBeta>>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getCountWorkItems(ownerId, axiosOptions);
-            const operationBasePath = operationServerMap['WorkItemsBetaApi.getCountWorkItems']?.[0]?.url;
+            const serverMapIndex = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['WorkItemsBetaApi.getCountWorkItems']?.[serverMapIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
         /**
@@ -74341,7 +74766,8 @@ export const WorkItemsBetaApiFp = function(configuration?: Configuration) {
          */
         async getWorkItem(id: string, ownerId?: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<WorkItemsBeta>>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getWorkItem(id, ownerId, axiosOptions);
-            const operationBasePath = operationServerMap['WorkItemsBetaApi.getWorkItem']?.[0]?.url;
+            const serverMapIndex = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['WorkItemsBetaApi.getWorkItem']?.[serverMapIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
         /**
@@ -74353,7 +74779,8 @@ export const WorkItemsBetaApiFp = function(configuration?: Configuration) {
          */
         async getWorkItemsSummary(ownerId?: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<WorkItemsSummaryBeta>>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getWorkItemsSummary(ownerId, axiosOptions);
-            const operationBasePath = operationServerMap['WorkItemsBetaApi.getWorkItemsSummary']?.[0]?.url;
+            const serverMapIndex = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['WorkItemsBetaApi.getWorkItemsSummary']?.[serverMapIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
         /**
@@ -74368,7 +74795,8 @@ export const WorkItemsBetaApiFp = function(configuration?: Configuration) {
          */
         async listWorkItems(limit?: number, offset?: number, count?: boolean, ownerId?: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<WorkItemsBeta>>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.listWorkItems(limit, offset, count, ownerId, axiosOptions);
-            const operationBasePath = operationServerMap['WorkItemsBetaApi.listWorkItems']?.[0]?.url;
+            const serverMapIndex = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['WorkItemsBetaApi.listWorkItems']?.[serverMapIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
         /**
@@ -74381,7 +74809,8 @@ export const WorkItemsBetaApiFp = function(configuration?: Configuration) {
          */
         async rejectApprovalItem(id: string, approvalItemId: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<WorkItemsBeta>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.rejectApprovalItem(id, approvalItemId, axiosOptions);
-            const operationBasePath = operationServerMap['WorkItemsBetaApi.rejectApprovalItem']?.[0]?.url;
+            const serverMapIndex = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['WorkItemsBetaApi.rejectApprovalItem']?.[serverMapIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
         /**
@@ -74393,7 +74822,8 @@ export const WorkItemsBetaApiFp = function(configuration?: Configuration) {
          */
         async rejectApprovalItemsInBulk(id: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<WorkItemsBeta>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.rejectApprovalItemsInBulk(id, axiosOptions);
-            const operationBasePath = operationServerMap['WorkItemsBetaApi.rejectApprovalItemsInBulk']?.[0]?.url;
+            const serverMapIndex = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['WorkItemsBetaApi.rejectApprovalItemsInBulk']?.[serverMapIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
         /**
@@ -74406,7 +74836,8 @@ export const WorkItemsBetaApiFp = function(configuration?: Configuration) {
          */
         async submitAccountSelection(id: string, requestBody: { [key: string]: any; }, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<WorkItemsBeta>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.submitAccountSelection(id, requestBody, axiosOptions);
-            const operationBasePath = operationServerMap['WorkItemsBetaApi.submitAccountSelection']?.[0]?.url;
+            const serverMapIndex = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['WorkItemsBetaApi.submitAccountSelection']?.[serverMapIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
     }
@@ -75400,7 +75831,8 @@ export const WorkReassignmentBetaApiFp = function(configuration?: Configuration)
          */
         async createReassignmentConfiguration(configurationItemRequestBeta: ConfigurationItemRequestBeta, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ConfigurationItemResponseBeta>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.createReassignmentConfiguration(configurationItemRequestBeta, axiosOptions);
-            const operationBasePath = operationServerMap['WorkReassignmentBetaApi.createReassignmentConfiguration']?.[0]?.url;
+            const serverMapIndex = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['WorkReassignmentBetaApi.createReassignmentConfiguration']?.[serverMapIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
         /**
@@ -75412,7 +75844,8 @@ export const WorkReassignmentBetaApiFp = function(configuration?: Configuration)
          */
         async deleteReassignmentConfiguration(identityId: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.deleteReassignmentConfiguration(identityId, axiosOptions);
-            const operationBasePath = operationServerMap['WorkReassignmentBetaApi.deleteReassignmentConfiguration']?.[0]?.url;
+            const serverMapIndex = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['WorkReassignmentBetaApi.deleteReassignmentConfiguration']?.[serverMapIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
         /**
@@ -75426,7 +75859,8 @@ export const WorkReassignmentBetaApiFp = function(configuration?: Configuration)
          */
         async getEvaluateReassignmentConfiguration(identityId: string, configType: ConfigTypeEnumBeta, exclusionFilters?: Array<string>, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<EvaluateResponseBeta>>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getEvaluateReassignmentConfiguration(identityId, configType, exclusionFilters, axiosOptions);
-            const operationBasePath = operationServerMap['WorkReassignmentBetaApi.getEvaluateReassignmentConfiguration']?.[0]?.url;
+            const serverMapIndex = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['WorkReassignmentBetaApi.getEvaluateReassignmentConfiguration']?.[serverMapIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
         /**
@@ -75437,7 +75871,8 @@ export const WorkReassignmentBetaApiFp = function(configuration?: Configuration)
          */
         async getReassignmentConfigTypes(axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<ConfigTypeBeta>>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getReassignmentConfigTypes(axiosOptions);
-            const operationBasePath = operationServerMap['WorkReassignmentBetaApi.getReassignmentConfigTypes']?.[0]?.url;
+            const serverMapIndex = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['WorkReassignmentBetaApi.getReassignmentConfigTypes']?.[serverMapIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
         /**
@@ -75449,7 +75884,8 @@ export const WorkReassignmentBetaApiFp = function(configuration?: Configuration)
          */
         async getReassignmentConfiguration(identityId: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ConfigurationResponseBeta>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getReassignmentConfiguration(identityId, axiosOptions);
-            const operationBasePath = operationServerMap['WorkReassignmentBetaApi.getReassignmentConfiguration']?.[0]?.url;
+            const serverMapIndex = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['WorkReassignmentBetaApi.getReassignmentConfiguration']?.[serverMapIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
         /**
@@ -75460,7 +75896,8 @@ export const WorkReassignmentBetaApiFp = function(configuration?: Configuration)
          */
         async getTenantConfigConfiguration(axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<TenantConfigurationResponseBeta>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getTenantConfigConfiguration(axiosOptions);
-            const operationBasePath = operationServerMap['WorkReassignmentBetaApi.getTenantConfigConfiguration']?.[0]?.url;
+            const serverMapIndex = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['WorkReassignmentBetaApi.getTenantConfigConfiguration']?.[serverMapIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
         /**
@@ -75471,7 +75908,8 @@ export const WorkReassignmentBetaApiFp = function(configuration?: Configuration)
          */
         async listReassignmentConfigurations(axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<ConfigurationResponseBeta>>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.listReassignmentConfigurations(axiosOptions);
-            const operationBasePath = operationServerMap['WorkReassignmentBetaApi.listReassignmentConfigurations']?.[0]?.url;
+            const serverMapIndex = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['WorkReassignmentBetaApi.listReassignmentConfigurations']?.[serverMapIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
         /**
@@ -75484,7 +75922,8 @@ export const WorkReassignmentBetaApiFp = function(configuration?: Configuration)
          */
         async putReassignmentConfig(identityId: string, configurationItemRequestBeta: ConfigurationItemRequestBeta, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ConfigurationItemResponseBeta>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.putReassignmentConfig(identityId, configurationItemRequestBeta, axiosOptions);
-            const operationBasePath = operationServerMap['WorkReassignmentBetaApi.putReassignmentConfig']?.[0]?.url;
+            const serverMapIndex = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['WorkReassignmentBetaApi.putReassignmentConfig']?.[serverMapIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
         /**
@@ -75496,7 +75935,8 @@ export const WorkReassignmentBetaApiFp = function(configuration?: Configuration)
          */
         async putTenantConfiguration(tenantConfigurationRequestBeta: TenantConfigurationRequestBeta, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<TenantConfigurationResponseBeta>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.putTenantConfiguration(tenantConfigurationRequestBeta, axiosOptions);
-            const operationBasePath = operationServerMap['WorkReassignmentBetaApi.putTenantConfiguration']?.[0]?.url;
+            const serverMapIndex = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['WorkReassignmentBetaApi.putTenantConfiguration']?.[serverMapIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
     }
@@ -76677,7 +77117,8 @@ export const WorkflowsBetaApiFp = function(configuration?: Configuration) {
          */
         async cancelWorkflowExecution(id: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.cancelWorkflowExecution(id, axiosOptions);
-            const operationBasePath = operationServerMap['WorkflowsBetaApi.cancelWorkflowExecution']?.[0]?.url;
+            const serverMapIndex = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['WorkflowsBetaApi.cancelWorkflowExecution']?.[serverMapIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
         /**
@@ -76689,7 +77130,8 @@ export const WorkflowsBetaApiFp = function(configuration?: Configuration) {
          */
         async createWorkflow(createWorkflowRequestBeta: CreateWorkflowRequestBeta, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<WorkflowBeta>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.createWorkflow(createWorkflowRequestBeta, axiosOptions);
-            const operationBasePath = operationServerMap['WorkflowsBetaApi.createWorkflow']?.[0]?.url;
+            const serverMapIndex = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['WorkflowsBetaApi.createWorkflow']?.[serverMapIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
         /**
@@ -76701,7 +77143,8 @@ export const WorkflowsBetaApiFp = function(configuration?: Configuration) {
          */
         async deleteWorkflow(id: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.deleteWorkflow(id, axiosOptions);
-            const operationBasePath = operationServerMap['WorkflowsBetaApi.deleteWorkflow']?.[0]?.url;
+            const serverMapIndex = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['WorkflowsBetaApi.deleteWorkflow']?.[serverMapIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
         /**
@@ -76713,7 +77156,8 @@ export const WorkflowsBetaApiFp = function(configuration?: Configuration) {
          */
         async getWorkflow(id: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<WorkflowBeta>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getWorkflow(id, axiosOptions);
-            const operationBasePath = operationServerMap['WorkflowsBetaApi.getWorkflow']?.[0]?.url;
+            const serverMapIndex = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['WorkflowsBetaApi.getWorkflow']?.[serverMapIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
         /**
@@ -76725,7 +77169,8 @@ export const WorkflowsBetaApiFp = function(configuration?: Configuration) {
          */
         async getWorkflowExecution(id: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<object>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getWorkflowExecution(id, axiosOptions);
-            const operationBasePath = operationServerMap['WorkflowsBetaApi.getWorkflowExecution']?.[0]?.url;
+            const serverMapIndex = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['WorkflowsBetaApi.getWorkflowExecution']?.[serverMapIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
         /**
@@ -76737,7 +77182,8 @@ export const WorkflowsBetaApiFp = function(configuration?: Configuration) {
          */
         async getWorkflowExecutionHistory(id: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<WorkflowExecutionEventBeta>>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getWorkflowExecutionHistory(id, axiosOptions);
-            const operationBasePath = operationServerMap['WorkflowsBetaApi.getWorkflowExecutionHistory']?.[0]?.url;
+            const serverMapIndex = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['WorkflowsBetaApi.getWorkflowExecutionHistory']?.[serverMapIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
         /**
@@ -76750,7 +77196,8 @@ export const WorkflowsBetaApiFp = function(configuration?: Configuration) {
          */
         async listCompleteWorkflowLibrary(limit?: number, offset?: number, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<ListCompleteWorkflowLibrary200ResponseInnerBeta>>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.listCompleteWorkflowLibrary(limit, offset, axiosOptions);
-            const operationBasePath = operationServerMap['WorkflowsBetaApi.listCompleteWorkflowLibrary']?.[0]?.url;
+            const serverMapIndex = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['WorkflowsBetaApi.listCompleteWorkflowLibrary']?.[serverMapIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
         /**
@@ -76766,7 +77213,8 @@ export const WorkflowsBetaApiFp = function(configuration?: Configuration) {
          */
         async listWorkflowExecutions(id: string, limit?: number, offset?: number, count?: boolean, filters?: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<WorkflowExecutionBeta>>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.listWorkflowExecutions(id, limit, offset, count, filters, axiosOptions);
-            const operationBasePath = operationServerMap['WorkflowsBetaApi.listWorkflowExecutions']?.[0]?.url;
+            const serverMapIndex = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['WorkflowsBetaApi.listWorkflowExecutions']?.[serverMapIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
         /**
@@ -76780,7 +77228,8 @@ export const WorkflowsBetaApiFp = function(configuration?: Configuration) {
          */
         async listWorkflowLibraryActions(limit?: number, offset?: number, filters?: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<WorkflowLibraryActionBeta>>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.listWorkflowLibraryActions(limit, offset, filters, axiosOptions);
-            const operationBasePath = operationServerMap['WorkflowsBetaApi.listWorkflowLibraryActions']?.[0]?.url;
+            const serverMapIndex = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['WorkflowsBetaApi.listWorkflowLibraryActions']?.[serverMapIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
         /**
@@ -76791,7 +77240,8 @@ export const WorkflowsBetaApiFp = function(configuration?: Configuration) {
          */
         async listWorkflowLibraryOperators(axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<WorkflowLibraryOperatorBeta>>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.listWorkflowLibraryOperators(axiosOptions);
-            const operationBasePath = operationServerMap['WorkflowsBetaApi.listWorkflowLibraryOperators']?.[0]?.url;
+            const serverMapIndex = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['WorkflowsBetaApi.listWorkflowLibraryOperators']?.[serverMapIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
         /**
@@ -76805,7 +77255,8 @@ export const WorkflowsBetaApiFp = function(configuration?: Configuration) {
          */
         async listWorkflowLibraryTriggers(limit?: number, offset?: number, filters?: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<WorkflowLibraryTriggerBeta>>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.listWorkflowLibraryTriggers(limit, offset, filters, axiosOptions);
-            const operationBasePath = operationServerMap['WorkflowsBetaApi.listWorkflowLibraryTriggers']?.[0]?.url;
+            const serverMapIndex = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['WorkflowsBetaApi.listWorkflowLibraryTriggers']?.[serverMapIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
         /**
@@ -76816,7 +77267,8 @@ export const WorkflowsBetaApiFp = function(configuration?: Configuration) {
          */
         async listWorkflows(axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<WorkflowBeta>>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.listWorkflows(axiosOptions);
-            const operationBasePath = operationServerMap['WorkflowsBetaApi.listWorkflows']?.[0]?.url;
+            const serverMapIndex = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['WorkflowsBetaApi.listWorkflows']?.[serverMapIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
         /**
@@ -76829,7 +77281,8 @@ export const WorkflowsBetaApiFp = function(configuration?: Configuration) {
          */
         async patchWorkflow(id: string, jsonPatchOperationBeta: Array<JsonPatchOperationBeta>, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<WorkflowBeta>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.patchWorkflow(id, jsonPatchOperationBeta, axiosOptions);
-            const operationBasePath = operationServerMap['WorkflowsBetaApi.patchWorkflow']?.[0]?.url;
+            const serverMapIndex = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['WorkflowsBetaApi.patchWorkflow']?.[serverMapIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
         /**
@@ -76842,7 +77295,8 @@ export const WorkflowsBetaApiFp = function(configuration?: Configuration) {
          */
         async postExternalExecuteWorkflow(id: string, postExternalExecuteWorkflowRequestBeta?: PostExternalExecuteWorkflowRequestBeta, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<PostExternalExecuteWorkflow200ResponseBeta>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.postExternalExecuteWorkflow(id, postExternalExecuteWorkflowRequestBeta, axiosOptions);
-            const operationBasePath = operationServerMap['WorkflowsBetaApi.postExternalExecuteWorkflow']?.[0]?.url;
+            const serverMapIndex = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['WorkflowsBetaApi.postExternalExecuteWorkflow']?.[serverMapIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
         /**
@@ -76854,7 +77308,8 @@ export const WorkflowsBetaApiFp = function(configuration?: Configuration) {
          */
         async postWorkflowExternalTrigger(id: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<WorkflowOAuthClientBeta>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.postWorkflowExternalTrigger(id, axiosOptions);
-            const operationBasePath = operationServerMap['WorkflowsBetaApi.postWorkflowExternalTrigger']?.[0]?.url;
+            const serverMapIndex = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['WorkflowsBetaApi.postWorkflowExternalTrigger']?.[serverMapIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
         /**
@@ -76867,7 +77322,8 @@ export const WorkflowsBetaApiFp = function(configuration?: Configuration) {
          */
         async testExternalExecuteWorkflow(id: string, testExternalExecuteWorkflowRequestBeta?: TestExternalExecuteWorkflowRequestBeta, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<TestExternalExecuteWorkflow200ResponseBeta>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.testExternalExecuteWorkflow(id, testExternalExecuteWorkflowRequestBeta, axiosOptions);
-            const operationBasePath = operationServerMap['WorkflowsBetaApi.testExternalExecuteWorkflow']?.[0]?.url;
+            const serverMapIndex = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['WorkflowsBetaApi.testExternalExecuteWorkflow']?.[serverMapIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
         /**
@@ -76880,7 +77336,8 @@ export const WorkflowsBetaApiFp = function(configuration?: Configuration) {
          */
         async testWorkflow(id: string, testWorkflowRequestBeta: TestWorkflowRequestBeta, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<TestWorkflow200ResponseBeta>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.testWorkflow(id, testWorkflowRequestBeta, axiosOptions);
-            const operationBasePath = operationServerMap['WorkflowsBetaApi.testWorkflow']?.[0]?.url;
+            const serverMapIndex = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['WorkflowsBetaApi.testWorkflow']?.[serverMapIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
         /**
@@ -76893,7 +77350,8 @@ export const WorkflowsBetaApiFp = function(configuration?: Configuration) {
          */
         async updateWorkflow(id: string, workflowBodyBeta: WorkflowBodyBeta, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<WorkflowBeta>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.updateWorkflow(id, workflowBodyBeta, axiosOptions);
-            const operationBasePath = operationServerMap['WorkflowsBetaApi.updateWorkflow']?.[0]?.url;
+            const serverMapIndex = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['WorkflowsBetaApi.updateWorkflow']?.[serverMapIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
     }

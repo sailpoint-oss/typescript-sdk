@@ -1896,7 +1896,8 @@ export const AccountsCCApiFp = function(configuration?: Configuration) {
          */
         async listAccounts(axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<ListAccounts200ResponseInnerCC>>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.listAccounts(axiosOptions);
-            const operationBasePath = operationServerMap['AccountsCCApi.listAccounts']?.[0]?.url;
+            const serverMapIndex = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['AccountsCCApi.listAccounts']?.[serverMapIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
         /**
@@ -1908,7 +1909,8 @@ export const AccountsCCApiFp = function(configuration?: Configuration) {
          */
         async removeAccount(id: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.removeAccount(id, axiosOptions);
-            const operationBasePath = operationServerMap['AccountsCCApi.removeAccount']?.[0]?.url;
+            const serverMapIndex = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['AccountsCCApi.removeAccount']?.[serverMapIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
     }
@@ -2261,7 +2263,8 @@ export const ApplicationsCCApiFp = function(configuration?: Configuration) {
          */
         async createApplication(createApplicationRequestCC?: CreateApplicationRequestCC, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<{ [key: string]: any; }>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.createApplication(createApplicationRequestCC, axiosOptions);
-            const operationBasePath = operationServerMap['ApplicationsCCApi.createApplication']?.[0]?.url;
+            const serverMapIndex = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['ApplicationsCCApi.createApplication']?.[serverMapIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
         /**
@@ -2273,7 +2276,8 @@ export const ApplicationsCCApiFp = function(configuration?: Configuration) {
          */
         async deleteApplication(id: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.deleteApplication(id, axiosOptions);
-            const operationBasePath = operationServerMap['ApplicationsCCApi.deleteApplication']?.[0]?.url;
+            const serverMapIndex = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['ApplicationsCCApi.deleteApplication']?.[serverMapIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
         /**
@@ -2285,7 +2289,8 @@ export const ApplicationsCCApiFp = function(configuration?: Configuration) {
          */
         async getApplication(id: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<GetApplication200ResponseCC>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getApplication(id, axiosOptions);
-            const operationBasePath = operationServerMap['ApplicationsCCApi.getApplication']?.[0]?.url;
+            const serverMapIndex = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['ApplicationsCCApi.getApplication']?.[serverMapIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
         /**
@@ -2297,7 +2302,8 @@ export const ApplicationsCCApiFp = function(configuration?: Configuration) {
          */
         async getApplicationAccessProfiles(id: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<{ [key: string]: any; }>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getApplicationAccessProfiles(id, axiosOptions);
-            const operationBasePath = operationServerMap['ApplicationsCCApi.getApplicationAccessProfiles']?.[0]?.url;
+            const serverMapIndex = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['ApplicationsCCApi.getApplicationAccessProfiles']?.[serverMapIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
         /**
@@ -2308,7 +2314,8 @@ export const ApplicationsCCApiFp = function(configuration?: Configuration) {
          */
         async listApplications(axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<ListApplications200ResponseInnerCC>>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.listApplications(axiosOptions);
-            const operationBasePath = operationServerMap['ApplicationsCCApi.listApplications']?.[0]?.url;
+            const serverMapIndex = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['ApplicationsCCApi.listApplications']?.[serverMapIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
         /**
@@ -2321,7 +2328,8 @@ export const ApplicationsCCApiFp = function(configuration?: Configuration) {
          */
         async updateApplication(id: string, requestBody?: { [key: string]: any; }, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<{ [key: string]: any; }>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.updateApplication(id, requestBody, axiosOptions);
-            const operationBasePath = operationServerMap['ApplicationsCCApi.updateApplication']?.[0]?.url;
+            const serverMapIndex = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['ApplicationsCCApi.updateApplication']?.[serverMapIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
     }
@@ -2835,7 +2843,8 @@ export const ConnectorsCCApiFp = function(configuration?: Configuration) {
          */
         async createConnector(contentType?: string, name?: string, description?: string, className?: string, directConnect?: boolean, status?: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.createConnector(contentType, name, description, className, directConnect, status, axiosOptions);
-            const operationBasePath = operationServerMap['ConnectorsCCApi.createConnector']?.[0]?.url;
+            const serverMapIndex = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['ConnectorsCCApi.createConnector']?.[serverMapIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
         /**
@@ -2847,7 +2856,8 @@ export const ConnectorsCCApiFp = function(configuration?: Configuration) {
          */
         async deleteConnector(id: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.deleteConnector(id, axiosOptions);
-            const operationBasePath = operationServerMap['ConnectorsCCApi.deleteConnector']?.[0]?.url;
+            const serverMapIndex = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['ConnectorsCCApi.deleteConnector']?.[serverMapIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
         /**
@@ -2859,7 +2869,8 @@ export const ConnectorsCCApiFp = function(configuration?: Configuration) {
          */
         async exportConnectorConfig(id: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.exportConnectorConfig(id, axiosOptions);
-            const operationBasePath = operationServerMap['ConnectorsCCApi.exportConnectorConfig']?.[0]?.url;
+            const serverMapIndex = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['ConnectorsCCApi.exportConnectorConfig']?.[serverMapIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
         /**
@@ -2872,7 +2883,8 @@ export const ConnectorsCCApiFp = function(configuration?: Configuration) {
          */
         async importConnectorConfig(id: string, file?: File, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.importConnectorConfig(id, file, axiosOptions);
-            const operationBasePath = operationServerMap['ConnectorsCCApi.importConnectorConfig']?.[0]?.url;
+            const serverMapIndex = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['ConnectorsCCApi.importConnectorConfig']?.[serverMapIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
         /**
@@ -2883,7 +2895,8 @@ export const ConnectorsCCApiFp = function(configuration?: Configuration) {
          */
         async listConnectors(axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ListConnectors200ResponseCC>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.listConnectors(axiosOptions);
-            const operationBasePath = operationServerMap['ConnectorsCCApi.listConnectors']?.[0]?.url;
+            const serverMapIndex = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['ConnectorsCCApi.listConnectors']?.[serverMapIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
     }
@@ -3187,7 +3200,8 @@ export const SourcesAccountsCCApiFp = function(configuration?: Configuration) {
          */
         async exportAccountFeed(id: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.exportAccountFeed(id, axiosOptions);
-            const operationBasePath = operationServerMap['SourcesAccountsCCApi.exportAccountFeed']?.[0]?.url;
+            const serverMapIndex = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['SourcesAccountsCCApi.exportAccountFeed']?.[serverMapIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
     }
@@ -3395,7 +3409,8 @@ export const SourcesAggregationCCApiFp = function(configuration?: Configuration)
          */
         async loadAccounts(id: string, contentType?: string, disableOptimization?: boolean, file?: File, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<{ [key: string]: any; }>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.loadAccounts(id, contentType, disableOptimization, file, axiosOptions);
-            const operationBasePath = operationServerMap['SourcesAggregationCCApi.loadAccounts']?.[0]?.url;
+            const serverMapIndex = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['SourcesAggregationCCApi.loadAccounts']?.[serverMapIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
         /**
@@ -3409,7 +3424,8 @@ export const SourcesAggregationCCApiFp = function(configuration?: Configuration)
          */
         async loadEntitlements(id: string, contentType?: string, file?: File, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<{ [key: string]: any; }>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.loadEntitlements(id, contentType, file, axiosOptions);
-            const operationBasePath = operationServerMap['SourcesAggregationCCApi.loadEntitlements']?.[0]?.url;
+            const serverMapIndex = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['SourcesAggregationCCApi.loadEntitlements']?.[serverMapIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
     }
@@ -3617,7 +3633,8 @@ export const SystemCCApiFp = function(configuration?: Configuration) {
          */
         async refreshIdentities(contentType?: string, refreshIdentitiesRequestCC?: RefreshIdentitiesRequestCC, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<{ [key: string]: any; }>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.refreshIdentities(contentType, refreshIdentitiesRequestCC, axiosOptions);
-            const operationBasePath = operationServerMap['SystemCCApi.refreshIdentities']?.[0]?.url;
+            const serverMapIndex = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['SystemCCApi.refreshIdentities']?.[serverMapIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
     }
@@ -3796,7 +3813,8 @@ export const UserCCApiFp = function(configuration?: Configuration) {
          */
         async getIdentity(id: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<GetIdentity200ResponseCC>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getIdentity(id, axiosOptions);
-            const operationBasePath = operationServerMap['UserCCApi.getIdentity']?.[0]?.url;
+            const serverMapIndex = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['UserCCApi.getIdentity']?.[serverMapIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
         /**
@@ -3808,7 +3826,8 @@ export const UserCCApiFp = function(configuration?: Configuration) {
          */
         async updateUserPermissions(updateUserPermissionsRequestCC?: UpdateUserPermissionsRequestCC, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.updateUserPermissions(updateUserPermissionsRequestCC, axiosOptions);
-            const operationBasePath = operationServerMap['UserCCApi.updateUserPermissions']?.[0]?.url;
+            const serverMapIndex = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['UserCCApi.updateUserPermissions']?.[serverMapIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
     }
