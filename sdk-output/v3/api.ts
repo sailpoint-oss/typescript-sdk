@@ -2352,6 +2352,39 @@ export interface ActivateCampaignOptions {
     'timeZone'?: string;
 }
 /**
+ * Insights into account activity
+ * @export
+ * @interface ActivityInsights
+ */
+export interface ActivityInsights {
+    /**
+     * UUID of the account
+     * @type {string}
+     * @memberof ActivityInsights
+     */
+    'accountID'?: string;
+    /**
+     * The number of days of activity
+     * @type {number}
+     * @memberof ActivityInsights
+     */
+    'usageDays'?: number;
+    /**
+     * Status indicating if the activity is complete or unknown
+     * @type {string}
+     * @memberof ActivityInsights
+     */
+    'usageDaysState'?: ActivityInsightsUsageDaysStateEnum;
+}
+
+export const ActivityInsightsUsageDaysStateEnum = {
+    Complete: 'COMPLETE',
+    Unknown: 'UNKNOWN'
+} as const;
+
+export type ActivityInsightsUsageDaysStateEnum = typeof ActivityInsightsUsageDaysStateEnum[keyof typeof ActivityInsightsUsageDaysStateEnum];
+
+/**
  * 
  * @export
  * @interface AdminReviewReassign
@@ -14022,6 +14055,12 @@ export interface ReviewableEntitlementAccount {
      * @memberof ReviewableEntitlementAccount
      */
     'modified'?: string | null;
+    /**
+     * 
+     * @type {ActivityInsights}
+     * @memberof ReviewableEntitlementAccount
+     */
+    'activityInsights'?: ActivityInsights;
 }
 /**
  * 
