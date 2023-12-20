@@ -1319,6 +1319,18 @@ export interface Account {
      * @memberof Account
      */
     'hasEntitlements': boolean;
+    /**
+     * 
+     * @type {BaseReferenceDto}
+     * @memberof Account
+     */
+    'identity'?: BaseReferenceDto;
+    /**
+     * 
+     * @type {BaseReferenceDto}
+     * @memberof Account
+     */
+    'sourceOwner'?: BaseReferenceDto;
 }
 /**
  * Object for specifying Actions to be performed on a specified list of sources\' account.
@@ -1997,6 +2009,18 @@ export interface AccountAllOf {
      * @memberof AccountAllOf
      */
     'hasEntitlements': boolean;
+    /**
+     * 
+     * @type {BaseReferenceDto}
+     * @memberof AccountAllOf
+     */
+    'identity'?: BaseReferenceDto;
+    /**
+     * 
+     * @type {BaseReferenceDto}
+     * @memberof AccountAllOf
+     */
+    'sourceOwner'?: BaseReferenceDto;
 }
 /**
  * 
@@ -3640,6 +3664,31 @@ export interface BaseEntitlementAllOf {
      * @memberof BaseEntitlementAllOf
      */
     'value'?: string;
+}
+/**
+ * 
+ * @export
+ * @interface BaseReferenceDto
+ */
+export interface BaseReferenceDto {
+    /**
+     * 
+     * @type {DtoType}
+     * @memberof BaseReferenceDto
+     */
+    'type'?: DtoType;
+    /**
+     * ID of the object to which this reference applies
+     * @type {string}
+     * @memberof BaseReferenceDto
+     */
+    'id'?: string;
+    /**
+     * Human-readable display name of the object to which this reference applies
+     * @type {string}
+     * @memberof BaseReferenceDto
+     */
+    'name'?: string;
 }
 /**
  * Before Provisioning Rule.
@@ -21856,8 +21905,8 @@ export const AccountsApiAxiosParamCreator = function (configuration?: Configurat
          * @param {number} [limit] Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
          * @param {number} [offset] Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
          * @param {boolean} [count] If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
-         * @param {string} [filters] Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, in, ge, gt, le, lt, ne, isnull, sw*  **identityId**: *eq, ge, gt, in, le, lt, ne, isnull, sw*  **name**: *eq, in, ge, gt, ne, isnull, sw*  **nativeIdentity**: *eq, in, ge, gt, le, lt, ne, isnull, sw*  **sourceId**: *eq, in, ge, gt, le, lt, ne, isnull, sw*  **uncorrelated**: *eq*
-         * @param {string} [sorters] Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **id, name, created, modified, sourceId, identityId, nativeIdentity, uuid, manuallyCorrelated**
+         * @param {string} [filters] Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, in, sw*  **identityId**: *eq, in, sw*  **name**: *eq, in, sw*  **nativeIdentity**: *eq, in, sw*  **sourceId**: *eq, in, sw*  **uncorrelated**: *eq*  **identity.name**: *eq, in, sw*
+         * @param {string} [sorters] Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **id, name, created, modified, sourceId, identityId, nativeIdentity, uuid, manuallyCorrelated, identity.name**
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
@@ -22186,8 +22235,8 @@ export const AccountsApiFp = function(configuration?: Configuration) {
          * @param {number} [limit] Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
          * @param {number} [offset] Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
          * @param {boolean} [count] If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
-         * @param {string} [filters] Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, in, ge, gt, le, lt, ne, isnull, sw*  **identityId**: *eq, ge, gt, in, le, lt, ne, isnull, sw*  **name**: *eq, in, ge, gt, ne, isnull, sw*  **nativeIdentity**: *eq, in, ge, gt, le, lt, ne, isnull, sw*  **sourceId**: *eq, in, ge, gt, le, lt, ne, isnull, sw*  **uncorrelated**: *eq*
-         * @param {string} [sorters] Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **id, name, created, modified, sourceId, identityId, nativeIdentity, uuid, manuallyCorrelated**
+         * @param {string} [filters] Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, in, sw*  **identityId**: *eq, in, sw*  **name**: *eq, in, sw*  **nativeIdentity**: *eq, in, sw*  **sourceId**: *eq, in, sw*  **uncorrelated**: *eq*  **identity.name**: *eq, in, sw*
+         * @param {string} [sorters] Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **id, name, created, modified, sourceId, identityId, nativeIdentity, uuid, manuallyCorrelated, identity.name**
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
@@ -22323,8 +22372,8 @@ export const AccountsApiFactory = function (configuration?: Configuration, baseP
          * @param {number} [limit] Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
          * @param {number} [offset] Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
          * @param {boolean} [count] If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
-         * @param {string} [filters] Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, in, ge, gt, le, lt, ne, isnull, sw*  **identityId**: *eq, ge, gt, in, le, lt, ne, isnull, sw*  **name**: *eq, in, ge, gt, ne, isnull, sw*  **nativeIdentity**: *eq, in, ge, gt, le, lt, ne, isnull, sw*  **sourceId**: *eq, in, ge, gt, le, lt, ne, isnull, sw*  **uncorrelated**: *eq*
-         * @param {string} [sorters] Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **id, name, created, modified, sourceId, identityId, nativeIdentity, uuid, manuallyCorrelated**
+         * @param {string} [filters] Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, in, sw*  **identityId**: *eq, in, sw*  **name**: *eq, in, sw*  **nativeIdentity**: *eq, in, sw*  **sourceId**: *eq, in, sw*  **uncorrelated**: *eq*  **identity.name**: *eq, in, sw*
+         * @param {string} [sorters] Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **id, name, created, modified, sourceId, identityId, nativeIdentity, uuid, manuallyCorrelated, identity.name**
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
@@ -22524,14 +22573,14 @@ export interface AccountsApiListAccountsRequest {
     readonly count?: boolean
 
     /**
-     * Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, in, ge, gt, le, lt, ne, isnull, sw*  **identityId**: *eq, ge, gt, in, le, lt, ne, isnull, sw*  **name**: *eq, in, ge, gt, ne, isnull, sw*  **nativeIdentity**: *eq, in, ge, gt, le, lt, ne, isnull, sw*  **sourceId**: *eq, in, ge, gt, le, lt, ne, isnull, sw*  **uncorrelated**: *eq*
+     * Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, in, sw*  **identityId**: *eq, in, sw*  **name**: *eq, in, sw*  **nativeIdentity**: *eq, in, sw*  **sourceId**: *eq, in, sw*  **uncorrelated**: *eq*  **identity.name**: *eq, in, sw*
      * @type {string}
      * @memberof AccountsApiListAccounts
      */
     readonly filters?: string
 
     /**
-     * Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **id, name, created, modified, sourceId, identityId, nativeIdentity, uuid, manuallyCorrelated**
+     * Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **id, name, created, modified, sourceId, identityId, nativeIdentity, uuid, manuallyCorrelated, identity.name**
      * @type {string}
      * @memberof AccountsApiListAccounts
      */
