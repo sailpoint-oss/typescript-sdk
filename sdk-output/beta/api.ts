@@ -753,7 +753,7 @@ export const AccessProfileApprovalSchemeBetaApproverTypeEnum = {
 export type AccessProfileApprovalSchemeBetaApproverTypeEnum = typeof AccessProfileApprovalSchemeBetaApproverTypeEnum[keyof typeof AccessProfileApprovalSchemeBetaApproverTypeEnum];
 
 /**
- * 
+ * Access Profile
  * @export
  * @interface AccessProfileBeta
  */
@@ -823,13 +823,13 @@ export interface AccessProfileBeta {
      * @type {RequestabilityBeta}
      * @memberof AccessProfileBeta
      */
-    'accessRequestConfig'?: RequestabilityBeta;
+    'accessRequestConfig'?: RequestabilityBeta | null;
     /**
      * 
      * @type {RevocabilityBeta}
      * @memberof AccessProfileBeta
      */
-    'revocationRequestConfig'?: RevocabilityBeta;
+    'revocationRequestConfig'?: RevocabilityBeta | null;
     /**
      * List of IDs of segments, if any, to which this Access Profile is assigned.
      * @type {Array<string>}
@@ -18966,19 +18966,19 @@ export interface RequestabilityBeta {
      * @type {boolean}
      * @memberof RequestabilityBeta
      */
-    'commentsRequired'?: boolean;
+    'commentsRequired'?: boolean | null;
     /**
      * Whether an approver must provide comments when denying the request
      * @type {boolean}
      * @memberof RequestabilityBeta
      */
-    'denialCommentsRequired'?: boolean;
+    'denialCommentsRequired'?: boolean | null;
     /**
      * List describing the steps in approving the request
      * @type {Array<AccessProfileApprovalSchemeBeta>}
      * @memberof RequestabilityBeta
      */
-    'approvalSchemes'?: Array<AccessProfileApprovalSchemeBeta>;
+    'approvalSchemes'?: Array<AccessProfileApprovalSchemeBeta> | null;
 }
 /**
  * 
@@ -19547,23 +19547,36 @@ export type ReviewerBetaTypeEnum = typeof ReviewerBetaTypeEnum[keyof typeof Revi
  */
 export interface RevocabilityBeta {
     /**
+     * List describing the steps in approving the revocation request
+     * @type {Array<AccessProfileApprovalSchemeBeta>}
+     * @memberof RevocabilityBeta
+     */
+    'approvalSchemes'?: Array<AccessProfileApprovalSchemeBeta> | null;
+}
+/**
+ * 
+ * @export
+ * @interface RevocabilityForRoleBeta
+ */
+export interface RevocabilityForRoleBeta {
+    /**
      * Whether the requester of the containing object must provide comments justifying the request
      * @type {boolean}
-     * @memberof RevocabilityBeta
+     * @memberof RevocabilityForRoleBeta
      */
     'commentsRequired'?: boolean | null;
     /**
      * Whether an approver must provide comments when denying the request
      * @type {boolean}
-     * @memberof RevocabilityBeta
+     * @memberof RevocabilityForRoleBeta
      */
     'denialCommentsRequired'?: boolean | null;
     /**
      * List describing the steps in approving the revocation request
-     * @type {Array<AccessProfileApprovalSchemeBeta>}
-     * @memberof RevocabilityBeta
+     * @type {Array<ApprovalSchemeForRoleBeta>}
+     * @memberof RevocabilityForRoleBeta
      */
-    'approvalSchemes'?: Array<AccessProfileApprovalSchemeBeta>;
+    'approvalSchemes'?: Array<ApprovalSchemeForRoleBeta>;
 }
 /**
  * 
@@ -19690,10 +19703,10 @@ export interface RoleBeta {
     'accessRequestConfig'?: RequestabilityForRoleBeta;
     /**
      * 
-     * @type {RevocabilityBeta}
+     * @type {RevocabilityForRoleBeta}
      * @memberof RoleBeta
      */
-    'revocationRequestConfig'?: RevocabilityBeta;
+    'revocationRequestConfig'?: RevocabilityForRoleBeta;
     /**
      * List of IDs of segments, if any, to which this Role is assigned.
      * @type {Array<string>}

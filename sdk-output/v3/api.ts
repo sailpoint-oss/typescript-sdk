@@ -265,7 +265,7 @@ export const AccessItemReviewedByTypeEnum = {
 export type AccessItemReviewedByTypeEnum = typeof AccessItemReviewedByTypeEnum[keyof typeof AccessItemReviewedByTypeEnum];
 
 /**
- * 
+ * Access Profile
  * @export
  * @interface AccessProfile
  */
@@ -335,13 +335,13 @@ export interface AccessProfile {
      * @type {Requestability}
      * @memberof AccessProfile
      */
-    'accessRequestConfig'?: Requestability;
+    'accessRequestConfig'?: Requestability | null;
     /**
      * 
      * @type {Revocability}
      * @memberof AccessProfile
      */
-    'revocationRequestConfig'?: Revocability;
+    'revocationRequestConfig'?: Revocability | null;
     /**
      * List of IDs of segments, if any, to which this Access Profile is assigned.
      * @type {Array<string>}
@@ -13425,19 +13425,19 @@ export interface Requestability {
      * @type {boolean}
      * @memberof Requestability
      */
-    'commentsRequired'?: boolean;
+    'commentsRequired'?: boolean | null;
     /**
      * Whether an approver must provide comments when denying the request
      * @type {boolean}
      * @memberof Requestability
      */
-    'denialCommentsRequired'?: boolean;
+    'denialCommentsRequired'?: boolean | null;
     /**
      * List describing the steps in approving the request
      * @type {Array<AccessProfileApprovalScheme>}
      * @memberof Requestability
      */
-    'approvalSchemes'?: Array<AccessProfileApprovalScheme>;
+    'approvalSchemes'?: Array<AccessProfileApprovalScheme> | null;
 }
 /**
  * 
@@ -14223,23 +14223,36 @@ export type ReviewerTypeEnum = typeof ReviewerTypeEnum[keyof typeof ReviewerType
  */
 export interface Revocability {
     /**
+     * List describing the steps in approving the revocation request
+     * @type {Array<AccessProfileApprovalScheme>}
+     * @memberof Revocability
+     */
+    'approvalSchemes'?: Array<AccessProfileApprovalScheme> | null;
+}
+/**
+ * 
+ * @export
+ * @interface RevocabilityForRole
+ */
+export interface RevocabilityForRole {
+    /**
      * Whether the requester of the containing object must provide comments justifying the request
      * @type {boolean}
-     * @memberof Revocability
+     * @memberof RevocabilityForRole
      */
     'commentsRequired'?: boolean | null;
     /**
      * Whether an approver must provide comments when denying the request
      * @type {boolean}
-     * @memberof Revocability
+     * @memberof RevocabilityForRole
      */
     'denialCommentsRequired'?: boolean | null;
     /**
      * List describing the steps in approving the revocation request
-     * @type {Array<AccessProfileApprovalScheme>}
-     * @memberof Revocability
+     * @type {Array<ApprovalSchemeForRole>}
+     * @memberof RevocabilityForRole
      */
-    'approvalSchemes'?: Array<AccessProfileApprovalScheme>;
+    'approvalSchemes'?: Array<ApprovalSchemeForRole>;
 }
 /**
  * 
@@ -14352,10 +14365,10 @@ export interface Role {
     'accessRequestConfig'?: RequestabilityForRole;
     /**
      * 
-     * @type {Revocability}
+     * @type {RevocabilityForRole}
      * @memberof Role
      */
-    'revocationRequestConfig'?: Revocability;
+    'revocationRequestConfig'?: RevocabilityForRole;
     /**
      * List of IDs of segments, if any, to which this Role is assigned.
      * @type {Array<string>}
