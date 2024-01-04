@@ -22,7 +22,7 @@ To get started with the TypeScript SDK and learn about its various functionaliti
 
 ## Examples
 
-In addition to the examples shown in the [documentation](https://developer.sailpoint.com/idn/tools/sdk/go), you can find more uses of the TypeScript SDK in the [examples](./example/).
+In addition to the examples shown in the [documentation](https://developer.sailpoint.com/idn/tools/sdk/typescript), you can find more uses of the TypeScript SDK in the [examples](./examples/src/index.ts).
 
 ## Contributing 
 
