@@ -5862,7 +5862,7 @@ export interface CreateScheduledSearchRequest {
     'displayQueryDetails'?: boolean;
 }
 /**
- * Type of the criteria in the filter.
+ * Type of the criteria in the filter. The `COMPOSITE` filter can contain multiple filters in an AND/OR relationship.
  * @export
  * @enum {string}
  */
@@ -5873,11 +5873,9 @@ export const CriteriaType = {
     Identity: 'IDENTITY',
     IdentityAttribute: 'IDENTITY_ATTRIBUTE',
     Entitlement: 'ENTITLEMENT',
-    InvalidCertifiableEntity: 'INVALID_CERTIFIABLE_ENTITY',
     AccessProfile: 'ACCESS_PROFILE',
     Source: 'SOURCE',
     Account: 'ACCOUNT',
-    InvalidCertifiableBundle: 'INVALID_CERTIFIABLE_BUNDLE',
     AggregatedEntitlement: 'AGGREGATED_ENTITLEMENT'
 } as const;
 

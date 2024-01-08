@@ -39606,7 +39606,7 @@ export const GovernanceGroupsBetaApiAxiosParamCreator = function (configuration?
             };
         },
         /**
-         * This API updates existing Governance Group by its ID. Following fields are patchable. **name**, **description** A token with API, ORG_ADMIN is required to call this API. In addition.
+         * This API updates an existing governance group by ID.  The following fields and objects are patchable:   * name   * description   * owner  A token with API or ORG_ADMIN authority is required to call this API.
          * @summary Patch a Governance Group
          * @param {string} id ID of the Governance Group
          * @param {Array<JsonPatchOperationBeta>} [jsonPatchOperationBeta] 
@@ -39811,7 +39811,7 @@ export const GovernanceGroupsBetaApiFp = function(configuration?: Configuration)
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
-         * This API updates existing Governance Group by its ID. Following fields are patchable. **name**, **description** A token with API, ORG_ADMIN is required to call this API. In addition.
+         * This API updates an existing governance group by ID.  The following fields and objects are patchable:   * name   * description   * owner  A token with API or ORG_ADMIN authority is required to call this API.
          * @summary Patch a Governance Group
          * @param {string} id ID of the Governance Group
          * @param {Array<JsonPatchOperationBeta>} [jsonPatchOperationBeta] 
@@ -39938,7 +39938,7 @@ export const GovernanceGroupsBetaApiFactory = function (configuration?: Configur
             return localVarFp.listWorkgroups(offset, limit, count, filters, sorters, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
-         * This API updates existing Governance Group by its ID. Following fields are patchable. **name**, **description** A token with API, ORG_ADMIN is required to call this API. In addition.
+         * This API updates an existing governance group by ID.  The following fields and objects are patchable:   * name   * description   * owner  A token with API or ORG_ADMIN authority is required to call this API.
          * @summary Patch a Governance Group
          * @param {string} id ID of the Governance Group
          * @param {Array<JsonPatchOperationBeta>} [jsonPatchOperationBeta] 
@@ -40311,7 +40311,7 @@ export class GovernanceGroupsBetaApi extends BaseAPI {
     }
 
     /**
-     * This API updates existing Governance Group by its ID. Following fields are patchable. **name**, **description** A token with API, ORG_ADMIN is required to call this API. In addition.
+     * This API updates an existing governance group by ID.  The following fields and objects are patchable:   * name   * description   * owner  A token with API or ORG_ADMIN authority is required to call this API.
      * @summary Patch a Governance Group
      * @param {GovernanceGroupsBetaApiPatchWorkgroupRequest} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
