@@ -5740,12 +5740,6 @@ export interface CreateSavedSearchRequest {
      */
     'description'?: string | null;
     /**
-     * Indicates if the saved search is public. 
-     * @type {boolean}
-     * @memberof CreateSavedSearchRequest
-     */
-    'public'?: boolean;
-    /**
      * A date-time in ISO-8601 format
      * @type {string}
      * @memberof CreateSavedSearchRequest
@@ -14887,12 +14881,6 @@ export interface SavedSearch {
      */
     'description'?: string | null;
     /**
-     * Indicates if the saved search is public. 
-     * @type {boolean}
-     * @memberof SavedSearch
-     */
-    'public'?: boolean;
-    /**
      * A date-time in ISO-8601 format
      * @type {string}
      * @memberof SavedSearch
@@ -14966,12 +14954,6 @@ export interface SavedSearchAllOf {
  * @interface SavedSearchDetail
  */
 export interface SavedSearchDetail {
-    /**
-     * Indicates if the saved search is public. 
-     * @type {boolean}
-     * @memberof SavedSearchDetail
-     */
-    'public'?: boolean;
     /**
      * A date-time in ISO-8601 format
      * @type {string}
@@ -39257,11 +39239,11 @@ export const SavedSearchApiAxiosParamCreator = function (configuration?: Configu
         },
         /**
          * Returns a list of saved searches. 
-         * @summary Return a list of Saved Searches
+         * @summary A list of Saved Searches
          * @param {number} [offset] Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
          * @param {number} [limit] Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
          * @param {boolean} [count] If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
-         * @param {string} [filters] Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **owner.id**: *eq*  **publiic**: *eq*
+         * @param {string} [filters] Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **owner.id**: *eq*
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
@@ -39418,11 +39400,11 @@ export const SavedSearchApiFp = function(configuration?: Configuration) {
         },
         /**
          * Returns a list of saved searches. 
-         * @summary Return a list of Saved Searches
+         * @summary A list of Saved Searches
          * @param {number} [offset] Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
          * @param {number} [limit] Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
          * @param {boolean} [count] If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
-         * @param {string} [filters] Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **owner.id**: *eq*  **publiic**: *eq*
+         * @param {string} [filters] Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **owner.id**: *eq*
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
@@ -39495,11 +39477,11 @@ export const SavedSearchApiFactory = function (configuration?: Configuration, ba
         },
         /**
          * Returns a list of saved searches. 
-         * @summary Return a list of Saved Searches
+         * @summary A list of Saved Searches
          * @param {number} [offset] Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
          * @param {number} [limit] Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
          * @param {boolean} [count] If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
-         * @param {string} [filters] Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **owner.id**: *eq*  **publiic**: *eq*
+         * @param {string} [filters] Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **owner.id**: *eq*
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
@@ -39611,7 +39593,7 @@ export interface SavedSearchApiListSavedSearchesRequest {
     readonly count?: boolean
 
     /**
-     * Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **owner.id**: *eq*  **publiic**: *eq*
+     * Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **owner.id**: *eq*
      * @type {string}
      * @memberof SavedSearchApiListSavedSearches
      */
@@ -39696,7 +39678,7 @@ export class SavedSearchApi extends BaseAPI {
 
     /**
      * Returns a list of saved searches. 
-     * @summary Return a list of Saved Searches
+     * @summary A list of Saved Searches
      * @param {SavedSearchApiListSavedSearchesRequest} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
