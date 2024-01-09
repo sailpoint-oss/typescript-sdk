@@ -5843,7 +5843,7 @@ export interface CreateScheduledSearchRequest {
      */
     'enabled'?: boolean;
     /**
-     * Indicates if email generation should not be suppressed if search returns no results. 
+     * Indicates if email generation should occur when search returns no results. 
      * @type {boolean}
      * @memberof CreateScheduledSearchRequest
      */
@@ -15137,7 +15137,7 @@ export interface Schedule1 {
      */
     'expiration'?: string | null;
     /**
-     * The GMT formatted timezone the schedule will run in (ex. GMT-06:00).  If no timezone is specified, the org\'s default timezone is used.
+     * The canonical TZ identifier the schedule will run in (ex. America/New_York).  If no timezone is specified, the org\'s default timezone is used.
      * @type {string}
      * @memberof Schedule1
      */
@@ -15382,7 +15382,7 @@ export interface ScheduledSearch {
      */
     'enabled'?: boolean;
     /**
-     * Indicates if email generation should not be suppressed if search returns no results. 
+     * Indicates if email generation should occur when search returns no results. 
      * @type {boolean}
      * @memberof ScheduledSearch
      */
@@ -15890,7 +15890,7 @@ export interface SearchSchedule {
      */
     'enabled'?: boolean;
     /**
-     * Indicates if email generation should not be suppressed if search returns no results. 
+     * Indicates if email generation should occur when search returns no results. 
      * @type {boolean}
      * @memberof SearchSchedule
      */

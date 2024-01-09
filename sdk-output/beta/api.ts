@@ -21381,7 +21381,7 @@ export interface Schedule1Beta {
      */
     'expiration'?: string | null;
     /**
-     * The GMT formatted timezone the schedule will run in (ex. GMT-06:00).  If no timezone is specified, the org\'s default timezone is used.
+     * The canonical TZ identifier the schedule will run in (ex. America/New_York).  If no timezone is specified, the org\'s default timezone is used.
      * @type {string}
      * @memberof Schedule1Beta
      */
