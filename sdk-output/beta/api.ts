@@ -5975,6 +5975,25 @@ export interface CommentBeta {
 /**
  * 
  * @export
+ * @interface CommentDto1Beta
+ */
+export interface CommentDto1Beta {
+    /**
+     * Comment content.
+     * @type {string}
+     * @memberof CommentDto1Beta
+     */
+    'comment'?: string | null;
+    /**
+     * Date and time comment was created.
+     * @type {string}
+     * @memberof CommentDto1Beta
+     */
+    'created'?: string;
+}
+/**
+ * 
+ * @export
  * @interface CommentDtoAuthorBeta
  */
 export interface CommentDtoAuthorBeta {
@@ -6363,10 +6382,10 @@ export interface CompletedApprovalBeta {
     'requestedObject'?: RequestableObjectReferenceBeta;
     /**
      * 
-     * @type {CommentDtoBeta}
+     * @type {CommentDto1Beta}
      * @memberof CompletedApprovalBeta
      */
-    'requesterComment'?: CommentDtoBeta;
+    'requesterComment'?: CommentDto1Beta;
     /**
      * 
      * @type {CompletedApprovalReviewerCommentBeta}
@@ -6375,10 +6394,10 @@ export interface CompletedApprovalBeta {
     'reviewerComment'?: CompletedApprovalReviewerCommentBeta | null;
     /**
      * The history of the previous reviewers comments.
-     * @type {Array<CommentDtoBeta>}
+     * @type {Array<CommentDto1Beta>}
      * @memberof CompletedApprovalBeta
      */
-    'previousReviewersComments'?: Array<CommentDtoBeta>;
+    'previousReviewersComments'?: Array<CommentDto1Beta>;
     /**
      * The history of approval forward action.
      * @type {Array<ApprovalForwardHistoryBeta>}
@@ -17526,16 +17545,16 @@ export interface PendingApprovalBeta {
     'requestedObject'?: RequestableObjectReferenceBeta;
     /**
      * 
-     * @type {CommentDtoBeta}
+     * @type {CommentDto1Beta}
      * @memberof PendingApprovalBeta
      */
-    'requesterComment'?: CommentDtoBeta;
+    'requesterComment'?: CommentDto1Beta;
     /**
      * The history of the previous reviewers comments.
-     * @type {Array<CommentDtoBeta>}
+     * @type {Array<CommentDto1Beta>}
      * @memberof PendingApprovalBeta
      */
-    'previousReviewersComments'?: Array<CommentDtoBeta>;
+    'previousReviewersComments'?: Array<CommentDto1Beta>;
     /**
      * The history of approval forward action.
      * @type {Array<ApprovalForwardHistoryBeta>}
@@ -19227,10 +19246,10 @@ export interface RequestedItemStatusBeta {
     'requestedFor'?: AccessItemRequestedForBeta;
     /**
      * 
-     * @type {CommentDtoBeta}
+     * @type {CommentDto1Beta}
      * @memberof RequestedItemStatusBeta
      */
-    'requesterComment'?: CommentDtoBeta;
+    'requesterComment'?: CommentDto1Beta;
     /**
      * 
      * @type {SodViolationContextCheckCompletedBeta}

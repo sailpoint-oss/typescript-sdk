@@ -5128,50 +5128,12 @@ export interface CommentDto {
      */
     'comment'?: string | null;
     /**
-     * 
-     * @type {CommentDtoAuthor}
-     * @memberof CommentDto
-     */
-    'author'?: CommentDtoAuthor;
-    /**
      * Date and time comment was created.
      * @type {string}
      * @memberof CommentDto
      */
     'created'?: string;
 }
-/**
- * 
- * @export
- * @interface CommentDtoAuthor
- */
-export interface CommentDtoAuthor {
-    /**
-     * DTO type of the commenting identity.
-     * @type {string}
-     * @memberof CommentDtoAuthor
-     */
-    'type'?: CommentDtoAuthorTypeEnum;
-    /**
-     * ID of the commenting identity.
-     * @type {string}
-     * @memberof CommentDtoAuthor
-     */
-    'id'?: string;
-    /**
-     * Display name of the commenting identity.
-     * @type {string}
-     * @memberof CommentDtoAuthor
-     */
-    'name'?: string;
-}
-
-export const CommentDtoAuthorTypeEnum = {
-    Identity: 'IDENTITY'
-} as const;
-
-export type CommentDtoAuthorTypeEnum = typeof CommentDtoAuthorTypeEnum[keyof typeof CommentDtoAuthorTypeEnum];
-
 /**
  * 
  * @export
@@ -5317,12 +5279,6 @@ export interface CompletedApprovalReviewerComment {
      * @memberof CompletedApprovalReviewerComment
      */
     'comment'?: string | null;
-    /**
-     * 
-     * @type {CommentDtoAuthor}
-     * @memberof CompletedApprovalReviewerComment
-     */
-    'author'?: CommentDtoAuthor;
     /**
      * Date and time comment was created.
      * @type {string}
