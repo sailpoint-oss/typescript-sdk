@@ -16029,47 +16029,29 @@ export type SelectorType = typeof SelectorType[keyof typeof SelectorType];
  */
 export interface ServiceDeskIntegrationDto {
     /**
-     * System-generated unique ID of the Object
-     * @type {string}
-     * @memberof ServiceDeskIntegrationDto
-     */
-    'id'?: string;
-    /**
-     * Name of the Object
+     * Service Desk integration\'s name. The name must be unique.
      * @type {string}
      * @memberof ServiceDeskIntegrationDto
      */
     'name': string;
     /**
-     * Creation date of the Object
-     * @type {string}
-     * @memberof ServiceDeskIntegrationDto
-     */
-    'created'?: string;
-    /**
-     * Last modification date of the Object
-     * @type {string}
-     * @memberof ServiceDeskIntegrationDto
-     */
-    'modified'?: string;
-    /**
-     * Description of the Service Desk integration
+     * Service Desk integration\'s description.
      * @type {string}
      * @memberof ServiceDeskIntegrationDto
      */
     'description': string;
     /**
-     * Service Desk integration types  - ServiceNowSDIM - ServiceNow 
+     * Service Desk integration types:  - ServiceNowSDIM - ServiceNow 
      * @type {string}
      * @memberof ServiceDeskIntegrationDto
      */
     'type': string;
     /**
      * 
-     * @type {ServiceDeskIntegrationDtoAllOfOwnerRef}
+     * @type {OwnerDto}
      * @memberof ServiceDeskIntegrationDto
      */
-    'ownerRef'?: ServiceDeskIntegrationDtoAllOfOwnerRef;
+    'ownerRef'?: OwnerDto;
     /**
      * 
      * @type {SourceClusterDto}
@@ -16077,7 +16059,7 @@ export interface ServiceDeskIntegrationDto {
      */
     'clusterRef'?: SourceClusterDto;
     /**
-     * ID of the cluster for the Service Desk integration (replaced by clusterRef, retained for backward compatibility).
+     * Cluster ID for the Service Desk integration (replaced by clusterRef, retained for backward compatibility).
      * @type {string}
      * @memberof ServiceDeskIntegrationDto
      * @deprecated
@@ -16097,7 +16079,7 @@ export interface ServiceDeskIntegrationDto {
      */
     'provisioningConfig'?: ProvisioningConfig;
     /**
-     * Attributes of the Service Desk integration.  Validation constraints enforced by the implementation.
+     * Service Desk integration\'s attributes. Validation constraints enforced by the implementation.
      * @type {{ [key: string]: any; }}
      * @memberof ServiceDeskIntegrationDto
      */
@@ -16110,29 +16092,35 @@ export interface ServiceDeskIntegrationDto {
     'beforeProvisioningRule'?: BeforeProvisioningRuleDto;
 }
 /**
- * Specification of a Service Desk integration
+ * Service Desk integration\'s specification.
  * @export
  * @interface ServiceDeskIntegrationDtoAllOf
  */
 export interface ServiceDeskIntegrationDtoAllOf {
     /**
-     * Description of the Service Desk integration
+     * Service Desk integration\'s name. The name must be unique.
+     * @type {string}
+     * @memberof ServiceDeskIntegrationDtoAllOf
+     */
+    'name': string;
+    /**
+     * Service Desk integration\'s description.
      * @type {string}
      * @memberof ServiceDeskIntegrationDtoAllOf
      */
     'description': string;
     /**
-     * Service Desk integration types  - ServiceNowSDIM - ServiceNow 
+     * Service Desk integration types:  - ServiceNowSDIM - ServiceNow 
      * @type {string}
      * @memberof ServiceDeskIntegrationDtoAllOf
      */
     'type': string;
     /**
      * 
-     * @type {ServiceDeskIntegrationDtoAllOfOwnerRef}
+     * @type {OwnerDto}
      * @memberof ServiceDeskIntegrationDtoAllOf
      */
-    'ownerRef'?: ServiceDeskIntegrationDtoAllOfOwnerRef;
+    'ownerRef'?: OwnerDto;
     /**
      * 
      * @type {SourceClusterDto}
@@ -16140,7 +16128,7 @@ export interface ServiceDeskIntegrationDtoAllOf {
      */
     'clusterRef'?: SourceClusterDto;
     /**
-     * ID of the cluster for the Service Desk integration (replaced by clusterRef, retained for backward compatibility).
+     * Cluster ID for the Service Desk integration (replaced by clusterRef, retained for backward compatibility).
      * @type {string}
      * @memberof ServiceDeskIntegrationDtoAllOf
      * @deprecated
@@ -16160,7 +16148,7 @@ export interface ServiceDeskIntegrationDtoAllOf {
      */
     'provisioningConfig'?: ProvisioningConfig;
     /**
-     * Attributes of the Service Desk integration.  Validation constraints enforced by the implementation.
+     * Service Desk integration\'s attributes. Validation constraints enforced by the implementation.
      * @type {{ [key: string]: any; }}
      * @memberof ServiceDeskIntegrationDtoAllOf
      */
@@ -16172,38 +16160,6 @@ export interface ServiceDeskIntegrationDtoAllOf {
      */
     'beforeProvisioningRule'?: BeforeProvisioningRuleDto;
 }
-/**
- * Source for Service Desk integration template.
- * @export
- * @interface ServiceDeskIntegrationDtoAllOfOwnerRef
- */
-export interface ServiceDeskIntegrationDtoAllOfOwnerRef {
-    /**
-     * DTO type of source for service desk integration template.
-     * @type {string}
-     * @memberof ServiceDeskIntegrationDtoAllOfOwnerRef
-     */
-    'type'?: ServiceDeskIntegrationDtoAllOfOwnerRefTypeEnum;
-    /**
-     * ID of source for service desk integration template.
-     * @type {string}
-     * @memberof ServiceDeskIntegrationDtoAllOfOwnerRef
-     */
-    'id'?: string;
-    /**
-     * Human-readable name of source for service desk integration template.
-     * @type {string}
-     * @memberof ServiceDeskIntegrationDtoAllOfOwnerRef
-     */
-    'name'?: string;
-}
-
-export const ServiceDeskIntegrationDtoAllOfOwnerRefTypeEnum = {
-    Source: 'SOURCE'
-} as const;
-
-export type ServiceDeskIntegrationDtoAllOfOwnerRefTypeEnum = typeof ServiceDeskIntegrationDtoAllOfOwnerRefTypeEnum[keyof typeof ServiceDeskIntegrationDtoAllOfOwnerRefTypeEnum];
-
 /**
  * 
  * @export

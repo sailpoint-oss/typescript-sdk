@@ -22089,19 +22089,25 @@ export const SendTokenResponseBetaStatusEnum = {
 export type SendTokenResponseBetaStatusEnum = typeof SendTokenResponseBetaStatusEnum[keyof typeof SendTokenResponseBetaStatusEnum];
 
 /**
- * Specification of a Service Desk integration.
+ * Service Desk integration\'s specification.
  * @export
  * @interface ServiceDeskIntegrationDtoAllOfBeta
  */
 export interface ServiceDeskIntegrationDtoAllOfBeta {
     /**
-     * Description of the Service Desk integration.
+     * Service Desk integration\'s name. The name must be unique.
+     * @type {string}
+     * @memberof ServiceDeskIntegrationDtoAllOfBeta
+     */
+    'name': string;
+    /**
+     * Service Desk integration\'s description.
      * @type {string}
      * @memberof ServiceDeskIntegrationDtoAllOfBeta
      */
     'description': string;
     /**
-     * Service Desk integration types  - ServiceNowSDIM - ServiceNow 
+     * Service Desk integration types:  - ServiceNowSDIM - ServiceNow 
      * @type {string}
      * @memberof ServiceDeskIntegrationDtoAllOfBeta
      */
@@ -22119,7 +22125,7 @@ export interface ServiceDeskIntegrationDtoAllOfBeta {
      */
     'clusterRef'?: SourceClusterDtoBeta;
     /**
-     * ID of the cluster for the Service Desk integration (replaced by clusterRef, retained for backward compatibility).
+     * Cluster ID for the Service Desk integration (replaced by clusterRef, retained for backward compatibility).
      * @type {string}
      * @memberof ServiceDeskIntegrationDtoAllOfBeta
      * @deprecated
@@ -22139,7 +22145,7 @@ export interface ServiceDeskIntegrationDtoAllOfBeta {
      */
     'provisioningConfig'?: ProvisioningConfigBeta;
     /**
-     * Attributes of the Service Desk integration.  Validation constraints enforced by the implementation.
+     * Service Desk integration\'s attributes. Validation constraints enforced by the implementation.
      * @type {{ [key: string]: any; }}
      * @memberof ServiceDeskIntegrationDtoAllOfBeta
      */
@@ -22158,37 +22164,19 @@ export interface ServiceDeskIntegrationDtoAllOfBeta {
  */
 export interface ServiceDeskIntegrationDtoBeta {
     /**
-     * System-generated unique ID of the Object
-     * @type {string}
-     * @memberof ServiceDeskIntegrationDtoBeta
-     */
-    'id'?: string;
-    /**
-     * Name of the Object
+     * Service Desk integration\'s name. The name must be unique.
      * @type {string}
      * @memberof ServiceDeskIntegrationDtoBeta
      */
     'name': string;
     /**
-     * Creation date of the Object
-     * @type {string}
-     * @memberof ServiceDeskIntegrationDtoBeta
-     */
-    'created'?: string;
-    /**
-     * Last modification date of the Object
-     * @type {string}
-     * @memberof ServiceDeskIntegrationDtoBeta
-     */
-    'modified'?: string;
-    /**
-     * Description of the Service Desk integration.
+     * Service Desk integration\'s description.
      * @type {string}
      * @memberof ServiceDeskIntegrationDtoBeta
      */
     'description': string;
     /**
-     * Service Desk integration types  - ServiceNowSDIM - ServiceNow 
+     * Service Desk integration types:  - ServiceNowSDIM - ServiceNow 
      * @type {string}
      * @memberof ServiceDeskIntegrationDtoBeta
      */
@@ -22206,7 +22194,7 @@ export interface ServiceDeskIntegrationDtoBeta {
      */
     'clusterRef'?: SourceClusterDtoBeta;
     /**
-     * ID of the cluster for the Service Desk integration (replaced by clusterRef, retained for backward compatibility).
+     * Cluster ID for the Service Desk integration (replaced by clusterRef, retained for backward compatibility).
      * @type {string}
      * @memberof ServiceDeskIntegrationDtoBeta
      * @deprecated
@@ -22226,7 +22214,7 @@ export interface ServiceDeskIntegrationDtoBeta {
      */
     'provisioningConfig'?: ProvisioningConfigBeta;
     /**
-     * Attributes of the Service Desk integration.  Validation constraints enforced by the implementation.
+     * Service Desk integration\'s attributes. Validation constraints enforced by the implementation.
      * @type {{ [key: string]: any; }}
      * @memberof ServiceDeskIntegrationDtoBeta
      */
