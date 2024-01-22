@@ -14113,6 +14113,12 @@ export interface ReviewableRole {
      * @memberof ReviewableRole
      */
     'accessProfiles'?: Array<ReviewableAccessProfile>;
+    /**
+     * The list of entitlements associated with this Role
+     * @type {Array<ReviewableEntitlement>}
+     * @memberof ReviewableRole
+     */
+    'entitlements'?: Array<ReviewableEntitlement>;
 }
 /**
  * 
