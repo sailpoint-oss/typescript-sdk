@@ -25180,13 +25180,13 @@ export interface TaggedObjectDtoBeta {
      */
     'type'?: TaggedObjectDtoBetaTypeEnum;
     /**
-     * ID of the object to which this reference applies
+     * ID of the object this reference applies to
      * @type {string}
      * @memberof TaggedObjectDtoBeta
      */
     'id'?: string;
     /**
-     * Human-readable display name of the object to which this reference applies
+     * Human-readable display name of the object this reference applies to
      * @type {string}
      * @memberof TaggedObjectDtoBeta
      */
@@ -71112,8 +71112,8 @@ export const TaggedObjectsBetaApiAxiosParamCreator = function (configuration?: C
         },
         /**
          * This API returns a list of all tagged objects by type.  Any authenticated token may be used to call this API.
-         * @summary List Tagged Objects
-         * @param {'ROLE' | 'IDENTITY' | 'SOD_POLICY'} type The type of tagged object to retrieve.
+         * @summary List Tagged Objects by Type
+         * @param {'ACCESS_PROFILE' | 'APPLICATION' | 'CAMPAIGN' | 'ENTITLEMENT' | 'IDENTITY' | 'ROLE' | 'SOD_POLICY' | 'SOURCE'} type The type of tagged object to retrieve.
          * @param {number} [limit] Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
          * @param {number} [offset] Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
          * @param {boolean} [count] If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
@@ -71121,7 +71121,7 @@ export const TaggedObjectsBetaApiAxiosParamCreator = function (configuration?: C
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        listTaggedObjectsByType: async (type: 'ROLE' | 'IDENTITY' | 'SOD_POLICY', limit?: number, offset?: number, count?: boolean, filters?: string, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        listTaggedObjectsByType: async (type: 'ACCESS_PROFILE' | 'APPLICATION' | 'CAMPAIGN' | 'ENTITLEMENT' | 'IDENTITY' | 'ROLE' | 'SOD_POLICY' | 'SOURCE', limit?: number, offset?: number, count?: boolean, filters?: string, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'type' is not null or undefined
             assertParamExists('listTaggedObjectsByType', 'type', type)
             const localVarPath = `/tagged-objects/{type}`
@@ -71373,8 +71373,8 @@ export const TaggedObjectsBetaApiFp = function(configuration?: Configuration) {
         },
         /**
          * This API returns a list of all tagged objects by type.  Any authenticated token may be used to call this API.
-         * @summary List Tagged Objects
-         * @param {'ROLE' | 'IDENTITY' | 'SOD_POLICY'} type The type of tagged object to retrieve.
+         * @summary List Tagged Objects by Type
+         * @param {'ACCESS_PROFILE' | 'APPLICATION' | 'CAMPAIGN' | 'ENTITLEMENT' | 'IDENTITY' | 'ROLE' | 'SOD_POLICY' | 'SOURCE'} type The type of tagged object to retrieve.
          * @param {number} [limit] Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
          * @param {number} [offset] Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
          * @param {boolean} [count] If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
@@ -71382,7 +71382,7 @@ export const TaggedObjectsBetaApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async listTaggedObjectsByType(type: 'ROLE' | 'IDENTITY' | 'SOD_POLICY', limit?: number, offset?: number, count?: boolean, filters?: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<TaggedObjectBeta>>> {
+        async listTaggedObjectsByType(type: 'ACCESS_PROFILE' | 'APPLICATION' | 'CAMPAIGN' | 'ENTITLEMENT' | 'IDENTITY' | 'ROLE' | 'SOD_POLICY' | 'SOURCE', limit?: number, offset?: number, count?: boolean, filters?: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<TaggedObjectBeta>>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.listTaggedObjectsByType(type, limit, offset, count, filters, axiosOptions);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -71478,8 +71478,8 @@ export const TaggedObjectsBetaApiFactory = function (configuration?: Configurati
         },
         /**
          * This API returns a list of all tagged objects by type.  Any authenticated token may be used to call this API.
-         * @summary List Tagged Objects
-         * @param {'ROLE' | 'IDENTITY' | 'SOD_POLICY'} type The type of tagged object to retrieve.
+         * @summary List Tagged Objects by Type
+         * @param {'ACCESS_PROFILE' | 'APPLICATION' | 'CAMPAIGN' | 'ENTITLEMENT' | 'IDENTITY' | 'ROLE' | 'SOD_POLICY' | 'SOURCE'} type The type of tagged object to retrieve.
          * @param {number} [limit] Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
          * @param {number} [offset] Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
          * @param {boolean} [count] If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
@@ -71487,7 +71487,7 @@ export const TaggedObjectsBetaApiFactory = function (configuration?: Configurati
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        listTaggedObjectsByType(type: 'ROLE' | 'IDENTITY' | 'SOD_POLICY', limit?: number, offset?: number, count?: boolean, filters?: string, axiosOptions?: any): AxiosPromise<Array<TaggedObjectBeta>> {
+        listTaggedObjectsByType(type: 'ACCESS_PROFILE' | 'APPLICATION' | 'CAMPAIGN' | 'ENTITLEMENT' | 'IDENTITY' | 'ROLE' | 'SOD_POLICY' | 'SOURCE', limit?: number, offset?: number, count?: boolean, filters?: string, axiosOptions?: any): AxiosPromise<Array<TaggedObjectBeta>> {
             return localVarFp.listTaggedObjectsByType(type, limit, offset, count, filters, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
@@ -71624,10 +71624,10 @@ export interface TaggedObjectsBetaApiListTaggedObjectsRequest {
 export interface TaggedObjectsBetaApiListTaggedObjectsByTypeRequest {
     /**
      * The type of tagged object to retrieve.
-     * @type {'ROLE' | 'IDENTITY' | 'SOD_POLICY'}
+     * @type {'ACCESS_PROFILE' | 'APPLICATION' | 'CAMPAIGN' | 'ENTITLEMENT' | 'IDENTITY' | 'ROLE' | 'SOD_POLICY' | 'SOURCE'}
      * @memberof TaggedObjectsBetaApiListTaggedObjectsByType
      */
-    readonly type: 'ROLE' | 'IDENTITY' | 'SOD_POLICY'
+    readonly type: 'ACCESS_PROFILE' | 'APPLICATION' | 'CAMPAIGN' | 'ENTITLEMENT' | 'IDENTITY' | 'ROLE' | 'SOD_POLICY' | 'SOURCE'
 
     /**
      * Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
@@ -71771,7 +71771,7 @@ export class TaggedObjectsBetaApi extends BaseAPI {
 
     /**
      * This API returns a list of all tagged objects by type.  Any authenticated token may be used to call this API.
-     * @summary List Tagged Objects
+     * @summary List Tagged Objects by Type
      * @param {TaggedObjectsBetaApiListTaggedObjectsByTypeRequest} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}

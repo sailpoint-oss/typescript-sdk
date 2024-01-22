@@ -3163,19 +3163,19 @@ export interface AuthUser {
      */
     'id'?: string;
     /**
-     * Identity unique identitifier.
+     * Identity\'s unique identitifier.
      * @type {string}
      * @memberof AuthUser
      */
     'uid'?: string;
     /**
-     * ID of the auth profile associated with this auth user.
+     * ID of the auth profile associated with the auth user.
      * @type {string}
      * @memberof AuthUser
      */
     'profile'?: string;
     /**
-     * Auth user employee number.
+     * Auth user\'s employee number.
      * @type {string}
      * @memberof AuthUser
      */
@@ -3229,7 +3229,7 @@ export interface AuthUser {
      */
     'alias'?: string;
     /**
-     * the date of last password change
+     * Date of last password change.
      * @type {string}
      * @memberof AuthUser
      */
@@ -3247,12 +3247,37 @@ export interface AuthUser {
      */
     'currentLoginTimestamp'?: number;
     /**
-     * Array of capabilities for this auth user.
+     * Array of the auth user\'s capabilities.
      * @type {Array<string>}
      * @memberof AuthUser
      */
-    'capabilities'?: Array<string>;
+    'capabilities'?: Array<AuthUserCapabilitiesEnum>;
 }
+
+export const AuthUserCapabilitiesEnum = {
+    CertAdmin: 'CERT_ADMIN',
+    CloudGovAdmin: 'CLOUD_GOV_ADMIN',
+    CloudGovUser: 'CLOUD_GOV_USER',
+    Dashboard: 'DASHBOARD',
+    Helpdesk: 'HELPDESK',
+    OrgAdmin: 'ORG_ADMIN',
+    ReportAdmin: 'REPORT_ADMIN',
+    RoleAdmin: 'ROLE_ADMIN',
+    RoleSubadmin: 'ROLE_SUBADMIN',
+    SaasManagementAdmin: 'SAAS_MANAGEMENT_ADMIN',
+    SaasManagementReader: 'SAAS_MANAGEMENT_READER',
+    SourceAdmin: 'SOURCE_ADMIN',
+    SourceSubadmin: 'SOURCE_SUBADMIN',
+    DasuiAdministrator: 'das:ui-administrator',
+    DasuiComplianceManager: 'das:ui-compliance_manager',
+    DasuiAuditor: 'das:ui-auditor',
+    DasuiDataScope: 'das:ui-data-scope',
+    SpaicDashboardRead: 'sp:aic-dashboard-read',
+    SpaicDashboardWrite: 'sp:aic-dashboard-write'
+} as const;
+
+export type AuthUserCapabilitiesEnum = typeof AuthUserCapabilitiesEnum[keyof typeof AuthUserCapabilitiesEnum];
+
 /**
  * 
  * @export
@@ -17770,13 +17795,13 @@ export interface TaggedObjectDto {
      */
     'type'?: TaggedObjectDtoTypeEnum;
     /**
-     * ID of the object to which this reference applies
+     * ID of the object this reference applies to
      * @type {string}
      * @memberof TaggedObjectDto
      */
     'id'?: string;
     /**
-     * Human-readable display name of the object to which this reference applies
+     * Human-readable display name of the object this reference applies to
      * @type {string}
      * @memberof TaggedObjectDto
      */
@@ -22723,7 +22748,7 @@ export class AccountsApi extends BaseAPI {
 export const AuthUserApiAxiosParamCreator = function (configuration?: Configuration) {
     return {
         /**
-         * This API returns the specified user\'s authentication system details. Requires security scope of:  \'sp:auth-user:read\'
+         * Return the specified user\'s authentication system details.
          * @summary Auth User Details
          * @param {string} id Identity ID
          * @param {*} [axiosOptions] Override http request option.
@@ -22765,10 +22790,10 @@ export const AuthUserApiAxiosParamCreator = function (configuration?: Configurat
             };
         },
         /**
-         * Update an existing user in the authentication system with a PATCH request.
+         * Use a PATCH request to update an existing user in the authentication system. Use this endpoint to modify these fields:    * `capabilities`  A \'400.1.1 Illegal update attempt\' detail code indicates that you attempted to PATCH a field that is not allowed.
          * @summary Auth User Update
          * @param {string} id Identity ID
-         * @param {Array<JsonPatchOperation>} jsonPatchOperation A list of auth user update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.  PATCH can only be applied to the following fields:   *   \&quot;capabilities\&quot;  A list of valid capabilities can be found using the GET ams/v3/authorization/authorization-capabilities/ endpoint. Capabilities can only be patched if they are administrator assignable, as indicated by the \&#39;adminAssignable\&#39; field from the output of list authorization-capabilities. Capabilities that have a legacy group (\&#39;legacyGroup\&#39; field) need to be patched using the legacyGroup name (e.g. \&#39;ORG_ADMIN\&#39;). Capabilities that are adminAssignable but do not have a legacyGroup can be patched using the ams id (e.g. \&#39;cam:new-role\&#39;).  A 400.1.1 Illegal update attempt detail code indicates that you attempted to PATCH a field that is not allowed.  Requires security scope of \&#39;sp:auth-user:update\&#39; 
+         * @param {Array<JsonPatchOperation>} jsonPatchOperation A list of auth user update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
@@ -22823,7 +22848,7 @@ export const AuthUserApiFp = function(configuration?: Configuration) {
     const localVarAxiosParamCreator = AuthUserApiAxiosParamCreator(configuration)
     return {
         /**
-         * This API returns the specified user\'s authentication system details. Requires security scope of:  \'sp:auth-user:read\'
+         * Return the specified user\'s authentication system details.
          * @summary Auth User Details
          * @param {string} id Identity ID
          * @param {*} [axiosOptions] Override http request option.
@@ -22834,10 +22859,10 @@ export const AuthUserApiFp = function(configuration?: Configuration) {
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
-         * Update an existing user in the authentication system with a PATCH request.
+         * Use a PATCH request to update an existing user in the authentication system. Use this endpoint to modify these fields:    * `capabilities`  A \'400.1.1 Illegal update attempt\' detail code indicates that you attempted to PATCH a field that is not allowed.
          * @summary Auth User Update
          * @param {string} id Identity ID
-         * @param {Array<JsonPatchOperation>} jsonPatchOperation A list of auth user update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.  PATCH can only be applied to the following fields:   *   \&quot;capabilities\&quot;  A list of valid capabilities can be found using the GET ams/v3/authorization/authorization-capabilities/ endpoint. Capabilities can only be patched if they are administrator assignable, as indicated by the \&#39;adminAssignable\&#39; field from the output of list authorization-capabilities. Capabilities that have a legacy group (\&#39;legacyGroup\&#39; field) need to be patched using the legacyGroup name (e.g. \&#39;ORG_ADMIN\&#39;). Capabilities that are adminAssignable but do not have a legacyGroup can be patched using the ams id (e.g. \&#39;cam:new-role\&#39;).  A 400.1.1 Illegal update attempt detail code indicates that you attempted to PATCH a field that is not allowed.  Requires security scope of \&#39;sp:auth-user:update\&#39; 
+         * @param {Array<JsonPatchOperation>} jsonPatchOperation A list of auth user update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
@@ -22856,7 +22881,7 @@ export const AuthUserApiFactory = function (configuration?: Configuration, baseP
     const localVarFp = AuthUserApiFp(configuration)
     return {
         /**
-         * This API returns the specified user\'s authentication system details. Requires security scope of:  \'sp:auth-user:read\'
+         * Return the specified user\'s authentication system details.
          * @summary Auth User Details
          * @param {string} id Identity ID
          * @param {*} [axiosOptions] Override http request option.
@@ -22866,10 +22891,10 @@ export const AuthUserApiFactory = function (configuration?: Configuration, baseP
             return localVarFp.getAuthUser(id, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
-         * Update an existing user in the authentication system with a PATCH request.
+         * Use a PATCH request to update an existing user in the authentication system. Use this endpoint to modify these fields:    * `capabilities`  A \'400.1.1 Illegal update attempt\' detail code indicates that you attempted to PATCH a field that is not allowed.
          * @summary Auth User Update
          * @param {string} id Identity ID
-         * @param {Array<JsonPatchOperation>} jsonPatchOperation A list of auth user update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.  PATCH can only be applied to the following fields:   *   \&quot;capabilities\&quot;  A list of valid capabilities can be found using the GET ams/v3/authorization/authorization-capabilities/ endpoint. Capabilities can only be patched if they are administrator assignable, as indicated by the \&#39;adminAssignable\&#39; field from the output of list authorization-capabilities. Capabilities that have a legacy group (\&#39;legacyGroup\&#39; field) need to be patched using the legacyGroup name (e.g. \&#39;ORG_ADMIN\&#39;). Capabilities that are adminAssignable but do not have a legacyGroup can be patched using the ams id (e.g. \&#39;cam:new-role\&#39;).  A 400.1.1 Illegal update attempt detail code indicates that you attempted to PATCH a field that is not allowed.  Requires security scope of \&#39;sp:auth-user:update\&#39; 
+         * @param {Array<JsonPatchOperation>} jsonPatchOperation A list of auth user update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
@@ -22907,7 +22932,7 @@ export interface AuthUserApiPatchAuthUserRequest {
     readonly id: string
 
     /**
-     * A list of auth user update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.  PATCH can only be applied to the following fields:   *   \&quot;capabilities\&quot;  A list of valid capabilities can be found using the GET ams/v3/authorization/authorization-capabilities/ endpoint. Capabilities can only be patched if they are administrator assignable, as indicated by the \&#39;adminAssignable\&#39; field from the output of list authorization-capabilities. Capabilities that have a legacy group (\&#39;legacyGroup\&#39; field) need to be patched using the legacyGroup name (e.g. \&#39;ORG_ADMIN\&#39;). Capabilities that are adminAssignable but do not have a legacyGroup can be patched using the ams id (e.g. \&#39;cam:new-role\&#39;).  A 400.1.1 Illegal update attempt detail code indicates that you attempted to PATCH a field that is not allowed.  Requires security scope of \&#39;sp:auth-user:update\&#39; 
+     * A list of auth user update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.
      * @type {Array<JsonPatchOperation>}
      * @memberof AuthUserApiPatchAuthUser
      */
@@ -22922,7 +22947,7 @@ export interface AuthUserApiPatchAuthUserRequest {
  */
 export class AuthUserApi extends BaseAPI {
     /**
-     * This API returns the specified user\'s authentication system details. Requires security scope of:  \'sp:auth-user:read\'
+     * Return the specified user\'s authentication system details.
      * @summary Auth User Details
      * @param {AuthUserApiGetAuthUserRequest} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
@@ -22934,7 +22959,7 @@ export class AuthUserApi extends BaseAPI {
     }
 
     /**
-     * Update an existing user in the authentication system with a PATCH request.
+     * Use a PATCH request to update an existing user in the authentication system. Use this endpoint to modify these fields:    * `capabilities`  A \'400.1.1 Illegal update attempt\' detail code indicates that you attempted to PATCH a field that is not allowed.
      * @summary Auth User Update
      * @param {AuthUserApiPatchAuthUserRequest} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
@@ -45429,8 +45454,8 @@ export const TaggedObjectsApiAxiosParamCreator = function (configuration?: Confi
         },
         /**
          * This API returns a list of all tagged objects by type.  Any authenticated token may be used to call this API.
-         * @summary List Tagged Objects
-         * @param {'ROLE' | 'IDENTITY' | 'SOD_POLICY'} type The type of tagged object to retrieve.
+         * @summary List Tagged Objects by Type
+         * @param {'ACCESS_PROFILE' | 'APPLICATION' | 'CAMPAIGN' | 'ENTITLEMENT' | 'IDENTITY' | 'ROLE' | 'SOD_POLICY' | 'SOURCE'} type The type of tagged object to retrieve.
          * @param {number} [limit] Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
          * @param {number} [offset] Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
          * @param {boolean} [count] If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
@@ -45438,7 +45463,7 @@ export const TaggedObjectsApiAxiosParamCreator = function (configuration?: Confi
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        listTaggedObjectsByType: async (type: 'ROLE' | 'IDENTITY' | 'SOD_POLICY', limit?: number, offset?: number, count?: boolean, filters?: string, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        listTaggedObjectsByType: async (type: 'ACCESS_PROFILE' | 'APPLICATION' | 'CAMPAIGN' | 'ENTITLEMENT' | 'IDENTITY' | 'ROLE' | 'SOD_POLICY' | 'SOURCE', limit?: number, offset?: number, count?: boolean, filters?: string, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'type' is not null or undefined
             assertParamExists('listTaggedObjectsByType', 'type', type)
             const localVarPath = `/tagged-objects/{type}`
@@ -45690,8 +45715,8 @@ export const TaggedObjectsApiFp = function(configuration?: Configuration) {
         },
         /**
          * This API returns a list of all tagged objects by type.  Any authenticated token may be used to call this API.
-         * @summary List Tagged Objects
-         * @param {'ROLE' | 'IDENTITY' | 'SOD_POLICY'} type The type of tagged object to retrieve.
+         * @summary List Tagged Objects by Type
+         * @param {'ACCESS_PROFILE' | 'APPLICATION' | 'CAMPAIGN' | 'ENTITLEMENT' | 'IDENTITY' | 'ROLE' | 'SOD_POLICY' | 'SOURCE'} type The type of tagged object to retrieve.
          * @param {number} [limit] Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
          * @param {number} [offset] Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
          * @param {boolean} [count] If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
@@ -45699,7 +45724,7 @@ export const TaggedObjectsApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async listTaggedObjectsByType(type: 'ROLE' | 'IDENTITY' | 'SOD_POLICY', limit?: number, offset?: number, count?: boolean, filters?: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<TaggedObject>>> {
+        async listTaggedObjectsByType(type: 'ACCESS_PROFILE' | 'APPLICATION' | 'CAMPAIGN' | 'ENTITLEMENT' | 'IDENTITY' | 'ROLE' | 'SOD_POLICY' | 'SOURCE', limit?: number, offset?: number, count?: boolean, filters?: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<TaggedObject>>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.listTaggedObjectsByType(type, limit, offset, count, filters, axiosOptions);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -45795,8 +45820,8 @@ export const TaggedObjectsApiFactory = function (configuration?: Configuration, 
         },
         /**
          * This API returns a list of all tagged objects by type.  Any authenticated token may be used to call this API.
-         * @summary List Tagged Objects
-         * @param {'ROLE' | 'IDENTITY' | 'SOD_POLICY'} type The type of tagged object to retrieve.
+         * @summary List Tagged Objects by Type
+         * @param {'ACCESS_PROFILE' | 'APPLICATION' | 'CAMPAIGN' | 'ENTITLEMENT' | 'IDENTITY' | 'ROLE' | 'SOD_POLICY' | 'SOURCE'} type The type of tagged object to retrieve.
          * @param {number} [limit] Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
          * @param {number} [offset] Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
          * @param {boolean} [count] If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
@@ -45804,7 +45829,7 @@ export const TaggedObjectsApiFactory = function (configuration?: Configuration, 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        listTaggedObjectsByType(type: 'ROLE' | 'IDENTITY' | 'SOD_POLICY', limit?: number, offset?: number, count?: boolean, filters?: string, axiosOptions?: any): AxiosPromise<Array<TaggedObject>> {
+        listTaggedObjectsByType(type: 'ACCESS_PROFILE' | 'APPLICATION' | 'CAMPAIGN' | 'ENTITLEMENT' | 'IDENTITY' | 'ROLE' | 'SOD_POLICY' | 'SOURCE', limit?: number, offset?: number, count?: boolean, filters?: string, axiosOptions?: any): AxiosPromise<Array<TaggedObject>> {
             return localVarFp.listTaggedObjectsByType(type, limit, offset, count, filters, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
@@ -45941,10 +45966,10 @@ export interface TaggedObjectsApiListTaggedObjectsRequest {
 export interface TaggedObjectsApiListTaggedObjectsByTypeRequest {
     /**
      * The type of tagged object to retrieve.
-     * @type {'ROLE' | 'IDENTITY' | 'SOD_POLICY'}
+     * @type {'ACCESS_PROFILE' | 'APPLICATION' | 'CAMPAIGN' | 'ENTITLEMENT' | 'IDENTITY' | 'ROLE' | 'SOD_POLICY' | 'SOURCE'}
      * @memberof TaggedObjectsApiListTaggedObjectsByType
      */
-    readonly type: 'ROLE' | 'IDENTITY' | 'SOD_POLICY'
+    readonly type: 'ACCESS_PROFILE' | 'APPLICATION' | 'CAMPAIGN' | 'ENTITLEMENT' | 'IDENTITY' | 'ROLE' | 'SOD_POLICY' | 'SOURCE'
 
     /**
      * Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
@@ -46088,7 +46113,7 @@ export class TaggedObjectsApi extends BaseAPI {
 
     /**
      * This API returns a list of all tagged objects by type.  Any authenticated token may be used to call this API.
-     * @summary List Tagged Objects
+     * @summary List Tagged Objects by Type
      * @param {TaggedObjectsApiListTaggedObjectsByTypeRequest} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
