@@ -23595,6 +23595,18 @@ export interface SourceBeta {
      * @memberof SourceBeta
      */
     'connectorImplementationId'?: string;
+    /**
+     * The date-time when the source was created
+     * @type {string}
+     * @memberof SourceBeta
+     */
+    'created'?: string;
+    /**
+     * The date-time when the source was last modified
+     * @type {string}
+     * @memberof SourceBeta
+     */
+    'modified'?: string;
 }
 /**
  * Reference to the associated Cluster

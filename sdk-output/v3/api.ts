@@ -17154,6 +17154,18 @@ export interface Source {
      * @memberof Source
      */
     'connectorImplementationId'?: string;
+    /**
+     * The date-time when the source was created
+     * @type {string}
+     * @memberof Source
+     */
+    'created'?: string;
+    /**
+     * The date-time when the source was last modified
+     * @type {string}
+     * @memberof Source
+     */
+    'modified'?: string;
 }
 /**
  * Reference to an Account Correlation Config object
