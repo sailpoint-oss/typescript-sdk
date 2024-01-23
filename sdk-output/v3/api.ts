@@ -14618,6 +14618,30 @@ export interface RoleDocument {
      * @memberof RoleDocument
      */
     'tags'?: Array<string>;
+    /**
+     * 
+     * @type {Array<Reference1>}
+     * @memberof RoleDocument
+     */
+    'segments'?: Array<Reference1>;
+    /**
+     * 
+     * @type {number}
+     * @memberof RoleDocument
+     */
+    'segmentCount'?: number;
+    /**
+     * 
+     * @type {Array<AccessProfileRole>}
+     * @memberof RoleDocument
+     */
+    'entitlements'?: Array<AccessProfileRole>;
+    /**
+     * 
+     * @type {number}
+     * @memberof RoleDocument
+     */
+    'entitlementCount'?: number;
 }
 /**
  * 
@@ -14643,6 +14667,30 @@ export interface RoleDocumentAllOf {
      * @memberof RoleDocumentAllOf
      */
     'tags'?: Array<string>;
+    /**
+     * 
+     * @type {Array<Reference1>}
+     * @memberof RoleDocumentAllOf
+     */
+    'segments'?: Array<Reference1>;
+    /**
+     * 
+     * @type {number}
+     * @memberof RoleDocumentAllOf
+     */
+    'segmentCount'?: number;
+    /**
+     * 
+     * @type {Array<AccessProfileRole>}
+     * @memberof RoleDocumentAllOf
+     */
+    'entitlements'?: Array<AccessProfileRole>;
+    /**
+     * 
+     * @type {number}
+     * @memberof RoleDocumentAllOf
+     */
+    'entitlementCount'?: number;
 }
 /**
  * A subset of the fields of an Identity which is a member of a Role.
