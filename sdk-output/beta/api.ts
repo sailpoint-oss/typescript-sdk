@@ -18283,6 +18283,19 @@ export interface PublicIdentityConfigBeta {
     'modified'?: string;
 }
 /**
+ * 
+ * @export
+ * @interface PutPasswordDictionaryRequestBeta
+ */
+export interface PutPasswordDictionaryRequestBeta {
+    /**
+     * 
+     * @type {any}
+     * @memberof PutPasswordDictionaryRequestBeta
+     */
+    'file'?: any;
+}
+/**
  * Configuration of maximum number days and interval for checking Service Desk integration queue status
  * @export
  * @interface QueuedCheckConfigDetailsBeta
@@ -26311,19 +26324,6 @@ export interface UUIDGeneratorBeta {
      * @memberof UUIDGeneratorBeta
      */
     'requiresPeriodicRefresh'?: boolean;
-}
-/**
- * 
- * @export
- * @interface UpdatePasswordDictionaryRequestBeta
- */
-export interface UpdatePasswordDictionaryRequestBeta {
-    /**
-     * 
-     * @type {any}
-     * @memberof UpdatePasswordDictionaryRequestBeta
-     */
-    'file'?: any;
 }
 /**
  * 
@@ -58577,7 +58577,7 @@ export class PasswordConfigurationBetaApi extends BaseAPI {
 export const PasswordDictionaryBetaApiAxiosParamCreator = function (configuration?: Configuration) {
     return {
         /**
-         * This gets password dictionary for the organization. A token with ORG_ADMIN authority is required to call this API.
+         * This gets password dictionary for the organization. A token with ORG_ADMIN authority is required to call this API. The password dictionary file can contain lines that are: 1. comment lines - the first character is \'#\', can be 128 Unicode codepoints in length, and are ignored during processing 2. empty lines 3. locale line - the first line that starts with \"locale=\" is considered to be locale line, the rest are treated as normal content lines 4. line containing the password dictionary word - it must start with non-whitespace character and only non-whitespace characters are allowed;         maximum length of the line is 128 Unicode codepoints   Password dictionary file may not contain more than 2,500 lines (not counting whitespace lines, comment lines and locale line).   Password dict file must contain UTF-8 characters only.  # Sample password text file  ```  # Password dictionary small test file  locale=en_US  # Password dictionary prohibited words  qwerty abcd aaaaa password qazxsws  ```
          * @summary Get Password Dictionary
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
@@ -58615,13 +58615,13 @@ export const PasswordDictionaryBetaApiAxiosParamCreator = function (configuratio
             };
         },
         /**
-         * This updates password dictionary for the organization. A token with ORG_ADMIN authority is required to call this API.
+         * This updates password dictionary for the organization. A token with ORG_ADMIN authority is required to call this API. The password dictionary file can contain lines that are: 1. comment lines - the first character is \'#\', can be 128 Unicode codepoints in length, and are ignored during processing 2. empty lines 3. locale line - the first line that starts with \"locale=\" is considered to be locale line, the rest are treated as normal content lines 4. line containing the password dictionary word - it must start with non-whitespace character and only non-whitespace characters are allowed;         maximum length of the line is 128 Unicode codepoints   Password dictionary file may not contain more than 2,500 lines (not counting whitespace lines, comment lines and locale line).   Password dict file must contain UTF-8 characters only.  # Sample password text file  ```  # Password dictionary small test file  locale=en_US  # Password dictionary prohibited words  qwerty abcd aaaaa password qazxsws  ```
          * @summary Update Password Dictionary
          * @param {any} [file] 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        updatePasswordDictionary: async (file?: any, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        putPasswordDictionary: async (file?: any, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             const localVarPath = `/password-dictionary`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -58672,7 +58672,7 @@ export const PasswordDictionaryBetaApiFp = function(configuration?: Configuratio
     const localVarAxiosParamCreator = PasswordDictionaryBetaApiAxiosParamCreator(configuration)
     return {
         /**
-         * This gets password dictionary for the organization. A token with ORG_ADMIN authority is required to call this API.
+         * This gets password dictionary for the organization. A token with ORG_ADMIN authority is required to call this API. The password dictionary file can contain lines that are: 1. comment lines - the first character is \'#\', can be 128 Unicode codepoints in length, and are ignored during processing 2. empty lines 3. locale line - the first line that starts with \"locale=\" is considered to be locale line, the rest are treated as normal content lines 4. line containing the password dictionary word - it must start with non-whitespace character and only non-whitespace characters are allowed;         maximum length of the line is 128 Unicode codepoints   Password dictionary file may not contain more than 2,500 lines (not counting whitespace lines, comment lines and locale line).   Password dict file must contain UTF-8 characters only.  # Sample password text file  ```  # Password dictionary small test file  locale=en_US  # Password dictionary prohibited words  qwerty abcd aaaaa password qazxsws  ```
          * @summary Get Password Dictionary
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
@@ -58682,14 +58682,14 @@ export const PasswordDictionaryBetaApiFp = function(configuration?: Configuratio
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
-         * This updates password dictionary for the organization. A token with ORG_ADMIN authority is required to call this API.
+         * This updates password dictionary for the organization. A token with ORG_ADMIN authority is required to call this API. The password dictionary file can contain lines that are: 1. comment lines - the first character is \'#\', can be 128 Unicode codepoints in length, and are ignored during processing 2. empty lines 3. locale line - the first line that starts with \"locale=\" is considered to be locale line, the rest are treated as normal content lines 4. line containing the password dictionary word - it must start with non-whitespace character and only non-whitespace characters are allowed;         maximum length of the line is 128 Unicode codepoints   Password dictionary file may not contain more than 2,500 lines (not counting whitespace lines, comment lines and locale line).   Password dict file must contain UTF-8 characters only.  # Sample password text file  ```  # Password dictionary small test file  locale=en_US  # Password dictionary prohibited words  qwerty abcd aaaaa password qazxsws  ```
          * @summary Update Password Dictionary
          * @param {any} [file] 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async updatePasswordDictionary(file?: any, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.updatePasswordDictionary(file, axiosOptions);
+        async putPasswordDictionary(file?: any, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.putPasswordDictionary(file, axiosOptions);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
     }
@@ -58703,7 +58703,7 @@ export const PasswordDictionaryBetaApiFactory = function (configuration?: Config
     const localVarFp = PasswordDictionaryBetaApiFp(configuration)
     return {
         /**
-         * This gets password dictionary for the organization. A token with ORG_ADMIN authority is required to call this API.
+         * This gets password dictionary for the organization. A token with ORG_ADMIN authority is required to call this API. The password dictionary file can contain lines that are: 1. comment lines - the first character is \'#\', can be 128 Unicode codepoints in length, and are ignored during processing 2. empty lines 3. locale line - the first line that starts with \"locale=\" is considered to be locale line, the rest are treated as normal content lines 4. line containing the password dictionary word - it must start with non-whitespace character and only non-whitespace characters are allowed;         maximum length of the line is 128 Unicode codepoints   Password dictionary file may not contain more than 2,500 lines (not counting whitespace lines, comment lines and locale line).   Password dict file must contain UTF-8 characters only.  # Sample password text file  ```  # Password dictionary small test file  locale=en_US  # Password dictionary prohibited words  qwerty abcd aaaaa password qazxsws  ```
          * @summary Get Password Dictionary
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
@@ -58712,28 +58712,28 @@ export const PasswordDictionaryBetaApiFactory = function (configuration?: Config
             return localVarFp.getPasswordDictionary(axiosOptions).then((request) => request(axios, basePath));
         },
         /**
-         * This updates password dictionary for the organization. A token with ORG_ADMIN authority is required to call this API.
+         * This updates password dictionary for the organization. A token with ORG_ADMIN authority is required to call this API. The password dictionary file can contain lines that are: 1. comment lines - the first character is \'#\', can be 128 Unicode codepoints in length, and are ignored during processing 2. empty lines 3. locale line - the first line that starts with \"locale=\" is considered to be locale line, the rest are treated as normal content lines 4. line containing the password dictionary word - it must start with non-whitespace character and only non-whitespace characters are allowed;         maximum length of the line is 128 Unicode codepoints   Password dictionary file may not contain more than 2,500 lines (not counting whitespace lines, comment lines and locale line).   Password dict file must contain UTF-8 characters only.  # Sample password text file  ```  # Password dictionary small test file  locale=en_US  # Password dictionary prohibited words  qwerty abcd aaaaa password qazxsws  ```
          * @summary Update Password Dictionary
          * @param {any} [file] 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        updatePasswordDictionary(file?: any, axiosOptions?: any): AxiosPromise<void> {
-            return localVarFp.updatePasswordDictionary(file, axiosOptions).then((request) => request(axios, basePath));
+        putPasswordDictionary(file?: any, axiosOptions?: any): AxiosPromise<void> {
+            return localVarFp.putPasswordDictionary(file, axiosOptions).then((request) => request(axios, basePath));
         },
     };
 };
 
 /**
- * Request parameters for updatePasswordDictionary operation in PasswordDictionaryBetaApi.
+ * Request parameters for putPasswordDictionary operation in PasswordDictionaryBetaApi.
  * @export
- * @interface PasswordDictionaryBetaApiUpdatePasswordDictionaryRequest
+ * @interface PasswordDictionaryBetaApiPutPasswordDictionaryRequest
  */
-export interface PasswordDictionaryBetaApiUpdatePasswordDictionaryRequest {
+export interface PasswordDictionaryBetaApiPutPasswordDictionaryRequest {
     /**
      * 
      * @type {any}
-     * @memberof PasswordDictionaryBetaApiUpdatePasswordDictionary
+     * @memberof PasswordDictionaryBetaApiPutPasswordDictionary
      */
     readonly file?: any
 }
@@ -58746,7 +58746,7 @@ export interface PasswordDictionaryBetaApiUpdatePasswordDictionaryRequest {
  */
 export class PasswordDictionaryBetaApi extends BaseAPI {
     /**
-     * This gets password dictionary for the organization. A token with ORG_ADMIN authority is required to call this API.
+     * This gets password dictionary for the organization. A token with ORG_ADMIN authority is required to call this API. The password dictionary file can contain lines that are: 1. comment lines - the first character is \'#\', can be 128 Unicode codepoints in length, and are ignored during processing 2. empty lines 3. locale line - the first line that starts with \"locale=\" is considered to be locale line, the rest are treated as normal content lines 4. line containing the password dictionary word - it must start with non-whitespace character and only non-whitespace characters are allowed;         maximum length of the line is 128 Unicode codepoints   Password dictionary file may not contain more than 2,500 lines (not counting whitespace lines, comment lines and locale line).   Password dict file must contain UTF-8 characters only.  # Sample password text file  ```  # Password dictionary small test file  locale=en_US  # Password dictionary prohibited words  qwerty abcd aaaaa password qazxsws  ```
      * @summary Get Password Dictionary
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
@@ -58757,15 +58757,15 @@ export class PasswordDictionaryBetaApi extends BaseAPI {
     }
 
     /**
-     * This updates password dictionary for the organization. A token with ORG_ADMIN authority is required to call this API.
+     * This updates password dictionary for the organization. A token with ORG_ADMIN authority is required to call this API. The password dictionary file can contain lines that are: 1. comment lines - the first character is \'#\', can be 128 Unicode codepoints in length, and are ignored during processing 2. empty lines 3. locale line - the first line that starts with \"locale=\" is considered to be locale line, the rest are treated as normal content lines 4. line containing the password dictionary word - it must start with non-whitespace character and only non-whitespace characters are allowed;         maximum length of the line is 128 Unicode codepoints   Password dictionary file may not contain more than 2,500 lines (not counting whitespace lines, comment lines and locale line).   Password dict file must contain UTF-8 characters only.  # Sample password text file  ```  # Password dictionary small test file  locale=en_US  # Password dictionary prohibited words  qwerty abcd aaaaa password qazxsws  ```
      * @summary Update Password Dictionary
-     * @param {PasswordDictionaryBetaApiUpdatePasswordDictionaryRequest} requestParameters Request parameters.
+     * @param {PasswordDictionaryBetaApiPutPasswordDictionaryRequest} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
      * @memberof PasswordDictionaryBetaApi
      */
-    public updatePasswordDictionary(requestParameters: PasswordDictionaryBetaApiUpdatePasswordDictionaryRequest = {}, axiosOptions?: AxiosRequestConfig) {
-        return PasswordDictionaryBetaApiFp(this.configuration).updatePasswordDictionary(requestParameters.file, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public putPasswordDictionary(requestParameters: PasswordDictionaryBetaApiPutPasswordDictionaryRequest = {}, axiosOptions?: AxiosRequestConfig) {
+        return PasswordDictionaryBetaApiFp(this.configuration).putPasswordDictionary(requestParameters.file, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 }
 
