@@ -3767,6 +3767,116 @@ export interface Bound {
     'inclusive'?: boolean;
 }
 /**
+ * 
+ * @export
+ * @interface BrandingItem
+ */
+export interface BrandingItem {
+    /**
+     * name of branding item
+     * @type {string}
+     * @memberof BrandingItem
+     */
+    'name'?: string;
+    /**
+     * product name
+     * @type {string}
+     * @memberof BrandingItem
+     */
+    'productName'?: string | null;
+    /**
+     * hex value of color for action button
+     * @type {string}
+     * @memberof BrandingItem
+     */
+    'actionButtonColor'?: string | null;
+    /**
+     * hex value of color for link
+     * @type {string}
+     * @memberof BrandingItem
+     */
+    'activeLinkColor'?: string | null;
+    /**
+     * hex value of color for navigation bar
+     * @type {string}
+     * @memberof BrandingItem
+     */
+    'navigationColor'?: string | null;
+    /**
+     * email from address
+     * @type {string}
+     * @memberof BrandingItem
+     */
+    'emailFromAddress'?: string | null;
+    /**
+     * url to standard logo
+     * @type {string}
+     * @memberof BrandingItem
+     */
+    'standardLogoURL'?: string | null;
+    /**
+     * login information message
+     * @type {string}
+     * @memberof BrandingItem
+     */
+    'loginInformationalMessage'?: string | null;
+}
+/**
+ * 
+ * @export
+ * @interface BrandingItemCreate
+ */
+export interface BrandingItemCreate {
+    /**
+     * name of branding item
+     * @type {string}
+     * @memberof BrandingItemCreate
+     */
+    'name': string;
+    /**
+     * product name
+     * @type {string}
+     * @memberof BrandingItemCreate
+     */
+    'productName': string | null;
+    /**
+     * hex value of color for action button
+     * @type {string}
+     * @memberof BrandingItemCreate
+     */
+    'actionButtonColor'?: string;
+    /**
+     * hex value of color for link
+     * @type {string}
+     * @memberof BrandingItemCreate
+     */
+    'activeLinkColor'?: string;
+    /**
+     * hex value of color for navigation bar
+     * @type {string}
+     * @memberof BrandingItemCreate
+     */
+    'navigationColor'?: string;
+    /**
+     * email from address
+     * @type {string}
+     * @memberof BrandingItemCreate
+     */
+    'emailFromAddress'?: string;
+    /**
+     * login information message
+     * @type {string}
+     * @memberof BrandingItemCreate
+     */
+    'loginInformationalMessage'?: string;
+    /**
+     * png file with logo
+     * @type {any}
+     * @memberof BrandingItemCreate
+     */
+    'fileStandard'?: any;
+}
+/**
  * The bucket to group the results of the aggregation query by.
  * @export
  * @interface BucketAggregation
@@ -23028,6 +23138,695 @@ export class AuthUserApi extends BaseAPI {
      */
     public patchAuthUser(requestParameters: AuthUserApiPatchAuthUserRequest, axiosOptions?: AxiosRequestConfig) {
         return AuthUserApiFp(this.configuration).patchAuthUser(requestParameters.id, requestParameters.jsonPatchOperation, axiosOptions).then((request) => request(this.axios, this.basePath));
+    }
+}
+
+
+/**
+ * BrandingApi - axios parameter creator
+ * @export
+ */
+export const BrandingApiAxiosParamCreator = function (configuration?: Configuration) {
+    return {
+        /**
+         * This API endpoint creates a branding item. A token with API, ORG_ADMIN authority is required to call this API.
+         * @summary Create a branding item
+         * @param {string} name name of branding item
+         * @param {string} productName product name
+         * @param {string} [actionButtonColor] hex value of color for action button
+         * @param {string} [activeLinkColor] hex value of color for link
+         * @param {string} [navigationColor] hex value of color for navigation bar
+         * @param {string} [emailFromAddress] email from address
+         * @param {string} [loginInformationalMessage] login information message
+         * @param {any} [fileStandard] png file with logo
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        createBrandingItem: async (name: string, productName: string, actionButtonColor?: string, activeLinkColor?: string, navigationColor?: string, emailFromAddress?: string, loginInformationalMessage?: string, fileStandard?: any, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'name' is not null or undefined
+            assertParamExists('createBrandingItem', 'name', name)
+            // verify required parameter 'productName' is not null or undefined
+            assertParamExists('createBrandingItem', 'productName', productName)
+            const localVarPath = `/brandings`;
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'POST', ...baseOptions, ...axiosOptions};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            const localVarFormParams = new ((configuration && configuration.formDataCtor) || FormData)();
+
+            // authentication UserContextAuth required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "UserContextAuth", [], configuration)
+
+            // authentication UserContextAuth required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "UserContextAuth", [], configuration)
+
+
+            if (name !== undefined) { 
+                localVarFormParams.append('name', name as any);
+            }
+    
+            if (productName !== undefined) { 
+                localVarFormParams.append('productName', productName as any);
+            }
+    
+            if (actionButtonColor !== undefined) { 
+                localVarFormParams.append('actionButtonColor', actionButtonColor as any);
+            }
+    
+            if (activeLinkColor !== undefined) { 
+                localVarFormParams.append('activeLinkColor', activeLinkColor as any);
+            }
+    
+            if (navigationColor !== undefined) { 
+                localVarFormParams.append('navigationColor', navigationColor as any);
+            }
+    
+            if (emailFromAddress !== undefined) { 
+                localVarFormParams.append('emailFromAddress', emailFromAddress as any);
+            }
+    
+            if (loginInformationalMessage !== undefined) { 
+                localVarFormParams.append('loginInformationalMessage', loginInformationalMessage as any);
+            }
+    
+            if (fileStandard !== undefined) { 
+                localVarFormParams.append('fileStandard', fileStandard as any);
+            }
+    
+    
+            localVarHeaderParameter['Content-Type'] = 'multipart/form-data';
+    
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
+            localVarRequestOptions.data = localVarFormParams;
+
+            return {
+                url: toPathString(localVarUrlObj),
+                axiosOptions: localVarRequestOptions,
+            };
+        },
+        /**
+         * This API endpoint delete information for an existing branding item by name. A token with API, ORG_ADMIN authority is required to call this API.
+         * @summary Delete a branding item
+         * @param {string} name The name of the branding item to be deleted
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        deleteBranding: async (name: string, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'name' is not null or undefined
+            assertParamExists('deleteBranding', 'name', name)
+            const localVarPath = `/brandings/{name}`
+                .replace(`{${"name"}}`, encodeURIComponent(String(name)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'DELETE', ...baseOptions, ...axiosOptions};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication UserContextAuth required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "UserContextAuth", [], configuration)
+
+            // authentication UserContextAuth required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "UserContextAuth", [], configuration)
+
+
+    
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                axiosOptions: localVarRequestOptions,
+            };
+        },
+        /**
+         * This API endpoint retrieves information for an existing branding item by name. A token with API, ORG_ADMIN authority is required to call this API.
+         * @summary Get a branding item
+         * @param {string} name The name of the branding item to be retrieved
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        getBranding: async (name: string, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'name' is not null or undefined
+            assertParamExists('getBranding', 'name', name)
+            const localVarPath = `/brandings/{name}`
+                .replace(`{${"name"}}`, encodeURIComponent(String(name)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...axiosOptions};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication UserContextAuth required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "UserContextAuth", [], configuration)
+
+            // authentication UserContextAuth required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "UserContextAuth", [], configuration)
+
+
+    
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                axiosOptions: localVarRequestOptions,
+            };
+        },
+        /**
+         * This API endpoint returns a list of branding items.  A token with API, ORG_ADMIN authority is required to call this API.
+         * @summary List of branding items
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        getBrandingList: async (axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            const localVarPath = `/brandings`;
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...axiosOptions};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication UserContextAuth required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "UserContextAuth", [], configuration)
+
+            // authentication UserContextAuth required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "UserContextAuth", [], configuration)
+
+
+    
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                axiosOptions: localVarRequestOptions,
+            };
+        },
+        /**
+         * This API endpoint updates information for an existing branding item. A token with API, ORG_ADMIN authority is required to call this API.
+         * @summary Update a branding item
+         * @param {string} name The name of the branding item to be retrieved
+         * @param {string} name2 name of branding item
+         * @param {string} productName product name
+         * @param {string} [actionButtonColor] hex value of color for action button
+         * @param {string} [activeLinkColor] hex value of color for link
+         * @param {string} [navigationColor] hex value of color for navigation bar
+         * @param {string} [emailFromAddress] email from address
+         * @param {string} [loginInformationalMessage] login information message
+         * @param {any} [fileStandard] png file with logo
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        setBrandingItem: async (name: string, name2: string, productName: string, actionButtonColor?: string, activeLinkColor?: string, navigationColor?: string, emailFromAddress?: string, loginInformationalMessage?: string, fileStandard?: any, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'name' is not null or undefined
+            assertParamExists('setBrandingItem', 'name', name)
+            // verify required parameter 'name2' is not null or undefined
+            assertParamExists('setBrandingItem', 'name2', name2)
+            // verify required parameter 'productName' is not null or undefined
+            assertParamExists('setBrandingItem', 'productName', productName)
+            const localVarPath = `/brandings/{name}`
+                .replace(`{${"name"}}`, encodeURIComponent(String(name)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'PUT', ...baseOptions, ...axiosOptions};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            const localVarFormParams = new ((configuration && configuration.formDataCtor) || FormData)();
+
+            // authentication UserContextAuth required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "UserContextAuth", [], configuration)
+
+            // authentication UserContextAuth required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "UserContextAuth", [], configuration)
+
+
+            if (name2 !== undefined) { 
+                localVarFormParams.append('name', name2 as any);
+            }
+    
+            if (productName !== undefined) { 
+                localVarFormParams.append('productName', productName as any);
+            }
+    
+            if (actionButtonColor !== undefined) { 
+                localVarFormParams.append('actionButtonColor', actionButtonColor as any);
+            }
+    
+            if (activeLinkColor !== undefined) { 
+                localVarFormParams.append('activeLinkColor', activeLinkColor as any);
+            }
+    
+            if (navigationColor !== undefined) { 
+                localVarFormParams.append('navigationColor', navigationColor as any);
+            }
+    
+            if (emailFromAddress !== undefined) { 
+                localVarFormParams.append('emailFromAddress', emailFromAddress as any);
+            }
+    
+            if (loginInformationalMessage !== undefined) { 
+                localVarFormParams.append('loginInformationalMessage', loginInformationalMessage as any);
+            }
+    
+            if (fileStandard !== undefined) { 
+                localVarFormParams.append('fileStandard', fileStandard as any);
+            }
+    
+    
+            localVarHeaderParameter['Content-Type'] = 'multipart/form-data';
+    
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
+            localVarRequestOptions.data = localVarFormParams;
+
+            return {
+                url: toPathString(localVarUrlObj),
+                axiosOptions: localVarRequestOptions,
+            };
+        },
+    }
+};
+
+/**
+ * BrandingApi - functional programming interface
+ * @export
+ */
+export const BrandingApiFp = function(configuration?: Configuration) {
+    const localVarAxiosParamCreator = BrandingApiAxiosParamCreator(configuration)
+    return {
+        /**
+         * This API endpoint creates a branding item. A token with API, ORG_ADMIN authority is required to call this API.
+         * @summary Create a branding item
+         * @param {string} name name of branding item
+         * @param {string} productName product name
+         * @param {string} [actionButtonColor] hex value of color for action button
+         * @param {string} [activeLinkColor] hex value of color for link
+         * @param {string} [navigationColor] hex value of color for navigation bar
+         * @param {string} [emailFromAddress] email from address
+         * @param {string} [loginInformationalMessage] login information message
+         * @param {any} [fileStandard] png file with logo
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        async createBrandingItem(name: string, productName: string, actionButtonColor?: string, activeLinkColor?: string, navigationColor?: string, emailFromAddress?: string, loginInformationalMessage?: string, fileStandard?: any, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<BrandingItem>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.createBrandingItem(name, productName, actionButtonColor, activeLinkColor, navigationColor, emailFromAddress, loginInformationalMessage, fileStandard, axiosOptions);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * This API endpoint delete information for an existing branding item by name. A token with API, ORG_ADMIN authority is required to call this API.
+         * @summary Delete a branding item
+         * @param {string} name The name of the branding item to be deleted
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        async deleteBranding(name: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.deleteBranding(name, axiosOptions);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * This API endpoint retrieves information for an existing branding item by name. A token with API, ORG_ADMIN authority is required to call this API.
+         * @summary Get a branding item
+         * @param {string} name The name of the branding item to be retrieved
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        async getBranding(name: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<BrandingItem>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getBranding(name, axiosOptions);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * This API endpoint returns a list of branding items.  A token with API, ORG_ADMIN authority is required to call this API.
+         * @summary List of branding items
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        async getBrandingList(axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<BrandingItem>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getBrandingList(axiosOptions);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * This API endpoint updates information for an existing branding item. A token with API, ORG_ADMIN authority is required to call this API.
+         * @summary Update a branding item
+         * @param {string} name The name of the branding item to be retrieved
+         * @param {string} name2 name of branding item
+         * @param {string} productName product name
+         * @param {string} [actionButtonColor] hex value of color for action button
+         * @param {string} [activeLinkColor] hex value of color for link
+         * @param {string} [navigationColor] hex value of color for navigation bar
+         * @param {string} [emailFromAddress] email from address
+         * @param {string} [loginInformationalMessage] login information message
+         * @param {any} [fileStandard] png file with logo
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        async setBrandingItem(name: string, name2: string, productName: string, actionButtonColor?: string, activeLinkColor?: string, navigationColor?: string, emailFromAddress?: string, loginInformationalMessage?: string, fileStandard?: any, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<BrandingItem>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.setBrandingItem(name, name2, productName, actionButtonColor, activeLinkColor, navigationColor, emailFromAddress, loginInformationalMessage, fileStandard, axiosOptions);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+    }
+};
+
+/**
+ * BrandingApi - factory interface
+ * @export
+ */
+export const BrandingApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
+    const localVarFp = BrandingApiFp(configuration)
+    return {
+        /**
+         * This API endpoint creates a branding item. A token with API, ORG_ADMIN authority is required to call this API.
+         * @summary Create a branding item
+         * @param {string} name name of branding item
+         * @param {string} productName product name
+         * @param {string} [actionButtonColor] hex value of color for action button
+         * @param {string} [activeLinkColor] hex value of color for link
+         * @param {string} [navigationColor] hex value of color for navigation bar
+         * @param {string} [emailFromAddress] email from address
+         * @param {string} [loginInformationalMessage] login information message
+         * @param {any} [fileStandard] png file with logo
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        createBrandingItem(name: string, productName: string, actionButtonColor?: string, activeLinkColor?: string, navigationColor?: string, emailFromAddress?: string, loginInformationalMessage?: string, fileStandard?: any, axiosOptions?: any): AxiosPromise<BrandingItem> {
+            return localVarFp.createBrandingItem(name, productName, actionButtonColor, activeLinkColor, navigationColor, emailFromAddress, loginInformationalMessage, fileStandard, axiosOptions).then((request) => request(axios, basePath));
+        },
+        /**
+         * This API endpoint delete information for an existing branding item by name. A token with API, ORG_ADMIN authority is required to call this API.
+         * @summary Delete a branding item
+         * @param {string} name The name of the branding item to be deleted
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        deleteBranding(name: string, axiosOptions?: any): AxiosPromise<void> {
+            return localVarFp.deleteBranding(name, axiosOptions).then((request) => request(axios, basePath));
+        },
+        /**
+         * This API endpoint retrieves information for an existing branding item by name. A token with API, ORG_ADMIN authority is required to call this API.
+         * @summary Get a branding item
+         * @param {string} name The name of the branding item to be retrieved
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        getBranding(name: string, axiosOptions?: any): AxiosPromise<BrandingItem> {
+            return localVarFp.getBranding(name, axiosOptions).then((request) => request(axios, basePath));
+        },
+        /**
+         * This API endpoint returns a list of branding items.  A token with API, ORG_ADMIN authority is required to call this API.
+         * @summary List of branding items
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        getBrandingList(axiosOptions?: any): AxiosPromise<Array<BrandingItem>> {
+            return localVarFp.getBrandingList(axiosOptions).then((request) => request(axios, basePath));
+        },
+        /**
+         * This API endpoint updates information for an existing branding item. A token with API, ORG_ADMIN authority is required to call this API.
+         * @summary Update a branding item
+         * @param {string} name The name of the branding item to be retrieved
+         * @param {string} name2 name of branding item
+         * @param {string} productName product name
+         * @param {string} [actionButtonColor] hex value of color for action button
+         * @param {string} [activeLinkColor] hex value of color for link
+         * @param {string} [navigationColor] hex value of color for navigation bar
+         * @param {string} [emailFromAddress] email from address
+         * @param {string} [loginInformationalMessage] login information message
+         * @param {any} [fileStandard] png file with logo
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        setBrandingItem(name: string, name2: string, productName: string, actionButtonColor?: string, activeLinkColor?: string, navigationColor?: string, emailFromAddress?: string, loginInformationalMessage?: string, fileStandard?: any, axiosOptions?: any): AxiosPromise<BrandingItem> {
+            return localVarFp.setBrandingItem(name, name2, productName, actionButtonColor, activeLinkColor, navigationColor, emailFromAddress, loginInformationalMessage, fileStandard, axiosOptions).then((request) => request(axios, basePath));
+        },
+    };
+};
+
+/**
+ * Request parameters for createBrandingItem operation in BrandingApi.
+ * @export
+ * @interface BrandingApiCreateBrandingItemRequest
+ */
+export interface BrandingApiCreateBrandingItemRequest {
+    /**
+     * name of branding item
+     * @type {string}
+     * @memberof BrandingApiCreateBrandingItem
+     */
+    readonly name: string
+
+    /**
+     * product name
+     * @type {string}
+     * @memberof BrandingApiCreateBrandingItem
+     */
+    readonly productName: string
+
+    /**
+     * hex value of color for action button
+     * @type {string}
+     * @memberof BrandingApiCreateBrandingItem
+     */
+    readonly actionButtonColor?: string
+
+    /**
+     * hex value of color for link
+     * @type {string}
+     * @memberof BrandingApiCreateBrandingItem
+     */
+    readonly activeLinkColor?: string
+
+    /**
+     * hex value of color for navigation bar
+     * @type {string}
+     * @memberof BrandingApiCreateBrandingItem
+     */
+    readonly navigationColor?: string
+
+    /**
+     * email from address
+     * @type {string}
+     * @memberof BrandingApiCreateBrandingItem
+     */
+    readonly emailFromAddress?: string
+
+    /**
+     * login information message
+     * @type {string}
+     * @memberof BrandingApiCreateBrandingItem
+     */
+    readonly loginInformationalMessage?: string
+
+    /**
+     * png file with logo
+     * @type {any}
+     * @memberof BrandingApiCreateBrandingItem
+     */
+    readonly fileStandard?: any
+}
+
+/**
+ * Request parameters for deleteBranding operation in BrandingApi.
+ * @export
+ * @interface BrandingApiDeleteBrandingRequest
+ */
+export interface BrandingApiDeleteBrandingRequest {
+    /**
+     * The name of the branding item to be deleted
+     * @type {string}
+     * @memberof BrandingApiDeleteBranding
+     */
+    readonly name: string
+}
+
+/**
+ * Request parameters for getBranding operation in BrandingApi.
+ * @export
+ * @interface BrandingApiGetBrandingRequest
+ */
+export interface BrandingApiGetBrandingRequest {
+    /**
+     * The name of the branding item to be retrieved
+     * @type {string}
+     * @memberof BrandingApiGetBranding
+     */
+    readonly name: string
+}
+
+/**
+ * Request parameters for setBrandingItem operation in BrandingApi.
+ * @export
+ * @interface BrandingApiSetBrandingItemRequest
+ */
+export interface BrandingApiSetBrandingItemRequest {
+    /**
+     * The name of the branding item to be retrieved
+     * @type {string}
+     * @memberof BrandingApiSetBrandingItem
+     */
+    readonly name: string
+
+    /**
+     * name of branding item
+     * @type {string}
+     * @memberof BrandingApiSetBrandingItem
+     */
+    readonly name2: string
+
+    /**
+     * product name
+     * @type {string}
+     * @memberof BrandingApiSetBrandingItem
+     */
+    readonly productName: string
+
+    /**
+     * hex value of color for action button
+     * @type {string}
+     * @memberof BrandingApiSetBrandingItem
+     */
+    readonly actionButtonColor?: string
+
+    /**
+     * hex value of color for link
+     * @type {string}
+     * @memberof BrandingApiSetBrandingItem
+     */
+    readonly activeLinkColor?: string
+
+    /**
+     * hex value of color for navigation bar
+     * @type {string}
+     * @memberof BrandingApiSetBrandingItem
+     */
+    readonly navigationColor?: string
+
+    /**
+     * email from address
+     * @type {string}
+     * @memberof BrandingApiSetBrandingItem
+     */
+    readonly emailFromAddress?: string
+
+    /**
+     * login information message
+     * @type {string}
+     * @memberof BrandingApiSetBrandingItem
+     */
+    readonly loginInformationalMessage?: string
+
+    /**
+     * png file with logo
+     * @type {any}
+     * @memberof BrandingApiSetBrandingItem
+     */
+    readonly fileStandard?: any
+}
+
+/**
+ * BrandingApi - object-oriented interface
+ * @export
+ * @class BrandingApi
+ * @extends {BaseAPI}
+ */
+export class BrandingApi extends BaseAPI {
+    /**
+     * This API endpoint creates a branding item. A token with API, ORG_ADMIN authority is required to call this API.
+     * @summary Create a branding item
+     * @param {BrandingApiCreateBrandingItemRequest} requestParameters Request parameters.
+     * @param {*} [axiosOptions] Override http request option.
+     * @throws {RequiredError}
+     * @memberof BrandingApi
+     */
+    public createBrandingItem(requestParameters: BrandingApiCreateBrandingItemRequest, axiosOptions?: AxiosRequestConfig) {
+        return BrandingApiFp(this.configuration).createBrandingItem(requestParameters.name, requestParameters.productName, requestParameters.actionButtonColor, requestParameters.activeLinkColor, requestParameters.navigationColor, requestParameters.emailFromAddress, requestParameters.loginInformationalMessage, requestParameters.fileStandard, axiosOptions).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * This API endpoint delete information for an existing branding item by name. A token with API, ORG_ADMIN authority is required to call this API.
+     * @summary Delete a branding item
+     * @param {BrandingApiDeleteBrandingRequest} requestParameters Request parameters.
+     * @param {*} [axiosOptions] Override http request option.
+     * @throws {RequiredError}
+     * @memberof BrandingApi
+     */
+    public deleteBranding(requestParameters: BrandingApiDeleteBrandingRequest, axiosOptions?: AxiosRequestConfig) {
+        return BrandingApiFp(this.configuration).deleteBranding(requestParameters.name, axiosOptions).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * This API endpoint retrieves information for an existing branding item by name. A token with API, ORG_ADMIN authority is required to call this API.
+     * @summary Get a branding item
+     * @param {BrandingApiGetBrandingRequest} requestParameters Request parameters.
+     * @param {*} [axiosOptions] Override http request option.
+     * @throws {RequiredError}
+     * @memberof BrandingApi
+     */
+    public getBranding(requestParameters: BrandingApiGetBrandingRequest, axiosOptions?: AxiosRequestConfig) {
+        return BrandingApiFp(this.configuration).getBranding(requestParameters.name, axiosOptions).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * This API endpoint returns a list of branding items.  A token with API, ORG_ADMIN authority is required to call this API.
+     * @summary List of branding items
+     * @param {*} [axiosOptions] Override http request option.
+     * @throws {RequiredError}
+     * @memberof BrandingApi
+     */
+    public getBrandingList(axiosOptions?: AxiosRequestConfig) {
+        return BrandingApiFp(this.configuration).getBrandingList(axiosOptions).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * This API endpoint updates information for an existing branding item. A token with API, ORG_ADMIN authority is required to call this API.
+     * @summary Update a branding item
+     * @param {BrandingApiSetBrandingItemRequest} requestParameters Request parameters.
+     * @param {*} [axiosOptions] Override http request option.
+     * @throws {RequiredError}
+     * @memberof BrandingApi
+     */
+    public setBrandingItem(requestParameters: BrandingApiSetBrandingItemRequest, axiosOptions?: AxiosRequestConfig) {
+        return BrandingApiFp(this.configuration).setBrandingItem(requestParameters.name, requestParameters.name2, requestParameters.productName, requestParameters.actionButtonColor, requestParameters.activeLinkColor, requestParameters.navigationColor, requestParameters.emailFromAddress, requestParameters.loginInformationalMessage, requestParameters.fileStandard, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 }
 
