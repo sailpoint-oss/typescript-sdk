@@ -14437,6 +14437,12 @@ export interface Role {
     'accessProfiles'?: Array<AccessProfileRef> | null;
     /**
      * 
+     * @type {Array<EntitlementRef>}
+     * @memberof Role
+     */
+    'Entitlements'?: Array<EntitlementRef> | null;
+    /**
+     * 
      * @type {RoleMembershipSelector}
      * @memberof Role
      */

@@ -19718,6 +19718,12 @@ export interface RoleBeta {
     'accessProfiles'?: Array<AccessProfileRefBeta> | null;
     /**
      * 
+     * @type {Array<EntitlementRefBeta>}
+     * @memberof RoleBeta
+     */
+    'Entitlements'?: Array<EntitlementRefBeta> | null;
+    /**
+     * 
      * @type {RoleMembershipSelectorBeta}
      * @memberof RoleBeta
      */
