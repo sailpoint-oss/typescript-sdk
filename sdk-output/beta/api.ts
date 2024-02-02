@@ -30784,9 +30784,9 @@ export const AccountsBetaApiAxiosParamCreator = function (configuration?: Config
             };
         },
         /**
-         * This API submits an account delete task and returns the task ID.   A token with ORG_ADMIN authority is required to call this API.
+         * Use this API to delete an account.  This endpoint submits an account delete task and returns the task ID.  A token with ORG_ADMIN authority is required to call this API. >**NOTE:** You can only delete accounts from sources of the \"DelimitedFile\" type.**
          * @summary Delete Account
-         * @param {string} id The account ID
+         * @param {string} id Account ID.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
@@ -31094,9 +31094,9 @@ export const AccountsBetaApiAxiosParamCreator = function (configuration?: Config
             };
         },
         /**
-         * This API returns the details for a single account based on the ID.   A token with ORG_ADMIN authority is required to call this API.
+         * Use this API to return the details for a single account by its ID.   A token with ORG_ADMIN authority is required to call this API.
          * @summary Account Details
-         * @param {string} id The account ID
+         * @param {string} id Account ID.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
@@ -31261,9 +31261,9 @@ export const AccountsBetaApiAxiosParamCreator = function (configuration?: Config
             };
         },
         /**
-         * This API submits an account update task and returns the task ID.   A token with ORG_ADMIN authority is required to call this API.
+         * Use this API to update an account with a PUT request.  This endpoint submits an account update task and returns the task ID.   A token with ORG_ADMIN authority is required to call this API. >**NOTE: You can only use this PUT endpoint to update accounts from sources of the \"DelimitedFile\" type.**
          * @summary Update Account
-         * @param {string} id The account ID
+         * @param {string} id Account ID.
          * @param {AccountAttributesBeta} accountAttributesBeta 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
@@ -31399,9 +31399,9 @@ export const AccountsBetaApiAxiosParamCreator = function (configuration?: Config
             };
         },
         /**
-         * This updates account details.   A token with ORG_ADMIN authority is required to call this API.
+         * Use this endpoint to update an account with a PATCH request.  The request must provide a JSONPatch payload. A token with ORG_ADMIN authority is required to call this API.
          * @summary Update Account
-         * @param {string} id The account ID
+         * @param {string} id Account ID.
          * @param {Array<object>} requestBody A list of account update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
@@ -31468,9 +31468,9 @@ export const AccountsBetaApiFp = function(configuration?: Configuration) {
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
-         * This API submits an account delete task and returns the task ID.   A token with ORG_ADMIN authority is required to call this API.
+         * Use this API to delete an account.  This endpoint submits an account delete task and returns the task ID.  A token with ORG_ADMIN authority is required to call this API. >**NOTE:** You can only delete accounts from sources of the \"DelimitedFile\" type.**
          * @summary Delete Account
-         * @param {string} id The account ID
+         * @param {string} id Account ID.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
@@ -31547,9 +31547,9 @@ export const AccountsBetaApiFp = function(configuration?: Configuration) {
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
-         * This API returns the details for a single account based on the ID.   A token with ORG_ADMIN authority is required to call this API.
+         * Use this API to return the details for a single account by its ID.   A token with ORG_ADMIN authority is required to call this API.
          * @summary Account Details
-         * @param {string} id The account ID
+         * @param {string} id Account ID.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
@@ -31588,9 +31588,9 @@ export const AccountsBetaApiFp = function(configuration?: Configuration) {
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
-         * This API submits an account update task and returns the task ID.   A token with ORG_ADMIN authority is required to call this API.
+         * Use this API to update an account with a PUT request.  This endpoint submits an account update task and returns the task ID.   A token with ORG_ADMIN authority is required to call this API. >**NOTE: You can only use this PUT endpoint to update accounts from sources of the \"DelimitedFile\" type.**
          * @summary Update Account
-         * @param {string} id The account ID
+         * @param {string} id Account ID.
          * @param {AccountAttributesBeta} accountAttributesBeta 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
@@ -31623,9 +31623,9 @@ export const AccountsBetaApiFp = function(configuration?: Configuration) {
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
-         * This updates account details.   A token with ORG_ADMIN authority is required to call this API.
+         * Use this endpoint to update an account with a PATCH request.  The request must provide a JSONPatch payload. A token with ORG_ADMIN authority is required to call this API.
          * @summary Update Account
-         * @param {string} id The account ID
+         * @param {string} id Account ID.
          * @param {Array<object>} requestBody A list of account update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
@@ -31655,9 +31655,9 @@ export const AccountsBetaApiFactory = function (configuration?: Configuration, b
             return localVarFp.createAccount(accountAttributesCreateBeta, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
-         * This API submits an account delete task and returns the task ID.   A token with ORG_ADMIN authority is required to call this API.
+         * Use this API to delete an account.  This endpoint submits an account delete task and returns the task ID.  A token with ORG_ADMIN authority is required to call this API. >**NOTE:** You can only delete accounts from sources of the \"DelimitedFile\" type.**
          * @summary Delete Account
-         * @param {string} id The account ID
+         * @param {string} id Account ID.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
@@ -31727,9 +31727,9 @@ export const AccountsBetaApiFactory = function (configuration?: Configuration, b
             return localVarFp.enableAccountsForIdentities(identitiesAccountsBulkRequestBeta, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
-         * This API returns the details for a single account based on the ID.   A token with ORG_ADMIN authority is required to call this API.
+         * Use this API to return the details for a single account by its ID.   A token with ORG_ADMIN authority is required to call this API.
          * @summary Account Details
-         * @param {string} id The account ID
+         * @param {string} id Account ID.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
@@ -31765,9 +31765,9 @@ export const AccountsBetaApiFactory = function (configuration?: Configuration, b
             return localVarFp.listAccounts(detailLevel, limit, offset, count, filters, sorters, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
-         * This API submits an account update task and returns the task ID.   A token with ORG_ADMIN authority is required to call this API.
+         * Use this API to update an account with a PUT request.  This endpoint submits an account update task and returns the task ID.   A token with ORG_ADMIN authority is required to call this API. >**NOTE: You can only use this PUT endpoint to update accounts from sources of the \"DelimitedFile\" type.**
          * @summary Update Account
-         * @param {string} id The account ID
+         * @param {string} id Account ID.
          * @param {AccountAttributesBeta} accountAttributesBeta 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
@@ -31797,9 +31797,9 @@ export const AccountsBetaApiFactory = function (configuration?: Configuration, b
             return localVarFp.unlockAccount(id, accountUnlockRequestBeta, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
-         * This updates account details.   A token with ORG_ADMIN authority is required to call this API.
+         * Use this endpoint to update an account with a PATCH request.  The request must provide a JSONPatch payload. A token with ORG_ADMIN authority is required to call this API.
          * @summary Update Account
-         * @param {string} id The account ID
+         * @param {string} id Account ID.
          * @param {Array<object>} requestBody A list of account update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
@@ -31831,7 +31831,7 @@ export interface AccountsBetaApiCreateAccountRequest {
  */
 export interface AccountsBetaApiDeleteAccountRequest {
     /**
-     * The account ID
+     * Account ID.
      * @type {string}
      * @memberof AccountsBetaApiDeleteAccount
      */
@@ -31943,7 +31943,7 @@ export interface AccountsBetaApiEnableAccountsForIdentitiesRequest {
  */
 export interface AccountsBetaApiGetAccountRequest {
     /**
-     * The account ID
+     * Account ID.
      * @type {string}
      * @memberof AccountsBetaApiGetAccount
      */
@@ -32041,7 +32041,7 @@ export interface AccountsBetaApiListAccountsRequest {
  */
 export interface AccountsBetaApiPutAccountRequest {
     /**
-     * The account ID
+     * Account ID.
      * @type {string}
      * @memberof AccountsBetaApiPutAccount
      */
@@ -32097,7 +32097,7 @@ export interface AccountsBetaApiUnlockAccountRequest {
  */
 export interface AccountsBetaApiUpdateAccountRequest {
     /**
-     * The account ID
+     * Account ID.
      * @type {string}
      * @memberof AccountsBetaApiUpdateAccount
      */
@@ -32131,7 +32131,7 @@ export class AccountsBetaApi extends BaseAPI {
     }
 
     /**
-     * This API submits an account delete task and returns the task ID.   A token with ORG_ADMIN authority is required to call this API.
+     * Use this API to delete an account.  This endpoint submits an account delete task and returns the task ID.  A token with ORG_ADMIN authority is required to call this API. >**NOTE:** You can only delete accounts from sources of the \"DelimitedFile\" type.**
      * @summary Delete Account
      * @param {AccountsBetaApiDeleteAccountRequest} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
@@ -32215,7 +32215,7 @@ export class AccountsBetaApi extends BaseAPI {
     }
 
     /**
-     * This API returns the details for a single account based on the ID.   A token with ORG_ADMIN authority is required to call this API.
+     * Use this API to return the details for a single account by its ID.   A token with ORG_ADMIN authority is required to call this API.
      * @summary Account Details
      * @param {AccountsBetaApiGetAccountRequest} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
@@ -32251,7 +32251,7 @@ export class AccountsBetaApi extends BaseAPI {
     }
 
     /**
-     * This API submits an account update task and returns the task ID.   A token with ORG_ADMIN authority is required to call this API.
+     * Use this API to update an account with a PUT request.  This endpoint submits an account update task and returns the task ID.   A token with ORG_ADMIN authority is required to call this API. >**NOTE: You can only use this PUT endpoint to update accounts from sources of the \"DelimitedFile\" type.**
      * @summary Update Account
      * @param {AccountsBetaApiPutAccountRequest} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
@@ -32287,7 +32287,7 @@ export class AccountsBetaApi extends BaseAPI {
     }
 
     /**
-     * This updates account details.   A token with ORG_ADMIN authority is required to call this API.
+     * Use this endpoint to update an account with a PATCH request.  The request must provide a JSONPatch payload. A token with ORG_ADMIN authority is required to call this API.
      * @summary Update Account
      * @param {AccountsBetaApiUpdateAccountRequest} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
