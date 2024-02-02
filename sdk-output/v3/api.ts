@@ -430,102 +430,116 @@ export interface AccessProfileBulkDeleteResponse {
     'inUse'?: Array<AccessProfileUsage>;
 }
 /**
- * This is more of a complete representation of an access profile.  
+ * More complete representation of an access profile.  
  * @export
  * @interface AccessProfileDocument
  */
 export interface AccessProfileDocument {
     /**
-     * The unique ID of the referenced object.
+     * Access profile\'s ID.
      * @type {string}
      * @memberof AccessProfileDocument
      */
     'id': string;
     /**
-     * The human readable name of the referenced object.
+     * Access profile\'s name.
      * @type {string}
      * @memberof AccessProfileDocument
      */
     'name': string;
     /**
-     * 
-     * @type {DocumentType}
-     * @memberof AccessProfileDocument
-     */
-    '_type': DocumentType;
-    /**
-     * The description of the access item
+     * Access item\'s description.
      * @type {string}
      * @memberof AccessProfileDocument
      */
     'description'?: string;
     /**
-     * A date-time in ISO-8601 format
+     * ISO-8601 date-time referring to the time when the object was created.
      * @type {string}
      * @memberof AccessProfileDocument
      */
     'created'?: string | null;
     /**
-     * A date-time in ISO-8601 format
+     * ISO-8601 date-time referring to the time when the object was last modified.
      * @type {string}
      * @memberof AccessProfileDocument
      */
     'modified'?: string | null;
     /**
-     * A date-time in ISO-8601 format
+     * ISO-8601 date-time referring to the date-time when object was queued to be synced into search database for use in the search API.   This date-time changes anytime there is an update to the object, which triggers a synchronization event being sent to the search database.  There may be some delay between the `synced` time and the time when the updated data is actually available in the search API. 
      * @type {string}
      * @memberof AccessProfileDocument
      */
     'synced'?: string | null;
     /**
-     * 
+     * Indicates whether the access item is currently enabled.
      * @type {boolean}
      * @memberof AccessProfileDocument
      */
     'enabled'?: boolean;
     /**
-     * Indicates if the access can be requested
+     * Indicates whether the access item can be requested.
      * @type {boolean}
      * @memberof AccessProfileDocument
      */
     'requestable'?: boolean;
     /**
-     * Indicates if comments are required when requesting access
+     * Indicates whether comments are required for requests to access the item.
      * @type {boolean}
      * @memberof AccessProfileDocument
      */
     'requestCommentsRequired'?: boolean;
     /**
      * 
-     * @type {Owner}
+     * @type {BaseAccessAllOfOwner}
      * @memberof AccessProfileDocument
      */
-    'owner'?: Owner;
+    'owner'?: BaseAccessAllOfOwner;
     /**
-     * 
-     * @type {Reference1}
+     * Access profile\'s document type.  This enum represents the currently supported document types. Additional values may be added in the future without notice.
+     * @type {string}
      * @memberof AccessProfileDocument
      */
-    'source'?: Reference1;
+    '_type': AccessProfileDocumentTypeEnum;
     /**
      * 
+     * @type {AccessProfileDocumentAllOfSource}
+     * @memberof AccessProfileDocument
+     */
+    'source'?: AccessProfileDocumentAllOfSource;
+    /**
+     * Entitlements the access profile has access to.
      * @type {Array<BaseEntitlement>}
      * @memberof AccessProfileDocument
      */
     'entitlements'?: Array<BaseEntitlement>;
     /**
-     * 
+     * Number of entitlements.
      * @type {number}
      * @memberof AccessProfileDocument
      */
     'entitlementCount'?: number;
     /**
-     * 
+     * Tags that have been applied to the object.
      * @type {Array<string>}
      * @memberof AccessProfileDocument
      */
     'tags'?: Array<string>;
 }
+
+export const AccessProfileDocumentTypeEnum = {
+    Accessprofile: 'accessprofile',
+    Accountactivity: 'accountactivity',
+    Account: 'account',
+    Aggregation: 'aggregation',
+    Entitlement: 'entitlement',
+    Event: 'event',
+    Identity: 'identity',
+    Role: 'role'
+} as const;
+
+export type AccessProfileDocumentTypeEnum = typeof AccessProfileDocumentTypeEnum[keyof typeof AccessProfileDocumentTypeEnum];
+
 /**
  * 
  * @export
@@ -533,29 +547,80 @@ export interface AccessProfileDocument {
  */
 export interface AccessProfileDocumentAllOf {
     /**
-     * 
-     * @type {Reference1}
+     * Access profile\'s ID.
+     * @type {string}
      * @memberof AccessProfileDocumentAllOf
      */
-    'source'?: Reference1;
+    'id': string;
+    /**
+     * Access profile\'s name.
+     * @type {string}
+     * @memberof AccessProfileDocumentAllOf
+     */
+    'name': string;
+    /**
+     * Access profile\'s document type.  This enum represents the currently supported document types. Additional values may be added in the future without notice.
+     * @type {string}
+     * @memberof AccessProfileDocumentAllOf
+     */
+    '_type': AccessProfileDocumentAllOfTypeEnum;
     /**
      * 
+     * @type {AccessProfileDocumentAllOfSource}
+     * @memberof AccessProfileDocumentAllOf
+     */
+    'source'?: AccessProfileDocumentAllOfSource;
+    /**
+     * Entitlements the access profile has access to.
      * @type {Array<BaseEntitlement>}
      * @memberof AccessProfileDocumentAllOf
      */
     'entitlements'?: Array<BaseEntitlement>;
     /**
-     * 
+     * Number of entitlements.
      * @type {number}
      * @memberof AccessProfileDocumentAllOf
      */
     'entitlementCount'?: number;
     /**
-     * 
+     * Tags that have been applied to the object.
      * @type {Array<string>}
      * @memberof AccessProfileDocumentAllOf
      */
     'tags'?: Array<string>;
+}
+
+export const AccessProfileDocumentAllOfTypeEnum = {
+    Accessprofile: 'accessprofile',
+    Accountactivity: 'accountactivity',
+    Account: 'account',
+    Aggregation: 'aggregation',
+    Entitlement: 'entitlement',
+    Event: 'event',
+    Identity: 'identity',
+    Role: 'role'
+} as const;
+
+export type AccessProfileDocumentAllOfTypeEnum = typeof AccessProfileDocumentAllOfTypeEnum[keyof typeof AccessProfileDocumentAllOfTypeEnum];
+
+/**
+ * Access profile\'s source.
+ * @export
+ * @interface AccessProfileDocumentAllOfSource
+ */
+export interface AccessProfileDocumentAllOfSource {
+    /**
+     * Source\'s ID.
+     * @type {string}
+     * @memberof AccessProfileDocumentAllOfSource
+     */
+    'id'?: string;
+    /**
+     * Source\'s name.
+     * @type {string}
+     * @memberof AccessProfileDocumentAllOfSource
+     */
+    'name'?: string;
 }
 /**
  * EntitlementReference
@@ -1475,37 +1540,37 @@ export interface AccountActivityDocument {
      */
     '_type': DocumentType;
     /**
-     * The type of action that this activity performed
+     * Type of action performed in the activity.
      * @type {string}
      * @memberof AccountActivityDocument
      */
     'action'?: string;
     /**
-     * A date-time in ISO-8601 format
+     * ISO-8601 date-time referring to the time when the object was created.
      * @type {string}
      * @memberof AccountActivityDocument
      */
     'created'?: string | null;
     /**
-     * A date-time in ISO-8601 format
+     * ISO-8601 date-time referring to the time when the object was last modified.
      * @type {string}
      * @memberof AccountActivityDocument
      */
     'modified'?: string | null;
     /**
-     * The current stage of the activity
+     * Activity\'s current stage.
      * @type {string}
      * @memberof AccountActivityDocument
      */
     'stage'?: string;
     /**
-     * 
+     * Activity\'s origin.
      * @type {string}
      * @memberof AccountActivityDocument
      */
     'origin'?: string | null;
     /**
-     * the current status of the activity
+     * Activity\'s current status.
      * @type {string}
      * @memberof AccountActivityDocument
      */
@@ -1523,49 +1588,49 @@ export interface AccountActivityDocument {
      */
     'recipient'?: AccountSource;
     /**
-     * 
+     * Account activity\'s tracking number.
      * @type {string}
      * @memberof AccountActivityDocument
      */
     'trackingNumber'?: string;
     /**
-     * 
+     * Errors provided by the source while completing account actions.
      * @type {Array<string>}
      * @memberof AccountActivityDocument
      */
     'errors'?: Array<string> | null;
     /**
-     * 
+     * Warnings provided by the source while completing account actions.
      * @type {Array<string>}
      * @memberof AccountActivityDocument
      */
     'warnings'?: Array<string> | null;
     /**
-     * 
+     * Approvals performed on an item during activity.
      * @type {Array<Approval>}
      * @memberof AccountActivityDocument
      */
     'approvals'?: Array<Approval>;
     /**
-     * 
+     * Original actions that triggered all individual source actions related to the account action.
      * @type {Array<OriginalRequest>}
      * @memberof AccountActivityDocument
      */
     'originalRequests'?: Array<OriginalRequest>;
     /**
-     * 
+     * Controls that translated the attribute requests into actual provisioning actions on the source.
      * @type {Array<ExpansionItem>}
      * @memberof AccountActivityDocument
      */
     'expansionItems'?: Array<ExpansionItem>;
     /**
-     * 
+     * Account data for each individual source action triggered by the original requests.
      * @type {Array<AccountRequest>}
      * @memberof AccountActivityDocument
      */
     'accountRequests'?: Array<AccountRequest>;
     /**
-     * 
+     * Sources involved in the account activity.
      * @type {string}
      * @memberof AccountActivityDocument
      */
@@ -1720,37 +1785,37 @@ export interface AccountActivitySearchedItem {
      */
     '_type': DocumentType;
     /**
-     * The type of action that this activity performed
+     * Type of action performed in the activity.
      * @type {string}
      * @memberof AccountActivitySearchedItem
      */
     'action'?: string;
     /**
-     * A date-time in ISO-8601 format
+     * ISO-8601 date-time referring to the time when the object was created.
      * @type {string}
      * @memberof AccountActivitySearchedItem
      */
     'created'?: string | null;
     /**
-     * A date-time in ISO-8601 format
+     * ISO-8601 date-time referring to the time when the object was last modified.
      * @type {string}
      * @memberof AccountActivitySearchedItem
      */
     'modified'?: string | null;
     /**
-     * The current stage of the activity
+     * Activity\'s current stage.
      * @type {string}
      * @memberof AccountActivitySearchedItem
      */
     'stage'?: string;
     /**
-     * 
+     * Activity\'s origin.
      * @type {string}
      * @memberof AccountActivitySearchedItem
      */
     'origin'?: string | null;
     /**
-     * the current status of the activity
+     * Activity\'s current status.
      * @type {string}
      * @memberof AccountActivitySearchedItem
      */
@@ -1768,49 +1833,49 @@ export interface AccountActivitySearchedItem {
      */
     'recipient'?: AccountSource;
     /**
-     * 
+     * Account activity\'s tracking number.
      * @type {string}
      * @memberof AccountActivitySearchedItem
      */
     'trackingNumber'?: string;
     /**
-     * 
+     * Errors provided by the source while completing account actions.
      * @type {Array<string>}
      * @memberof AccountActivitySearchedItem
      */
     'errors'?: Array<string> | null;
     /**
-     * 
+     * Warnings provided by the source while completing account actions.
      * @type {Array<string>}
      * @memberof AccountActivitySearchedItem
      */
     'warnings'?: Array<string> | null;
     /**
-     * 
+     * Approvals performed on an item during activity.
      * @type {Array<Approval>}
      * @memberof AccountActivitySearchedItem
      */
     'approvals'?: Array<Approval>;
     /**
-     * 
+     * Original actions that triggered all individual source actions related to the account action.
      * @type {Array<OriginalRequest>}
      * @memberof AccountActivitySearchedItem
      */
     'originalRequests'?: Array<OriginalRequest>;
     /**
-     * 
+     * Controls that translated the attribute requests into actual provisioning actions on the source.
      * @type {Array<ExpansionItem>}
      * @memberof AccountActivitySearchedItem
      */
     'expansionItems'?: Array<ExpansionItem>;
     /**
-     * 
+     * Account data for each individual source action triggered by the original requests.
      * @type {Array<AccountRequest>}
      * @memberof AccountActivitySearchedItem
      */
     'accountRequests'?: Array<AccountRequest>;
     /**
-     * 
+     * Sources involved in the account activity.
      * @type {string}
      * @memberof AccountActivitySearchedItem
      */
@@ -1823,37 +1888,37 @@ export interface AccountActivitySearchedItem {
  */
 export interface AccountActivitySearchedItemAllOf {
     /**
-     * The type of action that this activity performed
+     * Type of action performed in the activity.
      * @type {string}
      * @memberof AccountActivitySearchedItemAllOf
      */
     'action'?: string;
     /**
-     * A date-time in ISO-8601 format
+     * ISO-8601 date-time referring to the time when the object was created.
      * @type {string}
      * @memberof AccountActivitySearchedItemAllOf
      */
     'created'?: string | null;
     /**
-     * A date-time in ISO-8601 format
+     * ISO-8601 date-time referring to the time when the object was last modified.
      * @type {string}
      * @memberof AccountActivitySearchedItemAllOf
      */
     'modified'?: string | null;
     /**
-     * The current stage of the activity
+     * Activity\'s current stage.
      * @type {string}
      * @memberof AccountActivitySearchedItemAllOf
      */
     'stage'?: string;
     /**
-     * 
+     * Activity\'s origin.
      * @type {string}
      * @memberof AccountActivitySearchedItemAllOf
      */
     'origin'?: string | null;
     /**
-     * the current status of the activity
+     * Activity\'s current status.
      * @type {string}
      * @memberof AccountActivitySearchedItemAllOf
      */
@@ -1871,49 +1936,49 @@ export interface AccountActivitySearchedItemAllOf {
      */
     'recipient'?: AccountSource;
     /**
-     * 
+     * Account activity\'s tracking number.
      * @type {string}
      * @memberof AccountActivitySearchedItemAllOf
      */
     'trackingNumber'?: string;
     /**
-     * 
+     * Errors provided by the source while completing account actions.
      * @type {Array<string>}
      * @memberof AccountActivitySearchedItemAllOf
      */
     'errors'?: Array<string> | null;
     /**
-     * 
+     * Warnings provided by the source while completing account actions.
      * @type {Array<string>}
      * @memberof AccountActivitySearchedItemAllOf
      */
     'warnings'?: Array<string> | null;
     /**
-     * 
+     * Approvals performed on an item during activity.
      * @type {Array<Approval>}
      * @memberof AccountActivitySearchedItemAllOf
      */
     'approvals'?: Array<Approval>;
     /**
-     * 
+     * Original actions that triggered all individual source actions related to the account action.
      * @type {Array<OriginalRequest>}
      * @memberof AccountActivitySearchedItemAllOf
      */
     'originalRequests'?: Array<OriginalRequest>;
     /**
-     * 
+     * Controls that translated the attribute requests into actual provisioning actions on the source.
      * @type {Array<ExpansionItem>}
      * @memberof AccountActivitySearchedItemAllOf
      */
     'expansionItems'?: Array<ExpansionItem>;
     /**
-     * 
+     * Account data for each individual source action triggered by the original requests.
      * @type {Array<AccountRequest>}
      * @memberof AccountActivitySearchedItemAllOf
      */
     'accountRequests'?: Array<AccountRequest>;
     /**
-     * 
+     * Sources involved in the account activity.
      * @type {string}
      * @memberof AccountActivitySearchedItemAllOf
      */
@@ -2236,7 +2301,7 @@ export interface AccountSource {
      */
     'name'?: string;
     /**
-     * the type of source returned
+     * Type of source returned.
      * @type {string}
      * @memberof AccountSource
      */
@@ -2249,7 +2314,7 @@ export interface AccountSource {
  */
 export interface AccountSourceAllOf {
     /**
-     * the type of source returned
+     * Type of source returned.
      * @type {string}
      * @memberof AccountSourceAllOf
      */
@@ -3126,19 +3191,19 @@ export type AttributeDefinitionType = typeof AttributeDefinitionType[keyof typeo
  */
 export interface AttributeRequest {
     /**
-     * The attribute name
+     * Attribute name.
      * @type {string}
      * @memberof AttributeRequest
      */
     'name'?: string;
     /**
-     * The operation to perform
+     * Operation to perform on attribute.
      * @type {string}
      * @memberof AttributeRequest
      */
     'op'?: string;
     /**
-     * The value of the attribute
+     * Value of attribute.
      * @type {string}
      * @memberof AttributeRequest
      */
@@ -3258,7 +3323,6 @@ export const AuthUserCapabilitiesEnum = {
     CertAdmin: 'CERT_ADMIN',
     CloudGovAdmin: 'CLOUD_GOV_ADMIN',
     CloudGovUser: 'CLOUD_GOV_USER',
-    Dashboard: 'DASHBOARD',
     Helpdesk: 'HELPDESK',
     OrgAdmin: 'ORG_ADMIN',
     ReportAdmin: 'REPORT_ADMIN',
@@ -3335,53 +3399,53 @@ export interface BaseAccess {
      */
     'name'?: string;
     /**
-     * The description of the access item
+     * Access item\'s description.
      * @type {string}
      * @memberof BaseAccess
      */
     'description'?: string;
     /**
-     * A date-time in ISO-8601 format
+     * ISO-8601 date-time referring to the time when the object was created.
      * @type {string}
      * @memberof BaseAccess
      */
     'created'?: string | null;
     /**
-     * A date-time in ISO-8601 format
+     * ISO-8601 date-time referring to the time when the object was last modified.
      * @type {string}
      * @memberof BaseAccess
      */
     'modified'?: string | null;
     /**
-     * A date-time in ISO-8601 format
+     * ISO-8601 date-time referring to the date-time when object was queued to be synced into search database for use in the search API.   This date-time changes anytime there is an update to the object, which triggers a synchronization event being sent to the search database.  There may be some delay between the `synced` time and the time when the updated data is actually available in the search API. 
      * @type {string}
      * @memberof BaseAccess
      */
     'synced'?: string | null;
     /**
-     * 
+     * Indicates whether the access item is currently enabled.
      * @type {boolean}
      * @memberof BaseAccess
      */
     'enabled'?: boolean;
     /**
-     * Indicates if the access can be requested
+     * Indicates whether the access item can be requested.
      * @type {boolean}
      * @memberof BaseAccess
      */
     'requestable'?: boolean;
     /**
-     * Indicates if comments are required when requesting access
+     * Indicates whether comments are required for requests to access the item.
      * @type {boolean}
      * @memberof BaseAccess
      */
     'requestCommentsRequired'?: boolean;
     /**
      * 
-     * @type {Owner}
+     * @type {BaseAccessAllOfOwner}
      * @memberof BaseAccess
      */
-    'owner'?: Owner;
+    'owner'?: BaseAccessAllOfOwner;
 }
 /**
  * 
@@ -3390,53 +3454,110 @@ export interface BaseAccess {
  */
 export interface BaseAccessAllOf {
     /**
-     * The description of the access item
+     * Access item\'s description.
      * @type {string}
      * @memberof BaseAccessAllOf
      */
     'description'?: string;
     /**
-     * A date-time in ISO-8601 format
+     * ISO-8601 date-time referring to the time when the object was created.
      * @type {string}
      * @memberof BaseAccessAllOf
      */
     'created'?: string | null;
     /**
-     * A date-time in ISO-8601 format
+     * ISO-8601 date-time referring to the time when the object was last modified.
      * @type {string}
      * @memberof BaseAccessAllOf
      */
     'modified'?: string | null;
     /**
-     * A date-time in ISO-8601 format
+     * ISO-8601 date-time referring to the date-time when object was queued to be synced into search database for use in the search API.   This date-time changes anytime there is an update to the object, which triggers a synchronization event being sent to the search database.  There may be some delay between the `synced` time and the time when the updated data is actually available in the search API. 
      * @type {string}
      * @memberof BaseAccessAllOf
      */
     'synced'?: string | null;
     /**
-     * 
+     * Indicates whether the access item is currently enabled.
      * @type {boolean}
      * @memberof BaseAccessAllOf
      */
     'enabled'?: boolean;
     /**
-     * Indicates if the access can be requested
+     * Indicates whether the access item can be requested.
      * @type {boolean}
      * @memberof BaseAccessAllOf
      */
     'requestable'?: boolean;
     /**
-     * Indicates if comments are required when requesting access
+     * Indicates whether comments are required for requests to access the item.
      * @type {boolean}
      * @memberof BaseAccessAllOf
      */
     'requestCommentsRequired'?: boolean;
     /**
      * 
-     * @type {Owner}
+     * @type {BaseAccessAllOfOwner}
      * @memberof BaseAccessAllOf
      */
-    'owner'?: Owner;
+    'owner'?: BaseAccessAllOfOwner;
+}
+/**
+ * Owner\'s identity.
+ * @export
+ * @interface BaseAccessAllOfOwner
+ */
+export interface BaseAccessAllOfOwner {
+    /**
+     * Owner\'s DTO type.
+     * @type {string}
+     * @memberof BaseAccessAllOfOwner
+     */
+    'type'?: BaseAccessAllOfOwnerTypeEnum;
+    /**
+     * Owner\'s identity ID.
+     * @type {string}
+     * @memberof BaseAccessAllOfOwner
+     */
+    'id'?: string;
+    /**
+     * Owner\'s display name.
+     * @type {string}
+     * @memberof BaseAccessAllOfOwner
+     */
+    'name'?: string;
+    /**
+     * Owner\'s email.
+     * @type {string}
+     * @memberof BaseAccessAllOfOwner
+     */
+    'email'?: string;
+}
+
+export const BaseAccessAllOfOwnerTypeEnum = {
+    Identity: 'IDENTITY'
+} as const;
+
+export type BaseAccessAllOfOwnerTypeEnum = typeof BaseAccessAllOfOwnerTypeEnum[keyof typeof BaseAccessAllOfOwnerTypeEnum];
+
+/**
+ * 
+ * @export
+ * @interface BaseAccessProfile
+ */
+export interface BaseAccessProfile {
+    /**
+     * Access profile\'s unique ID.
+     * @type {string}
+     * @memberof BaseAccessProfile
+     */
+    'id'?: string;
+    /**
+     * Access profile\'s display name.
+     * @type {string}
+     * @memberof BaseAccessProfile
+     */
+    'name'?: string;
 }
 /**
  * 
@@ -3457,7 +3578,7 @@ export interface BaseAccount {
      */
     'name'?: string;
     /**
-     * The ID of the account
+     * Account ID.
      * @type {string}
      * @memberof BaseAccount
      */
@@ -3469,25 +3590,25 @@ export interface BaseAccount {
      */
     'source'?: AccountSource;
     /**
-     * Indicates if the account is disabled
+     * Indicates whether the account is disabled.
      * @type {boolean}
      * @memberof BaseAccount
      */
     'disabled'?: boolean;
     /**
-     * Indicates if the account is locked
+     * Indicates whether the account is locked.
      * @type {boolean}
      * @memberof BaseAccount
      */
     'locked'?: boolean;
     /**
-     * 
+     * Indicates whether the account is privileged.
      * @type {boolean}
      * @memberof BaseAccount
      */
     'privileged'?: boolean;
     /**
-     * Indicates if the account has been manually correlated to an identity
+     * Indicates whether the account has been manually correlated to an identity.
      * @type {boolean}
      * @memberof BaseAccount
      */
@@ -3499,13 +3620,13 @@ export interface BaseAccount {
      */
     'passwordLastSet'?: string | null;
     /**
-     * a map or dictionary of key/value pairs
+     * Map or dictionary of key/value pairs.
      * @type {{ [key: string]: any; }}
      * @memberof BaseAccount
      */
     'entitlementAttributes'?: { [key: string]: any; } | null;
     /**
-     * A date-time in ISO-8601 format
+     * ISO-8601 date-time referring to the time when the object was created.
      * @type {string}
      * @memberof BaseAccount
      */
@@ -3518,7 +3639,7 @@ export interface BaseAccount {
  */
 export interface BaseAccountAllOf {
     /**
-     * The ID of the account
+     * Account ID.
      * @type {string}
      * @memberof BaseAccountAllOf
      */
@@ -3530,25 +3651,25 @@ export interface BaseAccountAllOf {
      */
     'source'?: AccountSource;
     /**
-     * Indicates if the account is disabled
+     * Indicates whether the account is disabled.
      * @type {boolean}
      * @memberof BaseAccountAllOf
      */
     'disabled'?: boolean;
     /**
-     * Indicates if the account is locked
+     * Indicates whether the account is locked.
      * @type {boolean}
      * @memberof BaseAccountAllOf
      */
     'locked'?: boolean;
     /**
-     * 
+     * Indicates whether the account is privileged.
      * @type {boolean}
      * @memberof BaseAccountAllOf
      */
     'privileged'?: boolean;
     /**
-     * Indicates if the account has been manually correlated to an identity
+     * Indicates whether the account has been manually correlated to an identity.
      * @type {boolean}
      * @memberof BaseAccountAllOf
      */
@@ -3560,13 +3681,13 @@ export interface BaseAccountAllOf {
      */
     'passwordLastSet'?: string | null;
     /**
-     * a map or dictionary of key/value pairs
+     * Map or dictionary of key/value pairs.
      * @type {{ [key: string]: any; }}
      * @memberof BaseAccountAllOf
      */
     'entitlementAttributes'?: { [key: string]: any; } | null;
     /**
-     * A date-time in ISO-8601 format
+     * ISO-8601 date-time referring to the time when the object was created.
      * @type {string}
      * @memberof BaseAccountAllOf
      */
@@ -3635,60 +3756,53 @@ export interface BaseDocument {
  */
 export interface BaseEntitlement {
     /**
-     * The unique ID of the referenced object.
+     * Indicates whether the entitlement has permissions.
+     * @type {boolean}
+     * @memberof BaseEntitlement
+     */
+    'hasPermissions'?: boolean;
+    /**
+     * Entitlement\'s description.
+     * @type {string}
+     * @memberof BaseEntitlement
+     */
+    'description'?: string;
+    /**
+     * Entitlement attribute\'s name.
+     * @type {string}
+     * @memberof BaseEntitlement
+     */
+    'attribute'?: string;
+    /**
+     * Entitlement\'s value.
+     * @type {string}
+     * @memberof BaseEntitlement
+     */
+    'value'?: string;
+    /**
+     * Entitlement\'s schema.
+     * @type {string}
+     * @memberof BaseEntitlement
+     */
+    'schema'?: string;
+    /**
+     * Indicates whether the entitlement is privileged.
+     * @type {boolean}
+     * @memberof BaseEntitlement
+     */
+    'privileged'?: boolean;
+    /**
+     * Entitlement\'s ID.
      * @type {string}
      * @memberof BaseEntitlement
      */
     'id'?: string;
     /**
-     * The human readable name of the referenced object.
+     * Entitlement\'s name.
      * @type {string}
      * @memberof BaseEntitlement
      */
     'name'?: string;
-    /**
-     * A description of the entitlement
-     * @type {string}
-     * @memberof BaseEntitlement
-     */
-    'description'?: string;
-    /**
-     * The name of the entitlement attribute
-     * @type {string}
-     * @memberof BaseEntitlement
-     */
-    'attribute'?: string;
-    /**
-     * The value of the entitlement
-     * @type {string}
-     * @memberof BaseEntitlement
-     */
-    'value'?: string;
-}
-/**
- * 
- * @export
- * @interface BaseEntitlementAllOf
- */
-export interface BaseEntitlementAllOf {
-    /**
-     * A description of the entitlement
-     * @type {string}
-     * @memberof BaseEntitlementAllOf
-     */
-    'description'?: string;
-    /**
-     * The name of the entitlement attribute
-     * @type {string}
-     * @memberof BaseEntitlementAllOf
-     */
-    'attribute'?: string;
-    /**
-     * The value of the entitlement
-     * @type {string}
-     * @memberof BaseEntitlementAllOf
-     */
-    'value'?: string;
 }
 /**
  * 
@@ -3712,6 +3826,25 @@ export interface BaseReferenceDto {
      * Human-readable display name of the object to which this reference applies
      * @type {string}
      * @memberof BaseReferenceDto
+     */
+    'name'?: string;
+}
+/**
+ * 
+ * @export
+ * @interface BaseSegment
+ */
+export interface BaseSegment {
+    /**
+     * Segment\'s unique ID.
+     * @type {string}
+     * @memberof BaseSegment
+     */
+    'id'?: string;
+    /**
+     * Segment\'s display name.
+     * @type {string}
+     * @memberof BaseSegment
      */
     'name'?: string;
 }
@@ -6502,13 +6635,13 @@ export interface Entitlement {
  */
 export interface EntitlementDocument {
     /**
-     * The unique ID of the referenced object.
+     * 
      * @type {string}
      * @memberof EntitlementDocument
      */
     'id': string;
     /**
-     * The human readable name of the referenced object.
+     * 
      * @type {string}
      * @memberof EntitlementDocument
      */
@@ -6520,61 +6653,73 @@ export interface EntitlementDocument {
      */
     '_type': DocumentType;
     /**
-     * A description of the entitlement
-     * @type {string}
-     * @memberof EntitlementDocument
-     */
-    'description'?: string;
-    /**
-     * The name of the entitlement attribute
-     * @type {string}
-     * @memberof EntitlementDocument
-     */
-    'attribute'?: string;
-    /**
-     * The value of the entitlement
-     * @type {string}
-     * @memberof EntitlementDocument
-     */
-    'value'?: string;
-    /**
-     * A date-time in ISO-8601 format
+     * ISO-8601 date-time referring to the time when the object was last modified.
      * @type {string}
      * @memberof EntitlementDocument
      */
     'modified'?: string | null;
     /**
-     * A date-time in ISO-8601 format
+     * ISO-8601 date-time referring to the date-time when object was queued to be synced into search database for use in the search API.   This date-time changes anytime there is an update to the object, which triggers a synchronization event being sent to the search database.  There may be some delay between the `synced` time and the time when the updated data is actually available in the search API. 
      * @type {string}
      * @memberof EntitlementDocument
      */
-    'synced'?: string | null;
+    'synced'?: string;
     /**
-     * The display name of the entitlement
+     * Entitlement\'s display name.
      * @type {string}
      * @memberof EntitlementDocument
      */
     'displayName'?: string;
     /**
      * 
-     * @type {Reference1}
+     * @type {EntitlementDocumentAllOfSource}
      * @memberof EntitlementDocument
      */
-    'source'?: Reference1;
+    'source'?: EntitlementDocumentAllOfSource;
     /**
-     * 
+     * Segments with the role.
+     * @type {Array<BaseSegment>}
+     * @memberof EntitlementDocument
+     */
+    'segments'?: Array<BaseSegment>;
+    /**
+     * Number of segments with the role.
+     * @type {number}
+     * @memberof EntitlementDocument
+     */
+    'segmentCount'?: number;
+    /**
+     * Indicates whether the entitlement is requestable.
+     * @type {boolean}
+     * @memberof EntitlementDocument
+     */
+    'requestable'?: boolean;
+    /**
+     * Indicates whether the entitlement is cloud governed.
+     * @type {boolean}
+     * @memberof EntitlementDocument
+     */
+    'cloudGoverned'?: boolean;
+    /**
+     * ISO-8601 date-time referring to the time when the object was created.
+     * @type {string}
+     * @memberof EntitlementDocument
+     */
+    'created'?: string | null;
+    /**
+     * Indicates whether the entitlement is privileged.
      * @type {boolean}
      * @memberof EntitlementDocument
      */
     'privileged'?: boolean;
     /**
-     * 
+     * Number of identities who have access to the entitlement.
      * @type {number}
      * @memberof EntitlementDocument
      */
     'identityCount'?: number;
     /**
-     * 
+     * Tags that have been applied to the object.
      * @type {Array<string>}
      * @memberof EntitlementDocument
      */
@@ -6587,47 +6732,96 @@ export interface EntitlementDocument {
  */
 export interface EntitlementDocumentAllOf {
     /**
-     * A date-time in ISO-8601 format
+     * ISO-8601 date-time referring to the time when the object was last modified.
      * @type {string}
      * @memberof EntitlementDocumentAllOf
      */
     'modified'?: string | null;
     /**
-     * A date-time in ISO-8601 format
+     * ISO-8601 date-time referring to the date-time when object was queued to be synced into search database for use in the search API.   This date-time changes anytime there is an update to the object, which triggers a synchronization event being sent to the search database.  There may be some delay between the `synced` time and the time when the updated data is actually available in the search API. 
      * @type {string}
      * @memberof EntitlementDocumentAllOf
      */
-    'synced'?: string | null;
+    'synced'?: string;
     /**
-     * The display name of the entitlement
+     * Entitlement\'s display name.
      * @type {string}
      * @memberof EntitlementDocumentAllOf
      */
     'displayName'?: string;
     /**
      * 
-     * @type {Reference1}
+     * @type {EntitlementDocumentAllOfSource}
      * @memberof EntitlementDocumentAllOf
      */
-    'source'?: Reference1;
+    'source'?: EntitlementDocumentAllOfSource;
     /**
-     * 
+     * Segments with the role.
+     * @type {Array<BaseSegment>}
+     * @memberof EntitlementDocumentAllOf
+     */
+    'segments'?: Array<BaseSegment>;
+    /**
+     * Number of segments with the role.
+     * @type {number}
+     * @memberof EntitlementDocumentAllOf
+     */
+    'segmentCount'?: number;
+    /**
+     * Indicates whether the entitlement is requestable.
+     * @type {boolean}
+     * @memberof EntitlementDocumentAllOf
+     */
+    'requestable'?: boolean;
+    /**
+     * Indicates whether the entitlement is cloud governed.
+     * @type {boolean}
+     * @memberof EntitlementDocumentAllOf
+     */
+    'cloudGoverned'?: boolean;
+    /**
+     * ISO-8601 date-time referring to the time when the object was created.
+     * @type {string}
+     * @memberof EntitlementDocumentAllOf
+     */
+    'created'?: string | null;
+    /**
+     * Indicates whether the entitlement is privileged.
      * @type {boolean}
      * @memberof EntitlementDocumentAllOf
      */
     'privileged'?: boolean;
     /**
-     * 
+     * Number of identities who have access to the entitlement.
      * @type {number}
      * @memberof EntitlementDocumentAllOf
      */
     'identityCount'?: number;
     /**
-     * 
+     * Tags that have been applied to the object.
      * @type {Array<string>}
      * @memberof EntitlementDocumentAllOf
      */
     'tags'?: Array<string>;
+}
+/**
+ * Entitlement\'s source.
+ * @export
+ * @interface EntitlementDocumentAllOfSource
+ */
+export interface EntitlementDocumentAllOfSource {
+    /**
+     * ID of entitlement\'s source.
+     * @type {string}
+     * @memberof EntitlementDocumentAllOfSource
+     */
+    'id'?: string;
+    /**
+     * Display name of entitlement\'s source.
+     * @type {string}
+     * @memberof EntitlementDocumentAllOfSource
+     */
+    'name'?: string;
 }
 /**
  * 
@@ -7036,91 +7230,91 @@ export interface Event {
      */
     '_type': DocumentType;
     /**
-     * A date-time in ISO-8601 format
+     * ISO-8601 date-time referring to the time when the object was created.
      * @type {string}
      * @memberof Event
      */
     'created'?: string | null;
     /**
-     * A date-time in ISO-8601 format
+     * ISO-8601 date-time referring to the date-time when object was queued to be synced into search database for use in the search API.   This date-time changes anytime there is an update to the object, which triggers a synchronization event being sent to the search database.  There may be some delay between the `synced` time and the time when the updated data is actually available in the search API. 
      * @type {string}
      * @memberof Event
      */
-    'synced'?: string | null;
+    'synced'?: string;
     /**
-     * The action that was performed
+     * Name of the event as it\'s displayed in audit reports.
      * @type {string}
      * @memberof Event
      */
     'action'?: string;
     /**
-     * The type of event
+     * Event type. Refer to [Event Types](https://documentation.sailpoint.com/saas/help/search/index.html#event-types) for a list of event types and their meanings.
      * @type {string}
      * @memberof Event
      */
     'type'?: string;
     /**
-     * 
-     * @type {NameType}
+     * Name of the actor that generated the event.
+     * @type {string}
      * @memberof Event
      */
-    'actor'?: NameType;
+    'actor'?: string;
     /**
-     * 
-     * @type {NameType}
+     * Name of the target, or recipient, of the event.
+     * @type {string}
      * @memberof Event
      */
-    'target'?: NameType;
+    'target'?: string;
     /**
-     * 
+     * The event\'s stack.
      * @type {string}
      * @memberof Event
      */
     'stack'?: string;
     /**
-     * 
+     * ID of the group of events.
      * @type {string}
      * @memberof Event
      */
     'trackingNumber'?: string;
     /**
-     * 
+     * Target system\'s IP address.
      * @type {string}
      * @memberof Event
      */
     'ipAddress'?: string;
     /**
-     * 
+     * ID of event\'s details.
      * @type {string}
      * @memberof Event
      */
     'details'?: string;
     /**
-     * 
+     * Attributes involved in the event.
      * @type {{ [key: string]: any; }}
      * @memberof Event
      */
     'attributes'?: { [key: string]: any; };
     /**
-     * 
+     * Objects the event is happening to.
      * @type {Array<string>}
      * @memberof Event
      */
     'objects'?: Array<string>;
     /**
-     * 
+     * Operation, or action, performed during the event.
      * @type {string}
      * @memberof Event
      */
     'operation'?: string;
     /**
-     * 
+     * Event status. Refer to [Event Statuses](https://documentation.sailpoint.com/saas/help/search/index.html#event-statuses) for a list of event statuses and their meanings.
      * @type {string}
      * @memberof Event
      */
     'status'?: string;
     /**
-     * 
+     * Event\'s normalized name. This normalized name always follows the pattern of \'objects_operation_status\'.
      * @type {string}
      * @memberof Event
      */
@@ -7133,91 +7327,91 @@ export interface Event {
  */
 export interface EventAllOf {
     /**
-     * A date-time in ISO-8601 format
+     * ISO-8601 date-time referring to the time when the object was created.
      * @type {string}
      * @memberof EventAllOf
      */
     'created'?: string | null;
     /**
-     * A date-time in ISO-8601 format
+     * ISO-8601 date-time referring to the date-time when object was queued to be synced into search database for use in the search API.   This date-time changes anytime there is an update to the object, which triggers a synchronization event being sent to the search database.  There may be some delay between the `synced` time and the time when the updated data is actually available in the search API. 
      * @type {string}
      * @memberof EventAllOf
      */
-    'synced'?: string | null;
+    'synced'?: string;
     /**
-     * The action that was performed
+     * Name of the event as it\'s displayed in audit reports.
      * @type {string}
      * @memberof EventAllOf
      */
     'action'?: string;
     /**
-     * The type of event
+     * Event type. Refer to [Event Types](https://documentation.sailpoint.com/saas/help/search/index.html#event-types) for a list of event types and their meanings.
      * @type {string}
      * @memberof EventAllOf
      */
     'type'?: string;
     /**
-     * 
-     * @type {NameType}
+     * Name of the actor that generated the event.
+     * @type {string}
      * @memberof EventAllOf
      */
-    'actor'?: NameType;
+    'actor'?: string;
     /**
-     * 
-     * @type {NameType}
+     * Name of the target, or recipient, of the event.
+     * @type {string}
      * @memberof EventAllOf
      */
-    'target'?: NameType;
+    'target'?: string;
     /**
-     * 
+     * The event\'s stack.
      * @type {string}
      * @memberof EventAllOf
      */
     'stack'?: string;
     /**
-     * 
+     * ID of the group of events.
      * @type {string}
      * @memberof EventAllOf
      */
     'trackingNumber'?: string;
     /**
-     * 
+     * Target system\'s IP address.
      * @type {string}
      * @memberof EventAllOf
      */
     'ipAddress'?: string;
     /**
-     * 
+     * ID of event\'s details.
      * @type {string}
      * @memberof EventAllOf
      */
     'details'?: string;
     /**
-     * 
+     * Attributes involved in the event.
      * @type {{ [key: string]: any; }}
      * @memberof EventAllOf
      */
     'attributes'?: { [key: string]: any; };
     /**
-     * 
+     * Objects the event is happening to.
      * @type {Array<string>}
      * @memberof EventAllOf
      */
     'objects'?: Array<string>;
     /**
-     * 
+     * Operation, or action, performed during the event.
      * @type {string}
      * @memberof EventAllOf
      */
     'operation'?: string;
     /**
-     * 
+     * Event status. Refer to [Event Statuses](https://documentation.sailpoint.com/saas/help/search/index.html#event-statuses) for a list of event statuses and their meanings.
      * @type {string}
      * @memberof EventAllOf
      */
     'status'?: string;
     /**
-     * 
+     * Event\'s normalized name. This normalized name always follows the pattern of \'objects_operation_status\'.
      * @type {string}
      * @memberof EventAllOf
      */
@@ -7248,91 +7442,91 @@ export interface EventDocument {
      */
     '_type': DocumentType;
     /**
-     * A date-time in ISO-8601 format
+     * ISO-8601 date-time referring to the time when the object was created.
      * @type {string}
      * @memberof EventDocument
      */
     'created'?: string | null;
     /**
-     * A date-time in ISO-8601 format
+     * ISO-8601 date-time referring to the date-time when object was queued to be synced into search database for use in the search API.   This date-time changes anytime there is an update to the object, which triggers a synchronization event being sent to the search database.  There may be some delay between the `synced` time and the time when the updated data is actually available in the search API. 
      * @type {string}
      * @memberof EventDocument
      */
-    'synced'?: string | null;
+    'synced'?: string;
     /**
-     * The action that was performed
+     * Name of the event as it\'s displayed in audit reports.
      * @type {string}
      * @memberof EventDocument
      */
     'action'?: string;
     /**
-     * The type of event
+     * Event type. Refer to [Event Types](https://documentation.sailpoint.com/saas/help/search/index.html#event-types) for a list of event types and their meanings.
      * @type {string}
      * @memberof EventDocument
      */
     'type'?: string;
     /**
-     * 
-     * @type {NameType}
+     * Name of the actor that generated the event.
+     * @type {string}
      * @memberof EventDocument
      */
-    'actor'?: NameType;
+    'actor'?: string;
     /**
-     * 
-     * @type {NameType}
+     * Name of the target, or recipient, of the event.
+     * @type {string}
      * @memberof EventDocument
      */
-    'target'?: NameType;
+    'target'?: string;
     /**
-     * 
+     * The event\'s stack.
      * @type {string}
      * @memberof EventDocument
      */
     'stack'?: string;
     /**
-     * 
+     * ID of the group of events.
      * @type {string}
      * @memberof EventDocument
      */
     'trackingNumber'?: string;
     /**
-     * 
+     * Target system\'s IP address.
      * @type {string}
      * @memberof EventDocument
      */
     'ipAddress'?: string;
     /**
-     * 
+     * ID of event\'s details.
      * @type {string}
      * @memberof EventDocument
      */
     'details'?: string;
     /**
-     * 
+     * Attributes involved in the event.
      * @type {{ [key: string]: any; }}
      * @memberof EventDocument
      */
     'attributes'?: { [key: string]: any; };
     /**
-     * 
+     * Objects the event is happening to.
      * @type {Array<string>}
      * @memberof EventDocument
      */
     'objects'?: Array<string>;
     /**
-     * 
+     * Operation, or action, performed during the event.
      * @type {string}
      * @memberof EventDocument
      */
     'operation'?: string;
     /**
-     * 
+     * Event status. Refer to [Event Statuses](https://documentation.sailpoint.com/saas/help/search/index.html#event-statuses) for a list of event statuses and their meanings.
      * @type {string}
      * @memberof EventDocument
      */
     'status'?: string;
     /**
-     * 
+     * Event\'s normalized name. This normalized name always follows the pattern of \'objects_operation_status\'.
      * @type {string}
      * @memberof EventDocument
      */
@@ -8435,109 +8629,109 @@ export interface IdentityDocument {
      */
     '_type': DocumentType;
     /**
-     * The display name of the identity
+     * Identity\'s display name.
      * @type {string}
      * @memberof IdentityDocument
      */
     'displayName'?: string;
     /**
-     * The first name of the identity
+     * Identity\'s first name.
      * @type {string}
      * @memberof IdentityDocument
      */
     'firstName'?: string;
     /**
-     * The last name of the identity
+     * Identity\'s last name.
      * @type {string}
      * @memberof IdentityDocument
      */
     'lastName'?: string;
     /**
-     * The identity\'s primary email address
+     * Identity\'s primary email address.
      * @type {string}
      * @memberof IdentityDocument
      */
     'email'?: string;
     /**
-     * A date-time in ISO-8601 format
+     * ISO-8601 date-time referring to the time when the object was created.
      * @type {string}
      * @memberof IdentityDocument
      */
     'created'?: string | null;
     /**
-     * A date-time in ISO-8601 format
+     * ISO-8601 date-time referring to the time when the object was last modified.
      * @type {string}
      * @memberof IdentityDocument
      */
     'modified'?: string | null;
     /**
-     * A date-time in ISO-8601 format
-     * @type {string}
-     * @memberof IdentityDocument
-     */
-    'synced'?: string | null;
-    /**
-     * The phone number of the identity
+     * Identity\'s phone number.
      * @type {string}
      * @memberof IdentityDocument
      */
     'phone'?: string;
     /**
-     * Indicates if the identity is inactive
+     * ISO-8601 date-time referring to the date-time when object was queued to be synced into search database for use in the search API.   This date-time changes anytime there is an update to the object, which triggers a synchronization event being sent to the search database.  There may be some delay between the `synced` time and the time when the updated data is actually available in the search API. 
+     * @type {string}
+     * @memberof IdentityDocument
+     */
+    'synced'?: string;
+    /**
+     * Indicates whether the identity is inactive.
      * @type {boolean}
      * @memberof IdentityDocument
      */
     'inactive'?: boolean;
     /**
-     * 
+     * Indicates whether the identity is protected.
      * @type {boolean}
      * @memberof IdentityDocument
      */
     'protected'?: boolean;
     /**
-     * The identity\'s status in SailPoint
+     * Identity\'s status in SailPoint.
      * @type {string}
      * @memberof IdentityDocument
      */
     'status'?: string;
     /**
-     * 
+     * Identity\'s employee number.
      * @type {string}
      * @memberof IdentityDocument
      */
     'employeeNumber'?: string;
     /**
      * 
-     * @type {DisplayReference}
+     * @type {IdentityDocumentAllOfManager}
      * @memberof IdentityDocument
      */
-    'manager'?: DisplayReference;
+    'manager'?: IdentityDocumentAllOfManager | null;
     /**
-     * Indicates if this identity is a manager of other identities
+     * Indicates whether the identity is a manager of other identities.
      * @type {boolean}
      * @memberof IdentityDocument
      */
     'isManager'?: boolean;
     /**
      * 
-     * @type {Reference1}
+     * @type {IdentityDocumentAllOfIdentityProfile}
      * @memberof IdentityDocument
      */
-    'identityProfile'?: Reference1;
+    'identityProfile'?: IdentityDocumentAllOfIdentityProfile;
     /**
      * 
-     * @type {Reference1}
+     * @type {IdentityDocumentAllOfSource}
      * @memberof IdentityDocument
      */
-    'source'?: Reference1;
+    'source'?: IdentityDocumentAllOfSource;
     /**
-     * a map or dictionary of key/value pairs
+     * Map or dictionary of key/value pairs.
      * @type {{ [key: string]: any; }}
      * @memberof IdentityDocument
      */
     'attributes'?: { [key: string]: any; };
     /**
-     * 
+     * Identity\'s processing state.
      * @type {string}
      * @memberof IdentityDocument
      */
@@ -8549,67 +8743,73 @@ export interface IdentityDocument {
      */
     'processingDetails'?: ProcessingDetails;
     /**
-     * List of accounts associated with the identity
+     * List of accounts associated with the identity.
      * @type {Array<BaseAccount>}
      * @memberof IdentityDocument
      */
     'accounts'?: Array<BaseAccount>;
     /**
-     * Number of accounts associated with the identity
+     * Number of accounts associated with the identity.
      * @type {number}
      * @memberof IdentityDocument
      */
     'accountCount'?: number;
     /**
-     * The list of applications the identity has access to
+     * List of applications the identity has access to.
      * @type {Array<App>}
      * @memberof IdentityDocument
      */
     'apps'?: Array<App>;
     /**
-     * The number of applications the identity has access to
+     * Number of applications the identity has access to.
      * @type {number}
      * @memberof IdentityDocument
      */
     'appCount'?: number;
     /**
-     * The list of access items assigned to the identity
+     * List of access items assigned to the identity.
      * @type {Array<IdentityAccess>}
      * @memberof IdentityDocument
      */
     'access'?: Array<IdentityAccess>;
     /**
-     * The number of access items assigned to the identity
+     * Number of access items assigned to the identity.
      * @type {number}
      * @memberof IdentityDocument
      */
     'accessCount'?: number;
     /**
-     * The number of access profiles assigned to the identity
-     * @type {number}
-     * @memberof IdentityDocument
-     */
-    'accessProfileCount'?: number;
-    /**
-     * The number of entitlements assigned to the identity
+     * Number of entitlements assigned to the identity.
      * @type {number}
      * @memberof IdentityDocument
      */
     'entitlementCount'?: number;
     /**
-     * The number of roles assigned to the identity
+     * Number of roles assigned to the identity.
      * @type {number}
      * @memberof IdentityDocument
      */
     'roleCount'?: number;
     /**
-     * 
-     * @type {Owns}
+     * Number of access profiles assigned to the identity.
+     * @type {number}
      * @memberof IdentityDocument
      */
-    'owns'?: Owns;
+    'accessProfileCount'?: number;
     /**
-     * 
+     * Access items the identity owns.
+     * @type {Array<Owns>}
+     * @memberof IdentityDocument
+     */
+    'owns'?: Array<Owns>;
+    /**
+     * Number of access items the identity owns.
+     * @type {number}
+     * @memberof IdentityDocument
+     */
+    'ownsCount'?: number;
+    /**
+     * Tags that have been applied to the object.
      * @type {Array<string>}
      * @memberof IdentityDocument
      */
@@ -8622,109 +8822,109 @@ export interface IdentityDocument {
  */
 export interface IdentityDocumentAllOf {
     /**
-     * The first name of the identity
-     * @type {string}
-     * @memberof IdentityDocumentAllOf
-     */
-    'firstName'?: string;
-    /**
-     * The last name of the identity
-     * @type {string}
-     * @memberof IdentityDocumentAllOf
-     */
-    'lastName'?: string;
-    /**
-     * The display name of the identity
+     * Identity\'s display name.
      * @type {string}
      * @memberof IdentityDocumentAllOf
      */
     'displayName'?: string;
     /**
-     * The identity\'s primary email address
+     * Identity\'s first name.
+     * @type {string}
+     * @memberof IdentityDocumentAllOf
+     */
+    'firstName'?: string;
+    /**
+     * Identity\'s last name.
+     * @type {string}
+     * @memberof IdentityDocumentAllOf
+     */
+    'lastName'?: string;
+    /**
+     * Identity\'s primary email address.
      * @type {string}
      * @memberof IdentityDocumentAllOf
      */
     'email'?: string;
     /**
-     * A date-time in ISO-8601 format
+     * ISO-8601 date-time referring to the time when the object was created.
      * @type {string}
      * @memberof IdentityDocumentAllOf
      */
     'created'?: string | null;
     /**
-     * A date-time in ISO-8601 format
+     * ISO-8601 date-time referring to the time when the object was last modified.
      * @type {string}
      * @memberof IdentityDocumentAllOf
      */
     'modified'?: string | null;
     /**
-     * A date-time in ISO-8601 format
-     * @type {string}
-     * @memberof IdentityDocumentAllOf
-     */
-    'synced'?: string | null;
-    /**
-     * The phone number of the identity
+     * Identity\'s phone number.
      * @type {string}
      * @memberof IdentityDocumentAllOf
      */
     'phone'?: string;
     /**
-     * Indicates if the identity is inactive
+     * ISO-8601 date-time referring to the date-time when object was queued to be synced into search database for use in the search API.   This date-time changes anytime there is an update to the object, which triggers a synchronization event being sent to the search database.  There may be some delay between the `synced` time and the time when the updated data is actually available in the search API. 
+     * @type {string}
+     * @memberof IdentityDocumentAllOf
+     */
+    'synced'?: string;
+    /**
+     * Indicates whether the identity is inactive.
      * @type {boolean}
      * @memberof IdentityDocumentAllOf
      */
     'inactive'?: boolean;
     /**
-     * 
+     * Indicates whether the identity is protected.
      * @type {boolean}
      * @memberof IdentityDocumentAllOf
      */
     'protected'?: boolean;
     /**
-     * The identity\'s status in SailPoint
+     * Identity\'s status in SailPoint.
      * @type {string}
      * @memberof IdentityDocumentAllOf
      */
     'status'?: string;
     /**
-     * 
+     * Identity\'s employee number.
      * @type {string}
      * @memberof IdentityDocumentAllOf
      */
     'employeeNumber'?: string;
     /**
      * 
-     * @type {DisplayReference}
+     * @type {IdentityDocumentAllOfManager}
      * @memberof IdentityDocumentAllOf
      */
-    'manager'?: DisplayReference;
+    'manager'?: IdentityDocumentAllOfManager | null;
     /**
-     * Indicates if this identity is a manager of other identities
+     * Indicates whether the identity is a manager of other identities.
      * @type {boolean}
      * @memberof IdentityDocumentAllOf
      */
     'isManager'?: boolean;
     /**
      * 
-     * @type {Reference1}
+     * @type {IdentityDocumentAllOfIdentityProfile}
      * @memberof IdentityDocumentAllOf
      */
-    'identityProfile'?: Reference1;
+    'identityProfile'?: IdentityDocumentAllOfIdentityProfile;
     /**
      * 
-     * @type {Reference1}
+     * @type {IdentityDocumentAllOfSource}
      * @memberof IdentityDocumentAllOf
      */
-    'source'?: Reference1;
+    'source'?: IdentityDocumentAllOfSource;
     /**
-     * a map or dictionary of key/value pairs
+     * Map or dictionary of key/value pairs.
      * @type {{ [key: string]: any; }}
      * @memberof IdentityDocumentAllOf
      */
     'attributes'?: { [key: string]: any; };
     /**
-     * 
+     * Identity\'s processing state.
      * @type {string}
      * @memberof IdentityDocumentAllOf
      */
@@ -8736,71 +8936,140 @@ export interface IdentityDocumentAllOf {
      */
     'processingDetails'?: ProcessingDetails;
     /**
-     * List of accounts associated with the identity
+     * List of accounts associated with the identity.
      * @type {Array<BaseAccount>}
      * @memberof IdentityDocumentAllOf
      */
     'accounts'?: Array<BaseAccount>;
     /**
-     * Number of accounts associated with the identity
+     * Number of accounts associated with the identity.
      * @type {number}
      * @memberof IdentityDocumentAllOf
      */
     'accountCount'?: number;
     /**
-     * The list of applications the identity has access to
+     * List of applications the identity has access to.
      * @type {Array<App>}
      * @memberof IdentityDocumentAllOf
      */
     'apps'?: Array<App>;
     /**
-     * The number of applications the identity has access to
+     * Number of applications the identity has access to.
      * @type {number}
      * @memberof IdentityDocumentAllOf
      */
     'appCount'?: number;
     /**
-     * The list of access items assigned to the identity
+     * List of access items assigned to the identity.
      * @type {Array<IdentityAccess>}
      * @memberof IdentityDocumentAllOf
      */
     'access'?: Array<IdentityAccess>;
     /**
-     * The number of access items assigned to the identity
+     * Number of access items assigned to the identity.
      * @type {number}
      * @memberof IdentityDocumentAllOf
      */
     'accessCount'?: number;
     /**
-     * The number of access profiles assigned to the identity
-     * @type {number}
-     * @memberof IdentityDocumentAllOf
-     */
-    'accessProfileCount'?: number;
-    /**
-     * The number of entitlements assigned to the identity
+     * Number of entitlements assigned to the identity.
      * @type {number}
      * @memberof IdentityDocumentAllOf
      */
     'entitlementCount'?: number;
     /**
-     * The number of roles assigned to the identity
+     * Number of roles assigned to the identity.
      * @type {number}
      * @memberof IdentityDocumentAllOf
      */
     'roleCount'?: number;
     /**
-     * 
-     * @type {Owns}
+     * Number of access profiles assigned to the identity.
+     * @type {number}
      * @memberof IdentityDocumentAllOf
      */
-    'owns'?: Owns;
+    'accessProfileCount'?: number;
     /**
-     * 
+     * Access items the identity owns.
+     * @type {Array<Owns>}
+     * @memberof IdentityDocumentAllOf
+     */
+    'owns'?: Array<Owns>;
+    /**
+     * Number of access items the identity owns.
+     * @type {number}
+     * @memberof IdentityDocumentAllOf
+     */
+    'ownsCount'?: number;
+    /**
+     * Tags that have been applied to the object.
      * @type {Array<string>}
      * @memberof IdentityDocumentAllOf
      */
     'tags'?: Array<string>;
+}
+/**
+ * Identity\'s identity profile.
+ * @export
+ * @interface IdentityDocumentAllOfIdentityProfile
+ */
+export interface IdentityDocumentAllOfIdentityProfile {
+    /**
+     * Identity profile\'s ID.
+     * @type {string}
+     * @memberof IdentityDocumentAllOfIdentityProfile
+     */
+    'id'?: string;
+    /**
+     * Identity profile\'s name.
+     * @type {string}
+     * @memberof IdentityDocumentAllOfIdentityProfile
+     */
+    'name'?: string;
+}
+/**
+ * Identity\'s manager.
+ * @export
+ * @interface IdentityDocumentAllOfManager
+ */
+export interface IdentityDocumentAllOfManager {
+    /**
+     * ID of identity\'s manager.
+     * @type {string}
+     * @memberof IdentityDocumentAllOfManager
+     */
+    'id'?: string;
+    /**
+     * Name of identity\'s manager.
+     * @type {string}
+     * @memberof IdentityDocumentAllOfManager
+     */
+    'name'?: string;
+    /**
+     * Display name of identity\'s manager.
+     * @type {string}
+     * @memberof IdentityDocumentAllOfManager
+     */
+    'displayName'?: string;
+}
+/**
+ * Identity\'s source.
+ * @export
+ * @interface IdentityDocumentAllOfSource
+ */
+export interface IdentityDocumentAllOfSource {
+    /**
+     * ID of identity\'s source.
+     * @type {string}
+     * @memberof IdentityDocumentAllOfSource
+     */
+    'id'?: string;
+    /**
+     * Display name of identity\'s source.
+     * @type {string}
+     * @memberof IdentityDocumentAllOfSource
+     */
+    'name'?: string;
 }
 /**
  * 
@@ -9978,25 +10247,6 @@ export interface NameNormalizer {
      * @memberof NameNormalizer
      */
     'input'?: { [key: string]: any; };
-}
-/**
- * 
- * @export
- * @interface NameType
- */
-export interface NameType {
-    /**
-     * the actor or target name
-     * @type {string}
-     * @memberof NameType
-     */
-    'name'?: string;
-    /**
-     * 
-     * @type {DtoType}
-     * @memberof NameType
-     */
-    'type'?: DtoType;
 }
 /**
  * | Construct       | Date Time Pattern | Description | | ---------       | ----------------- | ----------- | | ISO8601         | `yyyy-MM-dd\'T\'HH:mm:ss.SSSX` | The ISO8601 standard. |           | LDAP            | `yyyyMMddHHmmss.Z`           | The LDAP standard.    | | PEOPLE_SOFT     | `MM/dd/yyyy`                 | The date format People Soft uses. | | EPOCH_TIME_JAVA | # ms from midnight, January 1st, 1970 | The incoming date value as elapsed time in milliseconds from midnight, January 1st, 1970. | | EPOCH_TIME_WIN32| # intervals of 100ns from midnight, January 1st, 1601 | The incoming date value as elapsed time in 100-nanosecond intervals from midnight, January 1st, 1601. | 
@@ -11607,19 +11857,19 @@ export type Operation = typeof Operation[keyof typeof Operation];
  */
 export interface OriginalRequest {
     /**
-     * the account id
+     * Account ID.
      * @type {string}
      * @memberof OriginalRequest
      */
     'accountId'?: string;
     /**
-     * 
+     * Attribute changes requested for account.
      * @type {Array<AttributeRequest>}
      * @memberof OriginalRequest
      */
     'attributeRequests'?: Array<AttributeRequest>;
     /**
-     * the operation that was used
+     * Operation used.
      * @type {string}
      * @memberof OriginalRequest
      */
@@ -11664,50 +11914,6 @@ export const OrphanUncorrelatedReportArgumentsSelectedFormatsEnum = {
 
 export type OrphanUncorrelatedReportArgumentsSelectedFormatsEnum = typeof OrphanUncorrelatedReportArgumentsSelectedFormatsEnum[keyof typeof OrphanUncorrelatedReportArgumentsSelectedFormatsEnum];
 
-/**
- * 
- * @export
- * @interface Owner
- */
-export interface Owner {
-    /**
-     * The unique ID of the referenced object.
-     * @type {string}
-     * @memberof Owner
-     */
-    'id'?: string;
-    /**
-     * The human readable name of the referenced object.
-     * @type {string}
-     * @memberof Owner
-     */
-    'name'?: string;
-    /**
-     * 
-     * @type {DtoType}
-     * @memberof Owner
-     */
-    'type'?: DtoType;
-    /**
-     * The email of the identity
-     * @type {string}
-     * @memberof Owner
-     */
-    'email'?: string;
-}
-/**
- * 
- * @export
- * @interface OwnerAllOf
- */
-export interface OwnerAllOf {
-    /**
-     * The email of the identity
-     * @type {string}
-     * @memberof OwnerAllOf
-     */
-    'email'?: string;
-}
 /**
  * Owner\'s identity.
  * @export
@@ -14682,91 +14888,91 @@ export interface RoleDocument {
      */
     '_type': DocumentType;
     /**
-     * The description of the access item
+     * Access item\'s description.
      * @type {string}
      * @memberof RoleDocument
      */
     'description'?: string;
     /**
-     * A date-time in ISO-8601 format
+     * ISO-8601 date-time referring to the time when the object was created.
      * @type {string}
      * @memberof RoleDocument
      */
     'created'?: string | null;
     /**
-     * A date-time in ISO-8601 format
+     * ISO-8601 date-time referring to the time when the object was last modified.
      * @type {string}
      * @memberof RoleDocument
      */
     'modified'?: string | null;
     /**
-     * A date-time in ISO-8601 format
+     * ISO-8601 date-time referring to the date-time when object was queued to be synced into search database for use in the search API.   This date-time changes anytime there is an update to the object, which triggers a synchronization event being sent to the search database.  There may be some delay between the `synced` time and the time when the updated data is actually available in the search API. 
      * @type {string}
      * @memberof RoleDocument
      */
     'synced'?: string | null;
     /**
-     * 
+     * Indicates whether the access item is currently enabled.
      * @type {boolean}
      * @memberof RoleDocument
      */
     'enabled'?: boolean;
     /**
-     * Indicates if the access can be requested
+     * Indicates whether the access item can be requested.
      * @type {boolean}
      * @memberof RoleDocument
      */
     'requestable'?: boolean;
     /**
-     * Indicates if comments are required when requesting access
+     * Indicates whether comments are required for requests to access the item.
      * @type {boolean}
      * @memberof RoleDocument
      */
     'requestCommentsRequired'?: boolean;
     /**
      * 
-     * @type {Owner}
+     * @type {BaseAccessAllOfOwner}
      * @memberof RoleDocument
      */
-    'owner'?: Owner;
+    'owner'?: BaseAccessAllOfOwner;
     /**
-     * 
-     * @type {Array<Reference1>}
+     * Access profiles included with the role.
+     * @type {Array<BaseAccessProfile>}
      * @memberof RoleDocument
      */
-    'accessProfiles'?: Array<Reference1>;
+    'accessProfiles'?: Array<BaseAccessProfile>;
     /**
-     * 
+     * Number of access profiles included with the role.
      * @type {number}
      * @memberof RoleDocument
      */
     'accessProfileCount'?: number;
     /**
-     * 
+     * Tags that have been applied to the object.
      * @type {Array<string>}
      * @memberof RoleDocument
      */
     'tags'?: Array<string>;
     /**
-     * 
-     * @type {Array<Reference1>}
+     * Segments with the role.
+     * @type {Array<BaseSegment>}
      * @memberof RoleDocument
      */
-    'segments'?: Array<Reference1>;
+    'segments'?: Array<BaseSegment>;
     /**
-     * 
+     * Number of segments with the role.
      * @type {number}
      * @memberof RoleDocument
      */
     'segmentCount'?: number;
     /**
-     * 
-     * @type {Array<AccessProfileRole>}
+     * Entitlements included with the role.
+     * @type {Array<BaseEntitlement>}
      * @memberof RoleDocument
      */
-    'entitlements'?: Array<AccessProfileRole>;
+    'entitlements'?: Array<BaseEntitlement>;
     /**
-     * 
+     * Number of entitlements included with the role.
      * @type {number}
      * @memberof RoleDocument
      */
@@ -14779,43 +14985,43 @@ export interface RoleDocument {
  */
 export interface RoleDocumentAllOf {
     /**
-     * 
-     * @type {Array<Reference1>}
+     * Access profiles included with the role.
+     * @type {Array<BaseAccessProfile>}
      * @memberof RoleDocumentAllOf
      */
-    'accessProfiles'?: Array<Reference1>;
+    'accessProfiles'?: Array<BaseAccessProfile>;
     /**
-     * 
+     * Number of access profiles included with the role.
      * @type {number}
      * @memberof RoleDocumentAllOf
      */
     'accessProfileCount'?: number;
     /**
-     * 
+     * Tags that have been applied to the object.
      * @type {Array<string>}
      * @memberof RoleDocumentAllOf
      */
     'tags'?: Array<string>;
     /**
-     * 
-     * @type {Array<Reference1>}
+     * Segments with the role.
+     * @type {Array<BaseSegment>}
      * @memberof RoleDocumentAllOf
      */
-    'segments'?: Array<Reference1>;
+    'segments'?: Array<BaseSegment>;
     /**
-     * 
+     * Number of segments with the role.
      * @type {number}
      * @memberof RoleDocumentAllOf
      */
     'segmentCount'?: number;
     /**
-     * 
-     * @type {Array<AccessProfileRole>}
+     * Entitlements included with the role.
+     * @type {Array<BaseEntitlement>}
      * @memberof RoleDocumentAllOf
      */
-    'entitlements'?: Array<AccessProfileRole>;
+    'entitlements'?: Array<BaseEntitlement>;
     /**
-     * 
+     * Number of entitlements included with the role.
      * @type {number}
      * @memberof RoleDocumentAllOf
      */
@@ -15973,44 +16179,6 @@ export const SearchFilterType = {
 export type SearchFilterType = typeof SearchFilterType[keyof typeof SearchFilterType];
 
 
-/**
- * 
- * @export
- * @interface SearchIdentityReference
- */
-export interface SearchIdentityReference {
-    /**
-     * The unique ID of the referenced object.
-     * @type {string}
-     * @memberof SearchIdentityReference
-     */
-    'id'?: string;
-    /**
-     * The human readable name of the referenced object.
-     * @type {string}
-     * @memberof SearchIdentityReference
-     */
-    'name'?: string;
-    /**
-     * 
-     * @type {DtoType}
-     * @memberof SearchIdentityReference
-     */
-    'type'?: DtoType;
-}
-/**
- * 
- * @export
- * @interface SearchIdentityReferenceAllOf
- */
-export interface SearchIdentityReferenceAllOf {
-    /**
-     * 
-     * @type {DtoType}
-     * @memberof SearchIdentityReferenceAllOf
-     */
-    'type'?: DtoType;
-}
 /**
  * 
  * @export
