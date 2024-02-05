@@ -467,13 +467,13 @@ export type AccessItemOwnerDtoBetaTypeEnum = typeof AccessItemOwnerDtoBetaTypeEn
  */
 export interface AccessItemRefBeta {
     /**
-     * The ID of the access item for which to retrieve the recommendation
+     * ID of the access item to retrieve the recommendation for.
      * @type {string}
      * @memberof AccessItemRefBeta
      */
     'id'?: string;
     /**
-     * The type of the access item.
+     * Access item\'s type.
      * @type {string}
      * @memberof AccessItemRefBeta
      */
@@ -29418,6 +29418,159 @@ export class AccessRequestApprovalsBetaApi extends BaseAPI {
      */
     public rejectAccessRequest(requestParameters: AccessRequestApprovalsBetaApiRejectAccessRequestRequest, axiosOptions?: AxiosRequestConfig) {
         return AccessRequestApprovalsBetaApiFp(this.configuration).rejectAccessRequest(requestParameters.approvalId, requestParameters.commentDtoBeta, axiosOptions).then((request) => request(this.axios, this.basePath));
+    }
+}
+
+
+/**
+ * AccessRequestIdentityMetricsBetaApi - axios parameter creator
+ * @export
+ */
+export const AccessRequestIdentityMetricsBetaApiAxiosParamCreator = function (configuration?: Configuration) {
+    return {
+        /**
+         * Use this API to return information access metrics.
+         * @summary Return access request identity metrics
+         * @param {string} identityId Identity\&#39;s ID.
+         * @param {string} requestedObjectId Requested access item\&#39;s ID.
+         * @param {string} type Requested access item\&#39;s type.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        getAccessRequestIdentityMetrics: async (identityId: string, requestedObjectId: string, type: string, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'identityId' is not null or undefined
+            assertParamExists('getAccessRequestIdentityMetrics', 'identityId', identityId)
+            // verify required parameter 'requestedObjectId' is not null or undefined
+            assertParamExists('getAccessRequestIdentityMetrics', 'requestedObjectId', requestedObjectId)
+            // verify required parameter 'type' is not null or undefined
+            assertParamExists('getAccessRequestIdentityMetrics', 'type', type)
+            const localVarPath = `/access-request-identity-metrics/{identityId}/requested-objects/{requestedObjectId}/type/{type}`
+                .replace(`{${"identityId"}}`, encodeURIComponent(String(identityId)))
+                .replace(`{${"requestedObjectId"}}`, encodeURIComponent(String(requestedObjectId)))
+                .replace(`{${"type"}}`, encodeURIComponent(String(type)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...axiosOptions};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication UserContextAuth required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "UserContextAuth", [], configuration)
+
+            // authentication UserContextAuth required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "UserContextAuth", [], configuration)
+
+
+    
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                axiosOptions: localVarRequestOptions,
+            };
+        },
+    }
+};
+
+/**
+ * AccessRequestIdentityMetricsBetaApi - functional programming interface
+ * @export
+ */
+export const AccessRequestIdentityMetricsBetaApiFp = function(configuration?: Configuration) {
+    const localVarAxiosParamCreator = AccessRequestIdentityMetricsBetaApiAxiosParamCreator(configuration)
+    return {
+        /**
+         * Use this API to return information access metrics.
+         * @summary Return access request identity metrics
+         * @param {string} identityId Identity\&#39;s ID.
+         * @param {string} requestedObjectId Requested access item\&#39;s ID.
+         * @param {string} type Requested access item\&#39;s type.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        async getAccessRequestIdentityMetrics(identityId: string, requestedObjectId: string, type: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<object>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getAccessRequestIdentityMetrics(identityId, requestedObjectId, type, axiosOptions);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+    }
+};
+
+/**
+ * AccessRequestIdentityMetricsBetaApi - factory interface
+ * @export
+ */
+export const AccessRequestIdentityMetricsBetaApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
+    const localVarFp = AccessRequestIdentityMetricsBetaApiFp(configuration)
+    return {
+        /**
+         * Use this API to return information access metrics.
+         * @summary Return access request identity metrics
+         * @param {string} identityId Identity\&#39;s ID.
+         * @param {string} requestedObjectId Requested access item\&#39;s ID.
+         * @param {string} type Requested access item\&#39;s type.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        getAccessRequestIdentityMetrics(identityId: string, requestedObjectId: string, type: string, axiosOptions?: any): AxiosPromise<object> {
+            return localVarFp.getAccessRequestIdentityMetrics(identityId, requestedObjectId, type, axiosOptions).then((request) => request(axios, basePath));
+        },
+    };
+};
+
+/**
+ * Request parameters for getAccessRequestIdentityMetrics operation in AccessRequestIdentityMetricsBetaApi.
+ * @export
+ * @interface AccessRequestIdentityMetricsBetaApiGetAccessRequestIdentityMetricsRequest
+ */
+export interface AccessRequestIdentityMetricsBetaApiGetAccessRequestIdentityMetricsRequest {
+    /**
+     * Identity\&#39;s ID.
+     * @type {string}
+     * @memberof AccessRequestIdentityMetricsBetaApiGetAccessRequestIdentityMetrics
+     */
+    readonly identityId: string
+
+    /**
+     * Requested access item\&#39;s ID.
+     * @type {string}
+     * @memberof AccessRequestIdentityMetricsBetaApiGetAccessRequestIdentityMetrics
+     */
+    readonly requestedObjectId: string
+
+    /**
+     * Requested access item\&#39;s type.
+     * @type {string}
+     * @memberof AccessRequestIdentityMetricsBetaApiGetAccessRequestIdentityMetrics
+     */
+    readonly type: string
+}
+
+/**
+ * AccessRequestIdentityMetricsBetaApi - object-oriented interface
+ * @export
+ * @class AccessRequestIdentityMetricsBetaApi
+ * @extends {BaseAPI}
+ */
+export class AccessRequestIdentityMetricsBetaApi extends BaseAPI {
+    /**
+     * Use this API to return information access metrics.
+     * @summary Return access request identity metrics
+     * @param {AccessRequestIdentityMetricsBetaApiGetAccessRequestIdentityMetricsRequest} requestParameters Request parameters.
+     * @param {*} [axiosOptions] Override http request option.
+     * @throws {RequiredError}
+     * @memberof AccessRequestIdentityMetricsBetaApi
+     */
+    public getAccessRequestIdentityMetrics(requestParameters: AccessRequestIdentityMetricsBetaApiGetAccessRequestIdentityMetricsRequest, axiosOptions?: AxiosRequestConfig) {
+        return AccessRequestIdentityMetricsBetaApiFp(this.configuration).getAccessRequestIdentityMetrics(requestParameters.identityId, requestParameters.requestedObjectId, requestParameters.type, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 }
 
