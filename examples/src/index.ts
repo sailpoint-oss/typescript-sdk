@@ -1,4 +1,4 @@
-import { AccountsApi, Configuration, axiosRetry, Paginator, SearchApi, TransformsApi, TransformsApiCreateTransformRequest, Search, IdentityDocument, TransformsBetaApi, GovernanceGroupsBetaApi, GovernanceGroupsV2Api, AccountsCCApi, ConnectorsCCApi} from "sailpoint-api-client"
+import { AccountsApi, Configuration, axiosRetry, Paginator, SearchApi, TransformsApi, TransformsApiCreateTransformRequest, Search, IdentityDocument, TransformsBetaApi, GovernanceGroupsBetaApi, GovernanceGroupsV2Api} from "sailpoint-api-client"
 
 const createTransform = async () => {
 
@@ -99,23 +99,7 @@ const listGovernanceGroups = async () => {
     console.log(val.data)
 }
 
-const listCCAccounts = async () => {
 
-    let apiConfig = new Configuration()
-    let api = new AccountsCCApi(apiConfig)
-   
-    const val = await api.listAccounts()
-    console.log(val.data)
-}
-
-const listConectors = async () => {
-
-    let apiConfig = new Configuration()
-    let api = new ConnectorsCCApi(apiConfig)
-   
-    const val = await api.listConnectors()
-    console.log(val.data)
-}
 
 
 

@@ -1,4 +1,4 @@
-import { AccountsBetaApi, AccountsCCApi, ConnectorsBetaApi, GovernanceGroupsV2Api, IdentityProfilesBetaApi, Paginator, Search, SourcesBetaApi, TransformsApi } from "./index"
+import { AccountsBetaApi, ConnectorsBetaApi, GovernanceGroupsV2Api, IdentityProfilesBetaApi, Paginator, Search, SourcesBetaApi, TransformsApi } from "./index"
 import { AccountsApi, Configuration, SearchApi } from "./index"
 
 describe('Test_v3', () => {
@@ -103,17 +103,6 @@ describe('Test_v2', () => {
         const resp = await api.listWorkgroups({limit: 2})
     
         expect(resp.data.length).toStrictEqual(2)
-        expect(resp.status).toStrictEqual(200)
-    }, 30000)
-})
-
-describe('Test_cc', () => {
-    it('Test List Accounts', async () => {
-        let apiConfig = new Configuration()
-        let api = new AccountsCCApi(apiConfig)
-        
-        const resp = await api.listAccounts()
-    
         expect(resp.status).toStrictEqual(200)
     }, 30000)
 })
