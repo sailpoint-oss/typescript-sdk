@@ -888,6 +888,25 @@ export interface AccessProfileBulkDeleteResponseBeta {
     'inUse'?: Array<AccessProfileUsageBeta>;
 }
 /**
+ * Access Profile\'s basic details.
+ * @export
+ * @interface AccessProfileBulkUpdateRequestInnerBeta
+ */
+export interface AccessProfileBulkUpdateRequestInnerBeta {
+    /**
+     * Access Profile ID.
+     * @type {string}
+     * @memberof AccessProfileBulkUpdateRequestInnerBeta
+     */
+    'id'?: string;
+    /**
+     * Access Profile is requestable or not.
+     * @type {boolean}
+     * @memberof AccessProfileBulkUpdateRequestInnerBeta
+     */
+    'requestable'?: boolean;
+}
+/**
  * 
  * @export
  * @interface AccessProfileRefBeta
@@ -951,6 +970,37 @@ export const AccessProfileSourceRefBetaTypeEnum = {
 
 export type AccessProfileSourceRefBetaTypeEnum = typeof AccessProfileSourceRefBetaTypeEnum[keyof typeof AccessProfileSourceRefBetaTypeEnum];
 
+/**
+ * 
+ * @export
+ * @interface AccessProfileUpdateItemBeta
+ */
+export interface AccessProfileUpdateItemBeta {
+    /**
+     * Identifier of Access Profile in bulk update request.
+     * @type {string}
+     * @memberof AccessProfileUpdateItemBeta
+     */
+    'id': string;
+    /**
+     * Access Profile requestable or not.
+     * @type {boolean}
+     * @memberof AccessProfileUpdateItemBeta
+     */
+    'requestable': boolean;
+    /**
+     *  The HTTP response status code returned for an individual Access Profile that is requested for update during a bulk update operation.  > 201   - Access profile is updated successfully.  > 404   - Access profile not found. 
+     * @type {string}
+     * @memberof AccessProfileUpdateItemBeta
+     */
+    'status': string;
+    /**
+     * Human readable status description and containing additional context information about success or failures etc. 
+     * @type {string}
+     * @memberof AccessProfileUpdateItemBeta
+     */
+    'description'?: string;
+}
 /**
  * 
  * @export
@@ -26334,6 +26384,19 @@ export interface UUIDGeneratorBeta {
 /**
  * 
  * @export
+ * @interface UpdateAccessProfilesInBulk412ResponseBeta
+ */
+export interface UpdateAccessProfilesInBulk412ResponseBeta {
+    /**
+     * A message describing the error
+     * @type {object}
+     * @memberof UpdateAccessProfilesInBulk412ResponseBeta
+     */
+    'message'?: object;
+}
+/**
+ * 
+ * @export
  * @interface UpperBeta
  */
 export interface UpperBeta {
@@ -28174,6 +28237,50 @@ export const AccessProfilesBetaApiAxiosParamCreator = function (configuration?: 
                 axiosOptions: localVarRequestOptions,
             };
         },
+        /**
+         * This API initiates a bulk update of field requestable for one or more Access Profiles.  >  If any of the indicated Access Profiles is exists in Organization,then those Access Profiles will be added in **updated**     list of the response.Requestable field of these Access Profiles marked as **true** or **false**.  >  If any of the indicated Access Profiles is not does not exists in Organization,then those Access Profiles will be added in **notFound** list of the response. Access Profiles marked as **notFound** will not be updated. >  A token with API, ORG_ADMIN, SOURCE_ADMIN, or SOURCE_SUBADMIN authority is required to call this API. In addition, a SOURCE_SUBADMIN may only use this API to update Access Profiles which are associated with Sources they are able to administer.
+         * @summary Update Access Profile(s) requestable field.
+         * @param {Array<AccessProfileBulkUpdateRequestInnerBeta>} accessProfileBulkUpdateRequestInnerBeta 
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        updateAccessProfilesInBulk: async (accessProfileBulkUpdateRequestInnerBeta: Array<AccessProfileBulkUpdateRequestInnerBeta>, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'accessProfileBulkUpdateRequestInnerBeta' is not null or undefined
+            assertParamExists('updateAccessProfilesInBulk', 'accessProfileBulkUpdateRequestInnerBeta', accessProfileBulkUpdateRequestInnerBeta)
+            const localVarPath = `/access-profiles/bulk-update-requestable`;
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'POST', ...baseOptions, ...axiosOptions};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication UserContextAuth required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "UserContextAuth", [], configuration)
+
+            // authentication UserContextAuth required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "UserContextAuth", [], configuration)
+
+
+    
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
+            localVarRequestOptions.data = serializeDataIfNeeded(accessProfileBulkUpdateRequestInnerBeta, localVarRequestOptions, configuration)
+
+            return {
+                url: toPathString(localVarUrlObj),
+                axiosOptions: localVarRequestOptions,
+            };
+        },
     }
 };
 
@@ -28274,6 +28381,17 @@ export const AccessProfilesBetaApiFp = function(configuration?: Configuration) {
             const localVarAxiosArgs = await localVarAxiosParamCreator.patchAccessProfile(id, jsonPatchOperationBeta, axiosOptions);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
+        /**
+         * This API initiates a bulk update of field requestable for one or more Access Profiles.  >  If any of the indicated Access Profiles is exists in Organization,then those Access Profiles will be added in **updated**     list of the response.Requestable field of these Access Profiles marked as **true** or **false**.  >  If any of the indicated Access Profiles is not does not exists in Organization,then those Access Profiles will be added in **notFound** list of the response. Access Profiles marked as **notFound** will not be updated. >  A token with API, ORG_ADMIN, SOURCE_ADMIN, or SOURCE_SUBADMIN authority is required to call this API. In addition, a SOURCE_SUBADMIN may only use this API to update Access Profiles which are associated with Sources they are able to administer.
+         * @summary Update Access Profile(s) requestable field.
+         * @param {Array<AccessProfileBulkUpdateRequestInnerBeta>} accessProfileBulkUpdateRequestInnerBeta 
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        async updateAccessProfilesInBulk(accessProfileBulkUpdateRequestInnerBeta: Array<AccessProfileBulkUpdateRequestInnerBeta>, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<AccessProfileUpdateItemBeta>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.updateAccessProfilesInBulk(accessProfileBulkUpdateRequestInnerBeta, axiosOptions);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
     }
 };
 
@@ -28366,6 +28484,16 @@ export const AccessProfilesBetaApiFactory = function (configuration?: Configurat
          */
         patchAccessProfile(id: string, jsonPatchOperationBeta: Array<JsonPatchOperationBeta>, axiosOptions?: any): AxiosPromise<AccessProfileBeta> {
             return localVarFp.patchAccessProfile(id, jsonPatchOperationBeta, axiosOptions).then((request) => request(axios, basePath));
+        },
+        /**
+         * This API initiates a bulk update of field requestable for one or more Access Profiles.  >  If any of the indicated Access Profiles is exists in Organization,then those Access Profiles will be added in **updated**     list of the response.Requestable field of these Access Profiles marked as **true** or **false**.  >  If any of the indicated Access Profiles is not does not exists in Organization,then those Access Profiles will be added in **notFound** list of the response. Access Profiles marked as **notFound** will not be updated. >  A token with API, ORG_ADMIN, SOURCE_ADMIN, or SOURCE_SUBADMIN authority is required to call this API. In addition, a SOURCE_SUBADMIN may only use this API to update Access Profiles which are associated with Sources they are able to administer.
+         * @summary Update Access Profile(s) requestable field.
+         * @param {Array<AccessProfileBulkUpdateRequestInnerBeta>} accessProfileBulkUpdateRequestInnerBeta 
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        updateAccessProfilesInBulk(accessProfileBulkUpdateRequestInnerBeta: Array<AccessProfileBulkUpdateRequestInnerBeta>, axiosOptions?: any): AxiosPromise<Array<AccessProfileUpdateItemBeta>> {
+            return localVarFp.updateAccessProfilesInBulk(accessProfileBulkUpdateRequestInnerBeta, axiosOptions).then((request) => request(axios, basePath));
         },
     };
 };
@@ -28560,6 +28688,20 @@ export interface AccessProfilesBetaApiPatchAccessProfileRequest {
 }
 
 /**
+ * Request parameters for updateAccessProfilesInBulk operation in AccessProfilesBetaApi.
+ * @export
+ * @interface AccessProfilesBetaApiUpdateAccessProfilesInBulkRequest
+ */
+export interface AccessProfilesBetaApiUpdateAccessProfilesInBulkRequest {
+    /**
+     * 
+     * @type {Array<AccessProfileBulkUpdateRequestInnerBeta>}
+     * @memberof AccessProfilesBetaApiUpdateAccessProfilesInBulk
+     */
+    readonly accessProfileBulkUpdateRequestInnerBeta: Array<AccessProfileBulkUpdateRequestInnerBeta>
+}
+
+/**
  * AccessProfilesBetaApi - object-oriented interface
  * @export
  * @class AccessProfilesBetaApi
@@ -28648,6 +28790,18 @@ export class AccessProfilesBetaApi extends BaseAPI {
      */
     public patchAccessProfile(requestParameters: AccessProfilesBetaApiPatchAccessProfileRequest, axiosOptions?: AxiosRequestConfig) {
         return AccessProfilesBetaApiFp(this.configuration).patchAccessProfile(requestParameters.id, requestParameters.jsonPatchOperationBeta, axiosOptions).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * This API initiates a bulk update of field requestable for one or more Access Profiles.  >  If any of the indicated Access Profiles is exists in Organization,then those Access Profiles will be added in **updated**     list of the response.Requestable field of these Access Profiles marked as **true** or **false**.  >  If any of the indicated Access Profiles is not does not exists in Organization,then those Access Profiles will be added in **notFound** list of the response. Access Profiles marked as **notFound** will not be updated. >  A token with API, ORG_ADMIN, SOURCE_ADMIN, or SOURCE_SUBADMIN authority is required to call this API. In addition, a SOURCE_SUBADMIN may only use this API to update Access Profiles which are associated with Sources they are able to administer.
+     * @summary Update Access Profile(s) requestable field.
+     * @param {AccessProfilesBetaApiUpdateAccessProfilesInBulkRequest} requestParameters Request parameters.
+     * @param {*} [axiosOptions] Override http request option.
+     * @throws {RequiredError}
+     * @memberof AccessProfilesBetaApi
+     */
+    public updateAccessProfilesInBulk(requestParameters: AccessProfilesBetaApiUpdateAccessProfilesInBulkRequest, axiosOptions?: AxiosRequestConfig) {
+        return AccessProfilesBetaApiFp(this.configuration).updateAccessProfilesInBulk(requestParameters.accessProfileBulkUpdateRequestInnerBeta, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 }
 
