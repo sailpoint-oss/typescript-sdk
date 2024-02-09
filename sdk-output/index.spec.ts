@@ -1,4 +1,4 @@
-import { AccountsBetaApi, ConnectorsBetaApi, GovernanceGroupsV2Api, IdentityProfilesBetaApi, Paginator, Search, SourcesBetaApi, TransformsApi } from "./index"
+import { AccountsBetaApi, ConnectorsBetaApi, IdentityProfilesBetaApi, Paginator, Search, SourcesBetaApi, TransformsApi } from "./index"
 import { AccountsApi, Configuration, SearchApi } from "./index"
 
 describe('Test_v3', () => {
@@ -91,18 +91,6 @@ describe('Test_beta', () => {
         const resp = await Paginator.paginate(api, api.listIdentityProfiles, {limit: 5}, 1)
     
         expect(resp.data.length).toStrictEqual(5)
-        expect(resp.status).toStrictEqual(200)
-    }, 30000)
-})
-
-describe('Test_v2', () => {
-    it('Test List Workgroups', async () => {
-        let apiConfig = new Configuration()
-        let api = new GovernanceGroupsV2Api(apiConfig)
-        
-        const resp = await api.listWorkgroups({limit: 2})
-    
-        expect(resp.data.length).toStrictEqual(2)
         expect(resp.status).toStrictEqual(200)
     }, 30000)
 })

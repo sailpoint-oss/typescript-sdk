@@ -57,7 +57,6 @@ jobs:
       - name: Update config files with new version
         id: updateVersion
         run: |
-          yq -i '.npmVersion = "${{ github.event.inputs.version }}"' sdk-resources/v2-config.yaml
           yq -i '.npmVersion = "${{ github.event.inputs.version }}"' sdk-resources/beta-config.yaml
           yq -i '.npmVersion = "${{ github.event.inputs.version }}"' sdk-resources/v3-config.yaml
 
@@ -84,16 +83,9 @@ jobs:
           rm -rf ./sdk-output/beta
           java -jar openapi-generator-cli.jar generate -i api-specs/idn/sailpoint-api.beta.yaml -g typescript-axios -o sdk-output/beta --global-property skipFormModel=false --config sdk-resources/beta-config.yaml --api-name-suffix BetaApi --model-name-suffix Beta
 
-      - name: Build V2 SDK
-        id: buildV2
-        if: steps.buildBeta.outcome == 'success'
-        run: |
-          rm -rf ./sdk-output/v2
-          java -jar openapi-generator-cli.jar generate -i api-specs/idn/sailpoint-api.v2.yaml -g typescript-axios -o sdk-output/v2 --global-property skipFormModel=false --config sdk-resources/v2-config.yaml --api-name-suffix V2Api --model-name-suffix V2
-
       - name: After SDK Build
         id: buildSDK
-        if: steps.buildV2.outcome == 'success'
+        if: steps.buildBeta.outcome == 'success'
         run: |
           cd sdk-output
           npm install
