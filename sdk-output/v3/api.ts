@@ -14646,7 +14646,7 @@ export interface Role {
      * @type {Array<EntitlementRef>}
      * @memberof Role
      */
-    'Entitlements'?: Array<EntitlementRef> | null;
+    'entitlements'?: Array<EntitlementRef> | null;
     /**
      * 
      * @type {RoleMembershipSelector}

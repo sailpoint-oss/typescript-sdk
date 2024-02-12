@@ -19771,7 +19771,7 @@ export interface RoleBeta {
      * @type {Array<EntitlementRefBeta>}
      * @memberof RoleBeta
      */
-    'Entitlements'?: Array<EntitlementRefBeta> | null;
+    'entitlements'?: Array<EntitlementRefBeta> | null;
     /**
      * 
      * @type {RoleMembershipSelectorBeta}
