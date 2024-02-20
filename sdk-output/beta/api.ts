@@ -1179,11 +1179,11 @@ export interface AccessRequestDynamicApproverBeta {
      */
     'accessRequestId': string;
     /**
-     * 
-     * @type {AccessRequestDynamicApproverRequestedForBeta}
+     * Identities access was requested for.
+     * @type {Array<AccessItemRequestedForDtoBeta>}
      * @memberof AccessRequestDynamicApproverBeta
      */
-    'requestedFor': AccessRequestDynamicApproverRequestedForBeta;
+    'requestedFor': Array<AccessItemRequestedForDtoBeta>;
     /**
      * The access items that are being requested.
      * @type {Array<AccessRequestDynamicApproverRequestedItemsInnerBeta>}
@@ -1228,38 +1228,6 @@ export const AccessRequestDynamicApproverRequestedByBetaTypeEnum = {
 } as const;
 
 export type AccessRequestDynamicApproverRequestedByBetaTypeEnum = typeof AccessRequestDynamicApproverRequestedByBetaTypeEnum[keyof typeof AccessRequestDynamicApproverRequestedByBetaTypeEnum];
-
-/**
- * 
- * @export
- * @interface AccessRequestDynamicApproverRequestedForBeta
- */
-export interface AccessRequestDynamicApproverRequestedForBeta {
-    /**
-     * DTO type of identity the access item is requested for.
-     * @type {string}
-     * @memberof AccessRequestDynamicApproverRequestedForBeta
-     */
-    'type'?: AccessRequestDynamicApproverRequestedForBetaTypeEnum;
-    /**
-     * ID of identity the access item is requested for.
-     * @type {string}
-     * @memberof AccessRequestDynamicApproverRequestedForBeta
-     */
-    'id'?: string;
-    /**
-     * Human-readable display name of identity the access item is requested for.
-     * @type {string}
-     * @memberof AccessRequestDynamicApproverRequestedForBeta
-     */
-    'name'?: string;
-}
-
-export const AccessRequestDynamicApproverRequestedForBetaTypeEnum = {
-    Identity: 'IDENTITY'
-} as const;
-
-export type AccessRequestDynamicApproverRequestedForBetaTypeEnum = typeof AccessRequestDynamicApproverRequestedForBetaTypeEnum[keyof typeof AccessRequestDynamicApproverRequestedForBetaTypeEnum];
 
 /**
  * 
@@ -1500,11 +1468,11 @@ export interface AccessRequestPostApprovalBeta {
      */
     'accessRequestId': string;
     /**
-     * 
-     * @type {AccessRequestPostApprovalRequestedForBeta}
+     * Identities access was requested for.
+     * @type {Array<AccessItemRequestedForDtoBeta>}
      * @memberof AccessRequestPostApprovalBeta
      */
-    'requestedFor': AccessRequestPostApprovalRequestedForBeta;
+    'requestedFor': Array<AccessItemRequestedForDtoBeta>;
     /**
      * Details on the outcome of each access item.
      * @type {Array<AccessRequestPostApprovalRequestedItemsStatusInnerBeta>}
@@ -1549,38 +1517,6 @@ export const AccessRequestPostApprovalRequestedByBetaTypeEnum = {
 } as const;
 
 export type AccessRequestPostApprovalRequestedByBetaTypeEnum = typeof AccessRequestPostApprovalRequestedByBetaTypeEnum[keyof typeof AccessRequestPostApprovalRequestedByBetaTypeEnum];
-
-/**
- * 
- * @export
- * @interface AccessRequestPostApprovalRequestedForBeta
- */
-export interface AccessRequestPostApprovalRequestedForBeta {
-    /**
-     * DTO type of identity the access item is requested for.
-     * @type {string}
-     * @memberof AccessRequestPostApprovalRequestedForBeta
-     */
-    'type': AccessRequestPostApprovalRequestedForBetaTypeEnum;
-    /**
-     * ID of identity the access item is requested for.
-     * @type {string}
-     * @memberof AccessRequestPostApprovalRequestedForBeta
-     */
-    'id': string;
-    /**
-     * Human-readable display name of identity the access item is requested for.
-     * @type {string}
-     * @memberof AccessRequestPostApprovalRequestedForBeta
-     */
-    'name': string;
-}
-
-export const AccessRequestPostApprovalRequestedForBetaTypeEnum = {
-    Identity: 'IDENTITY'
-} as const;
-
-export type AccessRequestPostApprovalRequestedForBetaTypeEnum = typeof AccessRequestPostApprovalRequestedForBetaTypeEnum[keyof typeof AccessRequestPostApprovalRequestedForBetaTypeEnum];
 
 /**
  * The identity of the approver.
@@ -1761,11 +1697,11 @@ export interface AccessRequestPreApprovalBeta {
      */
     'accessRequestId': string;
     /**
-     * 
-     * @type {AccessRequestPostApprovalRequestedForBeta}
+     * Identities access was requested for.
+     * @type {Array<AccessItemRequestedForDtoBeta>}
      * @memberof AccessRequestPreApprovalBeta
      */
-    'requestedFor': AccessRequestPostApprovalRequestedForBeta;
+    'requestedFor': Array<AccessItemRequestedForDtoBeta>;
     /**
      * Details of the access items being requested.
      * @type {Array<AccessRequestPreApprovalRequestedItemsInnerBeta>}
@@ -6407,11 +6343,11 @@ export interface CompletedApprovalBeta {
      */
     'requester'?: AccessItemRequesterDtoBeta;
     /**
-     * 
-     * @type {AccessItemRequestedForDtoBeta}
+     * Identities access was requested for.
+     * @type {Array<AccessItemRequestedForDtoBeta>}
      * @memberof CompletedApprovalBeta
      */
-    'requestedFor'?: AccessItemRequestedForDtoBeta;
+    'requestedFor'?: Array<AccessItemRequestedForDtoBeta>;
     /**
      * 
      * @type {CompletedApprovalReviewedByBeta}
@@ -10287,7 +10223,7 @@ export interface FullAccountAllOfBeta {
      * @type {string}
      * @memberof FullAccountAllOfBeta
      */
-    'features'?: string;
+    'features'?: string | null;
 }
 /**
  * 
@@ -10408,7 +10344,7 @@ export interface FullAccountBeta {
      * @type {string}
      * @memberof FullAccountBeta
      */
-    'features'?: string;
+    'features'?: string | null;
 }
 /**
  * 
@@ -13808,7 +13744,7 @@ export interface ListAccounts200ResponseInnerBeta {
      * @type {string}
      * @memberof ListAccounts200ResponseInnerBeta
      */
-    'features'?: string;
+    'features'?: string | null;
 }
 /**
  * 
@@ -17589,11 +17525,11 @@ export interface PendingApprovalBeta {
      */
     'requester'?: AccessItemRequesterDtoBeta;
     /**
-     * 
-     * @type {AccessItemRequestedForDtoBeta}
+     * Identities access was requested for.
+     * @type {Array<AccessItemRequestedForDtoBeta>}
      * @memberof PendingApprovalBeta
      */
-    'requestedFor'?: AccessItemRequestedForDtoBeta;
+    'requestedFor'?: Array<AccessItemRequestedForDtoBeta>;
     /**
      * 
      * @type {AccessItemOwnerDtoBeta}
@@ -19315,11 +19251,11 @@ export interface RequestedItemStatusBeta {
      */
     'requester'?: AccessItemRequesterBeta;
     /**
-     * 
-     * @type {AccessItemRequestedForBeta}
+     * Identities access was requested for.
+     * @type {Array<AccessItemRequestedForBeta>}
      * @memberof RequestedItemStatusBeta
      */
-    'requestedFor'?: AccessItemRequestedForBeta;
+    'requestedFor'?: Array<AccessItemRequestedForBeta>;
     /**
      * 
      * @type {CommentDto1Beta}
@@ -31157,7 +31093,7 @@ export class AccountUsagesBetaApi extends BaseAPI {
 export const AccountsBetaApiAxiosParamCreator = function (configuration?: Configuration) {
     return {
         /**
-         * This API submits an account creation task and returns the task ID.   The `sourceId` where this account will be created must be included in the `attributes` object. A token with ORG_ADMIN authority is required to call this API.
+         * This API submits an account creation task and returns the task ID.   The `sourceId` where this account will be created must be included in the `attributes` object. >**Note: This API only supports account creation for file based sources.** A token with ORG_ADMIN authority is required to call this API.
          * @summary Create Account
          * @param {AccountAttributesCreateBeta} accountAttributesCreateBeta 
          * @param {*} [axiosOptions] Override http request option.
@@ -31201,7 +31137,7 @@ export const AccountsBetaApiAxiosParamCreator = function (configuration?: Config
             };
         },
         /**
-         * Use this API to delete an account.  This endpoint submits an account delete task and returns the task ID.  A token with ORG_ADMIN authority is required to call this API. >**NOTE:** You can only delete accounts from sources of the \"DelimitedFile\" type.**
+         * Use this API to delete an account.  This endpoint submits an account delete task and returns the task ID.  This endpoint only deletes the account from IdentityNow, not the source itself, which can result in the account\'s returning with the next aggregation between the source and IdentityNow.  To avoid this scenario, it is recommended that you [disable accounts](https://developer.sailpoint.com/idn/api/v3/disable-account) rather than delete them. This will also allow you to reenable the accounts in the future.  A token with ORG_ADMIN authority is required to call this API. >**NOTE:** You can only delete accounts from sources of the \"DelimitedFile\" type.**
          * @summary Delete Account
          * @param {string} id Account ID.
          * @param {*} [axiosOptions] Override http request option.
@@ -31874,7 +31810,7 @@ export const AccountsBetaApiFp = function(configuration?: Configuration) {
     const localVarAxiosParamCreator = AccountsBetaApiAxiosParamCreator(configuration)
     return {
         /**
-         * This API submits an account creation task and returns the task ID.   The `sourceId` where this account will be created must be included in the `attributes` object. A token with ORG_ADMIN authority is required to call this API.
+         * This API submits an account creation task and returns the task ID.   The `sourceId` where this account will be created must be included in the `attributes` object. >**Note: This API only supports account creation for file based sources.** A token with ORG_ADMIN authority is required to call this API.
          * @summary Create Account
          * @param {AccountAttributesCreateBeta} accountAttributesCreateBeta 
          * @param {*} [axiosOptions] Override http request option.
@@ -31885,7 +31821,7 @@ export const AccountsBetaApiFp = function(configuration?: Configuration) {
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
-         * Use this API to delete an account.  This endpoint submits an account delete task and returns the task ID.  A token with ORG_ADMIN authority is required to call this API. >**NOTE:** You can only delete accounts from sources of the \"DelimitedFile\" type.**
+         * Use this API to delete an account.  This endpoint submits an account delete task and returns the task ID.  This endpoint only deletes the account from IdentityNow, not the source itself, which can result in the account\'s returning with the next aggregation between the source and IdentityNow.  To avoid this scenario, it is recommended that you [disable accounts](https://developer.sailpoint.com/idn/api/v3/disable-account) rather than delete them. This will also allow you to reenable the accounts in the future.  A token with ORG_ADMIN authority is required to call this API. >**NOTE:** You can only delete accounts from sources of the \"DelimitedFile\" type.**
          * @summary Delete Account
          * @param {string} id Account ID.
          * @param {*} [axiosOptions] Override http request option.
@@ -32062,7 +31998,7 @@ export const AccountsBetaApiFactory = function (configuration?: Configuration, b
     const localVarFp = AccountsBetaApiFp(configuration)
     return {
         /**
-         * This API submits an account creation task and returns the task ID.   The `sourceId` where this account will be created must be included in the `attributes` object. A token with ORG_ADMIN authority is required to call this API.
+         * This API submits an account creation task and returns the task ID.   The `sourceId` where this account will be created must be included in the `attributes` object. >**Note: This API only supports account creation for file based sources.** A token with ORG_ADMIN authority is required to call this API.
          * @summary Create Account
          * @param {AccountAttributesCreateBeta} accountAttributesCreateBeta 
          * @param {*} [axiosOptions] Override http request option.
@@ -32072,7 +32008,7 @@ export const AccountsBetaApiFactory = function (configuration?: Configuration, b
             return localVarFp.createAccount(accountAttributesCreateBeta, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
-         * Use this API to delete an account.  This endpoint submits an account delete task and returns the task ID.  A token with ORG_ADMIN authority is required to call this API. >**NOTE:** You can only delete accounts from sources of the \"DelimitedFile\" type.**
+         * Use this API to delete an account.  This endpoint submits an account delete task and returns the task ID.  This endpoint only deletes the account from IdentityNow, not the source itself, which can result in the account\'s returning with the next aggregation between the source and IdentityNow.  To avoid this scenario, it is recommended that you [disable accounts](https://developer.sailpoint.com/idn/api/v3/disable-account) rather than delete them. This will also allow you to reenable the accounts in the future.  A token with ORG_ADMIN authority is required to call this API. >**NOTE:** You can only delete accounts from sources of the \"DelimitedFile\" type.**
          * @summary Delete Account
          * @param {string} id Account ID.
          * @param {*} [axiosOptions] Override http request option.
@@ -32536,7 +32472,7 @@ export interface AccountsBetaApiUpdateAccountRequest {
  */
 export class AccountsBetaApi extends BaseAPI {
     /**
-     * This API submits an account creation task and returns the task ID.   The `sourceId` where this account will be created must be included in the `attributes` object. A token with ORG_ADMIN authority is required to call this API.
+     * This API submits an account creation task and returns the task ID.   The `sourceId` where this account will be created must be included in the `attributes` object. >**Note: This API only supports account creation for file based sources.** A token with ORG_ADMIN authority is required to call this API.
      * @summary Create Account
      * @param {AccountsBetaApiCreateAccountRequest} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
@@ -32548,7 +32484,7 @@ export class AccountsBetaApi extends BaseAPI {
     }
 
     /**
-     * Use this API to delete an account.  This endpoint submits an account delete task and returns the task ID.  A token with ORG_ADMIN authority is required to call this API. >**NOTE:** You can only delete accounts from sources of the \"DelimitedFile\" type.**
+     * Use this API to delete an account.  This endpoint submits an account delete task and returns the task ID.  This endpoint only deletes the account from IdentityNow, not the source itself, which can result in the account\'s returning with the next aggregation between the source and IdentityNow.  To avoid this scenario, it is recommended that you [disable accounts](https://developer.sailpoint.com/idn/api/v3/disable-account) rather than delete them. This will also allow you to reenable the accounts in the future.  A token with ORG_ADMIN authority is required to call this API. >**NOTE:** You can only delete accounts from sources of the \"DelimitedFile\" type.**
      * @summary Delete Account
      * @param {AccountsBetaApiDeleteAccountRequest} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.

@@ -5451,11 +5451,11 @@ export interface CompletedApproval {
      */
     'requester'?: AccessItemRequester;
     /**
-     * 
-     * @type {AccessItemRequestedFor}
+     * Identities access was requested for.
+     * @type {Array<AccessItemRequestedFor>}
      * @memberof CompletedApproval
      */
-    'requestedFor'?: AccessItemRequestedFor;
+    'requestedFor'?: Array<AccessItemRequestedFor>;
     /**
      * 
      * @type {AccessItemReviewedBy}
@@ -12401,11 +12401,11 @@ export interface PendingApproval {
      */
     'requester'?: AccessItemRequester;
     /**
-     * 
-     * @type {AccessItemRequestedFor}
+     * Identities access was requested for.
+     * @type {Array<AccessItemRequestedFor>}
      * @memberof PendingApproval
      */
-    'requestedFor'?: AccessItemRequestedFor;
+    'requestedFor'?: Array<AccessItemRequestedFor>;
     /**
      * 
      * @type {PendingApprovalOwner}
@@ -13981,11 +13981,11 @@ export interface RequestedItemStatus {
      */
     'requester'?: AccessItemRequester;
     /**
-     * 
-     * @type {AccessItemRequestedFor}
+     * Identities access was requested for.
+     * @type {Array<AccessItemRequestedFor>}
      * @memberof RequestedItemStatus
      */
-    'requestedFor'?: AccessItemRequestedFor;
+    'requestedFor'?: Array<AccessItemRequestedFor>;
     /**
      * 
      * @type {CommentDto}
@@ -21899,7 +21899,7 @@ export class AccountUsagesApi extends BaseAPI {
 export const AccountsApiAxiosParamCreator = function (configuration?: Configuration) {
     return {
         /**
-         * This API submits an account creation task and returns the task ID.   The `sourceId` where this account will be created must be included in the `attributes` object. A token with ORG_ADMIN authority is required to call this API.
+         * This API submits an account creation task and returns the task ID.   The `sourceId` where this account will be created must be included in the `attributes` object. >**Note: This API only supports account creation for file based sources.** A token with ORG_ADMIN authority is required to call this API.
          * @summary Create Account
          * @param {AccountAttributesCreate} accountAttributesCreate 
          * @param {*} [axiosOptions] Override http request option.
@@ -21943,7 +21943,7 @@ export const AccountsApiAxiosParamCreator = function (configuration?: Configurat
             };
         },
         /**
-         * Use this API to delete an account.  This endpoint submits an account delete task and returns the task ID.  A token with ORG_ADMIN authority is required to call this API. >**NOTE: You can only delete accounts from sources of the \"DelimitedFile\" type.**
+         * Use this API to delete an account.  This endpoint submits an account delete task and returns the task ID.  This endpoint only deletes the account from IdentityNow, not the source itself, which can result in the account\'s returning with the next aggregation between the source and IdentityNow.  To avoid this scenario, it is recommended that you [disable accounts](https://developer.sailpoint.com/idn/api/v3/disable-account) rather than delete them. This will also allow you to reenable the accounts in the future.  A token with ORG_ADMIN authority is required to call this API. >**NOTE: You can only delete accounts from sources of the \"DelimitedFile\" type.**
          * @summary Delete Account
          * @param {string} id Account ID.
          * @param {*} [axiosOptions] Override http request option.
@@ -22439,7 +22439,7 @@ export const AccountsApiFp = function(configuration?: Configuration) {
     const localVarAxiosParamCreator = AccountsApiAxiosParamCreator(configuration)
     return {
         /**
-         * This API submits an account creation task and returns the task ID.   The `sourceId` where this account will be created must be included in the `attributes` object. A token with ORG_ADMIN authority is required to call this API.
+         * This API submits an account creation task and returns the task ID.   The `sourceId` where this account will be created must be included in the `attributes` object. >**Note: This API only supports account creation for file based sources.** A token with ORG_ADMIN authority is required to call this API.
          * @summary Create Account
          * @param {AccountAttributesCreate} accountAttributesCreate 
          * @param {*} [axiosOptions] Override http request option.
@@ -22450,7 +22450,7 @@ export const AccountsApiFp = function(configuration?: Configuration) {
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
-         * Use this API to delete an account.  This endpoint submits an account delete task and returns the task ID.  A token with ORG_ADMIN authority is required to call this API. >**NOTE: You can only delete accounts from sources of the \"DelimitedFile\" type.**
+         * Use this API to delete an account.  This endpoint submits an account delete task and returns the task ID.  This endpoint only deletes the account from IdentityNow, not the source itself, which can result in the account\'s returning with the next aggregation between the source and IdentityNow.  To avoid this scenario, it is recommended that you [disable accounts](https://developer.sailpoint.com/idn/api/v3/disable-account) rather than delete them. This will also allow you to reenable the accounts in the future.  A token with ORG_ADMIN authority is required to call this API. >**NOTE: You can only delete accounts from sources of the \"DelimitedFile\" type.**
          * @summary Delete Account
          * @param {string} id Account ID.
          * @param {*} [axiosOptions] Override http request option.
@@ -22582,7 +22582,7 @@ export const AccountsApiFactory = function (configuration?: Configuration, baseP
     const localVarFp = AccountsApiFp(configuration)
     return {
         /**
-         * This API submits an account creation task and returns the task ID.   The `sourceId` where this account will be created must be included in the `attributes` object. A token with ORG_ADMIN authority is required to call this API.
+         * This API submits an account creation task and returns the task ID.   The `sourceId` where this account will be created must be included in the `attributes` object. >**Note: This API only supports account creation for file based sources.** A token with ORG_ADMIN authority is required to call this API.
          * @summary Create Account
          * @param {AccountAttributesCreate} accountAttributesCreate 
          * @param {*} [axiosOptions] Override http request option.
@@ -22592,7 +22592,7 @@ export const AccountsApiFactory = function (configuration?: Configuration, baseP
             return localVarFp.createAccount(accountAttributesCreate, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
-         * Use this API to delete an account.  This endpoint submits an account delete task and returns the task ID.  A token with ORG_ADMIN authority is required to call this API. >**NOTE: You can only delete accounts from sources of the \"DelimitedFile\" type.**
+         * Use this API to delete an account.  This endpoint submits an account delete task and returns the task ID.  This endpoint only deletes the account from IdentityNow, not the source itself, which can result in the account\'s returning with the next aggregation between the source and IdentityNow.  To avoid this scenario, it is recommended that you [disable accounts](https://developer.sailpoint.com/idn/api/v3/disable-account) rather than delete them. This will also allow you to reenable the accounts in the future.  A token with ORG_ADMIN authority is required to call this API. >**NOTE: You can only delete accounts from sources of the \"DelimitedFile\" type.**
          * @summary Delete Account
          * @param {string} id Account ID.
          * @param {*} [axiosOptions] Override http request option.
@@ -22952,7 +22952,7 @@ export interface AccountsApiUpdateAccountRequest {
  */
 export class AccountsApi extends BaseAPI {
     /**
-     * This API submits an account creation task and returns the task ID.   The `sourceId` where this account will be created must be included in the `attributes` object. A token with ORG_ADMIN authority is required to call this API.
+     * This API submits an account creation task and returns the task ID.   The `sourceId` where this account will be created must be included in the `attributes` object. >**Note: This API only supports account creation for file based sources.** A token with ORG_ADMIN authority is required to call this API.
      * @summary Create Account
      * @param {AccountsApiCreateAccountRequest} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
@@ -22964,7 +22964,7 @@ export class AccountsApi extends BaseAPI {
     }
 
     /**
-     * Use this API to delete an account.  This endpoint submits an account delete task and returns the task ID.  A token with ORG_ADMIN authority is required to call this API. >**NOTE: You can only delete accounts from sources of the \"DelimitedFile\" type.**
+     * Use this API to delete an account.  This endpoint submits an account delete task and returns the task ID.  This endpoint only deletes the account from IdentityNow, not the source itself, which can result in the account\'s returning with the next aggregation between the source and IdentityNow.  To avoid this scenario, it is recommended that you [disable accounts](https://developer.sailpoint.com/idn/api/v3/disable-account) rather than delete them. This will also allow you to reenable the accounts in the future.  A token with ORG_ADMIN authority is required to call this API. >**NOTE: You can only delete accounts from sources of the \"DelimitedFile\" type.**
      * @summary Delete Account
      * @param {AccountsApiDeleteAccountRequest} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
