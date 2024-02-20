@@ -5668,6 +5668,119 @@ export interface ConflictingAccessCriteria {
 /**
  * 
  * @export
+ * @interface ConnectorDetail
+ */
+export interface ConnectorDetail {
+    /**
+     * The connector name
+     * @type {string}
+     * @memberof ConnectorDetail
+     */
+    'name'?: string;
+    /**
+     * The connector type
+     * @type {string}
+     * @memberof ConnectorDetail
+     */
+    'type'?: string;
+    /**
+     * The connector class name
+     * @type {string}
+     * @memberof ConnectorDetail
+     */
+    'className'?: string;
+    /**
+     * The connector script name
+     * @type {string}
+     * @memberof ConnectorDetail
+     */
+    'scriptName'?: string;
+    /**
+     * The connector application xml
+     * @type {string}
+     * @memberof ConnectorDetail
+     */
+    'applicationXml'?: string;
+    /**
+     * The connector correlation config xml
+     * @type {string}
+     * @memberof ConnectorDetail
+     */
+    'correlationConfigXml'?: string;
+    /**
+     * The connector source config xml
+     * @type {string}
+     * @memberof ConnectorDetail
+     */
+    'sourceConfigXml'?: string;
+    /**
+     * The connector source config
+     * @type {string}
+     * @memberof ConnectorDetail
+     */
+    'sourceConfig'?: string;
+    /**
+     * The connector source config origin
+     * @type {string}
+     * @memberof ConnectorDetail
+     */
+    'sourceConfigFrom'?: string;
+    /**
+     * storage path key for this connector
+     * @type {string}
+     * @memberof ConnectorDetail
+     */
+    's3Location'?: string;
+    /**
+     * The list of uploaded files supported by the connector. If there was any executable files uploaded to thee connector. Typically this be empty as the executable be uploaded at source creation.
+     * @type {Array<string>}
+     * @memberof ConnectorDetail
+     */
+    'uploadedFiles'?: Array<string> | null;
+    /**
+     * true if the source is file upload
+     * @type {boolean}
+     * @memberof ConnectorDetail
+     */
+    'fileUpload'?: boolean;
+    /**
+     * true if the source is a direct connect source
+     * @type {boolean}
+     * @memberof ConnectorDetail
+     */
+    'directConnect'?: boolean;
+    /**
+     * A map containing translation attributes by loacale key
+     * @type {{ [key: string]: any; }}
+     * @memberof ConnectorDetail
+     */
+    'translationProperties'?: { [key: string]: any; };
+    /**
+     * A map containing metadata pertinent to the UI to be used
+     * @type {{ [key: string]: any; }}
+     * @memberof ConnectorDetail
+     */
+    'connectorMetadata'?: { [key: string]: any; };
+    /**
+     * The connector status
+     * @type {string}
+     * @memberof ConnectorDetail
+     */
+    'status'?: ConnectorDetailStatusEnum;
+}
+
+export const ConnectorDetailStatusEnum = {
+    Deprecated: 'DEPRECATED',
+    Development: 'DEVELOPMENT',
+    Demo: 'DEMO',
+    Released: 'RELEASED'
+} as const;
+
+export type ConnectorDetailStatusEnum = typeof ConnectorDetailStatusEnum[keyof typeof ConnectorDetailStatusEnum];
+
+/**
+ * 
+ * @export
  * @interface CreateOAuthClientRequest
  */
 export interface CreateOAuthClientRequest {
@@ -12985,6 +13098,19 @@ export interface PublicIdentityConfig {
 /**
  * 
  * @export
+ * @interface PutCorrelationConfigRequest
+ */
+export interface PutCorrelationConfigRequest {
+    /**
+     * connector correlation config xml file
+     * @type {any}
+     * @memberof PutCorrelationConfigRequest
+     */
+    'file': any;
+}
+/**
+ * 
+ * @export
  * @interface PutPasswordDictionaryRequest
  */
 export interface PutPasswordDictionaryRequest {
@@ -12994,6 +13120,32 @@ export interface PutPasswordDictionaryRequest {
      * @memberof PutPasswordDictionaryRequest
      */
     'file'?: any;
+}
+/**
+ * 
+ * @export
+ * @interface PutSourceConfigRequest
+ */
+export interface PutSourceConfigRequest {
+    /**
+     * connector source config xml file
+     * @type {any}
+     * @memberof PutSourceConfigRequest
+     */
+    'file': any;
+}
+/**
+ * 
+ * @export
+ * @interface PutSourceTemplateRequest
+ */
+export interface PutSourceTemplateRequest {
+    /**
+     * connector source template xml file
+     * @type {any}
+     * @memberof PutSourceTemplateRequest
+     */
+    'file': any;
 }
 /**
  * Query parameters used to construct an Elasticsearch query object.
@@ -18782,6 +18934,47 @@ export interface UUIDGenerator {
 /**
  * 
  * @export
+ * @interface UpdateDetail
+ */
+export interface UpdateDetail {
+    /**
+     * The detailed message for an update. Typically the relevent error message when status is error.
+     * @type {string}
+     * @memberof UpdateDetail
+     */
+    'message'?: string;
+    /**
+     * The connector script name
+     * @type {string}
+     * @memberof UpdateDetail
+     */
+    'scriptName'?: string;
+    /**
+     * The list of updated files supported by the connector
+     * @type {Array<string>}
+     * @memberof UpdateDetail
+     */
+    'updatedFiles'?: Array<string> | null;
+    /**
+     * The connector update status
+     * @type {string}
+     * @memberof UpdateDetail
+     */
+    'status'?: UpdateDetailStatusEnum;
+}
+
+export const UpdateDetailStatusEnum = {
+    Error: 'ERROR',
+    Updated: 'UPDATED',
+    Unchanged: 'UNCHANGED',
+    Skipped: 'SKIPPED'
+} as const;
+
+export type UpdateDetailStatusEnum = typeof UpdateDetailStatusEnum[keyof typeof UpdateDetailStatusEnum];
+
+/**
+ * 
+ * @export
  * @interface Upper
  */
 export interface Upper {
@@ -18825,6 +19018,117 @@ export const UsageType = {
 
 export type UsageType = typeof UsageType[keyof typeof UsageType];
 
+
+/**
+ * 
+ * @export
+ * @interface V3ConnectorDto
+ */
+export interface V3ConnectorDto {
+    /**
+     * The connector name
+     * @type {string}
+     * @memberof V3ConnectorDto
+     */
+    'name'?: string;
+    /**
+     * The connector type
+     * @type {string}
+     * @memberof V3ConnectorDto
+     */
+    'type'?: string;
+    /**
+     * The connector script name
+     * @type {string}
+     * @memberof V3ConnectorDto
+     */
+    'scriptName'?: string;
+    /**
+     * The connector class name.
+     * @type {string}
+     * @memberof V3ConnectorDto
+     */
+    'className'?: string;
+    /**
+     * The list of features supported by the connector
+     * @type {Array<string>}
+     * @memberof V3ConnectorDto
+     */
+    'features'?: Array<string> | null;
+    /**
+     * true if the source is a direct connect source
+     * @type {boolean}
+     * @memberof V3ConnectorDto
+     */
+    'directConnect'?: boolean;
+    /**
+     * A map containing metadata pertinent to the connector
+     * @type {{ [key: string]: any; }}
+     * @memberof V3ConnectorDto
+     */
+    'connectorMetadata'?: { [key: string]: any; };
+    /**
+     * The connector status
+     * @type {string}
+     * @memberof V3ConnectorDto
+     */
+    'status'?: V3ConnectorDtoStatusEnum;
+}
+
+export const V3ConnectorDtoStatusEnum = {
+    Deprecated: 'DEPRECATED',
+    Development: 'DEVELOPMENT',
+    Demo: 'DEMO',
+    Released: 'RELEASED'
+} as const;
+
+export type V3ConnectorDtoStatusEnum = typeof V3ConnectorDtoStatusEnum[keyof typeof V3ConnectorDtoStatusEnum];
+
+/**
+ * 
+ * @export
+ * @interface V3CreateConnectorDto
+ */
+export interface V3CreateConnectorDto {
+    /**
+     * The connector name. Need to be unique per tenant. The name will able be used to derive a url friendly unique scriptname that will be in response. Script name can then be used for all update endpoints
+     * @type {string}
+     * @memberof V3CreateConnectorDto
+     */
+    'name': string;
+    /**
+     * The connector type. If not specified will be defaulted to \'custom \'+name
+     * @type {string}
+     * @memberof V3CreateConnectorDto
+     */
+    'type'?: string;
+    /**
+     * The connector class name. If you are implementing openconnector standard (what is recommended), then this need to be set to sailpoint.connector.OpenConnectorAdapter
+     * @type {string}
+     * @memberof V3CreateConnectorDto
+     */
+    'className': string;
+    /**
+     * true if the source is a direct connect source
+     * @type {boolean}
+     * @memberof V3CreateConnectorDto
+     */
+    'directConnect'?: boolean;
+    /**
+     * The connector status
+     * @type {string}
+     * @memberof V3CreateConnectorDto
+     */
+    'status'?: V3CreateConnectorDtoStatusEnum;
+}
+
+export const V3CreateConnectorDtoStatusEnum = {
+    Development: 'DEVELOPMENT',
+    Demo: 'DEMO',
+    Released: 'RELEASED'
+} as const;
+
+export type V3CreateConnectorDtoStatusEnum = typeof V3CreateConnectorDtoStatusEnum[keyof typeof V3CreateConnectorDtoStatusEnum];
 
 /**
  * 
@@ -28755,6 +29059,1185 @@ export class CertificationsApi extends BaseAPI {
      */
     public submitReassignCertsAsync(requestParameters: CertificationsApiSubmitReassignCertsAsyncRequest, axiosOptions?: AxiosRequestConfig) {
         return CertificationsApiFp(this.configuration).submitReassignCertsAsync(requestParameters.id, requestParameters.reviewReassign, axiosOptions).then((request) => request(this.axios, this.basePath));
+    }
+}
+
+
+/**
+ * ConnectorsApi - axios parameter creator
+ * @export
+ */
+export const ConnectorsApiAxiosParamCreator = function (configuration?: Configuration) {
+    return {
+        /**
+         * Create custom connector. A token with ORG_ADMIN authority is required to call this API.
+         * @summary Create custom connector
+         * @param {V3CreateConnectorDto} v3CreateConnectorDto 
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        createCustomConnector: async (v3CreateConnectorDto: V3CreateConnectorDto, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'v3CreateConnectorDto' is not null or undefined
+            assertParamExists('createCustomConnector', 'v3CreateConnectorDto', v3CreateConnectorDto)
+            const localVarPath = `/connectors`;
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'POST', ...baseOptions, ...axiosOptions};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication UserContextAuth required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "UserContextAuth", [], configuration)
+
+            // authentication UserContextAuth required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "UserContextAuth", [], configuration)
+
+
+    
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
+            localVarRequestOptions.data = serializeDataIfNeeded(v3CreateConnectorDto, localVarRequestOptions, configuration)
+
+            return {
+                url: toPathString(localVarUrlObj),
+                axiosOptions: localVarRequestOptions,
+            };
+        },
+        /**
+         * Delete a custom connector that using its script name. A token with ORG_ADMIN authority is required to call this API.
+         * @param {string} scriptName The scriptName value of the connector. Scriptname is the unique id generated at connector creation.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        deleteCustomConnector: async (scriptName: string, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'scriptName' is not null or undefined
+            assertParamExists('deleteCustomConnector', 'scriptName', scriptName)
+            const localVarPath = `/connectors/{scriptName}`
+                .replace(`{${"scriptName"}}`, encodeURIComponent(String(scriptName)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'DELETE', ...baseOptions, ...axiosOptions};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication UserContextAuth required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "UserContextAuth", [], configuration)
+
+            // authentication UserContextAuth required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "UserContextAuth", [], configuration)
+
+
+    
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                axiosOptions: localVarRequestOptions,
+            };
+        },
+        /**
+         * Fetches a connector that using its script name. A token with ORG_ADMIN authority is required to call this API.
+         * @param {string} scriptName The scriptName value of the connector. Scriptname is the unique id generated at connector creation.
+         * @param {'de' | 'false' | 'fi' | 'sv' | 'ru' | 'pt' | 'ko' | 'zh-TW' | 'en' | 'it' | 'fr' | 'zh-CN' | 'hu' | 'es' | 'cs' | 'ja' | 'pl' | 'da' | 'nl'} [locale] The locale to apply to the config. If no viable locale is given, it will default to \&quot;en\&quot;
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        getConnector: async (scriptName: string, locale?: 'de' | 'false' | 'fi' | 'sv' | 'ru' | 'pt' | 'ko' | 'zh-TW' | 'en' | 'it' | 'fr' | 'zh-CN' | 'hu' | 'es' | 'cs' | 'ja' | 'pl' | 'da' | 'nl', axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'scriptName' is not null or undefined
+            assertParamExists('getConnector', 'scriptName', scriptName)
+            const localVarPath = `/connectors/{scriptName}`
+                .replace(`{${"scriptName"}}`, encodeURIComponent(String(scriptName)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...axiosOptions};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication UserContextAuth required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "UserContextAuth", [], configuration)
+
+            // authentication UserContextAuth required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "UserContextAuth", [], configuration)
+
+            if (locale !== undefined) {
+                localVarQueryParameter['locale'] = locale;
+            }
+
+
+    
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                axiosOptions: localVarRequestOptions,
+            };
+        },
+        /**
+         * Fetches a connector\'s correlation config using its script name. A token with ORG_ADMIN authority is required to call this API.
+         * @param {string} scriptName The scriptName value of the connector. Scriptname is the unique id generated at connector creation.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        getConnectorCorrelationConfig: async (scriptName: string, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'scriptName' is not null or undefined
+            assertParamExists('getConnectorCorrelationConfig', 'scriptName', scriptName)
+            const localVarPath = `/connectors/{scriptName}/correlation-config`
+                .replace(`{${"scriptName"}}`, encodeURIComponent(String(scriptName)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...axiosOptions};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication UserContextAuth required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "UserContextAuth", [], configuration)
+
+            // authentication UserContextAuth required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "UserContextAuth", [], configuration)
+
+
+    
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                axiosOptions: localVarRequestOptions,
+            };
+        },
+        /**
+         * Fetches a connector\'s source config using its script name. A token with ORG_ADMIN authority is required to call this API.
+         * @param {string} scriptName The scriptName value of the connector. Scriptname is the unique id generated at connector creation.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        getConnectorSourceConfig: async (scriptName: string, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'scriptName' is not null or undefined
+            assertParamExists('getConnectorSourceConfig', 'scriptName', scriptName)
+            const localVarPath = `/connectors/{scriptName}/source-config`
+                .replace(`{${"scriptName"}}`, encodeURIComponent(String(scriptName)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...axiosOptions};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication UserContextAuth required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "UserContextAuth", [], configuration)
+
+            // authentication UserContextAuth required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "UserContextAuth", [], configuration)
+
+
+    
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                axiosOptions: localVarRequestOptions,
+            };
+        },
+        /**
+         * Fetches a connector\'s source template using its script name. A token with ORG_ADMIN authority is required to call this API.
+         * @param {string} scriptName The scriptName value of the connector. Scriptname is the unique id generated at connector creation.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        getConnectorSourceTemplate: async (scriptName: string, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'scriptName' is not null or undefined
+            assertParamExists('getConnectorSourceTemplate', 'scriptName', scriptName)
+            const localVarPath = `/connectors/{scriptName}/source-template`
+                .replace(`{${"scriptName"}}`, encodeURIComponent(String(scriptName)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...axiosOptions};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication UserContextAuth required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "UserContextAuth", [], configuration)
+
+            // authentication UserContextAuth required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "UserContextAuth", [], configuration)
+
+
+    
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                axiosOptions: localVarRequestOptions,
+            };
+        },
+        /**
+         * Fetches a connector\'s translations using its script name. A token with ORG_ADMIN authority is required to call this API.
+         * @param {string} scriptName The scriptName value of the connector. Scriptname is the unique id generated at connector creation.
+         * @param {'de' | 'false' | 'fi' | 'sv' | 'ru' | 'pt' | 'ko' | 'zh-TW' | 'en' | 'it' | 'fr' | 'zh-CN' | 'hu' | 'es' | 'cs' | 'ja' | 'pl' | 'da' | 'nl'} locale The locale to apply to the config. If no viable locale is given, it will default to \&quot;en\&quot;
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        getConnectorTranslations: async (scriptName: string, locale: 'de' | 'false' | 'fi' | 'sv' | 'ru' | 'pt' | 'ko' | 'zh-TW' | 'en' | 'it' | 'fr' | 'zh-CN' | 'hu' | 'es' | 'cs' | 'ja' | 'pl' | 'da' | 'nl', axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'scriptName' is not null or undefined
+            assertParamExists('getConnectorTranslations', 'scriptName', scriptName)
+            // verify required parameter 'locale' is not null or undefined
+            assertParamExists('getConnectorTranslations', 'locale', locale)
+            const localVarPath = `/connectors/{scriptName}/translations/{locale}`
+                .replace(`{${"scriptName"}}`, encodeURIComponent(String(scriptName)))
+                .replace(`{${"locale"}}`, encodeURIComponent(String(locale)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...axiosOptions};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication UserContextAuth required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "UserContextAuth", [], configuration)
+
+            // authentication UserContextAuth required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "UserContextAuth", [], configuration)
+
+
+    
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                axiosOptions: localVarRequestOptions,
+            };
+        },
+        /**
+         * Update a connector\'s correlation config using its script name. A token with ORG_ADMIN authority is required to call this API.
+         * @param {string} scriptName The scriptName value of the connector. Scriptname is the unique id generated at connector creation.
+         * @param {any} file connector correlation config xml file
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        putCorrelationConfig: async (scriptName: string, file: any, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'scriptName' is not null or undefined
+            assertParamExists('putCorrelationConfig', 'scriptName', scriptName)
+            // verify required parameter 'file' is not null or undefined
+            assertParamExists('putCorrelationConfig', 'file', file)
+            const localVarPath = `/connectors/{scriptName}/correlation-config`
+                .replace(`{${"scriptName"}}`, encodeURIComponent(String(scriptName)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'PUT', ...baseOptions, ...axiosOptions};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            const localVarFormParams = new ((configuration && configuration.formDataCtor) || FormData)();
+
+            // authentication UserContextAuth required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "UserContextAuth", [], configuration)
+
+            // authentication UserContextAuth required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "UserContextAuth", [], configuration)
+
+
+            if (file !== undefined) { 
+                localVarFormParams.append('file', file as any);
+            }
+    
+    
+            localVarHeaderParameter['Content-Type'] = 'multipart/form-data';
+    
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
+            localVarRequestOptions.data = localVarFormParams;
+
+            return {
+                url: toPathString(localVarUrlObj),
+                axiosOptions: localVarRequestOptions,
+            };
+        },
+        /**
+         * Update a connector\'s source config using its script name. A token with ORG_ADMIN authority is required to call this API.
+         * @param {string} scriptName The scriptName value of the connector. Scriptname is the unique id generated at connector creation.
+         * @param {any} file connector source config xml file
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        putSourceConfig: async (scriptName: string, file: any, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'scriptName' is not null or undefined
+            assertParamExists('putSourceConfig', 'scriptName', scriptName)
+            // verify required parameter 'file' is not null or undefined
+            assertParamExists('putSourceConfig', 'file', file)
+            const localVarPath = `/connectors/{scriptName}/source-config`
+                .replace(`{${"scriptName"}}`, encodeURIComponent(String(scriptName)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'PUT', ...baseOptions, ...axiosOptions};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            const localVarFormParams = new ((configuration && configuration.formDataCtor) || FormData)();
+
+            // authentication UserContextAuth required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "UserContextAuth", [], configuration)
+
+            // authentication UserContextAuth required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "UserContextAuth", [], configuration)
+
+
+            if (file !== undefined) { 
+                localVarFormParams.append('file', file as any);
+            }
+    
+    
+            localVarHeaderParameter['Content-Type'] = 'multipart/form-data';
+    
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
+            localVarRequestOptions.data = localVarFormParams;
+
+            return {
+                url: toPathString(localVarUrlObj),
+                axiosOptions: localVarRequestOptions,
+            };
+        },
+        /**
+         * Update a connector\'s source template using its script name. A token with ORG_ADMIN authority is required to call this API.
+         * @param {string} scriptName The scriptName value of the connector. Scriptname is the unique id generated at connector creation.
+         * @param {any} file connector source template xml file
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        putSourceTemplate: async (scriptName: string, file: any, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'scriptName' is not null or undefined
+            assertParamExists('putSourceTemplate', 'scriptName', scriptName)
+            // verify required parameter 'file' is not null or undefined
+            assertParamExists('putSourceTemplate', 'file', file)
+            const localVarPath = `/connectors/{scriptName}/source-template`
+                .replace(`{${"scriptName"}}`, encodeURIComponent(String(scriptName)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'PUT', ...baseOptions, ...axiosOptions};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            const localVarFormParams = new ((configuration && configuration.formDataCtor) || FormData)();
+
+            // authentication UserContextAuth required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "UserContextAuth", [], configuration)
+
+            // authentication UserContextAuth required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "UserContextAuth", [], configuration)
+
+
+            if (file !== undefined) { 
+                localVarFormParams.append('file', file as any);
+            }
+    
+    
+            localVarHeaderParameter['Content-Type'] = 'multipart/form-data';
+    
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
+            localVarRequestOptions.data = localVarFormParams;
+
+            return {
+                url: toPathString(localVarUrlObj),
+                axiosOptions: localVarRequestOptions,
+            };
+        },
+        /**
+         * Update a connector\'s translations using its script name. A token with ORG_ADMIN authority is required to call this API.
+         * @param {string} scriptName The scriptName value of the connector. Scriptname is the unique id generated at connector creation.
+         * @param {'de' | 'false' | 'fi' | 'sv' | 'ru' | 'pt' | 'ko' | 'zh-TW' | 'en' | 'it' | 'fr' | 'zh-CN' | 'hu' | 'es' | 'cs' | 'ja' | 'pl' | 'da' | 'nl'} locale The locale to apply to the config. If no viable locale is given, it will default to \&quot;en\&quot;
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        putTranslations: async (scriptName: string, locale: 'de' | 'false' | 'fi' | 'sv' | 'ru' | 'pt' | 'ko' | 'zh-TW' | 'en' | 'it' | 'fr' | 'zh-CN' | 'hu' | 'es' | 'cs' | 'ja' | 'pl' | 'da' | 'nl', axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'scriptName' is not null or undefined
+            assertParamExists('putTranslations', 'scriptName', scriptName)
+            // verify required parameter 'locale' is not null or undefined
+            assertParamExists('putTranslations', 'locale', locale)
+            const localVarPath = `/connectors/{scriptName}/translations/{locale}`
+                .replace(`{${"scriptName"}}`, encodeURIComponent(String(scriptName)))
+                .replace(`{${"locale"}}`, encodeURIComponent(String(locale)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'PUT', ...baseOptions, ...axiosOptions};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication UserContextAuth required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "UserContextAuth", [], configuration)
+
+            // authentication UserContextAuth required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "UserContextAuth", [], configuration)
+
+
+    
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                axiosOptions: localVarRequestOptions,
+            };
+        },
+        /**
+         * Patch a custom connector that using its script name. A token with ORG_ADMIN authority is required to call this API. The following fields are patchable: * connectorMetadata * applicationXml * correlationConfigXml * sourceConfigXml
+         * @param {string} scriptName The scriptName value of the connector. Scriptname is the unique id generated at connector creation.
+         * @param {Array<JsonPatchOperation>} jsonPatchOperation A list of connector detail update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        updateConnector: async (scriptName: string, jsonPatchOperation: Array<JsonPatchOperation>, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'scriptName' is not null or undefined
+            assertParamExists('updateConnector', 'scriptName', scriptName)
+            // verify required parameter 'jsonPatchOperation' is not null or undefined
+            assertParamExists('updateConnector', 'jsonPatchOperation', jsonPatchOperation)
+            const localVarPath = `/connectors/{scriptName}`
+                .replace(`{${"scriptName"}}`, encodeURIComponent(String(scriptName)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'PATCH', ...baseOptions, ...axiosOptions};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication UserContextAuth required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "UserContextAuth", [], configuration)
+
+            // authentication UserContextAuth required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "UserContextAuth", [], configuration)
+
+
+    
+            localVarHeaderParameter['Content-Type'] = 'application/json-patch+json';
+
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
+            localVarRequestOptions.data = serializeDataIfNeeded(jsonPatchOperation, localVarRequestOptions, configuration)
+
+            return {
+                url: toPathString(localVarUrlObj),
+                axiosOptions: localVarRequestOptions,
+            };
+        },
+    }
+};
+
+/**
+ * ConnectorsApi - functional programming interface
+ * @export
+ */
+export const ConnectorsApiFp = function(configuration?: Configuration) {
+    const localVarAxiosParamCreator = ConnectorsApiAxiosParamCreator(configuration)
+    return {
+        /**
+         * Create custom connector. A token with ORG_ADMIN authority is required to call this API.
+         * @summary Create custom connector
+         * @param {V3CreateConnectorDto} v3CreateConnectorDto 
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        async createCustomConnector(v3CreateConnectorDto: V3CreateConnectorDto, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<V3ConnectorDto>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.createCustomConnector(v3CreateConnectorDto, axiosOptions);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * Delete a custom connector that using its script name. A token with ORG_ADMIN authority is required to call this API.
+         * @param {string} scriptName The scriptName value of the connector. Scriptname is the unique id generated at connector creation.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        async deleteCustomConnector(scriptName: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.deleteCustomConnector(scriptName, axiosOptions);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * Fetches a connector that using its script name. A token with ORG_ADMIN authority is required to call this API.
+         * @param {string} scriptName The scriptName value of the connector. Scriptname is the unique id generated at connector creation.
+         * @param {'de' | 'false' | 'fi' | 'sv' | 'ru' | 'pt' | 'ko' | 'zh-TW' | 'en' | 'it' | 'fr' | 'zh-CN' | 'hu' | 'es' | 'cs' | 'ja' | 'pl' | 'da' | 'nl'} [locale] The locale to apply to the config. If no viable locale is given, it will default to \&quot;en\&quot;
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        async getConnector(scriptName: string, locale?: 'de' | 'false' | 'fi' | 'sv' | 'ru' | 'pt' | 'ko' | 'zh-TW' | 'en' | 'it' | 'fr' | 'zh-CN' | 'hu' | 'es' | 'cs' | 'ja' | 'pl' | 'da' | 'nl', axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ConnectorDetail>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getConnector(scriptName, locale, axiosOptions);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * Fetches a connector\'s correlation config using its script name. A token with ORG_ADMIN authority is required to call this API.
+         * @param {string} scriptName The scriptName value of the connector. Scriptname is the unique id generated at connector creation.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        async getConnectorCorrelationConfig(scriptName: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<string>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getConnectorCorrelationConfig(scriptName, axiosOptions);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * Fetches a connector\'s source config using its script name. A token with ORG_ADMIN authority is required to call this API.
+         * @param {string} scriptName The scriptName value of the connector. Scriptname is the unique id generated at connector creation.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        async getConnectorSourceConfig(scriptName: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<string>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getConnectorSourceConfig(scriptName, axiosOptions);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * Fetches a connector\'s source template using its script name. A token with ORG_ADMIN authority is required to call this API.
+         * @param {string} scriptName The scriptName value of the connector. Scriptname is the unique id generated at connector creation.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        async getConnectorSourceTemplate(scriptName: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<string>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getConnectorSourceTemplate(scriptName, axiosOptions);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * Fetches a connector\'s translations using its script name. A token with ORG_ADMIN authority is required to call this API.
+         * @param {string} scriptName The scriptName value of the connector. Scriptname is the unique id generated at connector creation.
+         * @param {'de' | 'false' | 'fi' | 'sv' | 'ru' | 'pt' | 'ko' | 'zh-TW' | 'en' | 'it' | 'fr' | 'zh-CN' | 'hu' | 'es' | 'cs' | 'ja' | 'pl' | 'da' | 'nl'} locale The locale to apply to the config. If no viable locale is given, it will default to \&quot;en\&quot;
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        async getConnectorTranslations(scriptName: string, locale: 'de' | 'false' | 'fi' | 'sv' | 'ru' | 'pt' | 'ko' | 'zh-TW' | 'en' | 'it' | 'fr' | 'zh-CN' | 'hu' | 'es' | 'cs' | 'ja' | 'pl' | 'da' | 'nl', axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<string>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getConnectorTranslations(scriptName, locale, axiosOptions);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * Update a connector\'s correlation config using its script name. A token with ORG_ADMIN authority is required to call this API.
+         * @param {string} scriptName The scriptName value of the connector. Scriptname is the unique id generated at connector creation.
+         * @param {any} file connector correlation config xml file
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        async putCorrelationConfig(scriptName: string, file: any, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<UpdateDetail>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.putCorrelationConfig(scriptName, file, axiosOptions);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * Update a connector\'s source config using its script name. A token with ORG_ADMIN authority is required to call this API.
+         * @param {string} scriptName The scriptName value of the connector. Scriptname is the unique id generated at connector creation.
+         * @param {any} file connector source config xml file
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        async putSourceConfig(scriptName: string, file: any, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<UpdateDetail>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.putSourceConfig(scriptName, file, axiosOptions);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * Update a connector\'s source template using its script name. A token with ORG_ADMIN authority is required to call this API.
+         * @param {string} scriptName The scriptName value of the connector. Scriptname is the unique id generated at connector creation.
+         * @param {any} file connector source template xml file
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        async putSourceTemplate(scriptName: string, file: any, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<UpdateDetail>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.putSourceTemplate(scriptName, file, axiosOptions);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * Update a connector\'s translations using its script name. A token with ORG_ADMIN authority is required to call this API.
+         * @param {string} scriptName The scriptName value of the connector. Scriptname is the unique id generated at connector creation.
+         * @param {'de' | 'false' | 'fi' | 'sv' | 'ru' | 'pt' | 'ko' | 'zh-TW' | 'en' | 'it' | 'fr' | 'zh-CN' | 'hu' | 'es' | 'cs' | 'ja' | 'pl' | 'da' | 'nl'} locale The locale to apply to the config. If no viable locale is given, it will default to \&quot;en\&quot;
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        async putTranslations(scriptName: string, locale: 'de' | 'false' | 'fi' | 'sv' | 'ru' | 'pt' | 'ko' | 'zh-TW' | 'en' | 'it' | 'fr' | 'zh-CN' | 'hu' | 'es' | 'cs' | 'ja' | 'pl' | 'da' | 'nl', axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<UpdateDetail>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.putTranslations(scriptName, locale, axiosOptions);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * Patch a custom connector that using its script name. A token with ORG_ADMIN authority is required to call this API. The following fields are patchable: * connectorMetadata * applicationXml * correlationConfigXml * sourceConfigXml
+         * @param {string} scriptName The scriptName value of the connector. Scriptname is the unique id generated at connector creation.
+         * @param {Array<JsonPatchOperation>} jsonPatchOperation A list of connector detail update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        async updateConnector(scriptName: string, jsonPatchOperation: Array<JsonPatchOperation>, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ConnectorDetail>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.updateConnector(scriptName, jsonPatchOperation, axiosOptions);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+    }
+};
+
+/**
+ * ConnectorsApi - factory interface
+ * @export
+ */
+export const ConnectorsApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
+    const localVarFp = ConnectorsApiFp(configuration)
+    return {
+        /**
+         * Create custom connector. A token with ORG_ADMIN authority is required to call this API.
+         * @summary Create custom connector
+         * @param {V3CreateConnectorDto} v3CreateConnectorDto 
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        createCustomConnector(v3CreateConnectorDto: V3CreateConnectorDto, axiosOptions?: any): AxiosPromise<V3ConnectorDto> {
+            return localVarFp.createCustomConnector(v3CreateConnectorDto, axiosOptions).then((request) => request(axios, basePath));
+        },
+        /**
+         * Delete a custom connector that using its script name. A token with ORG_ADMIN authority is required to call this API.
+         * @param {string} scriptName The scriptName value of the connector. Scriptname is the unique id generated at connector creation.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        deleteCustomConnector(scriptName: string, axiosOptions?: any): AxiosPromise<void> {
+            return localVarFp.deleteCustomConnector(scriptName, axiosOptions).then((request) => request(axios, basePath));
+        },
+        /**
+         * Fetches a connector that using its script name. A token with ORG_ADMIN authority is required to call this API.
+         * @param {string} scriptName The scriptName value of the connector. Scriptname is the unique id generated at connector creation.
+         * @param {'de' | 'false' | 'fi' | 'sv' | 'ru' | 'pt' | 'ko' | 'zh-TW' | 'en' | 'it' | 'fr' | 'zh-CN' | 'hu' | 'es' | 'cs' | 'ja' | 'pl' | 'da' | 'nl'} [locale] The locale to apply to the config. If no viable locale is given, it will default to \&quot;en\&quot;
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        getConnector(scriptName: string, locale?: 'de' | 'false' | 'fi' | 'sv' | 'ru' | 'pt' | 'ko' | 'zh-TW' | 'en' | 'it' | 'fr' | 'zh-CN' | 'hu' | 'es' | 'cs' | 'ja' | 'pl' | 'da' | 'nl', axiosOptions?: any): AxiosPromise<ConnectorDetail> {
+            return localVarFp.getConnector(scriptName, locale, axiosOptions).then((request) => request(axios, basePath));
+        },
+        /**
+         * Fetches a connector\'s correlation config using its script name. A token with ORG_ADMIN authority is required to call this API.
+         * @param {string} scriptName The scriptName value of the connector. Scriptname is the unique id generated at connector creation.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        getConnectorCorrelationConfig(scriptName: string, axiosOptions?: any): AxiosPromise<string> {
+            return localVarFp.getConnectorCorrelationConfig(scriptName, axiosOptions).then((request) => request(axios, basePath));
+        },
+        /**
+         * Fetches a connector\'s source config using its script name. A token with ORG_ADMIN authority is required to call this API.
+         * @param {string} scriptName The scriptName value of the connector. Scriptname is the unique id generated at connector creation.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        getConnectorSourceConfig(scriptName: string, axiosOptions?: any): AxiosPromise<string> {
+            return localVarFp.getConnectorSourceConfig(scriptName, axiosOptions).then((request) => request(axios, basePath));
+        },
+        /**
+         * Fetches a connector\'s source template using its script name. A token with ORG_ADMIN authority is required to call this API.
+         * @param {string} scriptName The scriptName value of the connector. Scriptname is the unique id generated at connector creation.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        getConnectorSourceTemplate(scriptName: string, axiosOptions?: any): AxiosPromise<string> {
+            return localVarFp.getConnectorSourceTemplate(scriptName, axiosOptions).then((request) => request(axios, basePath));
+        },
+        /**
+         * Fetches a connector\'s translations using its script name. A token with ORG_ADMIN authority is required to call this API.
+         * @param {string} scriptName The scriptName value of the connector. Scriptname is the unique id generated at connector creation.
+         * @param {'de' | 'false' | 'fi' | 'sv' | 'ru' | 'pt' | 'ko' | 'zh-TW' | 'en' | 'it' | 'fr' | 'zh-CN' | 'hu' | 'es' | 'cs' | 'ja' | 'pl' | 'da' | 'nl'} locale The locale to apply to the config. If no viable locale is given, it will default to \&quot;en\&quot;
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        getConnectorTranslations(scriptName: string, locale: 'de' | 'false' | 'fi' | 'sv' | 'ru' | 'pt' | 'ko' | 'zh-TW' | 'en' | 'it' | 'fr' | 'zh-CN' | 'hu' | 'es' | 'cs' | 'ja' | 'pl' | 'da' | 'nl', axiosOptions?: any): AxiosPromise<string> {
+            return localVarFp.getConnectorTranslations(scriptName, locale, axiosOptions).then((request) => request(axios, basePath));
+        },
+        /**
+         * Update a connector\'s correlation config using its script name. A token with ORG_ADMIN authority is required to call this API.
+         * @param {string} scriptName The scriptName value of the connector. Scriptname is the unique id generated at connector creation.
+         * @param {any} file connector correlation config xml file
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        putCorrelationConfig(scriptName: string, file: any, axiosOptions?: any): AxiosPromise<UpdateDetail> {
+            return localVarFp.putCorrelationConfig(scriptName, file, axiosOptions).then((request) => request(axios, basePath));
+        },
+        /**
+         * Update a connector\'s source config using its script name. A token with ORG_ADMIN authority is required to call this API.
+         * @param {string} scriptName The scriptName value of the connector. Scriptname is the unique id generated at connector creation.
+         * @param {any} file connector source config xml file
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        putSourceConfig(scriptName: string, file: any, axiosOptions?: any): AxiosPromise<UpdateDetail> {
+            return localVarFp.putSourceConfig(scriptName, file, axiosOptions).then((request) => request(axios, basePath));
+        },
+        /**
+         * Update a connector\'s source template using its script name. A token with ORG_ADMIN authority is required to call this API.
+         * @param {string} scriptName The scriptName value of the connector. Scriptname is the unique id generated at connector creation.
+         * @param {any} file connector source template xml file
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        putSourceTemplate(scriptName: string, file: any, axiosOptions?: any): AxiosPromise<UpdateDetail> {
+            return localVarFp.putSourceTemplate(scriptName, file, axiosOptions).then((request) => request(axios, basePath));
+        },
+        /**
+         * Update a connector\'s translations using its script name. A token with ORG_ADMIN authority is required to call this API.
+         * @param {string} scriptName The scriptName value of the connector. Scriptname is the unique id generated at connector creation.
+         * @param {'de' | 'false' | 'fi' | 'sv' | 'ru' | 'pt' | 'ko' | 'zh-TW' | 'en' | 'it' | 'fr' | 'zh-CN' | 'hu' | 'es' | 'cs' | 'ja' | 'pl' | 'da' | 'nl'} locale The locale to apply to the config. If no viable locale is given, it will default to \&quot;en\&quot;
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        putTranslations(scriptName: string, locale: 'de' | 'false' | 'fi' | 'sv' | 'ru' | 'pt' | 'ko' | 'zh-TW' | 'en' | 'it' | 'fr' | 'zh-CN' | 'hu' | 'es' | 'cs' | 'ja' | 'pl' | 'da' | 'nl', axiosOptions?: any): AxiosPromise<UpdateDetail> {
+            return localVarFp.putTranslations(scriptName, locale, axiosOptions).then((request) => request(axios, basePath));
+        },
+        /**
+         * Patch a custom connector that using its script name. A token with ORG_ADMIN authority is required to call this API. The following fields are patchable: * connectorMetadata * applicationXml * correlationConfigXml * sourceConfigXml
+         * @param {string} scriptName The scriptName value of the connector. Scriptname is the unique id generated at connector creation.
+         * @param {Array<JsonPatchOperation>} jsonPatchOperation A list of connector detail update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        updateConnector(scriptName: string, jsonPatchOperation: Array<JsonPatchOperation>, axiosOptions?: any): AxiosPromise<ConnectorDetail> {
+            return localVarFp.updateConnector(scriptName, jsonPatchOperation, axiosOptions).then((request) => request(axios, basePath));
+        },
+    };
+};
+
+/**
+ * Request parameters for createCustomConnector operation in ConnectorsApi.
+ * @export
+ * @interface ConnectorsApiCreateCustomConnectorRequest
+ */
+export interface ConnectorsApiCreateCustomConnectorRequest {
+    /**
+     * 
+     * @type {V3CreateConnectorDto}
+     * @memberof ConnectorsApiCreateCustomConnector
+     */
+    readonly v3CreateConnectorDto: V3CreateConnectorDto
+}
+
+/**
+ * Request parameters for deleteCustomConnector operation in ConnectorsApi.
+ * @export
+ * @interface ConnectorsApiDeleteCustomConnectorRequest
+ */
+export interface ConnectorsApiDeleteCustomConnectorRequest {
+    /**
+     * The scriptName value of the connector. Scriptname is the unique id generated at connector creation.
+     * @type {string}
+     * @memberof ConnectorsApiDeleteCustomConnector
+     */
+    readonly scriptName: string
+}
+
+/**
+ * Request parameters for getConnector operation in ConnectorsApi.
+ * @export
+ * @interface ConnectorsApiGetConnectorRequest
+ */
+export interface ConnectorsApiGetConnectorRequest {
+    /**
+     * The scriptName value of the connector. Scriptname is the unique id generated at connector creation.
+     * @type {string}
+     * @memberof ConnectorsApiGetConnector
+     */
+    readonly scriptName: string
+
+    /**
+     * The locale to apply to the config. If no viable locale is given, it will default to \&quot;en\&quot;
+     * @type {'de' | 'false' | 'fi' | 'sv' | 'ru' | 'pt' | 'ko' | 'zh-TW' | 'en' | 'it' | 'fr' | 'zh-CN' | 'hu' | 'es' | 'cs' | 'ja' | 'pl' | 'da' | 'nl'}
+     * @memberof ConnectorsApiGetConnector
+     */
+    readonly locale?: 'de' | 'false' | 'fi' | 'sv' | 'ru' | 'pt' | 'ko' | 'zh-TW' | 'en' | 'it' | 'fr' | 'zh-CN' | 'hu' | 'es' | 'cs' | 'ja' | 'pl' | 'da' | 'nl'
+}
+
+/**
+ * Request parameters for getConnectorCorrelationConfig operation in ConnectorsApi.
+ * @export
+ * @interface ConnectorsApiGetConnectorCorrelationConfigRequest
+ */
+export interface ConnectorsApiGetConnectorCorrelationConfigRequest {
+    /**
+     * The scriptName value of the connector. Scriptname is the unique id generated at connector creation.
+     * @type {string}
+     * @memberof ConnectorsApiGetConnectorCorrelationConfig
+     */
+    readonly scriptName: string
+}
+
+/**
+ * Request parameters for getConnectorSourceConfig operation in ConnectorsApi.
+ * @export
+ * @interface ConnectorsApiGetConnectorSourceConfigRequest
+ */
+export interface ConnectorsApiGetConnectorSourceConfigRequest {
+    /**
+     * The scriptName value of the connector. Scriptname is the unique id generated at connector creation.
+     * @type {string}
+     * @memberof ConnectorsApiGetConnectorSourceConfig
+     */
+    readonly scriptName: string
+}
+
+/**
+ * Request parameters for getConnectorSourceTemplate operation in ConnectorsApi.
+ * @export
+ * @interface ConnectorsApiGetConnectorSourceTemplateRequest
+ */
+export interface ConnectorsApiGetConnectorSourceTemplateRequest {
+    /**
+     * The scriptName value of the connector. Scriptname is the unique id generated at connector creation.
+     * @type {string}
+     * @memberof ConnectorsApiGetConnectorSourceTemplate
+     */
+    readonly scriptName: string
+}
+
+/**
+ * Request parameters for getConnectorTranslations operation in ConnectorsApi.
+ * @export
+ * @interface ConnectorsApiGetConnectorTranslationsRequest
+ */
+export interface ConnectorsApiGetConnectorTranslationsRequest {
+    /**
+     * The scriptName value of the connector. Scriptname is the unique id generated at connector creation.
+     * @type {string}
+     * @memberof ConnectorsApiGetConnectorTranslations
+     */
+    readonly scriptName: string
+
+    /**
+     * The locale to apply to the config. If no viable locale is given, it will default to \&quot;en\&quot;
+     * @type {'de' | 'false' | 'fi' | 'sv' | 'ru' | 'pt' | 'ko' | 'zh-TW' | 'en' | 'it' | 'fr' | 'zh-CN' | 'hu' | 'es' | 'cs' | 'ja' | 'pl' | 'da' | 'nl'}
+     * @memberof ConnectorsApiGetConnectorTranslations
+     */
+    readonly locale: 'de' | 'false' | 'fi' | 'sv' | 'ru' | 'pt' | 'ko' | 'zh-TW' | 'en' | 'it' | 'fr' | 'zh-CN' | 'hu' | 'es' | 'cs' | 'ja' | 'pl' | 'da' | 'nl'
+}
+
+/**
+ * Request parameters for putCorrelationConfig operation in ConnectorsApi.
+ * @export
+ * @interface ConnectorsApiPutCorrelationConfigRequest
+ */
+export interface ConnectorsApiPutCorrelationConfigRequest {
+    /**
+     * The scriptName value of the connector. Scriptname is the unique id generated at connector creation.
+     * @type {string}
+     * @memberof ConnectorsApiPutCorrelationConfig
+     */
+    readonly scriptName: string
+
+    /**
+     * connector correlation config xml file
+     * @type {any}
+     * @memberof ConnectorsApiPutCorrelationConfig
+     */
+    readonly file: any
+}
+
+/**
+ * Request parameters for putSourceConfig operation in ConnectorsApi.
+ * @export
+ * @interface ConnectorsApiPutSourceConfigRequest
+ */
+export interface ConnectorsApiPutSourceConfigRequest {
+    /**
+     * The scriptName value of the connector. Scriptname is the unique id generated at connector creation.
+     * @type {string}
+     * @memberof ConnectorsApiPutSourceConfig
+     */
+    readonly scriptName: string
+
+    /**
+     * connector source config xml file
+     * @type {any}
+     * @memberof ConnectorsApiPutSourceConfig
+     */
+    readonly file: any
+}
+
+/**
+ * Request parameters for putSourceTemplate operation in ConnectorsApi.
+ * @export
+ * @interface ConnectorsApiPutSourceTemplateRequest
+ */
+export interface ConnectorsApiPutSourceTemplateRequest {
+    /**
+     * The scriptName value of the connector. Scriptname is the unique id generated at connector creation.
+     * @type {string}
+     * @memberof ConnectorsApiPutSourceTemplate
+     */
+    readonly scriptName: string
+
+    /**
+     * connector source template xml file
+     * @type {any}
+     * @memberof ConnectorsApiPutSourceTemplate
+     */
+    readonly file: any
+}
+
+/**
+ * Request parameters for putTranslations operation in ConnectorsApi.
+ * @export
+ * @interface ConnectorsApiPutTranslationsRequest
+ */
+export interface ConnectorsApiPutTranslationsRequest {
+    /**
+     * The scriptName value of the connector. Scriptname is the unique id generated at connector creation.
+     * @type {string}
+     * @memberof ConnectorsApiPutTranslations
+     */
+    readonly scriptName: string
+
+    /**
+     * The locale to apply to the config. If no viable locale is given, it will default to \&quot;en\&quot;
+     * @type {'de' | 'false' | 'fi' | 'sv' | 'ru' | 'pt' | 'ko' | 'zh-TW' | 'en' | 'it' | 'fr' | 'zh-CN' | 'hu' | 'es' | 'cs' | 'ja' | 'pl' | 'da' | 'nl'}
+     * @memberof ConnectorsApiPutTranslations
+     */
+    readonly locale: 'de' | 'false' | 'fi' | 'sv' | 'ru' | 'pt' | 'ko' | 'zh-TW' | 'en' | 'it' | 'fr' | 'zh-CN' | 'hu' | 'es' | 'cs' | 'ja' | 'pl' | 'da' | 'nl'
+}
+
+/**
+ * Request parameters for updateConnector operation in ConnectorsApi.
+ * @export
+ * @interface ConnectorsApiUpdateConnectorRequest
+ */
+export interface ConnectorsApiUpdateConnectorRequest {
+    /**
+     * The scriptName value of the connector. Scriptname is the unique id generated at connector creation.
+     * @type {string}
+     * @memberof ConnectorsApiUpdateConnector
+     */
+    readonly scriptName: string
+
+    /**
+     * A list of connector detail update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.
+     * @type {Array<JsonPatchOperation>}
+     * @memberof ConnectorsApiUpdateConnector
+     */
+    readonly jsonPatchOperation: Array<JsonPatchOperation>
+}
+
+/**
+ * ConnectorsApi - object-oriented interface
+ * @export
+ * @class ConnectorsApi
+ * @extends {BaseAPI}
+ */
+export class ConnectorsApi extends BaseAPI {
+    /**
+     * Create custom connector. A token with ORG_ADMIN authority is required to call this API.
+     * @summary Create custom connector
+     * @param {ConnectorsApiCreateCustomConnectorRequest} requestParameters Request parameters.
+     * @param {*} [axiosOptions] Override http request option.
+     * @throws {RequiredError}
+     * @memberof ConnectorsApi
+     */
+    public createCustomConnector(requestParameters: ConnectorsApiCreateCustomConnectorRequest, axiosOptions?: AxiosRequestConfig) {
+        return ConnectorsApiFp(this.configuration).createCustomConnector(requestParameters.v3CreateConnectorDto, axiosOptions).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Delete a custom connector that using its script name. A token with ORG_ADMIN authority is required to call this API.
+     * @param {ConnectorsApiDeleteCustomConnectorRequest} requestParameters Request parameters.
+     * @param {*} [axiosOptions] Override http request option.
+     * @throws {RequiredError}
+     * @memberof ConnectorsApi
+     */
+    public deleteCustomConnector(requestParameters: ConnectorsApiDeleteCustomConnectorRequest, axiosOptions?: AxiosRequestConfig) {
+        return ConnectorsApiFp(this.configuration).deleteCustomConnector(requestParameters.scriptName, axiosOptions).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Fetches a connector that using its script name. A token with ORG_ADMIN authority is required to call this API.
+     * @param {ConnectorsApiGetConnectorRequest} requestParameters Request parameters.
+     * @param {*} [axiosOptions] Override http request option.
+     * @throws {RequiredError}
+     * @memberof ConnectorsApi
+     */
+    public getConnector(requestParameters: ConnectorsApiGetConnectorRequest, axiosOptions?: AxiosRequestConfig) {
+        return ConnectorsApiFp(this.configuration).getConnector(requestParameters.scriptName, requestParameters.locale, axiosOptions).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Fetches a connector\'s correlation config using its script name. A token with ORG_ADMIN authority is required to call this API.
+     * @param {ConnectorsApiGetConnectorCorrelationConfigRequest} requestParameters Request parameters.
+     * @param {*} [axiosOptions] Override http request option.
+     * @throws {RequiredError}
+     * @memberof ConnectorsApi
+     */
+    public getConnectorCorrelationConfig(requestParameters: ConnectorsApiGetConnectorCorrelationConfigRequest, axiosOptions?: AxiosRequestConfig) {
+        return ConnectorsApiFp(this.configuration).getConnectorCorrelationConfig(requestParameters.scriptName, axiosOptions).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Fetches a connector\'s source config using its script name. A token with ORG_ADMIN authority is required to call this API.
+     * @param {ConnectorsApiGetConnectorSourceConfigRequest} requestParameters Request parameters.
+     * @param {*} [axiosOptions] Override http request option.
+     * @throws {RequiredError}
+     * @memberof ConnectorsApi
+     */
+    public getConnectorSourceConfig(requestParameters: ConnectorsApiGetConnectorSourceConfigRequest, axiosOptions?: AxiosRequestConfig) {
+        return ConnectorsApiFp(this.configuration).getConnectorSourceConfig(requestParameters.scriptName, axiosOptions).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Fetches a connector\'s source template using its script name. A token with ORG_ADMIN authority is required to call this API.
+     * @param {ConnectorsApiGetConnectorSourceTemplateRequest} requestParameters Request parameters.
+     * @param {*} [axiosOptions] Override http request option.
+     * @throws {RequiredError}
+     * @memberof ConnectorsApi
+     */
+    public getConnectorSourceTemplate(requestParameters: ConnectorsApiGetConnectorSourceTemplateRequest, axiosOptions?: AxiosRequestConfig) {
+        return ConnectorsApiFp(this.configuration).getConnectorSourceTemplate(requestParameters.scriptName, axiosOptions).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Fetches a connector\'s translations using its script name. A token with ORG_ADMIN authority is required to call this API.
+     * @param {ConnectorsApiGetConnectorTranslationsRequest} requestParameters Request parameters.
+     * @param {*} [axiosOptions] Override http request option.
+     * @throws {RequiredError}
+     * @memberof ConnectorsApi
+     */
+    public getConnectorTranslations(requestParameters: ConnectorsApiGetConnectorTranslationsRequest, axiosOptions?: AxiosRequestConfig) {
+        return ConnectorsApiFp(this.configuration).getConnectorTranslations(requestParameters.scriptName, requestParameters.locale, axiosOptions).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Update a connector\'s correlation config using its script name. A token with ORG_ADMIN authority is required to call this API.
+     * @param {ConnectorsApiPutCorrelationConfigRequest} requestParameters Request parameters.
+     * @param {*} [axiosOptions] Override http request option.
+     * @throws {RequiredError}
+     * @memberof ConnectorsApi
+     */
+    public putCorrelationConfig(requestParameters: ConnectorsApiPutCorrelationConfigRequest, axiosOptions?: AxiosRequestConfig) {
+        return ConnectorsApiFp(this.configuration).putCorrelationConfig(requestParameters.scriptName, requestParameters.file, axiosOptions).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Update a connector\'s source config using its script name. A token with ORG_ADMIN authority is required to call this API.
+     * @param {ConnectorsApiPutSourceConfigRequest} requestParameters Request parameters.
+     * @param {*} [axiosOptions] Override http request option.
+     * @throws {RequiredError}
+     * @memberof ConnectorsApi
+     */
+    public putSourceConfig(requestParameters: ConnectorsApiPutSourceConfigRequest, axiosOptions?: AxiosRequestConfig) {
+        return ConnectorsApiFp(this.configuration).putSourceConfig(requestParameters.scriptName, requestParameters.file, axiosOptions).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Update a connector\'s source template using its script name. A token with ORG_ADMIN authority is required to call this API.
+     * @param {ConnectorsApiPutSourceTemplateRequest} requestParameters Request parameters.
+     * @param {*} [axiosOptions] Override http request option.
+     * @throws {RequiredError}
+     * @memberof ConnectorsApi
+     */
+    public putSourceTemplate(requestParameters: ConnectorsApiPutSourceTemplateRequest, axiosOptions?: AxiosRequestConfig) {
+        return ConnectorsApiFp(this.configuration).putSourceTemplate(requestParameters.scriptName, requestParameters.file, axiosOptions).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Update a connector\'s translations using its script name. A token with ORG_ADMIN authority is required to call this API.
+     * @param {ConnectorsApiPutTranslationsRequest} requestParameters Request parameters.
+     * @param {*} [axiosOptions] Override http request option.
+     * @throws {RequiredError}
+     * @memberof ConnectorsApi
+     */
+    public putTranslations(requestParameters: ConnectorsApiPutTranslationsRequest, axiosOptions?: AxiosRequestConfig) {
+        return ConnectorsApiFp(this.configuration).putTranslations(requestParameters.scriptName, requestParameters.locale, axiosOptions).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Patch a custom connector that using its script name. A token with ORG_ADMIN authority is required to call this API. The following fields are patchable: * connectorMetadata * applicationXml * correlationConfigXml * sourceConfigXml
+     * @param {ConnectorsApiUpdateConnectorRequest} requestParameters Request parameters.
+     * @param {*} [axiosOptions] Override http request option.
+     * @throws {RequiredError}
+     * @memberof ConnectorsApi
+     */
+    public updateConnector(requestParameters: ConnectorsApiUpdateConnectorRequest, axiosOptions?: AxiosRequestConfig) {
+        return ConnectorsApiFp(this.configuration).updateConnector(requestParameters.scriptName, requestParameters.jsonPatchOperation, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 }
 
