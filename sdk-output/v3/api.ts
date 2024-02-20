@@ -956,7 +956,7 @@ export interface AccessRequest {
      * @type {AccessRequestType}
      * @memberof AccessRequest
      */
-    'requestType'?: AccessRequestType;
+    'requestType'?: AccessRequestType | null;
     /**
      * 
      * @type {Array<AccessRequestItem>}
@@ -1038,7 +1038,7 @@ export interface AccessRequestItem {
      */
     'clientMetadata'?: { [key: string]: string; };
     /**
-     * The date the role or access profile is no longer assigned to the specified identity. * Specify a date in the future. * The current SLA for the deprovisioning is 24 hours. * This date can be modified to either extend or decrease the duration of access item assignments for the specified identity. * Currently it is not supported for entitlements. 
+     * The date the role or access profile is no longer assigned to the specified identity. Also known as the expiration date. * Specify a date in the future. * The current SLA for the deprovisioning is 24 hours. * This date can be modified to either extend or decrease the duration of access item assignments for the specified identity. You can change the expiration date for requests for yourself or direct reports, but you cannot remove an expiration date on an already approved item. If the access request has not been approved, you can cancel it and submit a new one without the expiration. If it has already been approved, then you have to revoke the access and then re-request without the expiration. * Currently it is not supported for entitlements. 
      * @type {string}
      * @memberof AccessRequestItem
      */
@@ -1070,7 +1070,7 @@ export interface AccessRequestPhases {
      * @type {string}
      * @memberof AccessRequestPhases
      */
-    'finished'?: string;
+    'finished'?: string | null;
     /**
      * The name of this phase.
      * @type {string}
@@ -1094,20 +1094,22 @@ export interface AccessRequestPhases {
      * @type {string}
      * @memberof AccessRequestPhases
      */
-    'phaseReference'?: string;
+    'phaseReference'?: string | null;
 }
 
 export const AccessRequestPhasesStateEnum = {
     Pending: 'PENDING',
     Executing: 'EXECUTING',
     Completed: 'COMPLETED',
-    Cancelled: 'CANCELLED'
+    Cancelled: 'CANCELLED',
+    NotExecuted: 'NOT_EXECUTED'
 } as const;
 
 export type AccessRequestPhasesStateEnum = typeof AccessRequestPhasesStateEnum[keyof typeof AccessRequestPhasesStateEnum];
 export const AccessRequestPhasesResultEnum = {
     Successful: 'SUCCESSFUL',
-    Failed: 'FAILED'
+    Failed: 'FAILED',
+    Null: 'null'
 } as const;
 
 export type AccessRequestPhasesResultEnum = typeof AccessRequestPhasesResultEnum[keyof typeof AccessRequestPhasesResultEnum];
@@ -1120,7 +1122,8 @@ export type AccessRequestPhasesResultEnum = typeof AccessRequestPhasesResultEnum
 
 export const AccessRequestType = {
     GrantAccess: 'GRANT_ACCESS',
-    RevokeAccess: 'REVOKE_ACCESS'
+    RevokeAccess: 'REVOKE_ACCESS',
+    Null: 'null'
 } as const;
 
 export type AccessRequestType = typeof AccessRequestType[keyof typeof AccessRequestType];
@@ -1396,6 +1399,12 @@ export interface Account {
      * @memberof Account
      */
     'sourceOwner'?: BaseReferenceDto;
+    /**
+     * A string list containing the owning source\'s features
+     * @type {string}
+     * @memberof Account
+     */
+    'features'?: string | null;
 }
 /**
  * Object for specifying Actions to be performed on a specified list of sources\' account.
@@ -1462,10 +1471,10 @@ export interface AccountActivity {
     'completed'?: string | null;
     /**
      * 
-     * @type {CompletionStatus}
+     * @type {CompletionStatus & object}
      * @memberof AccountActivity
      */
-    'completionStatus'?: CompletionStatus | null;
+    'completionStatus'?: CompletionStatus & object;
     /**
      * The type of action the activity performed.  Please see the following list of types.  This list may grow over time.  - CloudAutomated - IdentityAttributeUpdate - appRequest - LifecycleStateChange - AccountStateUpdate - AccountAttributeUpdate - CloudPasswordRequest - Attribute Synchronization Refresh - Certification - Identity Refresh - Lifecycle Change Refresh   [Learn more here](https://documentation.sailpoint.com/saas/help/search/searchable-fields.html#searching-account-activity-data). 
      * @type {string}
@@ -1501,7 +1510,7 @@ export interface AccountActivity {
      * @type {Array<AccountActivityItem>}
      * @memberof AccountActivity
      */
-    'items'?: Array<AccountActivityItem>;
+    'items'?: Array<AccountActivityItem> | null;
     /**
      * 
      * @type {ExecutionStatus}
@@ -1662,10 +1671,10 @@ export interface AccountActivityItem {
     'requested'?: string;
     /**
      * 
-     * @type {WorkItemState}
+     * @type {WorkItemState & object}
      * @memberof AccountActivityItem
      */
-    'approvalStatus'?: WorkItemState;
+    'approvalStatus'?: WorkItemState & object;
     /**
      * 
      * @type {ProvisioningState}
@@ -1692,10 +1701,10 @@ export interface AccountActivityItem {
     'reviewerComment'?: Comment | null;
     /**
      * 
-     * @type {AccountActivityItemOperation}
+     * @type {AccountActivityItemOperation & object}
      * @memberof AccountActivityItem
      */
-    'operation'?: AccountActivityItemOperation;
+    'operation'?: AccountActivityItemOperation & object;
     /**
      * Attribute to which account activity applies
      * @type {string}
@@ -1754,7 +1763,9 @@ export const AccountActivityItemOperation = {
     Enable: 'ENABLE',
     Unlock: 'UNLOCK',
     Lock: 'LOCK',
-    Remove: 'REMOVE'
+    Remove: 'REMOVE',
+    Set: 'SET',
+    Null: 'null'
 } as const;
 
 export type AccountActivityItemOperation = typeof AccountActivityItemOperation[keyof typeof AccountActivityItemOperation];
@@ -2086,6 +2097,12 @@ export interface AccountAllOf {
      * @memberof AccountAllOf
      */
     'sourceOwner'?: BaseReferenceDto;
+    /**
+     * A string list containing the owning source\'s features
+     * @type {string}
+     * @memberof AccountAllOf
+     */
+    'features'?: string | null;
 }
 /**
  * 
@@ -2785,7 +2802,7 @@ export interface ApprovalItemDetails {
      * @type {string}
      * @memberof ApprovalItemDetails
      */
-    'account'?: string;
+    'account'?: string | null;
     /**
      * The name of the application/source
      * @type {string}
@@ -2797,7 +2814,7 @@ export interface ApprovalItemDetails {
      * @type {string}
      * @memberof ApprovalItemDetails
      */
-    'name'?: string;
+    'name'?: string | null;
     /**
      * The attribute\'s operation
      * @type {string}
@@ -2809,13 +2826,13 @@ export interface ApprovalItemDetails {
      * @type {string}
      * @memberof ApprovalItemDetails
      */
-    'value'?: string;
+    'value'?: string | null;
     /**
      * 
-     * @type {WorkItemState}
+     * @type {WorkItemState & object}
      * @memberof ApprovalItemDetails
      */
-    'state'?: WorkItemState;
+    'state'?: WorkItemState & object;
 }
 /**
  * 
@@ -2834,7 +2851,7 @@ export interface ApprovalItems {
      * @type {string}
      * @memberof ApprovalItems
      */
-    'account'?: string;
+    'account'?: string | null;
     /**
      * The name of the application/source
      * @type {string}
@@ -2846,7 +2863,7 @@ export interface ApprovalItems {
      * @type {string}
      * @memberof ApprovalItems
      */
-    'name'?: string;
+    'name'?: string | null;
     /**
      * The attribute\'s operation
      * @type {string}
@@ -2858,13 +2875,13 @@ export interface ApprovalItems {
      * @type {string}
      * @memberof ApprovalItems
      */
-    'value'?: string;
+    'value'?: string | null;
     /**
      * 
-     * @type {WorkItemState}
+     * @type {WorkItemState & object}
      * @memberof ApprovalItems
      */
-    'state'?: WorkItemState;
+    'state'?: WorkItemState & object;
 }
 /**
  * 
@@ -2877,19 +2894,19 @@ export interface ApprovalReminderAndEscalationConfig {
      * @type {number}
      * @memberof ApprovalReminderAndEscalationConfig
      */
-    'daysUntilEscalation'?: number;
+    'daysUntilEscalation'?: number | null;
     /**
      * Number of days to wait between reminder notifications.
      * @type {number}
      * @memberof ApprovalReminderAndEscalationConfig
      */
-    'daysBetweenReminders'?: number;
+    'daysBetweenReminders'?: number | null;
     /**
      * Maximum number of reminder notification to send to the reviewer before approval escalation.
      * @type {number}
      * @memberof ApprovalReminderAndEscalationConfig
      */
-    'maxReminders'?: number;
+    'maxReminders'?: number | null;
     /**
      * 
      * @type {IdentityReferenceWithNameAndEmail}
@@ -2981,16 +2998,16 @@ export interface ApprovalStatusDto {
     'originalOwner'?: ApprovalStatusDtoOriginalOwner;
     /**
      * 
-     * @type {AccessItemReviewedBy}
+     * @type {ApprovalStatusDtoCurrentOwner}
      * @memberof ApprovalStatusDto
      */
-    'currentOwner'?: AccessItemReviewedBy;
+    'currentOwner'?: ApprovalStatusDtoCurrentOwner;
     /**
      * Time at which item was modified.
      * @type {string}
      * @memberof ApprovalStatusDto
      */
-    'modified'?: string;
+    'modified'?: string | null;
     /**
      * 
      * @type {ManualWorkItemState}
@@ -3008,20 +3025,52 @@ export interface ApprovalStatusDto {
      * @type {Array<ErrorMessageDto>}
      * @memberof ApprovalStatusDto
      */
-    'errorMessages'?: Array<ErrorMessageDto>;
+    'errorMessages'?: Array<ErrorMessageDto> | null;
     /**
      * Comment, if any, provided by the approver.
      * @type {string}
      * @memberof ApprovalStatusDto
      */
-    'comment'?: string;
+    'comment'?: string | null;
     /**
      * The date the role or access profile is no longer assigned to the specified identity.
      * @type {string}
      * @memberof ApprovalStatusDto
      */
-    'removeDate'?: string;
+    'removeDate'?: string | null;
 }
+/**
+ * 
+ * @export
+ * @interface ApprovalStatusDtoCurrentOwner
+ */
+export interface ApprovalStatusDtoCurrentOwner {
+    /**
+     * DTO type of identity who reviewed the access item request.
+     * @type {string}
+     * @memberof ApprovalStatusDtoCurrentOwner
+     */
+    'type'?: ApprovalStatusDtoCurrentOwnerTypeEnum;
+    /**
+     * ID of identity who reviewed the access item request.
+     * @type {string}
+     * @memberof ApprovalStatusDtoCurrentOwner
+     */
+    'id'?: string;
+    /**
+     * Human-readable display name of identity who reviewed the access item request.
+     * @type {string}
+     * @memberof ApprovalStatusDtoCurrentOwner
+     */
+    'name'?: string;
+}
+
+export const ApprovalStatusDtoCurrentOwnerTypeEnum = {
+    Identity: 'IDENTITY'
+} as const;
+
+export type ApprovalStatusDtoCurrentOwnerTypeEnum = typeof ApprovalStatusDtoCurrentOwnerTypeEnum[keyof typeof ApprovalStatusDtoCurrentOwnerTypeEnum];
+
 /**
  * Identity of orginal approval owner.
  * @export
@@ -4652,7 +4701,7 @@ export interface CampaignFilterDetails {
      * @type {string}
      * @memberof CampaignFilterDetails
      */
-    'owner': string;
+    'owner': string | null;
     /**
      * The mode/type of Filter, where it is of INCLUSION or EXCLUSION type. INCLUSION type will include the data in generated campaign  as per specified in criteria, whereas EXCLUSION type will exclude the the data in generated campaign as per specified in criteria.
      * @type {object}
@@ -4688,22 +4737,22 @@ export interface CampaignFilterDetailsCriteriaListInner {
     'type': CriteriaType;
     /**
      * 
-     * @type {Operation}
+     * @type {Operation & object}
      * @memberof CampaignFilterDetailsCriteriaListInner
      */
-    'operation': Operation;
+    'operation': Operation & object;
     /**
      * The specified key from the Type of criteria.
      * @type {string}
      * @memberof CampaignFilterDetailsCriteriaListInner
      */
-    'property': string;
+    'property': string | null;
     /**
      * The value for the specified key from the Type of Criteria
      * @type {string}
      * @memberof CampaignFilterDetailsCriteriaListInner
      */
-    'value': string;
+    'value': string | null;
 }
 /**
  * 
@@ -4871,7 +4920,7 @@ export interface CampaignReportsConfig {
      * @type {Array<string>}
      * @memberof CampaignReportsConfig
      */
-    'identityAttributeColumns'?: Array<string>;
+    'identityAttributeColumns'?: Array<string> | null;
 }
 /**
  * Campaign Template
@@ -5401,7 +5450,45 @@ export interface CommentDto {
      * @memberof CommentDto
      */
     'created'?: string;
+    /**
+     * 
+     * @type {CommentDtoAuthor}
+     * @memberof CommentDto
+     */
+    'author'?: CommentDtoAuthor;
 }
+/**
+ * Author of the comment
+ * @export
+ * @interface CommentDtoAuthor
+ */
+export interface CommentDtoAuthor {
+    /**
+     * The type of object
+     * @type {string}
+     * @memberof CommentDtoAuthor
+     */
+    'type'?: CommentDtoAuthorTypeEnum;
+    /**
+     * The unique ID of the object
+     * @type {string}
+     * @memberof CommentDtoAuthor
+     */
+    'id'?: string;
+    /**
+     * The display name of the object
+     * @type {string}
+     * @memberof CommentDtoAuthor
+     */
+    'name'?: string;
+}
+
+export const CommentDtoAuthorTypeEnum = {
+    Identity: 'IDENTITY'
+} as const;
+
+export type CommentDtoAuthorTypeEnum = typeof CommentDtoAuthorTypeEnum[keyof typeof CommentDtoAuthorTypeEnum];
+
 /**
  * 
  * @export
@@ -5443,7 +5530,7 @@ export interface CompletedApproval {
      * @type {AccessRequestType}
      * @memberof CompletedApproval
      */
-    'requestType'?: AccessRequestType;
+    'requestType'?: AccessRequestType | null;
     /**
      * 
      * @type {AccessItemRequester}
@@ -5476,16 +5563,16 @@ export interface CompletedApproval {
     'requestedObject'?: RequestableObjectReference;
     /**
      * 
-     * @type {CommentDto}
+     * @type {CompletedApprovalRequesterComment}
      * @memberof CompletedApproval
      */
-    'requesterComment'?: CommentDto;
+    'requesterComment'?: CompletedApprovalRequesterComment;
     /**
      * 
      * @type {CompletedApprovalReviewerComment}
      * @memberof CompletedApproval
      */
-    'reviewerComment'?: CompletedApprovalReviewerComment | null;
+    'reviewerComment'?: CompletedApprovalReviewerComment;
     /**
      * The history of the previous reviewers comments.
      * @type {Array<CommentDto>}
@@ -5534,9 +5621,83 @@ export interface CompletedApproval {
      * @memberof CompletedApproval
      */
     'sodViolationContext'?: SodViolationContextCheckCompleted;
+    /**
+     * 
+     * @type {CompletedApprovalPreApprovalTriggerResult}
+     * @memberof CompletedApproval
+     */
+    'preApprovalTriggerResult'?: CompletedApprovalPreApprovalTriggerResult | null;
+    /**
+     * Arbitrary key-value pairs provided during the request.
+     * @type {{ [key: string]: string; }}
+     * @memberof CompletedApproval
+     */
+    'clientMetadata'?: { [key: string]: string; };
+    /**
+     * 
+     * @type {string}
+     * @memberof CompletedApproval
+     */
+    'requestedAccounts'?: string | null;
 }
 /**
- * The approval\'s reviewer\'s comment.
+ * If the access request submitted event trigger is configured and this access request was intercepted by it, then this is the result of the trigger\'s decision to either approve or deny the request.
+ * @export
+ * @interface CompletedApprovalPreApprovalTriggerResult
+ */
+export interface CompletedApprovalPreApprovalTriggerResult {
+    /**
+     * The comment from the trigger
+     * @type {string}
+     * @memberof CompletedApprovalPreApprovalTriggerResult
+     */
+    'comment'?: string;
+    /**
+     * 
+     * @type {CompletedApprovalState}
+     * @memberof CompletedApprovalPreApprovalTriggerResult
+     */
+    'decision'?: CompletedApprovalState;
+    /**
+     * The name of the approver
+     * @type {string}
+     * @memberof CompletedApprovalPreApprovalTriggerResult
+     */
+    'reviewer'?: string;
+    /**
+     * The date and time the trigger decided on the request
+     * @type {string}
+     * @memberof CompletedApprovalPreApprovalTriggerResult
+     */
+    'date'?: string;
+}
+/**
+ * 
+ * @export
+ * @interface CompletedApprovalRequesterComment
+ */
+export interface CompletedApprovalRequesterComment {
+    /**
+     * Comment content.
+     * @type {string}
+     * @memberof CompletedApprovalRequesterComment
+     */
+    'comment'?: string | null;
+    /**
+     * Date and time comment was created.
+     * @type {string}
+     * @memberof CompletedApprovalRequesterComment
+     */
+    'created'?: string;
+    /**
+     * 
+     * @type {CommentDtoAuthor}
+     * @memberof CompletedApprovalRequesterComment
+     */
+    'author'?: CommentDtoAuthor;
+}
+/**
+ * 
  * @export
  * @interface CompletedApprovalReviewerComment
  */
@@ -5553,6 +5714,12 @@ export interface CompletedApprovalReviewerComment {
      * @memberof CompletedApprovalReviewerComment
      */
     'created'?: string;
+    /**
+     * 
+     * @type {CommentDtoAuthor}
+     * @memberof CompletedApprovalReviewerComment
+     */
+    'author'?: CommentDtoAuthor;
 }
 /**
  * Enum represents completed approval object\'s state.
@@ -5578,7 +5745,8 @@ export const CompletionStatus = {
     Success: 'SUCCESS',
     Failure: 'FAILURE',
     Incomplete: 'INCOMPLETE',
-    Pending: 'PENDING'
+    Pending: 'PENDING',
+    Null: 'null'
 } as const;
 
 export type CompletionStatus = typeof CompletionStatus[keyof typeof CompletionStatus];
@@ -6113,11 +6281,17 @@ export interface CreateSavedSearchRequest {
      */
     'fields'?: Array<string> | null;
     /**
+     * Sort by index. This takes precedence over the `sort` property. 
+     * @type {{ [key: string]: Array<string>; }}
+     * @memberof CreateSavedSearchRequest
+     */
+    'orderBy'?: { [key: string]: Array<string>; } | null;
+    /**
      * The fields to be used to sort the search results. 
      * @type {Array<string>}
      * @memberof CreateSavedSearchRequest
      */
-    'sort'?: Array<string>;
+    'sort'?: Array<string> | null;
     /**
      * 
      * @type {SavedSearchDetailFilters}
@@ -6207,7 +6381,8 @@ export const CriteriaType = {
     AccessProfile: 'ACCESS_PROFILE',
     Source: 'SOURCE',
     Account: 'ACCOUNT',
-    AggregatedEntitlement: 'AGGREGATED_ENTITLEMENT'
+    AggregatedEntitlement: 'AGGREGATED_ENTITLEMENT',
+    InvalidCertifiableEntity: 'INVALID_CERTIFIABLE_ENTITY'
 } as const;
 
 export type CriteriaType = typeof CriteriaType[keyof typeof CriteriaType];
@@ -7093,7 +7268,7 @@ export interface EntitlementRef {
      * @type {string}
      * @memberof EntitlementRef
      */
-    'name'?: string;
+    'name'?: string | null;
 }
 
 export const EntitlementRefTypeEnum = {
@@ -7101,6 +7276,38 @@ export const EntitlementRefTypeEnum = {
 } as const;
 
 export type EntitlementRefTypeEnum = typeof EntitlementRefTypeEnum[keyof typeof EntitlementRefTypeEnum];
+
+/**
+ * Entitlement including a specific set of access.
+ * @export
+ * @interface EntitlementRef1
+ */
+export interface EntitlementRef1 {
+    /**
+     * Entitlement\'s DTO type.
+     * @type {string}
+     * @memberof EntitlementRef1
+     */
+    'type'?: EntitlementRef1TypeEnum;
+    /**
+     * Entitlement\'s ID.
+     * @type {string}
+     * @memberof EntitlementRef1
+     */
+    'id'?: string;
+    /**
+     * Entitlement\'s display name.
+     * @type {string}
+     * @memberof EntitlementRef1
+     */
+    'name'?: string;
+}
+
+export const EntitlementRef1TypeEnum = {
+    Entitlement: 'ENTITLEMENT'
+} as const;
+
+export type EntitlementRef1TypeEnum = typeof EntitlementRef1TypeEnum[keyof typeof EntitlementRef1TypeEnum];
 
 /**
  * 
@@ -7131,7 +7338,7 @@ export interface EntitlementRequestConfig {
      * @type {string}
      * @memberof EntitlementRequestConfig
      */
-    'grantRequestApprovalSchemes'?: string;
+    'grantRequestApprovalSchemes'?: string | null;
 }
 /**
  * 
@@ -7273,13 +7480,13 @@ export interface ErrorMessageDto {
      * @type {string}
      * @memberof ErrorMessageDto
      */
-    'locale'?: string;
+    'locale'?: string | null;
     /**
      * 
      * @type {LocaleOrigin}
      * @memberof ErrorMessageDto
      */
-    'localeOrigin'?: LocaleOrigin;
+    'localeOrigin'?: LocaleOrigin | null;
     /**
      * Actual text of the error message in the indicated locale.
      * @type {string}
@@ -7816,19 +8023,19 @@ export interface Expression {
      * @type {string}
      * @memberof Expression
      */
-    'attribute'?: string;
+    'attribute'?: string | null;
     /**
      * 
      * @type {Value}
      * @memberof Expression
      */
-    'value'?: Value;
+    'value'?: Value | null;
     /**
      * List of expressions
-     * @type {Array<Value>}
+     * @type {Array<ExpressionChildrenInner>}
      * @memberof Expression
      */
-    'children'?: Array<Value> | null;
+    'children'?: Array<ExpressionChildrenInner> | null;
 }
 
 export const ExpressionOperatorEnum = {
@@ -7837,6 +8044,45 @@ export const ExpressionOperatorEnum = {
 } as const;
 
 export type ExpressionOperatorEnum = typeof ExpressionOperatorEnum[keyof typeof ExpressionOperatorEnum];
+
+/**
+ * 
+ * @export
+ * @interface ExpressionChildrenInner
+ */
+export interface ExpressionChildrenInner {
+    /**
+     * Operator for the expression
+     * @type {string}
+     * @memberof ExpressionChildrenInner
+     */
+    'operator'?: ExpressionChildrenInnerOperatorEnum;
+    /**
+     * Name for the attribute
+     * @type {string}
+     * @memberof ExpressionChildrenInner
+     */
+    'attribute'?: string | null;
+    /**
+     * 
+     * @type {Value}
+     * @memberof ExpressionChildrenInner
+     */
+    'value'?: Value | null;
+    /**
+     * There cannot be anymore nested children. This will always be null.
+     * @type {string}
+     * @memberof ExpressionChildrenInner
+     */
+    'children'?: string | null;
+}
+
+export const ExpressionChildrenInnerOperatorEnum = {
+    And: 'AND',
+    Equals: 'EQUALS'
+} as const;
+
+export type ExpressionChildrenInnerOperatorEnum = typeof ExpressionChildrenInnerOperatorEnum[keyof typeof ExpressionChildrenInnerOperatorEnum];
 
 /**
  * 
@@ -7994,13 +8240,13 @@ export interface FormDetails {
      * @type {string}
      * @memberof FormDetails
      */
-    'id'?: string;
+    'id'?: string | null;
     /**
      * Name of the form
      * @type {string}
      * @memberof FormDetails
      */
-    'name'?: string;
+    'name'?: string | null;
     /**
      * The form title
      * @type {string}
@@ -8020,11 +8266,11 @@ export interface FormDetails {
      */
     'targetUser'?: string;
     /**
-     * 
-     * @type {SectionDetails}
+     * Sections of the form
+     * @type {Array<SectionDetails>}
      * @memberof FormDetails
      */
-    'sections'?: SectionDetails;
+    'sections'?: Array<SectionDetails>;
 }
 /**
  * 
@@ -8289,6 +8535,12 @@ export interface GetPersonalAccessTokenResponse {
      * @memberof GetPersonalAccessTokenResponse
      */
     'lastUsed'?: string | null;
+    /**
+     * If true, this token is managed by the SailPoint platform, and is not visible in the user interface. For example, Workflows will create managed personal access tokens for users who create workflows.
+     * @type {boolean}
+     * @memberof GetPersonalAccessTokenResponse
+     */
+    'managed'?: boolean;
 }
 /**
  * 
@@ -10082,6 +10334,25 @@ export interface ListAccessProfiles429Response {
     'message'?: object;
 }
 /**
+ * 
+ * @export
+ * @interface ListCampaignFilters200Response
+ */
+export interface ListCampaignFilters200Response {
+    /**
+     * The list of campaign filters
+     * @type {Array<CampaignFilterDetails>}
+     * @memberof ListCampaignFilters200Response
+     */
+    'items'?: Array<CampaignFilterDetails>;
+    /**
+     * The number of filters returned
+     * @type {number}
+     * @memberof ListCampaignFilters200Response
+     */
+    'count'?: number;
+}
+/**
  * An indicator of how the locale was selected. *DEFAULT* means the locale is the system default. *REQUEST* means the locale was selected from the request context (i.e., best match based on the *Accept-Language* header). Additional values may be added in the future without notice.
  * @export
  * @enum {string}
@@ -10089,7 +10360,8 @@ export interface ListAccessProfiles429Response {
 
 export const LocaleOrigin = {
     Default: 'DEFAULT',
-    Request: 'REQUEST'
+    Request: 'REQUEST',
+    Null: 'null'
 } as const;
 
 export type LocaleOrigin = typeof LocaleOrigin[keyof typeof LocaleOrigin];
@@ -10150,13 +10422,13 @@ export interface ManagerCorrelationMapping {
      * @type {string}
      * @memberof ManagerCorrelationMapping
      */
-    'accountAttribute'?: string;
+    'accountAttributeName'?: string;
     /**
      * Name of the identity attribute to search when trying to find a manager using the value from the accountAttribute.
      * @type {string}
      * @memberof ManagerCorrelationMapping
      */
-    'identityAttribute'?: string;
+    'identityAttributeName'?: string;
 }
 /**
  * 
@@ -10175,13 +10447,13 @@ export interface ManualWorkItemDetails {
      * @type {ManualWorkItemDetailsOriginalOwner}
      * @memberof ManualWorkItemDetails
      */
-    'originalOwner'?: ManualWorkItemDetailsOriginalOwner;
+    'originalOwner'?: ManualWorkItemDetailsOriginalOwner | null;
     /**
      * 
      * @type {ManualWorkItemDetailsCurrentOwner}
      * @memberof ManualWorkItemDetails
      */
-    'currentOwner'?: ManualWorkItemDetailsCurrentOwner;
+    'currentOwner'?: ManualWorkItemDetailsCurrentOwner | null;
     /**
      * Time at which item was modified.
      * @type {string}
@@ -10199,7 +10471,7 @@ export interface ManualWorkItemDetails {
      * @type {Array<ApprovalForwardHistory>}
      * @memberof ManualWorkItemDetails
      */
-    'forwardHistory'?: Array<ApprovalForwardHistory>;
+    'forwardHistory'?: Array<ApprovalForwardHistory> | null;
 }
 /**
  * Identity of current work item owner.
@@ -10408,13 +10680,13 @@ export interface NetworkConfiguration {
      * @type {Array<string>}
      * @memberof NetworkConfiguration
      */
-    'range'?: Array<string>;
+    'range'?: Array<string> | null;
     /**
      * The collection of country codes.
      * @type {Array<string>}
      * @memberof NetworkConfiguration
      */
-    'geolocation'?: Array<string>;
+    'geolocation'?: Array<string> | null;
     /**
      * Denotes whether the provided lists are whitelisted or blacklisted for geo location.
      * @type {boolean}
@@ -11898,7 +12170,7 @@ export interface NonEmployeeSourceWithNECount {
      * @type {number}
      * @memberof NonEmployeeSourceWithNECount
      */
-    'nonEmployeeCount'?: number;
+    'nonEmployeeCount'?: number | null;
 }
 /**
  * 
@@ -11911,7 +12183,7 @@ export interface NonEmployeeSourceWithNECountAllOf {
      * @type {number}
      * @memberof NonEmployeeSourceWithNECountAllOf
      */
-    'nonEmployeeCount'?: number;
+    'nonEmployeeCount'?: number | null;
 }
 /**
  * Response model for import of a single object.
@@ -11957,7 +12229,8 @@ export const Operation = {
     StartsWith: 'STARTS_WITH',
     EndsWith: 'ENDS_WITH',
     And: 'AND',
-    Or: 'OR'
+    Or: 'OR',
+    Null: 'null'
 } as const;
 
 export type Operation = typeof Operation[keyof typeof Operation];
@@ -12419,6 +12692,18 @@ export interface PasswordSyncGroup {
      * @memberof PasswordSyncGroup
      */
     'sourceIds'?: Array<string>;
+    /**
+     * The date and time this sync group was created
+     * @type {string}
+     * @memberof PasswordSyncGroup
+     */
+    'created'?: string | null;
+    /**
+     * The date and time this sync group was last modified
+     * @type {string}
+     * @memberof PasswordSyncGroup
+     */
+    'modified'?: string | null;
 }
 /**
  * Personal access token owner\'s identity.
@@ -12506,7 +12791,7 @@ export interface PendingApproval {
      * @type {AccessRequestType}
      * @memberof PendingApproval
      */
-    'requestType'?: AccessRequestType;
+    'requestType'?: AccessRequestType | null;
     /**
      * 
      * @type {AccessItemRequester}
@@ -12745,7 +13030,7 @@ export interface ProvisioningConfig {
      * @type {ProvisioningConfigPlanInitializerScript}
      * @memberof ProvisioningConfig
      */
-    'planInitializerScript'?: ProvisioningConfigPlanInitializerScript;
+    'planInitializerScript'?: ProvisioningConfigPlanInitializerScript | null;
     /**
      * Name of an attribute that when true disables the saving of ProvisioningRequest objects whenever plans are sent through this integration.
      * @type {boolean}
@@ -12890,6 +13175,12 @@ export interface ProvisioningCriteriaLevel3 {
      * @memberof ProvisioningCriteriaLevel3
      */
     'value'?: string;
+    /**
+     * Array of child criteria. Required if the operation is AND or OR, otherwise it must be left null. A maximum of three levels of criteria are supported, including leaf nodes.
+     * @type {string}
+     * @memberof ProvisioningCriteriaLevel3
+     */
+    'children'?: string | null;
 }
 /**
  * Supported operations on ProvisioningCriteria
@@ -13039,6 +13330,12 @@ export interface PublicIdentity {
      */
     'status'?: string | null;
     /**
+     * The current state of the identity, which determines how Identity Security Cloud interacts with the identity. An identity that is Active will be included identity picklists in Request Center, identity processing, and more. Identities that are Inactive will be excluded from these features. 
+     * @type {string}
+     * @memberof PublicIdentity
+     */
+    'identityState'?: PublicIdentityIdentityStateEnum;
+    /**
      * 
      * @type {IdentityReference}
      * @memberof PublicIdentity
@@ -13051,6 +13348,16 @@ export interface PublicIdentity {
      */
     'attributes'?: Array<IdentityAttribute1>;
 }
+
+export const PublicIdentityIdentityStateEnum = {
+    Active: 'ACTIVE',
+    InactiveShortTerm: 'INACTIVE_SHORT_TERM',
+    InactiveLongTerm: 'INACTIVE_LONG_TERM',
+    Null: 'null'
+} as const;
+
+export type PublicIdentityIdentityStateEnum = typeof PublicIdentityIdentityStateEnum[keyof typeof PublicIdentityIdentityStateEnum];
+
 /**
  * Used to map an attribute key for an Identity to its display name.
  * @export
@@ -13953,7 +14260,7 @@ export interface RequestableObject {
      * @type {string}
      * @memberof RequestableObject
      */
-    'description'?: string;
+    'description'?: string | null;
     /**
      * 
      * @type {RequestableObjectType}
@@ -13962,10 +14269,10 @@ export interface RequestableObject {
     'type'?: RequestableObjectType;
     /**
      * 
-     * @type {RequestableObjectRequestStatus}
+     * @type {RequestableObjectRequestStatus & object}
      * @memberof RequestableObject
      */
-    'requestStatus'?: RequestableObjectRequestStatus;
+    'requestStatus'?: RequestableObjectRequestStatus & object;
     /**
      * If *requestStatus* is *PENDING*, indicates the id of the associated account activity.
      * @type {string}
@@ -14034,7 +14341,8 @@ export type RequestableObjectReferenceTypeEnum = typeof RequestableObjectReferen
 export const RequestableObjectRequestStatus = {
     Available: 'AVAILABLE',
     Pending: 'PENDING',
-    Assigned: 'ASSIGNED'
+    Assigned: 'ASSIGNED',
+    Null: 'null'
 } as const;
 
 export type RequestableObjectRequestStatus = typeof RequestableObjectRequestStatus[keyof typeof RequestableObjectRequestStatus];
@@ -14048,7 +14356,8 @@ export type RequestableObjectRequestStatus = typeof RequestableObjectRequestStat
 
 export const RequestableObjectType = {
     AccessProfile: 'ACCESS_PROFILE',
-    Role: 'ROLE'
+    Role: 'ROLE',
+    Entitlement: 'ENTITLEMENT'
 } as const;
 
 export type RequestableObjectType = typeof RequestableObjectType[keyof typeof RequestableObjectType];
@@ -14065,7 +14374,7 @@ export interface RequestedItemStatus {
      * @type {string}
      * @memberof RequestedItemStatus
      */
-    'name'?: string;
+    'name'?: string | null;
     /**
      * Type of requested object.
      * @type {string}
@@ -14074,10 +14383,10 @@ export interface RequestedItemStatus {
     'type'?: RequestedItemStatusTypeEnum;
     /**
      * 
-     * @type {CancelledRequestDetails}
+     * @type {RequestedItemStatusCancelledRequestDetails}
      * @memberof RequestedItemStatus
      */
-    'cancelledRequestDetails'?: CancelledRequestDetails;
+    'cancelledRequestDetails'?: RequestedItemStatusCancelledRequestDetails;
     /**
      * List of list of localized error messages, if any, encountered during the approval/provisioning process.
      * @type {Array<Array<ErrorMessageDto>>}
@@ -14113,13 +14422,13 @@ export interface RequestedItemStatus {
      * @type {AccessRequestType}
      * @memberof RequestedItemStatus
      */
-    'requestType'?: AccessRequestType;
+    'requestType'?: AccessRequestType | null;
     /**
      * When the request was last modified.
      * @type {string}
      * @memberof RequestedItemStatus
      */
-    'modified'?: string;
+    'modified'?: string | null;
     /**
      * When the request was created.
      * @type {string}
@@ -14140,40 +14449,40 @@ export interface RequestedItemStatus {
     'requestedFor'?: Array<AccessItemRequestedFor>;
     /**
      * 
-     * @type {CommentDto}
+     * @type {RequestedItemStatusRequesterComment}
      * @memberof RequestedItemStatus
      */
-    'requesterComment'?: CommentDto;
+    'requesterComment'?: RequestedItemStatusRequesterComment;
     /**
      * 
-     * @type {SodViolationContextCheckCompleted}
+     * @type {RequestedItemStatusSodViolationContext}
      * @memberof RequestedItemStatus
      */
-    'sodViolationContext'?: SodViolationContextCheckCompleted;
+    'sodViolationContext'?: RequestedItemStatusSodViolationContext;
     /**
      * 
-     * @type {ProvisioningDetails}
+     * @type {RequestedItemStatusProvisioningDetails}
      * @memberof RequestedItemStatus
      */
-    'provisioningDetails'?: ProvisioningDetails;
+    'provisioningDetails'?: RequestedItemStatusProvisioningDetails;
     /**
      * 
-     * @type {PreApprovalTriggerDetails}
+     * @type {RequestedItemStatusPreApprovalTriggerDetails}
      * @memberof RequestedItemStatus
      */
-    'preApprovalTriggerDetails'?: PreApprovalTriggerDetails;
+    'preApprovalTriggerDetails'?: RequestedItemStatusPreApprovalTriggerDetails;
     /**
      * A list of Phases that the Access Request has gone through in order, to help determine the status of the request.
      * @type {Array<AccessRequestPhases>}
      * @memberof RequestedItemStatus
      */
-    'accessRequestPhases'?: Array<AccessRequestPhases>;
+    'accessRequestPhases'?: Array<AccessRequestPhases> | null;
     /**
      * Description associated to the requested object.
      * @type {string}
      * @memberof RequestedItemStatus
      */
-    'description'?: string;
+    'description'?: string | null;
     /**
      * When the role access is scheduled for removal.
      * @type {string}
@@ -14203,11 +14512,83 @@ export interface RequestedItemStatus {
 export const RequestedItemStatusTypeEnum = {
     AccessProfile: 'ACCESS_PROFILE',
     Role: 'ROLE',
-    Entitlement: 'ENTITLEMENT'
+    Entitlement: 'ENTITLEMENT',
+    Null: 'null'
 } as const;
 
 export type RequestedItemStatusTypeEnum = typeof RequestedItemStatusTypeEnum[keyof typeof RequestedItemStatusTypeEnum];
 
+/**
+ * 
+ * @export
+ * @interface RequestedItemStatusCancelledRequestDetails
+ */
+export interface RequestedItemStatusCancelledRequestDetails {
+    /**
+     * Comment made by the owner when cancelling the associated request.
+     * @type {string}
+     * @memberof RequestedItemStatusCancelledRequestDetails
+     */
+    'comment'?: string;
+    /**
+     * 
+     * @type {OwnerDto}
+     * @memberof RequestedItemStatusCancelledRequestDetails
+     */
+    'owner'?: OwnerDto;
+    /**
+     * Date comment was added by the owner when cancelling the associated request.
+     * @type {string}
+     * @memberof RequestedItemStatusCancelledRequestDetails
+     */
+    'modified'?: string;
+}
+/**
+ * 
+ * @export
+ * @interface RequestedItemStatusPreApprovalTriggerDetails
+ */
+export interface RequestedItemStatusPreApprovalTriggerDetails {
+    /**
+     * Comment left for the pre-approval decision
+     * @type {string}
+     * @memberof RequestedItemStatusPreApprovalTriggerDetails
+     */
+    'comment'?: string;
+    /**
+     * The reviewer of the pre-approval decision
+     * @type {string}
+     * @memberof RequestedItemStatusPreApprovalTriggerDetails
+     */
+    'reviewer'?: string;
+    /**
+     * The decision of the pre-approval trigger
+     * @type {string}
+     * @memberof RequestedItemStatusPreApprovalTriggerDetails
+     */
+    'decision'?: RequestedItemStatusPreApprovalTriggerDetailsDecisionEnum;
+}
+
+export const RequestedItemStatusPreApprovalTriggerDetailsDecisionEnum = {
+    Approved: 'APPROVED',
+    Rejected: 'REJECTED'
+} as const;
+
+export type RequestedItemStatusPreApprovalTriggerDetailsDecisionEnum = typeof RequestedItemStatusPreApprovalTriggerDetailsDecisionEnum[keyof typeof RequestedItemStatusPreApprovalTriggerDetailsDecisionEnum];
+
+/**
+ * 
+ * @export
+ * @interface RequestedItemStatusProvisioningDetails
+ */
+export interface RequestedItemStatusProvisioningDetails {
+    /**
+     * Ordered CSV of sub phase references to objects that contain more information about provisioning. For example, this can contain \"manualWorkItemDetails\" which indicate that there is further information in that object for this phase.
+     * @type {string}
+     * @memberof RequestedItemStatusProvisioningDetails
+     */
+    'orderedSubPhaseReferences'?: string;
+}
 /**
  * Indicates the state of an access request: * EXECUTING: The request is executing, which indicates the system is doing some processing. * REQUEST_COMPLETED: Indicates the request  has been completed. * CANCELLED: The request was cancelled with no user input. * TERMINATED: The request has been terminated before it was able to complete. * PROVISIONING_VERIFICATION_PENDING: The request has finished any approval steps and provisioning is waiting to be verified. * REJECTED: The request was rejected. * PROVISIONING_FAILED: The request has failed to complete. * NOT_ALL_ITEMS_PROVISIONED: One or more of the requested items failed to complete, but there were one or more  successes. * ERROR: An error occurred during request processing.
  * @export
@@ -14228,6 +14609,65 @@ export const RequestedItemStatusRequestState = {
 
 export type RequestedItemStatusRequestState = typeof RequestedItemStatusRequestState[keyof typeof RequestedItemStatusRequestState];
 
+
+/**
+ * 
+ * @export
+ * @interface RequestedItemStatusRequesterComment
+ */
+export interface RequestedItemStatusRequesterComment {
+    /**
+     * Comment content.
+     * @type {string}
+     * @memberof RequestedItemStatusRequesterComment
+     */
+    'comment'?: string | null;
+    /**
+     * Date and time comment was created.
+     * @type {string}
+     * @memberof RequestedItemStatusRequesterComment
+     */
+    'created'?: string;
+    /**
+     * 
+     * @type {CommentDtoAuthor}
+     * @memberof RequestedItemStatusRequesterComment
+     */
+    'author'?: CommentDtoAuthor;
+}
+/**
+ * 
+ * @export
+ * @interface RequestedItemStatusSodViolationContext
+ */
+export interface RequestedItemStatusSodViolationContext {
+    /**
+     * The status of SOD violation check
+     * @type {string}
+     * @memberof RequestedItemStatusSodViolationContext
+     */
+    'state'?: RequestedItemStatusSodViolationContextStateEnum;
+    /**
+     * The id of the Violation check event
+     * @type {string}
+     * @memberof RequestedItemStatusSodViolationContext
+     */
+    'uuid'?: string | null;
+    /**
+     * 
+     * @type {SodViolationCheckResult}
+     * @memberof RequestedItemStatusSodViolationContext
+     */
+    'violationCheckResult'?: SodViolationCheckResult;
+}
+
+export const RequestedItemStatusSodViolationContextStateEnum = {
+    Success: 'SUCCESS',
+    Error: 'ERROR',
+    Null: 'null'
+} as const;
+
+export type RequestedItemStatusSodViolationContextStateEnum = typeof RequestedItemStatusSodViolationContextStateEnum[keyof typeof RequestedItemStatusSodViolationContextStateEnum];
 
 /**
  * 
@@ -14798,7 +15238,7 @@ export interface Role {
      * @type {Array<EntitlementRef>}
      * @memberof Role
      */
-    'entitlements'?: Array<EntitlementRef> | null;
+    'entitlements'?: Array<EntitlementRef>;
     /**
      * 
      * @type {RoleMembershipSelector}
@@ -15391,6 +15831,18 @@ export interface SavedSearch {
      */
     'owner'?: TypedReference;
     /**
+     * The ID of the identity that owns this saved search.
+     * @type {string}
+     * @memberof SavedSearch
+     */
+    'ownerId'?: string;
+    /**
+     * Whether this saved search is visible to anyone but the owner. This field will always be false as there is no way to set a saved search as public at this time.
+     * @type {boolean}
+     * @memberof SavedSearch
+     */
+    'public'?: boolean;
+    /**
      * The name of the saved search. 
      * @type {string}
      * @memberof SavedSearch
@@ -15439,11 +15891,17 @@ export interface SavedSearch {
      */
     'fields'?: Array<string> | null;
     /**
+     * Sort by index. This takes precedence over the `sort` property. 
+     * @type {{ [key: string]: Array<string>; }}
+     * @memberof SavedSearch
+     */
+    'orderBy'?: { [key: string]: Array<string>; } | null;
+    /**
      * The fields to be used to sort the search results. 
      * @type {Array<string>}
      * @memberof SavedSearch
      */
-    'sort'?: Array<string>;
+    'sort'?: Array<string> | null;
     /**
      * 
      * @type {SavedSearchDetailFilters}
@@ -15469,6 +15927,18 @@ export interface SavedSearchAllOf {
      * @memberof SavedSearchAllOf
      */
     'owner'?: TypedReference;
+    /**
+     * The ID of the identity that owns this saved search.
+     * @type {string}
+     * @memberof SavedSearchAllOf
+     */
+    'ownerId'?: string;
+    /**
+     * Whether this saved search is visible to anyone but the owner. This field will always be false as there is no way to set a saved search as public at this time.
+     * @type {boolean}
+     * @memberof SavedSearchAllOf
+     */
+    'public'?: boolean;
 }
 /**
  * 
@@ -15513,11 +15983,17 @@ export interface SavedSearchDetail {
      */
     'fields'?: Array<string> | null;
     /**
+     * Sort by index. This takes precedence over the `sort` property. 
+     * @type {{ [key: string]: Array<string>; }}
+     * @memberof SavedSearchDetail
+     */
+    'orderBy'?: { [key: string]: Array<string>; } | null;
+    /**
      * The fields to be used to sort the search results. 
      * @type {Array<string>}
      * @memberof SavedSearchDetail
      */
-    'sort'?: Array<string>;
+    'sort'?: Array<string> | null;
     /**
      * 
      * @type {SavedSearchDetailFilters}
@@ -15642,6 +16118,12 @@ export interface Schedule1 {
     'type': ScheduleType;
     /**
      * 
+     * @type {Schedule1Months}
+     * @memberof Schedule1
+     */
+    'months'?: Schedule1Months;
+    /**
+     * 
      * @type {Schedule1Days}
      * @memberof Schedule1
      */
@@ -15712,6 +16194,31 @@ export interface Schedule1Hours {
      * The selected interval for RANGE selectors. 
      * @type {number}
      * @memberof Schedule1Hours
+     */
+    'interval'?: number | null;
+}
+/**
+ * 
+ * @export
+ * @interface Schedule1Months
+ */
+export interface Schedule1Months {
+    /**
+     * 
+     * @type {SelectorType}
+     * @memberof Schedule1Months
+     */
+    'type': SelectorType;
+    /**
+     * The selected values. 
+     * @type {Array<string>}
+     * @memberof Schedule1Months
+     */
+    'values': Array<string>;
+    /**
+     * The selected interval for RANGE selectors. 
+     * @type {number}
+     * @memberof Schedule1Months
      */
     'interval'?: number | null;
 }
@@ -15824,7 +16331,8 @@ export const ScheduleType = {
     Daily: 'DAILY',
     Weekly: 'WEEKLY',
     Monthly: 'MONTHLY',
-    Calendar: 'CALENDAR'
+    Calendar: 'CALENDAR',
+    Annually: 'ANNUALLY'
 } as const;
 
 export type ScheduleType = typeof ScheduleType[keyof typeof ScheduleType];
@@ -16500,16 +17008,29 @@ export interface Segment {
     'owner'?: OwnerReferenceSegments | null;
     /**
      * 
-     * @type {VisibilityCriteria}
+     * @type {SegmentVisibilityCriteria}
      * @memberof Segment
      */
-    'visibilityCriteria'?: VisibilityCriteria;
+    'visibilityCriteria'?: SegmentVisibilityCriteria;
     /**
      * This boolean indicates whether the segment is currently active. Inactive segments have no effect.
      * @type {boolean}
      * @memberof Segment
      */
     'active'?: boolean;
+}
+/**
+ * 
+ * @export
+ * @interface SegmentVisibilityCriteria
+ */
+export interface SegmentVisibilityCriteria {
+    /**
+     * 
+     * @type {Expression}
+     * @memberof SegmentVisibilityCriteria
+     */
+    'expression'?: Expression;
 }
 /**
  * 
@@ -16557,11 +17078,29 @@ export type SelectorType = typeof SelectorType[keyof typeof SelectorType];
  */
 export interface ServiceDeskIntegrationDto {
     /**
+     * Unique identifier for the Service Desk integration
+     * @type {string}
+     * @memberof ServiceDeskIntegrationDto
+     */
+    'id'?: string;
+    /**
      * Service Desk integration\'s name. The name must be unique.
      * @type {string}
      * @memberof ServiceDeskIntegrationDto
      */
     'name': string;
+    /**
+     * The date and time the Service Desk integration was created
+     * @type {string}
+     * @memberof ServiceDeskIntegrationDto
+     */
+    'created'?: string;
+    /**
+     * The date and time the Service Desk integration was last modified
+     * @type {string}
+     * @memberof ServiceDeskIntegrationDto
+     */
+    'modified'?: string;
     /**
      * Service Desk integration\'s description.
      * @type {string}
@@ -16592,7 +17131,7 @@ export interface ServiceDeskIntegrationDto {
      * @memberof ServiceDeskIntegrationDto
      * @deprecated
      */
-    'cluster'?: string;
+    'cluster'?: string | null;
     /**
      * Source IDs for the Service Desk integration (replaced by provisioningConfig.managedSResourceRefs, but retained here for backward compatibility).
      * @type {Array<string>}
@@ -16626,11 +17165,29 @@ export interface ServiceDeskIntegrationDto {
  */
 export interface ServiceDeskIntegrationDtoAllOf {
     /**
+     * Unique identifier for the Service Desk integration
+     * @type {string}
+     * @memberof ServiceDeskIntegrationDtoAllOf
+     */
+    'id'?: string;
+    /**
      * Service Desk integration\'s name. The name must be unique.
      * @type {string}
      * @memberof ServiceDeskIntegrationDtoAllOf
      */
     'name': string;
+    /**
+     * The date and time the Service Desk integration was created
+     * @type {string}
+     * @memberof ServiceDeskIntegrationDtoAllOf
+     */
+    'created'?: string;
+    /**
+     * The date and time the Service Desk integration was last modified
+     * @type {string}
+     * @memberof ServiceDeskIntegrationDtoAllOf
+     */
+    'modified'?: string;
     /**
      * Service Desk integration\'s description.
      * @type {string}
@@ -16661,7 +17218,7 @@ export interface ServiceDeskIntegrationDtoAllOf {
      * @memberof ServiceDeskIntegrationDtoAllOf
      * @deprecated
      */
-    'cluster'?: string;
+    'cluster'?: string | null;
     /**
      * Source IDs for the Service Desk integration (replaced by provisioningConfig.managedSResourceRefs, but retained here for backward compatibility).
      * @type {Array<string>}
@@ -17337,19 +17894,19 @@ export interface SodViolationCheckResult {
      * @type {{ [key: string]: string; }}
      * @memberof SodViolationCheckResult
      */
-    'clientMetadata'?: { [key: string]: string; };
+    'clientMetadata'?: { [key: string]: string; } | null;
     /**
      * 
      * @type {Array<SodViolationContext>}
      * @memberof SodViolationCheckResult
      */
-    'violationContexts'?: Array<SodViolationContext>;
+    'violationContexts'?: Array<SodViolationContext> | null;
     /**
      * A list of the SOD policies that were violated.
      * @type {Array<SodPolicyDto>}
      * @memberof SodViolationCheckResult
      */
-    'violatedPolicies'?: Array<SodPolicyDto>;
+    'violatedPolicies'?: Array<SodPolicyDto> | null;
 }
 /**
  * The contextual information of the violated criteria
@@ -17387,7 +17944,7 @@ export interface SodViolationContextCheckCompleted {
      * @type {string}
      * @memberof SodViolationContextCheckCompleted
      */
-    'uuid'?: string;
+    'uuid'?: string | null;
     /**
      * 
      * @type {SodViolationCheckResult}
@@ -17398,7 +17955,8 @@ export interface SodViolationContextCheckCompleted {
 
 export const SodViolationContextCheckCompletedStateEnum = {
     Success: 'SUCCESS',
-    Error: 'ERROR'
+    Error: 'ERROR',
+    Null: 'null'
 } as const;
 
 export type SodViolationContextCheckCompletedStateEnum = typeof SodViolationContextCheckCompletedStateEnum[keyof typeof SodViolationContextCheckCompletedStateEnum];
@@ -17470,37 +18028,37 @@ export interface Source {
      * @type {SourceCluster}
      * @memberof Source
      */
-    'cluster'?: SourceCluster;
+    'cluster'?: SourceCluster | null;
     /**
      * 
      * @type {SourceAccountCorrelationConfig}
      * @memberof Source
      */
-    'accountCorrelationConfig'?: SourceAccountCorrelationConfig;
+    'accountCorrelationConfig'?: SourceAccountCorrelationConfig | null;
     /**
      * 
      * @type {SourceAccountCorrelationRule}
      * @memberof Source
      */
-    'accountCorrelationRule'?: SourceAccountCorrelationRule;
+    'accountCorrelationRule'?: SourceAccountCorrelationRule | null;
     /**
      * 
-     * @type {ManagerCorrelationMapping}
+     * @type {SourceManagerCorrelationMapping}
      * @memberof Source
      */
-    'managerCorrelationMapping'?: ManagerCorrelationMapping;
+    'managerCorrelationMapping'?: SourceManagerCorrelationMapping;
     /**
      * 
      * @type {SourceManagerCorrelationRule}
      * @memberof Source
      */
-    'managerCorrelationRule'?: SourceManagerCorrelationRule;
+    'managerCorrelationRule'?: SourceManagerCorrelationRule | null;
     /**
      * 
      * @type {SourceBeforeProvisioningRule}
      * @memberof Source
      */
-    'beforeProvisioningRule'?: SourceBeforeProvisioningRule;
+    'beforeProvisioningRule'?: SourceBeforeProvisioningRule | null;
     /**
      * List of references to Schema objects
      * @type {Array<SourceSchemasInner>}
@@ -17512,7 +18070,7 @@ export interface Source {
      * @type {Array<SourcePasswordPoliciesInner>}
      * @memberof Source
      */
-    'passwordPolicies'?: Array<SourcePasswordPoliciesInner>;
+    'passwordPolicies'?: Array<SourcePasswordPoliciesInner> | null;
     /**
      * Optional features that can be supported by a source.
      * @type {Array<SourceFeature>}
@@ -17560,7 +18118,7 @@ export interface Source {
      * @type {SourceManagementWorkgroup}
      * @memberof Source
      */
-    'managementWorkgroup'?: SourceManagementWorkgroup;
+    'managementWorkgroup'?: SourceManagementWorkgroup | null;
     /**
      * When true indicates a healthy source
      * @type {boolean}
@@ -17930,6 +18488,25 @@ export const SourceManagementWorkgroupTypeEnum = {
 
 export type SourceManagementWorkgroupTypeEnum = typeof SourceManagementWorkgroupTypeEnum[keyof typeof SourceManagementWorkgroupTypeEnum];
 
+/**
+ * 
+ * @export
+ * @interface SourceManagerCorrelationMapping
+ */
+export interface SourceManagerCorrelationMapping {
+    /**
+     * Name of the attribute to use for manager correlation. The value found on the account attribute will be used to lookup the manager\'s identity.
+     * @type {string}
+     * @memberof SourceManagerCorrelationMapping
+     */
+    'accountAttributeName'?: string;
+    /**
+     * Name of the identity attribute to search when trying to find a manager using the value from the accountAttribute.
+     * @type {string}
+     * @memberof SourceManagerCorrelationMapping
+     */
+    'identityAttributeName'?: string;
+}
 /**
  * Reference to the ManagerCorrelationRule, only used when a simple filter isn\'t sufficient.
  * @export
@@ -19317,10 +19894,29 @@ export const WorkItemState = {
     Returned: 'RETURNED',
     Expired: 'EXPIRED',
     Pending: 'PENDING',
-    Canceled: 'CANCELED'
+    Canceled: 'CANCELED',
+    Null: 'null'
 } as const;
 
 export type WorkItemState = typeof WorkItemState[keyof typeof WorkItemState];
+
+
+/**
+ * The state of a work item
+ * @export
+ * @enum {string}
+ */
+
+export const WorkItemStateManualWorkItems = {
+    Finished: 'Finished',
+    Rejected: 'Rejected',
+    Returned: 'Returned',
+    Expired: 'Expired',
+    Pending: 'Pending',
+    Canceled: 'Canceled'
+} as const;
+
+export type WorkItemStateManualWorkItems = typeof WorkItemStateManualWorkItems[keyof typeof WorkItemStateManualWorkItems];
 
 
 /**
@@ -19329,25 +19925,24 @@ export type WorkItemState = typeof WorkItemState[keyof typeof WorkItemState];
  * @enum {string}
  */
 
-export const WorkItemType = {
-    Unknown: 'UNKNOWN',
-    Generic: 'GENERIC',
-    Certification: 'CERTIFICATION',
-    Remediation: 'REMEDIATION',
-    Delegation: 'DELEGATION',
-    Approval: 'APPROVAL',
-    Violationreview: 'VIOLATIONREVIEW',
-    Form: 'FORM',
-    Policyviolation: 'POLICYVIOLATION',
-    Challenge: 'CHALLENGE',
-    Impactanalysis: 'IMPACTANALYSIS',
-    Signoff: 'SIGNOFF',
-    Event: 'EVENT',
-    Manualaction: 'MANUALACTION',
-    Test: 'TEST'
+export const WorkItemTypeManualWorkItems = {
+    Generic: 'Generic',
+    Certification: 'Certification',
+    Remediation: 'Remediation',
+    Delegation: 'Delegation',
+    Approval: 'Approval',
+    ViolationReview: 'ViolationReview',
+    Form: 'Form',
+    PolicyVioloation: 'PolicyVioloation',
+    Challenge: 'Challenge',
+    ImpactAnalysis: 'ImpactAnalysis',
+    Signoff: 'Signoff',
+    Event: 'Event',
+    ManualAction: 'ManualAction',
+    Test: 'Test'
 } as const;
 
-export type WorkItemType = typeof WorkItemType[keyof typeof WorkItemType];
+export type WorkItemTypeManualWorkItems = typeof WorkItemTypeManualWorkItems[keyof typeof WorkItemTypeManualWorkItems];
 
 
 /**
@@ -19367,19 +19962,19 @@ export interface WorkItems {
      * @type {string}
      * @memberof WorkItems
      */
-    'requesterId'?: string;
+    'requesterId'?: string | null;
     /**
      * The displayname of the requester
      * @type {string}
      * @memberof WorkItems
      */
-    'requesterDisplayName'?: string;
+    'requesterDisplayName'?: string | null;
     /**
      * The ID of the owner
      * @type {string}
      * @memberof WorkItems
      */
-    'ownerId'?: string;
+    'ownerId'?: string | null;
     /**
      * The name of the owner
      * @type {string}
@@ -19397,7 +19992,7 @@ export interface WorkItems {
      * @type {string}
      * @memberof WorkItems
      */
-    'modified'?: string;
+    'modified'?: string | null;
     /**
      * The description of the work item
      * @type {string}
@@ -19406,52 +20001,52 @@ export interface WorkItems {
     'description'?: string;
     /**
      * 
-     * @type {WorkItemState}
+     * @type {WorkItemStateManualWorkItems}
      * @memberof WorkItems
      */
-    'state'?: WorkItemState;
+    'state'?: WorkItemStateManualWorkItems;
     /**
      * 
-     * @type {WorkItemType}
+     * @type {WorkItemTypeManualWorkItems}
      * @memberof WorkItems
      */
-    'type'?: WorkItemType;
+    'type'?: WorkItemTypeManualWorkItems;
     /**
-     * 
-     * @type {RemediationItemDetails}
+     * A list of remediation items
+     * @type {Array<RemediationItemDetails>}
      * @memberof WorkItems
      */
-    'remediationItems'?: RemediationItemDetails;
+    'remediationItems'?: Array<RemediationItemDetails> | null;
     /**
-     * 
-     * @type {ApprovalItemDetails}
+     * A list of items that need to be approved
+     * @type {Array<ApprovalItemDetails>}
      * @memberof WorkItems
      */
-    'approvalItems'?: ApprovalItemDetails;
+    'approvalItems'?: Array<ApprovalItemDetails> | null;
     /**
      * The work item name
      * @type {string}
      * @memberof WorkItems
      */
-    'name'?: string;
+    'name'?: string | null;
     /**
      * The time at which the work item completed
      * @type {string}
      * @memberof WorkItems
      */
-    'completed'?: string;
+    'completed'?: string | null;
     /**
      * The number of items in the work item
      * @type {number}
      * @memberof WorkItems
      */
-    'numItems'?: number;
+    'numItems'?: number | null;
     /**
      * 
-     * @type {FormDetails}
+     * @type {WorkItemsForm}
      * @memberof WorkItems
      */
-    'form'?: FormDetails;
+    'form'?: WorkItemsForm;
     /**
      * An array of errors that ocurred during the work item
      * @type {Array<string>}
@@ -19471,6 +20066,49 @@ export interface WorkItemsCount {
      * @memberof WorkItemsCount
      */
     'count'?: number;
+}
+/**
+ * 
+ * @export
+ * @interface WorkItemsForm
+ */
+export interface WorkItemsForm {
+    /**
+     * ID of the form
+     * @type {string}
+     * @memberof WorkItemsForm
+     */
+    'id'?: string | null;
+    /**
+     * Name of the form
+     * @type {string}
+     * @memberof WorkItemsForm
+     */
+    'name'?: string | null;
+    /**
+     * The form title
+     * @type {string}
+     * @memberof WorkItemsForm
+     */
+    'title'?: string;
+    /**
+     * The form subtitle.
+     * @type {string}
+     * @memberof WorkItemsForm
+     */
+    'subtitle'?: string;
+    /**
+     * The name of the user that should be shown this form
+     * @type {string}
+     * @memberof WorkItemsForm
+     */
+    'targetUser'?: string;
+    /**
+     * Sections of the form
+     * @type {Array<SectionDetails>}
+     * @memberof WorkItemsForm
+     */
+    'sections'?: Array<SectionDetails>;
 }
 /**
  * 
@@ -22490,7 +23128,7 @@ export const AccountsApiAxiosParamCreator = function (configuration?: Configurat
          * @param {number} [offset] Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
          * @param {boolean} [count] If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
          * @param {string} [filters] Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, in, sw*  **identityId**: *eq, in, sw*  **name**: *eq, in, sw*  **nativeIdentity**: *eq, in, sw*  **sourceId**: *eq, in, sw*  **uncorrelated**: *eq*  **identity.name**: *eq, in, sw*
-         * @param {string} [sorters] Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **id, name, created, modified, sourceId, identityId, nativeIdentity, uuid, manuallyCorrelated, identity.name**
+         * @param {string} [sorters] Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **id, name, created, modified, sourceId, identityId, identity.id, nativeIdentity, uuid, manuallyCorrelated, identity.name**
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
@@ -22820,7 +23458,7 @@ export const AccountsApiFp = function(configuration?: Configuration) {
          * @param {number} [offset] Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
          * @param {boolean} [count] If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
          * @param {string} [filters] Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, in, sw*  **identityId**: *eq, in, sw*  **name**: *eq, in, sw*  **nativeIdentity**: *eq, in, sw*  **sourceId**: *eq, in, sw*  **uncorrelated**: *eq*  **identity.name**: *eq, in, sw*
-         * @param {string} [sorters] Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **id, name, created, modified, sourceId, identityId, nativeIdentity, uuid, manuallyCorrelated, identity.name**
+         * @param {string} [sorters] Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **id, name, created, modified, sourceId, identityId, identity.id, nativeIdentity, uuid, manuallyCorrelated, identity.name**
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
@@ -22957,7 +23595,7 @@ export const AccountsApiFactory = function (configuration?: Configuration, baseP
          * @param {number} [offset] Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
          * @param {boolean} [count] If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
          * @param {string} [filters] Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, in, sw*  **identityId**: *eq, in, sw*  **name**: *eq, in, sw*  **nativeIdentity**: *eq, in, sw*  **sourceId**: *eq, in, sw*  **uncorrelated**: *eq*  **identity.name**: *eq, in, sw*
-         * @param {string} [sorters] Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **id, name, created, modified, sourceId, identityId, nativeIdentity, uuid, manuallyCorrelated, identity.name**
+         * @param {string} [sorters] Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **id, name, created, modified, sourceId, identityId, identity.id, nativeIdentity, uuid, manuallyCorrelated, identity.name**
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
@@ -23164,7 +23802,7 @@ export interface AccountsApiListAccountsRequest {
     readonly filters?: string
 
     /**
-     * Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **id, name, created, modified, sourceId, identityId, nativeIdentity, uuid, manuallyCorrelated, identity.name**
+     * Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **id, name, created, modified, sourceId, identityId, identity.id, nativeIdentity, uuid, manuallyCorrelated, identity.name**
      * @type {string}
      * @memberof AccountsApiListAccounts
      */
@@ -24598,7 +25236,7 @@ export const CertificationCampaignFiltersApiFp = function(configuration?: Config
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async listCampaignFilters(limit?: number, start?: number, includeSystemFilters?: boolean, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<CampaignFilterDetails>>> {
+        async listCampaignFilters(limit?: number, start?: number, includeSystemFilters?: boolean, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ListCampaignFilters200Response>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.listCampaignFilters(limit, start, includeSystemFilters, axiosOptions);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -24663,7 +25301,7 @@ export const CertificationCampaignFiltersApiFactory = function (configuration?: 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        listCampaignFilters(limit?: number, start?: number, includeSystemFilters?: boolean, axiosOptions?: any): AxiosPromise<Array<CampaignFilterDetails>> {
+        listCampaignFilters(limit?: number, start?: number, includeSystemFilters?: boolean, axiosOptions?: any): AxiosPromise<ListCampaignFilters200Response> {
             return localVarFp.listCampaignFilters(limit, start, includeSystemFilters, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
@@ -45886,7 +46524,7 @@ export const SourcesApiAxiosParamCreator = function (configuration?: Configurati
          * @param {number} [limit] Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
          * @param {number} [offset] Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
          * @param {boolean} [count] If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
-         * @param {string} [filters] Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, in, ge, gt, le, lt, ne, isnull, sw*  **name**: *co, eq, in, sw, ge, gt, ne, isnull*  **type**: *eq, in, ge, gt, ne, isnull, sw*  **owner.id**: *eq, in, ge, gt, le, lt, ne, isnull, sw*  **features**: *ca, co*  **created**: *eq*  **modified**: *eq*  **managementWorkgroup.id**: *eq, ge, gt, in, le, lt, ne, isnull, sw*  **description**: *eq, sw*  **authoritative**: *eq, ne, isnull*  **healthy**: *isnull*  **status**: *eq, in, ge, gt, le, lt, ne, isnull, sw*  **connectionType**: *eq, ge, gt, in, le, lt, ne, isnull, sw*  **connectorName**: *eq, ge, gt, in, ne, isnull, sw*
+         * @param {string} [filters] Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, in, ge, gt, le, lt, ne, isnull, sw*  **name**: *co, eq, in, sw, ge, gt, ne, isnull*  **type**: *eq, in, ge, gt, ne, isnull, sw*  **owner.id**: *eq, in, ge, gt, le, lt, ne, isnull, sw*  **features**: *ca, co*  **created**: *eq, ge, gt, in, le, lt, ne, isnull, sw*  **modified**: *eq, ge, gt, in, le, lt, ne, isnull, sw*  **managementWorkgroup.id**: *eq, ge, gt, in, le, lt, ne, isnull, sw*  **description**: *eq, sw*  **authoritative**: *eq, ne, isnull*  **healthy**: *isnull*  **status**: *eq, in, ge, gt, le, lt, ne, isnull, sw*  **connectionType**: *eq, ge, gt, in, le, lt, ne, isnull, sw*  **connectorName**: *eq, ge, gt, in, ne, isnull, sw*
          * @param {string} [sorters] Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **type, created, modified, name, owner.name, healthy, status, id, description, owner.id, accountCorrelationConfig.id, accountCorrelationConfig.name, managerCorrelationRule.type, managerCorrelationRule.id, managerCorrelationRule.name, authoritative, managementWorkgroup.id, connectorName, connectionType**
          * @param {string} [forSubadmin] Filter the returned list of sources for the identity specified by the parameter, which is the id of an identity with the role SOURCE_SUBADMIN. By convention, the value **me** indicates the identity id of the current user. Subadmins may only view Sources which they are able to administer; all other Sources will be filtered out when this parameter is set. If the current user is a SOURCE_SUBADMIN but fails to pass a valid value for this parameter, a 403 Forbidden is returned.
          * @param {*} [axiosOptions] Override http request option.
@@ -46516,7 +47154,7 @@ export const SourcesApiFp = function(configuration?: Configuration) {
          * @param {number} [limit] Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
          * @param {number} [offset] Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
          * @param {boolean} [count] If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
-         * @param {string} [filters] Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, in, ge, gt, le, lt, ne, isnull, sw*  **name**: *co, eq, in, sw, ge, gt, ne, isnull*  **type**: *eq, in, ge, gt, ne, isnull, sw*  **owner.id**: *eq, in, ge, gt, le, lt, ne, isnull, sw*  **features**: *ca, co*  **created**: *eq*  **modified**: *eq*  **managementWorkgroup.id**: *eq, ge, gt, in, le, lt, ne, isnull, sw*  **description**: *eq, sw*  **authoritative**: *eq, ne, isnull*  **healthy**: *isnull*  **status**: *eq, in, ge, gt, le, lt, ne, isnull, sw*  **connectionType**: *eq, ge, gt, in, le, lt, ne, isnull, sw*  **connectorName**: *eq, ge, gt, in, ne, isnull, sw*
+         * @param {string} [filters] Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, in, ge, gt, le, lt, ne, isnull, sw*  **name**: *co, eq, in, sw, ge, gt, ne, isnull*  **type**: *eq, in, ge, gt, ne, isnull, sw*  **owner.id**: *eq, in, ge, gt, le, lt, ne, isnull, sw*  **features**: *ca, co*  **created**: *eq, ge, gt, in, le, lt, ne, isnull, sw*  **modified**: *eq, ge, gt, in, le, lt, ne, isnull, sw*  **managementWorkgroup.id**: *eq, ge, gt, in, le, lt, ne, isnull, sw*  **description**: *eq, sw*  **authoritative**: *eq, ne, isnull*  **healthy**: *isnull*  **status**: *eq, in, ge, gt, le, lt, ne, isnull, sw*  **connectionType**: *eq, ge, gt, in, le, lt, ne, isnull, sw*  **connectorName**: *eq, ge, gt, in, ne, isnull, sw*
          * @param {string} [sorters] Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **type, created, modified, name, owner.name, healthy, status, id, description, owner.id, accountCorrelationConfig.id, accountCorrelationConfig.name, managerCorrelationRule.type, managerCorrelationRule.id, managerCorrelationRule.name, authoritative, managementWorkgroup.id, connectorName, connectionType**
          * @param {string} [forSubadmin] Filter the returned list of sources for the identity specified by the parameter, which is the id of an identity with the role SOURCE_SUBADMIN. By convention, the value **me** indicates the identity id of the current user. Subadmins may only view Sources which they are able to administer; all other Sources will be filtered out when this parameter is set. If the current user is a SOURCE_SUBADMIN but fails to pass a valid value for this parameter, a 403 Forbidden is returned.
          * @param {*} [axiosOptions] Override http request option.
@@ -46813,7 +47451,7 @@ export const SourcesApiFactory = function (configuration?: Configuration, basePa
          * @param {number} [limit] Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
          * @param {number} [offset] Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
          * @param {boolean} [count] If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
-         * @param {string} [filters] Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, in, ge, gt, le, lt, ne, isnull, sw*  **name**: *co, eq, in, sw, ge, gt, ne, isnull*  **type**: *eq, in, ge, gt, ne, isnull, sw*  **owner.id**: *eq, in, ge, gt, le, lt, ne, isnull, sw*  **features**: *ca, co*  **created**: *eq*  **modified**: *eq*  **managementWorkgroup.id**: *eq, ge, gt, in, le, lt, ne, isnull, sw*  **description**: *eq, sw*  **authoritative**: *eq, ne, isnull*  **healthy**: *isnull*  **status**: *eq, in, ge, gt, le, lt, ne, isnull, sw*  **connectionType**: *eq, ge, gt, in, le, lt, ne, isnull, sw*  **connectorName**: *eq, ge, gt, in, ne, isnull, sw*
+         * @param {string} [filters] Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, in, ge, gt, le, lt, ne, isnull, sw*  **name**: *co, eq, in, sw, ge, gt, ne, isnull*  **type**: *eq, in, ge, gt, ne, isnull, sw*  **owner.id**: *eq, in, ge, gt, le, lt, ne, isnull, sw*  **features**: *ca, co*  **created**: *eq, ge, gt, in, le, lt, ne, isnull, sw*  **modified**: *eq, ge, gt, in, le, lt, ne, isnull, sw*  **managementWorkgroup.id**: *eq, ge, gt, in, le, lt, ne, isnull, sw*  **description**: *eq, sw*  **authoritative**: *eq, ne, isnull*  **healthy**: *isnull*  **status**: *eq, in, ge, gt, le, lt, ne, isnull, sw*  **connectionType**: *eq, ge, gt, in, le, lt, ne, isnull, sw*  **connectorName**: *eq, ge, gt, in, ne, isnull, sw*
          * @param {string} [sorters] Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **type, created, modified, name, owner.name, healthy, status, id, description, owner.id, accountCorrelationConfig.id, accountCorrelationConfig.name, managerCorrelationRule.type, managerCorrelationRule.id, managerCorrelationRule.name, authoritative, managementWorkgroup.id, connectorName, connectionType**
          * @param {string} [forSubadmin] Filter the returned list of sources for the identity specified by the parameter, which is the id of an identity with the role SOURCE_SUBADMIN. By convention, the value **me** indicates the identity id of the current user. Subadmins may only view Sources which they are able to administer; all other Sources will be filtered out when this parameter is set. If the current user is a SOURCE_SUBADMIN but fails to pass a valid value for this parameter, a 403 Forbidden is returned.
          * @param {*} [axiosOptions] Override http request option.
@@ -47263,7 +47901,7 @@ export interface SourcesApiListSourcesRequest {
     readonly count?: boolean
 
     /**
-     * Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, in, ge, gt, le, lt, ne, isnull, sw*  **name**: *co, eq, in, sw, ge, gt, ne, isnull*  **type**: *eq, in, ge, gt, ne, isnull, sw*  **owner.id**: *eq, in, ge, gt, le, lt, ne, isnull, sw*  **features**: *ca, co*  **created**: *eq*  **modified**: *eq*  **managementWorkgroup.id**: *eq, ge, gt, in, le, lt, ne, isnull, sw*  **description**: *eq, sw*  **authoritative**: *eq, ne, isnull*  **healthy**: *isnull*  **status**: *eq, in, ge, gt, le, lt, ne, isnull, sw*  **connectionType**: *eq, ge, gt, in, le, lt, ne, isnull, sw*  **connectorName**: *eq, ge, gt, in, ne, isnull, sw*
+     * Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, in, ge, gt, le, lt, ne, isnull, sw*  **name**: *co, eq, in, sw, ge, gt, ne, isnull*  **type**: *eq, in, ge, gt, ne, isnull, sw*  **owner.id**: *eq, in, ge, gt, le, lt, ne, isnull, sw*  **features**: *ca, co*  **created**: *eq, ge, gt, in, le, lt, ne, isnull, sw*  **modified**: *eq, ge, gt, in, le, lt, ne, isnull, sw*  **managementWorkgroup.id**: *eq, ge, gt, in, le, lt, ne, isnull, sw*  **description**: *eq, sw*  **authoritative**: *eq, ne, isnull*  **healthy**: *isnull*  **status**: *eq, in, ge, gt, le, lt, ne, isnull, sw*  **connectionType**: *eq, ge, gt, in, le, lt, ne, isnull, sw*  **connectorName**: *eq, ge, gt, in, ne, isnull, sw*
      * @type {string}
      * @memberof SourcesApiListSources
      */

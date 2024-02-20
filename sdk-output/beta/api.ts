@@ -1082,7 +1082,7 @@ export interface AccessRequestBeta {
      * @type {AccessRequestTypeBeta}
      * @memberof AccessRequestBeta
      */
-    'requestType'?: AccessRequestTypeBeta;
+    'requestType'?: AccessRequestTypeBeta | null;
     /**
      * 
      * @type {Array<AccessRequestItemBeta>}
@@ -1318,7 +1318,7 @@ export interface AccessRequestItemBeta {
      */
     'clientMetadata'?: { [key: string]: string; };
     /**
-     * The date the role or access profile is no longer assigned to the specified identity. * Specify a date in the future. * The current SLA for the deprovisioning is 24 hours. * This date can be modified to either extend or decrease the duration of access item assignments for the specified identity. * Currently it is not supported for entitlements. 
+     * The date the role or access profile is no longer assigned to the specified identity. Also known as the expiration date. * Specify a date in the future. * The current SLA for the deprovisioning is 24 hours. * This date can be modified to either extend or decrease the duration of access item assignments for the specified identity. You can change the expiration date for requests for yourself or direct reports, but you cannot remove an expiration date on an already approved item. If the access request has not been approved, you can cancel it and submit a new one without the expiration. If it has already been approved, then you have to revoke the access and then re-request without the expiration. * Currently it is not supported for entitlements. 
      * @type {string}
      * @memberof AccessRequestItemBeta
      */
@@ -1413,7 +1413,7 @@ export interface AccessRequestPhasesBeta {
      * @type {string}
      * @memberof AccessRequestPhasesBeta
      */
-    'finished'?: string;
+    'finished'?: string | null;
     /**
      * The name of this phase.
      * @type {string}
@@ -1437,20 +1437,22 @@ export interface AccessRequestPhasesBeta {
      * @type {string}
      * @memberof AccessRequestPhasesBeta
      */
-    'phaseReference'?: string;
+    'phaseReference'?: string | null;
 }
 
 export const AccessRequestPhasesBetaStateEnum = {
     Pending: 'PENDING',
     Executing: 'EXECUTING',
     Completed: 'COMPLETED',
-    Cancelled: 'CANCELLED'
+    Cancelled: 'CANCELLED',
+    NotExecuted: 'NOT_EXECUTED'
 } as const;
 
 export type AccessRequestPhasesBetaStateEnum = typeof AccessRequestPhasesBetaStateEnum[keyof typeof AccessRequestPhasesBetaStateEnum];
 export const AccessRequestPhasesBetaResultEnum = {
     Successful: 'SUCCESSFUL',
-    Failed: 'FAILED'
+    Failed: 'FAILED',
+    Null: 'null'
 } as const;
 
 export type AccessRequestPhasesBetaResultEnum = typeof AccessRequestPhasesBetaResultEnum[keyof typeof AccessRequestPhasesBetaResultEnum];
@@ -1963,7 +1965,8 @@ export interface AccessRequestResponseBeta {
 
 export const AccessRequestTypeBeta = {
     GrantAccess: 'GRANT_ACCESS',
-    RevokeAccess: 'REVOKE_ACCESS'
+    RevokeAccess: 'REVOKE_ACCESS',
+    Null: 'null'
 } as const;
 
 export type AccessRequestTypeBeta = typeof AccessRequestTypeBeta[keyof typeof AccessRequestTypeBeta];
@@ -2067,10 +2070,10 @@ export interface AccountActivityItemBeta {
     'requested'?: string;
     /**
      * 
-     * @type {WorkItemStateBeta}
+     * @type {WorkItemStateBeta & object}
      * @memberof AccountActivityItemBeta
      */
-    'approvalStatus'?: WorkItemStateBeta;
+    'approvalStatus'?: WorkItemStateBeta & object;
     /**
      * 
      * @type {ProvisioningStateBeta}
@@ -2097,10 +2100,10 @@ export interface AccountActivityItemBeta {
     'reviewerComment'?: CommentBeta | null;
     /**
      * 
-     * @type {AccountActivityItemOperationBeta}
+     * @type {AccountActivityItemOperationBeta & object}
      * @memberof AccountActivityItemBeta
      */
-    'operation'?: AccountActivityItemOperationBeta;
+    'operation'?: AccountActivityItemOperationBeta & object;
     /**
      * Attribute to which account activity applies
      * @type {string}
@@ -2159,7 +2162,9 @@ export const AccountActivityItemOperationBeta = {
     Enable: 'ENABLE',
     Unlock: 'UNLOCK',
     Lock: 'LOCK',
-    Remove: 'REMOVE'
+    Remove: 'REMOVE',
+    Set: 'SET',
+    Null: 'null'
 } as const;
 
 export type AccountActivityItemOperationBeta = typeof AccountActivityItemOperationBeta[keyof typeof AccountActivityItemOperationBeta];
@@ -2468,6 +2473,24 @@ export interface AccountAllOfBeta {
      * @memberof AccountAllOfBeta
      */
     'hasEntitlements': boolean;
+    /**
+     * 
+     * @type {BaseReferenceDtoBeta}
+     * @memberof AccountAllOfBeta
+     */
+    'identity'?: BaseReferenceDtoBeta;
+    /**
+     * 
+     * @type {BaseReferenceDtoBeta}
+     * @memberof AccountAllOfBeta
+     */
+    'sourceOwner'?: BaseReferenceDtoBeta;
+    /**
+     * A string list containing the owning source\'s features
+     * @type {string}
+     * @memberof AccountAllOfBeta
+     */
+    'features'?: string | null;
 }
 /**
  * 
@@ -2863,6 +2886,24 @@ export interface AccountBeta {
      * @memberof AccountBeta
      */
     'hasEntitlements': boolean;
+    /**
+     * 
+     * @type {BaseReferenceDtoBeta}
+     * @memberof AccountBeta
+     */
+    'identity'?: BaseReferenceDtoBeta;
+    /**
+     * 
+     * @type {BaseReferenceDtoBeta}
+     * @memberof AccountBeta
+     */
+    'sourceOwner'?: BaseReferenceDtoBeta;
+    /**
+     * A string list containing the owning source\'s features
+     * @type {string}
+     * @memberof AccountBeta
+     */
+    'features'?: string | null;
 }
 /**
  * The correlated account.
@@ -3738,19 +3779,19 @@ export interface ApprovalReminderAndEscalationConfigBeta {
      * @type {number}
      * @memberof ApprovalReminderAndEscalationConfigBeta
      */
-    'daysUntilEscalation'?: number;
+    'daysUntilEscalation'?: number | null;
     /**
      * Number of days to wait between reminder notifications.
      * @type {number}
      * @memberof ApprovalReminderAndEscalationConfigBeta
      */
-    'daysBetweenReminders'?: number;
+    'daysBetweenReminders'?: number | null;
     /**
      * Maximum number of reminder notification to send to the reviewer before approval escalation.
      * @type {number}
      * @memberof ApprovalReminderAndEscalationConfigBeta
      */
-    'maxReminders'?: number;
+    'maxReminders'?: number | null;
     /**
      * 
      * @type {IdentityReferenceWithNameAndEmailBeta}
@@ -3842,16 +3883,16 @@ export interface ApprovalStatusDtoBeta {
     'originalOwner'?: ApprovalStatusDtoOriginalOwnerBeta;
     /**
      * 
-     * @type {AccessItemReviewedByBeta}
+     * @type {ApprovalStatusDtoCurrentOwnerBeta}
      * @memberof ApprovalStatusDtoBeta
      */
-    'currentOwner'?: AccessItemReviewedByBeta;
+    'currentOwner'?: ApprovalStatusDtoCurrentOwnerBeta;
     /**
      * Time at which item was modified.
      * @type {string}
      * @memberof ApprovalStatusDtoBeta
      */
-    'modified'?: string;
+    'modified'?: string | null;
     /**
      * 
      * @type {ManualWorkItemStateBeta}
@@ -3869,20 +3910,52 @@ export interface ApprovalStatusDtoBeta {
      * @type {Array<ErrorMessageDtoBeta>}
      * @memberof ApprovalStatusDtoBeta
      */
-    'errorMessages'?: Array<ErrorMessageDtoBeta>;
+    'errorMessages'?: Array<ErrorMessageDtoBeta> | null;
     /**
      * Comment, if any, provided by the approver.
      * @type {string}
      * @memberof ApprovalStatusDtoBeta
      */
-    'comment'?: string;
+    'comment'?: string | null;
     /**
      * The date the role or access profile is no longer assigned to the specified identity.
      * @type {string}
      * @memberof ApprovalStatusDtoBeta
      */
-    'removeDate'?: string;
+    'removeDate'?: string | null;
 }
+/**
+ * 
+ * @export
+ * @interface ApprovalStatusDtoCurrentOwnerBeta
+ */
+export interface ApprovalStatusDtoCurrentOwnerBeta {
+    /**
+     * DTO type of identity who reviewed the access item request.
+     * @type {string}
+     * @memberof ApprovalStatusDtoCurrentOwnerBeta
+     */
+    'type'?: ApprovalStatusDtoCurrentOwnerBetaTypeEnum;
+    /**
+     * ID of identity who reviewed the access item request.
+     * @type {string}
+     * @memberof ApprovalStatusDtoCurrentOwnerBeta
+     */
+    'id'?: string;
+    /**
+     * Human-readable display name of identity who reviewed the access item request.
+     * @type {string}
+     * @memberof ApprovalStatusDtoCurrentOwnerBeta
+     */
+    'name'?: string;
+}
+
+export const ApprovalStatusDtoCurrentOwnerBetaTypeEnum = {
+    Identity: 'IDENTITY'
+} as const;
+
+export type ApprovalStatusDtoCurrentOwnerBetaTypeEnum = typeof ApprovalStatusDtoCurrentOwnerBetaTypeEnum[keyof typeof ApprovalStatusDtoCurrentOwnerBetaTypeEnum];
+
 /**
  * Identity of orginal approval owner.
  * @export
@@ -4338,6 +4411,25 @@ export interface BaseCommonDtoBeta {
      * @memberof BaseCommonDtoBeta
      */
     'modified'?: string;
+}
+/**
+ * 
+ * @export
+ * @interface BaseReferenceDtoBeta
+ */
+export interface BaseReferenceDtoBeta {
+    /**
+     * the application ID
+     * @type {string}
+     * @memberof BaseReferenceDtoBeta
+     */
+    'id'?: string;
+    /**
+     * the application name
+     * @type {string}
+     * @memberof BaseReferenceDtoBeta
+     */
+    'name'?: string;
 }
 /**
  * Config required if BASIC_AUTH is used.
@@ -5181,7 +5273,7 @@ export interface CampaignReportsConfigBeta {
      * @type {Array<string>}
      * @memberof CampaignReportsConfigBeta
      */
-    'identityAttributeColumns'?: Array<string>;
+    'identityAttributeColumns'?: Array<string> | null;
 }
 /**
  * Campaign Template
@@ -5330,13 +5422,13 @@ export interface CancelableAccountActivityBeta {
      * @type {string}
      * @memberof CancelableAccountActivityBeta
      */
-    'modified'?: string;
+    'modified'?: string | null;
     /**
      * 
      * @type {string}
      * @memberof CancelableAccountActivityBeta
      */
-    'completed'?: string;
+    'completed'?: string | null;
     /**
      * 
      * @type {CompletionStatusBeta}
@@ -5348,7 +5440,7 @@ export interface CancelableAccountActivityBeta {
      * @type {string}
      * @memberof CancelableAccountActivityBeta
      */
-    'type'?: string;
+    'type'?: string | null;
     /**
      * 
      * @type {IdentitySummaryBeta}
@@ -5366,19 +5458,19 @@ export interface CancelableAccountActivityBeta {
      * @type {Array<string>}
      * @memberof CancelableAccountActivityBeta
      */
-    'errors'?: Array<string>;
+    'errors'?: Array<string> | null;
     /**
      * 
      * @type {Array<string>}
      * @memberof CancelableAccountActivityBeta
      */
-    'warnings'?: Array<string>;
+    'warnings'?: Array<string> | null;
     /**
      * 
      * @type {Array<AccountActivityItemBeta>}
      * @memberof CancelableAccountActivityBeta
      */
-    'items'?: Array<AccountActivityItemBeta>;
+    'items'?: Array<AccountActivityItemBeta> | null;
     /**
      * 
      * @type {ExecutionStatusBeta}
@@ -5390,7 +5482,7 @@ export interface CancelableAccountActivityBeta {
      * @type {{ [key: string]: string; }}
      * @memberof CancelableAccountActivityBeta
      */
-    'clientMetadata'?: { [key: string]: string; };
+    'clientMetadata'?: { [key: string]: string; } | null;
     /**
      * Whether the account activity can be canceled before completion
      * @type {boolean}
@@ -5959,6 +6051,38 @@ export interface CommentBeta {
     'date'?: string;
 }
 /**
+ * Author of the comment
+ * @export
+ * @interface CommentDto1AuthorBeta
+ */
+export interface CommentDto1AuthorBeta {
+    /**
+     * The type of object
+     * @type {string}
+     * @memberof CommentDto1AuthorBeta
+     */
+    'type'?: CommentDto1AuthorBetaTypeEnum;
+    /**
+     * The unique ID of the object
+     * @type {string}
+     * @memberof CommentDto1AuthorBeta
+     */
+    'id'?: string;
+    /**
+     * The display name of the object
+     * @type {string}
+     * @memberof CommentDto1AuthorBeta
+     */
+    'name'?: string;
+}
+
+export const CommentDto1AuthorBetaTypeEnum = {
+    Identity: 'IDENTITY'
+} as const;
+
+export type CommentDto1AuthorBetaTypeEnum = typeof CommentDto1AuthorBetaTypeEnum[keyof typeof CommentDto1AuthorBetaTypeEnum];
+
+/**
  * 
  * @export
  * @interface CommentDto1Beta
@@ -5976,6 +6100,12 @@ export interface CommentDto1Beta {
      * @memberof CommentDto1Beta
      */
     'created'?: string;
+    /**
+     * 
+     * @type {CommentDto1AuthorBeta}
+     * @memberof CommentDto1Beta
+     */
+    'author'?: CommentDto1AuthorBeta;
 }
 /**
  * 
@@ -6082,7 +6212,7 @@ export interface CommonAccessItemAccessBeta {
      * @type {string}
      * @memberof CommonAccessItemAccessBeta
      */
-    'description'?: string;
+    'description'?: string | null;
     /**
      * Common access owner name
      * @type {string}
@@ -6185,6 +6315,12 @@ export type CommonAccessItemStateBeta = typeof CommonAccessItemStateBeta[keyof t
  */
 export interface CommonAccessResponseBeta {
     /**
+     * Unique ID of the common access item
+     * @type {string}
+     * @memberof CommonAccessResponseBeta
+     */
+    'id'?: string;
+    /**
      * 
      * @type {CommonAccessItemAccessBeta}
      * @memberof CommonAccessResponseBeta
@@ -6213,7 +6349,13 @@ export interface CommonAccessResponseBeta {
      * @type {string}
      * @memberof CommonAccessResponseBeta
      */
-    'lastReviewed'?: string;
+    'lastReviewed'?: string | null;
+    /**
+     * 
+     * @type {boolean}
+     * @memberof CommonAccessResponseBeta
+     */
+    'createdByUser'?: boolean;
 }
 /**
  * The type of access item.
@@ -6335,7 +6477,7 @@ export interface CompletedApprovalBeta {
      * @type {AccessRequestTypeBeta}
      * @memberof CompletedApprovalBeta
      */
-    'requestType'?: AccessRequestTypeBeta;
+    'requestType'?: AccessRequestTypeBeta | null;
     /**
      * 
      * @type {AccessItemRequesterDtoBeta}
@@ -6426,6 +6568,55 @@ export interface CompletedApprovalBeta {
      * @memberof CompletedApprovalBeta
      */
     'sodViolationContext'?: SodViolationContextCheckCompleted1Beta;
+    /**
+     * 
+     * @type {CompletedApprovalPreApprovalTriggerResultBeta}
+     * @memberof CompletedApprovalBeta
+     */
+    'preApprovalTriggerResult'?: CompletedApprovalPreApprovalTriggerResultBeta | null;
+    /**
+     * Arbitrary key-value pairs provided during the request.
+     * @type {{ [key: string]: string; }}
+     * @memberof CompletedApprovalBeta
+     */
+    'clientMetadata'?: { [key: string]: string; };
+    /**
+     * 
+     * @type {string}
+     * @memberof CompletedApprovalBeta
+     */
+    'requestedAccounts'?: string | null;
+}
+/**
+ * If the access request submitted event trigger is configured and this access request was intercepted by it, then this is the result of the trigger\'s decision to either approve or deny the request.
+ * @export
+ * @interface CompletedApprovalPreApprovalTriggerResultBeta
+ */
+export interface CompletedApprovalPreApprovalTriggerResultBeta {
+    /**
+     * The comment from the trigger
+     * @type {string}
+     * @memberof CompletedApprovalPreApprovalTriggerResultBeta
+     */
+    'comment'?: string;
+    /**
+     * 
+     * @type {CompletedApprovalStateBeta}
+     * @memberof CompletedApprovalPreApprovalTriggerResultBeta
+     */
+    'decision'?: CompletedApprovalStateBeta;
+    /**
+     * The name of the approver
+     * @type {string}
+     * @memberof CompletedApprovalPreApprovalTriggerResultBeta
+     */
+    'reviewer'?: string;
+    /**
+     * The date and time the trigger decided on the request
+     * @type {string}
+     * @memberof CompletedApprovalPreApprovalTriggerResultBeta
+     */
+    'date'?: string;
 }
 /**
  * Identity who reviewed the access item request.
@@ -6508,7 +6699,8 @@ export const CompletionStatusBeta = {
     Success: 'SUCCESS',
     Failure: 'FAILURE',
     Incomplete: 'INCOMPLETE',
-    Pending: 'PENDING'
+    Pending: 'PENDING',
+    Null: 'null'
 } as const;
 
 export type CompletionStatusBeta = typeof CompletionStatusBeta[keyof typeof CompletionStatusBeta];
@@ -6733,10 +6925,22 @@ export interface ConfigObjectBeta {
 export interface ConfigTypeBeta {
     /**
      * 
+     * @type {number}
+     * @memberof ConfigTypeBeta
+     */
+    'priority'?: number;
+    /**
+     * 
+     * @type {ConfigTypeEnumCamelBeta}
+     * @memberof ConfigTypeBeta
+     */
+    'internalName'?: ConfigTypeEnumCamelBeta;
+    /**
+     * 
      * @type {ConfigTypeEnumBeta}
      * @memberof ConfigTypeBeta
      */
-    'internalName'?: ConfigTypeEnumBeta;
+    'internalNameCamel'?: ConfigTypeEnumBeta;
     /**
      * Human readable display name of the type to be shown on UI
      * @type {string}
@@ -6763,6 +6967,21 @@ export const ConfigTypeEnumBeta = {
 } as const;
 
 export type ConfigTypeEnumBeta = typeof ConfigTypeEnumBeta[keyof typeof ConfigTypeEnumBeta];
+
+
+/**
+ * Enum list of valid work types that can be selected for a Reassignment Configuration
+ * @export
+ * @enum {string}
+ */
+
+export const ConfigTypeEnumCamelBeta = {
+    AccessRequests: 'accessRequests',
+    Certifications: 'certifications',
+    ManualTasks: 'manualTasks'
+} as const;
+
+export type ConfigTypeEnumCamelBeta = typeof ConfigTypeEnumCamelBeta[keyof typeof ConfigTypeEnumCamelBeta];
 
 
 /**
@@ -8462,7 +8681,7 @@ export interface EntitlementBeta {
      * @type {string}
      * @memberof EntitlementBeta
      */
-    'attribute'?: string;
+    'attribute'?: string | null;
     /**
      * The value of the entitlement
      * @type {string}
@@ -8492,7 +8711,7 @@ export interface EntitlementBeta {
      * @type {string}
      * @memberof EntitlementBeta
      */
-    'description'?: string;
+    'description'?: string | null;
     /**
      * True if the entitlement is requestable
      * @type {boolean}
@@ -8513,10 +8732,10 @@ export interface EntitlementBeta {
     'source'?: EntitlementSourceBeta;
     /**
      * 
-     * @type {OwnerReferenceDtoBeta}
+     * @type {EntitlementOwnerBeta}
      * @memberof EntitlementBeta
      */
-    'owner'?: OwnerReferenceDtoBeta;
+    'owner'?: EntitlementOwnerBeta;
     /**
      * 
      * @type {Array<PermissionDtoBeta>}
@@ -8531,10 +8750,10 @@ export interface EntitlementBeta {
     'segments'?: Array<string> | null;
     /**
      * 
-     * @type {ManuallyUpdatedFieldsDTOBeta}
+     * @type {EntitlementManuallyUpdatedFieldsBeta}
      * @memberof EntitlementBeta
      */
-    'manuallyUpdatedFields'?: ManuallyUpdatedFieldsDTOBeta;
+    'manuallyUpdatedFields'?: EntitlementManuallyUpdatedFieldsBeta;
 }
 /**
  * 
@@ -8555,6 +8774,57 @@ export interface EntitlementBulkUpdateRequestBeta {
      */
     'jsonPatch': Array<JsonPatchOperationBeta>;
 }
+/**
+ * 
+ * @export
+ * @interface EntitlementManuallyUpdatedFieldsBeta
+ */
+export interface EntitlementManuallyUpdatedFieldsBeta {
+    /**
+     * True if the entitlements name was updated manually via entitlement import csv or patch endpoint.  False means that property value has not been change after first entitlement aggregation. Field refers to [Entitlement response schema](https://developer.sailpoint.com/idn/api/beta/get-entitlement) > `name` property.
+     * @type {boolean}
+     * @memberof EntitlementManuallyUpdatedFieldsBeta
+     */
+    'DISPLAY_NAME'?: boolean;
+    /**
+     * True if the entitlement description was updated manually via entitlement import csv or patch endpoint.  False means that property value has not been change after first entitlement aggregation. Field refers to [Entitlement response schema](https://developer.sailpoint.com/idn/api/beta/get-entitlement) > `description` property.
+     * @type {boolean}
+     * @memberof EntitlementManuallyUpdatedFieldsBeta
+     */
+    'DESCRIPTION'?: boolean;
+}
+/**
+ * 
+ * @export
+ * @interface EntitlementOwnerBeta
+ */
+export interface EntitlementOwnerBeta {
+    /**
+     * The owner id for the entitlement
+     * @type {string}
+     * @memberof EntitlementOwnerBeta
+     */
+    'id'?: string;
+    /**
+     * The owner name for the entitlement
+     * @type {string}
+     * @memberof EntitlementOwnerBeta
+     */
+    'name'?: string;
+    /**
+     * The type of the owner. Initially only type IDENTITY is supported
+     * @type {string}
+     * @memberof EntitlementOwnerBeta
+     */
+    'type'?: EntitlementOwnerBetaTypeEnum;
+}
+
+export const EntitlementOwnerBetaTypeEnum = {
+    Identity: 'IDENTITY'
+} as const;
+
+export type EntitlementOwnerBetaTypeEnum = typeof EntitlementOwnerBetaTypeEnum[keyof typeof EntitlementOwnerBetaTypeEnum];
+
 /**
  * Entitlement including a specific set of access.
  * @export
@@ -8578,7 +8848,7 @@ export interface EntitlementRefBeta {
      * @type {string}
      * @memberof EntitlementRefBeta
      */
-    'name'?: string;
+    'name'?: string | null;
 }
 
 export const EntitlementRefBetaTypeEnum = {
@@ -8616,7 +8886,7 @@ export interface EntitlementRequestConfig1Beta {
      * @type {string}
      * @memberof EntitlementRequestConfig1Beta
      */
-    'grantRequestApprovalSchemes'?: string;
+    'grantRequestApprovalSchemes'?: string | null;
 }
 /**
  * 
@@ -8654,7 +8924,7 @@ export interface EntitlementSourceBeta {
      * @type {string}
      * @memberof EntitlementSourceBeta
      */
-    'name'?: string;
+    'name'?: string | null;
 }
 /**
  * 
@@ -8736,13 +9006,13 @@ export interface ErrorMessageDtoBeta {
      * @type {string}
      * @memberof ErrorMessageDtoBeta
      */
-    'locale'?: string;
+    'locale'?: string | null;
     /**
      * 
      * @type {LocaleOriginBeta}
      * @memberof ErrorMessageDtoBeta
      */
-    'localeOrigin'?: LocaleOriginBeta;
+    'localeOrigin'?: LocaleOriginBeta | null;
     /**
      * Actual text of the error message in the indicated locale.
      * @type {string}
@@ -10197,158 +10467,6 @@ export interface ForwardApprovalDtoBeta {
 /**
  * 
  * @export
- * @interface FullAccountAllOfBeta
- */
-export interface FullAccountAllOfBeta {
-    /**
-     * Whether this account belongs to an authoritative source
-     * @type {boolean}
-     * @memberof FullAccountAllOfBeta
-     */
-    'authoritative'?: boolean;
-    /**
-     * Whether this account is for the IdentityNow source
-     * @type {boolean}
-     * @memberof FullAccountAllOfBeta
-     */
-    'systemAccount'?: boolean;
-    /**
-     * True if this account is not correlated to an identity
-     * @type {boolean}
-     * @memberof FullAccountAllOfBeta
-     */
-    'uncorrelated'?: boolean;
-    /**
-     * A string list containing the owning source\'s features
-     * @type {string}
-     * @memberof FullAccountAllOfBeta
-     */
-    'features'?: string | null;
-}
-/**
- * 
- * @export
- * @interface FullAccountBeta
- */
-export interface FullAccountBeta {
-    /**
-     * System-generated unique ID of the Object
-     * @type {string}
-     * @memberof FullAccountBeta
-     */
-    'id'?: string;
-    /**
-     * Name of the Object
-     * @type {string}
-     * @memberof FullAccountBeta
-     */
-    'name': string;
-    /**
-     * Creation date of the Object
-     * @type {string}
-     * @memberof FullAccountBeta
-     */
-    'created'?: string;
-    /**
-     * Last modification date of the Object
-     * @type {string}
-     * @memberof FullAccountBeta
-     */
-    'modified'?: string;
-    /**
-     * Unique ID from the owning source
-     * @type {string}
-     * @memberof FullAccountBeta
-     */
-    'uuid'?: string | null;
-    /**
-     * The native identifier of the account
-     * @type {string}
-     * @memberof FullAccountBeta
-     */
-    'nativeIdentity'?: string;
-    /**
-     * The description for the account
-     * @type {string}
-     * @memberof FullAccountBeta
-     */
-    'description'?: string | null;
-    /**
-     * Whether the account is disabled
-     * @type {boolean}
-     * @memberof FullAccountBeta
-     */
-    'disabled'?: boolean;
-    /**
-     * Whether the account is locked
-     * @type {boolean}
-     * @memberof FullAccountBeta
-     */
-    'locked'?: boolean;
-    /**
-     * Whether the account was manually correlated
-     * @type {boolean}
-     * @memberof FullAccountBeta
-     */
-    'manuallyCorrelated'?: boolean;
-    /**
-     * Whether the account has any entitlements associated with it
-     * @type {boolean}
-     * @memberof FullAccountBeta
-     */
-    'hasEntitlements'?: boolean;
-    /**
-     * The ID of the source for which this account belongs
-     * @type {string}
-     * @memberof FullAccountBeta
-     */
-    'sourceId'?: string;
-    /**
-     * The name of the source
-     * @type {string}
-     * @memberof FullAccountBeta
-     */
-    'sourceName'?: string;
-    /**
-     * The ID of the identity for which this account is correlated to if not uncorrelated
-     * @type {string}
-     * @memberof FullAccountBeta
-     */
-    'identityId'?: string;
-    /**
-     * A map containing attributes associated with the account
-     * @type {{ [key: string]: any; }}
-     * @memberof FullAccountBeta
-     */
-    'attributes'?: { [key: string]: any; };
-    /**
-     * Whether this account belongs to an authoritative source
-     * @type {boolean}
-     * @memberof FullAccountBeta
-     */
-    'authoritative'?: boolean;
-    /**
-     * Whether this account is for the IdentityNow source
-     * @type {boolean}
-     * @memberof FullAccountBeta
-     */
-    'systemAccount'?: boolean;
-    /**
-     * True if this account is not correlated to an identity
-     * @type {boolean}
-     * @memberof FullAccountBeta
-     */
-    'uncorrelated'?: boolean;
-    /**
-     * A string list containing the owning source\'s features
-     * @type {string}
-     * @memberof FullAccountBeta
-     */
-    'features'?: string | null;
-}
-/**
- * 
- * @export
  * @interface FullcampaignAllOfBeta
  */
 export interface FullcampaignAllOfBeta {
@@ -11156,6 +11274,12 @@ export interface GetPersonalAccessTokenResponseBeta {
      * @memberof GetPersonalAccessTokenResponseBeta
      */
     'lastUsed'?: string | null;
+    /**
+     * If true, this token is managed by the SailPoint platform, and is not visible in the user interface. For example, Workflows will create managed personal access tokens for users who create workflows.
+     * @type {boolean}
+     * @memberof GetPersonalAccessTokenResponseBeta
+     */
+    'managed'?: boolean;
 }
 /**
  * 
@@ -11702,7 +11826,7 @@ export interface IdentityBeta {
      * @type {string}
      * @memberof IdentityBeta
      */
-    'emailAddress'?: string;
+    'emailAddress'?: string | null;
     /**
      * The processing state of the identity
      * @type {string}
@@ -11720,7 +11844,7 @@ export interface IdentityBeta {
      * @type {IdentityDtoManagerRefBeta}
      * @memberof IdentityBeta
      */
-    'managerRef'?: IdentityDtoManagerRefBeta;
+    'managerRef'?: IdentityDtoManagerRefBeta | null;
     /**
      * Whether this identity is a manager of another identity
      * @type {boolean}
@@ -11741,15 +11865,16 @@ export interface IdentityBeta {
     'attributes'?: object;
     /**
      * 
-     * @type {LifecycleStateDtoBeta}
+     * @type {LifecycleStateDtoBeta & object}
      * @memberof IdentityBeta
      */
-    'lifecycleState'?: LifecycleStateDtoBeta;
+    'lifecycleState'?: LifecycleStateDtoBeta & object;
 }
 
 export const IdentityBetaProcessingStateEnum = {
     Error: 'ERROR',
-    Ok: 'OK'
+    Ok: 'OK',
+    Null: 'null'
 } as const;
 
 export type IdentityBetaProcessingStateEnum = typeof IdentityBetaProcessingStateEnum[keyof typeof IdentityBetaProcessingStateEnum];
@@ -12007,7 +12132,7 @@ export interface IdentityDtoBeta {
      * @type {string}
      * @memberof IdentityDtoBeta
      */
-    'emailAddress'?: string;
+    'emailAddress'?: string | null;
     /**
      * The processing state of the identity
      * @type {string}
@@ -12025,7 +12150,7 @@ export interface IdentityDtoBeta {
      * @type {IdentityDtoManagerRefBeta}
      * @memberof IdentityDtoBeta
      */
-    'managerRef'?: IdentityDtoManagerRefBeta;
+    'managerRef'?: IdentityDtoManagerRefBeta | null;
     /**
      * Whether this identity is a manager of another identity
      * @type {boolean}
@@ -12046,15 +12171,16 @@ export interface IdentityDtoBeta {
     'attributes'?: object;
     /**
      * 
-     * @type {LifecycleStateDtoBeta}
+     * @type {LifecycleStateDtoBeta & object}
      * @memberof IdentityDtoBeta
      */
-    'lifecycleState'?: LifecycleStateDtoBeta;
+    'lifecycleState'?: LifecycleStateDtoBeta & object;
 }
 
 export const IdentityDtoBetaProcessingStateEnum = {
     Error: 'ERROR',
-    Ok: 'OK'
+    Ok: 'OK',
+    Null: 'null'
 } as const;
 
 export type IdentityDtoBetaProcessingStateEnum = typeof IdentityDtoBetaProcessingStateEnum[keyof typeof IdentityDtoBetaProcessingStateEnum];
@@ -12326,10 +12452,10 @@ export interface IdentityPreviewRequestBeta {
 export interface IdentityPreviewResponseBeta {
     /**
      * 
-     * @type {IdentityDtoManagerRefBeta}
+     * @type {IdentityPreviewResponseIdentityBeta}
      * @memberof IdentityPreviewResponseBeta
      */
-    'identity'?: IdentityDtoManagerRefBeta;
+    'identity'?: IdentityPreviewResponseIdentityBeta;
     /**
      * 
      * @type {Array<IdentityAttributePreviewBeta>}
@@ -12337,6 +12463,38 @@ export interface IdentityPreviewResponseBeta {
      */
     'previewAttributes'?: Array<IdentityAttributePreviewBeta>;
 }
+/**
+ * Identity\'s manager.
+ * @export
+ * @interface IdentityPreviewResponseIdentityBeta
+ */
+export interface IdentityPreviewResponseIdentityBeta {
+    /**
+     * DTO type of identity\'s manager.
+     * @type {string}
+     * @memberof IdentityPreviewResponseIdentityBeta
+     */
+    'type'?: IdentityPreviewResponseIdentityBetaTypeEnum;
+    /**
+     * ID of identity\'s manager.
+     * @type {string}
+     * @memberof IdentityPreviewResponseIdentityBeta
+     */
+    'id'?: string;
+    /**
+     * Human-readable display name of identity\'s manager.
+     * @type {string}
+     * @memberof IdentityPreviewResponseIdentityBeta
+     */
+    'name'?: string;
+}
+
+export const IdentityPreviewResponseIdentityBetaTypeEnum = {
+    Identity: 'IDENTITY'
+} as const;
+
+export type IdentityPreviewResponseIdentityBetaTypeEnum = typeof IdentityPreviewResponseIdentityBetaTypeEnum[keyof typeof IdentityPreviewResponseIdentityBetaTypeEnum];
+
 /**
  * 
  * @export
@@ -13628,127 +13786,6 @@ export interface ListAccessProfiles429ResponseBeta {
 /**
  * 
  * @export
- * @interface ListAccounts200ResponseInnerBeta
- */
-export interface ListAccounts200ResponseInnerBeta {
-    /**
-     * System-generated unique ID of the Object
-     * @type {string}
-     * @memberof ListAccounts200ResponseInnerBeta
-     */
-    'id'?: string;
-    /**
-     * Name of the Object
-     * @type {string}
-     * @memberof ListAccounts200ResponseInnerBeta
-     */
-    'name': string;
-    /**
-     * Creation date of the Object
-     * @type {string}
-     * @memberof ListAccounts200ResponseInnerBeta
-     */
-    'created'?: string;
-    /**
-     * Last modification date of the Object
-     * @type {string}
-     * @memberof ListAccounts200ResponseInnerBeta
-     */
-    'modified'?: string;
-    /**
-     * Unique ID from the owning source
-     * @type {string}
-     * @memberof ListAccounts200ResponseInnerBeta
-     */
-    'uuid'?: string | null;
-    /**
-     * The native identifier of the account
-     * @type {string}
-     * @memberof ListAccounts200ResponseInnerBeta
-     */
-    'nativeIdentity'?: string;
-    /**
-     * The description for the account
-     * @type {string}
-     * @memberof ListAccounts200ResponseInnerBeta
-     */
-    'description'?: string | null;
-    /**
-     * Whether the account is disabled
-     * @type {boolean}
-     * @memberof ListAccounts200ResponseInnerBeta
-     */
-    'disabled'?: boolean;
-    /**
-     * Whether the account is locked
-     * @type {boolean}
-     * @memberof ListAccounts200ResponseInnerBeta
-     */
-    'locked'?: boolean;
-    /**
-     * Whether the account was manually correlated
-     * @type {boolean}
-     * @memberof ListAccounts200ResponseInnerBeta
-     */
-    'manuallyCorrelated'?: boolean;
-    /**
-     * Whether the account has any entitlements associated with it
-     * @type {boolean}
-     * @memberof ListAccounts200ResponseInnerBeta
-     */
-    'hasEntitlements'?: boolean;
-    /**
-     * The ID of the source for which this account belongs
-     * @type {string}
-     * @memberof ListAccounts200ResponseInnerBeta
-     */
-    'sourceId'?: string;
-    /**
-     * The name of the source
-     * @type {string}
-     * @memberof ListAccounts200ResponseInnerBeta
-     */
-    'sourceName'?: string;
-    /**
-     * The ID of the identity for which this account is correlated to if not uncorrelated
-     * @type {string}
-     * @memberof ListAccounts200ResponseInnerBeta
-     */
-    'identityId'?: string;
-    /**
-     * A map containing attributes associated with the account
-     * @type {{ [key: string]: any; }}
-     * @memberof ListAccounts200ResponseInnerBeta
-     */
-    'attributes'?: { [key: string]: any; };
-    /**
-     * Whether this account belongs to an authoritative source
-     * @type {boolean}
-     * @memberof ListAccounts200ResponseInnerBeta
-     */
-    'authoritative'?: boolean;
-    /**
-     * Whether this account is for the IdentityNow source
-     * @type {boolean}
-     * @memberof ListAccounts200ResponseInnerBeta
-     */
-    'systemAccount'?: boolean;
-    /**
-     * True if this account is not correlated to an identity
-     * @type {boolean}
-     * @memberof ListAccounts200ResponseInnerBeta
-     */
-    'uncorrelated'?: boolean;
-    /**
-     * A string list containing the owning source\'s features
-     * @type {string}
-     * @memberof ListAccounts200ResponseInnerBeta
-     */
-    'features'?: string | null;
-}
-/**
- * 
- * @export
  * @interface ListCompleteWorkflowLibrary200ResponseInnerBeta
  */
 export interface ListCompleteWorkflowLibrary200ResponseInnerBeta {
@@ -13911,7 +13948,8 @@ export type ListWorkgroupMembers200ResponseInnerBetaTypeEnum = typeof ListWorkgr
 
 export const LocaleOriginBeta = {
     Default: 'DEFAULT',
-    Request: 'REQUEST'
+    Request: 'REQUEST',
+    Null: 'null'
 } as const;
 
 export type LocaleOriginBeta = typeof LocaleOriginBeta[keyof typeof LocaleOriginBeta];
@@ -14440,6 +14478,18 @@ export interface ManagedClusterBeta {
      * @memberof ManagedClusterBeta
      */
     'ccId'?: string;
+    /**
+     * The date/time this cluster was created
+     * @type {string}
+     * @memberof ManagedClusterBeta
+     */
+    'createdAt'?: string | null;
+    /**
+     * The date/time this cluster was last updated
+     * @type {string}
+     * @memberof ManagedClusterBeta
+     */
+    'updatedAt'?: string | null;
 }
 /**
  * Managed Cluster key pair for Cluster
@@ -14554,13 +14604,13 @@ export interface ManualWorkItemDetailsBeta {
      * @type {ManualWorkItemDetailsOriginalOwnerBeta}
      * @memberof ManualWorkItemDetailsBeta
      */
-    'originalOwner'?: ManualWorkItemDetailsOriginalOwnerBeta;
+    'originalOwner'?: ManualWorkItemDetailsOriginalOwnerBeta | null;
     /**
      * 
      * @type {ManualWorkItemDetailsCurrentOwnerBeta}
      * @memberof ManualWorkItemDetailsBeta
      */
-    'currentOwner'?: ManualWorkItemDetailsCurrentOwnerBeta;
+    'currentOwner'?: ManualWorkItemDetailsCurrentOwnerBeta | null;
     /**
      * Time at which item was modified.
      * @type {string}
@@ -14578,7 +14628,7 @@ export interface ManualWorkItemDetailsBeta {
      * @type {Array<ApprovalForwardHistoryBeta>}
      * @memberof ManualWorkItemDetailsBeta
      */
-    'forwardHistory'?: Array<ApprovalForwardHistoryBeta>;
+    'forwardHistory'?: Array<ApprovalForwardHistoryBeta> | null;
 }
 /**
  * Identity of current work item owner.
@@ -16430,10 +16480,10 @@ export interface NonEmployeeSourceWithNECountBeta {
 export interface NotificationTemplateContextBeta {
     /**
      * A JSON object that stores the context.
-     * @type {object}
+     * @type {{ [key: string]: any; }}
      * @memberof NotificationTemplateContextBeta
      */
-    'attributes'?: object;
+    'attributes'?: { [key: string]: any; };
     /**
      * When the global context was created
      * @type {string}
@@ -16642,13 +16692,13 @@ export interface OutlierBeta {
      * @type {string}
      * @memberof OutlierBeta
      */
-    'unignoreDate'?: string;
+    'unignoreDate'?: string | null;
     /**
      * shows date when last time has been ignored outlier
      * @type {string}
      * @memberof OutlierBeta
      */
-    'ignoreDate'?: string;
+    'ignoreDate'?: string | null;
 }
 
 export const OutlierBetaTypeEnum = {
@@ -16659,7 +16709,8 @@ export const OutlierBetaTypeEnum = {
 export type OutlierBetaTypeEnum = typeof OutlierBetaTypeEnum[keyof typeof OutlierBetaTypeEnum];
 export const OutlierBetaUnignoreTypeEnum = {
     Manual: 'MANUAL',
-    Automatic: 'AUTOMATIC'
+    Automatic: 'AUTOMATIC',
+    Null: 'null'
 } as const;
 
 export type OutlierBetaUnignoreTypeEnum = typeof OutlierBetaUnignoreTypeEnum[keyof typeof OutlierBetaUnignoreTypeEnum];
@@ -16871,6 +16922,12 @@ export interface OutlierSummaryBeta {
      * @memberof OutlierSummaryBeta
      */
     'totalIdentities'?: number;
+    /**
+     * 
+     * @type {number}
+     * @memberof OutlierSummaryBeta
+     */
+    'totalIgnored'?: number;
 }
 
 export const OutlierSummaryBetaTypeEnum = {
@@ -17351,6 +17408,18 @@ export interface PasswordSyncGroupBeta {
      * @memberof PasswordSyncGroupBeta
      */
     'sourceIds'?: Array<string>;
+    /**
+     * The date and time this sync group was created
+     * @type {string}
+     * @memberof PasswordSyncGroupBeta
+     */
+    'created'?: string | null;
+    /**
+     * The date and time this sync group was last modified
+     * @type {string}
+     * @memberof PasswordSyncGroupBeta
+     */
+    'modified'?: string | null;
 }
 /**
  * Personal access token owner\'s identity.
@@ -17517,7 +17586,7 @@ export interface PendingApprovalBeta {
      * @type {AccessRequestTypeBeta}
      * @memberof PendingApprovalBeta
      */
-    'requestType'?: AccessRequestTypeBeta;
+    'requestType'?: AccessRequestTypeBeta | null;
     /**
      * 
      * @type {AccessItemRequesterDtoBeta}
@@ -18143,6 +18212,12 @@ export interface ProvisioningCriteriaLevel3Beta {
      * @memberof ProvisioningCriteriaLevel3Beta
      */
     'value'?: string;
+    /**
+     * Array of child criteria. Required if the operation is AND or OR, otherwise it must be left null. A maximum of three levels of criteria are supported, including leaf nodes.
+     * @type {string}
+     * @memberof ProvisioningCriteriaLevel3Beta
+     */
+    'children'?: string | null;
 }
 /**
  * Supported operations on ProvisioningCriteria
@@ -18266,7 +18341,7 @@ export interface PublicIdentityConfigBeta {
      * @type {string}
      * @memberof PublicIdentityConfigBeta
      */
-    'modified'?: string;
+    'modified'?: string | null;
 }
 /**
  * 
@@ -19071,7 +19146,7 @@ export interface RequestableObjectBeta {
      * @type {string}
      * @memberof RequestableObjectBeta
      */
-    'description'?: string;
+    'description'?: string | null;
     /**
      * 
      * @type {RequestableObjectTypeBeta}
@@ -19080,10 +19155,10 @@ export interface RequestableObjectBeta {
     'type'?: RequestableObjectTypeBeta;
     /**
      * 
-     * @type {RequestableObjectRequestStatusBeta}
+     * @type {RequestableObjectRequestStatusBeta & object}
      * @memberof RequestableObjectBeta
      */
-    'requestStatus'?: RequestableObjectRequestStatusBeta;
+    'requestStatus'?: RequestableObjectRequestStatusBeta & object;
     /**
      * If *requestStatus* is *PENDING*, indicates the id of the associated account activity.
      * @type {string}
@@ -19152,7 +19227,8 @@ export type RequestableObjectReferenceBetaTypeEnum = typeof RequestableObjectRef
 export const RequestableObjectRequestStatusBeta = {
     Available: 'AVAILABLE',
     Pending: 'PENDING',
-    Assigned: 'ASSIGNED'
+    Assigned: 'ASSIGNED',
+    Null: 'null'
 } as const;
 
 export type RequestableObjectRequestStatusBeta = typeof RequestableObjectRequestStatusBeta[keyof typeof RequestableObjectRequestStatusBeta];
@@ -19166,7 +19242,8 @@ export type RequestableObjectRequestStatusBeta = typeof RequestableObjectRequest
 
 export const RequestableObjectTypeBeta = {
     AccessProfile: 'ACCESS_PROFILE',
-    Role: 'ROLE'
+    Role: 'ROLE',
+    Entitlement: 'ENTITLEMENT'
 } as const;
 
 export type RequestableObjectTypeBeta = typeof RequestableObjectTypeBeta[keyof typeof RequestableObjectTypeBeta];
@@ -19183,7 +19260,7 @@ export interface RequestedItemStatusBeta {
      * @type {string}
      * @memberof RequestedItemStatusBeta
      */
-    'name'?: string;
+    'name'?: string | null;
     /**
      * Type of requested object.
      * @type {string}
@@ -19192,10 +19269,10 @@ export interface RequestedItemStatusBeta {
     'type'?: RequestedItemStatusBetaTypeEnum;
     /**
      * 
-     * @type {CancelledRequestDetailsBeta}
+     * @type {RequestedItemStatusCancelledRequestDetailsBeta}
      * @memberof RequestedItemStatusBeta
      */
-    'cancelledRequestDetails'?: CancelledRequestDetailsBeta;
+    'cancelledRequestDetails'?: RequestedItemStatusCancelledRequestDetailsBeta;
     /**
      * List of list of localized error messages, if any, encountered during the approval/provisioning process.
      * @type {Array<Array<ErrorMessageDtoBeta>>}
@@ -19231,13 +19308,13 @@ export interface RequestedItemStatusBeta {
      * @type {AccessRequestTypeBeta}
      * @memberof RequestedItemStatusBeta
      */
-    'requestType'?: AccessRequestTypeBeta;
+    'requestType'?: AccessRequestTypeBeta | null;
     /**
      * When the request was last modified.
      * @type {string}
      * @memberof RequestedItemStatusBeta
      */
-    'modified'?: string;
+    'modified'?: string | null;
     /**
      * When the request was created.
      * @type {string}
@@ -19258,40 +19335,40 @@ export interface RequestedItemStatusBeta {
     'requestedFor'?: Array<AccessItemRequestedForBeta>;
     /**
      * 
-     * @type {CommentDto1Beta}
+     * @type {RequestedItemStatusRequesterCommentBeta}
      * @memberof RequestedItemStatusBeta
      */
-    'requesterComment'?: CommentDto1Beta;
+    'requesterComment'?: RequestedItemStatusRequesterCommentBeta;
     /**
      * 
-     * @type {SodViolationContextCheckCompletedBeta}
+     * @type {RequestedItemStatusSodViolationContextBeta}
      * @memberof RequestedItemStatusBeta
      */
-    'sodViolationContext'?: SodViolationContextCheckCompletedBeta;
+    'sodViolationContext'?: RequestedItemStatusSodViolationContextBeta;
     /**
      * 
-     * @type {ProvisioningDetailsBeta}
+     * @type {RequestedItemStatusProvisioningDetailsBeta}
      * @memberof RequestedItemStatusBeta
      */
-    'provisioningDetails'?: ProvisioningDetailsBeta;
+    'provisioningDetails'?: RequestedItemStatusProvisioningDetailsBeta;
     /**
      * 
-     * @type {PreApprovalTriggerDetailsBeta}
+     * @type {RequestedItemStatusPreApprovalTriggerDetailsBeta}
      * @memberof RequestedItemStatusBeta
      */
-    'preApprovalTriggerDetails'?: PreApprovalTriggerDetailsBeta;
+    'preApprovalTriggerDetails'?: RequestedItemStatusPreApprovalTriggerDetailsBeta;
     /**
      * A list of Phases that the Access Request has gone through in order, to help determine the status of the request.
      * @type {Array<AccessRequestPhasesBeta>}
      * @memberof RequestedItemStatusBeta
      */
-    'accessRequestPhases'?: Array<AccessRequestPhasesBeta>;
+    'accessRequestPhases'?: Array<AccessRequestPhasesBeta> | null;
     /**
      * Description associated to the requested object.
      * @type {string}
      * @memberof RequestedItemStatusBeta
      */
-    'description'?: string;
+    'description'?: string | null;
     /**
      * When the role access is scheduled for removal.
      * @type {string}
@@ -19321,11 +19398,83 @@ export interface RequestedItemStatusBeta {
 export const RequestedItemStatusBetaTypeEnum = {
     AccessProfile: 'ACCESS_PROFILE',
     Role: 'ROLE',
-    Entitlement: 'ENTITLEMENT'
+    Entitlement: 'ENTITLEMENT',
+    Null: 'null'
 } as const;
 
 export type RequestedItemStatusBetaTypeEnum = typeof RequestedItemStatusBetaTypeEnum[keyof typeof RequestedItemStatusBetaTypeEnum];
 
+/**
+ * 
+ * @export
+ * @interface RequestedItemStatusCancelledRequestDetailsBeta
+ */
+export interface RequestedItemStatusCancelledRequestDetailsBeta {
+    /**
+     * Comment made by the owner when cancelling the associated request.
+     * @type {string}
+     * @memberof RequestedItemStatusCancelledRequestDetailsBeta
+     */
+    'comment'?: string;
+    /**
+     * 
+     * @type {OwnerDtoBeta}
+     * @memberof RequestedItemStatusCancelledRequestDetailsBeta
+     */
+    'owner'?: OwnerDtoBeta;
+    /**
+     * Date comment was added by the owner when cancelling the associated request.
+     * @type {string}
+     * @memberof RequestedItemStatusCancelledRequestDetailsBeta
+     */
+    'modified'?: string;
+}
+/**
+ * 
+ * @export
+ * @interface RequestedItemStatusPreApprovalTriggerDetailsBeta
+ */
+export interface RequestedItemStatusPreApprovalTriggerDetailsBeta {
+    /**
+     * Comment left for the pre-approval decision
+     * @type {string}
+     * @memberof RequestedItemStatusPreApprovalTriggerDetailsBeta
+     */
+    'comment'?: string;
+    /**
+     * The reviewer of the pre-approval decision
+     * @type {string}
+     * @memberof RequestedItemStatusPreApprovalTriggerDetailsBeta
+     */
+    'reviewer'?: string;
+    /**
+     * The decision of the pre-approval trigger
+     * @type {string}
+     * @memberof RequestedItemStatusPreApprovalTriggerDetailsBeta
+     */
+    'decision'?: RequestedItemStatusPreApprovalTriggerDetailsBetaDecisionEnum;
+}
+
+export const RequestedItemStatusPreApprovalTriggerDetailsBetaDecisionEnum = {
+    Approved: 'APPROVED',
+    Rejected: 'REJECTED'
+} as const;
+
+export type RequestedItemStatusPreApprovalTriggerDetailsBetaDecisionEnum = typeof RequestedItemStatusPreApprovalTriggerDetailsBetaDecisionEnum[keyof typeof RequestedItemStatusPreApprovalTriggerDetailsBetaDecisionEnum];
+
+/**
+ * 
+ * @export
+ * @interface RequestedItemStatusProvisioningDetailsBeta
+ */
+export interface RequestedItemStatusProvisioningDetailsBeta {
+    /**
+     * Ordered CSV of sub phase references to objects that contain more information about provisioning. For example, this can contain \"manualWorkItemDetails\" which indicate that there is further information in that object for this phase.
+     * @type {string}
+     * @memberof RequestedItemStatusProvisioningDetailsBeta
+     */
+    'orderedSubPhaseReferences'?: string;
+}
 /**
  * Indicates the state of an access request: * EXECUTING: The request is executing, which indicates the system is doing some processing. * REQUEST_COMPLETED: Indicates the request  has been completed. * CANCELLED: The request was cancelled with no user input. * TERMINATED: The request has been terminated before it was able to complete. * PROVISIONING_VERIFICATION_PENDING: The request has finished any approval steps and provisioning is waiting to be verified. * REJECTED: The request was rejected. * PROVISIONING_FAILED: The request has failed to complete. * NOT_ALL_ITEMS_PROVISIONED: One or more of the requested items failed to complete, but there were one or more  successes. * ERROR: An error occurred during request processing.
  * @export
@@ -19346,6 +19495,65 @@ export const RequestedItemStatusRequestStateBeta = {
 
 export type RequestedItemStatusRequestStateBeta = typeof RequestedItemStatusRequestStateBeta[keyof typeof RequestedItemStatusRequestStateBeta];
 
+
+/**
+ * 
+ * @export
+ * @interface RequestedItemStatusRequesterCommentBeta
+ */
+export interface RequestedItemStatusRequesterCommentBeta {
+    /**
+     * Comment content.
+     * @type {string}
+     * @memberof RequestedItemStatusRequesterCommentBeta
+     */
+    'comment'?: string | null;
+    /**
+     * Date and time comment was created.
+     * @type {string}
+     * @memberof RequestedItemStatusRequesterCommentBeta
+     */
+    'created'?: string;
+    /**
+     * 
+     * @type {CommentDto1AuthorBeta}
+     * @memberof RequestedItemStatusRequesterCommentBeta
+     */
+    'author'?: CommentDto1AuthorBeta;
+}
+/**
+ * 
+ * @export
+ * @interface RequestedItemStatusSodViolationContextBeta
+ */
+export interface RequestedItemStatusSodViolationContextBeta {
+    /**
+     * The status of SOD violation check
+     * @type {string}
+     * @memberof RequestedItemStatusSodViolationContextBeta
+     */
+    'state'?: RequestedItemStatusSodViolationContextBetaStateEnum;
+    /**
+     * The id of the Violation check event
+     * @type {string}
+     * @memberof RequestedItemStatusSodViolationContextBeta
+     */
+    'uuid'?: string | null;
+    /**
+     * 
+     * @type {SodViolationCheckResultBeta}
+     * @memberof RequestedItemStatusSodViolationContextBeta
+     */
+    'violationCheckResult'?: SodViolationCheckResultBeta;
+}
+
+export const RequestedItemStatusSodViolationContextBetaStateEnum = {
+    Success: 'SUCCESS',
+    Error: 'ERROR',
+    Null: 'null'
+} as const;
+
+export type RequestedItemStatusSodViolationContextBetaStateEnum = typeof RequestedItemStatusSodViolationContextBetaStateEnum[keyof typeof RequestedItemStatusSodViolationContextBetaStateEnum];
 
 /**
  * 
@@ -19707,7 +19915,7 @@ export interface RoleBeta {
      * @type {Array<EntitlementRefBeta>}
      * @memberof RoleBeta
      */
-    'entitlements'?: Array<EntitlementRefBeta> | null;
+    'entitlements'?: Array<EntitlementRefBeta>;
     /**
      * 
      * @type {RoleMembershipSelectorBeta}
@@ -21401,6 +21609,12 @@ export interface Schedule1Beta {
     'type': ScheduleTypeBeta;
     /**
      * 
+     * @type {Schedule1MonthsBeta}
+     * @memberof Schedule1Beta
+     */
+    'months'?: Schedule1MonthsBeta;
+    /**
+     * 
      * @type {Schedule1DaysBeta}
      * @memberof Schedule1Beta
      */
@@ -21471,6 +21685,31 @@ export interface Schedule1HoursBeta {
      * The selected interval for RANGE selectors. 
      * @type {number}
      * @memberof Schedule1HoursBeta
+     */
+    'interval'?: number | null;
+}
+/**
+ * 
+ * @export
+ * @interface Schedule1MonthsBeta
+ */
+export interface Schedule1MonthsBeta {
+    /**
+     * 
+     * @type {SelectorTypeBeta}
+     * @memberof Schedule1MonthsBeta
+     */
+    'type': SelectorTypeBeta;
+    /**
+     * The selected values. 
+     * @type {Array<string>}
+     * @memberof Schedule1MonthsBeta
+     */
+    'values': Array<string>;
+    /**
+     * The selected interval for RANGE selectors. 
+     * @type {number}
+     * @memberof Schedule1MonthsBeta
      */
     'interval'?: number | null;
 }
@@ -21636,7 +21875,8 @@ export const ScheduleTypeBeta = {
     Daily: 'DAILY',
     Weekly: 'WEEKLY',
     Monthly: 'MONTHLY',
-    Calendar: 'CALENDAR'
+    Calendar: 'CALENDAR',
+    Annually: 'ANNUALLY'
 } as const;
 
 export type ScheduleTypeBeta = typeof ScheduleTypeBeta[keyof typeof ScheduleTypeBeta];
@@ -22378,176 +22618,6 @@ export type ServiceDeskSourceBetaTypeEnum = typeof ServiceDeskSourceBetaTypeEnum
 /**
  * 
  * @export
- * @interface SlimAccountAllOfBeta
- */
-export interface SlimAccountAllOfBeta {
-    /**
-     * Unique ID from the owning source
-     * @type {string}
-     * @memberof SlimAccountAllOfBeta
-     */
-    'uuid'?: string | null;
-    /**
-     * The native identifier of the account
-     * @type {string}
-     * @memberof SlimAccountAllOfBeta
-     */
-    'nativeIdentity'?: string;
-    /**
-     * The description for the account
-     * @type {string}
-     * @memberof SlimAccountAllOfBeta
-     */
-    'description'?: string | null;
-    /**
-     * Whether the account is disabled
-     * @type {boolean}
-     * @memberof SlimAccountAllOfBeta
-     */
-    'disabled'?: boolean;
-    /**
-     * Whether the account is locked
-     * @type {boolean}
-     * @memberof SlimAccountAllOfBeta
-     */
-    'locked'?: boolean;
-    /**
-     * Whether the account was manually correlated
-     * @type {boolean}
-     * @memberof SlimAccountAllOfBeta
-     */
-    'manuallyCorrelated'?: boolean;
-    /**
-     * Whether the account has any entitlements associated with it
-     * @type {boolean}
-     * @memberof SlimAccountAllOfBeta
-     */
-    'hasEntitlements'?: boolean;
-    /**
-     * The ID of the source for which this account belongs
-     * @type {string}
-     * @memberof SlimAccountAllOfBeta
-     */
-    'sourceId'?: string;
-    /**
-     * The name of the source
-     * @type {string}
-     * @memberof SlimAccountAllOfBeta
-     */
-    'sourceName'?: string;
-    /**
-     * The ID of the identity for which this account is correlated to if not uncorrelated
-     * @type {string}
-     * @memberof SlimAccountAllOfBeta
-     */
-    'identityId'?: string;
-    /**
-     * A map containing attributes associated with the account
-     * @type {{ [key: string]: any; }}
-     * @memberof SlimAccountAllOfBeta
-     */
-    'attributes'?: { [key: string]: any; };
-}
-/**
- * 
- * @export
- * @interface SlimAccountBeta
- */
-export interface SlimAccountBeta {
-    /**
-     * System-generated unique ID of the Object
-     * @type {string}
-     * @memberof SlimAccountBeta
-     */
-    'id'?: string;
-    /**
-     * Name of the Object
-     * @type {string}
-     * @memberof SlimAccountBeta
-     */
-    'name': string;
-    /**
-     * Creation date of the Object
-     * @type {string}
-     * @memberof SlimAccountBeta
-     */
-    'created'?: string;
-    /**
-     * Last modification date of the Object
-     * @type {string}
-     * @memberof SlimAccountBeta
-     */
-    'modified'?: string;
-    /**
-     * Unique ID from the owning source
-     * @type {string}
-     * @memberof SlimAccountBeta
-     */
-    'uuid'?: string | null;
-    /**
-     * The native identifier of the account
-     * @type {string}
-     * @memberof SlimAccountBeta
-     */
-    'nativeIdentity'?: string;
-    /**
-     * The description for the account
-     * @type {string}
-     * @memberof SlimAccountBeta
-     */
-    'description'?: string | null;
-    /**
-     * Whether the account is disabled
-     * @type {boolean}
-     * @memberof SlimAccountBeta
-     */
-    'disabled'?: boolean;
-    /**
-     * Whether the account is locked
-     * @type {boolean}
-     * @memberof SlimAccountBeta
-     */
-    'locked'?: boolean;
-    /**
-     * Whether the account was manually correlated
-     * @type {boolean}
-     * @memberof SlimAccountBeta
-     */
-    'manuallyCorrelated'?: boolean;
-    /**
-     * Whether the account has any entitlements associated with it
-     * @type {boolean}
-     * @memberof SlimAccountBeta
-     */
-    'hasEntitlements'?: boolean;
-    /**
-     * The ID of the source for which this account belongs
-     * @type {string}
-     * @memberof SlimAccountBeta
-     */
-    'sourceId'?: string;
-    /**
-     * The name of the source
-     * @type {string}
-     * @memberof SlimAccountBeta
-     */
-    'sourceName'?: string;
-    /**
-     * The ID of the identity for which this account is correlated to if not uncorrelated
-     * @type {string}
-     * @memberof SlimAccountBeta
-     */
-    'identityId'?: string;
-    /**
-     * A map containing attributes associated with the account
-     * @type {{ [key: string]: any; }}
-     * @memberof SlimAccountBeta
-     */
-    'attributes'?: { [key: string]: any; };
-}
-/**
- * 
- * @export
  * @interface SlimcampaignBeta
  */
 export interface SlimcampaignBeta {
@@ -23080,19 +23150,19 @@ export interface SodViolationCheckResultBeta {
      * @type {{ [key: string]: string; }}
      * @memberof SodViolationCheckResultBeta
      */
-    'clientMetadata'?: { [key: string]: string; };
+    'clientMetadata'?: { [key: string]: string; } | null;
     /**
      * 
      * @type {Array<SodViolationContextBeta>}
      * @memberof SodViolationCheckResultBeta
      */
-    'violationContexts'?: Array<SodViolationContextBeta>;
+    'violationContexts'?: Array<SodViolationContextBeta> | null;
     /**
      * A list of the SOD policies that were violated.
      * @type {Array<SodPolicyDtoBeta>}
      * @memberof SodViolationCheckResultBeta
      */
-    'violatedPolicies'?: Array<SodPolicyDtoBeta>;
+    'violatedPolicies'?: Array<SodPolicyDtoBeta> | null;
 }
 /**
  * The contextual information of the violated criteria.
@@ -23214,7 +23284,7 @@ export interface SodViolationContextCheckCompletedBeta {
      * @type {string}
      * @memberof SodViolationContextCheckCompletedBeta
      */
-    'uuid'?: string;
+    'uuid'?: string | null;
     /**
      * 
      * @type {SodViolationCheckResultBeta}
@@ -23225,7 +23295,8 @@ export interface SodViolationContextCheckCompletedBeta {
 
 export const SodViolationContextCheckCompletedBetaStateEnum = {
     Success: 'SUCCESS',
-    Error: 'ERROR'
+    Error: 'ERROR',
+    Null: 'null'
 } as const;
 
 export type SodViolationContextCheckCompletedBetaStateEnum = typeof SodViolationContextCheckCompletedBetaStateEnum[keyof typeof SodViolationContextCheckCompletedBetaStateEnum];
@@ -25842,7 +25913,7 @@ export interface TemplateDtoDefaultBeta {
      * @type {string}
      * @memberof TemplateDtoDefaultBeta
      */
-    'subject'?: string;
+    'subject'?: string | null;
     /**
      * The header value is now located within the body field. If included with non-null values, will result in a 400.
      * @type {string}
@@ -25868,19 +25939,19 @@ export interface TemplateDtoDefaultBeta {
      * @type {string}
      * @memberof TemplateDtoDefaultBeta
      */
-    'from'?: string;
+    'from'?: string | null;
     /**
      * The \"Reply To\" field of the default template
      * @type {string}
      * @memberof TemplateDtoDefaultBeta
      */
-    'replyTo'?: string;
+    'replyTo'?: string | null;
     /**
      * The description of the default template
      * @type {string}
      * @memberof TemplateDtoDefaultBeta
      */
-    'description'?: string;
+    'description'?: string | null;
 }
 
 export const TemplateDtoDefaultBetaMediumEnum = {
@@ -26977,7 +27048,8 @@ export const WorkItemStateBeta = {
     Returned: 'RETURNED',
     Expired: 'EXPIRED',
     Pending: 'PENDING',
-    Canceled: 'CANCELED'
+    Canceled: 'CANCELED',
+    Null: 'null'
 } as const;
 
 export type WorkItemStateBeta = typeof WorkItemStateBeta[keyof typeof WorkItemStateBeta];
@@ -31936,7 +32008,7 @@ export const AccountsBetaApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async listAccounts(detailLevel?: 'SLIM' | 'FULL', limit?: number, offset?: number, count?: boolean, filters?: string, sorters?: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<ListAccounts200ResponseInnerBeta>>> {
+        async listAccounts(detailLevel?: 'SLIM' | 'FULL', limit?: number, offset?: number, count?: boolean, filters?: string, sorters?: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<AccountBeta>>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.listAccounts(detailLevel, limit, offset, count, filters, sorters, axiosOptions);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -32114,7 +32186,7 @@ export const AccountsBetaApiFactory = function (configuration?: Configuration, b
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        listAccounts(detailLevel?: 'SLIM' | 'FULL', limit?: number, offset?: number, count?: boolean, filters?: string, sorters?: string, axiosOptions?: any): AxiosPromise<Array<ListAccounts200ResponseInnerBeta>> {
+        listAccounts(detailLevel?: 'SLIM' | 'FULL', limit?: number, offset?: number, count?: boolean, filters?: string, sorters?: string, axiosOptions?: any): AxiosPromise<Array<AccountBeta>> {
             return localVarFp.listAccounts(detailLevel, limit, offset, count, filters, sorters, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
@@ -57158,7 +57230,7 @@ export const NotificationsBetaApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async getNotificationsTemplateContext(axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<NotificationTemplateContextBeta>>> {
+        async getNotificationsTemplateContext(axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<NotificationTemplateContextBeta>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getNotificationsTemplateContext(axiosOptions);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -57342,7 +57414,7 @@ export const NotificationsBetaApiFactory = function (configuration?: Configurati
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        getNotificationsTemplateContext(axiosOptions?: any): AxiosPromise<Array<NotificationTemplateContextBeta>> {
+        getNotificationsTemplateContext(axiosOptions?: any): AxiosPromise<NotificationTemplateContextBeta> {
             return localVarFp.getNotificationsTemplateContext(axiosOptions).then((request) => request(axios, basePath));
         },
         /**
