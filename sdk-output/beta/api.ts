@@ -29703,7 +29703,7 @@ export const AccessRequestIdentityMetricsBetaApiAxiosParamCreator = function (co
         /**
          * Use this API to return information access metrics.
          * @summary Return access request identity metrics
-         * @param {string} identityId Identity\&#39;s ID.
+         * @param {string} identityId Manager\&#39;s identity ID.
          * @param {string} requestedObjectId Requested access item\&#39;s ID.
          * @param {string} type Requested access item\&#39;s type.
          * @param {*} [axiosOptions] Override http request option.
@@ -29763,7 +29763,7 @@ export const AccessRequestIdentityMetricsBetaApiFp = function(configuration?: Co
         /**
          * Use this API to return information access metrics.
          * @summary Return access request identity metrics
-         * @param {string} identityId Identity\&#39;s ID.
+         * @param {string} identityId Manager\&#39;s identity ID.
          * @param {string} requestedObjectId Requested access item\&#39;s ID.
          * @param {string} type Requested access item\&#39;s type.
          * @param {*} [axiosOptions] Override http request option.
@@ -29786,7 +29786,7 @@ export const AccessRequestIdentityMetricsBetaApiFactory = function (configuratio
         /**
          * Use this API to return information access metrics.
          * @summary Return access request identity metrics
-         * @param {string} identityId Identity\&#39;s ID.
+         * @param {string} identityId Manager\&#39;s identity ID.
          * @param {string} requestedObjectId Requested access item\&#39;s ID.
          * @param {string} type Requested access item\&#39;s type.
          * @param {*} [axiosOptions] Override http request option.
@@ -29805,7 +29805,7 @@ export const AccessRequestIdentityMetricsBetaApiFactory = function (configuratio
  */
 export interface AccessRequestIdentityMetricsBetaApiGetAccessRequestIdentityMetricsRequest {
     /**
-     * Identity\&#39;s ID.
+     * Manager\&#39;s identity ID.
      * @type {string}
      * @memberof AccessRequestIdentityMetricsBetaApiGetAccessRequestIdentityMetrics
      */
