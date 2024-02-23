@@ -56521,7 +56521,7 @@ export const NotificationsBetaApiAxiosParamCreator = function (configuration?: C
             };
         },
         /**
-         * This lets you bulk delete templates that you previously created for your site. Since this is a beta feature, you can only delete a subset of your notifications, i.e. ones that show up in the list call.
+         * This lets you bulk delete templates that you previously created for your site. Since this is a beta feature, please contact support to enable usage.
          * @summary Bulk Delete Notification Templates
          * @param {Array<TemplateBulkDeleteDtoBeta>} templateBulkDeleteDtoBeta 
          * @param {*} [axiosOptions] Override http request option.
@@ -56690,7 +56690,7 @@ export const NotificationsBetaApiAxiosParamCreator = function (configuration?: C
             };
         },
         /**
-         * Returns the notification preferences for tenant.  Note that if the key doesn\'t exist, then a 404 will be returned. Request will require the following legacy roles:  ORG_ADMIN and API
+         * Returns the notification preferences for tenant.  Note that if the key doesn\'t exist, then a 404 will be returned.
          * @summary Get Notification Preferences for tenant.
          * @param {string} key The notification key.
          * @param {*} [axiosOptions] Override http request option.
@@ -56774,7 +56774,7 @@ export const NotificationsBetaApiAxiosParamCreator = function (configuration?: C
             };
         },
         /**
-         * The notification service (Hermes) maintains metadata to construct the notification templates or supply any information during the event propagation.  The data-store where this information is retrieved is  called \"Global Context\" (a.k.a. notification template context). It defines a set of attributes  that will be available per tenant (organization).  Regarding authorization, the access token contains the tenant and will grant access to the one requested. Requires the following security scope:  idn:notification-templates:read
+         * The notification service maintains metadata to construct the notification templates or supply any information during the event propagation. The data-store where this information is retrieved is called \"Global Context\" (a.k.a. notification template context). It defines a set of attributes  that will be available per tenant (organization).
          * @summary Get Notification Template Context
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
@@ -56875,7 +56875,7 @@ export const NotificationsBetaApiAxiosParamCreator = function (configuration?: C
             };
         },
         /**
-         * This lists the default templates used for notifications, such as emails from IdentityNow. Since this is a beta feature, it doesn\'t include all the templates.
+         * This lists the default templates used for notifications, such as emails from IdentityNow.
          * @summary List Notification Template Defaults
          * @param {number} [limit] Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
          * @param {number} [offset] Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
@@ -56928,7 +56928,7 @@ export const NotificationsBetaApiAxiosParamCreator = function (configuration?: C
             };
         },
         /**
-         * This lists the templates that you have modified for your site. Since this is a beta feature, it doesn\'t include all your modified templates.
+         * This lists the templates that you have modified for your site.
          * @summary List Notification Templates
          * @param {number} [limit] Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
          * @param {number} [offset] Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
@@ -57025,8 +57025,8 @@ export const NotificationsBetaApiAxiosParamCreator = function (configuration?: C
             };
         },
         /**
-         * In the notification world, a notification flows through these salient stages -   1. Interest matching,   2. Preferences   3. Template Rendering.   The default notification preferences make up a part of the second stage, along with user preferences (which is a future goal). The expectation is for  admins to be able to set default preferences for their org, like opting in to or out of certain notifications, and configuring future preferences as  we tack on more features. The key in the Dto is not necessary but if it is provided and doesn\'t match the key in the URI, then a 400 will be thrown.  Request will require the following legacy roles:  ORG_ADMIN and API
-         * @summary Overwrite the preferences for the given notification key.
+         * Allows admins to opt in to or out of certain notifications for their org. The default state is opted in. `key` is optional but if it is provided and doesn\'t match the key in the URI, then a 400 will be thrown.
+         * @summary Overwrite preferences notification key.
          * @param {string} key The notification key.
          * @param {PreferencesDtoBeta} preferencesDtoBeta 
          * @param {*} [axiosOptions] Override http request option.
@@ -57160,7 +57160,7 @@ export const NotificationsBetaApiFp = function(configuration?: Configuration) {
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
-         * This lets you bulk delete templates that you previously created for your site. Since this is a beta feature, you can only delete a subset of your notifications, i.e. ones that show up in the list call.
+         * This lets you bulk delete templates that you previously created for your site. Since this is a beta feature, please contact support to enable usage.
          * @summary Bulk Delete Notification Templates
          * @param {Array<TemplateBulkDeleteDtoBeta>} templateBulkDeleteDtoBeta 
          * @param {*} [axiosOptions] Override http request option.
@@ -57203,7 +57203,7 @@ export const NotificationsBetaApiFp = function(configuration?: Configuration) {
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
-         * Returns the notification preferences for tenant.  Note that if the key doesn\'t exist, then a 404 will be returned. Request will require the following legacy roles:  ORG_ADMIN and API
+         * Returns the notification preferences for tenant.  Note that if the key doesn\'t exist, then a 404 will be returned.
          * @summary Get Notification Preferences for tenant.
          * @param {string} key The notification key.
          * @param {*} [axiosOptions] Override http request option.
@@ -57225,7 +57225,7 @@ export const NotificationsBetaApiFp = function(configuration?: Configuration) {
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
-         * The notification service (Hermes) maintains metadata to construct the notification templates or supply any information during the event propagation.  The data-store where this information is retrieved is  called \"Global Context\" (a.k.a. notification template context). It defines a set of attributes  that will be available per tenant (organization).  Regarding authorization, the access token contains the tenant and will grant access to the one requested. Requires the following security scope:  idn:notification-templates:read
+         * The notification service maintains metadata to construct the notification templates or supply any information during the event propagation. The data-store where this information is retrieved is called \"Global Context\" (a.k.a. notification template context). It defines a set of attributes  that will be available per tenant (organization).
          * @summary Get Notification Template Context
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
@@ -57250,7 +57250,7 @@ export const NotificationsBetaApiFp = function(configuration?: Configuration) {
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
-         * This lists the default templates used for notifications, such as emails from IdentityNow. Since this is a beta feature, it doesn\'t include all the templates.
+         * This lists the default templates used for notifications, such as emails from IdentityNow.
          * @summary List Notification Template Defaults
          * @param {number} [limit] Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
          * @param {number} [offset] Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
@@ -57263,7 +57263,7 @@ export const NotificationsBetaApiFp = function(configuration?: Configuration) {
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
-         * This lists the templates that you have modified for your site. Since this is a beta feature, it doesn\'t include all your modified templates.
+         * This lists the templates that you have modified for your site.
          * @summary List Notification Templates
          * @param {number} [limit] Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
          * @param {number} [offset] Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
@@ -57287,8 +57287,8 @@ export const NotificationsBetaApiFp = function(configuration?: Configuration) {
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
-         * In the notification world, a notification flows through these salient stages -   1. Interest matching,   2. Preferences   3. Template Rendering.   The default notification preferences make up a part of the second stage, along with user preferences (which is a future goal). The expectation is for  admins to be able to set default preferences for their org, like opting in to or out of certain notifications, and configuring future preferences as  we tack on more features. The key in the Dto is not necessary but if it is provided and doesn\'t match the key in the URI, then a 400 will be thrown.  Request will require the following legacy roles:  ORG_ADMIN and API
-         * @summary Overwrite the preferences for the given notification key.
+         * Allows admins to opt in to or out of certain notifications for their org. The default state is opted in. `key` is optional but if it is provided and doesn\'t match the key in the URI, then a 400 will be thrown.
+         * @summary Overwrite preferences notification key.
          * @param {string} key The notification key.
          * @param {PreferencesDtoBeta} preferencesDtoBeta 
          * @param {*} [axiosOptions] Override http request option.
@@ -57350,7 +57350,7 @@ export const NotificationsBetaApiFactory = function (configuration?: Configurati
             return localVarFp.createVerifiedFromAddress(emailStatusDtoBeta, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
-         * This lets you bulk delete templates that you previously created for your site. Since this is a beta feature, you can only delete a subset of your notifications, i.e. ones that show up in the list call.
+         * This lets you bulk delete templates that you previously created for your site. Since this is a beta feature, please contact support to enable usage.
          * @summary Bulk Delete Notification Templates
          * @param {Array<TemplateBulkDeleteDtoBeta>} templateBulkDeleteDtoBeta 
          * @param {*} [axiosOptions] Override http request option.
@@ -57389,7 +57389,7 @@ export const NotificationsBetaApiFactory = function (configuration?: Configurati
             return localVarFp.getMailFromAttributes(id, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
-         * Returns the notification preferences for tenant.  Note that if the key doesn\'t exist, then a 404 will be returned. Request will require the following legacy roles:  ORG_ADMIN and API
+         * Returns the notification preferences for tenant.  Note that if the key doesn\'t exist, then a 404 will be returned.
          * @summary Get Notification Preferences for tenant.
          * @param {string} key The notification key.
          * @param {*} [axiosOptions] Override http request option.
@@ -57409,7 +57409,7 @@ export const NotificationsBetaApiFactory = function (configuration?: Configurati
             return localVarFp.getNotificationTemplate(id, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
-         * The notification service (Hermes) maintains metadata to construct the notification templates or supply any information during the event propagation.  The data-store where this information is retrieved is  called \"Global Context\" (a.k.a. notification template context). It defines a set of attributes  that will be available per tenant (organization).  Regarding authorization, the access token contains the tenant and will grant access to the one requested. Requires the following security scope:  idn:notification-templates:read
+         * The notification service maintains metadata to construct the notification templates or supply any information during the event propagation. The data-store where this information is retrieved is called \"Global Context\" (a.k.a. notification template context). It defines a set of attributes  that will be available per tenant (organization).
          * @summary Get Notification Template Context
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
@@ -57432,7 +57432,7 @@ export const NotificationsBetaApiFactory = function (configuration?: Configurati
             return localVarFp.listFromAddresses(limit, offset, count, filters, sorters, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
-         * This lists the default templates used for notifications, such as emails from IdentityNow. Since this is a beta feature, it doesn\'t include all the templates.
+         * This lists the default templates used for notifications, such as emails from IdentityNow.
          * @summary List Notification Template Defaults
          * @param {number} [limit] Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
          * @param {number} [offset] Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
@@ -57444,7 +57444,7 @@ export const NotificationsBetaApiFactory = function (configuration?: Configurati
             return localVarFp.listNotificationTemplateDefaults(limit, offset, filters, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
-         * This lists the templates that you have modified for your site. Since this is a beta feature, it doesn\'t include all your modified templates.
+         * This lists the templates that you have modified for your site.
          * @summary List Notification Templates
          * @param {number} [limit] Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
          * @param {number} [offset] Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
@@ -57466,8 +57466,8 @@ export const NotificationsBetaApiFactory = function (configuration?: Configurati
             return localVarFp.putMailFromAttributes(mailFromAttributesDtoBeta, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
-         * In the notification world, a notification flows through these salient stages -   1. Interest matching,   2. Preferences   3. Template Rendering.   The default notification preferences make up a part of the second stage, along with user preferences (which is a future goal). The expectation is for  admins to be able to set default preferences for their org, like opting in to or out of certain notifications, and configuring future preferences as  we tack on more features. The key in the Dto is not necessary but if it is provided and doesn\'t match the key in the URI, then a 400 will be thrown.  Request will require the following legacy roles:  ORG_ADMIN and API
-         * @summary Overwrite the preferences for the given notification key.
+         * Allows admins to opt in to or out of certain notifications for their org. The default state is opted in. `key` is optional but if it is provided and doesn\'t match the key in the URI, then a 400 will be thrown.
+         * @summary Overwrite preferences notification key.
          * @param {string} key The notification key.
          * @param {PreferencesDtoBeta} preferencesDtoBeta 
          * @param {*} [axiosOptions] Override http request option.
@@ -57792,7 +57792,7 @@ export class NotificationsBetaApi extends BaseAPI {
     }
 
     /**
-     * This lets you bulk delete templates that you previously created for your site. Since this is a beta feature, you can only delete a subset of your notifications, i.e. ones that show up in the list call.
+     * This lets you bulk delete templates that you previously created for your site. Since this is a beta feature, please contact support to enable usage.
      * @summary Bulk Delete Notification Templates
      * @param {NotificationsBetaApiDeleteNotificationTemplatesInBulkRequest} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
@@ -57839,7 +57839,7 @@ export class NotificationsBetaApi extends BaseAPI {
     }
 
     /**
-     * Returns the notification preferences for tenant.  Note that if the key doesn\'t exist, then a 404 will be returned. Request will require the following legacy roles:  ORG_ADMIN and API
+     * Returns the notification preferences for tenant.  Note that if the key doesn\'t exist, then a 404 will be returned.
      * @summary Get Notification Preferences for tenant.
      * @param {NotificationsBetaApiGetNotificationPreferenceRequest} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
@@ -57863,7 +57863,7 @@ export class NotificationsBetaApi extends BaseAPI {
     }
 
     /**
-     * The notification service (Hermes) maintains metadata to construct the notification templates or supply any information during the event propagation.  The data-store where this information is retrieved is  called \"Global Context\" (a.k.a. notification template context). It defines a set of attributes  that will be available per tenant (organization).  Regarding authorization, the access token contains the tenant and will grant access to the one requested. Requires the following security scope:  idn:notification-templates:read
+     * The notification service maintains metadata to construct the notification templates or supply any information during the event propagation. The data-store where this information is retrieved is called \"Global Context\" (a.k.a. notification template context). It defines a set of attributes  that will be available per tenant (organization).
      * @summary Get Notification Template Context
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
@@ -57886,7 +57886,7 @@ export class NotificationsBetaApi extends BaseAPI {
     }
 
     /**
-     * This lists the default templates used for notifications, such as emails from IdentityNow. Since this is a beta feature, it doesn\'t include all the templates.
+     * This lists the default templates used for notifications, such as emails from IdentityNow.
      * @summary List Notification Template Defaults
      * @param {NotificationsBetaApiListNotificationTemplateDefaultsRequest} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
@@ -57898,7 +57898,7 @@ export class NotificationsBetaApi extends BaseAPI {
     }
 
     /**
-     * This lists the templates that you have modified for your site. Since this is a beta feature, it doesn\'t include all your modified templates.
+     * This lists the templates that you have modified for your site.
      * @summary List Notification Templates
      * @param {NotificationsBetaApiListNotificationTemplatesRequest} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
@@ -57922,8 +57922,8 @@ export class NotificationsBetaApi extends BaseAPI {
     }
 
     /**
-     * In the notification world, a notification flows through these salient stages -   1. Interest matching,   2. Preferences   3. Template Rendering.   The default notification preferences make up a part of the second stage, along with user preferences (which is a future goal). The expectation is for  admins to be able to set default preferences for their org, like opting in to or out of certain notifications, and configuring future preferences as  we tack on more features. The key in the Dto is not necessary but if it is provided and doesn\'t match the key in the URI, then a 400 will be thrown.  Request will require the following legacy roles:  ORG_ADMIN and API
-     * @summary Overwrite the preferences for the given notification key.
+     * Allows admins to opt in to or out of certain notifications for their org. The default state is opted in. `key` is optional but if it is provided and doesn\'t match the key in the URI, then a 400 will be thrown.
+     * @summary Overwrite preferences notification key.
      * @param {NotificationsBetaApiPutNotificationPreferenceRequest} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
