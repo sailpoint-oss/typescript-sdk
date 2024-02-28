@@ -5949,6 +5949,38 @@ export type ConnectorDetailStatusEnum = typeof ConnectorDetailStatusEnum[keyof t
 /**
  * 
  * @export
+ * @interface CreateExternalExecuteWorkflow200Response
+ */
+export interface CreateExternalExecuteWorkflow200Response {
+    /**
+     * The workflow execution id
+     * @type {string}
+     * @memberof CreateExternalExecuteWorkflow200Response
+     */
+    'workflowExecutionId'?: string;
+    /**
+     * An error message if any errors occurred
+     * @type {string}
+     * @memberof CreateExternalExecuteWorkflow200Response
+     */
+    'message'?: string;
+}
+/**
+ * 
+ * @export
+ * @interface CreateExternalExecuteWorkflowRequest
+ */
+export interface CreateExternalExecuteWorkflowRequest {
+    /**
+     * The input for the workflow
+     * @type {object}
+     * @memberof CreateExternalExecuteWorkflowRequest
+     */
+    'input'?: object;
+}
+/**
+ * 
+ * @export
  * @interface CreateOAuthClientRequest
  */
 export interface CreateOAuthClientRequest {
@@ -6365,6 +6397,49 @@ export interface CreateScheduledSearchRequest {
      * @memberof CreateScheduledSearchRequest
      */
     'displayQueryDetails'?: boolean;
+}
+/**
+ * 
+ * @export
+ * @interface CreateWorkflowRequest
+ */
+export interface CreateWorkflowRequest {
+    /**
+     * The name of the workflow
+     * @type {string}
+     * @memberof CreateWorkflowRequest
+     */
+    'name': string;
+    /**
+     * 
+     * @type {WorkflowBodyOwner}
+     * @memberof CreateWorkflowRequest
+     */
+    'owner': WorkflowBodyOwner;
+    /**
+     * Description of what the workflow accomplishes
+     * @type {string}
+     * @memberof CreateWorkflowRequest
+     */
+    'description'?: string;
+    /**
+     * 
+     * @type {WorkflowDefinition}
+     * @memberof CreateWorkflowRequest
+     */
+    'definition'?: WorkflowDefinition;
+    /**
+     * Enable or disable the workflow.  Workflows cannot be created in an enabled state.
+     * @type {boolean}
+     * @memberof CreateWorkflowRequest
+     */
+    'enabled'?: boolean;
+    /**
+     * 
+     * @type {WorkflowTrigger}
+     * @memberof CreateWorkflowRequest
+     */
+    'trigger'?: WorkflowTrigger;
 }
 /**
  * Type of the criteria in the filter. The `COMPOSITE` filter can contain multiple filters in an AND/OR relationship.
@@ -7738,6 +7813,25 @@ export interface EventAllOf {
     'technicalName'?: string;
 }
 /**
+ * Attributes related to an IdentityNow ETS event
+ * @export
+ * @interface EventAttributes
+ */
+export interface EventAttributes {
+    /**
+     * The unique ID of the trigger
+     * @type {string}
+     * @memberof EventAttributes
+     */
+    'id': string;
+    /**
+     * JSON path expression that will limit which events the trigger will fire on
+     * @type {string}
+     * @memberof EventAttributes
+     */
+    'filter.$'?: string;
+}
+/**
  * Event
  * @export
  * @interface EventDocument
@@ -8084,6 +8178,25 @@ export const ExpressionChildrenInnerOperatorEnum = {
 
 export type ExpressionChildrenInnerOperatorEnum = typeof ExpressionChildrenInnerOperatorEnum[keyof typeof ExpressionChildrenInnerOperatorEnum];
 
+/**
+ * Attributes related to an external trigger
+ * @export
+ * @interface ExternalAttributes
+ */
+export interface ExternalAttributes {
+    /**
+     * A unique name for the external trigger
+     * @type {string}
+     * @memberof ExternalAttributes
+     */
+    'name': string;
+    /**
+     * Additonal context about the external trigger
+     * @type {string}
+     * @memberof ExternalAttributes
+     */
+    'description'?: string;
+}
 /**
  * 
  * @export
@@ -10351,6 +10464,61 @@ export interface ListCampaignFilters200Response {
      * @memberof ListCampaignFilters200Response
      */
     'count'?: number;
+}
+/**
+ * 
+ * @export
+ * @interface ListCompleteWorkflowLibrary200ResponseInner
+ */
+export interface ListCompleteWorkflowLibrary200ResponseInner {
+    /**
+     * Operator ID.
+     * @type {string}
+     * @memberof ListCompleteWorkflowLibrary200ResponseInner
+     */
+    'id'?: string;
+    /**
+     * Operator friendly name
+     * @type {string}
+     * @memberof ListCompleteWorkflowLibrary200ResponseInner
+     */
+    'name'?: string;
+    /**
+     * Operator type
+     * @type {string}
+     * @memberof ListCompleteWorkflowLibrary200ResponseInner
+     */
+    'type'?: string;
+    /**
+     * Description of the operator
+     * @type {string}
+     * @memberof ListCompleteWorkflowLibrary200ResponseInner
+     */
+    'description'?: string;
+    /**
+     * One or more inputs that the operator accepts
+     * @type {Array<WorkflowLibraryFormFields>}
+     * @memberof ListCompleteWorkflowLibrary200ResponseInner
+     */
+    'formFields'?: Array<WorkflowLibraryFormFields>;
+    /**
+     * Determines whether the dynamic output schema is returned in place of the action\'s output schema. The dynamic schema lists non-static properties, like properties of a workflow form where each form has different fields. These will be provided dynamically based on available form fields.
+     * @type {boolean}
+     * @memberof ListCompleteWorkflowLibrary200ResponseInner
+     */
+    'isDynamicSchema'?: boolean;
+    /**
+     * Defines the output schema, if any, that this action produces.
+     * @type {object}
+     * @memberof ListCompleteWorkflowLibrary200ResponseInner
+     */
+    'outputSchema'?: object;
+    /**
+     * Example trigger payload if applicable
+     * @type {object}
+     * @memberof ListCompleteWorkflowLibrary200ResponseInner
+     */
+    'inputExample'?: object | null;
 }
 /**
  * An indicator of how the locale was selected. *DEFAULT* means the locale is the system default. *REQUEST* means the locale was selected from the request context (i.e., best match based on the *Accept-Language* header). Additional values may be added in the future without notice.
@@ -16339,6 +16507,19 @@ export type ScheduleType = typeof ScheduleType[keyof typeof ScheduleType];
 
 
 /**
+ * Attributes related to a scheduled trigger
+ * @export
+ * @interface ScheduledAttributes
+ */
+export interface ScheduledAttributes {
+    /**
+     * A valid CRON expression
+     * @type {string}
+     * @memberof ScheduledAttributes
+     */
+    'cronString': string;
+}
+/**
  * 
  * @export
  * @interface ScheduledSearch
@@ -19186,6 +19367,58 @@ export const TaskResultSimplifiedCompletionStatusEnum = {
 export type TaskResultSimplifiedCompletionStatusEnum = typeof TaskResultSimplifiedCompletionStatusEnum[keyof typeof TaskResultSimplifiedCompletionStatusEnum];
 
 /**
+ * 
+ * @export
+ * @interface TestExternalExecuteWorkflow200Response
+ */
+export interface TestExternalExecuteWorkflow200Response {
+    /**
+     * The input that was received
+     * @type {object}
+     * @memberof TestExternalExecuteWorkflow200Response
+     */
+    'payload'?: object;
+}
+/**
+ * 
+ * @export
+ * @interface TestExternalExecuteWorkflowRequest
+ */
+export interface TestExternalExecuteWorkflowRequest {
+    /**
+     * The test input for the workflow
+     * @type {object}
+     * @memberof TestExternalExecuteWorkflowRequest
+     */
+    'input'?: object;
+}
+/**
+ * 
+ * @export
+ * @interface TestWorkflow200Response
+ */
+export interface TestWorkflow200Response {
+    /**
+     * The workflow execution id
+     * @type {string}
+     * @memberof TestWorkflow200Response
+     */
+    'workflowExecutionId'?: string;
+}
+/**
+ * 
+ * @export
+ * @interface TestWorkflowRequest
+ */
+export interface TestWorkflowRequest {
+    /**
+     * The test input for the workflow.
+     * @type {object}
+     * @memberof TestWorkflowRequest
+     */
+    'input': object;
+}
+/**
  * Query parameters used to construct an Elasticsearch text query object.
  * @export
  * @interface TextQuery
@@ -20135,6 +20368,607 @@ export interface WorkItemsSummary {
      */
     'total'?: number;
 }
+/**
+ * 
+ * @export
+ * @interface Workflow
+ */
+export interface Workflow {
+    /**
+     * Workflow ID. This is a UUID generated upon creation.
+     * @type {string}
+     * @memberof Workflow
+     */
+    'id'?: string;
+    /**
+     * The number of times this workflow has been executed.
+     * @type {number}
+     * @memberof Workflow
+     */
+    'executionCount'?: number;
+    /**
+     * The number of times this workflow has failed during execution.
+     * @type {number}
+     * @memberof Workflow
+     */
+    'failureCount'?: number;
+    /**
+     * The date and time the workflow was created.
+     * @type {string}
+     * @memberof Workflow
+     */
+    'created'?: string;
+    /**
+     * 
+     * @type {WorkflowAllOfCreator}
+     * @memberof Workflow
+     */
+    'creator'?: WorkflowAllOfCreator;
+    /**
+     * The name of the workflow
+     * @type {string}
+     * @memberof Workflow
+     */
+    'name'?: string;
+    /**
+     * 
+     * @type {WorkflowBodyOwner}
+     * @memberof Workflow
+     */
+    'owner'?: WorkflowBodyOwner;
+    /**
+     * Description of what the workflow accomplishes
+     * @type {string}
+     * @memberof Workflow
+     */
+    'description'?: string;
+    /**
+     * 
+     * @type {WorkflowDefinition}
+     * @memberof Workflow
+     */
+    'definition'?: WorkflowDefinition;
+    /**
+     * Enable or disable the workflow.  Workflows cannot be created in an enabled state.
+     * @type {boolean}
+     * @memberof Workflow
+     */
+    'enabled'?: boolean;
+    /**
+     * 
+     * @type {WorkflowTrigger}
+     * @memberof Workflow
+     */
+    'trigger'?: WorkflowTrigger;
+}
+/**
+ * 
+ * @export
+ * @interface WorkflowAllOf
+ */
+export interface WorkflowAllOf {
+    /**
+     * Workflow ID. This is a UUID generated upon creation.
+     * @type {string}
+     * @memberof WorkflowAllOf
+     */
+    'id'?: string;
+    /**
+     * The number of times this workflow has been executed.
+     * @type {number}
+     * @memberof WorkflowAllOf
+     */
+    'executionCount'?: number;
+    /**
+     * The number of times this workflow has failed during execution.
+     * @type {number}
+     * @memberof WorkflowAllOf
+     */
+    'failureCount'?: number;
+    /**
+     * The date and time the workflow was created.
+     * @type {string}
+     * @memberof WorkflowAllOf
+     */
+    'created'?: string;
+    /**
+     * 
+     * @type {WorkflowAllOfCreator}
+     * @memberof WorkflowAllOf
+     */
+    'creator'?: WorkflowAllOfCreator;
+}
+/**
+ * Workflow creator\'s identity.
+ * @export
+ * @interface WorkflowAllOfCreator
+ */
+export interface WorkflowAllOfCreator {
+    /**
+     * Workflow creator\'s DTO type.
+     * @type {string}
+     * @memberof WorkflowAllOfCreator
+     */
+    'type'?: WorkflowAllOfCreatorTypeEnum;
+    /**
+     * Workflow creator\'s identity ID.
+     * @type {string}
+     * @memberof WorkflowAllOfCreator
+     */
+    'id'?: string;
+    /**
+     * Workflow creator\'s display name.
+     * @type {string}
+     * @memberof WorkflowAllOfCreator
+     */
+    'name'?: string;
+}
+
+export const WorkflowAllOfCreatorTypeEnum = {
+    Identity: 'IDENTITY'
+} as const;
+
+export type WorkflowAllOfCreatorTypeEnum = typeof WorkflowAllOfCreatorTypeEnum[keyof typeof WorkflowAllOfCreatorTypeEnum];
+
+/**
+ * 
+ * @export
+ * @interface WorkflowBody
+ */
+export interface WorkflowBody {
+    /**
+     * The name of the workflow
+     * @type {string}
+     * @memberof WorkflowBody
+     */
+    'name'?: string;
+    /**
+     * 
+     * @type {WorkflowBodyOwner}
+     * @memberof WorkflowBody
+     */
+    'owner'?: WorkflowBodyOwner;
+    /**
+     * Description of what the workflow accomplishes
+     * @type {string}
+     * @memberof WorkflowBody
+     */
+    'description'?: string;
+    /**
+     * 
+     * @type {WorkflowDefinition}
+     * @memberof WorkflowBody
+     */
+    'definition'?: WorkflowDefinition;
+    /**
+     * Enable or disable the workflow.  Workflows cannot be created in an enabled state.
+     * @type {boolean}
+     * @memberof WorkflowBody
+     */
+    'enabled'?: boolean;
+    /**
+     * 
+     * @type {WorkflowTrigger}
+     * @memberof WorkflowBody
+     */
+    'trigger'?: WorkflowTrigger;
+}
+/**
+ * The identity that owns the workflow.  The owner\'s permissions in IDN will determine what actions the workflow is allowed to perform.  Ownership can be changed by updating the owner in a PUT or PATCH request.
+ * @export
+ * @interface WorkflowBodyOwner
+ */
+export interface WorkflowBodyOwner {
+    /**
+     * The type of object that is referenced
+     * @type {string}
+     * @memberof WorkflowBodyOwner
+     */
+    'type'?: WorkflowBodyOwnerTypeEnum;
+    /**
+     * The unique ID of the object
+     * @type {string}
+     * @memberof WorkflowBodyOwner
+     */
+    'id'?: string;
+    /**
+     * The name of the object
+     * @type {string}
+     * @memberof WorkflowBodyOwner
+     */
+    'name'?: string;
+}
+
+export const WorkflowBodyOwnerTypeEnum = {
+    Identity: 'IDENTITY'
+} as const;
+
+export type WorkflowBodyOwnerTypeEnum = typeof WorkflowBodyOwnerTypeEnum[keyof typeof WorkflowBodyOwnerTypeEnum];
+
+/**
+ * The map of steps that the workflow will execute.
+ * @export
+ * @interface WorkflowDefinition
+ */
+export interface WorkflowDefinition {
+    /**
+     * The name of the starting step.
+     * @type {string}
+     * @memberof WorkflowDefinition
+     */
+    'start'?: string;
+    /**
+     * One or more step objects that comprise this workflow.  Please see the Workflow documentation to see the JSON schema for each step type.
+     * @type {{ [key: string]: any; }}
+     * @memberof WorkflowDefinition
+     */
+    'steps'?: { [key: string]: any; };
+}
+/**
+ * 
+ * @export
+ * @interface WorkflowExecution
+ */
+export interface WorkflowExecution {
+    /**
+     * The workflow execution ID
+     * @type {string}
+     * @memberof WorkflowExecution
+     */
+    'id'?: string;
+    /**
+     * The workflow ID
+     * @type {string}
+     * @memberof WorkflowExecution
+     */
+    'workflowId'?: string;
+    /**
+     * This backend ID tracks a workflow request in the system. You can provide this ID in a customer support ticket for debugging purposes.
+     * @type {string}
+     * @memberof WorkflowExecution
+     */
+    'requestId'?: string;
+    /**
+     * The date/time the workflow started
+     * @type {string}
+     * @memberof WorkflowExecution
+     */
+    'startTime'?: string;
+    /**
+     * The date/time the workflow ended
+     * @type {string}
+     * @memberof WorkflowExecution
+     */
+    'closeTime'?: string;
+    /**
+     * The workflow execution status
+     * @type {string}
+     * @memberof WorkflowExecution
+     */
+    'status'?: WorkflowExecutionStatusEnum;
+}
+
+export const WorkflowExecutionStatusEnum = {
+    Completed: 'Completed',
+    Failed: 'Failed',
+    Canceled: 'Canceled',
+    Running: 'Running'
+} as const;
+
+export type WorkflowExecutionStatusEnum = typeof WorkflowExecutionStatusEnum[keyof typeof WorkflowExecutionStatusEnum];
+
+/**
+ * 
+ * @export
+ * @interface WorkflowExecutionEvent
+ */
+export interface WorkflowExecutionEvent {
+    /**
+     * The type of event
+     * @type {object}
+     * @memberof WorkflowExecutionEvent
+     */
+    'type'?: WorkflowExecutionEventTypeEnum;
+    /**
+     * The date-time when the event occurred
+     * @type {string}
+     * @memberof WorkflowExecutionEvent
+     */
+    'timestamp'?: string;
+    /**
+     * Additional attributes associated with the event
+     * @type {object}
+     * @memberof WorkflowExecutionEvent
+     */
+    'attributes'?: object;
+}
+
+export const WorkflowExecutionEventTypeEnum = {
+    WorkflowExecutionScheduled: 'WorkflowExecutionScheduled',
+    WorkflowExecutionStarted: 'WorkflowExecutionStarted',
+    WorkflowExecutionCompleted: 'WorkflowExecutionCompleted',
+    WorkflowExecutionFailed: 'WorkflowExecutionFailed',
+    WorkflowTaskScheduled: 'WorkflowTaskScheduled',
+    WorkflowTaskStarted: 'WorkflowTaskStarted',
+    WorkflowTaskCompleted: 'WorkflowTaskCompleted',
+    WorkflowTaskFailed: 'WorkflowTaskFailed',
+    ActivityTaskScheduled: 'ActivityTaskScheduled',
+    ActivityTaskStarted: 'ActivityTaskStarted',
+    ActivityTaskCompleted: 'ActivityTaskCompleted',
+    ActivityTaskFailed: 'ActivityTaskFailed'
+} as const;
+
+export type WorkflowExecutionEventTypeEnum = typeof WorkflowExecutionEventTypeEnum[keyof typeof WorkflowExecutionEventTypeEnum];
+
+/**
+ * 
+ * @export
+ * @interface WorkflowLibraryAction
+ */
+export interface WorkflowLibraryAction {
+    /**
+     * Action ID. This is a static namespaced ID for the action
+     * @type {string}
+     * @memberof WorkflowLibraryAction
+     */
+    'id'?: string;
+    /**
+     * Action Name
+     * @type {string}
+     * @memberof WorkflowLibraryAction
+     */
+    'name'?: string;
+    /**
+     * Action type
+     * @type {string}
+     * @memberof WorkflowLibraryAction
+     */
+    'type'?: string;
+    /**
+     * Action Description
+     * @type {string}
+     * @memberof WorkflowLibraryAction
+     */
+    'description'?: string;
+    /**
+     * One or more inputs that the action accepts
+     * @type {Array<WorkflowLibraryFormFields>}
+     * @memberof WorkflowLibraryAction
+     */
+    'formFields'?: Array<WorkflowLibraryFormFields>;
+    /**
+     * Determines whether the dynamic output schema is returned in place of the action\'s output schema. The dynamic schema lists non-static properties, like properties of a workflow form where each form has different fields. These will be provided dynamically based on available form fields.
+     * @type {boolean}
+     * @memberof WorkflowLibraryAction
+     */
+    'isDynamicSchema'?: boolean;
+    /**
+     * Defines the output schema, if any, that this action produces.
+     * @type {object}
+     * @memberof WorkflowLibraryAction
+     */
+    'outputSchema'?: object;
+}
+/**
+ * 
+ * @export
+ * @interface WorkflowLibraryFormFields
+ */
+export interface WorkflowLibraryFormFields {
+    /**
+     * Describes the form field in the UI
+     * @type {string}
+     * @memberof WorkflowLibraryFormFields
+     */
+    'helpText'?: string;
+    /**
+     * A human readable name for this form field in the UI
+     * @type {string}
+     * @memberof WorkflowLibraryFormFields
+     */
+    'label'?: string;
+    /**
+     * The name of the input attribute
+     * @type {string}
+     * @memberof WorkflowLibraryFormFields
+     */
+    'name'?: string;
+    /**
+     * Denotes if this field is a required attribute
+     * @type {boolean}
+     * @memberof WorkflowLibraryFormFields
+     */
+    'required'?: boolean;
+    /**
+     * The type of the form field
+     * @type {object}
+     * @memberof WorkflowLibraryFormFields
+     */
+    'type'?: WorkflowLibraryFormFieldsTypeEnum;
+}
+
+export const WorkflowLibraryFormFieldsTypeEnum = {
+    Text: 'text',
+    Textarea: 'textarea',
+    Boolean: 'boolean',
+    Email: 'email',
+    Url: 'url',
+    Number: 'number',
+    Json: 'json',
+    Checkbox: 'checkbox',
+    Jsonpath: 'jsonpath',
+    Select: 'select',
+    MultiType: 'multiType',
+    Duration: 'duration',
+    Toggle: 'toggle',
+    IdentityPicker: 'identityPicker',
+    GovernanceGroupPicker: 'governanceGroupPicker',
+    String: 'string',
+    Object: 'object',
+    Array: 'array',
+    Secret: 'secret',
+    KeyValuePairs: 'keyValuePairs',
+    EmailPicker: 'emailPicker',
+    AdvancedToggle: 'advancedToggle'
+} as const;
+
+export type WorkflowLibraryFormFieldsTypeEnum = typeof WorkflowLibraryFormFieldsTypeEnum[keyof typeof WorkflowLibraryFormFieldsTypeEnum];
+
+/**
+ * 
+ * @export
+ * @interface WorkflowLibraryOperator
+ */
+export interface WorkflowLibraryOperator {
+    /**
+     * Operator ID.
+     * @type {string}
+     * @memberof WorkflowLibraryOperator
+     */
+    'id'?: string;
+    /**
+     * Operator friendly name
+     * @type {string}
+     * @memberof WorkflowLibraryOperator
+     */
+    'name'?: string;
+    /**
+     * Operator type
+     * @type {string}
+     * @memberof WorkflowLibraryOperator
+     */
+    'type'?: string;
+    /**
+     * Description of the operator
+     * @type {string}
+     * @memberof WorkflowLibraryOperator
+     */
+    'description'?: string;
+    /**
+     * One or more inputs that the operator accepts
+     * @type {Array<WorkflowLibraryFormFields>}
+     * @memberof WorkflowLibraryOperator
+     */
+    'formFields'?: Array<WorkflowLibraryFormFields>;
+}
+/**
+ * 
+ * @export
+ * @interface WorkflowLibraryTrigger
+ */
+export interface WorkflowLibraryTrigger {
+    /**
+     * Trigger ID. This is a static namespaced ID for the trigger.
+     * @type {string}
+     * @memberof WorkflowLibraryTrigger
+     */
+    'id'?: string;
+    /**
+     * Trigger type
+     * @type {object}
+     * @memberof WorkflowLibraryTrigger
+     */
+    'type'?: WorkflowLibraryTriggerTypeEnum;
+    /**
+     * Trigger Name
+     * @type {string}
+     * @memberof WorkflowLibraryTrigger
+     */
+    'name'?: string;
+    /**
+     * Trigger Description
+     * @type {string}
+     * @memberof WorkflowLibraryTrigger
+     */
+    'description'?: string;
+    /**
+     * Determines whether the dynamic output schema is returned in place of the action\'s output schema. The dynamic schema lists non-static properties, like properties of a workflow form where each form has different fields. These will be provided dynamically based on available form fields.
+     * @type {boolean}
+     * @memberof WorkflowLibraryTrigger
+     */
+    'isDynamicSchema'?: boolean;
+    /**
+     * Example trigger payload if applicable
+     * @type {object}
+     * @memberof WorkflowLibraryTrigger
+     */
+    'inputExample'?: object | null;
+    /**
+     * One or more inputs that the trigger accepts
+     * @type {Array<WorkflowLibraryFormFields>}
+     * @memberof WorkflowLibraryTrigger
+     */
+    'formFields'?: Array<WorkflowLibraryFormFields> | null;
+}
+
+export const WorkflowLibraryTriggerTypeEnum = {
+    Event: 'EVENT',
+    Scheduled: 'SCHEDULED',
+    External: 'EXTERNAL'
+} as const;
+
+export type WorkflowLibraryTriggerTypeEnum = typeof WorkflowLibraryTriggerTypeEnum[keyof typeof WorkflowLibraryTriggerTypeEnum];
+
+/**
+ * 
+ * @export
+ * @interface WorkflowOAuthClient
+ */
+export interface WorkflowOAuthClient {
+    /**
+     * OAuth client ID for the trigger. This is a UUID generated upon creation.
+     * @type {string}
+     * @memberof WorkflowOAuthClient
+     */
+    'id'?: string;
+    /**
+     * OAuthClient secret.
+     * @type {string}
+     * @memberof WorkflowOAuthClient
+     */
+    'secret'?: string;
+    /**
+     * URL for the external trigger to invoke
+     * @type {string}
+     * @memberof WorkflowOAuthClient
+     */
+    'url'?: string;
+}
+/**
+ * The trigger that starts the workflow
+ * @export
+ * @interface WorkflowTrigger
+ */
+export interface WorkflowTrigger {
+    /**
+     * The trigger type
+     * @type {string}
+     * @memberof WorkflowTrigger
+     */
+    'type': WorkflowTriggerTypeEnum;
+    /**
+     * 
+     * @type {WorkflowTriggerAttributes}
+     * @memberof WorkflowTrigger
+     */
+    'attributes': WorkflowTriggerAttributes;
+}
+
+export const WorkflowTriggerTypeEnum = {
+    Event: 'EVENT',
+    External: 'EXTERNAL',
+    Scheduled: 'SCHEDULED'
+} as const;
+
+export type WorkflowTriggerTypeEnum = typeof WorkflowTriggerTypeEnum[keyof typeof WorkflowTriggerTypeEnum];
+
+/**
+ * @type WorkflowTriggerAttributes
+ * Workflow Trigger Attributes.
+ * @export
+ */
+export type WorkflowTriggerAttributes = EventAttributes | ExternalAttributes | ScheduledAttributes;
+
 
 /**
  * AccessProfilesApi - axios parameter creator
@@ -51102,6 +51936,1806 @@ export class WorkItemsApi extends BaseAPI {
      */
     public submitAccountSelection(requestParameters: WorkItemsApiSubmitAccountSelectionRequest, axiosOptions?: AxiosRequestConfig) {
         return WorkItemsApiFp(this.configuration).submitAccountSelection(requestParameters.id, requestParameters.requestBody, axiosOptions).then((request) => request(this.axios, this.basePath));
+    }
+}
+
+
+/**
+ * WorkflowsApi - axios parameter creator
+ * @export
+ */
+export const WorkflowsApiAxiosParamCreator = function (configuration?: Configuration) {
+    return {
+        /**
+         * Use this API to cancel a running workflow execution.
+         * @summary Cancel Workflow Execution by ID
+         * @param {string} id The workflow execution ID
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        cancelWorkflowExecution: async (id: string, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'id' is not null or undefined
+            assertParamExists('cancelWorkflowExecution', 'id', id)
+            const localVarPath = `/workflow-executions/{id}/cancel`
+                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'POST', ...baseOptions, ...axiosOptions};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication UserContextAuth required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "UserContextAuth", [], configuration)
+
+            // authentication UserContextAuth required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "UserContextAuth", [], configuration)
+
+
+    
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                axiosOptions: localVarRequestOptions,
+            };
+        },
+        /**
+         * This endpoint allows a service outside of IdentityNow to initiate a workflow that uses the \"External Trigger\" step.  The external service will invoke this endpoint with the input data it wants to send to the workflow in the body.
+         * @summary Execute Workflow via External Trigger
+         * @param {string} id Id of the workflow
+         * @param {CreateExternalExecuteWorkflowRequest} [createExternalExecuteWorkflowRequest] 
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        createExternalExecuteWorkflow: async (id: string, createExternalExecuteWorkflowRequest?: CreateExternalExecuteWorkflowRequest, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'id' is not null or undefined
+            assertParamExists('createExternalExecuteWorkflow', 'id', id)
+            const localVarPath = `/workflows/execute/external/{id}`
+                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'POST', ...baseOptions, ...axiosOptions};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication UserContextAuth required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "UserContextAuth", [], configuration)
+
+            // authentication UserContextAuth required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "UserContextAuth", [], configuration)
+
+
+    
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
+            localVarRequestOptions.data = serializeDataIfNeeded(createExternalExecuteWorkflowRequest, localVarRequestOptions, configuration)
+
+            return {
+                url: toPathString(localVarUrlObj),
+                axiosOptions: localVarRequestOptions,
+            };
+        },
+        /**
+         * Create a new workflow with the desired trigger and steps specified in the request body.
+         * @summary Create Workflow
+         * @param {CreateWorkflowRequest} createWorkflowRequest 
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        createWorkflow: async (createWorkflowRequest: CreateWorkflowRequest, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'createWorkflowRequest' is not null or undefined
+            assertParamExists('createWorkflow', 'createWorkflowRequest', createWorkflowRequest)
+            const localVarPath = `/workflows/{id}`;
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'POST', ...baseOptions, ...axiosOptions};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication UserContextAuth required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "UserContextAuth", [], configuration)
+
+            // authentication UserContextAuth required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "UserContextAuth", [], configuration)
+
+
+    
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
+            localVarRequestOptions.data = serializeDataIfNeeded(createWorkflowRequest, localVarRequestOptions, configuration)
+
+            return {
+                url: toPathString(localVarUrlObj),
+                axiosOptions: localVarRequestOptions,
+            };
+        },
+        /**
+         * Create OAuth client ID, client secret, and callback URL for use in an external trigger.  External triggers will need this information to generate an access token to authenticate to the callback URL and submit a trigger payload that will initiate the workflow.
+         * @summary Generate External Trigger OAuth Client
+         * @param {string} id Id of the workflow
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        createWorkflowExternalTrigger: async (id: string, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'id' is not null or undefined
+            assertParamExists('createWorkflowExternalTrigger', 'id', id)
+            const localVarPath = `/workflows/{id}/external/oauth-clients`
+                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'POST', ...baseOptions, ...axiosOptions};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication UserContextAuth required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "UserContextAuth", [], configuration)
+
+            // authentication UserContextAuth required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "UserContextAuth", [], configuration)
+
+
+    
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                axiosOptions: localVarRequestOptions,
+            };
+        },
+        /**
+         * Delete a workflow.  **Enabled workflows cannot be deleted**.  They must first be disabled.
+         * @summary Delete Workflow By Id
+         * @param {string} id Id of the Workflow
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        deleteWorkflow: async (id: string, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'id' is not null or undefined
+            assertParamExists('deleteWorkflow', 'id', id)
+            const localVarPath = `/workflows/{id}`
+                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'DELETE', ...baseOptions, ...axiosOptions};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication UserContextAuth required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "UserContextAuth", [], configuration)
+
+            // authentication UserContextAuth required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "UserContextAuth", [], configuration)
+
+
+    
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                axiosOptions: localVarRequestOptions,
+            };
+        },
+        /**
+         * Get a single workflow by id.
+         * @summary Get Workflow By Id
+         * @param {string} id Id of the workflow
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        getWorkflow: async (id: string, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'id' is not null or undefined
+            assertParamExists('getWorkflow', 'id', id)
+            const localVarPath = `/workflows/{id}`
+                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...axiosOptions};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication UserContextAuth required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "UserContextAuth", [], configuration)
+
+            // authentication UserContextAuth required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "UserContextAuth", [], configuration)
+
+
+    
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                axiosOptions: localVarRequestOptions,
+            };
+        },
+        /**
+         * Get a single workflow execution.  Workflow executions are available for up to 90 days before being archived.  If you attempt to access a workflow execution that has been archived, you will receive a 404 Not Found.
+         * @summary Get a Workflow Execution
+         * @param {string} id Id of the workflow execution
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        getWorkflowExecution: async (id: string, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'id' is not null or undefined
+            assertParamExists('getWorkflowExecution', 'id', id)
+            const localVarPath = `/workflow-executions/{id}`
+                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...axiosOptions};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication UserContextAuth required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "UserContextAuth", [], configuration)
+
+            // authentication UserContextAuth required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "UserContextAuth", [], configuration)
+
+
+    
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                axiosOptions: localVarRequestOptions,
+            };
+        },
+        /**
+         * Get a detailed history of a single workflow execution.  Workflow executions are available for up to 90 days before being archived.  If you attempt to access a workflow execution that has been archived, you will receive a 404 Not Found.
+         * @summary Get Workflow Execution History
+         * @param {string} id Id of the workflow execution
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        getWorkflowExecutionHistory: async (id: string, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'id' is not null or undefined
+            assertParamExists('getWorkflowExecutionHistory', 'id', id)
+            const localVarPath = `/workflow-executions/{id}/history`
+                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...axiosOptions};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication UserContextAuth required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "UserContextAuth", [], configuration)
+
+            // authentication UserContextAuth required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "UserContextAuth", [], configuration)
+
+
+    
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                axiosOptions: localVarRequestOptions,
+            };
+        },
+        /**
+         * This lists all triggers, actions, and operators in the library
+         * @summary List Complete Workflow Library
+         * @param {number} [limit] Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+         * @param {number} [offset] Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        listCompleteWorkflowLibrary: async (limit?: number, offset?: number, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            const localVarPath = `/workflow-library`;
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...axiosOptions};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication UserContextAuth required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "UserContextAuth", [], configuration)
+
+            // authentication UserContextAuth required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "UserContextAuth", [], configuration)
+
+            if (limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+
+            if (offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+
+
+    
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                axiosOptions: localVarRequestOptions,
+            };
+        },
+        /**
+         * This lists the executions for a given workflow. Workflow executions are available for up to 90 days before being archived. By default, you can get a maximum of 250 executions. To get executions past the first 250 records, you can do the following: 1. Use the [Get Workflows](https://developer.sailpoint.com/idn/api/beta/list-workflows) endpoint to get your workflows. 2. Get your workflow ID from the response. 3. You can then do either of the following:    - Filter to find relevant workflow executions.   For example, you can filter for failed workflow executions: `GET /workflows/:workflowID/executions?filters=status eq \"Failed\"`    - You can paginate through results with the `offset` parameter.   For example, you can page through 50 executions per page and use that as a way to get to the records past the first 250.   Refer to [Paginating Results](https://developer.sailpoint.com/idn/api/standard-collection-parameters#paginating-results) for more information about the query parameters you can use to achieve pagination.
+         * @summary List Workflow Executions
+         * @param {string} id Id of the workflow
+         * @param {number} [limit] Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+         * @param {number} [offset] Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+         * @param {boolean} [count] If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+         * @param {string} [filters] Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **startTime**: *eq, lt, le, gt, ge*  **status**: *eq*
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        listWorkflowExecutions: async (id: string, limit?: number, offset?: number, count?: boolean, filters?: string, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'id' is not null or undefined
+            assertParamExists('listWorkflowExecutions', 'id', id)
+            const localVarPath = `/workflows/{id}/executions`
+                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...axiosOptions};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication UserContextAuth required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "UserContextAuth", [], configuration)
+
+            // authentication UserContextAuth required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "UserContextAuth", [], configuration)
+
+            if (limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+
+            if (offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+
+            if (count !== undefined) {
+                localVarQueryParameter['count'] = count;
+            }
+
+            if (filters !== undefined) {
+                localVarQueryParameter['filters'] = filters;
+            }
+
+
+    
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                axiosOptions: localVarRequestOptions,
+            };
+        },
+        /**
+         * This lists the workflow actions available to you.
+         * @summary List Workflow Library Actions
+         * @param {number} [limit] Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+         * @param {number} [offset] Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+         * @param {string} [filters] Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq*
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        listWorkflowLibraryActions: async (limit?: number, offset?: number, filters?: string, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            const localVarPath = `/workflow-library/actions`;
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...axiosOptions};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication UserContextAuth required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "UserContextAuth", [], configuration)
+
+            // authentication UserContextAuth required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "UserContextAuth", [], configuration)
+
+            if (limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+
+            if (offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+
+            if (filters !== undefined) {
+                localVarQueryParameter['filters'] = filters;
+            }
+
+
+    
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                axiosOptions: localVarRequestOptions,
+            };
+        },
+        /**
+         * This lists the workflow operators available to you
+         * @summary List Workflow Library Operators
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        listWorkflowLibraryOperators: async (axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            const localVarPath = `/workflow-library/operators`;
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...axiosOptions};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication UserContextAuth required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "UserContextAuth", [], configuration)
+
+            // authentication UserContextAuth required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "UserContextAuth", [], configuration)
+
+
+    
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                axiosOptions: localVarRequestOptions,
+            };
+        },
+        /**
+         * This lists the workflow triggers available to you
+         * @summary List Workflow Library Triggers
+         * @param {number} [limit] Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+         * @param {number} [offset] Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+         * @param {string} [filters] Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq*
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        listWorkflowLibraryTriggers: async (limit?: number, offset?: number, filters?: string, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            const localVarPath = `/workflow-library/triggers`;
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...axiosOptions};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication UserContextAuth required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "UserContextAuth", [], configuration)
+
+            // authentication UserContextAuth required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "UserContextAuth", [], configuration)
+
+            if (limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+
+            if (offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+
+            if (filters !== undefined) {
+                localVarQueryParameter['filters'] = filters;
+            }
+
+
+    
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                axiosOptions: localVarRequestOptions,
+            };
+        },
+        /**
+         * List all workflows in the tenant.
+         * @summary List Workflows
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        listWorkflows: async (axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            const localVarPath = `/workflows`;
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...axiosOptions};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication UserContextAuth required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "UserContextAuth", [], configuration)
+
+            // authentication UserContextAuth required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "UserContextAuth", [], configuration)
+
+
+    
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                axiosOptions: localVarRequestOptions,
+            };
+        },
+        /**
+         * Partially update an existing Workflow using [JSON Patch](https://tools.ietf.org/html/rfc6902) syntax.
+         * @summary Patch Workflow
+         * @param {string} id Id of the Workflow
+         * @param {Array<JsonPatchOperation>} jsonPatchOperation 
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        patchWorkflow: async (id: string, jsonPatchOperation: Array<JsonPatchOperation>, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'id' is not null or undefined
+            assertParamExists('patchWorkflow', 'id', id)
+            // verify required parameter 'jsonPatchOperation' is not null or undefined
+            assertParamExists('patchWorkflow', 'jsonPatchOperation', jsonPatchOperation)
+            const localVarPath = `/workflows/{id}`
+                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'PATCH', ...baseOptions, ...axiosOptions};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication UserContextAuth required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "UserContextAuth", [], configuration)
+
+            // authentication UserContextAuth required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "UserContextAuth", [], configuration)
+
+
+    
+            localVarHeaderParameter['Content-Type'] = 'application/json-patch+json';
+
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
+            localVarRequestOptions.data = serializeDataIfNeeded(jsonPatchOperation, localVarRequestOptions, configuration)
+
+            return {
+                url: toPathString(localVarUrlObj),
+                axiosOptions: localVarRequestOptions,
+            };
+        },
+        /**
+         * Perform a full update of a workflow.  The updated workflow object is returned in the response.
+         * @summary Update Workflow
+         * @param {string} id Id of the Workflow
+         * @param {WorkflowBody} workflowBody 
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        putWorkflow: async (id: string, workflowBody: WorkflowBody, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'id' is not null or undefined
+            assertParamExists('putWorkflow', 'id', id)
+            // verify required parameter 'workflowBody' is not null or undefined
+            assertParamExists('putWorkflow', 'workflowBody', workflowBody)
+            const localVarPath = `/workflows/{id}`
+                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'PUT', ...baseOptions, ...axiosOptions};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication UserContextAuth required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "UserContextAuth", [], configuration)
+
+            // authentication UserContextAuth required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "UserContextAuth", [], configuration)
+
+
+    
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
+            localVarRequestOptions.data = serializeDataIfNeeded(workflowBody, localVarRequestOptions, configuration)
+
+            return {
+                url: toPathString(localVarUrlObj),
+                axiosOptions: localVarRequestOptions,
+            };
+        },
+        /**
+         * Validate a workflow with an \"External Trigger\" can receive input.  The response includes the input that the workflow received, which can be used to validate that the input is intact when it reaches the workflow.
+         * @summary Test Workflow via External Trigger
+         * @param {string} id Id of the workflow
+         * @param {TestExternalExecuteWorkflowRequest} [testExternalExecuteWorkflowRequest] 
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        testExternalExecuteWorkflow: async (id: string, testExternalExecuteWorkflowRequest?: TestExternalExecuteWorkflowRequest, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'id' is not null or undefined
+            assertParamExists('testExternalExecuteWorkflow', 'id', id)
+            const localVarPath = `/workflows/execute/external/{id}/test`
+                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'POST', ...baseOptions, ...axiosOptions};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication UserContextAuth required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "UserContextAuth", [], configuration)
+
+            // authentication UserContextAuth required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "UserContextAuth", [], configuration)
+
+
+    
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
+            localVarRequestOptions.data = serializeDataIfNeeded(testExternalExecuteWorkflowRequest, localVarRequestOptions, configuration)
+
+            return {
+                url: toPathString(localVarUrlObj),
+                axiosOptions: localVarRequestOptions,
+            };
+        },
+        /**
+         * Test a workflow with the provided input data.  The input data should resemble the input that the trigger will send the workflow.  See the [event trigger documentation](https://developer.sailpoint.com/idn/docs/event-triggers/available) for an example input for the trigger that initiates this workflow. This endpoint will return an execution ID, which can be used to lookup more information about the execution using the `Get a Workflow Execution` endpoint. **This will cause a live run of the workflow, which could result in unintended modifications to your IDN tenant.**
+         * @summary Test Workflow By Id
+         * @param {string} id Id of the workflow
+         * @param {TestWorkflowRequest} testWorkflowRequest 
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        testWorkflow: async (id: string, testWorkflowRequest: TestWorkflowRequest, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'id' is not null or undefined
+            assertParamExists('testWorkflow', 'id', id)
+            // verify required parameter 'testWorkflowRequest' is not null or undefined
+            assertParamExists('testWorkflow', 'testWorkflowRequest', testWorkflowRequest)
+            const localVarPath = `/workflows/{id}/test`
+                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'POST', ...baseOptions, ...axiosOptions};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication UserContextAuth required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "UserContextAuth", [], configuration)
+
+            // authentication UserContextAuth required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "UserContextAuth", [], configuration)
+
+
+    
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
+            localVarRequestOptions.data = serializeDataIfNeeded(testWorkflowRequest, localVarRequestOptions, configuration)
+
+            return {
+                url: toPathString(localVarUrlObj),
+                axiosOptions: localVarRequestOptions,
+            };
+        },
+    }
+};
+
+/**
+ * WorkflowsApi - functional programming interface
+ * @export
+ */
+export const WorkflowsApiFp = function(configuration?: Configuration) {
+    const localVarAxiosParamCreator = WorkflowsApiAxiosParamCreator(configuration)
+    return {
+        /**
+         * Use this API to cancel a running workflow execution.
+         * @summary Cancel Workflow Execution by ID
+         * @param {string} id The workflow execution ID
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        async cancelWorkflowExecution(id: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.cancelWorkflowExecution(id, axiosOptions);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * This endpoint allows a service outside of IdentityNow to initiate a workflow that uses the \"External Trigger\" step.  The external service will invoke this endpoint with the input data it wants to send to the workflow in the body.
+         * @summary Execute Workflow via External Trigger
+         * @param {string} id Id of the workflow
+         * @param {CreateExternalExecuteWorkflowRequest} [createExternalExecuteWorkflowRequest] 
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        async createExternalExecuteWorkflow(id: string, createExternalExecuteWorkflowRequest?: CreateExternalExecuteWorkflowRequest, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<CreateExternalExecuteWorkflow200Response>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.createExternalExecuteWorkflow(id, createExternalExecuteWorkflowRequest, axiosOptions);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * Create a new workflow with the desired trigger and steps specified in the request body.
+         * @summary Create Workflow
+         * @param {CreateWorkflowRequest} createWorkflowRequest 
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        async createWorkflow(createWorkflowRequest: CreateWorkflowRequest, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Workflow>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.createWorkflow(createWorkflowRequest, axiosOptions);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * Create OAuth client ID, client secret, and callback URL for use in an external trigger.  External triggers will need this information to generate an access token to authenticate to the callback URL and submit a trigger payload that will initiate the workflow.
+         * @summary Generate External Trigger OAuth Client
+         * @param {string} id Id of the workflow
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        async createWorkflowExternalTrigger(id: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<WorkflowOAuthClient>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.createWorkflowExternalTrigger(id, axiosOptions);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * Delete a workflow.  **Enabled workflows cannot be deleted**.  They must first be disabled.
+         * @summary Delete Workflow By Id
+         * @param {string} id Id of the Workflow
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        async deleteWorkflow(id: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.deleteWorkflow(id, axiosOptions);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * Get a single workflow by id.
+         * @summary Get Workflow By Id
+         * @param {string} id Id of the workflow
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        async getWorkflow(id: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Workflow>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getWorkflow(id, axiosOptions);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * Get a single workflow execution.  Workflow executions are available for up to 90 days before being archived.  If you attempt to access a workflow execution that has been archived, you will receive a 404 Not Found.
+         * @summary Get a Workflow Execution
+         * @param {string} id Id of the workflow execution
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        async getWorkflowExecution(id: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<object>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getWorkflowExecution(id, axiosOptions);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * Get a detailed history of a single workflow execution.  Workflow executions are available for up to 90 days before being archived.  If you attempt to access a workflow execution that has been archived, you will receive a 404 Not Found.
+         * @summary Get Workflow Execution History
+         * @param {string} id Id of the workflow execution
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        async getWorkflowExecutionHistory(id: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<WorkflowExecutionEvent>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getWorkflowExecutionHistory(id, axiosOptions);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * This lists all triggers, actions, and operators in the library
+         * @summary List Complete Workflow Library
+         * @param {number} [limit] Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+         * @param {number} [offset] Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        async listCompleteWorkflowLibrary(limit?: number, offset?: number, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<ListCompleteWorkflowLibrary200ResponseInner>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.listCompleteWorkflowLibrary(limit, offset, axiosOptions);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * This lists the executions for a given workflow. Workflow executions are available for up to 90 days before being archived. By default, you can get a maximum of 250 executions. To get executions past the first 250 records, you can do the following: 1. Use the [Get Workflows](https://developer.sailpoint.com/idn/api/beta/list-workflows) endpoint to get your workflows. 2. Get your workflow ID from the response. 3. You can then do either of the following:    - Filter to find relevant workflow executions.   For example, you can filter for failed workflow executions: `GET /workflows/:workflowID/executions?filters=status eq \"Failed\"`    - You can paginate through results with the `offset` parameter.   For example, you can page through 50 executions per page and use that as a way to get to the records past the first 250.   Refer to [Paginating Results](https://developer.sailpoint.com/idn/api/standard-collection-parameters#paginating-results) for more information about the query parameters you can use to achieve pagination.
+         * @summary List Workflow Executions
+         * @param {string} id Id of the workflow
+         * @param {number} [limit] Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+         * @param {number} [offset] Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+         * @param {boolean} [count] If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+         * @param {string} [filters] Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **startTime**: *eq, lt, le, gt, ge*  **status**: *eq*
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        async listWorkflowExecutions(id: string, limit?: number, offset?: number, count?: boolean, filters?: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<WorkflowExecution>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.listWorkflowExecutions(id, limit, offset, count, filters, axiosOptions);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * This lists the workflow actions available to you.
+         * @summary List Workflow Library Actions
+         * @param {number} [limit] Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+         * @param {number} [offset] Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+         * @param {string} [filters] Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq*
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        async listWorkflowLibraryActions(limit?: number, offset?: number, filters?: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<WorkflowLibraryAction>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.listWorkflowLibraryActions(limit, offset, filters, axiosOptions);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * This lists the workflow operators available to you
+         * @summary List Workflow Library Operators
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        async listWorkflowLibraryOperators(axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<WorkflowLibraryOperator>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.listWorkflowLibraryOperators(axiosOptions);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * This lists the workflow triggers available to you
+         * @summary List Workflow Library Triggers
+         * @param {number} [limit] Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+         * @param {number} [offset] Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+         * @param {string} [filters] Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq*
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        async listWorkflowLibraryTriggers(limit?: number, offset?: number, filters?: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<WorkflowLibraryTrigger>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.listWorkflowLibraryTriggers(limit, offset, filters, axiosOptions);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * List all workflows in the tenant.
+         * @summary List Workflows
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        async listWorkflows(axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Workflow>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.listWorkflows(axiosOptions);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * Partially update an existing Workflow using [JSON Patch](https://tools.ietf.org/html/rfc6902) syntax.
+         * @summary Patch Workflow
+         * @param {string} id Id of the Workflow
+         * @param {Array<JsonPatchOperation>} jsonPatchOperation 
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        async patchWorkflow(id: string, jsonPatchOperation: Array<JsonPatchOperation>, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Workflow>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.patchWorkflow(id, jsonPatchOperation, axiosOptions);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * Perform a full update of a workflow.  The updated workflow object is returned in the response.
+         * @summary Update Workflow
+         * @param {string} id Id of the Workflow
+         * @param {WorkflowBody} workflowBody 
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        async putWorkflow(id: string, workflowBody: WorkflowBody, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Workflow>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.putWorkflow(id, workflowBody, axiosOptions);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * Validate a workflow with an \"External Trigger\" can receive input.  The response includes the input that the workflow received, which can be used to validate that the input is intact when it reaches the workflow.
+         * @summary Test Workflow via External Trigger
+         * @param {string} id Id of the workflow
+         * @param {TestExternalExecuteWorkflowRequest} [testExternalExecuteWorkflowRequest] 
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        async testExternalExecuteWorkflow(id: string, testExternalExecuteWorkflowRequest?: TestExternalExecuteWorkflowRequest, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<TestExternalExecuteWorkflow200Response>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.testExternalExecuteWorkflow(id, testExternalExecuteWorkflowRequest, axiosOptions);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * Test a workflow with the provided input data.  The input data should resemble the input that the trigger will send the workflow.  See the [event trigger documentation](https://developer.sailpoint.com/idn/docs/event-triggers/available) for an example input for the trigger that initiates this workflow. This endpoint will return an execution ID, which can be used to lookup more information about the execution using the `Get a Workflow Execution` endpoint. **This will cause a live run of the workflow, which could result in unintended modifications to your IDN tenant.**
+         * @summary Test Workflow By Id
+         * @param {string} id Id of the workflow
+         * @param {TestWorkflowRequest} testWorkflowRequest 
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        async testWorkflow(id: string, testWorkflowRequest: TestWorkflowRequest, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<TestWorkflow200Response>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.testWorkflow(id, testWorkflowRequest, axiosOptions);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+    }
+};
+
+/**
+ * WorkflowsApi - factory interface
+ * @export
+ */
+export const WorkflowsApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
+    const localVarFp = WorkflowsApiFp(configuration)
+    return {
+        /**
+         * Use this API to cancel a running workflow execution.
+         * @summary Cancel Workflow Execution by ID
+         * @param {string} id The workflow execution ID
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        cancelWorkflowExecution(id: string, axiosOptions?: any): AxiosPromise<void> {
+            return localVarFp.cancelWorkflowExecution(id, axiosOptions).then((request) => request(axios, basePath));
+        },
+        /**
+         * This endpoint allows a service outside of IdentityNow to initiate a workflow that uses the \"External Trigger\" step.  The external service will invoke this endpoint with the input data it wants to send to the workflow in the body.
+         * @summary Execute Workflow via External Trigger
+         * @param {string} id Id of the workflow
+         * @param {CreateExternalExecuteWorkflowRequest} [createExternalExecuteWorkflowRequest] 
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        createExternalExecuteWorkflow(id: string, createExternalExecuteWorkflowRequest?: CreateExternalExecuteWorkflowRequest, axiosOptions?: any): AxiosPromise<CreateExternalExecuteWorkflow200Response> {
+            return localVarFp.createExternalExecuteWorkflow(id, createExternalExecuteWorkflowRequest, axiosOptions).then((request) => request(axios, basePath));
+        },
+        /**
+         * Create a new workflow with the desired trigger and steps specified in the request body.
+         * @summary Create Workflow
+         * @param {CreateWorkflowRequest} createWorkflowRequest 
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        createWorkflow(createWorkflowRequest: CreateWorkflowRequest, axiosOptions?: any): AxiosPromise<Workflow> {
+            return localVarFp.createWorkflow(createWorkflowRequest, axiosOptions).then((request) => request(axios, basePath));
+        },
+        /**
+         * Create OAuth client ID, client secret, and callback URL for use in an external trigger.  External triggers will need this information to generate an access token to authenticate to the callback URL and submit a trigger payload that will initiate the workflow.
+         * @summary Generate External Trigger OAuth Client
+         * @param {string} id Id of the workflow
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        createWorkflowExternalTrigger(id: string, axiosOptions?: any): AxiosPromise<WorkflowOAuthClient> {
+            return localVarFp.createWorkflowExternalTrigger(id, axiosOptions).then((request) => request(axios, basePath));
+        },
+        /**
+         * Delete a workflow.  **Enabled workflows cannot be deleted**.  They must first be disabled.
+         * @summary Delete Workflow By Id
+         * @param {string} id Id of the Workflow
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        deleteWorkflow(id: string, axiosOptions?: any): AxiosPromise<void> {
+            return localVarFp.deleteWorkflow(id, axiosOptions).then((request) => request(axios, basePath));
+        },
+        /**
+         * Get a single workflow by id.
+         * @summary Get Workflow By Id
+         * @param {string} id Id of the workflow
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        getWorkflow(id: string, axiosOptions?: any): AxiosPromise<Workflow> {
+            return localVarFp.getWorkflow(id, axiosOptions).then((request) => request(axios, basePath));
+        },
+        /**
+         * Get a single workflow execution.  Workflow executions are available for up to 90 days before being archived.  If you attempt to access a workflow execution that has been archived, you will receive a 404 Not Found.
+         * @summary Get a Workflow Execution
+         * @param {string} id Id of the workflow execution
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        getWorkflowExecution(id: string, axiosOptions?: any): AxiosPromise<object> {
+            return localVarFp.getWorkflowExecution(id, axiosOptions).then((request) => request(axios, basePath));
+        },
+        /**
+         * Get a detailed history of a single workflow execution.  Workflow executions are available for up to 90 days before being archived.  If you attempt to access a workflow execution that has been archived, you will receive a 404 Not Found.
+         * @summary Get Workflow Execution History
+         * @param {string} id Id of the workflow execution
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        getWorkflowExecutionHistory(id: string, axiosOptions?: any): AxiosPromise<Array<WorkflowExecutionEvent>> {
+            return localVarFp.getWorkflowExecutionHistory(id, axiosOptions).then((request) => request(axios, basePath));
+        },
+        /**
+         * This lists all triggers, actions, and operators in the library
+         * @summary List Complete Workflow Library
+         * @param {number} [limit] Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+         * @param {number} [offset] Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        listCompleteWorkflowLibrary(limit?: number, offset?: number, axiosOptions?: any): AxiosPromise<Array<ListCompleteWorkflowLibrary200ResponseInner>> {
+            return localVarFp.listCompleteWorkflowLibrary(limit, offset, axiosOptions).then((request) => request(axios, basePath));
+        },
+        /**
+         * This lists the executions for a given workflow. Workflow executions are available for up to 90 days before being archived. By default, you can get a maximum of 250 executions. To get executions past the first 250 records, you can do the following: 1. Use the [Get Workflows](https://developer.sailpoint.com/idn/api/beta/list-workflows) endpoint to get your workflows. 2. Get your workflow ID from the response. 3. You can then do either of the following:    - Filter to find relevant workflow executions.   For example, you can filter for failed workflow executions: `GET /workflows/:workflowID/executions?filters=status eq \"Failed\"`    - You can paginate through results with the `offset` parameter.   For example, you can page through 50 executions per page and use that as a way to get to the records past the first 250.   Refer to [Paginating Results](https://developer.sailpoint.com/idn/api/standard-collection-parameters#paginating-results) for more information about the query parameters you can use to achieve pagination.
+         * @summary List Workflow Executions
+         * @param {string} id Id of the workflow
+         * @param {number} [limit] Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+         * @param {number} [offset] Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+         * @param {boolean} [count] If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+         * @param {string} [filters] Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **startTime**: *eq, lt, le, gt, ge*  **status**: *eq*
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        listWorkflowExecutions(id: string, limit?: number, offset?: number, count?: boolean, filters?: string, axiosOptions?: any): AxiosPromise<Array<WorkflowExecution>> {
+            return localVarFp.listWorkflowExecutions(id, limit, offset, count, filters, axiosOptions).then((request) => request(axios, basePath));
+        },
+        /**
+         * This lists the workflow actions available to you.
+         * @summary List Workflow Library Actions
+         * @param {number} [limit] Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+         * @param {number} [offset] Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+         * @param {string} [filters] Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq*
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        listWorkflowLibraryActions(limit?: number, offset?: number, filters?: string, axiosOptions?: any): AxiosPromise<Array<WorkflowLibraryAction>> {
+            return localVarFp.listWorkflowLibraryActions(limit, offset, filters, axiosOptions).then((request) => request(axios, basePath));
+        },
+        /**
+         * This lists the workflow operators available to you
+         * @summary List Workflow Library Operators
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        listWorkflowLibraryOperators(axiosOptions?: any): AxiosPromise<Array<WorkflowLibraryOperator>> {
+            return localVarFp.listWorkflowLibraryOperators(axiosOptions).then((request) => request(axios, basePath));
+        },
+        /**
+         * This lists the workflow triggers available to you
+         * @summary List Workflow Library Triggers
+         * @param {number} [limit] Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+         * @param {number} [offset] Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+         * @param {string} [filters] Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq*
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        listWorkflowLibraryTriggers(limit?: number, offset?: number, filters?: string, axiosOptions?: any): AxiosPromise<Array<WorkflowLibraryTrigger>> {
+            return localVarFp.listWorkflowLibraryTriggers(limit, offset, filters, axiosOptions).then((request) => request(axios, basePath));
+        },
+        /**
+         * List all workflows in the tenant.
+         * @summary List Workflows
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        listWorkflows(axiosOptions?: any): AxiosPromise<Array<Workflow>> {
+            return localVarFp.listWorkflows(axiosOptions).then((request) => request(axios, basePath));
+        },
+        /**
+         * Partially update an existing Workflow using [JSON Patch](https://tools.ietf.org/html/rfc6902) syntax.
+         * @summary Patch Workflow
+         * @param {string} id Id of the Workflow
+         * @param {Array<JsonPatchOperation>} jsonPatchOperation 
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        patchWorkflow(id: string, jsonPatchOperation: Array<JsonPatchOperation>, axiosOptions?: any): AxiosPromise<Workflow> {
+            return localVarFp.patchWorkflow(id, jsonPatchOperation, axiosOptions).then((request) => request(axios, basePath));
+        },
+        /**
+         * Perform a full update of a workflow.  The updated workflow object is returned in the response.
+         * @summary Update Workflow
+         * @param {string} id Id of the Workflow
+         * @param {WorkflowBody} workflowBody 
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        putWorkflow(id: string, workflowBody: WorkflowBody, axiosOptions?: any): AxiosPromise<Workflow> {
+            return localVarFp.putWorkflow(id, workflowBody, axiosOptions).then((request) => request(axios, basePath));
+        },
+        /**
+         * Validate a workflow with an \"External Trigger\" can receive input.  The response includes the input that the workflow received, which can be used to validate that the input is intact when it reaches the workflow.
+         * @summary Test Workflow via External Trigger
+         * @param {string} id Id of the workflow
+         * @param {TestExternalExecuteWorkflowRequest} [testExternalExecuteWorkflowRequest] 
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        testExternalExecuteWorkflow(id: string, testExternalExecuteWorkflowRequest?: TestExternalExecuteWorkflowRequest, axiosOptions?: any): AxiosPromise<TestExternalExecuteWorkflow200Response> {
+            return localVarFp.testExternalExecuteWorkflow(id, testExternalExecuteWorkflowRequest, axiosOptions).then((request) => request(axios, basePath));
+        },
+        /**
+         * Test a workflow with the provided input data.  The input data should resemble the input that the trigger will send the workflow.  See the [event trigger documentation](https://developer.sailpoint.com/idn/docs/event-triggers/available) for an example input for the trigger that initiates this workflow. This endpoint will return an execution ID, which can be used to lookup more information about the execution using the `Get a Workflow Execution` endpoint. **This will cause a live run of the workflow, which could result in unintended modifications to your IDN tenant.**
+         * @summary Test Workflow By Id
+         * @param {string} id Id of the workflow
+         * @param {TestWorkflowRequest} testWorkflowRequest 
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        testWorkflow(id: string, testWorkflowRequest: TestWorkflowRequest, axiosOptions?: any): AxiosPromise<TestWorkflow200Response> {
+            return localVarFp.testWorkflow(id, testWorkflowRequest, axiosOptions).then((request) => request(axios, basePath));
+        },
+    };
+};
+
+/**
+ * Request parameters for cancelWorkflowExecution operation in WorkflowsApi.
+ * @export
+ * @interface WorkflowsApiCancelWorkflowExecutionRequest
+ */
+export interface WorkflowsApiCancelWorkflowExecutionRequest {
+    /**
+     * The workflow execution ID
+     * @type {string}
+     * @memberof WorkflowsApiCancelWorkflowExecution
+     */
+    readonly id: string
+}
+
+/**
+ * Request parameters for createExternalExecuteWorkflow operation in WorkflowsApi.
+ * @export
+ * @interface WorkflowsApiCreateExternalExecuteWorkflowRequest
+ */
+export interface WorkflowsApiCreateExternalExecuteWorkflowRequest {
+    /**
+     * Id of the workflow
+     * @type {string}
+     * @memberof WorkflowsApiCreateExternalExecuteWorkflow
+     */
+    readonly id: string
+
+    /**
+     * 
+     * @type {CreateExternalExecuteWorkflowRequest}
+     * @memberof WorkflowsApiCreateExternalExecuteWorkflow
+     */
+    readonly createExternalExecuteWorkflowRequest?: CreateExternalExecuteWorkflowRequest
+}
+
+/**
+ * Request parameters for createWorkflow operation in WorkflowsApi.
+ * @export
+ * @interface WorkflowsApiCreateWorkflowRequest
+ */
+export interface WorkflowsApiCreateWorkflowRequest {
+    /**
+     * 
+     * @type {CreateWorkflowRequest}
+     * @memberof WorkflowsApiCreateWorkflow
+     */
+    readonly createWorkflowRequest: CreateWorkflowRequest
+}
+
+/**
+ * Request parameters for createWorkflowExternalTrigger operation in WorkflowsApi.
+ * @export
+ * @interface WorkflowsApiCreateWorkflowExternalTriggerRequest
+ */
+export interface WorkflowsApiCreateWorkflowExternalTriggerRequest {
+    /**
+     * Id of the workflow
+     * @type {string}
+     * @memberof WorkflowsApiCreateWorkflowExternalTrigger
+     */
+    readonly id: string
+}
+
+/**
+ * Request parameters for deleteWorkflow operation in WorkflowsApi.
+ * @export
+ * @interface WorkflowsApiDeleteWorkflowRequest
+ */
+export interface WorkflowsApiDeleteWorkflowRequest {
+    /**
+     * Id of the Workflow
+     * @type {string}
+     * @memberof WorkflowsApiDeleteWorkflow
+     */
+    readonly id: string
+}
+
+/**
+ * Request parameters for getWorkflow operation in WorkflowsApi.
+ * @export
+ * @interface WorkflowsApiGetWorkflowRequest
+ */
+export interface WorkflowsApiGetWorkflowRequest {
+    /**
+     * Id of the workflow
+     * @type {string}
+     * @memberof WorkflowsApiGetWorkflow
+     */
+    readonly id: string
+}
+
+/**
+ * Request parameters for getWorkflowExecution operation in WorkflowsApi.
+ * @export
+ * @interface WorkflowsApiGetWorkflowExecutionRequest
+ */
+export interface WorkflowsApiGetWorkflowExecutionRequest {
+    /**
+     * Id of the workflow execution
+     * @type {string}
+     * @memberof WorkflowsApiGetWorkflowExecution
+     */
+    readonly id: string
+}
+
+/**
+ * Request parameters for getWorkflowExecutionHistory operation in WorkflowsApi.
+ * @export
+ * @interface WorkflowsApiGetWorkflowExecutionHistoryRequest
+ */
+export interface WorkflowsApiGetWorkflowExecutionHistoryRequest {
+    /**
+     * Id of the workflow execution
+     * @type {string}
+     * @memberof WorkflowsApiGetWorkflowExecutionHistory
+     */
+    readonly id: string
+}
+
+/**
+ * Request parameters for listCompleteWorkflowLibrary operation in WorkflowsApi.
+ * @export
+ * @interface WorkflowsApiListCompleteWorkflowLibraryRequest
+ */
+export interface WorkflowsApiListCompleteWorkflowLibraryRequest {
+    /**
+     * Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+     * @type {number}
+     * @memberof WorkflowsApiListCompleteWorkflowLibrary
+     */
+    readonly limit?: number
+
+    /**
+     * Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+     * @type {number}
+     * @memberof WorkflowsApiListCompleteWorkflowLibrary
+     */
+    readonly offset?: number
+}
+
+/**
+ * Request parameters for listWorkflowExecutions operation in WorkflowsApi.
+ * @export
+ * @interface WorkflowsApiListWorkflowExecutionsRequest
+ */
+export interface WorkflowsApiListWorkflowExecutionsRequest {
+    /**
+     * Id of the workflow
+     * @type {string}
+     * @memberof WorkflowsApiListWorkflowExecutions
+     */
+    readonly id: string
+
+    /**
+     * Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+     * @type {number}
+     * @memberof WorkflowsApiListWorkflowExecutions
+     */
+    readonly limit?: number
+
+    /**
+     * Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+     * @type {number}
+     * @memberof WorkflowsApiListWorkflowExecutions
+     */
+    readonly offset?: number
+
+    /**
+     * If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+     * @type {boolean}
+     * @memberof WorkflowsApiListWorkflowExecutions
+     */
+    readonly count?: boolean
+
+    /**
+     * Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **startTime**: *eq, lt, le, gt, ge*  **status**: *eq*
+     * @type {string}
+     * @memberof WorkflowsApiListWorkflowExecutions
+     */
+    readonly filters?: string
+}
+
+/**
+ * Request parameters for listWorkflowLibraryActions operation in WorkflowsApi.
+ * @export
+ * @interface WorkflowsApiListWorkflowLibraryActionsRequest
+ */
+export interface WorkflowsApiListWorkflowLibraryActionsRequest {
+    /**
+     * Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+     * @type {number}
+     * @memberof WorkflowsApiListWorkflowLibraryActions
+     */
+    readonly limit?: number
+
+    /**
+     * Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+     * @type {number}
+     * @memberof WorkflowsApiListWorkflowLibraryActions
+     */
+    readonly offset?: number
+
+    /**
+     * Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq*
+     * @type {string}
+     * @memberof WorkflowsApiListWorkflowLibraryActions
+     */
+    readonly filters?: string
+}
+
+/**
+ * Request parameters for listWorkflowLibraryTriggers operation in WorkflowsApi.
+ * @export
+ * @interface WorkflowsApiListWorkflowLibraryTriggersRequest
+ */
+export interface WorkflowsApiListWorkflowLibraryTriggersRequest {
+    /**
+     * Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+     * @type {number}
+     * @memberof WorkflowsApiListWorkflowLibraryTriggers
+     */
+    readonly limit?: number
+
+    /**
+     * Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+     * @type {number}
+     * @memberof WorkflowsApiListWorkflowLibraryTriggers
+     */
+    readonly offset?: number
+
+    /**
+     * Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq*
+     * @type {string}
+     * @memberof WorkflowsApiListWorkflowLibraryTriggers
+     */
+    readonly filters?: string
+}
+
+/**
+ * Request parameters for patchWorkflow operation in WorkflowsApi.
+ * @export
+ * @interface WorkflowsApiPatchWorkflowRequest
+ */
+export interface WorkflowsApiPatchWorkflowRequest {
+    /**
+     * Id of the Workflow
+     * @type {string}
+     * @memberof WorkflowsApiPatchWorkflow
+     */
+    readonly id: string
+
+    /**
+     * 
+     * @type {Array<JsonPatchOperation>}
+     * @memberof WorkflowsApiPatchWorkflow
+     */
+    readonly jsonPatchOperation: Array<JsonPatchOperation>
+}
+
+/**
+ * Request parameters for putWorkflow operation in WorkflowsApi.
+ * @export
+ * @interface WorkflowsApiPutWorkflowRequest
+ */
+export interface WorkflowsApiPutWorkflowRequest {
+    /**
+     * Id of the Workflow
+     * @type {string}
+     * @memberof WorkflowsApiPutWorkflow
+     */
+    readonly id: string
+
+    /**
+     * 
+     * @type {WorkflowBody}
+     * @memberof WorkflowsApiPutWorkflow
+     */
+    readonly workflowBody: WorkflowBody
+}
+
+/**
+ * Request parameters for testExternalExecuteWorkflow operation in WorkflowsApi.
+ * @export
+ * @interface WorkflowsApiTestExternalExecuteWorkflowRequest
+ */
+export interface WorkflowsApiTestExternalExecuteWorkflowRequest {
+    /**
+     * Id of the workflow
+     * @type {string}
+     * @memberof WorkflowsApiTestExternalExecuteWorkflow
+     */
+    readonly id: string
+
+    /**
+     * 
+     * @type {TestExternalExecuteWorkflowRequest}
+     * @memberof WorkflowsApiTestExternalExecuteWorkflow
+     */
+    readonly testExternalExecuteWorkflowRequest?: TestExternalExecuteWorkflowRequest
+}
+
+/**
+ * Request parameters for testWorkflow operation in WorkflowsApi.
+ * @export
+ * @interface WorkflowsApiTestWorkflowRequest
+ */
+export interface WorkflowsApiTestWorkflowRequest {
+    /**
+     * Id of the workflow
+     * @type {string}
+     * @memberof WorkflowsApiTestWorkflow
+     */
+    readonly id: string
+
+    /**
+     * 
+     * @type {TestWorkflowRequest}
+     * @memberof WorkflowsApiTestWorkflow
+     */
+    readonly testWorkflowRequest: TestWorkflowRequest
+}
+
+/**
+ * WorkflowsApi - object-oriented interface
+ * @export
+ * @class WorkflowsApi
+ * @extends {BaseAPI}
+ */
+export class WorkflowsApi extends BaseAPI {
+    /**
+     * Use this API to cancel a running workflow execution.
+     * @summary Cancel Workflow Execution by ID
+     * @param {WorkflowsApiCancelWorkflowExecutionRequest} requestParameters Request parameters.
+     * @param {*} [axiosOptions] Override http request option.
+     * @throws {RequiredError}
+     * @memberof WorkflowsApi
+     */
+    public cancelWorkflowExecution(requestParameters: WorkflowsApiCancelWorkflowExecutionRequest, axiosOptions?: AxiosRequestConfig) {
+        return WorkflowsApiFp(this.configuration).cancelWorkflowExecution(requestParameters.id, axiosOptions).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * This endpoint allows a service outside of IdentityNow to initiate a workflow that uses the \"External Trigger\" step.  The external service will invoke this endpoint with the input data it wants to send to the workflow in the body.
+     * @summary Execute Workflow via External Trigger
+     * @param {WorkflowsApiCreateExternalExecuteWorkflowRequest} requestParameters Request parameters.
+     * @param {*} [axiosOptions] Override http request option.
+     * @throws {RequiredError}
+     * @memberof WorkflowsApi
+     */
+    public createExternalExecuteWorkflow(requestParameters: WorkflowsApiCreateExternalExecuteWorkflowRequest, axiosOptions?: AxiosRequestConfig) {
+        return WorkflowsApiFp(this.configuration).createExternalExecuteWorkflow(requestParameters.id, requestParameters.createExternalExecuteWorkflowRequest, axiosOptions).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Create a new workflow with the desired trigger and steps specified in the request body.
+     * @summary Create Workflow
+     * @param {WorkflowsApiCreateWorkflowRequest} requestParameters Request parameters.
+     * @param {*} [axiosOptions] Override http request option.
+     * @throws {RequiredError}
+     * @memberof WorkflowsApi
+     */
+    public createWorkflow(requestParameters: WorkflowsApiCreateWorkflowRequest, axiosOptions?: AxiosRequestConfig) {
+        return WorkflowsApiFp(this.configuration).createWorkflow(requestParameters.createWorkflowRequest, axiosOptions).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Create OAuth client ID, client secret, and callback URL for use in an external trigger.  External triggers will need this information to generate an access token to authenticate to the callback URL and submit a trigger payload that will initiate the workflow.
+     * @summary Generate External Trigger OAuth Client
+     * @param {WorkflowsApiCreateWorkflowExternalTriggerRequest} requestParameters Request parameters.
+     * @param {*} [axiosOptions] Override http request option.
+     * @throws {RequiredError}
+     * @memberof WorkflowsApi
+     */
+    public createWorkflowExternalTrigger(requestParameters: WorkflowsApiCreateWorkflowExternalTriggerRequest, axiosOptions?: AxiosRequestConfig) {
+        return WorkflowsApiFp(this.configuration).createWorkflowExternalTrigger(requestParameters.id, axiosOptions).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Delete a workflow.  **Enabled workflows cannot be deleted**.  They must first be disabled.
+     * @summary Delete Workflow By Id
+     * @param {WorkflowsApiDeleteWorkflowRequest} requestParameters Request parameters.
+     * @param {*} [axiosOptions] Override http request option.
+     * @throws {RequiredError}
+     * @memberof WorkflowsApi
+     */
+    public deleteWorkflow(requestParameters: WorkflowsApiDeleteWorkflowRequest, axiosOptions?: AxiosRequestConfig) {
+        return WorkflowsApiFp(this.configuration).deleteWorkflow(requestParameters.id, axiosOptions).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Get a single workflow by id.
+     * @summary Get Workflow By Id
+     * @param {WorkflowsApiGetWorkflowRequest} requestParameters Request parameters.
+     * @param {*} [axiosOptions] Override http request option.
+     * @throws {RequiredError}
+     * @memberof WorkflowsApi
+     */
+    public getWorkflow(requestParameters: WorkflowsApiGetWorkflowRequest, axiosOptions?: AxiosRequestConfig) {
+        return WorkflowsApiFp(this.configuration).getWorkflow(requestParameters.id, axiosOptions).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Get a single workflow execution.  Workflow executions are available for up to 90 days before being archived.  If you attempt to access a workflow execution that has been archived, you will receive a 404 Not Found.
+     * @summary Get a Workflow Execution
+     * @param {WorkflowsApiGetWorkflowExecutionRequest} requestParameters Request parameters.
+     * @param {*} [axiosOptions] Override http request option.
+     * @throws {RequiredError}
+     * @memberof WorkflowsApi
+     */
+    public getWorkflowExecution(requestParameters: WorkflowsApiGetWorkflowExecutionRequest, axiosOptions?: AxiosRequestConfig) {
+        return WorkflowsApiFp(this.configuration).getWorkflowExecution(requestParameters.id, axiosOptions).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Get a detailed history of a single workflow execution.  Workflow executions are available for up to 90 days before being archived.  If you attempt to access a workflow execution that has been archived, you will receive a 404 Not Found.
+     * @summary Get Workflow Execution History
+     * @param {WorkflowsApiGetWorkflowExecutionHistoryRequest} requestParameters Request parameters.
+     * @param {*} [axiosOptions] Override http request option.
+     * @throws {RequiredError}
+     * @memberof WorkflowsApi
+     */
+    public getWorkflowExecutionHistory(requestParameters: WorkflowsApiGetWorkflowExecutionHistoryRequest, axiosOptions?: AxiosRequestConfig) {
+        return WorkflowsApiFp(this.configuration).getWorkflowExecutionHistory(requestParameters.id, axiosOptions).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * This lists all triggers, actions, and operators in the library
+     * @summary List Complete Workflow Library
+     * @param {WorkflowsApiListCompleteWorkflowLibraryRequest} requestParameters Request parameters.
+     * @param {*} [axiosOptions] Override http request option.
+     * @throws {RequiredError}
+     * @memberof WorkflowsApi
+     */
+    public listCompleteWorkflowLibrary(requestParameters: WorkflowsApiListCompleteWorkflowLibraryRequest = {}, axiosOptions?: AxiosRequestConfig) {
+        return WorkflowsApiFp(this.configuration).listCompleteWorkflowLibrary(requestParameters.limit, requestParameters.offset, axiosOptions).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * This lists the executions for a given workflow. Workflow executions are available for up to 90 days before being archived. By default, you can get a maximum of 250 executions. To get executions past the first 250 records, you can do the following: 1. Use the [Get Workflows](https://developer.sailpoint.com/idn/api/beta/list-workflows) endpoint to get your workflows. 2. Get your workflow ID from the response. 3. You can then do either of the following:    - Filter to find relevant workflow executions.   For example, you can filter for failed workflow executions: `GET /workflows/:workflowID/executions?filters=status eq \"Failed\"`    - You can paginate through results with the `offset` parameter.   For example, you can page through 50 executions per page and use that as a way to get to the records past the first 250.   Refer to [Paginating Results](https://developer.sailpoint.com/idn/api/standard-collection-parameters#paginating-results) for more information about the query parameters you can use to achieve pagination.
+     * @summary List Workflow Executions
+     * @param {WorkflowsApiListWorkflowExecutionsRequest} requestParameters Request parameters.
+     * @param {*} [axiosOptions] Override http request option.
+     * @throws {RequiredError}
+     * @memberof WorkflowsApi
+     */
+    public listWorkflowExecutions(requestParameters: WorkflowsApiListWorkflowExecutionsRequest, axiosOptions?: AxiosRequestConfig) {
+        return WorkflowsApiFp(this.configuration).listWorkflowExecutions(requestParameters.id, requestParameters.limit, requestParameters.offset, requestParameters.count, requestParameters.filters, axiosOptions).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * This lists the workflow actions available to you.
+     * @summary List Workflow Library Actions
+     * @param {WorkflowsApiListWorkflowLibraryActionsRequest} requestParameters Request parameters.
+     * @param {*} [axiosOptions] Override http request option.
+     * @throws {RequiredError}
+     * @memberof WorkflowsApi
+     */
+    public listWorkflowLibraryActions(requestParameters: WorkflowsApiListWorkflowLibraryActionsRequest = {}, axiosOptions?: AxiosRequestConfig) {
+        return WorkflowsApiFp(this.configuration).listWorkflowLibraryActions(requestParameters.limit, requestParameters.offset, requestParameters.filters, axiosOptions).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * This lists the workflow operators available to you
+     * @summary List Workflow Library Operators
+     * @param {*} [axiosOptions] Override http request option.
+     * @throws {RequiredError}
+     * @memberof WorkflowsApi
+     */
+    public listWorkflowLibraryOperators(axiosOptions?: AxiosRequestConfig) {
+        return WorkflowsApiFp(this.configuration).listWorkflowLibraryOperators(axiosOptions).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * This lists the workflow triggers available to you
+     * @summary List Workflow Library Triggers
+     * @param {WorkflowsApiListWorkflowLibraryTriggersRequest} requestParameters Request parameters.
+     * @param {*} [axiosOptions] Override http request option.
+     * @throws {RequiredError}
+     * @memberof WorkflowsApi
+     */
+    public listWorkflowLibraryTriggers(requestParameters: WorkflowsApiListWorkflowLibraryTriggersRequest = {}, axiosOptions?: AxiosRequestConfig) {
+        return WorkflowsApiFp(this.configuration).listWorkflowLibraryTriggers(requestParameters.limit, requestParameters.offset, requestParameters.filters, axiosOptions).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * List all workflows in the tenant.
+     * @summary List Workflows
+     * @param {*} [axiosOptions] Override http request option.
+     * @throws {RequiredError}
+     * @memberof WorkflowsApi
+     */
+    public listWorkflows(axiosOptions?: AxiosRequestConfig) {
+        return WorkflowsApiFp(this.configuration).listWorkflows(axiosOptions).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Partially update an existing Workflow using [JSON Patch](https://tools.ietf.org/html/rfc6902) syntax.
+     * @summary Patch Workflow
+     * @param {WorkflowsApiPatchWorkflowRequest} requestParameters Request parameters.
+     * @param {*} [axiosOptions] Override http request option.
+     * @throws {RequiredError}
+     * @memberof WorkflowsApi
+     */
+    public patchWorkflow(requestParameters: WorkflowsApiPatchWorkflowRequest, axiosOptions?: AxiosRequestConfig) {
+        return WorkflowsApiFp(this.configuration).patchWorkflow(requestParameters.id, requestParameters.jsonPatchOperation, axiosOptions).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Perform a full update of a workflow.  The updated workflow object is returned in the response.
+     * @summary Update Workflow
+     * @param {WorkflowsApiPutWorkflowRequest} requestParameters Request parameters.
+     * @param {*} [axiosOptions] Override http request option.
+     * @throws {RequiredError}
+     * @memberof WorkflowsApi
+     */
+    public putWorkflow(requestParameters: WorkflowsApiPutWorkflowRequest, axiosOptions?: AxiosRequestConfig) {
+        return WorkflowsApiFp(this.configuration).putWorkflow(requestParameters.id, requestParameters.workflowBody, axiosOptions).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Validate a workflow with an \"External Trigger\" can receive input.  The response includes the input that the workflow received, which can be used to validate that the input is intact when it reaches the workflow.
+     * @summary Test Workflow via External Trigger
+     * @param {WorkflowsApiTestExternalExecuteWorkflowRequest} requestParameters Request parameters.
+     * @param {*} [axiosOptions] Override http request option.
+     * @throws {RequiredError}
+     * @memberof WorkflowsApi
+     */
+    public testExternalExecuteWorkflow(requestParameters: WorkflowsApiTestExternalExecuteWorkflowRequest, axiosOptions?: AxiosRequestConfig) {
+        return WorkflowsApiFp(this.configuration).testExternalExecuteWorkflow(requestParameters.id, requestParameters.testExternalExecuteWorkflowRequest, axiosOptions).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Test a workflow with the provided input data.  The input data should resemble the input that the trigger will send the workflow.  See the [event trigger documentation](https://developer.sailpoint.com/idn/docs/event-triggers/available) for an example input for the trigger that initiates this workflow. This endpoint will return an execution ID, which can be used to lookup more information about the execution using the `Get a Workflow Execution` endpoint. **This will cause a live run of the workflow, which could result in unintended modifications to your IDN tenant.**
+     * @summary Test Workflow By Id
+     * @param {WorkflowsApiTestWorkflowRequest} requestParameters Request parameters.
+     * @param {*} [axiosOptions] Override http request option.
+     * @throws {RequiredError}
+     * @memberof WorkflowsApi
+     */
+    public testWorkflow(requestParameters: WorkflowsApiTestWorkflowRequest, axiosOptions?: AxiosRequestConfig) {
+        return WorkflowsApiFp(this.configuration).testWorkflow(requestParameters.id, requestParameters.testWorkflowRequest, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 }
 
