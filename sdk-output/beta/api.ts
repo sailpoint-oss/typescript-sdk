@@ -7724,10 +7724,10 @@ export interface CreateFormInstanceRequestBeta {
     'formDefinitionId': string;
     /**
      * FormInput is an object of form input labels to value
-     * @type {{ [key: string]: object; }}
+     * @type {{ [key: string]: any; }}
      * @memberof CreateFormInstanceRequestBeta
      */
-    'formInput'?: { [key: string]: object; };
+    'formInput'?: { [key: string]: any; };
     /**
      * Recipients is required
      * @type {Array<FormInstanceRecipientBeta>}
