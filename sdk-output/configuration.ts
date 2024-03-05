@@ -133,16 +133,15 @@ export class Configuration {
         this.tokenUrl = param.tokenUrl
         this.clientId = param.clientId;
         this.clientSecret = param.clientSecret;
-        const url = `${this.tokenUrl}`;
-        const formData = new FormData()
-        formData .append('grant_type', 'client_credentials')
-        formData .append('client_id', this.clientId)
-        formData .append('client_secret', this.clientSecret)
-
+        
         if (!this.accessToken) {
+            const url = `${this.tokenUrl}`;
+            const formData = new FormData()
+            formData.append('grant_type', 'client_credentials')
+            formData.append('client_id', this.clientId)
+            formData.append('client_secret', this.clientSecret)
             this.accessToken = this.getAccessToken(url, formData);
         }
-        
     }
 
     private getHomeParams(): ConfigurationParameters {
