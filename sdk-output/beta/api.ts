@@ -13805,6 +13805,25 @@ export interface LeftPadBeta {
 /**
  * 
  * @export
+ * @interface LicenseBeta
+ */
+export interface LicenseBeta {
+    /**
+     * Name of the license
+     * @type {string}
+     * @memberof LicenseBeta
+     */
+    'licenseId'?: string;
+    /**
+     * Legacy name of the license
+     * @type {string}
+     * @memberof LicenseBeta
+     */
+    'legacyFeatureName'?: string;
+}
+/**
+ * 
+ * @export
  * @interface LifecycleStateBeta
  */
 export interface LifecycleStateBeta {
@@ -17938,6 +17957,124 @@ export interface ProcessIdentitiesRequestBeta {
      */
     'identityIds'?: Array<string>;
 }
+/**
+ * 
+ * @export
+ * @interface ProductBeta
+ */
+export interface ProductBeta {
+    /**
+     * Name of the Product
+     * @type {string}
+     * @memberof ProductBeta
+     */
+    'productName'?: string;
+    /**
+     * URL of the Product
+     * @type {string}
+     * @memberof ProductBeta
+     */
+    'url'?: string;
+    /**
+     * An identifier for a specific product-tenant combination
+     * @type {string}
+     * @memberof ProductBeta
+     */
+    'productTenantId'?: string;
+    /**
+     * Product region
+     * @type {string}
+     * @memberof ProductBeta
+     */
+    'productRegion'?: string;
+    /**
+     * Right needed for the Product
+     * @type {string}
+     * @memberof ProductBeta
+     */
+    'productRight'?: string;
+    /**
+     * API URL of the Product
+     * @type {string}
+     * @memberof ProductBeta
+     */
+    'apiUrl'?: string | null;
+    /**
+     * 
+     * @type {Array<LicenseBeta>}
+     * @memberof ProductBeta
+     */
+    'licenses'?: Array<LicenseBeta>;
+    /**
+     * Additional attributes for a product
+     * @type {{ [key: string]: any; }}
+     * @memberof ProductBeta
+     */
+    'attributes'?: { [key: string]: any; };
+    /**
+     * Zone
+     * @type {string}
+     * @memberof ProductBeta
+     */
+    'zone'?: string;
+    /**
+     * Status of the product
+     * @type {string}
+     * @memberof ProductBeta
+     */
+    'status'?: string;
+    /**
+     * Status datetime
+     * @type {string}
+     * @memberof ProductBeta
+     */
+    'statusDateTime'?: string;
+    /**
+     * If there\'s a tenant provisioning failure then reason will have the description of error
+     * @type {string}
+     * @memberof ProductBeta
+     */
+    'reason'?: string;
+    /**
+     * Product could have additional notes added during tenant provisioning.
+     * @type {string}
+     * @memberof ProductBeta
+     */
+    'notes'?: string;
+    /**
+     * Date when the product was created
+     * @type {string}
+     * @memberof ProductBeta
+     */
+    'dateCreated'?: string | null;
+    /**
+     * Date when the product was last updated
+     * @type {string}
+     * @memberof ProductBeta
+     */
+    'lastUpdated'?: string | null;
+    /**
+     * Type of org
+     * @type {string}
+     * @memberof ProductBeta
+     */
+    'orgType'?: ProductBetaOrgTypeEnum;
+}
+
+export const ProductBetaOrgTypeEnum = {
+    Development: 'development',
+    Staging: 'staging',
+    Production: 'production',
+    Test: 'test',
+    Partner: 'partner',
+    Training: 'training',
+    Demonstration: 'demonstration',
+    Sandbox: 'sandbox',
+    Null: 'null'
+} as const;
+
+export type ProductBetaOrgTypeEnum = typeof ProductBetaOrgTypeEnum[keyof typeof ProductBetaOrgTypeEnum];
+
 /**
  * 
  * @export
@@ -26101,6 +26238,55 @@ export const TemplateDtoDefaultBetaMediumEnum = {
 
 export type TemplateDtoDefaultBetaMediumEnum = typeof TemplateDtoDefaultBetaMediumEnum[keyof typeof TemplateDtoDefaultBetaMediumEnum];
 
+/**
+ * 
+ * @export
+ * @interface TenantBeta
+ */
+export interface TenantBeta {
+    /**
+     * The unique identifier for the Tenant
+     * @type {string}
+     * @memberof TenantBeta
+     */
+    'id'?: string;
+    /**
+     * Abbreviated name of the Tenant
+     * @type {string}
+     * @memberof TenantBeta
+     */
+    'name'?: string;
+    /**
+     * Human-readable name of the Tenant
+     * @type {string}
+     * @memberof TenantBeta
+     */
+    'fullName'?: string;
+    /**
+     * Deployment pod for the Tenant
+     * @type {string}
+     * @memberof TenantBeta
+     */
+    'pod'?: string;
+    /**
+     * Deployment region for the Tenant
+     * @type {string}
+     * @memberof TenantBeta
+     */
+    'region'?: string;
+    /**
+     * Description of the Tenant
+     * @type {string}
+     * @memberof TenantBeta
+     */
+    'description'?: string;
+    /**
+     * 
+     * @type {Array<ProductBeta>}
+     * @memberof TenantBeta
+     */
+    'products'?: Array<ProductBeta>;
+}
 /**
  * Details of any tenant-wide Reassignment Configurations (eg. enabled/disabled)
  * @export
@@ -73625,6 +73811,112 @@ export class TaskManagementBetaApi extends BaseAPI {
      */
     public updateTaskStatus(requestParameters: TaskManagementBetaApiUpdateTaskStatusRequest, axiosOptions?: AxiosRequestConfig) {
         return TaskManagementBetaApiFp(this.configuration).updateTaskStatus(requestParameters.id, requestParameters.jsonPatchBeta, axiosOptions).then((request) => request(this.axios, this.basePath));
+    }
+}
+
+
+/**
+ * TenantBetaApi - axios parameter creator
+ * @export
+ */
+export const TenantBetaApiAxiosParamCreator = function (configuration?: Configuration) {
+    return {
+        /**
+         * This rest endpoint can be used to retrieve tenant details.
+         * @summary Get Tenant Information.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        getTenant: async (axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            const localVarPath = `/tenant`;
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...axiosOptions};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication UserContextAuth required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "UserContextAuth", [], configuration)
+
+            // authentication UserContextAuth required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "UserContextAuth", [], configuration)
+
+
+    
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                axiosOptions: localVarRequestOptions,
+            };
+        },
+    }
+};
+
+/**
+ * TenantBetaApi - functional programming interface
+ * @export
+ */
+export const TenantBetaApiFp = function(configuration?: Configuration) {
+    const localVarAxiosParamCreator = TenantBetaApiAxiosParamCreator(configuration)
+    return {
+        /**
+         * This rest endpoint can be used to retrieve tenant details.
+         * @summary Get Tenant Information.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        async getTenant(axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<TenantBeta>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getTenant(axiosOptions);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+    }
+};
+
+/**
+ * TenantBetaApi - factory interface
+ * @export
+ */
+export const TenantBetaApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
+    const localVarFp = TenantBetaApiFp(configuration)
+    return {
+        /**
+         * This rest endpoint can be used to retrieve tenant details.
+         * @summary Get Tenant Information.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        getTenant(axiosOptions?: any): AxiosPromise<TenantBeta> {
+            return localVarFp.getTenant(axiosOptions).then((request) => request(axios, basePath));
+        },
+    };
+};
+
+/**
+ * TenantBetaApi - object-oriented interface
+ * @export
+ * @class TenantBetaApi
+ * @extends {BaseAPI}
+ */
+export class TenantBetaApi extends BaseAPI {
+    /**
+     * This rest endpoint can be used to retrieve tenant details.
+     * @summary Get Tenant Information.
+     * @param {*} [axiosOptions] Override http request option.
+     * @throws {RequiredError}
+     * @memberof TenantBetaApi
+     */
+    public getTenant(axiosOptions?: AxiosRequestConfig) {
+        return TenantBetaApiFp(this.configuration).getTenant(axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 }
 
