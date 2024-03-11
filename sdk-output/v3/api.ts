@@ -3386,7 +3386,10 @@ export const AuthUserCapabilitiesEnum = {
     DasuiAuditor: 'das:ui-auditor',
     DasuiDataScope: 'das:ui-data-scope',
     SpaicDashboardRead: 'sp:aic-dashboard-read',
-    SpaicDashboardWrite: 'sp:aic-dashboard-write'
+    SpaicDashboardWrite: 'sp:aic-dashboard-write',
+    SpuiConfigHubAdmin: 'sp:ui-config-hub-admin',
+    SpuiConfigHubBackupAdmin: 'sp:ui-config-hub-backup-admin',
+    SpuiConfigHubRead: 'sp:ui-config-hub-read'
 } as const;
 
 export type AuthUserCapabilitiesEnum = typeof AuthUserCapabilitiesEnum[keyof typeof AuthUserCapabilitiesEnum];
