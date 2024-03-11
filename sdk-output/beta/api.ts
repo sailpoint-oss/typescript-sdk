@@ -13280,7 +13280,7 @@ export interface ImportEntitlementCsvRequestBeta {
      * @type {any}
      * @memberof ImportEntitlementCsvRequestBeta
      */
-    'data': any;
+    'data'?: any;
 }
 /**
  * 
@@ -13337,6 +13337,19 @@ export interface ImportFormDefinitions202ResponseErrorsInnerBeta {
      * @memberof ImportFormDefinitions202ResponseErrorsInnerBeta
      */
     'text'?: string;
+}
+/**
+ * 
+ * @export
+ * @interface ImportNonEmployeeRecordsInBulkRequestBeta
+ */
+export interface ImportNonEmployeeRecordsInBulkRequestBeta {
+    /**
+     * 
+     * @type {any}
+     * @memberof ImportNonEmployeeRecordsInBulkRequestBeta
+     */
+    'data': any;
 }
 /**
  * Object created or updated by import.
@@ -39546,15 +39559,13 @@ export const EntitlementsBetaApiAxiosParamCreator = function (configuration?: Co
          * Uploads a comma separated file (CSV) to a delimited file source and starts an entitlement aggregation on the source.   
          * @summary Import Entitlement CSV File
          * @param {string} id Source Id
-         * @param {any} data 
+         * @param {any} [data] 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        importEntitlementCsv: async (id: string, data: any, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        importEntitlementCsv: async (id: string, data?: any, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'id' is not null or undefined
             assertParamExists('importEntitlementCsv', 'id', id)
-            // verify required parameter 'data' is not null or undefined
-            assertParamExists('importEntitlementCsv', 'data', data)
             const localVarPath = `/entitlements/aggregate/sources/{id}`
                 .replace(`{${"id"}}`, encodeURIComponent(String(id)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
@@ -39986,11 +39997,11 @@ export const EntitlementsBetaApiFp = function(configuration?: Configuration) {
          * Uploads a comma separated file (CSV) to a delimited file source and starts an entitlement aggregation on the source.   
          * @summary Import Entitlement CSV File
          * @param {string} id Source Id
-         * @param {any} data 
+         * @param {any} [data] 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async importEntitlementCsv(id: string, data: any, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<LoadEntitlementTaskBeta>> {
+        async importEntitlementCsv(id: string, data?: any, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<LoadEntitlementTaskBeta>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.importEntitlementCsv(id, data, axiosOptions);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -40114,11 +40125,11 @@ export const EntitlementsBetaApiFactory = function (configuration?: Configuratio
          * Uploads a comma separated file (CSV) to a delimited file source and starts an entitlement aggregation on the source.   
          * @summary Import Entitlement CSV File
          * @param {string} id Source Id
-         * @param {any} data 
+         * @param {any} [data] 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        importEntitlementCsv(id: string, data: any, axiosOptions?: any): AxiosPromise<LoadEntitlementTaskBeta> {
+        importEntitlementCsv(id: string, data?: any, axiosOptions?: any): AxiosPromise<LoadEntitlementTaskBeta> {
             return localVarFp.importEntitlementCsv(id, data, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
@@ -40250,7 +40261,7 @@ export interface EntitlementsBetaApiImportEntitlementCsvRequest {
      * @type {any}
      * @memberof EntitlementsBetaApiImportEntitlementCsv
      */
-    readonly data: any
+    readonly data?: any
 }
 
 /**
