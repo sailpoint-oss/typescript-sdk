@@ -13411,7 +13411,7 @@ export interface ImportEntitlementCsvRequestBeta {
      * @type {any}
      * @memberof ImportEntitlementCsvRequestBeta
      */
-    'data'?: any;
+    'csvFile': any;
 }
 /**
  * 
@@ -39814,13 +39814,15 @@ export const EntitlementsBetaApiAxiosParamCreator = function (configuration?: Co
          * Uploads a comma separated file (CSV) to a delimited file source and starts an entitlement aggregation on the source.   
          * @summary Import Entitlement CSV File
          * @param {string} id Source Id
-         * @param {any} [data] 
+         * @param {any} csvFile 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        importEntitlementCsv: async (id: string, data?: any, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        importEntitlementCsv: async (id: string, csvFile: any, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'id' is not null or undefined
             assertParamExists('importEntitlementCsv', 'id', id)
+            // verify required parameter 'csvFile' is not null or undefined
+            assertParamExists('importEntitlementCsv', 'csvFile', csvFile)
             const localVarPath = `/entitlements/aggregate/sources/{id}`
                 .replace(`{${"id"}}`, encodeURIComponent(String(id)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
@@ -39844,8 +39846,8 @@ export const EntitlementsBetaApiAxiosParamCreator = function (configuration?: Co
             await setOAuthToObject(localVarHeaderParameter, "UserContextAuth", [], configuration)
 
 
-            if (data !== undefined) { 
-                localVarFormParams.append('data', data as any);
+            if (csvFile !== undefined) { 
+                localVarFormParams.append('csvFile', csvFile as any);
             }
     
     
@@ -40252,12 +40254,12 @@ export const EntitlementsBetaApiFp = function(configuration?: Configuration) {
          * Uploads a comma separated file (CSV) to a delimited file source and starts an entitlement aggregation on the source.   
          * @summary Import Entitlement CSV File
          * @param {string} id Source Id
-         * @param {any} [data] 
+         * @param {any} csvFile 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async importEntitlementCsv(id: string, data?: any, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<LoadEntitlementTaskBeta>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.importEntitlementCsv(id, data, axiosOptions);
+        async importEntitlementCsv(id: string, csvFile: any, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<LoadEntitlementTaskBeta>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.importEntitlementCsv(id, csvFile, axiosOptions);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
@@ -40380,12 +40382,12 @@ export const EntitlementsBetaApiFactory = function (configuration?: Configuratio
          * Uploads a comma separated file (CSV) to a delimited file source and starts an entitlement aggregation on the source.   
          * @summary Import Entitlement CSV File
          * @param {string} id Source Id
-         * @param {any} [data] 
+         * @param {any} csvFile 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        importEntitlementCsv(id: string, data?: any, axiosOptions?: any): AxiosPromise<LoadEntitlementTaskBeta> {
-            return localVarFp.importEntitlementCsv(id, data, axiosOptions).then((request) => request(axios, basePath));
+        importEntitlementCsv(id: string, csvFile: any, axiosOptions?: any): AxiosPromise<LoadEntitlementTaskBeta> {
+            return localVarFp.importEntitlementCsv(id, csvFile, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * This API returns a list of all child entitlements of a given entitlement.
@@ -40516,7 +40518,7 @@ export interface EntitlementsBetaApiImportEntitlementCsvRequest {
      * @type {any}
      * @memberof EntitlementsBetaApiImportEntitlementCsv
      */
-    readonly data?: any
+    readonly csvFile: any
 }
 
 /**
@@ -40783,7 +40785,7 @@ export class EntitlementsBetaApi extends BaseAPI {
      * @memberof EntitlementsBetaApi
      */
     public importEntitlementCsv(requestParameters: EntitlementsBetaApiImportEntitlementCsvRequest, axiosOptions?: AxiosRequestConfig) {
-        return EntitlementsBetaApiFp(this.configuration).importEntitlementCsv(requestParameters.id, requestParameters.data, axiosOptions).then((request) => request(this.axios, this.basePath));
+        return EntitlementsBetaApiFp(this.configuration).importEntitlementCsv(requestParameters.id, requestParameters.csvFile, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
