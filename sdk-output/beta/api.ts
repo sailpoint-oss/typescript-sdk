@@ -9136,6 +9136,31 @@ export interface EntitlementSourceBeta {
 /**
  * 
  * @export
+ * @interface EntitlementSourceResetBaseReferenceDtoBeta
+ */
+export interface EntitlementSourceResetBaseReferenceDtoBeta {
+    /**
+     * The DTO type
+     * @type {string}
+     * @memberof EntitlementSourceResetBaseReferenceDtoBeta
+     */
+    'type'?: string;
+    /**
+     * The task ID of the object to which this reference applies
+     * @type {string}
+     * @memberof EntitlementSourceResetBaseReferenceDtoBeta
+     */
+    'id'?: string;
+    /**
+     * Human-readable display name of the object to which this reference applies
+     * @type {string}
+     * @memberof EntitlementSourceResetBaseReferenceDtoBeta
+     */
+    'name'?: string;
+}
+/**
+ * 
+ * @export
  * @interface EntityCreatedByDTOBeta
  */
 export interface EntityCreatedByDTOBeta {
@@ -40175,6 +40200,48 @@ export const EntitlementsBetaApiAxiosParamCreator = function (configuration?: Co
             };
         },
         /**
+         * Removes all entitlements on a specific source.
+         * @summary Reset Source Entitlements
+         * @param {string} id ID of source for the entitlement reset
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        resetSourceEntitlements: async (id: string, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'id' is not null or undefined
+            assertParamExists('resetSourceEntitlements', 'id', id)
+            const localVarPath = `/entitlements/reset/sources/{id}`
+                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'POST', ...baseOptions, ...axiosOptions};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication UserContextAuth required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "UserContextAuth", [], configuration)
+
+            // authentication UserContextAuth required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "UserContextAuth", [], configuration)
+
+
+    
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                axiosOptions: localVarRequestOptions,
+            };
+        },
+        /**
          * This API applies an update to every entitlement of the list.  The number of entitlements to update is limited to 50 items maximum.  The JsonPatch update follows the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard. allowed operations : **{ \"op\": \"replace\", \"path\": \"/privileged\", \"value\": boolean }**  **{ \"op\": \"replace\", \"path\": \"/requestable\",\"value\": boolean }**   A token with ORG_ADMIN or API authority is required to call this API.
          * @summary Bulk update an entitlement list
          * @param {EntitlementBulkUpdateRequestBeta} entitlementBulkUpdateRequestBeta 
@@ -40338,6 +40405,17 @@ export const EntitlementsBetaApiFp = function(configuration?: Configuration) {
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
+         * Removes all entitlements on a specific source.
+         * @summary Reset Source Entitlements
+         * @param {string} id ID of source for the entitlement reset
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        async resetSourceEntitlements(id: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<EntitlementSourceResetBaseReferenceDtoBeta>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.resetSourceEntitlements(id, axiosOptions);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
          * This API applies an update to every entitlement of the list.  The number of entitlements to update is limited to 50 items maximum.  The JsonPatch update follows the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard. allowed operations : **{ \"op\": \"replace\", \"path\": \"/privileged\", \"value\": boolean }**  **{ \"op\": \"replace\", \"path\": \"/requestable\",\"value\": boolean }**   A token with ORG_ADMIN or API authority is required to call this API.
          * @summary Bulk update an entitlement list
          * @param {EntitlementBulkUpdateRequestBeta} entitlementBulkUpdateRequestBeta 
@@ -40458,6 +40536,16 @@ export const EntitlementsBetaApiFactory = function (configuration?: Configuratio
          */
         putEntitlementRequestConfig(id: string, entitlementRequestConfigBeta: EntitlementRequestConfigBeta, axiosOptions?: any): AxiosPromise<EntitlementRequestConfigBeta> {
             return localVarFp.putEntitlementRequestConfig(id, entitlementRequestConfigBeta, axiosOptions).then((request) => request(axios, basePath));
+        },
+        /**
+         * Removes all entitlements on a specific source.
+         * @summary Reset Source Entitlements
+         * @param {string} id ID of source for the entitlement reset
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        resetSourceEntitlements(id: string, axiosOptions?: any): AxiosPromise<EntitlementSourceResetBaseReferenceDtoBeta> {
+            return localVarFp.resetSourceEntitlements(id, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * This API applies an update to every entitlement of the list.  The number of entitlements to update is limited to 50 items maximum.  The JsonPatch update follows the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard. allowed operations : **{ \"op\": \"replace\", \"path\": \"/privileged\", \"value\": boolean }**  **{ \"op\": \"replace\", \"path\": \"/requestable\",\"value\": boolean }**   A token with ORG_ADMIN or API authority is required to call this API.
@@ -40732,6 +40820,20 @@ export interface EntitlementsBetaApiPutEntitlementRequestConfigRequest {
 }
 
 /**
+ * Request parameters for resetSourceEntitlements operation in EntitlementsBetaApi.
+ * @export
+ * @interface EntitlementsBetaApiResetSourceEntitlementsRequest
+ */
+export interface EntitlementsBetaApiResetSourceEntitlementsRequest {
+    /**
+     * ID of source for the entitlement reset
+     * @type {string}
+     * @memberof EntitlementsBetaApiResetSourceEntitlements
+     */
+    readonly id: string
+}
+
+/**
  * Request parameters for updateEntitlementsInBulk operation in EntitlementsBetaApi.
  * @export
  * @interface EntitlementsBetaApiUpdateEntitlementsInBulkRequest
@@ -40846,6 +40948,18 @@ export class EntitlementsBetaApi extends BaseAPI {
      */
     public putEntitlementRequestConfig(requestParameters: EntitlementsBetaApiPutEntitlementRequestConfigRequest, axiosOptions?: AxiosRequestConfig) {
         return EntitlementsBetaApiFp(this.configuration).putEntitlementRequestConfig(requestParameters.id, requestParameters.entitlementRequestConfigBeta, axiosOptions).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Removes all entitlements on a specific source.
+     * @summary Reset Source Entitlements
+     * @param {EntitlementsBetaApiResetSourceEntitlementsRequest} requestParameters Request parameters.
+     * @param {*} [axiosOptions] Override http request option.
+     * @throws {RequiredError}
+     * @memberof EntitlementsBetaApi
+     */
+    public resetSourceEntitlements(requestParameters: EntitlementsBetaApiResetSourceEntitlementsRequest, axiosOptions?: AxiosRequestConfig) {
+        return EntitlementsBetaApiFp(this.configuration).resetSourceEntitlements(requestParameters.id, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
