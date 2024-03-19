@@ -14240,6 +14240,12 @@ export interface ListPredefinedSelectOptionsResponseBeta {
  */
 export interface ListWorkgroupMembers200ResponseInnerBeta {
     /**
+     * Workgroup member identity email.
+     * @type {string}
+     * @memberof ListWorkgroupMembers200ResponseInnerBeta
+     */
+    'email'?: string;
+    /**
      * Workgroup member identity DTO type.
      * @type {string}
      * @memberof ListWorkgroupMembers200ResponseInnerBeta
