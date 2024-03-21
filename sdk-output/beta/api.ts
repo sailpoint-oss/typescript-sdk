@@ -48587,6 +48587,48 @@ export const IdentitiesBetaApiAxiosParamCreator = function (configuration?: Conf
             };
         },
         /**
+         * Use this endpoint to reset a user\'s identity if they have forgotten their authentication information like their answers to knowledge-based questions. Resetting an identity de-registers the user and removes any elevated user levels they have.
+         * @summary Reset an identity
+         * @param {string} identityId Identity Id
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        resetIdentity: async (identityId: string, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'identityId' is not null or undefined
+            assertParamExists('resetIdentity', 'identityId', identityId)
+            const localVarPath = `/identities/{id}/reset`
+                .replace(`{${"identityId"}}`, encodeURIComponent(String(identityId)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'POST', ...baseOptions, ...axiosOptions};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication UserContextAuth required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "UserContextAuth", [], configuration)
+
+            // authentication UserContextAuth required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "UserContextAuth", [], configuration)
+
+
+    
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                axiosOptions: localVarRequestOptions,
+            };
+        },
+        /**
          * You could use this endpoint to: 1. Calculate identity attributes, including applying or running any rules or transforms (e.g. calculate Lifecycle State at a point-in-time it\'s expected to change). 2. Evaluate role assignments, leading to assignment of new roles and removal of existing roles. 3. Enforce provisioning for any assigned accesses that haven\'t been fulfilled (e.g. failure due to source health). 4. Recalculate manager relationships. 5. Potentially clean-up identity processing errors, assuming the error has been resolved.  To learn more, refer to the [identity processing documentation](https://documentation.sailpoint.com/saas/help/setup/identity_processing.html).  A token with ORG_ADMIN or HELPDESK authority is required to call this API. 
          * @summary Process a list of identityIds
          * @param {ProcessIdentitiesRequestBeta} processIdentitiesRequestBeta 
@@ -48757,6 +48799,17 @@ export const IdentitiesBetaApiFp = function(configuration?: Configuration) {
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
+         * Use this endpoint to reset a user\'s identity if they have forgotten their authentication information like their answers to knowledge-based questions. Resetting an identity de-registers the user and removes any elevated user levels they have.
+         * @summary Reset an identity
+         * @param {string} identityId Identity Id
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        async resetIdentity(identityId: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.resetIdentity(identityId, axiosOptions);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
          * You could use this endpoint to: 1. Calculate identity attributes, including applying or running any rules or transforms (e.g. calculate Lifecycle State at a point-in-time it\'s expected to change). 2. Evaluate role assignments, leading to assignment of new roles and removal of existing roles. 3. Enforce provisioning for any assigned accesses that haven\'t been fulfilled (e.g. failure due to source health). 4. Recalculate manager relationships. 5. Potentially clean-up identity processing errors, assuming the error has been resolved.  To learn more, refer to the [identity processing documentation](https://documentation.sailpoint.com/saas/help/setup/identity_processing.html).  A token with ORG_ADMIN or HELPDESK authority is required to call this API. 
          * @summary Process a list of identityIds
          * @param {ProcessIdentitiesRequestBeta} processIdentitiesRequestBeta 
@@ -48855,6 +48908,16 @@ export const IdentitiesBetaApiFactory = function (configuration?: Configuration,
          */
         listIdentities(filters?: string, sorters?: string, defaultFilter?: 'CORRELATED_ONLY' | 'NONE', count?: boolean, limit?: number, offset?: number, axiosOptions?: any): AxiosPromise<Array<IdentityBeta>> {
             return localVarFp.listIdentities(filters, sorters, defaultFilter, count, limit, offset, axiosOptions).then((request) => request(axios, basePath));
+        },
+        /**
+         * Use this endpoint to reset a user\'s identity if they have forgotten their authentication information like their answers to knowledge-based questions. Resetting an identity de-registers the user and removes any elevated user levels they have.
+         * @summary Reset an identity
+         * @param {string} identityId Identity Id
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        resetIdentity(identityId: string, axiosOptions?: any): AxiosPromise<void> {
+            return localVarFp.resetIdentity(identityId, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * You could use this endpoint to: 1. Calculate identity attributes, including applying or running any rules or transforms (e.g. calculate Lifecycle State at a point-in-time it\'s expected to change). 2. Evaluate role assignments, leading to assignment of new roles and removal of existing roles. 3. Enforce provisioning for any assigned accesses that haven\'t been fulfilled (e.g. failure due to source health). 4. Recalculate manager relationships. 5. Potentially clean-up identity processing errors, assuming the error has been resolved.  To learn more, refer to the [identity processing documentation](https://documentation.sailpoint.com/saas/help/setup/identity_processing.html).  A token with ORG_ADMIN or HELPDESK authority is required to call this API. 
@@ -49020,6 +49083,20 @@ export interface IdentitiesBetaApiListIdentitiesRequest {
 }
 
 /**
+ * Request parameters for resetIdentity operation in IdentitiesBetaApi.
+ * @export
+ * @interface IdentitiesBetaApiResetIdentityRequest
+ */
+export interface IdentitiesBetaApiResetIdentityRequest {
+    /**
+     * Identity Id
+     * @type {string}
+     * @memberof IdentitiesBetaApiResetIdentity
+     */
+    readonly identityId: string
+}
+
+/**
  * Request parameters for startIdentityProcessing operation in IdentitiesBetaApi.
  * @export
  * @interface IdentitiesBetaApiStartIdentityProcessingRequest
@@ -49124,6 +49201,18 @@ export class IdentitiesBetaApi extends BaseAPI {
      */
     public listIdentities(requestParameters: IdentitiesBetaApiListIdentitiesRequest = {}, axiosOptions?: AxiosRequestConfig) {
         return IdentitiesBetaApiFp(this.configuration).listIdentities(requestParameters.filters, requestParameters.sorters, requestParameters.defaultFilter, requestParameters.count, requestParameters.limit, requestParameters.offset, axiosOptions).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Use this endpoint to reset a user\'s identity if they have forgotten their authentication information like their answers to knowledge-based questions. Resetting an identity de-registers the user and removes any elevated user levels they have.
+     * @summary Reset an identity
+     * @param {IdentitiesBetaApiResetIdentityRequest} requestParameters Request parameters.
+     * @param {*} [axiosOptions] Override http request option.
+     * @throws {RequiredError}
+     * @memberof IdentitiesBetaApi
+     */
+    public resetIdentity(requestParameters: IdentitiesBetaApiResetIdentityRequest, axiosOptions?: AxiosRequestConfig) {
+        return IdentitiesBetaApiFp(this.configuration).resetIdentity(requestParameters.identityId, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
