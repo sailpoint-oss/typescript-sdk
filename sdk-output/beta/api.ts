@@ -11927,16 +11927,16 @@ export interface IdentityAttributePreviewBeta {
     'name'?: string;
     /**
      * Value that was derived during the preview.
-     * @type {object}
+     * @type {string}
      * @memberof IdentityAttributePreviewBeta
      */
-    'value'?: object;
+    'value'?: string;
     /**
      * The value of the attribute before the preview.
-     * @type {object}
+     * @type {string}
      * @memberof IdentityAttributePreviewBeta
      */
-    'previousValue'?: object;
+    'previousValue'?: string;
     /**
      * 
      * @type {Array<ErrorMessageDtoBeta>}
