@@ -23234,6 +23234,32 @@ export type ServiceDeskSourceBetaTypeEnum = typeof ServiceDeskSourceBetaTypeEnum
 /**
  * 
  * @export
+ * @interface SetIcon200ResponseBeta
+ */
+export interface SetIcon200ResponseBeta {
+    /**
+     * url to file with icon
+     * @type {string}
+     * @memberof SetIcon200ResponseBeta
+     */
+    'icon'?: string;
+}
+/**
+ * 
+ * @export
+ * @interface SetIconRequestBeta
+ */
+export interface SetIconRequestBeta {
+    /**
+     * file with icon. Allowed mime-types [\'image/png\', \'image/jpeg\']
+     * @type {any}
+     * @memberof SetIconRequestBeta
+     */
+    'image': any;
+}
+/**
+ * 
+ * @export
  * @interface SlimcampaignBeta
  */
 export interface SlimcampaignBeta {
@@ -48296,6 +48322,268 @@ export class IAIRoleMiningBetaApi extends BaseAPI {
      */
     public updateEntitlementsPotentialRole(requestParameters: IAIRoleMiningBetaApiUpdateEntitlementsPotentialRoleRequest, axiosOptions?: AxiosRequestConfig) {
         return IAIRoleMiningBetaApiFp(this.configuration).updateEntitlementsPotentialRole(requestParameters.sessionId, requestParameters.potentialRoleId, requestParameters.roleMiningPotentialRoleEditEntitlementsBeta, axiosOptions).then((request) => request(this.axios, this.basePath));
+    }
+}
+
+
+/**
+ * IconsBetaApi - axios parameter creator
+ * @export
+ */
+export const IconsBetaApiAxiosParamCreator = function (configuration?: Configuration) {
+    return {
+        /**
+         * This API endpoint delete an icon by object type and object id. A token with ORG_ADMIN authority is required to call this API.
+         * @summary Delete an icon
+         * @param {string} objectType Object type. Available options [\&#39;application\&#39;]
+         * @param {string} objectId Object id.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        deleteIcon: async (objectType: string, objectId: string, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'objectType' is not null or undefined
+            assertParamExists('deleteIcon', 'objectType', objectType)
+            // verify required parameter 'objectId' is not null or undefined
+            assertParamExists('deleteIcon', 'objectId', objectId)
+            const localVarPath = `/icons/{objectType}/{objectId}`
+                .replace(`{${"objectType"}}`, encodeURIComponent(String(objectType)))
+                .replace(`{${"objectId"}}`, encodeURIComponent(String(objectId)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'DELETE', ...baseOptions, ...axiosOptions};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication UserContextAuth required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "UserContextAuth", [], configuration)
+
+            // authentication UserContextAuth required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "UserContextAuth", [], configuration)
+
+
+    
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                axiosOptions: localVarRequestOptions,
+            };
+        },
+        /**
+         * This API endpoint updates an icon by object type and object id. A token with ORG_ADMIN authority is required to call this API.
+         * @summary Update an icon
+         * @param {string} objectType Object type. Available options [\&#39;application\&#39;]
+         * @param {string} objectId Object id.
+         * @param {any} image file with icon. Allowed mime-types [\\\&#39;image/png\\\&#39;, \\\&#39;image/jpeg\\\&#39;]
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        setIcon: async (objectType: string, objectId: string, image: any, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'objectType' is not null or undefined
+            assertParamExists('setIcon', 'objectType', objectType)
+            // verify required parameter 'objectId' is not null or undefined
+            assertParamExists('setIcon', 'objectId', objectId)
+            // verify required parameter 'image' is not null or undefined
+            assertParamExists('setIcon', 'image', image)
+            const localVarPath = `/icons/{objectType}/{objectId}`
+                .replace(`{${"objectType"}}`, encodeURIComponent(String(objectType)))
+                .replace(`{${"objectId"}}`, encodeURIComponent(String(objectId)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'PUT', ...baseOptions, ...axiosOptions};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            const localVarFormParams = new ((configuration && configuration.formDataCtor) || FormData)();
+
+            // authentication UserContextAuth required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "UserContextAuth", [], configuration)
+
+            // authentication UserContextAuth required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "UserContextAuth", [], configuration)
+
+
+            if (image !== undefined) { 
+                localVarFormParams.append('image', image as any);
+            }
+    
+    
+            localVarHeaderParameter['Content-Type'] = 'multipart/form-data';
+    
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
+            localVarRequestOptions.data = localVarFormParams;
+
+            return {
+                url: toPathString(localVarUrlObj),
+                axiosOptions: localVarRequestOptions,
+            };
+        },
+    }
+};
+
+/**
+ * IconsBetaApi - functional programming interface
+ * @export
+ */
+export const IconsBetaApiFp = function(configuration?: Configuration) {
+    const localVarAxiosParamCreator = IconsBetaApiAxiosParamCreator(configuration)
+    return {
+        /**
+         * This API endpoint delete an icon by object type and object id. A token with ORG_ADMIN authority is required to call this API.
+         * @summary Delete an icon
+         * @param {string} objectType Object type. Available options [\&#39;application\&#39;]
+         * @param {string} objectId Object id.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        async deleteIcon(objectType: string, objectId: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.deleteIcon(objectType, objectId, axiosOptions);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * This API endpoint updates an icon by object type and object id. A token with ORG_ADMIN authority is required to call this API.
+         * @summary Update an icon
+         * @param {string} objectType Object type. Available options [\&#39;application\&#39;]
+         * @param {string} objectId Object id.
+         * @param {any} image file with icon. Allowed mime-types [\\\&#39;image/png\\\&#39;, \\\&#39;image/jpeg\\\&#39;]
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        async setIcon(objectType: string, objectId: string, image: any, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SetIcon200ResponseBeta>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.setIcon(objectType, objectId, image, axiosOptions);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+    }
+};
+
+/**
+ * IconsBetaApi - factory interface
+ * @export
+ */
+export const IconsBetaApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
+    const localVarFp = IconsBetaApiFp(configuration)
+    return {
+        /**
+         * This API endpoint delete an icon by object type and object id. A token with ORG_ADMIN authority is required to call this API.
+         * @summary Delete an icon
+         * @param {string} objectType Object type. Available options [\&#39;application\&#39;]
+         * @param {string} objectId Object id.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        deleteIcon(objectType: string, objectId: string, axiosOptions?: any): AxiosPromise<void> {
+            return localVarFp.deleteIcon(objectType, objectId, axiosOptions).then((request) => request(axios, basePath));
+        },
+        /**
+         * This API endpoint updates an icon by object type and object id. A token with ORG_ADMIN authority is required to call this API.
+         * @summary Update an icon
+         * @param {string} objectType Object type. Available options [\&#39;application\&#39;]
+         * @param {string} objectId Object id.
+         * @param {any} image file with icon. Allowed mime-types [\\\&#39;image/png\\\&#39;, \\\&#39;image/jpeg\\\&#39;]
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        setIcon(objectType: string, objectId: string, image: any, axiosOptions?: any): AxiosPromise<SetIcon200ResponseBeta> {
+            return localVarFp.setIcon(objectType, objectId, image, axiosOptions).then((request) => request(axios, basePath));
+        },
+    };
+};
+
+/**
+ * Request parameters for deleteIcon operation in IconsBetaApi.
+ * @export
+ * @interface IconsBetaApiDeleteIconRequest
+ */
+export interface IconsBetaApiDeleteIconRequest {
+    /**
+     * Object type. Available options [\&#39;application\&#39;]
+     * @type {string}
+     * @memberof IconsBetaApiDeleteIcon
+     */
+    readonly objectType: string
+
+    /**
+     * Object id.
+     * @type {string}
+     * @memberof IconsBetaApiDeleteIcon
+     */
+    readonly objectId: string
+}
+
+/**
+ * Request parameters for setIcon operation in IconsBetaApi.
+ * @export
+ * @interface IconsBetaApiSetIconRequest
+ */
+export interface IconsBetaApiSetIconRequest {
+    /**
+     * Object type. Available options [\&#39;application\&#39;]
+     * @type {string}
+     * @memberof IconsBetaApiSetIcon
+     */
+    readonly objectType: string
+
+    /**
+     * Object id.
+     * @type {string}
+     * @memberof IconsBetaApiSetIcon
+     */
+    readonly objectId: string
+
+    /**
+     * file with icon. Allowed mime-types [\\\&#39;image/png\\\&#39;, \\\&#39;image/jpeg\\\&#39;]
+     * @type {any}
+     * @memberof IconsBetaApiSetIcon
+     */
+    readonly image: any
+}
+
+/**
+ * IconsBetaApi - object-oriented interface
+ * @export
+ * @class IconsBetaApi
+ * @extends {BaseAPI}
+ */
+export class IconsBetaApi extends BaseAPI {
+    /**
+     * This API endpoint delete an icon by object type and object id. A token with ORG_ADMIN authority is required to call this API.
+     * @summary Delete an icon
+     * @param {IconsBetaApiDeleteIconRequest} requestParameters Request parameters.
+     * @param {*} [axiosOptions] Override http request option.
+     * @throws {RequiredError}
+     * @memberof IconsBetaApi
+     */
+    public deleteIcon(requestParameters: IconsBetaApiDeleteIconRequest, axiosOptions?: AxiosRequestConfig) {
+        return IconsBetaApiFp(this.configuration).deleteIcon(requestParameters.objectType, requestParameters.objectId, axiosOptions).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * This API endpoint updates an icon by object type and object id. A token with ORG_ADMIN authority is required to call this API.
+     * @summary Update an icon
+     * @param {IconsBetaApiSetIconRequest} requestParameters Request parameters.
+     * @param {*} [axiosOptions] Override http request option.
+     * @throws {RequiredError}
+     * @memberof IconsBetaApi
+     */
+    public setIcon(requestParameters: IconsBetaApiSetIconRequest, axiosOptions?: AxiosRequestConfig) {
+        return IconsBetaApiFp(this.configuration).setIcon(requestParameters.objectType, requestParameters.objectId, requestParameters.image, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 }
 
