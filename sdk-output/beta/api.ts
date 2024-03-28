@@ -13428,13 +13428,13 @@ export interface IdentityWithNewAccessBeta {
 /**
  * 
  * @export
- * @interface ImportEntitlementCsvRequestBeta
+ * @interface ImportEntitlementsRequestBeta
  */
-export interface ImportEntitlementCsvRequestBeta {
+export interface ImportEntitlementsRequestBeta {
     /**
      * 
      * @type {any}
-     * @memberof ImportEntitlementCsvRequestBeta
+     * @memberof ImportEntitlementsRequestBeta
      */
     'csvFile': any;
 }
@@ -39874,18 +39874,18 @@ export const EntitlementsBetaApiAxiosParamCreator = function (configuration?: Co
             };
         },
         /**
-         * Uploads a comma separated file (CSV) to a delimited file source and starts an entitlement aggregation on the source.   
-         * @summary Import Entitlement CSV File
+         * Starts an entitlement aggregation on the specified source.  If the target source is a direct connection, then a request body is not needed. If the target source is a delimited file source, then the CSV file needs to be included in the request body.   
+         * @summary Aggregate Entitlements
          * @param {string} id Source Id
          * @param {any} csvFile 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        importEntitlementCsv: async (id: string, csvFile: any, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        importEntitlements: async (id: string, csvFile: any, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'id' is not null or undefined
-            assertParamExists('importEntitlementCsv', 'id', id)
+            assertParamExists('importEntitlements', 'id', id)
             // verify required parameter 'csvFile' is not null or undefined
-            assertParamExists('importEntitlementCsv', 'csvFile', csvFile)
+            assertParamExists('importEntitlements', 'csvFile', csvFile)
             const localVarPath = `/entitlements/aggregate/sources/{id}`
                 .replace(`{${"id"}}`, encodeURIComponent(String(id)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
@@ -40356,15 +40356,15 @@ export const EntitlementsBetaApiFp = function(configuration?: Configuration) {
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
-         * Uploads a comma separated file (CSV) to a delimited file source and starts an entitlement aggregation on the source.   
-         * @summary Import Entitlement CSV File
+         * Starts an entitlement aggregation on the specified source.  If the target source is a direct connection, then a request body is not needed. If the target source is a delimited file source, then the CSV file needs to be included in the request body.   
+         * @summary Aggregate Entitlements
          * @param {string} id Source Id
          * @param {any} csvFile 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async importEntitlementCsv(id: string, csvFile: any, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<LoadEntitlementTaskBeta>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.importEntitlementCsv(id, csvFile, axiosOptions);
+        async importEntitlements(id: string, csvFile: any, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<LoadEntitlementTaskBeta>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.importEntitlements(id, csvFile, axiosOptions);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
@@ -40495,15 +40495,15 @@ export const EntitlementsBetaApiFactory = function (configuration?: Configuratio
             return localVarFp.getEntitlementRequestConfig(id, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
-         * Uploads a comma separated file (CSV) to a delimited file source and starts an entitlement aggregation on the source.   
-         * @summary Import Entitlement CSV File
+         * Starts an entitlement aggregation on the specified source.  If the target source is a direct connection, then a request body is not needed. If the target source is a delimited file source, then the CSV file needs to be included in the request body.   
+         * @summary Aggregate Entitlements
          * @param {string} id Source Id
          * @param {any} csvFile 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        importEntitlementCsv(id: string, csvFile: any, axiosOptions?: any): AxiosPromise<LoadEntitlementTaskBeta> {
-            return localVarFp.importEntitlementCsv(id, csvFile, axiosOptions).then((request) => request(axios, basePath));
+        importEntitlements(id: string, csvFile: any, axiosOptions?: any): AxiosPromise<LoadEntitlementTaskBeta> {
+            return localVarFp.importEntitlements(id, csvFile, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * This API returns a list of all child entitlements of a given entitlement.
@@ -40627,22 +40627,22 @@ export interface EntitlementsBetaApiGetEntitlementRequestConfigRequest {
 }
 
 /**
- * Request parameters for importEntitlementCsv operation in EntitlementsBetaApi.
+ * Request parameters for importEntitlements operation in EntitlementsBetaApi.
  * @export
- * @interface EntitlementsBetaApiImportEntitlementCsvRequest
+ * @interface EntitlementsBetaApiImportEntitlementsRequest
  */
-export interface EntitlementsBetaApiImportEntitlementCsvRequest {
+export interface EntitlementsBetaApiImportEntitlementsRequest {
     /**
      * Source Id
      * @type {string}
-     * @memberof EntitlementsBetaApiImportEntitlementCsv
+     * @memberof EntitlementsBetaApiImportEntitlements
      */
     readonly id: string
 
     /**
      * 
      * @type {any}
-     * @memberof EntitlementsBetaApiImportEntitlementCsv
+     * @memberof EntitlementsBetaApiImportEntitlements
      */
     readonly csvFile: any
 }
@@ -40917,15 +40917,15 @@ export class EntitlementsBetaApi extends BaseAPI {
     }
 
     /**
-     * Uploads a comma separated file (CSV) to a delimited file source and starts an entitlement aggregation on the source.   
-     * @summary Import Entitlement CSV File
-     * @param {EntitlementsBetaApiImportEntitlementCsvRequest} requestParameters Request parameters.
+     * Starts an entitlement aggregation on the specified source.  If the target source is a direct connection, then a request body is not needed. If the target source is a delimited file source, then the CSV file needs to be included in the request body.   
+     * @summary Aggregate Entitlements
+     * @param {EntitlementsBetaApiImportEntitlementsRequest} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
      * @memberof EntitlementsBetaApi
      */
-    public importEntitlementCsv(requestParameters: EntitlementsBetaApiImportEntitlementCsvRequest, axiosOptions?: AxiosRequestConfig) {
-        return EntitlementsBetaApiFp(this.configuration).importEntitlementCsv(requestParameters.id, requestParameters.csvFile, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public importEntitlements(requestParameters: EntitlementsBetaApiImportEntitlementsRequest, axiosOptions?: AxiosRequestConfig) {
+        return EntitlementsBetaApiFp(this.configuration).importEntitlements(requestParameters.id, requestParameters.csvFile, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
