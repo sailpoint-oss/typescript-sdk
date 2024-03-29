@@ -4418,65 +4418,6 @@ export type AuthProfileBetaTypeEnum = typeof AuthProfileBetaTypeEnum[keyof typeo
 /**
  * 
  * @export
- * @interface AuthProfileRequestBeta
- */
-export interface AuthProfileRequestBeta {
-    /**
-     * Authentication Profile name.
-     * @type {string}
-     * @memberof AuthProfileRequestBeta
-     */
-    'name'?: string;
-    /**
-     * Use it to block access from off network.
-     * @type {boolean}
-     * @memberof AuthProfileRequestBeta
-     */
-    'offNetwork'?: boolean;
-    /**
-     * Use it to block access from untrusted geoographies.
-     * @type {boolean}
-     * @memberof AuthProfileRequestBeta
-     */
-    'untrustedGeography'?: boolean;
-    /**
-     * Application ID.
-     * @type {string}
-     * @memberof AuthProfileRequestBeta
-     */
-    'applicationId'?: string;
-    /**
-     * Application name.
-     * @type {string}
-     * @memberof AuthProfileRequestBeta
-     */
-    'applicationName'?: string;
-    /**
-     * Type of the Authentication Profile.
-     * @type {string}
-     * @memberof AuthProfileRequestBeta
-     */
-    'type'?: AuthProfileRequestBetaTypeEnum;
-    /**
-     * Use it to enable strong authentication.
-     * @type {boolean}
-     * @memberof AuthProfileRequestBeta
-     */
-    'strongAuthLogin'?: boolean;
-}
-
-export const AuthProfileRequestBetaTypeEnum = {
-    Block: 'BLOCK',
-    Mfa: 'MFA',
-    NonPta: 'NON_PTA',
-    Pta: 'PTA'
-} as const;
-
-export type AuthProfileRequestBetaTypeEnum = typeof AuthProfileRequestBetaTypeEnum[keyof typeof AuthProfileRequestBetaTypeEnum];
-
-/**
- * 
- * @export
  * @interface AuthProfileSummaryBeta
  */
 export interface AuthProfileSummaryBeta {
@@ -33435,92 +33376,6 @@ export class AccountsBetaApi extends BaseAPI {
 export const AuthProfileBetaApiAxiosParamCreator = function (configuration?: Configuration) {
     return {
         /**
-         * This API creates an auth profile.
-         * @summary Create Auth Profile.
-         * @param {AuthProfileRequestBeta} authProfileRequestBeta 
-         * @param {*} [axiosOptions] Override http request option.
-         * @throws {RequiredError}
-         */
-        createProfileConfig: async (authProfileRequestBeta: AuthProfileRequestBeta, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
-            // verify required parameter 'authProfileRequestBeta' is not null or undefined
-            assertParamExists('createProfileConfig', 'authProfileRequestBeta', authProfileRequestBeta)
-            const localVarPath = `/auth-profiles/{id}`;
-            // use dummy base URL string because the URL constructor only accepts absolute URLs.
-            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
-            let baseOptions;
-            if (configuration) {
-                baseOptions = configuration.baseOptions;
-            }
-
-            const localVarRequestOptions = { method: 'POST', ...baseOptions, ...axiosOptions};
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-
-            // authentication UserContextAuth required
-            // oauth required
-            await setOAuthToObject(localVarHeaderParameter, "UserContextAuth", [], configuration)
-
-            // authentication UserContextAuth required
-            // oauth required
-            await setOAuthToObject(localVarHeaderParameter, "UserContextAuth", [], configuration)
-
-
-    
-            localVarHeaderParameter['Content-Type'] = 'application/json';
-
-            setSearchParams(localVarUrlObj, localVarQueryParameter);
-            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
-            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(authProfileRequestBeta, localVarRequestOptions, configuration)
-
-            return {
-                url: toPathString(localVarUrlObj),
-                axiosOptions: localVarRequestOptions,
-            };
-        },
-        /**
-         * This API deletes an existing Auth Profile.
-         * @summary Delete the specified Auth Profile
-         * @param {string} id ID of the Access Profile to delete
-         * @param {*} [axiosOptions] Override http request option.
-         * @throws {RequiredError}
-         */
-        deleteProfileConfig: async (id: string, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
-            // verify required parameter 'id' is not null or undefined
-            assertParamExists('deleteProfileConfig', 'id', id)
-            const localVarPath = `/auth-profiles/{id}`
-                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
-            // use dummy base URL string because the URL constructor only accepts absolute URLs.
-            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
-            let baseOptions;
-            if (configuration) {
-                baseOptions = configuration.baseOptions;
-            }
-
-            const localVarRequestOptions = { method: 'DELETE', ...baseOptions, ...axiosOptions};
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-
-            // authentication UserContextAuth required
-            // oauth required
-            await setOAuthToObject(localVarHeaderParameter, "UserContextAuth", [], configuration)
-
-            // authentication UserContextAuth required
-            // oauth required
-            await setOAuthToObject(localVarHeaderParameter, "UserContextAuth", [], configuration)
-
-
-    
-            setSearchParams(localVarUrlObj, localVarQueryParameter);
-            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
-            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
-
-            return {
-                url: toPathString(localVarUrlObj),
-                axiosOptions: localVarRequestOptions,
-            };
-        },
-        /**
          * This API returns auth profile information.
          * @summary Get Auth Profile.
          * @param {*} [axiosOptions] Override http request option.
@@ -33599,7 +33454,7 @@ export const AuthProfileBetaApiAxiosParamCreator = function (configuration?: Con
         /**
          * This API updates an existing Auth Profile. The following fields are patchable: **offNetwork**, **untrustedGeography**, **applicationId**, **applicationName**, **type**
          * @summary Patch a specified Auth Profile
-         * @param {string} id ID of the Auth Profile to patch
+         * @param {string} id ID of the Auth Profile to patch.
          * @param {Array<JsonPatchOperationBeta>} jsonPatchOperationBeta 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
@@ -33655,28 +33510,6 @@ export const AuthProfileBetaApiFp = function(configuration?: Configuration) {
     const localVarAxiosParamCreator = AuthProfileBetaApiAxiosParamCreator(configuration)
     return {
         /**
-         * This API creates an auth profile.
-         * @summary Create Auth Profile.
-         * @param {AuthProfileRequestBeta} authProfileRequestBeta 
-         * @param {*} [axiosOptions] Override http request option.
-         * @throws {RequiredError}
-         */
-        async createProfileConfig(authProfileRequestBeta: AuthProfileRequestBeta, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<AuthProfileBeta>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.createProfileConfig(authProfileRequestBeta, axiosOptions);
-            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
-        },
-        /**
-         * This API deletes an existing Auth Profile.
-         * @summary Delete the specified Auth Profile
-         * @param {string} id ID of the Access Profile to delete
-         * @param {*} [axiosOptions] Override http request option.
-         * @throws {RequiredError}
-         */
-        async deleteProfileConfig(id: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.deleteProfileConfig(id, axiosOptions);
-            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
-        },
-        /**
          * This API returns auth profile information.
          * @summary Get Auth Profile.
          * @param {*} [axiosOptions] Override http request option.
@@ -33699,7 +33532,7 @@ export const AuthProfileBetaApiFp = function(configuration?: Configuration) {
         /**
          * This API updates an existing Auth Profile. The following fields are patchable: **offNetwork**, **untrustedGeography**, **applicationId**, **applicationName**, **type**
          * @summary Patch a specified Auth Profile
-         * @param {string} id ID of the Auth Profile to patch
+         * @param {string} id ID of the Auth Profile to patch.
          * @param {Array<JsonPatchOperationBeta>} jsonPatchOperationBeta 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
@@ -33718,26 +33551,6 @@ export const AuthProfileBetaApiFp = function(configuration?: Configuration) {
 export const AuthProfileBetaApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
     const localVarFp = AuthProfileBetaApiFp(configuration)
     return {
-        /**
-         * This API creates an auth profile.
-         * @summary Create Auth Profile.
-         * @param {AuthProfileRequestBeta} authProfileRequestBeta 
-         * @param {*} [axiosOptions] Override http request option.
-         * @throws {RequiredError}
-         */
-        createProfileConfig(authProfileRequestBeta: AuthProfileRequestBeta, axiosOptions?: any): AxiosPromise<AuthProfileBeta> {
-            return localVarFp.createProfileConfig(authProfileRequestBeta, axiosOptions).then((request) => request(axios, basePath));
-        },
-        /**
-         * This API deletes an existing Auth Profile.
-         * @summary Delete the specified Auth Profile
-         * @param {string} id ID of the Access Profile to delete
-         * @param {*} [axiosOptions] Override http request option.
-         * @throws {RequiredError}
-         */
-        deleteProfileConfig(id: string, axiosOptions?: any): AxiosPromise<void> {
-            return localVarFp.deleteProfileConfig(id, axiosOptions).then((request) => request(axios, basePath));
-        },
         /**
          * This API returns auth profile information.
          * @summary Get Auth Profile.
@@ -33759,7 +33572,7 @@ export const AuthProfileBetaApiFactory = function (configuration?: Configuration
         /**
          * This API updates an existing Auth Profile. The following fields are patchable: **offNetwork**, **untrustedGeography**, **applicationId**, **applicationName**, **type**
          * @summary Patch a specified Auth Profile
-         * @param {string} id ID of the Auth Profile to patch
+         * @param {string} id ID of the Auth Profile to patch.
          * @param {Array<JsonPatchOperationBeta>} jsonPatchOperationBeta 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
@@ -33771,41 +33584,13 @@ export const AuthProfileBetaApiFactory = function (configuration?: Configuration
 };
 
 /**
- * Request parameters for createProfileConfig operation in AuthProfileBetaApi.
- * @export
- * @interface AuthProfileBetaApiCreateProfileConfigRequest
- */
-export interface AuthProfileBetaApiCreateProfileConfigRequest {
-    /**
-     * 
-     * @type {AuthProfileRequestBeta}
-     * @memberof AuthProfileBetaApiCreateProfileConfig
-     */
-    readonly authProfileRequestBeta: AuthProfileRequestBeta
-}
-
-/**
- * Request parameters for deleteProfileConfig operation in AuthProfileBetaApi.
- * @export
- * @interface AuthProfileBetaApiDeleteProfileConfigRequest
- */
-export interface AuthProfileBetaApiDeleteProfileConfigRequest {
-    /**
-     * ID of the Access Profile to delete
-     * @type {string}
-     * @memberof AuthProfileBetaApiDeleteProfileConfig
-     */
-    readonly id: string
-}
-
-/**
  * Request parameters for patchProfileConfig operation in AuthProfileBetaApi.
  * @export
  * @interface AuthProfileBetaApiPatchProfileConfigRequest
  */
 export interface AuthProfileBetaApiPatchProfileConfigRequest {
     /**
-     * ID of the Auth Profile to patch
+     * ID of the Auth Profile to patch.
      * @type {string}
      * @memberof AuthProfileBetaApiPatchProfileConfig
      */
@@ -33826,30 +33611,6 @@ export interface AuthProfileBetaApiPatchProfileConfigRequest {
  * @extends {BaseAPI}
  */
 export class AuthProfileBetaApi extends BaseAPI {
-    /**
-     * This API creates an auth profile.
-     * @summary Create Auth Profile.
-     * @param {AuthProfileBetaApiCreateProfileConfigRequest} requestParameters Request parameters.
-     * @param {*} [axiosOptions] Override http request option.
-     * @throws {RequiredError}
-     * @memberof AuthProfileBetaApi
-     */
-    public createProfileConfig(requestParameters: AuthProfileBetaApiCreateProfileConfigRequest, axiosOptions?: AxiosRequestConfig) {
-        return AuthProfileBetaApiFp(this.configuration).createProfileConfig(requestParameters.authProfileRequestBeta, axiosOptions).then((request) => request(this.axios, this.basePath));
-    }
-
-    /**
-     * This API deletes an existing Auth Profile.
-     * @summary Delete the specified Auth Profile
-     * @param {AuthProfileBetaApiDeleteProfileConfigRequest} requestParameters Request parameters.
-     * @param {*} [axiosOptions] Override http request option.
-     * @throws {RequiredError}
-     * @memberof AuthProfileBetaApi
-     */
-    public deleteProfileConfig(requestParameters: AuthProfileBetaApiDeleteProfileConfigRequest, axiosOptions?: AxiosRequestConfig) {
-        return AuthProfileBetaApiFp(this.configuration).deleteProfileConfig(requestParameters.id, axiosOptions).then((request) => request(this.axios, this.basePath));
-    }
-
     /**
      * This API returns auth profile information.
      * @summary Get Auth Profile.
