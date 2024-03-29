@@ -58380,48 +58380,6 @@ export const NotificationsBetaApiAxiosParamCreator = function (configuration?: C
             };
         },
         /**
-         * Returns the notification preferences for tenant.  Note that if the key doesn\'t exist, then a 404 will be returned.
-         * @summary Get Notification Preferences for tenant.
-         * @param {string} key The notification key.
-         * @param {*} [axiosOptions] Override http request option.
-         * @throws {RequiredError}
-         */
-        getNotificationPreference: async (key: string, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
-            // verify required parameter 'key' is not null or undefined
-            assertParamExists('getNotificationPreference', 'key', key)
-            const localVarPath = `/notification-preferences/{key}`
-                .replace(`{${"key"}}`, encodeURIComponent(String(key)));
-            // use dummy base URL string because the URL constructor only accepts absolute URLs.
-            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
-            let baseOptions;
-            if (configuration) {
-                baseOptions = configuration.baseOptions;
-            }
-
-            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...axiosOptions};
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-
-            // authentication UserContextAuth required
-            // oauth required
-            await setOAuthToObject(localVarHeaderParameter, "UserContextAuth", [], configuration)
-
-            // authentication UserContextAuth required
-            // oauth required
-            await setOAuthToObject(localVarHeaderParameter, "UserContextAuth", [], configuration)
-
-
-    
-            setSearchParams(localVarUrlObj, localVarQueryParameter);
-            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
-            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
-
-            return {
-                url: toPathString(localVarUrlObj),
-                axiosOptions: localVarRequestOptions,
-            };
-        },
-        /**
          * This gets a template that you have modified for your site by Id.
          * @summary Get Notification Template By Id
          * @param {string} id Id of the Notification Template
@@ -58552,6 +58510,44 @@ export const NotificationsBetaApiAxiosParamCreator = function (configuration?: C
             if (sorters !== undefined) {
                 localVarQueryParameter['sorters'] = sorters;
             }
+
+
+    
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                axiosOptions: localVarRequestOptions,
+            };
+        },
+        /**
+         * Returns a list of notification preferences for tenant.
+         * @summary List Notification Preferences for tenant.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        listNotificationPreferences: async (axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            const localVarPath = `/notification-preferences/{key}`;
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...axiosOptions};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication UserContextAuth required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "UserContextAuth", [], configuration)
+
+            // authentication UserContextAuth required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "UserContextAuth", [], configuration)
 
 
     
@@ -58715,54 +58711,6 @@ export const NotificationsBetaApiAxiosParamCreator = function (configuration?: C
             };
         },
         /**
-         * Allows admins to opt in to or out of certain notifications for their org. The default state is opted in. `key` is optional but if it is provided and doesn\'t match the key in the URI, then a 400 will be thrown.
-         * @summary Overwrite preferences notification key.
-         * @param {string} key The notification key.
-         * @param {PreferencesDtoBeta} preferencesDtoBeta 
-         * @param {*} [axiosOptions] Override http request option.
-         * @throws {RequiredError}
-         */
-        putNotificationPreference: async (key: string, preferencesDtoBeta: PreferencesDtoBeta, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
-            // verify required parameter 'key' is not null or undefined
-            assertParamExists('putNotificationPreference', 'key', key)
-            // verify required parameter 'preferencesDtoBeta' is not null or undefined
-            assertParamExists('putNotificationPreference', 'preferencesDtoBeta', preferencesDtoBeta)
-            const localVarPath = `/notification-preferences/{key}`
-                .replace(`{${"key"}}`, encodeURIComponent(String(key)));
-            // use dummy base URL string because the URL constructor only accepts absolute URLs.
-            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
-            let baseOptions;
-            if (configuration) {
-                baseOptions = configuration.baseOptions;
-            }
-
-            const localVarRequestOptions = { method: 'PUT', ...baseOptions, ...axiosOptions};
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-
-            // authentication UserContextAuth required
-            // oauth required
-            await setOAuthToObject(localVarHeaderParameter, "UserContextAuth", [], configuration)
-
-            // authentication UserContextAuth required
-            // oauth required
-            await setOAuthToObject(localVarHeaderParameter, "UserContextAuth", [], configuration)
-
-
-    
-            localVarHeaderParameter['Content-Type'] = 'application/json';
-
-            setSearchParams(localVarUrlObj, localVarQueryParameter);
-            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
-            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(preferencesDtoBeta, localVarRequestOptions, configuration)
-
-            return {
-                url: toPathString(localVarUrlObj),
-                axiosOptions: localVarRequestOptions,
-            };
-        },
-        /**
          * Send a Test Notification
          * @summary Send Test Notification
          * @param {SendTestNotificationRequestDtoBeta} sendTestNotificationRequestDtoBeta 
@@ -58893,17 +58841,6 @@ export const NotificationsBetaApiFp = function(configuration?: Configuration) {
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
-         * Returns the notification preferences for tenant.  Note that if the key doesn\'t exist, then a 404 will be returned.
-         * @summary Get Notification Preferences for tenant.
-         * @param {string} key The notification key.
-         * @param {*} [axiosOptions] Override http request option.
-         * @throws {RequiredError}
-         */
-        async getNotificationPreference(key: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<PreferencesDtoBeta>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.getNotificationPreference(key, axiosOptions);
-            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
-        },
-        /**
          * This gets a template that you have modified for your site by Id.
          * @summary Get Notification Template By Id
          * @param {string} id Id of the Notification Template
@@ -58937,6 +58874,16 @@ export const NotificationsBetaApiFp = function(configuration?: Configuration) {
          */
         async listFromAddresses(limit?: number, offset?: number, count?: boolean, filters?: string, sorters?: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<EmailStatusDtoBeta>>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.listFromAddresses(limit, offset, count, filters, sorters, axiosOptions);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * Returns a list of notification preferences for tenant.
+         * @summary List Notification Preferences for tenant.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        async listNotificationPreferences(axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<PreferencesDtoBeta>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.listNotificationPreferences(axiosOptions);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
@@ -58974,18 +58921,6 @@ export const NotificationsBetaApiFp = function(configuration?: Configuration) {
          */
         async putMailFromAttributes(mailFromAttributesDtoBeta: MailFromAttributesDtoBeta, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<MailFromAttributesBeta>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.putMailFromAttributes(mailFromAttributesDtoBeta, axiosOptions);
-            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
-        },
-        /**
-         * Allows admins to opt in to or out of certain notifications for their org. The default state is opted in. `key` is optional but if it is provided and doesn\'t match the key in the URI, then a 400 will be thrown.
-         * @summary Overwrite preferences notification key.
-         * @param {string} key The notification key.
-         * @param {PreferencesDtoBeta} preferencesDtoBeta 
-         * @param {*} [axiosOptions] Override http request option.
-         * @throws {RequiredError}
-         */
-        async putNotificationPreference(key: string, preferencesDtoBeta: PreferencesDtoBeta, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<PreferencesDtoBeta>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.putNotificationPreference(key, preferencesDtoBeta, axiosOptions);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
@@ -59079,16 +59014,6 @@ export const NotificationsBetaApiFactory = function (configuration?: Configurati
             return localVarFp.getMailFromAttributes(id, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
-         * Returns the notification preferences for tenant.  Note that if the key doesn\'t exist, then a 404 will be returned.
-         * @summary Get Notification Preferences for tenant.
-         * @param {string} key The notification key.
-         * @param {*} [axiosOptions] Override http request option.
-         * @throws {RequiredError}
-         */
-        getNotificationPreference(key: string, axiosOptions?: any): AxiosPromise<PreferencesDtoBeta> {
-            return localVarFp.getNotificationPreference(key, axiosOptions).then((request) => request(axios, basePath));
-        },
-        /**
          * This gets a template that you have modified for your site by Id.
          * @summary Get Notification Template By Id
          * @param {string} id Id of the Notification Template
@@ -59120,6 +59045,15 @@ export const NotificationsBetaApiFactory = function (configuration?: Configurati
          */
         listFromAddresses(limit?: number, offset?: number, count?: boolean, filters?: string, sorters?: string, axiosOptions?: any): AxiosPromise<Array<EmailStatusDtoBeta>> {
             return localVarFp.listFromAddresses(limit, offset, count, filters, sorters, axiosOptions).then((request) => request(axios, basePath));
+        },
+        /**
+         * Returns a list of notification preferences for tenant.
+         * @summary List Notification Preferences for tenant.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        listNotificationPreferences(axiosOptions?: any): AxiosPromise<Array<PreferencesDtoBeta>> {
+            return localVarFp.listNotificationPreferences(axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * This lists the default templates used for notifications, such as emails from IdentityNow.
@@ -59154,17 +59088,6 @@ export const NotificationsBetaApiFactory = function (configuration?: Configurati
          */
         putMailFromAttributes(mailFromAttributesDtoBeta: MailFromAttributesDtoBeta, axiosOptions?: any): AxiosPromise<MailFromAttributesBeta> {
             return localVarFp.putMailFromAttributes(mailFromAttributesDtoBeta, axiosOptions).then((request) => request(axios, basePath));
-        },
-        /**
-         * Allows admins to opt in to or out of certain notifications for their org. The default state is opted in. `key` is optional but if it is provided and doesn\'t match the key in the URI, then a 400 will be thrown.
-         * @summary Overwrite preferences notification key.
-         * @param {string} key The notification key.
-         * @param {PreferencesDtoBeta} preferencesDtoBeta 
-         * @param {*} [axiosOptions] Override http request option.
-         * @throws {RequiredError}
-         */
-        putNotificationPreference(key: string, preferencesDtoBeta: PreferencesDtoBeta, axiosOptions?: any): AxiosPromise<PreferencesDtoBeta> {
-            return localVarFp.putNotificationPreference(key, preferencesDtoBeta, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * Send a Test Notification
@@ -59261,20 +59184,6 @@ export interface NotificationsBetaApiGetMailFromAttributesRequest {
      * @memberof NotificationsBetaApiGetMailFromAttributes
      */
     readonly id: string
-}
-
-/**
- * Request parameters for getNotificationPreference operation in NotificationsBetaApi.
- * @export
- * @interface NotificationsBetaApiGetNotificationPreferenceRequest
- */
-export interface NotificationsBetaApiGetNotificationPreferenceRequest {
-    /**
-     * The notification key.
-     * @type {string}
-     * @memberof NotificationsBetaApiGetNotificationPreference
-     */
-    readonly key: string
 }
 
 /**
@@ -59404,27 +59313,6 @@ export interface NotificationsBetaApiPutMailFromAttributesRequest {
 }
 
 /**
- * Request parameters for putNotificationPreference operation in NotificationsBetaApi.
- * @export
- * @interface NotificationsBetaApiPutNotificationPreferenceRequest
- */
-export interface NotificationsBetaApiPutNotificationPreferenceRequest {
-    /**
-     * The notification key.
-     * @type {string}
-     * @memberof NotificationsBetaApiPutNotificationPreference
-     */
-    readonly key: string
-
-    /**
-     * 
-     * @type {PreferencesDtoBeta}
-     * @memberof NotificationsBetaApiPutNotificationPreference
-     */
-    readonly preferencesDtoBeta: PreferencesDtoBeta
-}
-
-/**
  * Request parameters for sendTestNotification operation in NotificationsBetaApi.
  * @export
  * @interface NotificationsBetaApiSendTestNotificationRequest
@@ -59529,18 +59417,6 @@ export class NotificationsBetaApi extends BaseAPI {
     }
 
     /**
-     * Returns the notification preferences for tenant.  Note that if the key doesn\'t exist, then a 404 will be returned.
-     * @summary Get Notification Preferences for tenant.
-     * @param {NotificationsBetaApiGetNotificationPreferenceRequest} requestParameters Request parameters.
-     * @param {*} [axiosOptions] Override http request option.
-     * @throws {RequiredError}
-     * @memberof NotificationsBetaApi
-     */
-    public getNotificationPreference(requestParameters: NotificationsBetaApiGetNotificationPreferenceRequest, axiosOptions?: AxiosRequestConfig) {
-        return NotificationsBetaApiFp(this.configuration).getNotificationPreference(requestParameters.key, axiosOptions).then((request) => request(this.axios, this.basePath));
-    }
-
-    /**
      * This gets a template that you have modified for your site by Id.
      * @summary Get Notification Template By Id
      * @param {NotificationsBetaApiGetNotificationTemplateRequest} requestParameters Request parameters.
@@ -59573,6 +59449,17 @@ export class NotificationsBetaApi extends BaseAPI {
      */
     public listFromAddresses(requestParameters: NotificationsBetaApiListFromAddressesRequest = {}, axiosOptions?: AxiosRequestConfig) {
         return NotificationsBetaApiFp(this.configuration).listFromAddresses(requestParameters.limit, requestParameters.offset, requestParameters.count, requestParameters.filters, requestParameters.sorters, axiosOptions).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Returns a list of notification preferences for tenant.
+     * @summary List Notification Preferences for tenant.
+     * @param {*} [axiosOptions] Override http request option.
+     * @throws {RequiredError}
+     * @memberof NotificationsBetaApi
+     */
+    public listNotificationPreferences(axiosOptions?: AxiosRequestConfig) {
+        return NotificationsBetaApiFp(this.configuration).listNotificationPreferences(axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -59609,18 +59496,6 @@ export class NotificationsBetaApi extends BaseAPI {
      */
     public putMailFromAttributes(requestParameters: NotificationsBetaApiPutMailFromAttributesRequest, axiosOptions?: AxiosRequestConfig) {
         return NotificationsBetaApiFp(this.configuration).putMailFromAttributes(requestParameters.mailFromAttributesDtoBeta, axiosOptions).then((request) => request(this.axios, this.basePath));
-    }
-
-    /**
-     * Allows admins to opt in to or out of certain notifications for their org. The default state is opted in. `key` is optional but if it is provided and doesn\'t match the key in the URI, then a 400 will be thrown.
-     * @summary Overwrite preferences notification key.
-     * @param {NotificationsBetaApiPutNotificationPreferenceRequest} requestParameters Request parameters.
-     * @param {*} [axiosOptions] Override http request option.
-     * @throws {RequiredError}
-     * @memberof NotificationsBetaApi
-     */
-    public putNotificationPreference(requestParameters: NotificationsBetaApiPutNotificationPreferenceRequest, axiosOptions?: AxiosRequestConfig) {
-        return NotificationsBetaApiFp(this.configuration).putNotificationPreference(requestParameters.key, requestParameters.preferencesDtoBeta, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
