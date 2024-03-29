@@ -39635,7 +39635,7 @@ export const EntitlementsBetaApiAxiosParamCreator = function (configuration?: Co
             };
         },
         /**
-         * Starts an entitlement aggregation on the specified source.  If the target source is a direct connection, then a request body is not needed. If the target source is a delimited file source, then the CSV file needs to be included in the request body.   
+         * Starts an entitlement aggregation on the specified source.  If the target source is a direct connection, then the request body must be empty. You will also need to make sure the Content-Type header is not set. If you set the Content-Type header without specifying a body, then you will receive a 500 error. If the target source is a delimited file source, then the CSV file needs to be included in the request body. You will also need to set the Content-Type header to `multipart/form-data`.
          * @summary Aggregate Entitlements
          * @param {string} id Source Id
          * @param {any} csvFile 
@@ -40117,7 +40117,7 @@ export const EntitlementsBetaApiFp = function(configuration?: Configuration) {
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
-         * Starts an entitlement aggregation on the specified source.  If the target source is a direct connection, then a request body is not needed. If the target source is a delimited file source, then the CSV file needs to be included in the request body.   
+         * Starts an entitlement aggregation on the specified source.  If the target source is a direct connection, then the request body must be empty. You will also need to make sure the Content-Type header is not set. If you set the Content-Type header without specifying a body, then you will receive a 500 error. If the target source is a delimited file source, then the CSV file needs to be included in the request body. You will also need to set the Content-Type header to `multipart/form-data`.
          * @summary Aggregate Entitlements
          * @param {string} id Source Id
          * @param {any} csvFile 
@@ -40256,7 +40256,7 @@ export const EntitlementsBetaApiFactory = function (configuration?: Configuratio
             return localVarFp.getEntitlementRequestConfig(id, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
-         * Starts an entitlement aggregation on the specified source.  If the target source is a direct connection, then a request body is not needed. If the target source is a delimited file source, then the CSV file needs to be included in the request body.   
+         * Starts an entitlement aggregation on the specified source.  If the target source is a direct connection, then the request body must be empty. You will also need to make sure the Content-Type header is not set. If you set the Content-Type header without specifying a body, then you will receive a 500 error. If the target source is a delimited file source, then the CSV file needs to be included in the request body. You will also need to set the Content-Type header to `multipart/form-data`.
          * @summary Aggregate Entitlements
          * @param {string} id Source Id
          * @param {any} csvFile 
@@ -40678,7 +40678,7 @@ export class EntitlementsBetaApi extends BaseAPI {
     }
 
     /**
-     * Starts an entitlement aggregation on the specified source.  If the target source is a direct connection, then a request body is not needed. If the target source is a delimited file source, then the CSV file needs to be included in the request body.   
+     * Starts an entitlement aggregation on the specified source.  If the target source is a direct connection, then the request body must be empty. You will also need to make sure the Content-Type header is not set. If you set the Content-Type header without specifying a body, then you will receive a 500 error. If the target source is a delimited file source, then the CSV file needs to be included in the request body. You will also need to set the Content-Type header to `multipart/form-data`.
      * @summary Aggregate Entitlements
      * @param {EntitlementsBetaApiImportEntitlementsRequest} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
