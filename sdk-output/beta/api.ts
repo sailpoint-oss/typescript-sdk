@@ -8505,6 +8505,68 @@ export interface DeleteNonEmployeeRecordInBulkRequestBeta {
     'ids': Array<string>;
 }
 /**
+ * 
+ * @export
+ * @interface DeleteVendorConnectorMapping200ResponseBeta
+ */
+export interface DeleteVendorConnectorMapping200ResponseBeta {
+    /**
+     * The number of vendor connector mappings successfully deleted.
+     * @type {number}
+     * @memberof DeleteVendorConnectorMapping200ResponseBeta
+     */
+    'count'?: number;
+}
+/**
+ * 
+ * @export
+ * @interface DiscoveredApplicationsInnerBeta
+ */
+export interface DiscoveredApplicationsInnerBeta {
+    /**
+     * Unique identifier for the discovered application.
+     * @type {string}
+     * @memberof DiscoveredApplicationsInnerBeta
+     */
+    'id'?: string;
+    /**
+     * Name of the discovered application.
+     * @type {string}
+     * @memberof DiscoveredApplicationsInnerBeta
+     */
+    'name'?: string;
+    /**
+     * Source from which the application was discovered.
+     * @type {string}
+     * @memberof DiscoveredApplicationsInnerBeta
+     */
+    'discoverySource'?: string;
+    /**
+     * The vendor associated with the discovered application.
+     * @type {string}
+     * @memberof DiscoveredApplicationsInnerBeta
+     */
+    'discoveredVendor'?: string;
+    /**
+     * A brief description of the discovered application.
+     * @type {string}
+     * @memberof DiscoveredApplicationsInnerBeta
+     */
+    'description'?: string;
+    /**
+     * List of recommended connectors for the application.
+     * @type {Array<string>}
+     * @memberof DiscoveredApplicationsInnerBeta
+     */
+    'recommendedConnectors'?: Array<string>;
+    /**
+     * The timestamp when the application was discovered, in ISO 8601 format.
+     * @type {string}
+     * @memberof DiscoveredApplicationsInnerBeta
+     */
+    'discoveredTimestamp'?: string;
+}
+/**
  * DKIM attributes for a domain or identity
  * @export
  * @interface DkimAttributesBeta
@@ -14901,6 +14963,38 @@ export interface ManagerCorrelationMappingBeta {
      * @memberof ManagerCorrelationMappingBeta
      */
     'identityAttribute'?: string;
+}
+/**
+ * 
+ * @export
+ * @interface ManualDiscoverApplicationsBeta
+ */
+export interface ManualDiscoverApplicationsBeta {
+    /**
+     * The CSV file to upload containing `application_name` and `description` columns. Each row represents an application to be discovered.
+     * @type {any}
+     * @memberof ManualDiscoverApplicationsBeta
+     */
+    'file': any;
+}
+/**
+ * 
+ * @export
+ * @interface ManualDiscoverApplicationsTemplateBeta
+ */
+export interface ManualDiscoverApplicationsTemplateBeta {
+    /**
+     * Name of the example application.
+     * @type {string}
+     * @memberof ManualDiscoverApplicationsTemplateBeta
+     */
+    'application_name'?: string;
+    /**
+     * Description of the example application\'s domain.
+     * @type {string}
+     * @memberof ManualDiscoverApplicationsTemplateBeta
+     */
+    'domain'?: string;
 }
 /**
  * 
@@ -27453,6 +27547,143 @@ export interface ValueBeta {
 /**
  * 
  * @export
+ * @interface VendorConnectorMappingBeta
+ */
+export interface VendorConnectorMappingBeta {
+    /**
+     * The unique identifier for the vendor-connector mapping.
+     * @type {string}
+     * @memberof VendorConnectorMappingBeta
+     */
+    'id'?: string;
+    /**
+     * The name of the vendor.
+     * @type {string}
+     * @memberof VendorConnectorMappingBeta
+     */
+    'vendor'?: string;
+    /**
+     * The name of the connector.
+     * @type {string}
+     * @memberof VendorConnectorMappingBeta
+     */
+    'connector'?: string;
+    /**
+     * The creation timestamp of the mapping.
+     * @type {string}
+     * @memberof VendorConnectorMappingBeta
+     */
+    'createdAt'?: string;
+    /**
+     * The identifier of the user who created the mapping.
+     * @type {string}
+     * @memberof VendorConnectorMappingBeta
+     */
+    'createdBy'?: string;
+    /**
+     * 
+     * @type {VendorConnectorMappingUpdatedAtBeta}
+     * @memberof VendorConnectorMappingBeta
+     */
+    'updatedAt'?: VendorConnectorMappingUpdatedAtBeta | null;
+    /**
+     * 
+     * @type {VendorConnectorMappingUpdatedByBeta}
+     * @memberof VendorConnectorMappingBeta
+     */
+    'updatedBy'?: VendorConnectorMappingUpdatedByBeta | null;
+    /**
+     * 
+     * @type {VendorConnectorMappingDeletedAtBeta}
+     * @memberof VendorConnectorMappingBeta
+     */
+    'deletedAt'?: VendorConnectorMappingDeletedAtBeta | null;
+    /**
+     * 
+     * @type {VendorConnectorMappingDeletedByBeta}
+     * @memberof VendorConnectorMappingBeta
+     */
+    'deletedBy'?: VendorConnectorMappingDeletedByBeta | null;
+}
+/**
+ * An object representing the nullable timestamp of when the mapping was deleted.
+ * @export
+ * @interface VendorConnectorMappingDeletedAtBeta
+ */
+export interface VendorConnectorMappingDeletedAtBeta {
+    /**
+     * The timestamp when the mapping was deleted, represented in ISO 8601 format, if applicable.
+     * @type {string}
+     * @memberof VendorConnectorMappingDeletedAtBeta
+     */
+    'Time'?: string;
+    /**
+     * A flag indicating if the \'Time\' field is set and valid, i.e., if the mapping has been deleted.
+     * @type {boolean}
+     * @memberof VendorConnectorMappingDeletedAtBeta
+     */
+    'Valid'?: boolean;
+}
+/**
+ * An object representing the nullable identifier of the user who deleted the mapping.
+ * @export
+ * @interface VendorConnectorMappingDeletedByBeta
+ */
+export interface VendorConnectorMappingDeletedByBeta {
+    /**
+     * The identifier of the user who deleted the mapping, if applicable.
+     * @type {string}
+     * @memberof VendorConnectorMappingDeletedByBeta
+     */
+    'String'?: string;
+    /**
+     * A flag indicating if the \'String\' field is set and valid, i.e., if the mapping has been deleted.
+     * @type {boolean}
+     * @memberof VendorConnectorMappingDeletedByBeta
+     */
+    'Valid'?: boolean;
+}
+/**
+ * An object representing the nullable timestamp of the last update.
+ * @export
+ * @interface VendorConnectorMappingUpdatedAtBeta
+ */
+export interface VendorConnectorMappingUpdatedAtBeta {
+    /**
+     * The timestamp when the mapping was last updated, represented in ISO 8601 format.
+     * @type {string}
+     * @memberof VendorConnectorMappingUpdatedAtBeta
+     */
+    'Time'?: string;
+    /**
+     * A flag indicating if the \'Time\' field is set and valid.
+     * @type {boolean}
+     * @memberof VendorConnectorMappingUpdatedAtBeta
+     */
+    'Valid'?: boolean;
+}
+/**
+ * An object representing the nullable identifier of the user who last updated the mapping.
+ * @export
+ * @interface VendorConnectorMappingUpdatedByBeta
+ */
+export interface VendorConnectorMappingUpdatedByBeta {
+    /**
+     * The identifier of the user who last updated the mapping, if available.
+     * @type {string}
+     * @memberof VendorConnectorMappingUpdatedByBeta
+     */
+    'String'?: string;
+    /**
+     * A flag indicating if the \'String\' field is set and valid.
+     * @type {boolean}
+     * @memberof VendorConnectorMappingUpdatedByBeta
+     */
+    'Valid'?: boolean;
+}
+/**
+ * 
+ * @export
  * @interface VerificationPollRequestBeta
  */
 export interface VerificationPollRequestBeta {
@@ -39718,6 +39949,176 @@ export class CustomPasswordInstructionsBetaApi extends BaseAPI {
      */
     public getCustomPasswordInstructions(requestParameters: CustomPasswordInstructionsBetaApiGetCustomPasswordInstructionsRequest, axiosOptions?: AxiosRequestConfig) {
         return CustomPasswordInstructionsBetaApiFp(this.configuration).getCustomPasswordInstructions(requestParameters.pageId, requestParameters.locale, axiosOptions).then((request) => request(this.axios, this.basePath));
+    }
+}
+
+
+/**
+ * DiscoveredApplicationsBetaApi - axios parameter creator
+ * @export
+ */
+export const DiscoveredApplicationsBetaApiAxiosParamCreator = function (configuration?: Configuration) {
+    return {
+        /**
+         * Fetches a list of applications that have been identified within the environment. This includes details such as application names, discovery dates, potential correlated saas_vendors and related suggested connectors. 
+         * @summary Retrieve discovered applications for tenant
+         * @param {number} [limit] Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+         * @param {number} [offset] Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+         * @param {string} [filter] Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)       Filtering is supported for the following fields and operators:  **name**: *eq, sw, co*  **description**: *eq, sw, co* 
+         * @param {string} [sorters] Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **name, description, discoveredAt, discoverySource**
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        getDiscoveredApplications: async (limit?: number, offset?: number, filter?: string, sorters?: string, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            const localVarPath = `/discovered-applications`;
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...axiosOptions};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication UserContextAuth required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "UserContextAuth", [], configuration)
+
+            // authentication UserContextAuth required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "UserContextAuth", [], configuration)
+
+            if (limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+
+            if (offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+
+            if (filter !== undefined) {
+                localVarQueryParameter['filter'] = filter;
+            }
+
+            if (sorters !== undefined) {
+                localVarQueryParameter['sorters'] = sorters;
+            }
+
+
+    
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                axiosOptions: localVarRequestOptions,
+            };
+        },
+    }
+};
+
+/**
+ * DiscoveredApplicationsBetaApi - functional programming interface
+ * @export
+ */
+export const DiscoveredApplicationsBetaApiFp = function(configuration?: Configuration) {
+    const localVarAxiosParamCreator = DiscoveredApplicationsBetaApiAxiosParamCreator(configuration)
+    return {
+        /**
+         * Fetches a list of applications that have been identified within the environment. This includes details such as application names, discovery dates, potential correlated saas_vendors and related suggested connectors. 
+         * @summary Retrieve discovered applications for tenant
+         * @param {number} [limit] Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+         * @param {number} [offset] Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+         * @param {string} [filter] Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)       Filtering is supported for the following fields and operators:  **name**: *eq, sw, co*  **description**: *eq, sw, co* 
+         * @param {string} [sorters] Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **name, description, discoveredAt, discoverySource**
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        async getDiscoveredApplications(limit?: number, offset?: number, filter?: string, sorters?: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Array<DiscoveredApplicationsInnerBeta>>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getDiscoveredApplications(limit, offset, filter, sorters, axiosOptions);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+    }
+};
+
+/**
+ * DiscoveredApplicationsBetaApi - factory interface
+ * @export
+ */
+export const DiscoveredApplicationsBetaApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
+    const localVarFp = DiscoveredApplicationsBetaApiFp(configuration)
+    return {
+        /**
+         * Fetches a list of applications that have been identified within the environment. This includes details such as application names, discovery dates, potential correlated saas_vendors and related suggested connectors. 
+         * @summary Retrieve discovered applications for tenant
+         * @param {number} [limit] Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+         * @param {number} [offset] Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+         * @param {string} [filter] Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)       Filtering is supported for the following fields and operators:  **name**: *eq, sw, co*  **description**: *eq, sw, co* 
+         * @param {string} [sorters] Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **name, description, discoveredAt, discoverySource**
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        getDiscoveredApplications(limit?: number, offset?: number, filter?: string, sorters?: string, axiosOptions?: any): AxiosPromise<Array<Array<DiscoveredApplicationsInnerBeta>>> {
+            return localVarFp.getDiscoveredApplications(limit, offset, filter, sorters, axiosOptions).then((request) => request(axios, basePath));
+        },
+    };
+};
+
+/**
+ * Request parameters for getDiscoveredApplications operation in DiscoveredApplicationsBetaApi.
+ * @export
+ * @interface DiscoveredApplicationsBetaApiGetDiscoveredApplicationsRequest
+ */
+export interface DiscoveredApplicationsBetaApiGetDiscoveredApplicationsRequest {
+    /**
+     * Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+     * @type {number}
+     * @memberof DiscoveredApplicationsBetaApiGetDiscoveredApplications
+     */
+    readonly limit?: number
+
+    /**
+     * Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+     * @type {number}
+     * @memberof DiscoveredApplicationsBetaApiGetDiscoveredApplications
+     */
+    readonly offset?: number
+
+    /**
+     * Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)       Filtering is supported for the following fields and operators:  **name**: *eq, sw, co*  **description**: *eq, sw, co* 
+     * @type {string}
+     * @memberof DiscoveredApplicationsBetaApiGetDiscoveredApplications
+     */
+    readonly filter?: string
+
+    /**
+     * Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **name, description, discoveredAt, discoverySource**
+     * @type {string}
+     * @memberof DiscoveredApplicationsBetaApiGetDiscoveredApplications
+     */
+    readonly sorters?: string
+}
+
+/**
+ * DiscoveredApplicationsBetaApi - object-oriented interface
+ * @export
+ * @class DiscoveredApplicationsBetaApi
+ * @extends {BaseAPI}
+ */
+export class DiscoveredApplicationsBetaApi extends BaseAPI {
+    /**
+     * Fetches a list of applications that have been identified within the environment. This includes details such as application names, discovery dates, potential correlated saas_vendors and related suggested connectors. 
+     * @summary Retrieve discovered applications for tenant
+     * @param {DiscoveredApplicationsBetaApiGetDiscoveredApplicationsRequest} requestParameters Request parameters.
+     * @param {*} [axiosOptions] Override http request option.
+     * @throws {RequiredError}
+     * @memberof DiscoveredApplicationsBetaApi
+     */
+    public getDiscoveredApplications(requestParameters: DiscoveredApplicationsBetaApiGetDiscoveredApplicationsRequest = {}, axiosOptions?: AxiosRequestConfig) {
+        return DiscoveredApplicationsBetaApiFp(this.configuration).getDiscoveredApplications(requestParameters.limit, requestParameters.offset, requestParameters.filter, requestParameters.sorters, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 }
 
@@ -54898,6 +55299,246 @@ export class ManagedClustersBetaApi extends BaseAPI {
      */
     public putClientLogConfiguration(requestParameters: ManagedClustersBetaApiPutClientLogConfigurationRequest, axiosOptions?: AxiosRequestConfig) {
         return ManagedClustersBetaApiFp(this.configuration).putClientLogConfiguration(requestParameters.id, requestParameters.clientLogConfigurationBeta, axiosOptions).then((request) => request(this.axios, this.basePath));
+    }
+}
+
+
+/**
+ * ManualDiscoverApplicationsBetaApi - axios parameter creator
+ * @export
+ */
+export const ManualDiscoverApplicationsBetaApiAxiosParamCreator = function (configuration?: Configuration) {
+    return {
+        /**
+         * This API allows for the upload of a CSV file containing application data to be manually correlated to potential IDN connector(s).
+         * @summary CSV Upload to discover applications
+         * @param {any} csvFile 
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        sendManualDiscoverApplicationsCsvTemplate: async (csvFile: any, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'csvFile' is not null or undefined
+            assertParamExists('sendManualDiscoverApplicationsCsvTemplate', 'csvFile', csvFile)
+            const localVarPath = `/manual-discover-applications`;
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'POST', ...baseOptions, ...axiosOptions};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            const localVarFormParams = new ((configuration && configuration.formDataCtor) || FormData)();
+
+            // authentication UserContextAuth required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "UserContextAuth", [], configuration)
+
+            // authentication UserContextAuth required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "UserContextAuth", [], configuration)
+
+
+            if (csvFile !== undefined) { 
+                localVarFormParams.append('csvFile', csvFile as any);
+            }
+    
+    
+            localVarHeaderParameter['Content-Type'] = 'multipart/form-data';
+    
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
+            localVarRequestOptions.data = localVarFormParams;
+
+            return {
+                url: toPathString(localVarUrlObj),
+                axiosOptions: localVarRequestOptions,
+            };
+        },
+    }
+};
+
+/**
+ * ManualDiscoverApplicationsBetaApi - functional programming interface
+ * @export
+ */
+export const ManualDiscoverApplicationsBetaApiFp = function(configuration?: Configuration) {
+    const localVarAxiosParamCreator = ManualDiscoverApplicationsBetaApiAxiosParamCreator(configuration)
+    return {
+        /**
+         * This API allows for the upload of a CSV file containing application data to be manually correlated to potential IDN connector(s).
+         * @summary CSV Upload to discover applications
+         * @param {any} csvFile 
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        async sendManualDiscoverApplicationsCsvTemplate(csvFile: any, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ManualDiscoverApplicationsBeta>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.sendManualDiscoverApplicationsCsvTemplate(csvFile, axiosOptions);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+    }
+};
+
+/**
+ * ManualDiscoverApplicationsBetaApi - factory interface
+ * @export
+ */
+export const ManualDiscoverApplicationsBetaApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
+    const localVarFp = ManualDiscoverApplicationsBetaApiFp(configuration)
+    return {
+        /**
+         * This API allows for the upload of a CSV file containing application data to be manually correlated to potential IDN connector(s).
+         * @summary CSV Upload to discover applications
+         * @param {any} csvFile 
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        sendManualDiscoverApplicationsCsvTemplate(csvFile: any, axiosOptions?: any): AxiosPromise<ManualDiscoverApplicationsBeta> {
+            return localVarFp.sendManualDiscoverApplicationsCsvTemplate(csvFile, axiosOptions).then((request) => request(axios, basePath));
+        },
+    };
+};
+
+/**
+ * Request parameters for sendManualDiscoverApplicationsCsvTemplate operation in ManualDiscoverApplicationsBetaApi.
+ * @export
+ * @interface ManualDiscoverApplicationsBetaApiSendManualDiscoverApplicationsCsvTemplateRequest
+ */
+export interface ManualDiscoverApplicationsBetaApiSendManualDiscoverApplicationsCsvTemplateRequest {
+    /**
+     * 
+     * @type {any}
+     * @memberof ManualDiscoverApplicationsBetaApiSendManualDiscoverApplicationsCsvTemplate
+     */
+    readonly csvFile: any
+}
+
+/**
+ * ManualDiscoverApplicationsBetaApi - object-oriented interface
+ * @export
+ * @class ManualDiscoverApplicationsBetaApi
+ * @extends {BaseAPI}
+ */
+export class ManualDiscoverApplicationsBetaApi extends BaseAPI {
+    /**
+     * This API allows for the upload of a CSV file containing application data to be manually correlated to potential IDN connector(s).
+     * @summary CSV Upload to discover applications
+     * @param {ManualDiscoverApplicationsBetaApiSendManualDiscoverApplicationsCsvTemplateRequest} requestParameters Request parameters.
+     * @param {*} [axiosOptions] Override http request option.
+     * @throws {RequiredError}
+     * @memberof ManualDiscoverApplicationsBetaApi
+     */
+    public sendManualDiscoverApplicationsCsvTemplate(requestParameters: ManualDiscoverApplicationsBetaApiSendManualDiscoverApplicationsCsvTemplateRequest, axiosOptions?: AxiosRequestConfig) {
+        return ManualDiscoverApplicationsBetaApiFp(this.configuration).sendManualDiscoverApplicationsCsvTemplate(requestParameters.csvFile, axiosOptions).then((request) => request(this.axios, this.basePath));
+    }
+}
+
+
+/**
+ * ManualDiscoverApplicationsTemplateBetaApi - axios parameter creator
+ * @export
+ */
+export const ManualDiscoverApplicationsTemplateBetaApiAxiosParamCreator = function (configuration?: Configuration) {
+    return {
+        /**
+         * Allows the user to download an example CSV file with two columns `application_name` and `domain`. The CSV file contains a single row with the values \'Example Application\' and \'Example Description\'. 
+         * @summary CSV template download for discovery
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        getManualDiscoverApplicationsCsvTemplate: async (axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            const localVarPath = `/manual-discover-applications-template`;
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...axiosOptions};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication UserContextAuth required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "UserContextAuth", [], configuration)
+
+            // authentication UserContextAuth required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "UserContextAuth", [], configuration)
+
+
+    
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                axiosOptions: localVarRequestOptions,
+            };
+        },
+    }
+};
+
+/**
+ * ManualDiscoverApplicationsTemplateBetaApi - functional programming interface
+ * @export
+ */
+export const ManualDiscoverApplicationsTemplateBetaApiFp = function(configuration?: Configuration) {
+    const localVarAxiosParamCreator = ManualDiscoverApplicationsTemplateBetaApiAxiosParamCreator(configuration)
+    return {
+        /**
+         * Allows the user to download an example CSV file with two columns `application_name` and `domain`. The CSV file contains a single row with the values \'Example Application\' and \'Example Description\'. 
+         * @summary CSV template download for discovery
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        async getManualDiscoverApplicationsCsvTemplate(axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ManualDiscoverApplicationsTemplateBeta>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getManualDiscoverApplicationsCsvTemplate(axiosOptions);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+    }
+};
+
+/**
+ * ManualDiscoverApplicationsTemplateBetaApi - factory interface
+ * @export
+ */
+export const ManualDiscoverApplicationsTemplateBetaApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
+    const localVarFp = ManualDiscoverApplicationsTemplateBetaApiFp(configuration)
+    return {
+        /**
+         * Allows the user to download an example CSV file with two columns `application_name` and `domain`. The CSV file contains a single row with the values \'Example Application\' and \'Example Description\'. 
+         * @summary CSV template download for discovery
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        getManualDiscoverApplicationsCsvTemplate(axiosOptions?: any): AxiosPromise<ManualDiscoverApplicationsTemplateBeta> {
+            return localVarFp.getManualDiscoverApplicationsCsvTemplate(axiosOptions).then((request) => request(axios, basePath));
+        },
+    };
+};
+
+/**
+ * ManualDiscoverApplicationsTemplateBetaApi - object-oriented interface
+ * @export
+ * @class ManualDiscoverApplicationsTemplateBetaApi
+ * @extends {BaseAPI}
+ */
+export class ManualDiscoverApplicationsTemplateBetaApi extends BaseAPI {
+    /**
+     * Allows the user to download an example CSV file with two columns `application_name` and `domain`. The CSV file contains a single row with the values \'Example Application\' and \'Example Description\'. 
+     * @summary CSV template download for discovery
+     * @param {*} [axiosOptions] Override http request option.
+     * @throws {RequiredError}
+     * @memberof ManualDiscoverApplicationsTemplateBetaApi
+     */
+    public getManualDiscoverApplicationsCsvTemplate(axiosOptions?: AxiosRequestConfig) {
+        return ManualDiscoverApplicationsTemplateBetaApiFp(this.configuration).getManualDiscoverApplicationsCsvTemplate(axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 }
 
@@ -76584,6 +77225,294 @@ export class TriggersBetaApi extends BaseAPI {
      */
     public updateSubscription(requestParameters: TriggersBetaApiUpdateSubscriptionRequest, axiosOptions?: AxiosRequestConfig) {
         return TriggersBetaApiFp(this.configuration).updateSubscription(requestParameters.id, requestParameters.subscriptionPutRequestBeta, axiosOptions).then((request) => request(this.axios, this.basePath));
+    }
+}
+
+
+/**
+ * VendorConnectorMappingsBetaApi - axios parameter creator
+ * @export
+ */
+export const VendorConnectorMappingsBetaApiAxiosParamCreator = function (configuration?: Configuration) {
+    return {
+        /**
+         * Creates a new mapping between a SaaS vendor and an IDN connector to establish correlation paths. 
+         * @summary Create a vendor connector mapping
+         * @param {VendorConnectorMappingBeta} vendorConnectorMappingBeta 
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        createVendorConnectorMapping: async (vendorConnectorMappingBeta: VendorConnectorMappingBeta, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'vendorConnectorMappingBeta' is not null or undefined
+            assertParamExists('createVendorConnectorMapping', 'vendorConnectorMappingBeta', vendorConnectorMappingBeta)
+            const localVarPath = `/vendor-connector-mappings`;
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'POST', ...baseOptions, ...axiosOptions};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication UserContextAuth required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "UserContextAuth", [], configuration)
+
+            // authentication UserContextAuth required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "UserContextAuth", [], configuration)
+
+
+    
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
+            localVarRequestOptions.data = serializeDataIfNeeded(vendorConnectorMappingBeta, localVarRequestOptions, configuration)
+
+            return {
+                url: toPathString(localVarUrlObj),
+                axiosOptions: localVarRequestOptions,
+            };
+        },
+        /**
+         * Soft deletes a mapping between a SaaS vendor and an IDN connector, removing the established correlation. 
+         * @summary Delete a vendor connector mapping
+         * @param {VendorConnectorMappingBeta} vendorConnectorMappingBeta 
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        deleteVendorConnectorMapping: async (vendorConnectorMappingBeta: VendorConnectorMappingBeta, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'vendorConnectorMappingBeta' is not null or undefined
+            assertParamExists('deleteVendorConnectorMapping', 'vendorConnectorMappingBeta', vendorConnectorMappingBeta)
+            const localVarPath = `/vendor-connector-mappings`;
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'DELETE', ...baseOptions, ...axiosOptions};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication UserContextAuth required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "UserContextAuth", [], configuration)
+
+            // authentication UserContextAuth required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "UserContextAuth", [], configuration)
+
+
+    
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
+            localVarRequestOptions.data = serializeDataIfNeeded(vendorConnectorMappingBeta, localVarRequestOptions, configuration)
+
+            return {
+                url: toPathString(localVarUrlObj),
+                axiosOptions: localVarRequestOptions,
+            };
+        },
+        /**
+         * Retrieves a list of mappings between SaaS vendors and IDN connectors, detailing the connections established for correlation. 
+         * @summary List vendor connector mappings
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        getVendorConnectorMappings: async (axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            const localVarPath = `/vendor-connector-mappings`;
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...axiosOptions};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication UserContextAuth required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "UserContextAuth", [], configuration)
+
+            // authentication UserContextAuth required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "UserContextAuth", [], configuration)
+
+
+    
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                axiosOptions: localVarRequestOptions,
+            };
+        },
+    }
+};
+
+/**
+ * VendorConnectorMappingsBetaApi - functional programming interface
+ * @export
+ */
+export const VendorConnectorMappingsBetaApiFp = function(configuration?: Configuration) {
+    const localVarAxiosParamCreator = VendorConnectorMappingsBetaApiAxiosParamCreator(configuration)
+    return {
+        /**
+         * Creates a new mapping between a SaaS vendor and an IDN connector to establish correlation paths. 
+         * @summary Create a vendor connector mapping
+         * @param {VendorConnectorMappingBeta} vendorConnectorMappingBeta 
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        async createVendorConnectorMapping(vendorConnectorMappingBeta: VendorConnectorMappingBeta, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<VendorConnectorMappingBeta>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.createVendorConnectorMapping(vendorConnectorMappingBeta, axiosOptions);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * Soft deletes a mapping between a SaaS vendor and an IDN connector, removing the established correlation. 
+         * @summary Delete a vendor connector mapping
+         * @param {VendorConnectorMappingBeta} vendorConnectorMappingBeta 
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        async deleteVendorConnectorMapping(vendorConnectorMappingBeta: VendorConnectorMappingBeta, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<DeleteVendorConnectorMapping200ResponseBeta>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.deleteVendorConnectorMapping(vendorConnectorMappingBeta, axiosOptions);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * Retrieves a list of mappings between SaaS vendors and IDN connectors, detailing the connections established for correlation. 
+         * @summary List vendor connector mappings
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        async getVendorConnectorMappings(axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<VendorConnectorMappingBeta>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getVendorConnectorMappings(axiosOptions);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+    }
+};
+
+/**
+ * VendorConnectorMappingsBetaApi - factory interface
+ * @export
+ */
+export const VendorConnectorMappingsBetaApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
+    const localVarFp = VendorConnectorMappingsBetaApiFp(configuration)
+    return {
+        /**
+         * Creates a new mapping between a SaaS vendor and an IDN connector to establish correlation paths. 
+         * @summary Create a vendor connector mapping
+         * @param {VendorConnectorMappingBeta} vendorConnectorMappingBeta 
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        createVendorConnectorMapping(vendorConnectorMappingBeta: VendorConnectorMappingBeta, axiosOptions?: any): AxiosPromise<VendorConnectorMappingBeta> {
+            return localVarFp.createVendorConnectorMapping(vendorConnectorMappingBeta, axiosOptions).then((request) => request(axios, basePath));
+        },
+        /**
+         * Soft deletes a mapping between a SaaS vendor and an IDN connector, removing the established correlation. 
+         * @summary Delete a vendor connector mapping
+         * @param {VendorConnectorMappingBeta} vendorConnectorMappingBeta 
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        deleteVendorConnectorMapping(vendorConnectorMappingBeta: VendorConnectorMappingBeta, axiosOptions?: any): AxiosPromise<DeleteVendorConnectorMapping200ResponseBeta> {
+            return localVarFp.deleteVendorConnectorMapping(vendorConnectorMappingBeta, axiosOptions).then((request) => request(axios, basePath));
+        },
+        /**
+         * Retrieves a list of mappings between SaaS vendors and IDN connectors, detailing the connections established for correlation. 
+         * @summary List vendor connector mappings
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        getVendorConnectorMappings(axiosOptions?: any): AxiosPromise<Array<VendorConnectorMappingBeta>> {
+            return localVarFp.getVendorConnectorMappings(axiosOptions).then((request) => request(axios, basePath));
+        },
+    };
+};
+
+/**
+ * Request parameters for createVendorConnectorMapping operation in VendorConnectorMappingsBetaApi.
+ * @export
+ * @interface VendorConnectorMappingsBetaApiCreateVendorConnectorMappingRequest
+ */
+export interface VendorConnectorMappingsBetaApiCreateVendorConnectorMappingRequest {
+    /**
+     * 
+     * @type {VendorConnectorMappingBeta}
+     * @memberof VendorConnectorMappingsBetaApiCreateVendorConnectorMapping
+     */
+    readonly vendorConnectorMappingBeta: VendorConnectorMappingBeta
+}
+
+/**
+ * Request parameters for deleteVendorConnectorMapping operation in VendorConnectorMappingsBetaApi.
+ * @export
+ * @interface VendorConnectorMappingsBetaApiDeleteVendorConnectorMappingRequest
+ */
+export interface VendorConnectorMappingsBetaApiDeleteVendorConnectorMappingRequest {
+    /**
+     * 
+     * @type {VendorConnectorMappingBeta}
+     * @memberof VendorConnectorMappingsBetaApiDeleteVendorConnectorMapping
+     */
+    readonly vendorConnectorMappingBeta: VendorConnectorMappingBeta
+}
+
+/**
+ * VendorConnectorMappingsBetaApi - object-oriented interface
+ * @export
+ * @class VendorConnectorMappingsBetaApi
+ * @extends {BaseAPI}
+ */
+export class VendorConnectorMappingsBetaApi extends BaseAPI {
+    /**
+     * Creates a new mapping between a SaaS vendor and an IDN connector to establish correlation paths. 
+     * @summary Create a vendor connector mapping
+     * @param {VendorConnectorMappingsBetaApiCreateVendorConnectorMappingRequest} requestParameters Request parameters.
+     * @param {*} [axiosOptions] Override http request option.
+     * @throws {RequiredError}
+     * @memberof VendorConnectorMappingsBetaApi
+     */
+    public createVendorConnectorMapping(requestParameters: VendorConnectorMappingsBetaApiCreateVendorConnectorMappingRequest, axiosOptions?: AxiosRequestConfig) {
+        return VendorConnectorMappingsBetaApiFp(this.configuration).createVendorConnectorMapping(requestParameters.vendorConnectorMappingBeta, axiosOptions).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Soft deletes a mapping between a SaaS vendor and an IDN connector, removing the established correlation. 
+     * @summary Delete a vendor connector mapping
+     * @param {VendorConnectorMappingsBetaApiDeleteVendorConnectorMappingRequest} requestParameters Request parameters.
+     * @param {*} [axiosOptions] Override http request option.
+     * @throws {RequiredError}
+     * @memberof VendorConnectorMappingsBetaApi
+     */
+    public deleteVendorConnectorMapping(requestParameters: VendorConnectorMappingsBetaApiDeleteVendorConnectorMappingRequest, axiosOptions?: AxiosRequestConfig) {
+        return VendorConnectorMappingsBetaApiFp(this.configuration).deleteVendorConnectorMapping(requestParameters.vendorConnectorMappingBeta, axiosOptions).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Retrieves a list of mappings between SaaS vendors and IDN connectors, detailing the connections established for correlation. 
+     * @summary List vendor connector mappings
+     * @param {*} [axiosOptions] Override http request option.
+     * @throws {RequiredError}
+     * @memberof VendorConnectorMappingsBetaApi
+     */
+    public getVendorConnectorMappings(axiosOptions?: AxiosRequestConfig) {
+        return VendorConnectorMappingsBetaApiFp(this.configuration).getVendorConnectorMappings(axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 }
 
