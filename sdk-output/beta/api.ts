@@ -31895,6 +31895,90 @@ export const AccountsBetaApiAxiosParamCreator = function (configuration?: Config
             };
         },
         /**
+         * Use this endpoint to remove accounts from the system without provisioning changes to the source. Accounts that are removed could be re-created during the next aggregation.  This endpoint is good for: * Removing accounts that no longer exist on the source. * Removing accounts that won\'t be aggregated following updates to the source configuration. * Forcing accounts to be re-created following the next aggregation to re-run account processing, support testing, etc. 
+         * @summary Remove Account
+         * @param {string} id The account id
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        deleteAccountAsync: async (id: string, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'id' is not null or undefined
+            assertParamExists('deleteAccountAsync', 'id', id)
+            const localVarPath = `/accounts/{id}/remove`
+                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'POST', ...baseOptions, ...axiosOptions};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication UserContextAuth required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "UserContextAuth", [], configuration)
+
+            // authentication UserContextAuth required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "UserContextAuth", [], configuration)
+
+
+    
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                axiosOptions: localVarRequestOptions,
+            };
+        },
+        /**
+         * Use this endpoint to remove all accounts from the system without provisioning changes to the source. Accounts that are removed could be re-created during the next aggregation.  This endpoint is good for: * Removing accounts that no longer exist on the source. * Removing accounts that won\'t be aggregated following updates to the source configuration. * Forcing accounts to be re-created following the next aggregation to re-run account processing, support testing, etc. 
+         * @summary Remove All Accounts
+         * @param {string} id The source id
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        deleteAccountsAsync: async (id: string, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'id' is not null or undefined
+            assertParamExists('deleteAccountsAsync', 'id', id)
+            const localVarPath = `/sources/{id}/remove-accounts`
+                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'POST', ...baseOptions, ...axiosOptions};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication UserContextAuth required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "UserContextAuth", [], configuration)
+
+            // authentication UserContextAuth required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "UserContextAuth", [], configuration)
+
+
+    
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                axiosOptions: localVarRequestOptions,
+            };
+        },
+        /**
          * This API submits a task to disable the account and returns the task ID.   A token with ORG_ADMIN authority is required to call this API.
          * @summary Disable Account
          * @param {string} id The account id
@@ -32548,6 +32632,28 @@ export const AccountsBetaApiFp = function(configuration?: Configuration) {
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
+         * Use this endpoint to remove accounts from the system without provisioning changes to the source. Accounts that are removed could be re-created during the next aggregation.  This endpoint is good for: * Removing accounts that no longer exist on the source. * Removing accounts that won\'t be aggregated following updates to the source configuration. * Forcing accounts to be re-created following the next aggregation to re-run account processing, support testing, etc. 
+         * @summary Remove Account
+         * @param {string} id The account id
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        async deleteAccountAsync(id: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<TaskResultDtoBeta>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.deleteAccountAsync(id, axiosOptions);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * Use this endpoint to remove all accounts from the system without provisioning changes to the source. Accounts that are removed could be re-created during the next aggregation.  This endpoint is good for: * Removing accounts that no longer exist on the source. * Removing accounts that won\'t be aggregated following updates to the source configuration. * Forcing accounts to be re-created following the next aggregation to re-run account processing, support testing, etc. 
+         * @summary Remove All Accounts
+         * @param {string} id The source id
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        async deleteAccountsAsync(id: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<TaskResultDtoBeta>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.deleteAccountsAsync(id, axiosOptions);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
          * This API submits a task to disable the account and returns the task ID.   A token with ORG_ADMIN authority is required to call this API.
          * @summary Disable Account
          * @param {string} id The account id
@@ -32734,6 +32840,26 @@ export const AccountsBetaApiFactory = function (configuration?: Configuration, b
             return localVarFp.deleteAccount(id, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
+         * Use this endpoint to remove accounts from the system without provisioning changes to the source. Accounts that are removed could be re-created during the next aggregation.  This endpoint is good for: * Removing accounts that no longer exist on the source. * Removing accounts that won\'t be aggregated following updates to the source configuration. * Forcing accounts to be re-created following the next aggregation to re-run account processing, support testing, etc. 
+         * @summary Remove Account
+         * @param {string} id The account id
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        deleteAccountAsync(id: string, axiosOptions?: any): AxiosPromise<TaskResultDtoBeta> {
+            return localVarFp.deleteAccountAsync(id, axiosOptions).then((request) => request(axios, basePath));
+        },
+        /**
+         * Use this endpoint to remove all accounts from the system without provisioning changes to the source. Accounts that are removed could be re-created during the next aggregation.  This endpoint is good for: * Removing accounts that no longer exist on the source. * Removing accounts that won\'t be aggregated following updates to the source configuration. * Forcing accounts to be re-created following the next aggregation to re-run account processing, support testing, etc. 
+         * @summary Remove All Accounts
+         * @param {string} id The source id
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        deleteAccountsAsync(id: string, axiosOptions?: any): AxiosPromise<TaskResultDtoBeta> {
+            return localVarFp.deleteAccountsAsync(id, axiosOptions).then((request) => request(axios, basePath));
+        },
+        /**
          * This API submits a task to disable the account and returns the task ID.   A token with ORG_ADMIN authority is required to call this API.
          * @summary Disable Account
          * @param {string} id The account id
@@ -32903,6 +33029,34 @@ export interface AccountsBetaApiDeleteAccountRequest {
      * Account ID.
      * @type {string}
      * @memberof AccountsBetaApiDeleteAccount
+     */
+    readonly id: string
+}
+
+/**
+ * Request parameters for deleteAccountAsync operation in AccountsBetaApi.
+ * @export
+ * @interface AccountsBetaApiDeleteAccountAsyncRequest
+ */
+export interface AccountsBetaApiDeleteAccountAsyncRequest {
+    /**
+     * The account id
+     * @type {string}
+     * @memberof AccountsBetaApiDeleteAccountAsync
+     */
+    readonly id: string
+}
+
+/**
+ * Request parameters for deleteAccountsAsync operation in AccountsBetaApi.
+ * @export
+ * @interface AccountsBetaApiDeleteAccountsAsyncRequest
+ */
+export interface AccountsBetaApiDeleteAccountsAsyncRequest {
+    /**
+     * The source id
+     * @type {string}
+     * @memberof AccountsBetaApiDeleteAccountsAsync
      */
     readonly id: string
 }
@@ -33209,6 +33363,30 @@ export class AccountsBetaApi extends BaseAPI {
      */
     public deleteAccount(requestParameters: AccountsBetaApiDeleteAccountRequest, axiosOptions?: AxiosRequestConfig) {
         return AccountsBetaApiFp(this.configuration).deleteAccount(requestParameters.id, axiosOptions).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Use this endpoint to remove accounts from the system without provisioning changes to the source. Accounts that are removed could be re-created during the next aggregation.  This endpoint is good for: * Removing accounts that no longer exist on the source. * Removing accounts that won\'t be aggregated following updates to the source configuration. * Forcing accounts to be re-created following the next aggregation to re-run account processing, support testing, etc. 
+     * @summary Remove Account
+     * @param {AccountsBetaApiDeleteAccountAsyncRequest} requestParameters Request parameters.
+     * @param {*} [axiosOptions] Override http request option.
+     * @throws {RequiredError}
+     * @memberof AccountsBetaApi
+     */
+    public deleteAccountAsync(requestParameters: AccountsBetaApiDeleteAccountAsyncRequest, axiosOptions?: AxiosRequestConfig) {
+        return AccountsBetaApiFp(this.configuration).deleteAccountAsync(requestParameters.id, axiosOptions).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Use this endpoint to remove all accounts from the system without provisioning changes to the source. Accounts that are removed could be re-created during the next aggregation.  This endpoint is good for: * Removing accounts that no longer exist on the source. * Removing accounts that won\'t be aggregated following updates to the source configuration. * Forcing accounts to be re-created following the next aggregation to re-run account processing, support testing, etc. 
+     * @summary Remove All Accounts
+     * @param {AccountsBetaApiDeleteAccountsAsyncRequest} requestParameters Request parameters.
+     * @param {*} [axiosOptions] Override http request option.
+     * @throws {RequiredError}
+     * @memberof AccountsBetaApi
+     */
+    public deleteAccountsAsync(requestParameters: AccountsBetaApiDeleteAccountsAsyncRequest, axiosOptions?: AxiosRequestConfig) {
+        return AccountsBetaApiFp(this.configuration).deleteAccountsAsync(requestParameters.id, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
