@@ -54685,6 +54685,7 @@ export const ManagedClientsBetaApiAxiosParamCreator = function (configuration?: 
          * @param {string} id ID of the Managed Client Status to get
          * @param {ManagedClientTypeBeta} type Type of the Managed Client Status to get
          * @param {*} [axiosOptions] Override http request option.
+         * @deprecated
          * @throws {RequiredError}
          */
         getManagedClientStatus: async (id: string, type: ManagedClientTypeBeta, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
@@ -54734,6 +54735,7 @@ export const ManagedClientsBetaApiAxiosParamCreator = function (configuration?: 
          * @param {string} id ID of the Managed Client Status to update
          * @param {ManagedClientStatusBeta} managedClientStatusBeta 
          * @param {*} [axiosOptions] Override http request option.
+         * @deprecated
          * @throws {RequiredError}
          */
         updateManagedClientStatus: async (id: string, managedClientStatusBeta: ManagedClientStatusBeta, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
@@ -54792,6 +54794,7 @@ export const ManagedClientsBetaApiFp = function(configuration?: Configuration) {
          * @param {string} id ID of the Managed Client Status to get
          * @param {ManagedClientTypeBeta} type Type of the Managed Client Status to get
          * @param {*} [axiosOptions] Override http request option.
+         * @deprecated
          * @throws {RequiredError}
          */
         async getManagedClientStatus(id: string, type: ManagedClientTypeBeta, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ManagedClientStatusBeta>> {
@@ -54804,6 +54807,7 @@ export const ManagedClientsBetaApiFp = function(configuration?: Configuration) {
          * @param {string} id ID of the Managed Client Status to update
          * @param {ManagedClientStatusBeta} managedClientStatusBeta 
          * @param {*} [axiosOptions] Override http request option.
+         * @deprecated
          * @throws {RequiredError}
          */
         async updateManagedClientStatus(id: string, managedClientStatusBeta: ManagedClientStatusBeta, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ManagedClientStatusAggResponseBeta>> {
@@ -54826,6 +54830,7 @@ export const ManagedClientsBetaApiFactory = function (configuration?: Configurat
          * @param {string} id ID of the Managed Client Status to get
          * @param {ManagedClientTypeBeta} type Type of the Managed Client Status to get
          * @param {*} [axiosOptions] Override http request option.
+         * @deprecated
          * @throws {RequiredError}
          */
         getManagedClientStatus(id: string, type: ManagedClientTypeBeta, axiosOptions?: any): AxiosPromise<ManagedClientStatusBeta> {
@@ -54837,6 +54842,7 @@ export const ManagedClientsBetaApiFactory = function (configuration?: Configurat
          * @param {string} id ID of the Managed Client Status to update
          * @param {ManagedClientStatusBeta} managedClientStatusBeta 
          * @param {*} [axiosOptions] Override http request option.
+         * @deprecated
          * @throws {RequiredError}
          */
         updateManagedClientStatus(id: string, managedClientStatusBeta: ManagedClientStatusBeta, axiosOptions?: any): AxiosPromise<ManagedClientStatusAggResponseBeta> {
@@ -54899,6 +54905,7 @@ export class ManagedClientsBetaApi extends BaseAPI {
      * @summary Specified Managed Client Status.
      * @param {ManagedClientsBetaApiGetManagedClientStatusRequest} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
+     * @deprecated
      * @throws {RequiredError}
      * @memberof ManagedClientsBetaApi
      */
@@ -54911,6 +54918,7 @@ export class ManagedClientsBetaApi extends BaseAPI {
      * @summary Handle status request from client
      * @param {ManagedClientsBetaApiUpdateManagedClientStatusRequest} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
+     * @deprecated
      * @throws {RequiredError}
      * @memberof ManagedClientsBetaApi
      */
@@ -54931,6 +54939,7 @@ export const ManagedClustersBetaApiAxiosParamCreator = function (configuration?:
          * @summary Get managed cluster\'s log configuration
          * @param {string} id ID of ManagedCluster to get log configuration for
          * @param {*} [axiosOptions] Override http request option.
+         * @deprecated
          * @throws {RequiredError}
          */
         getClientLogConfiguration: async (id: string, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
@@ -54973,6 +54982,7 @@ export const ManagedClustersBetaApiAxiosParamCreator = function (configuration?:
          * @summary Get a specified ManagedCluster.
          * @param {string} id ID of the ManagedCluster to get
          * @param {*} [axiosOptions] Override http request option.
+         * @deprecated
          * @throws {RequiredError}
          */
         getManagedCluster: async (id: string, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
@@ -55018,6 +55028,7 @@ export const ManagedClustersBetaApiAxiosParamCreator = function (configuration?:
          * @param {boolean} [count] If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
          * @param {string} [filters] Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **operational**: *eq*
          * @param {*} [axiosOptions] Override http request option.
+         * @deprecated
          * @throws {RequiredError}
          */
         getManagedClusters: async (offset?: number, limit?: number, count?: boolean, filters?: string, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
@@ -55074,6 +55085,7 @@ export const ManagedClustersBetaApiAxiosParamCreator = function (configuration?:
          * @param {string} id ID of ManagedCluster to update log configuration for
          * @param {ClientLogConfigurationBeta} clientLogConfigurationBeta ClientLogConfiguration for given ManagedCluster
          * @param {*} [axiosOptions] Override http request option.
+         * @deprecated
          * @throws {RequiredError}
          */
         putClientLogConfiguration: async (id: string, clientLogConfigurationBeta: ClientLogConfigurationBeta, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
@@ -55131,6 +55143,7 @@ export const ManagedClustersBetaApiFp = function(configuration?: Configuration) 
          * @summary Get managed cluster\'s log configuration
          * @param {string} id ID of ManagedCluster to get log configuration for
          * @param {*} [axiosOptions] Override http request option.
+         * @deprecated
          * @throws {RequiredError}
          */
         async getClientLogConfiguration(id: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ClientLogConfigurationBeta>> {
@@ -55142,6 +55155,7 @@ export const ManagedClustersBetaApiFp = function(configuration?: Configuration) 
          * @summary Get a specified ManagedCluster.
          * @param {string} id ID of the ManagedCluster to get
          * @param {*} [axiosOptions] Override http request option.
+         * @deprecated
          * @throws {RequiredError}
          */
         async getManagedCluster(id: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ManagedClusterBeta>> {
@@ -55156,6 +55170,7 @@ export const ManagedClustersBetaApiFp = function(configuration?: Configuration) 
          * @param {boolean} [count] If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
          * @param {string} [filters] Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **operational**: *eq*
          * @param {*} [axiosOptions] Override http request option.
+         * @deprecated
          * @throws {RequiredError}
          */
         async getManagedClusters(offset?: number, limit?: number, count?: boolean, filters?: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<ManagedClusterBeta>>> {
@@ -55168,6 +55183,7 @@ export const ManagedClustersBetaApiFp = function(configuration?: Configuration) 
          * @param {string} id ID of ManagedCluster to update log configuration for
          * @param {ClientLogConfigurationBeta} clientLogConfigurationBeta ClientLogConfiguration for given ManagedCluster
          * @param {*} [axiosOptions] Override http request option.
+         * @deprecated
          * @throws {RequiredError}
          */
         async putClientLogConfiguration(id: string, clientLogConfigurationBeta: ClientLogConfigurationBeta, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ClientLogConfigurationBeta>> {
@@ -55189,6 +55205,7 @@ export const ManagedClustersBetaApiFactory = function (configuration?: Configura
          * @summary Get managed cluster\'s log configuration
          * @param {string} id ID of ManagedCluster to get log configuration for
          * @param {*} [axiosOptions] Override http request option.
+         * @deprecated
          * @throws {RequiredError}
          */
         getClientLogConfiguration(id: string, axiosOptions?: any): AxiosPromise<ClientLogConfigurationBeta> {
@@ -55199,6 +55216,7 @@ export const ManagedClustersBetaApiFactory = function (configuration?: Configura
          * @summary Get a specified ManagedCluster.
          * @param {string} id ID of the ManagedCluster to get
          * @param {*} [axiosOptions] Override http request option.
+         * @deprecated
          * @throws {RequiredError}
          */
         getManagedCluster(id: string, axiosOptions?: any): AxiosPromise<ManagedClusterBeta> {
@@ -55212,6 +55230,7 @@ export const ManagedClustersBetaApiFactory = function (configuration?: Configura
          * @param {boolean} [count] If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
          * @param {string} [filters] Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **operational**: *eq*
          * @param {*} [axiosOptions] Override http request option.
+         * @deprecated
          * @throws {RequiredError}
          */
         getManagedClusters(offset?: number, limit?: number, count?: boolean, filters?: string, axiosOptions?: any): AxiosPromise<Array<ManagedClusterBeta>> {
@@ -55223,6 +55242,7 @@ export const ManagedClustersBetaApiFactory = function (configuration?: Configura
          * @param {string} id ID of ManagedCluster to update log configuration for
          * @param {ClientLogConfigurationBeta} clientLogConfigurationBeta ClientLogConfiguration for given ManagedCluster
          * @param {*} [axiosOptions] Override http request option.
+         * @deprecated
          * @throws {RequiredError}
          */
         putClientLogConfiguration(id: string, clientLogConfigurationBeta: ClientLogConfigurationBeta, axiosOptions?: any): AxiosPromise<ClientLogConfigurationBeta> {
@@ -55327,6 +55347,7 @@ export class ManagedClustersBetaApi extends BaseAPI {
      * @summary Get managed cluster\'s log configuration
      * @param {ManagedClustersBetaApiGetClientLogConfigurationRequest} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
+     * @deprecated
      * @throws {RequiredError}
      * @memberof ManagedClustersBetaApi
      */
@@ -55339,6 +55360,7 @@ export class ManagedClustersBetaApi extends BaseAPI {
      * @summary Get a specified ManagedCluster.
      * @param {ManagedClustersBetaApiGetManagedClusterRequest} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
+     * @deprecated
      * @throws {RequiredError}
      * @memberof ManagedClustersBetaApi
      */
@@ -55351,6 +55373,7 @@ export class ManagedClustersBetaApi extends BaseAPI {
      * @summary Retrieve all Managed Clusters.
      * @param {ManagedClustersBetaApiGetManagedClustersRequest} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
+     * @deprecated
      * @throws {RequiredError}
      * @memberof ManagedClustersBetaApi
      */
@@ -55363,6 +55386,7 @@ export class ManagedClustersBetaApi extends BaseAPI {
      * @summary Update managed cluster\'s log configuration
      * @param {ManagedClustersBetaApiPutClientLogConfigurationRequest} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
+     * @deprecated
      * @throws {RequiredError}
      * @memberof ManagedClustersBetaApi
      */
