@@ -14956,13 +14956,13 @@ export interface ManagerCorrelationMappingBeta {
      * @type {string}
      * @memberof ManagerCorrelationMappingBeta
      */
-    'accountAttribute'?: string;
+    'accountAttributeName'?: string;
     /**
      * Name of the identity attribute to search when trying to find a manager using the value from the accountAttribute.
      * @type {string}
      * @memberof ManagerCorrelationMappingBeta
      */
-    'identityAttribute'?: string;
+    'identityAttributeName'?: string;
 }
 /**
  * 
