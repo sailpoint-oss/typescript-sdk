@@ -12490,7 +12490,7 @@ export interface OwnerDto {
      */
     'id'?: string;
     /**
-     * Owner\'s display name.
+     * Owner\'s name.
      * @type {string}
      * @memberof OwnerDto
      */
@@ -20091,7 +20091,7 @@ export interface ViolationOwnerAssignmentConfigOwnerRef {
      */
     'id'?: string;
     /**
-     * Owner\'s display name.
+     * Owner\'s name.
      * @type {string}
      * @memberof ViolationOwnerAssignmentConfigOwnerRef
      */

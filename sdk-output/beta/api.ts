@@ -17423,7 +17423,7 @@ export interface OwnerDtoBeta {
      */
     'id'?: string;
     /**
-     * Owner\'s display name.
+     * Owner\'s name.
      * @type {string}
      * @memberof OwnerDtoBeta
      */
@@ -27853,7 +27853,7 @@ export interface ViolationOwnerAssignmentConfigOwnerRefBeta {
      */
     'id'?: string;
     /**
-     * Owner\'s display name.
+     * Owner\'s name.
      * @type {string}
      * @memberof ViolationOwnerAssignmentConfigOwnerRefBeta
      */
@@ -28852,7 +28852,7 @@ export interface WorkgroupDtoOwnerBeta {
      */
     'id'?: string;
     /**
-     * Owner\'s display name.
+     * Owner\'s name.
      * @type {string}
      * @memberof WorkgroupDtoOwnerBeta
      */
