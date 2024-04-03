@@ -14260,6 +14260,12 @@ export interface ListWorkgroupMembers200ResponseInnerBeta {
      * @memberof ListWorkgroupMembers200ResponseInnerBeta
      */
     'name'?: string;
+    /**
+     * Workgroup member identity email.
+     * @type {string}
+     * @memberof ListWorkgroupMembers200ResponseInnerBeta
+     */
+    'email'?: string;
 }
 
 export const ListWorkgroupMembers200ResponseInnerBetaTypeEnum = {
