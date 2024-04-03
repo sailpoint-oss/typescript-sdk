@@ -28773,10 +28773,10 @@ export interface WorkgroupDeleteItemBeta {
 export interface WorkgroupDtoBeta {
     /**
      * 
-     * @type {OwnerDtoBeta}
+     * @type {WorkgroupDtoOwnerBeta}
      * @memberof WorkgroupDtoBeta
      */
-    'owner'?: OwnerDtoBeta;
+    'owner'?: WorkgroupDtoOwnerBeta;
     /**
      * Governance group ID.
      * @type {string}
@@ -28808,6 +28808,69 @@ export interface WorkgroupDtoBeta {
      */
     'connectionCount'?: number;
 }
+/**
+ * Governance group owner.
+ * @export
+ * @interface WorkgroupDtoOwnerAllOfBeta
+ */
+export interface WorkgroupDtoOwnerAllOfBeta {
+    /**
+     * The display name of the identity
+     * @type {string}
+     * @memberof WorkgroupDtoOwnerAllOfBeta
+     */
+    'displayName'?: string;
+    /**
+     * The primary email address of the identity
+     * @type {string}
+     * @memberof WorkgroupDtoOwnerAllOfBeta
+     */
+    'emailAddress'?: string;
+}
+/**
+ * 
+ * @export
+ * @interface WorkgroupDtoOwnerBeta
+ */
+export interface WorkgroupDtoOwnerBeta {
+    /**
+     * Owner\'s DTO type.
+     * @type {string}
+     * @memberof WorkgroupDtoOwnerBeta
+     */
+    'type'?: WorkgroupDtoOwnerBetaTypeEnum;
+    /**
+     * Owner\'s identity ID.
+     * @type {string}
+     * @memberof WorkgroupDtoOwnerBeta
+     */
+    'id'?: string;
+    /**
+     * Owner\'s display name.
+     * @type {string}
+     * @memberof WorkgroupDtoOwnerBeta
+     */
+    'name'?: string;
+    /**
+     * The display name of the identity
+     * @type {string}
+     * @memberof WorkgroupDtoOwnerBeta
+     */
+    'displayName'?: string;
+    /**
+     * The primary email address of the identity
+     * @type {string}
+     * @memberof WorkgroupDtoOwnerBeta
+     */
+    'emailAddress'?: string;
+}
+
+export const WorkgroupDtoOwnerBetaTypeEnum = {
+    Identity: 'IDENTITY'
+} as const;
+
+export type WorkgroupDtoOwnerBetaTypeEnum = typeof WorkgroupDtoOwnerBetaTypeEnum[keyof typeof WorkgroupDtoOwnerBetaTypeEnum];
+
 /**
  * 
  * @export
