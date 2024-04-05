@@ -32852,7 +32852,7 @@ export const AccountsBetaApiAxiosParamCreator = function (configuration?: Config
             };
         },
         /**
-         * Use this endpoint to update an account with a PATCH request.  The request must provide a JSONPatch payload. A token with ORG_ADMIN authority is required to call this API.
+         * This updates account details. A token with ORG_ADMIN, SOURCE_ADMIN, or SOURCE_SUBADMIN authority is required to call this API. This endpoint supports updating an account\'s correlation. It can only modify the identityId and manuallyCorrelated  attributes. To re-assign an account from one identity to another, replace the current identityId with a new value.  If the account you\'re assigning was provisioned by IdentityNow, it\'s possible IdentityNow could create a new account  for the previous identity as soon as the account is moved. If the account you\'re assigning is authoritative,  this will cause the previous identity to become uncorrelated and could even result in its deletion. All accounts  that are are reassigned will be set to manuallyCorrelated: true.
          * @summary Update Account
          * @param {string} id Account ID.
          * @param {Array<object>} requestBody A list of account update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.
@@ -33098,7 +33098,7 @@ export const AccountsBetaApiFp = function(configuration?: Configuration) {
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
-         * Use this endpoint to update an account with a PATCH request.  The request must provide a JSONPatch payload. A token with ORG_ADMIN authority is required to call this API.
+         * This updates account details. A token with ORG_ADMIN, SOURCE_ADMIN, or SOURCE_SUBADMIN authority is required to call this API. This endpoint supports updating an account\'s correlation. It can only modify the identityId and manuallyCorrelated  attributes. To re-assign an account from one identity to another, replace the current identityId with a new value.  If the account you\'re assigning was provisioned by IdentityNow, it\'s possible IdentityNow could create a new account  for the previous identity as soon as the account is moved. If the account you\'re assigning is authoritative,  this will cause the previous identity to become uncorrelated and could even result in its deletion. All accounts  that are are reassigned will be set to manuallyCorrelated: true.
          * @summary Update Account
          * @param {string} id Account ID.
          * @param {Array<object>} requestBody A list of account update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.
@@ -33292,7 +33292,7 @@ export const AccountsBetaApiFactory = function (configuration?: Configuration, b
             return localVarFp.unlockAccount(id, accountUnlockRequestBeta, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
-         * Use this endpoint to update an account with a PATCH request.  The request must provide a JSONPatch payload. A token with ORG_ADMIN authority is required to call this API.
+         * This updates account details. A token with ORG_ADMIN, SOURCE_ADMIN, or SOURCE_SUBADMIN authority is required to call this API. This endpoint supports updating an account\'s correlation. It can only modify the identityId and manuallyCorrelated  attributes. To re-assign an account from one identity to another, replace the current identityId with a new value.  If the account you\'re assigning was provisioned by IdentityNow, it\'s possible IdentityNow could create a new account  for the previous identity as soon as the account is moved. If the account you\'re assigning is authoritative,  this will cause the previous identity to become uncorrelated and could even result in its deletion. All accounts  that are are reassigned will be set to manuallyCorrelated: true.
          * @summary Update Account
          * @param {string} id Account ID.
          * @param {Array<object>} requestBody A list of account update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.
@@ -33834,7 +33834,7 @@ export class AccountsBetaApi extends BaseAPI {
     }
 
     /**
-     * Use this endpoint to update an account with a PATCH request.  The request must provide a JSONPatch payload. A token with ORG_ADMIN authority is required to call this API.
+     * This updates account details. A token with ORG_ADMIN, SOURCE_ADMIN, or SOURCE_SUBADMIN authority is required to call this API. This endpoint supports updating an account\'s correlation. It can only modify the identityId and manuallyCorrelated  attributes. To re-assign an account from one identity to another, replace the current identityId with a new value.  If the account you\'re assigning was provisioned by IdentityNow, it\'s possible IdentityNow could create a new account  for the previous identity as soon as the account is moved. If the account you\'re assigning is authoritative,  this will cause the previous identity to become uncorrelated and could even result in its deletion. All accounts  that are are reassigned will be set to manuallyCorrelated: true.
      * @summary Update Account
      * @param {AccountsBetaApiUpdateAccountRequest} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
