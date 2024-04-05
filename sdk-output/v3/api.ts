@@ -12388,6 +12388,214 @@ export interface ObjectImportResult {
     'importedObjects': Array<ImportObject>;
 }
 /**
+ * 
+ * @export
+ * @interface ObjectMappingBulkCreateRequest
+ */
+export interface ObjectMappingBulkCreateRequest {
+    /**
+     * 
+     * @type {Array<ObjectMappingRequest>}
+     * @memberof ObjectMappingBulkCreateRequest
+     */
+    'newObjectMappings': Array<ObjectMappingRequest>;
+}
+/**
+ * 
+ * @export
+ * @interface ObjectMappingBulkCreateResponse
+ */
+export interface ObjectMappingBulkCreateResponse {
+    /**
+     * 
+     * @type {Array<ObjectMappingResponse>}
+     * @memberof ObjectMappingBulkCreateResponse
+     */
+    'addedObjects'?: Array<ObjectMappingResponse>;
+}
+/**
+ * 
+ * @export
+ * @interface ObjectMappingBulkPatchRequest
+ */
+export interface ObjectMappingBulkPatchRequest {
+    /**
+     * Map of id of the object mapping to a JsonPatchOperation describing what to patch on that object mapping.
+     * @type {{ [key: string]: Array<JsonPatchOperation>; }}
+     * @memberof ObjectMappingBulkPatchRequest
+     */
+    'patches': { [key: string]: Array<JsonPatchOperation>; };
+}
+/**
+ * 
+ * @export
+ * @interface ObjectMappingBulkPatchResponse
+ */
+export interface ObjectMappingBulkPatchResponse {
+    /**
+     * 
+     * @type {Array<ObjectMappingResponse>}
+     * @memberof ObjectMappingBulkPatchResponse
+     */
+    'patchedObjects'?: Array<ObjectMappingResponse>;
+}
+/**
+ * 
+ * @export
+ * @interface ObjectMappingRequest
+ */
+export interface ObjectMappingRequest {
+    /**
+     * Type of the object the mapping value applies to, must be one from enum
+     * @type {string}
+     * @memberof ObjectMappingRequest
+     */
+    'objectType': ObjectMappingRequestObjectTypeEnum;
+    /**
+     * JSONPath expression denoting the path within the object where the mapping value should be applied
+     * @type {string}
+     * @memberof ObjectMappingRequest
+     */
+    'jsonPath': string;
+    /**
+     * Original value at the jsonPath location within the object
+     * @type {string}
+     * @memberof ObjectMappingRequest
+     */
+    'sourceValue': string;
+    /**
+     * Value to be assigned at the jsonPath location within the object
+     * @type {string}
+     * @memberof ObjectMappingRequest
+     */
+    'targetValue': string;
+    /**
+     * Whether or not this object mapping is enabled
+     * @type {boolean}
+     * @memberof ObjectMappingRequest
+     */
+    'enabled'?: boolean;
+}
+
+export const ObjectMappingRequestObjectTypeEnum = {
+    AccessProfile: 'ACCESS_PROFILE',
+    AccessRequestConfig: 'ACCESS_REQUEST_CONFIG',
+    AttrSyncSourceConfig: 'ATTR_SYNC_SOURCE_CONFIG',
+    AuthOrg: 'AUTH_ORG',
+    CampaignFilter: 'CAMPAIGN_FILTER',
+    Entitlement: 'ENTITLEMENT',
+    FormDefinition: 'FORM_DEFINITION',
+    GovernanceGroup: 'GOVERNANCE_GROUP',
+    Identity: 'IDENTITY',
+    IdentityObjectConfig: 'IDENTITY_OBJECT_CONFIG',
+    IdentityProfile: 'IDENTITY_PROFILE',
+    LifecycleState: 'LIFECYCLE_STATE',
+    NotificationTemplate: 'NOTIFICATION_TEMPLATE',
+    PasswordPolicy: 'PASSWORD_POLICY',
+    PasswordSyncGroup: 'PASSWORD_SYNC_GROUP',
+    PublicIdentitiesConfig: 'PUBLIC_IDENTITIES_CONFIG',
+    Role: 'ROLE',
+    Rule: 'RULE',
+    Segment: 'SEGMENT',
+    ServiceDeskIntegration: 'SERVICE_DESK_INTEGRATION',
+    SodPolicy: 'SOD_POLICY',
+    Source: 'SOURCE',
+    Tag: 'TAG',
+    Transform: 'TRANSFORM',
+    TriggerSubscription: 'TRIGGER_SUBSCRIPTION',
+    Workflow: 'WORKFLOW'
+} as const;
+
+export type ObjectMappingRequestObjectTypeEnum = typeof ObjectMappingRequestObjectTypeEnum[keyof typeof ObjectMappingRequestObjectTypeEnum];
+
+/**
+ * 
+ * @export
+ * @interface ObjectMappingResponse
+ */
+export interface ObjectMappingResponse {
+    /**
+     * Id of the object mapping
+     * @type {string}
+     * @memberof ObjectMappingResponse
+     */
+    'objectMappingId'?: string;
+    /**
+     * Type of the object the mapping value applies to
+     * @type {string}
+     * @memberof ObjectMappingResponse
+     */
+    'objectType'?: ObjectMappingResponseObjectTypeEnum;
+    /**
+     * JSONPath expression denoting the path within the object where the mapping value should be applied
+     * @type {string}
+     * @memberof ObjectMappingResponse
+     */
+    'jsonPath'?: string;
+    /**
+     * Original value at the jsonPath location within the object
+     * @type {string}
+     * @memberof ObjectMappingResponse
+     */
+    'sourceValue'?: string;
+    /**
+     * Value to be assigned at the jsonPath location within the object
+     * @type {string}
+     * @memberof ObjectMappingResponse
+     */
+    'targetValue'?: string;
+    /**
+     * Whether or not this object mapping is enabled
+     * @type {boolean}
+     * @memberof ObjectMappingResponse
+     */
+    'enabled'?: boolean;
+    /**
+     * Object mapping creation timestamp
+     * @type {string}
+     * @memberof ObjectMappingResponse
+     */
+    'created'?: string;
+    /**
+     * Object mapping latest update timestamp
+     * @type {string}
+     * @memberof ObjectMappingResponse
+     */
+    'modified'?: string;
+}
+
+export const ObjectMappingResponseObjectTypeEnum = {
+    AccessProfile: 'ACCESS_PROFILE',
+    AccessRequestConfig: 'ACCESS_REQUEST_CONFIG',
+    AttrSyncSourceConfig: 'ATTR_SYNC_SOURCE_CONFIG',
+    AuthOrg: 'AUTH_ORG',
+    CampaignFilter: 'CAMPAIGN_FILTER',
+    Entitlement: 'ENTITLEMENT',
+    FormDefinition: 'FORM_DEFINITION',
+    GovernanceGroup: 'GOVERNANCE_GROUP',
+    Identity: 'IDENTITY',
+    IdentityObjectConfig: 'IDENTITY_OBJECT_CONFIG',
+    IdentityProfile: 'IDENTITY_PROFILE',
+    LifecycleState: 'LIFECYCLE_STATE',
+    NotificationTemplate: 'NOTIFICATION_TEMPLATE',
+    PasswordPolicy: 'PASSWORD_POLICY',
+    PasswordSyncGroup: 'PASSWORD_SYNC_GROUP',
+    PublicIdentitiesConfig: 'PUBLIC_IDENTITIES_CONFIG',
+    Role: 'ROLE',
+    Rule: 'RULE',
+    Segment: 'SEGMENT',
+    ServiceDeskIntegration: 'SERVICE_DESK_INTEGRATION',
+    SodPolicy: 'SOD_POLICY',
+    Source: 'SOURCE',
+    Tag: 'TAG',
+    Transform: 'TRANSFORM',
+    TriggerSubscription: 'TRIGGER_SUBSCRIPTION',
+    Workflow: 'WORKFLOW'
+} as const;
+
+export type ObjectMappingResponseObjectTypeEnum = typeof ObjectMappingResponseObjectTypeEnum[keyof typeof ObjectMappingResponseObjectTypeEnum];
+
+/**
  * Operation on a specific criteria
  * @export
  * @enum {string}
@@ -30546,6 +30754,547 @@ export class CertificationsApi extends BaseAPI {
      */
     public submitReassignCertsAsync(requestParameters: CertificationsApiSubmitReassignCertsAsyncRequest, axiosOptions?: AxiosRequestConfig) {
         return CertificationsApiFp(this.configuration).submitReassignCertsAsync(requestParameters.id, requestParameters.reviewReassign, axiosOptions).then((request) => request(this.axios, this.basePath));
+    }
+}
+
+
+/**
+ * ConfigurationHubApi - axios parameter creator
+ * @export
+ */
+export const ConfigurationHubApiAxiosParamCreator = function (configuration?: Configuration) {
+    return {
+        /**
+         * This creates an object mapping between current org and source org. The request will need the following security scope: - sp:config-object-mapping:manage
+         * @summary Creates an object mapping
+         * @param {string} sourceOrg The name of the source org.
+         * @param {ObjectMappingRequest} objectMappingRequest The object mapping request body.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        createObjectMapping: async (sourceOrg: string, objectMappingRequest: ObjectMappingRequest, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'sourceOrg' is not null or undefined
+            assertParamExists('createObjectMapping', 'sourceOrg', sourceOrg)
+            // verify required parameter 'objectMappingRequest' is not null or undefined
+            assertParamExists('createObjectMapping', 'objectMappingRequest', objectMappingRequest)
+            const localVarPath = `/configuration-hub/object-mappings/{sourceOrg}`
+                .replace(`{${"sourceOrg"}}`, encodeURIComponent(String(sourceOrg)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'POST', ...baseOptions, ...axiosOptions};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication UserContextAuth required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "UserContextAuth", [], configuration)
+
+            // authentication UserContextAuth required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "UserContextAuth", [], configuration)
+
+
+    
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
+            localVarRequestOptions.data = serializeDataIfNeeded(objectMappingRequest, localVarRequestOptions, configuration)
+
+            return {
+                url: toPathString(localVarUrlObj),
+                axiosOptions: localVarRequestOptions,
+            };
+        },
+        /**
+         * This creates a set of object mappings (Max 25) between current org and source org. The request will need the following security scope: - sp:config-object-mapping:manage
+         * @summary Bulk creates object mappings
+         * @param {string} sourceOrg The name of the source org.
+         * @param {ObjectMappingBulkCreateRequest} objectMappingBulkCreateRequest The bulk create object mapping request body.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        createObjectMappings: async (sourceOrg: string, objectMappingBulkCreateRequest: ObjectMappingBulkCreateRequest, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'sourceOrg' is not null or undefined
+            assertParamExists('createObjectMappings', 'sourceOrg', sourceOrg)
+            // verify required parameter 'objectMappingBulkCreateRequest' is not null or undefined
+            assertParamExists('createObjectMappings', 'objectMappingBulkCreateRequest', objectMappingBulkCreateRequest)
+            const localVarPath = `/configuration-hub/object-mappings/{sourceOrg}/bulk-create`
+                .replace(`{${"sourceOrg"}}`, encodeURIComponent(String(sourceOrg)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'POST', ...baseOptions, ...axiosOptions};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication UserContextAuth required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "UserContextAuth", [], configuration)
+
+            // authentication UserContextAuth required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "UserContextAuth", [], configuration)
+
+
+    
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
+            localVarRequestOptions.data = serializeDataIfNeeded(objectMappingBulkCreateRequest, localVarRequestOptions, configuration)
+
+            return {
+                url: toPathString(localVarUrlObj),
+                axiosOptions: localVarRequestOptions,
+            };
+        },
+        /**
+         * This deletes an existing object mapping. The request will need the following security scope: - sp:config-object-mapping:manage
+         * @summary Deletes an object mapping
+         * @param {string} sourceOrg The name of the source org.
+         * @param {string} objectMappingId The id of the object mapping to be deleted.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        deleteObjectMapping: async (sourceOrg: string, objectMappingId: string, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'sourceOrg' is not null or undefined
+            assertParamExists('deleteObjectMapping', 'sourceOrg', sourceOrg)
+            // verify required parameter 'objectMappingId' is not null or undefined
+            assertParamExists('deleteObjectMapping', 'objectMappingId', objectMappingId)
+            const localVarPath = `/configuration-hub/object-mappings/{sourceOrg}/{objectMappingId}`
+                .replace(`{${"sourceOrg"}}`, encodeURIComponent(String(sourceOrg)))
+                .replace(`{${"objectMappingId"}}`, encodeURIComponent(String(objectMappingId)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'DELETE', ...baseOptions, ...axiosOptions};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication UserContextAuth required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "UserContextAuth", [], configuration)
+
+            // authentication UserContextAuth required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "UserContextAuth", [], configuration)
+
+
+    
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                axiosOptions: localVarRequestOptions,
+            };
+        },
+        /**
+         * This gets a list of existing object mappings between current org and source org. The request will need the following security scope: - sp:config-object-mapping:read
+         * @summary Gets list of object mappings
+         * @param {string} sourceOrg The name of the source org.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        getObjectMappings: async (sourceOrg: string, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'sourceOrg' is not null or undefined
+            assertParamExists('getObjectMappings', 'sourceOrg', sourceOrg)
+            const localVarPath = `/configuration-hub/object-mappings/{sourceOrg}`
+                .replace(`{${"sourceOrg"}}`, encodeURIComponent(String(sourceOrg)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...axiosOptions};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication UserContextAuth required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "UserContextAuth", [], configuration)
+
+            // authentication UserContextAuth required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "UserContextAuth", [], configuration)
+
+
+    
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                axiosOptions: localVarRequestOptions,
+            };
+        },
+        /**
+         * This updates a set of object mappings, only enabled and targetValue fields can be updated. The request will need the following security scope: - sp:config-object-mapping:manage
+         * @summary Bulk updates object mappings
+         * @param {string} sourceOrg The name of the source org.
+         * @param {ObjectMappingBulkPatchRequest} objectMappingBulkPatchRequest The object mapping request body.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        updateObjectMappings: async (sourceOrg: string, objectMappingBulkPatchRequest: ObjectMappingBulkPatchRequest, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'sourceOrg' is not null or undefined
+            assertParamExists('updateObjectMappings', 'sourceOrg', sourceOrg)
+            // verify required parameter 'objectMappingBulkPatchRequest' is not null or undefined
+            assertParamExists('updateObjectMappings', 'objectMappingBulkPatchRequest', objectMappingBulkPatchRequest)
+            const localVarPath = `/configuration-hub/object-mappings/{sourceOrg}/bulk-patch`
+                .replace(`{${"sourceOrg"}}`, encodeURIComponent(String(sourceOrg)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'POST', ...baseOptions, ...axiosOptions};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication UserContextAuth required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "UserContextAuth", [], configuration)
+
+            // authentication UserContextAuth required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "UserContextAuth", [], configuration)
+
+
+    
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
+            localVarRequestOptions.data = serializeDataIfNeeded(objectMappingBulkPatchRequest, localVarRequestOptions, configuration)
+
+            return {
+                url: toPathString(localVarUrlObj),
+                axiosOptions: localVarRequestOptions,
+            };
+        },
+    }
+};
+
+/**
+ * ConfigurationHubApi - functional programming interface
+ * @export
+ */
+export const ConfigurationHubApiFp = function(configuration?: Configuration) {
+    const localVarAxiosParamCreator = ConfigurationHubApiAxiosParamCreator(configuration)
+    return {
+        /**
+         * This creates an object mapping between current org and source org. The request will need the following security scope: - sp:config-object-mapping:manage
+         * @summary Creates an object mapping
+         * @param {string} sourceOrg The name of the source org.
+         * @param {ObjectMappingRequest} objectMappingRequest The object mapping request body.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        async createObjectMapping(sourceOrg: string, objectMappingRequest: ObjectMappingRequest, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ObjectMappingResponse>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.createObjectMapping(sourceOrg, objectMappingRequest, axiosOptions);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * This creates a set of object mappings (Max 25) between current org and source org. The request will need the following security scope: - sp:config-object-mapping:manage
+         * @summary Bulk creates object mappings
+         * @param {string} sourceOrg The name of the source org.
+         * @param {ObjectMappingBulkCreateRequest} objectMappingBulkCreateRequest The bulk create object mapping request body.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        async createObjectMappings(sourceOrg: string, objectMappingBulkCreateRequest: ObjectMappingBulkCreateRequest, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ObjectMappingBulkCreateResponse>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.createObjectMappings(sourceOrg, objectMappingBulkCreateRequest, axiosOptions);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * This deletes an existing object mapping. The request will need the following security scope: - sp:config-object-mapping:manage
+         * @summary Deletes an object mapping
+         * @param {string} sourceOrg The name of the source org.
+         * @param {string} objectMappingId The id of the object mapping to be deleted.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        async deleteObjectMapping(sourceOrg: string, objectMappingId: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.deleteObjectMapping(sourceOrg, objectMappingId, axiosOptions);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * This gets a list of existing object mappings between current org and source org. The request will need the following security scope: - sp:config-object-mapping:read
+         * @summary Gets list of object mappings
+         * @param {string} sourceOrg The name of the source org.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        async getObjectMappings(sourceOrg: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<ObjectMappingResponse>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getObjectMappings(sourceOrg, axiosOptions);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * This updates a set of object mappings, only enabled and targetValue fields can be updated. The request will need the following security scope: - sp:config-object-mapping:manage
+         * @summary Bulk updates object mappings
+         * @param {string} sourceOrg The name of the source org.
+         * @param {ObjectMappingBulkPatchRequest} objectMappingBulkPatchRequest The object mapping request body.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        async updateObjectMappings(sourceOrg: string, objectMappingBulkPatchRequest: ObjectMappingBulkPatchRequest, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ObjectMappingBulkPatchResponse>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.updateObjectMappings(sourceOrg, objectMappingBulkPatchRequest, axiosOptions);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+    }
+};
+
+/**
+ * ConfigurationHubApi - factory interface
+ * @export
+ */
+export const ConfigurationHubApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
+    const localVarFp = ConfigurationHubApiFp(configuration)
+    return {
+        /**
+         * This creates an object mapping between current org and source org. The request will need the following security scope: - sp:config-object-mapping:manage
+         * @summary Creates an object mapping
+         * @param {string} sourceOrg The name of the source org.
+         * @param {ObjectMappingRequest} objectMappingRequest The object mapping request body.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        createObjectMapping(sourceOrg: string, objectMappingRequest: ObjectMappingRequest, axiosOptions?: any): AxiosPromise<ObjectMappingResponse> {
+            return localVarFp.createObjectMapping(sourceOrg, objectMappingRequest, axiosOptions).then((request) => request(axios, basePath));
+        },
+        /**
+         * This creates a set of object mappings (Max 25) between current org and source org. The request will need the following security scope: - sp:config-object-mapping:manage
+         * @summary Bulk creates object mappings
+         * @param {string} sourceOrg The name of the source org.
+         * @param {ObjectMappingBulkCreateRequest} objectMappingBulkCreateRequest The bulk create object mapping request body.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        createObjectMappings(sourceOrg: string, objectMappingBulkCreateRequest: ObjectMappingBulkCreateRequest, axiosOptions?: any): AxiosPromise<ObjectMappingBulkCreateResponse> {
+            return localVarFp.createObjectMappings(sourceOrg, objectMappingBulkCreateRequest, axiosOptions).then((request) => request(axios, basePath));
+        },
+        /**
+         * This deletes an existing object mapping. The request will need the following security scope: - sp:config-object-mapping:manage
+         * @summary Deletes an object mapping
+         * @param {string} sourceOrg The name of the source org.
+         * @param {string} objectMappingId The id of the object mapping to be deleted.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        deleteObjectMapping(sourceOrg: string, objectMappingId: string, axiosOptions?: any): AxiosPromise<void> {
+            return localVarFp.deleteObjectMapping(sourceOrg, objectMappingId, axiosOptions).then((request) => request(axios, basePath));
+        },
+        /**
+         * This gets a list of existing object mappings between current org and source org. The request will need the following security scope: - sp:config-object-mapping:read
+         * @summary Gets list of object mappings
+         * @param {string} sourceOrg The name of the source org.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        getObjectMappings(sourceOrg: string, axiosOptions?: any): AxiosPromise<Array<ObjectMappingResponse>> {
+            return localVarFp.getObjectMappings(sourceOrg, axiosOptions).then((request) => request(axios, basePath));
+        },
+        /**
+         * This updates a set of object mappings, only enabled and targetValue fields can be updated. The request will need the following security scope: - sp:config-object-mapping:manage
+         * @summary Bulk updates object mappings
+         * @param {string} sourceOrg The name of the source org.
+         * @param {ObjectMappingBulkPatchRequest} objectMappingBulkPatchRequest The object mapping request body.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        updateObjectMappings(sourceOrg: string, objectMappingBulkPatchRequest: ObjectMappingBulkPatchRequest, axiosOptions?: any): AxiosPromise<ObjectMappingBulkPatchResponse> {
+            return localVarFp.updateObjectMappings(sourceOrg, objectMappingBulkPatchRequest, axiosOptions).then((request) => request(axios, basePath));
+        },
+    };
+};
+
+/**
+ * Request parameters for createObjectMapping operation in ConfigurationHubApi.
+ * @export
+ * @interface ConfigurationHubApiCreateObjectMappingRequest
+ */
+export interface ConfigurationHubApiCreateObjectMappingRequest {
+    /**
+     * The name of the source org.
+     * @type {string}
+     * @memberof ConfigurationHubApiCreateObjectMapping
+     */
+    readonly sourceOrg: string
+
+    /**
+     * The object mapping request body.
+     * @type {ObjectMappingRequest}
+     * @memberof ConfigurationHubApiCreateObjectMapping
+     */
+    readonly objectMappingRequest: ObjectMappingRequest
+}
+
+/**
+ * Request parameters for createObjectMappings operation in ConfigurationHubApi.
+ * @export
+ * @interface ConfigurationHubApiCreateObjectMappingsRequest
+ */
+export interface ConfigurationHubApiCreateObjectMappingsRequest {
+    /**
+     * The name of the source org.
+     * @type {string}
+     * @memberof ConfigurationHubApiCreateObjectMappings
+     */
+    readonly sourceOrg: string
+
+    /**
+     * The bulk create object mapping request body.
+     * @type {ObjectMappingBulkCreateRequest}
+     * @memberof ConfigurationHubApiCreateObjectMappings
+     */
+    readonly objectMappingBulkCreateRequest: ObjectMappingBulkCreateRequest
+}
+
+/**
+ * Request parameters for deleteObjectMapping operation in ConfigurationHubApi.
+ * @export
+ * @interface ConfigurationHubApiDeleteObjectMappingRequest
+ */
+export interface ConfigurationHubApiDeleteObjectMappingRequest {
+    /**
+     * The name of the source org.
+     * @type {string}
+     * @memberof ConfigurationHubApiDeleteObjectMapping
+     */
+    readonly sourceOrg: string
+
+    /**
+     * The id of the object mapping to be deleted.
+     * @type {string}
+     * @memberof ConfigurationHubApiDeleteObjectMapping
+     */
+    readonly objectMappingId: string
+}
+
+/**
+ * Request parameters for getObjectMappings operation in ConfigurationHubApi.
+ * @export
+ * @interface ConfigurationHubApiGetObjectMappingsRequest
+ */
+export interface ConfigurationHubApiGetObjectMappingsRequest {
+    /**
+     * The name of the source org.
+     * @type {string}
+     * @memberof ConfigurationHubApiGetObjectMappings
+     */
+    readonly sourceOrg: string
+}
+
+/**
+ * Request parameters for updateObjectMappings operation in ConfigurationHubApi.
+ * @export
+ * @interface ConfigurationHubApiUpdateObjectMappingsRequest
+ */
+export interface ConfigurationHubApiUpdateObjectMappingsRequest {
+    /**
+     * The name of the source org.
+     * @type {string}
+     * @memberof ConfigurationHubApiUpdateObjectMappings
+     */
+    readonly sourceOrg: string
+
+    /**
+     * The object mapping request body.
+     * @type {ObjectMappingBulkPatchRequest}
+     * @memberof ConfigurationHubApiUpdateObjectMappings
+     */
+    readonly objectMappingBulkPatchRequest: ObjectMappingBulkPatchRequest
+}
+
+/**
+ * ConfigurationHubApi - object-oriented interface
+ * @export
+ * @class ConfigurationHubApi
+ * @extends {BaseAPI}
+ */
+export class ConfigurationHubApi extends BaseAPI {
+    /**
+     * This creates an object mapping between current org and source org. The request will need the following security scope: - sp:config-object-mapping:manage
+     * @summary Creates an object mapping
+     * @param {ConfigurationHubApiCreateObjectMappingRequest} requestParameters Request parameters.
+     * @param {*} [axiosOptions] Override http request option.
+     * @throws {RequiredError}
+     * @memberof ConfigurationHubApi
+     */
+    public createObjectMapping(requestParameters: ConfigurationHubApiCreateObjectMappingRequest, axiosOptions?: AxiosRequestConfig) {
+        return ConfigurationHubApiFp(this.configuration).createObjectMapping(requestParameters.sourceOrg, requestParameters.objectMappingRequest, axiosOptions).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * This creates a set of object mappings (Max 25) between current org and source org. The request will need the following security scope: - sp:config-object-mapping:manage
+     * @summary Bulk creates object mappings
+     * @param {ConfigurationHubApiCreateObjectMappingsRequest} requestParameters Request parameters.
+     * @param {*} [axiosOptions] Override http request option.
+     * @throws {RequiredError}
+     * @memberof ConfigurationHubApi
+     */
+    public createObjectMappings(requestParameters: ConfigurationHubApiCreateObjectMappingsRequest, axiosOptions?: AxiosRequestConfig) {
+        return ConfigurationHubApiFp(this.configuration).createObjectMappings(requestParameters.sourceOrg, requestParameters.objectMappingBulkCreateRequest, axiosOptions).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * This deletes an existing object mapping. The request will need the following security scope: - sp:config-object-mapping:manage
+     * @summary Deletes an object mapping
+     * @param {ConfigurationHubApiDeleteObjectMappingRequest} requestParameters Request parameters.
+     * @param {*} [axiosOptions] Override http request option.
+     * @throws {RequiredError}
+     * @memberof ConfigurationHubApi
+     */
+    public deleteObjectMapping(requestParameters: ConfigurationHubApiDeleteObjectMappingRequest, axiosOptions?: AxiosRequestConfig) {
+        return ConfigurationHubApiFp(this.configuration).deleteObjectMapping(requestParameters.sourceOrg, requestParameters.objectMappingId, axiosOptions).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * This gets a list of existing object mappings between current org and source org. The request will need the following security scope: - sp:config-object-mapping:read
+     * @summary Gets list of object mappings
+     * @param {ConfigurationHubApiGetObjectMappingsRequest} requestParameters Request parameters.
+     * @param {*} [axiosOptions] Override http request option.
+     * @throws {RequiredError}
+     * @memberof ConfigurationHubApi
+     */
+    public getObjectMappings(requestParameters: ConfigurationHubApiGetObjectMappingsRequest, axiosOptions?: AxiosRequestConfig) {
+        return ConfigurationHubApiFp(this.configuration).getObjectMappings(requestParameters.sourceOrg, axiosOptions).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * This updates a set of object mappings, only enabled and targetValue fields can be updated. The request will need the following security scope: - sp:config-object-mapping:manage
+     * @summary Bulk updates object mappings
+     * @param {ConfigurationHubApiUpdateObjectMappingsRequest} requestParameters Request parameters.
+     * @param {*} [axiosOptions] Override http request option.
+     * @throws {RequiredError}
+     * @memberof ConfigurationHubApi
+     */
+    public updateObjectMappings(requestParameters: ConfigurationHubApiUpdateObjectMappingsRequest, axiosOptions?: AxiosRequestConfig) {
+        return ConfigurationHubApiFp(this.configuration).updateObjectMappings(requestParameters.sourceOrg, requestParameters.objectMappingBulkPatchRequest, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 }
 
