@@ -22757,6 +22757,297 @@ export interface SectionDetailsBeta {
     'formItems'?: Array<object>;
 }
 /**
+ * Sed Approval Request Body
+ * @export
+ * @interface SedApprovalBeta
+ */
+export interface SedApprovalBeta {
+    /**
+     * List of SED id\'s
+     * @type {Array<string>}
+     * @memberof SedApprovalBeta
+     */
+    'items'?: Array<string>;
+}
+/**
+ * SED Approval Status
+ * @export
+ * @interface SedApprovalStatusBeta
+ */
+export interface SedApprovalStatusBeta {
+    /**
+     * failed reason will be display if status is failed
+     * @type {string}
+     * @memberof SedApprovalStatusBeta
+     */
+    'failedReason'?: string;
+    /**
+     * Sed id
+     * @type {string}
+     * @memberof SedApprovalStatusBeta
+     */
+    'id'?: string;
+    /**
+     * SUCCESS | FAILED
+     * @type {string}
+     * @memberof SedApprovalStatusBeta
+     */
+    'status'?: string;
+}
+/**
+ * Sed Assignee
+ * @export
+ * @interface SedAssigneeBeta
+ */
+export interface SedAssigneeBeta {
+    /**
+     * Type of assignment When value is PERSONA, the value MUST be SOURCE_OWNER or ENTITLEMENT_OWNER IDENTITY SED_ASSIGNEE_IDENTITY_TYPE GROUP SED_ASSIGNEE_GROUP_TYPE SOURCE_OWNER SED_ASSIGNEE_SOURCE_OWNER_TYPE ENTITLEMENT_OWNER SED_ASSIGNEE_ENTITLEMENT_OWNER_TYPE
+     * @type {string}
+     * @memberof SedAssigneeBeta
+     */
+    'type': SedAssigneeBetaTypeEnum;
+    /**
+     * Identity or Group identifier Empty when using source/entitlement owner personas
+     * @type {string}
+     * @memberof SedAssigneeBeta
+     */
+    'value'?: string;
+}
+
+export const SedAssigneeBetaTypeEnum = {
+    Identity: 'IDENTITY',
+    Group: 'GROUP',
+    SourceOwner: 'SOURCE_OWNER',
+    EntitlementOwner: 'ENTITLEMENT_OWNER'
+} as const;
+
+export type SedAssigneeBetaTypeEnum = typeof SedAssigneeBetaTypeEnum[keyof typeof SedAssigneeBetaTypeEnum];
+
+/**
+ * Sed Assignment
+ * @export
+ * @interface SedAssignmentBeta
+ */
+export interface SedAssignmentBeta {
+    /**
+     * 
+     * @type {SedAssigneeBeta}
+     * @memberof SedAssignmentBeta
+     */
+    'assignee'?: SedAssigneeBeta;
+    /**
+     * List of SED id\'s
+     * @type {Array<string>}
+     * @memberof SedAssignmentBeta
+     */
+    'items'?: Array<string>;
+}
+/**
+ * Sed Assignment Response
+ * @export
+ * @interface SedAssignmentResponseBeta
+ */
+export interface SedAssignmentResponseBeta {
+    /**
+     * BatchId that groups all the ids together
+     * @type {string}
+     * @memberof SedAssignmentResponseBeta
+     */
+    'batchId'?: string;
+}
+/**
+ * Sed Batch Request
+ * @export
+ * @interface SedBatchRequestBeta
+ */
+export interface SedBatchRequestBeta {
+    /**
+     * list of entitlement ids
+     * @type {Array<string>}
+     * @memberof SedBatchRequestBeta
+     */
+    'entitlements'?: Array<string>;
+}
+/**
+ * Sed Batch Response
+ * @export
+ * @interface SedBatchResponseBeta
+ */
+export interface SedBatchResponseBeta {
+    /**
+     * BatchId that groups all the ids together
+     * @type {string}
+     * @memberof SedBatchResponseBeta
+     */
+    'batchId'?: string;
+}
+/**
+ * Sed Batch Stats
+ * @export
+ * @interface SedBatchStatsBeta
+ */
+export interface SedBatchStatsBeta {
+    /**
+     * batch complete
+     * @type {boolean}
+     * @memberof SedBatchStatsBeta
+     */
+    'batchComplete'?: boolean;
+    /**
+     * batch Id
+     * @type {string}
+     * @memberof SedBatchStatsBeta
+     */
+    'batchId'?: string;
+    /**
+     * discovered count
+     * @type {number}
+     * @memberof SedBatchStatsBeta
+     */
+    'discoveredCount'?: number;
+    /**
+     * discovery complete
+     * @type {boolean}
+     * @memberof SedBatchStatsBeta
+     */
+    'discoveryComplete'?: boolean;
+    /**
+     * processed count
+     * @type {number}
+     * @memberof SedBatchStatsBeta
+     */
+    'processedCount'?: number;
+}
+/**
+ * Sed Batch Status
+ * @export
+ * @interface SedBatchStatusBeta
+ */
+export interface SedBatchStatusBeta {
+    /**
+     * status of batch
+     * @type {string}
+     * @memberof SedBatchStatusBeta
+     */
+    'status'?: string;
+}
+/**
+ * Suggested Entitlement Description
+ * @export
+ * @interface SedBeta
+ */
+export interface SedBeta {
+    /**
+     * name of the entitlement
+     * @type {string}
+     * @memberof SedBeta
+     */
+    'Name'?: string;
+    /**
+     * entitlement approved by
+     * @type {string}
+     * @memberof SedBeta
+     */
+    'approved_by'?: string;
+    /**
+     * entitlement approved type
+     * @type {string}
+     * @memberof SedBeta
+     */
+    'approved_type'?: string;
+    /**
+     * entitlement approved then
+     * @type {string}
+     * @memberof SedBeta
+     */
+    'approved_when'?: string;
+    /**
+     * entitlement attribute
+     * @type {string}
+     * @memberof SedBeta
+     */
+    'attribute'?: string;
+    /**
+     * description of entitlement
+     * @type {string}
+     * @memberof SedBeta
+     */
+    'description'?: string;
+    /**
+     * entitlement display name
+     * @type {string}
+     * @memberof SedBeta
+     */
+    'displayName'?: string;
+    /**
+     * sed id
+     * @type {string}
+     * @memberof SedBeta
+     */
+    'id'?: string;
+    /**
+     * entitlement source id
+     * @type {string}
+     * @memberof SedBeta
+     */
+    'sourceId'?: string;
+    /**
+     * entitlement source name
+     * @type {string}
+     * @memberof SedBeta
+     */
+    'sourceName'?: string;
+    /**
+     * entitlement status
+     * @type {string}
+     * @memberof SedBeta
+     */
+    'status'?: string;
+    /**
+     * llm suggested entitlement description
+     * @type {string}
+     * @memberof SedBeta
+     */
+    'suggestedDescription'?: string;
+    /**
+     * entitlement type
+     * @type {string}
+     * @memberof SedBeta
+     */
+    'type'?: string;
+    /**
+     * entitlement value
+     * @type {string}
+     * @memberof SedBeta
+     */
+    'value'?: string;
+}
+/**
+ * Patch for Suggested Entitlement Description
+ * @export
+ * @interface SedPatchBeta
+ */
+export interface SedPatchBeta {
+    /**
+     * desired operation
+     * @type {string}
+     * @memberof SedPatchBeta
+     */
+    'op'?: string;
+    /**
+     * field to be patched
+     * @type {string}
+     * @memberof SedPatchBeta
+     */
+    'path'?: string;
+    /**
+     * value to replace with
+     * @type {object}
+     * @memberof SedPatchBeta
+     */
+    'value'?: object;
+}
+/**
  * 
  * @export
  * @interface SegmentBeta
@@ -73985,6 +74276,736 @@ export class SourcesBetaApi extends BaseAPI {
      */
     public updateSourceSchema(requestParameters: SourcesBetaApiUpdateSourceSchemaRequest, axiosOptions?: AxiosRequestConfig) {
         return SourcesBetaApiFp(this.configuration).updateSourceSchema(requestParameters.sourceId, requestParameters.schemaId, requestParameters.jsonPatchOperationBeta, axiosOptions).then((request) => request(this.axios, this.basePath));
+    }
+}
+
+
+/**
+ * SuggestedEntitlementDescriptionBetaApi - axios parameter creator
+ * @export
+ */
+export const SuggestedEntitlementDescriptionBetaApiAxiosParamCreator = function (configuration?: Configuration) {
+    return {
+        /**
+         * Submit Sed Batch Stats Request. Submits batchId in the path param (e.g. {batchId}/stats). API responses with stats of the batchId.
+         * @summary Submit Sed Batch Stats Request
+         * @param {string} batchId Batch Id
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        getSedBatchStats: async (batchId: string, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'batchId' is not null or undefined
+            assertParamExists('getSedBatchStats', 'batchId', batchId)
+            const localVarPath = `/suggested-entitlement-description-batches/{batchId}/stats`
+                .replace(`{${"batchId"}}`, encodeURIComponent(String(batchId)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...axiosOptions};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication UserContextAuth required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "UserContextAuth", [], configuration)
+
+            // authentication UserContextAuth required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "UserContextAuth", [], configuration)
+
+
+    
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                axiosOptions: localVarRequestOptions,
+            };
+        },
+        /**
+         * List Sed Batches. API responses with Sed Batch Status
+         * @summary List Sed Batch Request
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        getSedBatches: async (axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            const localVarPath = `/suggested-entitlement-description-batches`;
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...axiosOptions};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication UserContextAuth required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "UserContextAuth", [], configuration)
+
+            // authentication UserContextAuth required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "UserContextAuth", [], configuration)
+
+
+    
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                axiosOptions: localVarRequestOptions,
+            };
+        },
+        /**
+         * List of Suggested Entitlement Description
+         * @summary List Suggested Entitlement Description
+         * @param {number} [limit] Integer specifying the maximum number of records to return in a single API call.  The standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#paginating-results). If it is not specified, a default limit is used.
+         * @param {string} [filters] Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **batchId**: *eq*  **status**: *eq, ne, in*  **displayName**: *eq, co*
+         * @param {boolean} [count] If &#x60;true&#x60; it will populate the &#x60;X-Total-Count&#x60; response header with the number of results that would be returned if &#x60;limit&#x60; and &#x60;offset&#x60; were ignored.  The standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#paginating-results). Since requesting a total count can have a performance impact, it is recommended not to send &#x60;count&#x3D;true&#x60; if that value will not be used.
+         * @param {boolean} [countOnly] If &#x60;true&#x60; it will populate the &#x60;X-Total-Count&#x60; response header with the number of results that would be returned if &#x60;limit&#x60; and &#x60;offset&#x60; were ignored. This parameter differs from the Coun parameter in that this one skip executing the actual query and always return an empty array.
+         * @param {boolean} [requestedByAnyone] By default, the ListSeds API will only return items that you have requested to be generated.   This option will allow you to see all items that have been requested
+         * @param {boolean} [showPendingStatusOnly] Will limit records to items that are in \&quot;suggested\&quot; or \&quot;approved\&quot; status
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        listSeds: async (limit?: number, filters?: string, count?: boolean, countOnly?: boolean, requestedByAnyone?: boolean, showPendingStatusOnly?: boolean, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            const localVarPath = `/suggested-entitlement-descriptions`;
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...axiosOptions};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication UserContextAuth required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "UserContextAuth", [], configuration)
+
+            // authentication UserContextAuth required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "UserContextAuth", [], configuration)
+
+            if (limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+
+            if (filters !== undefined) {
+                localVarQueryParameter['filters'] = filters;
+            }
+
+            if (count !== undefined) {
+                localVarQueryParameter['count'] = count;
+            }
+
+            if (countOnly !== undefined) {
+                localVarQueryParameter['count-only'] = countOnly;
+            }
+
+            if (requestedByAnyone !== undefined) {
+                localVarQueryParameter['requested-by-anyone'] = requestedByAnyone;
+            }
+
+            if (showPendingStatusOnly !== undefined) {
+                localVarQueryParameter['show-pending-status-only'] = showPendingStatusOnly;
+            }
+
+
+    
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                axiosOptions: localVarRequestOptions,
+            };
+        },
+        /**
+         * Patch Suggested Entitlement Description
+         * @summary Patch Suggested Entitlement Description
+         * @param {string} id id is sed id
+         * @param {Array<SedPatchBeta>} sedPatchBeta Sed Patch Request
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        patchSed: async (id: string, sedPatchBeta: Array<SedPatchBeta>, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'id' is not null or undefined
+            assertParamExists('patchSed', 'id', id)
+            // verify required parameter 'sedPatchBeta' is not null or undefined
+            assertParamExists('patchSed', 'sedPatchBeta', sedPatchBeta)
+            const localVarPath = `/suggested-entitlement-descriptions`
+                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'PATCH', ...baseOptions, ...axiosOptions};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication UserContextAuth required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "UserContextAuth", [], configuration)
+
+            // authentication UserContextAuth required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "UserContextAuth", [], configuration)
+
+
+    
+            localVarHeaderParameter['Content-Type'] = 'application/json-patch+json';
+
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
+            localVarRequestOptions.data = serializeDataIfNeeded(sedPatchBeta, localVarRequestOptions, configuration)
+
+            return {
+                url: toPathString(localVarUrlObj),
+                axiosOptions: localVarRequestOptions,
+            };
+        },
+        /**
+         * Submit Bulk Approval Request for SED. Request body takes list of SED Ids. API responses with list of SED Approval Status
+         * @summary Submit Bulk Approval Request
+         * @param {Array<SedApprovalBeta>} sedApprovalBeta Sed Approval
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        submitSedApproval: async (sedApprovalBeta: Array<SedApprovalBeta>, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'sedApprovalBeta' is not null or undefined
+            assertParamExists('submitSedApproval', 'sedApprovalBeta', sedApprovalBeta)
+            const localVarPath = `/suggested-entitlement-description-approvals`;
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'POST', ...baseOptions, ...axiosOptions};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication UserContextAuth required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "UserContextAuth", [], configuration)
+
+            // authentication UserContextAuth required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "UserContextAuth", [], configuration)
+
+
+    
+            localVarHeaderParameter['Content-Type'] = 'application/json-patch+json';
+
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
+            localVarRequestOptions.data = serializeDataIfNeeded(sedApprovalBeta, localVarRequestOptions, configuration)
+
+            return {
+                url: toPathString(localVarUrlObj),
+                axiosOptions: localVarRequestOptions,
+            };
+        },
+        /**
+         * Submit Assignment Request. Request body has an assignee, and list of SED Ids that are assigned to that assignee API responses with batchId that groups all approval requests together
+         * @summary Submit Sed Assignment Request
+         * @param {SedAssignmentBeta} sedAssignmentBeta Sed Assignment Request
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        submitSedAssignment: async (sedAssignmentBeta: SedAssignmentBeta, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'sedAssignmentBeta' is not null or undefined
+            assertParamExists('submitSedAssignment', 'sedAssignmentBeta', sedAssignmentBeta)
+            const localVarPath = `/suggested-entitlement-description-assignments`;
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'POST', ...baseOptions, ...axiosOptions};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication UserContextAuth required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "UserContextAuth", [], configuration)
+
+            // authentication UserContextAuth required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "UserContextAuth", [], configuration)
+
+
+    
+            localVarHeaderParameter['Content-Type'] = 'application/json-patch+json';
+
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
+            localVarRequestOptions.data = serializeDataIfNeeded(sedAssignmentBeta, localVarRequestOptions, configuration)
+
+            return {
+                url: toPathString(localVarUrlObj),
+                axiosOptions: localVarRequestOptions,
+            };
+        },
+        /**
+         * Submit Sed Batch Request. Request body has a list of entitlement Ids that user wants to have description generated by LLM. API responses with batchId that groups Ids together
+         * @summary Submit Sed Batch Request
+         * @param {SedBatchRequestBeta} [sedBatchRequestBeta] Sed Batch Request
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        submitSedBatchRequest: async (sedBatchRequestBeta?: SedBatchRequestBeta, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            const localVarPath = `/suggested-entitlement-description-batches`;
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'POST', ...baseOptions, ...axiosOptions};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication UserContextAuth required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "UserContextAuth", [], configuration)
+
+            // authentication UserContextAuth required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "UserContextAuth", [], configuration)
+
+
+    
+            localVarHeaderParameter['Content-Type'] = 'application/json-patch+json';
+
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
+            localVarRequestOptions.data = serializeDataIfNeeded(sedBatchRequestBeta, localVarRequestOptions, configuration)
+
+            return {
+                url: toPathString(localVarUrlObj),
+                axiosOptions: localVarRequestOptions,
+            };
+        },
+    }
+};
+
+/**
+ * SuggestedEntitlementDescriptionBetaApi - functional programming interface
+ * @export
+ */
+export const SuggestedEntitlementDescriptionBetaApiFp = function(configuration?: Configuration) {
+    const localVarAxiosParamCreator = SuggestedEntitlementDescriptionBetaApiAxiosParamCreator(configuration)
+    return {
+        /**
+         * Submit Sed Batch Stats Request. Submits batchId in the path param (e.g. {batchId}/stats). API responses with stats of the batchId.
+         * @summary Submit Sed Batch Stats Request
+         * @param {string} batchId Batch Id
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        async getSedBatchStats(batchId: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SedBatchStatsBeta>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getSedBatchStats(batchId, axiosOptions);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * List Sed Batches. API responses with Sed Batch Status
+         * @summary List Sed Batch Request
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        async getSedBatches(axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SedBatchStatusBeta>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getSedBatches(axiosOptions);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * List of Suggested Entitlement Description
+         * @summary List Suggested Entitlement Description
+         * @param {number} [limit] Integer specifying the maximum number of records to return in a single API call.  The standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#paginating-results). If it is not specified, a default limit is used.
+         * @param {string} [filters] Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **batchId**: *eq*  **status**: *eq, ne, in*  **displayName**: *eq, co*
+         * @param {boolean} [count] If &#x60;true&#x60; it will populate the &#x60;X-Total-Count&#x60; response header with the number of results that would be returned if &#x60;limit&#x60; and &#x60;offset&#x60; were ignored.  The standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#paginating-results). Since requesting a total count can have a performance impact, it is recommended not to send &#x60;count&#x3D;true&#x60; if that value will not be used.
+         * @param {boolean} [countOnly] If &#x60;true&#x60; it will populate the &#x60;X-Total-Count&#x60; response header with the number of results that would be returned if &#x60;limit&#x60; and &#x60;offset&#x60; were ignored. This parameter differs from the Coun parameter in that this one skip executing the actual query and always return an empty array.
+         * @param {boolean} [requestedByAnyone] By default, the ListSeds API will only return items that you have requested to be generated.   This option will allow you to see all items that have been requested
+         * @param {boolean} [showPendingStatusOnly] Will limit records to items that are in \&quot;suggested\&quot; or \&quot;approved\&quot; status
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        async listSeds(limit?: number, filters?: string, count?: boolean, countOnly?: boolean, requestedByAnyone?: boolean, showPendingStatusOnly?: boolean, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<SedBeta>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.listSeds(limit, filters, count, countOnly, requestedByAnyone, showPendingStatusOnly, axiosOptions);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * Patch Suggested Entitlement Description
+         * @summary Patch Suggested Entitlement Description
+         * @param {string} id id is sed id
+         * @param {Array<SedPatchBeta>} sedPatchBeta Sed Patch Request
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        async patchSed(id: string, sedPatchBeta: Array<SedPatchBeta>, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SedBeta>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.patchSed(id, sedPatchBeta, axiosOptions);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * Submit Bulk Approval Request for SED. Request body takes list of SED Ids. API responses with list of SED Approval Status
+         * @summary Submit Bulk Approval Request
+         * @param {Array<SedApprovalBeta>} sedApprovalBeta Sed Approval
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        async submitSedApproval(sedApprovalBeta: Array<SedApprovalBeta>, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<SedApprovalStatusBeta>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.submitSedApproval(sedApprovalBeta, axiosOptions);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * Submit Assignment Request. Request body has an assignee, and list of SED Ids that are assigned to that assignee API responses with batchId that groups all approval requests together
+         * @summary Submit Sed Assignment Request
+         * @param {SedAssignmentBeta} sedAssignmentBeta Sed Assignment Request
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        async submitSedAssignment(sedAssignmentBeta: SedAssignmentBeta, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SedAssignmentResponseBeta>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.submitSedAssignment(sedAssignmentBeta, axiosOptions);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * Submit Sed Batch Request. Request body has a list of entitlement Ids that user wants to have description generated by LLM. API responses with batchId that groups Ids together
+         * @summary Submit Sed Batch Request
+         * @param {SedBatchRequestBeta} [sedBatchRequestBeta] Sed Batch Request
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        async submitSedBatchRequest(sedBatchRequestBeta?: SedBatchRequestBeta, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SedBatchResponseBeta>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.submitSedBatchRequest(sedBatchRequestBeta, axiosOptions);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+    }
+};
+
+/**
+ * SuggestedEntitlementDescriptionBetaApi - factory interface
+ * @export
+ */
+export const SuggestedEntitlementDescriptionBetaApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
+    const localVarFp = SuggestedEntitlementDescriptionBetaApiFp(configuration)
+    return {
+        /**
+         * Submit Sed Batch Stats Request. Submits batchId in the path param (e.g. {batchId}/stats). API responses with stats of the batchId.
+         * @summary Submit Sed Batch Stats Request
+         * @param {string} batchId Batch Id
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        getSedBatchStats(batchId: string, axiosOptions?: any): AxiosPromise<SedBatchStatsBeta> {
+            return localVarFp.getSedBatchStats(batchId, axiosOptions).then((request) => request(axios, basePath));
+        },
+        /**
+         * List Sed Batches. API responses with Sed Batch Status
+         * @summary List Sed Batch Request
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        getSedBatches(axiosOptions?: any): AxiosPromise<SedBatchStatusBeta> {
+            return localVarFp.getSedBatches(axiosOptions).then((request) => request(axios, basePath));
+        },
+        /**
+         * List of Suggested Entitlement Description
+         * @summary List Suggested Entitlement Description
+         * @param {number} [limit] Integer specifying the maximum number of records to return in a single API call.  The standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#paginating-results). If it is not specified, a default limit is used.
+         * @param {string} [filters] Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **batchId**: *eq*  **status**: *eq, ne, in*  **displayName**: *eq, co*
+         * @param {boolean} [count] If &#x60;true&#x60; it will populate the &#x60;X-Total-Count&#x60; response header with the number of results that would be returned if &#x60;limit&#x60; and &#x60;offset&#x60; were ignored.  The standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#paginating-results). Since requesting a total count can have a performance impact, it is recommended not to send &#x60;count&#x3D;true&#x60; if that value will not be used.
+         * @param {boolean} [countOnly] If &#x60;true&#x60; it will populate the &#x60;X-Total-Count&#x60; response header with the number of results that would be returned if &#x60;limit&#x60; and &#x60;offset&#x60; were ignored. This parameter differs from the Coun parameter in that this one skip executing the actual query and always return an empty array.
+         * @param {boolean} [requestedByAnyone] By default, the ListSeds API will only return items that you have requested to be generated.   This option will allow you to see all items that have been requested
+         * @param {boolean} [showPendingStatusOnly] Will limit records to items that are in \&quot;suggested\&quot; or \&quot;approved\&quot; status
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        listSeds(limit?: number, filters?: string, count?: boolean, countOnly?: boolean, requestedByAnyone?: boolean, showPendingStatusOnly?: boolean, axiosOptions?: any): AxiosPromise<Array<SedBeta>> {
+            return localVarFp.listSeds(limit, filters, count, countOnly, requestedByAnyone, showPendingStatusOnly, axiosOptions).then((request) => request(axios, basePath));
+        },
+        /**
+         * Patch Suggested Entitlement Description
+         * @summary Patch Suggested Entitlement Description
+         * @param {string} id id is sed id
+         * @param {Array<SedPatchBeta>} sedPatchBeta Sed Patch Request
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        patchSed(id: string, sedPatchBeta: Array<SedPatchBeta>, axiosOptions?: any): AxiosPromise<SedBeta> {
+            return localVarFp.patchSed(id, sedPatchBeta, axiosOptions).then((request) => request(axios, basePath));
+        },
+        /**
+         * Submit Bulk Approval Request for SED. Request body takes list of SED Ids. API responses with list of SED Approval Status
+         * @summary Submit Bulk Approval Request
+         * @param {Array<SedApprovalBeta>} sedApprovalBeta Sed Approval
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        submitSedApproval(sedApprovalBeta: Array<SedApprovalBeta>, axiosOptions?: any): AxiosPromise<Array<SedApprovalStatusBeta>> {
+            return localVarFp.submitSedApproval(sedApprovalBeta, axiosOptions).then((request) => request(axios, basePath));
+        },
+        /**
+         * Submit Assignment Request. Request body has an assignee, and list of SED Ids that are assigned to that assignee API responses with batchId that groups all approval requests together
+         * @summary Submit Sed Assignment Request
+         * @param {SedAssignmentBeta} sedAssignmentBeta Sed Assignment Request
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        submitSedAssignment(sedAssignmentBeta: SedAssignmentBeta, axiosOptions?: any): AxiosPromise<SedAssignmentResponseBeta> {
+            return localVarFp.submitSedAssignment(sedAssignmentBeta, axiosOptions).then((request) => request(axios, basePath));
+        },
+        /**
+         * Submit Sed Batch Request. Request body has a list of entitlement Ids that user wants to have description generated by LLM. API responses with batchId that groups Ids together
+         * @summary Submit Sed Batch Request
+         * @param {SedBatchRequestBeta} [sedBatchRequestBeta] Sed Batch Request
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        submitSedBatchRequest(sedBatchRequestBeta?: SedBatchRequestBeta, axiosOptions?: any): AxiosPromise<SedBatchResponseBeta> {
+            return localVarFp.submitSedBatchRequest(sedBatchRequestBeta, axiosOptions).then((request) => request(axios, basePath));
+        },
+    };
+};
+
+/**
+ * Request parameters for getSedBatchStats operation in SuggestedEntitlementDescriptionBetaApi.
+ * @export
+ * @interface SuggestedEntitlementDescriptionBetaApiGetSedBatchStatsRequest
+ */
+export interface SuggestedEntitlementDescriptionBetaApiGetSedBatchStatsRequest {
+    /**
+     * Batch Id
+     * @type {string}
+     * @memberof SuggestedEntitlementDescriptionBetaApiGetSedBatchStats
+     */
+    readonly batchId: string
+}
+
+/**
+ * Request parameters for listSeds operation in SuggestedEntitlementDescriptionBetaApi.
+ * @export
+ * @interface SuggestedEntitlementDescriptionBetaApiListSedsRequest
+ */
+export interface SuggestedEntitlementDescriptionBetaApiListSedsRequest {
+    /**
+     * Integer specifying the maximum number of records to return in a single API call.  The standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#paginating-results). If it is not specified, a default limit is used.
+     * @type {number}
+     * @memberof SuggestedEntitlementDescriptionBetaApiListSeds
+     */
+    readonly limit?: number
+
+    /**
+     * Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **batchId**: *eq*  **status**: *eq, ne, in*  **displayName**: *eq, co*
+     * @type {string}
+     * @memberof SuggestedEntitlementDescriptionBetaApiListSeds
+     */
+    readonly filters?: string
+
+    /**
+     * If &#x60;true&#x60; it will populate the &#x60;X-Total-Count&#x60; response header with the number of results that would be returned if &#x60;limit&#x60; and &#x60;offset&#x60; were ignored.  The standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#paginating-results). Since requesting a total count can have a performance impact, it is recommended not to send &#x60;count&#x3D;true&#x60; if that value will not be used.
+     * @type {boolean}
+     * @memberof SuggestedEntitlementDescriptionBetaApiListSeds
+     */
+    readonly count?: boolean
+
+    /**
+     * If &#x60;true&#x60; it will populate the &#x60;X-Total-Count&#x60; response header with the number of results that would be returned if &#x60;limit&#x60; and &#x60;offset&#x60; were ignored. This parameter differs from the Coun parameter in that this one skip executing the actual query and always return an empty array.
+     * @type {boolean}
+     * @memberof SuggestedEntitlementDescriptionBetaApiListSeds
+     */
+    readonly countOnly?: boolean
+
+    /**
+     * By default, the ListSeds API will only return items that you have requested to be generated.   This option will allow you to see all items that have been requested
+     * @type {boolean}
+     * @memberof SuggestedEntitlementDescriptionBetaApiListSeds
+     */
+    readonly requestedByAnyone?: boolean
+
+    /**
+     * Will limit records to items that are in \&quot;suggested\&quot; or \&quot;approved\&quot; status
+     * @type {boolean}
+     * @memberof SuggestedEntitlementDescriptionBetaApiListSeds
+     */
+    readonly showPendingStatusOnly?: boolean
+}
+
+/**
+ * Request parameters for patchSed operation in SuggestedEntitlementDescriptionBetaApi.
+ * @export
+ * @interface SuggestedEntitlementDescriptionBetaApiPatchSedRequest
+ */
+export interface SuggestedEntitlementDescriptionBetaApiPatchSedRequest {
+    /**
+     * id is sed id
+     * @type {string}
+     * @memberof SuggestedEntitlementDescriptionBetaApiPatchSed
+     */
+    readonly id: string
+
+    /**
+     * Sed Patch Request
+     * @type {Array<SedPatchBeta>}
+     * @memberof SuggestedEntitlementDescriptionBetaApiPatchSed
+     */
+    readonly sedPatchBeta: Array<SedPatchBeta>
+}
+
+/**
+ * Request parameters for submitSedApproval operation in SuggestedEntitlementDescriptionBetaApi.
+ * @export
+ * @interface SuggestedEntitlementDescriptionBetaApiSubmitSedApprovalRequest
+ */
+export interface SuggestedEntitlementDescriptionBetaApiSubmitSedApprovalRequest {
+    /**
+     * Sed Approval
+     * @type {Array<SedApprovalBeta>}
+     * @memberof SuggestedEntitlementDescriptionBetaApiSubmitSedApproval
+     */
+    readonly sedApprovalBeta: Array<SedApprovalBeta>
+}
+
+/**
+ * Request parameters for submitSedAssignment operation in SuggestedEntitlementDescriptionBetaApi.
+ * @export
+ * @interface SuggestedEntitlementDescriptionBetaApiSubmitSedAssignmentRequest
+ */
+export interface SuggestedEntitlementDescriptionBetaApiSubmitSedAssignmentRequest {
+    /**
+     * Sed Assignment Request
+     * @type {SedAssignmentBeta}
+     * @memberof SuggestedEntitlementDescriptionBetaApiSubmitSedAssignment
+     */
+    readonly sedAssignmentBeta: SedAssignmentBeta
+}
+
+/**
+ * Request parameters for submitSedBatchRequest operation in SuggestedEntitlementDescriptionBetaApi.
+ * @export
+ * @interface SuggestedEntitlementDescriptionBetaApiSubmitSedBatchRequestRequest
+ */
+export interface SuggestedEntitlementDescriptionBetaApiSubmitSedBatchRequestRequest {
+    /**
+     * Sed Batch Request
+     * @type {SedBatchRequestBeta}
+     * @memberof SuggestedEntitlementDescriptionBetaApiSubmitSedBatchRequest
+     */
+    readonly sedBatchRequestBeta?: SedBatchRequestBeta
+}
+
+/**
+ * SuggestedEntitlementDescriptionBetaApi - object-oriented interface
+ * @export
+ * @class SuggestedEntitlementDescriptionBetaApi
+ * @extends {BaseAPI}
+ */
+export class SuggestedEntitlementDescriptionBetaApi extends BaseAPI {
+    /**
+     * Submit Sed Batch Stats Request. Submits batchId in the path param (e.g. {batchId}/stats). API responses with stats of the batchId.
+     * @summary Submit Sed Batch Stats Request
+     * @param {SuggestedEntitlementDescriptionBetaApiGetSedBatchStatsRequest} requestParameters Request parameters.
+     * @param {*} [axiosOptions] Override http request option.
+     * @throws {RequiredError}
+     * @memberof SuggestedEntitlementDescriptionBetaApi
+     */
+    public getSedBatchStats(requestParameters: SuggestedEntitlementDescriptionBetaApiGetSedBatchStatsRequest, axiosOptions?: AxiosRequestConfig) {
+        return SuggestedEntitlementDescriptionBetaApiFp(this.configuration).getSedBatchStats(requestParameters.batchId, axiosOptions).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * List Sed Batches. API responses with Sed Batch Status
+     * @summary List Sed Batch Request
+     * @param {*} [axiosOptions] Override http request option.
+     * @throws {RequiredError}
+     * @memberof SuggestedEntitlementDescriptionBetaApi
+     */
+    public getSedBatches(axiosOptions?: AxiosRequestConfig) {
+        return SuggestedEntitlementDescriptionBetaApiFp(this.configuration).getSedBatches(axiosOptions).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * List of Suggested Entitlement Description
+     * @summary List Suggested Entitlement Description
+     * @param {SuggestedEntitlementDescriptionBetaApiListSedsRequest} requestParameters Request parameters.
+     * @param {*} [axiosOptions] Override http request option.
+     * @throws {RequiredError}
+     * @memberof SuggestedEntitlementDescriptionBetaApi
+     */
+    public listSeds(requestParameters: SuggestedEntitlementDescriptionBetaApiListSedsRequest = {}, axiosOptions?: AxiosRequestConfig) {
+        return SuggestedEntitlementDescriptionBetaApiFp(this.configuration).listSeds(requestParameters.limit, requestParameters.filters, requestParameters.count, requestParameters.countOnly, requestParameters.requestedByAnyone, requestParameters.showPendingStatusOnly, axiosOptions).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Patch Suggested Entitlement Description
+     * @summary Patch Suggested Entitlement Description
+     * @param {SuggestedEntitlementDescriptionBetaApiPatchSedRequest} requestParameters Request parameters.
+     * @param {*} [axiosOptions] Override http request option.
+     * @throws {RequiredError}
+     * @memberof SuggestedEntitlementDescriptionBetaApi
+     */
+    public patchSed(requestParameters: SuggestedEntitlementDescriptionBetaApiPatchSedRequest, axiosOptions?: AxiosRequestConfig) {
+        return SuggestedEntitlementDescriptionBetaApiFp(this.configuration).patchSed(requestParameters.id, requestParameters.sedPatchBeta, axiosOptions).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Submit Bulk Approval Request for SED. Request body takes list of SED Ids. API responses with list of SED Approval Status
+     * @summary Submit Bulk Approval Request
+     * @param {SuggestedEntitlementDescriptionBetaApiSubmitSedApprovalRequest} requestParameters Request parameters.
+     * @param {*} [axiosOptions] Override http request option.
+     * @throws {RequiredError}
+     * @memberof SuggestedEntitlementDescriptionBetaApi
+     */
+    public submitSedApproval(requestParameters: SuggestedEntitlementDescriptionBetaApiSubmitSedApprovalRequest, axiosOptions?: AxiosRequestConfig) {
+        return SuggestedEntitlementDescriptionBetaApiFp(this.configuration).submitSedApproval(requestParameters.sedApprovalBeta, axiosOptions).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Submit Assignment Request. Request body has an assignee, and list of SED Ids that are assigned to that assignee API responses with batchId that groups all approval requests together
+     * @summary Submit Sed Assignment Request
+     * @param {SuggestedEntitlementDescriptionBetaApiSubmitSedAssignmentRequest} requestParameters Request parameters.
+     * @param {*} [axiosOptions] Override http request option.
+     * @throws {RequiredError}
+     * @memberof SuggestedEntitlementDescriptionBetaApi
+     */
+    public submitSedAssignment(requestParameters: SuggestedEntitlementDescriptionBetaApiSubmitSedAssignmentRequest, axiosOptions?: AxiosRequestConfig) {
+        return SuggestedEntitlementDescriptionBetaApiFp(this.configuration).submitSedAssignment(requestParameters.sedAssignmentBeta, axiosOptions).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Submit Sed Batch Request. Request body has a list of entitlement Ids that user wants to have description generated by LLM. API responses with batchId that groups Ids together
+     * @summary Submit Sed Batch Request
+     * @param {SuggestedEntitlementDescriptionBetaApiSubmitSedBatchRequestRequest} requestParameters Request parameters.
+     * @param {*} [axiosOptions] Override http request option.
+     * @throws {RequiredError}
+     * @memberof SuggestedEntitlementDescriptionBetaApi
+     */
+    public submitSedBatchRequest(requestParameters: SuggestedEntitlementDescriptionBetaApiSubmitSedBatchRequestRequest = {}, axiosOptions?: AxiosRequestConfig) {
+        return SuggestedEntitlementDescriptionBetaApiFp(this.configuration).submitSedBatchRequest(requestParameters.sedBatchRequestBeta, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 }
 
