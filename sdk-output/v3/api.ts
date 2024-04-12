@@ -21286,7 +21286,7 @@ export const AccessProfilesApiAxiosParamCreator = function (configuration?: Conf
             };
         },
         /**
-         * This API initiates a bulk deletion of one or more Access Profiles.  By default, if any of the indicated Access Profiles are in use, no deletions will be performed and the **inUse** field of the response indicates the usages that must be removed first. If the request field **bestEffortOnly** is **true**, however, usages are reported in the **inUse** response field but all other indicated Access Profiles will be deleted.  A token with API, ORG_ADMIN, SOURCE_ADMIN, or SOURCE_SUBADMIN authority is required to call this API. In addition, a SOURCE_SUBADMIN may only use this API to delete Access Profiles which are associated with Sources they are able to administer.
+         * This endpoint initiates a bulk deletion of one or more access profiles. When the request is successful, the endpoint returns the bulk delete\'s task result ID.  To follow the task, you can use [Get Task Status by ID](https://developer.sailpoint.com/docs/api/beta/get-task-status), which will return the task result\'s status and information.  This endpoint can only bulk delete up to a limit of 50 access profiles per request.  By default, if any of the indicated access profiles are in use, no deletions will be performed and the **inUse** field of the response indicates the usages that must be removed first. If the request field **bestEffortOnly** is **true**, however, usages are reported in the **inUse** response field but all other indicated access profiles will be deleted. A token with API, ORG_ADMIN, SOURCE_ADMIN, or SOURCE_SUBADMIN authority is required to call this endpoint. In addition, a SOURCE_SUBADMIN can only use this endpoint to delete access profiles associated with sources they\'re able to administer.
          * @summary Delete Access Profile(s)
          * @param {AccessProfileBulkDeleteRequest} accessProfileBulkDeleteRequest 
          * @param {*} [axiosOptions] Override http request option.
@@ -21597,7 +21597,7 @@ export const AccessProfilesApiFp = function(configuration?: Configuration) {
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
-         * This API initiates a bulk deletion of one or more Access Profiles.  By default, if any of the indicated Access Profiles are in use, no deletions will be performed and the **inUse** field of the response indicates the usages that must be removed first. If the request field **bestEffortOnly** is **true**, however, usages are reported in the **inUse** response field but all other indicated Access Profiles will be deleted.  A token with API, ORG_ADMIN, SOURCE_ADMIN, or SOURCE_SUBADMIN authority is required to call this API. In addition, a SOURCE_SUBADMIN may only use this API to delete Access Profiles which are associated with Sources they are able to administer.
+         * This endpoint initiates a bulk deletion of one or more access profiles. When the request is successful, the endpoint returns the bulk delete\'s task result ID.  To follow the task, you can use [Get Task Status by ID](https://developer.sailpoint.com/docs/api/beta/get-task-status), which will return the task result\'s status and information.  This endpoint can only bulk delete up to a limit of 50 access profiles per request.  By default, if any of the indicated access profiles are in use, no deletions will be performed and the **inUse** field of the response indicates the usages that must be removed first. If the request field **bestEffortOnly** is **true**, however, usages are reported in the **inUse** response field but all other indicated access profiles will be deleted. A token with API, ORG_ADMIN, SOURCE_ADMIN, or SOURCE_SUBADMIN authority is required to call this endpoint. In addition, a SOURCE_SUBADMIN can only use this endpoint to delete access profiles associated with sources they\'re able to administer.
          * @summary Delete Access Profile(s)
          * @param {AccessProfileBulkDeleteRequest} accessProfileBulkDeleteRequest 
          * @param {*} [axiosOptions] Override http request option.
@@ -21695,7 +21695,7 @@ export const AccessProfilesApiFactory = function (configuration?: Configuration,
             return localVarFp.deleteAccessProfile(id, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
-         * This API initiates a bulk deletion of one or more Access Profiles.  By default, if any of the indicated Access Profiles are in use, no deletions will be performed and the **inUse** field of the response indicates the usages that must be removed first. If the request field **bestEffortOnly** is **true**, however, usages are reported in the **inUse** response field but all other indicated Access Profiles will be deleted.  A token with API, ORG_ADMIN, SOURCE_ADMIN, or SOURCE_SUBADMIN authority is required to call this API. In addition, a SOURCE_SUBADMIN may only use this API to delete Access Profiles which are associated with Sources they are able to administer.
+         * This endpoint initiates a bulk deletion of one or more access profiles. When the request is successful, the endpoint returns the bulk delete\'s task result ID.  To follow the task, you can use [Get Task Status by ID](https://developer.sailpoint.com/docs/api/beta/get-task-status), which will return the task result\'s status and information.  This endpoint can only bulk delete up to a limit of 50 access profiles per request.  By default, if any of the indicated access profiles are in use, no deletions will be performed and the **inUse** field of the response indicates the usages that must be removed first. If the request field **bestEffortOnly** is **true**, however, usages are reported in the **inUse** response field but all other indicated access profiles will be deleted. A token with API, ORG_ADMIN, SOURCE_ADMIN, or SOURCE_SUBADMIN authority is required to call this endpoint. In addition, a SOURCE_SUBADMIN can only use this endpoint to delete access profiles associated with sources they\'re able to administer.
          * @summary Delete Access Profile(s)
          * @param {AccessProfileBulkDeleteRequest} accessProfileBulkDeleteRequest 
          * @param {*} [axiosOptions] Override http request option.
@@ -21981,7 +21981,7 @@ export class AccessProfilesApi extends BaseAPI {
     }
 
     /**
-     * This API initiates a bulk deletion of one or more Access Profiles.  By default, if any of the indicated Access Profiles are in use, no deletions will be performed and the **inUse** field of the response indicates the usages that must be removed first. If the request field **bestEffortOnly** is **true**, however, usages are reported in the **inUse** response field but all other indicated Access Profiles will be deleted.  A token with API, ORG_ADMIN, SOURCE_ADMIN, or SOURCE_SUBADMIN authority is required to call this API. In addition, a SOURCE_SUBADMIN may only use this API to delete Access Profiles which are associated with Sources they are able to administer.
+     * This endpoint initiates a bulk deletion of one or more access profiles. When the request is successful, the endpoint returns the bulk delete\'s task result ID.  To follow the task, you can use [Get Task Status by ID](https://developer.sailpoint.com/docs/api/beta/get-task-status), which will return the task result\'s status and information.  This endpoint can only bulk delete up to a limit of 50 access profiles per request.  By default, if any of the indicated access profiles are in use, no deletions will be performed and the **inUse** field of the response indicates the usages that must be removed first. If the request field **bestEffortOnly** is **true**, however, usages are reported in the **inUse** response field but all other indicated access profiles will be deleted. A token with API, ORG_ADMIN, SOURCE_ADMIN, or SOURCE_SUBADMIN authority is required to call this endpoint. In addition, a SOURCE_SUBADMIN can only use this endpoint to delete access profiles associated with sources they\'re able to administer.
      * @summary Delete Access Profile(s)
      * @param {AccessProfilesApiDeleteAccessProfilesInBulkRequest} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
@@ -25085,10 +25085,10 @@ export class AccountsApi extends BaseAPI {
 
 
 /**
- * AuthUserApi - axios parameter creator
+ * AuthUsersApi - axios parameter creator
  * @export
  */
-export const AuthUserApiAxiosParamCreator = function (configuration?: Configuration) {
+export const AuthUsersApiAxiosParamCreator = function (configuration?: Configuration) {
     return {
         /**
          * Return the specified user\'s authentication system details.
@@ -25184,11 +25184,11 @@ export const AuthUserApiAxiosParamCreator = function (configuration?: Configurat
 };
 
 /**
- * AuthUserApi - functional programming interface
+ * AuthUsersApi - functional programming interface
  * @export
  */
-export const AuthUserApiFp = function(configuration?: Configuration) {
-    const localVarAxiosParamCreator = AuthUserApiAxiosParamCreator(configuration)
+export const AuthUsersApiFp = function(configuration?: Configuration) {
+    const localVarAxiosParamCreator = AuthUsersApiAxiosParamCreator(configuration)
     return {
         /**
          * Return the specified user\'s authentication system details.
@@ -25217,11 +25217,11 @@ export const AuthUserApiFp = function(configuration?: Configuration) {
 };
 
 /**
- * AuthUserApi - factory interface
+ * AuthUsersApi - factory interface
  * @export
  */
-export const AuthUserApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
-    const localVarFp = AuthUserApiFp(configuration)
+export const AuthUsersApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
+    const localVarFp = AuthUsersApiFp(configuration)
     return {
         /**
          * Return the specified user\'s authentication system details.
@@ -25248,69 +25248,69 @@ export const AuthUserApiFactory = function (configuration?: Configuration, baseP
 };
 
 /**
- * Request parameters for getAuthUser operation in AuthUserApi.
+ * Request parameters for getAuthUser operation in AuthUsersApi.
  * @export
- * @interface AuthUserApiGetAuthUserRequest
+ * @interface AuthUsersApiGetAuthUserRequest
  */
-export interface AuthUserApiGetAuthUserRequest {
+export interface AuthUsersApiGetAuthUserRequest {
     /**
      * Identity ID
      * @type {string}
-     * @memberof AuthUserApiGetAuthUser
+     * @memberof AuthUsersApiGetAuthUser
      */
     readonly id: string
 }
 
 /**
- * Request parameters for patchAuthUser operation in AuthUserApi.
+ * Request parameters for patchAuthUser operation in AuthUsersApi.
  * @export
- * @interface AuthUserApiPatchAuthUserRequest
+ * @interface AuthUsersApiPatchAuthUserRequest
  */
-export interface AuthUserApiPatchAuthUserRequest {
+export interface AuthUsersApiPatchAuthUserRequest {
     /**
      * Identity ID
      * @type {string}
-     * @memberof AuthUserApiPatchAuthUser
+     * @memberof AuthUsersApiPatchAuthUser
      */
     readonly id: string
 
     /**
      * A list of auth user update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.
      * @type {Array<JsonPatchOperation>}
-     * @memberof AuthUserApiPatchAuthUser
+     * @memberof AuthUsersApiPatchAuthUser
      */
     readonly jsonPatchOperation: Array<JsonPatchOperation>
 }
 
 /**
- * AuthUserApi - object-oriented interface
+ * AuthUsersApi - object-oriented interface
  * @export
- * @class AuthUserApi
+ * @class AuthUsersApi
  * @extends {BaseAPI}
  */
-export class AuthUserApi extends BaseAPI {
+export class AuthUsersApi extends BaseAPI {
     /**
      * Return the specified user\'s authentication system details.
      * @summary Auth User Details
-     * @param {AuthUserApiGetAuthUserRequest} requestParameters Request parameters.
+     * @param {AuthUsersApiGetAuthUserRequest} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
-     * @memberof AuthUserApi
+     * @memberof AuthUsersApi
      */
-    public getAuthUser(requestParameters: AuthUserApiGetAuthUserRequest, axiosOptions?: AxiosRequestConfig) {
-        return AuthUserApiFp(this.configuration).getAuthUser(requestParameters.id, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public getAuthUser(requestParameters: AuthUsersApiGetAuthUserRequest, axiosOptions?: AxiosRequestConfig) {
+        return AuthUsersApiFp(this.configuration).getAuthUser(requestParameters.id, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * Use a PATCH request to update an existing user in the authentication system. Use this endpoint to modify these fields:    * `capabilities`  A \'400.1.1 Illegal update attempt\' detail code indicates that you attempted to PATCH a field that is not allowed.
      * @summary Auth User Update
-     * @param {AuthUserApiPatchAuthUserRequest} requestParameters Request parameters.
+     * @param {AuthUsersApiPatchAuthUserRequest} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
-     * @memberof AuthUserApi
+     * @memberof AuthUsersApi
      */
-    public patchAuthUser(requestParameters: AuthUserApiPatchAuthUserRequest, axiosOptions?: AxiosRequestConfig) {
-        return AuthUserApiFp(this.configuration).patchAuthUser(requestParameters.id, requestParameters.jsonPatchOperation, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public patchAuthUser(requestParameters: AuthUsersApiPatchAuthUserRequest, axiosOptions?: AxiosRequestConfig) {
+        return AuthUsersApiFp(this.configuration).patchAuthUser(requestParameters.id, requestParameters.jsonPatchOperation, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 }
 
@@ -41085,7 +41085,7 @@ export const RolesApiAxiosParamCreator = function (configuration?: Configuration
             };
         },
         /**
-         * This API initiates a bulk deletion of one or more Roles.  A token with API, ORG_ADMIN, ROLE_ADMIN, or ROLE_SUBADMIN authority is required to call this API. In addition, a token with ROLE_SUBADMIN authority may only call this API if all Roles included in the request are associated to Sources with management workgroups of which the ROLE_SUBADMIN is a member.
+         * This endpoint initiates a bulk deletion of one or more roles. When the request is successful, the endpoint returns the bulk delete\'s task result ID.  To follow the task, you can use [Get Task Status by ID](https://developer.sailpoint.com/docs/api/beta/get-task-status), which will return the task result\'s status and information.  This endpoint can only bulk delete up to a limit of 50 roles per request.  A token with API, ORG_ADMIN, ROLE_ADMIN, or ROLE_SUBADMIN authority is required to call this endpoint. In addition, a token with ROLE_SUBADMIN authority can only call this endpoint if all roles included in the request are associated with sources with management workgroups the ROLE_SUBADMIN is a member of.
          * @summary Delete Role(s)
          * @param {RoleBulkDeleteRequest} roleBulkDeleteRequest 
          * @param {*} [axiosOptions] Override http request option.
@@ -41427,7 +41427,7 @@ export const RolesApiFp = function(configuration?: Configuration) {
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
-         * This API initiates a bulk deletion of one or more Roles.  A token with API, ORG_ADMIN, ROLE_ADMIN, or ROLE_SUBADMIN authority is required to call this API. In addition, a token with ROLE_SUBADMIN authority may only call this API if all Roles included in the request are associated to Sources with management workgroups of which the ROLE_SUBADMIN is a member.
+         * This endpoint initiates a bulk deletion of one or more roles. When the request is successful, the endpoint returns the bulk delete\'s task result ID.  To follow the task, you can use [Get Task Status by ID](https://developer.sailpoint.com/docs/api/beta/get-task-status), which will return the task result\'s status and information.  This endpoint can only bulk delete up to a limit of 50 roles per request.  A token with API, ORG_ADMIN, ROLE_ADMIN, or ROLE_SUBADMIN authority is required to call this endpoint. In addition, a token with ROLE_SUBADMIN authority can only call this endpoint if all roles included in the request are associated with sources with management workgroups the ROLE_SUBADMIN is a member of.
          * @summary Delete Role(s)
          * @param {RoleBulkDeleteRequest} roleBulkDeleteRequest 
          * @param {*} [axiosOptions] Override http request option.
@@ -41526,7 +41526,7 @@ export const RolesApiFactory = function (configuration?: Configuration, basePath
             return localVarFp.createRole(role, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
-         * This API initiates a bulk deletion of one or more Roles.  A token with API, ORG_ADMIN, ROLE_ADMIN, or ROLE_SUBADMIN authority is required to call this API. In addition, a token with ROLE_SUBADMIN authority may only call this API if all Roles included in the request are associated to Sources with management workgroups of which the ROLE_SUBADMIN is a member.
+         * This endpoint initiates a bulk deletion of one or more roles. When the request is successful, the endpoint returns the bulk delete\'s task result ID.  To follow the task, you can use [Get Task Status by ID](https://developer.sailpoint.com/docs/api/beta/get-task-status), which will return the task result\'s status and information.  This endpoint can only bulk delete up to a limit of 50 roles per request.  A token with API, ORG_ADMIN, ROLE_ADMIN, or ROLE_SUBADMIN authority is required to call this endpoint. In addition, a token with ROLE_SUBADMIN authority can only call this endpoint if all roles included in the request are associated with sources with management workgroups the ROLE_SUBADMIN is a member of.
          * @summary Delete Role(s)
          * @param {RoleBulkDeleteRequest} roleBulkDeleteRequest 
          * @param {*} [axiosOptions] Override http request option.
@@ -41810,7 +41810,7 @@ export class RolesApi extends BaseAPI {
     }
 
     /**
-     * This API initiates a bulk deletion of one or more Roles.  A token with API, ORG_ADMIN, ROLE_ADMIN, or ROLE_SUBADMIN authority is required to call this API. In addition, a token with ROLE_SUBADMIN authority may only call this API if all Roles included in the request are associated to Sources with management workgroups of which the ROLE_SUBADMIN is a member.
+     * This endpoint initiates a bulk deletion of one or more roles. When the request is successful, the endpoint returns the bulk delete\'s task result ID.  To follow the task, you can use [Get Task Status by ID](https://developer.sailpoint.com/docs/api/beta/get-task-status), which will return the task result\'s status and information.  This endpoint can only bulk delete up to a limit of 50 roles per request.  A token with API, ORG_ADMIN, ROLE_ADMIN, or ROLE_SUBADMIN authority is required to call this endpoint. In addition, a token with ROLE_SUBADMIN authority can only call this endpoint if all roles included in the request are associated with sources with management workgroups the ROLE_SUBADMIN is a member of.
      * @summary Delete Role(s)
      * @param {RolesApiDeleteBulkRolesRequest} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
@@ -41884,10 +41884,10 @@ export class RolesApi extends BaseAPI {
 
 
 /**
- * SODPolicyApi - axios parameter creator
+ * SODPoliciesApi - axios parameter creator
  * @export
  */
-export const SODPolicyApiAxiosParamCreator = function (configuration?: Configuration) {
+export const SODPoliciesApiAxiosParamCreator = function (configuration?: Configuration) {
     return {
         /**
          * This creates both General and Conflicting Access Based policy, with a limit of 50 entitlements for each (left & right) criteria for Conflicting Access Based SOD policy. Requires role of ORG_ADMIN.
@@ -42000,132 +42000,6 @@ export const SODPolicyApiAxiosParamCreator = function (configuration?: Configura
             }
 
             const localVarRequestOptions = { method: 'DELETE', ...baseOptions, ...axiosOptions};
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-
-            // authentication UserContextAuth required
-            // oauth required
-            await setOAuthToObject(localVarHeaderParameter, "UserContextAuth", [], configuration)
-
-            // authentication UserContextAuth required
-            // oauth required
-            await setOAuthToObject(localVarHeaderParameter, "UserContextAuth", [], configuration)
-
-
-    
-            setSearchParams(localVarUrlObj, localVarQueryParameter);
-            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
-            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
-
-            return {
-                url: toPathString(localVarUrlObj),
-                axiosOptions: localVarRequestOptions,
-            };
-        },
-        /**
-         * This allows to download a specified named violation report for a given report reference.
-         * @summary Download custom violation report
-         * @param {string} reportResultId The ID of the report reference to download.
-         * @param {string} fileName Custom Name for the  file.
-         * @param {*} [axiosOptions] Override http request option.
-         * @throws {RequiredError}
-         */
-        getCustomViolationReport: async (reportResultId: string, fileName: string, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
-            // verify required parameter 'reportResultId' is not null or undefined
-            assertParamExists('getCustomViolationReport', 'reportResultId', reportResultId)
-            // verify required parameter 'fileName' is not null or undefined
-            assertParamExists('getCustomViolationReport', 'fileName', fileName)
-            const localVarPath = `/sod-violation-report/{reportResultId}/download/{fileName}`
-                .replace(`{${"reportResultId"}}`, encodeURIComponent(String(reportResultId)))
-                .replace(`{${"fileName"}}`, encodeURIComponent(String(fileName)));
-            // use dummy base URL string because the URL constructor only accepts absolute URLs.
-            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
-            let baseOptions;
-            if (configuration) {
-                baseOptions = configuration.baseOptions;
-            }
-
-            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...axiosOptions};
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-
-            // authentication UserContextAuth required
-            // oauth required
-            await setOAuthToObject(localVarHeaderParameter, "UserContextAuth", [], configuration)
-
-            // authentication UserContextAuth required
-            // oauth required
-            await setOAuthToObject(localVarHeaderParameter, "UserContextAuth", [], configuration)
-
-
-    
-            setSearchParams(localVarUrlObj, localVarQueryParameter);
-            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
-            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
-
-            return {
-                url: toPathString(localVarUrlObj),
-                axiosOptions: localVarRequestOptions,
-            };
-        },
-        /**
-         * This allows to download a violation report for a given report reference.
-         * @summary Download violation report
-         * @param {string} reportResultId The ID of the report reference to download.
-         * @param {*} [axiosOptions] Override http request option.
-         * @throws {RequiredError}
-         */
-        getDefaultViolationReport: async (reportResultId: string, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
-            // verify required parameter 'reportResultId' is not null or undefined
-            assertParamExists('getDefaultViolationReport', 'reportResultId', reportResultId)
-            const localVarPath = `/sod-violation-report/{reportResultId}/download`
-                .replace(`{${"reportResultId"}}`, encodeURIComponent(String(reportResultId)));
-            // use dummy base URL string because the URL constructor only accepts absolute URLs.
-            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
-            let baseOptions;
-            if (configuration) {
-                baseOptions = configuration.baseOptions;
-            }
-
-            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...axiosOptions};
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-
-            // authentication UserContextAuth required
-            // oauth required
-            await setOAuthToObject(localVarHeaderParameter, "UserContextAuth", [], configuration)
-
-            // authentication UserContextAuth required
-            // oauth required
-            await setOAuthToObject(localVarHeaderParameter, "UserContextAuth", [], configuration)
-
-
-    
-            setSearchParams(localVarUrlObj, localVarQueryParameter);
-            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
-            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
-
-            return {
-                url: toPathString(localVarUrlObj),
-                axiosOptions: localVarRequestOptions,
-            };
-        },
-        /**
-         * This endpoint gets the status for a violation report for all policy run.
-         * @summary Get multi-report run task status
-         * @param {*} [axiosOptions] Override http request option.
-         * @throws {RequiredError}
-         */
-        getSodAllReportRunStatus: async (axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
-            const localVarPath = `/sod-violation-report`;
-            // use dummy base URL string because the URL constructor only accepts absolute URLs.
-            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
-            let baseOptions;
-            if (configuration) {
-                baseOptions = configuration.baseOptions;
-            }
-
-            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...axiosOptions};
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
 
@@ -42561,48 +42435,6 @@ export const SODPolicyApiAxiosParamCreator = function (configuration?: Configura
             };
         },
         /**
-         * Runs multi-policy report for the org. If a policy reports more than 5000 violations, the report mentions that the violation limit was exceeded for that policy. If the request is empty, the report runs for all policies. Otherwise, the report runs for only the filtered policy list provided.
-         * @summary Runs all policies for org
-         * @param {MultiPolicyRequest} [multiPolicyRequest] 
-         * @param {*} [axiosOptions] Override http request option.
-         * @throws {RequiredError}
-         */
-        startSodAllPoliciesForOrg: async (multiPolicyRequest?: MultiPolicyRequest, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
-            const localVarPath = `/sod-violation-report/run`;
-            // use dummy base URL string because the URL constructor only accepts absolute URLs.
-            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
-            let baseOptions;
-            if (configuration) {
-                baseOptions = configuration.baseOptions;
-            }
-
-            const localVarRequestOptions = { method: 'POST', ...baseOptions, ...axiosOptions};
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-
-            // authentication UserContextAuth required
-            // oauth required
-            await setOAuthToObject(localVarHeaderParameter, "UserContextAuth", [], configuration)
-
-            // authentication UserContextAuth required
-            // oauth required
-            await setOAuthToObject(localVarHeaderParameter, "UserContextAuth", [], configuration)
-
-
-    
-            localVarHeaderParameter['Content-Type'] = 'application/json';
-
-            setSearchParams(localVarUrlObj, localVarQueryParameter);
-            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
-            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(multiPolicyRequest, localVarRequestOptions, configuration)
-
-            return {
-                url: toPathString(localVarUrlObj),
-                axiosOptions: localVarRequestOptions,
-            };
-        },
-        /**
          * This invokes processing of violation report for given SOD policy. If the policy reports more than 5000 violations, the report returns with violation limit exceeded message.
          * @summary Runs SOD policy violation report
          * @param {string} id The SOD policy ID to run.
@@ -42648,11 +42480,11 @@ export const SODPolicyApiAxiosParamCreator = function (configuration?: Configura
 };
 
 /**
- * SODPolicyApi - functional programming interface
+ * SODPoliciesApi - functional programming interface
  * @export
  */
-export const SODPolicyApiFp = function(configuration?: Configuration) {
-    const localVarAxiosParamCreator = SODPolicyApiAxiosParamCreator(configuration)
+export const SODPoliciesApiFp = function(configuration?: Configuration) {
+    const localVarAxiosParamCreator = SODPoliciesApiAxiosParamCreator(configuration)
     return {
         /**
          * This creates both General and Conflicting Access Based policy, with a limit of 50 entitlements for each (left & right) criteria for Conflicting Access Based SOD policy. Requires role of ORG_ADMIN.
@@ -42686,39 +42518,6 @@ export const SODPolicyApiFp = function(configuration?: Configuration) {
          */
         async deleteSodPolicySchedule(id: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.deleteSodPolicySchedule(id, axiosOptions);
-            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
-        },
-        /**
-         * This allows to download a specified named violation report for a given report reference.
-         * @summary Download custom violation report
-         * @param {string} reportResultId The ID of the report reference to download.
-         * @param {string} fileName Custom Name for the  file.
-         * @param {*} [axiosOptions] Override http request option.
-         * @throws {RequiredError}
-         */
-        async getCustomViolationReport(reportResultId: string, fileName: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<any>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.getCustomViolationReport(reportResultId, fileName, axiosOptions);
-            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
-        },
-        /**
-         * This allows to download a violation report for a given report reference.
-         * @summary Download violation report
-         * @param {string} reportResultId The ID of the report reference to download.
-         * @param {*} [axiosOptions] Override http request option.
-         * @throws {RequiredError}
-         */
-        async getDefaultViolationReport(reportResultId: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<any>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.getDefaultViolationReport(reportResultId, axiosOptions);
-            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
-        },
-        /**
-         * This endpoint gets the status for a violation report for all policy run.
-         * @summary Get multi-report run task status
-         * @param {*} [axiosOptions] Override http request option.
-         * @throws {RequiredError}
-         */
-        async getSodAllReportRunStatus(axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ReportResultReference>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.getSodAllReportRunStatus(axiosOptions);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
@@ -42827,17 +42626,6 @@ export const SODPolicyApiFp = function(configuration?: Configuration) {
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
-         * Runs multi-policy report for the org. If a policy reports more than 5000 violations, the report mentions that the violation limit was exceeded for that policy. If the request is empty, the report runs for all policies. Otherwise, the report runs for only the filtered policy list provided.
-         * @summary Runs all policies for org
-         * @param {MultiPolicyRequest} [multiPolicyRequest] 
-         * @param {*} [axiosOptions] Override http request option.
-         * @throws {RequiredError}
-         */
-        async startSodAllPoliciesForOrg(multiPolicyRequest?: MultiPolicyRequest, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ReportResultReference>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.startSodAllPoliciesForOrg(multiPolicyRequest, axiosOptions);
-            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
-        },
-        /**
          * This invokes processing of violation report for given SOD policy. If the policy reports more than 5000 violations, the report returns with violation limit exceeded message.
          * @summary Runs SOD policy violation report
          * @param {string} id The SOD policy ID to run.
@@ -42852,11 +42640,11 @@ export const SODPolicyApiFp = function(configuration?: Configuration) {
 };
 
 /**
- * SODPolicyApi - factory interface
+ * SODPoliciesApi - factory interface
  * @export
  */
-export const SODPolicyApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
-    const localVarFp = SODPolicyApiFp(configuration)
+export const SODPoliciesApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
+    const localVarFp = SODPoliciesApiFp(configuration)
     return {
         /**
          * This creates both General and Conflicting Access Based policy, with a limit of 50 entitlements for each (left & right) criteria for Conflicting Access Based SOD policy. Requires role of ORG_ADMIN.
@@ -42888,36 +42676,6 @@ export const SODPolicyApiFactory = function (configuration?: Configuration, base
          */
         deleteSodPolicySchedule(id: string, axiosOptions?: any): AxiosPromise<void> {
             return localVarFp.deleteSodPolicySchedule(id, axiosOptions).then((request) => request(axios, basePath));
-        },
-        /**
-         * This allows to download a specified named violation report for a given report reference.
-         * @summary Download custom violation report
-         * @param {string} reportResultId The ID of the report reference to download.
-         * @param {string} fileName Custom Name for the  file.
-         * @param {*} [axiosOptions] Override http request option.
-         * @throws {RequiredError}
-         */
-        getCustomViolationReport(reportResultId: string, fileName: string, axiosOptions?: any): AxiosPromise<any> {
-            return localVarFp.getCustomViolationReport(reportResultId, fileName, axiosOptions).then((request) => request(axios, basePath));
-        },
-        /**
-         * This allows to download a violation report for a given report reference.
-         * @summary Download violation report
-         * @param {string} reportResultId The ID of the report reference to download.
-         * @param {*} [axiosOptions] Override http request option.
-         * @throws {RequiredError}
-         */
-        getDefaultViolationReport(reportResultId: string, axiosOptions?: any): AxiosPromise<any> {
-            return localVarFp.getDefaultViolationReport(reportResultId, axiosOptions).then((request) => request(axios, basePath));
-        },
-        /**
-         * This endpoint gets the status for a violation report for all policy run.
-         * @summary Get multi-report run task status
-         * @param {*} [axiosOptions] Override http request option.
-         * @throws {RequiredError}
-         */
-        getSodAllReportRunStatus(axiosOptions?: any): AxiosPromise<ReportResultReference> {
-            return localVarFp.getSodAllReportRunStatus(axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * This gets specified SOD policy. Requires role of ORG_ADMIN.
@@ -43016,16 +42774,6 @@ export const SODPolicyApiFactory = function (configuration?: Configuration, base
             return localVarFp.startEvaluateSodPolicy(id, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
-         * Runs multi-policy report for the org. If a policy reports more than 5000 violations, the report mentions that the violation limit was exceeded for that policy. If the request is empty, the report runs for all policies. Otherwise, the report runs for only the filtered policy list provided.
-         * @summary Runs all policies for org
-         * @param {MultiPolicyRequest} [multiPolicyRequest] 
-         * @param {*} [axiosOptions] Override http request option.
-         * @throws {RequiredError}
-         */
-        startSodAllPoliciesForOrg(multiPolicyRequest?: MultiPolicyRequest, axiosOptions?: any): AxiosPromise<ReportResultReference> {
-            return localVarFp.startSodAllPoliciesForOrg(multiPolicyRequest, axiosOptions).then((request) => request(axios, basePath));
-        },
-        /**
          * This invokes processing of violation report for given SOD policy. If the policy reports more than 5000 violations, the report returns with violation limit exceeded message.
          * @summary Runs SOD policy violation report
          * @param {string} id The SOD policy ID to run.
@@ -43039,53 +42787,681 @@ export const SODPolicyApiFactory = function (configuration?: Configuration, base
 };
 
 /**
- * Request parameters for createSodPolicy operation in SODPolicyApi.
+ * Request parameters for createSodPolicy operation in SODPoliciesApi.
  * @export
- * @interface SODPolicyApiCreateSodPolicyRequest
+ * @interface SODPoliciesApiCreateSodPolicyRequest
  */
-export interface SODPolicyApiCreateSodPolicyRequest {
+export interface SODPoliciesApiCreateSodPolicyRequest {
     /**
      * 
      * @type {SodPolicy}
-     * @memberof SODPolicyApiCreateSodPolicy
+     * @memberof SODPoliciesApiCreateSodPolicy
      */
     readonly sodPolicy: SodPolicy
 }
 
 /**
- * Request parameters for deleteSodPolicy operation in SODPolicyApi.
+ * Request parameters for deleteSodPolicy operation in SODPoliciesApi.
  * @export
- * @interface SODPolicyApiDeleteSodPolicyRequest
+ * @interface SODPoliciesApiDeleteSodPolicyRequest
  */
-export interface SODPolicyApiDeleteSodPolicyRequest {
+export interface SODPoliciesApiDeleteSodPolicyRequest {
     /**
      * The ID of the SOD Policy to delete.
      * @type {string}
-     * @memberof SODPolicyApiDeleteSodPolicy
+     * @memberof SODPoliciesApiDeleteSodPolicy
      */
     readonly id: string
 
     /**
      * Indicates whether this is a soft delete (logical true) or a hard delete.  Soft delete marks the policy as deleted and just save it with this status. It could be fully deleted or recovered further.  Hard delete vise versa permanently delete SOD request during this call.
      * @type {boolean}
-     * @memberof SODPolicyApiDeleteSodPolicy
+     * @memberof SODPoliciesApiDeleteSodPolicy
      */
     readonly logical?: boolean
 }
 
 /**
- * Request parameters for deleteSodPolicySchedule operation in SODPolicyApi.
+ * Request parameters for deleteSodPolicySchedule operation in SODPoliciesApi.
  * @export
- * @interface SODPolicyApiDeleteSodPolicyScheduleRequest
+ * @interface SODPoliciesApiDeleteSodPolicyScheduleRequest
  */
-export interface SODPolicyApiDeleteSodPolicyScheduleRequest {
+export interface SODPoliciesApiDeleteSodPolicyScheduleRequest {
     /**
      * The ID of the SOD policy the schedule must be deleted for.
      * @type {string}
-     * @memberof SODPolicyApiDeleteSodPolicySchedule
+     * @memberof SODPoliciesApiDeleteSodPolicySchedule
      */
     readonly id: string
 }
+
+/**
+ * Request parameters for getSodPolicy operation in SODPoliciesApi.
+ * @export
+ * @interface SODPoliciesApiGetSodPolicyRequest
+ */
+export interface SODPoliciesApiGetSodPolicyRequest {
+    /**
+     * The ID of the SOD Policy to retrieve.
+     * @type {string}
+     * @memberof SODPoliciesApiGetSodPolicy
+     */
+    readonly id: string
+}
+
+/**
+ * Request parameters for getSodPolicySchedule operation in SODPoliciesApi.
+ * @export
+ * @interface SODPoliciesApiGetSodPolicyScheduleRequest
+ */
+export interface SODPoliciesApiGetSodPolicyScheduleRequest {
+    /**
+     * The ID of the SOD policy schedule to retrieve.
+     * @type {string}
+     * @memberof SODPoliciesApiGetSodPolicySchedule
+     */
+    readonly id: string
+}
+
+/**
+ * Request parameters for getSodViolationReportRunStatus operation in SODPoliciesApi.
+ * @export
+ * @interface SODPoliciesApiGetSodViolationReportRunStatusRequest
+ */
+export interface SODPoliciesApiGetSodViolationReportRunStatusRequest {
+    /**
+     * The ID of the report reference to retrieve.
+     * @type {string}
+     * @memberof SODPoliciesApiGetSodViolationReportRunStatus
+     */
+    readonly reportResultId: string
+}
+
+/**
+ * Request parameters for getSodViolationReportStatus operation in SODPoliciesApi.
+ * @export
+ * @interface SODPoliciesApiGetSodViolationReportStatusRequest
+ */
+export interface SODPoliciesApiGetSodViolationReportStatusRequest {
+    /**
+     * The ID of the violation report to retrieve status for.
+     * @type {string}
+     * @memberof SODPoliciesApiGetSodViolationReportStatus
+     */
+    readonly id: string
+}
+
+/**
+ * Request parameters for listSodPolicies operation in SODPoliciesApi.
+ * @export
+ * @interface SODPoliciesApiListSodPoliciesRequest
+ */
+export interface SODPoliciesApiListSodPoliciesRequest {
+    /**
+     * Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+     * @type {number}
+     * @memberof SODPoliciesApiListSodPolicies
+     */
+    readonly limit?: number
+
+    /**
+     * Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+     * @type {number}
+     * @memberof SODPoliciesApiListSodPolicies
+     */
+    readonly offset?: number
+
+    /**
+     * If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+     * @type {boolean}
+     * @memberof SODPoliciesApiListSodPolicies
+     */
+    readonly count?: boolean
+
+    /**
+     * Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq*  **name**: *eq*  **state**: *eq*
+     * @type {string}
+     * @memberof SODPoliciesApiListSodPolicies
+     */
+    readonly filters?: string
+}
+
+/**
+ * Request parameters for patchSodPolicy operation in SODPoliciesApi.
+ * @export
+ * @interface SODPoliciesApiPatchSodPolicyRequest
+ */
+export interface SODPoliciesApiPatchSodPolicyRequest {
+    /**
+     * The ID of the SOD policy being modified.
+     * @type {string}
+     * @memberof SODPoliciesApiPatchSodPolicy
+     */
+    readonly id: string
+
+    /**
+     * A list of SOD Policy update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.  The following fields are patchable: * name * description * ownerRef * externalPolicyReference * compensatingControls * correctionAdvice * state * tags * violationOwnerAssignmentConfig * scheduled * conflictingAccessCriteria 
+     * @type {Array<JsonPatchOperation>}
+     * @memberof SODPoliciesApiPatchSodPolicy
+     */
+    readonly jsonPatchOperation: Array<JsonPatchOperation>
+}
+
+/**
+ * Request parameters for putPolicySchedule operation in SODPoliciesApi.
+ * @export
+ * @interface SODPoliciesApiPutPolicyScheduleRequest
+ */
+export interface SODPoliciesApiPutPolicyScheduleRequest {
+    /**
+     * The ID of the SOD policy to update its schedule.
+     * @type {string}
+     * @memberof SODPoliciesApiPutPolicySchedule
+     */
+    readonly id: string
+
+    /**
+     * 
+     * @type {SodPolicySchedule}
+     * @memberof SODPoliciesApiPutPolicySchedule
+     */
+    readonly sodPolicySchedule: SodPolicySchedule
+}
+
+/**
+ * Request parameters for putSodPolicy operation in SODPoliciesApi.
+ * @export
+ * @interface SODPoliciesApiPutSodPolicyRequest
+ */
+export interface SODPoliciesApiPutSodPolicyRequest {
+    /**
+     * The ID of the SOD policy to update.
+     * @type {string}
+     * @memberof SODPoliciesApiPutSodPolicy
+     */
+    readonly id: string
+
+    /**
+     * 
+     * @type {SodPolicy}
+     * @memberof SODPoliciesApiPutSodPolicy
+     */
+    readonly sodPolicy: SodPolicy
+}
+
+/**
+ * Request parameters for startEvaluateSodPolicy operation in SODPoliciesApi.
+ * @export
+ * @interface SODPoliciesApiStartEvaluateSodPolicyRequest
+ */
+export interface SODPoliciesApiStartEvaluateSodPolicyRequest {
+    /**
+     * The SOD policy ID to run.
+     * @type {string}
+     * @memberof SODPoliciesApiStartEvaluateSodPolicy
+     */
+    readonly id: string
+}
+
+/**
+ * Request parameters for startSodPolicy operation in SODPoliciesApi.
+ * @export
+ * @interface SODPoliciesApiStartSodPolicyRequest
+ */
+export interface SODPoliciesApiStartSodPolicyRequest {
+    /**
+     * The SOD policy ID to run.
+     * @type {string}
+     * @memberof SODPoliciesApiStartSodPolicy
+     */
+    readonly id: string
+}
+
+/**
+ * SODPoliciesApi - object-oriented interface
+ * @export
+ * @class SODPoliciesApi
+ * @extends {BaseAPI}
+ */
+export class SODPoliciesApi extends BaseAPI {
+    /**
+     * This creates both General and Conflicting Access Based policy, with a limit of 50 entitlements for each (left & right) criteria for Conflicting Access Based SOD policy. Requires role of ORG_ADMIN.
+     * @summary Create SOD policy
+     * @param {SODPoliciesApiCreateSodPolicyRequest} requestParameters Request parameters.
+     * @param {*} [axiosOptions] Override http request option.
+     * @throws {RequiredError}
+     * @memberof SODPoliciesApi
+     */
+    public createSodPolicy(requestParameters: SODPoliciesApiCreateSodPolicyRequest, axiosOptions?: AxiosRequestConfig) {
+        return SODPoliciesApiFp(this.configuration).createSodPolicy(requestParameters.sodPolicy, axiosOptions).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * This deletes a specified SOD policy. Requires role of ORG_ADMIN.
+     * @summary Delete SOD policy by ID
+     * @param {SODPoliciesApiDeleteSodPolicyRequest} requestParameters Request parameters.
+     * @param {*} [axiosOptions] Override http request option.
+     * @throws {RequiredError}
+     * @memberof SODPoliciesApi
+     */
+    public deleteSodPolicy(requestParameters: SODPoliciesApiDeleteSodPolicyRequest, axiosOptions?: AxiosRequestConfig) {
+        return SODPoliciesApiFp(this.configuration).deleteSodPolicy(requestParameters.id, requestParameters.logical, axiosOptions).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * This deletes schedule for a specified SOD policy by ID.
+     * @summary Delete SOD policy schedule
+     * @param {SODPoliciesApiDeleteSodPolicyScheduleRequest} requestParameters Request parameters.
+     * @param {*} [axiosOptions] Override http request option.
+     * @throws {RequiredError}
+     * @memberof SODPoliciesApi
+     */
+    public deleteSodPolicySchedule(requestParameters: SODPoliciesApiDeleteSodPolicyScheduleRequest, axiosOptions?: AxiosRequestConfig) {
+        return SODPoliciesApiFp(this.configuration).deleteSodPolicySchedule(requestParameters.id, axiosOptions).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * This gets specified SOD policy. Requires role of ORG_ADMIN.
+     * @summary Get SOD policy by ID
+     * @param {SODPoliciesApiGetSodPolicyRequest} requestParameters Request parameters.
+     * @param {*} [axiosOptions] Override http request option.
+     * @throws {RequiredError}
+     * @memberof SODPoliciesApi
+     */
+    public getSodPolicy(requestParameters: SODPoliciesApiGetSodPolicyRequest, axiosOptions?: AxiosRequestConfig) {
+        return SODPoliciesApiFp(this.configuration).getSodPolicy(requestParameters.id, axiosOptions).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * This endpoint gets a specified SOD policy\'s schedule.
+     * @summary Get SOD policy schedule
+     * @param {SODPoliciesApiGetSodPolicyScheduleRequest} requestParameters Request parameters.
+     * @param {*} [axiosOptions] Override http request option.
+     * @throws {RequiredError}
+     * @memberof SODPoliciesApi
+     */
+    public getSodPolicySchedule(requestParameters: SODPoliciesApiGetSodPolicyScheduleRequest, axiosOptions?: AxiosRequestConfig) {
+        return SODPoliciesApiFp(this.configuration).getSodPolicySchedule(requestParameters.id, axiosOptions).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * This gets the status for a violation report run task that has already been invoked.
+     * @summary Get violation report run status
+     * @param {SODPoliciesApiGetSodViolationReportRunStatusRequest} requestParameters Request parameters.
+     * @param {*} [axiosOptions] Override http request option.
+     * @throws {RequiredError}
+     * @memberof SODPoliciesApi
+     */
+    public getSodViolationReportRunStatus(requestParameters: SODPoliciesApiGetSodViolationReportRunStatusRequest, axiosOptions?: AxiosRequestConfig) {
+        return SODPoliciesApiFp(this.configuration).getSodViolationReportRunStatus(requestParameters.reportResultId, axiosOptions).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * This gets the status for a violation report run task that has already been invoked.
+     * @summary Get SOD violation report status
+     * @param {SODPoliciesApiGetSodViolationReportStatusRequest} requestParameters Request parameters.
+     * @param {*} [axiosOptions] Override http request option.
+     * @throws {RequiredError}
+     * @memberof SODPoliciesApi
+     */
+    public getSodViolationReportStatus(requestParameters: SODPoliciesApiGetSodViolationReportStatusRequest, axiosOptions?: AxiosRequestConfig) {
+        return SODPoliciesApiFp(this.configuration).getSodViolationReportStatus(requestParameters.id, axiosOptions).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * This gets list of all SOD policies. Requires role of ORG_ADMIN
+     * @summary List SOD policies
+     * @param {SODPoliciesApiListSodPoliciesRequest} requestParameters Request parameters.
+     * @param {*} [axiosOptions] Override http request option.
+     * @throws {RequiredError}
+     * @memberof SODPoliciesApi
+     */
+    public listSodPolicies(requestParameters: SODPoliciesApiListSodPoliciesRequest = {}, axiosOptions?: AxiosRequestConfig) {
+        return SODPoliciesApiFp(this.configuration).listSodPolicies(requestParameters.limit, requestParameters.offset, requestParameters.count, requestParameters.filters, axiosOptions).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Allows updating SOD Policy fields other than [\"id\",\"created\",\"creatorId\",\"policyQuery\",\"type\"] using the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard. Requires role of ORG_ADMIN. This endpoint can only patch CONFLICTING_ACCESS_BASED type policies. Do not use this endpoint to patch general policies - doing so will build an API exception. 
+     * @summary Patch SOD policy by ID
+     * @param {SODPoliciesApiPatchSodPolicyRequest} requestParameters Request parameters.
+     * @param {*} [axiosOptions] Override http request option.
+     * @throws {RequiredError}
+     * @memberof SODPoliciesApi
+     */
+    public patchSodPolicy(requestParameters: SODPoliciesApiPatchSodPolicyRequest, axiosOptions?: AxiosRequestConfig) {
+        return SODPoliciesApiFp(this.configuration).patchSodPolicy(requestParameters.id, requestParameters.jsonPatchOperation, axiosOptions).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * This updates schedule for a specified SOD policy.
+     * @summary Update SOD Policy schedule
+     * @param {SODPoliciesApiPutPolicyScheduleRequest} requestParameters Request parameters.
+     * @param {*} [axiosOptions] Override http request option.
+     * @throws {RequiredError}
+     * @memberof SODPoliciesApi
+     */
+    public putPolicySchedule(requestParameters: SODPoliciesApiPutPolicyScheduleRequest, axiosOptions?: AxiosRequestConfig) {
+        return SODPoliciesApiFp(this.configuration).putPolicySchedule(requestParameters.id, requestParameters.sodPolicySchedule, axiosOptions).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * This updates a specified SOD policy. Requires role of ORG_ADMIN.
+     * @summary Update SOD policy by ID
+     * @param {SODPoliciesApiPutSodPolicyRequest} requestParameters Request parameters.
+     * @param {*} [axiosOptions] Override http request option.
+     * @throws {RequiredError}
+     * @memberof SODPoliciesApi
+     */
+    public putSodPolicy(requestParameters: SODPoliciesApiPutSodPolicyRequest, axiosOptions?: AxiosRequestConfig) {
+        return SODPoliciesApiFp(this.configuration).putSodPolicy(requestParameters.id, requestParameters.sodPolicy, axiosOptions).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Runs the scheduled report for the policy retrieved by passed policy ID.  The report schedule is fetched from the policy retrieved by ID.
+     * @summary Evaluate one policy by ID
+     * @param {SODPoliciesApiStartEvaluateSodPolicyRequest} requestParameters Request parameters.
+     * @param {*} [axiosOptions] Override http request option.
+     * @throws {RequiredError}
+     * @memberof SODPoliciesApi
+     */
+    public startEvaluateSodPolicy(requestParameters: SODPoliciesApiStartEvaluateSodPolicyRequest, axiosOptions?: AxiosRequestConfig) {
+        return SODPoliciesApiFp(this.configuration).startEvaluateSodPolicy(requestParameters.id, axiosOptions).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * This invokes processing of violation report for given SOD policy. If the policy reports more than 5000 violations, the report returns with violation limit exceeded message.
+     * @summary Runs SOD policy violation report
+     * @param {SODPoliciesApiStartSodPolicyRequest} requestParameters Request parameters.
+     * @param {*} [axiosOptions] Override http request option.
+     * @throws {RequiredError}
+     * @memberof SODPoliciesApi
+     */
+    public startSodPolicy(requestParameters: SODPoliciesApiStartSodPolicyRequest, axiosOptions?: AxiosRequestConfig) {
+        return SODPoliciesApiFp(this.configuration).startSodPolicy(requestParameters.id, axiosOptions).then((request) => request(this.axios, this.basePath));
+    }
+}
+
+
+/**
+ * SODPolicyApi - axios parameter creator
+ * @export
+ */
+export const SODPolicyApiAxiosParamCreator = function (configuration?: Configuration) {
+    return {
+        /**
+         * This allows to download a specified named violation report for a given report reference.
+         * @summary Download custom violation report
+         * @param {string} reportResultId The ID of the report reference to download.
+         * @param {string} fileName Custom Name for the  file.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        getCustomViolationReport: async (reportResultId: string, fileName: string, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'reportResultId' is not null or undefined
+            assertParamExists('getCustomViolationReport', 'reportResultId', reportResultId)
+            // verify required parameter 'fileName' is not null or undefined
+            assertParamExists('getCustomViolationReport', 'fileName', fileName)
+            const localVarPath = `/sod-violation-report/{reportResultId}/download/{fileName}`
+                .replace(`{${"reportResultId"}}`, encodeURIComponent(String(reportResultId)))
+                .replace(`{${"fileName"}}`, encodeURIComponent(String(fileName)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...axiosOptions};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication UserContextAuth required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "UserContextAuth", [], configuration)
+
+            // authentication UserContextAuth required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "UserContextAuth", [], configuration)
+
+
+    
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                axiosOptions: localVarRequestOptions,
+            };
+        },
+        /**
+         * This allows to download a violation report for a given report reference.
+         * @summary Download violation report
+         * @param {string} reportResultId The ID of the report reference to download.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        getDefaultViolationReport: async (reportResultId: string, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'reportResultId' is not null or undefined
+            assertParamExists('getDefaultViolationReport', 'reportResultId', reportResultId)
+            const localVarPath = `/sod-violation-report/{reportResultId}/download`
+                .replace(`{${"reportResultId"}}`, encodeURIComponent(String(reportResultId)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...axiosOptions};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication UserContextAuth required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "UserContextAuth", [], configuration)
+
+            // authentication UserContextAuth required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "UserContextAuth", [], configuration)
+
+
+    
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                axiosOptions: localVarRequestOptions,
+            };
+        },
+        /**
+         * This endpoint gets the status for a violation report for all policy run.
+         * @summary Get multi-report run task status
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        getSodAllReportRunStatus: async (axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            const localVarPath = `/sod-violation-report`;
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...axiosOptions};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication UserContextAuth required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "UserContextAuth", [], configuration)
+
+            // authentication UserContextAuth required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "UserContextAuth", [], configuration)
+
+
+    
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                axiosOptions: localVarRequestOptions,
+            };
+        },
+        /**
+         * Runs multi-policy report for the org. If a policy reports more than 5000 violations, the report mentions that the violation limit was exceeded for that policy. If the request is empty, the report runs for all policies. Otherwise, the report runs for only the filtered policy list provided.
+         * @summary Runs all policies for org
+         * @param {MultiPolicyRequest} [multiPolicyRequest] 
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        startSodAllPoliciesForOrg: async (multiPolicyRequest?: MultiPolicyRequest, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            const localVarPath = `/sod-violation-report/run`;
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'POST', ...baseOptions, ...axiosOptions};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication UserContextAuth required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "UserContextAuth", [], configuration)
+
+            // authentication UserContextAuth required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "UserContextAuth", [], configuration)
+
+
+    
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
+            localVarRequestOptions.data = serializeDataIfNeeded(multiPolicyRequest, localVarRequestOptions, configuration)
+
+            return {
+                url: toPathString(localVarUrlObj),
+                axiosOptions: localVarRequestOptions,
+            };
+        },
+    }
+};
+
+/**
+ * SODPolicyApi - functional programming interface
+ * @export
+ */
+export const SODPolicyApiFp = function(configuration?: Configuration) {
+    const localVarAxiosParamCreator = SODPolicyApiAxiosParamCreator(configuration)
+    return {
+        /**
+         * This allows to download a specified named violation report for a given report reference.
+         * @summary Download custom violation report
+         * @param {string} reportResultId The ID of the report reference to download.
+         * @param {string} fileName Custom Name for the  file.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        async getCustomViolationReport(reportResultId: string, fileName: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<any>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getCustomViolationReport(reportResultId, fileName, axiosOptions);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * This allows to download a violation report for a given report reference.
+         * @summary Download violation report
+         * @param {string} reportResultId The ID of the report reference to download.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        async getDefaultViolationReport(reportResultId: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<any>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getDefaultViolationReport(reportResultId, axiosOptions);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * This endpoint gets the status for a violation report for all policy run.
+         * @summary Get multi-report run task status
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        async getSodAllReportRunStatus(axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ReportResultReference>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getSodAllReportRunStatus(axiosOptions);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * Runs multi-policy report for the org. If a policy reports more than 5000 violations, the report mentions that the violation limit was exceeded for that policy. If the request is empty, the report runs for all policies. Otherwise, the report runs for only the filtered policy list provided.
+         * @summary Runs all policies for org
+         * @param {MultiPolicyRequest} [multiPolicyRequest] 
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        async startSodAllPoliciesForOrg(multiPolicyRequest?: MultiPolicyRequest, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ReportResultReference>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.startSodAllPoliciesForOrg(multiPolicyRequest, axiosOptions);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+    }
+};
+
+/**
+ * SODPolicyApi - factory interface
+ * @export
+ */
+export const SODPolicyApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
+    const localVarFp = SODPolicyApiFp(configuration)
+    return {
+        /**
+         * This allows to download a specified named violation report for a given report reference.
+         * @summary Download custom violation report
+         * @param {string} reportResultId The ID of the report reference to download.
+         * @param {string} fileName Custom Name for the  file.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        getCustomViolationReport(reportResultId: string, fileName: string, axiosOptions?: any): AxiosPromise<any> {
+            return localVarFp.getCustomViolationReport(reportResultId, fileName, axiosOptions).then((request) => request(axios, basePath));
+        },
+        /**
+         * This allows to download a violation report for a given report reference.
+         * @summary Download violation report
+         * @param {string} reportResultId The ID of the report reference to download.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        getDefaultViolationReport(reportResultId: string, axiosOptions?: any): AxiosPromise<any> {
+            return localVarFp.getDefaultViolationReport(reportResultId, axiosOptions).then((request) => request(axios, basePath));
+        },
+        /**
+         * This endpoint gets the status for a violation report for all policy run.
+         * @summary Get multi-report run task status
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        getSodAllReportRunStatus(axiosOptions?: any): AxiosPromise<ReportResultReference> {
+            return localVarFp.getSodAllReportRunStatus(axiosOptions).then((request) => request(axios, basePath));
+        },
+        /**
+         * Runs multi-policy report for the org. If a policy reports more than 5000 violations, the report mentions that the violation limit was exceeded for that policy. If the request is empty, the report runs for all policies. Otherwise, the report runs for only the filtered policy list provided.
+         * @summary Runs all policies for org
+         * @param {MultiPolicyRequest} [multiPolicyRequest] 
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        startSodAllPoliciesForOrg(multiPolicyRequest?: MultiPolicyRequest, axiosOptions?: any): AxiosPromise<ReportResultReference> {
+            return localVarFp.startSodAllPoliciesForOrg(multiPolicyRequest, axiosOptions).then((request) => request(axios, basePath));
+        },
+    };
+};
 
 /**
  * Request parameters for getCustomViolationReport operation in SODPolicyApi.
@@ -43123,174 +43499,6 @@ export interface SODPolicyApiGetDefaultViolationReportRequest {
 }
 
 /**
- * Request parameters for getSodPolicy operation in SODPolicyApi.
- * @export
- * @interface SODPolicyApiGetSodPolicyRequest
- */
-export interface SODPolicyApiGetSodPolicyRequest {
-    /**
-     * The ID of the SOD Policy to retrieve.
-     * @type {string}
-     * @memberof SODPolicyApiGetSodPolicy
-     */
-    readonly id: string
-}
-
-/**
- * Request parameters for getSodPolicySchedule operation in SODPolicyApi.
- * @export
- * @interface SODPolicyApiGetSodPolicyScheduleRequest
- */
-export interface SODPolicyApiGetSodPolicyScheduleRequest {
-    /**
-     * The ID of the SOD policy schedule to retrieve.
-     * @type {string}
-     * @memberof SODPolicyApiGetSodPolicySchedule
-     */
-    readonly id: string
-}
-
-/**
- * Request parameters for getSodViolationReportRunStatus operation in SODPolicyApi.
- * @export
- * @interface SODPolicyApiGetSodViolationReportRunStatusRequest
- */
-export interface SODPolicyApiGetSodViolationReportRunStatusRequest {
-    /**
-     * The ID of the report reference to retrieve.
-     * @type {string}
-     * @memberof SODPolicyApiGetSodViolationReportRunStatus
-     */
-    readonly reportResultId: string
-}
-
-/**
- * Request parameters for getSodViolationReportStatus operation in SODPolicyApi.
- * @export
- * @interface SODPolicyApiGetSodViolationReportStatusRequest
- */
-export interface SODPolicyApiGetSodViolationReportStatusRequest {
-    /**
-     * The ID of the violation report to retrieve status for.
-     * @type {string}
-     * @memberof SODPolicyApiGetSodViolationReportStatus
-     */
-    readonly id: string
-}
-
-/**
- * Request parameters for listSodPolicies operation in SODPolicyApi.
- * @export
- * @interface SODPolicyApiListSodPoliciesRequest
- */
-export interface SODPolicyApiListSodPoliciesRequest {
-    /**
-     * Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
-     * @type {number}
-     * @memberof SODPolicyApiListSodPolicies
-     */
-    readonly limit?: number
-
-    /**
-     * Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
-     * @type {number}
-     * @memberof SODPolicyApiListSodPolicies
-     */
-    readonly offset?: number
-
-    /**
-     * If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
-     * @type {boolean}
-     * @memberof SODPolicyApiListSodPolicies
-     */
-    readonly count?: boolean
-
-    /**
-     * Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq*  **name**: *eq*  **state**: *eq*
-     * @type {string}
-     * @memberof SODPolicyApiListSodPolicies
-     */
-    readonly filters?: string
-}
-
-/**
- * Request parameters for patchSodPolicy operation in SODPolicyApi.
- * @export
- * @interface SODPolicyApiPatchSodPolicyRequest
- */
-export interface SODPolicyApiPatchSodPolicyRequest {
-    /**
-     * The ID of the SOD policy being modified.
-     * @type {string}
-     * @memberof SODPolicyApiPatchSodPolicy
-     */
-    readonly id: string
-
-    /**
-     * A list of SOD Policy update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.  The following fields are patchable: * name * description * ownerRef * externalPolicyReference * compensatingControls * correctionAdvice * state * tags * violationOwnerAssignmentConfig * scheduled * conflictingAccessCriteria 
-     * @type {Array<JsonPatchOperation>}
-     * @memberof SODPolicyApiPatchSodPolicy
-     */
-    readonly jsonPatchOperation: Array<JsonPatchOperation>
-}
-
-/**
- * Request parameters for putPolicySchedule operation in SODPolicyApi.
- * @export
- * @interface SODPolicyApiPutPolicyScheduleRequest
- */
-export interface SODPolicyApiPutPolicyScheduleRequest {
-    /**
-     * The ID of the SOD policy to update its schedule.
-     * @type {string}
-     * @memberof SODPolicyApiPutPolicySchedule
-     */
-    readonly id: string
-
-    /**
-     * 
-     * @type {SodPolicySchedule}
-     * @memberof SODPolicyApiPutPolicySchedule
-     */
-    readonly sodPolicySchedule: SodPolicySchedule
-}
-
-/**
- * Request parameters for putSodPolicy operation in SODPolicyApi.
- * @export
- * @interface SODPolicyApiPutSodPolicyRequest
- */
-export interface SODPolicyApiPutSodPolicyRequest {
-    /**
-     * The ID of the SOD policy to update.
-     * @type {string}
-     * @memberof SODPolicyApiPutSodPolicy
-     */
-    readonly id: string
-
-    /**
-     * 
-     * @type {SodPolicy}
-     * @memberof SODPolicyApiPutSodPolicy
-     */
-    readonly sodPolicy: SodPolicy
-}
-
-/**
- * Request parameters for startEvaluateSodPolicy operation in SODPolicyApi.
- * @export
- * @interface SODPolicyApiStartEvaluateSodPolicyRequest
- */
-export interface SODPolicyApiStartEvaluateSodPolicyRequest {
-    /**
-     * The SOD policy ID to run.
-     * @type {string}
-     * @memberof SODPolicyApiStartEvaluateSodPolicy
-     */
-    readonly id: string
-}
-
-/**
  * Request parameters for startSodAllPoliciesForOrg operation in SODPolicyApi.
  * @export
  * @interface SODPolicyApiStartSodAllPoliciesForOrgRequest
@@ -43305,62 +43513,12 @@ export interface SODPolicyApiStartSodAllPoliciesForOrgRequest {
 }
 
 /**
- * Request parameters for startSodPolicy operation in SODPolicyApi.
- * @export
- * @interface SODPolicyApiStartSodPolicyRequest
- */
-export interface SODPolicyApiStartSodPolicyRequest {
-    /**
-     * The SOD policy ID to run.
-     * @type {string}
-     * @memberof SODPolicyApiStartSodPolicy
-     */
-    readonly id: string
-}
-
-/**
  * SODPolicyApi - object-oriented interface
  * @export
  * @class SODPolicyApi
  * @extends {BaseAPI}
  */
 export class SODPolicyApi extends BaseAPI {
-    /**
-     * This creates both General and Conflicting Access Based policy, with a limit of 50 entitlements for each (left & right) criteria for Conflicting Access Based SOD policy. Requires role of ORG_ADMIN.
-     * @summary Create SOD policy
-     * @param {SODPolicyApiCreateSodPolicyRequest} requestParameters Request parameters.
-     * @param {*} [axiosOptions] Override http request option.
-     * @throws {RequiredError}
-     * @memberof SODPolicyApi
-     */
-    public createSodPolicy(requestParameters: SODPolicyApiCreateSodPolicyRequest, axiosOptions?: AxiosRequestConfig) {
-        return SODPolicyApiFp(this.configuration).createSodPolicy(requestParameters.sodPolicy, axiosOptions).then((request) => request(this.axios, this.basePath));
-    }
-
-    /**
-     * This deletes a specified SOD policy. Requires role of ORG_ADMIN.
-     * @summary Delete SOD policy by ID
-     * @param {SODPolicyApiDeleteSodPolicyRequest} requestParameters Request parameters.
-     * @param {*} [axiosOptions] Override http request option.
-     * @throws {RequiredError}
-     * @memberof SODPolicyApi
-     */
-    public deleteSodPolicy(requestParameters: SODPolicyApiDeleteSodPolicyRequest, axiosOptions?: AxiosRequestConfig) {
-        return SODPolicyApiFp(this.configuration).deleteSodPolicy(requestParameters.id, requestParameters.logical, axiosOptions).then((request) => request(this.axios, this.basePath));
-    }
-
-    /**
-     * This deletes schedule for a specified SOD policy by ID.
-     * @summary Delete SOD policy schedule
-     * @param {SODPolicyApiDeleteSodPolicyScheduleRequest} requestParameters Request parameters.
-     * @param {*} [axiosOptions] Override http request option.
-     * @throws {RequiredError}
-     * @memberof SODPolicyApi
-     */
-    public deleteSodPolicySchedule(requestParameters: SODPolicyApiDeleteSodPolicyScheduleRequest, axiosOptions?: AxiosRequestConfig) {
-        return SODPolicyApiFp(this.configuration).deleteSodPolicySchedule(requestParameters.id, axiosOptions).then((request) => request(this.axios, this.basePath));
-    }
-
     /**
      * This allows to download a specified named violation report for a given report reference.
      * @summary Download custom violation report
@@ -43397,114 +43555,6 @@ export class SODPolicyApi extends BaseAPI {
     }
 
     /**
-     * This gets specified SOD policy. Requires role of ORG_ADMIN.
-     * @summary Get SOD policy by ID
-     * @param {SODPolicyApiGetSodPolicyRequest} requestParameters Request parameters.
-     * @param {*} [axiosOptions] Override http request option.
-     * @throws {RequiredError}
-     * @memberof SODPolicyApi
-     */
-    public getSodPolicy(requestParameters: SODPolicyApiGetSodPolicyRequest, axiosOptions?: AxiosRequestConfig) {
-        return SODPolicyApiFp(this.configuration).getSodPolicy(requestParameters.id, axiosOptions).then((request) => request(this.axios, this.basePath));
-    }
-
-    /**
-     * This endpoint gets a specified SOD policy\'s schedule.
-     * @summary Get SOD policy schedule
-     * @param {SODPolicyApiGetSodPolicyScheduleRequest} requestParameters Request parameters.
-     * @param {*} [axiosOptions] Override http request option.
-     * @throws {RequiredError}
-     * @memberof SODPolicyApi
-     */
-    public getSodPolicySchedule(requestParameters: SODPolicyApiGetSodPolicyScheduleRequest, axiosOptions?: AxiosRequestConfig) {
-        return SODPolicyApiFp(this.configuration).getSodPolicySchedule(requestParameters.id, axiosOptions).then((request) => request(this.axios, this.basePath));
-    }
-
-    /**
-     * This gets the status for a violation report run task that has already been invoked.
-     * @summary Get violation report run status
-     * @param {SODPolicyApiGetSodViolationReportRunStatusRequest} requestParameters Request parameters.
-     * @param {*} [axiosOptions] Override http request option.
-     * @throws {RequiredError}
-     * @memberof SODPolicyApi
-     */
-    public getSodViolationReportRunStatus(requestParameters: SODPolicyApiGetSodViolationReportRunStatusRequest, axiosOptions?: AxiosRequestConfig) {
-        return SODPolicyApiFp(this.configuration).getSodViolationReportRunStatus(requestParameters.reportResultId, axiosOptions).then((request) => request(this.axios, this.basePath));
-    }
-
-    /**
-     * This gets the status for a violation report run task that has already been invoked.
-     * @summary Get SOD violation report status
-     * @param {SODPolicyApiGetSodViolationReportStatusRequest} requestParameters Request parameters.
-     * @param {*} [axiosOptions] Override http request option.
-     * @throws {RequiredError}
-     * @memberof SODPolicyApi
-     */
-    public getSodViolationReportStatus(requestParameters: SODPolicyApiGetSodViolationReportStatusRequest, axiosOptions?: AxiosRequestConfig) {
-        return SODPolicyApiFp(this.configuration).getSodViolationReportStatus(requestParameters.id, axiosOptions).then((request) => request(this.axios, this.basePath));
-    }
-
-    /**
-     * This gets list of all SOD policies. Requires role of ORG_ADMIN
-     * @summary List SOD policies
-     * @param {SODPolicyApiListSodPoliciesRequest} requestParameters Request parameters.
-     * @param {*} [axiosOptions] Override http request option.
-     * @throws {RequiredError}
-     * @memberof SODPolicyApi
-     */
-    public listSodPolicies(requestParameters: SODPolicyApiListSodPoliciesRequest = {}, axiosOptions?: AxiosRequestConfig) {
-        return SODPolicyApiFp(this.configuration).listSodPolicies(requestParameters.limit, requestParameters.offset, requestParameters.count, requestParameters.filters, axiosOptions).then((request) => request(this.axios, this.basePath));
-    }
-
-    /**
-     * Allows updating SOD Policy fields other than [\"id\",\"created\",\"creatorId\",\"policyQuery\",\"type\"] using the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard. Requires role of ORG_ADMIN. This endpoint can only patch CONFLICTING_ACCESS_BASED type policies. Do not use this endpoint to patch general policies - doing so will build an API exception. 
-     * @summary Patch SOD policy by ID
-     * @param {SODPolicyApiPatchSodPolicyRequest} requestParameters Request parameters.
-     * @param {*} [axiosOptions] Override http request option.
-     * @throws {RequiredError}
-     * @memberof SODPolicyApi
-     */
-    public patchSodPolicy(requestParameters: SODPolicyApiPatchSodPolicyRequest, axiosOptions?: AxiosRequestConfig) {
-        return SODPolicyApiFp(this.configuration).patchSodPolicy(requestParameters.id, requestParameters.jsonPatchOperation, axiosOptions).then((request) => request(this.axios, this.basePath));
-    }
-
-    /**
-     * This updates schedule for a specified SOD policy.
-     * @summary Update SOD Policy schedule
-     * @param {SODPolicyApiPutPolicyScheduleRequest} requestParameters Request parameters.
-     * @param {*} [axiosOptions] Override http request option.
-     * @throws {RequiredError}
-     * @memberof SODPolicyApi
-     */
-    public putPolicySchedule(requestParameters: SODPolicyApiPutPolicyScheduleRequest, axiosOptions?: AxiosRequestConfig) {
-        return SODPolicyApiFp(this.configuration).putPolicySchedule(requestParameters.id, requestParameters.sodPolicySchedule, axiosOptions).then((request) => request(this.axios, this.basePath));
-    }
-
-    /**
-     * This updates a specified SOD policy. Requires role of ORG_ADMIN.
-     * @summary Update SOD policy by ID
-     * @param {SODPolicyApiPutSodPolicyRequest} requestParameters Request parameters.
-     * @param {*} [axiosOptions] Override http request option.
-     * @throws {RequiredError}
-     * @memberof SODPolicyApi
-     */
-    public putSodPolicy(requestParameters: SODPolicyApiPutSodPolicyRequest, axiosOptions?: AxiosRequestConfig) {
-        return SODPolicyApiFp(this.configuration).putSodPolicy(requestParameters.id, requestParameters.sodPolicy, axiosOptions).then((request) => request(this.axios, this.basePath));
-    }
-
-    /**
-     * Runs the scheduled report for the policy retrieved by passed policy ID.  The report schedule is fetched from the policy retrieved by ID.
-     * @summary Evaluate one policy by ID
-     * @param {SODPolicyApiStartEvaluateSodPolicyRequest} requestParameters Request parameters.
-     * @param {*} [axiosOptions] Override http request option.
-     * @throws {RequiredError}
-     * @memberof SODPolicyApi
-     */
-    public startEvaluateSodPolicy(requestParameters: SODPolicyApiStartEvaluateSodPolicyRequest, axiosOptions?: AxiosRequestConfig) {
-        return SODPolicyApiFp(this.configuration).startEvaluateSodPolicy(requestParameters.id, axiosOptions).then((request) => request(this.axios, this.basePath));
-    }
-
-    /**
      * Runs multi-policy report for the org. If a policy reports more than 5000 violations, the report mentions that the violation limit was exceeded for that policy. If the request is empty, the report runs for all policies. Otherwise, the report runs for only the filtered policy list provided.
      * @summary Runs all policies for org
      * @param {SODPolicyApiStartSodAllPoliciesForOrgRequest} requestParameters Request parameters.
@@ -43514,18 +43564,6 @@ export class SODPolicyApi extends BaseAPI {
      */
     public startSodAllPoliciesForOrg(requestParameters: SODPolicyApiStartSodAllPoliciesForOrgRequest = {}, axiosOptions?: AxiosRequestConfig) {
         return SODPolicyApiFp(this.configuration).startSodAllPoliciesForOrg(requestParameters.multiPolicyRequest, axiosOptions).then((request) => request(this.axios, this.basePath));
-    }
-
-    /**
-     * This invokes processing of violation report for given SOD policy. If the policy reports more than 5000 violations, the report returns with violation limit exceeded message.
-     * @summary Runs SOD policy violation report
-     * @param {SODPolicyApiStartSodPolicyRequest} requestParameters Request parameters.
-     * @param {*} [axiosOptions] Override http request option.
-     * @throws {RequiredError}
-     * @memberof SODPolicyApi
-     */
-    public startSodPolicy(requestParameters: SODPolicyApiStartSodPolicyRequest, axiosOptions?: AxiosRequestConfig) {
-        return SODPolicyApiFp(this.configuration).startSodPolicy(requestParameters.id, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 }
 
