@@ -10132,6 +10132,25 @@ export const ImportObjectTypeEnum = {
 export type ImportObjectTypeEnum = typeof ImportObjectTypeEnum[keyof typeof ImportObjectTypeEnum];
 
 /**
+ * 
+ * @export
+ * @interface ImportUploadedBackupRequest
+ */
+export interface ImportUploadedBackupRequest {
+    /**
+     * JSON file containing the objects to be imported.
+     * @type {any}
+     * @memberof ImportUploadedBackupRequest
+     */
+    'data': any;
+    /**
+     * Name that will be assigned to the uploaded file.
+     * @type {string}
+     * @memberof ImportUploadedBackupRequest
+     */
+    'name': string;
+}
+/**
  * Enum representing the currently supported indices. Additional values may be added in the future without notice.
  * @export
  * @enum {string}
@@ -20004,6 +20023,224 @@ export const UpdateDetailStatusEnum = {
 } as const;
 
 export type UpdateDetailStatusEnum = typeof UpdateDetailStatusEnum[keyof typeof UpdateDetailStatusEnum];
+
+/**
+ * 
+ * @export
+ * @interface UploadsRequest
+ */
+export interface UploadsRequest {
+    /**
+     * Unique id assigned to this job.
+     * @type {string}
+     * @memberof UploadsRequest
+     */
+    'jobId': string;
+    /**
+     * Status of the job.
+     * @type {string}
+     * @memberof UploadsRequest
+     */
+    'status': UploadsRequestStatusEnum;
+    /**
+     * Type of the job, either Backup or Draft.
+     * @type {string}
+     * @memberof UploadsRequest
+     */
+    'type': UploadsRequestTypeEnum;
+    /**
+     * The name of the tenant performing the upload
+     * @type {string}
+     * @memberof UploadsRequest
+     */
+    'tenant'?: string;
+    /**
+     * The name of the requester.
+     * @type {string}
+     * @memberof UploadsRequest
+     */
+    'requesterName'?: string;
+    /**
+     * The time the job was started.
+     * @type {string}
+     * @memberof UploadsRequest
+     */
+    'created': string;
+    /**
+     * The time of the last update to the job.
+     * @type {string}
+     * @memberof UploadsRequest
+     */
+    'modified': string;
+    /**
+     * The name assigned to the upload file in the request body.
+     * @type {string}
+     * @memberof UploadsRequest
+     */
+    'name'?: string;
+    /**
+     * Is the job a regular backup job, if so is the user allowed to delete the backup file. Since this is an upload job it remains as false.
+     * @type {boolean}
+     * @memberof UploadsRequest
+     */
+    'userCanDelete'?: boolean;
+    /**
+     * Is the job a regular backup job, if so is it partial. Since this is an upload job it remains as false.
+     * @type {boolean}
+     * @memberof UploadsRequest
+     */
+    'isPartial'?: boolean;
+    /**
+     * What kind of backup is this being treated as.
+     * @type {string}
+     * @memberof UploadsRequest
+     */
+    'backupType'?: UploadsRequestBackupTypeEnum;
+    /**
+     * have the objects contained in the upload file been hydrated.
+     * @type {string}
+     * @memberof UploadsRequest
+     */
+    'hydrationStatus'?: UploadsRequestHydrationStatusEnum;
+}
+
+export const UploadsRequestStatusEnum = {
+    NotStarted: 'NOT_STARTED',
+    InProgress: 'IN_PROGRESS',
+    Complete: 'COMPLETE',
+    Cancelled: 'CANCELLED',
+    Failed: 'FAILED'
+} as const;
+
+export type UploadsRequestStatusEnum = typeof UploadsRequestStatusEnum[keyof typeof UploadsRequestStatusEnum];
+export const UploadsRequestTypeEnum = {
+    Backup: 'BACKUP',
+    Draft: 'DRAFT'
+} as const;
+
+export type UploadsRequestTypeEnum = typeof UploadsRequestTypeEnum[keyof typeof UploadsRequestTypeEnum];
+export const UploadsRequestBackupTypeEnum = {
+    Uploaded: 'UPLOADED',
+    Automated: 'AUTOMATED',
+    Manual: 'MANUAL'
+} as const;
+
+export type UploadsRequestBackupTypeEnum = typeof UploadsRequestBackupTypeEnum[keyof typeof UploadsRequestBackupTypeEnum];
+export const UploadsRequestHydrationStatusEnum = {
+    Hydrated: 'HYDRATED',
+    NotHydrated: 'NOT_HYDRATED'
+} as const;
+
+export type UploadsRequestHydrationStatusEnum = typeof UploadsRequestHydrationStatusEnum[keyof typeof UploadsRequestHydrationStatusEnum];
+
+/**
+ * 
+ * @export
+ * @interface UploadsResponse
+ */
+export interface UploadsResponse {
+    /**
+     * Unique id assigned to this job.
+     * @type {string}
+     * @memberof UploadsResponse
+     */
+    'jobId': string;
+    /**
+     * Status of the job.
+     * @type {string}
+     * @memberof UploadsResponse
+     */
+    'status': UploadsResponseStatusEnum;
+    /**
+     * Type of the job, either Backup or Draft.
+     * @type {string}
+     * @memberof UploadsResponse
+     */
+    'type': UploadsResponseTypeEnum;
+    /**
+     * The name of the tenant performing the upload
+     * @type {string}
+     * @memberof UploadsResponse
+     */
+    'tenant'?: string;
+    /**
+     * The name of the requester.
+     * @type {string}
+     * @memberof UploadsResponse
+     */
+    'requesterName'?: string;
+    /**
+     * The time the job was started.
+     * @type {string}
+     * @memberof UploadsResponse
+     */
+    'created': string;
+    /**
+     * The time of the last update to the job.
+     * @type {string}
+     * @memberof UploadsResponse
+     */
+    'modified': string;
+    /**
+     * The name assigned to the upload file in the request body.
+     * @type {string}
+     * @memberof UploadsResponse
+     */
+    'name'?: string;
+    /**
+     * Is the job a regular backup job, if so is the user allowed to delete the backup file. Since this is an upload job it remains as false.
+     * @type {boolean}
+     * @memberof UploadsResponse
+     */
+    'userCanDelete'?: boolean;
+    /**
+     * Is the job a regular backup job, if so is it partial. Since this is an upload job it remains as false.
+     * @type {boolean}
+     * @memberof UploadsResponse
+     */
+    'isPartial'?: boolean;
+    /**
+     * What kind of backup is this being treated as.
+     * @type {string}
+     * @memberof UploadsResponse
+     */
+    'backupType'?: UploadsResponseBackupTypeEnum;
+    /**
+     * have the objects contained in the upload file been hydrated.
+     * @type {string}
+     * @memberof UploadsResponse
+     */
+    'hydrationStatus'?: UploadsResponseHydrationStatusEnum;
+}
+
+export const UploadsResponseStatusEnum = {
+    NotStarted: 'NOT_STARTED',
+    InProgress: 'IN_PROGRESS',
+    Complete: 'COMPLETE',
+    Cancelled: 'CANCELLED',
+    Failed: 'FAILED'
+} as const;
+
+export type UploadsResponseStatusEnum = typeof UploadsResponseStatusEnum[keyof typeof UploadsResponseStatusEnum];
+export const UploadsResponseTypeEnum = {
+    Backup: 'BACKUP',
+    Draft: 'DRAFT'
+} as const;
+
+export type UploadsResponseTypeEnum = typeof UploadsResponseTypeEnum[keyof typeof UploadsResponseTypeEnum];
+export const UploadsResponseBackupTypeEnum = {
+    Uploaded: 'UPLOADED',
+    Automated: 'AUTOMATED',
+    Manual: 'MANUAL'
+} as const;
+
+export type UploadsResponseBackupTypeEnum = typeof UploadsResponseBackupTypeEnum[keyof typeof UploadsResponseBackupTypeEnum];
+export const UploadsResponseHydrationStatusEnum = {
+    Hydrated: 'HYDRATED',
+    NotHydrated: 'NOT_HYDRATED'
+} as const;
+
+export type UploadsResponseHydrationStatusEnum = typeof UploadsResponseHydrationStatusEnum[keyof typeof UploadsResponseHydrationStatusEnum];
 
 /**
  * 
@@ -30907,6 +31144,48 @@ export const ConfigurationHubApiAxiosParamCreator = function (configuration?: Co
             };
         },
         /**
+         * This deletes an Uploaded backup based on job ID. On success, this endpoint will return an empty response. The job id can be obtained from the response after a successful upload, or the list uploads endpoint. The following scopes are required to access this endpoint: sp:config:manage
+         * @summary Deletes an uploaded backup file
+         * @param {string} id The id of the uploaded backup.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        deleteUploadedBackup: async (id: string, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'id' is not null or undefined
+            assertParamExists('deleteUploadedBackup', 'id', id)
+            const localVarPath = `/configuration-hub/backups/uploads/{id}`
+                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'DELETE', ...baseOptions, ...axiosOptions};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication UserContextAuth required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "UserContextAuth", [], configuration)
+
+            // authentication UserContextAuth required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "UserContextAuth", [], configuration)
+
+
+    
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                axiosOptions: localVarRequestOptions,
+            };
+        },
+        /**
          * This gets a list of existing object mappings between current org and source org. The request will need the following security scope: - sp:config-object-mapping:read
          * @summary Gets list of object mappings
          * @param {string} sourceOrg The name of the source org.
@@ -30942,6 +31221,147 @@ export const ConfigurationHubApiAxiosParamCreator = function (configuration?: Co
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                axiosOptions: localVarRequestOptions,
+            };
+        },
+        /**
+         * Returns all the information and status of an upload job. - sp:config-backups:read
+         * @summary Get an uploaded backup\'s information
+         * @param {string} id The id of the uploaded backup.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        getUploadedBackup: async (id: string, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'id' is not null or undefined
+            assertParamExists('getUploadedBackup', 'id', id)
+            const localVarPath = `/configuration-hub/backups/uploads/{id}`
+                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...axiosOptions};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication UserContextAuth required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "UserContextAuth", [], configuration)
+
+            // authentication UserContextAuth required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "UserContextAuth", [], configuration)
+
+
+    
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                axiosOptions: localVarRequestOptions,
+            };
+        },
+        /**
+         * Returns a list of the current uploaded backups associated with the current tenant. A filter \"status\" can be added to only return the Completed, Failed, or Successful uploads
+         * @summary Gets list of Uploaded backups
+         * @param {string} [status] Filter listed uploaded backups by status of operation
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        getUploadedBackups: async (status?: string, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            const localVarPath = `/configuration-hub/backups/uploads`;
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...axiosOptions};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication UserContextAuth required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "UserContextAuth", [], configuration)
+
+            // authentication UserContextAuth required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "UserContextAuth", [], configuration)
+
+            if (status !== undefined) {
+                localVarQueryParameter['status'] = status;
+            }
+
+
+    
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                axiosOptions: localVarRequestOptions,
+            };
+        },
+        /**
+         * This post will upload a JSON backup file into a tenant. Configuration files can be managed and deployed via Configuration Hub by uploading a json file which contains configuration data. The JSON file should be the same as the one used by our import endpoints. The object types that currently support by upload file functionality are the same as the ones supported by our regular backup functionality. here: [SaaS Configuration](https://developer.sailpoint.com/idn/docs/saas-configuration/#supported-objects).  The request will need the following security scope: - sp:config:manage
+         * @summary Uploads a backup file
+         * @param {any} data JSON file containing the objects to be imported.
+         * @param {string} name Name that will be assigned to the uploaded file.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        importUploadedBackup: async (data: any, name: string, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'data' is not null or undefined
+            assertParamExists('importUploadedBackup', 'data', data)
+            // verify required parameter 'name' is not null or undefined
+            assertParamExists('importUploadedBackup', 'name', name)
+            const localVarPath = `/configuration-hub/backups/uploads`;
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'POST', ...baseOptions, ...axiosOptions};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            const localVarFormParams = new ((configuration && configuration.formDataCtor) || FormData)();
+
+            // authentication UserContextAuth required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "UserContextAuth", [], configuration)
+
+            // authentication UserContextAuth required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "UserContextAuth", [], configuration)
+
+
+            if (data !== undefined) { 
+                localVarFormParams.append('data', data as any);
+            }
+    
+            if (name !== undefined) { 
+                localVarFormParams.append('name', name as any);
+            }
+    
+    
+            localVarHeaderParameter['Content-Type'] = 'multipart/form-data';
+    
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
+            localVarRequestOptions.data = localVarFormParams;
 
             return {
                 url: toPathString(localVarUrlObj),
@@ -31043,6 +31463,17 @@ export const ConfigurationHubApiFp = function(configuration?: Configuration) {
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
+         * This deletes an Uploaded backup based on job ID. On success, this endpoint will return an empty response. The job id can be obtained from the response after a successful upload, or the list uploads endpoint. The following scopes are required to access this endpoint: sp:config:manage
+         * @summary Deletes an uploaded backup file
+         * @param {string} id The id of the uploaded backup.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        async deleteUploadedBackup(id: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.deleteUploadedBackup(id, axiosOptions);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
          * This gets a list of existing object mappings between current org and source org. The request will need the following security scope: - sp:config-object-mapping:read
          * @summary Gets list of object mappings
          * @param {string} sourceOrg The name of the source org.
@@ -31051,6 +31482,40 @@ export const ConfigurationHubApiFp = function(configuration?: Configuration) {
          */
         async getObjectMappings(sourceOrg: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<ObjectMappingResponse>>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getObjectMappings(sourceOrg, axiosOptions);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * Returns all the information and status of an upload job. - sp:config-backups:read
+         * @summary Get an uploaded backup\'s information
+         * @param {string} id The id of the uploaded backup.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        async getUploadedBackup(id: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<object>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getUploadedBackup(id, axiosOptions);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * Returns a list of the current uploaded backups associated with the current tenant. A filter \"status\" can be added to only return the Completed, Failed, or Successful uploads
+         * @summary Gets list of Uploaded backups
+         * @param {string} [status] Filter listed uploaded backups by status of operation
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        async getUploadedBackups(status?: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<UploadsResponse>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getUploadedBackups(status, axiosOptions);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * This post will upload a JSON backup file into a tenant. Configuration files can be managed and deployed via Configuration Hub by uploading a json file which contains configuration data. The JSON file should be the same as the one used by our import endpoints. The object types that currently support by upload file functionality are the same as the ones supported by our regular backup functionality. here: [SaaS Configuration](https://developer.sailpoint.com/idn/docs/saas-configuration/#supported-objects).  The request will need the following security scope: - sp:config:manage
+         * @summary Uploads a backup file
+         * @param {any} data JSON file containing the objects to be imported.
+         * @param {string} name Name that will be assigned to the uploaded file.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        async importUploadedBackup(data: any, name: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<UploadsRequest>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.importUploadedBackup(data, name, axiosOptions);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
@@ -31109,6 +31574,16 @@ export const ConfigurationHubApiFactory = function (configuration?: Configuratio
             return localVarFp.deleteObjectMapping(sourceOrg, objectMappingId, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
+         * This deletes an Uploaded backup based on job ID. On success, this endpoint will return an empty response. The job id can be obtained from the response after a successful upload, or the list uploads endpoint. The following scopes are required to access this endpoint: sp:config:manage
+         * @summary Deletes an uploaded backup file
+         * @param {string} id The id of the uploaded backup.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        deleteUploadedBackup(id: string, axiosOptions?: any): AxiosPromise<void> {
+            return localVarFp.deleteUploadedBackup(id, axiosOptions).then((request) => request(axios, basePath));
+        },
+        /**
          * This gets a list of existing object mappings between current org and source org. The request will need the following security scope: - sp:config-object-mapping:read
          * @summary Gets list of object mappings
          * @param {string} sourceOrg The name of the source org.
@@ -31117,6 +31592,37 @@ export const ConfigurationHubApiFactory = function (configuration?: Configuratio
          */
         getObjectMappings(sourceOrg: string, axiosOptions?: any): AxiosPromise<Array<ObjectMappingResponse>> {
             return localVarFp.getObjectMappings(sourceOrg, axiosOptions).then((request) => request(axios, basePath));
+        },
+        /**
+         * Returns all the information and status of an upload job. - sp:config-backups:read
+         * @summary Get an uploaded backup\'s information
+         * @param {string} id The id of the uploaded backup.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        getUploadedBackup(id: string, axiosOptions?: any): AxiosPromise<object> {
+            return localVarFp.getUploadedBackup(id, axiosOptions).then((request) => request(axios, basePath));
+        },
+        /**
+         * Returns a list of the current uploaded backups associated with the current tenant. A filter \"status\" can be added to only return the Completed, Failed, or Successful uploads
+         * @summary Gets list of Uploaded backups
+         * @param {string} [status] Filter listed uploaded backups by status of operation
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        getUploadedBackups(status?: string, axiosOptions?: any): AxiosPromise<Array<UploadsResponse>> {
+            return localVarFp.getUploadedBackups(status, axiosOptions).then((request) => request(axios, basePath));
+        },
+        /**
+         * This post will upload a JSON backup file into a tenant. Configuration files can be managed and deployed via Configuration Hub by uploading a json file which contains configuration data. The JSON file should be the same as the one used by our import endpoints. The object types that currently support by upload file functionality are the same as the ones supported by our regular backup functionality. here: [SaaS Configuration](https://developer.sailpoint.com/idn/docs/saas-configuration/#supported-objects).  The request will need the following security scope: - sp:config:manage
+         * @summary Uploads a backup file
+         * @param {any} data JSON file containing the objects to be imported.
+         * @param {string} name Name that will be assigned to the uploaded file.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        importUploadedBackup(data: any, name: string, axiosOptions?: any): AxiosPromise<UploadsRequest> {
+            return localVarFp.importUploadedBackup(data, name, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * This updates a set of object mappings, only enabled and targetValue fields can be updated. The request will need the following security scope: - sp:config-object-mapping:manage
@@ -31196,6 +31702,20 @@ export interface ConfigurationHubApiDeleteObjectMappingRequest {
 }
 
 /**
+ * Request parameters for deleteUploadedBackup operation in ConfigurationHubApi.
+ * @export
+ * @interface ConfigurationHubApiDeleteUploadedBackupRequest
+ */
+export interface ConfigurationHubApiDeleteUploadedBackupRequest {
+    /**
+     * The id of the uploaded backup.
+     * @type {string}
+     * @memberof ConfigurationHubApiDeleteUploadedBackup
+     */
+    readonly id: string
+}
+
+/**
  * Request parameters for getObjectMappings operation in ConfigurationHubApi.
  * @export
  * @interface ConfigurationHubApiGetObjectMappingsRequest
@@ -31207,6 +31727,55 @@ export interface ConfigurationHubApiGetObjectMappingsRequest {
      * @memberof ConfigurationHubApiGetObjectMappings
      */
     readonly sourceOrg: string
+}
+
+/**
+ * Request parameters for getUploadedBackup operation in ConfigurationHubApi.
+ * @export
+ * @interface ConfigurationHubApiGetUploadedBackupRequest
+ */
+export interface ConfigurationHubApiGetUploadedBackupRequest {
+    /**
+     * The id of the uploaded backup.
+     * @type {string}
+     * @memberof ConfigurationHubApiGetUploadedBackup
+     */
+    readonly id: string
+}
+
+/**
+ * Request parameters for getUploadedBackups operation in ConfigurationHubApi.
+ * @export
+ * @interface ConfigurationHubApiGetUploadedBackupsRequest
+ */
+export interface ConfigurationHubApiGetUploadedBackupsRequest {
+    /**
+     * Filter listed uploaded backups by status of operation
+     * @type {string}
+     * @memberof ConfigurationHubApiGetUploadedBackups
+     */
+    readonly status?: string
+}
+
+/**
+ * Request parameters for importUploadedBackup operation in ConfigurationHubApi.
+ * @export
+ * @interface ConfigurationHubApiImportUploadedBackupRequest
+ */
+export interface ConfigurationHubApiImportUploadedBackupRequest {
+    /**
+     * JSON file containing the objects to be imported.
+     * @type {any}
+     * @memberof ConfigurationHubApiImportUploadedBackup
+     */
+    readonly data: any
+
+    /**
+     * Name that will be assigned to the uploaded file.
+     * @type {string}
+     * @memberof ConfigurationHubApiImportUploadedBackup
+     */
+    readonly name: string
 }
 
 /**
@@ -31274,6 +31843,18 @@ export class ConfigurationHubApi extends BaseAPI {
     }
 
     /**
+     * This deletes an Uploaded backup based on job ID. On success, this endpoint will return an empty response. The job id can be obtained from the response after a successful upload, or the list uploads endpoint. The following scopes are required to access this endpoint: sp:config:manage
+     * @summary Deletes an uploaded backup file
+     * @param {ConfigurationHubApiDeleteUploadedBackupRequest} requestParameters Request parameters.
+     * @param {*} [axiosOptions] Override http request option.
+     * @throws {RequiredError}
+     * @memberof ConfigurationHubApi
+     */
+    public deleteUploadedBackup(requestParameters: ConfigurationHubApiDeleteUploadedBackupRequest, axiosOptions?: AxiosRequestConfig) {
+        return ConfigurationHubApiFp(this.configuration).deleteUploadedBackup(requestParameters.id, axiosOptions).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
      * This gets a list of existing object mappings between current org and source org. The request will need the following security scope: - sp:config-object-mapping:read
      * @summary Gets list of object mappings
      * @param {ConfigurationHubApiGetObjectMappingsRequest} requestParameters Request parameters.
@@ -31283,6 +31864,42 @@ export class ConfigurationHubApi extends BaseAPI {
      */
     public getObjectMappings(requestParameters: ConfigurationHubApiGetObjectMappingsRequest, axiosOptions?: AxiosRequestConfig) {
         return ConfigurationHubApiFp(this.configuration).getObjectMappings(requestParameters.sourceOrg, axiosOptions).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Returns all the information and status of an upload job. - sp:config-backups:read
+     * @summary Get an uploaded backup\'s information
+     * @param {ConfigurationHubApiGetUploadedBackupRequest} requestParameters Request parameters.
+     * @param {*} [axiosOptions] Override http request option.
+     * @throws {RequiredError}
+     * @memberof ConfigurationHubApi
+     */
+    public getUploadedBackup(requestParameters: ConfigurationHubApiGetUploadedBackupRequest, axiosOptions?: AxiosRequestConfig) {
+        return ConfigurationHubApiFp(this.configuration).getUploadedBackup(requestParameters.id, axiosOptions).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Returns a list of the current uploaded backups associated with the current tenant. A filter \"status\" can be added to only return the Completed, Failed, or Successful uploads
+     * @summary Gets list of Uploaded backups
+     * @param {ConfigurationHubApiGetUploadedBackupsRequest} requestParameters Request parameters.
+     * @param {*} [axiosOptions] Override http request option.
+     * @throws {RequiredError}
+     * @memberof ConfigurationHubApi
+     */
+    public getUploadedBackups(requestParameters: ConfigurationHubApiGetUploadedBackupsRequest = {}, axiosOptions?: AxiosRequestConfig) {
+        return ConfigurationHubApiFp(this.configuration).getUploadedBackups(requestParameters.status, axiosOptions).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * This post will upload a JSON backup file into a tenant. Configuration files can be managed and deployed via Configuration Hub by uploading a json file which contains configuration data. The JSON file should be the same as the one used by our import endpoints. The object types that currently support by upload file functionality are the same as the ones supported by our regular backup functionality. here: [SaaS Configuration](https://developer.sailpoint.com/idn/docs/saas-configuration/#supported-objects).  The request will need the following security scope: - sp:config:manage
+     * @summary Uploads a backup file
+     * @param {ConfigurationHubApiImportUploadedBackupRequest} requestParameters Request parameters.
+     * @param {*} [axiosOptions] Override http request option.
+     * @throws {RequiredError}
+     * @memberof ConfigurationHubApi
+     */
+    public importUploadedBackup(requestParameters: ConfigurationHubApiImportUploadedBackupRequest, axiosOptions?: AxiosRequestConfig) {
+        return ConfigurationHubApiFp(this.configuration).importUploadedBackup(requestParameters.data, requestParameters.name, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
