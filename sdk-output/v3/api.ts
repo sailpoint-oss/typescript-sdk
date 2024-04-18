@@ -10255,7 +10255,7 @@ export type JsonPatchOperationOpEnum = typeof JsonPatchOperationOpEnum[keyof typ
  * The value to be used for the operation, required for \"add\" and \"replace\" operations
  * @export
  */
-export type JsonPatchOperationValue = Array<ArrayInner> | number | object | string;
+export type JsonPatchOperationValue = Array<ArrayInner> | boolean | number | object | string;
 
 /**
  * 
