@@ -5372,6 +5372,43 @@ export const CertificationTaskStatusEnum = {
 export type CertificationTaskStatusEnum = typeof CertificationTaskStatusEnum[keyof typeof CertificationTaskStatusEnum];
 
 /**
+ * Client Runtime Logging Configuration
+ * @export
+ * @interface ClientLogConfiguration
+ */
+export interface ClientLogConfiguration {
+    /**
+     * Log configuration\'s client ID
+     * @type {string}
+     * @memberof ClientLogConfiguration
+     */
+    'clientId'?: string;
+    /**
+     * Duration in minutes for log configuration to remain in effect before resetting to defaults
+     * @type {number}
+     * @memberof ClientLogConfiguration
+     */
+    'durationMinutes': number;
+    /**
+     * Expiration date-time of the log configuration request
+     * @type {string}
+     * @memberof ClientLogConfiguration
+     */
+    'expiration'?: string;
+    /**
+     * 
+     * @type {StandardLevel}
+     * @memberof ClientLogConfiguration
+     */
+    'rootLevel': StandardLevel;
+    /**
+     * Mapping of identifiers to Standard Log Level values
+     * @type {{ [key: string]: StandardLevel; }}
+     * @memberof ClientLogConfiguration
+     */
+    'logLevels'?: { [key: string]: StandardLevel; };
+}
+/**
  * Type of an API Client indicating public or confidentials use
  * @export
  * @enum {string}
@@ -10214,6 +10251,19 @@ export interface InnerHit {
     'type': string;
 }
 /**
+ * A JSONPatch document as defined by [RFC 6902 - JSON Patch](https://tools.ietf.org/html/rfc6902)
+ * @export
+ * @interface JsonPatch
+ */
+export interface JsonPatch {
+    /**
+     * Operations to be applied
+     * @type {Array<JsonPatchOperation>}
+     * @memberof JsonPatch
+     */
+    'operations'?: Array<JsonPatchOperation>;
+}
+/**
  * A JSONPatch Operation as defined by [RFC 6902 - JSON Patch](https://tools.ietf.org/html/rfc6902)
  * @export
  * @interface JsonPatchOperation
@@ -10601,6 +10651,542 @@ export interface Lower {
      */
     'input'?: { [key: string]: any; };
 }
+/**
+ * Managed Client
+ * @export
+ * @interface ManagedClient
+ */
+export interface ManagedClient {
+    /**
+     * ManagedClient ID
+     * @type {string}
+     * @memberof ManagedClient
+     */
+    'id'?: string | null;
+    /**
+     * ManagedClient alert key
+     * @type {string}
+     * @memberof ManagedClient
+     */
+    'alertKey'?: string | null;
+    /**
+     * Previous CC ID to be used in data migration. (This field will be deleted after CC migration!)
+     * @type {number}
+     * @memberof ManagedClient
+     */
+    'ccId'?: number | null;
+    /**
+     * The client ID used in API management
+     * @type {string}
+     * @memberof ManagedClient
+     */
+    'clientId': string;
+    /**
+     * Cluster ID that the ManagedClient is linked to
+     * @type {string}
+     * @memberof ManagedClient
+     */
+    'clusterId': string;
+    /**
+     * ManagedClient description
+     * @type {string}
+     * @memberof ManagedClient
+     */
+    'description': string;
+    /**
+     * The public IP address of the ManagedClient
+     * @type {string}
+     * @memberof ManagedClient
+     */
+    'ipAddress'?: string | null;
+    /**
+     * When the ManagedClient was last seen by the server
+     * @type {string}
+     * @memberof ManagedClient
+     */
+    'lastSeen'?: string | null;
+    /**
+     * ManagedClient name
+     * @type {string}
+     * @memberof ManagedClient
+     */
+    'name'?: string | null;
+    /**
+     * Milliseconds since the ManagedClient has polled the server
+     * @type {string}
+     * @memberof ManagedClient
+     */
+    'sinceLastSeen'?: string | null;
+    /**
+     * Status of the ManagedClient
+     * @type {string}
+     * @memberof ManagedClient
+     */
+    'status'?: ManagedClientStatusEnum;
+    /**
+     * Type of the ManagedClient (VA, CCG)
+     * @type {string}
+     * @memberof ManagedClient
+     */
+    'type': string;
+    /**
+     * Cluster Type of the ManagedClient
+     * @type {string}
+     * @memberof ManagedClient
+     */
+    'clusterType'?: ManagedClientClusterTypeEnum;
+    /**
+     * ManagedClient VA download URL
+     * @type {string}
+     * @memberof ManagedClient
+     */
+    'vaDownloadUrl'?: string | null;
+    /**
+     * Version that the ManagedClient\'s VA is running
+     * @type {string}
+     * @memberof ManagedClient
+     */
+    'vaVersion'?: string | null;
+    /**
+     * Client\'s apiKey
+     * @type {string}
+     * @memberof ManagedClient
+     */
+    'secret'?: string | null;
+    /**
+     * The date/time this ManagedClient was created
+     * @type {string}
+     * @memberof ManagedClient
+     */
+    'createdAt'?: string | null;
+    /**
+     * The date/time this ManagedClient was last updated
+     * @type {string}
+     * @memberof ManagedClient
+     */
+    'updatedAt'?: string | null;
+    /**
+     * The provisioning status of the ManagedClient
+     * @type {string}
+     * @memberof ManagedClient
+     */
+    'provisionStatus'?: ManagedClientProvisionStatusEnum;
+}
+
+export const ManagedClientStatusEnum = {
+    Normal: 'NORMAL',
+    Undefined: 'UNDEFINED',
+    NotConfigured: 'NOT_CONFIGURED',
+    Configuring: 'CONFIGURING',
+    Warning: 'WARNING',
+    Error: 'ERROR',
+    Failed: 'FAILED',
+    Null: 'null'
+} as const;
+
+export type ManagedClientStatusEnum = typeof ManagedClientStatusEnum[keyof typeof ManagedClientStatusEnum];
+export const ManagedClientClusterTypeEnum = {
+    Null: 'null',
+    Idn: 'idn',
+    Iai: 'iai',
+    SpConnectCluster: 'spConnectCluster',
+    SqsCluster: 'sqsCluster',
+    DasRc: 'das-rc',
+    DasPc: 'das-pc',
+    DasDc: 'das-dc'
+} as const;
+
+export type ManagedClientClusterTypeEnum = typeof ManagedClientClusterTypeEnum[keyof typeof ManagedClientClusterTypeEnum];
+export const ManagedClientProvisionStatusEnum = {
+    Null: 'null',
+    Provisioned: 'PROVISIONED',
+    Draft: 'DRAFT'
+} as const;
+
+export type ManagedClientProvisionStatusEnum = typeof ManagedClientProvisionStatusEnum[keyof typeof ManagedClientProvisionStatusEnum];
+
+/**
+ * Managed Client Request
+ * @export
+ * @interface ManagedClientRequest
+ */
+export interface ManagedClientRequest {
+    /**
+     * Cluster ID that the ManagedClient is linked to
+     * @type {string}
+     * @memberof ManagedClientRequest
+     */
+    'clusterId': string;
+    /**
+     * description for the ManagedClient to create
+     * @type {string}
+     * @memberof ManagedClientRequest
+     */
+    'description'?: string | null;
+    /**
+     * name for the ManagedClient to create
+     * @type {string}
+     * @memberof ManagedClientRequest
+     */
+    'name'?: string | null;
+    /**
+     * Type of the ManagedClient (VA, CCG) to create
+     * @type {string}
+     * @memberof ManagedClientRequest
+     */
+    'type'?: string | null;
+}
+/**
+ * Managed Client Status
+ * @export
+ * @interface ManagedClientStatus
+ */
+export interface ManagedClientStatus {
+    /**
+     * ManagedClientStatus body information
+     * @type {object}
+     * @memberof ManagedClientStatus
+     */
+    'body': object;
+    /**
+     * 
+     * @type {ManagedClientStatusCode}
+     * @memberof ManagedClientStatus
+     */
+    'status': ManagedClientStatusCode;
+    /**
+     * 
+     * @type {ManagedClientType}
+     * @memberof ManagedClientStatus
+     */
+    'type': ManagedClientType | null;
+    /**
+     * timestamp on the Client Status update
+     * @type {string}
+     * @memberof ManagedClientStatus
+     */
+    'timestamp': string;
+}
+/**
+ * Status of a Managed Client
+ * @export
+ * @enum {string}
+ */
+
+export const ManagedClientStatusCode = {
+    Normal: 'NORMAL',
+    Undefined: 'UNDEFINED',
+    NotConfigured: 'NOT_CONFIGURED',
+    Configuring: 'CONFIGURING',
+    Warning: 'WARNING',
+    Error: 'ERROR',
+    Failed: 'FAILED'
+} as const;
+
+export type ManagedClientStatusCode = typeof ManagedClientStatusCode[keyof typeof ManagedClientStatusCode];
+
+
+/**
+ * Managed Client type
+ * @export
+ * @enum {string}
+ */
+
+export const ManagedClientType = {
+    Ccg: 'CCG',
+    Va: 'VA',
+    Internal: 'INTERNAL',
+    IiqHarvester: 'IIQ_HARVESTER',
+    Null: 'null'
+} as const;
+
+export type ManagedClientType = typeof ManagedClientType[keyof typeof ManagedClientType];
+
+
+/**
+ * Managed Cluster
+ * @export
+ * @interface ManagedCluster
+ */
+export interface ManagedCluster {
+    /**
+     * ManagedCluster ID
+     * @type {string}
+     * @memberof ManagedCluster
+     */
+    'id': string;
+    /**
+     * ManagedCluster name
+     * @type {string}
+     * @memberof ManagedCluster
+     */
+    'name'?: string;
+    /**
+     * ManagedCluster pod
+     * @type {string}
+     * @memberof ManagedCluster
+     */
+    'pod'?: string;
+    /**
+     * ManagedCluster org
+     * @type {string}
+     * @memberof ManagedCluster
+     */
+    'org'?: string;
+    /**
+     * 
+     * @type {ManagedClusterTypes}
+     * @memberof ManagedCluster
+     */
+    'type'?: ManagedClusterTypes;
+    /**
+     * ManagedProcess configuration map
+     * @type {{ [key: string]: string; }}
+     * @memberof ManagedCluster
+     */
+    'configuration'?: { [key: string]: string; };
+    /**
+     * 
+     * @type {ManagedClusterKeyPair}
+     * @memberof ManagedCluster
+     */
+    'keyPair'?: ManagedClusterKeyPair;
+    /**
+     * 
+     * @type {ManagedClusterAttributes}
+     * @memberof ManagedCluster
+     */
+    'attributes'?: ManagedClusterAttributes;
+    /**
+     * ManagedCluster description
+     * @type {string}
+     * @memberof ManagedCluster
+     */
+    'description'?: string;
+    /**
+     * 
+     * @type {ManagedClusterRedis}
+     * @memberof ManagedCluster
+     */
+    'redis'?: ManagedClusterRedis;
+    /**
+     * 
+     * @type {ManagedClientType}
+     * @memberof ManagedCluster
+     */
+    'clientType': ManagedClientType | null;
+    /**
+     * CCG version used by the ManagedCluster
+     * @type {string}
+     * @memberof ManagedCluster
+     */
+    'ccgVersion': string;
+    /**
+     * boolean flag indiacting whether or not the cluster configuration is pinned
+     * @type {boolean}
+     * @memberof ManagedCluster
+     */
+    'pinnedConfig'?: boolean;
+    /**
+     * 
+     * @type {ClientLogConfiguration}
+     * @memberof ManagedCluster
+     */
+    'logConfiguration'?: ClientLogConfiguration | null;
+    /**
+     * Whether or not the cluster is operational or not
+     * @type {boolean}
+     * @memberof ManagedCluster
+     */
+    'operational'?: boolean;
+    /**
+     * Cluster status
+     * @type {string}
+     * @memberof ManagedCluster
+     */
+    'status'?: string;
+    /**
+     * Public key certificate
+     * @type {string}
+     * @memberof ManagedCluster
+     */
+    'publicKeyCertificate'?: string | null;
+    /**
+     * Public key thumbprint
+     * @type {string}
+     * @memberof ManagedCluster
+     */
+    'publicKeyThumbprint'?: string | null;
+    /**
+     * Public key
+     * @type {string}
+     * @memberof ManagedCluster
+     */
+    'publicKey'?: string | null;
+    /**
+     * Key describing any immediate cluster alerts
+     * @type {string}
+     * @memberof ManagedCluster
+     */
+    'alertKey'?: string;
+    /**
+     * List of clients in a cluster
+     * @type {Array<string>}
+     * @memberof ManagedCluster
+     */
+    'clientIds'?: Array<string>;
+    /**
+     * Number of services bound to a cluster
+     * @type {number}
+     * @memberof ManagedCluster
+     */
+    'serviceCount'?: number;
+    /**
+     * CC ID only used in calling CC, will be removed without notice when Migration to CEGS is finished
+     * @type {string}
+     * @memberof ManagedCluster
+     */
+    'ccId'?: string;
+    /**
+     * The date/time this cluster was created
+     * @type {string}
+     * @memberof ManagedCluster
+     */
+    'createdAt'?: string | null;
+    /**
+     * The date/time this cluster was last updated
+     * @type {string}
+     * @memberof ManagedCluster
+     */
+    'updatedAt'?: string | null;
+}
+/**
+ * Managed Cluster Attributes for Cluster Configuration. Supported Cluster Types [sqsCluster, spConnectCluster]
+ * @export
+ * @interface ManagedClusterAttributes
+ */
+export interface ManagedClusterAttributes {
+    /**
+     * 
+     * @type {ManagedClusterQueue}
+     * @memberof ManagedClusterAttributes
+     */
+    'queue'?: ManagedClusterQueue;
+    /**
+     * ManagedCluster keystore for spConnectCluster type
+     * @type {string}
+     * @memberof ManagedClusterAttributes
+     */
+    'keystore'?: string | null;
+}
+/**
+ * Managed Cluster key pair for Cluster
+ * @export
+ * @interface ManagedClusterKeyPair
+ */
+export interface ManagedClusterKeyPair {
+    /**
+     * ManagedCluster publicKey
+     * @type {string}
+     * @memberof ManagedClusterKeyPair
+     */
+    'publicKey'?: string | null;
+    /**
+     * ManagedCluster publicKeyThumbprint
+     * @type {string}
+     * @memberof ManagedClusterKeyPair
+     */
+    'publicKeyThumbprint'?: string | null;
+    /**
+     * ManagedCluster publicKeyCertificate
+     * @type {string}
+     * @memberof ManagedClusterKeyPair
+     */
+    'publicKeyCertificate'?: string | null;
+}
+/**
+ * Managed Cluster key pair for Cluster
+ * @export
+ * @interface ManagedClusterQueue
+ */
+export interface ManagedClusterQueue {
+    /**
+     * ManagedCluster queue name
+     * @type {string}
+     * @memberof ManagedClusterQueue
+     */
+    'name'?: string;
+    /**
+     * ManagedCluster queue aws region
+     * @type {string}
+     * @memberof ManagedClusterQueue
+     */
+    'region'?: string;
+}
+/**
+ * Managed Cluster Redis Configuration
+ * @export
+ * @interface ManagedClusterRedis
+ */
+export interface ManagedClusterRedis {
+    /**
+     * ManagedCluster redisHost
+     * @type {string}
+     * @memberof ManagedClusterRedis
+     */
+    'redisHost'?: string;
+    /**
+     * ManagedCluster redisPort
+     * @type {number}
+     * @memberof ManagedClusterRedis
+     */
+    'redisPort'?: number;
+}
+/**
+ * Request to create Managed Cluster
+ * @export
+ * @interface ManagedClusterRequest
+ */
+export interface ManagedClusterRequest {
+    /**
+     * ManagedCluster name
+     * @type {string}
+     * @memberof ManagedClusterRequest
+     */
+    'name': string;
+    /**
+     * 
+     * @type {ManagedClusterTypes}
+     * @memberof ManagedClusterRequest
+     */
+    'type'?: ManagedClusterTypes;
+    /**
+     * ManagedProcess configuration map
+     * @type {{ [key: string]: string; }}
+     * @memberof ManagedClusterRequest
+     */
+    'configuration'?: { [key: string]: string; };
+    /**
+     * ManagedCluster description
+     * @type {string}
+     * @memberof ManagedClusterRequest
+     */
+    'description'?: string | null;
+}
+/**
+ * The Type of Cluster
+ * @export
+ * @enum {string}
+ */
+
+export const ManagedClusterTypes = {
+    Idn: 'idn',
+    Iai: 'iai'
+} as const;
+
+export type ManagedClusterTypes = typeof ManagedClusterTypes[keyof typeof ManagedClusterTypes];
+
+
 /**
  * 
  * @export
@@ -19160,6 +19746,25 @@ export interface Split {
      */
     'input'?: { [key: string]: any; };
 }
+/**
+ * Standard Log4j log level
+ * @export
+ * @enum {string}
+ */
+
+export const StandardLevel = {
+    False: 'false',
+    Fatal: 'FATAL',
+    Error: 'ERROR',
+    Warn: 'WARN',
+    Info: 'INFO',
+    Debug: 'DEBUG',
+    Trace: 'TRACE'
+} as const;
+
+export type StandardLevel = typeof StandardLevel[keyof typeof StandardLevel];
+
+
 /**
  * 
  * @export
@@ -34963,6 +35568,1211 @@ export class LifecycleStatesApi extends BaseAPI {
      */
     public updateLifecycleStates(requestParameters: LifecycleStatesApiUpdateLifecycleStatesRequest, axiosOptions?: AxiosRequestConfig) {
         return LifecycleStatesApiFp(this.configuration).updateLifecycleStates(requestParameters.identityProfileId, requestParameters.lifecycleStateId, requestParameters.jsonPatchOperation, axiosOptions).then((request) => request(this.axios, this.basePath));
+    }
+}
+
+
+/**
+ * ManagedClientsApi - axios parameter creator
+ * @export
+ */
+export const ManagedClientsApiAxiosParamCreator = function (configuration?: Configuration) {
+    return {
+        /**
+         * Create a new Managed Client. The API returns a result that includes the Managed Client ID.
+         * @summary Create a new Managed Client
+         * @param {ManagedClientRequest} managedClientRequest 
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        createManagedClient: async (managedClientRequest: ManagedClientRequest, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'managedClientRequest' is not null or undefined
+            assertParamExists('createManagedClient', 'managedClientRequest', managedClientRequest)
+            const localVarPath = `/managed-clients`;
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'POST', ...baseOptions, ...axiosOptions};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication UserContextAuth required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "UserContextAuth", [], configuration)
+
+            // authentication UserContextAuth required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "UserContextAuth", [], configuration)
+
+
+    
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
+            localVarRequestOptions.data = serializeDataIfNeeded(managedClientRequest, localVarRequestOptions, configuration)
+
+            return {
+                url: toPathString(localVarUrlObj),
+                axiosOptions: localVarRequestOptions,
+            };
+        },
+        /**
+         * Delete an existing Managed Client.
+         * @summary Delete a Managed Client
+         * @param {string} id The Managed Client ID
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        deleteManagedClient: async (id: string, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'id' is not null or undefined
+            assertParamExists('deleteManagedClient', 'id', id)
+            const localVarPath = `/managed-clients/{id}`
+                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'DELETE', ...baseOptions, ...axiosOptions};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication UserContextAuth required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "UserContextAuth", [], configuration)
+
+            // authentication UserContextAuth required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "UserContextAuth", [], configuration)
+
+
+    
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                axiosOptions: localVarRequestOptions,
+            };
+        },
+        /**
+         * Get a Managed Client.
+         * @summary Get a Managed Client
+         * @param {string} id The Managed Client ID
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        getManagedClient: async (id: string, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'id' is not null or undefined
+            assertParamExists('getManagedClient', 'id', id)
+            const localVarPath = `/managed-clients/{id}`
+                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...axiosOptions};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication UserContextAuth required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "UserContextAuth", [], configuration)
+
+            // authentication UserContextAuth required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "UserContextAuth", [], configuration)
+
+
+    
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                axiosOptions: localVarRequestOptions,
+            };
+        },
+        /**
+         * Retrieve the Status of a Managed Client by ID.
+         * @summary Get Managed Client Status.
+         * @param {string} id ID of the Managed Client to get Status of
+         * @param {ManagedClientType} type Type of the Managed Client to get Status of
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        getManagedClientStatus: async (id: string, type: ManagedClientType, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'id' is not null or undefined
+            assertParamExists('getManagedClientStatus', 'id', id)
+            // verify required parameter 'type' is not null or undefined
+            assertParamExists('getManagedClientStatus', 'type', type)
+            const localVarPath = `/managed-clients/{id}/status`
+                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...axiosOptions};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication UserContextAuth required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "UserContextAuth", [], configuration)
+
+            // authentication UserContextAuth required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "UserContextAuth", [], configuration)
+
+            if (type !== undefined) {
+                localVarQueryParameter['type'] = type;
+            }
+
+
+    
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                axiosOptions: localVarRequestOptions,
+            };
+        },
+        /**
+         * Get a list of Managed Clients.
+         * @summary Get Managed Clients
+         * @param {number} [offset] Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+         * @param {number} [limit] Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+         * @param {boolean} [count] If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+         * @param {string} [filters] Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq*  **name**: *eq*  **clientId**: *eq*  **clusterId**: *eq*
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        getManagedClients: async (offset?: number, limit?: number, count?: boolean, filters?: string, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            const localVarPath = `/managed-clients`;
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...axiosOptions};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication UserContextAuth required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "UserContextAuth", [], configuration)
+
+            // authentication UserContextAuth required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "UserContextAuth", [], configuration)
+
+            if (offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+
+            if (limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+
+            if (count !== undefined) {
+                localVarQueryParameter['count'] = count;
+            }
+
+            if (filters !== undefined) {
+                localVarQueryParameter['filters'] = filters;
+            }
+
+
+    
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                axiosOptions: localVarRequestOptions,
+            };
+        },
+        /**
+         * Update an existing Managed Client.
+         * @summary Update a Managed Client
+         * @param {string} id The Managed Client ID
+         * @param {JsonPatch} jsonPatch The JSONPatch payload used to update the schema.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        updateManagedClient: async (id: string, jsonPatch: JsonPatch, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'id' is not null or undefined
+            assertParamExists('updateManagedClient', 'id', id)
+            // verify required parameter 'jsonPatch' is not null or undefined
+            assertParamExists('updateManagedClient', 'jsonPatch', jsonPatch)
+            const localVarPath = `/managed-clients/{id}`
+                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'PATCH', ...baseOptions, ...axiosOptions};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication UserContextAuth required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "UserContextAuth", [], configuration)
+
+            // authentication UserContextAuth required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "UserContextAuth", [], configuration)
+
+
+    
+            localVarHeaderParameter['Content-Type'] = 'application/json-patch+json';
+
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
+            localVarRequestOptions.data = serializeDataIfNeeded(jsonPatch, localVarRequestOptions, configuration)
+
+            return {
+                url: toPathString(localVarUrlObj),
+                axiosOptions: localVarRequestOptions,
+            };
+        },
+    }
+};
+
+/**
+ * ManagedClientsApi - functional programming interface
+ * @export
+ */
+export const ManagedClientsApiFp = function(configuration?: Configuration) {
+    const localVarAxiosParamCreator = ManagedClientsApiAxiosParamCreator(configuration)
+    return {
+        /**
+         * Create a new Managed Client. The API returns a result that includes the Managed Client ID.
+         * @summary Create a new Managed Client
+         * @param {ManagedClientRequest} managedClientRequest 
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        async createManagedClient(managedClientRequest: ManagedClientRequest, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ManagedClient>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.createManagedClient(managedClientRequest, axiosOptions);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * Delete an existing Managed Client.
+         * @summary Delete a Managed Client
+         * @param {string} id The Managed Client ID
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        async deleteManagedClient(id: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.deleteManagedClient(id, axiosOptions);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * Get a Managed Client.
+         * @summary Get a Managed Client
+         * @param {string} id The Managed Client ID
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        async getManagedClient(id: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ManagedClient>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getManagedClient(id, axiosOptions);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * Retrieve the Status of a Managed Client by ID.
+         * @summary Get Managed Client Status.
+         * @param {string} id ID of the Managed Client to get Status of
+         * @param {ManagedClientType} type Type of the Managed Client to get Status of
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        async getManagedClientStatus(id: string, type: ManagedClientType, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ManagedClientStatus>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getManagedClientStatus(id, type, axiosOptions);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * Get a list of Managed Clients.
+         * @summary Get Managed Clients
+         * @param {number} [offset] Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+         * @param {number} [limit] Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+         * @param {boolean} [count] If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+         * @param {string} [filters] Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq*  **name**: *eq*  **clientId**: *eq*  **clusterId**: *eq*
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        async getManagedClients(offset?: number, limit?: number, count?: boolean, filters?: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<ManagedClient>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getManagedClients(offset, limit, count, filters, axiosOptions);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * Update an existing Managed Client.
+         * @summary Update a Managed Client
+         * @param {string} id The Managed Client ID
+         * @param {JsonPatch} jsonPatch The JSONPatch payload used to update the schema.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        async updateManagedClient(id: string, jsonPatch: JsonPatch, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ManagedClient>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.updateManagedClient(id, jsonPatch, axiosOptions);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+    }
+};
+
+/**
+ * ManagedClientsApi - factory interface
+ * @export
+ */
+export const ManagedClientsApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
+    const localVarFp = ManagedClientsApiFp(configuration)
+    return {
+        /**
+         * Create a new Managed Client. The API returns a result that includes the Managed Client ID.
+         * @summary Create a new Managed Client
+         * @param {ManagedClientRequest} managedClientRequest 
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        createManagedClient(managedClientRequest: ManagedClientRequest, axiosOptions?: any): AxiosPromise<ManagedClient> {
+            return localVarFp.createManagedClient(managedClientRequest, axiosOptions).then((request) => request(axios, basePath));
+        },
+        /**
+         * Delete an existing Managed Client.
+         * @summary Delete a Managed Client
+         * @param {string} id The Managed Client ID
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        deleteManagedClient(id: string, axiosOptions?: any): AxiosPromise<void> {
+            return localVarFp.deleteManagedClient(id, axiosOptions).then((request) => request(axios, basePath));
+        },
+        /**
+         * Get a Managed Client.
+         * @summary Get a Managed Client
+         * @param {string} id The Managed Client ID
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        getManagedClient(id: string, axiosOptions?: any): AxiosPromise<ManagedClient> {
+            return localVarFp.getManagedClient(id, axiosOptions).then((request) => request(axios, basePath));
+        },
+        /**
+         * Retrieve the Status of a Managed Client by ID.
+         * @summary Get Managed Client Status.
+         * @param {string} id ID of the Managed Client to get Status of
+         * @param {ManagedClientType} type Type of the Managed Client to get Status of
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        getManagedClientStatus(id: string, type: ManagedClientType, axiosOptions?: any): AxiosPromise<ManagedClientStatus> {
+            return localVarFp.getManagedClientStatus(id, type, axiosOptions).then((request) => request(axios, basePath));
+        },
+        /**
+         * Get a list of Managed Clients.
+         * @summary Get Managed Clients
+         * @param {number} [offset] Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+         * @param {number} [limit] Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+         * @param {boolean} [count] If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+         * @param {string} [filters] Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq*  **name**: *eq*  **clientId**: *eq*  **clusterId**: *eq*
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        getManagedClients(offset?: number, limit?: number, count?: boolean, filters?: string, axiosOptions?: any): AxiosPromise<Array<ManagedClient>> {
+            return localVarFp.getManagedClients(offset, limit, count, filters, axiosOptions).then((request) => request(axios, basePath));
+        },
+        /**
+         * Update an existing Managed Client.
+         * @summary Update a Managed Client
+         * @param {string} id The Managed Client ID
+         * @param {JsonPatch} jsonPatch The JSONPatch payload used to update the schema.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        updateManagedClient(id: string, jsonPatch: JsonPatch, axiosOptions?: any): AxiosPromise<ManagedClient> {
+            return localVarFp.updateManagedClient(id, jsonPatch, axiosOptions).then((request) => request(axios, basePath));
+        },
+    };
+};
+
+/**
+ * Request parameters for createManagedClient operation in ManagedClientsApi.
+ * @export
+ * @interface ManagedClientsApiCreateManagedClientRequest
+ */
+export interface ManagedClientsApiCreateManagedClientRequest {
+    /**
+     * 
+     * @type {ManagedClientRequest}
+     * @memberof ManagedClientsApiCreateManagedClient
+     */
+    readonly managedClientRequest: ManagedClientRequest
+}
+
+/**
+ * Request parameters for deleteManagedClient operation in ManagedClientsApi.
+ * @export
+ * @interface ManagedClientsApiDeleteManagedClientRequest
+ */
+export interface ManagedClientsApiDeleteManagedClientRequest {
+    /**
+     * The Managed Client ID
+     * @type {string}
+     * @memberof ManagedClientsApiDeleteManagedClient
+     */
+    readonly id: string
+}
+
+/**
+ * Request parameters for getManagedClient operation in ManagedClientsApi.
+ * @export
+ * @interface ManagedClientsApiGetManagedClientRequest
+ */
+export interface ManagedClientsApiGetManagedClientRequest {
+    /**
+     * The Managed Client ID
+     * @type {string}
+     * @memberof ManagedClientsApiGetManagedClient
+     */
+    readonly id: string
+}
+
+/**
+ * Request parameters for getManagedClientStatus operation in ManagedClientsApi.
+ * @export
+ * @interface ManagedClientsApiGetManagedClientStatusRequest
+ */
+export interface ManagedClientsApiGetManagedClientStatusRequest {
+    /**
+     * ID of the Managed Client to get Status of
+     * @type {string}
+     * @memberof ManagedClientsApiGetManagedClientStatus
+     */
+    readonly id: string
+
+    /**
+     * Type of the Managed Client to get Status of
+     * @type {ManagedClientType}
+     * @memberof ManagedClientsApiGetManagedClientStatus
+     */
+    readonly type: ManagedClientType
+}
+
+/**
+ * Request parameters for getManagedClients operation in ManagedClientsApi.
+ * @export
+ * @interface ManagedClientsApiGetManagedClientsRequest
+ */
+export interface ManagedClientsApiGetManagedClientsRequest {
+    /**
+     * Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+     * @type {number}
+     * @memberof ManagedClientsApiGetManagedClients
+     */
+    readonly offset?: number
+
+    /**
+     * Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+     * @type {number}
+     * @memberof ManagedClientsApiGetManagedClients
+     */
+    readonly limit?: number
+
+    /**
+     * If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+     * @type {boolean}
+     * @memberof ManagedClientsApiGetManagedClients
+     */
+    readonly count?: boolean
+
+    /**
+     * Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq*  **name**: *eq*  **clientId**: *eq*  **clusterId**: *eq*
+     * @type {string}
+     * @memberof ManagedClientsApiGetManagedClients
+     */
+    readonly filters?: string
+}
+
+/**
+ * Request parameters for updateManagedClient operation in ManagedClientsApi.
+ * @export
+ * @interface ManagedClientsApiUpdateManagedClientRequest
+ */
+export interface ManagedClientsApiUpdateManagedClientRequest {
+    /**
+     * The Managed Client ID
+     * @type {string}
+     * @memberof ManagedClientsApiUpdateManagedClient
+     */
+    readonly id: string
+
+    /**
+     * The JSONPatch payload used to update the schema.
+     * @type {JsonPatch}
+     * @memberof ManagedClientsApiUpdateManagedClient
+     */
+    readonly jsonPatch: JsonPatch
+}
+
+/**
+ * ManagedClientsApi - object-oriented interface
+ * @export
+ * @class ManagedClientsApi
+ * @extends {BaseAPI}
+ */
+export class ManagedClientsApi extends BaseAPI {
+    /**
+     * Create a new Managed Client. The API returns a result that includes the Managed Client ID.
+     * @summary Create a new Managed Client
+     * @param {ManagedClientsApiCreateManagedClientRequest} requestParameters Request parameters.
+     * @param {*} [axiosOptions] Override http request option.
+     * @throws {RequiredError}
+     * @memberof ManagedClientsApi
+     */
+    public createManagedClient(requestParameters: ManagedClientsApiCreateManagedClientRequest, axiosOptions?: AxiosRequestConfig) {
+        return ManagedClientsApiFp(this.configuration).createManagedClient(requestParameters.managedClientRequest, axiosOptions).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Delete an existing Managed Client.
+     * @summary Delete a Managed Client
+     * @param {ManagedClientsApiDeleteManagedClientRequest} requestParameters Request parameters.
+     * @param {*} [axiosOptions] Override http request option.
+     * @throws {RequiredError}
+     * @memberof ManagedClientsApi
+     */
+    public deleteManagedClient(requestParameters: ManagedClientsApiDeleteManagedClientRequest, axiosOptions?: AxiosRequestConfig) {
+        return ManagedClientsApiFp(this.configuration).deleteManagedClient(requestParameters.id, axiosOptions).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Get a Managed Client.
+     * @summary Get a Managed Client
+     * @param {ManagedClientsApiGetManagedClientRequest} requestParameters Request parameters.
+     * @param {*} [axiosOptions] Override http request option.
+     * @throws {RequiredError}
+     * @memberof ManagedClientsApi
+     */
+    public getManagedClient(requestParameters: ManagedClientsApiGetManagedClientRequest, axiosOptions?: AxiosRequestConfig) {
+        return ManagedClientsApiFp(this.configuration).getManagedClient(requestParameters.id, axiosOptions).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Retrieve the Status of a Managed Client by ID.
+     * @summary Get Managed Client Status.
+     * @param {ManagedClientsApiGetManagedClientStatusRequest} requestParameters Request parameters.
+     * @param {*} [axiosOptions] Override http request option.
+     * @throws {RequiredError}
+     * @memberof ManagedClientsApi
+     */
+    public getManagedClientStatus(requestParameters: ManagedClientsApiGetManagedClientStatusRequest, axiosOptions?: AxiosRequestConfig) {
+        return ManagedClientsApiFp(this.configuration).getManagedClientStatus(requestParameters.id, requestParameters.type, axiosOptions).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Get a list of Managed Clients.
+     * @summary Get Managed Clients
+     * @param {ManagedClientsApiGetManagedClientsRequest} requestParameters Request parameters.
+     * @param {*} [axiosOptions] Override http request option.
+     * @throws {RequiredError}
+     * @memberof ManagedClientsApi
+     */
+    public getManagedClients(requestParameters: ManagedClientsApiGetManagedClientsRequest = {}, axiosOptions?: AxiosRequestConfig) {
+        return ManagedClientsApiFp(this.configuration).getManagedClients(requestParameters.offset, requestParameters.limit, requestParameters.count, requestParameters.filters, axiosOptions).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Update an existing Managed Client.
+     * @summary Update a Managed Client
+     * @param {ManagedClientsApiUpdateManagedClientRequest} requestParameters Request parameters.
+     * @param {*} [axiosOptions] Override http request option.
+     * @throws {RequiredError}
+     * @memberof ManagedClientsApi
+     */
+    public updateManagedClient(requestParameters: ManagedClientsApiUpdateManagedClientRequest, axiosOptions?: AxiosRequestConfig) {
+        return ManagedClientsApiFp(this.configuration).updateManagedClient(requestParameters.id, requestParameters.jsonPatch, axiosOptions).then((request) => request(this.axios, this.basePath));
+    }
+}
+
+
+/**
+ * ManagedClustersApi - axios parameter creator
+ * @export
+ */
+export const ManagedClustersApiAxiosParamCreator = function (configuration?: Configuration) {
+    return {
+        /**
+         * Create a new Managed Cluster. The API returns a result that includes the Managed Cluster ID.
+         * @summary Create a new Managed Cluster
+         * @param {ManagedClusterRequest} managedClusterRequest 
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        createManagedCluster: async (managedClusterRequest: ManagedClusterRequest, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'managedClusterRequest' is not null or undefined
+            assertParamExists('createManagedCluster', 'managedClusterRequest', managedClusterRequest)
+            const localVarPath = `/managed-clusters`;
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'POST', ...baseOptions, ...axiosOptions};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication UserContextAuth required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "UserContextAuth", [], configuration)
+
+            // authentication UserContextAuth required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "UserContextAuth", [], configuration)
+
+
+    
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
+            localVarRequestOptions.data = serializeDataIfNeeded(managedClusterRequest, localVarRequestOptions, configuration)
+
+            return {
+                url: toPathString(localVarUrlObj),
+                axiosOptions: localVarRequestOptions,
+            };
+        },
+        /**
+         * Delete an existing Managed Cluster.
+         * @summary Delete a Managed Cluster
+         * @param {string} id The Managed Cluster ID
+         * @param {boolean} [removeClients] Flag to determine the need to delete a cluster with clients
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        deleteManagedCluster: async (id: string, removeClients?: boolean, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'id' is not null or undefined
+            assertParamExists('deleteManagedCluster', 'id', id)
+            const localVarPath = `/managed-clusters/{id}`
+                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'DELETE', ...baseOptions, ...axiosOptions};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication UserContextAuth required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "UserContextAuth", [], configuration)
+
+            // authentication UserContextAuth required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "UserContextAuth", [], configuration)
+
+            if (removeClients !== undefined) {
+                localVarQueryParameter['removeClients'] = removeClients;
+            }
+
+
+    
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                axiosOptions: localVarRequestOptions,
+            };
+        },
+        /**
+         * Retrieve a ManagedCluster by ID.
+         * @summary Get a specified Managed Cluster.
+         * @param {string} id ID of the ManagedCluster to get
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        getManagedCluster: async (id: string, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'id' is not null or undefined
+            assertParamExists('getManagedCluster', 'id', id)
+            const localVarPath = `/managed-clusters/{id}`
+                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...axiosOptions};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication UserContextAuth required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "UserContextAuth", [], configuration)
+
+            // authentication UserContextAuth required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "UserContextAuth", [], configuration)
+
+
+    
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                axiosOptions: localVarRequestOptions,
+            };
+        },
+        /**
+         * Retrieve all Managed Clusters for the current Org, based on request context.
+         * @summary Retrieve all Managed Clusters.
+         * @param {number} [offset] Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+         * @param {number} [limit] Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+         * @param {boolean} [count] If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+         * @param {string} [filters] Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **operational**: *eq*
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        getManagedClusters: async (offset?: number, limit?: number, count?: boolean, filters?: string, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            const localVarPath = `/managed-clusters`;
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...axiosOptions};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication UserContextAuth required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "UserContextAuth", [], configuration)
+
+            // authentication UserContextAuth required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "UserContextAuth", [], configuration)
+
+            if (offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+
+            if (limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+
+            if (count !== undefined) {
+                localVarQueryParameter['count'] = count;
+            }
+
+            if (filters !== undefined) {
+                localVarQueryParameter['filters'] = filters;
+            }
+
+
+    
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                axiosOptions: localVarRequestOptions,
+            };
+        },
+        /**
+         * Update an existing Managed Cluster.
+         * @summary Update a Managed Cluster
+         * @param {string} id The Managed Cluster ID
+         * @param {JsonPatch} jsonPatch The JSONPatch payload used to update the schema.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        updateManagedCluster: async (id: string, jsonPatch: JsonPatch, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'id' is not null or undefined
+            assertParamExists('updateManagedCluster', 'id', id)
+            // verify required parameter 'jsonPatch' is not null or undefined
+            assertParamExists('updateManagedCluster', 'jsonPatch', jsonPatch)
+            const localVarPath = `/managed-clusters/{id}`
+                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'PATCH', ...baseOptions, ...axiosOptions};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication UserContextAuth required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "UserContextAuth", [], configuration)
+
+            // authentication UserContextAuth required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "UserContextAuth", [], configuration)
+
+
+    
+            localVarHeaderParameter['Content-Type'] = 'application/json-patch+json';
+
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
+            localVarRequestOptions.data = serializeDataIfNeeded(jsonPatch, localVarRequestOptions, configuration)
+
+            return {
+                url: toPathString(localVarUrlObj),
+                axiosOptions: localVarRequestOptions,
+            };
+        },
+    }
+};
+
+/**
+ * ManagedClustersApi - functional programming interface
+ * @export
+ */
+export const ManagedClustersApiFp = function(configuration?: Configuration) {
+    const localVarAxiosParamCreator = ManagedClustersApiAxiosParamCreator(configuration)
+    return {
+        /**
+         * Create a new Managed Cluster. The API returns a result that includes the Managed Cluster ID.
+         * @summary Create a new Managed Cluster
+         * @param {ManagedClusterRequest} managedClusterRequest 
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        async createManagedCluster(managedClusterRequest: ManagedClusterRequest, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ManagedCluster>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.createManagedCluster(managedClusterRequest, axiosOptions);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * Delete an existing Managed Cluster.
+         * @summary Delete a Managed Cluster
+         * @param {string} id The Managed Cluster ID
+         * @param {boolean} [removeClients] Flag to determine the need to delete a cluster with clients
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        async deleteManagedCluster(id: string, removeClients?: boolean, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.deleteManagedCluster(id, removeClients, axiosOptions);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * Retrieve a ManagedCluster by ID.
+         * @summary Get a specified Managed Cluster.
+         * @param {string} id ID of the ManagedCluster to get
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        async getManagedCluster(id: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ManagedCluster>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getManagedCluster(id, axiosOptions);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * Retrieve all Managed Clusters for the current Org, based on request context.
+         * @summary Retrieve all Managed Clusters.
+         * @param {number} [offset] Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+         * @param {number} [limit] Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+         * @param {boolean} [count] If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+         * @param {string} [filters] Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **operational**: *eq*
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        async getManagedClusters(offset?: number, limit?: number, count?: boolean, filters?: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<ManagedCluster>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getManagedClusters(offset, limit, count, filters, axiosOptions);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * Update an existing Managed Cluster.
+         * @summary Update a Managed Cluster
+         * @param {string} id The Managed Cluster ID
+         * @param {JsonPatch} jsonPatch The JSONPatch payload used to update the schema.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        async updateManagedCluster(id: string, jsonPatch: JsonPatch, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ManagedCluster>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.updateManagedCluster(id, jsonPatch, axiosOptions);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+    }
+};
+
+/**
+ * ManagedClustersApi - factory interface
+ * @export
+ */
+export const ManagedClustersApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
+    const localVarFp = ManagedClustersApiFp(configuration)
+    return {
+        /**
+         * Create a new Managed Cluster. The API returns a result that includes the Managed Cluster ID.
+         * @summary Create a new Managed Cluster
+         * @param {ManagedClusterRequest} managedClusterRequest 
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        createManagedCluster(managedClusterRequest: ManagedClusterRequest, axiosOptions?: any): AxiosPromise<ManagedCluster> {
+            return localVarFp.createManagedCluster(managedClusterRequest, axiosOptions).then((request) => request(axios, basePath));
+        },
+        /**
+         * Delete an existing Managed Cluster.
+         * @summary Delete a Managed Cluster
+         * @param {string} id The Managed Cluster ID
+         * @param {boolean} [removeClients] Flag to determine the need to delete a cluster with clients
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        deleteManagedCluster(id: string, removeClients?: boolean, axiosOptions?: any): AxiosPromise<void> {
+            return localVarFp.deleteManagedCluster(id, removeClients, axiosOptions).then((request) => request(axios, basePath));
+        },
+        /**
+         * Retrieve a ManagedCluster by ID.
+         * @summary Get a specified Managed Cluster.
+         * @param {string} id ID of the ManagedCluster to get
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        getManagedCluster(id: string, axiosOptions?: any): AxiosPromise<ManagedCluster> {
+            return localVarFp.getManagedCluster(id, axiosOptions).then((request) => request(axios, basePath));
+        },
+        /**
+         * Retrieve all Managed Clusters for the current Org, based on request context.
+         * @summary Retrieve all Managed Clusters.
+         * @param {number} [offset] Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+         * @param {number} [limit] Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+         * @param {boolean} [count] If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+         * @param {string} [filters] Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **operational**: *eq*
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        getManagedClusters(offset?: number, limit?: number, count?: boolean, filters?: string, axiosOptions?: any): AxiosPromise<Array<ManagedCluster>> {
+            return localVarFp.getManagedClusters(offset, limit, count, filters, axiosOptions).then((request) => request(axios, basePath));
+        },
+        /**
+         * Update an existing Managed Cluster.
+         * @summary Update a Managed Cluster
+         * @param {string} id The Managed Cluster ID
+         * @param {JsonPatch} jsonPatch The JSONPatch payload used to update the schema.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        updateManagedCluster(id: string, jsonPatch: JsonPatch, axiosOptions?: any): AxiosPromise<ManagedCluster> {
+            return localVarFp.updateManagedCluster(id, jsonPatch, axiosOptions).then((request) => request(axios, basePath));
+        },
+    };
+};
+
+/**
+ * Request parameters for createManagedCluster operation in ManagedClustersApi.
+ * @export
+ * @interface ManagedClustersApiCreateManagedClusterRequest
+ */
+export interface ManagedClustersApiCreateManagedClusterRequest {
+    /**
+     * 
+     * @type {ManagedClusterRequest}
+     * @memberof ManagedClustersApiCreateManagedCluster
+     */
+    readonly managedClusterRequest: ManagedClusterRequest
+}
+
+/**
+ * Request parameters for deleteManagedCluster operation in ManagedClustersApi.
+ * @export
+ * @interface ManagedClustersApiDeleteManagedClusterRequest
+ */
+export interface ManagedClustersApiDeleteManagedClusterRequest {
+    /**
+     * The Managed Cluster ID
+     * @type {string}
+     * @memberof ManagedClustersApiDeleteManagedCluster
+     */
+    readonly id: string
+
+    /**
+     * Flag to determine the need to delete a cluster with clients
+     * @type {boolean}
+     * @memberof ManagedClustersApiDeleteManagedCluster
+     */
+    readonly removeClients?: boolean
+}
+
+/**
+ * Request parameters for getManagedCluster operation in ManagedClustersApi.
+ * @export
+ * @interface ManagedClustersApiGetManagedClusterRequest
+ */
+export interface ManagedClustersApiGetManagedClusterRequest {
+    /**
+     * ID of the ManagedCluster to get
+     * @type {string}
+     * @memberof ManagedClustersApiGetManagedCluster
+     */
+    readonly id: string
+}
+
+/**
+ * Request parameters for getManagedClusters operation in ManagedClustersApi.
+ * @export
+ * @interface ManagedClustersApiGetManagedClustersRequest
+ */
+export interface ManagedClustersApiGetManagedClustersRequest {
+    /**
+     * Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+     * @type {number}
+     * @memberof ManagedClustersApiGetManagedClusters
+     */
+    readonly offset?: number
+
+    /**
+     * Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+     * @type {number}
+     * @memberof ManagedClustersApiGetManagedClusters
+     */
+    readonly limit?: number
+
+    /**
+     * If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+     * @type {boolean}
+     * @memberof ManagedClustersApiGetManagedClusters
+     */
+    readonly count?: boolean
+
+    /**
+     * Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **operational**: *eq*
+     * @type {string}
+     * @memberof ManagedClustersApiGetManagedClusters
+     */
+    readonly filters?: string
+}
+
+/**
+ * Request parameters for updateManagedCluster operation in ManagedClustersApi.
+ * @export
+ * @interface ManagedClustersApiUpdateManagedClusterRequest
+ */
+export interface ManagedClustersApiUpdateManagedClusterRequest {
+    /**
+     * The Managed Cluster ID
+     * @type {string}
+     * @memberof ManagedClustersApiUpdateManagedCluster
+     */
+    readonly id: string
+
+    /**
+     * The JSONPatch payload used to update the schema.
+     * @type {JsonPatch}
+     * @memberof ManagedClustersApiUpdateManagedCluster
+     */
+    readonly jsonPatch: JsonPatch
+}
+
+/**
+ * ManagedClustersApi - object-oriented interface
+ * @export
+ * @class ManagedClustersApi
+ * @extends {BaseAPI}
+ */
+export class ManagedClustersApi extends BaseAPI {
+    /**
+     * Create a new Managed Cluster. The API returns a result that includes the Managed Cluster ID.
+     * @summary Create a new Managed Cluster
+     * @param {ManagedClustersApiCreateManagedClusterRequest} requestParameters Request parameters.
+     * @param {*} [axiosOptions] Override http request option.
+     * @throws {RequiredError}
+     * @memberof ManagedClustersApi
+     */
+    public createManagedCluster(requestParameters: ManagedClustersApiCreateManagedClusterRequest, axiosOptions?: AxiosRequestConfig) {
+        return ManagedClustersApiFp(this.configuration).createManagedCluster(requestParameters.managedClusterRequest, axiosOptions).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Delete an existing Managed Cluster.
+     * @summary Delete a Managed Cluster
+     * @param {ManagedClustersApiDeleteManagedClusterRequest} requestParameters Request parameters.
+     * @param {*} [axiosOptions] Override http request option.
+     * @throws {RequiredError}
+     * @memberof ManagedClustersApi
+     */
+    public deleteManagedCluster(requestParameters: ManagedClustersApiDeleteManagedClusterRequest, axiosOptions?: AxiosRequestConfig) {
+        return ManagedClustersApiFp(this.configuration).deleteManagedCluster(requestParameters.id, requestParameters.removeClients, axiosOptions).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Retrieve a ManagedCluster by ID.
+     * @summary Get a specified Managed Cluster.
+     * @param {ManagedClustersApiGetManagedClusterRequest} requestParameters Request parameters.
+     * @param {*} [axiosOptions] Override http request option.
+     * @throws {RequiredError}
+     * @memberof ManagedClustersApi
+     */
+    public getManagedCluster(requestParameters: ManagedClustersApiGetManagedClusterRequest, axiosOptions?: AxiosRequestConfig) {
+        return ManagedClustersApiFp(this.configuration).getManagedCluster(requestParameters.id, axiosOptions).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Retrieve all Managed Clusters for the current Org, based on request context.
+     * @summary Retrieve all Managed Clusters.
+     * @param {ManagedClustersApiGetManagedClustersRequest} requestParameters Request parameters.
+     * @param {*} [axiosOptions] Override http request option.
+     * @throws {RequiredError}
+     * @memberof ManagedClustersApi
+     */
+    public getManagedClusters(requestParameters: ManagedClustersApiGetManagedClustersRequest = {}, axiosOptions?: AxiosRequestConfig) {
+        return ManagedClustersApiFp(this.configuration).getManagedClusters(requestParameters.offset, requestParameters.limit, requestParameters.count, requestParameters.filters, axiosOptions).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Update an existing Managed Cluster.
+     * @summary Update a Managed Cluster
+     * @param {ManagedClustersApiUpdateManagedClusterRequest} requestParameters Request parameters.
+     * @param {*} [axiosOptions] Override http request option.
+     * @throws {RequiredError}
+     * @memberof ManagedClustersApi
+     */
+    public updateManagedCluster(requestParameters: ManagedClustersApiUpdateManagedClusterRequest, axiosOptions?: AxiosRequestConfig) {
+        return ManagedClustersApiFp(this.configuration).updateManagedCluster(requestParameters.id, requestParameters.jsonPatch, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 }
 
