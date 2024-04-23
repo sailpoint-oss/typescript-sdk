@@ -1326,7 +1326,7 @@ export interface Account {
      * @type {{ [key: string]: any; }}
      * @memberof Account
      */
-    'attributes': { [key: string]: any; };
+    'attributes': { [key: string]: any; } | null;
     /**
      * Indicates if this account is from an authoritative source
      * @type {boolean}
@@ -2024,7 +2024,7 @@ export interface AccountAllOf {
      * @type {{ [key: string]: any; }}
      * @memberof AccountAllOf
      */
-    'attributes': { [key: string]: any; };
+    'attributes': { [key: string]: any; } | null;
     /**
      * Indicates if this account is from an authoritative source
      * @type {boolean}
@@ -19750,7 +19750,9 @@ export const TransformTypeEnum = {
     Trim: 'trim',
     Upper: 'upper',
     UsernameGenerator: 'usernameGenerator',
-    Uuid: 'uuid'
+    Uuid: 'uuid',
+    DisplayName: 'displayName',
+    Rfc5646: 'rfc5646'
 } as const;
 
 export type TransformTypeEnum = typeof TransformTypeEnum[keyof typeof TransformTypeEnum];
@@ -19859,7 +19861,9 @@ export const TransformReadTypeEnum = {
     Trim: 'trim',
     Upper: 'upper',
     UsernameGenerator: 'usernameGenerator',
-    Uuid: 'uuid'
+    Uuid: 'uuid',
+    DisplayName: 'displayName',
+    Rfc5646: 'rfc5646'
 } as const;
 
 export type TransformReadTypeEnum = typeof TransformReadTypeEnum[keyof typeof TransformReadTypeEnum];
