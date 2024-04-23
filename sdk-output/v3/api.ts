@@ -17541,11 +17541,11 @@ export interface Schema {
      */
     'includePermissions'?: boolean;
     /**
-     * The features that the schema supports.
-     * @type {Array<SourceFeature>}
+     * Optional features that can be supported by a source. Modifying the features array may cause source configuration errors that are unsupportable. It is recommended to not modify this array for SailPoint supported connectors. * AUTHENTICATE: The source supports pass-through authentication. * COMPOSITE: The source supports composite source creation. * DIRECT_PERMISSIONS: The source supports returning DirectPermissions. * DISCOVER_SCHEMA: The source supports discovering schemas for users and groups. * ENABLE The source supports reading if an account is enabled or disabled. * MANAGER_LOOKUP: The source supports looking up managers as they are encountered in a feed. This is the opposite of NO_RANDOM_ACCESS. * NO_RANDOM_ACCESS: The source does not support random access and the getObject() methods should not be called and expected to perform. * PROXY: The source can serve as a proxy for another source. When an source has a proxy, all connector calls made with that source are redirected through the connector for the proxy source. * SEARCH * TEMPLATE * UNLOCK: The source supports reading if an account is locked or unlocked. * UNSTRUCTURED_TARGETS: The source supports returning unstructured Targets. * SHAREPOINT_TARGET: The source supports returning unstructured Target data for SharePoint. It will be typically used by AD, LDAP sources. * PROVISIONING: The source can both read and write accounts. Having this feature implies that the provision() method is implemented. It also means that direct and target permissions can also be provisioned if they can be returned by aggregation. * GROUP_PROVISIONING: The source can both read and write groups. Having this feature implies that the provision() method is implemented. * SYNC_PROVISIONING: The source can provision accounts synchronously. * PASSWORD: The source can provision password changes. Since sources can never read passwords, this is should only be used in conjunction with the PROVISIONING feature. * CURRENT_PASSWORD: Some source types support verification of the current password * ACCOUNT_ONLY_REQUEST: The source supports requesting accounts without entitlements. * ADDITIONAL_ACCOUNT_REQUEST: The source supports requesting additional accounts. * NO_AGGREGATION: A source that does not support aggregation. * GROUPS_HAVE_MEMBERS: The source models group memberships with a member attribute on the group object rather than a groups attribute on the account object. This effects the implementation of delta account aggregation. * NO_PERMISSIONS_PROVISIONING: Indicates that the connector cannot provision direct or target permissions for accounts. When DIRECT_PERMISSIONS and PROVISIONING features are present, it is assumed that the connector can also provision direct permissions. This feature disables that assumption and causes permission request to be converted to work items for accounts. * NO_GROUP_PERMISSIONS_PROVISIONING: Indicates that the connector cannot provision direct or target permissions for groups. When DIRECT_PERMISSIONS and PROVISIONING features are present, it is assumed that the connector can also provision direct permissions. This feature disables that assumption and causes permission request to be converted to work items for groups. * NO_UNSTRUCTURED_TARGETS_PROVISIONING: This string will be replaced by NO_GROUP_PERMISSIONS_PROVISIONING and NO_PERMISSIONS_PROVISIONING. * NO_DIRECT_PERMISSIONS_PROVISIONING: This string will be replaced by NO_GROUP_PERMISSIONS_PROVISIONING and NO_PERMISSIONS_PROVISIONING. * USES_UUID: Connectivity 2.0 flag used to indicate that the connector supports a compound naming structure. * PREFER_UUID: Used in ISC Provisioning AND Aggregation to decide if it should prefer account.uuid to account.nativeIdentity when data is read in through aggregation OR pushed out through provisioning. * ARM_SECURITY_EXTRACT: Indicates the application supports Security extracts for ARM * ARM_UTILIZATION_EXTRACT: Indicates the application supports Utilization extracts for ARM * ARM_CHANGELOG_EXTRACT: Indicates the application supports Change-log extracts for ARM
+     * @type {Array<string>}
      * @memberof Schema
      */
-    'features'?: Array<SourceFeature>;
+    'features'?: Array<SchemaFeaturesEnum>;
     /**
      * Holds any extra configuration data that the schema may require.
      * @type {object}
@@ -17571,6 +17571,43 @@ export interface Schema {
      */
     'modified'?: string;
 }
+
+export const SchemaFeaturesEnum = {
+    Authenticate: 'AUTHENTICATE',
+    Composite: 'COMPOSITE',
+    DirectPermissions: 'DIRECT_PERMISSIONS',
+    DiscoverSchema: 'DISCOVER_SCHEMA',
+    Enable: 'ENABLE',
+    ManagerLookup: 'MANAGER_LOOKUP',
+    NoRandomAccess: 'NO_RANDOM_ACCESS',
+    Proxy: 'PROXY',
+    Search: 'SEARCH',
+    Template: 'TEMPLATE',
+    Unlock: 'UNLOCK',
+    UnstructuredTargets: 'UNSTRUCTURED_TARGETS',
+    SharepointTarget: 'SHAREPOINT_TARGET',
+    Provisioning: 'PROVISIONING',
+    GroupProvisioning: 'GROUP_PROVISIONING',
+    SyncProvisioning: 'SYNC_PROVISIONING',
+    Password: 'PASSWORD',
+    CurrentPassword: 'CURRENT_PASSWORD',
+    AccountOnlyRequest: 'ACCOUNT_ONLY_REQUEST',
+    AdditionalAccountRequest: 'ADDITIONAL_ACCOUNT_REQUEST',
+    NoAggregation: 'NO_AGGREGATION',
+    GroupsHaveMembers: 'GROUPS_HAVE_MEMBERS',
+    NoPermissionsProvisioning: 'NO_PERMISSIONS_PROVISIONING',
+    NoGroupPermissionsProvisioning: 'NO_GROUP_PERMISSIONS_PROVISIONING',
+    NoUnstructuredTargetsProvisioning: 'NO_UNSTRUCTURED_TARGETS_PROVISIONING',
+    NoDirectPermissionsProvisioning: 'NO_DIRECT_PERMISSIONS_PROVISIONING',
+    PreferUuid: 'PREFER_UUID',
+    ArmSecurityExtract: 'ARM_SECURITY_EXTRACT',
+    ArmUtilizationExtract: 'ARM_UTILIZATION_EXTRACT',
+    ArmChangelogExtract: 'ARM_CHANGELOG_EXTRACT',
+    UsesUuid: 'USES_UUID'
+} as const;
+
+export type SchemaFeaturesEnum = typeof SchemaFeaturesEnum[keyof typeof SchemaFeaturesEnum];
+
 /**
  * 
  * @export
@@ -19069,11 +19106,11 @@ export interface Source {
      */
     'passwordPolicies'?: Array<SourcePasswordPoliciesInner> | null;
     /**
-     * Optional features that can be supported by a source.
-     * @type {Array<SourceFeature>}
+     * Optional features that can be supported by a source. Modifying the features array may cause source configuration errors that are unsupportable. It is recommended to not modify this array for SailPoint supported connectors. * AUTHENTICATE: The source supports pass-through authentication. * COMPOSITE: The source supports composite source creation. * DIRECT_PERMISSIONS: The source supports returning DirectPermissions. * DISCOVER_SCHEMA: The source supports discovering schemas for users and groups. * ENABLE The source supports reading if an account is enabled or disabled. * MANAGER_LOOKUP: The source supports looking up managers as they are encountered in a feed. This is the opposite of NO_RANDOM_ACCESS. * NO_RANDOM_ACCESS: The source does not support random access and the getObject() methods should not be called and expected to perform. * PROXY: The source can serve as a proxy for another source. When an source has a proxy, all connector calls made with that source are redirected through the connector for the proxy source. * SEARCH * TEMPLATE * UNLOCK: The source supports reading if an account is locked or unlocked. * UNSTRUCTURED_TARGETS: The source supports returning unstructured Targets. * SHAREPOINT_TARGET: The source supports returning unstructured Target data for SharePoint. It will be typically used by AD, LDAP sources. * PROVISIONING: The source can both read and write accounts. Having this feature implies that the provision() method is implemented. It also means that direct and target permissions can also be provisioned if they can be returned by aggregation. * GROUP_PROVISIONING: The source can both read and write groups. Having this feature implies that the provision() method is implemented. * SYNC_PROVISIONING: The source can provision accounts synchronously. * PASSWORD: The source can provision password changes. Since sources can never read passwords, this is should only be used in conjunction with the PROVISIONING feature. * CURRENT_PASSWORD: Some source types support verification of the current password * ACCOUNT_ONLY_REQUEST: The source supports requesting accounts without entitlements. * ADDITIONAL_ACCOUNT_REQUEST: The source supports requesting additional accounts. * NO_AGGREGATION: A source that does not support aggregation. * GROUPS_HAVE_MEMBERS: The source models group memberships with a member attribute on the group object rather than a groups attribute on the account object. This effects the implementation of delta account aggregation. * NO_PERMISSIONS_PROVISIONING: Indicates that the connector cannot provision direct or target permissions for accounts. When DIRECT_PERMISSIONS and PROVISIONING features are present, it is assumed that the connector can also provision direct permissions. This feature disables that assumption and causes permission request to be converted to work items for accounts. * NO_GROUP_PERMISSIONS_PROVISIONING: Indicates that the connector cannot provision direct or target permissions for groups. When DIRECT_PERMISSIONS and PROVISIONING features are present, it is assumed that the connector can also provision direct permissions. This feature disables that assumption and causes permission request to be converted to work items for groups. * NO_UNSTRUCTURED_TARGETS_PROVISIONING: This string will be replaced by NO_GROUP_PERMISSIONS_PROVISIONING and NO_PERMISSIONS_PROVISIONING. * NO_DIRECT_PERMISSIONS_PROVISIONING: This string will be replaced by NO_GROUP_PERMISSIONS_PROVISIONING and NO_PERMISSIONS_PROVISIONING. * USES_UUID: Connectivity 2.0 flag used to indicate that the connector supports a compound naming structure. * PREFER_UUID: Used in ISC Provisioning AND Aggregation to decide if it should prefer account.uuid to account.nativeIdentity when data is read in through aggregation OR pushed out through provisioning. * ARM_SECURITY_EXTRACT: Indicates the application supports Security extracts for ARM * ARM_UTILIZATION_EXTRACT: Indicates the application supports Utilization extracts for ARM * ARM_CHANGELOG_EXTRACT: Indicates the application supports Change-log extracts for ARM
+     * @type {Array<string>}
      * @memberof Source
      */
-    'features'?: Array<SourceFeature>;
+    'features'?: Array<SourceFeaturesEnum>;
     /**
      * Specifies the type of system being managed e.g. Active Directory, Workday, etc.. If you are creating a Delimited File source, you must set the `provisionasCsv` query parameter to `true`. 
      * @type {string}
@@ -19183,6 +19220,43 @@ export interface Source {
      */
     'category'?: string | null;
 }
+
+export const SourceFeaturesEnum = {
+    Authenticate: 'AUTHENTICATE',
+    Composite: 'COMPOSITE',
+    DirectPermissions: 'DIRECT_PERMISSIONS',
+    DiscoverSchema: 'DISCOVER_SCHEMA',
+    Enable: 'ENABLE',
+    ManagerLookup: 'MANAGER_LOOKUP',
+    NoRandomAccess: 'NO_RANDOM_ACCESS',
+    Proxy: 'PROXY',
+    Search: 'SEARCH',
+    Template: 'TEMPLATE',
+    Unlock: 'UNLOCK',
+    UnstructuredTargets: 'UNSTRUCTURED_TARGETS',
+    SharepointTarget: 'SHAREPOINT_TARGET',
+    Provisioning: 'PROVISIONING',
+    GroupProvisioning: 'GROUP_PROVISIONING',
+    SyncProvisioning: 'SYNC_PROVISIONING',
+    Password: 'PASSWORD',
+    CurrentPassword: 'CURRENT_PASSWORD',
+    AccountOnlyRequest: 'ACCOUNT_ONLY_REQUEST',
+    AdditionalAccountRequest: 'ADDITIONAL_ACCOUNT_REQUEST',
+    NoAggregation: 'NO_AGGREGATION',
+    GroupsHaveMembers: 'GROUPS_HAVE_MEMBERS',
+    NoPermissionsProvisioning: 'NO_PERMISSIONS_PROVISIONING',
+    NoGroupPermissionsProvisioning: 'NO_GROUP_PERMISSIONS_PROVISIONING',
+    NoUnstructuredTargetsProvisioning: 'NO_UNSTRUCTURED_TARGETS_PROVISIONING',
+    NoDirectPermissionsProvisioning: 'NO_DIRECT_PERMISSIONS_PROVISIONING',
+    PreferUuid: 'PREFER_UUID',
+    ArmSecurityExtract: 'ARM_SECURITY_EXTRACT',
+    ArmUtilizationExtract: 'ARM_UTILIZATION_EXTRACT',
+    ArmChangelogExtract: 'ARM_CHANGELOG_EXTRACT',
+    UsesUuid: 'USES_UUID'
+} as const;
+
+export type SourceFeaturesEnum = typeof SourceFeaturesEnum[keyof typeof SourceFeaturesEnum];
+
 /**
  * Reference to an Account Correlation Config object
  * @export
@@ -19342,49 +19416,6 @@ export const SourceClusterDtoTypeEnum = {
 } as const;
 
 export type SourceClusterDtoTypeEnum = typeof SourceClusterDtoTypeEnum[keyof typeof SourceClusterDtoTypeEnum];
-
-/**
- * Optional features that can be supported by an source. * AUTHENTICATE: The source supports pass-through authentication. * COMPOSITE: The source supports composite source creation. * DIRECT_PERMISSIONS: The source supports returning DirectPermissions. * DISCOVER_SCHEMA: The source supports discovering schemas for users and groups. * ENABLE The source supports reading if an account is enabled or disabled. * MANAGER_LOOKUP: The source supports looking up managers as they are encountered in a feed. This is the opposite of NO_RANDOM_ACCESS. * NO_RANDOM_ACCESS: The source does not support random access and the getObject() methods should not be called and expected to perform. * PROXY: The source can serve as a proxy for another source. When an source has a proxy, all connector calls made with that source are redirected through the connector for the proxy source. * SEARCH * TEMPLATE * UNLOCK: The source supports reading if an account is locked or unlocked. * UNSTRUCTURED_TARGETS: The source supports returning unstructured Targets. * SHAREPOINT_TARGET: The source supports returning unstructured Target data for SharePoint. It will be typically used by AD, LDAP sources. * PROVISIONING: The source can both read and write accounts. Having this feature implies that the provision() method is implemented. It also means that direct and target permissions can also be provisioned if they can be returned by aggregation. * GROUP_PROVISIONING: The source can both read and write groups. Having this feature implies that the provision() method is implemented. * SYNC_PROVISIONING: The source can provision accounts synchronously. * PASSWORD: The source can provision password changes. Since sources can never read passwords, this is should only be used in conjunction with the PROVISIONING feature. * CURRENT_PASSWORD: Some source types support verification of the current password * ACCOUNT_ONLY_REQUEST: The source supports requesting accounts without entitlements. * ADDITIONAL_ACCOUNT_REQUEST: The source supports requesting additional accounts. * NO_AGGREGATION: A source that does not support aggregation. * GROUPS_HAVE_MEMBERS: The source models group memberships with a member attribute on the group object rather than a groups attribute on the account object. This effects the implementation of delta account aggregation. * NO_PERMISSIONS_PROVISIONING: Indicates that the connector cannot provision direct or target permissions for accounts. When DIRECT_PERMISSIONS and PROVISIONING features are present, it is assumed that the connector can also provision direct permissions. This feature disables that assumption and causes permission request to be converted to work items for accounts. * NO_GROUP_PERMISSIONS_PROVISIONING: Indicates that the connector cannot provision direct or target permissions for groups. When DIRECT_PERMISSIONS and PROVISIONING features are present, it is assumed that the connector can also provision direct permissions. This feature disables that assumption and causes permission request to be converted to work items for groups. * NO_UNSTRUCTURED_TARGETS_PROVISIONING: This string will be replaced by NO_GROUP_PERMISSIONS_PROVISIONING and NO_PERMISSIONS_PROVISIONING. * NO_DIRECT_PERMISSIONS_PROVISIONING: This string will be replaced by NO_GROUP_PERMISSIONS_PROVISIONING and NO_PERMISSIONS_PROVISIONING. * USES_UUID: Connectivity 2.0 flag used to indicate that the connector supports a compound naming structure. * PREFER_UUID: Used in ISC Provisioning AND Aggregation to decide if it should prefer account.uuid to account.nativeIdentity when data is read in through aggregation OR pushed out through provisioning. * ARM_SECURITY_EXTRACT: Indicates the application supports Security extracts for ARM * ARM_UTILIZATION_EXTRACT: Indicates the application supports Utilization extracts for ARM * ARM_CHANGELOG_EXTRACT: Indicates the application supports Change-log extracts for ARM
- * @export
- * @enum {string}
- */
-
-export const SourceFeature = {
-    Authenticate: 'AUTHENTICATE',
-    Composite: 'COMPOSITE',
-    DirectPermissions: 'DIRECT_PERMISSIONS',
-    DiscoverSchema: 'DISCOVER_SCHEMA',
-    Enable: 'ENABLE',
-    ManagerLookup: 'MANAGER_LOOKUP',
-    NoRandomAccess: 'NO_RANDOM_ACCESS',
-    Proxy: 'PROXY',
-    Search: 'SEARCH',
-    Template: 'TEMPLATE',
-    Unlock: 'UNLOCK',
-    UnstructuredTargets: 'UNSTRUCTURED_TARGETS',
-    SharepointTarget: 'SHAREPOINT_TARGET',
-    Provisioning: 'PROVISIONING',
-    GroupProvisioning: 'GROUP_PROVISIONING',
-    SyncProvisioning: 'SYNC_PROVISIONING',
-    Password: 'PASSWORD',
-    CurrentPassword: 'CURRENT_PASSWORD',
-    AccountOnlyRequest: 'ACCOUNT_ONLY_REQUEST',
-    AdditionalAccountRequest: 'ADDITIONAL_ACCOUNT_REQUEST',
-    NoAggregation: 'NO_AGGREGATION',
-    GroupsHaveMembers: 'GROUPS_HAVE_MEMBERS',
-    NoPermissionsProvisioning: 'NO_PERMISSIONS_PROVISIONING',
-    NoGroupPermissionsProvisioning: 'NO_GROUP_PERMISSIONS_PROVISIONING',
-    NoUnstructuredTargetsProvisioning: 'NO_UNSTRUCTURED_TARGETS_PROVISIONING',
-    NoDirectPermissionsProvisioning: 'NO_DIRECT_PERMISSIONS_PROVISIONING',
-    PreferUuid: 'PREFER_UUID',
-    ArmSecurityExtract: 'ARM_SECURITY_EXTRACT',
-    ArmUtilizationExtract: 'ARM_UTILIZATION_EXTRACT',
-    ArmChangelogExtract: 'ARM_CHANGELOG_EXTRACT',
-    UsesUuid: 'USES_UUID'
-} as const;
-
-export type SourceFeature = typeof SourceFeature[keyof typeof SourceFeature];
-
 
 /**
  * Dto for source health data
