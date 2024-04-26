@@ -24779,7 +24779,7 @@ export class AccountUsagesApi extends BaseAPI {
 export const AccountsApiAxiosParamCreator = function (configuration?: Configuration) {
     return {
         /**
-         * This API submits an account creation task and returns the task ID.   You must include the `sourceId` where the account will be created in the `attributes` object. This endpoint creates an account on the source record in your ISC tenant. This is useful for Flat File (`DelimitedFile`) type sources because it allows you to aggregate new accounts without needing to import a new CSV file every time.  However, if you use this endpoint to create an account for a Direct Connection type source, you must ensure that the account also exists on the target source.  The endpoint doesn\'t actually provision the account on the target source, which means that if the account doesn\'t also exist on the target source, an aggregation between the source and your tenant will remove it from your tenant.  A token with ORG_ADMIN authority is required to call this API.
+         * This API submits an account creation task and returns the task ID.   You must include the `sourceId` where the account will be created in the `attributes` object. This endpoint creates an account on the source record in your ISC tenant. This is useful for Flat File (`DelimitedFile`) type sources because it allows you to aggregate new accounts without needing to import a new CSV file every time.  However, if you use this endpoint to create an account for a Direct Connection type source, you must ensure that the account also exists on the target source.  The endpoint doesn\'t actually provision the account on the target source, which means that if the account doesn\'t also exist on the target source, an aggregation between the source and your tenant will remove it from your tenant.  A token with ORG_ADMIN, SOURCE_ADMIN, or SOURCE_SUBADMIN authority is required to call this API.
          * @summary Create Account
          * @param {AccountAttributesCreate} accountAttributesCreate 
          * @param {*} [axiosOptions] Override http request option.
@@ -24823,7 +24823,7 @@ export const AccountsApiAxiosParamCreator = function (configuration?: Configurat
             };
         },
         /**
-         * Use this API to delete an account.  This endpoint submits an account delete task and returns the task ID.  This endpoint only deletes the account from IdentityNow, not the source itself, which can result in the account\'s returning with the next aggregation between the source and IdentityNow.  To avoid this scenario, it is recommended that you [disable accounts](https://developer.sailpoint.com/idn/api/v3/disable-account) rather than delete them. This will also allow you to reenable the accounts in the future.  A token with ORG_ADMIN authority is required to call this API. >**NOTE: You can only delete accounts from sources of the \"DelimitedFile\" type.**
+         * Use this API to delete an account.  This endpoint submits an account delete task and returns the task ID.  This endpoint only deletes the account from IdentityNow, not the source itself, which can result in the account\'s returning with the next aggregation between the source and IdentityNow.  To avoid this scenario, it is recommended that you [disable accounts](https://developer.sailpoint.com/idn/api/v3/disable-account) rather than delete them. This will also allow you to reenable the accounts in the future.  A token with ORG_ADMIN, SOURCE_ADMIN, or SOURCE_SUBADMIN authority is required to call this API. >**NOTE: You can only delete accounts from sources of the \"DelimitedFile\" type.**
          * @summary Delete Account
          * @param {string} id Account ID.
          * @param {*} [axiosOptions] Override http request option.
@@ -24865,7 +24865,7 @@ export const AccountsApiAxiosParamCreator = function (configuration?: Configurat
             };
         },
         /**
-         * This API submits a task to disable the account and returns the task ID.   A token with ORG_ADMIN authority is required to call this API.
+         * This API submits a task to disable the account and returns the task ID.   A token with ORG_ADMIN, SOURCE_ADMIN, SOURCE_SUBADMIN, or HELPDESK authority is required to call this API.
          * @summary Disable Account
          * @param {string} id The account id
          * @param {AccountToggleRequest} accountToggleRequest 
@@ -24913,7 +24913,7 @@ export const AccountsApiAxiosParamCreator = function (configuration?: Configurat
             };
         },
         /**
-         * This API submits a task to enable account and returns the task ID.   A token with ORG_ADMIN authority is required to call this API.
+         * This API submits a task to enable account and returns the task ID.   A token with ORG_ADMIN, SOURCE_ADMIN, SOURCE_SUBADMIN, or HELPDESK authority is required to call this API.
          * @summary Enable Account
          * @param {string} id The account id
          * @param {AccountToggleRequest} accountToggleRequest 
@@ -24961,7 +24961,7 @@ export const AccountsApiAxiosParamCreator = function (configuration?: Configurat
             };
         },
         /**
-         * Use this API to return the details for a single account by its ID.   A token with ORG_ADMIN authority is required to call this API.
+         * Use this API to return the details for a single account by its ID.   A token with ORG_ADMIN, SOURCE_ADMIN, SOURCE_SUBADMIN, or HELPDESK authority is required to call this API.
          * @summary Account Details
          * @param {string} id Account ID.
          * @param {*} [axiosOptions] Override http request option.
@@ -25003,7 +25003,7 @@ export const AccountsApiAxiosParamCreator = function (configuration?: Configurat
             };
         },
         /**
-         * This API returns entitlements of the account.   A token with ORG_ADMIN authority is required to call this API.
+         * This API returns entitlements of the account.   A token with ORG_ADMIN, SOURCE_ADMIN, SOURCE_SUBADMIN, or HELPDESK authority is required to call this API.
          * @summary Account Entitlements
          * @param {string} id The account id
          * @param {number} [limit] Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
@@ -25060,7 +25060,7 @@ export const AccountsApiAxiosParamCreator = function (configuration?: Configurat
             };
         },
         /**
-         * This returns a list of accounts.   A token with ORG_ADMIN authority is required to call this API.
+         * This returns a list of accounts.   A token with ORG_ADMIN, SOURCE_ADMIN, SOURCE_SUBADMIN, or HELPDESK authority is required to call this API.
          * @summary Accounts List
          * @param {number} [limit] Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
          * @param {number} [offset] Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
@@ -25123,7 +25123,7 @@ export const AccountsApiAxiosParamCreator = function (configuration?: Configurat
             };
         },
         /**
-         * Use this API to update an account with a PUT request.  This endpoint submits an account update task and returns the task ID.  A token with ORG_ADMIN authority is required to call this API. >**NOTE: You can only use this PUT endpoint to update accounts from sources of the \"DelimitedFile\" type.**
+         * Use this API to update an account with a PUT request.  This endpoint submits an account update task and returns the task ID.  A token with ORG_ADMIN, SOURCE_ADMIN, or SOURCE_SUBADMIN authority is required to call this API. >**NOTE: You can only use this PUT endpoint to update accounts from sources of the \"DelimitedFile\" type.**
          * @summary Update Account
          * @param {string} id Account ID.
          * @param {AccountAttributes} accountAttributes 
@@ -25171,15 +25171,15 @@ export const AccountsApiAxiosParamCreator = function (configuration?: Configurat
             };
         },
         /**
-         * This API asynchronously reloads the account directly from the connector and performs a one-time aggregation process.   A token with ORG_ADMIN authority is required to call this API.
+         * This API asynchronously reloads the account directly from the connector and performs a one-time aggregation process.   A token with ORG_ADMIN, SOURCE_ADMIN, SOURCE_SUBADMIN, or HELPDESK authority is required to call this API.
          * @summary Reload Account
          * @param {string} id The account id
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        reloadAccount: async (id: string, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        submitReloadAccount: async (id: string, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'id' is not null or undefined
-            assertParamExists('reloadAccount', 'id', id)
+            assertParamExists('submitReloadAccount', 'id', id)
             const localVarPath = `/accounts/{id}/reload`
                 .replace(`{${"id"}}`, encodeURIComponent(String(id)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
@@ -25213,7 +25213,7 @@ export const AccountsApiAxiosParamCreator = function (configuration?: Configurat
             };
         },
         /**
-         * This API submits a task to unlock an account and returns the task ID.   To use this endpoint to unlock an account that has the `forceProvisioning` option set to true, the `idn:accounts-provisioning:manage` scope is required.  A token with ORG_ADMIN authority is required to call this API.
+         * This API submits a task to unlock an account and returns the task ID.   To use this endpoint to unlock an account that has the `forceProvisioning` option set to true, the `idn:accounts-provisioning:manage` scope is required.  A token with ORG_ADMIN, SOURCE_ADMIN, SOURCE_SUBADMIN, or HELPDESK authority is required to call this API.
          * @summary Unlock Account
          * @param {string} id The account ID.
          * @param {AccountUnlockRequest} accountUnlockRequest 
@@ -25319,7 +25319,7 @@ export const AccountsApiFp = function(configuration?: Configuration) {
     const localVarAxiosParamCreator = AccountsApiAxiosParamCreator(configuration)
     return {
         /**
-         * This API submits an account creation task and returns the task ID.   You must include the `sourceId` where the account will be created in the `attributes` object. This endpoint creates an account on the source record in your ISC tenant. This is useful for Flat File (`DelimitedFile`) type sources because it allows you to aggregate new accounts without needing to import a new CSV file every time.  However, if you use this endpoint to create an account for a Direct Connection type source, you must ensure that the account also exists on the target source.  The endpoint doesn\'t actually provision the account on the target source, which means that if the account doesn\'t also exist on the target source, an aggregation between the source and your tenant will remove it from your tenant.  A token with ORG_ADMIN authority is required to call this API.
+         * This API submits an account creation task and returns the task ID.   You must include the `sourceId` where the account will be created in the `attributes` object. This endpoint creates an account on the source record in your ISC tenant. This is useful for Flat File (`DelimitedFile`) type sources because it allows you to aggregate new accounts without needing to import a new CSV file every time.  However, if you use this endpoint to create an account for a Direct Connection type source, you must ensure that the account also exists on the target source.  The endpoint doesn\'t actually provision the account on the target source, which means that if the account doesn\'t also exist on the target source, an aggregation between the source and your tenant will remove it from your tenant.  A token with ORG_ADMIN, SOURCE_ADMIN, or SOURCE_SUBADMIN authority is required to call this API.
          * @summary Create Account
          * @param {AccountAttributesCreate} accountAttributesCreate 
          * @param {*} [axiosOptions] Override http request option.
@@ -25330,7 +25330,7 @@ export const AccountsApiFp = function(configuration?: Configuration) {
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
-         * Use this API to delete an account.  This endpoint submits an account delete task and returns the task ID.  This endpoint only deletes the account from IdentityNow, not the source itself, which can result in the account\'s returning with the next aggregation between the source and IdentityNow.  To avoid this scenario, it is recommended that you [disable accounts](https://developer.sailpoint.com/idn/api/v3/disable-account) rather than delete them. This will also allow you to reenable the accounts in the future.  A token with ORG_ADMIN authority is required to call this API. >**NOTE: You can only delete accounts from sources of the \"DelimitedFile\" type.**
+         * Use this API to delete an account.  This endpoint submits an account delete task and returns the task ID.  This endpoint only deletes the account from IdentityNow, not the source itself, which can result in the account\'s returning with the next aggregation between the source and IdentityNow.  To avoid this scenario, it is recommended that you [disable accounts](https://developer.sailpoint.com/idn/api/v3/disable-account) rather than delete them. This will also allow you to reenable the accounts in the future.  A token with ORG_ADMIN, SOURCE_ADMIN, or SOURCE_SUBADMIN authority is required to call this API. >**NOTE: You can only delete accounts from sources of the \"DelimitedFile\" type.**
          * @summary Delete Account
          * @param {string} id Account ID.
          * @param {*} [axiosOptions] Override http request option.
@@ -25341,7 +25341,7 @@ export const AccountsApiFp = function(configuration?: Configuration) {
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
-         * This API submits a task to disable the account and returns the task ID.   A token with ORG_ADMIN authority is required to call this API.
+         * This API submits a task to disable the account and returns the task ID.   A token with ORG_ADMIN, SOURCE_ADMIN, SOURCE_SUBADMIN, or HELPDESK authority is required to call this API.
          * @summary Disable Account
          * @param {string} id The account id
          * @param {AccountToggleRequest} accountToggleRequest 
@@ -25353,7 +25353,7 @@ export const AccountsApiFp = function(configuration?: Configuration) {
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
-         * This API submits a task to enable account and returns the task ID.   A token with ORG_ADMIN authority is required to call this API.
+         * This API submits a task to enable account and returns the task ID.   A token with ORG_ADMIN, SOURCE_ADMIN, SOURCE_SUBADMIN, or HELPDESK authority is required to call this API.
          * @summary Enable Account
          * @param {string} id The account id
          * @param {AccountToggleRequest} accountToggleRequest 
@@ -25365,7 +25365,7 @@ export const AccountsApiFp = function(configuration?: Configuration) {
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
-         * Use this API to return the details for a single account by its ID.   A token with ORG_ADMIN authority is required to call this API.
+         * Use this API to return the details for a single account by its ID.   A token with ORG_ADMIN, SOURCE_ADMIN, SOURCE_SUBADMIN, or HELPDESK authority is required to call this API.
          * @summary Account Details
          * @param {string} id Account ID.
          * @param {*} [axiosOptions] Override http request option.
@@ -25376,7 +25376,7 @@ export const AccountsApiFp = function(configuration?: Configuration) {
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
-         * This API returns entitlements of the account.   A token with ORG_ADMIN authority is required to call this API.
+         * This API returns entitlements of the account.   A token with ORG_ADMIN, SOURCE_ADMIN, SOURCE_SUBADMIN, or HELPDESK authority is required to call this API.
          * @summary Account Entitlements
          * @param {string} id The account id
          * @param {number} [limit] Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
@@ -25390,7 +25390,7 @@ export const AccountsApiFp = function(configuration?: Configuration) {
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
-         * This returns a list of accounts.   A token with ORG_ADMIN authority is required to call this API.
+         * This returns a list of accounts.   A token with ORG_ADMIN, SOURCE_ADMIN, SOURCE_SUBADMIN, or HELPDESK authority is required to call this API.
          * @summary Accounts List
          * @param {number} [limit] Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
          * @param {number} [offset] Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
@@ -25405,7 +25405,7 @@ export const AccountsApiFp = function(configuration?: Configuration) {
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
-         * Use this API to update an account with a PUT request.  This endpoint submits an account update task and returns the task ID.  A token with ORG_ADMIN authority is required to call this API. >**NOTE: You can only use this PUT endpoint to update accounts from sources of the \"DelimitedFile\" type.**
+         * Use this API to update an account with a PUT request.  This endpoint submits an account update task and returns the task ID.  A token with ORG_ADMIN, SOURCE_ADMIN, or SOURCE_SUBADMIN authority is required to call this API. >**NOTE: You can only use this PUT endpoint to update accounts from sources of the \"DelimitedFile\" type.**
          * @summary Update Account
          * @param {string} id Account ID.
          * @param {AccountAttributes} accountAttributes 
@@ -25417,18 +25417,18 @@ export const AccountsApiFp = function(configuration?: Configuration) {
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
-         * This API asynchronously reloads the account directly from the connector and performs a one-time aggregation process.   A token with ORG_ADMIN authority is required to call this API.
+         * This API asynchronously reloads the account directly from the connector and performs a one-time aggregation process.   A token with ORG_ADMIN, SOURCE_ADMIN, SOURCE_SUBADMIN, or HELPDESK authority is required to call this API.
          * @summary Reload Account
          * @param {string} id The account id
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async reloadAccount(id: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<AccountsAsyncResult>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.reloadAccount(id, axiosOptions);
+        async submitReloadAccount(id: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<AccountsAsyncResult>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.submitReloadAccount(id, axiosOptions);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
-         * This API submits a task to unlock an account and returns the task ID.   To use this endpoint to unlock an account that has the `forceProvisioning` option set to true, the `idn:accounts-provisioning:manage` scope is required.  A token with ORG_ADMIN authority is required to call this API.
+         * This API submits a task to unlock an account and returns the task ID.   To use this endpoint to unlock an account that has the `forceProvisioning` option set to true, the `idn:accounts-provisioning:manage` scope is required.  A token with ORG_ADMIN, SOURCE_ADMIN, SOURCE_SUBADMIN, or HELPDESK authority is required to call this API.
          * @summary Unlock Account
          * @param {string} id The account ID.
          * @param {AccountUnlockRequest} accountUnlockRequest 
@@ -25462,7 +25462,7 @@ export const AccountsApiFactory = function (configuration?: Configuration, baseP
     const localVarFp = AccountsApiFp(configuration)
     return {
         /**
-         * This API submits an account creation task and returns the task ID.   You must include the `sourceId` where the account will be created in the `attributes` object. This endpoint creates an account on the source record in your ISC tenant. This is useful for Flat File (`DelimitedFile`) type sources because it allows you to aggregate new accounts without needing to import a new CSV file every time.  However, if you use this endpoint to create an account for a Direct Connection type source, you must ensure that the account also exists on the target source.  The endpoint doesn\'t actually provision the account on the target source, which means that if the account doesn\'t also exist on the target source, an aggregation between the source and your tenant will remove it from your tenant.  A token with ORG_ADMIN authority is required to call this API.
+         * This API submits an account creation task and returns the task ID.   You must include the `sourceId` where the account will be created in the `attributes` object. This endpoint creates an account on the source record in your ISC tenant. This is useful for Flat File (`DelimitedFile`) type sources because it allows you to aggregate new accounts without needing to import a new CSV file every time.  However, if you use this endpoint to create an account for a Direct Connection type source, you must ensure that the account also exists on the target source.  The endpoint doesn\'t actually provision the account on the target source, which means that if the account doesn\'t also exist on the target source, an aggregation between the source and your tenant will remove it from your tenant.  A token with ORG_ADMIN, SOURCE_ADMIN, or SOURCE_SUBADMIN authority is required to call this API.
          * @summary Create Account
          * @param {AccountAttributesCreate} accountAttributesCreate 
          * @param {*} [axiosOptions] Override http request option.
@@ -25472,7 +25472,7 @@ export const AccountsApiFactory = function (configuration?: Configuration, baseP
             return localVarFp.createAccount(accountAttributesCreate, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
-         * Use this API to delete an account.  This endpoint submits an account delete task and returns the task ID.  This endpoint only deletes the account from IdentityNow, not the source itself, which can result in the account\'s returning with the next aggregation between the source and IdentityNow.  To avoid this scenario, it is recommended that you [disable accounts](https://developer.sailpoint.com/idn/api/v3/disable-account) rather than delete them. This will also allow you to reenable the accounts in the future.  A token with ORG_ADMIN authority is required to call this API. >**NOTE: You can only delete accounts from sources of the \"DelimitedFile\" type.**
+         * Use this API to delete an account.  This endpoint submits an account delete task and returns the task ID.  This endpoint only deletes the account from IdentityNow, not the source itself, which can result in the account\'s returning with the next aggregation between the source and IdentityNow.  To avoid this scenario, it is recommended that you [disable accounts](https://developer.sailpoint.com/idn/api/v3/disable-account) rather than delete them. This will also allow you to reenable the accounts in the future.  A token with ORG_ADMIN, SOURCE_ADMIN, or SOURCE_SUBADMIN authority is required to call this API. >**NOTE: You can only delete accounts from sources of the \"DelimitedFile\" type.**
          * @summary Delete Account
          * @param {string} id Account ID.
          * @param {*} [axiosOptions] Override http request option.
@@ -25482,7 +25482,7 @@ export const AccountsApiFactory = function (configuration?: Configuration, baseP
             return localVarFp.deleteAccount(id, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
-         * This API submits a task to disable the account and returns the task ID.   A token with ORG_ADMIN authority is required to call this API.
+         * This API submits a task to disable the account and returns the task ID.   A token with ORG_ADMIN, SOURCE_ADMIN, SOURCE_SUBADMIN, or HELPDESK authority is required to call this API.
          * @summary Disable Account
          * @param {string} id The account id
          * @param {AccountToggleRequest} accountToggleRequest 
@@ -25493,7 +25493,7 @@ export const AccountsApiFactory = function (configuration?: Configuration, baseP
             return localVarFp.disableAccount(id, accountToggleRequest, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
-         * This API submits a task to enable account and returns the task ID.   A token with ORG_ADMIN authority is required to call this API.
+         * This API submits a task to enable account and returns the task ID.   A token with ORG_ADMIN, SOURCE_ADMIN, SOURCE_SUBADMIN, or HELPDESK authority is required to call this API.
          * @summary Enable Account
          * @param {string} id The account id
          * @param {AccountToggleRequest} accountToggleRequest 
@@ -25504,7 +25504,7 @@ export const AccountsApiFactory = function (configuration?: Configuration, baseP
             return localVarFp.enableAccount(id, accountToggleRequest, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
-         * Use this API to return the details for a single account by its ID.   A token with ORG_ADMIN authority is required to call this API.
+         * Use this API to return the details for a single account by its ID.   A token with ORG_ADMIN, SOURCE_ADMIN, SOURCE_SUBADMIN, or HELPDESK authority is required to call this API.
          * @summary Account Details
          * @param {string} id Account ID.
          * @param {*} [axiosOptions] Override http request option.
@@ -25514,7 +25514,7 @@ export const AccountsApiFactory = function (configuration?: Configuration, baseP
             return localVarFp.getAccount(id, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
-         * This API returns entitlements of the account.   A token with ORG_ADMIN authority is required to call this API.
+         * This API returns entitlements of the account.   A token with ORG_ADMIN, SOURCE_ADMIN, SOURCE_SUBADMIN, or HELPDESK authority is required to call this API.
          * @summary Account Entitlements
          * @param {string} id The account id
          * @param {number} [limit] Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
@@ -25527,7 +25527,7 @@ export const AccountsApiFactory = function (configuration?: Configuration, baseP
             return localVarFp.getAccountEntitlements(id, limit, offset, count, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
-         * This returns a list of accounts.   A token with ORG_ADMIN authority is required to call this API.
+         * This returns a list of accounts.   A token with ORG_ADMIN, SOURCE_ADMIN, SOURCE_SUBADMIN, or HELPDESK authority is required to call this API.
          * @summary Accounts List
          * @param {number} [limit] Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
          * @param {number} [offset] Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
@@ -25541,7 +25541,7 @@ export const AccountsApiFactory = function (configuration?: Configuration, baseP
             return localVarFp.listAccounts(limit, offset, count, filters, sorters, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
-         * Use this API to update an account with a PUT request.  This endpoint submits an account update task and returns the task ID.  A token with ORG_ADMIN authority is required to call this API. >**NOTE: You can only use this PUT endpoint to update accounts from sources of the \"DelimitedFile\" type.**
+         * Use this API to update an account with a PUT request.  This endpoint submits an account update task and returns the task ID.  A token with ORG_ADMIN, SOURCE_ADMIN, or SOURCE_SUBADMIN authority is required to call this API. >**NOTE: You can only use this PUT endpoint to update accounts from sources of the \"DelimitedFile\" type.**
          * @summary Update Account
          * @param {string} id Account ID.
          * @param {AccountAttributes} accountAttributes 
@@ -25552,17 +25552,17 @@ export const AccountsApiFactory = function (configuration?: Configuration, baseP
             return localVarFp.putAccount(id, accountAttributes, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
-         * This API asynchronously reloads the account directly from the connector and performs a one-time aggregation process.   A token with ORG_ADMIN authority is required to call this API.
+         * This API asynchronously reloads the account directly from the connector and performs a one-time aggregation process.   A token with ORG_ADMIN, SOURCE_ADMIN, SOURCE_SUBADMIN, or HELPDESK authority is required to call this API.
          * @summary Reload Account
          * @param {string} id The account id
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        reloadAccount(id: string, axiosOptions?: any): AxiosPromise<AccountsAsyncResult> {
-            return localVarFp.reloadAccount(id, axiosOptions).then((request) => request(axios, basePath));
+        submitReloadAccount(id: string, axiosOptions?: any): AxiosPromise<AccountsAsyncResult> {
+            return localVarFp.submitReloadAccount(id, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
-         * This API submits a task to unlock an account and returns the task ID.   To use this endpoint to unlock an account that has the `forceProvisioning` option set to true, the `idn:accounts-provisioning:manage` scope is required.  A token with ORG_ADMIN authority is required to call this API.
+         * This API submits a task to unlock an account and returns the task ID.   To use this endpoint to unlock an account that has the `forceProvisioning` option set to true, the `idn:accounts-provisioning:manage` scope is required.  A token with ORG_ADMIN, SOURCE_ADMIN, SOURCE_SUBADMIN, or HELPDESK authority is required to call this API.
          * @summary Unlock Account
          * @param {string} id The account ID.
          * @param {AccountUnlockRequest} accountUnlockRequest 
@@ -25769,15 +25769,15 @@ export interface AccountsApiPutAccountRequest {
 }
 
 /**
- * Request parameters for reloadAccount operation in AccountsApi.
+ * Request parameters for submitReloadAccount operation in AccountsApi.
  * @export
- * @interface AccountsApiReloadAccountRequest
+ * @interface AccountsApiSubmitReloadAccountRequest
  */
-export interface AccountsApiReloadAccountRequest {
+export interface AccountsApiSubmitReloadAccountRequest {
     /**
      * The account id
      * @type {string}
-     * @memberof AccountsApiReloadAccount
+     * @memberof AccountsApiSubmitReloadAccount
      */
     readonly id: string
 }
@@ -25832,7 +25832,7 @@ export interface AccountsApiUpdateAccountRequest {
  */
 export class AccountsApi extends BaseAPI {
     /**
-     * This API submits an account creation task and returns the task ID.   You must include the `sourceId` where the account will be created in the `attributes` object. This endpoint creates an account on the source record in your ISC tenant. This is useful for Flat File (`DelimitedFile`) type sources because it allows you to aggregate new accounts without needing to import a new CSV file every time.  However, if you use this endpoint to create an account for a Direct Connection type source, you must ensure that the account also exists on the target source.  The endpoint doesn\'t actually provision the account on the target source, which means that if the account doesn\'t also exist on the target source, an aggregation between the source and your tenant will remove it from your tenant.  A token with ORG_ADMIN authority is required to call this API.
+     * This API submits an account creation task and returns the task ID.   You must include the `sourceId` where the account will be created in the `attributes` object. This endpoint creates an account on the source record in your ISC tenant. This is useful for Flat File (`DelimitedFile`) type sources because it allows you to aggregate new accounts without needing to import a new CSV file every time.  However, if you use this endpoint to create an account for a Direct Connection type source, you must ensure that the account also exists on the target source.  The endpoint doesn\'t actually provision the account on the target source, which means that if the account doesn\'t also exist on the target source, an aggregation between the source and your tenant will remove it from your tenant.  A token with ORG_ADMIN, SOURCE_ADMIN, or SOURCE_SUBADMIN authority is required to call this API.
      * @summary Create Account
      * @param {AccountsApiCreateAccountRequest} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
@@ -25844,7 +25844,7 @@ export class AccountsApi extends BaseAPI {
     }
 
     /**
-     * Use this API to delete an account.  This endpoint submits an account delete task and returns the task ID.  This endpoint only deletes the account from IdentityNow, not the source itself, which can result in the account\'s returning with the next aggregation between the source and IdentityNow.  To avoid this scenario, it is recommended that you [disable accounts](https://developer.sailpoint.com/idn/api/v3/disable-account) rather than delete them. This will also allow you to reenable the accounts in the future.  A token with ORG_ADMIN authority is required to call this API. >**NOTE: You can only delete accounts from sources of the \"DelimitedFile\" type.**
+     * Use this API to delete an account.  This endpoint submits an account delete task and returns the task ID.  This endpoint only deletes the account from IdentityNow, not the source itself, which can result in the account\'s returning with the next aggregation between the source and IdentityNow.  To avoid this scenario, it is recommended that you [disable accounts](https://developer.sailpoint.com/idn/api/v3/disable-account) rather than delete them. This will also allow you to reenable the accounts in the future.  A token with ORG_ADMIN, SOURCE_ADMIN, or SOURCE_SUBADMIN authority is required to call this API. >**NOTE: You can only delete accounts from sources of the \"DelimitedFile\" type.**
      * @summary Delete Account
      * @param {AccountsApiDeleteAccountRequest} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
@@ -25856,7 +25856,7 @@ export class AccountsApi extends BaseAPI {
     }
 
     /**
-     * This API submits a task to disable the account and returns the task ID.   A token with ORG_ADMIN authority is required to call this API.
+     * This API submits a task to disable the account and returns the task ID.   A token with ORG_ADMIN, SOURCE_ADMIN, SOURCE_SUBADMIN, or HELPDESK authority is required to call this API.
      * @summary Disable Account
      * @param {AccountsApiDisableAccountRequest} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
@@ -25868,7 +25868,7 @@ export class AccountsApi extends BaseAPI {
     }
 
     /**
-     * This API submits a task to enable account and returns the task ID.   A token with ORG_ADMIN authority is required to call this API.
+     * This API submits a task to enable account and returns the task ID.   A token with ORG_ADMIN, SOURCE_ADMIN, SOURCE_SUBADMIN, or HELPDESK authority is required to call this API.
      * @summary Enable Account
      * @param {AccountsApiEnableAccountRequest} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
@@ -25880,7 +25880,7 @@ export class AccountsApi extends BaseAPI {
     }
 
     /**
-     * Use this API to return the details for a single account by its ID.   A token with ORG_ADMIN authority is required to call this API.
+     * Use this API to return the details for a single account by its ID.   A token with ORG_ADMIN, SOURCE_ADMIN, SOURCE_SUBADMIN, or HELPDESK authority is required to call this API.
      * @summary Account Details
      * @param {AccountsApiGetAccountRequest} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
@@ -25892,7 +25892,7 @@ export class AccountsApi extends BaseAPI {
     }
 
     /**
-     * This API returns entitlements of the account.   A token with ORG_ADMIN authority is required to call this API.
+     * This API returns entitlements of the account.   A token with ORG_ADMIN, SOURCE_ADMIN, SOURCE_SUBADMIN, or HELPDESK authority is required to call this API.
      * @summary Account Entitlements
      * @param {AccountsApiGetAccountEntitlementsRequest} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
@@ -25904,7 +25904,7 @@ export class AccountsApi extends BaseAPI {
     }
 
     /**
-     * This returns a list of accounts.   A token with ORG_ADMIN authority is required to call this API.
+     * This returns a list of accounts.   A token with ORG_ADMIN, SOURCE_ADMIN, SOURCE_SUBADMIN, or HELPDESK authority is required to call this API.
      * @summary Accounts List
      * @param {AccountsApiListAccountsRequest} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
@@ -25916,7 +25916,7 @@ export class AccountsApi extends BaseAPI {
     }
 
     /**
-     * Use this API to update an account with a PUT request.  This endpoint submits an account update task and returns the task ID.  A token with ORG_ADMIN authority is required to call this API. >**NOTE: You can only use this PUT endpoint to update accounts from sources of the \"DelimitedFile\" type.**
+     * Use this API to update an account with a PUT request.  This endpoint submits an account update task and returns the task ID.  A token with ORG_ADMIN, SOURCE_ADMIN, or SOURCE_SUBADMIN authority is required to call this API. >**NOTE: You can only use this PUT endpoint to update accounts from sources of the \"DelimitedFile\" type.**
      * @summary Update Account
      * @param {AccountsApiPutAccountRequest} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
@@ -25928,19 +25928,19 @@ export class AccountsApi extends BaseAPI {
     }
 
     /**
-     * This API asynchronously reloads the account directly from the connector and performs a one-time aggregation process.   A token with ORG_ADMIN authority is required to call this API.
+     * This API asynchronously reloads the account directly from the connector and performs a one-time aggregation process.   A token with ORG_ADMIN, SOURCE_ADMIN, SOURCE_SUBADMIN, or HELPDESK authority is required to call this API.
      * @summary Reload Account
-     * @param {AccountsApiReloadAccountRequest} requestParameters Request parameters.
+     * @param {AccountsApiSubmitReloadAccountRequest} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
      * @memberof AccountsApi
      */
-    public reloadAccount(requestParameters: AccountsApiReloadAccountRequest, axiosOptions?: AxiosRequestConfig) {
-        return AccountsApiFp(this.configuration).reloadAccount(requestParameters.id, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public submitReloadAccount(requestParameters: AccountsApiSubmitReloadAccountRequest, axiosOptions?: AxiosRequestConfig) {
+        return AccountsApiFp(this.configuration).submitReloadAccount(requestParameters.id, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
-     * This API submits a task to unlock an account and returns the task ID.   To use this endpoint to unlock an account that has the `forceProvisioning` option set to true, the `idn:accounts-provisioning:manage` scope is required.  A token with ORG_ADMIN authority is required to call this API.
+     * This API submits a task to unlock an account and returns the task ID.   To use this endpoint to unlock an account that has the `forceProvisioning` option set to true, the `idn:accounts-provisioning:manage` scope is required.  A token with ORG_ADMIN, SOURCE_ADMIN, SOURCE_SUBADMIN, or HELPDESK authority is required to call this API.
      * @summary Unlock Account
      * @param {AccountsApiUnlockAccountRequest} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
