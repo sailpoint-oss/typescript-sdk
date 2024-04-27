@@ -32739,6 +32739,69 @@ export const ConnectorsApiAxiosParamCreator = function (configuration?: Configur
             };
         },
         /**
+         * Fetches list of connectors that have \'RELEASED\' status using filtering and pagination. A token with ORG_ADMIN authority is required to call this API.
+         * @summary Gets connector list
+         * @param {string} [filters] Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **name**: *sw, co*  **type**: *sw, co, eq*  **directConnect**: *eq*  **category**: *eq*  **features**: *ca*  **labels**: *ca*
+         * @param {number} [limit] Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+         * @param {number} [offset] Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+         * @param {boolean} [count] If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+         * @param {'de' | 'false' | 'fi' | 'sv' | 'ru' | 'pt' | 'ko' | 'zh-TW' | 'en' | 'it' | 'fr' | 'zh-CN' | 'hu' | 'es' | 'cs' | 'ja' | 'pl' | 'da' | 'nl'} [locale] The locale to apply to the config. If no viable locale is given, it will default to \&quot;en\&quot;
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        getConnectorList: async (filters?: string, limit?: number, offset?: number, count?: boolean, locale?: 'de' | 'false' | 'fi' | 'sv' | 'ru' | 'pt' | 'ko' | 'zh-TW' | 'en' | 'it' | 'fr' | 'zh-CN' | 'hu' | 'es' | 'cs' | 'ja' | 'pl' | 'da' | 'nl', axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            const localVarPath = `/connectors/{scriptName}/list`;
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...axiosOptions};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication UserContextAuth required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "UserContextAuth", [], configuration)
+
+            // authentication UserContextAuth required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "UserContextAuth", [], configuration)
+
+            if (filters !== undefined) {
+                localVarQueryParameter['filters'] = filters;
+            }
+
+            if (limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+
+            if (offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+
+            if (count !== undefined) {
+                localVarQueryParameter['count'] = count;
+            }
+
+            if (locale !== undefined) {
+                localVarQueryParameter['locale'] = locale;
+            }
+
+
+    
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                axiosOptions: localVarRequestOptions,
+            };
+        },
+        /**
          * Fetches a connector\'s source config using its script name. A token with ORG_ADMIN authority is required to call this API.
          * @param {string} scriptName The scriptName value of the connector. Scriptname is the unique id generated at connector creation.
          * @param {*} [axiosOptions] Override http request option.
@@ -33166,6 +33229,21 @@ export const ConnectorsApiFp = function(configuration?: Configuration) {
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
+         * Fetches list of connectors that have \'RELEASED\' status using filtering and pagination. A token with ORG_ADMIN authority is required to call this API.
+         * @summary Gets connector list
+         * @param {string} [filters] Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **name**: *sw, co*  **type**: *sw, co, eq*  **directConnect**: *eq*  **category**: *eq*  **features**: *ca*  **labels**: *ca*
+         * @param {number} [limit] Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+         * @param {number} [offset] Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+         * @param {boolean} [count] If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+         * @param {'de' | 'false' | 'fi' | 'sv' | 'ru' | 'pt' | 'ko' | 'zh-TW' | 'en' | 'it' | 'fr' | 'zh-CN' | 'hu' | 'es' | 'cs' | 'ja' | 'pl' | 'da' | 'nl'} [locale] The locale to apply to the config. If no viable locale is given, it will default to \&quot;en\&quot;
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        async getConnectorList(filters?: string, limit?: number, offset?: number, count?: boolean, locale?: 'de' | 'false' | 'fi' | 'sv' | 'ru' | 'pt' | 'ko' | 'zh-TW' | 'en' | 'it' | 'fr' | 'zh-CN' | 'hu' | 'es' | 'cs' | 'ja' | 'pl' | 'da' | 'nl', axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<V3ConnectorDto>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getConnectorList(filters, limit, offset, count, locale, axiosOptions);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
          * Fetches a connector\'s source config using its script name. A token with ORG_ADMIN authority is required to call this API.
          * @param {string} scriptName The scriptName value of the connector. Scriptname is the unique id generated at connector creation.
          * @param {*} [axiosOptions] Override http request option.
@@ -33298,6 +33376,20 @@ export const ConnectorsApiFactory = function (configuration?: Configuration, bas
          */
         getConnectorCorrelationConfig(scriptName: string, axiosOptions?: any): AxiosPromise<string> {
             return localVarFp.getConnectorCorrelationConfig(scriptName, axiosOptions).then((request) => request(axios, basePath));
+        },
+        /**
+         * Fetches list of connectors that have \'RELEASED\' status using filtering and pagination. A token with ORG_ADMIN authority is required to call this API.
+         * @summary Gets connector list
+         * @param {string} [filters] Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **name**: *sw, co*  **type**: *sw, co, eq*  **directConnect**: *eq*  **category**: *eq*  **features**: *ca*  **labels**: *ca*
+         * @param {number} [limit] Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+         * @param {number} [offset] Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+         * @param {boolean} [count] If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+         * @param {'de' | 'false' | 'fi' | 'sv' | 'ru' | 'pt' | 'ko' | 'zh-TW' | 'en' | 'it' | 'fr' | 'zh-CN' | 'hu' | 'es' | 'cs' | 'ja' | 'pl' | 'da' | 'nl'} [locale] The locale to apply to the config. If no viable locale is given, it will default to \&quot;en\&quot;
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        getConnectorList(filters?: string, limit?: number, offset?: number, count?: boolean, locale?: 'de' | 'false' | 'fi' | 'sv' | 'ru' | 'pt' | 'ko' | 'zh-TW' | 'en' | 'it' | 'fr' | 'zh-CN' | 'hu' | 'es' | 'cs' | 'ja' | 'pl' | 'da' | 'nl', axiosOptions?: any): AxiosPromise<Array<V3ConnectorDto>> {
+            return localVarFp.getConnectorList(filters, limit, offset, count, locale, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * Fetches a connector\'s source config using its script name. A token with ORG_ADMIN authority is required to call this API.
@@ -33441,6 +33533,48 @@ export interface ConnectorsApiGetConnectorCorrelationConfigRequest {
      * @memberof ConnectorsApiGetConnectorCorrelationConfig
      */
     readonly scriptName: string
+}
+
+/**
+ * Request parameters for getConnectorList operation in ConnectorsApi.
+ * @export
+ * @interface ConnectorsApiGetConnectorListRequest
+ */
+export interface ConnectorsApiGetConnectorListRequest {
+    /**
+     * Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **name**: *sw, co*  **type**: *sw, co, eq*  **directConnect**: *eq*  **category**: *eq*  **features**: *ca*  **labels**: *ca*
+     * @type {string}
+     * @memberof ConnectorsApiGetConnectorList
+     */
+    readonly filters?: string
+
+    /**
+     * Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+     * @type {number}
+     * @memberof ConnectorsApiGetConnectorList
+     */
+    readonly limit?: number
+
+    /**
+     * Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+     * @type {number}
+     * @memberof ConnectorsApiGetConnectorList
+     */
+    readonly offset?: number
+
+    /**
+     * If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+     * @type {boolean}
+     * @memberof ConnectorsApiGetConnectorList
+     */
+    readonly count?: boolean
+
+    /**
+     * The locale to apply to the config. If no viable locale is given, it will default to \&quot;en\&quot;
+     * @type {'de' | 'false' | 'fi' | 'sv' | 'ru' | 'pt' | 'ko' | 'zh-TW' | 'en' | 'it' | 'fr' | 'zh-CN' | 'hu' | 'es' | 'cs' | 'ja' | 'pl' | 'da' | 'nl'}
+     * @memberof ConnectorsApiGetConnectorList
+     */
+    readonly locale?: 'de' | 'false' | 'fi' | 'sv' | 'ru' | 'pt' | 'ko' | 'zh-TW' | 'en' | 'it' | 'fr' | 'zh-CN' | 'hu' | 'es' | 'cs' | 'ja' | 'pl' | 'da' | 'nl'
 }
 
 /**
@@ -33647,6 +33781,18 @@ export class ConnectorsApi extends BaseAPI {
      */
     public getConnectorCorrelationConfig(requestParameters: ConnectorsApiGetConnectorCorrelationConfigRequest, axiosOptions?: AxiosRequestConfig) {
         return ConnectorsApiFp(this.configuration).getConnectorCorrelationConfig(requestParameters.scriptName, axiosOptions).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Fetches list of connectors that have \'RELEASED\' status using filtering and pagination. A token with ORG_ADMIN authority is required to call this API.
+     * @summary Gets connector list
+     * @param {ConnectorsApiGetConnectorListRequest} requestParameters Request parameters.
+     * @param {*} [axiosOptions] Override http request option.
+     * @throws {RequiredError}
+     * @memberof ConnectorsApi
+     */
+    public getConnectorList(requestParameters: ConnectorsApiGetConnectorListRequest = {}, axiosOptions?: AxiosRequestConfig) {
+        return ConnectorsApiFp(this.configuration).getConnectorList(requestParameters.filters, requestParameters.limit, requestParameters.offset, requestParameters.count, requestParameters.locale, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
