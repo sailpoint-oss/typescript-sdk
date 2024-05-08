@@ -31646,7 +31646,7 @@ export class CertificationsApi extends BaseAPI {
 export const ConfigurationHubApiAxiosParamCreator = function (configuration?: Configuration) {
     return {
         /**
-         * This creates an object mapping between current org and source org. The request will need the following security scope: - sp:config-object-mapping:manage
+         * This creates an object mapping between current org and source org. Source org should be \"default\" when creating an object mapping that is not to be associated to any particular org. The request will need the following security scope: - sp:config-object-mapping:manage
          * @summary Creates an object mapping
          * @param {string} sourceOrg The name of the source org.
          * @param {ObjectMappingRequest} objectMappingRequest The object mapping request body.
@@ -31694,7 +31694,7 @@ export const ConfigurationHubApiAxiosParamCreator = function (configuration?: Co
             };
         },
         /**
-         * This creates a set of object mappings (Max 25) between current org and source org. The request will need the following security scope: - sp:config-object-mapping:manage
+         * This creates a set of object mappings (Max 25) between current org and source org. Source org should be \"default\" when creating object mappings that are not to be associated to any particular org. The request will need the following security scope: - sp:config-object-mapping:manage
          * @summary Bulk creates object mappings
          * @param {string} sourceOrg The name of the source org.
          * @param {ObjectMappingBulkCreateRequest} objectMappingBulkCreateRequest The bulk create object mapping request body.
@@ -31742,7 +31742,7 @@ export const ConfigurationHubApiAxiosParamCreator = function (configuration?: Co
             };
         },
         /**
-         * This deletes an existing object mapping. The request will need the following security scope: - sp:config-object-mapping:manage
+         * This deletes an existing object mapping. Source org should be \"default\" when deleting an object mapping that is not associated to any particular org. The request will need the following security scope: - sp:config-object-mapping:manage
          * @summary Deletes an object mapping
          * @param {string} sourceOrg The name of the source org.
          * @param {string} objectMappingId The id of the object mapping to be deleted.
@@ -31830,7 +31830,7 @@ export const ConfigurationHubApiAxiosParamCreator = function (configuration?: Co
             };
         },
         /**
-         * This gets a list of existing object mappings between current org and source org. The request will need the following security scope: - sp:config-object-mapping:read
+         * This gets a list of existing object mappings between current org and source org. Source org should be \"default\" when getting object mappings that are not associated to any particular org. The request will need the following security scope: - sp:config-object-mapping:read
          * @summary Gets list of object mappings
          * @param {string} sourceOrg The name of the source org.
          * @param {*} [axiosOptions] Override http request option.
@@ -32013,7 +32013,7 @@ export const ConfigurationHubApiAxiosParamCreator = function (configuration?: Co
             };
         },
         /**
-         * This updates a set of object mappings, only enabled and targetValue fields can be updated. The request will need the following security scope: - sp:config-object-mapping:manage
+         * This updates a set of object mappings, only enabled and targetValue fields can be updated. Source org should be \"default\" when updating object mappings that are not associated to any particular org. The request will need the following security scope: - sp:config-object-mapping:manage
          * @summary Bulk updates object mappings
          * @param {string} sourceOrg The name of the source org.
          * @param {ObjectMappingBulkPatchRequest} objectMappingBulkPatchRequest The object mapping request body.
@@ -32071,7 +32071,7 @@ export const ConfigurationHubApiFp = function(configuration?: Configuration) {
     const localVarAxiosParamCreator = ConfigurationHubApiAxiosParamCreator(configuration)
     return {
         /**
-         * This creates an object mapping between current org and source org. The request will need the following security scope: - sp:config-object-mapping:manage
+         * This creates an object mapping between current org and source org. Source org should be \"default\" when creating an object mapping that is not to be associated to any particular org. The request will need the following security scope: - sp:config-object-mapping:manage
          * @summary Creates an object mapping
          * @param {string} sourceOrg The name of the source org.
          * @param {ObjectMappingRequest} objectMappingRequest The object mapping request body.
@@ -32083,7 +32083,7 @@ export const ConfigurationHubApiFp = function(configuration?: Configuration) {
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
-         * This creates a set of object mappings (Max 25) between current org and source org. The request will need the following security scope: - sp:config-object-mapping:manage
+         * This creates a set of object mappings (Max 25) between current org and source org. Source org should be \"default\" when creating object mappings that are not to be associated to any particular org. The request will need the following security scope: - sp:config-object-mapping:manage
          * @summary Bulk creates object mappings
          * @param {string} sourceOrg The name of the source org.
          * @param {ObjectMappingBulkCreateRequest} objectMappingBulkCreateRequest The bulk create object mapping request body.
@@ -32095,7 +32095,7 @@ export const ConfigurationHubApiFp = function(configuration?: Configuration) {
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
-         * This deletes an existing object mapping. The request will need the following security scope: - sp:config-object-mapping:manage
+         * This deletes an existing object mapping. Source org should be \"default\" when deleting an object mapping that is not associated to any particular org. The request will need the following security scope: - sp:config-object-mapping:manage
          * @summary Deletes an object mapping
          * @param {string} sourceOrg The name of the source org.
          * @param {string} objectMappingId The id of the object mapping to be deleted.
@@ -32118,7 +32118,7 @@ export const ConfigurationHubApiFp = function(configuration?: Configuration) {
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
-         * This gets a list of existing object mappings between current org and source org. The request will need the following security scope: - sp:config-object-mapping:read
+         * This gets a list of existing object mappings between current org and source org. Source org should be \"default\" when getting object mappings that are not associated to any particular org. The request will need the following security scope: - sp:config-object-mapping:read
          * @summary Gets list of object mappings
          * @param {string} sourceOrg The name of the source org.
          * @param {*} [axiosOptions] Override http request option.
@@ -32163,7 +32163,7 @@ export const ConfigurationHubApiFp = function(configuration?: Configuration) {
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
-         * This updates a set of object mappings, only enabled and targetValue fields can be updated. The request will need the following security scope: - sp:config-object-mapping:manage
+         * This updates a set of object mappings, only enabled and targetValue fields can be updated. Source org should be \"default\" when updating object mappings that are not associated to any particular org. The request will need the following security scope: - sp:config-object-mapping:manage
          * @summary Bulk updates object mappings
          * @param {string} sourceOrg The name of the source org.
          * @param {ObjectMappingBulkPatchRequest} objectMappingBulkPatchRequest The object mapping request body.
@@ -32185,7 +32185,7 @@ export const ConfigurationHubApiFactory = function (configuration?: Configuratio
     const localVarFp = ConfigurationHubApiFp(configuration)
     return {
         /**
-         * This creates an object mapping between current org and source org. The request will need the following security scope: - sp:config-object-mapping:manage
+         * This creates an object mapping between current org and source org. Source org should be \"default\" when creating an object mapping that is not to be associated to any particular org. The request will need the following security scope: - sp:config-object-mapping:manage
          * @summary Creates an object mapping
          * @param {string} sourceOrg The name of the source org.
          * @param {ObjectMappingRequest} objectMappingRequest The object mapping request body.
@@ -32196,7 +32196,7 @@ export const ConfigurationHubApiFactory = function (configuration?: Configuratio
             return localVarFp.createObjectMapping(sourceOrg, objectMappingRequest, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
-         * This creates a set of object mappings (Max 25) between current org and source org. The request will need the following security scope: - sp:config-object-mapping:manage
+         * This creates a set of object mappings (Max 25) between current org and source org. Source org should be \"default\" when creating object mappings that are not to be associated to any particular org. The request will need the following security scope: - sp:config-object-mapping:manage
          * @summary Bulk creates object mappings
          * @param {string} sourceOrg The name of the source org.
          * @param {ObjectMappingBulkCreateRequest} objectMappingBulkCreateRequest The bulk create object mapping request body.
@@ -32207,7 +32207,7 @@ export const ConfigurationHubApiFactory = function (configuration?: Configuratio
             return localVarFp.createObjectMappings(sourceOrg, objectMappingBulkCreateRequest, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
-         * This deletes an existing object mapping. The request will need the following security scope: - sp:config-object-mapping:manage
+         * This deletes an existing object mapping. Source org should be \"default\" when deleting an object mapping that is not associated to any particular org. The request will need the following security scope: - sp:config-object-mapping:manage
          * @summary Deletes an object mapping
          * @param {string} sourceOrg The name of the source org.
          * @param {string} objectMappingId The id of the object mapping to be deleted.
@@ -32228,7 +32228,7 @@ export const ConfigurationHubApiFactory = function (configuration?: Configuratio
             return localVarFp.deleteUploadedBackup(id, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
-         * This gets a list of existing object mappings between current org and source org. The request will need the following security scope: - sp:config-object-mapping:read
+         * This gets a list of existing object mappings between current org and source org. Source org should be \"default\" when getting object mappings that are not associated to any particular org. The request will need the following security scope: - sp:config-object-mapping:read
          * @summary Gets list of object mappings
          * @param {string} sourceOrg The name of the source org.
          * @param {*} [axiosOptions] Override http request option.
@@ -32269,7 +32269,7 @@ export const ConfigurationHubApiFactory = function (configuration?: Configuratio
             return localVarFp.importUploadedBackup(data, name, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
-         * This updates a set of object mappings, only enabled and targetValue fields can be updated. The request will need the following security scope: - sp:config-object-mapping:manage
+         * This updates a set of object mappings, only enabled and targetValue fields can be updated. Source org should be \"default\" when updating object mappings that are not associated to any particular org. The request will need the following security scope: - sp:config-object-mapping:manage
          * @summary Bulk updates object mappings
          * @param {string} sourceOrg The name of the source org.
          * @param {ObjectMappingBulkPatchRequest} objectMappingBulkPatchRequest The object mapping request body.
@@ -32451,7 +32451,7 @@ export interface ConfigurationHubApiUpdateObjectMappingsRequest {
  */
 export class ConfigurationHubApi extends BaseAPI {
     /**
-     * This creates an object mapping between current org and source org. The request will need the following security scope: - sp:config-object-mapping:manage
+     * This creates an object mapping between current org and source org. Source org should be \"default\" when creating an object mapping that is not to be associated to any particular org. The request will need the following security scope: - sp:config-object-mapping:manage
      * @summary Creates an object mapping
      * @param {ConfigurationHubApiCreateObjectMappingRequest} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
@@ -32463,7 +32463,7 @@ export class ConfigurationHubApi extends BaseAPI {
     }
 
     /**
-     * This creates a set of object mappings (Max 25) between current org and source org. The request will need the following security scope: - sp:config-object-mapping:manage
+     * This creates a set of object mappings (Max 25) between current org and source org. Source org should be \"default\" when creating object mappings that are not to be associated to any particular org. The request will need the following security scope: - sp:config-object-mapping:manage
      * @summary Bulk creates object mappings
      * @param {ConfigurationHubApiCreateObjectMappingsRequest} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
@@ -32475,7 +32475,7 @@ export class ConfigurationHubApi extends BaseAPI {
     }
 
     /**
-     * This deletes an existing object mapping. The request will need the following security scope: - sp:config-object-mapping:manage
+     * This deletes an existing object mapping. Source org should be \"default\" when deleting an object mapping that is not associated to any particular org. The request will need the following security scope: - sp:config-object-mapping:manage
      * @summary Deletes an object mapping
      * @param {ConfigurationHubApiDeleteObjectMappingRequest} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
@@ -32499,7 +32499,7 @@ export class ConfigurationHubApi extends BaseAPI {
     }
 
     /**
-     * This gets a list of existing object mappings between current org and source org. The request will need the following security scope: - sp:config-object-mapping:read
+     * This gets a list of existing object mappings between current org and source org. Source org should be \"default\" when getting object mappings that are not associated to any particular org. The request will need the following security scope: - sp:config-object-mapping:read
      * @summary Gets list of object mappings
      * @param {ConfigurationHubApiGetObjectMappingsRequest} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
@@ -32547,7 +32547,7 @@ export class ConfigurationHubApi extends BaseAPI {
     }
 
     /**
-     * This updates a set of object mappings, only enabled and targetValue fields can be updated. The request will need the following security scope: - sp:config-object-mapping:manage
+     * This updates a set of object mappings, only enabled and targetValue fields can be updated. Source org should be \"default\" when updating object mappings that are not associated to any particular org. The request will need the following security scope: - sp:config-object-mapping:manage
      * @summary Bulk updates object mappings
      * @param {ConfigurationHubApiUpdateObjectMappingsRequest} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
