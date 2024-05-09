@@ -13609,6 +13609,187 @@ export interface PasswordOrgConfig {
 /**
  * 
  * @export
+ * @interface PasswordPolicyV3Dto
+ */
+export interface PasswordPolicyV3Dto {
+    /**
+     * The password policy Id.
+     * @type {string}
+     * @memberof PasswordPolicyV3Dto
+     */
+    'id'?: string;
+    /**
+     * Description for current password policy.
+     * @type {string}
+     * @memberof PasswordPolicyV3Dto
+     */
+    'description'?: string;
+    /**
+     * The name of the password policy.
+     * @type {string}
+     * @memberof PasswordPolicyV3Dto
+     */
+    'name'?: string;
+    /**
+     * Date the Password Policy was created.
+     * @type {string}
+     * @memberof PasswordPolicyV3Dto
+     */
+    'dateCrated'?: string;
+    /**
+     * Date the Password Policy was updated.
+     * @type {string}
+     * @memberof PasswordPolicyV3Dto
+     */
+    'lastUpdated'?: string;
+    /**
+     * The number of days before expiration remaninder.
+     * @type {number}
+     * @memberof PasswordPolicyV3Dto
+     */
+    'firstExpirationReminder'?: number;
+    /**
+     * The minimun length of account Id. By default is equals to -1.
+     * @type {number}
+     * @memberof PasswordPolicyV3Dto
+     */
+    'accountIdMinWordLength'?: number;
+    /**
+     * The minimun length of account name. By default is equals to -1.
+     * @type {number}
+     * @memberof PasswordPolicyV3Dto
+     */
+    'accountNameMinWordLength'?: number;
+    /**
+     * Maximum alpha. By default is equals to 0.
+     * @type {number}
+     * @memberof PasswordPolicyV3Dto
+     */
+    'minAlpha'?: number;
+    /**
+     * MinCharacterTypes. By default is equals to -1.
+     * @type {number}
+     * @memberof PasswordPolicyV3Dto
+     */
+    'minCharacterTypes'?: number;
+    /**
+     * Maximum length of the password.
+     * @type {number}
+     * @memberof PasswordPolicyV3Dto
+     */
+    'maxLength'?: number;
+    /**
+     * Minimum length of the password. By default is equals to 0.
+     * @type {number}
+     * @memberof PasswordPolicyV3Dto
+     */
+    'minLength'?: number;
+    /**
+     * Maximum repetition of the same character in the password. By default is equals to -1.
+     * @type {number}
+     * @memberof PasswordPolicyV3Dto
+     */
+    'maxRepeatedChars'?: number;
+    /**
+     * Minimum amount of lower case character in the password. By default is equals to 0.
+     * @type {number}
+     * @memberof PasswordPolicyV3Dto
+     */
+    'minLower'?: number;
+    /**
+     * Minimum amount of numeric characters in the password. By default is equals to 0.
+     * @type {number}
+     * @memberof PasswordPolicyV3Dto
+     */
+    'minNumeric'?: number;
+    /**
+     * Minimum amount of special symbols in the password. By default is equals to 0.
+     * @type {number}
+     * @memberof PasswordPolicyV3Dto
+     */
+    'minSpecial'?: number;
+    /**
+     * Minimum amount of upper case symbols in the password. By default is equals to 0.
+     * @type {number}
+     * @memberof PasswordPolicyV3Dto
+     */
+    'minUpper'?: number;
+    /**
+     * Number of days before current password expires. By default is equals to 90.
+     * @type {number}
+     * @memberof PasswordPolicyV3Dto
+     */
+    'passwordExpiration'?: number;
+    /**
+     * Defines whether this policy is default or not. Default policy is created automatically when an org is setup. This field is false by default.
+     * @type {boolean}
+     * @memberof PasswordPolicyV3Dto
+     */
+    'defaultPolicy'?: boolean;
+    /**
+     * Defines whether this policy is enabled to expire or not. This field is false by default.
+     * @type {boolean}
+     * @memberof PasswordPolicyV3Dto
+     */
+    'enablePasswdExpiration'?: boolean;
+    /**
+     * Defines whether this policy require strong Auth or not. This field is false by default.
+     * @type {boolean}
+     * @memberof PasswordPolicyV3Dto
+     */
+    'requireStrongAuthn'?: boolean;
+    /**
+     * Defines whether this policy require strong Auth of network or not. This field is false by default.
+     * @type {boolean}
+     * @memberof PasswordPolicyV3Dto
+     */
+    'requireStrongAuthOffNetwork'?: boolean;
+    /**
+     * Defines whether this policy require strong Auth for untrusted geographies. This field is false by default.
+     * @type {boolean}
+     * @memberof PasswordPolicyV3Dto
+     */
+    'requireStrongAuthUntrustedGeographies'?: boolean;
+    /**
+     * Defines whether this policy uses account attributes or not. This field is false by default.
+     * @type {boolean}
+     * @memberof PasswordPolicyV3Dto
+     */
+    'useAccountAttributes'?: boolean;
+    /**
+     * Defines whether this policy uses dictionary or not. This field is false by default.
+     * @type {boolean}
+     * @memberof PasswordPolicyV3Dto
+     */
+    'useDictionary'?: boolean;
+    /**
+     * Defines whether this policy uses identity attributes or not. This field is false by default.
+     * @type {boolean}
+     * @memberof PasswordPolicyV3Dto
+     */
+    'useIdentityAttributes'?: boolean;
+    /**
+     * Defines whether this policy validate against account id or not. This field is false by default.
+     * @type {boolean}
+     * @memberof PasswordPolicyV3Dto
+     */
+    'validateAgainstAccountId'?: boolean;
+    /**
+     * Defines whether this policy validate against account name or not. This field is false by default.
+     * @type {boolean}
+     * @memberof PasswordPolicyV3Dto
+     */
+    'validateAgainstAccountName'?: boolean;
+    /**
+     * List of sources IDs managed by this password policy.
+     * @type {Array<string>}
+     * @memberof PasswordPolicyV3Dto
+     */
+    'sourceIds'?: Array<string>;
+}
+/**
+ * 
+ * @export
  * @interface PasswordStatus
  */
 export interface PasswordStatus {
@@ -41598,6 +41779,535 @@ export class PasswordManagementApi extends BaseAPI {
      */
     public setPassword(requestParameters: PasswordManagementApiSetPasswordRequest, axiosOptions?: AxiosRequestConfig) {
         return PasswordManagementApiFp(this.configuration).setPassword(requestParameters.passwordChangeRequest, axiosOptions).then((request) => request(this.axios, this.basePath));
+    }
+}
+
+
+/**
+ * PasswordPoliciesApi - axios parameter creator
+ * @export
+ */
+export const PasswordPoliciesApiAxiosParamCreator = function (configuration?: Configuration) {
+    return {
+        /**
+         * This API creates the specified password policy. A token with ORG_ADMIN authority is required to call this API.
+         * @summary Create Password Policy
+         * @param {PasswordPolicyV3Dto} passwordPolicyV3Dto 
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        createPasswordPolicy: async (passwordPolicyV3Dto: PasswordPolicyV3Dto, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'passwordPolicyV3Dto' is not null or undefined
+            assertParamExists('createPasswordPolicy', 'passwordPolicyV3Dto', passwordPolicyV3Dto)
+            const localVarPath = `/password-policies`;
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'POST', ...baseOptions, ...axiosOptions};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication UserContextAuth required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "UserContextAuth", [], configuration)
+
+            // authentication UserContextAuth required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "UserContextAuth", [], configuration)
+
+
+    
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
+            localVarRequestOptions.data = serializeDataIfNeeded(passwordPolicyV3Dto, localVarRequestOptions, configuration)
+
+            return {
+                url: toPathString(localVarUrlObj),
+                axiosOptions: localVarRequestOptions,
+            };
+        },
+        /**
+         * This API deletes the specified password policy. A token with ORG_ADMIN authority is required to call this API.
+         * @summary Delete Password Policy by ID
+         * @param {string} id The ID of password policy to delete.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        deletePasswordPolicy: async (id: string, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'id' is not null or undefined
+            assertParamExists('deletePasswordPolicy', 'id', id)
+            const localVarPath = `/password-policies/{id}`
+                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'DELETE', ...baseOptions, ...axiosOptions};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication UserContextAuth required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "UserContextAuth", [], configuration)
+
+            // authentication UserContextAuth required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "UserContextAuth", [], configuration)
+
+
+    
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                axiosOptions: localVarRequestOptions,
+            };
+        },
+        /**
+         * This API returns the password policy for the specified ID. A token with ORG_ADMIN authority is required to call this API.
+         * @summary Get Password Policy by ID
+         * @param {string} id The ID of password policy to retrieve.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        getPasswordPolicyById: async (id: string, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'id' is not null or undefined
+            assertParamExists('getPasswordPolicyById', 'id', id)
+            const localVarPath = `/password-policies/{id}`
+                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...axiosOptions};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication UserContextAuth required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "UserContextAuth", [], configuration)
+
+            // authentication UserContextAuth required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "UserContextAuth", [], configuration)
+
+
+    
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                axiosOptions: localVarRequestOptions,
+            };
+        },
+        /**
+         * This gets list of all Password Policies. Requires role of ORG_ADMIN
+         * @summary List Password Policies
+         * @param {number} [limit] Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+         * @param {number} [offset] Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+         * @param {boolean} [count] If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        listPasswordPolicies: async (limit?: number, offset?: number, count?: boolean, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            const localVarPath = `/password-policies`;
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...axiosOptions};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication UserContextAuth required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "UserContextAuth", [], configuration)
+
+            // authentication UserContextAuth required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "UserContextAuth", [], configuration)
+
+            if (limit !== undefined) {
+                localVarQueryParameter['limit'] = limit;
+            }
+
+            if (offset !== undefined) {
+                localVarQueryParameter['offset'] = offset;
+            }
+
+            if (count !== undefined) {
+                localVarQueryParameter['count'] = count;
+            }
+
+
+    
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                axiosOptions: localVarRequestOptions,
+            };
+        },
+        /**
+         * This API updates the specified password policy. A token with ORG_ADMIN authority is required to call this API.
+         * @summary Update Password Policy by ID
+         * @param {string} id The ID of password policy to update.
+         * @param {PasswordPolicyV3Dto} passwordPolicyV3Dto 
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        setPasswordPolicy: async (id: string, passwordPolicyV3Dto: PasswordPolicyV3Dto, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'id' is not null or undefined
+            assertParamExists('setPasswordPolicy', 'id', id)
+            // verify required parameter 'passwordPolicyV3Dto' is not null or undefined
+            assertParamExists('setPasswordPolicy', 'passwordPolicyV3Dto', passwordPolicyV3Dto)
+            const localVarPath = `/password-policies/{id}`
+                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'PUT', ...baseOptions, ...axiosOptions};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication UserContextAuth required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "UserContextAuth", [], configuration)
+
+            // authentication UserContextAuth required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "UserContextAuth", [], configuration)
+
+
+    
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
+            localVarRequestOptions.data = serializeDataIfNeeded(passwordPolicyV3Dto, localVarRequestOptions, configuration)
+
+            return {
+                url: toPathString(localVarUrlObj),
+                axiosOptions: localVarRequestOptions,
+            };
+        },
+    }
+};
+
+/**
+ * PasswordPoliciesApi - functional programming interface
+ * @export
+ */
+export const PasswordPoliciesApiFp = function(configuration?: Configuration) {
+    const localVarAxiosParamCreator = PasswordPoliciesApiAxiosParamCreator(configuration)
+    return {
+        /**
+         * This API creates the specified password policy. A token with ORG_ADMIN authority is required to call this API.
+         * @summary Create Password Policy
+         * @param {PasswordPolicyV3Dto} passwordPolicyV3Dto 
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        async createPasswordPolicy(passwordPolicyV3Dto: PasswordPolicyV3Dto, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<PasswordPolicyV3Dto>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.createPasswordPolicy(passwordPolicyV3Dto, axiosOptions);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * This API deletes the specified password policy. A token with ORG_ADMIN authority is required to call this API.
+         * @summary Delete Password Policy by ID
+         * @param {string} id The ID of password policy to delete.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        async deletePasswordPolicy(id: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.deletePasswordPolicy(id, axiosOptions);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * This API returns the password policy for the specified ID. A token with ORG_ADMIN authority is required to call this API.
+         * @summary Get Password Policy by ID
+         * @param {string} id The ID of password policy to retrieve.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        async getPasswordPolicyById(id: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<PasswordPolicyV3Dto>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getPasswordPolicyById(id, axiosOptions);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * This gets list of all Password Policies. Requires role of ORG_ADMIN
+         * @summary List Password Policies
+         * @param {number} [limit] Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+         * @param {number} [offset] Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+         * @param {boolean} [count] If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        async listPasswordPolicies(limit?: number, offset?: number, count?: boolean, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<PasswordPolicyV3Dto>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.listPasswordPolicies(limit, offset, count, axiosOptions);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * This API updates the specified password policy. A token with ORG_ADMIN authority is required to call this API.
+         * @summary Update Password Policy by ID
+         * @param {string} id The ID of password policy to update.
+         * @param {PasswordPolicyV3Dto} passwordPolicyV3Dto 
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        async setPasswordPolicy(id: string, passwordPolicyV3Dto: PasswordPolicyV3Dto, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<PasswordPolicyV3Dto>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.setPasswordPolicy(id, passwordPolicyV3Dto, axiosOptions);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+    }
+};
+
+/**
+ * PasswordPoliciesApi - factory interface
+ * @export
+ */
+export const PasswordPoliciesApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
+    const localVarFp = PasswordPoliciesApiFp(configuration)
+    return {
+        /**
+         * This API creates the specified password policy. A token with ORG_ADMIN authority is required to call this API.
+         * @summary Create Password Policy
+         * @param {PasswordPolicyV3Dto} passwordPolicyV3Dto 
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        createPasswordPolicy(passwordPolicyV3Dto: PasswordPolicyV3Dto, axiosOptions?: any): AxiosPromise<PasswordPolicyV3Dto> {
+            return localVarFp.createPasswordPolicy(passwordPolicyV3Dto, axiosOptions).then((request) => request(axios, basePath));
+        },
+        /**
+         * This API deletes the specified password policy. A token with ORG_ADMIN authority is required to call this API.
+         * @summary Delete Password Policy by ID
+         * @param {string} id The ID of password policy to delete.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        deletePasswordPolicy(id: string, axiosOptions?: any): AxiosPromise<void> {
+            return localVarFp.deletePasswordPolicy(id, axiosOptions).then((request) => request(axios, basePath));
+        },
+        /**
+         * This API returns the password policy for the specified ID. A token with ORG_ADMIN authority is required to call this API.
+         * @summary Get Password Policy by ID
+         * @param {string} id The ID of password policy to retrieve.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        getPasswordPolicyById(id: string, axiosOptions?: any): AxiosPromise<PasswordPolicyV3Dto> {
+            return localVarFp.getPasswordPolicyById(id, axiosOptions).then((request) => request(axios, basePath));
+        },
+        /**
+         * This gets list of all Password Policies. Requires role of ORG_ADMIN
+         * @summary List Password Policies
+         * @param {number} [limit] Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+         * @param {number} [offset] Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+         * @param {boolean} [count] If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        listPasswordPolicies(limit?: number, offset?: number, count?: boolean, axiosOptions?: any): AxiosPromise<Array<PasswordPolicyV3Dto>> {
+            return localVarFp.listPasswordPolicies(limit, offset, count, axiosOptions).then((request) => request(axios, basePath));
+        },
+        /**
+         * This API updates the specified password policy. A token with ORG_ADMIN authority is required to call this API.
+         * @summary Update Password Policy by ID
+         * @param {string} id The ID of password policy to update.
+         * @param {PasswordPolicyV3Dto} passwordPolicyV3Dto 
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        setPasswordPolicy(id: string, passwordPolicyV3Dto: PasswordPolicyV3Dto, axiosOptions?: any): AxiosPromise<PasswordPolicyV3Dto> {
+            return localVarFp.setPasswordPolicy(id, passwordPolicyV3Dto, axiosOptions).then((request) => request(axios, basePath));
+        },
+    };
+};
+
+/**
+ * Request parameters for createPasswordPolicy operation in PasswordPoliciesApi.
+ * @export
+ * @interface PasswordPoliciesApiCreatePasswordPolicyRequest
+ */
+export interface PasswordPoliciesApiCreatePasswordPolicyRequest {
+    /**
+     * 
+     * @type {PasswordPolicyV3Dto}
+     * @memberof PasswordPoliciesApiCreatePasswordPolicy
+     */
+    readonly passwordPolicyV3Dto: PasswordPolicyV3Dto
+}
+
+/**
+ * Request parameters for deletePasswordPolicy operation in PasswordPoliciesApi.
+ * @export
+ * @interface PasswordPoliciesApiDeletePasswordPolicyRequest
+ */
+export interface PasswordPoliciesApiDeletePasswordPolicyRequest {
+    /**
+     * The ID of password policy to delete.
+     * @type {string}
+     * @memberof PasswordPoliciesApiDeletePasswordPolicy
+     */
+    readonly id: string
+}
+
+/**
+ * Request parameters for getPasswordPolicyById operation in PasswordPoliciesApi.
+ * @export
+ * @interface PasswordPoliciesApiGetPasswordPolicyByIdRequest
+ */
+export interface PasswordPoliciesApiGetPasswordPolicyByIdRequest {
+    /**
+     * The ID of password policy to retrieve.
+     * @type {string}
+     * @memberof PasswordPoliciesApiGetPasswordPolicyById
+     */
+    readonly id: string
+}
+
+/**
+ * Request parameters for listPasswordPolicies operation in PasswordPoliciesApi.
+ * @export
+ * @interface PasswordPoliciesApiListPasswordPoliciesRequest
+ */
+export interface PasswordPoliciesApiListPasswordPoliciesRequest {
+    /**
+     * Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+     * @type {number}
+     * @memberof PasswordPoliciesApiListPasswordPolicies
+     */
+    readonly limit?: number
+
+    /**
+     * Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+     * @type {number}
+     * @memberof PasswordPoliciesApiListPasswordPolicies
+     */
+    readonly offset?: number
+
+    /**
+     * If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+     * @type {boolean}
+     * @memberof PasswordPoliciesApiListPasswordPolicies
+     */
+    readonly count?: boolean
+}
+
+/**
+ * Request parameters for setPasswordPolicy operation in PasswordPoliciesApi.
+ * @export
+ * @interface PasswordPoliciesApiSetPasswordPolicyRequest
+ */
+export interface PasswordPoliciesApiSetPasswordPolicyRequest {
+    /**
+     * The ID of password policy to update.
+     * @type {string}
+     * @memberof PasswordPoliciesApiSetPasswordPolicy
+     */
+    readonly id: string
+
+    /**
+     * 
+     * @type {PasswordPolicyV3Dto}
+     * @memberof PasswordPoliciesApiSetPasswordPolicy
+     */
+    readonly passwordPolicyV3Dto: PasswordPolicyV3Dto
+}
+
+/**
+ * PasswordPoliciesApi - object-oriented interface
+ * @export
+ * @class PasswordPoliciesApi
+ * @extends {BaseAPI}
+ */
+export class PasswordPoliciesApi extends BaseAPI {
+    /**
+     * This API creates the specified password policy. A token with ORG_ADMIN authority is required to call this API.
+     * @summary Create Password Policy
+     * @param {PasswordPoliciesApiCreatePasswordPolicyRequest} requestParameters Request parameters.
+     * @param {*} [axiosOptions] Override http request option.
+     * @throws {RequiredError}
+     * @memberof PasswordPoliciesApi
+     */
+    public createPasswordPolicy(requestParameters: PasswordPoliciesApiCreatePasswordPolicyRequest, axiosOptions?: AxiosRequestConfig) {
+        return PasswordPoliciesApiFp(this.configuration).createPasswordPolicy(requestParameters.passwordPolicyV3Dto, axiosOptions).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * This API deletes the specified password policy. A token with ORG_ADMIN authority is required to call this API.
+     * @summary Delete Password Policy by ID
+     * @param {PasswordPoliciesApiDeletePasswordPolicyRequest} requestParameters Request parameters.
+     * @param {*} [axiosOptions] Override http request option.
+     * @throws {RequiredError}
+     * @memberof PasswordPoliciesApi
+     */
+    public deletePasswordPolicy(requestParameters: PasswordPoliciesApiDeletePasswordPolicyRequest, axiosOptions?: AxiosRequestConfig) {
+        return PasswordPoliciesApiFp(this.configuration).deletePasswordPolicy(requestParameters.id, axiosOptions).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * This API returns the password policy for the specified ID. A token with ORG_ADMIN authority is required to call this API.
+     * @summary Get Password Policy by ID
+     * @param {PasswordPoliciesApiGetPasswordPolicyByIdRequest} requestParameters Request parameters.
+     * @param {*} [axiosOptions] Override http request option.
+     * @throws {RequiredError}
+     * @memberof PasswordPoliciesApi
+     */
+    public getPasswordPolicyById(requestParameters: PasswordPoliciesApiGetPasswordPolicyByIdRequest, axiosOptions?: AxiosRequestConfig) {
+        return PasswordPoliciesApiFp(this.configuration).getPasswordPolicyById(requestParameters.id, axiosOptions).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * This gets list of all Password Policies. Requires role of ORG_ADMIN
+     * @summary List Password Policies
+     * @param {PasswordPoliciesApiListPasswordPoliciesRequest} requestParameters Request parameters.
+     * @param {*} [axiosOptions] Override http request option.
+     * @throws {RequiredError}
+     * @memberof PasswordPoliciesApi
+     */
+    public listPasswordPolicies(requestParameters: PasswordPoliciesApiListPasswordPoliciesRequest = {}, axiosOptions?: AxiosRequestConfig) {
+        return PasswordPoliciesApiFp(this.configuration).listPasswordPolicies(requestParameters.limit, requestParameters.offset, requestParameters.count, axiosOptions).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * This API updates the specified password policy. A token with ORG_ADMIN authority is required to call this API.
+     * @summary Update Password Policy by ID
+     * @param {PasswordPoliciesApiSetPasswordPolicyRequest} requestParameters Request parameters.
+     * @param {*} [axiosOptions] Override http request option.
+     * @throws {RequiredError}
+     * @memberof PasswordPoliciesApi
+     */
+    public setPasswordPolicy(requestParameters: PasswordPoliciesApiSetPasswordPolicyRequest, axiosOptions?: AxiosRequestConfig) {
+        return PasswordPoliciesApiFp(this.configuration).setPasswordPolicy(requestParameters.id, requestParameters.passwordPolicyV3Dto, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 }
 
