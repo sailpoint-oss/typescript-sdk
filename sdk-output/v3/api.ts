@@ -6887,6 +6887,25 @@ export type DtoType = typeof DtoType[keyof typeof DtoType];
 /**
  * 
  * @export
+ * @interface DuoVerificationRequest
+ */
+export interface DuoVerificationRequest {
+    /**
+     * User id for Verification request.
+     * @type {string}
+     * @memberof DuoVerificationRequest
+     */
+    'userId': string;
+    /**
+     * User id for Verification request.
+     * @type {string}
+     * @memberof DuoVerificationRequest
+     */
+    'signedResponse': string;
+}
+/**
+ * 
+ * @export
  * @interface E164phone
  */
 export interface E164phone {
@@ -10310,6 +10329,130 @@ export type JsonPatchOperationValue = Array<ArrayInner> | boolean | number | obj
 /**
  * 
  * @export
+ * @interface KbaAnswerRequestItem
+ */
+export interface KbaAnswerRequestItem {
+    /**
+     * Question Id
+     * @type {string}
+     * @memberof KbaAnswerRequestItem
+     */
+    'id': string;
+    /**
+     * An answer for the KBA question
+     * @type {string}
+     * @memberof KbaAnswerRequestItem
+     */
+    'answer': string;
+}
+/**
+ * 
+ * @export
+ * @interface KbaAnswerResponseItem
+ */
+export interface KbaAnswerResponseItem {
+    /**
+     * Question Id
+     * @type {string}
+     * @memberof KbaAnswerResponseItem
+     */
+    'id': string;
+    /**
+     * Question description
+     * @type {string}
+     * @memberof KbaAnswerResponseItem
+     */
+    'question': string;
+    /**
+     * Denotes whether the KBA question has an answer configured for the current user
+     * @type {boolean}
+     * @memberof KbaAnswerResponseItem
+     */
+    'hasAnswer': boolean;
+}
+/**
+ * 
+ * @export
+ * @interface KbaAuthResponse
+ */
+export interface KbaAuthResponse {
+    /**
+     * 
+     * @type {Array<KbaAuthResponseItem>}
+     * @memberof KbaAuthResponse
+     */
+    'kbaAuthResponseItems'?: Array<KbaAuthResponseItem>;
+    /**
+     * MFA Authentication status
+     * @type {string}
+     * @memberof KbaAuthResponse
+     */
+    'status'?: KbaAuthResponseStatusEnum;
+}
+
+export const KbaAuthResponseStatusEnum = {
+    Pending: 'PENDING',
+    Success: 'SUCCESS',
+    Failed: 'FAILED',
+    Lockout: 'LOCKOUT',
+    NotEnoughData: 'NOT_ENOUGH_DATA'
+} as const;
+
+export type KbaAuthResponseStatusEnum = typeof KbaAuthResponseStatusEnum[keyof typeof KbaAuthResponseStatusEnum];
+
+/**
+ * 
+ * @export
+ * @interface KbaAuthResponseItem
+ */
+export interface KbaAuthResponseItem {
+    /**
+     * The KBA question id
+     * @type {string}
+     * @memberof KbaAuthResponseItem
+     */
+    'questionId'?: string | null;
+    /**
+     * Return true if verified
+     * @type {boolean}
+     * @memberof KbaAuthResponseItem
+     */
+    'isVerified'?: boolean | null;
+}
+/**
+ * KBA Configuration
+ * @export
+ * @interface KbaQuestion
+ */
+export interface KbaQuestion {
+    /**
+     * KBA Question Id
+     * @type {string}
+     * @memberof KbaQuestion
+     */
+    'id': string;
+    /**
+     * KBA Question description
+     * @type {string}
+     * @memberof KbaQuestion
+     */
+    'text': string;
+    /**
+     * Denotes whether the KBA question has an answer configured for any user in the tenant
+     * @type {boolean}
+     * @memberof KbaQuestion
+     */
+    'hasAnswer': boolean;
+    /**
+     * Denotes the number of KBA configurations for this question
+     * @type {number}
+     * @memberof KbaQuestion
+     */
+    'numAnswers': number;
+}
+/**
+ * 
+ * @export
  * @interface LeftPad
  */
 export interface LeftPad {
@@ -11377,6 +11520,113 @@ export const MetricType = {
 export type MetricType = typeof MetricType[keyof typeof MetricType];
 
 
+/**
+ * Response model for configuration test of a given MFA method
+ * @export
+ * @interface MfaConfigTestResponse
+ */
+export interface MfaConfigTestResponse {
+    /**
+     * The configuration test result.
+     * @type {string}
+     * @memberof MfaConfigTestResponse
+     */
+    'state'?: MfaConfigTestResponseStateEnum;
+    /**
+     * The error message to indicate the failure of configuration test.
+     * @type {string}
+     * @memberof MfaConfigTestResponse
+     */
+    'error'?: string;
+}
+
+export const MfaConfigTestResponseStateEnum = {
+    Success: 'SUCCESS',
+    Failed: 'FAILED'
+} as const;
+
+export type MfaConfigTestResponseStateEnum = typeof MfaConfigTestResponseStateEnum[keyof typeof MfaConfigTestResponseStateEnum];
+
+/**
+ * 
+ * @export
+ * @interface MfaDuoConfig
+ */
+export interface MfaDuoConfig {
+    /**
+     * Mfa method name
+     * @type {string}
+     * @memberof MfaDuoConfig
+     */
+    'mfaMethod'?: string | null;
+    /**
+     * If MFA method is enabled.
+     * @type {boolean}
+     * @memberof MfaDuoConfig
+     */
+    'enabled'?: boolean;
+    /**
+     * The server host name or IP address of the MFA provider.
+     * @type {string}
+     * @memberof MfaDuoConfig
+     */
+    'host'?: string | null;
+    /**
+     * The secret key for authenticating requests to the MFA provider.
+     * @type {string}
+     * @memberof MfaDuoConfig
+     */
+    'accessKey'?: string | null;
+    /**
+     * Optional. The name of the attribute for mapping IdentityNow identity to the MFA provider.
+     * @type {string}
+     * @memberof MfaDuoConfig
+     */
+    'identityAttribute'?: string | null;
+    /**
+     * A map with additional config properties for the given MFA method - duo-web.
+     * @type {{ [key: string]: any; }}
+     * @memberof MfaDuoConfig
+     */
+    'configProperties'?: { [key: string]: any; } | null;
+}
+/**
+ * 
+ * @export
+ * @interface MfaOktaConfig
+ */
+export interface MfaOktaConfig {
+    /**
+     * Mfa method name
+     * @type {string}
+     * @memberof MfaOktaConfig
+     */
+    'mfaMethod'?: string | null;
+    /**
+     * If MFA method is enabled.
+     * @type {boolean}
+     * @memberof MfaOktaConfig
+     */
+    'enabled'?: boolean;
+    /**
+     * The server host name or IP address of the MFA provider.
+     * @type {string}
+     * @memberof MfaOktaConfig
+     */
+    'host'?: string | null;
+    /**
+     * The secret key for authenticating requests to the MFA provider.
+     * @type {string}
+     * @memberof MfaOktaConfig
+     */
+    'accessKey'?: string | null;
+    /**
+     * Optional. The name of the attribute for mapping IdentityNow identity to the MFA provider.
+     * @type {string}
+     * @memberof MfaOktaConfig
+     */
+    'identityAttribute'?: string | null;
+}
 /**
  * 
  * @export
@@ -13200,6 +13450,19 @@ export const ObjectMappingResponseObjectTypeEnum = {
 
 export type ObjectMappingResponseObjectTypeEnum = typeof ObjectMappingResponseObjectTypeEnum[keyof typeof ObjectMappingResponseObjectTypeEnum];
 
+/**
+ * 
+ * @export
+ * @interface OktaVerificationRequest
+ */
+export interface OktaVerificationRequest {
+    /**
+     * User identifier for Verification request. The value of the user\'s attribute.
+     * @type {string}
+     * @memberof OktaVerificationRequest
+     */
+    'userId': string;
+}
 /**
  * Operation on a specific criteria
  * @export
@@ -18289,6 +18552,70 @@ export type SelectorType = typeof SelectorType[keyof typeof SelectorType];
 /**
  * 
  * @export
+ * @interface SendTokenRequest
+ */
+export interface SendTokenRequest {
+    /**
+     * User alias from table spt_identity field named \'name\'
+     * @type {string}
+     * @memberof SendTokenRequest
+     */
+    'userAlias': string;
+    /**
+     * Token delivery type
+     * @type {string}
+     * @memberof SendTokenRequest
+     */
+    'deliveryType': SendTokenRequestDeliveryTypeEnum;
+}
+
+export const SendTokenRequestDeliveryTypeEnum = {
+    SmsPersonal: 'SMS_PERSONAL',
+    VoicePersonal: 'VOICE_PERSONAL',
+    SmsWork: 'SMS_WORK',
+    VoiceWork: 'VOICE_WORK',
+    EmailWork: 'EMAIL_WORK',
+    EmailPersonal: 'EMAIL_PERSONAL'
+} as const;
+
+export type SendTokenRequestDeliveryTypeEnum = typeof SendTokenRequestDeliveryTypeEnum[keyof typeof SendTokenRequestDeliveryTypeEnum];
+
+/**
+ * 
+ * @export
+ * @interface SendTokenResponse
+ */
+export interface SendTokenResponse {
+    /**
+     * The token request ID
+     * @type {string}
+     * @memberof SendTokenResponse
+     */
+    'requestId'?: string | null;
+    /**
+     * Status of sending token
+     * @type {string}
+     * @memberof SendTokenResponse
+     */
+    'status'?: SendTokenResponseStatusEnum;
+    /**
+     * Error messages from token send request
+     * @type {string}
+     * @memberof SendTokenResponse
+     */
+    'errorMessage'?: string | null;
+}
+
+export const SendTokenResponseStatusEnum = {
+    Success: 'SUCCESS',
+    Failed: 'FAILED'
+} as const;
+
+export type SendTokenResponseStatusEnum = typeof SendTokenResponseStatusEnum[keyof typeof SendTokenResponseStatusEnum];
+
+/**
+ * 
+ * @export
  * @interface ServiceDeskIntegrationDto
  */
 export interface ServiceDeskIntegrationDto {
@@ -20513,6 +20840,67 @@ export interface TextQuery {
     'contains'?: boolean;
 }
 /**
+ * 
+ * @export
+ * @interface TokenAuthRequest
+ */
+export interface TokenAuthRequest {
+    /**
+     * Token value
+     * @type {string}
+     * @memberof TokenAuthRequest
+     */
+    'token': string;
+    /**
+     * User alias from table spt_identity field named \'name\'
+     * @type {string}
+     * @memberof TokenAuthRequest
+     */
+    'userAlias': string;
+    /**
+     * Token delivery type
+     * @type {string}
+     * @memberof TokenAuthRequest
+     */
+    'deliveryType': TokenAuthRequestDeliveryTypeEnum;
+}
+
+export const TokenAuthRequestDeliveryTypeEnum = {
+    SmsPersonal: 'SMS_PERSONAL',
+    VoicePersonal: 'VOICE_PERSONAL',
+    SmsWork: 'SMS_WORK',
+    VoiceWork: 'VOICE_WORK',
+    EmailWork: 'EMAIL_WORK',
+    EmailPersonal: 'EMAIL_PERSONAL'
+} as const;
+
+export type TokenAuthRequestDeliveryTypeEnum = typeof TokenAuthRequestDeliveryTypeEnum[keyof typeof TokenAuthRequestDeliveryTypeEnum];
+
+/**
+ * 
+ * @export
+ * @interface TokenAuthResponse
+ */
+export interface TokenAuthResponse {
+    /**
+     * MFA Authentication status
+     * @type {string}
+     * @memberof TokenAuthResponse
+     */
+    'status'?: TokenAuthResponseStatusEnum;
+}
+
+export const TokenAuthResponseStatusEnum = {
+    Pending: 'PENDING',
+    Success: 'SUCCESS',
+    Failed: 'FAILED',
+    Lockout: 'LOCKOUT',
+    NotEnoughData: 'NOT_ENOUGH_DATA'
+} as const;
+
+export type TokenAuthResponseStatusEnum = typeof TokenAuthResponseStatusEnum[keyof typeof TokenAuthResponseStatusEnum];
+
+/**
  * The representation of an internally- or customer-defined transform.
  * @export
  * @interface Transform
@@ -21244,6 +21632,55 @@ export interface Value {
      */
     'value'?: string;
 }
+/**
+ * 
+ * @export
+ * @interface VerificationPollRequest
+ */
+export interface VerificationPollRequest {
+    /**
+     * Verification request Id
+     * @type {string}
+     * @memberof VerificationPollRequest
+     */
+    'requestId': string;
+}
+/**
+ * 
+ * @export
+ * @interface VerificationResponse
+ */
+export interface VerificationResponse {
+    /**
+     * The verificationPollRequest request ID
+     * @type {string}
+     * @memberof VerificationResponse
+     */
+    'requestId'?: string | null;
+    /**
+     * MFA Authentication status
+     * @type {string}
+     * @memberof VerificationResponse
+     */
+    'status'?: VerificationResponseStatusEnum;
+    /**
+     * Error messages from MFA verification request
+     * @type {string}
+     * @memberof VerificationResponse
+     */
+    'error'?: string | null;
+}
+
+export const VerificationResponseStatusEnum = {
+    Pending: 'PENDING',
+    Success: 'SUCCESS',
+    Failed: 'FAILED',
+    Lockout: 'LOCKOUT',
+    NotEnoughData: 'NOT_ENOUGH_DATA'
+} as const;
+
+export type VerificationResponseStatusEnum = typeof VerificationResponseStatusEnum[keyof typeof VerificationResponseStatusEnum];
+
 /**
  * 
  * @export
@@ -35930,6 +36367,1318 @@ export class LifecycleStatesApi extends BaseAPI {
      */
     public updateLifecycleStates(requestParameters: LifecycleStatesApiUpdateLifecycleStatesRequest, axiosOptions?: AxiosRequestConfig) {
         return LifecycleStatesApiFp(this.configuration).updateLifecycleStates(requestParameters.identityProfileId, requestParameters.lifecycleStateId, requestParameters.jsonPatchOperation, axiosOptions).then((request) => request(this.axios, this.basePath));
+    }
+}
+
+
+/**
+ * MFAConfigurationApi - axios parameter creator
+ * @export
+ */
+export const MFAConfigurationApiAxiosParamCreator = function (configuration?: Configuration) {
+    return {
+        /**
+         * This API removes the configuration for the specified MFA method. A token with ORG_ADMIN authority is required to call this API.
+         * @summary Delete MFA method configuration
+         * @param {string} method The name of the MFA method. The currently supported method names are \&#39;okta-verify\&#39; and \&#39;duo-web\&#39;.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        deleteMFAConfig: async (method: string, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'method' is not null or undefined
+            assertParamExists('deleteMFAConfig', 'method', method)
+            const localVarPath = `/mfa/{method}/delete`
+                .replace(`{${"method"}}`, encodeURIComponent(String(method)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'DELETE', ...baseOptions, ...axiosOptions};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication UserContextAuth required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "UserContextAuth", [], configuration)
+
+            // authentication UserContextAuth required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "UserContextAuth", [], configuration)
+
+
+    
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                axiosOptions: localVarRequestOptions,
+            };
+        },
+        /**
+         * This API returns the configuration of an Duo MFA method. A token with ORG_ADMIN authority is required to call this API.
+         * @summary Configuration of Duo MFA method
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        getMFADuoConfig: async (axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            const localVarPath = `/mfa/duo-web/config`;
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...axiosOptions};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication UserContextAuth required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "UserContextAuth", [], configuration)
+
+            // authentication UserContextAuth required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "UserContextAuth", [], configuration)
+
+
+    
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                axiosOptions: localVarRequestOptions,
+            };
+        },
+        /**
+         * This API returns the KBA configuration for MFA. A token with USER or ORG_ADMIN authority is required to call this API.
+         * @summary Configuration of KBA MFA method
+         * @param {boolean} [allLanguages] Indicator whether the question text should be returned in all configured languages    * If true, the question text is returned in all languages that it is configured in.    * If false, the question text is returned in the user locale if available, else for the default locale.     * If not passed, it behaves the same way as passing this parameter as false
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        getMFAKbaConfig: async (allLanguages?: boolean, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            const localVarPath = `/mfa/kba/config`;
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...axiosOptions};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication UserContextAuth required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "UserContextAuth", [], configuration)
+
+            // authentication UserContextAuth required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "UserContextAuth", [], configuration)
+
+            if (allLanguages !== undefined) {
+                localVarQueryParameter['allLanguages'] = allLanguages;
+            }
+
+
+    
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                axiosOptions: localVarRequestOptions,
+            };
+        },
+        /**
+         * This API returns the configuration of an Okta MFA method. A token with ORG_ADMIN authority is required to call this API.
+         * @summary Configuration of Okta MFA method
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        getMFAOktaConfig: async (axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            const localVarPath = `/mfa/okta-verify/config`;
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...axiosOptions};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication UserContextAuth required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "UserContextAuth", [], configuration)
+
+            // authentication UserContextAuth required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "UserContextAuth", [], configuration)
+
+
+    
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                axiosOptions: localVarRequestOptions,
+            };
+        },
+        /**
+         * This API sets the configuration of an Duo MFA method. A token with ORG_ADMIN authority is required to call this API.
+         * @summary Set Duo MFA configuration
+         * @param {MfaDuoConfig} mfaDuoConfig 
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        setMFADuoConfig: async (mfaDuoConfig: MfaDuoConfig, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'mfaDuoConfig' is not null or undefined
+            assertParamExists('setMFADuoConfig', 'mfaDuoConfig', mfaDuoConfig)
+            const localVarPath = `/mfa/duo-web/config`;
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'PUT', ...baseOptions, ...axiosOptions};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication UserContextAuth required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "UserContextAuth", [], configuration)
+
+            // authentication UserContextAuth required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "UserContextAuth", [], configuration)
+
+
+    
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
+            localVarRequestOptions.data = serializeDataIfNeeded(mfaDuoConfig, localVarRequestOptions, configuration)
+
+            return {
+                url: toPathString(localVarUrlObj),
+                axiosOptions: localVarRequestOptions,
+            };
+        },
+        /**
+         * This API sets answers to challenge questions.  Any configured questions omitted from the request are removed from user KBA configuration. A token with USER authority is required to call this API.
+         * @summary Set MFA KBA configuration
+         * @param {Array<KbaAnswerRequestItem>} kbaAnswerRequestItem 
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        setMFAKBAConfig: async (kbaAnswerRequestItem: Array<KbaAnswerRequestItem>, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'kbaAnswerRequestItem' is not null or undefined
+            assertParamExists('setMFAKBAConfig', 'kbaAnswerRequestItem', kbaAnswerRequestItem)
+            const localVarPath = `/mfa/kba/config/answers`;
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'POST', ...baseOptions, ...axiosOptions};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication UserContextAuth required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "UserContextAuth", [], configuration)
+
+            // authentication UserContextAuth required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "UserContextAuth", [], configuration)
+
+
+    
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
+            localVarRequestOptions.data = serializeDataIfNeeded(kbaAnswerRequestItem, localVarRequestOptions, configuration)
+
+            return {
+                url: toPathString(localVarUrlObj),
+                axiosOptions: localVarRequestOptions,
+            };
+        },
+        /**
+         * This API sets the configuration of an Okta MFA method. A token with ORG_ADMIN authority is required to call this API.
+         * @summary Set Okta MFA configuration
+         * @param {MfaOktaConfig} mfaOktaConfig 
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        setMFAOktaConfig: async (mfaOktaConfig: MfaOktaConfig, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'mfaOktaConfig' is not null or undefined
+            assertParamExists('setMFAOktaConfig', 'mfaOktaConfig', mfaOktaConfig)
+            const localVarPath = `/mfa/okta-verify/config`;
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'PUT', ...baseOptions, ...axiosOptions};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication UserContextAuth required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "UserContextAuth", [], configuration)
+
+            // authentication UserContextAuth required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "UserContextAuth", [], configuration)
+
+
+    
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
+            localVarRequestOptions.data = serializeDataIfNeeded(mfaOktaConfig, localVarRequestOptions, configuration)
+
+            return {
+                url: toPathString(localVarUrlObj),
+                axiosOptions: localVarRequestOptions,
+            };
+        },
+        /**
+         * This API validates that the configuration is valid and will properly authenticate with the MFA provider identified by the method path parameter. A token with ORG_ADMIN authority is required to call this API.
+         * @summary MFA method\'s test configuration
+         * @param {string} method The name of the MFA method. The currently supported method names are \&#39;okta-verify\&#39; and \&#39;duo-web\&#39;.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        testMFAConfig: async (method: string, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'method' is not null or undefined
+            assertParamExists('testMFAConfig', 'method', method)
+            const localVarPath = `/mfa/{method}/test`
+                .replace(`{${"method"}}`, encodeURIComponent(String(method)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...axiosOptions};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication UserContextAuth required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "UserContextAuth", [], configuration)
+
+            // authentication UserContextAuth required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "UserContextAuth", [], configuration)
+
+
+    
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                axiosOptions: localVarRequestOptions,
+            };
+        },
+    }
+};
+
+/**
+ * MFAConfigurationApi - functional programming interface
+ * @export
+ */
+export const MFAConfigurationApiFp = function(configuration?: Configuration) {
+    const localVarAxiosParamCreator = MFAConfigurationApiAxiosParamCreator(configuration)
+    return {
+        /**
+         * This API removes the configuration for the specified MFA method. A token with ORG_ADMIN authority is required to call this API.
+         * @summary Delete MFA method configuration
+         * @param {string} method The name of the MFA method. The currently supported method names are \&#39;okta-verify\&#39; and \&#39;duo-web\&#39;.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        async deleteMFAConfig(method: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<MfaOktaConfig>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.deleteMFAConfig(method, axiosOptions);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * This API returns the configuration of an Duo MFA method. A token with ORG_ADMIN authority is required to call this API.
+         * @summary Configuration of Duo MFA method
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        async getMFADuoConfig(axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<MfaDuoConfig>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getMFADuoConfig(axiosOptions);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * This API returns the KBA configuration for MFA. A token with USER or ORG_ADMIN authority is required to call this API.
+         * @summary Configuration of KBA MFA method
+         * @param {boolean} [allLanguages] Indicator whether the question text should be returned in all configured languages    * If true, the question text is returned in all languages that it is configured in.    * If false, the question text is returned in the user locale if available, else for the default locale.     * If not passed, it behaves the same way as passing this parameter as false
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        async getMFAKbaConfig(allLanguages?: boolean, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<KbaQuestion>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getMFAKbaConfig(allLanguages, axiosOptions);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * This API returns the configuration of an Okta MFA method. A token with ORG_ADMIN authority is required to call this API.
+         * @summary Configuration of Okta MFA method
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        async getMFAOktaConfig(axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<MfaOktaConfig>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getMFAOktaConfig(axiosOptions);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * This API sets the configuration of an Duo MFA method. A token with ORG_ADMIN authority is required to call this API.
+         * @summary Set Duo MFA configuration
+         * @param {MfaDuoConfig} mfaDuoConfig 
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        async setMFADuoConfig(mfaDuoConfig: MfaDuoConfig, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<MfaDuoConfig>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.setMFADuoConfig(mfaDuoConfig, axiosOptions);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * This API sets answers to challenge questions.  Any configured questions omitted from the request are removed from user KBA configuration. A token with USER authority is required to call this API.
+         * @summary Set MFA KBA configuration
+         * @param {Array<KbaAnswerRequestItem>} kbaAnswerRequestItem 
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        async setMFAKBAConfig(kbaAnswerRequestItem: Array<KbaAnswerRequestItem>, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<KbaAnswerResponseItem>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.setMFAKBAConfig(kbaAnswerRequestItem, axiosOptions);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * This API sets the configuration of an Okta MFA method. A token with ORG_ADMIN authority is required to call this API.
+         * @summary Set Okta MFA configuration
+         * @param {MfaOktaConfig} mfaOktaConfig 
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        async setMFAOktaConfig(mfaOktaConfig: MfaOktaConfig, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<MfaOktaConfig>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.setMFAOktaConfig(mfaOktaConfig, axiosOptions);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * This API validates that the configuration is valid and will properly authenticate with the MFA provider identified by the method path parameter. A token with ORG_ADMIN authority is required to call this API.
+         * @summary MFA method\'s test configuration
+         * @param {string} method The name of the MFA method. The currently supported method names are \&#39;okta-verify\&#39; and \&#39;duo-web\&#39;.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        async testMFAConfig(method: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<MfaConfigTestResponse>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.testMFAConfig(method, axiosOptions);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+    }
+};
+
+/**
+ * MFAConfigurationApi - factory interface
+ * @export
+ */
+export const MFAConfigurationApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
+    const localVarFp = MFAConfigurationApiFp(configuration)
+    return {
+        /**
+         * This API removes the configuration for the specified MFA method. A token with ORG_ADMIN authority is required to call this API.
+         * @summary Delete MFA method configuration
+         * @param {string} method The name of the MFA method. The currently supported method names are \&#39;okta-verify\&#39; and \&#39;duo-web\&#39;.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        deleteMFAConfig(method: string, axiosOptions?: any): AxiosPromise<MfaOktaConfig> {
+            return localVarFp.deleteMFAConfig(method, axiosOptions).then((request) => request(axios, basePath));
+        },
+        /**
+         * This API returns the configuration of an Duo MFA method. A token with ORG_ADMIN authority is required to call this API.
+         * @summary Configuration of Duo MFA method
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        getMFADuoConfig(axiosOptions?: any): AxiosPromise<MfaDuoConfig> {
+            return localVarFp.getMFADuoConfig(axiosOptions).then((request) => request(axios, basePath));
+        },
+        /**
+         * This API returns the KBA configuration for MFA. A token with USER or ORG_ADMIN authority is required to call this API.
+         * @summary Configuration of KBA MFA method
+         * @param {boolean} [allLanguages] Indicator whether the question text should be returned in all configured languages    * If true, the question text is returned in all languages that it is configured in.    * If false, the question text is returned in the user locale if available, else for the default locale.     * If not passed, it behaves the same way as passing this parameter as false
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        getMFAKbaConfig(allLanguages?: boolean, axiosOptions?: any): AxiosPromise<Array<KbaQuestion>> {
+            return localVarFp.getMFAKbaConfig(allLanguages, axiosOptions).then((request) => request(axios, basePath));
+        },
+        /**
+         * This API returns the configuration of an Okta MFA method. A token with ORG_ADMIN authority is required to call this API.
+         * @summary Configuration of Okta MFA method
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        getMFAOktaConfig(axiosOptions?: any): AxiosPromise<MfaOktaConfig> {
+            return localVarFp.getMFAOktaConfig(axiosOptions).then((request) => request(axios, basePath));
+        },
+        /**
+         * This API sets the configuration of an Duo MFA method. A token with ORG_ADMIN authority is required to call this API.
+         * @summary Set Duo MFA configuration
+         * @param {MfaDuoConfig} mfaDuoConfig 
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        setMFADuoConfig(mfaDuoConfig: MfaDuoConfig, axiosOptions?: any): AxiosPromise<MfaDuoConfig> {
+            return localVarFp.setMFADuoConfig(mfaDuoConfig, axiosOptions).then((request) => request(axios, basePath));
+        },
+        /**
+         * This API sets answers to challenge questions.  Any configured questions omitted from the request are removed from user KBA configuration. A token with USER authority is required to call this API.
+         * @summary Set MFA KBA configuration
+         * @param {Array<KbaAnswerRequestItem>} kbaAnswerRequestItem 
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        setMFAKBAConfig(kbaAnswerRequestItem: Array<KbaAnswerRequestItem>, axiosOptions?: any): AxiosPromise<Array<KbaAnswerResponseItem>> {
+            return localVarFp.setMFAKBAConfig(kbaAnswerRequestItem, axiosOptions).then((request) => request(axios, basePath));
+        },
+        /**
+         * This API sets the configuration of an Okta MFA method. A token with ORG_ADMIN authority is required to call this API.
+         * @summary Set Okta MFA configuration
+         * @param {MfaOktaConfig} mfaOktaConfig 
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        setMFAOktaConfig(mfaOktaConfig: MfaOktaConfig, axiosOptions?: any): AxiosPromise<MfaOktaConfig> {
+            return localVarFp.setMFAOktaConfig(mfaOktaConfig, axiosOptions).then((request) => request(axios, basePath));
+        },
+        /**
+         * This API validates that the configuration is valid and will properly authenticate with the MFA provider identified by the method path parameter. A token with ORG_ADMIN authority is required to call this API.
+         * @summary MFA method\'s test configuration
+         * @param {string} method The name of the MFA method. The currently supported method names are \&#39;okta-verify\&#39; and \&#39;duo-web\&#39;.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        testMFAConfig(method: string, axiosOptions?: any): AxiosPromise<MfaConfigTestResponse> {
+            return localVarFp.testMFAConfig(method, axiosOptions).then((request) => request(axios, basePath));
+        },
+    };
+};
+
+/**
+ * Request parameters for deleteMFAConfig operation in MFAConfigurationApi.
+ * @export
+ * @interface MFAConfigurationApiDeleteMFAConfigRequest
+ */
+export interface MFAConfigurationApiDeleteMFAConfigRequest {
+    /**
+     * The name of the MFA method. The currently supported method names are \&#39;okta-verify\&#39; and \&#39;duo-web\&#39;.
+     * @type {string}
+     * @memberof MFAConfigurationApiDeleteMFAConfig
+     */
+    readonly method: string
+}
+
+/**
+ * Request parameters for getMFAKbaConfig operation in MFAConfigurationApi.
+ * @export
+ * @interface MFAConfigurationApiGetMFAKbaConfigRequest
+ */
+export interface MFAConfigurationApiGetMFAKbaConfigRequest {
+    /**
+     * Indicator whether the question text should be returned in all configured languages    * If true, the question text is returned in all languages that it is configured in.    * If false, the question text is returned in the user locale if available, else for the default locale.     * If not passed, it behaves the same way as passing this parameter as false
+     * @type {boolean}
+     * @memberof MFAConfigurationApiGetMFAKbaConfig
+     */
+    readonly allLanguages?: boolean
+}
+
+/**
+ * Request parameters for setMFADuoConfig operation in MFAConfigurationApi.
+ * @export
+ * @interface MFAConfigurationApiSetMFADuoConfigRequest
+ */
+export interface MFAConfigurationApiSetMFADuoConfigRequest {
+    /**
+     * 
+     * @type {MfaDuoConfig}
+     * @memberof MFAConfigurationApiSetMFADuoConfig
+     */
+    readonly mfaDuoConfig: MfaDuoConfig
+}
+
+/**
+ * Request parameters for setMFAKBAConfig operation in MFAConfigurationApi.
+ * @export
+ * @interface MFAConfigurationApiSetMFAKBAConfigRequest
+ */
+export interface MFAConfigurationApiSetMFAKBAConfigRequest {
+    /**
+     * 
+     * @type {Array<KbaAnswerRequestItem>}
+     * @memberof MFAConfigurationApiSetMFAKBAConfig
+     */
+    readonly kbaAnswerRequestItem: Array<KbaAnswerRequestItem>
+}
+
+/**
+ * Request parameters for setMFAOktaConfig operation in MFAConfigurationApi.
+ * @export
+ * @interface MFAConfigurationApiSetMFAOktaConfigRequest
+ */
+export interface MFAConfigurationApiSetMFAOktaConfigRequest {
+    /**
+     * 
+     * @type {MfaOktaConfig}
+     * @memberof MFAConfigurationApiSetMFAOktaConfig
+     */
+    readonly mfaOktaConfig: MfaOktaConfig
+}
+
+/**
+ * Request parameters for testMFAConfig operation in MFAConfigurationApi.
+ * @export
+ * @interface MFAConfigurationApiTestMFAConfigRequest
+ */
+export interface MFAConfigurationApiTestMFAConfigRequest {
+    /**
+     * The name of the MFA method. The currently supported method names are \&#39;okta-verify\&#39; and \&#39;duo-web\&#39;.
+     * @type {string}
+     * @memberof MFAConfigurationApiTestMFAConfig
+     */
+    readonly method: string
+}
+
+/**
+ * MFAConfigurationApi - object-oriented interface
+ * @export
+ * @class MFAConfigurationApi
+ * @extends {BaseAPI}
+ */
+export class MFAConfigurationApi extends BaseAPI {
+    /**
+     * This API removes the configuration for the specified MFA method. A token with ORG_ADMIN authority is required to call this API.
+     * @summary Delete MFA method configuration
+     * @param {MFAConfigurationApiDeleteMFAConfigRequest} requestParameters Request parameters.
+     * @param {*} [axiosOptions] Override http request option.
+     * @throws {RequiredError}
+     * @memberof MFAConfigurationApi
+     */
+    public deleteMFAConfig(requestParameters: MFAConfigurationApiDeleteMFAConfigRequest, axiosOptions?: AxiosRequestConfig) {
+        return MFAConfigurationApiFp(this.configuration).deleteMFAConfig(requestParameters.method, axiosOptions).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * This API returns the configuration of an Duo MFA method. A token with ORG_ADMIN authority is required to call this API.
+     * @summary Configuration of Duo MFA method
+     * @param {*} [axiosOptions] Override http request option.
+     * @throws {RequiredError}
+     * @memberof MFAConfigurationApi
+     */
+    public getMFADuoConfig(axiosOptions?: AxiosRequestConfig) {
+        return MFAConfigurationApiFp(this.configuration).getMFADuoConfig(axiosOptions).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * This API returns the KBA configuration for MFA. A token with USER or ORG_ADMIN authority is required to call this API.
+     * @summary Configuration of KBA MFA method
+     * @param {MFAConfigurationApiGetMFAKbaConfigRequest} requestParameters Request parameters.
+     * @param {*} [axiosOptions] Override http request option.
+     * @throws {RequiredError}
+     * @memberof MFAConfigurationApi
+     */
+    public getMFAKbaConfig(requestParameters: MFAConfigurationApiGetMFAKbaConfigRequest = {}, axiosOptions?: AxiosRequestConfig) {
+        return MFAConfigurationApiFp(this.configuration).getMFAKbaConfig(requestParameters.allLanguages, axiosOptions).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * This API returns the configuration of an Okta MFA method. A token with ORG_ADMIN authority is required to call this API.
+     * @summary Configuration of Okta MFA method
+     * @param {*} [axiosOptions] Override http request option.
+     * @throws {RequiredError}
+     * @memberof MFAConfigurationApi
+     */
+    public getMFAOktaConfig(axiosOptions?: AxiosRequestConfig) {
+        return MFAConfigurationApiFp(this.configuration).getMFAOktaConfig(axiosOptions).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * This API sets the configuration of an Duo MFA method. A token with ORG_ADMIN authority is required to call this API.
+     * @summary Set Duo MFA configuration
+     * @param {MFAConfigurationApiSetMFADuoConfigRequest} requestParameters Request parameters.
+     * @param {*} [axiosOptions] Override http request option.
+     * @throws {RequiredError}
+     * @memberof MFAConfigurationApi
+     */
+    public setMFADuoConfig(requestParameters: MFAConfigurationApiSetMFADuoConfigRequest, axiosOptions?: AxiosRequestConfig) {
+        return MFAConfigurationApiFp(this.configuration).setMFADuoConfig(requestParameters.mfaDuoConfig, axiosOptions).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * This API sets answers to challenge questions.  Any configured questions omitted from the request are removed from user KBA configuration. A token with USER authority is required to call this API.
+     * @summary Set MFA KBA configuration
+     * @param {MFAConfigurationApiSetMFAKBAConfigRequest} requestParameters Request parameters.
+     * @param {*} [axiosOptions] Override http request option.
+     * @throws {RequiredError}
+     * @memberof MFAConfigurationApi
+     */
+    public setMFAKBAConfig(requestParameters: MFAConfigurationApiSetMFAKBAConfigRequest, axiosOptions?: AxiosRequestConfig) {
+        return MFAConfigurationApiFp(this.configuration).setMFAKBAConfig(requestParameters.kbaAnswerRequestItem, axiosOptions).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * This API sets the configuration of an Okta MFA method. A token with ORG_ADMIN authority is required to call this API.
+     * @summary Set Okta MFA configuration
+     * @param {MFAConfigurationApiSetMFAOktaConfigRequest} requestParameters Request parameters.
+     * @param {*} [axiosOptions] Override http request option.
+     * @throws {RequiredError}
+     * @memberof MFAConfigurationApi
+     */
+    public setMFAOktaConfig(requestParameters: MFAConfigurationApiSetMFAOktaConfigRequest, axiosOptions?: AxiosRequestConfig) {
+        return MFAConfigurationApiFp(this.configuration).setMFAOktaConfig(requestParameters.mfaOktaConfig, axiosOptions).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * This API validates that the configuration is valid and will properly authenticate with the MFA provider identified by the method path parameter. A token with ORG_ADMIN authority is required to call this API.
+     * @summary MFA method\'s test configuration
+     * @param {MFAConfigurationApiTestMFAConfigRequest} requestParameters Request parameters.
+     * @param {*} [axiosOptions] Override http request option.
+     * @throws {RequiredError}
+     * @memberof MFAConfigurationApi
+     */
+    public testMFAConfig(requestParameters: MFAConfigurationApiTestMFAConfigRequest, axiosOptions?: AxiosRequestConfig) {
+        return MFAConfigurationApiFp(this.configuration).testMFAConfig(requestParameters.method, axiosOptions).then((request) => request(this.axios, this.basePath));
+    }
+}
+
+
+/**
+ * MFAControllerApi - axios parameter creator
+ * @export
+ */
+export const MFAControllerApiAxiosParamCreator = function (configuration?: Configuration) {
+    return {
+        /**
+         * This API send token request.
+         * @summary Create and send user token
+         * @param {SendTokenRequest} sendTokenRequest 
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        createSendToken: async (sendTokenRequest: SendTokenRequest, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'sendTokenRequest' is not null or undefined
+            assertParamExists('createSendToken', 'sendTokenRequest', sendTokenRequest)
+            const localVarPath = `/mfa/token/send`;
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'POST', ...baseOptions, ...axiosOptions};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication UserContextAuth required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "UserContextAuth", [], configuration)
+
+            // authentication UserContextAuth required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "UserContextAuth", [], configuration)
+
+
+    
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
+            localVarRequestOptions.data = serializeDataIfNeeded(sendTokenRequest, localVarRequestOptions, configuration)
+
+            return {
+                url: toPathString(localVarUrlObj),
+                axiosOptions: localVarRequestOptions,
+            };
+        },
+        /**
+         * This API poll the VerificationPollRequest for the specified MFA method. A token with ORG_ADMIN authority is required to call this API.
+         * @summary Polling MFA method by VerificationPollRequest
+         * @param {string} method The name of the MFA method. The currently supported method names are \&#39;okta-verify\&#39;, \&#39;duo-web\&#39;, \&#39;kba\&#39;,\&#39;token\&#39;, \&#39;rsa\&#39;
+         * @param {VerificationPollRequest} verificationPollRequest 
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        pingVerificationStatus: async (method: string, verificationPollRequest: VerificationPollRequest, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'method' is not null or undefined
+            assertParamExists('pingVerificationStatus', 'method', method)
+            // verify required parameter 'verificationPollRequest' is not null or undefined
+            assertParamExists('pingVerificationStatus', 'verificationPollRequest', verificationPollRequest)
+            const localVarPath = `/mfa/{method}/poll`
+                .replace(`{${"method"}}`, encodeURIComponent(String(method)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'POST', ...baseOptions, ...axiosOptions};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication UserContextAuth required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "UserContextAuth", [], configuration)
+
+            // authentication UserContextAuth required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "UserContextAuth", [], configuration)
+
+
+    
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
+            localVarRequestOptions.data = serializeDataIfNeeded(verificationPollRequest, localVarRequestOptions, configuration)
+
+            return {
+                url: toPathString(localVarUrlObj),
+                axiosOptions: localVarRequestOptions,
+            };
+        },
+        /**
+         * This API Authenticates the user via Duo-Web MFA method.
+         * @summary Verifying authentication via Duo method
+         * @param {DuoVerificationRequest} duoVerificationRequest 
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        sendDuoVerifyRequest: async (duoVerificationRequest: DuoVerificationRequest, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'duoVerificationRequest' is not null or undefined
+            assertParamExists('sendDuoVerifyRequest', 'duoVerificationRequest', duoVerificationRequest)
+            const localVarPath = `/mfa/duo-web/verify`;
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'POST', ...baseOptions, ...axiosOptions};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication UserContextAuth required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "UserContextAuth", [], configuration)
+
+            // authentication UserContextAuth required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "UserContextAuth", [], configuration)
+
+
+    
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
+            localVarRequestOptions.data = serializeDataIfNeeded(duoVerificationRequest, localVarRequestOptions, configuration)
+
+            return {
+                url: toPathString(localVarUrlObj),
+                axiosOptions: localVarRequestOptions,
+            };
+        },
+        /**
+         * This API Authenticate user in KBA MFA method.
+         * @summary Authenticate KBA provided MFA method
+         * @param {Array<KbaAnswerRequestItem>} kbaAnswerRequestItem 
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        sendKbaAnswers: async (kbaAnswerRequestItem: Array<KbaAnswerRequestItem>, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'kbaAnswerRequestItem' is not null or undefined
+            assertParamExists('sendKbaAnswers', 'kbaAnswerRequestItem', kbaAnswerRequestItem)
+            const localVarPath = `/mfa/kba/authenticate`;
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'POST', ...baseOptions, ...axiosOptions};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication UserContextAuth required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "UserContextAuth", [], configuration)
+
+            // authentication UserContextAuth required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "UserContextAuth", [], configuration)
+
+
+    
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
+            localVarRequestOptions.data = serializeDataIfNeeded(kbaAnswerRequestItem, localVarRequestOptions, configuration)
+
+            return {
+                url: toPathString(localVarUrlObj),
+                axiosOptions: localVarRequestOptions,
+            };
+        },
+        /**
+         * This API Authenticates the user via Okta-Verify MFA method. Request requires a header called \'slpt-forwarding\', and it must contain a remote IP Address of caller.
+         * @summary Verifying authentication via Okta method
+         * @param {OktaVerificationRequest} oktaVerificationRequest 
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        sendOktaVerifyRequest: async (oktaVerificationRequest: OktaVerificationRequest, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'oktaVerificationRequest' is not null or undefined
+            assertParamExists('sendOktaVerifyRequest', 'oktaVerificationRequest', oktaVerificationRequest)
+            const localVarPath = `/mfa/okta-verify/verify`;
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'POST', ...baseOptions, ...axiosOptions};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication UserContextAuth required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "UserContextAuth", [], configuration)
+
+            // authentication UserContextAuth required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "UserContextAuth", [], configuration)
+
+
+    
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
+            localVarRequestOptions.data = serializeDataIfNeeded(oktaVerificationRequest, localVarRequestOptions, configuration)
+
+            return {
+                url: toPathString(localVarUrlObj),
+                axiosOptions: localVarRequestOptions,
+            };
+        },
+        /**
+         * This API Authenticate user in Token MFA method.
+         * @summary Authenticate Token provided MFA method
+         * @param {TokenAuthRequest} tokenAuthRequest 
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        sendTokenAuthRequest: async (tokenAuthRequest: TokenAuthRequest, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'tokenAuthRequest' is not null or undefined
+            assertParamExists('sendTokenAuthRequest', 'tokenAuthRequest', tokenAuthRequest)
+            const localVarPath = `/mfa/token/authenticate`;
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'POST', ...baseOptions, ...axiosOptions};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication UserContextAuth required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "UserContextAuth", [], configuration)
+
+            // authentication UserContextAuth required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "UserContextAuth", [], configuration)
+
+
+    
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
+            localVarRequestOptions.data = serializeDataIfNeeded(tokenAuthRequest, localVarRequestOptions, configuration)
+
+            return {
+                url: toPathString(localVarUrlObj),
+                axiosOptions: localVarRequestOptions,
+            };
+        },
+    }
+};
+
+/**
+ * MFAControllerApi - functional programming interface
+ * @export
+ */
+export const MFAControllerApiFp = function(configuration?: Configuration) {
+    const localVarAxiosParamCreator = MFAControllerApiAxiosParamCreator(configuration)
+    return {
+        /**
+         * This API send token request.
+         * @summary Create and send user token
+         * @param {SendTokenRequest} sendTokenRequest 
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        async createSendToken(sendTokenRequest: SendTokenRequest, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SendTokenResponse>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.createSendToken(sendTokenRequest, axiosOptions);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * This API poll the VerificationPollRequest for the specified MFA method. A token with ORG_ADMIN authority is required to call this API.
+         * @summary Polling MFA method by VerificationPollRequest
+         * @param {string} method The name of the MFA method. The currently supported method names are \&#39;okta-verify\&#39;, \&#39;duo-web\&#39;, \&#39;kba\&#39;,\&#39;token\&#39;, \&#39;rsa\&#39;
+         * @param {VerificationPollRequest} verificationPollRequest 
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        async pingVerificationStatus(method: string, verificationPollRequest: VerificationPollRequest, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<VerificationResponse>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.pingVerificationStatus(method, verificationPollRequest, axiosOptions);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * This API Authenticates the user via Duo-Web MFA method.
+         * @summary Verifying authentication via Duo method
+         * @param {DuoVerificationRequest} duoVerificationRequest 
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        async sendDuoVerifyRequest(duoVerificationRequest: DuoVerificationRequest, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<VerificationResponse>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.sendDuoVerifyRequest(duoVerificationRequest, axiosOptions);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * This API Authenticate user in KBA MFA method.
+         * @summary Authenticate KBA provided MFA method
+         * @param {Array<KbaAnswerRequestItem>} kbaAnswerRequestItem 
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        async sendKbaAnswers(kbaAnswerRequestItem: Array<KbaAnswerRequestItem>, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<KbaAuthResponse>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.sendKbaAnswers(kbaAnswerRequestItem, axiosOptions);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * This API Authenticates the user via Okta-Verify MFA method. Request requires a header called \'slpt-forwarding\', and it must contain a remote IP Address of caller.
+         * @summary Verifying authentication via Okta method
+         * @param {OktaVerificationRequest} oktaVerificationRequest 
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        async sendOktaVerifyRequest(oktaVerificationRequest: OktaVerificationRequest, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<VerificationResponse>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.sendOktaVerifyRequest(oktaVerificationRequest, axiosOptions);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * This API Authenticate user in Token MFA method.
+         * @summary Authenticate Token provided MFA method
+         * @param {TokenAuthRequest} tokenAuthRequest 
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        async sendTokenAuthRequest(tokenAuthRequest: TokenAuthRequest, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<TokenAuthResponse>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.sendTokenAuthRequest(tokenAuthRequest, axiosOptions);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+    }
+};
+
+/**
+ * MFAControllerApi - factory interface
+ * @export
+ */
+export const MFAControllerApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
+    const localVarFp = MFAControllerApiFp(configuration)
+    return {
+        /**
+         * This API send token request.
+         * @summary Create and send user token
+         * @param {SendTokenRequest} sendTokenRequest 
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        createSendToken(sendTokenRequest: SendTokenRequest, axiosOptions?: any): AxiosPromise<SendTokenResponse> {
+            return localVarFp.createSendToken(sendTokenRequest, axiosOptions).then((request) => request(axios, basePath));
+        },
+        /**
+         * This API poll the VerificationPollRequest for the specified MFA method. A token with ORG_ADMIN authority is required to call this API.
+         * @summary Polling MFA method by VerificationPollRequest
+         * @param {string} method The name of the MFA method. The currently supported method names are \&#39;okta-verify\&#39;, \&#39;duo-web\&#39;, \&#39;kba\&#39;,\&#39;token\&#39;, \&#39;rsa\&#39;
+         * @param {VerificationPollRequest} verificationPollRequest 
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        pingVerificationStatus(method: string, verificationPollRequest: VerificationPollRequest, axiosOptions?: any): AxiosPromise<VerificationResponse> {
+            return localVarFp.pingVerificationStatus(method, verificationPollRequest, axiosOptions).then((request) => request(axios, basePath));
+        },
+        /**
+         * This API Authenticates the user via Duo-Web MFA method.
+         * @summary Verifying authentication via Duo method
+         * @param {DuoVerificationRequest} duoVerificationRequest 
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        sendDuoVerifyRequest(duoVerificationRequest: DuoVerificationRequest, axiosOptions?: any): AxiosPromise<VerificationResponse> {
+            return localVarFp.sendDuoVerifyRequest(duoVerificationRequest, axiosOptions).then((request) => request(axios, basePath));
+        },
+        /**
+         * This API Authenticate user in KBA MFA method.
+         * @summary Authenticate KBA provided MFA method
+         * @param {Array<KbaAnswerRequestItem>} kbaAnswerRequestItem 
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        sendKbaAnswers(kbaAnswerRequestItem: Array<KbaAnswerRequestItem>, axiosOptions?: any): AxiosPromise<KbaAuthResponse> {
+            return localVarFp.sendKbaAnswers(kbaAnswerRequestItem, axiosOptions).then((request) => request(axios, basePath));
+        },
+        /**
+         * This API Authenticates the user via Okta-Verify MFA method. Request requires a header called \'slpt-forwarding\', and it must contain a remote IP Address of caller.
+         * @summary Verifying authentication via Okta method
+         * @param {OktaVerificationRequest} oktaVerificationRequest 
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        sendOktaVerifyRequest(oktaVerificationRequest: OktaVerificationRequest, axiosOptions?: any): AxiosPromise<VerificationResponse> {
+            return localVarFp.sendOktaVerifyRequest(oktaVerificationRequest, axiosOptions).then((request) => request(axios, basePath));
+        },
+        /**
+         * This API Authenticate user in Token MFA method.
+         * @summary Authenticate Token provided MFA method
+         * @param {TokenAuthRequest} tokenAuthRequest 
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        sendTokenAuthRequest(tokenAuthRequest: TokenAuthRequest, axiosOptions?: any): AxiosPromise<TokenAuthResponse> {
+            return localVarFp.sendTokenAuthRequest(tokenAuthRequest, axiosOptions).then((request) => request(axios, basePath));
+        },
+    };
+};
+
+/**
+ * Request parameters for createSendToken operation in MFAControllerApi.
+ * @export
+ * @interface MFAControllerApiCreateSendTokenRequest
+ */
+export interface MFAControllerApiCreateSendTokenRequest {
+    /**
+     * 
+     * @type {SendTokenRequest}
+     * @memberof MFAControllerApiCreateSendToken
+     */
+    readonly sendTokenRequest: SendTokenRequest
+}
+
+/**
+ * Request parameters for pingVerificationStatus operation in MFAControllerApi.
+ * @export
+ * @interface MFAControllerApiPingVerificationStatusRequest
+ */
+export interface MFAControllerApiPingVerificationStatusRequest {
+    /**
+     * The name of the MFA method. The currently supported method names are \&#39;okta-verify\&#39;, \&#39;duo-web\&#39;, \&#39;kba\&#39;,\&#39;token\&#39;, \&#39;rsa\&#39;
+     * @type {string}
+     * @memberof MFAControllerApiPingVerificationStatus
+     */
+    readonly method: string
+
+    /**
+     * 
+     * @type {VerificationPollRequest}
+     * @memberof MFAControllerApiPingVerificationStatus
+     */
+    readonly verificationPollRequest: VerificationPollRequest
+}
+
+/**
+ * Request parameters for sendDuoVerifyRequest operation in MFAControllerApi.
+ * @export
+ * @interface MFAControllerApiSendDuoVerifyRequestRequest
+ */
+export interface MFAControllerApiSendDuoVerifyRequestRequest {
+    /**
+     * 
+     * @type {DuoVerificationRequest}
+     * @memberof MFAControllerApiSendDuoVerifyRequest
+     */
+    readonly duoVerificationRequest: DuoVerificationRequest
+}
+
+/**
+ * Request parameters for sendKbaAnswers operation in MFAControllerApi.
+ * @export
+ * @interface MFAControllerApiSendKbaAnswersRequest
+ */
+export interface MFAControllerApiSendKbaAnswersRequest {
+    /**
+     * 
+     * @type {Array<KbaAnswerRequestItem>}
+     * @memberof MFAControllerApiSendKbaAnswers
+     */
+    readonly kbaAnswerRequestItem: Array<KbaAnswerRequestItem>
+}
+
+/**
+ * Request parameters for sendOktaVerifyRequest operation in MFAControllerApi.
+ * @export
+ * @interface MFAControllerApiSendOktaVerifyRequestRequest
+ */
+export interface MFAControllerApiSendOktaVerifyRequestRequest {
+    /**
+     * 
+     * @type {OktaVerificationRequest}
+     * @memberof MFAControllerApiSendOktaVerifyRequest
+     */
+    readonly oktaVerificationRequest: OktaVerificationRequest
+}
+
+/**
+ * Request parameters for sendTokenAuthRequest operation in MFAControllerApi.
+ * @export
+ * @interface MFAControllerApiSendTokenAuthRequestRequest
+ */
+export interface MFAControllerApiSendTokenAuthRequestRequest {
+    /**
+     * 
+     * @type {TokenAuthRequest}
+     * @memberof MFAControllerApiSendTokenAuthRequest
+     */
+    readonly tokenAuthRequest: TokenAuthRequest
+}
+
+/**
+ * MFAControllerApi - object-oriented interface
+ * @export
+ * @class MFAControllerApi
+ * @extends {BaseAPI}
+ */
+export class MFAControllerApi extends BaseAPI {
+    /**
+     * This API send token request.
+     * @summary Create and send user token
+     * @param {MFAControllerApiCreateSendTokenRequest} requestParameters Request parameters.
+     * @param {*} [axiosOptions] Override http request option.
+     * @throws {RequiredError}
+     * @memberof MFAControllerApi
+     */
+    public createSendToken(requestParameters: MFAControllerApiCreateSendTokenRequest, axiosOptions?: AxiosRequestConfig) {
+        return MFAControllerApiFp(this.configuration).createSendToken(requestParameters.sendTokenRequest, axiosOptions).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * This API poll the VerificationPollRequest for the specified MFA method. A token with ORG_ADMIN authority is required to call this API.
+     * @summary Polling MFA method by VerificationPollRequest
+     * @param {MFAControllerApiPingVerificationStatusRequest} requestParameters Request parameters.
+     * @param {*} [axiosOptions] Override http request option.
+     * @throws {RequiredError}
+     * @memberof MFAControllerApi
+     */
+    public pingVerificationStatus(requestParameters: MFAControllerApiPingVerificationStatusRequest, axiosOptions?: AxiosRequestConfig) {
+        return MFAControllerApiFp(this.configuration).pingVerificationStatus(requestParameters.method, requestParameters.verificationPollRequest, axiosOptions).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * This API Authenticates the user via Duo-Web MFA method.
+     * @summary Verifying authentication via Duo method
+     * @param {MFAControllerApiSendDuoVerifyRequestRequest} requestParameters Request parameters.
+     * @param {*} [axiosOptions] Override http request option.
+     * @throws {RequiredError}
+     * @memberof MFAControllerApi
+     */
+    public sendDuoVerifyRequest(requestParameters: MFAControllerApiSendDuoVerifyRequestRequest, axiosOptions?: AxiosRequestConfig) {
+        return MFAControllerApiFp(this.configuration).sendDuoVerifyRequest(requestParameters.duoVerificationRequest, axiosOptions).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * This API Authenticate user in KBA MFA method.
+     * @summary Authenticate KBA provided MFA method
+     * @param {MFAControllerApiSendKbaAnswersRequest} requestParameters Request parameters.
+     * @param {*} [axiosOptions] Override http request option.
+     * @throws {RequiredError}
+     * @memberof MFAControllerApi
+     */
+    public sendKbaAnswers(requestParameters: MFAControllerApiSendKbaAnswersRequest, axiosOptions?: AxiosRequestConfig) {
+        return MFAControllerApiFp(this.configuration).sendKbaAnswers(requestParameters.kbaAnswerRequestItem, axiosOptions).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * This API Authenticates the user via Okta-Verify MFA method. Request requires a header called \'slpt-forwarding\', and it must contain a remote IP Address of caller.
+     * @summary Verifying authentication via Okta method
+     * @param {MFAControllerApiSendOktaVerifyRequestRequest} requestParameters Request parameters.
+     * @param {*} [axiosOptions] Override http request option.
+     * @throws {RequiredError}
+     * @memberof MFAControllerApi
+     */
+    public sendOktaVerifyRequest(requestParameters: MFAControllerApiSendOktaVerifyRequestRequest, axiosOptions?: AxiosRequestConfig) {
+        return MFAControllerApiFp(this.configuration).sendOktaVerifyRequest(requestParameters.oktaVerificationRequest, axiosOptions).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * This API Authenticate user in Token MFA method.
+     * @summary Authenticate Token provided MFA method
+     * @param {MFAControllerApiSendTokenAuthRequestRequest} requestParameters Request parameters.
+     * @param {*} [axiosOptions] Override http request option.
+     * @throws {RequiredError}
+     * @memberof MFAControllerApi
+     */
+    public sendTokenAuthRequest(requestParameters: MFAControllerApiSendTokenAuthRequestRequest, axiosOptions?: AxiosRequestConfig) {
+        return MFAControllerApiFp(this.configuration).sendTokenAuthRequest(requestParameters.tokenAuthRequest, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 }
 
