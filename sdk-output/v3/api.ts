@@ -10270,19 +10270,6 @@ export interface InnerHit {
     'type': string;
 }
 /**
- * A JSONPatch document as defined by [RFC 6902 - JSON Patch](https://tools.ietf.org/html/rfc6902)
- * @export
- * @interface JsonPatch
- */
-export interface JsonPatch {
-    /**
-     * Operations to be applied
-     * @type {Array<JsonPatchOperation>}
-     * @memberof JsonPatch
-     */
-    'operations'?: Array<JsonPatchOperation>;
-}
-/**
  * A JSONPatch Operation as defined by [RFC 6902 - JSON Patch](https://tools.ietf.org/html/rfc6902)
  * @export
  * @interface JsonPatchOperation
@@ -37736,7 +37723,7 @@ export const ManagedClientsApiAxiosParamCreator = function (configuration?: Conf
         /**
          * Delete an existing Managed Client.
          * @summary Delete a Managed Client
-         * @param {string} id The Managed Client ID
+         * @param {string} id Managed Client ID.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
@@ -37778,7 +37765,7 @@ export const ManagedClientsApiAxiosParamCreator = function (configuration?: Conf
         /**
          * Get a Managed Client.
          * @summary Get a Managed Client
-         * @param {string} id The Managed Client ID
+         * @param {string} id Managed Client ID.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
@@ -37927,16 +37914,16 @@ export const ManagedClientsApiAxiosParamCreator = function (configuration?: Conf
         /**
          * Update an existing Managed Client.
          * @summary Update a Managed Client
-         * @param {string} id The Managed Client ID
-         * @param {JsonPatch} jsonPatch The JSONPatch payload used to update the schema.
+         * @param {string} id Managed Client ID.
+         * @param {Array<JsonPatchOperation>} jsonPatchOperation The JSONPatch payload used to update the object.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        updateManagedClient: async (id: string, jsonPatch: JsonPatch, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        updateManagedClient: async (id: string, jsonPatchOperation: Array<JsonPatchOperation>, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'id' is not null or undefined
             assertParamExists('updateManagedClient', 'id', id)
-            // verify required parameter 'jsonPatch' is not null or undefined
-            assertParamExists('updateManagedClient', 'jsonPatch', jsonPatch)
+            // verify required parameter 'jsonPatchOperation' is not null or undefined
+            assertParamExists('updateManagedClient', 'jsonPatchOperation', jsonPatchOperation)
             const localVarPath = `/managed-clients/{id}`
                 .replace(`{${"id"}}`, encodeURIComponent(String(id)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
@@ -37965,7 +37952,7 @@ export const ManagedClientsApiAxiosParamCreator = function (configuration?: Conf
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(jsonPatch, localVarRequestOptions, configuration)
+            localVarRequestOptions.data = serializeDataIfNeeded(jsonPatchOperation, localVarRequestOptions, configuration)
 
             return {
                 url: toPathString(localVarUrlObj),
@@ -37996,7 +37983,7 @@ export const ManagedClientsApiFp = function(configuration?: Configuration) {
         /**
          * Delete an existing Managed Client.
          * @summary Delete a Managed Client
-         * @param {string} id The Managed Client ID
+         * @param {string} id Managed Client ID.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
@@ -38007,7 +37994,7 @@ export const ManagedClientsApiFp = function(configuration?: Configuration) {
         /**
          * Get a Managed Client.
          * @summary Get a Managed Client
-         * @param {string} id The Managed Client ID
+         * @param {string} id Managed Client ID.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
@@ -38044,13 +38031,13 @@ export const ManagedClientsApiFp = function(configuration?: Configuration) {
         /**
          * Update an existing Managed Client.
          * @summary Update a Managed Client
-         * @param {string} id The Managed Client ID
-         * @param {JsonPatch} jsonPatch The JSONPatch payload used to update the schema.
+         * @param {string} id Managed Client ID.
+         * @param {Array<JsonPatchOperation>} jsonPatchOperation The JSONPatch payload used to update the object.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async updateManagedClient(id: string, jsonPatch: JsonPatch, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ManagedClient>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.updateManagedClient(id, jsonPatch, axiosOptions);
+        async updateManagedClient(id: string, jsonPatchOperation: Array<JsonPatchOperation>, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ManagedClient>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.updateManagedClient(id, jsonPatchOperation, axiosOptions);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
     }
@@ -38076,7 +38063,7 @@ export const ManagedClientsApiFactory = function (configuration?: Configuration,
         /**
          * Delete an existing Managed Client.
          * @summary Delete a Managed Client
-         * @param {string} id The Managed Client ID
+         * @param {string} id Managed Client ID.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
@@ -38086,7 +38073,7 @@ export const ManagedClientsApiFactory = function (configuration?: Configuration,
         /**
          * Get a Managed Client.
          * @summary Get a Managed Client
-         * @param {string} id The Managed Client ID
+         * @param {string} id Managed Client ID.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
@@ -38120,13 +38107,13 @@ export const ManagedClientsApiFactory = function (configuration?: Configuration,
         /**
          * Update an existing Managed Client.
          * @summary Update a Managed Client
-         * @param {string} id The Managed Client ID
-         * @param {JsonPatch} jsonPatch The JSONPatch payload used to update the schema.
+         * @param {string} id Managed Client ID.
+         * @param {Array<JsonPatchOperation>} jsonPatchOperation The JSONPatch payload used to update the object.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        updateManagedClient(id: string, jsonPatch: JsonPatch, axiosOptions?: any): AxiosPromise<ManagedClient> {
-            return localVarFp.updateManagedClient(id, jsonPatch, axiosOptions).then((request) => request(axios, basePath));
+        updateManagedClient(id: string, jsonPatchOperation: Array<JsonPatchOperation>, axiosOptions?: any): AxiosPromise<ManagedClient> {
+            return localVarFp.updateManagedClient(id, jsonPatchOperation, axiosOptions).then((request) => request(axios, basePath));
         },
     };
 };
@@ -38152,7 +38139,7 @@ export interface ManagedClientsApiCreateManagedClientRequest {
  */
 export interface ManagedClientsApiDeleteManagedClientRequest {
     /**
-     * The Managed Client ID
+     * Managed Client ID.
      * @type {string}
      * @memberof ManagedClientsApiDeleteManagedClient
      */
@@ -38166,7 +38153,7 @@ export interface ManagedClientsApiDeleteManagedClientRequest {
  */
 export interface ManagedClientsApiGetManagedClientRequest {
     /**
-     * The Managed Client ID
+     * Managed Client ID.
      * @type {string}
      * @memberof ManagedClientsApiGetManagedClient
      */
@@ -38236,18 +38223,18 @@ export interface ManagedClientsApiGetManagedClientsRequest {
  */
 export interface ManagedClientsApiUpdateManagedClientRequest {
     /**
-     * The Managed Client ID
+     * Managed Client ID.
      * @type {string}
      * @memberof ManagedClientsApiUpdateManagedClient
      */
     readonly id: string
 
     /**
-     * The JSONPatch payload used to update the schema.
-     * @type {JsonPatch}
+     * The JSONPatch payload used to update the object.
+     * @type {Array<JsonPatchOperation>}
      * @memberof ManagedClientsApiUpdateManagedClient
      */
-    readonly jsonPatch: JsonPatch
+    readonly jsonPatchOperation: Array<JsonPatchOperation>
 }
 
 /**
@@ -38326,7 +38313,7 @@ export class ManagedClientsApi extends BaseAPI {
      * @memberof ManagedClientsApi
      */
     public updateManagedClient(requestParameters: ManagedClientsApiUpdateManagedClientRequest, axiosOptions?: AxiosRequestConfig) {
-        return ManagedClientsApiFp(this.configuration).updateManagedClient(requestParameters.id, requestParameters.jsonPatch, axiosOptions).then((request) => request(this.axios, this.basePath));
+        return ManagedClientsApiFp(this.configuration).updateManagedClient(requestParameters.id, requestParameters.jsonPatchOperation, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 }
 
@@ -38384,7 +38371,7 @@ export const ManagedClustersApiAxiosParamCreator = function (configuration?: Con
         /**
          * Delete an existing Managed Cluster.
          * @summary Delete a Managed Cluster
-         * @param {string} id The Managed Cluster ID
+         * @param {string} id Managed Cluster ID.
          * @param {boolean} [removeClients] Flag to determine the need to delete a cluster with clients
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
@@ -38431,7 +38418,7 @@ export const ManagedClustersApiAxiosParamCreator = function (configuration?: Con
         /**
          * Retrieve a ManagedCluster by ID.
          * @summary Get a specified Managed Cluster.
-         * @param {string} id ID of the ManagedCluster to get
+         * @param {string} id ManagedCluster ID.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
@@ -38531,16 +38518,16 @@ export const ManagedClustersApiAxiosParamCreator = function (configuration?: Con
         /**
          * Update an existing Managed Cluster.
          * @summary Update a Managed Cluster
-         * @param {string} id The Managed Cluster ID
-         * @param {JsonPatch} jsonPatch The JSONPatch payload used to update the schema.
+         * @param {string} id Managed Cluster ID.
+         * @param {Array<JsonPatchOperation>} jsonPatchOperation The JSONPatch payload used to update the object.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        updateManagedCluster: async (id: string, jsonPatch: JsonPatch, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        updateManagedCluster: async (id: string, jsonPatchOperation: Array<JsonPatchOperation>, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'id' is not null or undefined
             assertParamExists('updateManagedCluster', 'id', id)
-            // verify required parameter 'jsonPatch' is not null or undefined
-            assertParamExists('updateManagedCluster', 'jsonPatch', jsonPatch)
+            // verify required parameter 'jsonPatchOperation' is not null or undefined
+            assertParamExists('updateManagedCluster', 'jsonPatchOperation', jsonPatchOperation)
             const localVarPath = `/managed-clusters/{id}`
                 .replace(`{${"id"}}`, encodeURIComponent(String(id)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
@@ -38569,7 +38556,7 @@ export const ManagedClustersApiAxiosParamCreator = function (configuration?: Con
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(jsonPatch, localVarRequestOptions, configuration)
+            localVarRequestOptions.data = serializeDataIfNeeded(jsonPatchOperation, localVarRequestOptions, configuration)
 
             return {
                 url: toPathString(localVarUrlObj),
@@ -38600,7 +38587,7 @@ export const ManagedClustersApiFp = function(configuration?: Configuration) {
         /**
          * Delete an existing Managed Cluster.
          * @summary Delete a Managed Cluster
-         * @param {string} id The Managed Cluster ID
+         * @param {string} id Managed Cluster ID.
          * @param {boolean} [removeClients] Flag to determine the need to delete a cluster with clients
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
@@ -38612,7 +38599,7 @@ export const ManagedClustersApiFp = function(configuration?: Configuration) {
         /**
          * Retrieve a ManagedCluster by ID.
          * @summary Get a specified Managed Cluster.
-         * @param {string} id ID of the ManagedCluster to get
+         * @param {string} id ManagedCluster ID.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
@@ -38637,13 +38624,13 @@ export const ManagedClustersApiFp = function(configuration?: Configuration) {
         /**
          * Update an existing Managed Cluster.
          * @summary Update a Managed Cluster
-         * @param {string} id The Managed Cluster ID
-         * @param {JsonPatch} jsonPatch The JSONPatch payload used to update the schema.
+         * @param {string} id Managed Cluster ID.
+         * @param {Array<JsonPatchOperation>} jsonPatchOperation The JSONPatch payload used to update the object.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async updateManagedCluster(id: string, jsonPatch: JsonPatch, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ManagedCluster>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.updateManagedCluster(id, jsonPatch, axiosOptions);
+        async updateManagedCluster(id: string, jsonPatchOperation: Array<JsonPatchOperation>, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ManagedCluster>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.updateManagedCluster(id, jsonPatchOperation, axiosOptions);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
     }
@@ -38669,7 +38656,7 @@ export const ManagedClustersApiFactory = function (configuration?: Configuration
         /**
          * Delete an existing Managed Cluster.
          * @summary Delete a Managed Cluster
-         * @param {string} id The Managed Cluster ID
+         * @param {string} id Managed Cluster ID.
          * @param {boolean} [removeClients] Flag to determine the need to delete a cluster with clients
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
@@ -38680,7 +38667,7 @@ export const ManagedClustersApiFactory = function (configuration?: Configuration
         /**
          * Retrieve a ManagedCluster by ID.
          * @summary Get a specified Managed Cluster.
-         * @param {string} id ID of the ManagedCluster to get
+         * @param {string} id ManagedCluster ID.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
@@ -38703,13 +38690,13 @@ export const ManagedClustersApiFactory = function (configuration?: Configuration
         /**
          * Update an existing Managed Cluster.
          * @summary Update a Managed Cluster
-         * @param {string} id The Managed Cluster ID
-         * @param {JsonPatch} jsonPatch The JSONPatch payload used to update the schema.
+         * @param {string} id Managed Cluster ID.
+         * @param {Array<JsonPatchOperation>} jsonPatchOperation The JSONPatch payload used to update the object.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        updateManagedCluster(id: string, jsonPatch: JsonPatch, axiosOptions?: any): AxiosPromise<ManagedCluster> {
-            return localVarFp.updateManagedCluster(id, jsonPatch, axiosOptions).then((request) => request(axios, basePath));
+        updateManagedCluster(id: string, jsonPatchOperation: Array<JsonPatchOperation>, axiosOptions?: any): AxiosPromise<ManagedCluster> {
+            return localVarFp.updateManagedCluster(id, jsonPatchOperation, axiosOptions).then((request) => request(axios, basePath));
         },
     };
 };
@@ -38735,7 +38722,7 @@ export interface ManagedClustersApiCreateManagedClusterRequest {
  */
 export interface ManagedClustersApiDeleteManagedClusterRequest {
     /**
-     * The Managed Cluster ID
+     * Managed Cluster ID.
      * @type {string}
      * @memberof ManagedClustersApiDeleteManagedCluster
      */
@@ -38756,7 +38743,7 @@ export interface ManagedClustersApiDeleteManagedClusterRequest {
  */
 export interface ManagedClustersApiGetManagedClusterRequest {
     /**
-     * ID of the ManagedCluster to get
+     * ManagedCluster ID.
      * @type {string}
      * @memberof ManagedClustersApiGetManagedCluster
      */
@@ -38805,18 +38792,18 @@ export interface ManagedClustersApiGetManagedClustersRequest {
  */
 export interface ManagedClustersApiUpdateManagedClusterRequest {
     /**
-     * The Managed Cluster ID
+     * Managed Cluster ID.
      * @type {string}
      * @memberof ManagedClustersApiUpdateManagedCluster
      */
     readonly id: string
 
     /**
-     * The JSONPatch payload used to update the schema.
-     * @type {JsonPatch}
+     * The JSONPatch payload used to update the object.
+     * @type {Array<JsonPatchOperation>}
      * @memberof ManagedClustersApiUpdateManagedCluster
      */
-    readonly jsonPatch: JsonPatch
+    readonly jsonPatchOperation: Array<JsonPatchOperation>
 }
 
 /**
@@ -38883,7 +38870,7 @@ export class ManagedClustersApi extends BaseAPI {
      * @memberof ManagedClustersApi
      */
     public updateManagedCluster(requestParameters: ManagedClustersApiUpdateManagedClusterRequest, axiosOptions?: AxiosRequestConfig) {
-        return ManagedClustersApiFp(this.configuration).updateManagedCluster(requestParameters.id, requestParameters.jsonPatch, axiosOptions).then((request) => request(this.axios, this.basePath));
+        return ManagedClustersApiFp(this.configuration).updateManagedCluster(requestParameters.id, requestParameters.jsonPatchOperation, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 }
 
