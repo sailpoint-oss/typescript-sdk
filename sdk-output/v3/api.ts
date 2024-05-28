@@ -977,13 +977,13 @@ export interface AccessRequest {
  */
 export interface AccessRequestConfig {
     /**
-     * If true, then approvals must be processed by external system.
+     * If this is true, approvals must be processed by an external system. Also, if this is true, it blocks Request Center access requests and returns an error for any user who isn\'t an org admin.
      * @type {boolean}
      * @memberof AccessRequestConfig
      */
     'approvalsMustBeExternal'?: boolean;
     /**
-     * If true and requester and reviewer are the same, then automatically approve the approval.
+     * If this is true and the requester and reviewer are the same, the request is automatically approved.
      * @type {boolean}
      * @memberof AccessRequestConfig
      */
@@ -7450,25 +7450,25 @@ export type EntitlementRef1TypeEnum = typeof EntitlementRef1TypeEnum[keyof typeo
  */
 export interface EntitlementRequestConfig {
     /**
-     * Flag for allowing entitlement request.
+     * If this is true, entitlement requests are allowed.
      * @type {boolean}
      * @memberof EntitlementRequestConfig
      */
     'allowEntitlementRequest'?: boolean;
     /**
-     * Flag for requiring comments while submitting an entitlement request.
+     * If this is true, comments are required to submit entitlement requests.
      * @type {boolean}
      * @memberof EntitlementRequestConfig
      */
     'requestCommentsRequired'?: boolean;
     /**
-     * Flag for requiring comments while rejecting an entitlement request.
+     * If this is true, comments are required to reject entitlement requests.
      * @type {boolean}
      * @memberof EntitlementRequestConfig
      */
     'deniedCommentsRequired'?: boolean;
     /**
-     * Approval schemes for granting entitlement request. This can be empty if no approval is needed. Multiple schemes must be comma-separated. The valid schemes are \"entitlementOwner\", \"sourceOwner\", \"manager\" and \"workgroup:{id}\". Multiple workgroups (governance groups) can be used. 
+     * Approval schemes for granting entitlement request. This can be empty if no approval is needed. Multiple schemes must be comma-separated. The valid schemes are \"entitlementOwner\", \"sourceOwner\", \"manager\" and \"workgroup:{id}\". You can use multiple governance groups (workgroups). 
      * @type {string}
      * @memberof EntitlementRequestConfig
      */
@@ -9974,25 +9974,25 @@ export interface IdentityReference {
  */
 export interface IdentityReferenceWithNameAndEmail {
     /**
-     * The type can only be IDENTITY. This is read-only
+     * The type can only be IDENTITY. This is read-only.
      * @type {string}
      * @memberof IdentityReferenceWithNameAndEmail
      */
     'type'?: string;
     /**
-     * Identity id.
+     * Identity ID.
      * @type {string}
      * @memberof IdentityReferenceWithNameAndEmail
      */
     'id'?: string;
     /**
-     * Human-readable display name of identity. This is read-only
+     * Identity\'s human-readable display name. This is read-only.
      * @type {string}
      * @memberof IdentityReferenceWithNameAndEmail
      */
     'name'?: string;
     /**
-     * Email address of identity. This is read-only
+     * Identity\'s email address. This is read-only.
      * @type {string}
      * @memberof IdentityReferenceWithNameAndEmail
      */
@@ -15590,13 +15590,13 @@ export type ReportType = typeof ReportType[keyof typeof ReportType];
  */
 export interface RequestOnBehalfOfConfig {
     /**
-     * If anyone can request access for anyone.
+     * If this is true, anyone can request access for anyone.
      * @type {boolean}
      * @memberof RequestOnBehalfOfConfig
      */
     'allowRequestOnBehalfOfAnyoneByAnyone'?: boolean;
     /**
-     * If a manager can request access for his/her direct reports.
+     * If this is true, a manager can request access for his or her direct reports.
      * @type {boolean}
      * @memberof RequestOnBehalfOfConfig
      */
