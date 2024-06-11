@@ -47143,6 +47143,132 @@ export const SODPoliciesApiAxiosParamCreator = function (configuration?: Configu
             };
         },
         /**
+         * This allows to download a specified named violation report for a given report reference.
+         * @summary Download custom violation report
+         * @param {string} reportResultId The ID of the report reference to download.
+         * @param {string} fileName Custom Name for the  file.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        getCustomViolationReport: async (reportResultId: string, fileName: string, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'reportResultId' is not null or undefined
+            assertParamExists('getCustomViolationReport', 'reportResultId', reportResultId)
+            // verify required parameter 'fileName' is not null or undefined
+            assertParamExists('getCustomViolationReport', 'fileName', fileName)
+            const localVarPath = `/sod-violation-report/{reportResultId}/download/{fileName}`
+                .replace(`{${"reportResultId"}}`, encodeURIComponent(String(reportResultId)))
+                .replace(`{${"fileName"}}`, encodeURIComponent(String(fileName)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...axiosOptions};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication UserContextAuth required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "UserContextAuth", [], configuration)
+
+            // authentication UserContextAuth required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "UserContextAuth", [], configuration)
+
+
+    
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                axiosOptions: localVarRequestOptions,
+            };
+        },
+        /**
+         * This allows to download a violation report for a given report reference.
+         * @summary Download violation report
+         * @param {string} reportResultId The ID of the report reference to download.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        getDefaultViolationReport: async (reportResultId: string, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'reportResultId' is not null or undefined
+            assertParamExists('getDefaultViolationReport', 'reportResultId', reportResultId)
+            const localVarPath = `/sod-violation-report/{reportResultId}/download`
+                .replace(`{${"reportResultId"}}`, encodeURIComponent(String(reportResultId)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...axiosOptions};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication UserContextAuth required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "UserContextAuth", [], configuration)
+
+            // authentication UserContextAuth required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "UserContextAuth", [], configuration)
+
+
+    
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                axiosOptions: localVarRequestOptions,
+            };
+        },
+        /**
+         * This endpoint gets the status for a violation report for all policy run.
+         * @summary Get multi-report run task status
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        getSodAllReportRunStatus: async (axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            const localVarPath = `/sod-violation-report`;
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...axiosOptions};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication UserContextAuth required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "UserContextAuth", [], configuration)
+
+            // authentication UserContextAuth required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "UserContextAuth", [], configuration)
+
+
+    
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                axiosOptions: localVarRequestOptions,
+            };
+        },
+        /**
          * This gets specified SOD policy. Requires role of ORG_ADMIN.
          * @summary Get SOD policy by ID
          * @param {string} id The ID of the SOD Policy to retrieve.
@@ -47560,6 +47686,48 @@ export const SODPoliciesApiAxiosParamCreator = function (configuration?: Configu
             };
         },
         /**
+         * Runs multi-policy report for the org. If a policy reports more than 5000 violations, the report mentions that the violation limit was exceeded for that policy. If the request is empty, the report runs for all policies. Otherwise, the report runs for only the filtered policy list provided.
+         * @summary Runs all policies for org
+         * @param {MultiPolicyRequest} [multiPolicyRequest] 
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        startSodAllPoliciesForOrg: async (multiPolicyRequest?: MultiPolicyRequest, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            const localVarPath = `/sod-violation-report/run`;
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'POST', ...baseOptions, ...axiosOptions};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication UserContextAuth required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "UserContextAuth", [], configuration)
+
+            // authentication UserContextAuth required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "UserContextAuth", [], configuration)
+
+
+    
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
+            localVarRequestOptions.data = serializeDataIfNeeded(multiPolicyRequest, localVarRequestOptions, configuration)
+
+            return {
+                url: toPathString(localVarUrlObj),
+                axiosOptions: localVarRequestOptions,
+            };
+        },
+        /**
          * This invokes processing of violation report for given SOD policy. If the policy reports more than 5000 violations, the report returns with violation limit exceeded message.
          * @summary Runs SOD policy violation report
          * @param {string} id The SOD policy ID to run.
@@ -47643,6 +47811,39 @@ export const SODPoliciesApiFp = function(configuration?: Configuration) {
          */
         async deleteSodPolicySchedule(id: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.deleteSodPolicySchedule(id, axiosOptions);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * This allows to download a specified named violation report for a given report reference.
+         * @summary Download custom violation report
+         * @param {string} reportResultId The ID of the report reference to download.
+         * @param {string} fileName Custom Name for the  file.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        async getCustomViolationReport(reportResultId: string, fileName: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<any>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getCustomViolationReport(reportResultId, fileName, axiosOptions);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * This allows to download a violation report for a given report reference.
+         * @summary Download violation report
+         * @param {string} reportResultId The ID of the report reference to download.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        async getDefaultViolationReport(reportResultId: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<any>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getDefaultViolationReport(reportResultId, axiosOptions);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * This endpoint gets the status for a violation report for all policy run.
+         * @summary Get multi-report run task status
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        async getSodAllReportRunStatus(axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ReportResultReference>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getSodAllReportRunStatus(axiosOptions);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
@@ -47752,6 +47953,17 @@ export const SODPoliciesApiFp = function(configuration?: Configuration) {
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
+         * Runs multi-policy report for the org. If a policy reports more than 5000 violations, the report mentions that the violation limit was exceeded for that policy. If the request is empty, the report runs for all policies. Otherwise, the report runs for only the filtered policy list provided.
+         * @summary Runs all policies for org
+         * @param {MultiPolicyRequest} [multiPolicyRequest] 
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        async startSodAllPoliciesForOrg(multiPolicyRequest?: MultiPolicyRequest, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ReportResultReference>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.startSodAllPoliciesForOrg(multiPolicyRequest, axiosOptions);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
          * This invokes processing of violation report for given SOD policy. If the policy reports more than 5000 violations, the report returns with violation limit exceeded message.
          * @summary Runs SOD policy violation report
          * @param {string} id The SOD policy ID to run.
@@ -47802,6 +48014,36 @@ export const SODPoliciesApiFactory = function (configuration?: Configuration, ba
          */
         deleteSodPolicySchedule(id: string, axiosOptions?: any): AxiosPromise<void> {
             return localVarFp.deleteSodPolicySchedule(id, axiosOptions).then((request) => request(axios, basePath));
+        },
+        /**
+         * This allows to download a specified named violation report for a given report reference.
+         * @summary Download custom violation report
+         * @param {string} reportResultId The ID of the report reference to download.
+         * @param {string} fileName Custom Name for the  file.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        getCustomViolationReport(reportResultId: string, fileName: string, axiosOptions?: any): AxiosPromise<any> {
+            return localVarFp.getCustomViolationReport(reportResultId, fileName, axiosOptions).then((request) => request(axios, basePath));
+        },
+        /**
+         * This allows to download a violation report for a given report reference.
+         * @summary Download violation report
+         * @param {string} reportResultId The ID of the report reference to download.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        getDefaultViolationReport(reportResultId: string, axiosOptions?: any): AxiosPromise<any> {
+            return localVarFp.getDefaultViolationReport(reportResultId, axiosOptions).then((request) => request(axios, basePath));
+        },
+        /**
+         * This endpoint gets the status for a violation report for all policy run.
+         * @summary Get multi-report run task status
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        getSodAllReportRunStatus(axiosOptions?: any): AxiosPromise<ReportResultReference> {
+            return localVarFp.getSodAllReportRunStatus(axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * This gets specified SOD policy. Requires role of ORG_ADMIN.
@@ -47901,6 +48143,16 @@ export const SODPoliciesApiFactory = function (configuration?: Configuration, ba
             return localVarFp.startEvaluateSodPolicy(id, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
+         * Runs multi-policy report for the org. If a policy reports more than 5000 violations, the report mentions that the violation limit was exceeded for that policy. If the request is empty, the report runs for all policies. Otherwise, the report runs for only the filtered policy list provided.
+         * @summary Runs all policies for org
+         * @param {MultiPolicyRequest} [multiPolicyRequest] 
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        startSodAllPoliciesForOrg(multiPolicyRequest?: MultiPolicyRequest, axiosOptions?: any): AxiosPromise<ReportResultReference> {
+            return localVarFp.startSodAllPoliciesForOrg(multiPolicyRequest, axiosOptions).then((request) => request(axios, basePath));
+        },
+        /**
          * This invokes processing of violation report for given SOD policy. If the policy reports more than 5000 violations, the report returns with violation limit exceeded message.
          * @summary Runs SOD policy violation report
          * @param {string} id The SOD policy ID to run.
@@ -47960,6 +48212,41 @@ export interface SODPoliciesApiDeleteSodPolicyScheduleRequest {
      * @memberof SODPoliciesApiDeleteSodPolicySchedule
      */
     readonly id: string
+}
+
+/**
+ * Request parameters for getCustomViolationReport operation in SODPoliciesApi.
+ * @export
+ * @interface SODPoliciesApiGetCustomViolationReportRequest
+ */
+export interface SODPoliciesApiGetCustomViolationReportRequest {
+    /**
+     * The ID of the report reference to download.
+     * @type {string}
+     * @memberof SODPoliciesApiGetCustomViolationReport
+     */
+    readonly reportResultId: string
+
+    /**
+     * Custom Name for the  file.
+     * @type {string}
+     * @memberof SODPoliciesApiGetCustomViolationReport
+     */
+    readonly fileName: string
+}
+
+/**
+ * Request parameters for getDefaultViolationReport operation in SODPoliciesApi.
+ * @export
+ * @interface SODPoliciesApiGetDefaultViolationReportRequest
+ */
+export interface SODPoliciesApiGetDefaultViolationReportRequest {
+    /**
+     * The ID of the report reference to download.
+     * @type {string}
+     * @memberof SODPoliciesApiGetDefaultViolationReport
+     */
+    readonly reportResultId: string
 }
 
 /**
@@ -48138,6 +48425,20 @@ export interface SODPoliciesApiStartEvaluateSodPolicyRequest {
 }
 
 /**
+ * Request parameters for startSodAllPoliciesForOrg operation in SODPoliciesApi.
+ * @export
+ * @interface SODPoliciesApiStartSodAllPoliciesForOrgRequest
+ */
+export interface SODPoliciesApiStartSodAllPoliciesForOrgRequest {
+    /**
+     * 
+     * @type {MultiPolicyRequest}
+     * @memberof SODPoliciesApiStartSodAllPoliciesForOrg
+     */
+    readonly multiPolicyRequest?: MultiPolicyRequest
+}
+
+/**
  * Request parameters for startSodPolicy operation in SODPoliciesApi.
  * @export
  * @interface SODPoliciesApiStartSodPolicyRequest
@@ -48192,6 +48493,41 @@ export class SODPoliciesApi extends BaseAPI {
      */
     public deleteSodPolicySchedule(requestParameters: SODPoliciesApiDeleteSodPolicyScheduleRequest, axiosOptions?: AxiosRequestConfig) {
         return SODPoliciesApiFp(this.configuration).deleteSodPolicySchedule(requestParameters.id, axiosOptions).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * This allows to download a specified named violation report for a given report reference.
+     * @summary Download custom violation report
+     * @param {SODPoliciesApiGetCustomViolationReportRequest} requestParameters Request parameters.
+     * @param {*} [axiosOptions] Override http request option.
+     * @throws {RequiredError}
+     * @memberof SODPoliciesApi
+     */
+    public getCustomViolationReport(requestParameters: SODPoliciesApiGetCustomViolationReportRequest, axiosOptions?: AxiosRequestConfig) {
+        return SODPoliciesApiFp(this.configuration).getCustomViolationReport(requestParameters.reportResultId, requestParameters.fileName, axiosOptions).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * This allows to download a violation report for a given report reference.
+     * @summary Download violation report
+     * @param {SODPoliciesApiGetDefaultViolationReportRequest} requestParameters Request parameters.
+     * @param {*} [axiosOptions] Override http request option.
+     * @throws {RequiredError}
+     * @memberof SODPoliciesApi
+     */
+    public getDefaultViolationReport(requestParameters: SODPoliciesApiGetDefaultViolationReportRequest, axiosOptions?: AxiosRequestConfig) {
+        return SODPoliciesApiFp(this.configuration).getDefaultViolationReport(requestParameters.reportResultId, axiosOptions).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * This endpoint gets the status for a violation report for all policy run.
+     * @summary Get multi-report run task status
+     * @param {*} [axiosOptions] Override http request option.
+     * @throws {RequiredError}
+     * @memberof SODPoliciesApi
+     */
+    public getSodAllReportRunStatus(axiosOptions?: AxiosRequestConfig) {
+        return SODPoliciesApiFp(this.configuration).getSodAllReportRunStatus(axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -48303,6 +48639,18 @@ export class SODPoliciesApi extends BaseAPI {
     }
 
     /**
+     * Runs multi-policy report for the org. If a policy reports more than 5000 violations, the report mentions that the violation limit was exceeded for that policy. If the request is empty, the report runs for all policies. Otherwise, the report runs for only the filtered policy list provided.
+     * @summary Runs all policies for org
+     * @param {SODPoliciesApiStartSodAllPoliciesForOrgRequest} requestParameters Request parameters.
+     * @param {*} [axiosOptions] Override http request option.
+     * @throws {RequiredError}
+     * @memberof SODPoliciesApi
+     */
+    public startSodAllPoliciesForOrg(requestParameters: SODPoliciesApiStartSodAllPoliciesForOrgRequest = {}, axiosOptions?: AxiosRequestConfig) {
+        return SODPoliciesApiFp(this.configuration).startSodAllPoliciesForOrg(requestParameters.multiPolicyRequest, axiosOptions).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
      * This invokes processing of violation report for given SOD policy. If the policy reports more than 5000 violations, the report returns with violation limit exceeded message.
      * @summary Runs SOD policy violation report
      * @param {SODPoliciesApiStartSodPolicyRequest} requestParameters Request parameters.
@@ -48312,392 +48660,6 @@ export class SODPoliciesApi extends BaseAPI {
      */
     public startSodPolicy(requestParameters: SODPoliciesApiStartSodPolicyRequest, axiosOptions?: AxiosRequestConfig) {
         return SODPoliciesApiFp(this.configuration).startSodPolicy(requestParameters.id, axiosOptions).then((request) => request(this.axios, this.basePath));
-    }
-}
-
-
-/**
- * SODPolicyApi - axios parameter creator
- * @export
- */
-export const SODPolicyApiAxiosParamCreator = function (configuration?: Configuration) {
-    return {
-        /**
-         * This allows to download a specified named violation report for a given report reference.
-         * @summary Download custom violation report
-         * @param {string} reportResultId The ID of the report reference to download.
-         * @param {string} fileName Custom Name for the  file.
-         * @param {*} [axiosOptions] Override http request option.
-         * @throws {RequiredError}
-         */
-        getCustomViolationReport: async (reportResultId: string, fileName: string, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
-            // verify required parameter 'reportResultId' is not null or undefined
-            assertParamExists('getCustomViolationReport', 'reportResultId', reportResultId)
-            // verify required parameter 'fileName' is not null or undefined
-            assertParamExists('getCustomViolationReport', 'fileName', fileName)
-            const localVarPath = `/sod-violation-report/{reportResultId}/download/{fileName}`
-                .replace(`{${"reportResultId"}}`, encodeURIComponent(String(reportResultId)))
-                .replace(`{${"fileName"}}`, encodeURIComponent(String(fileName)));
-            // use dummy base URL string because the URL constructor only accepts absolute URLs.
-            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
-            let baseOptions;
-            if (configuration) {
-                baseOptions = configuration.baseOptions;
-            }
-
-            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...axiosOptions};
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-
-            // authentication UserContextAuth required
-            // oauth required
-            await setOAuthToObject(localVarHeaderParameter, "UserContextAuth", [], configuration)
-
-            // authentication UserContextAuth required
-            // oauth required
-            await setOAuthToObject(localVarHeaderParameter, "UserContextAuth", [], configuration)
-
-
-    
-            setSearchParams(localVarUrlObj, localVarQueryParameter);
-            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
-            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
-
-            return {
-                url: toPathString(localVarUrlObj),
-                axiosOptions: localVarRequestOptions,
-            };
-        },
-        /**
-         * This allows to download a violation report for a given report reference.
-         * @summary Download violation report
-         * @param {string} reportResultId The ID of the report reference to download.
-         * @param {*} [axiosOptions] Override http request option.
-         * @throws {RequiredError}
-         */
-        getDefaultViolationReport: async (reportResultId: string, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
-            // verify required parameter 'reportResultId' is not null or undefined
-            assertParamExists('getDefaultViolationReport', 'reportResultId', reportResultId)
-            const localVarPath = `/sod-violation-report/{reportResultId}/download`
-                .replace(`{${"reportResultId"}}`, encodeURIComponent(String(reportResultId)));
-            // use dummy base URL string because the URL constructor only accepts absolute URLs.
-            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
-            let baseOptions;
-            if (configuration) {
-                baseOptions = configuration.baseOptions;
-            }
-
-            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...axiosOptions};
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-
-            // authentication UserContextAuth required
-            // oauth required
-            await setOAuthToObject(localVarHeaderParameter, "UserContextAuth", [], configuration)
-
-            // authentication UserContextAuth required
-            // oauth required
-            await setOAuthToObject(localVarHeaderParameter, "UserContextAuth", [], configuration)
-
-
-    
-            setSearchParams(localVarUrlObj, localVarQueryParameter);
-            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
-            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
-
-            return {
-                url: toPathString(localVarUrlObj),
-                axiosOptions: localVarRequestOptions,
-            };
-        },
-        /**
-         * This endpoint gets the status for a violation report for all policy run.
-         * @summary Get multi-report run task status
-         * @param {*} [axiosOptions] Override http request option.
-         * @throws {RequiredError}
-         */
-        getSodAllReportRunStatus: async (axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
-            const localVarPath = `/sod-violation-report`;
-            // use dummy base URL string because the URL constructor only accepts absolute URLs.
-            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
-            let baseOptions;
-            if (configuration) {
-                baseOptions = configuration.baseOptions;
-            }
-
-            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...axiosOptions};
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-
-            // authentication UserContextAuth required
-            // oauth required
-            await setOAuthToObject(localVarHeaderParameter, "UserContextAuth", [], configuration)
-
-            // authentication UserContextAuth required
-            // oauth required
-            await setOAuthToObject(localVarHeaderParameter, "UserContextAuth", [], configuration)
-
-
-    
-            setSearchParams(localVarUrlObj, localVarQueryParameter);
-            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
-            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
-
-            return {
-                url: toPathString(localVarUrlObj),
-                axiosOptions: localVarRequestOptions,
-            };
-        },
-        /**
-         * Runs multi-policy report for the org. If a policy reports more than 5000 violations, the report mentions that the violation limit was exceeded for that policy. If the request is empty, the report runs for all policies. Otherwise, the report runs for only the filtered policy list provided.
-         * @summary Runs all policies for org
-         * @param {MultiPolicyRequest} [multiPolicyRequest] 
-         * @param {*} [axiosOptions] Override http request option.
-         * @throws {RequiredError}
-         */
-        startSodAllPoliciesForOrg: async (multiPolicyRequest?: MultiPolicyRequest, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
-            const localVarPath = `/sod-violation-report/run`;
-            // use dummy base URL string because the URL constructor only accepts absolute URLs.
-            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
-            let baseOptions;
-            if (configuration) {
-                baseOptions = configuration.baseOptions;
-            }
-
-            const localVarRequestOptions = { method: 'POST', ...baseOptions, ...axiosOptions};
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-
-            // authentication UserContextAuth required
-            // oauth required
-            await setOAuthToObject(localVarHeaderParameter, "UserContextAuth", [], configuration)
-
-            // authentication UserContextAuth required
-            // oauth required
-            await setOAuthToObject(localVarHeaderParameter, "UserContextAuth", [], configuration)
-
-
-    
-            localVarHeaderParameter['Content-Type'] = 'application/json';
-
-            setSearchParams(localVarUrlObj, localVarQueryParameter);
-            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
-            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(multiPolicyRequest, localVarRequestOptions, configuration)
-
-            return {
-                url: toPathString(localVarUrlObj),
-                axiosOptions: localVarRequestOptions,
-            };
-        },
-    }
-};
-
-/**
- * SODPolicyApi - functional programming interface
- * @export
- */
-export const SODPolicyApiFp = function(configuration?: Configuration) {
-    const localVarAxiosParamCreator = SODPolicyApiAxiosParamCreator(configuration)
-    return {
-        /**
-         * This allows to download a specified named violation report for a given report reference.
-         * @summary Download custom violation report
-         * @param {string} reportResultId The ID of the report reference to download.
-         * @param {string} fileName Custom Name for the  file.
-         * @param {*} [axiosOptions] Override http request option.
-         * @throws {RequiredError}
-         */
-        async getCustomViolationReport(reportResultId: string, fileName: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<any>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.getCustomViolationReport(reportResultId, fileName, axiosOptions);
-            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
-        },
-        /**
-         * This allows to download a violation report for a given report reference.
-         * @summary Download violation report
-         * @param {string} reportResultId The ID of the report reference to download.
-         * @param {*} [axiosOptions] Override http request option.
-         * @throws {RequiredError}
-         */
-        async getDefaultViolationReport(reportResultId: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<any>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.getDefaultViolationReport(reportResultId, axiosOptions);
-            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
-        },
-        /**
-         * This endpoint gets the status for a violation report for all policy run.
-         * @summary Get multi-report run task status
-         * @param {*} [axiosOptions] Override http request option.
-         * @throws {RequiredError}
-         */
-        async getSodAllReportRunStatus(axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ReportResultReference>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.getSodAllReportRunStatus(axiosOptions);
-            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
-        },
-        /**
-         * Runs multi-policy report for the org. If a policy reports more than 5000 violations, the report mentions that the violation limit was exceeded for that policy. If the request is empty, the report runs for all policies. Otherwise, the report runs for only the filtered policy list provided.
-         * @summary Runs all policies for org
-         * @param {MultiPolicyRequest} [multiPolicyRequest] 
-         * @param {*} [axiosOptions] Override http request option.
-         * @throws {RequiredError}
-         */
-        async startSodAllPoliciesForOrg(multiPolicyRequest?: MultiPolicyRequest, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ReportResultReference>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.startSodAllPoliciesForOrg(multiPolicyRequest, axiosOptions);
-            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
-        },
-    }
-};
-
-/**
- * SODPolicyApi - factory interface
- * @export
- */
-export const SODPolicyApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
-    const localVarFp = SODPolicyApiFp(configuration)
-    return {
-        /**
-         * This allows to download a specified named violation report for a given report reference.
-         * @summary Download custom violation report
-         * @param {string} reportResultId The ID of the report reference to download.
-         * @param {string} fileName Custom Name for the  file.
-         * @param {*} [axiosOptions] Override http request option.
-         * @throws {RequiredError}
-         */
-        getCustomViolationReport(reportResultId: string, fileName: string, axiosOptions?: any): AxiosPromise<any> {
-            return localVarFp.getCustomViolationReport(reportResultId, fileName, axiosOptions).then((request) => request(axios, basePath));
-        },
-        /**
-         * This allows to download a violation report for a given report reference.
-         * @summary Download violation report
-         * @param {string} reportResultId The ID of the report reference to download.
-         * @param {*} [axiosOptions] Override http request option.
-         * @throws {RequiredError}
-         */
-        getDefaultViolationReport(reportResultId: string, axiosOptions?: any): AxiosPromise<any> {
-            return localVarFp.getDefaultViolationReport(reportResultId, axiosOptions).then((request) => request(axios, basePath));
-        },
-        /**
-         * This endpoint gets the status for a violation report for all policy run.
-         * @summary Get multi-report run task status
-         * @param {*} [axiosOptions] Override http request option.
-         * @throws {RequiredError}
-         */
-        getSodAllReportRunStatus(axiosOptions?: any): AxiosPromise<ReportResultReference> {
-            return localVarFp.getSodAllReportRunStatus(axiosOptions).then((request) => request(axios, basePath));
-        },
-        /**
-         * Runs multi-policy report for the org. If a policy reports more than 5000 violations, the report mentions that the violation limit was exceeded for that policy. If the request is empty, the report runs for all policies. Otherwise, the report runs for only the filtered policy list provided.
-         * @summary Runs all policies for org
-         * @param {MultiPolicyRequest} [multiPolicyRequest] 
-         * @param {*} [axiosOptions] Override http request option.
-         * @throws {RequiredError}
-         */
-        startSodAllPoliciesForOrg(multiPolicyRequest?: MultiPolicyRequest, axiosOptions?: any): AxiosPromise<ReportResultReference> {
-            return localVarFp.startSodAllPoliciesForOrg(multiPolicyRequest, axiosOptions).then((request) => request(axios, basePath));
-        },
-    };
-};
-
-/**
- * Request parameters for getCustomViolationReport operation in SODPolicyApi.
- * @export
- * @interface SODPolicyApiGetCustomViolationReportRequest
- */
-export interface SODPolicyApiGetCustomViolationReportRequest {
-    /**
-     * The ID of the report reference to download.
-     * @type {string}
-     * @memberof SODPolicyApiGetCustomViolationReport
-     */
-    readonly reportResultId: string
-
-    /**
-     * Custom Name for the  file.
-     * @type {string}
-     * @memberof SODPolicyApiGetCustomViolationReport
-     */
-    readonly fileName: string
-}
-
-/**
- * Request parameters for getDefaultViolationReport operation in SODPolicyApi.
- * @export
- * @interface SODPolicyApiGetDefaultViolationReportRequest
- */
-export interface SODPolicyApiGetDefaultViolationReportRequest {
-    /**
-     * The ID of the report reference to download.
-     * @type {string}
-     * @memberof SODPolicyApiGetDefaultViolationReport
-     */
-    readonly reportResultId: string
-}
-
-/**
- * Request parameters for startSodAllPoliciesForOrg operation in SODPolicyApi.
- * @export
- * @interface SODPolicyApiStartSodAllPoliciesForOrgRequest
- */
-export interface SODPolicyApiStartSodAllPoliciesForOrgRequest {
-    /**
-     * 
-     * @type {MultiPolicyRequest}
-     * @memberof SODPolicyApiStartSodAllPoliciesForOrg
-     */
-    readonly multiPolicyRequest?: MultiPolicyRequest
-}
-
-/**
- * SODPolicyApi - object-oriented interface
- * @export
- * @class SODPolicyApi
- * @extends {BaseAPI}
- */
-export class SODPolicyApi extends BaseAPI {
-    /**
-     * This allows to download a specified named violation report for a given report reference.
-     * @summary Download custom violation report
-     * @param {SODPolicyApiGetCustomViolationReportRequest} requestParameters Request parameters.
-     * @param {*} [axiosOptions] Override http request option.
-     * @throws {RequiredError}
-     * @memberof SODPolicyApi
-     */
-    public getCustomViolationReport(requestParameters: SODPolicyApiGetCustomViolationReportRequest, axiosOptions?: AxiosRequestConfig) {
-        return SODPolicyApiFp(this.configuration).getCustomViolationReport(requestParameters.reportResultId, requestParameters.fileName, axiosOptions).then((request) => request(this.axios, this.basePath));
-    }
-
-    /**
-     * This allows to download a violation report for a given report reference.
-     * @summary Download violation report
-     * @param {SODPolicyApiGetDefaultViolationReportRequest} requestParameters Request parameters.
-     * @param {*} [axiosOptions] Override http request option.
-     * @throws {RequiredError}
-     * @memberof SODPolicyApi
-     */
-    public getDefaultViolationReport(requestParameters: SODPolicyApiGetDefaultViolationReportRequest, axiosOptions?: AxiosRequestConfig) {
-        return SODPolicyApiFp(this.configuration).getDefaultViolationReport(requestParameters.reportResultId, axiosOptions).then((request) => request(this.axios, this.basePath));
-    }
-
-    /**
-     * This endpoint gets the status for a violation report for all policy run.
-     * @summary Get multi-report run task status
-     * @param {*} [axiosOptions] Override http request option.
-     * @throws {RequiredError}
-     * @memberof SODPolicyApi
-     */
-    public getSodAllReportRunStatus(axiosOptions?: AxiosRequestConfig) {
-        return SODPolicyApiFp(this.configuration).getSodAllReportRunStatus(axiosOptions).then((request) => request(this.axios, this.basePath));
-    }
-
-    /**
-     * Runs multi-policy report for the org. If a policy reports more than 5000 violations, the report mentions that the violation limit was exceeded for that policy. If the request is empty, the report runs for all policies. Otherwise, the report runs for only the filtered policy list provided.
-     * @summary Runs all policies for org
-     * @param {SODPolicyApiStartSodAllPoliciesForOrgRequest} requestParameters Request parameters.
-     * @param {*} [axiosOptions] Override http request option.
-     * @throws {RequiredError}
-     * @memberof SODPolicyApi
-     */
-    public startSodAllPoliciesForOrg(requestParameters: SODPolicyApiStartSodAllPoliciesForOrgRequest = {}, axiosOptions?: AxiosRequestConfig) {
-        return SODPolicyApiFp(this.configuration).startSodAllPoliciesForOrg(requestParameters.multiPolicyRequest, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 }
 
