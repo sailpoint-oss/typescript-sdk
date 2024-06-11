@@ -19132,10 +19132,10 @@ export interface SodPolicy {
     'description'?: string | null;
     /**
      * 
-     * @type {OwnerDto}
+     * @type {SodPolicyOwnerRef}
      * @memberof SodPolicy
      */
-    'ownerRef'?: OwnerDto;
+    'ownerRef'?: SodPolicyOwnerRef;
     /**
      * Optional External Policy Reference
      * @type {string}
@@ -19273,6 +19273,39 @@ export const SodPolicyDtoTypeEnum = {
 } as const;
 
 export type SodPolicyDtoTypeEnum = typeof SodPolicyDtoTypeEnum[keyof typeof SodPolicyDtoTypeEnum];
+
+/**
+ * The owner of the SOD policy.
+ * @export
+ * @interface SodPolicyOwnerRef
+ */
+export interface SodPolicyOwnerRef {
+    /**
+     * Owner type.
+     * @type {string}
+     * @memberof SodPolicyOwnerRef
+     */
+    'type'?: SodPolicyOwnerRefTypeEnum;
+    /**
+     * Owner\'s ID.
+     * @type {string}
+     * @memberof SodPolicyOwnerRef
+     */
+    'id'?: string;
+    /**
+     * Owner\'s name.
+     * @type {string}
+     * @memberof SodPolicyOwnerRef
+     */
+    'name'?: string;
+}
+
+export const SodPolicyOwnerRefTypeEnum = {
+    Identity: 'IDENTITY',
+    GovernanceGroup: 'GOVERNANCE_GROUP'
+} as const;
+
+export type SodPolicyOwnerRefTypeEnum = typeof SodPolicyOwnerRefTypeEnum[keyof typeof SodPolicyOwnerRefTypeEnum];
 
 /**
  * 
@@ -21781,7 +21814,7 @@ export interface ViolationOwnerAssignmentConfig {
      * @type {ViolationOwnerAssignmentConfigOwnerRef}
      * @memberof ViolationOwnerAssignmentConfig
      */
-    'ownerRef'?: ViolationOwnerAssignmentConfigOwnerRef;
+    'ownerRef'?: ViolationOwnerAssignmentConfigOwnerRef | null;
 }
 
 export const ViolationOwnerAssignmentConfigAssignmentRuleEnum = {
@@ -21793,19 +21826,19 @@ export const ViolationOwnerAssignmentConfigAssignmentRuleEnum = {
 export type ViolationOwnerAssignmentConfigAssignmentRuleEnum = typeof ViolationOwnerAssignmentConfigAssignmentRuleEnum[keyof typeof ViolationOwnerAssignmentConfigAssignmentRuleEnum];
 
 /**
- * 
+ * The owner of the violation assignment config.
  * @export
  * @interface ViolationOwnerAssignmentConfigOwnerRef
  */
 export interface ViolationOwnerAssignmentConfigOwnerRef {
     /**
-     * Owner\'s DTO type.
+     * Owner type.
      * @type {string}
      * @memberof ViolationOwnerAssignmentConfigOwnerRef
      */
     'type'?: ViolationOwnerAssignmentConfigOwnerRefTypeEnum;
     /**
-     * Owner\'s identity ID.
+     * Owner\'s ID.
      * @type {string}
      * @memberof ViolationOwnerAssignmentConfigOwnerRef
      */
@@ -21819,7 +21852,10 @@ export interface ViolationOwnerAssignmentConfigOwnerRef {
 }
 
 export const ViolationOwnerAssignmentConfigOwnerRefTypeEnum = {
-    Identity: 'IDENTITY'
+    Identity: 'IDENTITY',
+    GovernanceGroup: 'GOVERNANCE_GROUP',
+    Manager: 'MANAGER',
+    Null: 'null'
 } as const;
 
 export type ViolationOwnerAssignmentConfigOwnerRefTypeEnum = typeof ViolationOwnerAssignmentConfigOwnerRefTypeEnum[keyof typeof ViolationOwnerAssignmentConfigOwnerRefTypeEnum];
@@ -47280,11 +47316,12 @@ export const SODPoliciesApiAxiosParamCreator = function (configuration?: Configu
          * @param {number} [limit] Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
          * @param {number} [offset] Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
          * @param {boolean} [count] If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
-         * @param {string} [filters] Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq*  **name**: *eq*  **state**: *eq*
+         * @param {string} [filters] Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, in*  **name**: *eq, in*  **state**: *eq, in*
+         * @param {string} [sorters] Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **id, name, created, modified, description**
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        listSodPolicies: async (limit?: number, offset?: number, count?: boolean, filters?: string, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        listSodPolicies: async (limit?: number, offset?: number, count?: boolean, filters?: string, sorters?: string, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             const localVarPath = `/sod-policies`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -47319,6 +47356,10 @@ export const SODPoliciesApiAxiosParamCreator = function (configuration?: Configu
 
             if (filters !== undefined) {
                 localVarQueryParameter['filters'] = filters;
+            }
+
+            if (sorters !== undefined) {
+                localVarQueryParameter['sorters'] = sorters;
             }
 
 
@@ -47654,12 +47695,13 @@ export const SODPoliciesApiFp = function(configuration?: Configuration) {
          * @param {number} [limit] Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
          * @param {number} [offset] Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
          * @param {boolean} [count] If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
-         * @param {string} [filters] Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq*  **name**: *eq*  **state**: *eq*
+         * @param {string} [filters] Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, in*  **name**: *eq, in*  **state**: *eq, in*
+         * @param {string} [sorters] Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **id, name, created, modified, description**
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async listSodPolicies(limit?: number, offset?: number, count?: boolean, filters?: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<SodPolicy>>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.listSodPolicies(limit, offset, count, filters, axiosOptions);
+        async listSodPolicies(limit?: number, offset?: number, count?: boolean, filters?: string, sorters?: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<SodPolicy>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.listSodPolicies(limit, offset, count, filters, sorters, axiosOptions);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
@@ -47807,12 +47849,13 @@ export const SODPoliciesApiFactory = function (configuration?: Configuration, ba
          * @param {number} [limit] Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
          * @param {number} [offset] Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
          * @param {boolean} [count] If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
-         * @param {string} [filters] Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq*  **name**: *eq*  **state**: *eq*
+         * @param {string} [filters] Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, in*  **name**: *eq, in*  **state**: *eq, in*
+         * @param {string} [sorters] Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **id, name, created, modified, description**
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        listSodPolicies(limit?: number, offset?: number, count?: boolean, filters?: string, axiosOptions?: any): AxiosPromise<Array<SodPolicy>> {
-            return localVarFp.listSodPolicies(limit, offset, count, filters, axiosOptions).then((request) => request(axios, basePath));
+        listSodPolicies(limit?: number, offset?: number, count?: boolean, filters?: string, sorters?: string, axiosOptions?: any): AxiosPromise<Array<SodPolicy>> {
+            return localVarFp.listSodPolicies(limit, offset, count, filters, sorters, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * Allows updating SOD Policy fields other than [\"id\",\"created\",\"creatorId\",\"policyQuery\",\"type\"] using the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard. Requires role of ORG_ADMIN. This endpoint can only patch CONFLICTING_ACCESS_BASED type policies. Do not use this endpoint to patch general policies - doing so will build an API exception. 
@@ -48003,11 +48046,18 @@ export interface SODPoliciesApiListSodPoliciesRequest {
     readonly count?: boolean
 
     /**
-     * Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq*  **name**: *eq*  **state**: *eq*
+     * Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, in*  **name**: *eq, in*  **state**: *eq, in*
      * @type {string}
      * @memberof SODPoliciesApiListSodPolicies
      */
     readonly filters?: string
+
+    /**
+     * Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **id, name, created, modified, description**
+     * @type {string}
+     * @memberof SODPoliciesApiListSodPolicies
+     */
+    readonly sorters?: string
 }
 
 /**
@@ -48201,7 +48251,7 @@ export class SODPoliciesApi extends BaseAPI {
      * @memberof SODPoliciesApi
      */
     public listSodPolicies(requestParameters: SODPoliciesApiListSodPoliciesRequest = {}, axiosOptions?: AxiosRequestConfig) {
-        return SODPoliciesApiFp(this.configuration).listSodPolicies(requestParameters.limit, requestParameters.offset, requestParameters.count, requestParameters.filters, axiosOptions).then((request) => request(this.axios, this.basePath));
+        return SODPoliciesApiFp(this.configuration).listSodPolicies(requestParameters.limit, requestParameters.offset, requestParameters.count, requestParameters.filters, requestParameters.sorters, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
