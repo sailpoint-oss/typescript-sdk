@@ -21577,7 +21577,7 @@ export interface V3ConnectorDto {
      * @type {string}
      * @memberof V3ConnectorDto
      */
-    'className'?: string;
+    'className'?: string | null;
     /**
      * The list of features supported by the connector
      * @type {Array<string>}
@@ -33279,6 +33279,7 @@ export const ConnectorsApiAxiosParamCreator = function (configuration?: Configur
         },
         /**
          * Delete a custom connector that using its script name. A token with ORG_ADMIN authority is required to call this API.
+         * @summary Deletes connector by script name
          * @param {string} scriptName The scriptName value of the connector. Scriptname is the unique id generated at connector creation.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
@@ -33320,6 +33321,7 @@ export const ConnectorsApiAxiosParamCreator = function (configuration?: Configur
         },
         /**
          * Fetches a connector that using its script name. A token with ORG_ADMIN authority is required to call this API.
+         * @summary Gets connector by script name
          * @param {string} scriptName The scriptName value of the connector. Scriptname is the unique id generated at connector creation.
          * @param {'de' | 'false' | 'fi' | 'sv' | 'ru' | 'pt' | 'ko' | 'zh-TW' | 'en' | 'it' | 'fr' | 'zh-CN' | 'hu' | 'es' | 'cs' | 'ja' | 'pl' | 'da' | 'nl'} [locale] The locale to apply to the config. If no viable locale is given, it will default to \&quot;en\&quot;
          * @param {*} [axiosOptions] Override http request option.
@@ -33417,7 +33419,7 @@ export const ConnectorsApiAxiosParamCreator = function (configuration?: Configur
          * @throws {RequiredError}
          */
         getConnectorList: async (filters?: string, limit?: number, offset?: number, count?: boolean, locale?: 'de' | 'false' | 'fi' | 'sv' | 'ru' | 'pt' | 'ko' | 'zh-TW' | 'en' | 'it' | 'fr' | 'zh-CN' | 'hu' | 'es' | 'cs' | 'ja' | 'pl' | 'da' | 'nl', axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
-            const localVarPath = `/connectors/{scriptName}/list`;
+            const localVarPath = `/connectors`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -33798,6 +33800,7 @@ export const ConnectorsApiAxiosParamCreator = function (configuration?: Configur
         },
         /**
          * Patch a custom connector that using its script name. A token with ORG_ADMIN authority is required to call this API. The following fields are patchable: * connectorMetadata * applicationXml * correlationConfigXml * sourceConfigXml
+         * @summary Update connector by script name
          * @param {string} scriptName The scriptName value of the connector. Scriptname is the unique id generated at connector creation.
          * @param {Array<JsonPatchOperation>} jsonPatchOperation A list of connector detail update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.
          * @param {*} [axiosOptions] Override http request option.
@@ -33866,6 +33869,7 @@ export const ConnectorsApiFp = function(configuration?: Configuration) {
         },
         /**
          * Delete a custom connector that using its script name. A token with ORG_ADMIN authority is required to call this API.
+         * @summary Deletes connector by script name
          * @param {string} scriptName The scriptName value of the connector. Scriptname is the unique id generated at connector creation.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
@@ -33876,6 +33880,7 @@ export const ConnectorsApiFp = function(configuration?: Configuration) {
         },
         /**
          * Fetches a connector that using its script name. A token with ORG_ADMIN authority is required to call this API.
+         * @summary Gets connector by script name
          * @param {string} scriptName The scriptName value of the connector. Scriptname is the unique id generated at connector creation.
          * @param {'de' | 'false' | 'fi' | 'sv' | 'ru' | 'pt' | 'ko' | 'zh-TW' | 'en' | 'it' | 'fr' | 'zh-CN' | 'hu' | 'es' | 'cs' | 'ja' | 'pl' | 'da' | 'nl'} [locale] The locale to apply to the config. If no viable locale is given, it will default to \&quot;en\&quot;
          * @param {*} [axiosOptions] Override http request option.
@@ -33987,6 +33992,7 @@ export const ConnectorsApiFp = function(configuration?: Configuration) {
         },
         /**
          * Patch a custom connector that using its script name. A token with ORG_ADMIN authority is required to call this API. The following fields are patchable: * connectorMetadata * applicationXml * correlationConfigXml * sourceConfigXml
+         * @summary Update connector by script name
          * @param {string} scriptName The scriptName value of the connector. Scriptname is the unique id generated at connector creation.
          * @param {Array<JsonPatchOperation>} jsonPatchOperation A list of connector detail update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.
          * @param {*} [axiosOptions] Override http request option.
@@ -34018,6 +34024,7 @@ export const ConnectorsApiFactory = function (configuration?: Configuration, bas
         },
         /**
          * Delete a custom connector that using its script name. A token with ORG_ADMIN authority is required to call this API.
+         * @summary Deletes connector by script name
          * @param {string} scriptName The scriptName value of the connector. Scriptname is the unique id generated at connector creation.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
@@ -34027,6 +34034,7 @@ export const ConnectorsApiFactory = function (configuration?: Configuration, bas
         },
         /**
          * Fetches a connector that using its script name. A token with ORG_ADMIN authority is required to call this API.
+         * @summary Gets connector by script name
          * @param {string} scriptName The scriptName value of the connector. Scriptname is the unique id generated at connector creation.
          * @param {'de' | 'false' | 'fi' | 'sv' | 'ru' | 'pt' | 'ko' | 'zh-TW' | 'en' | 'it' | 'fr' | 'zh-CN' | 'hu' | 'es' | 'cs' | 'ja' | 'pl' | 'da' | 'nl'} [locale] The locale to apply to the config. If no viable locale is given, it will default to \&quot;en\&quot;
          * @param {*} [axiosOptions] Override http request option.
@@ -34128,6 +34136,7 @@ export const ConnectorsApiFactory = function (configuration?: Configuration, bas
         },
         /**
          * Patch a custom connector that using its script name. A token with ORG_ADMIN authority is required to call this API. The following fields are patchable: * connectorMetadata * applicationXml * correlationConfigXml * sourceConfigXml
+         * @summary Update connector by script name
          * @param {string} scriptName The scriptName value of the connector. Scriptname is the unique id generated at connector creation.
          * @param {Array<JsonPatchOperation>} jsonPatchOperation A list of connector detail update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.
          * @param {*} [axiosOptions] Override http request option.
@@ -34419,6 +34428,7 @@ export class ConnectorsApi extends BaseAPI {
 
     /**
      * Delete a custom connector that using its script name. A token with ORG_ADMIN authority is required to call this API.
+     * @summary Deletes connector by script name
      * @param {ConnectorsApiDeleteCustomConnectorRequest} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
@@ -34430,6 +34440,7 @@ export class ConnectorsApi extends BaseAPI {
 
     /**
      * Fetches a connector that using its script name. A token with ORG_ADMIN authority is required to call this API.
+     * @summary Gets connector by script name
      * @param {ConnectorsApiGetConnectorRequest} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
@@ -34541,6 +34552,7 @@ export class ConnectorsApi extends BaseAPI {
 
     /**
      * Patch a custom connector that using its script name. A token with ORG_ADMIN authority is required to call this API. The following fields are patchable: * connectorMetadata * applicationXml * correlationConfigXml * sourceConfigXml
+     * @summary Update connector by script name
      * @param {ConnectorsApiUpdateConnectorRequest} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
