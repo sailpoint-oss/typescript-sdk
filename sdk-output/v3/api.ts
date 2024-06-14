@@ -22748,8 +22748,8 @@ export type WorkflowTriggerAttributes = EventAttributes | ExternalAttributes | S
 export const AccessProfilesApiAxiosParamCreator = function (configuration?: Configuration) {
     return {
         /**
-         * This API creates an Access Profile. A token with API, ORG_ADMIN, ROLE_ADMIN, ROLE_SUBADMIN, SOURCE_ADMIN, or SOURCE_SUBADMIN authority is required to call this API. In addition, a token with only ROLE_SUBADMIN or SOURCE_SUBADMIN authority must be associated with the Access Profile\'s Source. The maximum supported length for the description field is 2000 characters. Longer descriptions will be preserved for existing access profiles, however, any new access profiles as well as any updates to existing descriptions will be limited to 2000 characters.
-         * @summary Create an Access Profile
+         * Use this API to create an access profile. A token with API, ORG_ADMIN, ROLE_ADMIN, ROLE_SUBADMIN, SOURCE_ADMIN, or SOURCE_SUBADMIN authority is required to call this API. In addition, a token with only ROLE_SUBADMIN or SOURCE_SUBADMIN authority must be associated with the access profile\'s Source. The maximum supported length for the description field is 2000 characters. Longer descriptions will be preserved for existing access profiles. However, any new access profiles as well as any updates to existing descriptions are limited to 2000 characters.
+         * @summary Create Access Profile
          * @param {AccessProfile} accessProfile 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
@@ -22987,16 +22987,16 @@ export const AccessProfilesApiAxiosParamCreator = function (configuration?: Conf
             };
         },
         /**
-         * This API returns a list of Access Profiles.  A token with API, ORG_ADMIN, ROLE_ADMIN, ROLE_SUBADMIN, SOURCE_ADMIN, or SOURCE_SUBADMIN authority is required to call this API.
+         * Use this API to get a list of access profiles. A token with API, ORG_ADMIN, ROLE_ADMIN, ROLE_SUBADMIN, SOURCE_ADMIN, or SOURCE_SUBADMIN authority is required to call this API.
          * @summary List Access Profiles
          * @param {string} [forSubadmin] If provided, filters the returned list according to what is visible to the indicated ROLE_SUBADMIN or SOURCE_SUBADMIN Identity. The value of the parameter is either an Identity ID, or the special value **me**, which is shorthand for the calling Identity\&#39;s ID.  A 400 Bad Request error is returned if the **for-subadmin** parameter is specified for an Identity that is not a subadmin.
          * @param {number} [limit] Note that for this API the maximum value for limit is 50. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
          * @param {number} [offset] Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
          * @param {boolean} [count] If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
-         * @param {string} [filters] Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, in*  **name**: *eq, sw*  **created**: *gt, lt, ge, le*  **modified**: *gt, lt, ge, le*  **owner.id**: *eq, in*  **requestable**: *eq*  **source.id**: *eq, in*  Composite operators supported: *and, or*
+         * @param {string} [filters] Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, in*  **name**: *eq, sw*  **created**: *gt, lt, ge, le*  **modified**: *gt, lt, ge, le*  **owner.id**: *eq, in*  **requestable**: *eq*  **source.id**: *eq, in*  Composite operators supported: *and, or*  Filtering is not supported for access profiles and entitlements that have the \&#39;+\&#39; symbol in their names. 
          * @param {string} [sorters] Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **name, created, modified**
-         * @param {string} [forSegmentIds] If present and not empty, additionally filters Access Profiles to those which are assigned to the Segment(s) with the specified IDs.  If segmentation is currently unavailable, specifying this parameter results in an error.
-         * @param {boolean} [includeUnsegmented] Whether or not the response list should contain unsegmented Access Profiles. If *for-segment-ids* is absent or empty, specifying *include-unsegmented* as false results in an error.
+         * @param {string} [forSegmentIds] If present and not empty, additionally filters access profiles to those which are assigned to the Segment(s) with the specified IDs.  If segmentation is currently unavailable, specifying this parameter results in an error.
+         * @param {boolean} [includeUnsegmented] Indicates whether the response list should contain unsegmented access profiles. If *for-segment-ids* is absent or empty, specifying *include-unsegmented* as false results in an error.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
@@ -23123,8 +23123,8 @@ export const AccessProfilesApiFp = function(configuration?: Configuration) {
     const localVarAxiosParamCreator = AccessProfilesApiAxiosParamCreator(configuration)
     return {
         /**
-         * This API creates an Access Profile. A token with API, ORG_ADMIN, ROLE_ADMIN, ROLE_SUBADMIN, SOURCE_ADMIN, or SOURCE_SUBADMIN authority is required to call this API. In addition, a token with only ROLE_SUBADMIN or SOURCE_SUBADMIN authority must be associated with the Access Profile\'s Source. The maximum supported length for the description field is 2000 characters. Longer descriptions will be preserved for existing access profiles, however, any new access profiles as well as any updates to existing descriptions will be limited to 2000 characters.
-         * @summary Create an Access Profile
+         * Use this API to create an access profile. A token with API, ORG_ADMIN, ROLE_ADMIN, ROLE_SUBADMIN, SOURCE_ADMIN, or SOURCE_SUBADMIN authority is required to call this API. In addition, a token with only ROLE_SUBADMIN or SOURCE_SUBADMIN authority must be associated with the access profile\'s Source. The maximum supported length for the description field is 2000 characters. Longer descriptions will be preserved for existing access profiles. However, any new access profiles as well as any updates to existing descriptions are limited to 2000 characters.
+         * @summary Create Access Profile
          * @param {AccessProfile} accessProfile 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
@@ -23183,16 +23183,16 @@ export const AccessProfilesApiFp = function(configuration?: Configuration) {
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
-         * This API returns a list of Access Profiles.  A token with API, ORG_ADMIN, ROLE_ADMIN, ROLE_SUBADMIN, SOURCE_ADMIN, or SOURCE_SUBADMIN authority is required to call this API.
+         * Use this API to get a list of access profiles. A token with API, ORG_ADMIN, ROLE_ADMIN, ROLE_SUBADMIN, SOURCE_ADMIN, or SOURCE_SUBADMIN authority is required to call this API.
          * @summary List Access Profiles
          * @param {string} [forSubadmin] If provided, filters the returned list according to what is visible to the indicated ROLE_SUBADMIN or SOURCE_SUBADMIN Identity. The value of the parameter is either an Identity ID, or the special value **me**, which is shorthand for the calling Identity\&#39;s ID.  A 400 Bad Request error is returned if the **for-subadmin** parameter is specified for an Identity that is not a subadmin.
          * @param {number} [limit] Note that for this API the maximum value for limit is 50. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
          * @param {number} [offset] Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
          * @param {boolean} [count] If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
-         * @param {string} [filters] Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, in*  **name**: *eq, sw*  **created**: *gt, lt, ge, le*  **modified**: *gt, lt, ge, le*  **owner.id**: *eq, in*  **requestable**: *eq*  **source.id**: *eq, in*  Composite operators supported: *and, or*
+         * @param {string} [filters] Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, in*  **name**: *eq, sw*  **created**: *gt, lt, ge, le*  **modified**: *gt, lt, ge, le*  **owner.id**: *eq, in*  **requestable**: *eq*  **source.id**: *eq, in*  Composite operators supported: *and, or*  Filtering is not supported for access profiles and entitlements that have the \&#39;+\&#39; symbol in their names. 
          * @param {string} [sorters] Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **name, created, modified**
-         * @param {string} [forSegmentIds] If present and not empty, additionally filters Access Profiles to those which are assigned to the Segment(s) with the specified IDs.  If segmentation is currently unavailable, specifying this parameter results in an error.
-         * @param {boolean} [includeUnsegmented] Whether or not the response list should contain unsegmented Access Profiles. If *for-segment-ids* is absent or empty, specifying *include-unsegmented* as false results in an error.
+         * @param {string} [forSegmentIds] If present and not empty, additionally filters access profiles to those which are assigned to the Segment(s) with the specified IDs.  If segmentation is currently unavailable, specifying this parameter results in an error.
+         * @param {boolean} [includeUnsegmented] Indicates whether the response list should contain unsegmented access profiles. If *for-segment-ids* is absent or empty, specifying *include-unsegmented* as false results in an error.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
@@ -23223,8 +23223,8 @@ export const AccessProfilesApiFactory = function (configuration?: Configuration,
     const localVarFp = AccessProfilesApiFp(configuration)
     return {
         /**
-         * This API creates an Access Profile. A token with API, ORG_ADMIN, ROLE_ADMIN, ROLE_SUBADMIN, SOURCE_ADMIN, or SOURCE_SUBADMIN authority is required to call this API. In addition, a token with only ROLE_SUBADMIN or SOURCE_SUBADMIN authority must be associated with the Access Profile\'s Source. The maximum supported length for the description field is 2000 characters. Longer descriptions will be preserved for existing access profiles, however, any new access profiles as well as any updates to existing descriptions will be limited to 2000 characters.
-         * @summary Create an Access Profile
+         * Use this API to create an access profile. A token with API, ORG_ADMIN, ROLE_ADMIN, ROLE_SUBADMIN, SOURCE_ADMIN, or SOURCE_SUBADMIN authority is required to call this API. In addition, a token with only ROLE_SUBADMIN or SOURCE_SUBADMIN authority must be associated with the access profile\'s Source. The maximum supported length for the description field is 2000 characters. Longer descriptions will be preserved for existing access profiles. However, any new access profiles as well as any updates to existing descriptions are limited to 2000 characters.
+         * @summary Create Access Profile
          * @param {AccessProfile} accessProfile 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
@@ -23278,16 +23278,16 @@ export const AccessProfilesApiFactory = function (configuration?: Configuration,
             return localVarFp.getAccessProfileEntitlements(id, limit, offset, count, filters, sorters, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
-         * This API returns a list of Access Profiles.  A token with API, ORG_ADMIN, ROLE_ADMIN, ROLE_SUBADMIN, SOURCE_ADMIN, or SOURCE_SUBADMIN authority is required to call this API.
+         * Use this API to get a list of access profiles. A token with API, ORG_ADMIN, ROLE_ADMIN, ROLE_SUBADMIN, SOURCE_ADMIN, or SOURCE_SUBADMIN authority is required to call this API.
          * @summary List Access Profiles
          * @param {string} [forSubadmin] If provided, filters the returned list according to what is visible to the indicated ROLE_SUBADMIN or SOURCE_SUBADMIN Identity. The value of the parameter is either an Identity ID, or the special value **me**, which is shorthand for the calling Identity\&#39;s ID.  A 400 Bad Request error is returned if the **for-subadmin** parameter is specified for an Identity that is not a subadmin.
          * @param {number} [limit] Note that for this API the maximum value for limit is 50. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
          * @param {number} [offset] Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
          * @param {boolean} [count] If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
-         * @param {string} [filters] Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, in*  **name**: *eq, sw*  **created**: *gt, lt, ge, le*  **modified**: *gt, lt, ge, le*  **owner.id**: *eq, in*  **requestable**: *eq*  **source.id**: *eq, in*  Composite operators supported: *and, or*
+         * @param {string} [filters] Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, in*  **name**: *eq, sw*  **created**: *gt, lt, ge, le*  **modified**: *gt, lt, ge, le*  **owner.id**: *eq, in*  **requestable**: *eq*  **source.id**: *eq, in*  Composite operators supported: *and, or*  Filtering is not supported for access profiles and entitlements that have the \&#39;+\&#39; symbol in their names. 
          * @param {string} [sorters] Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **name, created, modified**
-         * @param {string} [forSegmentIds] If present and not empty, additionally filters Access Profiles to those which are assigned to the Segment(s) with the specified IDs.  If segmentation is currently unavailable, specifying this parameter results in an error.
-         * @param {boolean} [includeUnsegmented] Whether or not the response list should contain unsegmented Access Profiles. If *for-segment-ids* is absent or empty, specifying *include-unsegmented* as false results in an error.
+         * @param {string} [forSegmentIds] If present and not empty, additionally filters access profiles to those which are assigned to the Segment(s) with the specified IDs.  If segmentation is currently unavailable, specifying this parameter results in an error.
+         * @param {boolean} [includeUnsegmented] Indicates whether the response list should contain unsegmented access profiles. If *for-segment-ids* is absent or empty, specifying *include-unsegmented* as false results in an error.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
@@ -23448,7 +23448,7 @@ export interface AccessProfilesApiListAccessProfilesRequest {
     readonly count?: boolean
 
     /**
-     * Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, in*  **name**: *eq, sw*  **created**: *gt, lt, ge, le*  **modified**: *gt, lt, ge, le*  **owner.id**: *eq, in*  **requestable**: *eq*  **source.id**: *eq, in*  Composite operators supported: *and, or*
+     * Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, in*  **name**: *eq, sw*  **created**: *gt, lt, ge, le*  **modified**: *gt, lt, ge, le*  **owner.id**: *eq, in*  **requestable**: *eq*  **source.id**: *eq, in*  Composite operators supported: *and, or*  Filtering is not supported for access profiles and entitlements that have the \&#39;+\&#39; symbol in their names. 
      * @type {string}
      * @memberof AccessProfilesApiListAccessProfiles
      */
@@ -23462,14 +23462,14 @@ export interface AccessProfilesApiListAccessProfilesRequest {
     readonly sorters?: string
 
     /**
-     * If present and not empty, additionally filters Access Profiles to those which are assigned to the Segment(s) with the specified IDs.  If segmentation is currently unavailable, specifying this parameter results in an error.
+     * If present and not empty, additionally filters access profiles to those which are assigned to the Segment(s) with the specified IDs.  If segmentation is currently unavailable, specifying this parameter results in an error.
      * @type {string}
      * @memberof AccessProfilesApiListAccessProfiles
      */
     readonly forSegmentIds?: string
 
     /**
-     * Whether or not the response list should contain unsegmented Access Profiles. If *for-segment-ids* is absent or empty, specifying *include-unsegmented* as false results in an error.
+     * Indicates whether the response list should contain unsegmented access profiles. If *for-segment-ids* is absent or empty, specifying *include-unsegmented* as false results in an error.
      * @type {boolean}
      * @memberof AccessProfilesApiListAccessProfiles
      */
@@ -23505,8 +23505,8 @@ export interface AccessProfilesApiPatchAccessProfileRequest {
  */
 export class AccessProfilesApi extends BaseAPI {
     /**
-     * This API creates an Access Profile. A token with API, ORG_ADMIN, ROLE_ADMIN, ROLE_SUBADMIN, SOURCE_ADMIN, or SOURCE_SUBADMIN authority is required to call this API. In addition, a token with only ROLE_SUBADMIN or SOURCE_SUBADMIN authority must be associated with the Access Profile\'s Source. The maximum supported length for the description field is 2000 characters. Longer descriptions will be preserved for existing access profiles, however, any new access profiles as well as any updates to existing descriptions will be limited to 2000 characters.
-     * @summary Create an Access Profile
+     * Use this API to create an access profile. A token with API, ORG_ADMIN, ROLE_ADMIN, ROLE_SUBADMIN, SOURCE_ADMIN, or SOURCE_SUBADMIN authority is required to call this API. In addition, a token with only ROLE_SUBADMIN or SOURCE_SUBADMIN authority must be associated with the access profile\'s Source. The maximum supported length for the description field is 2000 characters. Longer descriptions will be preserved for existing access profiles. However, any new access profiles as well as any updates to existing descriptions are limited to 2000 characters.
+     * @summary Create Access Profile
      * @param {AccessProfilesApiCreateAccessProfileRequest} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
@@ -23565,7 +23565,7 @@ export class AccessProfilesApi extends BaseAPI {
     }
 
     /**
-     * This API returns a list of Access Profiles.  A token with API, ORG_ADMIN, ROLE_ADMIN, ROLE_SUBADMIN, SOURCE_ADMIN, or SOURCE_SUBADMIN authority is required to call this API.
+     * Use this API to get a list of access profiles. A token with API, ORG_ADMIN, ROLE_ADMIN, ROLE_SUBADMIN, SOURCE_ADMIN, or SOURCE_SUBADMIN authority is required to call this API.
      * @summary List Access Profiles
      * @param {AccessProfilesApiListAccessProfilesRequest} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
@@ -23597,16 +23597,18 @@ export class AccessProfilesApi extends BaseAPI {
 export const AccessRequestApprovalsApiAxiosParamCreator = function (configuration?: Configuration) {
     return {
         /**
-         * This endpoint approves an access request approval. Only the owner of the approval and ORG_ADMIN users are allowed to perform this action.
-         * @summary Approves an access request approval.
-         * @param {string} approvalId The id of the approval.
-         * @param {CommentDto} [commentDto] Reviewer\&#39;s comment.
+         * Use this endpoint to approve an access request approval. Only the owner of the approval and ORG_ADMIN users are allowed to perform this action.
+         * @summary Approve Access Request Approval
+         * @param {string} approvalId Approval ID.
+         * @param {CommentDto} commentDto Reviewer\&#39;s comment.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        approveAccessRequest: async (approvalId: string, commentDto?: CommentDto, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        approveAccessRequest: async (approvalId: string, commentDto: CommentDto, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'approvalId' is not null or undefined
             assertParamExists('approveAccessRequest', 'approvalId', approvalId)
+            // verify required parameter 'commentDto' is not null or undefined
+            assertParamExists('approveAccessRequest', 'commentDto', commentDto)
             const localVarPath = `/access-request-approvals/{approvalId}/approve`
                 .replace(`{${"approvalId"}}`, encodeURIComponent(String(approvalId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
@@ -23643,9 +23645,9 @@ export const AccessRequestApprovalsApiAxiosParamCreator = function (configuratio
             };
         },
         /**
-         * This endpoint forwards an access request approval to a new owner. Only the owner of the approval and ORG_ADMIN users are allowed to perform this action.
-         * @summary Forwards an access request approval.
-         * @param {string} approvalId The id of the approval.
+         * Use this API to forward an access request approval to a new owner. Only the owner of the approval and ORG_ADMIN users are allowed to perform this action. Only the owner of the approval and ORG_ADMIN users are allowed to perform this action.
+         * @summary Forward Access Request Approval
+         * @param {string} approvalId Approval ID.
          * @param {ForwardApprovalDto} forwardApprovalDto Information about the forwarded approval.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
@@ -23691,10 +23693,10 @@ export const AccessRequestApprovalsApiAxiosParamCreator = function (configuratio
             };
         },
         /**
-         * This endpoint returns the number of pending, approved and rejected access requests approvals. See \"owner-id\" query parameter below for authorization info.
-         * @summary Get the number of access-requests-approvals
-         * @param {string} [ownerId] The id of the owner or approver identity of the approvals. If present, the value returns approval summary for the specified identity.    * ORG_ADMIN users can call this with any identity ID value.    * ORG_ADMIN user can also fetch all the approvals in the org, when owner-id is not used.    * Non ORG_ADMIN users can only specify *me* or pass their own identity ID value.
-         * @param {string} [fromDate] From date is the date and time from which the results will be shown. It should be in a valid ISO-8601 format
+         * Use this API to return the number of pending, approved and rejected access requests approvals. See the \"owner-id\" query parameter for authorization information. info.
+         * @summary Get Access Requests Approvals Number
+         * @param {string} [ownerId] The ID of the owner or approver identity of the approvals. If present, the value returns approval summary for the specified identity.    * ORG_ADMIN users can call this with any identity ID value.    * ORG_ADMIN user can also fetch all the approvals in the org, when owner-id is not used.    * Non ORG_ADMIN users can only specify *me* or pass their own identity ID value.
+         * @param {string} [fromDate] This is the date and time the results will be shown from. It must be in a valid ISO-8601 format.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
@@ -23875,16 +23877,18 @@ export const AccessRequestApprovalsApiAxiosParamCreator = function (configuratio
             };
         },
         /**
-         * This endpoint rejects an access request approval. Only the owner of the approval and admin users are allowed to perform this action.
-         * @summary Rejects an access request approval.
-         * @param {string} approvalId The id of the approval.
-         * @param {CommentDto} [commentDto] Reviewer\&#39;s comment.
+         * Use this API to reject an access request approval. Only the owner of the approval and admin users are allowed to perform this action.
+         * @summary Reject Access Request Approval
+         * @param {string} approvalId Approval ID.
+         * @param {CommentDto} commentDto Reviewer\&#39;s comment.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        rejectAccessRequest: async (approvalId: string, commentDto?: CommentDto, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        rejectAccessRequest: async (approvalId: string, commentDto: CommentDto, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'approvalId' is not null or undefined
             assertParamExists('rejectAccessRequest', 'approvalId', approvalId)
+            // verify required parameter 'commentDto' is not null or undefined
+            assertParamExists('rejectAccessRequest', 'commentDto', commentDto)
             const localVarPath = `/access-request-approvals/{approvalId}/reject`
                 .replace(`{${"approvalId"}}`, encodeURIComponent(String(approvalId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
@@ -23931,21 +23935,21 @@ export const AccessRequestApprovalsApiFp = function(configuration?: Configuratio
     const localVarAxiosParamCreator = AccessRequestApprovalsApiAxiosParamCreator(configuration)
     return {
         /**
-         * This endpoint approves an access request approval. Only the owner of the approval and ORG_ADMIN users are allowed to perform this action.
-         * @summary Approves an access request approval.
-         * @param {string} approvalId The id of the approval.
-         * @param {CommentDto} [commentDto] Reviewer\&#39;s comment.
+         * Use this endpoint to approve an access request approval. Only the owner of the approval and ORG_ADMIN users are allowed to perform this action.
+         * @summary Approve Access Request Approval
+         * @param {string} approvalId Approval ID.
+         * @param {CommentDto} commentDto Reviewer\&#39;s comment.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async approveAccessRequest(approvalId: string, commentDto?: CommentDto, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<object>> {
+        async approveAccessRequest(approvalId: string, commentDto: CommentDto, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<object>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.approveAccessRequest(approvalId, commentDto, axiosOptions);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
-         * This endpoint forwards an access request approval to a new owner. Only the owner of the approval and ORG_ADMIN users are allowed to perform this action.
-         * @summary Forwards an access request approval.
-         * @param {string} approvalId The id of the approval.
+         * Use this API to forward an access request approval to a new owner. Only the owner of the approval and ORG_ADMIN users are allowed to perform this action. Only the owner of the approval and ORG_ADMIN users are allowed to perform this action.
+         * @summary Forward Access Request Approval
+         * @param {string} approvalId Approval ID.
          * @param {ForwardApprovalDto} forwardApprovalDto Information about the forwarded approval.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
@@ -23955,10 +23959,10 @@ export const AccessRequestApprovalsApiFp = function(configuration?: Configuratio
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
-         * This endpoint returns the number of pending, approved and rejected access requests approvals. See \"owner-id\" query parameter below for authorization info.
-         * @summary Get the number of access-requests-approvals
-         * @param {string} [ownerId] The id of the owner or approver identity of the approvals. If present, the value returns approval summary for the specified identity.    * ORG_ADMIN users can call this with any identity ID value.    * ORG_ADMIN user can also fetch all the approvals in the org, when owner-id is not used.    * Non ORG_ADMIN users can only specify *me* or pass their own identity ID value.
-         * @param {string} [fromDate] From date is the date and time from which the results will be shown. It should be in a valid ISO-8601 format
+         * Use this API to return the number of pending, approved and rejected access requests approvals. See the \"owner-id\" query parameter for authorization information. info.
+         * @summary Get Access Requests Approvals Number
+         * @param {string} [ownerId] The ID of the owner or approver identity of the approvals. If present, the value returns approval summary for the specified identity.    * ORG_ADMIN users can call this with any identity ID value.    * ORG_ADMIN user can also fetch all the approvals in the org, when owner-id is not used.    * Non ORG_ADMIN users can only specify *me* or pass their own identity ID value.
+         * @param {string} [fromDate] This is the date and time the results will be shown from. It must be in a valid ISO-8601 format.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
@@ -23999,14 +24003,14 @@ export const AccessRequestApprovalsApiFp = function(configuration?: Configuratio
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
-         * This endpoint rejects an access request approval. Only the owner of the approval and admin users are allowed to perform this action.
-         * @summary Rejects an access request approval.
-         * @param {string} approvalId The id of the approval.
-         * @param {CommentDto} [commentDto] Reviewer\&#39;s comment.
+         * Use this API to reject an access request approval. Only the owner of the approval and admin users are allowed to perform this action.
+         * @summary Reject Access Request Approval
+         * @param {string} approvalId Approval ID.
+         * @param {CommentDto} commentDto Reviewer\&#39;s comment.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async rejectAccessRequest(approvalId: string, commentDto?: CommentDto, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<object>> {
+        async rejectAccessRequest(approvalId: string, commentDto: CommentDto, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<object>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.rejectAccessRequest(approvalId, commentDto, axiosOptions);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -24021,20 +24025,20 @@ export const AccessRequestApprovalsApiFactory = function (configuration?: Config
     const localVarFp = AccessRequestApprovalsApiFp(configuration)
     return {
         /**
-         * This endpoint approves an access request approval. Only the owner of the approval and ORG_ADMIN users are allowed to perform this action.
-         * @summary Approves an access request approval.
-         * @param {string} approvalId The id of the approval.
-         * @param {CommentDto} [commentDto] Reviewer\&#39;s comment.
+         * Use this endpoint to approve an access request approval. Only the owner of the approval and ORG_ADMIN users are allowed to perform this action.
+         * @summary Approve Access Request Approval
+         * @param {string} approvalId Approval ID.
+         * @param {CommentDto} commentDto Reviewer\&#39;s comment.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        approveAccessRequest(approvalId: string, commentDto?: CommentDto, axiosOptions?: any): AxiosPromise<object> {
+        approveAccessRequest(approvalId: string, commentDto: CommentDto, axiosOptions?: any): AxiosPromise<object> {
             return localVarFp.approveAccessRequest(approvalId, commentDto, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
-         * This endpoint forwards an access request approval to a new owner. Only the owner of the approval and ORG_ADMIN users are allowed to perform this action.
-         * @summary Forwards an access request approval.
-         * @param {string} approvalId The id of the approval.
+         * Use this API to forward an access request approval to a new owner. Only the owner of the approval and ORG_ADMIN users are allowed to perform this action. Only the owner of the approval and ORG_ADMIN users are allowed to perform this action.
+         * @summary Forward Access Request Approval
+         * @param {string} approvalId Approval ID.
          * @param {ForwardApprovalDto} forwardApprovalDto Information about the forwarded approval.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
@@ -24043,10 +24047,10 @@ export const AccessRequestApprovalsApiFactory = function (configuration?: Config
             return localVarFp.forwardAccessRequest(approvalId, forwardApprovalDto, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
-         * This endpoint returns the number of pending, approved and rejected access requests approvals. See \"owner-id\" query parameter below for authorization info.
-         * @summary Get the number of access-requests-approvals
-         * @param {string} [ownerId] The id of the owner or approver identity of the approvals. If present, the value returns approval summary for the specified identity.    * ORG_ADMIN users can call this with any identity ID value.    * ORG_ADMIN user can also fetch all the approvals in the org, when owner-id is not used.    * Non ORG_ADMIN users can only specify *me* or pass their own identity ID value.
-         * @param {string} [fromDate] From date is the date and time from which the results will be shown. It should be in a valid ISO-8601 format
+         * Use this API to return the number of pending, approved and rejected access requests approvals. See the \"owner-id\" query parameter for authorization information. info.
+         * @summary Get Access Requests Approvals Number
+         * @param {string} [ownerId] The ID of the owner or approver identity of the approvals. If present, the value returns approval summary for the specified identity.    * ORG_ADMIN users can call this with any identity ID value.    * ORG_ADMIN user can also fetch all the approvals in the org, when owner-id is not used.    * Non ORG_ADMIN users can only specify *me* or pass their own identity ID value.
+         * @param {string} [fromDate] This is the date and time the results will be shown from. It must be in a valid ISO-8601 format.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
@@ -24084,14 +24088,14 @@ export const AccessRequestApprovalsApiFactory = function (configuration?: Config
             return localVarFp.listPendingApprovals(ownerId, limit, offset, count, filters, sorters, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
-         * This endpoint rejects an access request approval. Only the owner of the approval and admin users are allowed to perform this action.
-         * @summary Rejects an access request approval.
-         * @param {string} approvalId The id of the approval.
-         * @param {CommentDto} [commentDto] Reviewer\&#39;s comment.
+         * Use this API to reject an access request approval. Only the owner of the approval and admin users are allowed to perform this action.
+         * @summary Reject Access Request Approval
+         * @param {string} approvalId Approval ID.
+         * @param {CommentDto} commentDto Reviewer\&#39;s comment.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        rejectAccessRequest(approvalId: string, commentDto?: CommentDto, axiosOptions?: any): AxiosPromise<object> {
+        rejectAccessRequest(approvalId: string, commentDto: CommentDto, axiosOptions?: any): AxiosPromise<object> {
             return localVarFp.rejectAccessRequest(approvalId, commentDto, axiosOptions).then((request) => request(axios, basePath));
         },
     };
@@ -24104,7 +24108,7 @@ export const AccessRequestApprovalsApiFactory = function (configuration?: Config
  */
 export interface AccessRequestApprovalsApiApproveAccessRequestRequest {
     /**
-     * The id of the approval.
+     * Approval ID.
      * @type {string}
      * @memberof AccessRequestApprovalsApiApproveAccessRequest
      */
@@ -24115,7 +24119,7 @@ export interface AccessRequestApprovalsApiApproveAccessRequestRequest {
      * @type {CommentDto}
      * @memberof AccessRequestApprovalsApiApproveAccessRequest
      */
-    readonly commentDto?: CommentDto
+    readonly commentDto: CommentDto
 }
 
 /**
@@ -24125,7 +24129,7 @@ export interface AccessRequestApprovalsApiApproveAccessRequestRequest {
  */
 export interface AccessRequestApprovalsApiForwardAccessRequestRequest {
     /**
-     * The id of the approval.
+     * Approval ID.
      * @type {string}
      * @memberof AccessRequestApprovalsApiForwardAccessRequest
      */
@@ -24146,14 +24150,14 @@ export interface AccessRequestApprovalsApiForwardAccessRequestRequest {
  */
 export interface AccessRequestApprovalsApiGetAccessRequestApprovalSummaryRequest {
     /**
-     * The id of the owner or approver identity of the approvals. If present, the value returns approval summary for the specified identity.    * ORG_ADMIN users can call this with any identity ID value.    * ORG_ADMIN user can also fetch all the approvals in the org, when owner-id is not used.    * Non ORG_ADMIN users can only specify *me* or pass their own identity ID value.
+     * The ID of the owner or approver identity of the approvals. If present, the value returns approval summary for the specified identity.    * ORG_ADMIN users can call this with any identity ID value.    * ORG_ADMIN user can also fetch all the approvals in the org, when owner-id is not used.    * Non ORG_ADMIN users can only specify *me* or pass their own identity ID value.
      * @type {string}
      * @memberof AccessRequestApprovalsApiGetAccessRequestApprovalSummary
      */
     readonly ownerId?: string
 
     /**
-     * From date is the date and time from which the results will be shown. It should be in a valid ISO-8601 format
+     * This is the date and time the results will be shown from. It must be in a valid ISO-8601 format.
      * @type {string}
      * @memberof AccessRequestApprovalsApiGetAccessRequestApprovalSummary
      */
@@ -24265,7 +24269,7 @@ export interface AccessRequestApprovalsApiListPendingApprovalsRequest {
  */
 export interface AccessRequestApprovalsApiRejectAccessRequestRequest {
     /**
-     * The id of the approval.
+     * Approval ID.
      * @type {string}
      * @memberof AccessRequestApprovalsApiRejectAccessRequest
      */
@@ -24276,7 +24280,7 @@ export interface AccessRequestApprovalsApiRejectAccessRequestRequest {
      * @type {CommentDto}
      * @memberof AccessRequestApprovalsApiRejectAccessRequest
      */
-    readonly commentDto?: CommentDto
+    readonly commentDto: CommentDto
 }
 
 /**
@@ -24287,8 +24291,8 @@ export interface AccessRequestApprovalsApiRejectAccessRequestRequest {
  */
 export class AccessRequestApprovalsApi extends BaseAPI {
     /**
-     * This endpoint approves an access request approval. Only the owner of the approval and ORG_ADMIN users are allowed to perform this action.
-     * @summary Approves an access request approval.
+     * Use this endpoint to approve an access request approval. Only the owner of the approval and ORG_ADMIN users are allowed to perform this action.
+     * @summary Approve Access Request Approval
      * @param {AccessRequestApprovalsApiApproveAccessRequestRequest} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
@@ -24299,8 +24303,8 @@ export class AccessRequestApprovalsApi extends BaseAPI {
     }
 
     /**
-     * This endpoint forwards an access request approval to a new owner. Only the owner of the approval and ORG_ADMIN users are allowed to perform this action.
-     * @summary Forwards an access request approval.
+     * Use this API to forward an access request approval to a new owner. Only the owner of the approval and ORG_ADMIN users are allowed to perform this action. Only the owner of the approval and ORG_ADMIN users are allowed to perform this action.
+     * @summary Forward Access Request Approval
      * @param {AccessRequestApprovalsApiForwardAccessRequestRequest} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
@@ -24311,8 +24315,8 @@ export class AccessRequestApprovalsApi extends BaseAPI {
     }
 
     /**
-     * This endpoint returns the number of pending, approved and rejected access requests approvals. See \"owner-id\" query parameter below for authorization info.
-     * @summary Get the number of access-requests-approvals
+     * Use this API to return the number of pending, approved and rejected access requests approvals. See the \"owner-id\" query parameter for authorization information. info.
+     * @summary Get Access Requests Approvals Number
      * @param {AccessRequestApprovalsApiGetAccessRequestApprovalSummaryRequest} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
@@ -24347,8 +24351,8 @@ export class AccessRequestApprovalsApi extends BaseAPI {
     }
 
     /**
-     * This endpoint rejects an access request approval. Only the owner of the approval and admin users are allowed to perform this action.
-     * @summary Rejects an access request approval.
+     * Use this API to reject an access request approval. Only the owner of the approval and admin users are allowed to perform this action.
+     * @summary Reject Access Request Approval
      * @param {AccessRequestApprovalsApiRejectAccessRequestRequest} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
