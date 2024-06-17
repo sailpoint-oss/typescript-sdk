@@ -2431,18 +2431,6 @@ export interface AccountsExportReportArguments {
      * @memberof AccountsExportReportArguments
      */
     'sourceName': string;
-    /**
-     * Use it to set default s3 bucket where generated report will be saved.  In case this argument is false and \'s3Bucket\' argument is null or absent there will be default s3Bucket assigned to the report.
-     * @type {boolean}
-     * @memberof AccountsExportReportArguments
-     */
-    'defaultS3Bucket': boolean;
-    /**
-     * If you want to be specific you could use this argument with defaultS3Bucket = false.
-     * @type {string}
-     * @memberof AccountsExportReportArguments
-     */
-    's3Bucket'?: string;
 }
 /**
  * 
@@ -8797,18 +8785,6 @@ export interface IdentitiesDetailsReportArguments {
      * @memberof IdentitiesDetailsReportArguments
      */
     'correlatedOnly': boolean;
-    /**
-     * Use it to set default s3 bucket where generated report will be saved.  In case this argument is false and \'s3Bucket\' argument is null or absent there will be default s3Bucket assigned to the report.
-     * @type {boolean}
-     * @memberof IdentitiesDetailsReportArguments
-     */
-    'defaultS3Bucket': boolean;
-    /**
-     * If you want to be specific you could use this argument with defaultS3Bucket = false.
-     * @type {string}
-     * @memberof IdentitiesDetailsReportArguments
-     */
-    's3Bucket'?: string;
 }
 /**
  * Arguments for Identities report (IDENTITIES)
@@ -8822,18 +8798,6 @@ export interface IdentitiesReportArguments {
      * @memberof IdentitiesReportArguments
      */
     'correlatedOnly'?: boolean;
-    /**
-     * Use it to set default s3 bucket where generated report will be saved.  In case this argument is false and \'s3Bucket\' argument is null or absent there will be default s3Bucket assigned to the report.
-     * @type {boolean}
-     * @memberof IdentitiesReportArguments
-     */
-    'defaultS3Bucket': boolean;
-    /**
-     * If you want to be specific you could use this argument with defaultS3Bucket = false.
-     * @type {string}
-     * @memberof IdentitiesReportArguments
-     */
-    's3Bucket'?: string;
 }
 /**
  * @type IdentityAccess
@@ -9929,18 +9893,6 @@ export interface IdentityProfileIdentityErrorReportArguments {
      * @memberof IdentityProfileIdentityErrorReportArguments
      */
     'authoritativeSource': string;
-    /**
-     * Use it to set default s3 bucket where generated report will be saved.  In case this argument is false and \'s3Bucket\' argument is null or absent there will be default s3Bucket assigned to the report.
-     * @type {boolean}
-     * @memberof IdentityProfileIdentityErrorReportArguments
-     */
-    'defaultS3Bucket': boolean;
-    /**
-     * If you want to be specific you could use this argument with defaultS3Bucket = false.
-     * @type {string}
-     * @memberof IdentityProfileIdentityErrorReportArguments
-     */
-    's3Bucket'?: string;
 }
 /**
  * The manager for the identity.
@@ -13525,18 +13477,6 @@ export interface OrphanUncorrelatedReportArguments {
      * @memberof OrphanUncorrelatedReportArguments
      */
     'selectedFormats'?: Array<OrphanUncorrelatedReportArgumentsSelectedFormatsEnum>;
-    /**
-     * Use it to set default s3 bucket where generated report will be saved.  In case this argument is false and \'s3Bucket\' argument is null or absent there will be default s3Bucket assigned to the report.
-     * @type {boolean}
-     * @memberof OrphanUncorrelatedReportArguments
-     */
-    'defaultS3Bucket': boolean;
-    /**
-     * If you want to be specific you could use this argument with defaultS3Bucket = false.
-     * @type {string}
-     * @memberof OrphanUncorrelatedReportArguments
-     */
-    's3Bucket'?: string;
 }
 
 export const OrphanUncorrelatedReportArgumentsSelectedFormatsEnum = {
@@ -14895,10 +14835,10 @@ export interface Query {
     'query'?: string;
     /**
      * The fields the query will be applied to.  Fields provide you with a simple way to add additional fields to search, without making the query too complicated.  For example, you can use the fields to specify that you want your query of \"a*\" to be applied to \"name\", \"firstName\", and the \"source.name\".  The response will include all results matching the \"a*\" query found in those three fields.  A field\'s availability depends on the indices being searched.  For example, if you are searching \"identities\", you can apply your search to the \"firstName\" field, but you couldn\'t use \"firstName\" with a search on \"access profiles\".  Refer to the response schema for the respective lists of available fields. 
-     * @type {Array<string>}
+     * @type {string}
      * @memberof Query
      */
-    'fields'?: Array<string>;
+    'fields'?: string;
     /**
      * The time zone to be applied to any range query related to dates.
      * @type {string}
@@ -18290,18 +18230,6 @@ export interface SearchExportReportArguments {
      * @memberof SearchExportReportArguments
      */
     'sort'?: Array<string>;
-    /**
-     * Use it to set default s3 bucket where generated report will be saved.  In case this argument is false and \'s3Bucket\' argument is null or absent there will be default s3Bucket assigned to the report.
-     * @type {boolean}
-     * @memberof SearchExportReportArguments
-     */
-    'defaultS3Bucket': boolean;
-    /**
-     * If you want to be specific you could use this argument with defaultS3Bucket = false.
-     * @type {string}
-     * @memberof SearchExportReportArguments
-     */
-    's3Bucket'?: string;
 }
 /**
  * Enum representing the currently supported filter aggregation types. Additional values may be added in the future without notice.
