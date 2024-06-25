@@ -1525,6 +1525,25 @@ export interface AccountActivity {
     'clientMetadata'?: { [key: string]: string; } | null;
 }
 /**
+ * The state of an approval status
+ * @export
+ * @enum {string}
+ */
+
+export const AccountActivityApprovalStatus = {
+    Finished: 'FINISHED',
+    Rejected: 'REJECTED',
+    Returned: 'RETURNED',
+    Expired: 'EXPIRED',
+    Pending: 'PENDING',
+    Canceled: 'CANCELED',
+    Null: 'null'
+} as const;
+
+export type AccountActivityApprovalStatus = typeof AccountActivityApprovalStatus[keyof typeof AccountActivityApprovalStatus];
+
+
+/**
  * AccountActivity
  * @export
  * @interface AccountActivityDocument
@@ -1671,10 +1690,10 @@ export interface AccountActivityItem {
     'requested'?: string;
     /**
      * 
-     * @type {WorkItemState & object}
+     * @type {AccountActivityApprovalStatus & object}
      * @memberof AccountActivityItem
      */
-    'approvalStatus'?: WorkItemState & object;
+    'approvalStatus'?: AccountActivityApprovalStatus & object;
     /**
      * 
      * @type {ProvisioningState}
@@ -13825,7 +13844,7 @@ export interface PasswordPolicyV3Dto {
      * @type {string}
      * @memberof PasswordPolicyV3Dto
      */
-    'description'?: string;
+    'description'?: string | null;
     /**
      * The name of the password policy.
      * @type {string}
@@ -13837,13 +13856,13 @@ export interface PasswordPolicyV3Dto {
      * @type {string}
      * @memberof PasswordPolicyV3Dto
      */
-    'dateCrated'?: string;
+    'dateCreated'?: string;
     /**
      * Date the Password Policy was updated.
      * @type {string}
      * @memberof PasswordPolicyV3Dto
      */
-    'lastUpdated'?: string;
+    'lastUpdated'?: string | null;
     /**
      * The number of days before expiration remaninder.
      * @type {number}
@@ -13982,6 +14001,18 @@ export interface PasswordPolicyV3Dto {
      * @memberof PasswordPolicyV3Dto
      */
     'validateAgainstAccountName'?: boolean;
+    /**
+     * 
+     * @type {string}
+     * @memberof PasswordPolicyV3Dto
+     */
+    'created'?: string | null;
+    /**
+     * 
+     * @type {string}
+     * @memberof PasswordPolicyV3Dto
+     */
+    'modified'?: string | null;
     /**
      * List of sources IDs managed by this password policy.
      * @type {Array<string>}
@@ -15809,11 +15840,11 @@ export interface RequestedItemStatus {
      */
     'requester'?: AccessItemRequester;
     /**
-     * Identities access was requested for.
-     * @type {Array<AccessItemRequestedFor>}
+     * 
+     * @type {RequestedItemStatusRequestedFor}
      * @memberof RequestedItemStatus
      */
-    'requestedFor'?: Array<AccessItemRequestedFor>;
+    'requestedFor'?: RequestedItemStatusRequestedFor;
     /**
      * 
      * @type {RequestedItemStatusRequesterComment}
@@ -15976,6 +16007,38 @@ export const RequestedItemStatusRequestState = {
 
 export type RequestedItemStatusRequestState = typeof RequestedItemStatusRequestState[keyof typeof RequestedItemStatusRequestState];
 
+
+/**
+ * Identity access was requested for.
+ * @export
+ * @interface RequestedItemStatusRequestedFor
+ */
+export interface RequestedItemStatusRequestedFor {
+    /**
+     * Type of the object to which this reference applies
+     * @type {string}
+     * @memberof RequestedItemStatusRequestedFor
+     */
+    'type'?: RequestedItemStatusRequestedForTypeEnum;
+    /**
+     * ID of the object to which this reference applies
+     * @type {string}
+     * @memberof RequestedItemStatusRequestedFor
+     */
+    'id'?: string;
+    /**
+     * Human-readable display name of the object to which this reference applies
+     * @type {string}
+     * @memberof RequestedItemStatusRequestedFor
+     */
+    'name'?: string;
+}
+
+export const RequestedItemStatusRequestedForTypeEnum = {
+    Identity: 'IDENTITY'
+} as const;
+
+export type RequestedItemStatusRequestedForTypeEnum = typeof RequestedItemStatusRequestedForTypeEnum[keyof typeof RequestedItemStatusRequestedForTypeEnum];
 
 /**
  * 
@@ -16648,6 +16711,18 @@ export interface Role {
      * @memberof Role
      */
     'segments'?: Array<string> | null;
+    /**
+     * 
+     * @type {boolean}
+     * @memberof Role
+     */
+    'dimensional'?: boolean | null;
+    /**
+     * 
+     * @type {string}
+     * @memberof Role
+     */
+    'dimensionRefs'?: string | null;
 }
 /**
  * Type which indicates how a particular Identity obtained a particular Role
@@ -21821,12 +21896,12 @@ export interface VisibilityCriteria {
  */
 
 export const WorkItemState = {
-    Finished: 'FINISHED',
-    Rejected: 'REJECTED',
-    Returned: 'RETURNED',
-    Expired: 'EXPIRED',
-    Pending: 'PENDING',
-    Canceled: 'CANCELED',
+    Finished: 'Finished',
+    Rejected: 'Rejected',
+    Returned: 'Returned',
+    Expired: 'Expired',
+    Pending: 'Pending',
+    Canceled: 'Canceled',
     Null: 'null'
 } as const;
 
@@ -22098,6 +22173,12 @@ export interface Workflow {
      */
     'created'?: string;
     /**
+     * The date and time the workflow was modified.
+     * @type {string}
+     * @memberof Workflow
+     */
+    'modified'?: string;
+    /**
      * 
      * @type {WorkflowAllOfCreator}
      * @memberof Workflow
@@ -22170,6 +22251,12 @@ export interface WorkflowAllOf {
      * @memberof WorkflowAllOf
      */
     'created'?: string;
+    /**
+     * The date and time the workflow was modified.
+     * @type {string}
+     * @memberof WorkflowAllOf
+     */
+    'modified'?: string;
     /**
      * 
      * @type {WorkflowAllOfCreator}
@@ -22645,6 +22732,12 @@ export interface WorkflowTrigger {
      * @memberof WorkflowTrigger
      */
     'type': WorkflowTriggerTypeEnum;
+    /**
+     * 
+     * @type {string}
+     * @memberof WorkflowTrigger
+     */
+    'displayName'?: string | null;
     /**
      * 
      * @type {WorkflowTriggerAttributes}
