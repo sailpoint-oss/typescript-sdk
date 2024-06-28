@@ -1,6 +1,6 @@
 {
   "name": "sailpoint-sdk",
-  "version": "1.3.4",
+  "version": "1.3.5",
   "description": "OpenAPI client for sailpoint-sdk",
   "author": "OpenAPI-Generator Contributors",
   "repository": {
