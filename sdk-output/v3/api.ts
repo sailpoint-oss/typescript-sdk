@@ -4689,31 +4689,25 @@ export type CampaignCompleteOptionsAutoCompleteActionEnum = typeof CampaignCompl
  */
 export interface CampaignFilterDetails {
     /**
-     * Id of the campaign filter
-     * @type {string}
-     * @memberof CampaignFilterDetails
-     */
-    'id'?: string;
-    /**
-     * This is campaign filter\'s name.
+     * Campaign filter name.
      * @type {string}
      * @memberof CampaignFilterDetails
      */
     'name': string;
     /**
-     * This is campaign filter\'s description.
+     * Campaign filter description.
      * @type {string}
      * @memberof CampaignFilterDetails
      */
-    'description': string;
+    'description'?: string;
     /**
-     * The owner of this filter. This field is automatically populated at creation time with the current user.
+     * Owner of the filter. This field automatically populates at creation time with the current user.
      * @type {string}
      * @memberof CampaignFilterDetails
      */
     'owner': string | null;
     /**
-     * The mode/type of Filter, where it is of INCLUSION or EXCLUSION type. INCLUSION type will include the data in generated campaign  as per specified in criteria, whereas EXCLUSION type will exclude the the data in generated campaign as per specified in criteria.
+     * Mode/type of filter, either the INCLUSION or EXCLUSION type. The INCLUSION type includes the data in generated campaigns  as per specified in the criteria, whereas the EXCLUSION type excludes the data in generated campaigns as per specified in criteria.
      * @type {object}
      * @memberof CampaignFilterDetails
      */
@@ -4752,13 +4746,13 @@ export interface CampaignFilterDetailsCriteriaListInner {
      */
     'operation': Operation & object;
     /**
-     * The specified key from the Type of criteria.
+     * Specified key from the type of criteria.
      * @type {string}
      * @memberof CampaignFilterDetailsCriteriaListInner
      */
     'property': string | null;
     /**
-     * The value for the specified key from the Type of Criteria
+     * Value for the specified key from the type of criteria.
      * @type {string}
      * @memberof CampaignFilterDetailsCriteriaListInner
      */
@@ -10880,13 +10874,13 @@ export interface ListAccessProfiles429Response {
  */
 export interface ListCampaignFilters200Response {
     /**
-     * The list of campaign filters
+     * List of campaign filters.
      * @type {Array<CampaignFilterDetails>}
      * @memberof ListCampaignFilters200Response
      */
     'items'?: Array<CampaignFilterDetails>;
     /**
-     * The number of filters returned
+     * Number of filters returned.
      * @type {number}
      * @memberof ListCampaignFilters200Response
      */
@@ -19256,7 +19250,7 @@ export interface SessionConfiguration {
  */
 export interface SetLifecycleState200Response {
     /**
-     * The ID of the IdentityRequest object that is generated when the workflow launches. To follow the IdentityRequest, you can provide this ID with a [Get Account Activity request](https://developer.sailpoint.com/docs/api/v3/get-account-activity/). The response will contain relevant information about the IdentityRequest, such as its status.
+     * ID of the IdentityRequest object that is generated when the workflow launches. To follow the IdentityRequest, you can provide this ID with a [Get Account Activity request](https://developer.sailpoint.com/docs/api/v3/get-account-activity/). The response will contain relevant information about the IdentityRequest, such as its status.
      * @type {string}
      * @memberof SetLifecycleState200Response
      */
@@ -19269,7 +19263,7 @@ export interface SetLifecycleState200Response {
  */
 export interface SetLifecycleStateRequest {
     /**
-     * The ID of the lifecycle state to set.
+     * ID of the lifecycle state to set.
      * @type {string}
      * @memberof SetLifecycleStateRequest
      */
@@ -27983,8 +27977,8 @@ export class BrandingApi extends BaseAPI {
 export const CertificationCampaignFiltersApiAxiosParamCreator = function (configuration?: Configuration) {
     return {
         /**
-         * Create a campaign Filter based on filter details and criteria.
-         * @summary Create a Campaign Filter
+         * Use this API to create a campaign filter based on filter details and criteria.
+         * @summary Create Campaign Filter
          * @param {CampaignFilterDetails} campaignFilterDetails 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
@@ -28113,11 +28107,11 @@ export const CertificationCampaignFiltersApiAxiosParamCreator = function (config
             };
         },
         /**
-         * Lists all Campaign Filters. Scope can be reduced via standard V3 query params.  All Campaign Filters matching the query params
+         * Use this API to list all campaign filters. You can reduce scope with standard V3 query parameters.
          * @summary List Campaign Filters
          * @param {number} [limit] Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
          * @param {number} [start] Start/Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
-         * @param {boolean} [includeSystemFilters] If true, include system filters in the count and results, exclude them otherwise. If not provided any value for it then by default it is true.
+         * @param {boolean} [includeSystemFilters] If this is true, the API includes system filters in the count and results. Otherwise it excludes them. If no value is provided, the default is true. 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
@@ -28224,8 +28218,8 @@ export const CertificationCampaignFiltersApiFp = function(configuration?: Config
     const localVarAxiosParamCreator = CertificationCampaignFiltersApiAxiosParamCreator(configuration)
     return {
         /**
-         * Create a campaign Filter based on filter details and criteria.
-         * @summary Create a Campaign Filter
+         * Use this API to create a campaign filter based on filter details and criteria.
+         * @summary Create Campaign Filter
          * @param {CampaignFilterDetails} campaignFilterDetails 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
@@ -28257,11 +28251,11 @@ export const CertificationCampaignFiltersApiFp = function(configuration?: Config
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
-         * Lists all Campaign Filters. Scope can be reduced via standard V3 query params.  All Campaign Filters matching the query params
+         * Use this API to list all campaign filters. You can reduce scope with standard V3 query parameters.
          * @summary List Campaign Filters
          * @param {number} [limit] Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
          * @param {number} [start] Start/Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
-         * @param {boolean} [includeSystemFilters] If true, include system filters in the count and results, exclude them otherwise. If not provided any value for it then by default it is true.
+         * @param {boolean} [includeSystemFilters] If this is true, the API includes system filters in the count and results. Otherwise it excludes them. If no value is provided, the default is true. 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
@@ -28292,8 +28286,8 @@ export const CertificationCampaignFiltersApiFactory = function (configuration?: 
     const localVarFp = CertificationCampaignFiltersApiFp(configuration)
     return {
         /**
-         * Create a campaign Filter based on filter details and criteria.
-         * @summary Create a Campaign Filter
+         * Use this API to create a campaign filter based on filter details and criteria.
+         * @summary Create Campaign Filter
          * @param {CampaignFilterDetails} campaignFilterDetails 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
@@ -28322,11 +28316,11 @@ export const CertificationCampaignFiltersApiFactory = function (configuration?: 
             return localVarFp.getCampaignFilterById(filterId, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
-         * Lists all Campaign Filters. Scope can be reduced via standard V3 query params.  All Campaign Filters matching the query params
+         * Use this API to list all campaign filters. You can reduce scope with standard V3 query parameters.
          * @summary List Campaign Filters
          * @param {number} [limit] Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
          * @param {number} [start] Start/Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
-         * @param {boolean} [includeSystemFilters] If true, include system filters in the count and results, exclude them otherwise. If not provided any value for it then by default it is true.
+         * @param {boolean} [includeSystemFilters] If this is true, the API includes system filters in the count and results. Otherwise it excludes them. If no value is provided, the default is true. 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
@@ -28410,7 +28404,7 @@ export interface CertificationCampaignFiltersApiListCampaignFiltersRequest {
     readonly start?: number
 
     /**
-     * If true, include system filters in the count and results, exclude them otherwise. If not provided any value for it then by default it is true.
+     * If this is true, the API includes system filters in the count and results. Otherwise it excludes them. If no value is provided, the default is true. 
      * @type {boolean}
      * @memberof CertificationCampaignFiltersApiListCampaignFilters
      */
@@ -28446,8 +28440,8 @@ export interface CertificationCampaignFiltersApiUpdateCampaignFilterRequest {
  */
 export class CertificationCampaignFiltersApi extends BaseAPI {
     /**
-     * Create a campaign Filter based on filter details and criteria.
-     * @summary Create a Campaign Filter
+     * Use this API to create a campaign filter based on filter details and criteria.
+     * @summary Create Campaign Filter
      * @param {CertificationCampaignFiltersApiCreateCampaignFilterRequest} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
@@ -28482,7 +28476,7 @@ export class CertificationCampaignFiltersApi extends BaseAPI {
     }
 
     /**
-     * Lists all Campaign Filters. Scope can be reduced via standard V3 query params.  All Campaign Filters matching the query params
+     * Use this API to list all campaign filters. You can reduce scope with standard V3 query parameters.
      * @summary List Campaign Filters
      * @param {CertificationCampaignFiltersApiListCampaignFiltersRequest} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
@@ -36830,9 +36824,9 @@ export const LifecycleStatesApiAxiosParamCreator = function (configuration?: Con
             };
         },
         /**
-         * Use this endpoint to set/update an identity\'s lifecycle state to the one provided and update the corresponding identity profile. A token with ORG_ADMIN or API authority is required to call this API.
+         * Use this API to set/update an identity\'s lifecycle state to the one provided and update the corresponding identity profile. A token with ORG_ADMIN or API authority and the appropriate user context is required to call this API.
          * @summary Set Lifecycle State
-         * @param {string} identityId The ID of the identity to update.
+         * @param {string} identityId ID of the identity to update.
          * @param {SetLifecycleStateRequest} setLifecycleStateRequest 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
@@ -36991,9 +36985,9 @@ export const LifecycleStatesApiFp = function(configuration?: Configuration) {
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
-         * Use this endpoint to set/update an identity\'s lifecycle state to the one provided and update the corresponding identity profile. A token with ORG_ADMIN or API authority is required to call this API.
+         * Use this API to set/update an identity\'s lifecycle state to the one provided and update the corresponding identity profile. A token with ORG_ADMIN or API authority and the appropriate user context is required to call this API.
          * @summary Set Lifecycle State
-         * @param {string} identityId The ID of the identity to update.
+         * @param {string} identityId ID of the identity to update.
          * @param {SetLifecycleStateRequest} setLifecycleStateRequest 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
@@ -37073,9 +37067,9 @@ export const LifecycleStatesApiFactory = function (configuration?: Configuration
             return localVarFp.getLifecycleStates(identityProfileId, limit, offset, count, sorters, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
-         * Use this endpoint to set/update an identity\'s lifecycle state to the one provided and update the corresponding identity profile. A token with ORG_ADMIN or API authority is required to call this API.
+         * Use this API to set/update an identity\'s lifecycle state to the one provided and update the corresponding identity profile. A token with ORG_ADMIN or API authority and the appropriate user context is required to call this API.
          * @summary Set Lifecycle State
-         * @param {string} identityId The ID of the identity to update.
+         * @param {string} identityId ID of the identity to update.
          * @param {SetLifecycleStateRequest} setLifecycleStateRequest 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
@@ -37210,7 +37204,7 @@ export interface LifecycleStatesApiGetLifecycleStatesRequest {
  */
 export interface LifecycleStatesApiSetLifecycleStateRequest {
     /**
-     * The ID of the identity to update.
+     * ID of the identity to update.
      * @type {string}
      * @memberof LifecycleStatesApiSetLifecycleState
      */
@@ -37308,7 +37302,7 @@ export class LifecycleStatesApi extends BaseAPI {
     }
 
     /**
-     * Use this endpoint to set/update an identity\'s lifecycle state to the one provided and update the corresponding identity profile. A token with ORG_ADMIN or API authority is required to call this API.
+     * Use this API to set/update an identity\'s lifecycle state to the one provided and update the corresponding identity profile. A token with ORG_ADMIN or API authority and the appropriate user context is required to call this API.
      * @summary Set Lifecycle State
      * @param {LifecycleStatesApiSetLifecycleStateRequest} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
