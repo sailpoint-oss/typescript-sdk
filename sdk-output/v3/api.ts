@@ -4154,6 +4154,25 @@ export type BulkTaggedObjectOperationEnum = typeof BulkTaggedObjectOperationEnum
 /**
  * 
  * @export
+ * @interface BulkTaggedObjectResponse
+ */
+export interface BulkTaggedObjectResponse {
+    /**
+     * 
+     * @type {Array<TaggedObjectDto>}
+     * @memberof BulkTaggedObjectResponse
+     */
+    'objectRefs'?: Array<TaggedObjectDto>;
+    /**
+     * Label to be applied to an Object
+     * @type {Array<string>}
+     * @memberof BulkTaggedObjectResponse
+     */
+    'tags'?: Array<string>;
+}
+/**
+ * 
+ * @export
  * @interface Campaign
  */
 export interface Campaign {
@@ -56552,7 +56571,7 @@ export const TaggedObjectsApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async setTagsToManyObjects(bulkTaggedObject: BulkTaggedObject, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<BulkTaggedObject>> {
+        async setTagsToManyObjects(bulkTaggedObject: BulkTaggedObject, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<BulkTaggedObjectResponse>>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.setTagsToManyObjects(bulkTaggedObject, axiosOptions);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -56654,7 +56673,7 @@ export const TaggedObjectsApiFactory = function (configuration?: Configuration, 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        setTagsToManyObjects(bulkTaggedObject: BulkTaggedObject, axiosOptions?: any): AxiosPromise<BulkTaggedObject> {
+        setTagsToManyObjects(bulkTaggedObject: BulkTaggedObject, axiosOptions?: any): AxiosPromise<Array<BulkTaggedObjectResponse>> {
             return localVarFp.setTagsToManyObjects(bulkTaggedObject, axiosOptions).then((request) => request(axios, basePath));
         },
     };
