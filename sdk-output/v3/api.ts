@@ -29518,10 +29518,11 @@ export const CertificationCampaignsApiAxiosParamCreator = function (configuratio
          * Use this API to get information for an existing certification campaign by the campaign\'s ID.  Authorized callers must be reviewers for this campaign, ORG_ADMINs, or a CERT_ADMINs.
          * @summary Get Campaign
          * @param {string} id ID of the campaign to be retrieved.
+         * @param {'SLIM' | 'FULL'} [detail] Determines whether slim, or increased level of detail is provided for each campaign in the returned list. Slim is the default behavior.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        getCampaign: async (id: string, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        getCampaign: async (id: string, detail?: 'SLIM' | 'FULL', axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'id' is not null or undefined
             assertParamExists('getCampaign', 'id', id)
             const localVarPath = `/campaigns/{id}`
@@ -29544,6 +29545,10 @@ export const CertificationCampaignsApiAxiosParamCreator = function (configuratio
             // authentication UserContextAuth required
             // oauth required
             await setOAuthToObject(localVarHeaderParameter, "UserContextAuth", [], configuration)
+
+            if (detail !== undefined) {
+                localVarQueryParameter['detail'] = detail;
+            }
 
 
     
@@ -30290,11 +30295,12 @@ export const CertificationCampaignsApiFp = function(configuration?: Configuratio
          * Use this API to get information for an existing certification campaign by the campaign\'s ID.  Authorized callers must be reviewers for this campaign, ORG_ADMINs, or a CERT_ADMINs.
          * @summary Get Campaign
          * @param {string} id ID of the campaign to be retrieved.
+         * @param {'SLIM' | 'FULL'} [detail] Determines whether slim, or increased level of detail is provided for each campaign in the returned list. Slim is the default behavior.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async getCampaign(id: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SlimCampaign>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.getCampaign(id, axiosOptions);
+        async getCampaign(id: string, detail?: 'SLIM' | 'FULL', axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<GetActiveCampaigns200ResponseInner>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getCampaign(id, detail, axiosOptions);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
@@ -30550,11 +30556,12 @@ export const CertificationCampaignsApiFactory = function (configuration?: Config
          * Use this API to get information for an existing certification campaign by the campaign\'s ID.  Authorized callers must be reviewers for this campaign, ORG_ADMINs, or a CERT_ADMINs.
          * @summary Get Campaign
          * @param {string} id ID of the campaign to be retrieved.
+         * @param {'SLIM' | 'FULL'} [detail] Determines whether slim, or increased level of detail is provided for each campaign in the returned list. Slim is the default behavior.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        getCampaign(id: string, axiosOptions?: any): AxiosPromise<SlimCampaign> {
-            return localVarFp.getCampaign(id, axiosOptions).then((request) => request(axios, basePath));
+        getCampaign(id: string, detail?: 'SLIM' | 'FULL', axiosOptions?: any): AxiosPromise<GetActiveCampaigns200ResponseInner> {
+            return localVarFp.getCampaign(id, detail, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * Use this API to fetch all reports for a certification campaign by campaign ID. Calling this endpoint requires roles of CERT_ADMIN, DASHBOARD, ORG_ADMIN and REPORT_ADMIN.
@@ -30860,6 +30867,13 @@ export interface CertificationCampaignsApiGetCampaignRequest {
      * @memberof CertificationCampaignsApiGetCampaign
      */
     readonly id: string
+
+    /**
+     * Determines whether slim, or increased level of detail is provided for each campaign in the returned list. Slim is the default behavior.
+     * @type {'SLIM' | 'FULL'}
+     * @memberof CertificationCampaignsApiGetCampaign
+     */
+    readonly detail?: 'SLIM' | 'FULL'
 }
 
 /**
@@ -31214,7 +31228,7 @@ export class CertificationCampaignsApi extends BaseAPI {
      * @memberof CertificationCampaignsApi
      */
     public getCampaign(requestParameters: CertificationCampaignsApiGetCampaignRequest, axiosOptions?: AxiosRequestConfig) {
-        return CertificationCampaignsApiFp(this.configuration).getCampaign(requestParameters.id, axiosOptions).then((request) => request(this.axios, this.basePath));
+        return CertificationCampaignsApiFp(this.configuration).getCampaign(requestParameters.id, requestParameters.detail, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
