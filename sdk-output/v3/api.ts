@@ -18663,6 +18663,31 @@ export interface SearchArgumentsOwner {
     'id': string;
 }
 /**
+ * 
+ * @export
+ * @interface SearchAttributeConfig
+ */
+export interface SearchAttributeConfig {
+    /**
+     * Name of the new attribute
+     * @type {string}
+     * @memberof SearchAttributeConfig
+     */
+    'name'?: string;
+    /**
+     * The display name of the new attribute
+     * @type {string}
+     * @memberof SearchAttributeConfig
+     */
+    'displayName'?: string;
+    /**
+     * Map of application id and their associated attribute.
+     * @type {object}
+     * @memberof SearchAttributeConfig
+     */
+    'applicationAttributes'?: object;
+}
+/**
  * @type SearchDocument
  * @export
  */
@@ -52269,6 +52294,485 @@ export class SearchApi extends BaseAPI {
      */
     public searchPost(requestParameters: SearchApiSearchPostRequest, axiosOptions?: AxiosRequestConfig) {
         return SearchApiFp(this.configuration).searchPost(requestParameters.search, requestParameters.offset, requestParameters.limit, requestParameters.count, axiosOptions).then((request) => request(this.axios, this.basePath));
+    }
+}
+
+
+/**
+ * SearchAttributeConfigurationApi - axios parameter creator
+ * @export
+ */
+export const SearchAttributeConfigurationApiAxiosParamCreator = function (configuration?: Configuration) {
+    return {
+        /**
+         * This API accepts an attribute name, an attribute display name and a list of name/value pair associates of application IDs to attribute names.  It will then validate the inputs and configure/create and attribute promotion configuration in the Link ObjectConfig. A token with ORG_ADMIN authority is required to call this API.
+         * @summary Configure/create search attributes in IdentityNow.
+         * @param {SearchAttributeConfig} searchAttributeConfig 
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        createSearchAttributeConfig: async (searchAttributeConfig: SearchAttributeConfig, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'searchAttributeConfig' is not null or undefined
+            assertParamExists('createSearchAttributeConfig', 'searchAttributeConfig', searchAttributeConfig)
+            const localVarPath = `/accounts/search-attribute-config`;
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'POST', ...baseOptions, ...axiosOptions};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication UserContextAuth required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "UserContextAuth", [], configuration)
+
+            // authentication UserContextAuth required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "UserContextAuth", [], configuration)
+
+
+    
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
+            localVarRequestOptions.data = serializeDataIfNeeded(searchAttributeConfig, localVarRequestOptions, configuration)
+
+            return {
+                url: toPathString(localVarUrlObj),
+                axiosOptions: localVarRequestOptions,
+            };
+        },
+        /**
+         * This API accepts an extended search attribute name and deletes the corresponding extended attribute configuration. A token with ORG_ADMIN authority is required to call this API.
+         * @summary Delete search attribute in IdentityNow.
+         * @param {string} name Name of the extended search attribute configuration to delete.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        deleteSearchAttributeConfig: async (name: string, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'name' is not null or undefined
+            assertParamExists('deleteSearchAttributeConfig', 'name', name)
+            const localVarPath = `/accounts/search-attribute-config/{name}`
+                .replace(`{${"name"}}`, encodeURIComponent(String(name)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'DELETE', ...baseOptions, ...axiosOptions};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication UserContextAuth required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "UserContextAuth", [], configuration)
+
+            // authentication UserContextAuth required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "UserContextAuth", [], configuration)
+
+
+    
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                axiosOptions: localVarRequestOptions,
+            };
+        },
+        /**
+         * This API retrieves a list of extended search attribute/application associates currently configured in IdentityNow. A token with ORG_ADMIN authority is required to call this API.
+         * @summary Retrieve attribute list in IdentityNow.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        getSearchAttributeConfig: async (axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            const localVarPath = `/accounts/search-attribute-config`;
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...axiosOptions};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication UserContextAuth required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "UserContextAuth", [], configuration)
+
+            // authentication UserContextAuth required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "UserContextAuth", [], configuration)
+
+
+    
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                axiosOptions: localVarRequestOptions,
+            };
+        },
+        /**
+         * This API accepts an extended search attribute name and retrieves the corresponding extended attribute configuration. A token with ORG_ADMIN authority is required to call this API.
+         * @summary Get specific attribute in IdentityNow.
+         * @param {string} name Name of the extended search attribute configuration to retrieve.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        getSingleSearchAttributeConfig: async (name: string, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'name' is not null or undefined
+            assertParamExists('getSingleSearchAttributeConfig', 'name', name)
+            const localVarPath = `/accounts/search-attribute-config/{name}`
+                .replace(`{${"name"}}`, encodeURIComponent(String(name)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...axiosOptions};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication UserContextAuth required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "UserContextAuth", [], configuration)
+
+            // authentication UserContextAuth required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "UserContextAuth", [], configuration)
+
+
+    
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                axiosOptions: localVarRequestOptions,
+            };
+        },
+        /**
+         * This API updates an existing Search Attribute Configuration. The following fields are patchable: **name**, **displayName**, **applicationAttributes** A token with ORG_ADMIN authority is required to call this API.
+         * @summary Update search attribute in IdentityNow.
+         * @param {string} name Name of the Search Attribute Configuration to patch.
+         * @param {Array<JsonPatchOperation>} jsonPatchOperation 
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        patchSearchAttributeConfig: async (name: string, jsonPatchOperation: Array<JsonPatchOperation>, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'name' is not null or undefined
+            assertParamExists('patchSearchAttributeConfig', 'name', name)
+            // verify required parameter 'jsonPatchOperation' is not null or undefined
+            assertParamExists('patchSearchAttributeConfig', 'jsonPatchOperation', jsonPatchOperation)
+            const localVarPath = `/accounts/search-attribute-config/{name}`
+                .replace(`{${"name"}}`, encodeURIComponent(String(name)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'PATCH', ...baseOptions, ...axiosOptions};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication UserContextAuth required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "UserContextAuth", [], configuration)
+
+            // authentication UserContextAuth required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "UserContextAuth", [], configuration)
+
+
+    
+            localVarHeaderParameter['Content-Type'] = 'application/json-patch+json';
+
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
+            localVarRequestOptions.data = serializeDataIfNeeded(jsonPatchOperation, localVarRequestOptions, configuration)
+
+            return {
+                url: toPathString(localVarUrlObj),
+                axiosOptions: localVarRequestOptions,
+            };
+        },
+    }
+};
+
+/**
+ * SearchAttributeConfigurationApi - functional programming interface
+ * @export
+ */
+export const SearchAttributeConfigurationApiFp = function(configuration?: Configuration) {
+    const localVarAxiosParamCreator = SearchAttributeConfigurationApiAxiosParamCreator(configuration)
+    return {
+        /**
+         * This API accepts an attribute name, an attribute display name and a list of name/value pair associates of application IDs to attribute names.  It will then validate the inputs and configure/create and attribute promotion configuration in the Link ObjectConfig. A token with ORG_ADMIN authority is required to call this API.
+         * @summary Configure/create search attributes in IdentityNow.
+         * @param {SearchAttributeConfig} searchAttributeConfig 
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        async createSearchAttributeConfig(searchAttributeConfig: SearchAttributeConfig, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<object>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.createSearchAttributeConfig(searchAttributeConfig, axiosOptions);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * This API accepts an extended search attribute name and deletes the corresponding extended attribute configuration. A token with ORG_ADMIN authority is required to call this API.
+         * @summary Delete search attribute in IdentityNow.
+         * @param {string} name Name of the extended search attribute configuration to delete.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        async deleteSearchAttributeConfig(name: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.deleteSearchAttributeConfig(name, axiosOptions);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * This API retrieves a list of extended search attribute/application associates currently configured in IdentityNow. A token with ORG_ADMIN authority is required to call this API.
+         * @summary Retrieve attribute list in IdentityNow.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        async getSearchAttributeConfig(axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<SearchAttributeConfig>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getSearchAttributeConfig(axiosOptions);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * This API accepts an extended search attribute name and retrieves the corresponding extended attribute configuration. A token with ORG_ADMIN authority is required to call this API.
+         * @summary Get specific attribute in IdentityNow.
+         * @param {string} name Name of the extended search attribute configuration to retrieve.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        async getSingleSearchAttributeConfig(name: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<SearchAttributeConfig>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getSingleSearchAttributeConfig(name, axiosOptions);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * This API updates an existing Search Attribute Configuration. The following fields are patchable: **name**, **displayName**, **applicationAttributes** A token with ORG_ADMIN authority is required to call this API.
+         * @summary Update search attribute in IdentityNow.
+         * @param {string} name Name of the Search Attribute Configuration to patch.
+         * @param {Array<JsonPatchOperation>} jsonPatchOperation 
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        async patchSearchAttributeConfig(name: string, jsonPatchOperation: Array<JsonPatchOperation>, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SearchAttributeConfig>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.patchSearchAttributeConfig(name, jsonPatchOperation, axiosOptions);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+    }
+};
+
+/**
+ * SearchAttributeConfigurationApi - factory interface
+ * @export
+ */
+export const SearchAttributeConfigurationApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
+    const localVarFp = SearchAttributeConfigurationApiFp(configuration)
+    return {
+        /**
+         * This API accepts an attribute name, an attribute display name and a list of name/value pair associates of application IDs to attribute names.  It will then validate the inputs and configure/create and attribute promotion configuration in the Link ObjectConfig. A token with ORG_ADMIN authority is required to call this API.
+         * @summary Configure/create search attributes in IdentityNow.
+         * @param {SearchAttributeConfig} searchAttributeConfig 
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        createSearchAttributeConfig(searchAttributeConfig: SearchAttributeConfig, axiosOptions?: any): AxiosPromise<object> {
+            return localVarFp.createSearchAttributeConfig(searchAttributeConfig, axiosOptions).then((request) => request(axios, basePath));
+        },
+        /**
+         * This API accepts an extended search attribute name and deletes the corresponding extended attribute configuration. A token with ORG_ADMIN authority is required to call this API.
+         * @summary Delete search attribute in IdentityNow.
+         * @param {string} name Name of the extended search attribute configuration to delete.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        deleteSearchAttributeConfig(name: string, axiosOptions?: any): AxiosPromise<void> {
+            return localVarFp.deleteSearchAttributeConfig(name, axiosOptions).then((request) => request(axios, basePath));
+        },
+        /**
+         * This API retrieves a list of extended search attribute/application associates currently configured in IdentityNow. A token with ORG_ADMIN authority is required to call this API.
+         * @summary Retrieve attribute list in IdentityNow.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        getSearchAttributeConfig(axiosOptions?: any): AxiosPromise<Array<SearchAttributeConfig>> {
+            return localVarFp.getSearchAttributeConfig(axiosOptions).then((request) => request(axios, basePath));
+        },
+        /**
+         * This API accepts an extended search attribute name and retrieves the corresponding extended attribute configuration. A token with ORG_ADMIN authority is required to call this API.
+         * @summary Get specific attribute in IdentityNow.
+         * @param {string} name Name of the extended search attribute configuration to retrieve.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        getSingleSearchAttributeConfig(name: string, axiosOptions?: any): AxiosPromise<Array<SearchAttributeConfig>> {
+            return localVarFp.getSingleSearchAttributeConfig(name, axiosOptions).then((request) => request(axios, basePath));
+        },
+        /**
+         * This API updates an existing Search Attribute Configuration. The following fields are patchable: **name**, **displayName**, **applicationAttributes** A token with ORG_ADMIN authority is required to call this API.
+         * @summary Update search attribute in IdentityNow.
+         * @param {string} name Name of the Search Attribute Configuration to patch.
+         * @param {Array<JsonPatchOperation>} jsonPatchOperation 
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        patchSearchAttributeConfig(name: string, jsonPatchOperation: Array<JsonPatchOperation>, axiosOptions?: any): AxiosPromise<SearchAttributeConfig> {
+            return localVarFp.patchSearchAttributeConfig(name, jsonPatchOperation, axiosOptions).then((request) => request(axios, basePath));
+        },
+    };
+};
+
+/**
+ * Request parameters for createSearchAttributeConfig operation in SearchAttributeConfigurationApi.
+ * @export
+ * @interface SearchAttributeConfigurationApiCreateSearchAttributeConfigRequest
+ */
+export interface SearchAttributeConfigurationApiCreateSearchAttributeConfigRequest {
+    /**
+     * 
+     * @type {SearchAttributeConfig}
+     * @memberof SearchAttributeConfigurationApiCreateSearchAttributeConfig
+     */
+    readonly searchAttributeConfig: SearchAttributeConfig
+}
+
+/**
+ * Request parameters for deleteSearchAttributeConfig operation in SearchAttributeConfigurationApi.
+ * @export
+ * @interface SearchAttributeConfigurationApiDeleteSearchAttributeConfigRequest
+ */
+export interface SearchAttributeConfigurationApiDeleteSearchAttributeConfigRequest {
+    /**
+     * Name of the extended search attribute configuration to delete.
+     * @type {string}
+     * @memberof SearchAttributeConfigurationApiDeleteSearchAttributeConfig
+     */
+    readonly name: string
+}
+
+/**
+ * Request parameters for getSingleSearchAttributeConfig operation in SearchAttributeConfigurationApi.
+ * @export
+ * @interface SearchAttributeConfigurationApiGetSingleSearchAttributeConfigRequest
+ */
+export interface SearchAttributeConfigurationApiGetSingleSearchAttributeConfigRequest {
+    /**
+     * Name of the extended search attribute configuration to retrieve.
+     * @type {string}
+     * @memberof SearchAttributeConfigurationApiGetSingleSearchAttributeConfig
+     */
+    readonly name: string
+}
+
+/**
+ * Request parameters for patchSearchAttributeConfig operation in SearchAttributeConfigurationApi.
+ * @export
+ * @interface SearchAttributeConfigurationApiPatchSearchAttributeConfigRequest
+ */
+export interface SearchAttributeConfigurationApiPatchSearchAttributeConfigRequest {
+    /**
+     * Name of the Search Attribute Configuration to patch.
+     * @type {string}
+     * @memberof SearchAttributeConfigurationApiPatchSearchAttributeConfig
+     */
+    readonly name: string
+
+    /**
+     * 
+     * @type {Array<JsonPatchOperation>}
+     * @memberof SearchAttributeConfigurationApiPatchSearchAttributeConfig
+     */
+    readonly jsonPatchOperation: Array<JsonPatchOperation>
+}
+
+/**
+ * SearchAttributeConfigurationApi - object-oriented interface
+ * @export
+ * @class SearchAttributeConfigurationApi
+ * @extends {BaseAPI}
+ */
+export class SearchAttributeConfigurationApi extends BaseAPI {
+    /**
+     * This API accepts an attribute name, an attribute display name and a list of name/value pair associates of application IDs to attribute names.  It will then validate the inputs and configure/create and attribute promotion configuration in the Link ObjectConfig. A token with ORG_ADMIN authority is required to call this API.
+     * @summary Configure/create search attributes in IdentityNow.
+     * @param {SearchAttributeConfigurationApiCreateSearchAttributeConfigRequest} requestParameters Request parameters.
+     * @param {*} [axiosOptions] Override http request option.
+     * @throws {RequiredError}
+     * @memberof SearchAttributeConfigurationApi
+     */
+    public createSearchAttributeConfig(requestParameters: SearchAttributeConfigurationApiCreateSearchAttributeConfigRequest, axiosOptions?: AxiosRequestConfig) {
+        return SearchAttributeConfigurationApiFp(this.configuration).createSearchAttributeConfig(requestParameters.searchAttributeConfig, axiosOptions).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * This API accepts an extended search attribute name and deletes the corresponding extended attribute configuration. A token with ORG_ADMIN authority is required to call this API.
+     * @summary Delete search attribute in IdentityNow.
+     * @param {SearchAttributeConfigurationApiDeleteSearchAttributeConfigRequest} requestParameters Request parameters.
+     * @param {*} [axiosOptions] Override http request option.
+     * @throws {RequiredError}
+     * @memberof SearchAttributeConfigurationApi
+     */
+    public deleteSearchAttributeConfig(requestParameters: SearchAttributeConfigurationApiDeleteSearchAttributeConfigRequest, axiosOptions?: AxiosRequestConfig) {
+        return SearchAttributeConfigurationApiFp(this.configuration).deleteSearchAttributeConfig(requestParameters.name, axiosOptions).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * This API retrieves a list of extended search attribute/application associates currently configured in IdentityNow. A token with ORG_ADMIN authority is required to call this API.
+     * @summary Retrieve attribute list in IdentityNow.
+     * @param {*} [axiosOptions] Override http request option.
+     * @throws {RequiredError}
+     * @memberof SearchAttributeConfigurationApi
+     */
+    public getSearchAttributeConfig(axiosOptions?: AxiosRequestConfig) {
+        return SearchAttributeConfigurationApiFp(this.configuration).getSearchAttributeConfig(axiosOptions).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * This API accepts an extended search attribute name and retrieves the corresponding extended attribute configuration. A token with ORG_ADMIN authority is required to call this API.
+     * @summary Get specific attribute in IdentityNow.
+     * @param {SearchAttributeConfigurationApiGetSingleSearchAttributeConfigRequest} requestParameters Request parameters.
+     * @param {*} [axiosOptions] Override http request option.
+     * @throws {RequiredError}
+     * @memberof SearchAttributeConfigurationApi
+     */
+    public getSingleSearchAttributeConfig(requestParameters: SearchAttributeConfigurationApiGetSingleSearchAttributeConfigRequest, axiosOptions?: AxiosRequestConfig) {
+        return SearchAttributeConfigurationApiFp(this.configuration).getSingleSearchAttributeConfig(requestParameters.name, axiosOptions).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * This API updates an existing Search Attribute Configuration. The following fields are patchable: **name**, **displayName**, **applicationAttributes** A token with ORG_ADMIN authority is required to call this API.
+     * @summary Update search attribute in IdentityNow.
+     * @param {SearchAttributeConfigurationApiPatchSearchAttributeConfigRequest} requestParameters Request parameters.
+     * @param {*} [axiosOptions] Override http request option.
+     * @throws {RequiredError}
+     * @memberof SearchAttributeConfigurationApi
+     */
+    public patchSearchAttributeConfig(requestParameters: SearchAttributeConfigurationApiPatchSearchAttributeConfigRequest, axiosOptions?: AxiosRequestConfig) {
+        return SearchAttributeConfigurationApiFp(this.configuration).patchSearchAttributeConfig(requestParameters.name, requestParameters.jsonPatchOperation, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 }
 
