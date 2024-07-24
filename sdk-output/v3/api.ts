@@ -1322,6 +1322,30 @@ export interface Account {
      */
     'identityId'?: string;
     /**
+     * The lifecycle state of the identity this account is correlated to
+     * @type {string}
+     * @memberof Account
+     */
+    'cloudLifecycleState'?: string | null;
+    /**
+     * The identity state of the identity this account is correlated to
+     * @type {string}
+     * @memberof Account
+     */
+    'identityState'?: string | null;
+    /**
+     * The connection type of the source this account is from
+     * @type {string}
+     * @memberof Account
+     */
+    'connectionType'?: string | null;
+    /**
+     * The type of the account
+     * @type {string}
+     * @memberof Account
+     */
+    'type'?: string | null;
+    /**
      * The account attributes that are aggregated
      * @type {{ [key: string]: any; }}
      * @memberof Account
@@ -1395,17 +1419,44 @@ export interface Account {
     'identity'?: BaseReferenceDto;
     /**
      * 
-     * @type {BaseReferenceDto}
+     * @type {AccountAllOfSourceOwner}
      * @memberof Account
      */
-    'sourceOwner'?: BaseReferenceDto;
+    'sourceOwner'?: AccountAllOfSourceOwner | null;
     /**
      * A string list containing the owning source\'s features
      * @type {string}
      * @memberof Account
      */
     'features'?: string | null;
+    /**
+     * The origin of the account either aggregated or provisioned
+     * @type {string}
+     * @memberof Account
+     */
+    'origin'?: AccountOriginEnum;
+    /**
+     * 
+     * @type {AccountAllOfOwnerIdentity}
+     * @memberof Account
+     */
+    'ownerIdentity'?: AccountAllOfOwnerIdentity | null;
+    /**
+     * 
+     * @type {AccountAllOfOwnerGroup}
+     * @memberof Account
+     */
+    'ownerGroup'?: AccountAllOfOwnerGroup | null;
 }
+
+export const AccountOriginEnum = {
+    Aggregated: 'AGGREGATED',
+    Provisioned: 'PROVISIONED',
+    Null: 'null'
+} as const;
+
+export type AccountOriginEnum = typeof AccountOriginEnum[keyof typeof AccountOriginEnum];
+
 /**
  * Object for specifying Actions to be performed on a specified list of sources\' account.
  * @export
@@ -2039,6 +2090,30 @@ export interface AccountAllOf {
      */
     'identityId'?: string;
     /**
+     * The lifecycle state of the identity this account is correlated to
+     * @type {string}
+     * @memberof AccountAllOf
+     */
+    'cloudLifecycleState'?: string | null;
+    /**
+     * The identity state of the identity this account is correlated to
+     * @type {string}
+     * @memberof AccountAllOf
+     */
+    'identityState'?: string | null;
+    /**
+     * The connection type of the source this account is from
+     * @type {string}
+     * @memberof AccountAllOf
+     */
+    'connectionType'?: string | null;
+    /**
+     * The type of the account
+     * @type {string}
+     * @memberof AccountAllOf
+     */
+    'type'?: string | null;
+    /**
      * The account attributes that are aggregated
      * @type {{ [key: string]: any; }}
      * @memberof AccountAllOf
@@ -2112,17 +2187,140 @@ export interface AccountAllOf {
     'identity'?: BaseReferenceDto;
     /**
      * 
-     * @type {BaseReferenceDto}
+     * @type {AccountAllOfSourceOwner}
      * @memberof AccountAllOf
      */
-    'sourceOwner'?: BaseReferenceDto;
+    'sourceOwner'?: AccountAllOfSourceOwner | null;
     /**
      * A string list containing the owning source\'s features
      * @type {string}
      * @memberof AccountAllOf
      */
     'features'?: string | null;
+    /**
+     * The origin of the account either aggregated or provisioned
+     * @type {string}
+     * @memberof AccountAllOf
+     */
+    'origin'?: AccountAllOfOriginEnum;
+    /**
+     * 
+     * @type {AccountAllOfOwnerIdentity}
+     * @memberof AccountAllOf
+     */
+    'ownerIdentity'?: AccountAllOfOwnerIdentity | null;
+    /**
+     * 
+     * @type {AccountAllOfOwnerGroup}
+     * @memberof AccountAllOf
+     */
+    'ownerGroup'?: AccountAllOfOwnerGroup | null;
 }
+
+export const AccountAllOfOriginEnum = {
+    Aggregated: 'AGGREGATED',
+    Provisioned: 'PROVISIONED',
+    Null: 'null'
+} as const;
+
+export type AccountAllOfOriginEnum = typeof AccountAllOfOriginEnum[keyof typeof AccountAllOfOriginEnum];
+
+/**
+ * The governance group who owns this account, typically used for non-human accounts
+ * @export
+ * @interface AccountAllOfOwnerGroup
+ */
+export interface AccountAllOfOwnerGroup {
+    /**
+     * The type of object being referenced
+     * @type {string}
+     * @memberof AccountAllOfOwnerGroup
+     */
+    'type'?: AccountAllOfOwnerGroupTypeEnum;
+    /**
+     * ID of the governance group
+     * @type {string}
+     * @memberof AccountAllOfOwnerGroup
+     */
+    'id'?: string;
+    /**
+     * Human-readable display name of the governance group
+     * @type {string}
+     * @memberof AccountAllOfOwnerGroup
+     */
+    'name'?: string;
+}
+
+export const AccountAllOfOwnerGroupTypeEnum = {
+    GovernanceGroup: 'GOVERNANCE_GROUP'
+} as const;
+
+export type AccountAllOfOwnerGroupTypeEnum = typeof AccountAllOfOwnerGroupTypeEnum[keyof typeof AccountAllOfOwnerGroupTypeEnum];
+
+/**
+ * The identity who owns this account, typically used for non-human accounts
+ * @export
+ * @interface AccountAllOfOwnerIdentity
+ */
+export interface AccountAllOfOwnerIdentity {
+    /**
+     * The type of object being referenced
+     * @type {string}
+     * @memberof AccountAllOfOwnerIdentity
+     */
+    'type'?: AccountAllOfOwnerIdentityTypeEnum;
+    /**
+     * ID of the identity
+     * @type {string}
+     * @memberof AccountAllOfOwnerIdentity
+     */
+    'id'?: string;
+    /**
+     * Human-readable display name of the identity
+     * @type {string}
+     * @memberof AccountAllOfOwnerIdentity
+     */
+    'name'?: string;
+}
+
+export const AccountAllOfOwnerIdentityTypeEnum = {
+    Identity: 'IDENTITY'
+} as const;
+
+export type AccountAllOfOwnerIdentityTypeEnum = typeof AccountAllOfOwnerIdentityTypeEnum[keyof typeof AccountAllOfOwnerIdentityTypeEnum];
+
+/**
+ * The owner of this object.
+ * @export
+ * @interface AccountAllOfSourceOwner
+ */
+export interface AccountAllOfSourceOwner {
+    /**
+     * Type of owner object.
+     * @type {string}
+     * @memberof AccountAllOfSourceOwner
+     */
+    'type'?: AccountAllOfSourceOwnerTypeEnum;
+    /**
+     * Identity id
+     * @type {string}
+     * @memberof AccountAllOfSourceOwner
+     */
+    'id'?: string;
+    /**
+     * Human-readable display name of the owner.
+     * @type {string}
+     * @memberof AccountAllOfSourceOwner
+     */
+    'name'?: string;
+}
+
+export const AccountAllOfSourceOwnerTypeEnum = {
+    Identity: 'IDENTITY'
+} as const;
+
+export type AccountAllOfSourceOwnerTypeEnum = typeof AccountAllOfSourceOwnerTypeEnum[keyof typeof AccountAllOfSourceOwnerTypeEnum];
+
 /**
  * 
  * @export
@@ -5598,11 +5796,11 @@ export interface CompletedApproval {
      */
     'requester'?: AccessItemRequester;
     /**
-     * Identities access was requested for.
-     * @type {Array<AccessItemRequestedFor>}
+     * 
+     * @type {RequestedItemStatusRequestedFor}
      * @memberof CompletedApproval
      */
-    'requestedFor'?: Array<AccessItemRequestedFor>;
+    'requestedFor'?: RequestedItemStatusRequestedFor;
     /**
      * 
      * @type {AccessItemReviewedBy}
@@ -5680,7 +5878,7 @@ export interface CompletedApproval {
      * @type {SodViolationContextCheckCompleted}
      * @memberof CompletedApproval
      */
-    'sodViolationContext'?: SodViolationContextCheckCompleted;
+    'sodViolationContext'?: SodViolationContextCheckCompleted | null;
     /**
      * 
      * @type {CompletedApprovalPreApprovalTriggerResult}
@@ -5699,6 +5897,12 @@ export interface CompletedApproval {
      * @memberof CompletedApproval
      */
     'requestedAccounts'?: string | null;
+    /**
+     * 
+     * @type {object}
+     * @memberof CompletedApproval
+     */
+    'assignmentContext'?: object | null;
 }
 /**
  * If the access request submitted event trigger is configured and this access request was intercepted by it, then this is the result of the trigger\'s decision to either approve or deny the request.
@@ -7971,6 +8175,12 @@ export interface EventAttributes {
      * @memberof EventAttributes
      */
     'filter.$'?: string;
+    /**
+     * Description of the event trigger
+     * @type {string}
+     * @memberof EventAttributes
+     */
+    'description'?: string;
 }
 /**
  * Event
@@ -8330,13 +8540,25 @@ export interface ExternalAttributes {
      * @type {string}
      * @memberof ExternalAttributes
      */
-    'name': string;
+    'name'?: string;
     /**
      * Additonal context about the external trigger
      * @type {string}
      * @memberof ExternalAttributes
      */
     'description'?: string;
+    /**
+     * OAuth Client ID to authenticate with this trigger
+     * @type {string}
+     * @memberof ExternalAttributes
+     */
+    'clientId'?: string;
+    /**
+     * URL to invoke this workflow
+     * @type {string}
+     * @memberof ExternalAttributes
+     */
+    'url'?: string;
 }
 /**
  * 
@@ -8761,6 +8983,18 @@ export interface GetOAuthClientResponse {
      * @memberof GetOAuthClientResponse
      */
     'modified': string;
+    /**
+     * 
+     * @type {string}
+     * @memberof GetOAuthClientResponse
+     */
+    'secret'?: string | null;
+    /**
+     * 
+     * @type {string}
+     * @memberof GetOAuthClientResponse
+     */
+    'metadata'?: string | null;
     /**
      * The date and time, down to the millisecond, when this API Client was last used to generate an access token. This timestamp does not get updated on every API Client usage, but only once a day. This property can be useful for identifying which API Clients are no longer actively used and can be removed.
      * @type {string}
@@ -11027,7 +11261,37 @@ export interface ListCompleteWorkflowLibrary200ResponseInner {
      * @type {Array<WorkflowLibraryFormFields>}
      * @memberof ListCompleteWorkflowLibrary200ResponseInner
      */
-    'formFields'?: Array<WorkflowLibraryFormFields>;
+    'formFields'?: Array<WorkflowLibraryFormFields> | null;
+    /**
+     * 
+     * @type {WorkflowLibraryActionExampleOutput}
+     * @memberof ListCompleteWorkflowLibrary200ResponseInner
+     */
+    'exampleOutput'?: WorkflowLibraryActionExampleOutput;
+    /**
+     * 
+     * @type {boolean}
+     * @memberof ListCompleteWorkflowLibrary200ResponseInner
+     */
+    'deprecated'?: boolean;
+    /**
+     * 
+     * @type {string}
+     * @memberof ListCompleteWorkflowLibrary200ResponseInner
+     */
+    'deprecatedBy'?: string;
+    /**
+     * Version number
+     * @type {number}
+     * @memberof ListCompleteWorkflowLibrary200ResponseInner
+     */
+    'versionNumber'?: number;
+    /**
+     * 
+     * @type {boolean}
+     * @memberof ListCompleteWorkflowLibrary200ResponseInner
+     */
+    'isSimulationEnabled'?: boolean;
     /**
      * Determines whether the dynamic output schema is returned in place of the action\'s output schema. The dynamic schema lists non-static properties, like properties of a workflow form where each form has different fields. These will be provided dynamically based on available form fields.
      * @type {boolean}
@@ -11035,7 +11299,7 @@ export interface ListCompleteWorkflowLibrary200ResponseInner {
      */
     'isDynamicSchema'?: boolean;
     /**
-     * Defines the output schema, if any, that this action produces.
+     * Example output schema
      * @type {object}
      * @memberof ListCompleteWorkflowLibrary200ResponseInner
      */
@@ -11149,6 +11413,18 @@ export interface ManagedClient {
      * @memberof ManagedClient
      */
     'alertKey'?: string | null;
+    /**
+     * 
+     * @type {string}
+     * @memberof ManagedClient
+     */
+    'apiGatewayBaseUrl'?: string | null;
+    /**
+     * 
+     * @type {string}
+     * @memberof ManagedClient
+     */
+    'cookbook'?: string | null;
     /**
      * Previous CC ID to be used in data migration. (This field will be deleted after CC migration!)
      * @type {number}
@@ -14666,7 +14942,7 @@ export interface PendingApproval {
      * @type {SodViolationContextCheckCompleted}
      * @memberof PendingApproval
      */
-    'sodViolationContext'?: SodViolationContextCheckCompleted;
+    'sodViolationContext'?: SodViolationContextCheckCompleted | null;
 }
 /**
  * Enum represents action that is being processed on an approval.
@@ -18190,8 +18466,43 @@ export interface ScheduledAttributes {
      * @type {string}
      * @memberof ScheduledAttributes
      */
-    'cronString': string;
+    'cronString'?: string;
+    /**
+     * Frequency of execution
+     * @type {string}
+     * @memberof ScheduledAttributes
+     */
+    'frequency': ScheduledAttributesFrequencyEnum;
+    /**
+     * Time zone identifier
+     * @type {string}
+     * @memberof ScheduledAttributes
+     */
+    'timeZone'?: string;
+    /**
+     * Scheduled days of the week for execution
+     * @type {Array<string>}
+     * @memberof ScheduledAttributes
+     */
+    'weeklyDays'?: Array<string>;
+    /**
+     * Scheduled execution times
+     * @type {Array<string>}
+     * @memberof ScheduledAttributes
+     */
+    'weeklyTimes'?: Array<string>;
 }
+
+export const ScheduledAttributesFrequencyEnum = {
+    Daily: 'daily',
+    Weekly: 'weekly',
+    Monthly: 'monthly',
+    Yearly: 'yearly',
+    CronSchedule: 'cronSchedule'
+} as const;
+
+export type ScheduledAttributesFrequencyEnum = typeof ScheduledAttributesFrequencyEnum[keyof typeof ScheduledAttributesFrequencyEnum];
+
 /**
  * 
  * @export
@@ -20286,6 +20597,7 @@ export const SourceFeaturesEnum = {
 
 export type SourceFeaturesEnum = typeof SourceFeaturesEnum[keyof typeof SourceFeaturesEnum];
 export const SourceStatusEnum = {
+    ErrorAccountFileImport: 'SOURCE_STATE_ERROR_ACCOUNT_FILE_IMPORT',
     ErrorCluster: 'SOURCE_STATE_ERROR_CLUSTER',
     ErrorSource: 'SOURCE_STATE_ERROR_SOURCE',
     ErrorVa: 'SOURCE_STATE_ERROR_VA',
@@ -22873,6 +23185,12 @@ export interface Workflow {
     'modified'?: string;
     /**
      * 
+     * @type {WorkflowModifiedBy}
+     * @memberof Workflow
+     */
+    'modifiedBy'?: WorkflowModifiedBy;
+    /**
+     * 
      * @type {WorkflowAllOfCreator}
      * @memberof Workflow
      */
@@ -22950,6 +23268,12 @@ export interface WorkflowAllOf {
      * @memberof WorkflowAllOf
      */
     'modified'?: string;
+    /**
+     * 
+     * @type {WorkflowModifiedBy}
+     * @memberof WorkflowAllOf
+     */
+    'modifiedBy'?: WorkflowModifiedBy;
     /**
      * 
      * @type {WorkflowAllOfCreator}
@@ -23214,7 +23538,37 @@ export interface WorkflowLibraryAction {
      * @type {Array<WorkflowLibraryFormFields>}
      * @memberof WorkflowLibraryAction
      */
-    'formFields'?: Array<WorkflowLibraryFormFields>;
+    'formFields'?: Array<WorkflowLibraryFormFields> | null;
+    /**
+     * 
+     * @type {WorkflowLibraryActionExampleOutput}
+     * @memberof WorkflowLibraryAction
+     */
+    'exampleOutput'?: WorkflowLibraryActionExampleOutput;
+    /**
+     * 
+     * @type {boolean}
+     * @memberof WorkflowLibraryAction
+     */
+    'deprecated'?: boolean;
+    /**
+     * 
+     * @type {string}
+     * @memberof WorkflowLibraryAction
+     */
+    'deprecatedBy'?: string;
+    /**
+     * Version number
+     * @type {number}
+     * @memberof WorkflowLibraryAction
+     */
+    'versionNumber'?: number;
+    /**
+     * 
+     * @type {boolean}
+     * @memberof WorkflowLibraryAction
+     */
+    'isSimulationEnabled'?: boolean;
     /**
      * Determines whether the dynamic output schema is returned in place of the action\'s output schema. The dynamic schema lists non-static properties, like properties of a workflow form where each form has different fields. These will be provided dynamically based on available form fields.
      * @type {boolean}
@@ -23229,11 +23583,23 @@ export interface WorkflowLibraryAction {
     'outputSchema'?: object;
 }
 /**
+ * @type WorkflowLibraryActionExampleOutput
+ * @export
+ */
+export type WorkflowLibraryActionExampleOutput = Array<object> | object;
+
+/**
  * 
  * @export
  * @interface WorkflowLibraryFormFields
  */
 export interface WorkflowLibraryFormFields {
+    /**
+     * Description of the form field
+     * @type {string}
+     * @memberof WorkflowLibraryFormFields
+     */
+    'description'?: string;
     /**
      * Describes the form field in the UI
      * @type {string}
@@ -23260,7 +23626,7 @@ export interface WorkflowLibraryFormFields {
     'required'?: boolean;
     /**
      * The type of the form field
-     * @type {object}
+     * @type {string}
      * @memberof WorkflowLibraryFormFields
      */
     'type'?: WorkflowLibraryFormFieldsTypeEnum;
@@ -23280,6 +23646,7 @@ export const WorkflowLibraryFormFieldsTypeEnum = {
     MultiType: 'multiType',
     Duration: 'duration',
     Toggle: 'toggle',
+    FormPicker: 'formPicker',
     IdentityPicker: 'identityPicker',
     GovernanceGroupPicker: 'governanceGroupPicker',
     String: 'string',
@@ -23288,7 +23655,9 @@ export const WorkflowLibraryFormFieldsTypeEnum = {
     Secret: 'secret',
     KeyValuePairs: 'keyValuePairs',
     EmailPicker: 'emailPicker',
-    AdvancedToggle: 'advancedToggle'
+    AdvancedToggle: 'advancedToggle',
+    VariableCreator: 'variableCreator',
+    HtmlEditor: 'htmlEditor'
 } as const;
 
 export type WorkflowLibraryFormFieldsTypeEnum = typeof WorkflowLibraryFormFieldsTypeEnum[keyof typeof WorkflowLibraryFormFieldsTypeEnum];
@@ -23324,11 +23693,35 @@ export interface WorkflowLibraryOperator {
      */
     'description'?: string;
     /**
+     * Determines whether the dynamic output schema is returned in place of the action\'s output schema. The dynamic schema lists non-static properties, like properties of a workflow form where each form has different fields. These will be provided dynamically based on available form fields.
+     * @type {boolean}
+     * @memberof WorkflowLibraryOperator
+     */
+    'isDynamicSchema'?: boolean;
+    /**
+     * 
+     * @type {boolean}
+     * @memberof WorkflowLibraryOperator
+     */
+    'deprecated'?: boolean;
+    /**
+     * 
+     * @type {string}
+     * @memberof WorkflowLibraryOperator
+     */
+    'deprecatedBy'?: string;
+    /**
+     * 
+     * @type {boolean}
+     * @memberof WorkflowLibraryOperator
+     */
+    'isSimulationEnabled'?: boolean;
+    /**
      * One or more inputs that the operator accepts
      * @type {Array<WorkflowLibraryFormFields>}
      * @memberof WorkflowLibraryOperator
      */
-    'formFields'?: Array<WorkflowLibraryFormFields>;
+    'formFields'?: Array<WorkflowLibraryFormFields> | null;
 }
 /**
  * 
@@ -23344,10 +23737,34 @@ export interface WorkflowLibraryTrigger {
     'id'?: string;
     /**
      * Trigger type
-     * @type {object}
+     * @type {string}
      * @memberof WorkflowLibraryTrigger
      */
     'type'?: WorkflowLibraryTriggerTypeEnum;
+    /**
+     * 
+     * @type {boolean}
+     * @memberof WorkflowLibraryTrigger
+     */
+    'deprecated'?: boolean;
+    /**
+     * 
+     * @type {string}
+     * @memberof WorkflowLibraryTrigger
+     */
+    'deprecatedBy'?: string;
+    /**
+     * 
+     * @type {boolean}
+     * @memberof WorkflowLibraryTrigger
+     */
+    'isSimulationEnabled'?: boolean;
+    /**
+     * Example output schema
+     * @type {object}
+     * @memberof WorkflowLibraryTrigger
+     */
+    'outputSchema'?: object;
     /**
      * Trigger Name
      * @type {string}
@@ -23387,6 +23804,38 @@ export const WorkflowLibraryTriggerTypeEnum = {
 } as const;
 
 export type WorkflowLibraryTriggerTypeEnum = typeof WorkflowLibraryTriggerTypeEnum[keyof typeof WorkflowLibraryTriggerTypeEnum];
+
+/**
+ * 
+ * @export
+ * @interface WorkflowModifiedBy
+ */
+export interface WorkflowModifiedBy {
+    /**
+     * 
+     * @type {string}
+     * @memberof WorkflowModifiedBy
+     */
+    'type'?: WorkflowModifiedByTypeEnum;
+    /**
+     * Identity ID
+     * @type {string}
+     * @memberof WorkflowModifiedBy
+     */
+    'id'?: string;
+    /**
+     * Human-readable display name of identity.
+     * @type {string}
+     * @memberof WorkflowModifiedBy
+     */
+    'name'?: string;
+}
+
+export const WorkflowModifiedByTypeEnum = {
+    Identity: 'IDENTITY'
+} as const;
+
+export type WorkflowModifiedByTypeEnum = typeof WorkflowModifiedByTypeEnum[keyof typeof WorkflowModifiedByTypeEnum];
 
 /**
  * 
