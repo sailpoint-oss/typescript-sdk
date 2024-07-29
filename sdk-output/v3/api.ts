@@ -9255,6 +9255,37 @@ export interface IdentityAttributeConfig {
     'attributeTransforms'?: Array<IdentityAttributeTransform>;
 }
 /**
+ * 
+ * @export
+ * @interface IdentityAttributePreview
+ */
+export interface IdentityAttributePreview {
+    /**
+     * Name of the attribute that is being previewed.
+     * @type {string}
+     * @memberof IdentityAttributePreview
+     */
+    'name'?: string;
+    /**
+     * Value that was derived during the preview.
+     * @type {object}
+     * @memberof IdentityAttributePreview
+     */
+    'value'?: object;
+    /**
+     * The value of the attribute before the preview.
+     * @type {object}
+     * @memberof IdentityAttributePreview
+     */
+    'previousValue'?: object;
+    /**
+     * 
+     * @type {Array<ErrorMessageDto>}
+     * @memberof IdentityAttributePreview
+     */
+    'errorMessages'?: Array<ErrorMessageDto>;
+}
+/**
  * Defines a transformation definition for an identity attribute.
  * @export
  * @interface IdentityAttributeTransform
@@ -9971,6 +10002,76 @@ export interface IdentityExceptionReportReference {
      */
     'reportName'?: string;
 }
+/**
+ * 
+ * @export
+ * @interface IdentityPreviewRequest
+ */
+export interface IdentityPreviewRequest {
+    /**
+     * The Identity id
+     * @type {string}
+     * @memberof IdentityPreviewRequest
+     */
+    'identityId'?: string;
+    /**
+     * 
+     * @type {Array<IdentityAttributeConfig>}
+     * @memberof IdentityPreviewRequest
+     */
+    'identityAttributeConfig'?: Array<IdentityAttributeConfig>;
+}
+/**
+ * 
+ * @export
+ * @interface IdentityPreviewResponse
+ */
+export interface IdentityPreviewResponse {
+    /**
+     * 
+     * @type {IdentityPreviewResponseIdentity}
+     * @memberof IdentityPreviewResponse
+     */
+    'identity'?: IdentityPreviewResponseIdentity;
+    /**
+     * 
+     * @type {Array<IdentityAttributePreview>}
+     * @memberof IdentityPreviewResponse
+     */
+    'previewAttributes'?: Array<IdentityAttributePreview>;
+}
+/**
+ * Identity\'s basic details.
+ * @export
+ * @interface IdentityPreviewResponseIdentity
+ */
+export interface IdentityPreviewResponseIdentity {
+    /**
+     * Identity\'s DTO type.
+     * @type {string}
+     * @memberof IdentityPreviewResponseIdentity
+     */
+    'type'?: IdentityPreviewResponseIdentityTypeEnum;
+    /**
+     * Identity ID.
+     * @type {string}
+     * @memberof IdentityPreviewResponseIdentity
+     */
+    'id'?: string;
+    /**
+     * Identity\'s display name.
+     * @type {string}
+     * @memberof IdentityPreviewResponseIdentity
+     */
+    'name'?: string;
+}
+
+export const IdentityPreviewResponseIdentityTypeEnum = {
+    Identity: 'IDENTITY'
+} as const;
+
+export type IdentityPreviewResponseIdentityTypeEnum = typeof IdentityPreviewResponseIdentityTypeEnum[keyof typeof IdentityPreviewResponseIdentityTypeEnum];
+
 /**
  * 
  * @export
@@ -36919,6 +37020,50 @@ export class GlobalTenantSecuritySettingsApi extends BaseAPI {
 export const IdentityProfilesApiAxiosParamCreator = function (configuration?: Configuration) {
     return {
         /**
+         * This creates an Identity Profile.  A token with ORG_ADMIN authority is required to call this API to create an Identity Profile.
+         * @summary Create an Identity Profile
+         * @param {IdentityProfile} identityProfile 
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        createIdentityProfile: async (identityProfile: IdentityProfile, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'identityProfile' is not null or undefined
+            assertParamExists('createIdentityProfile', 'identityProfile', identityProfile)
+            const localVarPath = `/identity-profiles`;
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'POST', ...baseOptions, ...axiosOptions};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication UserContextAuth required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "UserContextAuth", [], configuration)
+
+            // authentication UserContextAuth required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "UserContextAuth", [], configuration)
+
+
+    
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
+            localVarRequestOptions.data = serializeDataIfNeeded(identityProfile, localVarRequestOptions, configuration)
+
+            return {
+                url: toPathString(localVarUrlObj),
+                axiosOptions: localVarRequestOptions,
+            };
+        },
+        /**
          * This deletes an Identity Profile based on ID.  On success, this endpoint will return a reference to the bulk delete task result.  A token with ORG_ADMIN authority is required to call this API.  The following rights are required to access this endpoint: idn:identity-profile:delete
          * @summary Delete an Identity Profile
          * @param {string} identityProfileId The Identity Profile ID.
@@ -37110,7 +37255,7 @@ export const IdentityProfilesApiAxiosParamCreator = function (configuration?: Co
             };
         },
         /**
-         * This returns a single Identity Profile based on ID. A token with ORG_ADMIN or API authority is required to call this API.
+         * This returns a single Identity Profile based on ID.  A token with ORG_ADMIN or API authority is required to call this API.
          * @summary Get single Identity Profile
          * @param {string} identityProfileId The Identity Profile ID.
          * @param {*} [axiosOptions] Override http request option.
@@ -37259,6 +37404,50 @@ export const IdentityProfilesApiAxiosParamCreator = function (configuration?: Co
             };
         },
         /**
+         * Use this API to generate a non-persisted preview of the identity object after applying `IdentityAttributeConfig` sent in request body. This API only allows `accountAttribute`, `reference` and `rule` transform types in the `IdentityAttributeConfig` sent in the request body. A token with ORG_ADMIN authority is required to call this API to generate an identity preview.
+         * @summary Generate Identity Profile Preview
+         * @param {IdentityPreviewRequest} identityPreviewRequest Identity Preview request body.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        showIdentityPreview: async (identityPreviewRequest: IdentityPreviewRequest, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'identityPreviewRequest' is not null or undefined
+            assertParamExists('showIdentityPreview', 'identityPreviewRequest', identityPreviewRequest)
+            const localVarPath = `/identity-profiles/identity-preview`;
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'POST', ...baseOptions, ...axiosOptions};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication UserContextAuth required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "UserContextAuth", [], configuration)
+
+            // authentication UserContextAuth required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "UserContextAuth", [], configuration)
+
+
+    
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
+            localVarRequestOptions.data = serializeDataIfNeeded(identityPreviewRequest, localVarRequestOptions, configuration)
+
+            return {
+                url: toPathString(localVarUrlObj),
+                axiosOptions: localVarRequestOptions,
+            };
+        },
+        /**
          * Process identities under the profile This operation should not be used to schedule your own identity processing or to perform system wide identity refreshes. The system will use a combination of [event-based processing](https://documentation.sailpoint.com/saas/help/setup/identity_processing.html?h=process#event-based-processing) and [scheduled processing](https://documentation.sailpoint.com/saas/help/setup/identity_processing.html?h=process#scheduled-processing) that runs every day at 8:00 AM and 8:00 PM in the tenant\'s timezone to keep your identities synchronized.  This should only be run on identity profiles that have the `identityRefreshRequired` attribute set to `true`. If `identityRefreshRequired` is false, then there is no benefit to running this operation. Typically, this operation is performed when a change is made to the identity profile or its related lifecycle states that requires a refresh. This operation will perform the following activities on all identities under the identity profile. 1. Updates identity attribute according to the identity profile mappings. 2. Determines the identity\'s correct manager through manager correlation. 3. Updates the identity\'s access according to their assigned lifecycle state. 4. Updates the identity\'s access based on role assignment criteria. A token with ORG_ADMIN authority is required to call this API.
          * @summary Process identities under profile
          * @param {string} identityProfileId The Identity Profile ID to be processed
@@ -37300,6 +37489,54 @@ export const IdentityProfilesApiAxiosParamCreator = function (configuration?: Co
                 axiosOptions: localVarRequestOptions,
             };
         },
+        /**
+         * This updates the specified Identity Profile.  A token with ORG_ADMIN authority is required to call this API to update the Identity Profile.  Some fields of the Schema cannot be updated. These fields are listed below: * id * name * created * modified * identityCount * identityRefreshRequired * Authoritative Source and Identity Attribute Configuration cannot be modified at once.
+         * @summary Update the Identity Profile
+         * @param {string} identityProfileId The Identity Profile ID
+         * @param {Array<JsonPatchOperation>} jsonPatchOperation A list of Identity Profile update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        updateIdentityProfile: async (identityProfileId: string, jsonPatchOperation: Array<JsonPatchOperation>, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'identityProfileId' is not null or undefined
+            assertParamExists('updateIdentityProfile', 'identityProfileId', identityProfileId)
+            // verify required parameter 'jsonPatchOperation' is not null or undefined
+            assertParamExists('updateIdentityProfile', 'jsonPatchOperation', jsonPatchOperation)
+            const localVarPath = `/identity-profiles/{identity-profile-id}`
+                .replace(`{${"identity-profile-id"}}`, encodeURIComponent(String(identityProfileId)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'PATCH', ...baseOptions, ...axiosOptions};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication UserContextAuth required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "UserContextAuth", [], configuration)
+
+            // authentication UserContextAuth required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "UserContextAuth", [], configuration)
+
+
+    
+            localVarHeaderParameter['Content-Type'] = 'application/json-patch+json';
+
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
+            localVarRequestOptions.data = serializeDataIfNeeded(jsonPatchOperation, localVarRequestOptions, configuration)
+
+            return {
+                url: toPathString(localVarUrlObj),
+                axiosOptions: localVarRequestOptions,
+            };
+        },
     }
 };
 
@@ -37310,6 +37547,17 @@ export const IdentityProfilesApiAxiosParamCreator = function (configuration?: Co
 export const IdentityProfilesApiFp = function(configuration?: Configuration) {
     const localVarAxiosParamCreator = IdentityProfilesApiAxiosParamCreator(configuration)
     return {
+        /**
+         * This creates an Identity Profile.  A token with ORG_ADMIN authority is required to call this API to create an Identity Profile.
+         * @summary Create an Identity Profile
+         * @param {IdentityProfile} identityProfile 
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        async createIdentityProfile(identityProfile: IdentityProfile, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<IdentityProfile>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.createIdentityProfile(identityProfile, axiosOptions);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
         /**
          * This deletes an Identity Profile based on ID.  On success, this endpoint will return a reference to the bulk delete task result.  A token with ORG_ADMIN authority is required to call this API.  The following rights are required to access this endpoint: idn:identity-profile:delete
          * @summary Delete an Identity Profile
@@ -37359,7 +37607,7 @@ export const IdentityProfilesApiFp = function(configuration?: Configuration) {
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
-         * This returns a single Identity Profile based on ID. A token with ORG_ADMIN or API authority is required to call this API.
+         * This returns a single Identity Profile based on ID.  A token with ORG_ADMIN or API authority is required to call this API.
          * @summary Get single Identity Profile
          * @param {string} identityProfileId The Identity Profile ID.
          * @param {*} [axiosOptions] Override http request option.
@@ -37396,6 +37644,17 @@ export const IdentityProfilesApiFp = function(configuration?: Configuration) {
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
+         * Use this API to generate a non-persisted preview of the identity object after applying `IdentityAttributeConfig` sent in request body. This API only allows `accountAttribute`, `reference` and `rule` transform types in the `IdentityAttributeConfig` sent in the request body. A token with ORG_ADMIN authority is required to call this API to generate an identity preview.
+         * @summary Generate Identity Profile Preview
+         * @param {IdentityPreviewRequest} identityPreviewRequest Identity Preview request body.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        async showIdentityPreview(identityPreviewRequest: IdentityPreviewRequest, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<IdentityPreviewResponse>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.showIdentityPreview(identityPreviewRequest, axiosOptions);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
          * Process identities under the profile This operation should not be used to schedule your own identity processing or to perform system wide identity refreshes. The system will use a combination of [event-based processing](https://documentation.sailpoint.com/saas/help/setup/identity_processing.html?h=process#event-based-processing) and [scheduled processing](https://documentation.sailpoint.com/saas/help/setup/identity_processing.html?h=process#scheduled-processing) that runs every day at 8:00 AM and 8:00 PM in the tenant\'s timezone to keep your identities synchronized.  This should only be run on identity profiles that have the `identityRefreshRequired` attribute set to `true`. If `identityRefreshRequired` is false, then there is no benefit to running this operation. Typically, this operation is performed when a change is made to the identity profile or its related lifecycle states that requires a refresh. This operation will perform the following activities on all identities under the identity profile. 1. Updates identity attribute according to the identity profile mappings. 2. Determines the identity\'s correct manager through manager correlation. 3. Updates the identity\'s access according to their assigned lifecycle state. 4. Updates the identity\'s access based on role assignment criteria. A token with ORG_ADMIN authority is required to call this API.
          * @summary Process identities under profile
          * @param {string} identityProfileId The Identity Profile ID to be processed
@@ -37404,6 +37663,18 @@ export const IdentityProfilesApiFp = function(configuration?: Configuration) {
          */
         async syncIdentityProfile(identityProfileId: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<object>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.syncIdentityProfile(identityProfileId, axiosOptions);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * This updates the specified Identity Profile.  A token with ORG_ADMIN authority is required to call this API to update the Identity Profile.  Some fields of the Schema cannot be updated. These fields are listed below: * id * name * created * modified * identityCount * identityRefreshRequired * Authoritative Source and Identity Attribute Configuration cannot be modified at once.
+         * @summary Update the Identity Profile
+         * @param {string} identityProfileId The Identity Profile ID
+         * @param {Array<JsonPatchOperation>} jsonPatchOperation A list of Identity Profile update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        async updateIdentityProfile(identityProfileId: string, jsonPatchOperation: Array<JsonPatchOperation>, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<IdentityProfile>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.updateIdentityProfile(identityProfileId, jsonPatchOperation, axiosOptions);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
     }
@@ -37416,6 +37687,16 @@ export const IdentityProfilesApiFp = function(configuration?: Configuration) {
 export const IdentityProfilesApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
     const localVarFp = IdentityProfilesApiFp(configuration)
     return {
+        /**
+         * This creates an Identity Profile.  A token with ORG_ADMIN authority is required to call this API to create an Identity Profile.
+         * @summary Create an Identity Profile
+         * @param {IdentityProfile} identityProfile 
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        createIdentityProfile(identityProfile: IdentityProfile, axiosOptions?: any): AxiosPromise<IdentityProfile> {
+            return localVarFp.createIdentityProfile(identityProfile, axiosOptions).then((request) => request(axios, basePath));
+        },
         /**
          * This deletes an Identity Profile based on ID.  On success, this endpoint will return a reference to the bulk delete task result.  A token with ORG_ADMIN authority is required to call this API.  The following rights are required to access this endpoint: idn:identity-profile:delete
          * @summary Delete an Identity Profile
@@ -37461,7 +37742,7 @@ export const IdentityProfilesApiFactory = function (configuration?: Configuratio
             return localVarFp.getDefaultIdentityAttributeConfig(identityProfileId, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
-         * This returns a single Identity Profile based on ID. A token with ORG_ADMIN or API authority is required to call this API.
+         * This returns a single Identity Profile based on ID.  A token with ORG_ADMIN or API authority is required to call this API.
          * @summary Get single Identity Profile
          * @param {string} identityProfileId The Identity Profile ID.
          * @param {*} [axiosOptions] Override http request option.
@@ -37495,6 +37776,16 @@ export const IdentityProfilesApiFactory = function (configuration?: Configuratio
             return localVarFp.listIdentityProfiles(limit, offset, count, filters, sorters, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
+         * Use this API to generate a non-persisted preview of the identity object after applying `IdentityAttributeConfig` sent in request body. This API only allows `accountAttribute`, `reference` and `rule` transform types in the `IdentityAttributeConfig` sent in the request body. A token with ORG_ADMIN authority is required to call this API to generate an identity preview.
+         * @summary Generate Identity Profile Preview
+         * @param {IdentityPreviewRequest} identityPreviewRequest Identity Preview request body.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        showIdentityPreview(identityPreviewRequest: IdentityPreviewRequest, axiosOptions?: any): AxiosPromise<IdentityPreviewResponse> {
+            return localVarFp.showIdentityPreview(identityPreviewRequest, axiosOptions).then((request) => request(axios, basePath));
+        },
+        /**
          * Process identities under the profile This operation should not be used to schedule your own identity processing or to perform system wide identity refreshes. The system will use a combination of [event-based processing](https://documentation.sailpoint.com/saas/help/setup/identity_processing.html?h=process#event-based-processing) and [scheduled processing](https://documentation.sailpoint.com/saas/help/setup/identity_processing.html?h=process#scheduled-processing) that runs every day at 8:00 AM and 8:00 PM in the tenant\'s timezone to keep your identities synchronized.  This should only be run on identity profiles that have the `identityRefreshRequired` attribute set to `true`. If `identityRefreshRequired` is false, then there is no benefit to running this operation. Typically, this operation is performed when a change is made to the identity profile or its related lifecycle states that requires a refresh. This operation will perform the following activities on all identities under the identity profile. 1. Updates identity attribute according to the identity profile mappings. 2. Determines the identity\'s correct manager through manager correlation. 3. Updates the identity\'s access according to their assigned lifecycle state. 4. Updates the identity\'s access based on role assignment criteria. A token with ORG_ADMIN authority is required to call this API.
          * @summary Process identities under profile
          * @param {string} identityProfileId The Identity Profile ID to be processed
@@ -37504,8 +37795,33 @@ export const IdentityProfilesApiFactory = function (configuration?: Configuratio
         syncIdentityProfile(identityProfileId: string, axiosOptions?: any): AxiosPromise<object> {
             return localVarFp.syncIdentityProfile(identityProfileId, axiosOptions).then((request) => request(axios, basePath));
         },
+        /**
+         * This updates the specified Identity Profile.  A token with ORG_ADMIN authority is required to call this API to update the Identity Profile.  Some fields of the Schema cannot be updated. These fields are listed below: * id * name * created * modified * identityCount * identityRefreshRequired * Authoritative Source and Identity Attribute Configuration cannot be modified at once.
+         * @summary Update the Identity Profile
+         * @param {string} identityProfileId The Identity Profile ID
+         * @param {Array<JsonPatchOperation>} jsonPatchOperation A list of Identity Profile update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        updateIdentityProfile(identityProfileId: string, jsonPatchOperation: Array<JsonPatchOperation>, axiosOptions?: any): AxiosPromise<IdentityProfile> {
+            return localVarFp.updateIdentityProfile(identityProfileId, jsonPatchOperation, axiosOptions).then((request) => request(axios, basePath));
+        },
     };
 };
+
+/**
+ * Request parameters for createIdentityProfile operation in IdentityProfilesApi.
+ * @export
+ * @interface IdentityProfilesApiCreateIdentityProfileRequest
+ */
+export interface IdentityProfilesApiCreateIdentityProfileRequest {
+    /**
+     * 
+     * @type {IdentityProfile}
+     * @memberof IdentityProfilesApiCreateIdentityProfile
+     */
+    readonly identityProfile: IdentityProfile
+}
 
 /**
  * Request parameters for deleteIdentityProfile operation in IdentityProfilesApi.
@@ -37662,6 +37978,20 @@ export interface IdentityProfilesApiListIdentityProfilesRequest {
 }
 
 /**
+ * Request parameters for showIdentityPreview operation in IdentityProfilesApi.
+ * @export
+ * @interface IdentityProfilesApiShowIdentityPreviewRequest
+ */
+export interface IdentityProfilesApiShowIdentityPreviewRequest {
+    /**
+     * Identity Preview request body.
+     * @type {IdentityPreviewRequest}
+     * @memberof IdentityProfilesApiShowIdentityPreview
+     */
+    readonly identityPreviewRequest: IdentityPreviewRequest
+}
+
+/**
  * Request parameters for syncIdentityProfile operation in IdentityProfilesApi.
  * @export
  * @interface IdentityProfilesApiSyncIdentityProfileRequest
@@ -37676,12 +38006,45 @@ export interface IdentityProfilesApiSyncIdentityProfileRequest {
 }
 
 /**
+ * Request parameters for updateIdentityProfile operation in IdentityProfilesApi.
+ * @export
+ * @interface IdentityProfilesApiUpdateIdentityProfileRequest
+ */
+export interface IdentityProfilesApiUpdateIdentityProfileRequest {
+    /**
+     * The Identity Profile ID
+     * @type {string}
+     * @memberof IdentityProfilesApiUpdateIdentityProfile
+     */
+    readonly identityProfileId: string
+
+    /**
+     * A list of Identity Profile update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.
+     * @type {Array<JsonPatchOperation>}
+     * @memberof IdentityProfilesApiUpdateIdentityProfile
+     */
+    readonly jsonPatchOperation: Array<JsonPatchOperation>
+}
+
+/**
  * IdentityProfilesApi - object-oriented interface
  * @export
  * @class IdentityProfilesApi
  * @extends {BaseAPI}
  */
 export class IdentityProfilesApi extends BaseAPI {
+    /**
+     * This creates an Identity Profile.  A token with ORG_ADMIN authority is required to call this API to create an Identity Profile.
+     * @summary Create an Identity Profile
+     * @param {IdentityProfilesApiCreateIdentityProfileRequest} requestParameters Request parameters.
+     * @param {*} [axiosOptions] Override http request option.
+     * @throws {RequiredError}
+     * @memberof IdentityProfilesApi
+     */
+    public createIdentityProfile(requestParameters: IdentityProfilesApiCreateIdentityProfileRequest, axiosOptions?: AxiosRequestConfig) {
+        return IdentityProfilesApiFp(this.configuration).createIdentityProfile(requestParameters.identityProfile, axiosOptions).then((request) => request(this.axios, this.basePath));
+    }
+
     /**
      * This deletes an Identity Profile based on ID.  On success, this endpoint will return a reference to the bulk delete task result.  A token with ORG_ADMIN authority is required to call this API.  The following rights are required to access this endpoint: idn:identity-profile:delete
      * @summary Delete an Identity Profile
@@ -37731,7 +38094,7 @@ export class IdentityProfilesApi extends BaseAPI {
     }
 
     /**
-     * This returns a single Identity Profile based on ID. A token with ORG_ADMIN or API authority is required to call this API.
+     * This returns a single Identity Profile based on ID.  A token with ORG_ADMIN or API authority is required to call this API.
      * @summary Get single Identity Profile
      * @param {IdentityProfilesApiGetIdentityProfileRequest} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
@@ -37767,6 +38130,18 @@ export class IdentityProfilesApi extends BaseAPI {
     }
 
     /**
+     * Use this API to generate a non-persisted preview of the identity object after applying `IdentityAttributeConfig` sent in request body. This API only allows `accountAttribute`, `reference` and `rule` transform types in the `IdentityAttributeConfig` sent in the request body. A token with ORG_ADMIN authority is required to call this API to generate an identity preview.
+     * @summary Generate Identity Profile Preview
+     * @param {IdentityProfilesApiShowIdentityPreviewRequest} requestParameters Request parameters.
+     * @param {*} [axiosOptions] Override http request option.
+     * @throws {RequiredError}
+     * @memberof IdentityProfilesApi
+     */
+    public showIdentityPreview(requestParameters: IdentityProfilesApiShowIdentityPreviewRequest, axiosOptions?: AxiosRequestConfig) {
+        return IdentityProfilesApiFp(this.configuration).showIdentityPreview(requestParameters.identityPreviewRequest, axiosOptions).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
      * Process identities under the profile This operation should not be used to schedule your own identity processing or to perform system wide identity refreshes. The system will use a combination of [event-based processing](https://documentation.sailpoint.com/saas/help/setup/identity_processing.html?h=process#event-based-processing) and [scheduled processing](https://documentation.sailpoint.com/saas/help/setup/identity_processing.html?h=process#scheduled-processing) that runs every day at 8:00 AM and 8:00 PM in the tenant\'s timezone to keep your identities synchronized.  This should only be run on identity profiles that have the `identityRefreshRequired` attribute set to `true`. If `identityRefreshRequired` is false, then there is no benefit to running this operation. Typically, this operation is performed when a change is made to the identity profile or its related lifecycle states that requires a refresh. This operation will perform the following activities on all identities under the identity profile. 1. Updates identity attribute according to the identity profile mappings. 2. Determines the identity\'s correct manager through manager correlation. 3. Updates the identity\'s access according to their assigned lifecycle state. 4. Updates the identity\'s access based on role assignment criteria. A token with ORG_ADMIN authority is required to call this API.
      * @summary Process identities under profile
      * @param {IdentityProfilesApiSyncIdentityProfileRequest} requestParameters Request parameters.
@@ -37776,6 +38151,18 @@ export class IdentityProfilesApi extends BaseAPI {
      */
     public syncIdentityProfile(requestParameters: IdentityProfilesApiSyncIdentityProfileRequest, axiosOptions?: AxiosRequestConfig) {
         return IdentityProfilesApiFp(this.configuration).syncIdentityProfile(requestParameters.identityProfileId, axiosOptions).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * This updates the specified Identity Profile.  A token with ORG_ADMIN authority is required to call this API to update the Identity Profile.  Some fields of the Schema cannot be updated. These fields are listed below: * id * name * created * modified * identityCount * identityRefreshRequired * Authoritative Source and Identity Attribute Configuration cannot be modified at once.
+     * @summary Update the Identity Profile
+     * @param {IdentityProfilesApiUpdateIdentityProfileRequest} requestParameters Request parameters.
+     * @param {*} [axiosOptions] Override http request option.
+     * @throws {RequiredError}
+     * @memberof IdentityProfilesApi
+     */
+    public updateIdentityProfile(requestParameters: IdentityProfilesApiUpdateIdentityProfileRequest, axiosOptions?: AxiosRequestConfig) {
+        return IdentityProfilesApiFp(this.configuration).updateIdentityProfile(requestParameters.identityProfileId, requestParameters.jsonPatchOperation, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 }
 
