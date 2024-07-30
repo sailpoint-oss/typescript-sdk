@@ -22996,6 +22996,31 @@ export interface VisibilityCriteria {
     'expression'?: Expression;
 }
 /**
+ * 
+ * @export
+ * @interface WorkItemForward
+ */
+export interface WorkItemForward {
+    /**
+     * The ID of the identity to forward this work item to.
+     * @type {string}
+     * @memberof WorkItemForward
+     */
+    'targetOwnerId': string;
+    /**
+     * Comments to send to the target owner
+     * @type {string}
+     * @memberof WorkItemForward
+     */
+    'comment': string;
+    /**
+     * If true, send a notification to the target owner.
+     * @type {boolean}
+     * @memberof WorkItemForward
+     */
+    'sendNotifications'?: boolean;
+}
+/**
  * The state of a work item
  * @export
  * @enum {string}
@@ -60272,6 +60297,54 @@ export const WorkItemsApiAxiosParamCreator = function (configuration?: Configura
             };
         },
         /**
+         * This API forwards a work item to a new owner. Either an admin, or the owning/current user must make this request. Accessible to work-item Owner, ORG_ADMIN, REPORT_ADMIN, ROLE_ADMIN, ROLE_SUBADMIN, SOURCE_ADMIN, SOURCE_SUBADMIN.
+         * @summary Forward a Work Item
+         * @param {string} id The ID of the work item
+         * @param {WorkItemForward} workItemForward 
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        sendWorkItemForward: async (id: string, workItemForward: WorkItemForward, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'id' is not null or undefined
+            assertParamExists('sendWorkItemForward', 'id', id)
+            // verify required parameter 'workItemForward' is not null or undefined
+            assertParamExists('sendWorkItemForward', 'workItemForward', workItemForward)
+            const localVarPath = `/work-items/{id}/forward`
+                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'POST', ...baseOptions, ...axiosOptions};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication UserContextAuth required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "UserContextAuth", [], configuration)
+
+            // authentication UserContextAuth required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "UserContextAuth", [], configuration)
+
+
+    
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
+            localVarRequestOptions.data = serializeDataIfNeeded(workItemForward, localVarRequestOptions, configuration)
+
+            return {
+                url: toPathString(localVarUrlObj),
+                axiosOptions: localVarRequestOptions,
+            };
+        },
+        /**
          * This API submits account selections. Either an admin, or the owning/current user must make this request.
          * @summary Submit Account Selections
          * @param {string} id The ID of the work item
@@ -60459,6 +60532,18 @@ export const WorkItemsApiFp = function(configuration?: Configuration) {
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
+         * This API forwards a work item to a new owner. Either an admin, or the owning/current user must make this request. Accessible to work-item Owner, ORG_ADMIN, REPORT_ADMIN, ROLE_ADMIN, ROLE_SUBADMIN, SOURCE_ADMIN, SOURCE_SUBADMIN.
+         * @summary Forward a Work Item
+         * @param {string} id The ID of the work item
+         * @param {WorkItemForward} workItemForward 
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        async sendWorkItemForward(id: string, workItemForward: WorkItemForward, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.sendWorkItemForward(id, workItemForward, axiosOptions);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
          * This API submits account selections. Either an admin, or the owning/current user must make this request.
          * @summary Submit Account Selections
          * @param {string} id The ID of the work item
@@ -60597,6 +60682,17 @@ export const WorkItemsApiFactory = function (configuration?: Configuration, base
          */
         rejectApprovalItemsInBulk(id: string, axiosOptions?: any): AxiosPromise<WorkItems> {
             return localVarFp.rejectApprovalItemsInBulk(id, axiosOptions).then((request) => request(axios, basePath));
+        },
+        /**
+         * This API forwards a work item to a new owner. Either an admin, or the owning/current user must make this request. Accessible to work-item Owner, ORG_ADMIN, REPORT_ADMIN, ROLE_ADMIN, ROLE_SUBADMIN, SOURCE_ADMIN, SOURCE_SUBADMIN.
+         * @summary Forward a Work Item
+         * @param {string} id The ID of the work item
+         * @param {WorkItemForward} workItemForward 
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        sendWorkItemForward(id: string, workItemForward: WorkItemForward, axiosOptions?: any): AxiosPromise<void> {
+            return localVarFp.sendWorkItemForward(id, workItemForward, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * This API submits account selections. Either an admin, or the owning/current user must make this request.
@@ -60823,6 +60919,27 @@ export interface WorkItemsApiRejectApprovalItemsInBulkRequest {
 }
 
 /**
+ * Request parameters for sendWorkItemForward operation in WorkItemsApi.
+ * @export
+ * @interface WorkItemsApiSendWorkItemForwardRequest
+ */
+export interface WorkItemsApiSendWorkItemForwardRequest {
+    /**
+     * The ID of the work item
+     * @type {string}
+     * @memberof WorkItemsApiSendWorkItemForward
+     */
+    readonly id: string
+
+    /**
+     * 
+     * @type {WorkItemForward}
+     * @memberof WorkItemsApiSendWorkItemForward
+     */
+    readonly workItemForward: WorkItemForward
+}
+
+/**
  * Request parameters for submitAccountSelection operation in WorkItemsApi.
  * @export
  * @interface WorkItemsApiSubmitAccountSelectionRequest
@@ -60980,6 +61097,18 @@ export class WorkItemsApi extends BaseAPI {
      */
     public rejectApprovalItemsInBulk(requestParameters: WorkItemsApiRejectApprovalItemsInBulkRequest, axiosOptions?: AxiosRequestConfig) {
         return WorkItemsApiFp(this.configuration).rejectApprovalItemsInBulk(requestParameters.id, axiosOptions).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * This API forwards a work item to a new owner. Either an admin, or the owning/current user must make this request. Accessible to work-item Owner, ORG_ADMIN, REPORT_ADMIN, ROLE_ADMIN, ROLE_SUBADMIN, SOURCE_ADMIN, SOURCE_SUBADMIN.
+     * @summary Forward a Work Item
+     * @param {WorkItemsApiSendWorkItemForwardRequest} requestParameters Request parameters.
+     * @param {*} [axiosOptions] Override http request option.
+     * @throws {RequiredError}
+     * @memberof WorkItemsApi
+     */
+    public sendWorkItemForward(requestParameters: WorkItemsApiSendWorkItemForwardRequest, axiosOptions?: AxiosRequestConfig) {
+        return WorkItemsApiFp(this.configuration).sendWorkItemForward(requestParameters.id, requestParameters.workItemForward, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
