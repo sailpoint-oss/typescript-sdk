@@ -1,4 +1,4 @@
-import { AccountsBetaApi, ConnectorsBetaApi, IdentityProfilesBetaApi, Paginator, Search, SourcesBetaApi, TransformsApi } from "./index"
+import { AccountsBetaApi, ConnectorsBetaApi, IdentityProfilesBetaApi, Paginator, Search, SourcesBetaApi, TransformsApi, AccountsV2024Api, TransformsV2024Api, IdentitiesBetaApiFp, IdentitiesV2024Api } from "./index"
 import { AccountsApi, Configuration, SearchApi } from "./index"
 
 describe('Test_v3', () => {
@@ -91,6 +91,49 @@ describe('Test_beta', () => {
         const resp = await Paginator.paginate(api, api.listIdentityProfiles, {limit: 5}, 1)
     
         expect(resp.data.length).toStrictEqual(5)
+        expect(resp.status).toStrictEqual(200)
+    }, 30000)
+})
+
+
+describe('Test_v2024', () => {
+    it('Test List Accounts', async () => {
+        let apiConfig = new Configuration()
+        let api = new AccountsV2024Api(apiConfig)
+        
+        const resp = await api.listAccounts({limit: 10})
+    
+        expect(resp.data.length).toStrictEqual(10)
+        expect(resp.status).toStrictEqual(200)
+    }, 30000)
+
+    it('Test List Transforms', async () => {
+        let apiConfig = new Configuration()
+        let api = new TransformsV2024Api(apiConfig)
+        
+        const resp = await api.listTransforms({limit: 10})
+    
+        expect(resp.data.length).toStrictEqual(10)
+        expect(resp.status).toStrictEqual(200)
+    }, 30000)
+
+    it('Test List Identities without experimental flag set', async () => {
+        let apiConfig = new Configuration()
+        let api = new IdentitiesV2024Api(apiConfig);
+        
+        await expect(api.listIdentities()).rejects.toThrow(
+            "You are using Experimental APIs. Set configuration.experimental = True to enable these APIs in the SDK."
+        );
+    }, 30000)
+
+    it('Test List Identities without experimental flag set', async () => {
+        let apiConfig = new Configuration()
+        apiConfig.experimental = true
+        let api = new IdentitiesV2024Api(apiConfig);
+        
+        const resp = await api.listIdentities({limit: 10})
+    
+        expect(resp.data.length).toStrictEqual(10)
         expect(resp.status).toStrictEqual(200)
     }, 30000)
 })

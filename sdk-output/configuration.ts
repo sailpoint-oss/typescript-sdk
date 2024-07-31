@@ -20,6 +20,7 @@ export interface Configuration {
     customexporttemplatespath?: string;
     customsearchtemplatespath?: string;
     debug?:                     boolean;
+    experimental?:              boolean;
     environments?:              {[key: string]: Environment};
 }
 
