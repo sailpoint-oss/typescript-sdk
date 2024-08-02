@@ -4319,36 +4319,55 @@ export type BucketType = typeof BucketType[keyof typeof BucketType];
 /**
  * 
  * @export
- * @interface BulkTaggedObject
+ * @interface BulkAddTaggedObject
  */
-export interface BulkTaggedObject {
+export interface BulkAddTaggedObject {
     /**
      * 
      * @type {Array<TaggedObjectDto>}
-     * @memberof BulkTaggedObject
+     * @memberof BulkAddTaggedObject
      */
     'objectRefs'?: Array<TaggedObjectDto>;
     /**
      * Label to be applied to an Object
      * @type {Array<string>}
-     * @memberof BulkTaggedObject
+     * @memberof BulkAddTaggedObject
      */
     'tags'?: Array<string>;
     /**
      * If APPEND, tags are appended to the list of tags for the object. A 400 error is returned if this would add duplicate tags to the object.  If MERGE, tags are merged with the existing tags. Duplicate tags are silently ignored.
      * @type {string}
-     * @memberof BulkTaggedObject
+     * @memberof BulkAddTaggedObject
      */
-    'operation'?: BulkTaggedObjectOperationEnum;
+    'operation'?: BulkAddTaggedObjectOperationEnum;
 }
 
-export const BulkTaggedObjectOperationEnum = {
+export const BulkAddTaggedObjectOperationEnum = {
     Append: 'APPEND',
     Merge: 'MERGE'
 } as const;
 
-export type BulkTaggedObjectOperationEnum = typeof BulkTaggedObjectOperationEnum[keyof typeof BulkTaggedObjectOperationEnum];
+export type BulkAddTaggedObjectOperationEnum = typeof BulkAddTaggedObjectOperationEnum[keyof typeof BulkAddTaggedObjectOperationEnum];
 
+/**
+ * 
+ * @export
+ * @interface BulkRemoveTaggedObject
+ */
+export interface BulkRemoveTaggedObject {
+    /**
+     * 
+     * @type {Array<TaggedObjectDto>}
+     * @memberof BulkRemoveTaggedObject
+     */
+    'objectRefs'?: Array<TaggedObjectDto>;
+    /**
+     * Label to be applied to an Object
+     * @type {Array<string>}
+     * @memberof BulkRemoveTaggedObject
+     */
+    'tags'?: Array<string>;
+}
 /**
  * 
  * @export
@@ -5891,18 +5910,6 @@ export interface CompletedApproval {
      * @memberof CompletedApproval
      */
     'clientMetadata'?: { [key: string]: string; };
-    /**
-     * Information about the requested accounts
-     * @type {string}
-     * @memberof CompletedApproval
-     */
-    'requestedAccounts'?: string | null;
-    /**
-     * 
-     * @type {object}
-     * @memberof CompletedApproval
-     */
-    'assignmentContext'?: object | null;
 }
 /**
  * If the access request submitted event trigger is configured and this access request was intercepted by it, then this is the result of the trigger\'s decision to either approve or deny the request.
@@ -58156,13 +58163,13 @@ export const TaggedObjectsApiAxiosParamCreator = function (configuration?: Confi
         /**
          * This API removes tags from multiple objects.  A token with API, CERT_ADMIN, ORG_ADMIN, REPORT_ADMIN, ROLE_ADMIN, ROLE_SUBADMIN, SOURCE_ADMIN, or SOURCE_SUBADMIN authority is required to call this API.
          * @summary Remove Tags from Multiple Objects
-         * @param {BulkTaggedObject} bulkTaggedObject Supported object types are ACCESS_PROFILE, APPLICATION, CAMPAIGN, ENTITLEMENT, IDENTITY, ROLE, SOD_POLICY, SOURCE.
+         * @param {BulkRemoveTaggedObject} bulkRemoveTaggedObject Supported object types are ACCESS_PROFILE, APPLICATION, CAMPAIGN, ENTITLEMENT, IDENTITY, ROLE, SOD_POLICY, SOURCE.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        deleteTagsToManyObject: async (bulkTaggedObject: BulkTaggedObject, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
-            // verify required parameter 'bulkTaggedObject' is not null or undefined
-            assertParamExists('deleteTagsToManyObject', 'bulkTaggedObject', bulkTaggedObject)
+        deleteTagsToManyObject: async (bulkRemoveTaggedObject: BulkRemoveTaggedObject, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'bulkRemoveTaggedObject' is not null or undefined
+            assertParamExists('deleteTagsToManyObject', 'bulkRemoveTaggedObject', bulkRemoveTaggedObject)
             const localVarPath = `/tagged-objects/bulk-remove`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -58190,7 +58197,7 @@ export const TaggedObjectsApiAxiosParamCreator = function (configuration?: Confi
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(bulkTaggedObject, localVarRequestOptions, configuration)
+            localVarRequestOptions.data = serializeDataIfNeeded(bulkRemoveTaggedObject, localVarRequestOptions, configuration)
 
             return {
                 url: toPathString(localVarUrlObj),
@@ -58462,13 +58469,13 @@ export const TaggedObjectsApiAxiosParamCreator = function (configuration?: Confi
         /**
          * This API adds tags to multiple objects.  A token with API, CERT_ADMIN, ORG_ADMIN, REPORT_ADMIN, ROLE_ADMIN, ROLE_SUBADMIN, SOURCE_ADMIN, or SOURCE_SUBADMIN authority is required to call this API.
          * @summary Tag Multiple Objects
-         * @param {BulkTaggedObject} bulkTaggedObject Supported object types are ACCESS_PROFILE, APPLICATION, CAMPAIGN, ENTITLEMENT, IDENTITY, ROLE, SOD_POLICY, SOURCE.
+         * @param {BulkAddTaggedObject} bulkAddTaggedObject Supported object types are ACCESS_PROFILE, APPLICATION, CAMPAIGN, ENTITLEMENT, IDENTITY, ROLE, SOD_POLICY, SOURCE.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        setTagsToManyObjects: async (bulkTaggedObject: BulkTaggedObject, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
-            // verify required parameter 'bulkTaggedObject' is not null or undefined
-            assertParamExists('setTagsToManyObjects', 'bulkTaggedObject', bulkTaggedObject)
+        setTagsToManyObjects: async (bulkAddTaggedObject: BulkAddTaggedObject, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'bulkAddTaggedObject' is not null or undefined
+            assertParamExists('setTagsToManyObjects', 'bulkAddTaggedObject', bulkAddTaggedObject)
             const localVarPath = `/tagged-objects/bulk-add`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -58496,7 +58503,7 @@ export const TaggedObjectsApiAxiosParamCreator = function (configuration?: Confi
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(bulkTaggedObject, localVarRequestOptions, configuration)
+            localVarRequestOptions.data = serializeDataIfNeeded(bulkAddTaggedObject, localVarRequestOptions, configuration)
 
             return {
                 url: toPathString(localVarUrlObj),
@@ -58528,12 +58535,12 @@ export const TaggedObjectsApiFp = function(configuration?: Configuration) {
         /**
          * This API removes tags from multiple objects.  A token with API, CERT_ADMIN, ORG_ADMIN, REPORT_ADMIN, ROLE_ADMIN, ROLE_SUBADMIN, SOURCE_ADMIN, or SOURCE_SUBADMIN authority is required to call this API.
          * @summary Remove Tags from Multiple Objects
-         * @param {BulkTaggedObject} bulkTaggedObject Supported object types are ACCESS_PROFILE, APPLICATION, CAMPAIGN, ENTITLEMENT, IDENTITY, ROLE, SOD_POLICY, SOURCE.
+         * @param {BulkRemoveTaggedObject} bulkRemoveTaggedObject Supported object types are ACCESS_PROFILE, APPLICATION, CAMPAIGN, ENTITLEMENT, IDENTITY, ROLE, SOD_POLICY, SOURCE.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async deleteTagsToManyObject(bulkTaggedObject: BulkTaggedObject, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.deleteTagsToManyObject(bulkTaggedObject, axiosOptions);
+        async deleteTagsToManyObject(bulkRemoveTaggedObject: BulkRemoveTaggedObject, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.deleteTagsToManyObject(bulkRemoveTaggedObject, axiosOptions);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
@@ -58604,12 +58611,12 @@ export const TaggedObjectsApiFp = function(configuration?: Configuration) {
         /**
          * This API adds tags to multiple objects.  A token with API, CERT_ADMIN, ORG_ADMIN, REPORT_ADMIN, ROLE_ADMIN, ROLE_SUBADMIN, SOURCE_ADMIN, or SOURCE_SUBADMIN authority is required to call this API.
          * @summary Tag Multiple Objects
-         * @param {BulkTaggedObject} bulkTaggedObject Supported object types are ACCESS_PROFILE, APPLICATION, CAMPAIGN, ENTITLEMENT, IDENTITY, ROLE, SOD_POLICY, SOURCE.
+         * @param {BulkAddTaggedObject} bulkAddTaggedObject Supported object types are ACCESS_PROFILE, APPLICATION, CAMPAIGN, ENTITLEMENT, IDENTITY, ROLE, SOD_POLICY, SOURCE.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async setTagsToManyObjects(bulkTaggedObject: BulkTaggedObject, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<BulkTaggedObjectResponse>>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.setTagsToManyObjects(bulkTaggedObject, axiosOptions);
+        async setTagsToManyObjects(bulkAddTaggedObject: BulkAddTaggedObject, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<BulkTaggedObjectResponse>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.setTagsToManyObjects(bulkAddTaggedObject, axiosOptions);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
     }
@@ -58636,12 +58643,12 @@ export const TaggedObjectsApiFactory = function (configuration?: Configuration, 
         /**
          * This API removes tags from multiple objects.  A token with API, CERT_ADMIN, ORG_ADMIN, REPORT_ADMIN, ROLE_ADMIN, ROLE_SUBADMIN, SOURCE_ADMIN, or SOURCE_SUBADMIN authority is required to call this API.
          * @summary Remove Tags from Multiple Objects
-         * @param {BulkTaggedObject} bulkTaggedObject Supported object types are ACCESS_PROFILE, APPLICATION, CAMPAIGN, ENTITLEMENT, IDENTITY, ROLE, SOD_POLICY, SOURCE.
+         * @param {BulkRemoveTaggedObject} bulkRemoveTaggedObject Supported object types are ACCESS_PROFILE, APPLICATION, CAMPAIGN, ENTITLEMENT, IDENTITY, ROLE, SOD_POLICY, SOURCE.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        deleteTagsToManyObject(bulkTaggedObject: BulkTaggedObject, axiosOptions?: any): AxiosPromise<void> {
-            return localVarFp.deleteTagsToManyObject(bulkTaggedObject, axiosOptions).then((request) => request(axios, basePath));
+        deleteTagsToManyObject(bulkRemoveTaggedObject: BulkRemoveTaggedObject, axiosOptions?: any): AxiosPromise<void> {
+            return localVarFp.deleteTagsToManyObject(bulkRemoveTaggedObject, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * This gets a tagged object for the specified type.
@@ -58706,12 +58713,12 @@ export const TaggedObjectsApiFactory = function (configuration?: Configuration, 
         /**
          * This API adds tags to multiple objects.  A token with API, CERT_ADMIN, ORG_ADMIN, REPORT_ADMIN, ROLE_ADMIN, ROLE_SUBADMIN, SOURCE_ADMIN, or SOURCE_SUBADMIN authority is required to call this API.
          * @summary Tag Multiple Objects
-         * @param {BulkTaggedObject} bulkTaggedObject Supported object types are ACCESS_PROFILE, APPLICATION, CAMPAIGN, ENTITLEMENT, IDENTITY, ROLE, SOD_POLICY, SOURCE.
+         * @param {BulkAddTaggedObject} bulkAddTaggedObject Supported object types are ACCESS_PROFILE, APPLICATION, CAMPAIGN, ENTITLEMENT, IDENTITY, ROLE, SOD_POLICY, SOURCE.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        setTagsToManyObjects(bulkTaggedObject: BulkTaggedObject, axiosOptions?: any): AxiosPromise<Array<BulkTaggedObjectResponse>> {
-            return localVarFp.setTagsToManyObjects(bulkTaggedObject, axiosOptions).then((request) => request(axios, basePath));
+        setTagsToManyObjects(bulkAddTaggedObject: BulkAddTaggedObject, axiosOptions?: any): AxiosPromise<Array<BulkTaggedObjectResponse>> {
+            return localVarFp.setTagsToManyObjects(bulkAddTaggedObject, axiosOptions).then((request) => request(axios, basePath));
         },
     };
 };
@@ -58745,10 +58752,10 @@ export interface TaggedObjectsApiDeleteTaggedObjectRequest {
 export interface TaggedObjectsApiDeleteTagsToManyObjectRequest {
     /**
      * Supported object types are ACCESS_PROFILE, APPLICATION, CAMPAIGN, ENTITLEMENT, IDENTITY, ROLE, SOD_POLICY, SOURCE.
-     * @type {BulkTaggedObject}
+     * @type {BulkRemoveTaggedObject}
      * @memberof TaggedObjectsApiDeleteTagsToManyObject
      */
-    readonly bulkTaggedObject: BulkTaggedObject
+    readonly bulkRemoveTaggedObject: BulkRemoveTaggedObject
 }
 
 /**
@@ -58899,10 +58906,10 @@ export interface TaggedObjectsApiSetTagToObjectRequest {
 export interface TaggedObjectsApiSetTagsToManyObjectsRequest {
     /**
      * Supported object types are ACCESS_PROFILE, APPLICATION, CAMPAIGN, ENTITLEMENT, IDENTITY, ROLE, SOD_POLICY, SOURCE.
-     * @type {BulkTaggedObject}
+     * @type {BulkAddTaggedObject}
      * @memberof TaggedObjectsApiSetTagsToManyObjects
      */
-    readonly bulkTaggedObject: BulkTaggedObject
+    readonly bulkAddTaggedObject: BulkAddTaggedObject
 }
 
 /**
@@ -58933,7 +58940,7 @@ export class TaggedObjectsApi extends BaseAPI {
      * @memberof TaggedObjectsApi
      */
     public deleteTagsToManyObject(requestParameters: TaggedObjectsApiDeleteTagsToManyObjectRequest, axiosOptions?: AxiosRequestConfig) {
-        return TaggedObjectsApiFp(this.configuration).deleteTagsToManyObject(requestParameters.bulkTaggedObject, axiosOptions).then((request) => request(this.axios, this.basePath));
+        return TaggedObjectsApiFp(this.configuration).deleteTagsToManyObject(requestParameters.bulkRemoveTaggedObject, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -59005,7 +59012,7 @@ export class TaggedObjectsApi extends BaseAPI {
      * @memberof TaggedObjectsApi
      */
     public setTagsToManyObjects(requestParameters: TaggedObjectsApiSetTagsToManyObjectsRequest, axiosOptions?: AxiosRequestConfig) {
-        return TaggedObjectsApiFp(this.configuration).setTagsToManyObjects(requestParameters.bulkTaggedObject, axiosOptions).then((request) => request(this.axios, this.basePath));
+        return TaggedObjectsApiFp(this.configuration).setTagsToManyObjects(requestParameters.bulkAddTaggedObject, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 }
 
