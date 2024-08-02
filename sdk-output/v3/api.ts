@@ -47271,7 +47271,7 @@ export const PersonalAccessTokensApiAxiosParamCreator = function (configuration?
             };
         },
         /**
-         * This performs a targeted update to the field(s) of a Personal Access Token.
+         * This performs a targeted update to the field(s) of a Personal Access Token. Changing scopes for a Personal Access Token does not impact existing bearer tokens. You will need to create a new bearer token to have the new scopes. Please note that it can take up to 20 minutes for scope changes to be seen on new bearer tokens.
          * @summary Patch Personal Access Token
          * @param {string} id The Personal Access Token id
          * @param {Array<JsonPatchOperation>} jsonPatchOperation A list of OAuth client update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.  The following fields are patchable: * name * scope 
@@ -47363,7 +47363,7 @@ export const PersonalAccessTokensApiFp = function(configuration?: Configuration)
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
-         * This performs a targeted update to the field(s) of a Personal Access Token.
+         * This performs a targeted update to the field(s) of a Personal Access Token. Changing scopes for a Personal Access Token does not impact existing bearer tokens. You will need to create a new bearer token to have the new scopes. Please note that it can take up to 20 minutes for scope changes to be seen on new bearer tokens.
          * @summary Patch Personal Access Token
          * @param {string} id The Personal Access Token id
          * @param {Array<JsonPatchOperation>} jsonPatchOperation A list of OAuth client update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.  The following fields are patchable: * name * scope 
@@ -47416,7 +47416,7 @@ export const PersonalAccessTokensApiFactory = function (configuration?: Configur
             return localVarFp.listPersonalAccessTokens(ownerId, filters, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
-         * This performs a targeted update to the field(s) of a Personal Access Token.
+         * This performs a targeted update to the field(s) of a Personal Access Token. Changing scopes for a Personal Access Token does not impact existing bearer tokens. You will need to create a new bearer token to have the new scopes. Please note that it can take up to 20 minutes for scope changes to be seen on new bearer tokens.
          * @summary Patch Personal Access Token
          * @param {string} id The Personal Access Token id
          * @param {Array<JsonPatchOperation>} jsonPatchOperation A list of OAuth client update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.  The following fields are patchable: * name * scope 
@@ -47543,7 +47543,7 @@ export class PersonalAccessTokensApi extends BaseAPI {
     }
 
     /**
-     * This performs a targeted update to the field(s) of a Personal Access Token.
+     * This performs a targeted update to the field(s) of a Personal Access Token. Changing scopes for a Personal Access Token does not impact existing bearer tokens. You will need to create a new bearer token to have the new scopes. Please note that it can take up to 20 minutes for scope changes to be seen on new bearer tokens.
      * @summary Patch Personal Access Token
      * @param {PersonalAccessTokensApiPatchPersonalAccessTokenRequest} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
