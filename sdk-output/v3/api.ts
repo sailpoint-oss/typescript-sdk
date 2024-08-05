@@ -8858,25 +8858,6 @@ export interface GenerateRandomString {
     'requiresPeriodicRefresh'?: boolean;
 }
 /**
- * 
- * @export
- * @interface GenericRule
- */
-export interface GenericRule {
-    /**
-     * This is the name of the Generic rule that needs to be invoked by the transform
-     * @type {string}
-     * @memberof GenericRule
-     */
-    'name': string;
-    /**
-     * A value that indicates whether the transform logic should be re-evaluated every evening as part of the identity refresh process
-     * @type {boolean}
-     * @memberof GenericRule
-     */
-    'requiresPeriodicRefresh'?: boolean;
-}
-/**
  * @type GetActiveCampaigns200ResponseInner
  * @export
  */
@@ -18035,7 +18016,7 @@ export interface RoleSummaryAllOf {
  * @type Rule
  * @export
  */
-export type Rule = GenerateRandomString | GenericRule | GetReferenceIdentityAttribute;
+export type Rule = GenerateRandomString | GetReferenceIdentityAttribute | TransformRule;
 
 /**
  * 
@@ -22120,6 +22101,25 @@ export interface TransformReadAllOf {
      * @memberof TransformReadAllOf
      */
     'internal': boolean;
+}
+/**
+ * 
+ * @export
+ * @interface TransformRule
+ */
+export interface TransformRule {
+    /**
+     * This is the name of the Transform rule that needs to be invoked by the transform
+     * @type {string}
+     * @memberof TransformRule
+     */
+    'name': string;
+    /**
+     * A value that indicates whether the transform logic should be re-evaluated every evening as part of the identity refresh process
+     * @type {boolean}
+     * @memberof TransformRule
+     */
+    'requiresPeriodicRefresh'?: boolean;
 }
 /**
  * 
