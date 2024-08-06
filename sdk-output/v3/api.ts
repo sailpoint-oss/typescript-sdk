@@ -29792,7 +29792,7 @@ export class CertificationCampaignFiltersApi extends BaseAPI {
 export const CertificationCampaignsApiAxiosParamCreator = function (configuration?: Configuration) {
     return {
         /**
-         * :::caution  This endpoint will run successfully for any campaigns that are **past due**.  This endpoint will return a content error if the campaign is **not past due**.  :::  Use this API to complete a certification campaign. This functionality is provided to admins so that they can complete a certification even if all items have not been completed.  Calling this endpoint requires roles of CERT_ADMIN and ORG_ADMIN. 
+         * :::caution  This endpoint will run successfully for any campaigns that are **past due**.  This endpoint will return a content error if the campaign is **not past due**.  :::  Use this API to complete a certification campaign. This functionality is provided to admins so that they can complete a certification even if all items have not been completed.  A token with ORG_ADMIN or CERT_ADMIN authority is required to call this API. 
          * @summary Complete a Campaign
          * @param {string} id Campaign ID.
          * @param {CampaignCompleteOptions} [campaignCompleteOptions] Optional. Default behavior is for the campaign to auto-approve upon completion, unless autoCompleteAction&#x3D;REVOKE
@@ -29838,7 +29838,7 @@ export const CertificationCampaignsApiAxiosParamCreator = function (configuratio
             };
         },
         /**
-         * Use this API to create a certification campaign with the information provided in the request body.
+         * Use this API to create a certification campaign with the information provided in the request body.  A token with ORG_ADMIN or CERT_ADMIN authority is required to call this API. 
          * @summary Create a campaign
          * @param {Campaign} campaign 
          * @param {*} [axiosOptions] Override http request option.
@@ -29882,7 +29882,7 @@ export const CertificationCampaignsApiAxiosParamCreator = function (configuratio
             };
         },
         /**
-         * Use this API to create a certification campaign template based on campaign.
+         * Use this API to create a certification campaign template based on campaign.  A token with ORG_ADMIN or CERT_ADMIN authority is required to call this API. 
          * @summary Create a Campaign Template
          * @param {CampaignTemplate} campaignTemplate 
          * @param {*} [axiosOptions] Override http request option.
@@ -29926,7 +29926,7 @@ export const CertificationCampaignsApiAxiosParamCreator = function (configuratio
             };
         },
         /**
-         * Use this API to delete a certification campaign template by ID.
+         * Use this API to delete a certification campaign template by ID.  A token with ORG_ADMIN or CERT_ADMIN authority is required to call this API. 
          * @summary Delete a Campaign Template
          * @param {string} id ID of the campaign template being deleted.
          * @param {*} [axiosOptions] Override http request option.
@@ -29968,7 +29968,7 @@ export const CertificationCampaignsApiAxiosParamCreator = function (configuratio
             };
         },
         /**
-         * Use this API to delete the schedule for a certification campaign template. The API returns a 404 if there is no schedule set.
+         * Use this API to delete the schedule for a certification campaign template. The API returns a 404 if there is no schedule set.  A token with ORG_ADMIN or CERT_ADMIN authority is required to call this API. 
          * @summary Delete Campaign Template Schedule
          * @param {string} id ID of the campaign template whose schedule is being deleted.
          * @param {*} [axiosOptions] Override http request option.
@@ -30010,7 +30010,7 @@ export const CertificationCampaignsApiAxiosParamCreator = function (configuratio
             };
         },
         /**
-         * Use this API to delete certification campaigns whose IDs are specified in the provided list of campaign IDs.  Authorized callers must be ORG_ADMINs or CERT_ADMINs.
+         * Use this API to delete certification campaigns whose IDs are specified in the provided list of campaign IDs.  A token with ORG_ADMIN or CERT_ADMIN authority is required to call this API. 
          * @summary Delete Campaigns
          * @param {CampaignsDeleteRequest} campaignsDeleteRequest IDs of the campaigns to delete.
          * @param {*} [axiosOptions] Override http request option.
@@ -30054,7 +30054,7 @@ export const CertificationCampaignsApiAxiosParamCreator = function (configuratio
             };
         },
         /**
-         * Use this API to get a list of campaigns. This API can provide increased level of detail for each campaign for the correct provided query. 
+         * Use this API to get a list of campaigns. This API can provide increased level of detail for each campaign for the correct provided query.  A token with ORG_ADMIN, CERT_ADMIN or REPORT_ADMIN authority is required to call this API. 
          * @summary List Campaigns
          * @param {'SLIM' | 'FULL'} [detail] Determines whether slim, or increased level of detail is provided for each campaign in the returned list. Slim is the default behavior.
          * @param {number} [limit] Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
@@ -30122,7 +30122,7 @@ export const CertificationCampaignsApiAxiosParamCreator = function (configuratio
             };
         },
         /**
-         * Use this API to get information for an existing certification campaign by the campaign\'s ID.  Authorized callers must be reviewers for this campaign, ORG_ADMINs, or a CERT_ADMINs.
+         * Use this API to get information for an existing certification campaign by the campaign\'s ID.  A token with ORG_ADMIN or CERT_ADMIN authority is required to call this API. 
          * @summary Get Campaign
          * @param {string} id ID of the campaign to be retrieved.
          * @param {'SLIM' | 'FULL'} [detail] Determines whether slim, or increased level of detail is provided for each campaign in the returned list. Slim is the default behavior.
@@ -30169,7 +30169,7 @@ export const CertificationCampaignsApiAxiosParamCreator = function (configuratio
             };
         },
         /**
-         * Use this API to fetch all reports for a certification campaign by campaign ID. Calling this endpoint requires roles of CERT_ADMIN, DASHBOARD, ORG_ADMIN and REPORT_ADMIN.
+         * Use this API to fetch all reports for a certification campaign by campaign ID.  A token with ORG_ADMIN, CERT_ADMIN or REPORT_ADMIN authority is required to call this API. 
          * @summary Get Campaign Reports
          * @param {string} id ID of the campaign whose reports are being fetched.
          * @param {*} [axiosOptions] Override http request option.
@@ -30211,7 +30211,7 @@ export const CertificationCampaignsApiAxiosParamCreator = function (configuratio
             };
         },
         /**
-         * Use this API to fetch the configuration for certification campaign reports. The configuration includes only one element - identity attributes defined as custom report columns.  Calling this endpoint requires roles of CERT_ADMIN and ORG_ADMIN.
+         * Use this API to fetch the configuration for certification campaign reports. The configuration includes only one element - identity attributes defined as custom report columns.   A token with ORG_ADMIN or CERT_ADMIN authority is required to call this API. 
          * @summary Get Campaign Reports Configuration
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
@@ -30249,7 +30249,7 @@ export const CertificationCampaignsApiAxiosParamCreator = function (configuratio
             };
         },
         /**
-         * Use this API to fetch a certification campaign template by ID.
+         * Use this API to fetch a certification campaign template by ID.  A token with ORG_ADMIN or CERT_ADMIN authority is required to call this API. 
          * @summary Get a Campaign Template
          * @param {string} id Requested campaign template\&#39;s ID.
          * @param {*} [axiosOptions] Override http request option.
@@ -30291,7 +30291,7 @@ export const CertificationCampaignsApiAxiosParamCreator = function (configuratio
             };
         },
         /**
-         * Use this API to get the schedule for a certification campaign template. The API returns a 404 if there is no schedule set.
+         * Use this API to get the schedule for a certification campaign template. The API returns a 404 if there is no schedule set.  A token with ORG_ADMIN or CERT_ADMIN authority is required to call this API. 
          * @summary Get Campaign Template Schedule
          * @param {string} id ID of the campaign template whose schedule is being fetched.
          * @param {*} [axiosOptions] Override http request option.
@@ -30333,7 +30333,7 @@ export const CertificationCampaignsApiAxiosParamCreator = function (configuratio
             };
         },
         /**
-         * Use this API to get a list of all campaign templates. Scope can be reduced through standard V3 query params. The API returns all campaign templates matching the query parameters. 
+         * Use this API to get a list of all campaign templates. Scope can be reduced through standard V3 query params.  The API returns all campaign templates matching the query parameters.   A token with ORG_ADMIN or CERT_ADMIN authority is required to call this API. 
          * @summary List Campaign Templates
          * @param {number} [limit] Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
          * @param {number} [offset] Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
@@ -30396,7 +30396,7 @@ export const CertificationCampaignsApiAxiosParamCreator = function (configuratio
             };
         },
         /**
-         * This API reassigns the specified certifications from one identity to another. A token with ORG_ADMIN or CERT_ADMIN authority is required to call this API.
+         * This API reassigns the specified certifications from one identity to another.  A token with ORG_ADMIN or CERT_ADMIN authority is required to call this API. 
          * @summary Reassign Certifications
          * @param {string} id The certification campaign ID
          * @param {AdminReviewReassign} adminReviewReassign 
@@ -30444,7 +30444,7 @@ export const CertificationCampaignsApiAxiosParamCreator = function (configuratio
             };
         },
         /**
-         * Use this API to update individual fields on a certification campaign template, using the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.
+         * Use this API to update individual fields on a certification campaign template, using the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.  A token with ORG_ADMIN or CERT_ADMIN authority is required to call this API. 
          * @summary Update a Campaign Template
          * @param {string} id ID of the campaign template being modified.
          * @param {Array<JsonPatchOperation>} jsonPatchOperation A list of campaign update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.  The following fields are patchable: * name * description * deadlineDuration * campaign (all fields that are allowed during create) 
@@ -30492,7 +30492,7 @@ export const CertificationCampaignsApiAxiosParamCreator = function (configuratio
             };
         },
         /**
-         * Use this API to overwrite the configuration for campaign reports.  Calling this endpoint requires roles of CERT_ADMIN and ORG_ADMIN.
+         * Use this API to overwrite the configuration for campaign reports.   A token with ORG_ADMIN or CERT_ADMIN authority is required to call this API. 
          * @summary Set Campaign Reports Configuration
          * @param {CampaignReportsConfig} campaignReportsConfig Campaign report configuration.
          * @param {*} [axiosOptions] Override http request option.
@@ -30536,7 +30536,7 @@ export const CertificationCampaignsApiAxiosParamCreator = function (configuratio
             };
         },
         /**
-         * Use this API to set the schedule for a certification campaign template. If a schedule already exists, the API overwrites it with the new one. 
+         * Use this API to set the schedule for a certification campaign template. If a schedule already exists, the API overwrites it with the new one.  A token with ORG_ADMIN or CERT_ADMIN authority is required to call this API. 
          * @summary Set Campaign Template Schedule
          * @param {string} id ID of the campaign template being scheduled.
          * @param {Schedule} [schedule] 
@@ -30582,7 +30582,7 @@ export const CertificationCampaignsApiAxiosParamCreator = function (configuratio
             };
         },
         /**
-         * Use this API to submit a job to activate the certified campaign with the specified ID. The campaign must be staged. Calling this endpoint requires roles of CERT_ADMIN and ORG_ADMIN.
+         * Use this API to submit a job to activate the certified campaign with the specified ID. The campaign must be staged.  A token with ORG_ADMIN or CERT_ADMIN authority is required to call this API.  
          * @summary Activate a Campaign
          * @param {string} id Campaign ID.
          * @param {ActivateCampaignOptions} [activateCampaignOptions] Optional. If no timezone is specified, the standard UTC timezone is used (i.e. UTC+00:00). Although this can take any timezone, the intended value is the caller\&#39;s timezone. The activation time calculated from the given timezone may cause the campaign deadline time to be modified, but it will remain within the original date. The timezone must be in a valid ISO 8601 format.
@@ -30628,7 +30628,7 @@ export const CertificationCampaignsApiAxiosParamCreator = function (configuratio
             };
         },
         /**
-         * Use this API to run a remediation scan task for a certification campaign. Calling this endpoint requires roles of CERT_ADMIN and ORG_ADMIN.
+         * Use this API to run a remediation scan task for a certification campaign.  A token with ORG_ADMIN, CERT_ADMIN or REPORT_ADMIN authority is required to call this API. 
          * @summary Run Campaign Remediation Scan
          * @param {string} id ID of the campaign the remediation scan is being run for.
          * @param {*} [axiosOptions] Override http request option.
@@ -30670,7 +30670,7 @@ export const CertificationCampaignsApiAxiosParamCreator = function (configuratio
             };
         },
         /**
-         * Use this API to run a report for a certification campaign. Calling this endpoint requires the following roles: CERT_ADMIN, DASHBOARD, ORG_ADMIN and REPORT_ADMIN.
+         * Use this API to run a report for a certification campaign.  A token with ORG_ADMIN, CERT_ADMIN or REPORT_ADMIN authority is required to call this API. 
          * @summary Run Campaign Report
          * @param {string} id ID of the campaign the report is being run for.
          * @param {ReportType} type Type of the report to run.
@@ -30716,7 +30716,7 @@ export const CertificationCampaignsApiAxiosParamCreator = function (configuratio
             };
         },
         /**
-         * Use this API to generate a new certification campaign from a campaign template. The campaign object contained in the template has special formatting applied to its name and description fields that determine the generated campaign\'s name/description. Placeholders in those fields are formatted with the current date and time upon generation. Placeholders consist of a percent sign followed by a letter indicating what should be inserted. For example, \"%Y\" inserts the current year, and a campaign template named \"Campaign for %y\" generates a campaign called \"Campaign for 2020\" (assuming the year at generation time is 2020). Valid placeholders are the date/time conversion suffix characters supported by [java.util.Formatter](https://docs.oracle.com/javase/8/docs/api/java/util/Formatter.html). Calling this endpoint requires the ORG_ADMIN role.
+         * Use this API to generate a new certification campaign from a campaign template.  The campaign object contained in the template has special formatting applied to its name and description fields that determine the generated campaign\'s name/description. Placeholders in those fields are formatted with the current date and time upon generation.  Placeholders consist of a percent sign followed by a letter indicating what should be inserted. For example, \"%Y\" inserts the current year, and a campaign template named \"Campaign for %y\" generates a campaign called \"Campaign for 2020\" (assuming the year at generation time is 2020).  Valid placeholders are the date/time conversion suffix characters supported by [java.util.Formatter](https://docs.oracle.com/javase/8/docs/api/java/util/Formatter.html).  A token with ORG_ADMIN or CERT_ADMIN authority is required to call this API. 
          * @summary Generate a Campaign from Template
          * @param {string} id ID of the campaign template to use for generation.
          * @param {*} [axiosOptions] Override http request option.
@@ -30758,7 +30758,7 @@ export const CertificationCampaignsApiAxiosParamCreator = function (configuratio
             };
         },
         /**
-         * Use this API to update individual fields on a certification campaign, using the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.
+         * Use this API to update individual fields on a certification campaign, using the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.  A token with ORG_ADMIN or CERT_ADMIN authority is required to call this API. 
          * @summary Update a Campaign
          * @param {string} id ID of the campaign template being modified.
          * @param {Array<JsonPatchOperation>} jsonPatchOperation A list of campaign update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard. The fields that can be patched differ based on the status of the campaign.  When the campaign is in the *STAGED* status, you can patch these fields: * name * description * recommendationsEnabled * deadline * emailNotificationEnabled * autoRevokeAllowed  When the campaign is in the *ACTIVE* status, you can patch these fields: * deadline 
@@ -30816,7 +30816,7 @@ export const CertificationCampaignsApiFp = function(configuration?: Configuratio
     const localVarAxiosParamCreator = CertificationCampaignsApiAxiosParamCreator(configuration)
     return {
         /**
-         * :::caution  This endpoint will run successfully for any campaigns that are **past due**.  This endpoint will return a content error if the campaign is **not past due**.  :::  Use this API to complete a certification campaign. This functionality is provided to admins so that they can complete a certification even if all items have not been completed.  Calling this endpoint requires roles of CERT_ADMIN and ORG_ADMIN. 
+         * :::caution  This endpoint will run successfully for any campaigns that are **past due**.  This endpoint will return a content error if the campaign is **not past due**.  :::  Use this API to complete a certification campaign. This functionality is provided to admins so that they can complete a certification even if all items have not been completed.  A token with ORG_ADMIN or CERT_ADMIN authority is required to call this API. 
          * @summary Complete a Campaign
          * @param {string} id Campaign ID.
          * @param {CampaignCompleteOptions} [campaignCompleteOptions] Optional. Default behavior is for the campaign to auto-approve upon completion, unless autoCompleteAction&#x3D;REVOKE
@@ -30828,7 +30828,7 @@ export const CertificationCampaignsApiFp = function(configuration?: Configuratio
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
-         * Use this API to create a certification campaign with the information provided in the request body.
+         * Use this API to create a certification campaign with the information provided in the request body.  A token with ORG_ADMIN or CERT_ADMIN authority is required to call this API. 
          * @summary Create a campaign
          * @param {Campaign} campaign 
          * @param {*} [axiosOptions] Override http request option.
@@ -30839,7 +30839,7 @@ export const CertificationCampaignsApiFp = function(configuration?: Configuratio
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
-         * Use this API to create a certification campaign template based on campaign.
+         * Use this API to create a certification campaign template based on campaign.  A token with ORG_ADMIN or CERT_ADMIN authority is required to call this API. 
          * @summary Create a Campaign Template
          * @param {CampaignTemplate} campaignTemplate 
          * @param {*} [axiosOptions] Override http request option.
@@ -30850,7 +30850,7 @@ export const CertificationCampaignsApiFp = function(configuration?: Configuratio
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
-         * Use this API to delete a certification campaign template by ID.
+         * Use this API to delete a certification campaign template by ID.  A token with ORG_ADMIN or CERT_ADMIN authority is required to call this API. 
          * @summary Delete a Campaign Template
          * @param {string} id ID of the campaign template being deleted.
          * @param {*} [axiosOptions] Override http request option.
@@ -30861,7 +30861,7 @@ export const CertificationCampaignsApiFp = function(configuration?: Configuratio
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
-         * Use this API to delete the schedule for a certification campaign template. The API returns a 404 if there is no schedule set.
+         * Use this API to delete the schedule for a certification campaign template. The API returns a 404 if there is no schedule set.  A token with ORG_ADMIN or CERT_ADMIN authority is required to call this API. 
          * @summary Delete Campaign Template Schedule
          * @param {string} id ID of the campaign template whose schedule is being deleted.
          * @param {*} [axiosOptions] Override http request option.
@@ -30872,7 +30872,7 @@ export const CertificationCampaignsApiFp = function(configuration?: Configuratio
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
-         * Use this API to delete certification campaigns whose IDs are specified in the provided list of campaign IDs.  Authorized callers must be ORG_ADMINs or CERT_ADMINs.
+         * Use this API to delete certification campaigns whose IDs are specified in the provided list of campaign IDs.  A token with ORG_ADMIN or CERT_ADMIN authority is required to call this API. 
          * @summary Delete Campaigns
          * @param {CampaignsDeleteRequest} campaignsDeleteRequest IDs of the campaigns to delete.
          * @param {*} [axiosOptions] Override http request option.
@@ -30883,7 +30883,7 @@ export const CertificationCampaignsApiFp = function(configuration?: Configuratio
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
-         * Use this API to get a list of campaigns. This API can provide increased level of detail for each campaign for the correct provided query. 
+         * Use this API to get a list of campaigns. This API can provide increased level of detail for each campaign for the correct provided query.  A token with ORG_ADMIN, CERT_ADMIN or REPORT_ADMIN authority is required to call this API. 
          * @summary List Campaigns
          * @param {'SLIM' | 'FULL'} [detail] Determines whether slim, or increased level of detail is provided for each campaign in the returned list. Slim is the default behavior.
          * @param {number} [limit] Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
@@ -30899,7 +30899,7 @@ export const CertificationCampaignsApiFp = function(configuration?: Configuratio
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
-         * Use this API to get information for an existing certification campaign by the campaign\'s ID.  Authorized callers must be reviewers for this campaign, ORG_ADMINs, or a CERT_ADMINs.
+         * Use this API to get information for an existing certification campaign by the campaign\'s ID.  A token with ORG_ADMIN or CERT_ADMIN authority is required to call this API. 
          * @summary Get Campaign
          * @param {string} id ID of the campaign to be retrieved.
          * @param {'SLIM' | 'FULL'} [detail] Determines whether slim, or increased level of detail is provided for each campaign in the returned list. Slim is the default behavior.
@@ -30911,7 +30911,7 @@ export const CertificationCampaignsApiFp = function(configuration?: Configuratio
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
-         * Use this API to fetch all reports for a certification campaign by campaign ID. Calling this endpoint requires roles of CERT_ADMIN, DASHBOARD, ORG_ADMIN and REPORT_ADMIN.
+         * Use this API to fetch all reports for a certification campaign by campaign ID.  A token with ORG_ADMIN, CERT_ADMIN or REPORT_ADMIN authority is required to call this API. 
          * @summary Get Campaign Reports
          * @param {string} id ID of the campaign whose reports are being fetched.
          * @param {*} [axiosOptions] Override http request option.
@@ -30922,7 +30922,7 @@ export const CertificationCampaignsApiFp = function(configuration?: Configuratio
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
-         * Use this API to fetch the configuration for certification campaign reports. The configuration includes only one element - identity attributes defined as custom report columns.  Calling this endpoint requires roles of CERT_ADMIN and ORG_ADMIN.
+         * Use this API to fetch the configuration for certification campaign reports. The configuration includes only one element - identity attributes defined as custom report columns.   A token with ORG_ADMIN or CERT_ADMIN authority is required to call this API. 
          * @summary Get Campaign Reports Configuration
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
@@ -30932,7 +30932,7 @@ export const CertificationCampaignsApiFp = function(configuration?: Configuratio
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
-         * Use this API to fetch a certification campaign template by ID.
+         * Use this API to fetch a certification campaign template by ID.  A token with ORG_ADMIN or CERT_ADMIN authority is required to call this API. 
          * @summary Get a Campaign Template
          * @param {string} id Requested campaign template\&#39;s ID.
          * @param {*} [axiosOptions] Override http request option.
@@ -30943,7 +30943,7 @@ export const CertificationCampaignsApiFp = function(configuration?: Configuratio
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
-         * Use this API to get the schedule for a certification campaign template. The API returns a 404 if there is no schedule set.
+         * Use this API to get the schedule for a certification campaign template. The API returns a 404 if there is no schedule set.  A token with ORG_ADMIN or CERT_ADMIN authority is required to call this API. 
          * @summary Get Campaign Template Schedule
          * @param {string} id ID of the campaign template whose schedule is being fetched.
          * @param {*} [axiosOptions] Override http request option.
@@ -30954,7 +30954,7 @@ export const CertificationCampaignsApiFp = function(configuration?: Configuratio
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
-         * Use this API to get a list of all campaign templates. Scope can be reduced through standard V3 query params. The API returns all campaign templates matching the query parameters. 
+         * Use this API to get a list of all campaign templates. Scope can be reduced through standard V3 query params.  The API returns all campaign templates matching the query parameters.   A token with ORG_ADMIN or CERT_ADMIN authority is required to call this API. 
          * @summary List Campaign Templates
          * @param {number} [limit] Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
          * @param {number} [offset] Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
@@ -30969,7 +30969,7 @@ export const CertificationCampaignsApiFp = function(configuration?: Configuratio
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
-         * This API reassigns the specified certifications from one identity to another. A token with ORG_ADMIN or CERT_ADMIN authority is required to call this API.
+         * This API reassigns the specified certifications from one identity to another.  A token with ORG_ADMIN or CERT_ADMIN authority is required to call this API. 
          * @summary Reassign Certifications
          * @param {string} id The certification campaign ID
          * @param {AdminReviewReassign} adminReviewReassign 
@@ -30981,7 +30981,7 @@ export const CertificationCampaignsApiFp = function(configuration?: Configuratio
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
-         * Use this API to update individual fields on a certification campaign template, using the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.
+         * Use this API to update individual fields on a certification campaign template, using the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.  A token with ORG_ADMIN or CERT_ADMIN authority is required to call this API. 
          * @summary Update a Campaign Template
          * @param {string} id ID of the campaign template being modified.
          * @param {Array<JsonPatchOperation>} jsonPatchOperation A list of campaign update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.  The following fields are patchable: * name * description * deadlineDuration * campaign (all fields that are allowed during create) 
@@ -30993,7 +30993,7 @@ export const CertificationCampaignsApiFp = function(configuration?: Configuratio
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
-         * Use this API to overwrite the configuration for campaign reports.  Calling this endpoint requires roles of CERT_ADMIN and ORG_ADMIN.
+         * Use this API to overwrite the configuration for campaign reports.   A token with ORG_ADMIN or CERT_ADMIN authority is required to call this API. 
          * @summary Set Campaign Reports Configuration
          * @param {CampaignReportsConfig} campaignReportsConfig Campaign report configuration.
          * @param {*} [axiosOptions] Override http request option.
@@ -31004,7 +31004,7 @@ export const CertificationCampaignsApiFp = function(configuration?: Configuratio
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
-         * Use this API to set the schedule for a certification campaign template. If a schedule already exists, the API overwrites it with the new one. 
+         * Use this API to set the schedule for a certification campaign template. If a schedule already exists, the API overwrites it with the new one.  A token with ORG_ADMIN or CERT_ADMIN authority is required to call this API. 
          * @summary Set Campaign Template Schedule
          * @param {string} id ID of the campaign template being scheduled.
          * @param {Schedule} [schedule] 
@@ -31016,7 +31016,7 @@ export const CertificationCampaignsApiFp = function(configuration?: Configuratio
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
-         * Use this API to submit a job to activate the certified campaign with the specified ID. The campaign must be staged. Calling this endpoint requires roles of CERT_ADMIN and ORG_ADMIN.
+         * Use this API to submit a job to activate the certified campaign with the specified ID. The campaign must be staged.  A token with ORG_ADMIN or CERT_ADMIN authority is required to call this API.  
          * @summary Activate a Campaign
          * @param {string} id Campaign ID.
          * @param {ActivateCampaignOptions} [activateCampaignOptions] Optional. If no timezone is specified, the standard UTC timezone is used (i.e. UTC+00:00). Although this can take any timezone, the intended value is the caller\&#39;s timezone. The activation time calculated from the given timezone may cause the campaign deadline time to be modified, but it will remain within the original date. The timezone must be in a valid ISO 8601 format.
@@ -31028,7 +31028,7 @@ export const CertificationCampaignsApiFp = function(configuration?: Configuratio
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
-         * Use this API to run a remediation scan task for a certification campaign. Calling this endpoint requires roles of CERT_ADMIN and ORG_ADMIN.
+         * Use this API to run a remediation scan task for a certification campaign.  A token with ORG_ADMIN, CERT_ADMIN or REPORT_ADMIN authority is required to call this API. 
          * @summary Run Campaign Remediation Scan
          * @param {string} id ID of the campaign the remediation scan is being run for.
          * @param {*} [axiosOptions] Override http request option.
@@ -31039,7 +31039,7 @@ export const CertificationCampaignsApiFp = function(configuration?: Configuratio
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
-         * Use this API to run a report for a certification campaign. Calling this endpoint requires the following roles: CERT_ADMIN, DASHBOARD, ORG_ADMIN and REPORT_ADMIN.
+         * Use this API to run a report for a certification campaign.  A token with ORG_ADMIN, CERT_ADMIN or REPORT_ADMIN authority is required to call this API. 
          * @summary Run Campaign Report
          * @param {string} id ID of the campaign the report is being run for.
          * @param {ReportType} type Type of the report to run.
@@ -31051,7 +31051,7 @@ export const CertificationCampaignsApiFp = function(configuration?: Configuratio
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
-         * Use this API to generate a new certification campaign from a campaign template. The campaign object contained in the template has special formatting applied to its name and description fields that determine the generated campaign\'s name/description. Placeholders in those fields are formatted with the current date and time upon generation. Placeholders consist of a percent sign followed by a letter indicating what should be inserted. For example, \"%Y\" inserts the current year, and a campaign template named \"Campaign for %y\" generates a campaign called \"Campaign for 2020\" (assuming the year at generation time is 2020). Valid placeholders are the date/time conversion suffix characters supported by [java.util.Formatter](https://docs.oracle.com/javase/8/docs/api/java/util/Formatter.html). Calling this endpoint requires the ORG_ADMIN role.
+         * Use this API to generate a new certification campaign from a campaign template.  The campaign object contained in the template has special formatting applied to its name and description fields that determine the generated campaign\'s name/description. Placeholders in those fields are formatted with the current date and time upon generation.  Placeholders consist of a percent sign followed by a letter indicating what should be inserted. For example, \"%Y\" inserts the current year, and a campaign template named \"Campaign for %y\" generates a campaign called \"Campaign for 2020\" (assuming the year at generation time is 2020).  Valid placeholders are the date/time conversion suffix characters supported by [java.util.Formatter](https://docs.oracle.com/javase/8/docs/api/java/util/Formatter.html).  A token with ORG_ADMIN or CERT_ADMIN authority is required to call this API. 
          * @summary Generate a Campaign from Template
          * @param {string} id ID of the campaign template to use for generation.
          * @param {*} [axiosOptions] Override http request option.
@@ -31062,7 +31062,7 @@ export const CertificationCampaignsApiFp = function(configuration?: Configuratio
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
-         * Use this API to update individual fields on a certification campaign, using the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.
+         * Use this API to update individual fields on a certification campaign, using the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.  A token with ORG_ADMIN or CERT_ADMIN authority is required to call this API. 
          * @summary Update a Campaign
          * @param {string} id ID of the campaign template being modified.
          * @param {Array<JsonPatchOperation>} jsonPatchOperation A list of campaign update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard. The fields that can be patched differ based on the status of the campaign.  When the campaign is in the *STAGED* status, you can patch these fields: * name * description * recommendationsEnabled * deadline * emailNotificationEnabled * autoRevokeAllowed  When the campaign is in the *ACTIVE* status, you can patch these fields: * deadline 
@@ -31084,7 +31084,7 @@ export const CertificationCampaignsApiFactory = function (configuration?: Config
     const localVarFp = CertificationCampaignsApiFp(configuration)
     return {
         /**
-         * :::caution  This endpoint will run successfully for any campaigns that are **past due**.  This endpoint will return a content error if the campaign is **not past due**.  :::  Use this API to complete a certification campaign. This functionality is provided to admins so that they can complete a certification even if all items have not been completed.  Calling this endpoint requires roles of CERT_ADMIN and ORG_ADMIN. 
+         * :::caution  This endpoint will run successfully for any campaigns that are **past due**.  This endpoint will return a content error if the campaign is **not past due**.  :::  Use this API to complete a certification campaign. This functionality is provided to admins so that they can complete a certification even if all items have not been completed.  A token with ORG_ADMIN or CERT_ADMIN authority is required to call this API. 
          * @summary Complete a Campaign
          * @param {string} id Campaign ID.
          * @param {CampaignCompleteOptions} [campaignCompleteOptions] Optional. Default behavior is for the campaign to auto-approve upon completion, unless autoCompleteAction&#x3D;REVOKE
@@ -31095,7 +31095,7 @@ export const CertificationCampaignsApiFactory = function (configuration?: Config
             return localVarFp.completeCampaign(id, campaignCompleteOptions, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
-         * Use this API to create a certification campaign with the information provided in the request body.
+         * Use this API to create a certification campaign with the information provided in the request body.  A token with ORG_ADMIN or CERT_ADMIN authority is required to call this API. 
          * @summary Create a campaign
          * @param {Campaign} campaign 
          * @param {*} [axiosOptions] Override http request option.
@@ -31105,7 +31105,7 @@ export const CertificationCampaignsApiFactory = function (configuration?: Config
             return localVarFp.createCampaign(campaign, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
-         * Use this API to create a certification campaign template based on campaign.
+         * Use this API to create a certification campaign template based on campaign.  A token with ORG_ADMIN or CERT_ADMIN authority is required to call this API. 
          * @summary Create a Campaign Template
          * @param {CampaignTemplate} campaignTemplate 
          * @param {*} [axiosOptions] Override http request option.
@@ -31115,7 +31115,7 @@ export const CertificationCampaignsApiFactory = function (configuration?: Config
             return localVarFp.createCampaignTemplate(campaignTemplate, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
-         * Use this API to delete a certification campaign template by ID.
+         * Use this API to delete a certification campaign template by ID.  A token with ORG_ADMIN or CERT_ADMIN authority is required to call this API. 
          * @summary Delete a Campaign Template
          * @param {string} id ID of the campaign template being deleted.
          * @param {*} [axiosOptions] Override http request option.
@@ -31125,7 +31125,7 @@ export const CertificationCampaignsApiFactory = function (configuration?: Config
             return localVarFp.deleteCampaignTemplate(id, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
-         * Use this API to delete the schedule for a certification campaign template. The API returns a 404 if there is no schedule set.
+         * Use this API to delete the schedule for a certification campaign template. The API returns a 404 if there is no schedule set.  A token with ORG_ADMIN or CERT_ADMIN authority is required to call this API. 
          * @summary Delete Campaign Template Schedule
          * @param {string} id ID of the campaign template whose schedule is being deleted.
          * @param {*} [axiosOptions] Override http request option.
@@ -31135,7 +31135,7 @@ export const CertificationCampaignsApiFactory = function (configuration?: Config
             return localVarFp.deleteCampaignTemplateSchedule(id, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
-         * Use this API to delete certification campaigns whose IDs are specified in the provided list of campaign IDs.  Authorized callers must be ORG_ADMINs or CERT_ADMINs.
+         * Use this API to delete certification campaigns whose IDs are specified in the provided list of campaign IDs.  A token with ORG_ADMIN or CERT_ADMIN authority is required to call this API. 
          * @summary Delete Campaigns
          * @param {CampaignsDeleteRequest} campaignsDeleteRequest IDs of the campaigns to delete.
          * @param {*} [axiosOptions] Override http request option.
@@ -31145,7 +31145,7 @@ export const CertificationCampaignsApiFactory = function (configuration?: Config
             return localVarFp.deleteCampaigns(campaignsDeleteRequest, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
-         * Use this API to get a list of campaigns. This API can provide increased level of detail for each campaign for the correct provided query. 
+         * Use this API to get a list of campaigns. This API can provide increased level of detail for each campaign for the correct provided query.  A token with ORG_ADMIN, CERT_ADMIN or REPORT_ADMIN authority is required to call this API. 
          * @summary List Campaigns
          * @param {'SLIM' | 'FULL'} [detail] Determines whether slim, or increased level of detail is provided for each campaign in the returned list. Slim is the default behavior.
          * @param {number} [limit] Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
@@ -31160,7 +31160,7 @@ export const CertificationCampaignsApiFactory = function (configuration?: Config
             return localVarFp.getActiveCampaigns(detail, limit, offset, count, filters, sorters, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
-         * Use this API to get information for an existing certification campaign by the campaign\'s ID.  Authorized callers must be reviewers for this campaign, ORG_ADMINs, or a CERT_ADMINs.
+         * Use this API to get information for an existing certification campaign by the campaign\'s ID.  A token with ORG_ADMIN or CERT_ADMIN authority is required to call this API. 
          * @summary Get Campaign
          * @param {string} id ID of the campaign to be retrieved.
          * @param {'SLIM' | 'FULL'} [detail] Determines whether slim, or increased level of detail is provided for each campaign in the returned list. Slim is the default behavior.
@@ -31171,7 +31171,7 @@ export const CertificationCampaignsApiFactory = function (configuration?: Config
             return localVarFp.getCampaign(id, detail, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
-         * Use this API to fetch all reports for a certification campaign by campaign ID. Calling this endpoint requires roles of CERT_ADMIN, DASHBOARD, ORG_ADMIN and REPORT_ADMIN.
+         * Use this API to fetch all reports for a certification campaign by campaign ID.  A token with ORG_ADMIN, CERT_ADMIN or REPORT_ADMIN authority is required to call this API. 
          * @summary Get Campaign Reports
          * @param {string} id ID of the campaign whose reports are being fetched.
          * @param {*} [axiosOptions] Override http request option.
@@ -31181,7 +31181,7 @@ export const CertificationCampaignsApiFactory = function (configuration?: Config
             return localVarFp.getCampaignReports(id, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
-         * Use this API to fetch the configuration for certification campaign reports. The configuration includes only one element - identity attributes defined as custom report columns.  Calling this endpoint requires roles of CERT_ADMIN and ORG_ADMIN.
+         * Use this API to fetch the configuration for certification campaign reports. The configuration includes only one element - identity attributes defined as custom report columns.   A token with ORG_ADMIN or CERT_ADMIN authority is required to call this API. 
          * @summary Get Campaign Reports Configuration
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
@@ -31190,7 +31190,7 @@ export const CertificationCampaignsApiFactory = function (configuration?: Config
             return localVarFp.getCampaignReportsConfig(axiosOptions).then((request) => request(axios, basePath));
         },
         /**
-         * Use this API to fetch a certification campaign template by ID.
+         * Use this API to fetch a certification campaign template by ID.  A token with ORG_ADMIN or CERT_ADMIN authority is required to call this API. 
          * @summary Get a Campaign Template
          * @param {string} id Requested campaign template\&#39;s ID.
          * @param {*} [axiosOptions] Override http request option.
@@ -31200,7 +31200,7 @@ export const CertificationCampaignsApiFactory = function (configuration?: Config
             return localVarFp.getCampaignTemplate(id, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
-         * Use this API to get the schedule for a certification campaign template. The API returns a 404 if there is no schedule set.
+         * Use this API to get the schedule for a certification campaign template. The API returns a 404 if there is no schedule set.  A token with ORG_ADMIN or CERT_ADMIN authority is required to call this API. 
          * @summary Get Campaign Template Schedule
          * @param {string} id ID of the campaign template whose schedule is being fetched.
          * @param {*} [axiosOptions] Override http request option.
@@ -31210,7 +31210,7 @@ export const CertificationCampaignsApiFactory = function (configuration?: Config
             return localVarFp.getCampaignTemplateSchedule(id, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
-         * Use this API to get a list of all campaign templates. Scope can be reduced through standard V3 query params. The API returns all campaign templates matching the query parameters. 
+         * Use this API to get a list of all campaign templates. Scope can be reduced through standard V3 query params.  The API returns all campaign templates matching the query parameters.   A token with ORG_ADMIN or CERT_ADMIN authority is required to call this API. 
          * @summary List Campaign Templates
          * @param {number} [limit] Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
          * @param {number} [offset] Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
@@ -31224,7 +31224,7 @@ export const CertificationCampaignsApiFactory = function (configuration?: Config
             return localVarFp.getCampaignTemplates(limit, offset, count, sorters, filters, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
-         * This API reassigns the specified certifications from one identity to another. A token with ORG_ADMIN or CERT_ADMIN authority is required to call this API.
+         * This API reassigns the specified certifications from one identity to another.  A token with ORG_ADMIN or CERT_ADMIN authority is required to call this API. 
          * @summary Reassign Certifications
          * @param {string} id The certification campaign ID
          * @param {AdminReviewReassign} adminReviewReassign 
@@ -31235,7 +31235,7 @@ export const CertificationCampaignsApiFactory = function (configuration?: Config
             return localVarFp.move(id, adminReviewReassign, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
-         * Use this API to update individual fields on a certification campaign template, using the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.
+         * Use this API to update individual fields on a certification campaign template, using the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.  A token with ORG_ADMIN or CERT_ADMIN authority is required to call this API. 
          * @summary Update a Campaign Template
          * @param {string} id ID of the campaign template being modified.
          * @param {Array<JsonPatchOperation>} jsonPatchOperation A list of campaign update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.  The following fields are patchable: * name * description * deadlineDuration * campaign (all fields that are allowed during create) 
@@ -31246,7 +31246,7 @@ export const CertificationCampaignsApiFactory = function (configuration?: Config
             return localVarFp.patchCampaignTemplate(id, jsonPatchOperation, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
-         * Use this API to overwrite the configuration for campaign reports.  Calling this endpoint requires roles of CERT_ADMIN and ORG_ADMIN.
+         * Use this API to overwrite the configuration for campaign reports.   A token with ORG_ADMIN or CERT_ADMIN authority is required to call this API. 
          * @summary Set Campaign Reports Configuration
          * @param {CampaignReportsConfig} campaignReportsConfig Campaign report configuration.
          * @param {*} [axiosOptions] Override http request option.
@@ -31256,7 +31256,7 @@ export const CertificationCampaignsApiFactory = function (configuration?: Config
             return localVarFp.setCampaignReportsConfig(campaignReportsConfig, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
-         * Use this API to set the schedule for a certification campaign template. If a schedule already exists, the API overwrites it with the new one. 
+         * Use this API to set the schedule for a certification campaign template. If a schedule already exists, the API overwrites it with the new one.  A token with ORG_ADMIN or CERT_ADMIN authority is required to call this API. 
          * @summary Set Campaign Template Schedule
          * @param {string} id ID of the campaign template being scheduled.
          * @param {Schedule} [schedule] 
@@ -31267,7 +31267,7 @@ export const CertificationCampaignsApiFactory = function (configuration?: Config
             return localVarFp.setCampaignTemplateSchedule(id, schedule, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
-         * Use this API to submit a job to activate the certified campaign with the specified ID. The campaign must be staged. Calling this endpoint requires roles of CERT_ADMIN and ORG_ADMIN.
+         * Use this API to submit a job to activate the certified campaign with the specified ID. The campaign must be staged.  A token with ORG_ADMIN or CERT_ADMIN authority is required to call this API.  
          * @summary Activate a Campaign
          * @param {string} id Campaign ID.
          * @param {ActivateCampaignOptions} [activateCampaignOptions] Optional. If no timezone is specified, the standard UTC timezone is used (i.e. UTC+00:00). Although this can take any timezone, the intended value is the caller\&#39;s timezone. The activation time calculated from the given timezone may cause the campaign deadline time to be modified, but it will remain within the original date. The timezone must be in a valid ISO 8601 format.
@@ -31278,7 +31278,7 @@ export const CertificationCampaignsApiFactory = function (configuration?: Config
             return localVarFp.startCampaign(id, activateCampaignOptions, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
-         * Use this API to run a remediation scan task for a certification campaign. Calling this endpoint requires roles of CERT_ADMIN and ORG_ADMIN.
+         * Use this API to run a remediation scan task for a certification campaign.  A token with ORG_ADMIN, CERT_ADMIN or REPORT_ADMIN authority is required to call this API. 
          * @summary Run Campaign Remediation Scan
          * @param {string} id ID of the campaign the remediation scan is being run for.
          * @param {*} [axiosOptions] Override http request option.
@@ -31288,7 +31288,7 @@ export const CertificationCampaignsApiFactory = function (configuration?: Config
             return localVarFp.startCampaignRemediationScan(id, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
-         * Use this API to run a report for a certification campaign. Calling this endpoint requires the following roles: CERT_ADMIN, DASHBOARD, ORG_ADMIN and REPORT_ADMIN.
+         * Use this API to run a report for a certification campaign.  A token with ORG_ADMIN, CERT_ADMIN or REPORT_ADMIN authority is required to call this API. 
          * @summary Run Campaign Report
          * @param {string} id ID of the campaign the report is being run for.
          * @param {ReportType} type Type of the report to run.
@@ -31299,7 +31299,7 @@ export const CertificationCampaignsApiFactory = function (configuration?: Config
             return localVarFp.startCampaignReport(id, type, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
-         * Use this API to generate a new certification campaign from a campaign template. The campaign object contained in the template has special formatting applied to its name and description fields that determine the generated campaign\'s name/description. Placeholders in those fields are formatted with the current date and time upon generation. Placeholders consist of a percent sign followed by a letter indicating what should be inserted. For example, \"%Y\" inserts the current year, and a campaign template named \"Campaign for %y\" generates a campaign called \"Campaign for 2020\" (assuming the year at generation time is 2020). Valid placeholders are the date/time conversion suffix characters supported by [java.util.Formatter](https://docs.oracle.com/javase/8/docs/api/java/util/Formatter.html). Calling this endpoint requires the ORG_ADMIN role.
+         * Use this API to generate a new certification campaign from a campaign template.  The campaign object contained in the template has special formatting applied to its name and description fields that determine the generated campaign\'s name/description. Placeholders in those fields are formatted with the current date and time upon generation.  Placeholders consist of a percent sign followed by a letter indicating what should be inserted. For example, \"%Y\" inserts the current year, and a campaign template named \"Campaign for %y\" generates a campaign called \"Campaign for 2020\" (assuming the year at generation time is 2020).  Valid placeholders are the date/time conversion suffix characters supported by [java.util.Formatter](https://docs.oracle.com/javase/8/docs/api/java/util/Formatter.html).  A token with ORG_ADMIN or CERT_ADMIN authority is required to call this API. 
          * @summary Generate a Campaign from Template
          * @param {string} id ID of the campaign template to use for generation.
          * @param {*} [axiosOptions] Override http request option.
@@ -31309,7 +31309,7 @@ export const CertificationCampaignsApiFactory = function (configuration?: Config
             return localVarFp.startGenerateCampaignTemplate(id, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
-         * Use this API to update individual fields on a certification campaign, using the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.
+         * Use this API to update individual fields on a certification campaign, using the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.  A token with ORG_ADMIN or CERT_ADMIN authority is required to call this API. 
          * @summary Update a Campaign
          * @param {string} id ID of the campaign template being modified.
          * @param {Array<JsonPatchOperation>} jsonPatchOperation A list of campaign update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard. The fields that can be patched differ based on the status of the campaign.  When the campaign is in the *STAGED* status, you can patch these fields: * name * description * recommendationsEnabled * deadline * emailNotificationEnabled * autoRevokeAllowed  When the campaign is in the *ACTIVE* status, you can patch these fields: * deadline 
@@ -31743,7 +31743,7 @@ export interface CertificationCampaignsApiUpdateCampaignRequest {
  */
 export class CertificationCampaignsApi extends BaseAPI {
     /**
-     * :::caution  This endpoint will run successfully for any campaigns that are **past due**.  This endpoint will return a content error if the campaign is **not past due**.  :::  Use this API to complete a certification campaign. This functionality is provided to admins so that they can complete a certification even if all items have not been completed.  Calling this endpoint requires roles of CERT_ADMIN and ORG_ADMIN. 
+     * :::caution  This endpoint will run successfully for any campaigns that are **past due**.  This endpoint will return a content error if the campaign is **not past due**.  :::  Use this API to complete a certification campaign. This functionality is provided to admins so that they can complete a certification even if all items have not been completed.  A token with ORG_ADMIN or CERT_ADMIN authority is required to call this API. 
      * @summary Complete a Campaign
      * @param {CertificationCampaignsApiCompleteCampaignRequest} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
@@ -31755,7 +31755,7 @@ export class CertificationCampaignsApi extends BaseAPI {
     }
 
     /**
-     * Use this API to create a certification campaign with the information provided in the request body.
+     * Use this API to create a certification campaign with the information provided in the request body.  A token with ORG_ADMIN or CERT_ADMIN authority is required to call this API. 
      * @summary Create a campaign
      * @param {CertificationCampaignsApiCreateCampaignRequest} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
@@ -31767,7 +31767,7 @@ export class CertificationCampaignsApi extends BaseAPI {
     }
 
     /**
-     * Use this API to create a certification campaign template based on campaign.
+     * Use this API to create a certification campaign template based on campaign.  A token with ORG_ADMIN or CERT_ADMIN authority is required to call this API. 
      * @summary Create a Campaign Template
      * @param {CertificationCampaignsApiCreateCampaignTemplateRequest} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
@@ -31779,7 +31779,7 @@ export class CertificationCampaignsApi extends BaseAPI {
     }
 
     /**
-     * Use this API to delete a certification campaign template by ID.
+     * Use this API to delete a certification campaign template by ID.  A token with ORG_ADMIN or CERT_ADMIN authority is required to call this API. 
      * @summary Delete a Campaign Template
      * @param {CertificationCampaignsApiDeleteCampaignTemplateRequest} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
@@ -31791,7 +31791,7 @@ export class CertificationCampaignsApi extends BaseAPI {
     }
 
     /**
-     * Use this API to delete the schedule for a certification campaign template. The API returns a 404 if there is no schedule set.
+     * Use this API to delete the schedule for a certification campaign template. The API returns a 404 if there is no schedule set.  A token with ORG_ADMIN or CERT_ADMIN authority is required to call this API. 
      * @summary Delete Campaign Template Schedule
      * @param {CertificationCampaignsApiDeleteCampaignTemplateScheduleRequest} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
@@ -31803,7 +31803,7 @@ export class CertificationCampaignsApi extends BaseAPI {
     }
 
     /**
-     * Use this API to delete certification campaigns whose IDs are specified in the provided list of campaign IDs.  Authorized callers must be ORG_ADMINs or CERT_ADMINs.
+     * Use this API to delete certification campaigns whose IDs are specified in the provided list of campaign IDs.  A token with ORG_ADMIN or CERT_ADMIN authority is required to call this API. 
      * @summary Delete Campaigns
      * @param {CertificationCampaignsApiDeleteCampaignsRequest} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
@@ -31815,7 +31815,7 @@ export class CertificationCampaignsApi extends BaseAPI {
     }
 
     /**
-     * Use this API to get a list of campaigns. This API can provide increased level of detail for each campaign for the correct provided query. 
+     * Use this API to get a list of campaigns. This API can provide increased level of detail for each campaign for the correct provided query.  A token with ORG_ADMIN, CERT_ADMIN or REPORT_ADMIN authority is required to call this API. 
      * @summary List Campaigns
      * @param {CertificationCampaignsApiGetActiveCampaignsRequest} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
@@ -31827,7 +31827,7 @@ export class CertificationCampaignsApi extends BaseAPI {
     }
 
     /**
-     * Use this API to get information for an existing certification campaign by the campaign\'s ID.  Authorized callers must be reviewers for this campaign, ORG_ADMINs, or a CERT_ADMINs.
+     * Use this API to get information for an existing certification campaign by the campaign\'s ID.  A token with ORG_ADMIN or CERT_ADMIN authority is required to call this API. 
      * @summary Get Campaign
      * @param {CertificationCampaignsApiGetCampaignRequest} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
@@ -31839,7 +31839,7 @@ export class CertificationCampaignsApi extends BaseAPI {
     }
 
     /**
-     * Use this API to fetch all reports for a certification campaign by campaign ID. Calling this endpoint requires roles of CERT_ADMIN, DASHBOARD, ORG_ADMIN and REPORT_ADMIN.
+     * Use this API to fetch all reports for a certification campaign by campaign ID.  A token with ORG_ADMIN, CERT_ADMIN or REPORT_ADMIN authority is required to call this API. 
      * @summary Get Campaign Reports
      * @param {CertificationCampaignsApiGetCampaignReportsRequest} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
@@ -31851,7 +31851,7 @@ export class CertificationCampaignsApi extends BaseAPI {
     }
 
     /**
-     * Use this API to fetch the configuration for certification campaign reports. The configuration includes only one element - identity attributes defined as custom report columns.  Calling this endpoint requires roles of CERT_ADMIN and ORG_ADMIN.
+     * Use this API to fetch the configuration for certification campaign reports. The configuration includes only one element - identity attributes defined as custom report columns.   A token with ORG_ADMIN or CERT_ADMIN authority is required to call this API. 
      * @summary Get Campaign Reports Configuration
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
@@ -31862,7 +31862,7 @@ export class CertificationCampaignsApi extends BaseAPI {
     }
 
     /**
-     * Use this API to fetch a certification campaign template by ID.
+     * Use this API to fetch a certification campaign template by ID.  A token with ORG_ADMIN or CERT_ADMIN authority is required to call this API. 
      * @summary Get a Campaign Template
      * @param {CertificationCampaignsApiGetCampaignTemplateRequest} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
@@ -31874,7 +31874,7 @@ export class CertificationCampaignsApi extends BaseAPI {
     }
 
     /**
-     * Use this API to get the schedule for a certification campaign template. The API returns a 404 if there is no schedule set.
+     * Use this API to get the schedule for a certification campaign template. The API returns a 404 if there is no schedule set.  A token with ORG_ADMIN or CERT_ADMIN authority is required to call this API. 
      * @summary Get Campaign Template Schedule
      * @param {CertificationCampaignsApiGetCampaignTemplateScheduleRequest} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
@@ -31886,7 +31886,7 @@ export class CertificationCampaignsApi extends BaseAPI {
     }
 
     /**
-     * Use this API to get a list of all campaign templates. Scope can be reduced through standard V3 query params. The API returns all campaign templates matching the query parameters. 
+     * Use this API to get a list of all campaign templates. Scope can be reduced through standard V3 query params.  The API returns all campaign templates matching the query parameters.   A token with ORG_ADMIN or CERT_ADMIN authority is required to call this API. 
      * @summary List Campaign Templates
      * @param {CertificationCampaignsApiGetCampaignTemplatesRequest} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
@@ -31898,7 +31898,7 @@ export class CertificationCampaignsApi extends BaseAPI {
     }
 
     /**
-     * This API reassigns the specified certifications from one identity to another. A token with ORG_ADMIN or CERT_ADMIN authority is required to call this API.
+     * This API reassigns the specified certifications from one identity to another.  A token with ORG_ADMIN or CERT_ADMIN authority is required to call this API. 
      * @summary Reassign Certifications
      * @param {CertificationCampaignsApiMoveRequest} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
@@ -31910,7 +31910,7 @@ export class CertificationCampaignsApi extends BaseAPI {
     }
 
     /**
-     * Use this API to update individual fields on a certification campaign template, using the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.
+     * Use this API to update individual fields on a certification campaign template, using the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.  A token with ORG_ADMIN or CERT_ADMIN authority is required to call this API. 
      * @summary Update a Campaign Template
      * @param {CertificationCampaignsApiPatchCampaignTemplateRequest} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
@@ -31922,7 +31922,7 @@ export class CertificationCampaignsApi extends BaseAPI {
     }
 
     /**
-     * Use this API to overwrite the configuration for campaign reports.  Calling this endpoint requires roles of CERT_ADMIN and ORG_ADMIN.
+     * Use this API to overwrite the configuration for campaign reports.   A token with ORG_ADMIN or CERT_ADMIN authority is required to call this API. 
      * @summary Set Campaign Reports Configuration
      * @param {CertificationCampaignsApiSetCampaignReportsConfigRequest} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
@@ -31934,7 +31934,7 @@ export class CertificationCampaignsApi extends BaseAPI {
     }
 
     /**
-     * Use this API to set the schedule for a certification campaign template. If a schedule already exists, the API overwrites it with the new one. 
+     * Use this API to set the schedule for a certification campaign template. If a schedule already exists, the API overwrites it with the new one.  A token with ORG_ADMIN or CERT_ADMIN authority is required to call this API. 
      * @summary Set Campaign Template Schedule
      * @param {CertificationCampaignsApiSetCampaignTemplateScheduleRequest} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
@@ -31946,7 +31946,7 @@ export class CertificationCampaignsApi extends BaseAPI {
     }
 
     /**
-     * Use this API to submit a job to activate the certified campaign with the specified ID. The campaign must be staged. Calling this endpoint requires roles of CERT_ADMIN and ORG_ADMIN.
+     * Use this API to submit a job to activate the certified campaign with the specified ID. The campaign must be staged.  A token with ORG_ADMIN or CERT_ADMIN authority is required to call this API.  
      * @summary Activate a Campaign
      * @param {CertificationCampaignsApiStartCampaignRequest} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
@@ -31958,7 +31958,7 @@ export class CertificationCampaignsApi extends BaseAPI {
     }
 
     /**
-     * Use this API to run a remediation scan task for a certification campaign. Calling this endpoint requires roles of CERT_ADMIN and ORG_ADMIN.
+     * Use this API to run a remediation scan task for a certification campaign.  A token with ORG_ADMIN, CERT_ADMIN or REPORT_ADMIN authority is required to call this API. 
      * @summary Run Campaign Remediation Scan
      * @param {CertificationCampaignsApiStartCampaignRemediationScanRequest} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
@@ -31970,7 +31970,7 @@ export class CertificationCampaignsApi extends BaseAPI {
     }
 
     /**
-     * Use this API to run a report for a certification campaign. Calling this endpoint requires the following roles: CERT_ADMIN, DASHBOARD, ORG_ADMIN and REPORT_ADMIN.
+     * Use this API to run a report for a certification campaign.  A token with ORG_ADMIN, CERT_ADMIN or REPORT_ADMIN authority is required to call this API. 
      * @summary Run Campaign Report
      * @param {CertificationCampaignsApiStartCampaignReportRequest} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
@@ -31982,7 +31982,7 @@ export class CertificationCampaignsApi extends BaseAPI {
     }
 
     /**
-     * Use this API to generate a new certification campaign from a campaign template. The campaign object contained in the template has special formatting applied to its name and description fields that determine the generated campaign\'s name/description. Placeholders in those fields are formatted with the current date and time upon generation. Placeholders consist of a percent sign followed by a letter indicating what should be inserted. For example, \"%Y\" inserts the current year, and a campaign template named \"Campaign for %y\" generates a campaign called \"Campaign for 2020\" (assuming the year at generation time is 2020). Valid placeholders are the date/time conversion suffix characters supported by [java.util.Formatter](https://docs.oracle.com/javase/8/docs/api/java/util/Formatter.html). Calling this endpoint requires the ORG_ADMIN role.
+     * Use this API to generate a new certification campaign from a campaign template.  The campaign object contained in the template has special formatting applied to its name and description fields that determine the generated campaign\'s name/description. Placeholders in those fields are formatted with the current date and time upon generation.  Placeholders consist of a percent sign followed by a letter indicating what should be inserted. For example, \"%Y\" inserts the current year, and a campaign template named \"Campaign for %y\" generates a campaign called \"Campaign for 2020\" (assuming the year at generation time is 2020).  Valid placeholders are the date/time conversion suffix characters supported by [java.util.Formatter](https://docs.oracle.com/javase/8/docs/api/java/util/Formatter.html).  A token with ORG_ADMIN or CERT_ADMIN authority is required to call this API. 
      * @summary Generate a Campaign from Template
      * @param {CertificationCampaignsApiStartGenerateCampaignTemplateRequest} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
@@ -31994,7 +31994,7 @@ export class CertificationCampaignsApi extends BaseAPI {
     }
 
     /**
-     * Use this API to update individual fields on a certification campaign, using the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.
+     * Use this API to update individual fields on a certification campaign, using the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.  A token with ORG_ADMIN or CERT_ADMIN authority is required to call this API. 
      * @summary Update a Campaign
      * @param {CertificationCampaignsApiUpdateCampaignRequest} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
