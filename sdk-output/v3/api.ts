@@ -1322,6 +1322,30 @@ export interface Account {
      */
     'identityId'?: string;
     /**
+     * The lifecycle state of the identity this account is correlated to
+     * @type {string}
+     * @memberof Account
+     */
+    'cloudLifecycleState'?: string | null;
+    /**
+     * The identity state of the identity this account is correlated to
+     * @type {string}
+     * @memberof Account
+     */
+    'identityState'?: string | null;
+    /**
+     * The connection type of the source this account is from
+     * @type {string}
+     * @memberof Account
+     */
+    'connectionType'?: string | null;
+    /**
+     * The type of the account
+     * @type {string}
+     * @memberof Account
+     */
+    'type'?: string | null;
+    /**
      * The account attributes that are aggregated
      * @type {{ [key: string]: any; }}
      * @memberof Account
@@ -1395,17 +1419,44 @@ export interface Account {
     'identity'?: BaseReferenceDto;
     /**
      * 
-     * @type {BaseReferenceDto}
+     * @type {AccountAllOfSourceOwner}
      * @memberof Account
      */
-    'sourceOwner'?: BaseReferenceDto;
+    'sourceOwner'?: AccountAllOfSourceOwner | null;
     /**
      * A string list containing the owning source\'s features
      * @type {string}
      * @memberof Account
      */
     'features'?: string | null;
+    /**
+     * The origin of the account either aggregated or provisioned
+     * @type {string}
+     * @memberof Account
+     */
+    'origin'?: AccountOriginEnum;
+    /**
+     * 
+     * @type {AccountAllOfOwnerIdentity}
+     * @memberof Account
+     */
+    'ownerIdentity'?: AccountAllOfOwnerIdentity | null;
+    /**
+     * 
+     * @type {AccountAllOfOwnerGroup}
+     * @memberof Account
+     */
+    'ownerGroup'?: AccountAllOfOwnerGroup | null;
 }
+
+export const AccountOriginEnum = {
+    Aggregated: 'AGGREGATED',
+    Provisioned: 'PROVISIONED',
+    Null: 'null'
+} as const;
+
+export type AccountOriginEnum = typeof AccountOriginEnum[keyof typeof AccountOriginEnum];
+
 /**
  * Object for specifying Actions to be performed on a specified list of sources\' account.
  * @export
@@ -2039,6 +2090,30 @@ export interface AccountAllOf {
      */
     'identityId'?: string;
     /**
+     * The lifecycle state of the identity this account is correlated to
+     * @type {string}
+     * @memberof AccountAllOf
+     */
+    'cloudLifecycleState'?: string | null;
+    /**
+     * The identity state of the identity this account is correlated to
+     * @type {string}
+     * @memberof AccountAllOf
+     */
+    'identityState'?: string | null;
+    /**
+     * The connection type of the source this account is from
+     * @type {string}
+     * @memberof AccountAllOf
+     */
+    'connectionType'?: string | null;
+    /**
+     * The type of the account
+     * @type {string}
+     * @memberof AccountAllOf
+     */
+    'type'?: string | null;
+    /**
      * The account attributes that are aggregated
      * @type {{ [key: string]: any; }}
      * @memberof AccountAllOf
@@ -2112,17 +2187,140 @@ export interface AccountAllOf {
     'identity'?: BaseReferenceDto;
     /**
      * 
-     * @type {BaseReferenceDto}
+     * @type {AccountAllOfSourceOwner}
      * @memberof AccountAllOf
      */
-    'sourceOwner'?: BaseReferenceDto;
+    'sourceOwner'?: AccountAllOfSourceOwner | null;
     /**
      * A string list containing the owning source\'s features
      * @type {string}
      * @memberof AccountAllOf
      */
     'features'?: string | null;
+    /**
+     * The origin of the account either aggregated or provisioned
+     * @type {string}
+     * @memberof AccountAllOf
+     */
+    'origin'?: AccountAllOfOriginEnum;
+    /**
+     * 
+     * @type {AccountAllOfOwnerIdentity}
+     * @memberof AccountAllOf
+     */
+    'ownerIdentity'?: AccountAllOfOwnerIdentity | null;
+    /**
+     * 
+     * @type {AccountAllOfOwnerGroup}
+     * @memberof AccountAllOf
+     */
+    'ownerGroup'?: AccountAllOfOwnerGroup | null;
 }
+
+export const AccountAllOfOriginEnum = {
+    Aggregated: 'AGGREGATED',
+    Provisioned: 'PROVISIONED',
+    Null: 'null'
+} as const;
+
+export type AccountAllOfOriginEnum = typeof AccountAllOfOriginEnum[keyof typeof AccountAllOfOriginEnum];
+
+/**
+ * The governance group who owns this account, typically used for non-human accounts
+ * @export
+ * @interface AccountAllOfOwnerGroup
+ */
+export interface AccountAllOfOwnerGroup {
+    /**
+     * The type of object being referenced
+     * @type {string}
+     * @memberof AccountAllOfOwnerGroup
+     */
+    'type'?: AccountAllOfOwnerGroupTypeEnum;
+    /**
+     * ID of the governance group
+     * @type {string}
+     * @memberof AccountAllOfOwnerGroup
+     */
+    'id'?: string;
+    /**
+     * Human-readable display name of the governance group
+     * @type {string}
+     * @memberof AccountAllOfOwnerGroup
+     */
+    'name'?: string;
+}
+
+export const AccountAllOfOwnerGroupTypeEnum = {
+    GovernanceGroup: 'GOVERNANCE_GROUP'
+} as const;
+
+export type AccountAllOfOwnerGroupTypeEnum = typeof AccountAllOfOwnerGroupTypeEnum[keyof typeof AccountAllOfOwnerGroupTypeEnum];
+
+/**
+ * The identity who owns this account, typically used for non-human accounts
+ * @export
+ * @interface AccountAllOfOwnerIdentity
+ */
+export interface AccountAllOfOwnerIdentity {
+    /**
+     * The type of object being referenced
+     * @type {string}
+     * @memberof AccountAllOfOwnerIdentity
+     */
+    'type'?: AccountAllOfOwnerIdentityTypeEnum;
+    /**
+     * ID of the identity
+     * @type {string}
+     * @memberof AccountAllOfOwnerIdentity
+     */
+    'id'?: string;
+    /**
+     * Human-readable display name of the identity
+     * @type {string}
+     * @memberof AccountAllOfOwnerIdentity
+     */
+    'name'?: string;
+}
+
+export const AccountAllOfOwnerIdentityTypeEnum = {
+    Identity: 'IDENTITY'
+} as const;
+
+export type AccountAllOfOwnerIdentityTypeEnum = typeof AccountAllOfOwnerIdentityTypeEnum[keyof typeof AccountAllOfOwnerIdentityTypeEnum];
+
+/**
+ * The owner of this object.
+ * @export
+ * @interface AccountAllOfSourceOwner
+ */
+export interface AccountAllOfSourceOwner {
+    /**
+     * Type of owner object.
+     * @type {string}
+     * @memberof AccountAllOfSourceOwner
+     */
+    'type'?: AccountAllOfSourceOwnerTypeEnum;
+    /**
+     * Identity id
+     * @type {string}
+     * @memberof AccountAllOfSourceOwner
+     */
+    'id'?: string;
+    /**
+     * Human-readable display name of the owner.
+     * @type {string}
+     * @memberof AccountAllOfSourceOwner
+     */
+    'name'?: string;
+}
+
+export const AccountAllOfSourceOwnerTypeEnum = {
+    Identity: 'IDENTITY'
+} as const;
+
+export type AccountAllOfSourceOwnerTypeEnum = typeof AccountAllOfSourceOwnerTypeEnum[keyof typeof AccountAllOfSourceOwnerTypeEnum];
+
 /**
  * 
  * @export
@@ -4121,36 +4319,55 @@ export type BucketType = typeof BucketType[keyof typeof BucketType];
 /**
  * 
  * @export
- * @interface BulkTaggedObject
+ * @interface BulkAddTaggedObject
  */
-export interface BulkTaggedObject {
+export interface BulkAddTaggedObject {
     /**
      * 
      * @type {Array<TaggedObjectDto>}
-     * @memberof BulkTaggedObject
+     * @memberof BulkAddTaggedObject
      */
     'objectRefs'?: Array<TaggedObjectDto>;
     /**
      * Label to be applied to an Object
      * @type {Array<string>}
-     * @memberof BulkTaggedObject
+     * @memberof BulkAddTaggedObject
      */
     'tags'?: Array<string>;
     /**
      * If APPEND, tags are appended to the list of tags for the object. A 400 error is returned if this would add duplicate tags to the object.  If MERGE, tags are merged with the existing tags. Duplicate tags are silently ignored.
      * @type {string}
-     * @memberof BulkTaggedObject
+     * @memberof BulkAddTaggedObject
      */
-    'operation'?: BulkTaggedObjectOperationEnum;
+    'operation'?: BulkAddTaggedObjectOperationEnum;
 }
 
-export const BulkTaggedObjectOperationEnum = {
+export const BulkAddTaggedObjectOperationEnum = {
     Append: 'APPEND',
     Merge: 'MERGE'
 } as const;
 
-export type BulkTaggedObjectOperationEnum = typeof BulkTaggedObjectOperationEnum[keyof typeof BulkTaggedObjectOperationEnum];
+export type BulkAddTaggedObjectOperationEnum = typeof BulkAddTaggedObjectOperationEnum[keyof typeof BulkAddTaggedObjectOperationEnum];
 
+/**
+ * 
+ * @export
+ * @interface BulkRemoveTaggedObject
+ */
+export interface BulkRemoveTaggedObject {
+    /**
+     * 
+     * @type {Array<TaggedObjectDto>}
+     * @memberof BulkRemoveTaggedObject
+     */
+    'objectRefs'?: Array<TaggedObjectDto>;
+    /**
+     * Label to be applied to an Object
+     * @type {Array<string>}
+     * @memberof BulkRemoveTaggedObject
+     */
+    'tags'?: Array<string>;
+}
 /**
  * 
  * @export
@@ -5598,11 +5815,11 @@ export interface CompletedApproval {
      */
     'requester'?: AccessItemRequester;
     /**
-     * Identities access was requested for.
-     * @type {Array<AccessItemRequestedFor>}
+     * 
+     * @type {RequestedItemStatusRequestedFor}
      * @memberof CompletedApproval
      */
-    'requestedFor'?: Array<AccessItemRequestedFor>;
+    'requestedFor'?: RequestedItemStatusRequestedFor;
     /**
      * 
      * @type {AccessItemReviewedBy}
@@ -5680,7 +5897,7 @@ export interface CompletedApproval {
      * @type {SodViolationContextCheckCompleted}
      * @memberof CompletedApproval
      */
-    'sodViolationContext'?: SodViolationContextCheckCompleted;
+    'sodViolationContext'?: SodViolationContextCheckCompleted | null;
     /**
      * 
      * @type {CompletedApprovalPreApprovalTriggerResult}
@@ -5693,12 +5910,6 @@ export interface CompletedApproval {
      * @memberof CompletedApproval
      */
     'clientMetadata'?: { [key: string]: string; };
-    /**
-     * Information about the requested accounts
-     * @type {string}
-     * @memberof CompletedApproval
-     */
-    'requestedAccounts'?: string | null;
 }
 /**
  * If the access request submitted event trigger is configured and this access request was intercepted by it, then this is the result of the trigger\'s decision to either approve or deny the request.
@@ -7971,6 +8182,12 @@ export interface EventAttributes {
      * @memberof EventAttributes
      */
     'filter.$'?: string;
+    /**
+     * Description of the event trigger
+     * @type {string}
+     * @memberof EventAttributes
+     */
+    'description'?: string;
 }
 /**
  * Event
@@ -8330,13 +8547,25 @@ export interface ExternalAttributes {
      * @type {string}
      * @memberof ExternalAttributes
      */
-    'name': string;
+    'name'?: string;
     /**
      * Additonal context about the external trigger
      * @type {string}
      * @memberof ExternalAttributes
      */
     'description'?: string;
+    /**
+     * OAuth Client ID to authenticate with this trigger
+     * @type {string}
+     * @memberof ExternalAttributes
+     */
+    'clientId'?: string;
+    /**
+     * URL to invoke this workflow
+     * @type {string}
+     * @memberof ExternalAttributes
+     */
+    'url'?: string;
 }
 /**
  * 
@@ -8629,25 +8858,6 @@ export interface GenerateRandomString {
     'requiresPeriodicRefresh'?: boolean;
 }
 /**
- * 
- * @export
- * @interface GenericRule
- */
-export interface GenericRule {
-    /**
-     * This is the name of the Generic rule that needs to be invoked by the transform
-     * @type {string}
-     * @memberof GenericRule
-     */
-    'name': string;
-    /**
-     * A value that indicates whether the transform logic should be re-evaluated every evening as part of the identity refresh process
-     * @type {boolean}
-     * @memberof GenericRule
-     */
-    'requiresPeriodicRefresh'?: boolean;
-}
-/**
  * @type GetActiveCampaigns200ResponseInner
  * @export
  */
@@ -8761,6 +8971,18 @@ export interface GetOAuthClientResponse {
      * @memberof GetOAuthClientResponse
      */
     'modified': string;
+    /**
+     * 
+     * @type {string}
+     * @memberof GetOAuthClientResponse
+     */
+    'secret'?: string | null;
+    /**
+     * 
+     * @type {string}
+     * @memberof GetOAuthClientResponse
+     */
+    'metadata'?: string | null;
     /**
      * The date and time, down to the millisecond, when this API Client was last used to generate an access token. This timestamp does not get updated on every API Client usage, but only once a day. This property can be useful for identifying which API Clients are no longer actively used and can be removed.
      * @type {string}
@@ -9019,6 +9241,37 @@ export interface IdentityAttributeConfig {
      * @memberof IdentityAttributeConfig
      */
     'attributeTransforms'?: Array<IdentityAttributeTransform>;
+}
+/**
+ * 
+ * @export
+ * @interface IdentityAttributePreview
+ */
+export interface IdentityAttributePreview {
+    /**
+     * Name of the attribute that is being previewed.
+     * @type {string}
+     * @memberof IdentityAttributePreview
+     */
+    'name'?: string;
+    /**
+     * Value that was derived during the preview.
+     * @type {object}
+     * @memberof IdentityAttributePreview
+     */
+    'value'?: object;
+    /**
+     * The value of the attribute before the preview.
+     * @type {object}
+     * @memberof IdentityAttributePreview
+     */
+    'previousValue'?: object;
+    /**
+     * 
+     * @type {Array<ErrorMessageDto>}
+     * @memberof IdentityAttributePreview
+     */
+    'errorMessages'?: Array<ErrorMessageDto>;
 }
 /**
  * Defines a transformation definition for an identity attribute.
@@ -9737,6 +9990,76 @@ export interface IdentityExceptionReportReference {
      */
     'reportName'?: string;
 }
+/**
+ * 
+ * @export
+ * @interface IdentityPreviewRequest
+ */
+export interface IdentityPreviewRequest {
+    /**
+     * The Identity id
+     * @type {string}
+     * @memberof IdentityPreviewRequest
+     */
+    'identityId'?: string;
+    /**
+     * 
+     * @type {Array<IdentityAttributeConfig>}
+     * @memberof IdentityPreviewRequest
+     */
+    'identityAttributeConfig'?: Array<IdentityAttributeConfig>;
+}
+/**
+ * 
+ * @export
+ * @interface IdentityPreviewResponse
+ */
+export interface IdentityPreviewResponse {
+    /**
+     * 
+     * @type {IdentityPreviewResponseIdentity}
+     * @memberof IdentityPreviewResponse
+     */
+    'identity'?: IdentityPreviewResponseIdentity;
+    /**
+     * 
+     * @type {Array<IdentityAttributePreview>}
+     * @memberof IdentityPreviewResponse
+     */
+    'previewAttributes'?: Array<IdentityAttributePreview>;
+}
+/**
+ * Identity\'s basic details.
+ * @export
+ * @interface IdentityPreviewResponseIdentity
+ */
+export interface IdentityPreviewResponseIdentity {
+    /**
+     * Identity\'s DTO type.
+     * @type {string}
+     * @memberof IdentityPreviewResponseIdentity
+     */
+    'type'?: IdentityPreviewResponseIdentityTypeEnum;
+    /**
+     * Identity ID.
+     * @type {string}
+     * @memberof IdentityPreviewResponseIdentity
+     */
+    'id'?: string;
+    /**
+     * Identity\'s display name.
+     * @type {string}
+     * @memberof IdentityPreviewResponseIdentity
+     */
+    'name'?: string;
+}
+
+export const IdentityPreviewResponseIdentityTypeEnum = {
+    Identity: 'IDENTITY'
+} as const;
+
+export type IdentityPreviewResponseIdentityTypeEnum = typeof IdentityPreviewResponseIdentityTypeEnum[keyof typeof IdentityPreviewResponseIdentityTypeEnum];
+
 /**
  * 
  * @export
@@ -11027,7 +11350,37 @@ export interface ListCompleteWorkflowLibrary200ResponseInner {
      * @type {Array<WorkflowLibraryFormFields>}
      * @memberof ListCompleteWorkflowLibrary200ResponseInner
      */
-    'formFields'?: Array<WorkflowLibraryFormFields>;
+    'formFields'?: Array<WorkflowLibraryFormFields> | null;
+    /**
+     * 
+     * @type {WorkflowLibraryActionExampleOutput}
+     * @memberof ListCompleteWorkflowLibrary200ResponseInner
+     */
+    'exampleOutput'?: WorkflowLibraryActionExampleOutput;
+    /**
+     * 
+     * @type {boolean}
+     * @memberof ListCompleteWorkflowLibrary200ResponseInner
+     */
+    'deprecated'?: boolean;
+    /**
+     * 
+     * @type {string}
+     * @memberof ListCompleteWorkflowLibrary200ResponseInner
+     */
+    'deprecatedBy'?: string;
+    /**
+     * Version number
+     * @type {number}
+     * @memberof ListCompleteWorkflowLibrary200ResponseInner
+     */
+    'versionNumber'?: number;
+    /**
+     * 
+     * @type {boolean}
+     * @memberof ListCompleteWorkflowLibrary200ResponseInner
+     */
+    'isSimulationEnabled'?: boolean;
     /**
      * Determines whether the dynamic output schema is returned in place of the action\'s output schema. The dynamic schema lists non-static properties, like properties of a workflow form where each form has different fields. These will be provided dynamically based on available form fields.
      * @type {boolean}
@@ -11035,7 +11388,7 @@ export interface ListCompleteWorkflowLibrary200ResponseInner {
      */
     'isDynamicSchema'?: boolean;
     /**
-     * Defines the output schema, if any, that this action produces.
+     * Example output schema
      * @type {object}
      * @memberof ListCompleteWorkflowLibrary200ResponseInner
      */
@@ -11149,6 +11502,18 @@ export interface ManagedClient {
      * @memberof ManagedClient
      */
     'alertKey'?: string | null;
+    /**
+     * 
+     * @type {string}
+     * @memberof ManagedClient
+     */
+    'apiGatewayBaseUrl'?: string | null;
+    /**
+     * 
+     * @type {string}
+     * @memberof ManagedClient
+     */
+    'cookbook'?: string | null;
     /**
      * Previous CC ID to be used in data migration. (This field will be deleted after CC migration!)
      * @type {number}
@@ -14666,7 +15031,7 @@ export interface PendingApproval {
      * @type {SodViolationContextCheckCompleted}
      * @memberof PendingApproval
      */
-    'sodViolationContext'?: SodViolationContextCheckCompleted;
+    'sodViolationContext'?: SodViolationContextCheckCompleted | null;
 }
 /**
  * Enum represents action that is being processed on an approval.
@@ -17651,7 +18016,7 @@ export interface RoleSummaryAllOf {
  * @type Rule
  * @export
  */
-export type Rule = GenerateRandomString | GenericRule | GetReferenceIdentityAttribute;
+export type Rule = GenerateRandomString | GetReferenceIdentityAttribute | TransformRule;
 
 /**
  * 
@@ -18190,8 +18555,43 @@ export interface ScheduledAttributes {
      * @type {string}
      * @memberof ScheduledAttributes
      */
-    'cronString': string;
+    'cronString'?: string;
+    /**
+     * Frequency of execution
+     * @type {string}
+     * @memberof ScheduledAttributes
+     */
+    'frequency': ScheduledAttributesFrequencyEnum;
+    /**
+     * Time zone identifier
+     * @type {string}
+     * @memberof ScheduledAttributes
+     */
+    'timeZone'?: string;
+    /**
+     * Scheduled days of the week for execution
+     * @type {Array<string>}
+     * @memberof ScheduledAttributes
+     */
+    'weeklyDays'?: Array<string>;
+    /**
+     * Scheduled execution times
+     * @type {Array<string>}
+     * @memberof ScheduledAttributes
+     */
+    'weeklyTimes'?: Array<string>;
 }
+
+export const ScheduledAttributesFrequencyEnum = {
+    Daily: 'daily',
+    Weekly: 'weekly',
+    Monthly: 'monthly',
+    Yearly: 'yearly',
+    CronSchedule: 'cronSchedule'
+} as const;
+
+export type ScheduledAttributesFrequencyEnum = typeof ScheduledAttributesFrequencyEnum[keyof typeof ScheduledAttributesFrequencyEnum];
+
 /**
  * 
  * @export
@@ -18661,6 +19061,31 @@ export interface SearchArgumentsOwner {
      * @memberof SearchArgumentsOwner
      */
     'id': string;
+}
+/**
+ * 
+ * @export
+ * @interface SearchAttributeConfig
+ */
+export interface SearchAttributeConfig {
+    /**
+     * Name of the new attribute
+     * @type {string}
+     * @memberof SearchAttributeConfig
+     */
+    'name'?: string;
+    /**
+     * The display name of the new attribute
+     * @type {string}
+     * @memberof SearchAttributeConfig
+     */
+    'displayName'?: string;
+    /**
+     * Map of application id and their associated attribute.
+     * @type {object}
+     * @memberof SearchAttributeConfig
+     */
+    'applicationAttributes'?: object;
 }
 /**
  * @type SearchDocument
@@ -20261,6 +20686,7 @@ export const SourceFeaturesEnum = {
 
 export type SourceFeaturesEnum = typeof SourceFeaturesEnum[keyof typeof SourceFeaturesEnum];
 export const SourceStatusEnum = {
+    ErrorAccountFileImport: 'SOURCE_STATE_ERROR_ACCOUNT_FILE_IMPORT',
     ErrorCluster: 'SOURCE_STATE_ERROR_CLUSTER',
     ErrorSource: 'SOURCE_STATE_ERROR_SOURCE',
     ErrorVa: 'SOURCE_STATE_ERROR_VA',
@@ -21679,6 +22105,25 @@ export interface TransformReadAllOf {
 /**
  * 
  * @export
+ * @interface TransformRule
+ */
+export interface TransformRule {
+    /**
+     * This is the name of the Transform rule that needs to be invoked by the transform
+     * @type {string}
+     * @memberof TransformRule
+     */
+    'name': string;
+    /**
+     * A value that indicates whether the transform logic should be re-evaluated every evening as part of the identity refresh process
+     * @type {boolean}
+     * @memberof TransformRule
+     */
+    'requiresPeriodicRefresh'?: boolean;
+}
+/**
+ * 
+ * @export
  * @interface Trim
  */
 export interface Trim {
@@ -22558,6 +23003,31 @@ export interface VisibilityCriteria {
     'expression'?: Expression;
 }
 /**
+ * 
+ * @export
+ * @interface WorkItemForward
+ */
+export interface WorkItemForward {
+    /**
+     * The ID of the identity to forward this work item to.
+     * @type {string}
+     * @memberof WorkItemForward
+     */
+    'targetOwnerId': string;
+    /**
+     * Comments to send to the target owner
+     * @type {string}
+     * @memberof WorkItemForward
+     */
+    'comment': string;
+    /**
+     * If true, send a notification to the target owner.
+     * @type {boolean}
+     * @memberof WorkItemForward
+     */
+    'sendNotifications'?: boolean;
+}
+/**
  * The state of a work item
  * @export
  * @enum {string}
@@ -22848,6 +23318,12 @@ export interface Workflow {
     'modified'?: string;
     /**
      * 
+     * @type {WorkflowModifiedBy}
+     * @memberof Workflow
+     */
+    'modifiedBy'?: WorkflowModifiedBy;
+    /**
+     * 
      * @type {WorkflowAllOfCreator}
      * @memberof Workflow
      */
@@ -22925,6 +23401,12 @@ export interface WorkflowAllOf {
      * @memberof WorkflowAllOf
      */
     'modified'?: string;
+    /**
+     * 
+     * @type {WorkflowModifiedBy}
+     * @memberof WorkflowAllOf
+     */
+    'modifiedBy'?: WorkflowModifiedBy;
     /**
      * 
      * @type {WorkflowAllOfCreator}
@@ -23189,7 +23671,37 @@ export interface WorkflowLibraryAction {
      * @type {Array<WorkflowLibraryFormFields>}
      * @memberof WorkflowLibraryAction
      */
-    'formFields'?: Array<WorkflowLibraryFormFields>;
+    'formFields'?: Array<WorkflowLibraryFormFields> | null;
+    /**
+     * 
+     * @type {WorkflowLibraryActionExampleOutput}
+     * @memberof WorkflowLibraryAction
+     */
+    'exampleOutput'?: WorkflowLibraryActionExampleOutput;
+    /**
+     * 
+     * @type {boolean}
+     * @memberof WorkflowLibraryAction
+     */
+    'deprecated'?: boolean;
+    /**
+     * 
+     * @type {string}
+     * @memberof WorkflowLibraryAction
+     */
+    'deprecatedBy'?: string;
+    /**
+     * Version number
+     * @type {number}
+     * @memberof WorkflowLibraryAction
+     */
+    'versionNumber'?: number;
+    /**
+     * 
+     * @type {boolean}
+     * @memberof WorkflowLibraryAction
+     */
+    'isSimulationEnabled'?: boolean;
     /**
      * Determines whether the dynamic output schema is returned in place of the action\'s output schema. The dynamic schema lists non-static properties, like properties of a workflow form where each form has different fields. These will be provided dynamically based on available form fields.
      * @type {boolean}
@@ -23204,11 +23716,23 @@ export interface WorkflowLibraryAction {
     'outputSchema'?: object;
 }
 /**
+ * @type WorkflowLibraryActionExampleOutput
+ * @export
+ */
+export type WorkflowLibraryActionExampleOutput = Array<object> | object;
+
+/**
  * 
  * @export
  * @interface WorkflowLibraryFormFields
  */
 export interface WorkflowLibraryFormFields {
+    /**
+     * Description of the form field
+     * @type {string}
+     * @memberof WorkflowLibraryFormFields
+     */
+    'description'?: string;
     /**
      * Describes the form field in the UI
      * @type {string}
@@ -23235,7 +23759,7 @@ export interface WorkflowLibraryFormFields {
     'required'?: boolean;
     /**
      * The type of the form field
-     * @type {object}
+     * @type {string}
      * @memberof WorkflowLibraryFormFields
      */
     'type'?: WorkflowLibraryFormFieldsTypeEnum;
@@ -23255,6 +23779,7 @@ export const WorkflowLibraryFormFieldsTypeEnum = {
     MultiType: 'multiType',
     Duration: 'duration',
     Toggle: 'toggle',
+    FormPicker: 'formPicker',
     IdentityPicker: 'identityPicker',
     GovernanceGroupPicker: 'governanceGroupPicker',
     String: 'string',
@@ -23263,7 +23788,9 @@ export const WorkflowLibraryFormFieldsTypeEnum = {
     Secret: 'secret',
     KeyValuePairs: 'keyValuePairs',
     EmailPicker: 'emailPicker',
-    AdvancedToggle: 'advancedToggle'
+    AdvancedToggle: 'advancedToggle',
+    VariableCreator: 'variableCreator',
+    HtmlEditor: 'htmlEditor'
 } as const;
 
 export type WorkflowLibraryFormFieldsTypeEnum = typeof WorkflowLibraryFormFieldsTypeEnum[keyof typeof WorkflowLibraryFormFieldsTypeEnum];
@@ -23299,11 +23826,35 @@ export interface WorkflowLibraryOperator {
      */
     'description'?: string;
     /**
+     * Determines whether the dynamic output schema is returned in place of the action\'s output schema. The dynamic schema lists non-static properties, like properties of a workflow form where each form has different fields. These will be provided dynamically based on available form fields.
+     * @type {boolean}
+     * @memberof WorkflowLibraryOperator
+     */
+    'isDynamicSchema'?: boolean;
+    /**
+     * 
+     * @type {boolean}
+     * @memberof WorkflowLibraryOperator
+     */
+    'deprecated'?: boolean;
+    /**
+     * 
+     * @type {string}
+     * @memberof WorkflowLibraryOperator
+     */
+    'deprecatedBy'?: string;
+    /**
+     * 
+     * @type {boolean}
+     * @memberof WorkflowLibraryOperator
+     */
+    'isSimulationEnabled'?: boolean;
+    /**
      * One or more inputs that the operator accepts
      * @type {Array<WorkflowLibraryFormFields>}
      * @memberof WorkflowLibraryOperator
      */
-    'formFields'?: Array<WorkflowLibraryFormFields>;
+    'formFields'?: Array<WorkflowLibraryFormFields> | null;
 }
 /**
  * 
@@ -23319,10 +23870,34 @@ export interface WorkflowLibraryTrigger {
     'id'?: string;
     /**
      * Trigger type
-     * @type {object}
+     * @type {string}
      * @memberof WorkflowLibraryTrigger
      */
     'type'?: WorkflowLibraryTriggerTypeEnum;
+    /**
+     * 
+     * @type {boolean}
+     * @memberof WorkflowLibraryTrigger
+     */
+    'deprecated'?: boolean;
+    /**
+     * 
+     * @type {string}
+     * @memberof WorkflowLibraryTrigger
+     */
+    'deprecatedBy'?: string;
+    /**
+     * 
+     * @type {boolean}
+     * @memberof WorkflowLibraryTrigger
+     */
+    'isSimulationEnabled'?: boolean;
+    /**
+     * Example output schema
+     * @type {object}
+     * @memberof WorkflowLibraryTrigger
+     */
+    'outputSchema'?: object;
     /**
      * Trigger Name
      * @type {string}
@@ -23362,6 +23937,38 @@ export const WorkflowLibraryTriggerTypeEnum = {
 } as const;
 
 export type WorkflowLibraryTriggerTypeEnum = typeof WorkflowLibraryTriggerTypeEnum[keyof typeof WorkflowLibraryTriggerTypeEnum];
+
+/**
+ * 
+ * @export
+ * @interface WorkflowModifiedBy
+ */
+export interface WorkflowModifiedBy {
+    /**
+     * 
+     * @type {string}
+     * @memberof WorkflowModifiedBy
+     */
+    'type'?: WorkflowModifiedByTypeEnum;
+    /**
+     * Identity ID
+     * @type {string}
+     * @memberof WorkflowModifiedBy
+     */
+    'id'?: string;
+    /**
+     * Human-readable display name of identity.
+     * @type {string}
+     * @memberof WorkflowModifiedBy
+     */
+    'name'?: string;
+}
+
+export const WorkflowModifiedByTypeEnum = {
+    Identity: 'IDENTITY'
+} as const;
+
+export type WorkflowModifiedByTypeEnum = typeof WorkflowModifiedByTypeEnum[keyof typeof WorkflowModifiedByTypeEnum];
 
 /**
  * 
@@ -26483,7 +27090,7 @@ export const AccountsApiAxiosParamCreator = function (configuration?: Configurat
             };
         },
         /**
-         * Use this API to update an account with a PUT request.  This endpoint submits an account update task and returns the task ID.  A token with ORG_ADMIN, SOURCE_ADMIN, or SOURCE_SUBADMIN authority is required to call this API. >**NOTE: You can only use this PUT endpoint to update accounts from sources of the \"DelimitedFile\" type.**
+         * Use this API to update an account with a PUT request.   This endpoint submits an account update task and returns the task ID.   A token with ORG_ADMIN, SOURCE_ADMIN, or SOURCE_SUBADMIN authority is required to call this API.  >**Note: You can only use this PUT endpoint to update accounts from flat file sources.** 
          * @summary Update Account
          * @param {string} id Account ID.
          * @param {AccountAttributes} accountAttributes 
@@ -26621,7 +27228,7 @@ export const AccountsApiAxiosParamCreator = function (configuration?: Configurat
             };
         },
         /**
-         * Use this API to update account details.  A token with ORG_ADMIN, SOURCE_ADMIN, or SOURCE_SUBADMIN authority is required to call this API. This API supports updating an account\'s correlation. You can modify only the `identityId` and `manuallyCorrelated` fields for any flat file account.  To reassign an account from one identity to another, replace the current `identityId` with a new value.  If the account you\'re assigning was provisioned by Identity Security Cloud (ISC), it\'s possible for ISC to create a new account  for the previous identity as soon as the account is moved. If the account you\'re assigning is authoritative,  this causes the previous identity to become uncorrelated and can even result in its deletion. All accounts that are reassigned will be set to `manuallyCorrelated: true` unless you specify otherwise. >**Note:** The `attributes` field can only be modified for flat file accounts. 
+         * Use this API to update account details.  A token with ORG_ADMIN, SOURCE_ADMIN, or SOURCE_SUBADMIN authority is required to call this API.  This API supports updating an account\'s correlation by modifying the `identityId` and `manuallyCorrelated` fields.  To reassign an account from one identity to another, replace the current `identityId` with a new value.  If the account you\'re assigning was provisioned by Identity Security Cloud (ISC), it\'s possible for ISC to create a new account  for the previous identity as soon as the account is moved. If the account you\'re assigning is authoritative,  this causes the previous identity to become uncorrelated and can even result in its deletion. All accounts that are reassigned will be set to `manuallyCorrelated: true` unless you specify otherwise.  >**Note:** The `attributes` field can only be modified for flat file accounts.  
          * @summary Update Account
          * @param {string} id Account ID.
          * @param {Array<object>} requestBody A list of account update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.
@@ -26765,7 +27372,7 @@ export const AccountsApiFp = function(configuration?: Configuration) {
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
-         * Use this API to update an account with a PUT request.  This endpoint submits an account update task and returns the task ID.  A token with ORG_ADMIN, SOURCE_ADMIN, or SOURCE_SUBADMIN authority is required to call this API. >**NOTE: You can only use this PUT endpoint to update accounts from sources of the \"DelimitedFile\" type.**
+         * Use this API to update an account with a PUT request.   This endpoint submits an account update task and returns the task ID.   A token with ORG_ADMIN, SOURCE_ADMIN, or SOURCE_SUBADMIN authority is required to call this API.  >**Note: You can only use this PUT endpoint to update accounts from flat file sources.** 
          * @summary Update Account
          * @param {string} id Account ID.
          * @param {AccountAttributes} accountAttributes 
@@ -26800,7 +27407,7 @@ export const AccountsApiFp = function(configuration?: Configuration) {
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
-         * Use this API to update account details.  A token with ORG_ADMIN, SOURCE_ADMIN, or SOURCE_SUBADMIN authority is required to call this API. This API supports updating an account\'s correlation. You can modify only the `identityId` and `manuallyCorrelated` fields for any flat file account.  To reassign an account from one identity to another, replace the current `identityId` with a new value.  If the account you\'re assigning was provisioned by Identity Security Cloud (ISC), it\'s possible for ISC to create a new account  for the previous identity as soon as the account is moved. If the account you\'re assigning is authoritative,  this causes the previous identity to become uncorrelated and can even result in its deletion. All accounts that are reassigned will be set to `manuallyCorrelated: true` unless you specify otherwise. >**Note:** The `attributes` field can only be modified for flat file accounts. 
+         * Use this API to update account details.  A token with ORG_ADMIN, SOURCE_ADMIN, or SOURCE_SUBADMIN authority is required to call this API.  This API supports updating an account\'s correlation by modifying the `identityId` and `manuallyCorrelated` fields.  To reassign an account from one identity to another, replace the current `identityId` with a new value.  If the account you\'re assigning was provisioned by Identity Security Cloud (ISC), it\'s possible for ISC to create a new account  for the previous identity as soon as the account is moved. If the account you\'re assigning is authoritative,  this causes the previous identity to become uncorrelated and can even result in its deletion. All accounts that are reassigned will be set to `manuallyCorrelated: true` unless you specify otherwise.  >**Note:** The `attributes` field can only be modified for flat file accounts.  
          * @summary Update Account
          * @param {string} id Account ID.
          * @param {Array<object>} requestBody A list of account update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.
@@ -26901,7 +27508,7 @@ export const AccountsApiFactory = function (configuration?: Configuration, baseP
             return localVarFp.listAccounts(limit, offset, count, filters, sorters, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
-         * Use this API to update an account with a PUT request.  This endpoint submits an account update task and returns the task ID.  A token with ORG_ADMIN, SOURCE_ADMIN, or SOURCE_SUBADMIN authority is required to call this API. >**NOTE: You can only use this PUT endpoint to update accounts from sources of the \"DelimitedFile\" type.**
+         * Use this API to update an account with a PUT request.   This endpoint submits an account update task and returns the task ID.   A token with ORG_ADMIN, SOURCE_ADMIN, or SOURCE_SUBADMIN authority is required to call this API.  >**Note: You can only use this PUT endpoint to update accounts from flat file sources.** 
          * @summary Update Account
          * @param {string} id Account ID.
          * @param {AccountAttributes} accountAttributes 
@@ -26933,7 +27540,7 @@ export const AccountsApiFactory = function (configuration?: Configuration, baseP
             return localVarFp.unlockAccount(id, accountUnlockRequest, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
-         * Use this API to update account details.  A token with ORG_ADMIN, SOURCE_ADMIN, or SOURCE_SUBADMIN authority is required to call this API. This API supports updating an account\'s correlation. You can modify only the `identityId` and `manuallyCorrelated` fields for any flat file account.  To reassign an account from one identity to another, replace the current `identityId` with a new value.  If the account you\'re assigning was provisioned by Identity Security Cloud (ISC), it\'s possible for ISC to create a new account  for the previous identity as soon as the account is moved. If the account you\'re assigning is authoritative,  this causes the previous identity to become uncorrelated and can even result in its deletion. All accounts that are reassigned will be set to `manuallyCorrelated: true` unless you specify otherwise. >**Note:** The `attributes` field can only be modified for flat file accounts. 
+         * Use this API to update account details.  A token with ORG_ADMIN, SOURCE_ADMIN, or SOURCE_SUBADMIN authority is required to call this API.  This API supports updating an account\'s correlation by modifying the `identityId` and `manuallyCorrelated` fields.  To reassign an account from one identity to another, replace the current `identityId` with a new value.  If the account you\'re assigning was provisioned by Identity Security Cloud (ISC), it\'s possible for ISC to create a new account  for the previous identity as soon as the account is moved. If the account you\'re assigning is authoritative,  this causes the previous identity to become uncorrelated and can even result in its deletion. All accounts that are reassigned will be set to `manuallyCorrelated: true` unless you specify otherwise.  >**Note:** The `attributes` field can only be modified for flat file accounts.  
          * @summary Update Account
          * @param {string} id Account ID.
          * @param {Array<object>} requestBody A list of account update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.
@@ -27276,7 +27883,7 @@ export class AccountsApi extends BaseAPI {
     }
 
     /**
-     * Use this API to update an account with a PUT request.  This endpoint submits an account update task and returns the task ID.  A token with ORG_ADMIN, SOURCE_ADMIN, or SOURCE_SUBADMIN authority is required to call this API. >**NOTE: You can only use this PUT endpoint to update accounts from sources of the \"DelimitedFile\" type.**
+     * Use this API to update an account with a PUT request.   This endpoint submits an account update task and returns the task ID.   A token with ORG_ADMIN, SOURCE_ADMIN, or SOURCE_SUBADMIN authority is required to call this API.  >**Note: You can only use this PUT endpoint to update accounts from flat file sources.** 
      * @summary Update Account
      * @param {AccountsApiPutAccountRequest} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
@@ -27312,7 +27919,7 @@ export class AccountsApi extends BaseAPI {
     }
 
     /**
-     * Use this API to update account details.  A token with ORG_ADMIN, SOURCE_ADMIN, or SOURCE_SUBADMIN authority is required to call this API. This API supports updating an account\'s correlation. You can modify only the `identityId` and `manuallyCorrelated` fields for any flat file account.  To reassign an account from one identity to another, replace the current `identityId` with a new value.  If the account you\'re assigning was provisioned by Identity Security Cloud (ISC), it\'s possible for ISC to create a new account  for the previous identity as soon as the account is moved. If the account you\'re assigning is authoritative,  this causes the previous identity to become uncorrelated and can even result in its deletion. All accounts that are reassigned will be set to `manuallyCorrelated: true` unless you specify otherwise. >**Note:** The `attributes` field can only be modified for flat file accounts. 
+     * Use this API to update account details.  A token with ORG_ADMIN, SOURCE_ADMIN, or SOURCE_SUBADMIN authority is required to call this API.  This API supports updating an account\'s correlation by modifying the `identityId` and `manuallyCorrelated` fields.  To reassign an account from one identity to another, replace the current `identityId` with a new value.  If the account you\'re assigning was provisioned by Identity Security Cloud (ISC), it\'s possible for ISC to create a new account  for the previous identity as soon as the account is moved. If the account you\'re assigning is authoritative,  this causes the previous identity to become uncorrelated and can even result in its deletion. All accounts that are reassigned will be set to `manuallyCorrelated: true` unless you specify otherwise.  >**Note:** The `attributes` field can only be modified for flat file accounts.  
      * @summary Update Account
      * @param {AccountsApiUpdateAccountRequest} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
@@ -29185,7 +29792,7 @@ export class CertificationCampaignFiltersApi extends BaseAPI {
 export const CertificationCampaignsApiAxiosParamCreator = function (configuration?: Configuration) {
     return {
         /**
-         * :::caution  This endpoint will run successfully for any campaigns that are **past due**.  This endpoint will return a content error if the campaign is **not past due**.  :::  Use this API to complete a certification campaign. This functionality is provided to admins so that they can complete a certification even if all items have not been completed.  Calling this endpoint requires roles of CERT_ADMIN and ORG_ADMIN. 
+         * :::caution  This endpoint will run successfully for any campaigns that are **past due**.  This endpoint will return a content error if the campaign is **not past due**.  :::  Use this API to complete a certification campaign. This functionality is provided to admins so that they can complete a certification even if all items have not been completed.  A token with ORG_ADMIN or CERT_ADMIN authority is required to call this API. 
          * @summary Complete a Campaign
          * @param {string} id Campaign ID.
          * @param {CampaignCompleteOptions} [campaignCompleteOptions] Optional. Default behavior is for the campaign to auto-approve upon completion, unless autoCompleteAction&#x3D;REVOKE
@@ -29231,7 +29838,7 @@ export const CertificationCampaignsApiAxiosParamCreator = function (configuratio
             };
         },
         /**
-         * Use this API to create a certification campaign with the information provided in the request body.
+         * Use this API to create a certification campaign with the information provided in the request body.  A token with ORG_ADMIN or CERT_ADMIN authority is required to call this API. 
          * @summary Create a campaign
          * @param {Campaign} campaign 
          * @param {*} [axiosOptions] Override http request option.
@@ -29275,7 +29882,7 @@ export const CertificationCampaignsApiAxiosParamCreator = function (configuratio
             };
         },
         /**
-         * Use this API to create a certification campaign template based on campaign.
+         * Use this API to create a certification campaign template based on campaign.  A token with ORG_ADMIN or CERT_ADMIN authority is required to call this API. 
          * @summary Create a Campaign Template
          * @param {CampaignTemplate} campaignTemplate 
          * @param {*} [axiosOptions] Override http request option.
@@ -29319,7 +29926,7 @@ export const CertificationCampaignsApiAxiosParamCreator = function (configuratio
             };
         },
         /**
-         * Use this API to delete a certification campaign template by ID.
+         * Use this API to delete a certification campaign template by ID.  A token with ORG_ADMIN or CERT_ADMIN authority is required to call this API. 
          * @summary Delete a Campaign Template
          * @param {string} id ID of the campaign template being deleted.
          * @param {*} [axiosOptions] Override http request option.
@@ -29361,7 +29968,7 @@ export const CertificationCampaignsApiAxiosParamCreator = function (configuratio
             };
         },
         /**
-         * Use this API to delete the schedule for a certification campaign template. The API returns a 404 if there is no schedule set.
+         * Use this API to delete the schedule for a certification campaign template. The API returns a 404 if there is no schedule set.  A token with ORG_ADMIN or CERT_ADMIN authority is required to call this API. 
          * @summary Delete Campaign Template Schedule
          * @param {string} id ID of the campaign template whose schedule is being deleted.
          * @param {*} [axiosOptions] Override http request option.
@@ -29403,7 +30010,7 @@ export const CertificationCampaignsApiAxiosParamCreator = function (configuratio
             };
         },
         /**
-         * Use this API to delete certification campaigns whose IDs are specified in the provided list of campaign IDs.  Authorized callers must be ORG_ADMINs or CERT_ADMINs.
+         * Use this API to delete certification campaigns whose IDs are specified in the provided list of campaign IDs.  A token with ORG_ADMIN or CERT_ADMIN authority is required to call this API. 
          * @summary Delete Campaigns
          * @param {CampaignsDeleteRequest} campaignsDeleteRequest IDs of the campaigns to delete.
          * @param {*} [axiosOptions] Override http request option.
@@ -29447,7 +30054,7 @@ export const CertificationCampaignsApiAxiosParamCreator = function (configuratio
             };
         },
         /**
-         * Use this API to get a list of campaigns. This API can provide increased level of detail for each campaign for the correct provided query. 
+         * Use this API to get a list of campaigns. This API can provide increased level of detail for each campaign for the correct provided query.  A token with ORG_ADMIN, CERT_ADMIN or REPORT_ADMIN authority is required to call this API. 
          * @summary List Campaigns
          * @param {'SLIM' | 'FULL'} [detail] Determines whether slim, or increased level of detail is provided for each campaign in the returned list. Slim is the default behavior.
          * @param {number} [limit] Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
@@ -29515,7 +30122,7 @@ export const CertificationCampaignsApiAxiosParamCreator = function (configuratio
             };
         },
         /**
-         * Use this API to get information for an existing certification campaign by the campaign\'s ID.  Authorized callers must be reviewers for this campaign, ORG_ADMINs, or a CERT_ADMINs.
+         * Use this API to get information for an existing certification campaign by the campaign\'s ID.  A token with ORG_ADMIN or CERT_ADMIN authority is required to call this API. 
          * @summary Get Campaign
          * @param {string} id ID of the campaign to be retrieved.
          * @param {'SLIM' | 'FULL'} [detail] Determines whether slim, or increased level of detail is provided for each campaign in the returned list. Slim is the default behavior.
@@ -29562,7 +30169,7 @@ export const CertificationCampaignsApiAxiosParamCreator = function (configuratio
             };
         },
         /**
-         * Use this API to fetch all reports for a certification campaign by campaign ID. Calling this endpoint requires roles of CERT_ADMIN, DASHBOARD, ORG_ADMIN and REPORT_ADMIN.
+         * Use this API to fetch all reports for a certification campaign by campaign ID.  A token with ORG_ADMIN, CERT_ADMIN or REPORT_ADMIN authority is required to call this API. 
          * @summary Get Campaign Reports
          * @param {string} id ID of the campaign whose reports are being fetched.
          * @param {*} [axiosOptions] Override http request option.
@@ -29604,7 +30211,7 @@ export const CertificationCampaignsApiAxiosParamCreator = function (configuratio
             };
         },
         /**
-         * Use this API to fetch the configuration for certification campaign reports. The configuration includes only one element - identity attributes defined as custom report columns.  Calling this endpoint requires roles of CERT_ADMIN and ORG_ADMIN.
+         * Use this API to fetch the configuration for certification campaign reports. The configuration includes only one element - identity attributes defined as custom report columns.   A token with ORG_ADMIN or CERT_ADMIN authority is required to call this API. 
          * @summary Get Campaign Reports Configuration
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
@@ -29642,7 +30249,7 @@ export const CertificationCampaignsApiAxiosParamCreator = function (configuratio
             };
         },
         /**
-         * Use this API to fetch a certification campaign template by ID.
+         * Use this API to fetch a certification campaign template by ID.  A token with ORG_ADMIN or CERT_ADMIN authority is required to call this API. 
          * @summary Get a Campaign Template
          * @param {string} id Requested campaign template\&#39;s ID.
          * @param {*} [axiosOptions] Override http request option.
@@ -29684,7 +30291,7 @@ export const CertificationCampaignsApiAxiosParamCreator = function (configuratio
             };
         },
         /**
-         * Use this API to get the schedule for a certification campaign template. The API returns a 404 if there is no schedule set.
+         * Use this API to get the schedule for a certification campaign template. The API returns a 404 if there is no schedule set.  A token with ORG_ADMIN or CERT_ADMIN authority is required to call this API. 
          * @summary Get Campaign Template Schedule
          * @param {string} id ID of the campaign template whose schedule is being fetched.
          * @param {*} [axiosOptions] Override http request option.
@@ -29726,7 +30333,7 @@ export const CertificationCampaignsApiAxiosParamCreator = function (configuratio
             };
         },
         /**
-         * Use this API to get a list of all campaign templates. Scope can be reduced through standard V3 query params. The API returns all campaign templates matching the query parameters. 
+         * Use this API to get a list of all campaign templates. Scope can be reduced through standard V3 query params.  The API returns all campaign templates matching the query parameters.   A token with ORG_ADMIN or CERT_ADMIN authority is required to call this API. 
          * @summary List Campaign Templates
          * @param {number} [limit] Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
          * @param {number} [offset] Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
@@ -29789,7 +30396,7 @@ export const CertificationCampaignsApiAxiosParamCreator = function (configuratio
             };
         },
         /**
-         * This API reassigns the specified certifications from one identity to another. A token with ORG_ADMIN or CERT_ADMIN authority is required to call this API.
+         * This API reassigns the specified certifications from one identity to another.  A token with ORG_ADMIN or CERT_ADMIN authority is required to call this API. 
          * @summary Reassign Certifications
          * @param {string} id The certification campaign ID
          * @param {AdminReviewReassign} adminReviewReassign 
@@ -29837,7 +30444,7 @@ export const CertificationCampaignsApiAxiosParamCreator = function (configuratio
             };
         },
         /**
-         * Use this API to update individual fields on a certification campaign template, using the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.
+         * Use this API to update individual fields on a certification campaign template, using the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.  A token with ORG_ADMIN or CERT_ADMIN authority is required to call this API. 
          * @summary Update a Campaign Template
          * @param {string} id ID of the campaign template being modified.
          * @param {Array<JsonPatchOperation>} jsonPatchOperation A list of campaign update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.  The following fields are patchable: * name * description * deadlineDuration * campaign (all fields that are allowed during create) 
@@ -29885,7 +30492,7 @@ export const CertificationCampaignsApiAxiosParamCreator = function (configuratio
             };
         },
         /**
-         * Use this API to overwrite the configuration for campaign reports.  Calling this endpoint requires roles of CERT_ADMIN and ORG_ADMIN.
+         * Use this API to overwrite the configuration for campaign reports.   A token with ORG_ADMIN or CERT_ADMIN authority is required to call this API. 
          * @summary Set Campaign Reports Configuration
          * @param {CampaignReportsConfig} campaignReportsConfig Campaign report configuration.
          * @param {*} [axiosOptions] Override http request option.
@@ -29929,7 +30536,7 @@ export const CertificationCampaignsApiAxiosParamCreator = function (configuratio
             };
         },
         /**
-         * Use this API to set the schedule for a certification campaign template. If a schedule already exists, the API overwrites it with the new one. 
+         * Use this API to set the schedule for a certification campaign template. If a schedule already exists, the API overwrites it with the new one.  A token with ORG_ADMIN or CERT_ADMIN authority is required to call this API. 
          * @summary Set Campaign Template Schedule
          * @param {string} id ID of the campaign template being scheduled.
          * @param {Schedule} [schedule] 
@@ -29975,7 +30582,7 @@ export const CertificationCampaignsApiAxiosParamCreator = function (configuratio
             };
         },
         /**
-         * Use this API to submit a job to activate the certified campaign with the specified ID. The campaign must be staged. Calling this endpoint requires roles of CERT_ADMIN and ORG_ADMIN.
+         * Use this API to submit a job to activate the certified campaign with the specified ID. The campaign must be staged.  A token with ORG_ADMIN or CERT_ADMIN authority is required to call this API.  
          * @summary Activate a Campaign
          * @param {string} id Campaign ID.
          * @param {ActivateCampaignOptions} [activateCampaignOptions] Optional. If no timezone is specified, the standard UTC timezone is used (i.e. UTC+00:00). Although this can take any timezone, the intended value is the caller\&#39;s timezone. The activation time calculated from the given timezone may cause the campaign deadline time to be modified, but it will remain within the original date. The timezone must be in a valid ISO 8601 format.
@@ -30021,7 +30628,7 @@ export const CertificationCampaignsApiAxiosParamCreator = function (configuratio
             };
         },
         /**
-         * Use this API to run a remediation scan task for a certification campaign. Calling this endpoint requires roles of CERT_ADMIN and ORG_ADMIN.
+         * Use this API to run a remediation scan task for a certification campaign.  A token with ORG_ADMIN, CERT_ADMIN or REPORT_ADMIN authority is required to call this API. 
          * @summary Run Campaign Remediation Scan
          * @param {string} id ID of the campaign the remediation scan is being run for.
          * @param {*} [axiosOptions] Override http request option.
@@ -30063,7 +30670,7 @@ export const CertificationCampaignsApiAxiosParamCreator = function (configuratio
             };
         },
         /**
-         * Use this API to run a report for a certification campaign. Calling this endpoint requires the following roles: CERT_ADMIN, DASHBOARD, ORG_ADMIN and REPORT_ADMIN.
+         * Use this API to run a report for a certification campaign.  A token with ORG_ADMIN, CERT_ADMIN or REPORT_ADMIN authority is required to call this API. 
          * @summary Run Campaign Report
          * @param {string} id ID of the campaign the report is being run for.
          * @param {ReportType} type Type of the report to run.
@@ -30109,7 +30716,7 @@ export const CertificationCampaignsApiAxiosParamCreator = function (configuratio
             };
         },
         /**
-         * Use this API to generate a new certification campaign from a campaign template. The campaign object contained in the template has special formatting applied to its name and description fields that determine the generated campaign\'s name/description. Placeholders in those fields are formatted with the current date and time upon generation. Placeholders consist of a percent sign followed by a letter indicating what should be inserted. For example, \"%Y\" inserts the current year, and a campaign template named \"Campaign for %y\" generates a campaign called \"Campaign for 2020\" (assuming the year at generation time is 2020). Valid placeholders are the date/time conversion suffix characters supported by [java.util.Formatter](https://docs.oracle.com/javase/8/docs/api/java/util/Formatter.html). Calling this endpoint requires the ORG_ADMIN role.
+         * Use this API to generate a new certification campaign from a campaign template.  The campaign object contained in the template has special formatting applied to its name and description fields that determine the generated campaign\'s name/description. Placeholders in those fields are formatted with the current date and time upon generation.  Placeholders consist of a percent sign followed by a letter indicating what should be inserted. For example, \"%Y\" inserts the current year, and a campaign template named \"Campaign for %y\" generates a campaign called \"Campaign for 2020\" (assuming the year at generation time is 2020).  Valid placeholders are the date/time conversion suffix characters supported by [java.util.Formatter](https://docs.oracle.com/javase/8/docs/api/java/util/Formatter.html).  A token with ORG_ADMIN or CERT_ADMIN authority is required to call this API. 
          * @summary Generate a Campaign from Template
          * @param {string} id ID of the campaign template to use for generation.
          * @param {*} [axiosOptions] Override http request option.
@@ -30151,7 +30758,7 @@ export const CertificationCampaignsApiAxiosParamCreator = function (configuratio
             };
         },
         /**
-         * Use this API to update individual fields on a certification campaign, using the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.
+         * Use this API to update individual fields on a certification campaign, using the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.  A token with ORG_ADMIN or CERT_ADMIN authority is required to call this API. 
          * @summary Update a Campaign
          * @param {string} id ID of the campaign template being modified.
          * @param {Array<JsonPatchOperation>} jsonPatchOperation A list of campaign update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard. The fields that can be patched differ based on the status of the campaign.  When the campaign is in the *STAGED* status, you can patch these fields: * name * description * recommendationsEnabled * deadline * emailNotificationEnabled * autoRevokeAllowed  When the campaign is in the *ACTIVE* status, you can patch these fields: * deadline 
@@ -30209,7 +30816,7 @@ export const CertificationCampaignsApiFp = function(configuration?: Configuratio
     const localVarAxiosParamCreator = CertificationCampaignsApiAxiosParamCreator(configuration)
     return {
         /**
-         * :::caution  This endpoint will run successfully for any campaigns that are **past due**.  This endpoint will return a content error if the campaign is **not past due**.  :::  Use this API to complete a certification campaign. This functionality is provided to admins so that they can complete a certification even if all items have not been completed.  Calling this endpoint requires roles of CERT_ADMIN and ORG_ADMIN. 
+         * :::caution  This endpoint will run successfully for any campaigns that are **past due**.  This endpoint will return a content error if the campaign is **not past due**.  :::  Use this API to complete a certification campaign. This functionality is provided to admins so that they can complete a certification even if all items have not been completed.  A token with ORG_ADMIN or CERT_ADMIN authority is required to call this API. 
          * @summary Complete a Campaign
          * @param {string} id Campaign ID.
          * @param {CampaignCompleteOptions} [campaignCompleteOptions] Optional. Default behavior is for the campaign to auto-approve upon completion, unless autoCompleteAction&#x3D;REVOKE
@@ -30221,7 +30828,7 @@ export const CertificationCampaignsApiFp = function(configuration?: Configuratio
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
-         * Use this API to create a certification campaign with the information provided in the request body.
+         * Use this API to create a certification campaign with the information provided in the request body.  A token with ORG_ADMIN or CERT_ADMIN authority is required to call this API. 
          * @summary Create a campaign
          * @param {Campaign} campaign 
          * @param {*} [axiosOptions] Override http request option.
@@ -30232,7 +30839,7 @@ export const CertificationCampaignsApiFp = function(configuration?: Configuratio
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
-         * Use this API to create a certification campaign template based on campaign.
+         * Use this API to create a certification campaign template based on campaign.  A token with ORG_ADMIN or CERT_ADMIN authority is required to call this API. 
          * @summary Create a Campaign Template
          * @param {CampaignTemplate} campaignTemplate 
          * @param {*} [axiosOptions] Override http request option.
@@ -30243,7 +30850,7 @@ export const CertificationCampaignsApiFp = function(configuration?: Configuratio
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
-         * Use this API to delete a certification campaign template by ID.
+         * Use this API to delete a certification campaign template by ID.  A token with ORG_ADMIN or CERT_ADMIN authority is required to call this API. 
          * @summary Delete a Campaign Template
          * @param {string} id ID of the campaign template being deleted.
          * @param {*} [axiosOptions] Override http request option.
@@ -30254,7 +30861,7 @@ export const CertificationCampaignsApiFp = function(configuration?: Configuratio
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
-         * Use this API to delete the schedule for a certification campaign template. The API returns a 404 if there is no schedule set.
+         * Use this API to delete the schedule for a certification campaign template. The API returns a 404 if there is no schedule set.  A token with ORG_ADMIN or CERT_ADMIN authority is required to call this API. 
          * @summary Delete Campaign Template Schedule
          * @param {string} id ID of the campaign template whose schedule is being deleted.
          * @param {*} [axiosOptions] Override http request option.
@@ -30265,7 +30872,7 @@ export const CertificationCampaignsApiFp = function(configuration?: Configuratio
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
-         * Use this API to delete certification campaigns whose IDs are specified in the provided list of campaign IDs.  Authorized callers must be ORG_ADMINs or CERT_ADMINs.
+         * Use this API to delete certification campaigns whose IDs are specified in the provided list of campaign IDs.  A token with ORG_ADMIN or CERT_ADMIN authority is required to call this API. 
          * @summary Delete Campaigns
          * @param {CampaignsDeleteRequest} campaignsDeleteRequest IDs of the campaigns to delete.
          * @param {*} [axiosOptions] Override http request option.
@@ -30276,7 +30883,7 @@ export const CertificationCampaignsApiFp = function(configuration?: Configuratio
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
-         * Use this API to get a list of campaigns. This API can provide increased level of detail for each campaign for the correct provided query. 
+         * Use this API to get a list of campaigns. This API can provide increased level of detail for each campaign for the correct provided query.  A token with ORG_ADMIN, CERT_ADMIN or REPORT_ADMIN authority is required to call this API. 
          * @summary List Campaigns
          * @param {'SLIM' | 'FULL'} [detail] Determines whether slim, or increased level of detail is provided for each campaign in the returned list. Slim is the default behavior.
          * @param {number} [limit] Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
@@ -30292,7 +30899,7 @@ export const CertificationCampaignsApiFp = function(configuration?: Configuratio
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
-         * Use this API to get information for an existing certification campaign by the campaign\'s ID.  Authorized callers must be reviewers for this campaign, ORG_ADMINs, or a CERT_ADMINs.
+         * Use this API to get information for an existing certification campaign by the campaign\'s ID.  A token with ORG_ADMIN or CERT_ADMIN authority is required to call this API. 
          * @summary Get Campaign
          * @param {string} id ID of the campaign to be retrieved.
          * @param {'SLIM' | 'FULL'} [detail] Determines whether slim, or increased level of detail is provided for each campaign in the returned list. Slim is the default behavior.
@@ -30304,7 +30911,7 @@ export const CertificationCampaignsApiFp = function(configuration?: Configuratio
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
-         * Use this API to fetch all reports for a certification campaign by campaign ID. Calling this endpoint requires roles of CERT_ADMIN, DASHBOARD, ORG_ADMIN and REPORT_ADMIN.
+         * Use this API to fetch all reports for a certification campaign by campaign ID.  A token with ORG_ADMIN, CERT_ADMIN or REPORT_ADMIN authority is required to call this API. 
          * @summary Get Campaign Reports
          * @param {string} id ID of the campaign whose reports are being fetched.
          * @param {*} [axiosOptions] Override http request option.
@@ -30315,7 +30922,7 @@ export const CertificationCampaignsApiFp = function(configuration?: Configuratio
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
-         * Use this API to fetch the configuration for certification campaign reports. The configuration includes only one element - identity attributes defined as custom report columns.  Calling this endpoint requires roles of CERT_ADMIN and ORG_ADMIN.
+         * Use this API to fetch the configuration for certification campaign reports. The configuration includes only one element - identity attributes defined as custom report columns.   A token with ORG_ADMIN or CERT_ADMIN authority is required to call this API. 
          * @summary Get Campaign Reports Configuration
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
@@ -30325,7 +30932,7 @@ export const CertificationCampaignsApiFp = function(configuration?: Configuratio
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
-         * Use this API to fetch a certification campaign template by ID.
+         * Use this API to fetch a certification campaign template by ID.  A token with ORG_ADMIN or CERT_ADMIN authority is required to call this API. 
          * @summary Get a Campaign Template
          * @param {string} id Requested campaign template\&#39;s ID.
          * @param {*} [axiosOptions] Override http request option.
@@ -30336,7 +30943,7 @@ export const CertificationCampaignsApiFp = function(configuration?: Configuratio
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
-         * Use this API to get the schedule for a certification campaign template. The API returns a 404 if there is no schedule set.
+         * Use this API to get the schedule for a certification campaign template. The API returns a 404 if there is no schedule set.  A token with ORG_ADMIN or CERT_ADMIN authority is required to call this API. 
          * @summary Get Campaign Template Schedule
          * @param {string} id ID of the campaign template whose schedule is being fetched.
          * @param {*} [axiosOptions] Override http request option.
@@ -30347,7 +30954,7 @@ export const CertificationCampaignsApiFp = function(configuration?: Configuratio
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
-         * Use this API to get a list of all campaign templates. Scope can be reduced through standard V3 query params. The API returns all campaign templates matching the query parameters. 
+         * Use this API to get a list of all campaign templates. Scope can be reduced through standard V3 query params.  The API returns all campaign templates matching the query parameters.   A token with ORG_ADMIN or CERT_ADMIN authority is required to call this API. 
          * @summary List Campaign Templates
          * @param {number} [limit] Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
          * @param {number} [offset] Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
@@ -30362,7 +30969,7 @@ export const CertificationCampaignsApiFp = function(configuration?: Configuratio
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
-         * This API reassigns the specified certifications from one identity to another. A token with ORG_ADMIN or CERT_ADMIN authority is required to call this API.
+         * This API reassigns the specified certifications from one identity to another.  A token with ORG_ADMIN or CERT_ADMIN authority is required to call this API. 
          * @summary Reassign Certifications
          * @param {string} id The certification campaign ID
          * @param {AdminReviewReassign} adminReviewReassign 
@@ -30374,7 +30981,7 @@ export const CertificationCampaignsApiFp = function(configuration?: Configuratio
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
-         * Use this API to update individual fields on a certification campaign template, using the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.
+         * Use this API to update individual fields on a certification campaign template, using the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.  A token with ORG_ADMIN or CERT_ADMIN authority is required to call this API. 
          * @summary Update a Campaign Template
          * @param {string} id ID of the campaign template being modified.
          * @param {Array<JsonPatchOperation>} jsonPatchOperation A list of campaign update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.  The following fields are patchable: * name * description * deadlineDuration * campaign (all fields that are allowed during create) 
@@ -30386,7 +30993,7 @@ export const CertificationCampaignsApiFp = function(configuration?: Configuratio
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
-         * Use this API to overwrite the configuration for campaign reports.  Calling this endpoint requires roles of CERT_ADMIN and ORG_ADMIN.
+         * Use this API to overwrite the configuration for campaign reports.   A token with ORG_ADMIN or CERT_ADMIN authority is required to call this API. 
          * @summary Set Campaign Reports Configuration
          * @param {CampaignReportsConfig} campaignReportsConfig Campaign report configuration.
          * @param {*} [axiosOptions] Override http request option.
@@ -30397,7 +31004,7 @@ export const CertificationCampaignsApiFp = function(configuration?: Configuratio
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
-         * Use this API to set the schedule for a certification campaign template. If a schedule already exists, the API overwrites it with the new one. 
+         * Use this API to set the schedule for a certification campaign template. If a schedule already exists, the API overwrites it with the new one.  A token with ORG_ADMIN or CERT_ADMIN authority is required to call this API. 
          * @summary Set Campaign Template Schedule
          * @param {string} id ID of the campaign template being scheduled.
          * @param {Schedule} [schedule] 
@@ -30409,7 +31016,7 @@ export const CertificationCampaignsApiFp = function(configuration?: Configuratio
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
-         * Use this API to submit a job to activate the certified campaign with the specified ID. The campaign must be staged. Calling this endpoint requires roles of CERT_ADMIN and ORG_ADMIN.
+         * Use this API to submit a job to activate the certified campaign with the specified ID. The campaign must be staged.  A token with ORG_ADMIN or CERT_ADMIN authority is required to call this API.  
          * @summary Activate a Campaign
          * @param {string} id Campaign ID.
          * @param {ActivateCampaignOptions} [activateCampaignOptions] Optional. If no timezone is specified, the standard UTC timezone is used (i.e. UTC+00:00). Although this can take any timezone, the intended value is the caller\&#39;s timezone. The activation time calculated from the given timezone may cause the campaign deadline time to be modified, but it will remain within the original date. The timezone must be in a valid ISO 8601 format.
@@ -30421,7 +31028,7 @@ export const CertificationCampaignsApiFp = function(configuration?: Configuratio
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
-         * Use this API to run a remediation scan task for a certification campaign. Calling this endpoint requires roles of CERT_ADMIN and ORG_ADMIN.
+         * Use this API to run a remediation scan task for a certification campaign.  A token with ORG_ADMIN, CERT_ADMIN or REPORT_ADMIN authority is required to call this API. 
          * @summary Run Campaign Remediation Scan
          * @param {string} id ID of the campaign the remediation scan is being run for.
          * @param {*} [axiosOptions] Override http request option.
@@ -30432,7 +31039,7 @@ export const CertificationCampaignsApiFp = function(configuration?: Configuratio
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
-         * Use this API to run a report for a certification campaign. Calling this endpoint requires the following roles: CERT_ADMIN, DASHBOARD, ORG_ADMIN and REPORT_ADMIN.
+         * Use this API to run a report for a certification campaign.  A token with ORG_ADMIN, CERT_ADMIN or REPORT_ADMIN authority is required to call this API. 
          * @summary Run Campaign Report
          * @param {string} id ID of the campaign the report is being run for.
          * @param {ReportType} type Type of the report to run.
@@ -30444,7 +31051,7 @@ export const CertificationCampaignsApiFp = function(configuration?: Configuratio
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
-         * Use this API to generate a new certification campaign from a campaign template. The campaign object contained in the template has special formatting applied to its name and description fields that determine the generated campaign\'s name/description. Placeholders in those fields are formatted with the current date and time upon generation. Placeholders consist of a percent sign followed by a letter indicating what should be inserted. For example, \"%Y\" inserts the current year, and a campaign template named \"Campaign for %y\" generates a campaign called \"Campaign for 2020\" (assuming the year at generation time is 2020). Valid placeholders are the date/time conversion suffix characters supported by [java.util.Formatter](https://docs.oracle.com/javase/8/docs/api/java/util/Formatter.html). Calling this endpoint requires the ORG_ADMIN role.
+         * Use this API to generate a new certification campaign from a campaign template.  The campaign object contained in the template has special formatting applied to its name and description fields that determine the generated campaign\'s name/description. Placeholders in those fields are formatted with the current date and time upon generation.  Placeholders consist of a percent sign followed by a letter indicating what should be inserted. For example, \"%Y\" inserts the current year, and a campaign template named \"Campaign for %y\" generates a campaign called \"Campaign for 2020\" (assuming the year at generation time is 2020).  Valid placeholders are the date/time conversion suffix characters supported by [java.util.Formatter](https://docs.oracle.com/javase/8/docs/api/java/util/Formatter.html).  A token with ORG_ADMIN or CERT_ADMIN authority is required to call this API. 
          * @summary Generate a Campaign from Template
          * @param {string} id ID of the campaign template to use for generation.
          * @param {*} [axiosOptions] Override http request option.
@@ -30455,7 +31062,7 @@ export const CertificationCampaignsApiFp = function(configuration?: Configuratio
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
-         * Use this API to update individual fields on a certification campaign, using the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.
+         * Use this API to update individual fields on a certification campaign, using the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.  A token with ORG_ADMIN or CERT_ADMIN authority is required to call this API. 
          * @summary Update a Campaign
          * @param {string} id ID of the campaign template being modified.
          * @param {Array<JsonPatchOperation>} jsonPatchOperation A list of campaign update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard. The fields that can be patched differ based on the status of the campaign.  When the campaign is in the *STAGED* status, you can patch these fields: * name * description * recommendationsEnabled * deadline * emailNotificationEnabled * autoRevokeAllowed  When the campaign is in the *ACTIVE* status, you can patch these fields: * deadline 
@@ -30477,7 +31084,7 @@ export const CertificationCampaignsApiFactory = function (configuration?: Config
     const localVarFp = CertificationCampaignsApiFp(configuration)
     return {
         /**
-         * :::caution  This endpoint will run successfully for any campaigns that are **past due**.  This endpoint will return a content error if the campaign is **not past due**.  :::  Use this API to complete a certification campaign. This functionality is provided to admins so that they can complete a certification even if all items have not been completed.  Calling this endpoint requires roles of CERT_ADMIN and ORG_ADMIN. 
+         * :::caution  This endpoint will run successfully for any campaigns that are **past due**.  This endpoint will return a content error if the campaign is **not past due**.  :::  Use this API to complete a certification campaign. This functionality is provided to admins so that they can complete a certification even if all items have not been completed.  A token with ORG_ADMIN or CERT_ADMIN authority is required to call this API. 
          * @summary Complete a Campaign
          * @param {string} id Campaign ID.
          * @param {CampaignCompleteOptions} [campaignCompleteOptions] Optional. Default behavior is for the campaign to auto-approve upon completion, unless autoCompleteAction&#x3D;REVOKE
@@ -30488,7 +31095,7 @@ export const CertificationCampaignsApiFactory = function (configuration?: Config
             return localVarFp.completeCampaign(id, campaignCompleteOptions, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
-         * Use this API to create a certification campaign with the information provided in the request body.
+         * Use this API to create a certification campaign with the information provided in the request body.  A token with ORG_ADMIN or CERT_ADMIN authority is required to call this API. 
          * @summary Create a campaign
          * @param {Campaign} campaign 
          * @param {*} [axiosOptions] Override http request option.
@@ -30498,7 +31105,7 @@ export const CertificationCampaignsApiFactory = function (configuration?: Config
             return localVarFp.createCampaign(campaign, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
-         * Use this API to create a certification campaign template based on campaign.
+         * Use this API to create a certification campaign template based on campaign.  A token with ORG_ADMIN or CERT_ADMIN authority is required to call this API. 
          * @summary Create a Campaign Template
          * @param {CampaignTemplate} campaignTemplate 
          * @param {*} [axiosOptions] Override http request option.
@@ -30508,7 +31115,7 @@ export const CertificationCampaignsApiFactory = function (configuration?: Config
             return localVarFp.createCampaignTemplate(campaignTemplate, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
-         * Use this API to delete a certification campaign template by ID.
+         * Use this API to delete a certification campaign template by ID.  A token with ORG_ADMIN or CERT_ADMIN authority is required to call this API. 
          * @summary Delete a Campaign Template
          * @param {string} id ID of the campaign template being deleted.
          * @param {*} [axiosOptions] Override http request option.
@@ -30518,7 +31125,7 @@ export const CertificationCampaignsApiFactory = function (configuration?: Config
             return localVarFp.deleteCampaignTemplate(id, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
-         * Use this API to delete the schedule for a certification campaign template. The API returns a 404 if there is no schedule set.
+         * Use this API to delete the schedule for a certification campaign template. The API returns a 404 if there is no schedule set.  A token with ORG_ADMIN or CERT_ADMIN authority is required to call this API. 
          * @summary Delete Campaign Template Schedule
          * @param {string} id ID of the campaign template whose schedule is being deleted.
          * @param {*} [axiosOptions] Override http request option.
@@ -30528,7 +31135,7 @@ export const CertificationCampaignsApiFactory = function (configuration?: Config
             return localVarFp.deleteCampaignTemplateSchedule(id, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
-         * Use this API to delete certification campaigns whose IDs are specified in the provided list of campaign IDs.  Authorized callers must be ORG_ADMINs or CERT_ADMINs.
+         * Use this API to delete certification campaigns whose IDs are specified in the provided list of campaign IDs.  A token with ORG_ADMIN or CERT_ADMIN authority is required to call this API. 
          * @summary Delete Campaigns
          * @param {CampaignsDeleteRequest} campaignsDeleteRequest IDs of the campaigns to delete.
          * @param {*} [axiosOptions] Override http request option.
@@ -30538,7 +31145,7 @@ export const CertificationCampaignsApiFactory = function (configuration?: Config
             return localVarFp.deleteCampaigns(campaignsDeleteRequest, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
-         * Use this API to get a list of campaigns. This API can provide increased level of detail for each campaign for the correct provided query. 
+         * Use this API to get a list of campaigns. This API can provide increased level of detail for each campaign for the correct provided query.  A token with ORG_ADMIN, CERT_ADMIN or REPORT_ADMIN authority is required to call this API. 
          * @summary List Campaigns
          * @param {'SLIM' | 'FULL'} [detail] Determines whether slim, or increased level of detail is provided for each campaign in the returned list. Slim is the default behavior.
          * @param {number} [limit] Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
@@ -30553,7 +31160,7 @@ export const CertificationCampaignsApiFactory = function (configuration?: Config
             return localVarFp.getActiveCampaigns(detail, limit, offset, count, filters, sorters, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
-         * Use this API to get information for an existing certification campaign by the campaign\'s ID.  Authorized callers must be reviewers for this campaign, ORG_ADMINs, or a CERT_ADMINs.
+         * Use this API to get information for an existing certification campaign by the campaign\'s ID.  A token with ORG_ADMIN or CERT_ADMIN authority is required to call this API. 
          * @summary Get Campaign
          * @param {string} id ID of the campaign to be retrieved.
          * @param {'SLIM' | 'FULL'} [detail] Determines whether slim, or increased level of detail is provided for each campaign in the returned list. Slim is the default behavior.
@@ -30564,7 +31171,7 @@ export const CertificationCampaignsApiFactory = function (configuration?: Config
             return localVarFp.getCampaign(id, detail, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
-         * Use this API to fetch all reports for a certification campaign by campaign ID. Calling this endpoint requires roles of CERT_ADMIN, DASHBOARD, ORG_ADMIN and REPORT_ADMIN.
+         * Use this API to fetch all reports for a certification campaign by campaign ID.  A token with ORG_ADMIN, CERT_ADMIN or REPORT_ADMIN authority is required to call this API. 
          * @summary Get Campaign Reports
          * @param {string} id ID of the campaign whose reports are being fetched.
          * @param {*} [axiosOptions] Override http request option.
@@ -30574,7 +31181,7 @@ export const CertificationCampaignsApiFactory = function (configuration?: Config
             return localVarFp.getCampaignReports(id, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
-         * Use this API to fetch the configuration for certification campaign reports. The configuration includes only one element - identity attributes defined as custom report columns.  Calling this endpoint requires roles of CERT_ADMIN and ORG_ADMIN.
+         * Use this API to fetch the configuration for certification campaign reports. The configuration includes only one element - identity attributes defined as custom report columns.   A token with ORG_ADMIN or CERT_ADMIN authority is required to call this API. 
          * @summary Get Campaign Reports Configuration
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
@@ -30583,7 +31190,7 @@ export const CertificationCampaignsApiFactory = function (configuration?: Config
             return localVarFp.getCampaignReportsConfig(axiosOptions).then((request) => request(axios, basePath));
         },
         /**
-         * Use this API to fetch a certification campaign template by ID.
+         * Use this API to fetch a certification campaign template by ID.  A token with ORG_ADMIN or CERT_ADMIN authority is required to call this API. 
          * @summary Get a Campaign Template
          * @param {string} id Requested campaign template\&#39;s ID.
          * @param {*} [axiosOptions] Override http request option.
@@ -30593,7 +31200,7 @@ export const CertificationCampaignsApiFactory = function (configuration?: Config
             return localVarFp.getCampaignTemplate(id, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
-         * Use this API to get the schedule for a certification campaign template. The API returns a 404 if there is no schedule set.
+         * Use this API to get the schedule for a certification campaign template. The API returns a 404 if there is no schedule set.  A token with ORG_ADMIN or CERT_ADMIN authority is required to call this API. 
          * @summary Get Campaign Template Schedule
          * @param {string} id ID of the campaign template whose schedule is being fetched.
          * @param {*} [axiosOptions] Override http request option.
@@ -30603,7 +31210,7 @@ export const CertificationCampaignsApiFactory = function (configuration?: Config
             return localVarFp.getCampaignTemplateSchedule(id, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
-         * Use this API to get a list of all campaign templates. Scope can be reduced through standard V3 query params. The API returns all campaign templates matching the query parameters. 
+         * Use this API to get a list of all campaign templates. Scope can be reduced through standard V3 query params.  The API returns all campaign templates matching the query parameters.   A token with ORG_ADMIN or CERT_ADMIN authority is required to call this API. 
          * @summary List Campaign Templates
          * @param {number} [limit] Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
          * @param {number} [offset] Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
@@ -30617,7 +31224,7 @@ export const CertificationCampaignsApiFactory = function (configuration?: Config
             return localVarFp.getCampaignTemplates(limit, offset, count, sorters, filters, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
-         * This API reassigns the specified certifications from one identity to another. A token with ORG_ADMIN or CERT_ADMIN authority is required to call this API.
+         * This API reassigns the specified certifications from one identity to another.  A token with ORG_ADMIN or CERT_ADMIN authority is required to call this API. 
          * @summary Reassign Certifications
          * @param {string} id The certification campaign ID
          * @param {AdminReviewReassign} adminReviewReassign 
@@ -30628,7 +31235,7 @@ export const CertificationCampaignsApiFactory = function (configuration?: Config
             return localVarFp.move(id, adminReviewReassign, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
-         * Use this API to update individual fields on a certification campaign template, using the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.
+         * Use this API to update individual fields on a certification campaign template, using the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.  A token with ORG_ADMIN or CERT_ADMIN authority is required to call this API. 
          * @summary Update a Campaign Template
          * @param {string} id ID of the campaign template being modified.
          * @param {Array<JsonPatchOperation>} jsonPatchOperation A list of campaign update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.  The following fields are patchable: * name * description * deadlineDuration * campaign (all fields that are allowed during create) 
@@ -30639,7 +31246,7 @@ export const CertificationCampaignsApiFactory = function (configuration?: Config
             return localVarFp.patchCampaignTemplate(id, jsonPatchOperation, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
-         * Use this API to overwrite the configuration for campaign reports.  Calling this endpoint requires roles of CERT_ADMIN and ORG_ADMIN.
+         * Use this API to overwrite the configuration for campaign reports.   A token with ORG_ADMIN or CERT_ADMIN authority is required to call this API. 
          * @summary Set Campaign Reports Configuration
          * @param {CampaignReportsConfig} campaignReportsConfig Campaign report configuration.
          * @param {*} [axiosOptions] Override http request option.
@@ -30649,7 +31256,7 @@ export const CertificationCampaignsApiFactory = function (configuration?: Config
             return localVarFp.setCampaignReportsConfig(campaignReportsConfig, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
-         * Use this API to set the schedule for a certification campaign template. If a schedule already exists, the API overwrites it with the new one. 
+         * Use this API to set the schedule for a certification campaign template. If a schedule already exists, the API overwrites it with the new one.  A token with ORG_ADMIN or CERT_ADMIN authority is required to call this API. 
          * @summary Set Campaign Template Schedule
          * @param {string} id ID of the campaign template being scheduled.
          * @param {Schedule} [schedule] 
@@ -30660,7 +31267,7 @@ export const CertificationCampaignsApiFactory = function (configuration?: Config
             return localVarFp.setCampaignTemplateSchedule(id, schedule, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
-         * Use this API to submit a job to activate the certified campaign with the specified ID. The campaign must be staged. Calling this endpoint requires roles of CERT_ADMIN and ORG_ADMIN.
+         * Use this API to submit a job to activate the certified campaign with the specified ID. The campaign must be staged.  A token with ORG_ADMIN or CERT_ADMIN authority is required to call this API.  
          * @summary Activate a Campaign
          * @param {string} id Campaign ID.
          * @param {ActivateCampaignOptions} [activateCampaignOptions] Optional. If no timezone is specified, the standard UTC timezone is used (i.e. UTC+00:00). Although this can take any timezone, the intended value is the caller\&#39;s timezone. The activation time calculated from the given timezone may cause the campaign deadline time to be modified, but it will remain within the original date. The timezone must be in a valid ISO 8601 format.
@@ -30671,7 +31278,7 @@ export const CertificationCampaignsApiFactory = function (configuration?: Config
             return localVarFp.startCampaign(id, activateCampaignOptions, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
-         * Use this API to run a remediation scan task for a certification campaign. Calling this endpoint requires roles of CERT_ADMIN and ORG_ADMIN.
+         * Use this API to run a remediation scan task for a certification campaign.  A token with ORG_ADMIN, CERT_ADMIN or REPORT_ADMIN authority is required to call this API. 
          * @summary Run Campaign Remediation Scan
          * @param {string} id ID of the campaign the remediation scan is being run for.
          * @param {*} [axiosOptions] Override http request option.
@@ -30681,7 +31288,7 @@ export const CertificationCampaignsApiFactory = function (configuration?: Config
             return localVarFp.startCampaignRemediationScan(id, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
-         * Use this API to run a report for a certification campaign. Calling this endpoint requires the following roles: CERT_ADMIN, DASHBOARD, ORG_ADMIN and REPORT_ADMIN.
+         * Use this API to run a report for a certification campaign.  A token with ORG_ADMIN, CERT_ADMIN or REPORT_ADMIN authority is required to call this API. 
          * @summary Run Campaign Report
          * @param {string} id ID of the campaign the report is being run for.
          * @param {ReportType} type Type of the report to run.
@@ -30692,7 +31299,7 @@ export const CertificationCampaignsApiFactory = function (configuration?: Config
             return localVarFp.startCampaignReport(id, type, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
-         * Use this API to generate a new certification campaign from a campaign template. The campaign object contained in the template has special formatting applied to its name and description fields that determine the generated campaign\'s name/description. Placeholders in those fields are formatted with the current date and time upon generation. Placeholders consist of a percent sign followed by a letter indicating what should be inserted. For example, \"%Y\" inserts the current year, and a campaign template named \"Campaign for %y\" generates a campaign called \"Campaign for 2020\" (assuming the year at generation time is 2020). Valid placeholders are the date/time conversion suffix characters supported by [java.util.Formatter](https://docs.oracle.com/javase/8/docs/api/java/util/Formatter.html). Calling this endpoint requires the ORG_ADMIN role.
+         * Use this API to generate a new certification campaign from a campaign template.  The campaign object contained in the template has special formatting applied to its name and description fields that determine the generated campaign\'s name/description. Placeholders in those fields are formatted with the current date and time upon generation.  Placeholders consist of a percent sign followed by a letter indicating what should be inserted. For example, \"%Y\" inserts the current year, and a campaign template named \"Campaign for %y\" generates a campaign called \"Campaign for 2020\" (assuming the year at generation time is 2020).  Valid placeholders are the date/time conversion suffix characters supported by [java.util.Formatter](https://docs.oracle.com/javase/8/docs/api/java/util/Formatter.html).  A token with ORG_ADMIN or CERT_ADMIN authority is required to call this API. 
          * @summary Generate a Campaign from Template
          * @param {string} id ID of the campaign template to use for generation.
          * @param {*} [axiosOptions] Override http request option.
@@ -30702,7 +31309,7 @@ export const CertificationCampaignsApiFactory = function (configuration?: Config
             return localVarFp.startGenerateCampaignTemplate(id, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
-         * Use this API to update individual fields on a certification campaign, using the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.
+         * Use this API to update individual fields on a certification campaign, using the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.  A token with ORG_ADMIN or CERT_ADMIN authority is required to call this API. 
          * @summary Update a Campaign
          * @param {string} id ID of the campaign template being modified.
          * @param {Array<JsonPatchOperation>} jsonPatchOperation A list of campaign update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard. The fields that can be patched differ based on the status of the campaign.  When the campaign is in the *STAGED* status, you can patch these fields: * name * description * recommendationsEnabled * deadline * emailNotificationEnabled * autoRevokeAllowed  When the campaign is in the *ACTIVE* status, you can patch these fields: * deadline 
@@ -31136,7 +31743,7 @@ export interface CertificationCampaignsApiUpdateCampaignRequest {
  */
 export class CertificationCampaignsApi extends BaseAPI {
     /**
-     * :::caution  This endpoint will run successfully for any campaigns that are **past due**.  This endpoint will return a content error if the campaign is **not past due**.  :::  Use this API to complete a certification campaign. This functionality is provided to admins so that they can complete a certification even if all items have not been completed.  Calling this endpoint requires roles of CERT_ADMIN and ORG_ADMIN. 
+     * :::caution  This endpoint will run successfully for any campaigns that are **past due**.  This endpoint will return a content error if the campaign is **not past due**.  :::  Use this API to complete a certification campaign. This functionality is provided to admins so that they can complete a certification even if all items have not been completed.  A token with ORG_ADMIN or CERT_ADMIN authority is required to call this API. 
      * @summary Complete a Campaign
      * @param {CertificationCampaignsApiCompleteCampaignRequest} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
@@ -31148,7 +31755,7 @@ export class CertificationCampaignsApi extends BaseAPI {
     }
 
     /**
-     * Use this API to create a certification campaign with the information provided in the request body.
+     * Use this API to create a certification campaign with the information provided in the request body.  A token with ORG_ADMIN or CERT_ADMIN authority is required to call this API. 
      * @summary Create a campaign
      * @param {CertificationCampaignsApiCreateCampaignRequest} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
@@ -31160,7 +31767,7 @@ export class CertificationCampaignsApi extends BaseAPI {
     }
 
     /**
-     * Use this API to create a certification campaign template based on campaign.
+     * Use this API to create a certification campaign template based on campaign.  A token with ORG_ADMIN or CERT_ADMIN authority is required to call this API. 
      * @summary Create a Campaign Template
      * @param {CertificationCampaignsApiCreateCampaignTemplateRequest} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
@@ -31172,7 +31779,7 @@ export class CertificationCampaignsApi extends BaseAPI {
     }
 
     /**
-     * Use this API to delete a certification campaign template by ID.
+     * Use this API to delete a certification campaign template by ID.  A token with ORG_ADMIN or CERT_ADMIN authority is required to call this API. 
      * @summary Delete a Campaign Template
      * @param {CertificationCampaignsApiDeleteCampaignTemplateRequest} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
@@ -31184,7 +31791,7 @@ export class CertificationCampaignsApi extends BaseAPI {
     }
 
     /**
-     * Use this API to delete the schedule for a certification campaign template. The API returns a 404 if there is no schedule set.
+     * Use this API to delete the schedule for a certification campaign template. The API returns a 404 if there is no schedule set.  A token with ORG_ADMIN or CERT_ADMIN authority is required to call this API. 
      * @summary Delete Campaign Template Schedule
      * @param {CertificationCampaignsApiDeleteCampaignTemplateScheduleRequest} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
@@ -31196,7 +31803,7 @@ export class CertificationCampaignsApi extends BaseAPI {
     }
 
     /**
-     * Use this API to delete certification campaigns whose IDs are specified in the provided list of campaign IDs.  Authorized callers must be ORG_ADMINs or CERT_ADMINs.
+     * Use this API to delete certification campaigns whose IDs are specified in the provided list of campaign IDs.  A token with ORG_ADMIN or CERT_ADMIN authority is required to call this API. 
      * @summary Delete Campaigns
      * @param {CertificationCampaignsApiDeleteCampaignsRequest} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
@@ -31208,7 +31815,7 @@ export class CertificationCampaignsApi extends BaseAPI {
     }
 
     /**
-     * Use this API to get a list of campaigns. This API can provide increased level of detail for each campaign for the correct provided query. 
+     * Use this API to get a list of campaigns. This API can provide increased level of detail for each campaign for the correct provided query.  A token with ORG_ADMIN, CERT_ADMIN or REPORT_ADMIN authority is required to call this API. 
      * @summary List Campaigns
      * @param {CertificationCampaignsApiGetActiveCampaignsRequest} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
@@ -31220,7 +31827,7 @@ export class CertificationCampaignsApi extends BaseAPI {
     }
 
     /**
-     * Use this API to get information for an existing certification campaign by the campaign\'s ID.  Authorized callers must be reviewers for this campaign, ORG_ADMINs, or a CERT_ADMINs.
+     * Use this API to get information for an existing certification campaign by the campaign\'s ID.  A token with ORG_ADMIN or CERT_ADMIN authority is required to call this API. 
      * @summary Get Campaign
      * @param {CertificationCampaignsApiGetCampaignRequest} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
@@ -31232,7 +31839,7 @@ export class CertificationCampaignsApi extends BaseAPI {
     }
 
     /**
-     * Use this API to fetch all reports for a certification campaign by campaign ID. Calling this endpoint requires roles of CERT_ADMIN, DASHBOARD, ORG_ADMIN and REPORT_ADMIN.
+     * Use this API to fetch all reports for a certification campaign by campaign ID.  A token with ORG_ADMIN, CERT_ADMIN or REPORT_ADMIN authority is required to call this API. 
      * @summary Get Campaign Reports
      * @param {CertificationCampaignsApiGetCampaignReportsRequest} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
@@ -31244,7 +31851,7 @@ export class CertificationCampaignsApi extends BaseAPI {
     }
 
     /**
-     * Use this API to fetch the configuration for certification campaign reports. The configuration includes only one element - identity attributes defined as custom report columns.  Calling this endpoint requires roles of CERT_ADMIN and ORG_ADMIN.
+     * Use this API to fetch the configuration for certification campaign reports. The configuration includes only one element - identity attributes defined as custom report columns.   A token with ORG_ADMIN or CERT_ADMIN authority is required to call this API. 
      * @summary Get Campaign Reports Configuration
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
@@ -31255,7 +31862,7 @@ export class CertificationCampaignsApi extends BaseAPI {
     }
 
     /**
-     * Use this API to fetch a certification campaign template by ID.
+     * Use this API to fetch a certification campaign template by ID.  A token with ORG_ADMIN or CERT_ADMIN authority is required to call this API. 
      * @summary Get a Campaign Template
      * @param {CertificationCampaignsApiGetCampaignTemplateRequest} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
@@ -31267,7 +31874,7 @@ export class CertificationCampaignsApi extends BaseAPI {
     }
 
     /**
-     * Use this API to get the schedule for a certification campaign template. The API returns a 404 if there is no schedule set.
+     * Use this API to get the schedule for a certification campaign template. The API returns a 404 if there is no schedule set.  A token with ORG_ADMIN or CERT_ADMIN authority is required to call this API. 
      * @summary Get Campaign Template Schedule
      * @param {CertificationCampaignsApiGetCampaignTemplateScheduleRequest} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
@@ -31279,7 +31886,7 @@ export class CertificationCampaignsApi extends BaseAPI {
     }
 
     /**
-     * Use this API to get a list of all campaign templates. Scope can be reduced through standard V3 query params. The API returns all campaign templates matching the query parameters. 
+     * Use this API to get a list of all campaign templates. Scope can be reduced through standard V3 query params.  The API returns all campaign templates matching the query parameters.   A token with ORG_ADMIN or CERT_ADMIN authority is required to call this API. 
      * @summary List Campaign Templates
      * @param {CertificationCampaignsApiGetCampaignTemplatesRequest} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
@@ -31291,7 +31898,7 @@ export class CertificationCampaignsApi extends BaseAPI {
     }
 
     /**
-     * This API reassigns the specified certifications from one identity to another. A token with ORG_ADMIN or CERT_ADMIN authority is required to call this API.
+     * This API reassigns the specified certifications from one identity to another.  A token with ORG_ADMIN or CERT_ADMIN authority is required to call this API. 
      * @summary Reassign Certifications
      * @param {CertificationCampaignsApiMoveRequest} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
@@ -31303,7 +31910,7 @@ export class CertificationCampaignsApi extends BaseAPI {
     }
 
     /**
-     * Use this API to update individual fields on a certification campaign template, using the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.
+     * Use this API to update individual fields on a certification campaign template, using the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.  A token with ORG_ADMIN or CERT_ADMIN authority is required to call this API. 
      * @summary Update a Campaign Template
      * @param {CertificationCampaignsApiPatchCampaignTemplateRequest} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
@@ -31315,7 +31922,7 @@ export class CertificationCampaignsApi extends BaseAPI {
     }
 
     /**
-     * Use this API to overwrite the configuration for campaign reports.  Calling this endpoint requires roles of CERT_ADMIN and ORG_ADMIN.
+     * Use this API to overwrite the configuration for campaign reports.   A token with ORG_ADMIN or CERT_ADMIN authority is required to call this API. 
      * @summary Set Campaign Reports Configuration
      * @param {CertificationCampaignsApiSetCampaignReportsConfigRequest} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
@@ -31327,7 +31934,7 @@ export class CertificationCampaignsApi extends BaseAPI {
     }
 
     /**
-     * Use this API to set the schedule for a certification campaign template. If a schedule already exists, the API overwrites it with the new one. 
+     * Use this API to set the schedule for a certification campaign template. If a schedule already exists, the API overwrites it with the new one.  A token with ORG_ADMIN or CERT_ADMIN authority is required to call this API. 
      * @summary Set Campaign Template Schedule
      * @param {CertificationCampaignsApiSetCampaignTemplateScheduleRequest} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
@@ -31339,7 +31946,7 @@ export class CertificationCampaignsApi extends BaseAPI {
     }
 
     /**
-     * Use this API to submit a job to activate the certified campaign with the specified ID. The campaign must be staged. Calling this endpoint requires roles of CERT_ADMIN and ORG_ADMIN.
+     * Use this API to submit a job to activate the certified campaign with the specified ID. The campaign must be staged.  A token with ORG_ADMIN or CERT_ADMIN authority is required to call this API.  
      * @summary Activate a Campaign
      * @param {CertificationCampaignsApiStartCampaignRequest} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
@@ -31351,7 +31958,7 @@ export class CertificationCampaignsApi extends BaseAPI {
     }
 
     /**
-     * Use this API to run a remediation scan task for a certification campaign. Calling this endpoint requires roles of CERT_ADMIN and ORG_ADMIN.
+     * Use this API to run a remediation scan task for a certification campaign.  A token with ORG_ADMIN, CERT_ADMIN or REPORT_ADMIN authority is required to call this API. 
      * @summary Run Campaign Remediation Scan
      * @param {CertificationCampaignsApiStartCampaignRemediationScanRequest} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
@@ -31363,7 +31970,7 @@ export class CertificationCampaignsApi extends BaseAPI {
     }
 
     /**
-     * Use this API to run a report for a certification campaign. Calling this endpoint requires the following roles: CERT_ADMIN, DASHBOARD, ORG_ADMIN and REPORT_ADMIN.
+     * Use this API to run a report for a certification campaign.  A token with ORG_ADMIN, CERT_ADMIN or REPORT_ADMIN authority is required to call this API. 
      * @summary Run Campaign Report
      * @param {CertificationCampaignsApiStartCampaignReportRequest} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
@@ -31375,7 +31982,7 @@ export class CertificationCampaignsApi extends BaseAPI {
     }
 
     /**
-     * Use this API to generate a new certification campaign from a campaign template. The campaign object contained in the template has special formatting applied to its name and description fields that determine the generated campaign\'s name/description. Placeholders in those fields are formatted with the current date and time upon generation. Placeholders consist of a percent sign followed by a letter indicating what should be inserted. For example, \"%Y\" inserts the current year, and a campaign template named \"Campaign for %y\" generates a campaign called \"Campaign for 2020\" (assuming the year at generation time is 2020). Valid placeholders are the date/time conversion suffix characters supported by [java.util.Formatter](https://docs.oracle.com/javase/8/docs/api/java/util/Formatter.html). Calling this endpoint requires the ORG_ADMIN role.
+     * Use this API to generate a new certification campaign from a campaign template.  The campaign object contained in the template has special formatting applied to its name and description fields that determine the generated campaign\'s name/description. Placeholders in those fields are formatted with the current date and time upon generation.  Placeholders consist of a percent sign followed by a letter indicating what should be inserted. For example, \"%Y\" inserts the current year, and a campaign template named \"Campaign for %y\" generates a campaign called \"Campaign for 2020\" (assuming the year at generation time is 2020).  Valid placeholders are the date/time conversion suffix characters supported by [java.util.Formatter](https://docs.oracle.com/javase/8/docs/api/java/util/Formatter.html).  A token with ORG_ADMIN or CERT_ADMIN authority is required to call this API. 
      * @summary Generate a Campaign from Template
      * @param {CertificationCampaignsApiStartGenerateCampaignTemplateRequest} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
@@ -31387,7 +31994,7 @@ export class CertificationCampaignsApi extends BaseAPI {
     }
 
     /**
-     * Use this API to update individual fields on a certification campaign, using the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.
+     * Use this API to update individual fields on a certification campaign, using the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.  A token with ORG_ADMIN or CERT_ADMIN authority is required to call this API. 
      * @summary Update a Campaign
      * @param {CertificationCampaignsApiUpdateCampaignRequest} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
@@ -36445,6 +37052,50 @@ export class GlobalTenantSecuritySettingsApi extends BaseAPI {
 export const IdentityProfilesApiAxiosParamCreator = function (configuration?: Configuration) {
     return {
         /**
+         * This creates an Identity Profile.  A token with ORG_ADMIN authority is required to call this API to create an Identity Profile.
+         * @summary Create an Identity Profile
+         * @param {IdentityProfile} identityProfile 
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        createIdentityProfile: async (identityProfile: IdentityProfile, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'identityProfile' is not null or undefined
+            assertParamExists('createIdentityProfile', 'identityProfile', identityProfile)
+            const localVarPath = `/identity-profiles`;
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'POST', ...baseOptions, ...axiosOptions};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication UserContextAuth required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "UserContextAuth", [], configuration)
+
+            // authentication UserContextAuth required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "UserContextAuth", [], configuration)
+
+
+    
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
+            localVarRequestOptions.data = serializeDataIfNeeded(identityProfile, localVarRequestOptions, configuration)
+
+            return {
+                url: toPathString(localVarUrlObj),
+                axiosOptions: localVarRequestOptions,
+            };
+        },
+        /**
          * This deletes an Identity Profile based on ID.  On success, this endpoint will return a reference to the bulk delete task result.  A token with ORG_ADMIN authority is required to call this API.  The following rights are required to access this endpoint: idn:identity-profile:delete
          * @summary Delete an Identity Profile
          * @param {string} identityProfileId The Identity Profile ID.
@@ -36636,7 +37287,7 @@ export const IdentityProfilesApiAxiosParamCreator = function (configuration?: Co
             };
         },
         /**
-         * This returns a single Identity Profile based on ID. A token with ORG_ADMIN or API authority is required to call this API.
+         * This returns a single Identity Profile based on ID.  A token with ORG_ADMIN or API authority is required to call this API.
          * @summary Get single Identity Profile
          * @param {string} identityProfileId The Identity Profile ID.
          * @param {*} [axiosOptions] Override http request option.
@@ -36785,6 +37436,50 @@ export const IdentityProfilesApiAxiosParamCreator = function (configuration?: Co
             };
         },
         /**
+         * Use this API to generate a non-persisted preview of the identity object after applying `IdentityAttributeConfig` sent in request body. This API only allows `accountAttribute`, `reference` and `rule` transform types in the `IdentityAttributeConfig` sent in the request body. A token with ORG_ADMIN authority is required to call this API to generate an identity preview.
+         * @summary Generate Identity Profile Preview
+         * @param {IdentityPreviewRequest} identityPreviewRequest Identity Preview request body.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        showIdentityPreview: async (identityPreviewRequest: IdentityPreviewRequest, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'identityPreviewRequest' is not null or undefined
+            assertParamExists('showIdentityPreview', 'identityPreviewRequest', identityPreviewRequest)
+            const localVarPath = `/identity-profiles/identity-preview`;
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'POST', ...baseOptions, ...axiosOptions};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication UserContextAuth required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "UserContextAuth", [], configuration)
+
+            // authentication UserContextAuth required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "UserContextAuth", [], configuration)
+
+
+    
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
+            localVarRequestOptions.data = serializeDataIfNeeded(identityPreviewRequest, localVarRequestOptions, configuration)
+
+            return {
+                url: toPathString(localVarUrlObj),
+                axiosOptions: localVarRequestOptions,
+            };
+        },
+        /**
          * Process identities under the profile This operation should not be used to schedule your own identity processing or to perform system wide identity refreshes. The system will use a combination of [event-based processing](https://documentation.sailpoint.com/saas/help/setup/identity_processing.html?h=process#event-based-processing) and [scheduled processing](https://documentation.sailpoint.com/saas/help/setup/identity_processing.html?h=process#scheduled-processing) that runs every day at 8:00 AM and 8:00 PM in the tenant\'s timezone to keep your identities synchronized.  This should only be run on identity profiles that have the `identityRefreshRequired` attribute set to `true`. If `identityRefreshRequired` is false, then there is no benefit to running this operation. Typically, this operation is performed when a change is made to the identity profile or its related lifecycle states that requires a refresh. This operation will perform the following activities on all identities under the identity profile. 1. Updates identity attribute according to the identity profile mappings. 2. Determines the identity\'s correct manager through manager correlation. 3. Updates the identity\'s access according to their assigned lifecycle state. 4. Updates the identity\'s access based on role assignment criteria. A token with ORG_ADMIN authority is required to call this API.
          * @summary Process identities under profile
          * @param {string} identityProfileId The Identity Profile ID to be processed
@@ -36826,6 +37521,54 @@ export const IdentityProfilesApiAxiosParamCreator = function (configuration?: Co
                 axiosOptions: localVarRequestOptions,
             };
         },
+        /**
+         * This updates the specified Identity Profile.  A token with ORG_ADMIN authority is required to call this API to update the Identity Profile.  Some fields of the Schema cannot be updated. These fields are listed below: * id * name * created * modified * identityCount * identityRefreshRequired * Authoritative Source and Identity Attribute Configuration cannot be modified at once.
+         * @summary Update the Identity Profile
+         * @param {string} identityProfileId The Identity Profile ID
+         * @param {Array<JsonPatchOperation>} jsonPatchOperation A list of Identity Profile update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        updateIdentityProfile: async (identityProfileId: string, jsonPatchOperation: Array<JsonPatchOperation>, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'identityProfileId' is not null or undefined
+            assertParamExists('updateIdentityProfile', 'identityProfileId', identityProfileId)
+            // verify required parameter 'jsonPatchOperation' is not null or undefined
+            assertParamExists('updateIdentityProfile', 'jsonPatchOperation', jsonPatchOperation)
+            const localVarPath = `/identity-profiles/{identity-profile-id}`
+                .replace(`{${"identity-profile-id"}}`, encodeURIComponent(String(identityProfileId)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'PATCH', ...baseOptions, ...axiosOptions};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication UserContextAuth required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "UserContextAuth", [], configuration)
+
+            // authentication UserContextAuth required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "UserContextAuth", [], configuration)
+
+
+    
+            localVarHeaderParameter['Content-Type'] = 'application/json-patch+json';
+
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
+            localVarRequestOptions.data = serializeDataIfNeeded(jsonPatchOperation, localVarRequestOptions, configuration)
+
+            return {
+                url: toPathString(localVarUrlObj),
+                axiosOptions: localVarRequestOptions,
+            };
+        },
     }
 };
 
@@ -36836,6 +37579,17 @@ export const IdentityProfilesApiAxiosParamCreator = function (configuration?: Co
 export const IdentityProfilesApiFp = function(configuration?: Configuration) {
     const localVarAxiosParamCreator = IdentityProfilesApiAxiosParamCreator(configuration)
     return {
+        /**
+         * This creates an Identity Profile.  A token with ORG_ADMIN authority is required to call this API to create an Identity Profile.
+         * @summary Create an Identity Profile
+         * @param {IdentityProfile} identityProfile 
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        async createIdentityProfile(identityProfile: IdentityProfile, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<IdentityProfile>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.createIdentityProfile(identityProfile, axiosOptions);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
         /**
          * This deletes an Identity Profile based on ID.  On success, this endpoint will return a reference to the bulk delete task result.  A token with ORG_ADMIN authority is required to call this API.  The following rights are required to access this endpoint: idn:identity-profile:delete
          * @summary Delete an Identity Profile
@@ -36885,7 +37639,7 @@ export const IdentityProfilesApiFp = function(configuration?: Configuration) {
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
-         * This returns a single Identity Profile based on ID. A token with ORG_ADMIN or API authority is required to call this API.
+         * This returns a single Identity Profile based on ID.  A token with ORG_ADMIN or API authority is required to call this API.
          * @summary Get single Identity Profile
          * @param {string} identityProfileId The Identity Profile ID.
          * @param {*} [axiosOptions] Override http request option.
@@ -36922,6 +37676,17 @@ export const IdentityProfilesApiFp = function(configuration?: Configuration) {
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
+         * Use this API to generate a non-persisted preview of the identity object after applying `IdentityAttributeConfig` sent in request body. This API only allows `accountAttribute`, `reference` and `rule` transform types in the `IdentityAttributeConfig` sent in the request body. A token with ORG_ADMIN authority is required to call this API to generate an identity preview.
+         * @summary Generate Identity Profile Preview
+         * @param {IdentityPreviewRequest} identityPreviewRequest Identity Preview request body.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        async showIdentityPreview(identityPreviewRequest: IdentityPreviewRequest, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<IdentityPreviewResponse>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.showIdentityPreview(identityPreviewRequest, axiosOptions);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
          * Process identities under the profile This operation should not be used to schedule your own identity processing or to perform system wide identity refreshes. The system will use a combination of [event-based processing](https://documentation.sailpoint.com/saas/help/setup/identity_processing.html?h=process#event-based-processing) and [scheduled processing](https://documentation.sailpoint.com/saas/help/setup/identity_processing.html?h=process#scheduled-processing) that runs every day at 8:00 AM and 8:00 PM in the tenant\'s timezone to keep your identities synchronized.  This should only be run on identity profiles that have the `identityRefreshRequired` attribute set to `true`. If `identityRefreshRequired` is false, then there is no benefit to running this operation. Typically, this operation is performed when a change is made to the identity profile or its related lifecycle states that requires a refresh. This operation will perform the following activities on all identities under the identity profile. 1. Updates identity attribute according to the identity profile mappings. 2. Determines the identity\'s correct manager through manager correlation. 3. Updates the identity\'s access according to their assigned lifecycle state. 4. Updates the identity\'s access based on role assignment criteria. A token with ORG_ADMIN authority is required to call this API.
          * @summary Process identities under profile
          * @param {string} identityProfileId The Identity Profile ID to be processed
@@ -36930,6 +37695,18 @@ export const IdentityProfilesApiFp = function(configuration?: Configuration) {
          */
         async syncIdentityProfile(identityProfileId: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<object>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.syncIdentityProfile(identityProfileId, axiosOptions);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * This updates the specified Identity Profile.  A token with ORG_ADMIN authority is required to call this API to update the Identity Profile.  Some fields of the Schema cannot be updated. These fields are listed below: * id * name * created * modified * identityCount * identityRefreshRequired * Authoritative Source and Identity Attribute Configuration cannot be modified at once.
+         * @summary Update the Identity Profile
+         * @param {string} identityProfileId The Identity Profile ID
+         * @param {Array<JsonPatchOperation>} jsonPatchOperation A list of Identity Profile update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        async updateIdentityProfile(identityProfileId: string, jsonPatchOperation: Array<JsonPatchOperation>, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<IdentityProfile>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.updateIdentityProfile(identityProfileId, jsonPatchOperation, axiosOptions);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
     }
@@ -36942,6 +37719,16 @@ export const IdentityProfilesApiFp = function(configuration?: Configuration) {
 export const IdentityProfilesApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
     const localVarFp = IdentityProfilesApiFp(configuration)
     return {
+        /**
+         * This creates an Identity Profile.  A token with ORG_ADMIN authority is required to call this API to create an Identity Profile.
+         * @summary Create an Identity Profile
+         * @param {IdentityProfile} identityProfile 
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        createIdentityProfile(identityProfile: IdentityProfile, axiosOptions?: any): AxiosPromise<IdentityProfile> {
+            return localVarFp.createIdentityProfile(identityProfile, axiosOptions).then((request) => request(axios, basePath));
+        },
         /**
          * This deletes an Identity Profile based on ID.  On success, this endpoint will return a reference to the bulk delete task result.  A token with ORG_ADMIN authority is required to call this API.  The following rights are required to access this endpoint: idn:identity-profile:delete
          * @summary Delete an Identity Profile
@@ -36987,7 +37774,7 @@ export const IdentityProfilesApiFactory = function (configuration?: Configuratio
             return localVarFp.getDefaultIdentityAttributeConfig(identityProfileId, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
-         * This returns a single Identity Profile based on ID. A token with ORG_ADMIN or API authority is required to call this API.
+         * This returns a single Identity Profile based on ID.  A token with ORG_ADMIN or API authority is required to call this API.
          * @summary Get single Identity Profile
          * @param {string} identityProfileId The Identity Profile ID.
          * @param {*} [axiosOptions] Override http request option.
@@ -37021,6 +37808,16 @@ export const IdentityProfilesApiFactory = function (configuration?: Configuratio
             return localVarFp.listIdentityProfiles(limit, offset, count, filters, sorters, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
+         * Use this API to generate a non-persisted preview of the identity object after applying `IdentityAttributeConfig` sent in request body. This API only allows `accountAttribute`, `reference` and `rule` transform types in the `IdentityAttributeConfig` sent in the request body. A token with ORG_ADMIN authority is required to call this API to generate an identity preview.
+         * @summary Generate Identity Profile Preview
+         * @param {IdentityPreviewRequest} identityPreviewRequest Identity Preview request body.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        showIdentityPreview(identityPreviewRequest: IdentityPreviewRequest, axiosOptions?: any): AxiosPromise<IdentityPreviewResponse> {
+            return localVarFp.showIdentityPreview(identityPreviewRequest, axiosOptions).then((request) => request(axios, basePath));
+        },
+        /**
          * Process identities under the profile This operation should not be used to schedule your own identity processing or to perform system wide identity refreshes. The system will use a combination of [event-based processing](https://documentation.sailpoint.com/saas/help/setup/identity_processing.html?h=process#event-based-processing) and [scheduled processing](https://documentation.sailpoint.com/saas/help/setup/identity_processing.html?h=process#scheduled-processing) that runs every day at 8:00 AM and 8:00 PM in the tenant\'s timezone to keep your identities synchronized.  This should only be run on identity profiles that have the `identityRefreshRequired` attribute set to `true`. If `identityRefreshRequired` is false, then there is no benefit to running this operation. Typically, this operation is performed when a change is made to the identity profile or its related lifecycle states that requires a refresh. This operation will perform the following activities on all identities under the identity profile. 1. Updates identity attribute according to the identity profile mappings. 2. Determines the identity\'s correct manager through manager correlation. 3. Updates the identity\'s access according to their assigned lifecycle state. 4. Updates the identity\'s access based on role assignment criteria. A token with ORG_ADMIN authority is required to call this API.
          * @summary Process identities under profile
          * @param {string} identityProfileId The Identity Profile ID to be processed
@@ -37030,8 +37827,33 @@ export const IdentityProfilesApiFactory = function (configuration?: Configuratio
         syncIdentityProfile(identityProfileId: string, axiosOptions?: any): AxiosPromise<object> {
             return localVarFp.syncIdentityProfile(identityProfileId, axiosOptions).then((request) => request(axios, basePath));
         },
+        /**
+         * This updates the specified Identity Profile.  A token with ORG_ADMIN authority is required to call this API to update the Identity Profile.  Some fields of the Schema cannot be updated. These fields are listed below: * id * name * created * modified * identityCount * identityRefreshRequired * Authoritative Source and Identity Attribute Configuration cannot be modified at once.
+         * @summary Update the Identity Profile
+         * @param {string} identityProfileId The Identity Profile ID
+         * @param {Array<JsonPatchOperation>} jsonPatchOperation A list of Identity Profile update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        updateIdentityProfile(identityProfileId: string, jsonPatchOperation: Array<JsonPatchOperation>, axiosOptions?: any): AxiosPromise<IdentityProfile> {
+            return localVarFp.updateIdentityProfile(identityProfileId, jsonPatchOperation, axiosOptions).then((request) => request(axios, basePath));
+        },
     };
 };
+
+/**
+ * Request parameters for createIdentityProfile operation in IdentityProfilesApi.
+ * @export
+ * @interface IdentityProfilesApiCreateIdentityProfileRequest
+ */
+export interface IdentityProfilesApiCreateIdentityProfileRequest {
+    /**
+     * 
+     * @type {IdentityProfile}
+     * @memberof IdentityProfilesApiCreateIdentityProfile
+     */
+    readonly identityProfile: IdentityProfile
+}
 
 /**
  * Request parameters for deleteIdentityProfile operation in IdentityProfilesApi.
@@ -37188,6 +38010,20 @@ export interface IdentityProfilesApiListIdentityProfilesRequest {
 }
 
 /**
+ * Request parameters for showIdentityPreview operation in IdentityProfilesApi.
+ * @export
+ * @interface IdentityProfilesApiShowIdentityPreviewRequest
+ */
+export interface IdentityProfilesApiShowIdentityPreviewRequest {
+    /**
+     * Identity Preview request body.
+     * @type {IdentityPreviewRequest}
+     * @memberof IdentityProfilesApiShowIdentityPreview
+     */
+    readonly identityPreviewRequest: IdentityPreviewRequest
+}
+
+/**
  * Request parameters for syncIdentityProfile operation in IdentityProfilesApi.
  * @export
  * @interface IdentityProfilesApiSyncIdentityProfileRequest
@@ -37202,12 +38038,45 @@ export interface IdentityProfilesApiSyncIdentityProfileRequest {
 }
 
 /**
+ * Request parameters for updateIdentityProfile operation in IdentityProfilesApi.
+ * @export
+ * @interface IdentityProfilesApiUpdateIdentityProfileRequest
+ */
+export interface IdentityProfilesApiUpdateIdentityProfileRequest {
+    /**
+     * The Identity Profile ID
+     * @type {string}
+     * @memberof IdentityProfilesApiUpdateIdentityProfile
+     */
+    readonly identityProfileId: string
+
+    /**
+     * A list of Identity Profile update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.
+     * @type {Array<JsonPatchOperation>}
+     * @memberof IdentityProfilesApiUpdateIdentityProfile
+     */
+    readonly jsonPatchOperation: Array<JsonPatchOperation>
+}
+
+/**
  * IdentityProfilesApi - object-oriented interface
  * @export
  * @class IdentityProfilesApi
  * @extends {BaseAPI}
  */
 export class IdentityProfilesApi extends BaseAPI {
+    /**
+     * This creates an Identity Profile.  A token with ORG_ADMIN authority is required to call this API to create an Identity Profile.
+     * @summary Create an Identity Profile
+     * @param {IdentityProfilesApiCreateIdentityProfileRequest} requestParameters Request parameters.
+     * @param {*} [axiosOptions] Override http request option.
+     * @throws {RequiredError}
+     * @memberof IdentityProfilesApi
+     */
+    public createIdentityProfile(requestParameters: IdentityProfilesApiCreateIdentityProfileRequest, axiosOptions?: AxiosRequestConfig) {
+        return IdentityProfilesApiFp(this.configuration).createIdentityProfile(requestParameters.identityProfile, axiosOptions).then((request) => request(this.axios, this.basePath));
+    }
+
     /**
      * This deletes an Identity Profile based on ID.  On success, this endpoint will return a reference to the bulk delete task result.  A token with ORG_ADMIN authority is required to call this API.  The following rights are required to access this endpoint: idn:identity-profile:delete
      * @summary Delete an Identity Profile
@@ -37257,7 +38126,7 @@ export class IdentityProfilesApi extends BaseAPI {
     }
 
     /**
-     * This returns a single Identity Profile based on ID. A token with ORG_ADMIN or API authority is required to call this API.
+     * This returns a single Identity Profile based on ID.  A token with ORG_ADMIN or API authority is required to call this API.
      * @summary Get single Identity Profile
      * @param {IdentityProfilesApiGetIdentityProfileRequest} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
@@ -37293,6 +38162,18 @@ export class IdentityProfilesApi extends BaseAPI {
     }
 
     /**
+     * Use this API to generate a non-persisted preview of the identity object after applying `IdentityAttributeConfig` sent in request body. This API only allows `accountAttribute`, `reference` and `rule` transform types in the `IdentityAttributeConfig` sent in the request body. A token with ORG_ADMIN authority is required to call this API to generate an identity preview.
+     * @summary Generate Identity Profile Preview
+     * @param {IdentityProfilesApiShowIdentityPreviewRequest} requestParameters Request parameters.
+     * @param {*} [axiosOptions] Override http request option.
+     * @throws {RequiredError}
+     * @memberof IdentityProfilesApi
+     */
+    public showIdentityPreview(requestParameters: IdentityProfilesApiShowIdentityPreviewRequest, axiosOptions?: AxiosRequestConfig) {
+        return IdentityProfilesApiFp(this.configuration).showIdentityPreview(requestParameters.identityPreviewRequest, axiosOptions).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
      * Process identities under the profile This operation should not be used to schedule your own identity processing or to perform system wide identity refreshes. The system will use a combination of [event-based processing](https://documentation.sailpoint.com/saas/help/setup/identity_processing.html?h=process#event-based-processing) and [scheduled processing](https://documentation.sailpoint.com/saas/help/setup/identity_processing.html?h=process#scheduled-processing) that runs every day at 8:00 AM and 8:00 PM in the tenant\'s timezone to keep your identities synchronized.  This should only be run on identity profiles that have the `identityRefreshRequired` attribute set to `true`. If `identityRefreshRequired` is false, then there is no benefit to running this operation. Typically, this operation is performed when a change is made to the identity profile or its related lifecycle states that requires a refresh. This operation will perform the following activities on all identities under the identity profile. 1. Updates identity attribute according to the identity profile mappings. 2. Determines the identity\'s correct manager through manager correlation. 3. Updates the identity\'s access according to their assigned lifecycle state. 4. Updates the identity\'s access based on role assignment criteria. A token with ORG_ADMIN authority is required to call this API.
      * @summary Process identities under profile
      * @param {IdentityProfilesApiSyncIdentityProfileRequest} requestParameters Request parameters.
@@ -37302,6 +38183,18 @@ export class IdentityProfilesApi extends BaseAPI {
      */
     public syncIdentityProfile(requestParameters: IdentityProfilesApiSyncIdentityProfileRequest, axiosOptions?: AxiosRequestConfig) {
         return IdentityProfilesApiFp(this.configuration).syncIdentityProfile(requestParameters.identityProfileId, axiosOptions).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * This updates the specified Identity Profile.  A token with ORG_ADMIN authority is required to call this API to update the Identity Profile.  Some fields of the Schema cannot be updated. These fields are listed below: * id * name * created * modified * identityCount * identityRefreshRequired * Authoritative Source and Identity Attribute Configuration cannot be modified at once.
+     * @summary Update the Identity Profile
+     * @param {IdentityProfilesApiUpdateIdentityProfileRequest} requestParameters Request parameters.
+     * @param {*} [axiosOptions] Override http request option.
+     * @throws {RequiredError}
+     * @memberof IdentityProfilesApi
+     */
+    public updateIdentityProfile(requestParameters: IdentityProfilesApiUpdateIdentityProfileRequest, axiosOptions?: AxiosRequestConfig) {
+        return IdentityProfilesApiFp(this.configuration).updateIdentityProfile(requestParameters.identityProfileId, requestParameters.jsonPatchOperation, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 }
 
@@ -46378,7 +47271,7 @@ export const PersonalAccessTokensApiAxiosParamCreator = function (configuration?
             };
         },
         /**
-         * This performs a targeted update to the field(s) of a Personal Access Token.
+         * This performs a targeted update to the field(s) of a Personal Access Token. Changing scopes for a Personal Access Token does not impact existing bearer tokens. You will need to create a new bearer token to have the new scopes. Please note that it can take up to 20 minutes for scope changes to be seen on new bearer tokens.
          * @summary Patch Personal Access Token
          * @param {string} id The Personal Access Token id
          * @param {Array<JsonPatchOperation>} jsonPatchOperation A list of OAuth client update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.  The following fields are patchable: * name * scope 
@@ -46470,7 +47363,7 @@ export const PersonalAccessTokensApiFp = function(configuration?: Configuration)
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
-         * This performs a targeted update to the field(s) of a Personal Access Token.
+         * This performs a targeted update to the field(s) of a Personal Access Token. Changing scopes for a Personal Access Token does not impact existing bearer tokens. You will need to create a new bearer token to have the new scopes. Please note that it can take up to 20 minutes for scope changes to be seen on new bearer tokens.
          * @summary Patch Personal Access Token
          * @param {string} id The Personal Access Token id
          * @param {Array<JsonPatchOperation>} jsonPatchOperation A list of OAuth client update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.  The following fields are patchable: * name * scope 
@@ -46523,7 +47416,7 @@ export const PersonalAccessTokensApiFactory = function (configuration?: Configur
             return localVarFp.listPersonalAccessTokens(ownerId, filters, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
-         * This performs a targeted update to the field(s) of a Personal Access Token.
+         * This performs a targeted update to the field(s) of a Personal Access Token. Changing scopes for a Personal Access Token does not impact existing bearer tokens. You will need to create a new bearer token to have the new scopes. Please note that it can take up to 20 minutes for scope changes to be seen on new bearer tokens.
          * @summary Patch Personal Access Token
          * @param {string} id The Personal Access Token id
          * @param {Array<JsonPatchOperation>} jsonPatchOperation A list of OAuth client update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.  The following fields are patchable: * name * scope 
@@ -46650,7 +47543,7 @@ export class PersonalAccessTokensApi extends BaseAPI {
     }
 
     /**
-     * This performs a targeted update to the field(s) of a Personal Access Token.
+     * This performs a targeted update to the field(s) of a Personal Access Token. Changing scopes for a Personal Access Token does not impact existing bearer tokens. You will need to create a new bearer token to have the new scopes. Please note that it can take up to 20 minutes for scope changes to be seen on new bearer tokens.
      * @summary Patch Personal Access Token
      * @param {PersonalAccessTokensApiPatchPersonalAccessTokenRequest} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
@@ -52274,6 +53167,485 @@ export class SearchApi extends BaseAPI {
 
 
 /**
+ * SearchAttributeConfigurationApi - axios parameter creator
+ * @export
+ */
+export const SearchAttributeConfigurationApiAxiosParamCreator = function (configuration?: Configuration) {
+    return {
+        /**
+         * This API accepts an attribute name, an attribute display name and a list of name/value pair associates of application IDs to attribute names.  It will then validate the inputs and configure/create and attribute promotion configuration in the Link ObjectConfig. A token with ORG_ADMIN authority is required to call this API.
+         * @summary Configure/create search attributes in IdentityNow.
+         * @param {SearchAttributeConfig} searchAttributeConfig 
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        createSearchAttributeConfig: async (searchAttributeConfig: SearchAttributeConfig, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'searchAttributeConfig' is not null or undefined
+            assertParamExists('createSearchAttributeConfig', 'searchAttributeConfig', searchAttributeConfig)
+            const localVarPath = `/accounts/search-attribute-config`;
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'POST', ...baseOptions, ...axiosOptions};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication UserContextAuth required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "UserContextAuth", [], configuration)
+
+            // authentication UserContextAuth required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "UserContextAuth", [], configuration)
+
+
+    
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
+            localVarRequestOptions.data = serializeDataIfNeeded(searchAttributeConfig, localVarRequestOptions, configuration)
+
+            return {
+                url: toPathString(localVarUrlObj),
+                axiosOptions: localVarRequestOptions,
+            };
+        },
+        /**
+         * This API accepts an extended search attribute name and deletes the corresponding extended attribute configuration. A token with ORG_ADMIN authority is required to call this API.
+         * @summary Delete search attribute in IdentityNow.
+         * @param {string} name Name of the extended search attribute configuration to delete.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        deleteSearchAttributeConfig: async (name: string, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'name' is not null or undefined
+            assertParamExists('deleteSearchAttributeConfig', 'name', name)
+            const localVarPath = `/accounts/search-attribute-config/{name}`
+                .replace(`{${"name"}}`, encodeURIComponent(String(name)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'DELETE', ...baseOptions, ...axiosOptions};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication UserContextAuth required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "UserContextAuth", [], configuration)
+
+            // authentication UserContextAuth required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "UserContextAuth", [], configuration)
+
+
+    
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                axiosOptions: localVarRequestOptions,
+            };
+        },
+        /**
+         * This API retrieves a list of extended search attribute/application associates currently configured in IdentityNow. A token with ORG_ADMIN authority is required to call this API.
+         * @summary Retrieve attribute list in IdentityNow.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        getSearchAttributeConfig: async (axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            const localVarPath = `/accounts/search-attribute-config`;
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...axiosOptions};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication UserContextAuth required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "UserContextAuth", [], configuration)
+
+            // authentication UserContextAuth required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "UserContextAuth", [], configuration)
+
+
+    
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                axiosOptions: localVarRequestOptions,
+            };
+        },
+        /**
+         * This API accepts an extended search attribute name and retrieves the corresponding extended attribute configuration. A token with ORG_ADMIN authority is required to call this API.
+         * @summary Get specific attribute in IdentityNow.
+         * @param {string} name Name of the extended search attribute configuration to retrieve.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        getSingleSearchAttributeConfig: async (name: string, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'name' is not null or undefined
+            assertParamExists('getSingleSearchAttributeConfig', 'name', name)
+            const localVarPath = `/accounts/search-attribute-config/{name}`
+                .replace(`{${"name"}}`, encodeURIComponent(String(name)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...axiosOptions};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication UserContextAuth required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "UserContextAuth", [], configuration)
+
+            // authentication UserContextAuth required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "UserContextAuth", [], configuration)
+
+
+    
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                axiosOptions: localVarRequestOptions,
+            };
+        },
+        /**
+         * This API updates an existing Search Attribute Configuration. The following fields are patchable: **name**, **displayName**, **applicationAttributes** A token with ORG_ADMIN authority is required to call this API.
+         * @summary Update search attribute in IdentityNow.
+         * @param {string} name Name of the Search Attribute Configuration to patch.
+         * @param {Array<JsonPatchOperation>} jsonPatchOperation 
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        patchSearchAttributeConfig: async (name: string, jsonPatchOperation: Array<JsonPatchOperation>, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'name' is not null or undefined
+            assertParamExists('patchSearchAttributeConfig', 'name', name)
+            // verify required parameter 'jsonPatchOperation' is not null or undefined
+            assertParamExists('patchSearchAttributeConfig', 'jsonPatchOperation', jsonPatchOperation)
+            const localVarPath = `/accounts/search-attribute-config/{name}`
+                .replace(`{${"name"}}`, encodeURIComponent(String(name)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'PATCH', ...baseOptions, ...axiosOptions};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication UserContextAuth required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "UserContextAuth", [], configuration)
+
+            // authentication UserContextAuth required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "UserContextAuth", [], configuration)
+
+
+    
+            localVarHeaderParameter['Content-Type'] = 'application/json-patch+json';
+
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
+            localVarRequestOptions.data = serializeDataIfNeeded(jsonPatchOperation, localVarRequestOptions, configuration)
+
+            return {
+                url: toPathString(localVarUrlObj),
+                axiosOptions: localVarRequestOptions,
+            };
+        },
+    }
+};
+
+/**
+ * SearchAttributeConfigurationApi - functional programming interface
+ * @export
+ */
+export const SearchAttributeConfigurationApiFp = function(configuration?: Configuration) {
+    const localVarAxiosParamCreator = SearchAttributeConfigurationApiAxiosParamCreator(configuration)
+    return {
+        /**
+         * This API accepts an attribute name, an attribute display name and a list of name/value pair associates of application IDs to attribute names.  It will then validate the inputs and configure/create and attribute promotion configuration in the Link ObjectConfig. A token with ORG_ADMIN authority is required to call this API.
+         * @summary Configure/create search attributes in IdentityNow.
+         * @param {SearchAttributeConfig} searchAttributeConfig 
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        async createSearchAttributeConfig(searchAttributeConfig: SearchAttributeConfig, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<object>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.createSearchAttributeConfig(searchAttributeConfig, axiosOptions);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * This API accepts an extended search attribute name and deletes the corresponding extended attribute configuration. A token with ORG_ADMIN authority is required to call this API.
+         * @summary Delete search attribute in IdentityNow.
+         * @param {string} name Name of the extended search attribute configuration to delete.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        async deleteSearchAttributeConfig(name: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.deleteSearchAttributeConfig(name, axiosOptions);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * This API retrieves a list of extended search attribute/application associates currently configured in IdentityNow. A token with ORG_ADMIN authority is required to call this API.
+         * @summary Retrieve attribute list in IdentityNow.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        async getSearchAttributeConfig(axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<SearchAttributeConfig>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getSearchAttributeConfig(axiosOptions);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * This API accepts an extended search attribute name and retrieves the corresponding extended attribute configuration. A token with ORG_ADMIN authority is required to call this API.
+         * @summary Get specific attribute in IdentityNow.
+         * @param {string} name Name of the extended search attribute configuration to retrieve.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        async getSingleSearchAttributeConfig(name: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<SearchAttributeConfig>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getSingleSearchAttributeConfig(name, axiosOptions);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * This API updates an existing Search Attribute Configuration. The following fields are patchable: **name**, **displayName**, **applicationAttributes** A token with ORG_ADMIN authority is required to call this API.
+         * @summary Update search attribute in IdentityNow.
+         * @param {string} name Name of the Search Attribute Configuration to patch.
+         * @param {Array<JsonPatchOperation>} jsonPatchOperation 
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        async patchSearchAttributeConfig(name: string, jsonPatchOperation: Array<JsonPatchOperation>, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SearchAttributeConfig>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.patchSearchAttributeConfig(name, jsonPatchOperation, axiosOptions);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+    }
+};
+
+/**
+ * SearchAttributeConfigurationApi - factory interface
+ * @export
+ */
+export const SearchAttributeConfigurationApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
+    const localVarFp = SearchAttributeConfigurationApiFp(configuration)
+    return {
+        /**
+         * This API accepts an attribute name, an attribute display name and a list of name/value pair associates of application IDs to attribute names.  It will then validate the inputs and configure/create and attribute promotion configuration in the Link ObjectConfig. A token with ORG_ADMIN authority is required to call this API.
+         * @summary Configure/create search attributes in IdentityNow.
+         * @param {SearchAttributeConfig} searchAttributeConfig 
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        createSearchAttributeConfig(searchAttributeConfig: SearchAttributeConfig, axiosOptions?: any): AxiosPromise<object> {
+            return localVarFp.createSearchAttributeConfig(searchAttributeConfig, axiosOptions).then((request) => request(axios, basePath));
+        },
+        /**
+         * This API accepts an extended search attribute name and deletes the corresponding extended attribute configuration. A token with ORG_ADMIN authority is required to call this API.
+         * @summary Delete search attribute in IdentityNow.
+         * @param {string} name Name of the extended search attribute configuration to delete.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        deleteSearchAttributeConfig(name: string, axiosOptions?: any): AxiosPromise<void> {
+            return localVarFp.deleteSearchAttributeConfig(name, axiosOptions).then((request) => request(axios, basePath));
+        },
+        /**
+         * This API retrieves a list of extended search attribute/application associates currently configured in IdentityNow. A token with ORG_ADMIN authority is required to call this API.
+         * @summary Retrieve attribute list in IdentityNow.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        getSearchAttributeConfig(axiosOptions?: any): AxiosPromise<Array<SearchAttributeConfig>> {
+            return localVarFp.getSearchAttributeConfig(axiosOptions).then((request) => request(axios, basePath));
+        },
+        /**
+         * This API accepts an extended search attribute name and retrieves the corresponding extended attribute configuration. A token with ORG_ADMIN authority is required to call this API.
+         * @summary Get specific attribute in IdentityNow.
+         * @param {string} name Name of the extended search attribute configuration to retrieve.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        getSingleSearchAttributeConfig(name: string, axiosOptions?: any): AxiosPromise<Array<SearchAttributeConfig>> {
+            return localVarFp.getSingleSearchAttributeConfig(name, axiosOptions).then((request) => request(axios, basePath));
+        },
+        /**
+         * This API updates an existing Search Attribute Configuration. The following fields are patchable: **name**, **displayName**, **applicationAttributes** A token with ORG_ADMIN authority is required to call this API.
+         * @summary Update search attribute in IdentityNow.
+         * @param {string} name Name of the Search Attribute Configuration to patch.
+         * @param {Array<JsonPatchOperation>} jsonPatchOperation 
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        patchSearchAttributeConfig(name: string, jsonPatchOperation: Array<JsonPatchOperation>, axiosOptions?: any): AxiosPromise<SearchAttributeConfig> {
+            return localVarFp.patchSearchAttributeConfig(name, jsonPatchOperation, axiosOptions).then((request) => request(axios, basePath));
+        },
+    };
+};
+
+/**
+ * Request parameters for createSearchAttributeConfig operation in SearchAttributeConfigurationApi.
+ * @export
+ * @interface SearchAttributeConfigurationApiCreateSearchAttributeConfigRequest
+ */
+export interface SearchAttributeConfigurationApiCreateSearchAttributeConfigRequest {
+    /**
+     * 
+     * @type {SearchAttributeConfig}
+     * @memberof SearchAttributeConfigurationApiCreateSearchAttributeConfig
+     */
+    readonly searchAttributeConfig: SearchAttributeConfig
+}
+
+/**
+ * Request parameters for deleteSearchAttributeConfig operation in SearchAttributeConfigurationApi.
+ * @export
+ * @interface SearchAttributeConfigurationApiDeleteSearchAttributeConfigRequest
+ */
+export interface SearchAttributeConfigurationApiDeleteSearchAttributeConfigRequest {
+    /**
+     * Name of the extended search attribute configuration to delete.
+     * @type {string}
+     * @memberof SearchAttributeConfigurationApiDeleteSearchAttributeConfig
+     */
+    readonly name: string
+}
+
+/**
+ * Request parameters for getSingleSearchAttributeConfig operation in SearchAttributeConfigurationApi.
+ * @export
+ * @interface SearchAttributeConfigurationApiGetSingleSearchAttributeConfigRequest
+ */
+export interface SearchAttributeConfigurationApiGetSingleSearchAttributeConfigRequest {
+    /**
+     * Name of the extended search attribute configuration to retrieve.
+     * @type {string}
+     * @memberof SearchAttributeConfigurationApiGetSingleSearchAttributeConfig
+     */
+    readonly name: string
+}
+
+/**
+ * Request parameters for patchSearchAttributeConfig operation in SearchAttributeConfigurationApi.
+ * @export
+ * @interface SearchAttributeConfigurationApiPatchSearchAttributeConfigRequest
+ */
+export interface SearchAttributeConfigurationApiPatchSearchAttributeConfigRequest {
+    /**
+     * Name of the Search Attribute Configuration to patch.
+     * @type {string}
+     * @memberof SearchAttributeConfigurationApiPatchSearchAttributeConfig
+     */
+    readonly name: string
+
+    /**
+     * 
+     * @type {Array<JsonPatchOperation>}
+     * @memberof SearchAttributeConfigurationApiPatchSearchAttributeConfig
+     */
+    readonly jsonPatchOperation: Array<JsonPatchOperation>
+}
+
+/**
+ * SearchAttributeConfigurationApi - object-oriented interface
+ * @export
+ * @class SearchAttributeConfigurationApi
+ * @extends {BaseAPI}
+ */
+export class SearchAttributeConfigurationApi extends BaseAPI {
+    /**
+     * This API accepts an attribute name, an attribute display name and a list of name/value pair associates of application IDs to attribute names.  It will then validate the inputs and configure/create and attribute promotion configuration in the Link ObjectConfig. A token with ORG_ADMIN authority is required to call this API.
+     * @summary Configure/create search attributes in IdentityNow.
+     * @param {SearchAttributeConfigurationApiCreateSearchAttributeConfigRequest} requestParameters Request parameters.
+     * @param {*} [axiosOptions] Override http request option.
+     * @throws {RequiredError}
+     * @memberof SearchAttributeConfigurationApi
+     */
+    public createSearchAttributeConfig(requestParameters: SearchAttributeConfigurationApiCreateSearchAttributeConfigRequest, axiosOptions?: AxiosRequestConfig) {
+        return SearchAttributeConfigurationApiFp(this.configuration).createSearchAttributeConfig(requestParameters.searchAttributeConfig, axiosOptions).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * This API accepts an extended search attribute name and deletes the corresponding extended attribute configuration. A token with ORG_ADMIN authority is required to call this API.
+     * @summary Delete search attribute in IdentityNow.
+     * @param {SearchAttributeConfigurationApiDeleteSearchAttributeConfigRequest} requestParameters Request parameters.
+     * @param {*} [axiosOptions] Override http request option.
+     * @throws {RequiredError}
+     * @memberof SearchAttributeConfigurationApi
+     */
+    public deleteSearchAttributeConfig(requestParameters: SearchAttributeConfigurationApiDeleteSearchAttributeConfigRequest, axiosOptions?: AxiosRequestConfig) {
+        return SearchAttributeConfigurationApiFp(this.configuration).deleteSearchAttributeConfig(requestParameters.name, axiosOptions).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * This API retrieves a list of extended search attribute/application associates currently configured in IdentityNow. A token with ORG_ADMIN authority is required to call this API.
+     * @summary Retrieve attribute list in IdentityNow.
+     * @param {*} [axiosOptions] Override http request option.
+     * @throws {RequiredError}
+     * @memberof SearchAttributeConfigurationApi
+     */
+    public getSearchAttributeConfig(axiosOptions?: AxiosRequestConfig) {
+        return SearchAttributeConfigurationApiFp(this.configuration).getSearchAttributeConfig(axiosOptions).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * This API accepts an extended search attribute name and retrieves the corresponding extended attribute configuration. A token with ORG_ADMIN authority is required to call this API.
+     * @summary Get specific attribute in IdentityNow.
+     * @param {SearchAttributeConfigurationApiGetSingleSearchAttributeConfigRequest} requestParameters Request parameters.
+     * @param {*} [axiosOptions] Override http request option.
+     * @throws {RequiredError}
+     * @memberof SearchAttributeConfigurationApi
+     */
+    public getSingleSearchAttributeConfig(requestParameters: SearchAttributeConfigurationApiGetSingleSearchAttributeConfigRequest, axiosOptions?: AxiosRequestConfig) {
+        return SearchAttributeConfigurationApiFp(this.configuration).getSingleSearchAttributeConfig(requestParameters.name, axiosOptions).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * This API updates an existing Search Attribute Configuration. The following fields are patchable: **name**, **displayName**, **applicationAttributes** A token with ORG_ADMIN authority is required to call this API.
+     * @summary Update search attribute in IdentityNow.
+     * @param {SearchAttributeConfigurationApiPatchSearchAttributeConfigRequest} requestParameters Request parameters.
+     * @param {*} [axiosOptions] Override http request option.
+     * @throws {RequiredError}
+     * @memberof SearchAttributeConfigurationApi
+     */
+    public patchSearchAttributeConfig(requestParameters: SearchAttributeConfigurationApiPatchSearchAttributeConfigRequest, axiosOptions?: AxiosRequestConfig) {
+        return SearchAttributeConfigurationApiFp(this.configuration).patchSearchAttributeConfig(requestParameters.name, requestParameters.jsonPatchOperation, axiosOptions).then((request) => request(this.axios, this.basePath));
+    }
+}
+
+
+/**
  * SegmentsApi - axios parameter creator
  * @export
  */
@@ -56791,13 +58163,13 @@ export const TaggedObjectsApiAxiosParamCreator = function (configuration?: Confi
         /**
          * This API removes tags from multiple objects.  A token with API, CERT_ADMIN, ORG_ADMIN, REPORT_ADMIN, ROLE_ADMIN, ROLE_SUBADMIN, SOURCE_ADMIN, or SOURCE_SUBADMIN authority is required to call this API.
          * @summary Remove Tags from Multiple Objects
-         * @param {BulkTaggedObject} bulkTaggedObject Supported object types are ACCESS_PROFILE, APPLICATION, CAMPAIGN, ENTITLEMENT, IDENTITY, ROLE, SOD_POLICY, SOURCE.
+         * @param {BulkRemoveTaggedObject} bulkRemoveTaggedObject Supported object types are ACCESS_PROFILE, APPLICATION, CAMPAIGN, ENTITLEMENT, IDENTITY, ROLE, SOD_POLICY, SOURCE.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        deleteTagsToManyObject: async (bulkTaggedObject: BulkTaggedObject, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
-            // verify required parameter 'bulkTaggedObject' is not null or undefined
-            assertParamExists('deleteTagsToManyObject', 'bulkTaggedObject', bulkTaggedObject)
+        deleteTagsToManyObject: async (bulkRemoveTaggedObject: BulkRemoveTaggedObject, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'bulkRemoveTaggedObject' is not null or undefined
+            assertParamExists('deleteTagsToManyObject', 'bulkRemoveTaggedObject', bulkRemoveTaggedObject)
             const localVarPath = `/tagged-objects/bulk-remove`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -56825,7 +58197,7 @@ export const TaggedObjectsApiAxiosParamCreator = function (configuration?: Confi
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(bulkTaggedObject, localVarRequestOptions, configuration)
+            localVarRequestOptions.data = serializeDataIfNeeded(bulkRemoveTaggedObject, localVarRequestOptions, configuration)
 
             return {
                 url: toPathString(localVarUrlObj),
@@ -57097,13 +58469,13 @@ export const TaggedObjectsApiAxiosParamCreator = function (configuration?: Confi
         /**
          * This API adds tags to multiple objects.  A token with API, CERT_ADMIN, ORG_ADMIN, REPORT_ADMIN, ROLE_ADMIN, ROLE_SUBADMIN, SOURCE_ADMIN, or SOURCE_SUBADMIN authority is required to call this API.
          * @summary Tag Multiple Objects
-         * @param {BulkTaggedObject} bulkTaggedObject Supported object types are ACCESS_PROFILE, APPLICATION, CAMPAIGN, ENTITLEMENT, IDENTITY, ROLE, SOD_POLICY, SOURCE.
+         * @param {BulkAddTaggedObject} bulkAddTaggedObject Supported object types are ACCESS_PROFILE, APPLICATION, CAMPAIGN, ENTITLEMENT, IDENTITY, ROLE, SOD_POLICY, SOURCE.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        setTagsToManyObjects: async (bulkTaggedObject: BulkTaggedObject, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
-            // verify required parameter 'bulkTaggedObject' is not null or undefined
-            assertParamExists('setTagsToManyObjects', 'bulkTaggedObject', bulkTaggedObject)
+        setTagsToManyObjects: async (bulkAddTaggedObject: BulkAddTaggedObject, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'bulkAddTaggedObject' is not null or undefined
+            assertParamExists('setTagsToManyObjects', 'bulkAddTaggedObject', bulkAddTaggedObject)
             const localVarPath = `/tagged-objects/bulk-add`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -57131,7 +58503,7 @@ export const TaggedObjectsApiAxiosParamCreator = function (configuration?: Confi
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(bulkTaggedObject, localVarRequestOptions, configuration)
+            localVarRequestOptions.data = serializeDataIfNeeded(bulkAddTaggedObject, localVarRequestOptions, configuration)
 
             return {
                 url: toPathString(localVarUrlObj),
@@ -57163,12 +58535,12 @@ export const TaggedObjectsApiFp = function(configuration?: Configuration) {
         /**
          * This API removes tags from multiple objects.  A token with API, CERT_ADMIN, ORG_ADMIN, REPORT_ADMIN, ROLE_ADMIN, ROLE_SUBADMIN, SOURCE_ADMIN, or SOURCE_SUBADMIN authority is required to call this API.
          * @summary Remove Tags from Multiple Objects
-         * @param {BulkTaggedObject} bulkTaggedObject Supported object types are ACCESS_PROFILE, APPLICATION, CAMPAIGN, ENTITLEMENT, IDENTITY, ROLE, SOD_POLICY, SOURCE.
+         * @param {BulkRemoveTaggedObject} bulkRemoveTaggedObject Supported object types are ACCESS_PROFILE, APPLICATION, CAMPAIGN, ENTITLEMENT, IDENTITY, ROLE, SOD_POLICY, SOURCE.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async deleteTagsToManyObject(bulkTaggedObject: BulkTaggedObject, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.deleteTagsToManyObject(bulkTaggedObject, axiosOptions);
+        async deleteTagsToManyObject(bulkRemoveTaggedObject: BulkRemoveTaggedObject, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.deleteTagsToManyObject(bulkRemoveTaggedObject, axiosOptions);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
@@ -57239,12 +58611,12 @@ export const TaggedObjectsApiFp = function(configuration?: Configuration) {
         /**
          * This API adds tags to multiple objects.  A token with API, CERT_ADMIN, ORG_ADMIN, REPORT_ADMIN, ROLE_ADMIN, ROLE_SUBADMIN, SOURCE_ADMIN, or SOURCE_SUBADMIN authority is required to call this API.
          * @summary Tag Multiple Objects
-         * @param {BulkTaggedObject} bulkTaggedObject Supported object types are ACCESS_PROFILE, APPLICATION, CAMPAIGN, ENTITLEMENT, IDENTITY, ROLE, SOD_POLICY, SOURCE.
+         * @param {BulkAddTaggedObject} bulkAddTaggedObject Supported object types are ACCESS_PROFILE, APPLICATION, CAMPAIGN, ENTITLEMENT, IDENTITY, ROLE, SOD_POLICY, SOURCE.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async setTagsToManyObjects(bulkTaggedObject: BulkTaggedObject, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<BulkTaggedObjectResponse>>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.setTagsToManyObjects(bulkTaggedObject, axiosOptions);
+        async setTagsToManyObjects(bulkAddTaggedObject: BulkAddTaggedObject, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<BulkTaggedObjectResponse>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.setTagsToManyObjects(bulkAddTaggedObject, axiosOptions);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
     }
@@ -57271,12 +58643,12 @@ export const TaggedObjectsApiFactory = function (configuration?: Configuration, 
         /**
          * This API removes tags from multiple objects.  A token with API, CERT_ADMIN, ORG_ADMIN, REPORT_ADMIN, ROLE_ADMIN, ROLE_SUBADMIN, SOURCE_ADMIN, or SOURCE_SUBADMIN authority is required to call this API.
          * @summary Remove Tags from Multiple Objects
-         * @param {BulkTaggedObject} bulkTaggedObject Supported object types are ACCESS_PROFILE, APPLICATION, CAMPAIGN, ENTITLEMENT, IDENTITY, ROLE, SOD_POLICY, SOURCE.
+         * @param {BulkRemoveTaggedObject} bulkRemoveTaggedObject Supported object types are ACCESS_PROFILE, APPLICATION, CAMPAIGN, ENTITLEMENT, IDENTITY, ROLE, SOD_POLICY, SOURCE.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        deleteTagsToManyObject(bulkTaggedObject: BulkTaggedObject, axiosOptions?: any): AxiosPromise<void> {
-            return localVarFp.deleteTagsToManyObject(bulkTaggedObject, axiosOptions).then((request) => request(axios, basePath));
+        deleteTagsToManyObject(bulkRemoveTaggedObject: BulkRemoveTaggedObject, axiosOptions?: any): AxiosPromise<void> {
+            return localVarFp.deleteTagsToManyObject(bulkRemoveTaggedObject, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * This gets a tagged object for the specified type.
@@ -57341,12 +58713,12 @@ export const TaggedObjectsApiFactory = function (configuration?: Configuration, 
         /**
          * This API adds tags to multiple objects.  A token with API, CERT_ADMIN, ORG_ADMIN, REPORT_ADMIN, ROLE_ADMIN, ROLE_SUBADMIN, SOURCE_ADMIN, or SOURCE_SUBADMIN authority is required to call this API.
          * @summary Tag Multiple Objects
-         * @param {BulkTaggedObject} bulkTaggedObject Supported object types are ACCESS_PROFILE, APPLICATION, CAMPAIGN, ENTITLEMENT, IDENTITY, ROLE, SOD_POLICY, SOURCE.
+         * @param {BulkAddTaggedObject} bulkAddTaggedObject Supported object types are ACCESS_PROFILE, APPLICATION, CAMPAIGN, ENTITLEMENT, IDENTITY, ROLE, SOD_POLICY, SOURCE.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        setTagsToManyObjects(bulkTaggedObject: BulkTaggedObject, axiosOptions?: any): AxiosPromise<Array<BulkTaggedObjectResponse>> {
-            return localVarFp.setTagsToManyObjects(bulkTaggedObject, axiosOptions).then((request) => request(axios, basePath));
+        setTagsToManyObjects(bulkAddTaggedObject: BulkAddTaggedObject, axiosOptions?: any): AxiosPromise<Array<BulkTaggedObjectResponse>> {
+            return localVarFp.setTagsToManyObjects(bulkAddTaggedObject, axiosOptions).then((request) => request(axios, basePath));
         },
     };
 };
@@ -57380,10 +58752,10 @@ export interface TaggedObjectsApiDeleteTaggedObjectRequest {
 export interface TaggedObjectsApiDeleteTagsToManyObjectRequest {
     /**
      * Supported object types are ACCESS_PROFILE, APPLICATION, CAMPAIGN, ENTITLEMENT, IDENTITY, ROLE, SOD_POLICY, SOURCE.
-     * @type {BulkTaggedObject}
+     * @type {BulkRemoveTaggedObject}
      * @memberof TaggedObjectsApiDeleteTagsToManyObject
      */
-    readonly bulkTaggedObject: BulkTaggedObject
+    readonly bulkRemoveTaggedObject: BulkRemoveTaggedObject
 }
 
 /**
@@ -57534,10 +58906,10 @@ export interface TaggedObjectsApiSetTagToObjectRequest {
 export interface TaggedObjectsApiSetTagsToManyObjectsRequest {
     /**
      * Supported object types are ACCESS_PROFILE, APPLICATION, CAMPAIGN, ENTITLEMENT, IDENTITY, ROLE, SOD_POLICY, SOURCE.
-     * @type {BulkTaggedObject}
+     * @type {BulkAddTaggedObject}
      * @memberof TaggedObjectsApiSetTagsToManyObjects
      */
-    readonly bulkTaggedObject: BulkTaggedObject
+    readonly bulkAddTaggedObject: BulkAddTaggedObject
 }
 
 /**
@@ -57568,7 +58940,7 @@ export class TaggedObjectsApi extends BaseAPI {
      * @memberof TaggedObjectsApi
      */
     public deleteTagsToManyObject(requestParameters: TaggedObjectsApiDeleteTagsToManyObjectRequest, axiosOptions?: AxiosRequestConfig) {
-        return TaggedObjectsApiFp(this.configuration).deleteTagsToManyObject(requestParameters.bulkTaggedObject, axiosOptions).then((request) => request(this.axios, this.basePath));
+        return TaggedObjectsApiFp(this.configuration).deleteTagsToManyObject(requestParameters.bulkRemoveTaggedObject, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -57640,7 +59012,7 @@ export class TaggedObjectsApi extends BaseAPI {
      * @memberof TaggedObjectsApi
      */
     public setTagsToManyObjects(requestParameters: TaggedObjectsApiSetTagsToManyObjectsRequest, axiosOptions?: AxiosRequestConfig) {
-        return TaggedObjectsApiFp(this.configuration).setTagsToManyObjects(requestParameters.bulkTaggedObject, axiosOptions).then((request) => request(this.axios, this.basePath));
+        return TaggedObjectsApiFp(this.configuration).setTagsToManyObjects(requestParameters.bulkAddTaggedObject, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 }
 
@@ -58932,6 +60304,54 @@ export const WorkItemsApiAxiosParamCreator = function (configuration?: Configura
             };
         },
         /**
+         * This API forwards a work item to a new owner. Either an admin, or the owning/current user must make this request. Accessible to work-item Owner, ORG_ADMIN, REPORT_ADMIN, ROLE_ADMIN, ROLE_SUBADMIN, SOURCE_ADMIN, SOURCE_SUBADMIN.
+         * @summary Forward a Work Item
+         * @param {string} id The ID of the work item
+         * @param {WorkItemForward} workItemForward 
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        sendWorkItemForward: async (id: string, workItemForward: WorkItemForward, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'id' is not null or undefined
+            assertParamExists('sendWorkItemForward', 'id', id)
+            // verify required parameter 'workItemForward' is not null or undefined
+            assertParamExists('sendWorkItemForward', 'workItemForward', workItemForward)
+            const localVarPath = `/work-items/{id}/forward`
+                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'POST', ...baseOptions, ...axiosOptions};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication UserContextAuth required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "UserContextAuth", [], configuration)
+
+            // authentication UserContextAuth required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "UserContextAuth", [], configuration)
+
+
+    
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
+            localVarRequestOptions.data = serializeDataIfNeeded(workItemForward, localVarRequestOptions, configuration)
+
+            return {
+                url: toPathString(localVarUrlObj),
+                axiosOptions: localVarRequestOptions,
+            };
+        },
+        /**
          * This API submits account selections. Either an admin, or the owning/current user must make this request.
          * @summary Submit Account Selections
          * @param {string} id The ID of the work item
@@ -59119,6 +60539,18 @@ export const WorkItemsApiFp = function(configuration?: Configuration) {
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
+         * This API forwards a work item to a new owner. Either an admin, or the owning/current user must make this request. Accessible to work-item Owner, ORG_ADMIN, REPORT_ADMIN, ROLE_ADMIN, ROLE_SUBADMIN, SOURCE_ADMIN, SOURCE_SUBADMIN.
+         * @summary Forward a Work Item
+         * @param {string} id The ID of the work item
+         * @param {WorkItemForward} workItemForward 
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        async sendWorkItemForward(id: string, workItemForward: WorkItemForward, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.sendWorkItemForward(id, workItemForward, axiosOptions);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
          * This API submits account selections. Either an admin, or the owning/current user must make this request.
          * @summary Submit Account Selections
          * @param {string} id The ID of the work item
@@ -59257,6 +60689,17 @@ export const WorkItemsApiFactory = function (configuration?: Configuration, base
          */
         rejectApprovalItemsInBulk(id: string, axiosOptions?: any): AxiosPromise<WorkItems> {
             return localVarFp.rejectApprovalItemsInBulk(id, axiosOptions).then((request) => request(axios, basePath));
+        },
+        /**
+         * This API forwards a work item to a new owner. Either an admin, or the owning/current user must make this request. Accessible to work-item Owner, ORG_ADMIN, REPORT_ADMIN, ROLE_ADMIN, ROLE_SUBADMIN, SOURCE_ADMIN, SOURCE_SUBADMIN.
+         * @summary Forward a Work Item
+         * @param {string} id The ID of the work item
+         * @param {WorkItemForward} workItemForward 
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        sendWorkItemForward(id: string, workItemForward: WorkItemForward, axiosOptions?: any): AxiosPromise<void> {
+            return localVarFp.sendWorkItemForward(id, workItemForward, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * This API submits account selections. Either an admin, or the owning/current user must make this request.
@@ -59483,6 +60926,27 @@ export interface WorkItemsApiRejectApprovalItemsInBulkRequest {
 }
 
 /**
+ * Request parameters for sendWorkItemForward operation in WorkItemsApi.
+ * @export
+ * @interface WorkItemsApiSendWorkItemForwardRequest
+ */
+export interface WorkItemsApiSendWorkItemForwardRequest {
+    /**
+     * The ID of the work item
+     * @type {string}
+     * @memberof WorkItemsApiSendWorkItemForward
+     */
+    readonly id: string
+
+    /**
+     * 
+     * @type {WorkItemForward}
+     * @memberof WorkItemsApiSendWorkItemForward
+     */
+    readonly workItemForward: WorkItemForward
+}
+
+/**
  * Request parameters for submitAccountSelection operation in WorkItemsApi.
  * @export
  * @interface WorkItemsApiSubmitAccountSelectionRequest
@@ -59640,6 +61104,18 @@ export class WorkItemsApi extends BaseAPI {
      */
     public rejectApprovalItemsInBulk(requestParameters: WorkItemsApiRejectApprovalItemsInBulkRequest, axiosOptions?: AxiosRequestConfig) {
         return WorkItemsApiFp(this.configuration).rejectApprovalItemsInBulk(requestParameters.id, axiosOptions).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * This API forwards a work item to a new owner. Either an admin, or the owning/current user must make this request. Accessible to work-item Owner, ORG_ADMIN, REPORT_ADMIN, ROLE_ADMIN, ROLE_SUBADMIN, SOURCE_ADMIN, SOURCE_SUBADMIN.
+     * @summary Forward a Work Item
+     * @param {WorkItemsApiSendWorkItemForwardRequest} requestParameters Request parameters.
+     * @param {*} [axiosOptions] Override http request option.
+     * @throws {RequiredError}
+     * @memberof WorkItemsApi
+     */
+    public sendWorkItemForward(requestParameters: WorkItemsApiSendWorkItemForwardRequest, axiosOptions?: AxiosRequestConfig) {
+        return WorkItemsApiFp(this.configuration).sendWorkItemForward(requestParameters.id, requestParameters.workItemForward, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
