@@ -20,6 +20,9 @@ export {Configuration as ConfigurationBeta, ConfigurationParameters as Configura
 export * from "./v3/api";
 export {Configuration as ConfigurationV3, ConfigurationParameters as ConfigurationParametersV3} from "./v3/configuration";
 
+export * from "./v2024/api";
+export {Configuration as ConfigurationV2024, ConfigurationParameters as ConfigurationParametersV2024} from "./v2024/configuration";
+
 export {Configuration, ConfigurationParameters} from "./configuration";
 
 export * from "./paginator";

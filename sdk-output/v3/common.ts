@@ -139,6 +139,13 @@ export const createRequestFunction = function (axiosArgs: RequestArgs, globalAxi
             ...axiosArgs.axiosOptions.headers,
             ...{'X-SailPoint-SDK':'typescript-1.3.8'}
         }
+
+        if(!configuration.experimental && ("X-SailPoint-Experimental" in headers)) {
+            throw new Error("You are using Experimental APIs. Set configuration.experimental = True to enable these APIs in the SDK.")
+        } else if(configuration.experimental == true && ("X-SailPoint-Experimental" in headers)) {
+            console.log("Warning: You are using Experimental APIs")
+        }
+
         axiosArgs.axiosOptions.headers = headers
         const axiosRequestArgs = {...axiosArgs.axiosOptions, url: (configuration?.basePath + "/v3" || basePath) + axiosArgs.url};
         return axios.request<T, R>(axiosRequestArgs);

@@ -48,6 +48,12 @@ export const {{classname}}AxiosParamCreator = function (configuration?: Configur
          */
         {{nickname}}: async ({{#allParams}}{{paramName}}{{^required}}?{{/required}}: {{{dataType}}}, {{/allParams}}axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
     {{#allParams}}
+    {{#isHeaderParam}}
+            if ({{paramName}} === undefined) {
+                {{paramName}} = {{{defaultValue}}};
+            }
+            
+    {{/isHeaderParam}}
     {{#required}}
             // verify required parameter '{{paramName}}' is not null or undefined
             assertParamExists('{{nickname}}', '{{paramName}}', {{paramName}})
