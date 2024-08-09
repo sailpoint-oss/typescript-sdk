@@ -36287,7 +36287,7 @@ export class ConnectorsApi extends BaseAPI {
 export const GlobalTenantSecuritySettingsApiAxiosParamCreator = function (configuration?: Configuration) {
     return {
         /**
-         * This API returns the details of an org\'s network auth configuration. Requires security scope of: \'sp:auth-org:create\'
+         * This API returns the details of an org\'s network auth configuration. Requires security scope of: \'sp:auth-org:manage\'
          * @summary Create security network configuration.
          * @param {NetworkConfiguration} networkConfiguration Network configuration creation request body.   The following constraints ensure the request body conforms to certain logical guidelines, which are:   1. Each string element in the range array must be a valid ip address or ip subnet mask.   2. Each string element in the geolocation array must be 2 characters, and they can only be uppercase letters.
          * @param {*} [axiosOptions] Override http request option.
@@ -36527,7 +36527,7 @@ export const GlobalTenantSecuritySettingsApiAxiosParamCreator = function (config
             };
         },
         /**
-         * This API updates an existing network configuration for an org using PATCH  Requires security scope of:  \'sp:auth-org:update\'
+         * This API updates an existing network configuration for an org using PATCH  Requires security scope of:  \'sp:auth-org:manage\'
          * @summary Update security network configuration.
          * @param {Array<JsonPatchOperation>} jsonPatchOperation A list of auth org network configuration update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard. Ensures that the patched Network Config conforms to certain logical guidelines, which are:   1. Each string element in the range array must be a valid ip address or ip subnet mask.   2. Each string element in the geolocation array must be 2 characters, and they can only be uppercase letters.
          * @param {*} [axiosOptions] Override http request option.
@@ -36669,7 +36669,7 @@ export const GlobalTenantSecuritySettingsApiFp = function(configuration?: Config
     const localVarAxiosParamCreator = GlobalTenantSecuritySettingsApiAxiosParamCreator(configuration)
     return {
         /**
-         * This API returns the details of an org\'s network auth configuration. Requires security scope of: \'sp:auth-org:create\'
+         * This API returns the details of an org\'s network auth configuration. Requires security scope of: \'sp:auth-org:manage\'
          * @summary Create security network configuration.
          * @param {NetworkConfiguration} networkConfiguration Network configuration creation request body.   The following constraints ensure the request body conforms to certain logical guidelines, which are:   1. Each string element in the range array must be a valid ip address or ip subnet mask.   2. Each string element in the geolocation array must be 2 characters, and they can only be uppercase letters.
          * @param {*} [axiosOptions] Override http request option.
@@ -36731,7 +36731,7 @@ export const GlobalTenantSecuritySettingsApiFp = function(configuration?: Config
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
-         * This API updates an existing network configuration for an org using PATCH  Requires security scope of:  \'sp:auth-org:update\'
+         * This API updates an existing network configuration for an org using PATCH  Requires security scope of:  \'sp:auth-org:manage\'
          * @summary Update security network configuration.
          * @param {Array<JsonPatchOperation>} jsonPatchOperation A list of auth org network configuration update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard. Ensures that the patched Network Config conforms to certain logical guidelines, which are:   1. Each string element in the range array must be a valid ip address or ip subnet mask.   2. Each string element in the geolocation array must be 2 characters, and they can only be uppercase letters.
          * @param {*} [axiosOptions] Override http request option.
@@ -36774,7 +36774,7 @@ export const GlobalTenantSecuritySettingsApiFactory = function (configuration?: 
     const localVarFp = GlobalTenantSecuritySettingsApiFp(configuration)
     return {
         /**
-         * This API returns the details of an org\'s network auth configuration. Requires security scope of: \'sp:auth-org:create\'
+         * This API returns the details of an org\'s network auth configuration. Requires security scope of: \'sp:auth-org:manage\'
          * @summary Create security network configuration.
          * @param {NetworkConfiguration} networkConfiguration Network configuration creation request body.   The following constraints ensure the request body conforms to certain logical guidelines, which are:   1. Each string element in the range array must be a valid ip address or ip subnet mask.   2. Each string element in the geolocation array must be 2 characters, and they can only be uppercase letters.
          * @param {*} [axiosOptions] Override http request option.
@@ -36830,7 +36830,7 @@ export const GlobalTenantSecuritySettingsApiFactory = function (configuration?: 
             return localVarFp.patchAuthOrgLockoutConfig(jsonPatchOperation, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
-         * This API updates an existing network configuration for an org using PATCH  Requires security scope of:  \'sp:auth-org:update\'
+         * This API updates an existing network configuration for an org using PATCH  Requires security scope of:  \'sp:auth-org:manage\'
          * @summary Update security network configuration.
          * @param {Array<JsonPatchOperation>} jsonPatchOperation A list of auth org network configuration update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard. Ensures that the patched Network Config conforms to certain logical guidelines, which are:   1. Each string element in the range array must be a valid ip address or ip subnet mask.   2. Each string element in the geolocation array must be 2 characters, and they can only be uppercase letters.
          * @param {*} [axiosOptions] Override http request option.
@@ -36940,7 +36940,7 @@ export interface GlobalTenantSecuritySettingsApiPatchAuthOrgSessionConfigRequest
  */
 export class GlobalTenantSecuritySettingsApi extends BaseAPI {
     /**
-     * This API returns the details of an org\'s network auth configuration. Requires security scope of: \'sp:auth-org:create\'
+     * This API returns the details of an org\'s network auth configuration. Requires security scope of: \'sp:auth-org:manage\'
      * @summary Create security network configuration.
      * @param {GlobalTenantSecuritySettingsApiCreateAuthOrgNetworkConfigRequest} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
@@ -37008,7 +37008,7 @@ export class GlobalTenantSecuritySettingsApi extends BaseAPI {
     }
 
     /**
-     * This API updates an existing network configuration for an org using PATCH  Requires security scope of:  \'sp:auth-org:update\'
+     * This API updates an existing network configuration for an org using PATCH  Requires security scope of:  \'sp:auth-org:manage\'
      * @summary Update security network configuration.
      * @param {GlobalTenantSecuritySettingsApiPatchAuthOrgNetworkConfigRequest} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
