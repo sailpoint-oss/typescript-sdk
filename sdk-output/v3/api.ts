@@ -7033,55 +7033,6 @@ export interface DeleteVendorConnectorMapping200Response {
 /**
  * 
  * @export
- * @interface DiscoveredApplicationsInner
- */
-export interface DiscoveredApplicationsInner {
-    /**
-     * Unique identifier for the discovered application.
-     * @type {string}
-     * @memberof DiscoveredApplicationsInner
-     */
-    'id'?: string;
-    /**
-     * Name of the discovered application.
-     * @type {string}
-     * @memberof DiscoveredApplicationsInner
-     */
-    'name'?: string;
-    /**
-     * Source from which the application was discovered.
-     * @type {string}
-     * @memberof DiscoveredApplicationsInner
-     */
-    'discoverySource'?: string;
-    /**
-     * The vendor associated with the discovered application.
-     * @type {string}
-     * @memberof DiscoveredApplicationsInner
-     */
-    'discoveredVendor'?: string;
-    /**
-     * A brief description of the discovered application.
-     * @type {string}
-     * @memberof DiscoveredApplicationsInner
-     */
-    'description'?: string;
-    /**
-     * List of recommended connectors for the application.
-     * @type {Array<string>}
-     * @memberof DiscoveredApplicationsInner
-     */
-    'recommendedConnectors'?: Array<string>;
-    /**
-     * The timestamp when the application was discovered, in ISO 8601 format.
-     * @type {string}
-     * @memberof DiscoveredApplicationsInner
-     */
-    'discoveredTimestamp'?: string;
-}
-/**
- * 
- * @export
  * @interface DisplayReference
  */
 export interface DisplayReference {
@@ -8817,6 +8768,73 @@ export interface ForwardApprovalDto {
 /**
  * 
  * @export
+ * @interface FullDiscoveredApplicationsInner
+ */
+export interface FullDiscoveredApplicationsInner {
+    /**
+     * Unique identifier for the discovered application.
+     * @type {string}
+     * @memberof FullDiscoveredApplicationsInner
+     */
+    'id'?: string;
+    /**
+     * Name of the discovered application.
+     * @type {string}
+     * @memberof FullDiscoveredApplicationsInner
+     */
+    'name'?: string;
+    /**
+     * Source from which the application was discovered.
+     * @type {string}
+     * @memberof FullDiscoveredApplicationsInner
+     */
+    'discoverySource'?: string;
+    /**
+     * The vendor associated with the discovered application.
+     * @type {string}
+     * @memberof FullDiscoveredApplicationsInner
+     */
+    'discoveredVendor'?: string;
+    /**
+     * A brief description of the discovered application.
+     * @type {string}
+     * @memberof FullDiscoveredApplicationsInner
+     */
+    'description'?: string;
+    /**
+     * List of recommended connectors for the application.
+     * @type {Array<string>}
+     * @memberof FullDiscoveredApplicationsInner
+     */
+    'recommendedConnectors'?: Array<string>;
+    /**
+     * The timestamp when the application was last received via an entitlement aggregation invocation  or a manual csv upload, in ISO 8601 format.
+     * @type {string}
+     * @memberof FullDiscoveredApplicationsInner
+     */
+    'discoveredAt'?: string;
+    /**
+     * The timestamp when the application was first discovered, in ISO 8601 format.
+     * @type {string}
+     * @memberof FullDiscoveredApplicationsInner
+     */
+    'createdAt'?: string;
+    /**
+     * The status of an application within the discovery source.  By default this field is set to \"ACTIVE\" when the application is discovered.  If an application has been deleted from within the discovery source, the status will be set to \"INACTIVE\".
+     * @type {string}
+     * @memberof FullDiscoveredApplicationsInner
+     */
+    'status'?: string;
+    /**
+     * List of associated sources related to this discovered application.
+     * @type {Array<string>}
+     * @memberof FullDiscoveredApplicationsInner
+     */
+    'associatedSources'?: Array<string>;
+}
+/**
+ * 
+ * @export
  * @interface GenerateRandomString
  */
 export interface GenerateRandomString {
@@ -8862,6 +8880,12 @@ export interface GenerateRandomString {
  * @export
  */
 export type GetActiveCampaigns200ResponseInner = Campaign | SlimCampaign;
+
+/**
+ * @type GetDiscoveredApplications200ResponseInner
+ * @export
+ */
+export type GetDiscoveredApplications200ResponseInner = Array<FullDiscoveredApplicationsInner> | Array<SlimDiscoveredApplicationsInner>;
 
 /**
  * 
@@ -19953,6 +19977,67 @@ export const SlimCampaignCorrelatedStatusEnum = {
 export type SlimCampaignCorrelatedStatusEnum = typeof SlimCampaignCorrelatedStatusEnum[keyof typeof SlimCampaignCorrelatedStatusEnum];
 
 /**
+ * 
+ * @export
+ * @interface SlimDiscoveredApplicationsInner
+ */
+export interface SlimDiscoveredApplicationsInner {
+    /**
+     * Unique identifier for the discovered application.
+     * @type {string}
+     * @memberof SlimDiscoveredApplicationsInner
+     */
+    'id'?: string;
+    /**
+     * Name of the discovered application.
+     * @type {string}
+     * @memberof SlimDiscoveredApplicationsInner
+     */
+    'name'?: string;
+    /**
+     * Source from which the application was discovered.
+     * @type {string}
+     * @memberof SlimDiscoveredApplicationsInner
+     */
+    'discoverySource'?: string;
+    /**
+     * The vendor associated with the discovered application.
+     * @type {string}
+     * @memberof SlimDiscoveredApplicationsInner
+     */
+    'discoveredVendor'?: string;
+    /**
+     * A brief description of the discovered application.
+     * @type {string}
+     * @memberof SlimDiscoveredApplicationsInner
+     */
+    'description'?: string;
+    /**
+     * List of recommended connectors for the application.
+     * @type {Array<string>}
+     * @memberof SlimDiscoveredApplicationsInner
+     */
+    'recommendedConnectors'?: Array<string>;
+    /**
+     * The timestamp when the application was last received via an entitlement aggregation invocation  or a manual csv upload, in ISO 8601 format.
+     * @type {string}
+     * @memberof SlimDiscoveredApplicationsInner
+     */
+    'discoveredAt'?: string;
+    /**
+     * The timestamp when the application was first discovered, in ISO 8601 format.
+     * @type {string}
+     * @memberof SlimDiscoveredApplicationsInner
+     */
+    'createdAt'?: string;
+    /**
+     * The status of an application within the discovery source.  By default this field is set to \"ACTIVE\" when the application is discovered.  If an application has been deleted from within the discovery source, the status will be set to \"INACTIVE\".
+     * @type {string}
+     * @memberof SlimDiscoveredApplicationsInner
+     */
+    'status'?: string;
+}
+/**
  * Details of the Entitlement criteria
  * @export
  * @interface SodExemptCriteria
@@ -27943,12 +28028,13 @@ export const ApplicationDiscoveryApiAxiosParamCreator = function (configuration?
          * @summary Retrieve discovered applications for tenant
          * @param {number} [limit] Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
          * @param {number} [offset] Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
-         * @param {string} [filter] Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)       Filtering is supported for the following fields and operators:  **name**: *eq, sw, co*  **description**: *eq, sw, co* 
+         * @param {'SLIM' | 'FULL'} [detail] Determines whether slim, or increased level of detail is provided for each discovered application in the returned list. SLIM is the default behavior.
+         * @param {string} [filter] Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)       Filtering is supported for the following fields and operators:  **name**: *eq, sw, co*  **description**: *eq, sw, co*  **createdAtStart**: *eq, le, ge*  **createdAtEnd**: *eq, le, ge*  **discoveredAtStart**: *eq, le, ge*  **discoveredAtEnd**: *eq, le, ge*  **discoverySource**: *eq, in* 
          * @param {string} [sorters] Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **name, description, discoveredAt, discoverySource**
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        getDiscoveredApplications: async (limit?: number, offset?: number, filter?: string, sorters?: string, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        getDiscoveredApplications: async (limit?: number, offset?: number, detail?: 'SLIM' | 'FULL', filter?: string, sorters?: string, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             const localVarPath = `/discovered-applications`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -27975,6 +28061,10 @@ export const ApplicationDiscoveryApiAxiosParamCreator = function (configuration?
 
             if (offset !== undefined) {
                 localVarQueryParameter['offset'] = offset;
+            }
+
+            if (detail !== undefined) {
+                localVarQueryParameter['detail'] = detail;
             }
 
             if (filter !== undefined) {
@@ -28136,13 +28226,14 @@ export const ApplicationDiscoveryApiFp = function(configuration?: Configuration)
          * @summary Retrieve discovered applications for tenant
          * @param {number} [limit] Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
          * @param {number} [offset] Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
-         * @param {string} [filter] Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)       Filtering is supported for the following fields and operators:  **name**: *eq, sw, co*  **description**: *eq, sw, co* 
+         * @param {'SLIM' | 'FULL'} [detail] Determines whether slim, or increased level of detail is provided for each discovered application in the returned list. SLIM is the default behavior.
+         * @param {string} [filter] Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)       Filtering is supported for the following fields and operators:  **name**: *eq, sw, co*  **description**: *eq, sw, co*  **createdAtStart**: *eq, le, ge*  **createdAtEnd**: *eq, le, ge*  **discoveredAtStart**: *eq, le, ge*  **discoveredAtEnd**: *eq, le, ge*  **discoverySource**: *eq, in* 
          * @param {string} [sorters] Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **name, description, discoveredAt, discoverySource**
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async getDiscoveredApplications(limit?: number, offset?: number, filter?: string, sorters?: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Array<DiscoveredApplicationsInner>>>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.getDiscoveredApplications(limit, offset, filter, sorters, axiosOptions);
+        async getDiscoveredApplications(limit?: number, offset?: number, detail?: 'SLIM' | 'FULL', filter?: string, sorters?: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<GetDiscoveredApplications200ResponseInner>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getDiscoveredApplications(limit, offset, detail, filter, sorters, axiosOptions);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
@@ -28191,13 +28282,14 @@ export const ApplicationDiscoveryApiFactory = function (configuration?: Configur
          * @summary Retrieve discovered applications for tenant
          * @param {number} [limit] Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
          * @param {number} [offset] Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
-         * @param {string} [filter] Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)       Filtering is supported for the following fields and operators:  **name**: *eq, sw, co*  **description**: *eq, sw, co* 
+         * @param {'SLIM' | 'FULL'} [detail] Determines whether slim, or increased level of detail is provided for each discovered application in the returned list. SLIM is the default behavior.
+         * @param {string} [filter] Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)       Filtering is supported for the following fields and operators:  **name**: *eq, sw, co*  **description**: *eq, sw, co*  **createdAtStart**: *eq, le, ge*  **createdAtEnd**: *eq, le, ge*  **discoveredAtStart**: *eq, le, ge*  **discoveredAtEnd**: *eq, le, ge*  **discoverySource**: *eq, in* 
          * @param {string} [sorters] Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **name, description, discoveredAt, discoverySource**
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        getDiscoveredApplications(limit?: number, offset?: number, filter?: string, sorters?: string, axiosOptions?: any): AxiosPromise<Array<Array<DiscoveredApplicationsInner>>> {
-            return localVarFp.getDiscoveredApplications(limit, offset, filter, sorters, axiosOptions).then((request) => request(axios, basePath));
+        getDiscoveredApplications(limit?: number, offset?: number, detail?: 'SLIM' | 'FULL', filter?: string, sorters?: string, axiosOptions?: any): AxiosPromise<Array<GetDiscoveredApplications200ResponseInner>> {
+            return localVarFp.getDiscoveredApplications(limit, offset, detail, filter, sorters, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * This endpoint allows the user to download an example CSV file with two columns `application_name` and `description`.  The CSV file contains a single row with the values \'Example Application\' and \'Example Description\'.  The downloaded template is specifically designed for use with the `/manual-discover-applications` endpoint. 
@@ -28251,7 +28343,14 @@ export interface ApplicationDiscoveryApiGetDiscoveredApplicationsRequest {
     readonly offset?: number
 
     /**
-     * Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)       Filtering is supported for the following fields and operators:  **name**: *eq, sw, co*  **description**: *eq, sw, co* 
+     * Determines whether slim, or increased level of detail is provided for each discovered application in the returned list. SLIM is the default behavior.
+     * @type {'SLIM' | 'FULL'}
+     * @memberof ApplicationDiscoveryApiGetDiscoveredApplications
+     */
+    readonly detail?: 'SLIM' | 'FULL'
+
+    /**
+     * Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)       Filtering is supported for the following fields and operators:  **name**: *eq, sw, co*  **description**: *eq, sw, co*  **createdAtStart**: *eq, le, ge*  **createdAtEnd**: *eq, le, ge*  **discoveredAtStart**: *eq, le, ge*  **discoveredAtEnd**: *eq, le, ge*  **discoverySource**: *eq, in* 
      * @type {string}
      * @memberof ApplicationDiscoveryApiGetDiscoveredApplications
      */
@@ -28295,7 +28394,7 @@ export class ApplicationDiscoveryApi extends BaseAPI {
      * @memberof ApplicationDiscoveryApi
      */
     public getDiscoveredApplications(requestParameters: ApplicationDiscoveryApiGetDiscoveredApplicationsRequest = {}, axiosOptions?: AxiosRequestConfig) {
-        return ApplicationDiscoveryApiFp(this.configuration).getDiscoveredApplications(requestParameters.limit, requestParameters.offset, requestParameters.filter, requestParameters.sorters, axiosOptions).then((request) => request(this.axios, this.basePath));
+        return ApplicationDiscoveryApiFp(this.configuration).getDiscoveredApplications(requestParameters.limit, requestParameters.offset, requestParameters.detail, requestParameters.filter, requestParameters.sorters, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
