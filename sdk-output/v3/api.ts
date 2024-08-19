@@ -8766,69 +8766,69 @@ export interface ForwardApprovalDto {
     'comment': string;
 }
 /**
- * 
+ * Discovered applications with their respective associated sources
  * @export
- * @interface FullDiscoveredApplicationsInner
+ * @interface FullDiscoveredApplications
  */
-export interface FullDiscoveredApplicationsInner {
+export interface FullDiscoveredApplications {
     /**
      * Unique identifier for the discovered application.
      * @type {string}
-     * @memberof FullDiscoveredApplicationsInner
+     * @memberof FullDiscoveredApplications
      */
     'id'?: string;
     /**
      * Name of the discovered application.
      * @type {string}
-     * @memberof FullDiscoveredApplicationsInner
+     * @memberof FullDiscoveredApplications
      */
     'name'?: string;
     /**
      * Source from which the application was discovered.
      * @type {string}
-     * @memberof FullDiscoveredApplicationsInner
+     * @memberof FullDiscoveredApplications
      */
     'discoverySource'?: string;
     /**
      * The vendor associated with the discovered application.
      * @type {string}
-     * @memberof FullDiscoveredApplicationsInner
+     * @memberof FullDiscoveredApplications
      */
     'discoveredVendor'?: string;
     /**
      * A brief description of the discovered application.
      * @type {string}
-     * @memberof FullDiscoveredApplicationsInner
+     * @memberof FullDiscoveredApplications
      */
     'description'?: string;
     /**
      * List of recommended connectors for the application.
      * @type {Array<string>}
-     * @memberof FullDiscoveredApplicationsInner
+     * @memberof FullDiscoveredApplications
      */
     'recommendedConnectors'?: Array<string>;
     /**
      * The timestamp when the application was last received via an entitlement aggregation invocation  or a manual csv upload, in ISO 8601 format.
      * @type {string}
-     * @memberof FullDiscoveredApplicationsInner
+     * @memberof FullDiscoveredApplications
      */
     'discoveredAt'?: string;
     /**
      * The timestamp when the application was first discovered, in ISO 8601 format.
      * @type {string}
-     * @memberof FullDiscoveredApplicationsInner
+     * @memberof FullDiscoveredApplications
      */
     'createdAt'?: string;
     /**
      * The status of an application within the discovery source.  By default this field is set to \"ACTIVE\" when the application is discovered.  If an application has been deleted from within the discovery source, the status will be set to \"INACTIVE\".
      * @type {string}
-     * @memberof FullDiscoveredApplicationsInner
+     * @memberof FullDiscoveredApplications
      */
     'status'?: string;
     /**
      * List of associated sources related to this discovered application.
      * @type {Array<string>}
-     * @memberof FullDiscoveredApplicationsInner
+     * @memberof FullDiscoveredApplications
      */
     'associatedSources'?: Array<string>;
 }
@@ -8885,7 +8885,7 @@ export type GetActiveCampaigns200ResponseInner = Campaign | SlimCampaign;
  * @type GetDiscoveredApplications200ResponseInner
  * @export
  */
-export type GetDiscoveredApplications200ResponseInner = Array<FullDiscoveredApplicationsInner> | Array<SlimDiscoveredApplicationsInner>;
+export type GetDiscoveredApplications200ResponseInner = FullDiscoveredApplications | SlimDiscoveredApplications;
 
 /**
  * 
@@ -19977,63 +19977,63 @@ export const SlimCampaignCorrelatedStatusEnum = {
 export type SlimCampaignCorrelatedStatusEnum = typeof SlimCampaignCorrelatedStatusEnum[keyof typeof SlimCampaignCorrelatedStatusEnum];
 
 /**
- * 
+ * Discovered applications
  * @export
- * @interface SlimDiscoveredApplicationsInner
+ * @interface SlimDiscoveredApplications
  */
-export interface SlimDiscoveredApplicationsInner {
+export interface SlimDiscoveredApplications {
     /**
      * Unique identifier for the discovered application.
      * @type {string}
-     * @memberof SlimDiscoveredApplicationsInner
+     * @memberof SlimDiscoveredApplications
      */
     'id'?: string;
     /**
      * Name of the discovered application.
      * @type {string}
-     * @memberof SlimDiscoveredApplicationsInner
+     * @memberof SlimDiscoveredApplications
      */
     'name'?: string;
     /**
      * Source from which the application was discovered.
      * @type {string}
-     * @memberof SlimDiscoveredApplicationsInner
+     * @memberof SlimDiscoveredApplications
      */
     'discoverySource'?: string;
     /**
      * The vendor associated with the discovered application.
      * @type {string}
-     * @memberof SlimDiscoveredApplicationsInner
+     * @memberof SlimDiscoveredApplications
      */
     'discoveredVendor'?: string;
     /**
      * A brief description of the discovered application.
      * @type {string}
-     * @memberof SlimDiscoveredApplicationsInner
+     * @memberof SlimDiscoveredApplications
      */
     'description'?: string;
     /**
      * List of recommended connectors for the application.
      * @type {Array<string>}
-     * @memberof SlimDiscoveredApplicationsInner
+     * @memberof SlimDiscoveredApplications
      */
     'recommendedConnectors'?: Array<string>;
     /**
      * The timestamp when the application was last received via an entitlement aggregation invocation  or a manual csv upload, in ISO 8601 format.
      * @type {string}
-     * @memberof SlimDiscoveredApplicationsInner
+     * @memberof SlimDiscoveredApplications
      */
     'discoveredAt'?: string;
     /**
      * The timestamp when the application was first discovered, in ISO 8601 format.
      * @type {string}
-     * @memberof SlimDiscoveredApplicationsInner
+     * @memberof SlimDiscoveredApplications
      */
     'createdAt'?: string;
     /**
      * The status of an application within the discovery source.  By default this field is set to \"ACTIVE\" when the application is discovered.  If an application has been deleted from within the discovery source, the status will be set to \"INACTIVE\".
      * @type {string}
-     * @memberof SlimDiscoveredApplicationsInner
+     * @memberof SlimDiscoveredApplications
      */
     'status'?: string;
 }
