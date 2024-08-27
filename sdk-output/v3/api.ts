@@ -33259,7 +33259,7 @@ export const CertificationsApiAxiosParamCreator = function (configuration?: Conf
             };
         },
         /**
-         * This API initiates a task to reassign up to 500 identities or items in an identity campaign certification to another reviewer. The `certification-tasks` API can be used to get an updated status on the task and determine when the reassignment is complete. A token with ORG_ADMIN or CERT_ADMIN authority is required to call this API. Reviewers for this certification can also call this API.
+         * This API initiates a task to reassign up to 500 identities or items in an identity campaign certification to another reviewer. The `certification-tasks` API can be used to get an updated status on the task and determine when the reassignment is complete.   A token with ORG_ADMIN or CERT_ADMIN authority is required to call this API. Reviewers for this certification can also call this API. 
          * @summary Reassign Certifications Asynchronously
          * @param {string} id The identity campaign certification ID
          * @param {ReviewReassign} reviewReassign 
@@ -33456,7 +33456,7 @@ export const CertificationsApiFp = function(configuration?: Configuration) {
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
-         * This API initiates a task to reassign up to 500 identities or items in an identity campaign certification to another reviewer. The `certification-tasks` API can be used to get an updated status on the task and determine when the reassignment is complete. A token with ORG_ADMIN or CERT_ADMIN authority is required to call this API. Reviewers for this certification can also call this API.
+         * This API initiates a task to reassign up to 500 identities or items in an identity campaign certification to another reviewer. The `certification-tasks` API can be used to get an updated status on the task and determine when the reassignment is complete.   A token with ORG_ADMIN or CERT_ADMIN authority is required to call this API. Reviewers for this certification can also call this API. 
          * @summary Reassign Certifications Asynchronously
          * @param {string} id The identity campaign certification ID
          * @param {ReviewReassign} reviewReassign 
@@ -33607,7 +33607,7 @@ export const CertificationsApiFactory = function (configuration?: Configuration,
             return localVarFp.signOffIdentityCertification(id, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
-         * This API initiates a task to reassign up to 500 identities or items in an identity campaign certification to another reviewer. The `certification-tasks` API can be used to get an updated status on the task and determine when the reassignment is complete. A token with ORG_ADMIN or CERT_ADMIN authority is required to call this API. Reviewers for this certification can also call this API.
+         * This API initiates a task to reassign up to 500 identities or items in an identity campaign certification to another reviewer. The `certification-tasks` API can be used to get an updated status on the task and determine when the reassignment is complete.   A token with ORG_ADMIN or CERT_ADMIN authority is required to call this API. Reviewers for this certification can also call this API. 
          * @summary Reassign Certifications Asynchronously
          * @param {string} id The identity campaign certification ID
          * @param {ReviewReassign} reviewReassign 
@@ -34112,7 +34112,7 @@ export class CertificationsApi extends BaseAPI {
     }
 
     /**
-     * This API initiates a task to reassign up to 500 identities or items in an identity campaign certification to another reviewer. The `certification-tasks` API can be used to get an updated status on the task and determine when the reassignment is complete. A token with ORG_ADMIN or CERT_ADMIN authority is required to call this API. Reviewers for this certification can also call this API.
+     * This API initiates a task to reassign up to 500 identities or items in an identity campaign certification to another reviewer. The `certification-tasks` API can be used to get an updated status on the task and determine when the reassignment is complete.   A token with ORG_ADMIN or CERT_ADMIN authority is required to call this API. Reviewers for this certification can also call this API. 
      * @summary Reassign Certifications Asynchronously
      * @param {CertificationsApiSubmitReassignCertsAsyncRequest} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
