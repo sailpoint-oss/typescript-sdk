@@ -23686,7 +23686,7 @@ export type WorkflowExecutionStatusEnum = typeof WorkflowExecutionStatusEnum[key
 export interface WorkflowExecutionEvent {
     /**
      * The type of event
-     * @type {object}
+     * @type {string}
      * @memberof WorkflowExecutionEvent
      */
     'type'?: WorkflowExecutionEventTypeEnum;
@@ -23716,7 +23716,11 @@ export const WorkflowExecutionEventTypeEnum = {
     ActivityTaskScheduled: 'ActivityTaskScheduled',
     ActivityTaskStarted: 'ActivityTaskStarted',
     ActivityTaskCompleted: 'ActivityTaskCompleted',
-    ActivityTaskFailed: 'ActivityTaskFailed'
+    ActivityTaskFailed: 'ActivityTaskFailed',
+    StartChildWorkflowExecutionInitiated: 'StartChildWorkflowExecutionInitiated',
+    ChildWorkflowExecutionStarted: 'ChildWorkflowExecutionStarted',
+    ChildWorkflowExecutionCompleted: 'ChildWorkflowExecutionCompleted',
+    ChildWorkflowExecutionFailed: 'ChildWorkflowExecutionFailed'
 } as const;
 
 export type WorkflowExecutionEventTypeEnum = typeof WorkflowExecutionEventTypeEnum[keyof typeof WorkflowExecutionEventTypeEnum];
