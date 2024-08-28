@@ -4449,7 +4449,7 @@ export interface Campaign {
     'status'?: CampaignStatusEnum;
     /**
      * The correlatedStatus of the campaign. Only SOURCE_OWNER campaigns can be Uncorrelated. An Uncorrelated certification campaign only includes Uncorrelated identities (An identity is uncorrelated if it has no accounts on an authoritative source).
-     * @type {object}
+     * @type {string}
      * @memberof Campaign
      */
     'correlatedStatus'?: CampaignCorrelatedStatusEnum;
@@ -4604,7 +4604,7 @@ export interface CampaignAllOf {
     'modified'?: string;
     /**
      * The correlatedStatus of the campaign. Only SOURCE_OWNER campaigns can be Uncorrelated. An Uncorrelated certification campaign only includes Uncorrelated identities (An identity is uncorrelated if it has no accounts on an authoritative source).
-     * @type {object}
+     * @type {string}
      * @memberof CampaignAllOf
      */
     'correlatedStatus'?: CampaignAllOfCorrelatedStatusEnum;
