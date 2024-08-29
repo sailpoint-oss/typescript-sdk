@@ -7033,6 +7033,142 @@ export interface DeleteVendorConnectorMapping200Response {
 /**
  * 
  * @export
+ * @interface DependantAppConnections
+ */
+export interface DependantAppConnections {
+    /**
+     * Id of the connected Application
+     * @type {string}
+     * @memberof DependantAppConnections
+     */
+    'cloudAppId'?: string;
+    /**
+     * Description of the connected Application
+     * @type {string}
+     * @memberof DependantAppConnections
+     */
+    'description'?: string;
+    /**
+     * Is the Application enabled
+     * @type {boolean}
+     * @memberof DependantAppConnections
+     */
+    'enabled'?: boolean;
+    /**
+     * Is Provisioning enabled for connected Application
+     * @type {boolean}
+     * @memberof DependantAppConnections
+     */
+    'provisionRequestEnabled'?: boolean;
+    /**
+     * 
+     * @type {DependantAppConnectionsAccountSource}
+     * @memberof DependantAppConnections
+     */
+    'accountSource'?: DependantAppConnectionsAccountSource;
+    /**
+     * The amount of launchers for connected Application (long type)
+     * @type {number}
+     * @memberof DependantAppConnections
+     */
+    'launcherCount'?: number;
+    /**
+     * Is Provisioning enabled for connected Application
+     * @type {boolean}
+     * @memberof DependantAppConnections
+     */
+    'matchAllAccount'?: boolean;
+    /**
+     * The owner of the connected Application
+     * @type {Array<BaseReferenceDto>}
+     * @memberof DependantAppConnections
+     */
+    'owner'?: Array<BaseReferenceDto>;
+    /**
+     * Is App Center enabled for connected Application
+     * @type {boolean}
+     * @memberof DependantAppConnections
+     */
+    'appCenterEnabled'?: boolean;
+}
+/**
+ * The Account Source of the connected Application
+ * @export
+ * @interface DependantAppConnectionsAccountSource
+ */
+export interface DependantAppConnectionsAccountSource {
+    /**
+     * Use this Account Source for password management
+     * @type {boolean}
+     * @memberof DependantAppConnectionsAccountSource
+     */
+    'useForPasswordManagement'?: boolean;
+    /**
+     * A list of Password Policies for this Account Source
+     * @type {Array<DependantAppConnectionsAccountSourcePasswordPoliciesInner>}
+     * @memberof DependantAppConnectionsAccountSource
+     */
+    'passwordPolicies'?: Array<DependantAppConnectionsAccountSourcePasswordPoliciesInner>;
+}
+/**
+ * 
+ * @export
+ * @interface DependantAppConnectionsAccountSourcePasswordPoliciesInner
+ */
+export interface DependantAppConnectionsAccountSourcePasswordPoliciesInner {
+    /**
+     * DTO type
+     * @type {string}
+     * @memberof DependantAppConnectionsAccountSourcePasswordPoliciesInner
+     */
+    'type'?: string;
+    /**
+     * ID of the object to which this reference applies
+     * @type {string}
+     * @memberof DependantAppConnectionsAccountSourcePasswordPoliciesInner
+     */
+    'id'?: string;
+    /**
+     * Human-readable display name of the object to which this reference applies
+     * @type {string}
+     * @memberof DependantAppConnectionsAccountSourcePasswordPoliciesInner
+     */
+    'name'?: string;
+}
+/**
+ * 
+ * @export
+ * @interface DependantConnectionsMissingDto
+ */
+export interface DependantConnectionsMissingDto {
+    /**
+     * The type of dependency type that is missing in the SourceConnections
+     * @type {string}
+     * @memberof DependantConnectionsMissingDto
+     */
+    'dependencyType'?: DependantConnectionsMissingDtoDependencyTypeEnum;
+    /**
+     * The reason why this dependency is missing
+     * @type {string}
+     * @memberof DependantConnectionsMissingDto
+     */
+    'reason'?: string;
+}
+
+export const DependantConnectionsMissingDtoDependencyTypeEnum = {
+    IdentityProfiles: 'identityProfiles',
+    CredentialProfiles: 'credentialProfiles',
+    MappingProfiles: 'mappingProfiles',
+    SourceAttributes: 'sourceAttributes',
+    DependantCustomTransforms: 'dependantCustomTransforms',
+    DependantApps: 'dependantApps'
+} as const;
+
+export type DependantConnectionsMissingDtoDependencyTypeEnum = typeof DependantConnectionsMissingDtoDependencyTypeEnum[keyof typeof DependantConnectionsMissingDtoDependencyTypeEnum];
+
+/**
+ * 
+ * @export
  * @interface DisplayReference
  */
 export interface DisplayReference {
@@ -10386,6 +10522,31 @@ export interface IdentityProfileIdentityErrorReportArguments {
      * @memberof IdentityProfileIdentityErrorReportArguments
      */
     'authoritativeSource': string;
+}
+/**
+ * 
+ * @export
+ * @interface IdentityProfilesConnections
+ */
+export interface IdentityProfilesConnections {
+    /**
+     * ID of the IdentityProfile this reference applies
+     * @type {string}
+     * @memberof IdentityProfilesConnections
+     */
+    'id'?: string;
+    /**
+     * Human-readable display name of the IdentityProfile to which this reference applies
+     * @type {string}
+     * @memberof IdentityProfilesConnections
+     */
+    'name'?: string;
+    /**
+     * The Number of Identities managed by this IdentityProfile
+     * @type {number}
+     * @memberof IdentityProfilesConnections
+     */
+    'identityCount'?: number;
 }
 /**
  * The manager for the identity.
@@ -20946,6 +21107,55 @@ export const SourceClusterDtoTypeEnum = {
 
 export type SourceClusterDtoTypeEnum = typeof SourceClusterDtoTypeEnum[keyof typeof SourceClusterDtoTypeEnum];
 
+/**
+ * 
+ * @export
+ * @interface SourceConnectionsDto
+ */
+export interface SourceConnectionsDto {
+    /**
+     * The IdentityProfile attached to this source
+     * @type {Array<IdentityProfilesConnections>}
+     * @memberof SourceConnectionsDto
+     */
+    'identityProfiles'?: Array<IdentityProfilesConnections>;
+    /**
+     * Name of the CredentialProfile attached to this source
+     * @type {Array<string>}
+     * @memberof SourceConnectionsDto
+     */
+    'credentialProfiles'?: Array<string>;
+    /**
+     * The attributes attached to this source
+     * @type {Array<string>}
+     * @memberof SourceConnectionsDto
+     */
+    'sourceAttributes'?: Array<string>;
+    /**
+     * The profiles attached to this source
+     * @type {Array<string>}
+     * @memberof SourceConnectionsDto
+     */
+    'mappingProfiles'?: Array<string>;
+    /**
+     * 
+     * @type {Array<Transform>}
+     * @memberof SourceConnectionsDto
+     */
+    'dependentCustomTransforms'?: Array<Transform>;
+    /**
+     * 
+     * @type {Array<DependantAppConnections>}
+     * @memberof SourceConnectionsDto
+     */
+    'dependentApps'?: Array<DependantAppConnections>;
+    /**
+     * 
+     * @type {Array<DependantConnectionsMissingDto>}
+     * @memberof SourceConnectionsDto
+     */
+    'missingDependents'?: Array<DependantConnectionsMissingDto>;
+}
 /**
  * Dto for source health data
  * @export
@@ -55989,6 +56199,48 @@ export const SourcesApiAxiosParamCreator = function (configuration?: Configurati
             };
         },
         /**
+         * Use this API to get all dependent Profiles, Attributes, Applications and Custom Transforms for a source by a specified ID in Identity Security Cloud (ISC). A token with ORG_ADMIN, SOURCE_ADMIN, or SOURCE_SUBADMIN authority is required to call this API.
+         * @summary Get Source Connections by ID
+         * @param {string} id Source ID.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        getSourceConnections: async (id: string, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'id' is not null or undefined
+            assertParamExists('getSourceConnections', 'id', id)
+            const localVarPath = `/sources/{sourceId}/connections`
+                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...axiosOptions};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication UserContextAuth required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "UserContextAuth", [], configuration)
+
+            // authentication UserContextAuth required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "UserContextAuth", [], configuration)
+
+
+    
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                axiosOptions: localVarRequestOptions,
+            };
+        },
+        /**
          * This endpoint fetches source health by source\'s id
          * @summary Fetches source health by id
          * @param {string} sourceId The Source id.
@@ -56871,6 +57123,17 @@ export const SourcesApiFp = function(configuration?: Configuration) {
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
+         * Use this API to get all dependent Profiles, Attributes, Applications and Custom Transforms for a source by a specified ID in Identity Security Cloud (ISC). A token with ORG_ADMIN, SOURCE_ADMIN, or SOURCE_SUBADMIN authority is required to call this API.
+         * @summary Get Source Connections by ID
+         * @param {string} id Source ID.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        async getSourceConnections(id: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SourceConnectionsDto>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getSourceConnections(id, axiosOptions);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
          * This endpoint fetches source health by source\'s id
          * @summary Fetches source health by id
          * @param {string} sourceId The Source id.
@@ -57173,6 +57436,16 @@ export const SourcesApiFactory = function (configuration?: Configuration, basePa
          */
         getSource(id: string, axiosOptions?: any): AxiosPromise<Source> {
             return localVarFp.getSource(id, axiosOptions).then((request) => request(axios, basePath));
+        },
+        /**
+         * Use this API to get all dependent Profiles, Attributes, Applications and Custom Transforms for a source by a specified ID in Identity Security Cloud (ISC). A token with ORG_ADMIN, SOURCE_ADMIN, or SOURCE_SUBADMIN authority is required to call this API.
+         * @summary Get Source Connections by ID
+         * @param {string} id Source ID.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        getSourceConnections(id: string, axiosOptions?: any): AxiosPromise<SourceConnectionsDto> {
+            return localVarFp.getSourceConnections(id, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * This endpoint fetches source health by source\'s id
@@ -57534,6 +57807,20 @@ export interface SourcesApiGetSourceRequest {
      * Source ID.
      * @type {string}
      * @memberof SourcesApiGetSource
+     */
+    readonly id: string
+}
+
+/**
+ * Request parameters for getSourceConnections operation in SourcesApi.
+ * @export
+ * @interface SourcesApiGetSourceConnectionsRequest
+ */
+export interface SourcesApiGetSourceConnectionsRequest {
+    /**
+     * Source ID.
+     * @type {string}
+     * @memberof SourcesApiGetSourceConnections
      */
     readonly id: string
 }
@@ -58027,6 +58314,18 @@ export class SourcesApi extends BaseAPI {
      */
     public getSource(requestParameters: SourcesApiGetSourceRequest, axiosOptions?: AxiosRequestConfig) {
         return SourcesApiFp(this.configuration).getSource(requestParameters.id, axiosOptions).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Use this API to get all dependent Profiles, Attributes, Applications and Custom Transforms for a source by a specified ID in Identity Security Cloud (ISC). A token with ORG_ADMIN, SOURCE_ADMIN, or SOURCE_SUBADMIN authority is required to call this API.
+     * @summary Get Source Connections by ID
+     * @param {SourcesApiGetSourceConnectionsRequest} requestParameters Request parameters.
+     * @param {*} [axiosOptions] Override http request option.
+     * @throws {RequiredError}
+     * @memberof SourcesApi
+     */
+    public getSourceConnections(requestParameters: SourcesApiGetSourceConnectionsRequest, axiosOptions?: AxiosRequestConfig) {
+        return SourcesApiFp(this.configuration).getSourceConnections(requestParameters.id, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
