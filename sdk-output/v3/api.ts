@@ -5197,7 +5197,7 @@ export interface CampaignTemplate {
      * @type {string}
      * @memberof CampaignTemplate
      */
-    'modified': string;
+    'modified': string | null;
     /**
      * Indicates if this campaign template has been scheduled.
      * @type {boolean}
@@ -5217,7 +5217,7 @@ export interface CampaignTemplate {
      */
     'deadlineDuration'?: string;
     /**
-     * This will hold campaign related information like name, description etc.
+     * 
      * @type {Campaign}
      * @memberof CampaignTemplate
      */
