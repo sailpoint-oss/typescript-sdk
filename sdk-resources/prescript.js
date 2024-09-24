@@ -27,19 +27,11 @@ const updateYamlFiles = (directoryPath) => {
                             console.error('Error reading file:', err);
                             return;
                         }
-
-                        // Regular expression to find the exact block
-                        const regex = new RegExp(`\\s*- name: X-SailPoint-Experimental\\s*\\n\\s*in: header\\s*\\n\\s*description: Use this header to enable this experimental API\\.\\s*\\n\\s*example: true\\s*\\n\\s*schema:\\s*\\n\\s*type: string\\s*\\n\\s*default: true\\s*\\n\\s*required: true`, 'g');
-
-                        // Replace 'required: true' with 'required: false'
-                        const updatedData = data.replace(regex, `\n  - name: X-SailPoint-Experimental
-    in: header
-    description: Use this header to enable this experimental API.
-    example: true
-    schema:
-      type: string
-      default: true
-    required: false`);
+                        
+                          const updatedData = data.replace(
+                            /(- name: X-SailPoint-Experimental[\s\S]*?required: )true/,
+                            '$1false'
+                          );
 
                         // Write the updated YAML back to the file only if changes were made
                         if (updatedData !== data) {
