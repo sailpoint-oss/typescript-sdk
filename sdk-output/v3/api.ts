@@ -3600,6 +3600,200 @@ export const AuthUserCapabilitiesEnum = {
 export type AuthUserCapabilitiesEnum = typeof AuthUserCapabilitiesEnum[keyof typeof AuthUserCapabilitiesEnum];
 
 /**
+ * Backup options control what will be included in the backup.
+ * @export
+ * @interface BackupOptions
+ */
+export interface BackupOptions {
+    /**
+     * Object type names to be included in a Configuration Hub backup command.
+     * @type {Array<string>}
+     * @memberof BackupOptions
+     */
+    'includeTypes'?: Array<BackupOptionsIncludeTypesEnum>;
+    /**
+     * Additional options targeting specific objects related to each item in the includeTypes field.
+     * @type {{ [key: string]: ObjectExportImportNames; }}
+     * @memberof BackupOptions
+     */
+    'objectOptions'?: { [key: string]: ObjectExportImportNames; };
+}
+
+export const BackupOptionsIncludeTypesEnum = {
+    AccessProfile: 'ACCESS_PROFILE',
+    AccessRequestConfig: 'ACCESS_REQUEST_CONFIG',
+    AttrSyncSourceConfig: 'ATTR_SYNC_SOURCE_CONFIG',
+    AuthOrg: 'AUTH_ORG',
+    CampaignFilter: 'CAMPAIGN_FILTER',
+    FormDefinition: 'FORM_DEFINITION',
+    GovernanceGroup: 'GOVERNANCE_GROUP',
+    IdentityObjectConfig: 'IDENTITY_OBJECT_CONFIG',
+    IdentityProfile: 'IDENTITY_PROFILE',
+    LifecycleState: 'LIFECYCLE_STATE',
+    NotificationTemplate: 'NOTIFICATION_TEMPLATE',
+    PasswordPolicy: 'PASSWORD_POLICY',
+    PasswordSyncGroup: 'PASSWORD_SYNC_GROUP',
+    PublicIdentitiesConfig: 'PUBLIC_IDENTITIES_CONFIG',
+    Role: 'ROLE',
+    Rule: 'RULE',
+    Segment: 'SEGMENT',
+    ServiceDeskIntegration: 'SERVICE_DESK_INTEGRATION',
+    SodPolicy: 'SOD_POLICY',
+    Source: 'SOURCE',
+    Tag: 'TAG',
+    Transform: 'TRANSFORM',
+    TriggerSubscription: 'TRIGGER_SUBSCRIPTION',
+    Workflow: 'WORKFLOW'
+} as const;
+
+export type BackupOptionsIncludeTypesEnum = typeof BackupOptionsIncludeTypesEnum[keyof typeof BackupOptionsIncludeTypesEnum];
+
+/**
+ * 
+ * @export
+ * @interface BackupResponse
+ */
+export interface BackupResponse {
+    /**
+     * Unique id assigned to this backup.
+     * @type {string}
+     * @memberof BackupResponse
+     */
+    'jobId'?: string;
+    /**
+     * Status of the backup.
+     * @type {string}
+     * @memberof BackupResponse
+     */
+    'status'?: BackupResponseStatusEnum;
+    /**
+     * Type of the job, will always be BACKUP for this type of job.
+     * @type {string}
+     * @memberof BackupResponse
+     */
+    'type'?: BackupResponseTypeEnum;
+    /**
+     * The name of the tenant performing the upload
+     * @type {string}
+     * @memberof BackupResponse
+     */
+    'tenant'?: string;
+    /**
+     * The name of the requester.
+     * @type {string}
+     * @memberof BackupResponse
+     */
+    'requesterName'?: string;
+    /**
+     * Whether or not a file was created and stored for this backup.
+     * @type {boolean}
+     * @memberof BackupResponse
+     */
+    'fileExists'?: boolean;
+    /**
+     * The time the job was started.
+     * @type {string}
+     * @memberof BackupResponse
+     */
+    'created'?: string;
+    /**
+     * The time of the last update to the job.
+     * @type {string}
+     * @memberof BackupResponse
+     */
+    'modified'?: string;
+    /**
+     * The time the job was completed.
+     * @type {string}
+     * @memberof BackupResponse
+     */
+    'completed'?: string;
+    /**
+     * The name assigned to the upload file in the request body.
+     * @type {string}
+     * @memberof BackupResponse
+     */
+    'name'?: string;
+    /**
+     * Whether this backup can be deleted by a regular user.
+     * @type {boolean}
+     * @memberof BackupResponse
+     */
+    'userCanDelete'?: boolean;
+    /**
+     * Whether this backup contains all supported object types or only some of them.
+     * @type {boolean}
+     * @memberof BackupResponse
+     */
+    'isPartial'?: boolean;
+    /**
+     * Denotes how this backup was created. - MANUAL - The backup was created by a user. - AUTOMATED - The backup was created by devops. - AUTOMATED_DRAFT - The backup was created during a draft process. - UPLOADED - The backup was created by uploading an existing configuration file.
+     * @type {string}
+     * @memberof BackupResponse
+     */
+    'backupType'?: BackupResponseBackupTypeEnum;
+    /**
+     * 
+     * @type {BackupOptions}
+     * @memberof BackupResponse
+     */
+    'options'?: BackupOptions | null;
+    /**
+     * Whether the object details of this backup are ready.
+     * @type {string}
+     * @memberof BackupResponse
+     */
+    'hydrationStatus'?: BackupResponseHydrationStatusEnum;
+    /**
+     * Number of objects contained in this backup.
+     * @type {number}
+     * @memberof BackupResponse
+     */
+    'totalObjectCount'?: number;
+    /**
+     * Whether this backup has been transferred to a customer storage location.
+     * @type {string}
+     * @memberof BackupResponse
+     */
+    'cloudStorageStatus'?: BackupResponseCloudStorageStatusEnum;
+}
+
+export const BackupResponseStatusEnum = {
+    NotStarted: 'NOT_STARTED',
+    InProgress: 'IN_PROGRESS',
+    Complete: 'COMPLETE',
+    Cancelled: 'CANCELLED',
+    Failed: 'FAILED'
+} as const;
+
+export type BackupResponseStatusEnum = typeof BackupResponseStatusEnum[keyof typeof BackupResponseStatusEnum];
+export const BackupResponseTypeEnum = {
+    Backup: 'BACKUP'
+} as const;
+
+export type BackupResponseTypeEnum = typeof BackupResponseTypeEnum[keyof typeof BackupResponseTypeEnum];
+export const BackupResponseBackupTypeEnum = {
+    Uploaded: 'UPLOADED',
+    Automated: 'AUTOMATED',
+    Manual: 'MANUAL'
+} as const;
+
+export type BackupResponseBackupTypeEnum = typeof BackupResponseBackupTypeEnum[keyof typeof BackupResponseBackupTypeEnum];
+export const BackupResponseHydrationStatusEnum = {
+    Hydrated: 'HYDRATED',
+    NotHydrated: 'NOT_HYDRATED'
+} as const;
+
+export type BackupResponseHydrationStatusEnum = typeof BackupResponseHydrationStatusEnum[keyof typeof BackupResponseHydrationStatusEnum];
+export const BackupResponseCloudStorageStatusEnum = {
+    Synced: 'SYNCED',
+    NotSynced: 'NOT_SYNCED',
+    SyncFailed: 'SYNC_FAILED'
+} as const;
+
+export type BackupResponseCloudStorageStatusEnum = typeof BackupResponseCloudStorageStatusEnum[keyof typeof BackupResponseCloudStorageStatusEnum];
+
+/**
  * 
  * @export
  * @interface Base64Decode
@@ -6668,6 +6862,25 @@ export interface CreateScheduledSearchRequest {
      * @memberof CreateScheduledSearchRequest
      */
     'displayQueryDetails'?: boolean;
+}
+/**
+ * 
+ * @export
+ * @interface CreateUploadedConfigurationRequest
+ */
+export interface CreateUploadedConfigurationRequest {
+    /**
+     * JSON file containing the objects to be imported.
+     * @type {any}
+     * @memberof CreateUploadedConfigurationRequest
+     */
+    'data': any;
+    /**
+     * Name that will be assigned to the uploaded configuration file.
+     * @type {string}
+     * @memberof CreateUploadedConfigurationRequest
+     */
+    'name': string;
 }
 /**
  * 
@@ -10984,25 +11197,6 @@ export const ImportObjectTypeEnum = {
 export type ImportObjectTypeEnum = typeof ImportObjectTypeEnum[keyof typeof ImportObjectTypeEnum];
 
 /**
- * 
- * @export
- * @interface ImportUploadedBackupRequest
- */
-export interface ImportUploadedBackupRequest {
-    /**
-     * JSON file containing the objects to be imported.
-     * @type {any}
-     * @memberof ImportUploadedBackupRequest
-     */
-    'data': any;
-    /**
-     * Name that will be assigned to the uploaded file.
-     * @type {string}
-     * @memberof ImportUploadedBackupRequest
-     */
-    'name': string;
-}
-/**
  * Enum representing the currently supported indices. Additional values may be added in the future without notice.
  * @export
  * @enum {string}
@@ -14129,6 +14323,19 @@ export interface NonEmployeeSourceWithNECountAllOf {
      * @memberof NonEmployeeSourceWithNECountAllOf
      */
     'nonEmployeeCount'?: number | null;
+}
+/**
+ * 
+ * @export
+ * @interface ObjectExportImportNames
+ */
+export interface ObjectExportImportNames {
+    /**
+     * Object names to be included in a backup.
+     * @type {Array<string>}
+     * @memberof ObjectExportImportNames
+     */
+    'includedNames'?: Array<string>;
 }
 /**
  * Response model for import of a single object.
@@ -22556,224 +22763,6 @@ export const UpdateDetailStatusEnum = {
 } as const;
 
 export type UpdateDetailStatusEnum = typeof UpdateDetailStatusEnum[keyof typeof UpdateDetailStatusEnum];
-
-/**
- * 
- * @export
- * @interface UploadsRequest
- */
-export interface UploadsRequest {
-    /**
-     * Unique id assigned to this job.
-     * @type {string}
-     * @memberof UploadsRequest
-     */
-    'jobId': string;
-    /**
-     * Status of the job.
-     * @type {string}
-     * @memberof UploadsRequest
-     */
-    'status': UploadsRequestStatusEnum;
-    /**
-     * Type of the job, either Backup or Draft.
-     * @type {string}
-     * @memberof UploadsRequest
-     */
-    'type': UploadsRequestTypeEnum;
-    /**
-     * The name of the tenant performing the upload
-     * @type {string}
-     * @memberof UploadsRequest
-     */
-    'tenant'?: string;
-    /**
-     * The name of the requester.
-     * @type {string}
-     * @memberof UploadsRequest
-     */
-    'requesterName'?: string;
-    /**
-     * The time the job was started.
-     * @type {string}
-     * @memberof UploadsRequest
-     */
-    'created': string;
-    /**
-     * The time of the last update to the job.
-     * @type {string}
-     * @memberof UploadsRequest
-     */
-    'modified': string;
-    /**
-     * The name assigned to the upload file in the request body.
-     * @type {string}
-     * @memberof UploadsRequest
-     */
-    'name'?: string;
-    /**
-     * Is the job a regular backup job, if so is the user allowed to delete the backup file. Since this is an upload job it remains as false.
-     * @type {boolean}
-     * @memberof UploadsRequest
-     */
-    'userCanDelete'?: boolean;
-    /**
-     * Is the job a regular backup job, if so is it partial. Since this is an upload job it remains as false.
-     * @type {boolean}
-     * @memberof UploadsRequest
-     */
-    'isPartial'?: boolean;
-    /**
-     * What kind of backup is this being treated as.
-     * @type {string}
-     * @memberof UploadsRequest
-     */
-    'backupType'?: UploadsRequestBackupTypeEnum;
-    /**
-     * have the objects contained in the upload file been hydrated.
-     * @type {string}
-     * @memberof UploadsRequest
-     */
-    'hydrationStatus'?: UploadsRequestHydrationStatusEnum;
-}
-
-export const UploadsRequestStatusEnum = {
-    NotStarted: 'NOT_STARTED',
-    InProgress: 'IN_PROGRESS',
-    Complete: 'COMPLETE',
-    Cancelled: 'CANCELLED',
-    Failed: 'FAILED'
-} as const;
-
-export type UploadsRequestStatusEnum = typeof UploadsRequestStatusEnum[keyof typeof UploadsRequestStatusEnum];
-export const UploadsRequestTypeEnum = {
-    Backup: 'BACKUP',
-    Draft: 'DRAFT'
-} as const;
-
-export type UploadsRequestTypeEnum = typeof UploadsRequestTypeEnum[keyof typeof UploadsRequestTypeEnum];
-export const UploadsRequestBackupTypeEnum = {
-    Uploaded: 'UPLOADED',
-    Automated: 'AUTOMATED',
-    Manual: 'MANUAL'
-} as const;
-
-export type UploadsRequestBackupTypeEnum = typeof UploadsRequestBackupTypeEnum[keyof typeof UploadsRequestBackupTypeEnum];
-export const UploadsRequestHydrationStatusEnum = {
-    Hydrated: 'HYDRATED',
-    NotHydrated: 'NOT_HYDRATED'
-} as const;
-
-export type UploadsRequestHydrationStatusEnum = typeof UploadsRequestHydrationStatusEnum[keyof typeof UploadsRequestHydrationStatusEnum];
-
-/**
- * 
- * @export
- * @interface UploadsResponse
- */
-export interface UploadsResponse {
-    /**
-     * Unique id assigned to this job.
-     * @type {string}
-     * @memberof UploadsResponse
-     */
-    'jobId': string;
-    /**
-     * Status of the job.
-     * @type {string}
-     * @memberof UploadsResponse
-     */
-    'status': UploadsResponseStatusEnum;
-    /**
-     * Type of the job, either Backup or Draft.
-     * @type {string}
-     * @memberof UploadsResponse
-     */
-    'type': UploadsResponseTypeEnum;
-    /**
-     * The name of the tenant performing the upload
-     * @type {string}
-     * @memberof UploadsResponse
-     */
-    'tenant'?: string;
-    /**
-     * The name of the requester.
-     * @type {string}
-     * @memberof UploadsResponse
-     */
-    'requesterName'?: string;
-    /**
-     * The time the job was started.
-     * @type {string}
-     * @memberof UploadsResponse
-     */
-    'created': string;
-    /**
-     * The time of the last update to the job.
-     * @type {string}
-     * @memberof UploadsResponse
-     */
-    'modified': string;
-    /**
-     * The name assigned to the upload file in the request body.
-     * @type {string}
-     * @memberof UploadsResponse
-     */
-    'name'?: string;
-    /**
-     * Is the job a regular backup job, if so is the user allowed to delete the backup file. Since this is an upload job it remains as false.
-     * @type {boolean}
-     * @memberof UploadsResponse
-     */
-    'userCanDelete'?: boolean;
-    /**
-     * Is the job a regular backup job, if so is it partial. Since this is an upload job it remains as false.
-     * @type {boolean}
-     * @memberof UploadsResponse
-     */
-    'isPartial'?: boolean;
-    /**
-     * What kind of backup is this being treated as.
-     * @type {string}
-     * @memberof UploadsResponse
-     */
-    'backupType'?: UploadsResponseBackupTypeEnum;
-    /**
-     * have the objects contained in the upload file been hydrated.
-     * @type {string}
-     * @memberof UploadsResponse
-     */
-    'hydrationStatus'?: UploadsResponseHydrationStatusEnum;
-}
-
-export const UploadsResponseStatusEnum = {
-    NotStarted: 'NOT_STARTED',
-    InProgress: 'IN_PROGRESS',
-    Complete: 'COMPLETE',
-    Cancelled: 'CANCELLED',
-    Failed: 'FAILED'
-} as const;
-
-export type UploadsResponseStatusEnum = typeof UploadsResponseStatusEnum[keyof typeof UploadsResponseStatusEnum];
-export const UploadsResponseTypeEnum = {
-    Backup: 'BACKUP',
-    Draft: 'DRAFT'
-} as const;
-
-export type UploadsResponseTypeEnum = typeof UploadsResponseTypeEnum[keyof typeof UploadsResponseTypeEnum];
-export const UploadsResponseBackupTypeEnum = {
-    Uploaded: 'UPLOADED',
-    Automated: 'AUTOMATED',
-    Manual: 'MANUAL'
-} as const;
-
-export type UploadsResponseBackupTypeEnum = typeof UploadsResponseBackupTypeEnum[keyof typeof UploadsResponseBackupTypeEnum];
-export const UploadsResponseHydrationStatusEnum = {
-    Hydrated: 'HYDRATED',
-    NotHydrated: 'NOT_HYDRATED'
-} as const;
-
-export type UploadsResponseHydrationStatusEnum = typeof UploadsResponseHydrationStatusEnum[keyof typeof UploadsResponseHydrationStatusEnum];
 
 /**
  * 
@@ -34438,6 +34427,62 @@ export const ConfigurationHubApiAxiosParamCreator = function (configuration?: Co
             };
         },
         /**
+         * This API uploads a JSON configuration file into a tenant.  Configuration files can be managed and deployed via Configuration Hub by uploading a json file which contains configuration data. The JSON file should be the same as the one used by our import endpoints. The object types supported by upload configuration file functionality are the same as the ones supported by our regular backup functionality.  Refer to [SaaS Configuration](https://developer.sailpoint.com/idn/docs/saas-configuration/#supported-objects) for more information about supported objects.
+         * @summary Upload a Configuration
+         * @param {any} data JSON file containing the objects to be imported.
+         * @param {string} name Name that will be assigned to the uploaded configuration file.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        createUploadedConfiguration: async (data: any, name: string, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'data' is not null or undefined
+            assertParamExists('createUploadedConfiguration', 'data', data)
+            // verify required parameter 'name' is not null or undefined
+            assertParamExists('createUploadedConfiguration', 'name', name)
+            const localVarPath = `/configuration-hub/backups/uploads`;
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'POST', ...baseOptions, ...axiosOptions};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+            const localVarFormParams = new ((configuration && configuration.formDataCtor) || FormData)();
+
+            // authentication UserContextAuth required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "UserContextAuth", [], configuration)
+
+            // authentication UserContextAuth required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "UserContextAuth", [], configuration)
+
+
+            if (data !== undefined) { 
+                localVarFormParams.append('data', data as any);
+            }
+    
+            if (name !== undefined) { 
+                localVarFormParams.append('name', name as any);
+            }
+    
+    
+            localVarHeaderParameter['Content-Type'] = 'multipart/form-data';
+    
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
+            localVarRequestOptions.data = localVarFormParams;
+
+            return {
+                url: toPathString(localVarUrlObj),
+                axiosOptions: localVarRequestOptions,
+            };
+        },
+        /**
          * This deletes an existing object mapping. Source org should be \"default\" when deleting an object mapping that is not associated to any particular org. The request will need the following security scope: - sp:config-object-mapping:manage
          * @summary Deletes an object mapping
          * @param {string} sourceOrg The name of the source org.
@@ -34484,15 +34529,15 @@ export const ConfigurationHubApiAxiosParamCreator = function (configuration?: Co
             };
         },
         /**
-         * This deletes an Uploaded backup based on job ID. On success, this endpoint will return an empty response. The job id can be obtained from the response after a successful upload, or the list uploads endpoint. The following scopes are required to access this endpoint: sp:config:manage
-         * @summary Deletes an uploaded backup file
-         * @param {string} id The id of the uploaded backup.
+         * This API deletes an uploaded configuration based on Id.  On success, this endpoint will return an empty response.  The uploaded configuration id can be obtained from the response after a successful upload, or the list uploaded configurations endpoint.
+         * @summary Delete an Uploaded Configuration
+         * @param {string} id The id of the uploaded configuration.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        deleteUploadedBackup: async (id: string, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        deleteUploadedConfiguration: async (id: string, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'id' is not null or undefined
-            assertParamExists('deleteUploadedBackup', 'id', id)
+            assertParamExists('deleteUploadedConfiguration', 'id', id)
             const localVarPath = `/configuration-hub/backups/uploads/{id}`
                 .replace(`{${"id"}}`, encodeURIComponent(String(id)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
@@ -34568,15 +34613,15 @@ export const ConfigurationHubApiAxiosParamCreator = function (configuration?: Co
             };
         },
         /**
-         * Returns all the information and status of an upload job. - sp:config-backups:read
-         * @summary Get an uploaded backup\'s information
-         * @param {string} id The id of the uploaded backup.
+         * This API gets an existing uploaded configuration for the current tenant.
+         * @summary Get an Uploaded Configuration
+         * @param {string} id The id of the uploaded configuration.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        getUploadedBackup: async (id: string, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        getUploadedConfiguration: async (id: string, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'id' is not null or undefined
-            assertParamExists('getUploadedBackup', 'id', id)
+            assertParamExists('getUploadedConfiguration', 'id', id)
             const localVarPath = `/configuration-hub/backups/uploads/{id}`
                 .replace(`{${"id"}}`, encodeURIComponent(String(id)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
@@ -34610,13 +34655,13 @@ export const ConfigurationHubApiAxiosParamCreator = function (configuration?: Co
             };
         },
         /**
-         * Returns a list of the current uploaded backups associated with the current tenant. A filter \"status\" can be added to only return the Completed, Failed, or Successful uploads
-         * @summary Gets list of Uploaded backups
-         * @param {string} [status] Filter listed uploaded backups by status of operation
+         * This API gets a list of existing uploaded configurations for the current tenant.
+         * @summary List Uploaded Configurations
+         * @param {string} [filters] Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **status**: *eq*
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        getUploadedBackups: async (status?: string, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        listUploadedConfigurations: async (filters?: string, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             const localVarPath = `/configuration-hub/backups/uploads`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -34637,8 +34682,8 @@ export const ConfigurationHubApiAxiosParamCreator = function (configuration?: Co
             // oauth required
             await setOAuthToObject(localVarHeaderParameter, "UserContextAuth", [], configuration)
 
-            if (status !== undefined) {
-                localVarQueryParameter['status'] = status;
+            if (filters !== undefined) {
+                localVarQueryParameter['filters'] = filters;
             }
 
 
@@ -34646,62 +34691,6 @@ export const ConfigurationHubApiAxiosParamCreator = function (configuration?: Co
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
-
-            return {
-                url: toPathString(localVarUrlObj),
-                axiosOptions: localVarRequestOptions,
-            };
-        },
-        /**
-         * This post will upload a JSON backup file into a tenant. Configuration files can be managed and deployed via Configuration Hub by uploading a json file which contains configuration data. The JSON file should be the same as the one used by our import endpoints. The object types that currently support by upload file functionality are the same as the ones supported by our regular backup functionality. here: [SaaS Configuration](https://developer.sailpoint.com/idn/docs/saas-configuration/#supported-objects).  The request will need the following security scope: - sp:config:manage
-         * @summary Uploads a backup file
-         * @param {any} data JSON file containing the objects to be imported.
-         * @param {string} name Name that will be assigned to the uploaded file.
-         * @param {*} [axiosOptions] Override http request option.
-         * @throws {RequiredError}
-         */
-        importUploadedBackup: async (data: any, name: string, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
-            // verify required parameter 'data' is not null or undefined
-            assertParamExists('importUploadedBackup', 'data', data)
-            // verify required parameter 'name' is not null or undefined
-            assertParamExists('importUploadedBackup', 'name', name)
-            const localVarPath = `/configuration-hub/backups/uploads`;
-            // use dummy base URL string because the URL constructor only accepts absolute URLs.
-            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
-            let baseOptions;
-            if (configuration) {
-                baseOptions = configuration.baseOptions;
-            }
-
-            const localVarRequestOptions = { method: 'POST', ...baseOptions, ...axiosOptions};
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-            const localVarFormParams = new ((configuration && configuration.formDataCtor) || FormData)();
-
-            // authentication UserContextAuth required
-            // oauth required
-            await setOAuthToObject(localVarHeaderParameter, "UserContextAuth", [], configuration)
-
-            // authentication UserContextAuth required
-            // oauth required
-            await setOAuthToObject(localVarHeaderParameter, "UserContextAuth", [], configuration)
-
-
-            if (data !== undefined) { 
-                localVarFormParams.append('data', data as any);
-            }
-    
-            if (name !== undefined) { 
-                localVarFormParams.append('name', name as any);
-            }
-    
-    
-            localVarHeaderParameter['Content-Type'] = 'multipart/form-data';
-    
-            setSearchParams(localVarUrlObj, localVarQueryParameter);
-            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
-            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
-            localVarRequestOptions.data = localVarFormParams;
 
             return {
                 url: toPathString(localVarUrlObj),
@@ -34791,6 +34780,18 @@ export const ConfigurationHubApiFp = function(configuration?: Configuration) {
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
+         * This API uploads a JSON configuration file into a tenant.  Configuration files can be managed and deployed via Configuration Hub by uploading a json file which contains configuration data. The JSON file should be the same as the one used by our import endpoints. The object types supported by upload configuration file functionality are the same as the ones supported by our regular backup functionality.  Refer to [SaaS Configuration](https://developer.sailpoint.com/idn/docs/saas-configuration/#supported-objects) for more information about supported objects.
+         * @summary Upload a Configuration
+         * @param {any} data JSON file containing the objects to be imported.
+         * @param {string} name Name that will be assigned to the uploaded configuration file.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        async createUploadedConfiguration(data: any, name: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<BackupResponse>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.createUploadedConfiguration(data, name, axiosOptions);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
          * This deletes an existing object mapping. Source org should be \"default\" when deleting an object mapping that is not associated to any particular org. The request will need the following security scope: - sp:config-object-mapping:manage
          * @summary Deletes an object mapping
          * @param {string} sourceOrg The name of the source org.
@@ -34803,14 +34804,14 @@ export const ConfigurationHubApiFp = function(configuration?: Configuration) {
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
-         * This deletes an Uploaded backup based on job ID. On success, this endpoint will return an empty response. The job id can be obtained from the response after a successful upload, or the list uploads endpoint. The following scopes are required to access this endpoint: sp:config:manage
-         * @summary Deletes an uploaded backup file
-         * @param {string} id The id of the uploaded backup.
+         * This API deletes an uploaded configuration based on Id.  On success, this endpoint will return an empty response.  The uploaded configuration id can be obtained from the response after a successful upload, or the list uploaded configurations endpoint.
+         * @summary Delete an Uploaded Configuration
+         * @param {string} id The id of the uploaded configuration.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async deleteUploadedBackup(id: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.deleteUploadedBackup(id, axiosOptions);
+        async deleteUploadedConfiguration(id: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.deleteUploadedConfiguration(id, axiosOptions);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
@@ -34825,37 +34826,25 @@ export const ConfigurationHubApiFp = function(configuration?: Configuration) {
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
-         * Returns all the information and status of an upload job. - sp:config-backups:read
-         * @summary Get an uploaded backup\'s information
-         * @param {string} id The id of the uploaded backup.
+         * This API gets an existing uploaded configuration for the current tenant.
+         * @summary Get an Uploaded Configuration
+         * @param {string} id The id of the uploaded configuration.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async getUploadedBackup(id: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<object>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.getUploadedBackup(id, axiosOptions);
+        async getUploadedConfiguration(id: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<BackupResponse>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getUploadedConfiguration(id, axiosOptions);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
-         * Returns a list of the current uploaded backups associated with the current tenant. A filter \"status\" can be added to only return the Completed, Failed, or Successful uploads
-         * @summary Gets list of Uploaded backups
-         * @param {string} [status] Filter listed uploaded backups by status of operation
+         * This API gets a list of existing uploaded configurations for the current tenant.
+         * @summary List Uploaded Configurations
+         * @param {string} [filters] Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **status**: *eq*
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async getUploadedBackups(status?: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<UploadsResponse>>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.getUploadedBackups(status, axiosOptions);
-            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
-        },
-        /**
-         * This post will upload a JSON backup file into a tenant. Configuration files can be managed and deployed via Configuration Hub by uploading a json file which contains configuration data. The JSON file should be the same as the one used by our import endpoints. The object types that currently support by upload file functionality are the same as the ones supported by our regular backup functionality. here: [SaaS Configuration](https://developer.sailpoint.com/idn/docs/saas-configuration/#supported-objects).  The request will need the following security scope: - sp:config:manage
-         * @summary Uploads a backup file
-         * @param {any} data JSON file containing the objects to be imported.
-         * @param {string} name Name that will be assigned to the uploaded file.
-         * @param {*} [axiosOptions] Override http request option.
-         * @throws {RequiredError}
-         */
-        async importUploadedBackup(data: any, name: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<UploadsRequest>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.importUploadedBackup(data, name, axiosOptions);
+        async listUploadedConfigurations(filters?: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<BackupResponse>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.listUploadedConfigurations(filters, axiosOptions);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
@@ -34903,6 +34892,17 @@ export const ConfigurationHubApiFactory = function (configuration?: Configuratio
             return localVarFp.createObjectMappings(sourceOrg, objectMappingBulkCreateRequest, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
+         * This API uploads a JSON configuration file into a tenant.  Configuration files can be managed and deployed via Configuration Hub by uploading a json file which contains configuration data. The JSON file should be the same as the one used by our import endpoints. The object types supported by upload configuration file functionality are the same as the ones supported by our regular backup functionality.  Refer to [SaaS Configuration](https://developer.sailpoint.com/idn/docs/saas-configuration/#supported-objects) for more information about supported objects.
+         * @summary Upload a Configuration
+         * @param {any} data JSON file containing the objects to be imported.
+         * @param {string} name Name that will be assigned to the uploaded configuration file.
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        createUploadedConfiguration(data: any, name: string, axiosOptions?: any): AxiosPromise<BackupResponse> {
+            return localVarFp.createUploadedConfiguration(data, name, axiosOptions).then((request) => request(axios, basePath));
+        },
+        /**
          * This deletes an existing object mapping. Source org should be \"default\" when deleting an object mapping that is not associated to any particular org. The request will need the following security scope: - sp:config-object-mapping:manage
          * @summary Deletes an object mapping
          * @param {string} sourceOrg The name of the source org.
@@ -34914,14 +34914,14 @@ export const ConfigurationHubApiFactory = function (configuration?: Configuratio
             return localVarFp.deleteObjectMapping(sourceOrg, objectMappingId, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
-         * This deletes an Uploaded backup based on job ID. On success, this endpoint will return an empty response. The job id can be obtained from the response after a successful upload, or the list uploads endpoint. The following scopes are required to access this endpoint: sp:config:manage
-         * @summary Deletes an uploaded backup file
-         * @param {string} id The id of the uploaded backup.
+         * This API deletes an uploaded configuration based on Id.  On success, this endpoint will return an empty response.  The uploaded configuration id can be obtained from the response after a successful upload, or the list uploaded configurations endpoint.
+         * @summary Delete an Uploaded Configuration
+         * @param {string} id The id of the uploaded configuration.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        deleteUploadedBackup(id: string, axiosOptions?: any): AxiosPromise<void> {
-            return localVarFp.deleteUploadedBackup(id, axiosOptions).then((request) => request(axios, basePath));
+        deleteUploadedConfiguration(id: string, axiosOptions?: any): AxiosPromise<void> {
+            return localVarFp.deleteUploadedConfiguration(id, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * This gets a list of existing object mappings between current org and source org. Source org should be \"default\" when getting object mappings that are not associated to any particular org. The request will need the following security scope: - sp:config-object-mapping:read
@@ -34934,35 +34934,24 @@ export const ConfigurationHubApiFactory = function (configuration?: Configuratio
             return localVarFp.getObjectMappings(sourceOrg, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
-         * Returns all the information and status of an upload job. - sp:config-backups:read
-         * @summary Get an uploaded backup\'s information
-         * @param {string} id The id of the uploaded backup.
+         * This API gets an existing uploaded configuration for the current tenant.
+         * @summary Get an Uploaded Configuration
+         * @param {string} id The id of the uploaded configuration.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        getUploadedBackup(id: string, axiosOptions?: any): AxiosPromise<object> {
-            return localVarFp.getUploadedBackup(id, axiosOptions).then((request) => request(axios, basePath));
+        getUploadedConfiguration(id: string, axiosOptions?: any): AxiosPromise<BackupResponse> {
+            return localVarFp.getUploadedConfiguration(id, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
-         * Returns a list of the current uploaded backups associated with the current tenant. A filter \"status\" can be added to only return the Completed, Failed, or Successful uploads
-         * @summary Gets list of Uploaded backups
-         * @param {string} [status] Filter listed uploaded backups by status of operation
+         * This API gets a list of existing uploaded configurations for the current tenant.
+         * @summary List Uploaded Configurations
+         * @param {string} [filters] Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **status**: *eq*
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        getUploadedBackups(status?: string, axiosOptions?: any): AxiosPromise<Array<UploadsResponse>> {
-            return localVarFp.getUploadedBackups(status, axiosOptions).then((request) => request(axios, basePath));
-        },
-        /**
-         * This post will upload a JSON backup file into a tenant. Configuration files can be managed and deployed via Configuration Hub by uploading a json file which contains configuration data. The JSON file should be the same as the one used by our import endpoints. The object types that currently support by upload file functionality are the same as the ones supported by our regular backup functionality. here: [SaaS Configuration](https://developer.sailpoint.com/idn/docs/saas-configuration/#supported-objects).  The request will need the following security scope: - sp:config:manage
-         * @summary Uploads a backup file
-         * @param {any} data JSON file containing the objects to be imported.
-         * @param {string} name Name that will be assigned to the uploaded file.
-         * @param {*} [axiosOptions] Override http request option.
-         * @throws {RequiredError}
-         */
-        importUploadedBackup(data: any, name: string, axiosOptions?: any): AxiosPromise<UploadsRequest> {
-            return localVarFp.importUploadedBackup(data, name, axiosOptions).then((request) => request(axios, basePath));
+        listUploadedConfigurations(filters?: string, axiosOptions?: any): AxiosPromise<Array<BackupResponse>> {
+            return localVarFp.listUploadedConfigurations(filters, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * This updates a set of object mappings, only enabled and targetValue fields can be updated. Source org should be \"default\" when updating object mappings that are not associated to any particular org. The request will need the following security scope: - sp:config-object-mapping:manage
@@ -35021,6 +35010,27 @@ export interface ConfigurationHubApiCreateObjectMappingsRequest {
 }
 
 /**
+ * Request parameters for createUploadedConfiguration operation in ConfigurationHubApi.
+ * @export
+ * @interface ConfigurationHubApiCreateUploadedConfigurationRequest
+ */
+export interface ConfigurationHubApiCreateUploadedConfigurationRequest {
+    /**
+     * JSON file containing the objects to be imported.
+     * @type {any}
+     * @memberof ConfigurationHubApiCreateUploadedConfiguration
+     */
+    readonly data: any
+
+    /**
+     * Name that will be assigned to the uploaded configuration file.
+     * @type {string}
+     * @memberof ConfigurationHubApiCreateUploadedConfiguration
+     */
+    readonly name: string
+}
+
+/**
  * Request parameters for deleteObjectMapping operation in ConfigurationHubApi.
  * @export
  * @interface ConfigurationHubApiDeleteObjectMappingRequest
@@ -35042,15 +35052,15 @@ export interface ConfigurationHubApiDeleteObjectMappingRequest {
 }
 
 /**
- * Request parameters for deleteUploadedBackup operation in ConfigurationHubApi.
+ * Request parameters for deleteUploadedConfiguration operation in ConfigurationHubApi.
  * @export
- * @interface ConfigurationHubApiDeleteUploadedBackupRequest
+ * @interface ConfigurationHubApiDeleteUploadedConfigurationRequest
  */
-export interface ConfigurationHubApiDeleteUploadedBackupRequest {
+export interface ConfigurationHubApiDeleteUploadedConfigurationRequest {
     /**
-     * The id of the uploaded backup.
+     * The id of the uploaded configuration.
      * @type {string}
-     * @memberof ConfigurationHubApiDeleteUploadedBackup
+     * @memberof ConfigurationHubApiDeleteUploadedConfiguration
      */
     readonly id: string
 }
@@ -35070,52 +35080,31 @@ export interface ConfigurationHubApiGetObjectMappingsRequest {
 }
 
 /**
- * Request parameters for getUploadedBackup operation in ConfigurationHubApi.
+ * Request parameters for getUploadedConfiguration operation in ConfigurationHubApi.
  * @export
- * @interface ConfigurationHubApiGetUploadedBackupRequest
+ * @interface ConfigurationHubApiGetUploadedConfigurationRequest
  */
-export interface ConfigurationHubApiGetUploadedBackupRequest {
+export interface ConfigurationHubApiGetUploadedConfigurationRequest {
     /**
-     * The id of the uploaded backup.
+     * The id of the uploaded configuration.
      * @type {string}
-     * @memberof ConfigurationHubApiGetUploadedBackup
+     * @memberof ConfigurationHubApiGetUploadedConfiguration
      */
     readonly id: string
 }
 
 /**
- * Request parameters for getUploadedBackups operation in ConfigurationHubApi.
+ * Request parameters for listUploadedConfigurations operation in ConfigurationHubApi.
  * @export
- * @interface ConfigurationHubApiGetUploadedBackupsRequest
+ * @interface ConfigurationHubApiListUploadedConfigurationsRequest
  */
-export interface ConfigurationHubApiGetUploadedBackupsRequest {
+export interface ConfigurationHubApiListUploadedConfigurationsRequest {
     /**
-     * Filter listed uploaded backups by status of operation
+     * Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **status**: *eq*
      * @type {string}
-     * @memberof ConfigurationHubApiGetUploadedBackups
+     * @memberof ConfigurationHubApiListUploadedConfigurations
      */
-    readonly status?: string
-}
-
-/**
- * Request parameters for importUploadedBackup operation in ConfigurationHubApi.
- * @export
- * @interface ConfigurationHubApiImportUploadedBackupRequest
- */
-export interface ConfigurationHubApiImportUploadedBackupRequest {
-    /**
-     * JSON file containing the objects to be imported.
-     * @type {any}
-     * @memberof ConfigurationHubApiImportUploadedBackup
-     */
-    readonly data: any
-
-    /**
-     * Name that will be assigned to the uploaded file.
-     * @type {string}
-     * @memberof ConfigurationHubApiImportUploadedBackup
-     */
-    readonly name: string
+    readonly filters?: string
 }
 
 /**
@@ -35171,6 +35160,18 @@ export class ConfigurationHubApi extends BaseAPI {
     }
 
     /**
+     * This API uploads a JSON configuration file into a tenant.  Configuration files can be managed and deployed via Configuration Hub by uploading a json file which contains configuration data. The JSON file should be the same as the one used by our import endpoints. The object types supported by upload configuration file functionality are the same as the ones supported by our regular backup functionality.  Refer to [SaaS Configuration](https://developer.sailpoint.com/idn/docs/saas-configuration/#supported-objects) for more information about supported objects.
+     * @summary Upload a Configuration
+     * @param {ConfigurationHubApiCreateUploadedConfigurationRequest} requestParameters Request parameters.
+     * @param {*} [axiosOptions] Override http request option.
+     * @throws {RequiredError}
+     * @memberof ConfigurationHubApi
+     */
+    public createUploadedConfiguration(requestParameters: ConfigurationHubApiCreateUploadedConfigurationRequest, axiosOptions?: AxiosRequestConfig) {
+        return ConfigurationHubApiFp(this.configuration).createUploadedConfiguration(requestParameters.data, requestParameters.name, axiosOptions).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
      * This deletes an existing object mapping. Source org should be \"default\" when deleting an object mapping that is not associated to any particular org. The request will need the following security scope: - sp:config-object-mapping:manage
      * @summary Deletes an object mapping
      * @param {ConfigurationHubApiDeleteObjectMappingRequest} requestParameters Request parameters.
@@ -35183,15 +35184,15 @@ export class ConfigurationHubApi extends BaseAPI {
     }
 
     /**
-     * This deletes an Uploaded backup based on job ID. On success, this endpoint will return an empty response. The job id can be obtained from the response after a successful upload, or the list uploads endpoint. The following scopes are required to access this endpoint: sp:config:manage
-     * @summary Deletes an uploaded backup file
-     * @param {ConfigurationHubApiDeleteUploadedBackupRequest} requestParameters Request parameters.
+     * This API deletes an uploaded configuration based on Id.  On success, this endpoint will return an empty response.  The uploaded configuration id can be obtained from the response after a successful upload, or the list uploaded configurations endpoint.
+     * @summary Delete an Uploaded Configuration
+     * @param {ConfigurationHubApiDeleteUploadedConfigurationRequest} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
      * @memberof ConfigurationHubApi
      */
-    public deleteUploadedBackup(requestParameters: ConfigurationHubApiDeleteUploadedBackupRequest, axiosOptions?: AxiosRequestConfig) {
-        return ConfigurationHubApiFp(this.configuration).deleteUploadedBackup(requestParameters.id, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public deleteUploadedConfiguration(requestParameters: ConfigurationHubApiDeleteUploadedConfigurationRequest, axiosOptions?: AxiosRequestConfig) {
+        return ConfigurationHubApiFp(this.configuration).deleteUploadedConfiguration(requestParameters.id, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -35207,39 +35208,27 @@ export class ConfigurationHubApi extends BaseAPI {
     }
 
     /**
-     * Returns all the information and status of an upload job. - sp:config-backups:read
-     * @summary Get an uploaded backup\'s information
-     * @param {ConfigurationHubApiGetUploadedBackupRequest} requestParameters Request parameters.
+     * This API gets an existing uploaded configuration for the current tenant.
+     * @summary Get an Uploaded Configuration
+     * @param {ConfigurationHubApiGetUploadedConfigurationRequest} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
      * @memberof ConfigurationHubApi
      */
-    public getUploadedBackup(requestParameters: ConfigurationHubApiGetUploadedBackupRequest, axiosOptions?: AxiosRequestConfig) {
-        return ConfigurationHubApiFp(this.configuration).getUploadedBackup(requestParameters.id, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public getUploadedConfiguration(requestParameters: ConfigurationHubApiGetUploadedConfigurationRequest, axiosOptions?: AxiosRequestConfig) {
+        return ConfigurationHubApiFp(this.configuration).getUploadedConfiguration(requestParameters.id, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
-     * Returns a list of the current uploaded backups associated with the current tenant. A filter \"status\" can be added to only return the Completed, Failed, or Successful uploads
-     * @summary Gets list of Uploaded backups
-     * @param {ConfigurationHubApiGetUploadedBackupsRequest} requestParameters Request parameters.
+     * This API gets a list of existing uploaded configurations for the current tenant.
+     * @summary List Uploaded Configurations
+     * @param {ConfigurationHubApiListUploadedConfigurationsRequest} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
      * @memberof ConfigurationHubApi
      */
-    public getUploadedBackups(requestParameters: ConfigurationHubApiGetUploadedBackupsRequest = {}, axiosOptions?: AxiosRequestConfig) {
-        return ConfigurationHubApiFp(this.configuration).getUploadedBackups(requestParameters.status, axiosOptions).then((request) => request(this.axios, this.basePath));
-    }
-
-    /**
-     * This post will upload a JSON backup file into a tenant. Configuration files can be managed and deployed via Configuration Hub by uploading a json file which contains configuration data. The JSON file should be the same as the one used by our import endpoints. The object types that currently support by upload file functionality are the same as the ones supported by our regular backup functionality. here: [SaaS Configuration](https://developer.sailpoint.com/idn/docs/saas-configuration/#supported-objects).  The request will need the following security scope: - sp:config:manage
-     * @summary Uploads a backup file
-     * @param {ConfigurationHubApiImportUploadedBackupRequest} requestParameters Request parameters.
-     * @param {*} [axiosOptions] Override http request option.
-     * @throws {RequiredError}
-     * @memberof ConfigurationHubApi
-     */
-    public importUploadedBackup(requestParameters: ConfigurationHubApiImportUploadedBackupRequest, axiosOptions?: AxiosRequestConfig) {
-        return ConfigurationHubApiFp(this.configuration).importUploadedBackup(requestParameters.data, requestParameters.name, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public listUploadedConfigurations(requestParameters: ConfigurationHubApiListUploadedConfigurationsRequest = {}, axiosOptions?: AxiosRequestConfig) {
+        return ConfigurationHubApiFp(this.configuration).listUploadedConfigurations(requestParameters.filters, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -41282,6 +41271,48 @@ export const ManagedClustersApiAxiosParamCreator = function (configuration?: Con
             };
         },
         /**
+         * Get managed cluster\'s log configuration.
+         * @summary Get managed cluster\'s log configuration
+         * @param {string} id ID of ManagedCluster to get log configuration for
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        getClientLogConfiguration: async (id: string, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'id' is not null or undefined
+            assertParamExists('getClientLogConfiguration', 'id', id)
+            const localVarPath = `/managed-clusters/{id}/log-config`
+                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...axiosOptions};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication UserContextAuth required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "UserContextAuth", [], configuration)
+
+            // authentication UserContextAuth required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "UserContextAuth", [], configuration)
+
+
+    
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                axiosOptions: localVarRequestOptions,
+            };
+        },
+        /**
          * Retrieve a ManagedCluster by ID.
          * @summary Get a specified Managed Cluster.
          * @param {string} id ManagedCluster ID.
@@ -41382,6 +41413,54 @@ export const ManagedClustersApiAxiosParamCreator = function (configuration?: Con
             };
         },
         /**
+         * Update managed cluster\'s log configuration
+         * @summary Update managed cluster\'s log configuration
+         * @param {string} id ID of ManagedCluster to update log configuration for
+         * @param {ClientLogConfiguration} clientLogConfiguration ClientLogConfiguration for given ManagedCluster
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        putClientLogConfiguration: async (id: string, clientLogConfiguration: ClientLogConfiguration, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'id' is not null or undefined
+            assertParamExists('putClientLogConfiguration', 'id', id)
+            // verify required parameter 'clientLogConfiguration' is not null or undefined
+            assertParamExists('putClientLogConfiguration', 'clientLogConfiguration', clientLogConfiguration)
+            const localVarPath = `/managed-clusters/{id}/log-config`
+                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'PUT', ...baseOptions, ...axiosOptions};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication UserContextAuth required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "UserContextAuth", [], configuration)
+
+            // authentication UserContextAuth required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "UserContextAuth", [], configuration)
+
+
+    
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
+            localVarRequestOptions.data = serializeDataIfNeeded(clientLogConfiguration, localVarRequestOptions, configuration)
+
+            return {
+                url: toPathString(localVarUrlObj),
+                axiosOptions: localVarRequestOptions,
+            };
+        },
+        /**
          * Update an existing Managed Cluster.
          * @summary Update a Managed Cluster
          * @param {string} id Managed Cluster ID.
@@ -41463,6 +41542,17 @@ export const ManagedClustersApiFp = function(configuration?: Configuration) {
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
+         * Get managed cluster\'s log configuration.
+         * @summary Get managed cluster\'s log configuration
+         * @param {string} id ID of ManagedCluster to get log configuration for
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        async getClientLogConfiguration(id: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ClientLogConfiguration>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getClientLogConfiguration(id, axiosOptions);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
          * Retrieve a ManagedCluster by ID.
          * @summary Get a specified Managed Cluster.
          * @param {string} id ManagedCluster ID.
@@ -41485,6 +41575,18 @@ export const ManagedClustersApiFp = function(configuration?: Configuration) {
          */
         async getManagedClusters(offset?: number, limit?: number, count?: boolean, filters?: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<ManagedCluster>>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getManagedClusters(offset, limit, count, filters, axiosOptions);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * Update managed cluster\'s log configuration
+         * @summary Update managed cluster\'s log configuration
+         * @param {string} id ID of ManagedCluster to update log configuration for
+         * @param {ClientLogConfiguration} clientLogConfiguration ClientLogConfiguration for given ManagedCluster
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        async putClientLogConfiguration(id: string, clientLogConfiguration: ClientLogConfiguration, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ClientLogConfiguration>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.putClientLogConfiguration(id, clientLogConfiguration, axiosOptions);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
@@ -41531,6 +41633,16 @@ export const ManagedClustersApiFactory = function (configuration?: Configuration
             return localVarFp.deleteManagedCluster(id, removeClients, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
+         * Get managed cluster\'s log configuration.
+         * @summary Get managed cluster\'s log configuration
+         * @param {string} id ID of ManagedCluster to get log configuration for
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        getClientLogConfiguration(id: string, axiosOptions?: any): AxiosPromise<ClientLogConfiguration> {
+            return localVarFp.getClientLogConfiguration(id, axiosOptions).then((request) => request(axios, basePath));
+        },
+        /**
          * Retrieve a ManagedCluster by ID.
          * @summary Get a specified Managed Cluster.
          * @param {string} id ManagedCluster ID.
@@ -41552,6 +41664,17 @@ export const ManagedClustersApiFactory = function (configuration?: Configuration
          */
         getManagedClusters(offset?: number, limit?: number, count?: boolean, filters?: string, axiosOptions?: any): AxiosPromise<Array<ManagedCluster>> {
             return localVarFp.getManagedClusters(offset, limit, count, filters, axiosOptions).then((request) => request(axios, basePath));
+        },
+        /**
+         * Update managed cluster\'s log configuration
+         * @summary Update managed cluster\'s log configuration
+         * @param {string} id ID of ManagedCluster to update log configuration for
+         * @param {ClientLogConfiguration} clientLogConfiguration ClientLogConfiguration for given ManagedCluster
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        putClientLogConfiguration(id: string, clientLogConfiguration: ClientLogConfiguration, axiosOptions?: any): AxiosPromise<ClientLogConfiguration> {
+            return localVarFp.putClientLogConfiguration(id, clientLogConfiguration, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * Update an existing Managed Cluster.
@@ -41603,6 +41726,20 @@ export interface ManagedClustersApiDeleteManagedClusterRequest {
 }
 
 /**
+ * Request parameters for getClientLogConfiguration operation in ManagedClustersApi.
+ * @export
+ * @interface ManagedClustersApiGetClientLogConfigurationRequest
+ */
+export interface ManagedClustersApiGetClientLogConfigurationRequest {
+    /**
+     * ID of ManagedCluster to get log configuration for
+     * @type {string}
+     * @memberof ManagedClustersApiGetClientLogConfiguration
+     */
+    readonly id: string
+}
+
+/**
  * Request parameters for getManagedCluster operation in ManagedClustersApi.
  * @export
  * @interface ManagedClustersApiGetManagedClusterRequest
@@ -41649,6 +41786,27 @@ export interface ManagedClustersApiGetManagedClustersRequest {
      * @memberof ManagedClustersApiGetManagedClusters
      */
     readonly filters?: string
+}
+
+/**
+ * Request parameters for putClientLogConfiguration operation in ManagedClustersApi.
+ * @export
+ * @interface ManagedClustersApiPutClientLogConfigurationRequest
+ */
+export interface ManagedClustersApiPutClientLogConfigurationRequest {
+    /**
+     * ID of ManagedCluster to update log configuration for
+     * @type {string}
+     * @memberof ManagedClustersApiPutClientLogConfiguration
+     */
+    readonly id: string
+
+    /**
+     * ClientLogConfiguration for given ManagedCluster
+     * @type {ClientLogConfiguration}
+     * @memberof ManagedClustersApiPutClientLogConfiguration
+     */
+    readonly clientLogConfiguration: ClientLogConfiguration
 }
 
 /**
@@ -41704,6 +41862,18 @@ export class ManagedClustersApi extends BaseAPI {
     }
 
     /**
+     * Get managed cluster\'s log configuration.
+     * @summary Get managed cluster\'s log configuration
+     * @param {ManagedClustersApiGetClientLogConfigurationRequest} requestParameters Request parameters.
+     * @param {*} [axiosOptions] Override http request option.
+     * @throws {RequiredError}
+     * @memberof ManagedClustersApi
+     */
+    public getClientLogConfiguration(requestParameters: ManagedClustersApiGetClientLogConfigurationRequest, axiosOptions?: AxiosRequestConfig) {
+        return ManagedClustersApiFp(this.configuration).getClientLogConfiguration(requestParameters.id, axiosOptions).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
      * Retrieve a ManagedCluster by ID.
      * @summary Get a specified Managed Cluster.
      * @param {ManagedClustersApiGetManagedClusterRequest} requestParameters Request parameters.
@@ -41725,6 +41895,18 @@ export class ManagedClustersApi extends BaseAPI {
      */
     public getManagedClusters(requestParameters: ManagedClustersApiGetManagedClustersRequest = {}, axiosOptions?: AxiosRequestConfig) {
         return ManagedClustersApiFp(this.configuration).getManagedClusters(requestParameters.offset, requestParameters.limit, requestParameters.count, requestParameters.filters, axiosOptions).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Update managed cluster\'s log configuration
+     * @summary Update managed cluster\'s log configuration
+     * @param {ManagedClustersApiPutClientLogConfigurationRequest} requestParameters Request parameters.
+     * @param {*} [axiosOptions] Override http request option.
+     * @throws {RequiredError}
+     * @memberof ManagedClustersApi
+     */
+    public putClientLogConfiguration(requestParameters: ManagedClustersApiPutClientLogConfigurationRequest, axiosOptions?: AxiosRequestConfig) {
+        return ManagedClustersApiFp(this.configuration).putClientLogConfiguration(requestParameters.id, requestParameters.clientLogConfiguration, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -61889,7 +62071,7 @@ export const WorkflowsApiAxiosParamCreator = function (configuration?: Configura
          * @param {number} [limit] Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
          * @param {number} [offset] Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
          * @param {boolean} [count] If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
-         * @param {string} [filters] Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **startTime**: *eq, lt, le, gt, ge*  **status**: *eq*
+         * @param {string} [filters] Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **start_time**: *eq, lt, le, gt, ge*  **status**: *eq*
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
@@ -62470,7 +62652,7 @@ export const WorkflowsApiFp = function(configuration?: Configuration) {
          * @param {number} [limit] Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
          * @param {number} [offset] Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
          * @param {boolean} [count] If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
-         * @param {string} [filters] Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **startTime**: *eq, lt, le, gt, ge*  **status**: *eq*
+         * @param {string} [filters] Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **start_time**: *eq, lt, le, gt, ge*  **status**: *eq*
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
@@ -62682,7 +62864,7 @@ export const WorkflowsApiFactory = function (configuration?: Configuration, base
          * @param {number} [limit] Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
          * @param {number} [offset] Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
          * @param {boolean} [count] If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
-         * @param {string} [filters] Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **startTime**: *eq, lt, le, gt, ge*  **status**: *eq*
+         * @param {string} [filters] Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **start_time**: *eq, lt, le, gt, ge*  **status**: *eq*
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
@@ -62943,7 +63125,7 @@ export interface WorkflowsApiGetWorkflowExecutionsRequest {
     readonly count?: boolean
 
     /**
-     * Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **startTime**: *eq, lt, le, gt, ge*  **status**: *eq*
+     * Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **start_time**: *eq, lt, le, gt, ge*  **status**: *eq*
      * @type {string}
      * @memberof WorkflowsApiGetWorkflowExecutions
      */
