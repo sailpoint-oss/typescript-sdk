@@ -9629,16 +9629,16 @@ export interface IdentityAttributePreview {
     'name'?: string;
     /**
      * Value that was derived during the preview.
-     * @type {object}
+     * @type {string}
      * @memberof IdentityAttributePreview
      */
-    'value'?: object;
+    'value'?: string;
     /**
      * The value of the attribute before the preview.
-     * @type {object}
+     * @type {string}
      * @memberof IdentityAttributePreview
      */
-    'previousValue'?: object;
+    'previousValue'?: string;
     /**
      * 
      * @type {Array<ErrorMessageDto>}
@@ -10377,10 +10377,10 @@ export interface IdentityPreviewRequest {
     'identityId'?: string;
     /**
      * 
-     * @type {Array<IdentityAttributeConfig>}
+     * @type {IdentityAttributeConfig}
      * @memberof IdentityPreviewRequest
      */
-    'identityAttributeConfig'?: Array<IdentityAttributeConfig>;
+    'identityAttributeConfig'?: IdentityAttributeConfig;
 }
 /**
  * 
