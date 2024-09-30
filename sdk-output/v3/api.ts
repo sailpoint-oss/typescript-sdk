@@ -13,7 +13,7 @@
  */
 
 
-import type { Configuration } from './configuration';
+import type { Configuration } from '../configuration';
 import type { AxiosPromise, AxiosInstance, RawAxiosRequestConfig } from 'axios';
 import globalAxios from 'axios';
 // Some imports not used depending on template conditions
@@ -73,7 +73,7 @@ export interface AccessConstraint {
      * @type {string}
      * @memberof AccessConstraint
      */
-    'type': AccessConstraintTypeEnum;
+    'type': AccessConstraintTypeV3;
     /**
      * Must be set only if operator is SELECTED.
      * @type {Array<string>}
@@ -85,22 +85,22 @@ export interface AccessConstraint {
      * @type {string}
      * @memberof AccessConstraint
      */
-    'operator': AccessConstraintOperatorEnum;
+    'operator': AccessConstraintOperatorV3;
 }
 
-export const AccessConstraintTypeEnum = {
+export const AccessConstraintTypeV3 = {
     Entitlement: 'ENTITLEMENT',
     AccessProfile: 'ACCESS_PROFILE',
     Role: 'ROLE'
 } as const;
 
-export type AccessConstraintTypeEnum = typeof AccessConstraintTypeEnum[keyof typeof AccessConstraintTypeEnum];
-export const AccessConstraintOperatorEnum = {
+export type AccessConstraintTypeV3 = typeof AccessConstraintTypeV3[keyof typeof AccessConstraintTypeV3];
+export const AccessConstraintOperatorV3 = {
     All: 'ALL',
     Selected: 'SELECTED'
 } as const;
 
-export type AccessConstraintOperatorEnum = typeof AccessConstraintOperatorEnum[keyof typeof AccessConstraintOperatorEnum];
+export type AccessConstraintOperatorV3 = typeof AccessConstraintOperatorV3[keyof typeof AccessConstraintOperatorV3];
 
 /**
  * 
@@ -132,7 +132,7 @@ export interface AccessCriteriaCriteriaListInner {
      * @type {string}
      * @memberof AccessCriteriaCriteriaListInner
      */
-    'type'?: AccessCriteriaCriteriaListInnerTypeEnum;
+    'type'?: AccessCriteriaCriteriaListInnerTypeV3;
     /**
      * ID of the object to which this reference applies to
      * @type {string}
@@ -147,11 +147,11 @@ export interface AccessCriteriaCriteriaListInner {
     'name'?: string;
 }
 
-export const AccessCriteriaCriteriaListInnerTypeEnum = {
+export const AccessCriteriaCriteriaListInnerTypeV3 = {
     Entitlement: 'ENTITLEMENT'
 } as const;
 
-export type AccessCriteriaCriteriaListInnerTypeEnum = typeof AccessCriteriaCriteriaListInnerTypeEnum[keyof typeof AccessCriteriaCriteriaListInnerTypeEnum];
+export type AccessCriteriaCriteriaListInnerTypeV3 = typeof AccessCriteriaCriteriaListInnerTypeV3[keyof typeof AccessCriteriaCriteriaListInnerTypeV3];
 
 /**
  * Identity the access item is requested for.
@@ -164,7 +164,7 @@ export interface AccessItemRequestedFor {
      * @type {string}
      * @memberof AccessItemRequestedFor
      */
-    'type'?: AccessItemRequestedForTypeEnum;
+    'type'?: AccessItemRequestedForTypeV3;
     /**
      * ID of identity the access item is requested for.
      * @type {string}
@@ -179,11 +179,11 @@ export interface AccessItemRequestedFor {
     'name'?: string;
 }
 
-export const AccessItemRequestedForTypeEnum = {
+export const AccessItemRequestedForTypeV3 = {
     Identity: 'IDENTITY'
 } as const;
 
-export type AccessItemRequestedForTypeEnum = typeof AccessItemRequestedForTypeEnum[keyof typeof AccessItemRequestedForTypeEnum];
+export type AccessItemRequestedForTypeV3 = typeof AccessItemRequestedForTypeV3[keyof typeof AccessItemRequestedForTypeV3];
 
 /**
  * Access item requester\'s identity.
@@ -196,7 +196,7 @@ export interface AccessItemRequester {
      * @type {string}
      * @memberof AccessItemRequester
      */
-    'type'?: AccessItemRequesterTypeEnum;
+    'type'?: AccessItemRequesterTypeV3;
     /**
      * Access item requester\'s identity ID.
      * @type {string}
@@ -211,11 +211,11 @@ export interface AccessItemRequester {
     'name'?: string;
 }
 
-export const AccessItemRequesterTypeEnum = {
+export const AccessItemRequesterTypeV3 = {
     Identity: 'IDENTITY'
 } as const;
 
-export type AccessItemRequesterTypeEnum = typeof AccessItemRequesterTypeEnum[keyof typeof AccessItemRequesterTypeEnum];
+export type AccessItemRequesterTypeV3 = typeof AccessItemRequesterTypeV3[keyof typeof AccessItemRequesterTypeV3];
 
 /**
  * Identity who reviewed the access item request.
@@ -228,7 +228,7 @@ export interface AccessItemReviewedBy {
      * @type {string}
      * @memberof AccessItemReviewedBy
      */
-    'type'?: AccessItemReviewedByTypeEnum;
+    'type'?: AccessItemReviewedByTypeV3;
     /**
      * ID of identity who reviewed the access item request.
      * @type {string}
@@ -243,11 +243,11 @@ export interface AccessItemReviewedBy {
     'name'?: string;
 }
 
-export const AccessItemReviewedByTypeEnum = {
+export const AccessItemReviewedByTypeV3 = {
     Identity: 'IDENTITY'
 } as const;
 
-export type AccessItemReviewedByTypeEnum = typeof AccessItemReviewedByTypeEnum[keyof typeof AccessItemReviewedByTypeEnum];
+export type AccessItemReviewedByTypeV3 = typeof AccessItemReviewedByTypeV3[keyof typeof AccessItemReviewedByTypeV3];
 
 /**
  * Access Profile
@@ -351,7 +351,7 @@ export interface AccessProfileApprovalScheme {
      * @type {string}
      * @memberof AccessProfileApprovalScheme
      */
-    'approverType'?: AccessProfileApprovalSchemeApproverTypeEnum;
+    'approverType'?: AccessProfileApprovalSchemeApproverTypeV3;
     /**
      * Id of the specific approver, used only when approverType is GOVERNANCE_GROUP
      * @type {string}
@@ -360,7 +360,7 @@ export interface AccessProfileApprovalScheme {
     'approverId'?: string | null;
 }
 
-export const AccessProfileApprovalSchemeApproverTypeEnum = {
+export const AccessProfileApprovalSchemeApproverTypeV3 = {
     AppOwner: 'APP_OWNER',
     Owner: 'OWNER',
     SourceOwner: 'SOURCE_OWNER',
@@ -368,7 +368,7 @@ export const AccessProfileApprovalSchemeApproverTypeEnum = {
     GovernanceGroup: 'GOVERNANCE_GROUP'
 } as const;
 
-export type AccessProfileApprovalSchemeApproverTypeEnum = typeof AccessProfileApprovalSchemeApproverTypeEnum[keyof typeof AccessProfileApprovalSchemeApproverTypeEnum];
+export type AccessProfileApprovalSchemeApproverTypeV3 = typeof AccessProfileApprovalSchemeApproverTypeV3[keyof typeof AccessProfileApprovalSchemeApproverTypeV3];
 
 /**
  * 
@@ -485,7 +485,7 @@ export interface AccessProfileDocument {
      * @type {string}
      * @memberof AccessProfileDocument
      */
-    '_type': AccessProfileDocumentTypeEnum;
+    '_type': AccessProfileDocumentTypeV3;
     /**
      * 
      * @type {AccessProfileDocumentAllOfSource}
@@ -512,7 +512,7 @@ export interface AccessProfileDocument {
     'tags'?: Array<string>;
 }
 
-export const AccessProfileDocumentTypeEnum = {
+export const AccessProfileDocumentTypeV3 = {
     Accessprofile: 'accessprofile',
     Accountactivity: 'accountactivity',
     Account: 'account',
@@ -523,7 +523,7 @@ export const AccessProfileDocumentTypeEnum = {
     Role: 'role'
 } as const;
 
-export type AccessProfileDocumentTypeEnum = typeof AccessProfileDocumentTypeEnum[keyof typeof AccessProfileDocumentTypeEnum];
+export type AccessProfileDocumentTypeV3 = typeof AccessProfileDocumentTypeV3[keyof typeof AccessProfileDocumentTypeV3];
 
 /**
  * Access profile\'s source.
@@ -630,7 +630,7 @@ export interface AccessProfileRef {
      * @type {string}
      * @memberof AccessProfileRef
      */
-    'type'?: AccessProfileRefTypeEnum;
+    'type'?: AccessProfileRefTypeV3;
     /**
      * Human-readable display name of the Access Profile. This field is ignored on input.
      * @type {string}
@@ -639,11 +639,11 @@ export interface AccessProfileRef {
     'name'?: string;
 }
 
-export const AccessProfileRefTypeEnum = {
+export const AccessProfileRefTypeV3 = {
     AccessProfile: 'ACCESS_PROFILE'
 } as const;
 
-export type AccessProfileRefTypeEnum = typeof AccessProfileRefTypeEnum[keyof typeof AccessProfileRefTypeEnum];
+export type AccessProfileRefTypeV3 = typeof AccessProfileRefTypeV3[keyof typeof AccessProfileRefTypeV3];
 
 /**
  * Role
@@ -719,7 +719,7 @@ export interface AccessProfileSourceRef {
      * @type {string}
      * @memberof AccessProfileSourceRef
      */
-    'type'?: AccessProfileSourceRefTypeEnum;
+    'type'?: AccessProfileSourceRefTypeV3;
     /**
      * The display name of the associated Source
      * @type {string}
@@ -728,11 +728,11 @@ export interface AccessProfileSourceRef {
     'name'?: string;
 }
 
-export const AccessProfileSourceRefTypeEnum = {
+export const AccessProfileSourceRefTypeV3 = {
     Source: 'SOURCE'
 } as const;
 
-export type AccessProfileSourceRefTypeEnum = typeof AccessProfileSourceRefTypeEnum[keyof typeof AccessProfileSourceRefTypeEnum];
+export type AccessProfileSourceRefTypeV3 = typeof AccessProfileSourceRefTypeV3[keyof typeof AccessProfileSourceRefTypeV3];
 
 /**
  * This is a summary representation of an access profile.
@@ -821,7 +821,7 @@ export interface AccessProfileUsageUsedByInner {
      * @type {string}
      * @memberof AccessProfileUsageUsedByInner
      */
-    'type'?: AccessProfileUsageUsedByInnerTypeEnum;
+    'type'?: AccessProfileUsageUsedByInnerTypeV3;
     /**
      * ID of role using the access profile.
      * @type {string}
@@ -836,11 +836,11 @@ export interface AccessProfileUsageUsedByInner {
     'name'?: string;
 }
 
-export const AccessProfileUsageUsedByInnerTypeEnum = {
+export const AccessProfileUsageUsedByInnerTypeV3 = {
     Role: 'ROLE'
 } as const;
 
-export type AccessProfileUsageUsedByInnerTypeEnum = typeof AccessProfileUsageUsedByInnerTypeEnum[keyof typeof AccessProfileUsageUsedByInnerTypeEnum];
+export type AccessProfileUsageUsedByInnerTypeV3 = typeof AccessProfileUsageUsedByInnerTypeV3[keyof typeof AccessProfileUsageUsedByInnerTypeV3];
 
 /**
  * 
@@ -923,7 +923,7 @@ export interface AccessRequestItem {
      * @type {string}
      * @memberof AccessRequestItem
      */
-    'type': AccessRequestItemTypeEnum;
+    'type': AccessRequestItemTypeV3;
     /**
      * ID of Role, Access Profile or Entitlement being requested.
      * @type {string}
@@ -950,13 +950,13 @@ export interface AccessRequestItem {
     'removeDate'?: string;
 }
 
-export const AccessRequestItemTypeEnum = {
+export const AccessRequestItemTypeV3 = {
     AccessProfile: 'ACCESS_PROFILE',
     Role: 'ROLE',
     Entitlement: 'ENTITLEMENT'
 } as const;
 
-export type AccessRequestItemTypeEnum = typeof AccessRequestItemTypeEnum[keyof typeof AccessRequestItemTypeEnum];
+export type AccessRequestItemTypeV3 = typeof AccessRequestItemTypeV3[keyof typeof AccessRequestItemTypeV3];
 
 /**
  * Provides additional details about this access request phase.
@@ -987,13 +987,13 @@ export interface AccessRequestPhases {
      * @type {string}
      * @memberof AccessRequestPhases
      */
-    'state'?: AccessRequestPhasesStateEnum;
+    'state'?: AccessRequestPhasesStateV3;
     /**
      * The state of this phase.
      * @type {string}
      * @memberof AccessRequestPhases
      */
-    'result'?: AccessRequestPhasesResultEnum | null;
+    'result'?: AccessRequestPhasesResultV3 | null;
     /**
      * A reference to another object on the RequestedItemStatus that contains more details about the phase. Note that for the Provisioning phase, this will be empty if there are no manual work items.
      * @type {string}
@@ -1002,7 +1002,7 @@ export interface AccessRequestPhases {
     'phaseReference'?: string | null;
 }
 
-export const AccessRequestPhasesStateEnum = {
+export const AccessRequestPhasesStateV3 = {
     Pending: 'PENDING',
     Executing: 'EXECUTING',
     Completed: 'COMPLETED',
@@ -1010,14 +1010,14 @@ export const AccessRequestPhasesStateEnum = {
     NotExecuted: 'NOT_EXECUTED'
 } as const;
 
-export type AccessRequestPhasesStateEnum = typeof AccessRequestPhasesStateEnum[keyof typeof AccessRequestPhasesStateEnum];
-export const AccessRequestPhasesResultEnum = {
+export type AccessRequestPhasesStateV3 = typeof AccessRequestPhasesStateV3[keyof typeof AccessRequestPhasesStateV3];
+export const AccessRequestPhasesResultV3 = {
     Successful: 'SUCCESSFUL',
     Failed: 'FAILED',
     Null: 'null'
 } as const;
 
-export type AccessRequestPhasesResultEnum = typeof AccessRequestPhasesResultEnum[keyof typeof AccessRequestPhasesResultEnum];
+export type AccessRequestPhasesResultV3 = typeof AccessRequestPhasesResultV3[keyof typeof AccessRequestPhasesResultV3];
 
 /**
  * Access request type. Defaults to GRANT_ACCESS. REVOKE_ACCESS type can only have a single Identity ID in the requestedFor field.
@@ -1343,7 +1343,7 @@ export interface Account {
      * @type {string}
      * @memberof Account
      */
-    'origin'?: AccountOriginEnum | null;
+    'origin'?: AccountOriginV3 | null;
     /**
      * 
      * @type {AccountAllOfOwnerIdentity}
@@ -1358,13 +1358,13 @@ export interface Account {
     'ownerGroup'?: AccountAllOfOwnerGroup | null;
 }
 
-export const AccountOriginEnum = {
+export const AccountOriginV3 = {
     Aggregated: 'AGGREGATED',
     Provisioned: 'PROVISIONED',
     Null: 'null'
 } as const;
 
-export type AccountOriginEnum = typeof AccountOriginEnum[keyof typeof AccountOriginEnum];
+export type AccountOriginV3 = typeof AccountOriginV3[keyof typeof AccountOriginV3];
 
 /**
  * Object for specifying Actions to be performed on a specified list of sources\' account.
@@ -1377,7 +1377,7 @@ export interface AccountAction {
      * @type {string}
      * @memberof AccountAction
      */
-    'action'?: AccountActionActionEnum;
+    'action'?: AccountActionActionV3;
     /**
      * List of unique source IDs. The sources must have the ENABLE feature or flat file source. See \"/sources\" endpoint for source features.
      * @type {Set<string>}
@@ -1386,12 +1386,12 @@ export interface AccountAction {
     'sourceIds'?: Set<string>;
 }
 
-export const AccountActionActionEnum = {
+export const AccountActionActionV3 = {
     Enable: 'ENABLE',
     Disable: 'DISABLE'
 } as const;
 
-export type AccountActionActionEnum = typeof AccountActionActionEnum[keyof typeof AccountActionActionEnum];
+export type AccountActionActionV3 = typeof AccountActionActionV3[keyof typeof AccountActionActionV3];
 
 /**
  * 
@@ -1890,7 +1890,7 @@ export interface AccountAllOfOwnerGroup {
      * @type {string}
      * @memberof AccountAllOfOwnerGroup
      */
-    'type'?: AccountAllOfOwnerGroupTypeEnum;
+    'type'?: AccountAllOfOwnerGroupTypeV3;
     /**
      * ID of the governance group
      * @type {string}
@@ -1905,11 +1905,11 @@ export interface AccountAllOfOwnerGroup {
     'name'?: string;
 }
 
-export const AccountAllOfOwnerGroupTypeEnum = {
+export const AccountAllOfOwnerGroupTypeV3 = {
     GovernanceGroup: 'GOVERNANCE_GROUP'
 } as const;
 
-export type AccountAllOfOwnerGroupTypeEnum = typeof AccountAllOfOwnerGroupTypeEnum[keyof typeof AccountAllOfOwnerGroupTypeEnum];
+export type AccountAllOfOwnerGroupTypeV3 = typeof AccountAllOfOwnerGroupTypeV3[keyof typeof AccountAllOfOwnerGroupTypeV3];
 
 /**
  * The identity who owns this account, typically used for non-human accounts
@@ -1922,7 +1922,7 @@ export interface AccountAllOfOwnerIdentity {
      * @type {string}
      * @memberof AccountAllOfOwnerIdentity
      */
-    'type'?: AccountAllOfOwnerIdentityTypeEnum;
+    'type'?: AccountAllOfOwnerIdentityTypeV3;
     /**
      * ID of the identity
      * @type {string}
@@ -1937,11 +1937,11 @@ export interface AccountAllOfOwnerIdentity {
     'name'?: string;
 }
 
-export const AccountAllOfOwnerIdentityTypeEnum = {
+export const AccountAllOfOwnerIdentityTypeV3 = {
     Identity: 'IDENTITY'
 } as const;
 
-export type AccountAllOfOwnerIdentityTypeEnum = typeof AccountAllOfOwnerIdentityTypeEnum[keyof typeof AccountAllOfOwnerIdentityTypeEnum];
+export type AccountAllOfOwnerIdentityTypeV3 = typeof AccountAllOfOwnerIdentityTypeV3[keyof typeof AccountAllOfOwnerIdentityTypeV3];
 
 /**
  * The owner of this object.
@@ -1954,7 +1954,7 @@ export interface AccountAllOfSourceOwner {
      * @type {string}
      * @memberof AccountAllOfSourceOwner
      */
-    'type'?: AccountAllOfSourceOwnerTypeEnum;
+    'type'?: AccountAllOfSourceOwnerTypeV3;
     /**
      * Identity id
      * @type {string}
@@ -1969,11 +1969,11 @@ export interface AccountAllOfSourceOwner {
     'name'?: string;
 }
 
-export const AccountAllOfSourceOwnerTypeEnum = {
+export const AccountAllOfSourceOwnerTypeV3 = {
     Identity: 'IDENTITY'
 } as const;
 
-export type AccountAllOfSourceOwnerTypeEnum = typeof AccountAllOfSourceOwnerTypeEnum[keyof typeof AccountAllOfSourceOwnerTypeEnum];
+export type AccountAllOfSourceOwnerTypeV3 = typeof AccountAllOfSourceOwnerTypeV3[keyof typeof AccountAllOfSourceOwnerTypeV3];
 
 /**
  * 
@@ -2328,15 +2328,15 @@ export interface ActivityInsights {
      * @type {string}
      * @memberof ActivityInsights
      */
-    'usageDaysState'?: ActivityInsightsUsageDaysStateEnum;
+    'usageDaysState'?: ActivityInsightsUsageDaysStateV3;
 }
 
-export const ActivityInsightsUsageDaysStateEnum = {
+export const ActivityInsightsUsageDaysStateV3 = {
     Complete: 'COMPLETE',
     Unknown: 'UNKNOWN'
 } as const;
 
-export type ActivityInsightsUsageDaysStateEnum = typeof ActivityInsightsUsageDaysStateEnum[keyof typeof ActivityInsightsUsageDaysStateEnum];
+export type ActivityInsightsUsageDaysStateV3 = typeof ActivityInsightsUsageDaysStateV3[keyof typeof ActivityInsightsUsageDaysStateV3];
 
 /**
  * 
@@ -2380,14 +2380,14 @@ export interface AdminReviewReassignReassignTo {
      * @type {string}
      * @memberof AdminReviewReassignReassignTo
      */
-    'type'?: AdminReviewReassignReassignToTypeEnum;
+    'type'?: AdminReviewReassignReassignToTypeV3;
 }
 
-export const AdminReviewReassignReassignToTypeEnum = {
+export const AdminReviewReassignReassignToTypeV3 = {
     Identity: 'IDENTITY'
 } as const;
 
-export type AdminReviewReassignReassignToTypeEnum = typeof AdminReviewReassignReassignToTypeEnum[keyof typeof AdminReviewReassignReassignToTypeEnum];
+export type AdminReviewReassignReassignToTypeV3 = typeof AdminReviewReassignReassignToTypeV3[keyof typeof AdminReviewReassignReassignToTypeV3];
 
 /**
  * 
@@ -2775,7 +2775,7 @@ export interface ApprovalSchemeForRole {
      * @type {string}
      * @memberof ApprovalSchemeForRole
      */
-    'approverType'?: ApprovalSchemeForRoleApproverTypeEnum;
+    'approverType'?: ApprovalSchemeForRoleApproverTypeV3;
     /**
      * Id of the specific approver, used only when approverType is GOVERNANCE_GROUP
      * @type {string}
@@ -2784,13 +2784,13 @@ export interface ApprovalSchemeForRole {
     'approverId'?: string | null;
 }
 
-export const ApprovalSchemeForRoleApproverTypeEnum = {
+export const ApprovalSchemeForRoleApproverTypeV3 = {
     Owner: 'OWNER',
     Manager: 'MANAGER',
     GovernanceGroup: 'GOVERNANCE_GROUP'
 } as const;
 
-export type ApprovalSchemeForRoleApproverTypeEnum = typeof ApprovalSchemeForRoleApproverTypeEnum[keyof typeof ApprovalSchemeForRoleApproverTypeEnum];
+export type ApprovalSchemeForRoleApproverTypeV3 = typeof ApprovalSchemeForRoleApproverTypeV3[keyof typeof ApprovalSchemeForRoleApproverTypeV3];
 
 /**
  * Enum representing the non-employee request approval status
@@ -2883,7 +2883,7 @@ export interface ApprovalStatusDtoCurrentOwner {
      * @type {string}
      * @memberof ApprovalStatusDtoCurrentOwner
      */
-    'type'?: ApprovalStatusDtoCurrentOwnerTypeEnum;
+    'type'?: ApprovalStatusDtoCurrentOwnerTypeV3;
     /**
      * ID of identity who reviewed the access item request.
      * @type {string}
@@ -2898,11 +2898,11 @@ export interface ApprovalStatusDtoCurrentOwner {
     'name'?: string;
 }
 
-export const ApprovalStatusDtoCurrentOwnerTypeEnum = {
+export const ApprovalStatusDtoCurrentOwnerTypeV3 = {
     Identity: 'IDENTITY'
 } as const;
 
-export type ApprovalStatusDtoCurrentOwnerTypeEnum = typeof ApprovalStatusDtoCurrentOwnerTypeEnum[keyof typeof ApprovalStatusDtoCurrentOwnerTypeEnum];
+export type ApprovalStatusDtoCurrentOwnerTypeV3 = typeof ApprovalStatusDtoCurrentOwnerTypeV3[keyof typeof ApprovalStatusDtoCurrentOwnerTypeV3];
 
 /**
  * Identity of orginal approval owner.
@@ -2915,7 +2915,7 @@ export interface ApprovalStatusDtoOriginalOwner {
      * @type {string}
      * @memberof ApprovalStatusDtoOriginalOwner
      */
-    'type'?: ApprovalStatusDtoOriginalOwnerTypeEnum;
+    'type'?: ApprovalStatusDtoOriginalOwnerTypeV3;
     /**
      * ID of original approval owner\'s identity.
      * @type {string}
@@ -2930,12 +2930,12 @@ export interface ApprovalStatusDtoOriginalOwner {
     'name'?: string;
 }
 
-export const ApprovalStatusDtoOriginalOwnerTypeEnum = {
+export const ApprovalStatusDtoOriginalOwnerTypeV3 = {
     GovernanceGroup: 'GOVERNANCE_GROUP',
     Identity: 'IDENTITY'
 } as const;
 
-export type ApprovalStatusDtoOriginalOwnerTypeEnum = typeof ApprovalStatusDtoOriginalOwnerTypeEnum[keyof typeof ApprovalStatusDtoOriginalOwnerTypeEnum];
+export type ApprovalStatusDtoOriginalOwnerTypeV3 = typeof ApprovalStatusDtoOriginalOwnerTypeV3[keyof typeof ApprovalStatusDtoOriginalOwnerTypeV3];
 
 /**
  * 
@@ -3099,7 +3099,7 @@ export interface AttributeDefinitionSchema {
      * @type {string}
      * @memberof AttributeDefinitionSchema
      */
-    'type'?: AttributeDefinitionSchemaTypeEnum;
+    'type'?: AttributeDefinitionSchemaTypeV3;
     /**
      * The object ID this reference applies to.
      * @type {string}
@@ -3114,11 +3114,11 @@ export interface AttributeDefinitionSchema {
     'name'?: string;
 }
 
-export const AttributeDefinitionSchemaTypeEnum = {
+export const AttributeDefinitionSchemaTypeV3 = {
     ConnectorSchema: 'CONNECTOR_SCHEMA'
 } as const;
 
-export type AttributeDefinitionSchemaTypeEnum = typeof AttributeDefinitionSchemaTypeEnum[keyof typeof AttributeDefinitionSchemaTypeEnum];
+export type AttributeDefinitionSchemaTypeV3 = typeof AttributeDefinitionSchemaTypeV3[keyof typeof AttributeDefinitionSchemaTypeV3];
 
 /**
  * The underlying type of the value which an AttributeDefinition represents.
@@ -3293,10 +3293,10 @@ export interface AuthUser {
      * @type {Array<string>}
      * @memberof AuthUser
      */
-    'capabilities'?: Array<AuthUserCapabilitiesEnum>;
+    'capabilities'?: Array<AuthUserCapabilitiesV3>;
 }
 
-export const AuthUserCapabilitiesEnum = {
+export const AuthUserCapabilitiesV3 = {
     CertAdmin: 'CERT_ADMIN',
     CloudGovAdmin: 'CLOUD_GOV_ADMIN',
     CloudGovUser: 'CLOUD_GOV_USER',
@@ -3320,7 +3320,7 @@ export const AuthUserCapabilitiesEnum = {
     SpuiConfigHubRead: 'sp:ui-config-hub-read'
 } as const;
 
-export type AuthUserCapabilitiesEnum = typeof AuthUserCapabilitiesEnum[keyof typeof AuthUserCapabilitiesEnum];
+export type AuthUserCapabilitiesV3 = typeof AuthUserCapabilitiesV3[keyof typeof AuthUserCapabilitiesV3];
 
 /**
  * Backup options control what will be included in the backup.
@@ -3333,7 +3333,7 @@ export interface BackupOptions {
      * @type {Array<string>}
      * @memberof BackupOptions
      */
-    'includeTypes'?: Array<BackupOptionsIncludeTypesEnum>;
+    'includeTypes'?: Array<BackupOptionsIncludeTypesV3>;
     /**
      * Additional options targeting specific objects related to each item in the includeTypes field.
      * @type {{ [key: string]: ObjectExportImportNames; }}
@@ -3342,7 +3342,7 @@ export interface BackupOptions {
     'objectOptions'?: { [key: string]: ObjectExportImportNames; };
 }
 
-export const BackupOptionsIncludeTypesEnum = {
+export const BackupOptionsIncludeTypesV3 = {
     AccessProfile: 'ACCESS_PROFILE',
     AccessRequestConfig: 'ACCESS_REQUEST_CONFIG',
     AttrSyncSourceConfig: 'ATTR_SYNC_SOURCE_CONFIG',
@@ -3369,7 +3369,7 @@ export const BackupOptionsIncludeTypesEnum = {
     Workflow: 'WORKFLOW'
 } as const;
 
-export type BackupOptionsIncludeTypesEnum = typeof BackupOptionsIncludeTypesEnum[keyof typeof BackupOptionsIncludeTypesEnum];
+export type BackupOptionsIncludeTypesV3 = typeof BackupOptionsIncludeTypesV3[keyof typeof BackupOptionsIncludeTypesV3];
 
 /**
  * 
@@ -3388,13 +3388,13 @@ export interface BackupResponse {
      * @type {string}
      * @memberof BackupResponse
      */
-    'status'?: BackupResponseStatusEnum;
+    'status'?: BackupResponseStatusV3;
     /**
      * Type of the job, will always be BACKUP for this type of job.
      * @type {string}
      * @memberof BackupResponse
      */
-    'type'?: BackupResponseTypeEnum;
+    'type'?: BackupResponseTypeV3;
     /**
      * The name of the tenant performing the upload
      * @type {string}
@@ -3454,7 +3454,7 @@ export interface BackupResponse {
      * @type {string}
      * @memberof BackupResponse
      */
-    'backupType'?: BackupResponseBackupTypeEnum;
+    'backupType'?: BackupResponseBackupTypeV3;
     /**
      * 
      * @type {BackupOptions}
@@ -3466,7 +3466,7 @@ export interface BackupResponse {
      * @type {string}
      * @memberof BackupResponse
      */
-    'hydrationStatus'?: BackupResponseHydrationStatusEnum;
+    'hydrationStatus'?: BackupResponseHydrationStatusV3;
     /**
      * Number of objects contained in this backup.
      * @type {number}
@@ -3478,10 +3478,10 @@ export interface BackupResponse {
      * @type {string}
      * @memberof BackupResponse
      */
-    'cloudStorageStatus'?: BackupResponseCloudStorageStatusEnum;
+    'cloudStorageStatus'?: BackupResponseCloudStorageStatusV3;
 }
 
-export const BackupResponseStatusEnum = {
+export const BackupResponseStatusV3 = {
     NotStarted: 'NOT_STARTED',
     InProgress: 'IN_PROGRESS',
     Complete: 'COMPLETE',
@@ -3489,32 +3489,32 @@ export const BackupResponseStatusEnum = {
     Failed: 'FAILED'
 } as const;
 
-export type BackupResponseStatusEnum = typeof BackupResponseStatusEnum[keyof typeof BackupResponseStatusEnum];
-export const BackupResponseTypeEnum = {
+export type BackupResponseStatusV3 = typeof BackupResponseStatusV3[keyof typeof BackupResponseStatusV3];
+export const BackupResponseTypeV3 = {
     Backup: 'BACKUP'
 } as const;
 
-export type BackupResponseTypeEnum = typeof BackupResponseTypeEnum[keyof typeof BackupResponseTypeEnum];
-export const BackupResponseBackupTypeEnum = {
+export type BackupResponseTypeV3 = typeof BackupResponseTypeV3[keyof typeof BackupResponseTypeV3];
+export const BackupResponseBackupTypeV3 = {
     Uploaded: 'UPLOADED',
     Automated: 'AUTOMATED',
     Manual: 'MANUAL'
 } as const;
 
-export type BackupResponseBackupTypeEnum = typeof BackupResponseBackupTypeEnum[keyof typeof BackupResponseBackupTypeEnum];
-export const BackupResponseHydrationStatusEnum = {
+export type BackupResponseBackupTypeV3 = typeof BackupResponseBackupTypeV3[keyof typeof BackupResponseBackupTypeV3];
+export const BackupResponseHydrationStatusV3 = {
     Hydrated: 'HYDRATED',
     NotHydrated: 'NOT_HYDRATED'
 } as const;
 
-export type BackupResponseHydrationStatusEnum = typeof BackupResponseHydrationStatusEnum[keyof typeof BackupResponseHydrationStatusEnum];
-export const BackupResponseCloudStorageStatusEnum = {
+export type BackupResponseHydrationStatusV3 = typeof BackupResponseHydrationStatusV3[keyof typeof BackupResponseHydrationStatusV3];
+export const BackupResponseCloudStorageStatusV3 = {
     Synced: 'SYNCED',
     NotSynced: 'NOT_SYNCED',
     SyncFailed: 'SYNC_FAILED'
 } as const;
 
-export type BackupResponseCloudStorageStatusEnum = typeof BackupResponseCloudStorageStatusEnum[keyof typeof BackupResponseCloudStorageStatusEnum];
+export type BackupResponseCloudStorageStatusV3 = typeof BackupResponseCloudStorageStatusV3[keyof typeof BackupResponseCloudStorageStatusV3];
 
 /**
  * 
@@ -3632,7 +3632,7 @@ export interface BaseAccessAllOfOwner {
      * @type {string}
      * @memberof BaseAccessAllOfOwner
      */
-    'type'?: BaseAccessAllOfOwnerTypeEnum;
+    'type'?: BaseAccessAllOfOwnerTypeV3;
     /**
      * Owner\'s identity ID.
      * @type {string}
@@ -3653,11 +3653,11 @@ export interface BaseAccessAllOfOwner {
     'email'?: string;
 }
 
-export const BaseAccessAllOfOwnerTypeEnum = {
+export const BaseAccessAllOfOwnerTypeV3 = {
     Identity: 'IDENTITY'
 } as const;
 
-export type BaseAccessAllOfOwnerTypeEnum = typeof BaseAccessAllOfOwnerTypeEnum[keyof typeof BaseAccessAllOfOwnerTypeEnum];
+export type BaseAccessAllOfOwnerTypeV3 = typeof BaseAccessAllOfOwnerTypeV3[keyof typeof BaseAccessAllOfOwnerTypeV3];
 
 /**
  * 
@@ -3921,7 +3921,7 @@ export interface BeforeProvisioningRuleDto {
      * @type {string}
      * @memberof BeforeProvisioningRuleDto
      */
-    'type'?: BeforeProvisioningRuleDtoTypeEnum;
+    'type'?: BeforeProvisioningRuleDtoTypeV3;
     /**
      * Before Provisioning Rule ID.
      * @type {string}
@@ -3936,11 +3936,11 @@ export interface BeforeProvisioningRuleDto {
     'name'?: string;
 }
 
-export const BeforeProvisioningRuleDtoTypeEnum = {
+export const BeforeProvisioningRuleDtoTypeV3 = {
     Rule: 'RULE'
 } as const;
 
-export type BeforeProvisioningRuleDtoTypeEnum = typeof BeforeProvisioningRuleDtoTypeEnum[keyof typeof BeforeProvisioningRuleDtoTypeEnum];
+export type BeforeProvisioningRuleDtoTypeV3 = typeof BeforeProvisioningRuleDtoTypeV3[keyof typeof BeforeProvisioningRuleDtoTypeV3];
 
 /**
  * 
@@ -4146,15 +4146,15 @@ export interface BulkAddTaggedObject {
      * @type {string}
      * @memberof BulkAddTaggedObject
      */
-    'operation'?: BulkAddTaggedObjectOperationEnum;
+    'operation'?: BulkAddTaggedObjectOperationV3;
 }
 
-export const BulkAddTaggedObjectOperationEnum = {
+export const BulkAddTaggedObjectOperationV3 = {
     Append: 'APPEND',
     Merge: 'MERGE'
 } as const;
 
-export type BulkAddTaggedObjectOperationEnum = typeof BulkAddTaggedObjectOperationEnum[keyof typeof BulkAddTaggedObjectOperationEnum];
+export type BulkAddTaggedObjectOperationV3 = typeof BulkAddTaggedObjectOperationV3[keyof typeof BulkAddTaggedObjectOperationV3];
 
 /**
  * 
@@ -4229,7 +4229,7 @@ export interface Campaign {
      * @type {string}
      * @memberof Campaign
      */
-    'type': CampaignTypeEnum;
+    'type': CampaignTypeV3;
     /**
      * Enables email notification for this campaign
      * @type {boolean}
@@ -4253,13 +4253,13 @@ export interface Campaign {
      * @type {string}
      * @memberof Campaign
      */
-    'status'?: CampaignStatusEnum;
+    'status'?: CampaignStatusV3;
     /**
      * The correlatedStatus of the campaign. Only SOURCE_OWNER campaigns can be Uncorrelated. An Uncorrelated certification campaign only includes Uncorrelated identities (An identity is uncorrelated if it has no accounts on an authoritative source).
      * @type {string}
      * @memberof Campaign
      */
-    'correlatedStatus'?: CampaignCorrelatedStatusEnum;
+    'correlatedStatus'?: CampaignCorrelatedStatusV3;
     /**
      * Created time of the campaign
      * @type {string}
@@ -4331,18 +4331,18 @@ export interface Campaign {
      * @type {string}
      * @memberof Campaign
      */
-    'mandatoryCommentRequirement'?: CampaignMandatoryCommentRequirementEnum;
+    'mandatoryCommentRequirement'?: CampaignMandatoryCommentRequirementV3;
 }
 
-export const CampaignTypeEnum = {
+export const CampaignTypeV3 = {
     Manager: 'MANAGER',
     SourceOwner: 'SOURCE_OWNER',
     Search: 'SEARCH',
     RoleComposition: 'ROLE_COMPOSITION'
 } as const;
 
-export type CampaignTypeEnum = typeof CampaignTypeEnum[keyof typeof CampaignTypeEnum];
-export const CampaignStatusEnum = {
+export type CampaignTypeV3 = typeof CampaignTypeV3[keyof typeof CampaignTypeV3];
+export const CampaignStatusV3 = {
     Pending: 'PENDING',
     Staged: 'STAGED',
     Canceling: 'CANCELING',
@@ -4354,20 +4354,20 @@ export const CampaignStatusEnum = {
     Archived: 'ARCHIVED'
 } as const;
 
-export type CampaignStatusEnum = typeof CampaignStatusEnum[keyof typeof CampaignStatusEnum];
-export const CampaignCorrelatedStatusEnum = {
+export type CampaignStatusV3 = typeof CampaignStatusV3[keyof typeof CampaignStatusV3];
+export const CampaignCorrelatedStatusV3 = {
     Correlated: 'CORRELATED',
     Uncorrelated: 'UNCORRELATED'
 } as const;
 
-export type CampaignCorrelatedStatusEnum = typeof CampaignCorrelatedStatusEnum[keyof typeof CampaignCorrelatedStatusEnum];
-export const CampaignMandatoryCommentRequirementEnum = {
+export type CampaignCorrelatedStatusV3 = typeof CampaignCorrelatedStatusV3[keyof typeof CampaignCorrelatedStatusV3];
+export const CampaignMandatoryCommentRequirementV3 = {
     AllDecisions: 'ALL_DECISIONS',
     RevokeOnlyDecisions: 'REVOKE_ONLY_DECISIONS',
     NoDecisions: 'NO_DECISIONS'
 } as const;
 
-export type CampaignMandatoryCommentRequirementEnum = typeof CampaignMandatoryCommentRequirementEnum[keyof typeof CampaignMandatoryCommentRequirementEnum];
+export type CampaignMandatoryCommentRequirementV3 = typeof CampaignMandatoryCommentRequirementV3[keyof typeof CampaignMandatoryCommentRequirementV3];
 
 /**
  * 
@@ -4380,7 +4380,7 @@ export interface CampaignAlert {
      * @type {string}
      * @memberof CampaignAlert
      */
-    'level'?: CampaignAlertLevelEnum;
+    'level'?: CampaignAlertLevelV3;
     /**
      * 
      * @type {Array<ErrorMessageDto>}
@@ -4389,13 +4389,13 @@ export interface CampaignAlert {
     'localizations'?: Array<ErrorMessageDto>;
 }
 
-export const CampaignAlertLevelEnum = {
+export const CampaignAlertLevelV3 = {
     Error: 'ERROR',
     Warn: 'WARN',
     Info: 'INFO'
 } as const;
 
-export type CampaignAlertLevelEnum = typeof CampaignAlertLevelEnum[keyof typeof CampaignAlertLevelEnum];
+export type CampaignAlertLevelV3 = typeof CampaignAlertLevelV3[keyof typeof CampaignAlertLevelV3];
 
 /**
  * Determines which items will be included in this campaign. The default campaign filter is used if this field is left blank.
@@ -4414,7 +4414,7 @@ export interface CampaignAllOfFilter {
      * @type {string}
      * @memberof CampaignAllOfFilter
      */
-    'type'?: CampaignAllOfFilterTypeEnum;
+    'type'?: CampaignAllOfFilterTypeV3;
     /**
      * Name of the filter
      * @type {string}
@@ -4423,12 +4423,12 @@ export interface CampaignAllOfFilter {
     'name'?: string;
 }
 
-export const CampaignAllOfFilterTypeEnum = {
+export const CampaignAllOfFilterTypeV3 = {
     CampaignFilter: 'CAMPAIGN_FILTER',
     Rule: 'RULE'
 } as const;
 
-export type CampaignAllOfFilterTypeEnum = typeof CampaignAllOfFilterTypeEnum[keyof typeof CampaignAllOfFilterTypeEnum];
+export type CampaignAllOfFilterTypeV3 = typeof CampaignAllOfFilterTypeV3[keyof typeof CampaignAllOfFilterTypeV3];
 
 /**
  * Optional configuration options for role composition campaigns.
@@ -4478,7 +4478,7 @@ export interface CampaignAllOfRoleCompositionCampaignInfoRemediatorRef {
      * @type {string}
      * @memberof CampaignAllOfRoleCompositionCampaignInfoRemediatorRef
      */
-    'type': CampaignAllOfRoleCompositionCampaignInfoRemediatorRefTypeEnum;
+    'type': CampaignAllOfRoleCompositionCampaignInfoRemediatorRefTypeV3;
     /**
      * The ID of the remediator.
      * @type {string}
@@ -4493,11 +4493,11 @@ export interface CampaignAllOfRoleCompositionCampaignInfoRemediatorRef {
     'name'?: string;
 }
 
-export const CampaignAllOfRoleCompositionCampaignInfoRemediatorRefTypeEnum = {
+export const CampaignAllOfRoleCompositionCampaignInfoRemediatorRefTypeV3 = {
     Identity: 'IDENTITY'
 } as const;
 
-export type CampaignAllOfRoleCompositionCampaignInfoRemediatorRefTypeEnum = typeof CampaignAllOfRoleCompositionCampaignInfoRemediatorRefTypeEnum[keyof typeof CampaignAllOfRoleCompositionCampaignInfoRemediatorRefTypeEnum];
+export type CampaignAllOfRoleCompositionCampaignInfoRemediatorRefTypeV3 = typeof CampaignAllOfRoleCompositionCampaignInfoRemediatorRefTypeV3[keyof typeof CampaignAllOfRoleCompositionCampaignInfoRemediatorRefTypeV3];
 
 /**
  * Must be set only if the campaign type is SEARCH.
@@ -4510,7 +4510,7 @@ export interface CampaignAllOfSearchCampaignInfo {
      * @type {string}
      * @memberof CampaignAllOfSearchCampaignInfo
      */
-    'type': CampaignAllOfSearchCampaignInfoTypeEnum;
+    'type': CampaignAllOfSearchCampaignInfoTypeV3;
     /**
      * Describes this search campaign. Intended for storing the query used, and possibly the number of identities selected/available.
      * @type {string}
@@ -4543,12 +4543,12 @@ export interface CampaignAllOfSearchCampaignInfo {
     'accessConstraints'?: Array<AccessConstraint>;
 }
 
-export const CampaignAllOfSearchCampaignInfoTypeEnum = {
+export const CampaignAllOfSearchCampaignInfoTypeV3 = {
     Identity: 'IDENTITY',
     Access: 'ACCESS'
 } as const;
 
-export type CampaignAllOfSearchCampaignInfoTypeEnum = typeof CampaignAllOfSearchCampaignInfoTypeEnum[keyof typeof CampaignAllOfSearchCampaignInfoTypeEnum];
+export type CampaignAllOfSearchCampaignInfoTypeV3 = typeof CampaignAllOfSearchCampaignInfoTypeV3[keyof typeof CampaignAllOfSearchCampaignInfoTypeV3];
 
 /**
  * If specified, this identity or governance group will be the reviewer for all certifications in this campaign. The allowed DTO types are IDENTITY and GOVERNANCE_GROUP.
@@ -4561,7 +4561,7 @@ export interface CampaignAllOfSearchCampaignInfoReviewer {
      * @type {string}
      * @memberof CampaignAllOfSearchCampaignInfoReviewer
      */
-    'type'?: CampaignAllOfSearchCampaignInfoReviewerTypeEnum;
+    'type'?: CampaignAllOfSearchCampaignInfoReviewerTypeV3;
     /**
      * The reviewer\'s ID.
      * @type {string}
@@ -4576,12 +4576,12 @@ export interface CampaignAllOfSearchCampaignInfoReviewer {
     'name'?: string;
 }
 
-export const CampaignAllOfSearchCampaignInfoReviewerTypeEnum = {
+export const CampaignAllOfSearchCampaignInfoReviewerTypeV3 = {
     GovernanceGroup: 'GOVERNANCE_GROUP',
     Identity: 'IDENTITY'
 } as const;
 
-export type CampaignAllOfSearchCampaignInfoReviewerTypeEnum = typeof CampaignAllOfSearchCampaignInfoReviewerTypeEnum[keyof typeof CampaignAllOfSearchCampaignInfoReviewerTypeEnum];
+export type CampaignAllOfSearchCampaignInfoReviewerTypeV3 = typeof CampaignAllOfSearchCampaignInfoReviewerTypeV3[keyof typeof CampaignAllOfSearchCampaignInfoReviewerTypeV3];
 
 /**
  * Must be set only if the campaign type is SOURCE_OWNER.
@@ -4613,7 +4613,7 @@ export interface CampaignAllOfSourcesWithOrphanEntitlements {
      * @type {string}
      * @memberof CampaignAllOfSourcesWithOrphanEntitlements
      */
-    'type'?: CampaignAllOfSourcesWithOrphanEntitlementsTypeEnum;
+    'type'?: CampaignAllOfSourcesWithOrphanEntitlementsTypeV3;
     /**
      * Name of the source
      * @type {string}
@@ -4622,11 +4622,11 @@ export interface CampaignAllOfSourcesWithOrphanEntitlements {
     'name'?: string;
 }
 
-export const CampaignAllOfSourcesWithOrphanEntitlementsTypeEnum = {
+export const CampaignAllOfSourcesWithOrphanEntitlementsTypeV3 = {
     Source: 'SOURCE'
 } as const;
 
-export type CampaignAllOfSourcesWithOrphanEntitlementsTypeEnum = typeof CampaignAllOfSourcesWithOrphanEntitlementsTypeEnum[keyof typeof CampaignAllOfSourcesWithOrphanEntitlementsTypeEnum];
+export type CampaignAllOfSourcesWithOrphanEntitlementsTypeV3 = typeof CampaignAllOfSourcesWithOrphanEntitlementsTypeV3[keyof typeof CampaignAllOfSourcesWithOrphanEntitlementsTypeV3];
 
 /**
  * 
@@ -4639,15 +4639,15 @@ export interface CampaignCompleteOptions {
      * @type {string}
      * @memberof CampaignCompleteOptions
      */
-    'autoCompleteAction'?: CampaignCompleteOptionsAutoCompleteActionEnum;
+    'autoCompleteAction'?: CampaignCompleteOptionsAutoCompleteActionV3;
 }
 
-export const CampaignCompleteOptionsAutoCompleteActionEnum = {
+export const CampaignCompleteOptionsAutoCompleteActionV3 = {
     Approve: 'APPROVE',
     Revoke: 'REVOKE'
 } as const;
 
-export type CampaignCompleteOptionsAutoCompleteActionEnum = typeof CampaignCompleteOptionsAutoCompleteActionEnum[keyof typeof CampaignCompleteOptionsAutoCompleteActionEnum];
+export type CampaignCompleteOptionsAutoCompleteActionV3 = typeof CampaignCompleteOptionsAutoCompleteActionV3[keyof typeof CampaignCompleteOptionsAutoCompleteActionV3];
 
 /**
  * Campaign Filter Details
@@ -4678,7 +4678,7 @@ export interface CampaignFilterDetails {
      * @type {object}
      * @memberof CampaignFilterDetails
      */
-    'mode': CampaignFilterDetailsModeEnum;
+    'mode': CampaignFilterDetailsModeV3;
     /**
      * List of criteria.
      * @type {Array<CampaignFilterDetailsCriteriaListInner>}
@@ -4687,12 +4687,12 @@ export interface CampaignFilterDetails {
     'criteriaList'?: Array<CampaignFilterDetailsCriteriaListInner>;
 }
 
-export const CampaignFilterDetailsModeEnum = {
+export const CampaignFilterDetailsModeV3 = {
     Inclusion: 'INCLUSION',
     Exclusion: 'EXCLUSION'
 } as const;
 
-export type CampaignFilterDetailsModeEnum = typeof CampaignFilterDetailsModeEnum[keyof typeof CampaignFilterDetailsModeEnum];
+export type CampaignFilterDetailsModeV3 = typeof CampaignFilterDetailsModeV3[keyof typeof CampaignFilterDetailsModeV3];
 
 /**
  * 
@@ -4750,13 +4750,13 @@ export interface CampaignReference {
      * @type {string}
      * @memberof CampaignReference
      */
-    'type': CampaignReferenceTypeEnum;
+    'type': CampaignReferenceTypeV3;
     /**
      * The type of the campaign.
      * @type {string}
      * @memberof CampaignReference
      */
-    'campaignType': CampaignReferenceCampaignTypeEnum;
+    'campaignType': CampaignReferenceCampaignTypeV3;
     /**
      * The description of the campaign set by the admin who created it.
      * @type {string}
@@ -4768,40 +4768,40 @@ export interface CampaignReference {
      * @type {string}
      * @memberof CampaignReference
      */
-    'correlatedStatus': CampaignReferenceCorrelatedStatusEnum;
+    'correlatedStatus': CampaignReferenceCorrelatedStatusV3;
     /**
      * Determines whether comments are required for decisions during certification reviews. You can require comments for all decisions, revoke-only decisions, or no decisions. By default, comments are not required for decisions.
      * @type {string}
      * @memberof CampaignReference
      */
-    'mandatoryCommentRequirement': CampaignReferenceMandatoryCommentRequirementEnum;
+    'mandatoryCommentRequirement': CampaignReferenceMandatoryCommentRequirementV3;
 }
 
-export const CampaignReferenceTypeEnum = {
+export const CampaignReferenceTypeV3 = {
     Campaign: 'CAMPAIGN'
 } as const;
 
-export type CampaignReferenceTypeEnum = typeof CampaignReferenceTypeEnum[keyof typeof CampaignReferenceTypeEnum];
-export const CampaignReferenceCampaignTypeEnum = {
+export type CampaignReferenceTypeV3 = typeof CampaignReferenceTypeV3[keyof typeof CampaignReferenceTypeV3];
+export const CampaignReferenceCampaignTypeV3 = {
     Manager: 'MANAGER',
     SourceOwner: 'SOURCE_OWNER',
     Search: 'SEARCH'
 } as const;
 
-export type CampaignReferenceCampaignTypeEnum = typeof CampaignReferenceCampaignTypeEnum[keyof typeof CampaignReferenceCampaignTypeEnum];
-export const CampaignReferenceCorrelatedStatusEnum = {
+export type CampaignReferenceCampaignTypeV3 = typeof CampaignReferenceCampaignTypeV3[keyof typeof CampaignReferenceCampaignTypeV3];
+export const CampaignReferenceCorrelatedStatusV3 = {
     Correlated: 'CORRELATED',
     Uncorrelated: 'UNCORRELATED'
 } as const;
 
-export type CampaignReferenceCorrelatedStatusEnum = typeof CampaignReferenceCorrelatedStatusEnum[keyof typeof CampaignReferenceCorrelatedStatusEnum];
-export const CampaignReferenceMandatoryCommentRequirementEnum = {
+export type CampaignReferenceCorrelatedStatusV3 = typeof CampaignReferenceCorrelatedStatusV3[keyof typeof CampaignReferenceCorrelatedStatusV3];
+export const CampaignReferenceMandatoryCommentRequirementV3 = {
     AllDecisions: 'ALL_DECISIONS',
     RevokeOnlyDecisions: 'REVOKE_ONLY_DECISIONS',
     NoDecisions: 'NO_DECISIONS'
 } as const;
 
-export type CampaignReferenceMandatoryCommentRequirementEnum = typeof CampaignReferenceMandatoryCommentRequirementEnum[keyof typeof CampaignReferenceMandatoryCommentRequirementEnum];
+export type CampaignReferenceMandatoryCommentRequirementV3 = typeof CampaignReferenceMandatoryCommentRequirementV3[keyof typeof CampaignReferenceMandatoryCommentRequirementV3];
 
 /**
  * 
@@ -4814,7 +4814,7 @@ export interface CampaignReport {
      * @type {string}
      * @memberof CampaignReport
      */
-    'type'?: CampaignReportTypeEnum;
+    'type'?: CampaignReportTypeV3;
     /**
      * SOD policy violation report result ID.
      * @type {string}
@@ -4832,7 +4832,7 @@ export interface CampaignReport {
      * @type {string}
      * @memberof CampaignReport
      */
-    'status'?: CampaignReportStatusEnum;
+    'status'?: CampaignReportStatusV3;
     /**
      * 
      * @type {ReportType}
@@ -4847,12 +4847,12 @@ export interface CampaignReport {
     'lastRunAt'?: string;
 }
 
-export const CampaignReportTypeEnum = {
+export const CampaignReportTypeV3 = {
     ReportResult: 'REPORT_RESULT'
 } as const;
 
-export type CampaignReportTypeEnum = typeof CampaignReportTypeEnum[keyof typeof CampaignReportTypeEnum];
-export const CampaignReportStatusEnum = {
+export type CampaignReportTypeV3 = typeof CampaignReportTypeV3[keyof typeof CampaignReportTypeV3];
+export const CampaignReportStatusV3 = {
     Success: 'SUCCESS',
     Warning: 'WARNING',
     Error: 'ERROR',
@@ -4861,7 +4861,7 @@ export const CampaignReportStatusEnum = {
     Pending: 'PENDING'
 } as const;
 
-export type CampaignReportStatusEnum = typeof CampaignReportStatusEnum[keyof typeof CampaignReportStatusEnum];
+export type CampaignReportStatusV3 = typeof CampaignReportStatusV3[keyof typeof CampaignReportStatusV3];
 
 /**
  * 
@@ -4954,7 +4954,7 @@ export interface CampaignTemplateOwnerRef {
      * @type {string}
      * @memberof CampaignTemplateOwnerRef
      */
-    'type'?: CampaignTemplateOwnerRefTypeEnum;
+    'type'?: CampaignTemplateOwnerRefTypeV3;
     /**
      * Name of the owner
      * @type {string}
@@ -4969,11 +4969,11 @@ export interface CampaignTemplateOwnerRef {
     'email'?: string;
 }
 
-export const CampaignTemplateOwnerRefTypeEnum = {
+export const CampaignTemplateOwnerRefTypeV3 = {
     Identity: 'IDENTITY'
 } as const;
 
-export type CampaignTemplateOwnerRefTypeEnum = typeof CampaignTemplateOwnerRefTypeEnum[keyof typeof CampaignTemplateOwnerRefTypeEnum];
+export type CampaignTemplateOwnerRefTypeV3 = typeof CampaignTemplateOwnerRefTypeV3[keyof typeof CampaignTemplateOwnerRefTypeV3];
 
 /**
  * 
@@ -5226,7 +5226,7 @@ export interface CertificationReference {
      * @type {string}
      * @memberof CertificationReference
      */
-    'type'?: CertificationReferenceTypeEnum;
+    'type'?: CertificationReferenceTypeV3;
     /**
      * 
      * @type {Reviewer}
@@ -5235,11 +5235,11 @@ export interface CertificationReference {
     'reviewer'?: Reviewer;
 }
 
-export const CertificationReferenceTypeEnum = {
+export const CertificationReferenceTypeV3 = {
     Certification: 'CERTIFICATION'
 } as const;
 
-export type CertificationReferenceTypeEnum = typeof CertificationReferenceTypeEnum[keyof typeof CertificationReferenceTypeEnum];
+export type CertificationReferenceTypeV3 = typeof CertificationReferenceTypeV3[keyof typeof CertificationReferenceTypeV3];
 
 /**
  * 
@@ -5258,13 +5258,13 @@ export interface CertificationTask {
      * @type {string}
      * @memberof CertificationTask
      */
-    'type'?: CertificationTaskTypeEnum;
+    'type'?: CertificationTaskTypeV3;
     /**
      * The type of item that is being operated on by this task whose ID is stored in the targetId field.
      * @type {string}
      * @memberof CertificationTask
      */
-    'targetType'?: CertificationTaskTargetTypeEnum;
+    'targetType'?: CertificationTaskTargetTypeV3;
     /**
      * The ID of the item being operated on by this task.
      * @type {string}
@@ -5276,7 +5276,7 @@ export interface CertificationTask {
      * @type {string}
      * @memberof CertificationTask
      */
-    'status'?: CertificationTaskStatusEnum;
+    'status'?: CertificationTaskStatusV3;
     /**
      * 
      * @type {Array<ErrorMessageDto>}
@@ -5297,7 +5297,7 @@ export interface CertificationTask {
     'created'?: string;
 }
 
-export const CertificationTaskTypeEnum = {
+export const CertificationTaskTypeV3 = {
     Reassign: 'REASSIGN',
     AdminReassign: 'ADMIN_REASSIGN',
     CompleteCertification: 'COMPLETE_CERTIFICATION',
@@ -5308,21 +5308,21 @@ export const CertificationTaskTypeEnum = {
     CampaignDelete: 'CAMPAIGN_DELETE'
 } as const;
 
-export type CertificationTaskTypeEnum = typeof CertificationTaskTypeEnum[keyof typeof CertificationTaskTypeEnum];
-export const CertificationTaskTargetTypeEnum = {
+export type CertificationTaskTypeV3 = typeof CertificationTaskTypeV3[keyof typeof CertificationTaskTypeV3];
+export const CertificationTaskTargetTypeV3 = {
     Certification: 'CERTIFICATION',
     Campaign: 'CAMPAIGN'
 } as const;
 
-export type CertificationTaskTargetTypeEnum = typeof CertificationTaskTargetTypeEnum[keyof typeof CertificationTaskTargetTypeEnum];
-export const CertificationTaskStatusEnum = {
+export type CertificationTaskTargetTypeV3 = typeof CertificationTaskTargetTypeV3[keyof typeof CertificationTaskTargetTypeV3];
+export const CertificationTaskStatusV3 = {
     Queued: 'QUEUED',
     InProgress: 'IN_PROGRESS',
     Success: 'SUCCESS',
     Error: 'ERROR'
 } as const;
 
-export type CertificationTaskStatusEnum = typeof CertificationTaskStatusEnum[keyof typeof CertificationTaskStatusEnum];
+export type CertificationTaskStatusV3 = typeof CertificationTaskStatusV3[keyof typeof CertificationTaskStatusV3];
 
 /**
  * Client Runtime Logging Configuration
@@ -5463,7 +5463,7 @@ export interface CommentDtoAuthor {
      * @type {string}
      * @memberof CommentDtoAuthor
      */
-    'type'?: CommentDtoAuthorTypeEnum;
+    'type'?: CommentDtoAuthorTypeV3;
     /**
      * The unique ID of the object
      * @type {string}
@@ -5478,11 +5478,11 @@ export interface CommentDtoAuthor {
     'name'?: string;
 }
 
-export const CommentDtoAuthorTypeEnum = {
+export const CommentDtoAuthorTypeV3 = {
     Identity: 'IDENTITY'
 } as const;
 
-export type CommentDtoAuthorTypeEnum = typeof CommentDtoAuthorTypeEnum[keyof typeof CommentDtoAuthorTypeEnum];
+export type CommentDtoAuthorTypeV3 = typeof CommentDtoAuthorTypeV3[keyof typeof CommentDtoAuthorTypeV3];
 
 /**
  * 
@@ -5927,17 +5927,17 @@ export interface ConnectorDetail {
      * @type {string}
      * @memberof ConnectorDetail
      */
-    'status'?: ConnectorDetailStatusEnum;
+    'status'?: ConnectorDetailStatusV3;
 }
 
-export const ConnectorDetailStatusEnum = {
+export const ConnectorDetailStatusV3 = {
     Deprecated: 'DEPRECATED',
     Development: 'DEVELOPMENT',
     Demo: 'DEMO',
     Released: 'RELEASED'
 } as const;
 
-export type ConnectorDetailStatusEnum = typeof ConnectorDetailStatusEnum[keyof typeof ConnectorDetailStatusEnum];
+export type ConnectorDetailStatusV3 = typeof ConnectorDetailStatusV3[keyof typeof ConnectorDetailStatusV3];
 
 /**
  * 
@@ -6572,7 +6572,7 @@ export interface DateCompare {
      * @type {string}
      * @memberof DateCompare
      */
-    'operator': DateCompareOperatorEnum;
+    'operator': DateCompareOperatorV3;
     /**
      * The output of the transform if the expression evalutes to true
      * @type {string}
@@ -6599,14 +6599,14 @@ export interface DateCompare {
     'input'?: { [key: string]: any; };
 }
 
-export const DateCompareOperatorEnum = {
+export const DateCompareOperatorV3 = {
     Lt: 'LT',
     Lte: 'LTE',
     Gt: 'GT',
     Gte: 'GTE'
 } as const;
 
-export type DateCompareOperatorEnum = typeof DateCompareOperatorEnum[keyof typeof DateCompareOperatorEnum];
+export type DateCompareOperatorV3 = typeof DateCompareOperatorV3[keyof typeof DateCompareOperatorV3];
 
 /**
  * @type DateCompareFirstDate
@@ -6741,7 +6741,7 @@ export interface DeleteSource202Response {
      * @type {string}
      * @memberof DeleteSource202Response
      */
-    'type'?: DeleteSource202ResponseTypeEnum;
+    'type'?: DeleteSource202ResponseTypeV3;
     /**
      * Task result ID.
      * @type {string}
@@ -6756,11 +6756,11 @@ export interface DeleteSource202Response {
     'name'?: string;
 }
 
-export const DeleteSource202ResponseTypeEnum = {
+export const DeleteSource202ResponseTypeV3 = {
     TaskResult: 'TASK_RESULT'
 } as const;
 
-export type DeleteSource202ResponseTypeEnum = typeof DeleteSource202ResponseTypeEnum[keyof typeof DeleteSource202ResponseTypeEnum];
+export type DeleteSource202ResponseTypeV3 = typeof DeleteSource202ResponseTypeV3[keyof typeof DeleteSource202ResponseTypeV3];
 
 /**
  * 
@@ -6891,7 +6891,7 @@ export interface DependantConnectionsMissingDto {
      * @type {string}
      * @memberof DependantConnectionsMissingDto
      */
-    'dependencyType'?: DependantConnectionsMissingDtoDependencyTypeEnum;
+    'dependencyType'?: DependantConnectionsMissingDtoDependencyTypeV3;
     /**
      * The reason why this dependency is missing
      * @type {string}
@@ -6900,7 +6900,7 @@ export interface DependantConnectionsMissingDto {
     'reason'?: string;
 }
 
-export const DependantConnectionsMissingDtoDependencyTypeEnum = {
+export const DependantConnectionsMissingDtoDependencyTypeV3 = {
     IdentityProfiles: 'identityProfiles',
     CredentialProfiles: 'credentialProfiles',
     MappingProfiles: 'mappingProfiles',
@@ -6909,7 +6909,7 @@ export const DependantConnectionsMissingDtoDependencyTypeEnum = {
     DependantApps: 'dependantApps'
 } as const;
 
-export type DependantConnectionsMissingDtoDependencyTypeEnum = typeof DependantConnectionsMissingDtoDependencyTypeEnum[keyof typeof DependantConnectionsMissingDtoDependencyTypeEnum];
+export type DependantConnectionsMissingDtoDependencyTypeV3 = typeof DependantConnectionsMissingDtoDependencyTypeV3[keyof typeof DependantConnectionsMissingDtoDependencyTypeV3];
 
 /**
  * 
@@ -7370,7 +7370,7 @@ export interface EntitlementRef {
      * @type {string}
      * @memberof EntitlementRef
      */
-    'type'?: EntitlementRefTypeEnum;
+    'type'?: EntitlementRefTypeV3;
     /**
      * Entitlement\'s ID.
      * @type {string}
@@ -7385,11 +7385,11 @@ export interface EntitlementRef {
     'name'?: string | null;
 }
 
-export const EntitlementRefTypeEnum = {
+export const EntitlementRefTypeV3 = {
     Entitlement: 'ENTITLEMENT'
 } as const;
 
-export type EntitlementRefTypeEnum = typeof EntitlementRefTypeEnum[keyof typeof EntitlementRefTypeEnum];
+export type EntitlementRefTypeV3 = typeof EntitlementRefTypeV3[keyof typeof EntitlementRefTypeV3];
 
 /**
  * Entitlement including a specific set of access.
@@ -7402,7 +7402,7 @@ export interface EntitlementRef1 {
      * @type {string}
      * @memberof EntitlementRef1
      */
-    'type'?: EntitlementRef1TypeEnum;
+    'type'?: EntitlementRef1TypeV3;
     /**
      * Entitlement\'s ID.
      * @type {string}
@@ -7417,11 +7417,11 @@ export interface EntitlementRef1 {
     'name'?: string;
 }
 
-export const EntitlementRef1TypeEnum = {
+export const EntitlementRef1TypeV3 = {
     Entitlement: 'ENTITLEMENT'
 } as const;
 
-export type EntitlementRef1TypeEnum = typeof EntitlementRef1TypeEnum[keyof typeof EntitlementRef1TypeEnum];
+export type EntitlementRef1TypeV3 = typeof EntitlementRef1TypeV3[keyof typeof EntitlementRef1TypeV3];
 
 /**
  * 
@@ -7941,7 +7941,7 @@ export interface ExceptionCriteriaCriteriaListInner {
      * @type {object}
      * @memberof ExceptionCriteriaCriteriaListInner
      */
-    'type'?: ExceptionCriteriaCriteriaListInnerTypeEnum;
+    'type'?: ExceptionCriteriaCriteriaListInnerTypeV3;
     /**
      * ID of the object to which this reference applies
      * @type {string}
@@ -7962,11 +7962,11 @@ export interface ExceptionCriteriaCriteriaListInner {
     'existing'?: boolean;
 }
 
-export const ExceptionCriteriaCriteriaListInnerTypeEnum = {
+export const ExceptionCriteriaCriteriaListInnerTypeV3 = {
     Entitlement: 'ENTITLEMENT'
 } as const;
 
-export type ExceptionCriteriaCriteriaListInnerTypeEnum = typeof ExceptionCriteriaCriteriaListInnerTypeEnum[keyof typeof ExceptionCriteriaCriteriaListInnerTypeEnum];
+export type ExceptionCriteriaCriteriaListInnerTypeV3 = typeof ExceptionCriteriaCriteriaListInnerTypeV3[keyof typeof ExceptionCriteriaCriteriaListInnerTypeV3];
 
 /**
  * The current state of execution.
@@ -8032,7 +8032,7 @@ export interface Expression {
      * @type {string}
      * @memberof Expression
      */
-    'operator'?: ExpressionOperatorEnum;
+    'operator'?: ExpressionOperatorV3;
     /**
      * Name for the attribute
      * @type {string}
@@ -8053,12 +8053,12 @@ export interface Expression {
     'children'?: Array<ExpressionChildrenInner> | null;
 }
 
-export const ExpressionOperatorEnum = {
+export const ExpressionOperatorV3 = {
     And: 'AND',
     Equals: 'EQUALS'
 } as const;
 
-export type ExpressionOperatorEnum = typeof ExpressionOperatorEnum[keyof typeof ExpressionOperatorEnum];
+export type ExpressionOperatorV3 = typeof ExpressionOperatorV3[keyof typeof ExpressionOperatorV3];
 
 /**
  * 
@@ -8071,7 +8071,7 @@ export interface ExpressionChildrenInner {
      * @type {string}
      * @memberof ExpressionChildrenInner
      */
-    'operator'?: ExpressionChildrenInnerOperatorEnum;
+    'operator'?: ExpressionChildrenInnerOperatorV3;
     /**
      * Name for the attribute
      * @type {string}
@@ -8092,12 +8092,12 @@ export interface ExpressionChildrenInner {
     'children'?: string | null;
 }
 
-export const ExpressionChildrenInnerOperatorEnum = {
+export const ExpressionChildrenInnerOperatorV3 = {
     And: 'AND',
     Equals: 'EQUALS'
 } as const;
 
-export type ExpressionChildrenInnerOperatorEnum = typeof ExpressionChildrenInnerOperatorEnum[keyof typeof ExpressionChildrenInnerOperatorEnum];
+export type ExpressionChildrenInnerOperatorV3 = typeof ExpressionChildrenInnerOperatorV3[keyof typeof ExpressionChildrenInnerOperatorV3];
 
 /**
  * Attributes related to an external trigger
@@ -8141,7 +8141,7 @@ export interface FederationProtocolDetails {
      * @type {string}
      * @memberof FederationProtocolDetails
      */
-    'role'?: FederationProtocolDetailsRoleEnum;
+    'role'?: FederationProtocolDetailsRoleV3;
     /**
      * An entity ID is a globally unique name for a SAML entity, either an Identity Provider (IDP) or a Service Provider (SP).
      * @type {string}
@@ -8150,12 +8150,12 @@ export interface FederationProtocolDetails {
     'entityId'?: string;
 }
 
-export const FederationProtocolDetailsRoleEnum = {
+export const FederationProtocolDetailsRoleV3 = {
     Idp: 'SAML_IDP',
     Sp: 'SAML_SP'
 } as const;
 
-export type FederationProtocolDetailsRoleEnum = typeof FederationProtocolDetailsRoleEnum[keyof typeof FederationProtocolDetailsRoleEnum];
+export type FederationProtocolDetailsRoleV3 = typeof FederationProtocolDetailsRoleV3[keyof typeof FederationProtocolDetailsRoleV3];
 
 /**
  * 
@@ -9492,7 +9492,7 @@ export interface IdentityPreviewResponseIdentity {
      * @type {string}
      * @memberof IdentityPreviewResponseIdentity
      */
-    'type'?: IdentityPreviewResponseIdentityTypeEnum;
+    'type'?: IdentityPreviewResponseIdentityTypeV3;
     /**
      * Identity ID.
      * @type {string}
@@ -9507,11 +9507,11 @@ export interface IdentityPreviewResponseIdentity {
     'name'?: string;
 }
 
-export const IdentityPreviewResponseIdentityTypeEnum = {
+export const IdentityPreviewResponseIdentityTypeV3 = {
     Identity: 'IDENTITY'
 } as const;
 
-export type IdentityPreviewResponseIdentityTypeEnum = typeof IdentityPreviewResponseIdentityTypeEnum[keyof typeof IdentityPreviewResponseIdentityTypeEnum];
+export type IdentityPreviewResponseIdentityTypeV3 = typeof IdentityPreviewResponseIdentityTypeV3[keyof typeof IdentityPreviewResponseIdentityTypeV3];
 
 /**
  * 
@@ -9609,7 +9609,7 @@ export interface IdentityProfileAllOfAuthoritativeSource {
      * @type {string}
      * @memberof IdentityProfileAllOfAuthoritativeSource
      */
-    'type'?: IdentityProfileAllOfAuthoritativeSourceTypeEnum;
+    'type'?: IdentityProfileAllOfAuthoritativeSourceTypeV3;
     /**
      * ID of the object to which this reference applies
      * @type {string}
@@ -9624,11 +9624,11 @@ export interface IdentityProfileAllOfAuthoritativeSource {
     'name'?: string;
 }
 
-export const IdentityProfileAllOfAuthoritativeSourceTypeEnum = {
+export const IdentityProfileAllOfAuthoritativeSourceTypeV3 = {
     Source: 'SOURCE'
 } as const;
 
-export type IdentityProfileAllOfAuthoritativeSourceTypeEnum = typeof IdentityProfileAllOfAuthoritativeSourceTypeEnum[keyof typeof IdentityProfileAllOfAuthoritativeSourceTypeEnum];
+export type IdentityProfileAllOfAuthoritativeSourceTypeV3 = typeof IdentityProfileAllOfAuthoritativeSourceTypeV3[keyof typeof IdentityProfileAllOfAuthoritativeSourceTypeV3];
 
 /**
  * The owner of the Identity Profile.
@@ -9641,7 +9641,7 @@ export interface IdentityProfileAllOfOwner {
      * @type {string}
      * @memberof IdentityProfileAllOfOwner
      */
-    'type'?: IdentityProfileAllOfOwnerTypeEnum;
+    'type'?: IdentityProfileAllOfOwnerTypeV3;
     /**
      * ID of the object to which this reference applies
      * @type {string}
@@ -9656,11 +9656,11 @@ export interface IdentityProfileAllOfOwner {
     'name'?: string;
 }
 
-export const IdentityProfileAllOfOwnerTypeEnum = {
+export const IdentityProfileAllOfOwnerTypeV3 = {
     Identity: 'IDENTITY'
 } as const;
 
-export type IdentityProfileAllOfOwnerTypeEnum = typeof IdentityProfileAllOfOwnerTypeEnum[keyof typeof IdentityProfileAllOfOwnerTypeEnum];
+export type IdentityProfileAllOfOwnerTypeV3 = typeof IdentityProfileAllOfOwnerTypeV3[keyof typeof IdentityProfileAllOfOwnerTypeV3];
 
 /**
  * Identity profile exported object.
@@ -9698,7 +9698,7 @@ export interface IdentityProfileExportedObjectSelf {
      * @type {string}
      * @memberof IdentityProfileExportedObjectSelf
      */
-    'type'?: IdentityProfileExportedObjectSelfTypeEnum;
+    'type'?: IdentityProfileExportedObjectSelfTypeV3;
     /**
      * Exported object\'s ID.
      * @type {string}
@@ -9713,7 +9713,7 @@ export interface IdentityProfileExportedObjectSelf {
     'name'?: string;
 }
 
-export const IdentityProfileExportedObjectSelfTypeEnum = {
+export const IdentityProfileExportedObjectSelfTypeV3 = {
     AccessProfile: 'ACCESS_PROFILE',
     AccessRequestConfig: 'ACCESS_REQUEST_CONFIG',
     AttrSyncSourceConfig: 'ATTR_SYNC_SOURCE_CONFIG',
@@ -9740,7 +9740,7 @@ export const IdentityProfileExportedObjectSelfTypeEnum = {
     Workflow: 'WORKFLOW'
 } as const;
 
-export type IdentityProfileExportedObjectSelfTypeEnum = typeof IdentityProfileExportedObjectSelfTypeEnum[keyof typeof IdentityProfileExportedObjectSelfTypeEnum];
+export type IdentityProfileExportedObjectSelfTypeV3 = typeof IdentityProfileExportedObjectSelfTypeV3[keyof typeof IdentityProfileExportedObjectSelfTypeV3];
 
 /**
  * Arguments for Identity Profile Identity Error report (IDENTITY_PROFILE_IDENTITY_ERROR)
@@ -9924,7 +9924,7 @@ export interface IdentityWithNewAccessAccessRefsInner {
      * @type {string}
      * @memberof IdentityWithNewAccessAccessRefsInner
      */
-    'type'?: IdentityWithNewAccessAccessRefsInnerTypeEnum;
+    'type'?: IdentityWithNewAccessAccessRefsInnerTypeV3;
     /**
      * Entitlement\'s ID.
      * @type {string}
@@ -9939,11 +9939,11 @@ export interface IdentityWithNewAccessAccessRefsInner {
     'name'?: string;
 }
 
-export const IdentityWithNewAccessAccessRefsInnerTypeEnum = {
+export const IdentityWithNewAccessAccessRefsInnerTypeV3 = {
     Entitlement: 'ENTITLEMENT'
 } as const;
 
-export type IdentityWithNewAccessAccessRefsInnerTypeEnum = typeof IdentityWithNewAccessAccessRefsInnerTypeEnum[keyof typeof IdentityWithNewAccessAccessRefsInnerTypeEnum];
+export type IdentityWithNewAccessAccessRefsInnerTypeV3 = typeof IdentityWithNewAccessAccessRefsInnerTypeV3[keyof typeof IdentityWithNewAccessAccessRefsInnerTypeV3];
 
 /**
  * 
@@ -9956,7 +9956,7 @@ export interface IdpDetails {
      * @type {string}
      * @memberof IdpDetails
      */
-    'role'?: IdpDetailsRoleEnum;
+    'role'?: IdpDetailsRoleV3;
     /**
      * An entity ID is a globally unique name for a SAML entity, either an Identity Provider (IDP) or a Service Provider (SP).
      * @type {string}
@@ -10037,11 +10037,11 @@ export interface IdpDetails {
     'certificateName'?: string;
 }
 
-export const IdpDetailsRoleEnum = {
+export const IdpDetailsRoleV3 = {
     SamlIdp: 'SAML_IDP'
 } as const;
 
-export type IdpDetailsRoleEnum = typeof IdpDetailsRoleEnum[keyof typeof IdpDetailsRoleEnum];
+export type IdpDetailsRoleV3 = typeof IdpDetailsRoleV3[keyof typeof IdpDetailsRoleV3];
 
 /**
  * 
@@ -10067,7 +10067,7 @@ export interface ImportObject {
      * @type {string}
      * @memberof ImportObject
      */
-    'type'?: ImportObjectTypeEnum;
+    'type'?: ImportObjectTypeV3;
     /**
      * ID of object created or updated by import.
      * @type {string}
@@ -10082,7 +10082,7 @@ export interface ImportObject {
     'name'?: string;
 }
 
-export const ImportObjectTypeEnum = {
+export const ImportObjectTypeV3 = {
     IdentityObjectConfig: 'IDENTITY_OBJECT_CONFIG',
     IdentityProfile: 'IDENTITY_PROFILE',
     Rule: 'RULE',
@@ -10091,7 +10091,7 @@ export const ImportObjectTypeEnum = {
     TriggerSubscription: 'TRIGGER_SUBSCRIPTION'
 } as const;
 
-export type ImportObjectTypeEnum = typeof ImportObjectTypeEnum[keyof typeof ImportObjectTypeEnum];
+export type ImportObjectTypeV3 = typeof ImportObjectTypeV3[keyof typeof ImportObjectTypeV3];
 
 /**
  * Enum representing the currently supported indices. Additional values may be added in the future without notice.
@@ -10192,7 +10192,7 @@ export interface JsonPatchOperation {
      * @type {string}
      * @memberof JsonPatchOperation
      */
-    'op': JsonPatchOperationOpEnum;
+    'op': JsonPatchOperationOpV3;
     /**
      * A string JSON Pointer representing the target path to an element to be affected by the operation
      * @type {string}
@@ -10207,7 +10207,7 @@ export interface JsonPatchOperation {
     'value'?: JsonPatchOperationValue;
 }
 
-export const JsonPatchOperationOpEnum = {
+export const JsonPatchOperationOpV3 = {
     Add: 'add',
     Remove: 'remove',
     Replace: 'replace',
@@ -10216,7 +10216,7 @@ export const JsonPatchOperationOpEnum = {
     Test: 'test'
 } as const;
 
-export type JsonPatchOperationOpEnum = typeof JsonPatchOperationOpEnum[keyof typeof JsonPatchOperationOpEnum];
+export type JsonPatchOperationOpV3 = typeof JsonPatchOperationOpV3[keyof typeof JsonPatchOperationOpV3];
 
 /**
  * @type JsonPatchOperationValue
@@ -10286,10 +10286,10 @@ export interface KbaAuthResponse {
      * @type {string}
      * @memberof KbaAuthResponse
      */
-    'status'?: KbaAuthResponseStatusEnum;
+    'status'?: KbaAuthResponseStatusV3;
 }
 
-export const KbaAuthResponseStatusEnum = {
+export const KbaAuthResponseStatusV3 = {
     Pending: 'PENDING',
     Success: 'SUCCESS',
     Failed: 'FAILED',
@@ -10297,7 +10297,7 @@ export const KbaAuthResponseStatusEnum = {
     NotEnoughData: 'NOT_ENOUGH_DATA'
 } as const;
 
-export type KbaAuthResponseStatusEnum = typeof KbaAuthResponseStatusEnum[keyof typeof KbaAuthResponseStatusEnum];
+export type KbaAuthResponseStatusV3 = typeof KbaAuthResponseStatusV3[keyof typeof KbaAuthResponseStatusV3];
 
 /**
  * 
@@ -10470,7 +10470,7 @@ export interface LifecyclestateDeleted {
      * @type {string}
      * @memberof LifecyclestateDeleted
      */
-    'type'?: LifecyclestateDeletedTypeEnum;
+    'type'?: LifecyclestateDeletedTypeV3;
     /**
      * Deleted lifecycle state ID.
      * @type {string}
@@ -10485,11 +10485,11 @@ export interface LifecyclestateDeleted {
     'name'?: string;
 }
 
-export const LifecyclestateDeletedTypeEnum = {
+export const LifecyclestateDeletedTypeV3 = {
     LifecycleState: 'LIFECYCLE_STATE'
 } as const;
 
-export type LifecyclestateDeletedTypeEnum = typeof LifecyclestateDeletedTypeEnum[keyof typeof LifecyclestateDeletedTypeEnum];
+export type LifecyclestateDeletedTypeV3 = typeof LifecyclestateDeletedTypeV3[keyof typeof LifecyclestateDeletedTypeV3];
 
 /**
  * 
@@ -10788,7 +10788,7 @@ export interface ManagedClient {
      * @type {string}
      * @memberof ManagedClient
      */
-    'status'?: ManagedClientStatusEnum | null;
+    'status'?: ManagedClientStatusV3 | null;
     /**
      * Type of the ManagedClient (VA, CCG)
      * @type {string}
@@ -10800,7 +10800,7 @@ export interface ManagedClient {
      * @type {string}
      * @memberof ManagedClient
      */
-    'clusterType'?: ManagedClientClusterTypeEnum | null;
+    'clusterType'?: ManagedClientClusterTypeV3 | null;
     /**
      * ManagedClient VA download URL
      * @type {string}
@@ -10836,10 +10836,10 @@ export interface ManagedClient {
      * @type {string}
      * @memberof ManagedClient
      */
-    'provisionStatus'?: ManagedClientProvisionStatusEnum | null;
+    'provisionStatus'?: ManagedClientProvisionStatusV3 | null;
 }
 
-export const ManagedClientStatusEnum = {
+export const ManagedClientStatusV3 = {
     Normal: 'NORMAL',
     Undefined: 'UNDEFINED',
     NotConfigured: 'NOT_CONFIGURED',
@@ -10850,8 +10850,8 @@ export const ManagedClientStatusEnum = {
     Null: 'null'
 } as const;
 
-export type ManagedClientStatusEnum = typeof ManagedClientStatusEnum[keyof typeof ManagedClientStatusEnum];
-export const ManagedClientClusterTypeEnum = {
+export type ManagedClientStatusV3 = typeof ManagedClientStatusV3[keyof typeof ManagedClientStatusV3];
+export const ManagedClientClusterTypeV3 = {
     Null: 'null',
     Idn: 'idn',
     Iai: 'iai',
@@ -10862,14 +10862,14 @@ export const ManagedClientClusterTypeEnum = {
     DasDc: 'das-dc'
 } as const;
 
-export type ManagedClientClusterTypeEnum = typeof ManagedClientClusterTypeEnum[keyof typeof ManagedClientClusterTypeEnum];
-export const ManagedClientProvisionStatusEnum = {
+export type ManagedClientClusterTypeV3 = typeof ManagedClientClusterTypeV3[keyof typeof ManagedClientClusterTypeV3];
+export const ManagedClientProvisionStatusV3 = {
     Null: 'null',
     Provisioned: 'PROVISIONED',
     Draft: 'DRAFT'
 } as const;
 
-export type ManagedClientProvisionStatusEnum = typeof ManagedClientProvisionStatusEnum[keyof typeof ManagedClientProvisionStatusEnum];
+export type ManagedClientProvisionStatusV3 = typeof ManagedClientProvisionStatusV3[keyof typeof ManagedClientProvisionStatusV3];
 
 /**
  * Managed Client Request
@@ -11366,7 +11366,7 @@ export interface ManualWorkItemDetailsCurrentOwner {
      * @type {string}
      * @memberof ManualWorkItemDetailsCurrentOwner
      */
-    'type'?: ManualWorkItemDetailsCurrentOwnerTypeEnum;
+    'type'?: ManualWorkItemDetailsCurrentOwnerTypeV3;
     /**
      * ID of current work item owner\'s identity.
      * @type {string}
@@ -11381,12 +11381,12 @@ export interface ManualWorkItemDetailsCurrentOwner {
     'name'?: string;
 }
 
-export const ManualWorkItemDetailsCurrentOwnerTypeEnum = {
+export const ManualWorkItemDetailsCurrentOwnerTypeV3 = {
     GovernanceGroup: 'GOVERNANCE_GROUP',
     Identity: 'IDENTITY'
 } as const;
 
-export type ManualWorkItemDetailsCurrentOwnerTypeEnum = typeof ManualWorkItemDetailsCurrentOwnerTypeEnum[keyof typeof ManualWorkItemDetailsCurrentOwnerTypeEnum];
+export type ManualWorkItemDetailsCurrentOwnerTypeV3 = typeof ManualWorkItemDetailsCurrentOwnerTypeV3[keyof typeof ManualWorkItemDetailsCurrentOwnerTypeV3];
 
 /**
  * Identity of original work item owner, if the work item has been forwarded.
@@ -11399,7 +11399,7 @@ export interface ManualWorkItemDetailsOriginalOwner {
      * @type {string}
      * @memberof ManualWorkItemDetailsOriginalOwner
      */
-    'type'?: ManualWorkItemDetailsOriginalOwnerTypeEnum;
+    'type'?: ManualWorkItemDetailsOriginalOwnerTypeV3;
     /**
      * ID of original work item owner\'s identity.
      * @type {string}
@@ -11414,12 +11414,12 @@ export interface ManualWorkItemDetailsOriginalOwner {
     'name'?: string;
 }
 
-export const ManualWorkItemDetailsOriginalOwnerTypeEnum = {
+export const ManualWorkItemDetailsOriginalOwnerTypeV3 = {
     GovernanceGroup: 'GOVERNANCE_GROUP',
     Identity: 'IDENTITY'
 } as const;
 
-export type ManualWorkItemDetailsOriginalOwnerTypeEnum = typeof ManualWorkItemDetailsOriginalOwnerTypeEnum[keyof typeof ManualWorkItemDetailsOriginalOwnerTypeEnum];
+export type ManualWorkItemDetailsOriginalOwnerTypeV3 = typeof ManualWorkItemDetailsOriginalOwnerTypeV3[keyof typeof ManualWorkItemDetailsOriginalOwnerTypeV3];
 
 /**
  * Indicates the state of the request processing for this item: * PENDING: The request for this item is awaiting processing. * APPROVED: The request for this item has been approved. * REJECTED: The request for this item was rejected. * EXPIRED: The request for this item expired with no action taken. * CANCELLED: The request for this item was cancelled with no user action. * ARCHIVED: The request for this item has been archived after completion.
@@ -11496,7 +11496,7 @@ export interface MfaConfigTestResponse {
      * @type {string}
      * @memberof MfaConfigTestResponse
      */
-    'state'?: MfaConfigTestResponseStateEnum;
+    'state'?: MfaConfigTestResponseStateV3;
     /**
      * The error message to indicate the failure of configuration test.
      * @type {string}
@@ -11505,12 +11505,12 @@ export interface MfaConfigTestResponse {
     'error'?: string;
 }
 
-export const MfaConfigTestResponseStateEnum = {
+export const MfaConfigTestResponseStateV3 = {
     Success: 'SUCCESS',
     Failed: 'FAILED'
 } as const;
 
-export type MfaConfigTestResponseStateEnum = typeof MfaConfigTestResponseStateEnum[keyof typeof MfaConfigTestResponseStateEnum];
+export type MfaConfigTestResponseStateV3 = typeof MfaConfigTestResponseStateV3[keyof typeof MfaConfigTestResponseStateV3];
 
 /**
  * 
@@ -11941,17 +11941,17 @@ export interface NonEmployeeBulkUploadJob {
      * @type {string}
      * @memberof NonEmployeeBulkUploadJob
      */
-    'status'?: NonEmployeeBulkUploadJobStatusEnum;
+    'status'?: NonEmployeeBulkUploadJobStatusV3;
 }
 
-export const NonEmployeeBulkUploadJobStatusEnum = {
+export const NonEmployeeBulkUploadJobStatusV3 = {
     Pending: 'PENDING',
     InProgress: 'IN_PROGRESS',
     Completed: 'COMPLETED',
     Error: 'ERROR'
 } as const;
 
-export type NonEmployeeBulkUploadJobStatusEnum = typeof NonEmployeeBulkUploadJobStatusEnum[keyof typeof NonEmployeeBulkUploadJobStatusEnum];
+export type NonEmployeeBulkUploadJobStatusV3 = typeof NonEmployeeBulkUploadJobStatusV3[keyof typeof NonEmployeeBulkUploadJobStatusV3];
 
 /**
  * 
@@ -11964,17 +11964,17 @@ export interface NonEmployeeBulkUploadStatus {
      * @type {string}
      * @memberof NonEmployeeBulkUploadStatus
      */
-    'status'?: NonEmployeeBulkUploadStatusStatusEnum;
+    'status'?: NonEmployeeBulkUploadStatusStatusV3;
 }
 
-export const NonEmployeeBulkUploadStatusStatusEnum = {
+export const NonEmployeeBulkUploadStatusStatusV3 = {
     Pending: 'PENDING',
     InProgress: 'IN_PROGRESS',
     Completed: 'COMPLETED',
     Error: 'ERROR'
 } as const;
 
-export type NonEmployeeBulkUploadStatusStatusEnum = typeof NonEmployeeBulkUploadStatusStatusEnum[keyof typeof NonEmployeeBulkUploadStatusStatusEnum];
+export type NonEmployeeBulkUploadStatusStatusV3 = typeof NonEmployeeBulkUploadStatusStatusV3[keyof typeof NonEmployeeBulkUploadStatusStatusV3];
 
 /**
  * Identifies if the identity is a normal identity or a governance group
@@ -13001,7 +13001,7 @@ export interface ObjectMappingRequest {
      * @type {string}
      * @memberof ObjectMappingRequest
      */
-    'objectType': ObjectMappingRequestObjectTypeEnum;
+    'objectType': ObjectMappingRequestObjectTypeV3;
     /**
      * JSONPath expression denoting the path within the object where the mapping value should be applied
      * @type {string}
@@ -13028,7 +13028,7 @@ export interface ObjectMappingRequest {
     'enabled'?: boolean;
 }
 
-export const ObjectMappingRequestObjectTypeEnum = {
+export const ObjectMappingRequestObjectTypeV3 = {
     AccessProfile: 'ACCESS_PROFILE',
     AccessRequestConfig: 'ACCESS_REQUEST_CONFIG',
     AttrSyncSourceConfig: 'ATTR_SYNC_SOURCE_CONFIG',
@@ -13057,7 +13057,7 @@ export const ObjectMappingRequestObjectTypeEnum = {
     Workflow: 'WORKFLOW'
 } as const;
 
-export type ObjectMappingRequestObjectTypeEnum = typeof ObjectMappingRequestObjectTypeEnum[keyof typeof ObjectMappingRequestObjectTypeEnum];
+export type ObjectMappingRequestObjectTypeV3 = typeof ObjectMappingRequestObjectTypeV3[keyof typeof ObjectMappingRequestObjectTypeV3];
 
 /**
  * 
@@ -13076,7 +13076,7 @@ export interface ObjectMappingResponse {
      * @type {string}
      * @memberof ObjectMappingResponse
      */
-    'objectType'?: ObjectMappingResponseObjectTypeEnum;
+    'objectType'?: ObjectMappingResponseObjectTypeV3;
     /**
      * JSONPath expression denoting the path within the object where the mapping value should be applied
      * @type {string}
@@ -13115,7 +13115,7 @@ export interface ObjectMappingResponse {
     'modified'?: string;
 }
 
-export const ObjectMappingResponseObjectTypeEnum = {
+export const ObjectMappingResponseObjectTypeV3 = {
     AccessProfile: 'ACCESS_PROFILE',
     AccessRequestConfig: 'ACCESS_REQUEST_CONFIG',
     AttrSyncSourceConfig: 'ATTR_SYNC_SOURCE_CONFIG',
@@ -13144,7 +13144,7 @@ export const ObjectMappingResponseObjectTypeEnum = {
     Workflow: 'WORKFLOW'
 } as const;
 
-export type ObjectMappingResponseObjectTypeEnum = typeof ObjectMappingResponseObjectTypeEnum[keyof typeof ObjectMappingResponseObjectTypeEnum];
+export type ObjectMappingResponseObjectTypeV3 = typeof ObjectMappingResponseObjectTypeV3[keyof typeof ObjectMappingResponseObjectTypeV3];
 
 /**
  * 
@@ -13221,15 +13221,15 @@ export interface OrphanUncorrelatedReportArguments {
      * @type {Array<string>}
      * @memberof OrphanUncorrelatedReportArguments
      */
-    'selectedFormats'?: Array<OrphanUncorrelatedReportArgumentsSelectedFormatsEnum>;
+    'selectedFormats'?: Array<OrphanUncorrelatedReportArgumentsSelectedFormatsV3>;
 }
 
-export const OrphanUncorrelatedReportArgumentsSelectedFormatsEnum = {
+export const OrphanUncorrelatedReportArgumentsSelectedFormatsV3 = {
     Csv: 'CSV',
     Pdf: 'PDF'
 } as const;
 
-export type OrphanUncorrelatedReportArgumentsSelectedFormatsEnum = typeof OrphanUncorrelatedReportArgumentsSelectedFormatsEnum[keyof typeof OrphanUncorrelatedReportArgumentsSelectedFormatsEnum];
+export type OrphanUncorrelatedReportArgumentsSelectedFormatsV3 = typeof OrphanUncorrelatedReportArgumentsSelectedFormatsV3[keyof typeof OrphanUncorrelatedReportArgumentsSelectedFormatsV3];
 
 /**
  * Owner\'s identity.
@@ -13242,7 +13242,7 @@ export interface OwnerDto {
      * @type {string}
      * @memberof OwnerDto
      */
-    'type'?: OwnerDtoTypeEnum;
+    'type'?: OwnerDtoTypeV3;
     /**
      * Owner\'s identity ID.
      * @type {string}
@@ -13257,11 +13257,11 @@ export interface OwnerDto {
     'name'?: string;
 }
 
-export const OwnerDtoTypeEnum = {
+export const OwnerDtoTypeV3 = {
     Identity: 'IDENTITY'
 } as const;
 
-export type OwnerDtoTypeEnum = typeof OwnerDtoTypeEnum[keyof typeof OwnerDtoTypeEnum];
+export type OwnerDtoTypeV3 = typeof OwnerDtoTypeV3[keyof typeof OwnerDtoTypeV3];
 
 /**
  * The owner of this object.
@@ -13274,7 +13274,7 @@ export interface OwnerReference {
      * @type {string}
      * @memberof OwnerReference
      */
-    'type'?: OwnerReferenceTypeEnum;
+    'type'?: OwnerReferenceTypeV3;
     /**
      * Identity id
      * @type {string}
@@ -13289,11 +13289,11 @@ export interface OwnerReference {
     'name'?: string;
 }
 
-export const OwnerReferenceTypeEnum = {
+export const OwnerReferenceTypeV3 = {
     Identity: 'IDENTITY'
 } as const;
 
-export type OwnerReferenceTypeEnum = typeof OwnerReferenceTypeEnum[keyof typeof OwnerReferenceTypeEnum];
+export type OwnerReferenceTypeV3 = typeof OwnerReferenceTypeV3[keyof typeof OwnerReferenceTypeV3];
 
 /**
  * The owner of this object.
@@ -13306,7 +13306,7 @@ export interface OwnerReferenceSegments {
      * @type {string}
      * @memberof OwnerReferenceSegments
      */
-    'type'?: OwnerReferenceSegmentsTypeEnum;
+    'type'?: OwnerReferenceSegmentsTypeV3;
     /**
      * Identity id
      * @type {string}
@@ -13321,11 +13321,11 @@ export interface OwnerReferenceSegments {
     'name'?: string;
 }
 
-export const OwnerReferenceSegmentsTypeEnum = {
+export const OwnerReferenceSegmentsTypeV3 = {
     Identity: 'IDENTITY'
 } as const;
 
-export type OwnerReferenceSegmentsTypeEnum = typeof OwnerReferenceSegmentsTypeEnum[keyof typeof OwnerReferenceSegmentsTypeEnum];
+export type OwnerReferenceSegmentsTypeV3 = typeof OwnerReferenceSegmentsTypeV3[keyof typeof OwnerReferenceSegmentsTypeV3];
 
 /**
  * 
@@ -13430,16 +13430,16 @@ export interface PasswordChangeResponse {
      * @type {string}
      * @memberof PasswordChangeResponse
      */
-    'state'?: PasswordChangeResponseStateEnum;
+    'state'?: PasswordChangeResponseStateV3;
 }
 
-export const PasswordChangeResponseStateEnum = {
+export const PasswordChangeResponseStateV3 = {
     InProgress: 'IN_PROGRESS',
     Finished: 'FINISHED',
     Failed: 'FAILED'
 } as const;
 
-export type PasswordChangeResponseStateEnum = typeof PasswordChangeResponseStateEnum[keyof typeof PasswordChangeResponseStateEnum];
+export type PasswordChangeResponseStateV3 = typeof PasswordChangeResponseStateV3[keyof typeof PasswordChangeResponseStateV3];
 
 /**
  * 
@@ -13763,7 +13763,7 @@ export interface PasswordStatus {
      * @type {string}
      * @memberof PasswordStatus
      */
-    'state'?: PasswordStatusStateEnum;
+    'state'?: PasswordStatusStateV3;
     /**
      * The errors during the password change request
      * @type {Array<string>}
@@ -13778,13 +13778,13 @@ export interface PasswordStatus {
     'sourceIds'?: Array<string>;
 }
 
-export const PasswordStatusStateEnum = {
+export const PasswordStatusStateV3 = {
     InProgress: 'IN_PROGRESS',
     Finished: 'FINISHED',
     Failed: 'FAILED'
 } as const;
 
-export type PasswordStatusStateEnum = typeof PasswordStatusStateEnum[keyof typeof PasswordStatusStateEnum];
+export type PasswordStatusStateV3 = typeof PasswordStatusStateV3[keyof typeof PasswordStatusStateV3];
 
 /**
  * 
@@ -13840,7 +13840,7 @@ export interface PatOwner {
      * @type {string}
      * @memberof PatOwner
      */
-    'type'?: PatOwnerTypeEnum;
+    'type'?: PatOwnerTypeV3;
     /**
      * Personal access token owner\'s identity ID.
      * @type {string}
@@ -13855,11 +13855,11 @@ export interface PatOwner {
     'name'?: string;
 }
 
-export const PatOwnerTypeEnum = {
+export const PatOwnerTypeV3 = {
     Identity: 'IDENTITY'
 } as const;
 
-export type PatOwnerTypeEnum = typeof PatOwnerTypeEnum[keyof typeof PatOwnerTypeEnum];
+export type PatOwnerTypeV3 = typeof PatOwnerTypeV3[keyof typeof PatOwnerTypeV3];
 
 /**
  * A JSONPatch document as defined by [RFC 6902 - JSON Patch](https://tools.ietf.org/html/rfc6902).  Only `replace` operations are accepted by this endpoint.
@@ -14023,7 +14023,7 @@ export interface PendingApprovalOwner {
      * @type {string}
      * @memberof PendingApprovalOwner
      */
-    'type'?: PendingApprovalOwnerTypeEnum;
+    'type'?: PendingApprovalOwnerTypeV3;
     /**
      * Access item owner\'s identity ID.
      * @type {string}
@@ -14038,11 +14038,11 @@ export interface PendingApprovalOwner {
     'name'?: string;
 }
 
-export const PendingApprovalOwnerTypeEnum = {
+export const PendingApprovalOwnerTypeV3 = {
     Identity: 'IDENTITY'
 } as const;
 
-export type PendingApprovalOwnerTypeEnum = typeof PendingApprovalOwnerTypeEnum[keyof typeof PendingApprovalOwnerTypeEnum];
+export type PendingApprovalOwnerTypeV3 = typeof PendingApprovalOwnerTypeV3[keyof typeof PendingApprovalOwnerTypeV3];
 
 /**
  * Simplified DTO for the Permission objects stored in SailPoint\'s database. The data is aggregated from customer systems and is free-form, so its appearance can vary largely between different clients/customers.
@@ -14086,15 +14086,15 @@ export interface PreApprovalTriggerDetails {
      * @type {string}
      * @memberof PreApprovalTriggerDetails
      */
-    'decision'?: PreApprovalTriggerDetailsDecisionEnum;
+    'decision'?: PreApprovalTriggerDetailsDecisionV3;
 }
 
-export const PreApprovalTriggerDetailsDecisionEnum = {
+export const PreApprovalTriggerDetailsDecisionV3 = {
     Approved: 'APPROVED',
     Rejected: 'REJECTED'
 } as const;
 
-export type PreApprovalTriggerDetailsDecisionEnum = typeof PreApprovalTriggerDetailsDecisionEnum[keyof typeof PreApprovalTriggerDetailsDecisionEnum];
+export type PreApprovalTriggerDetailsDecisionV3 = typeof PreApprovalTriggerDetailsDecisionV3[keyof typeof PreApprovalTriggerDetailsDecisionV3];
 
 /**
  * 
@@ -14438,7 +14438,7 @@ export interface PublicIdentity {
      * @type {string}
      * @memberof PublicIdentity
      */
-    'identityState'?: PublicIdentityIdentityStateEnum | null;
+    'identityState'?: PublicIdentityIdentityStateV3 | null;
     /**
      * 
      * @type {IdentityReference}
@@ -14453,14 +14453,14 @@ export interface PublicIdentity {
     'attributes'?: Array<IdentityAttribute1>;
 }
 
-export const PublicIdentityIdentityStateEnum = {
+export const PublicIdentityIdentityStateV3 = {
     Active: 'ACTIVE',
     InactiveShortTerm: 'INACTIVE_SHORT_TERM',
     InactiveLongTerm: 'INACTIVE_LONG_TERM',
     Null: 'null'
 } as const;
 
-export type PublicIdentityIdentityStateEnum = typeof PublicIdentityIdentityStateEnum[keyof typeof PublicIdentityIdentityStateEnum];
+export type PublicIdentityIdentityStateV3 = typeof PublicIdentityIdentityStateV3[keyof typeof PublicIdentityIdentityStateV3];
 
 /**
  * Used to map an attribute key for an Identity to its display name.
@@ -14729,16 +14729,16 @@ export interface ReassignReference {
      * @type {string}
      * @memberof ReassignReference
      */
-    'type': ReassignReferenceTypeEnum;
+    'type': ReassignReferenceTypeV3;
 }
 
-export const ReassignReferenceTypeEnum = {
+export const ReassignReferenceTypeV3 = {
     TargetSummary: 'TARGET_SUMMARY',
     Item: 'ITEM',
     IdentitySummary: 'IDENTITY_SUMMARY'
 } as const;
 
-export type ReassignReferenceTypeEnum = typeof ReassignReferenceTypeEnum[keyof typeof ReassignReferenceTypeEnum];
+export type ReassignReferenceTypeV3 = typeof ReassignReferenceTypeV3[keyof typeof ReassignReferenceTypeV3];
 
 /**
  * 
@@ -14776,16 +14776,16 @@ export interface ReassignmentReference {
      * @type {string}
      * @memberof ReassignmentReference
      */
-    'type': ReassignmentReferenceTypeEnum;
+    'type': ReassignmentReferenceTypeV3;
 }
 
-export const ReassignmentReferenceTypeEnum = {
+export const ReassignmentReferenceTypeV3 = {
     TargetSummary: 'TARGET_SUMMARY',
     Item: 'ITEM',
     IdentitySummary: 'IDENTITY_SUMMARY'
 } as const;
 
-export type ReassignmentReferenceTypeEnum = typeof ReassignmentReferenceTypeEnum[keyof typeof ReassignmentReferenceTypeEnum];
+export type ReassignmentReferenceTypeV3 = typeof ReassignmentReferenceTypeV3[keyof typeof ReassignmentReferenceTypeV3];
 
 /**
  * 
@@ -15061,7 +15061,7 @@ export interface ReportDetails {
      * @type {string}
      * @memberof ReportDetails
      */
-    'reportType'?: ReportDetailsReportTypeEnum;
+    'reportType'?: ReportDetailsReportTypeV3;
     /**
      * 
      * @type {ReportDetailsArguments}
@@ -15070,7 +15070,7 @@ export interface ReportDetails {
     'arguments'?: ReportDetailsArguments;
 }
 
-export const ReportDetailsReportTypeEnum = {
+export const ReportDetailsReportTypeV3 = {
     Accounts: 'ACCOUNTS',
     IdentitiesDetails: 'IDENTITIES_DETAILS',
     Identities: 'IDENTITIES',
@@ -15080,7 +15080,7 @@ export const ReportDetailsReportTypeEnum = {
     UncorrelatedAccounts: 'UNCORRELATED_ACCOUNTS'
 } as const;
 
-export type ReportDetailsReportTypeEnum = typeof ReportDetailsReportTypeEnum[keyof typeof ReportDetailsReportTypeEnum];
+export type ReportDetailsReportTypeV3 = typeof ReportDetailsReportTypeV3[keyof typeof ReportDetailsReportTypeV3];
 
 /**
  * @type ReportDetailsArguments
@@ -15100,7 +15100,7 @@ export interface ReportResultReference {
      * @type {string}
      * @memberof ReportResultReference
      */
-    'type'?: ReportResultReferenceTypeEnum;
+    'type'?: ReportResultReferenceTypeV3;
     /**
      * SOD policy violation report result ID.
      * @type {string}
@@ -15118,15 +15118,15 @@ export interface ReportResultReference {
      * @type {string}
      * @memberof ReportResultReference
      */
-    'status'?: ReportResultReferenceStatusEnum;
+    'status'?: ReportResultReferenceStatusV3;
 }
 
-export const ReportResultReferenceTypeEnum = {
+export const ReportResultReferenceTypeV3 = {
     ReportResult: 'REPORT_RESULT'
 } as const;
 
-export type ReportResultReferenceTypeEnum = typeof ReportResultReferenceTypeEnum[keyof typeof ReportResultReferenceTypeEnum];
-export const ReportResultReferenceStatusEnum = {
+export type ReportResultReferenceTypeV3 = typeof ReportResultReferenceTypeV3[keyof typeof ReportResultReferenceTypeV3];
+export const ReportResultReferenceStatusV3 = {
     Success: 'SUCCESS',
     Warning: 'WARNING',
     Error: 'ERROR',
@@ -15135,7 +15135,7 @@ export const ReportResultReferenceStatusEnum = {
     Pending: 'PENDING'
 } as const;
 
-export type ReportResultReferenceStatusEnum = typeof ReportResultReferenceStatusEnum[keyof typeof ReportResultReferenceStatusEnum];
+export type ReportResultReferenceStatusV3 = typeof ReportResultReferenceStatusV3[keyof typeof ReportResultReferenceStatusV3];
 
 /**
  * Details about report result or current state.
@@ -15148,7 +15148,7 @@ export interface ReportResults {
      * @type {string}
      * @memberof ReportResults
      */
-    'reportType'?: ReportResultsReportTypeEnum;
+    'reportType'?: ReportResultsReportTypeV3;
     /**
      * Name of the task definition which is started to process requesting report. Usually the same as report name
      * @type {string}
@@ -15172,7 +15172,7 @@ export interface ReportResults {
      * @type {string}
      * @memberof ReportResults
      */
-    'status'?: ReportResultsStatusEnum;
+    'status'?: ReportResultsStatusV3;
     /**
      * Report processing time in ms.
      * @type {number}
@@ -15190,10 +15190,10 @@ export interface ReportResults {
      * @type {Array<string>}
      * @memberof ReportResults
      */
-    'availableFormats'?: Array<ReportResultsAvailableFormatsEnum>;
+    'availableFormats'?: Array<ReportResultsAvailableFormatsV3>;
 }
 
-export const ReportResultsReportTypeEnum = {
+export const ReportResultsReportTypeV3 = {
     Accounts: 'ACCOUNTS',
     IdentitiesDetails: 'IDENTITIES_DETAILS',
     Identities: 'IDENTITIES',
@@ -15203,21 +15203,21 @@ export const ReportResultsReportTypeEnum = {
     UncorrelatedAccounts: 'UNCORRELATED_ACCOUNTS'
 } as const;
 
-export type ReportResultsReportTypeEnum = typeof ReportResultsReportTypeEnum[keyof typeof ReportResultsReportTypeEnum];
-export const ReportResultsStatusEnum = {
+export type ReportResultsReportTypeV3 = typeof ReportResultsReportTypeV3[keyof typeof ReportResultsReportTypeV3];
+export const ReportResultsStatusV3 = {
     Success: 'SUCCESS',
     Failure: 'FAILURE',
     Warning: 'WARNING',
     Terminated: 'TERMINATED'
 } as const;
 
-export type ReportResultsStatusEnum = typeof ReportResultsStatusEnum[keyof typeof ReportResultsStatusEnum];
-export const ReportResultsAvailableFormatsEnum = {
+export type ReportResultsStatusV3 = typeof ReportResultsStatusV3[keyof typeof ReportResultsStatusV3];
+export const ReportResultsAvailableFormatsV3 = {
     Csv: 'CSV',
     Pdf: 'PDF'
 } as const;
 
-export type ReportResultsAvailableFormatsEnum = typeof ReportResultsAvailableFormatsEnum[keyof typeof ReportResultsAvailableFormatsEnum];
+export type ReportResultsAvailableFormatsV3 = typeof ReportResultsAvailableFormatsV3[keyof typeof ReportResultsAvailableFormatsV3];
 
 /**
  * type of a Report
@@ -15402,16 +15402,16 @@ export interface RequestableObjectReference {
      * @type {string}
      * @memberof RequestableObjectReference
      */
-    'type'?: RequestableObjectReferenceTypeEnum;
+    'type'?: RequestableObjectReferenceTypeV3;
 }
 
-export const RequestableObjectReferenceTypeEnum = {
+export const RequestableObjectReferenceTypeV3 = {
     AccessProfile: 'ACCESS_PROFILE',
     Role: 'ROLE',
     Entitlement: 'ENTITLEMENT'
 } as const;
 
-export type RequestableObjectReferenceTypeEnum = typeof RequestableObjectReferenceTypeEnum[keyof typeof RequestableObjectReferenceTypeEnum];
+export type RequestableObjectReferenceTypeV3 = typeof RequestableObjectReferenceTypeV3[keyof typeof RequestableObjectReferenceTypeV3];
 
 /**
  * Status indicating the ability of an access request for the object to be made by or on behalf of the identity specified by *identity-id*. *AVAILABLE* indicates the object is available to request. *PENDING* indicates the object is unavailable because the identity has a pending request in flight. *ASSIGNED* indicates the object is unavailable because the identity already has the indicated role or access profile. If *identity-id* is not specified (allowed only for admin users), then status will be *AVAILABLE* for all results.
@@ -15461,7 +15461,7 @@ export interface RequestedItemStatus {
      * @type {string}
      * @memberof RequestedItemStatus
      */
-    'type'?: RequestedItemStatusTypeEnum | null;
+    'type'?: RequestedItemStatusTypeV3 | null;
     /**
      * 
      * @type {RequestedItemStatusCancelledRequestDetails}
@@ -15590,14 +15590,14 @@ export interface RequestedItemStatus {
     'clientMetadata'?: { [key: string]: string; } | null;
 }
 
-export const RequestedItemStatusTypeEnum = {
+export const RequestedItemStatusTypeV3 = {
     AccessProfile: 'ACCESS_PROFILE',
     Role: 'ROLE',
     Entitlement: 'ENTITLEMENT',
     Null: 'null'
 } as const;
 
-export type RequestedItemStatusTypeEnum = typeof RequestedItemStatusTypeEnum[keyof typeof RequestedItemStatusTypeEnum];
+export type RequestedItemStatusTypeV3 = typeof RequestedItemStatusTypeV3[keyof typeof RequestedItemStatusTypeV3];
 
 /**
  * 
@@ -15647,15 +15647,15 @@ export interface RequestedItemStatusPreApprovalTriggerDetails {
      * @type {string}
      * @memberof RequestedItemStatusPreApprovalTriggerDetails
      */
-    'decision'?: RequestedItemStatusPreApprovalTriggerDetailsDecisionEnum;
+    'decision'?: RequestedItemStatusPreApprovalTriggerDetailsDecisionV3;
 }
 
-export const RequestedItemStatusPreApprovalTriggerDetailsDecisionEnum = {
+export const RequestedItemStatusPreApprovalTriggerDetailsDecisionV3 = {
     Approved: 'APPROVED',
     Rejected: 'REJECTED'
 } as const;
 
-export type RequestedItemStatusPreApprovalTriggerDetailsDecisionEnum = typeof RequestedItemStatusPreApprovalTriggerDetailsDecisionEnum[keyof typeof RequestedItemStatusPreApprovalTriggerDetailsDecisionEnum];
+export type RequestedItemStatusPreApprovalTriggerDetailsDecisionV3 = typeof RequestedItemStatusPreApprovalTriggerDetailsDecisionV3[keyof typeof RequestedItemStatusPreApprovalTriggerDetailsDecisionV3];
 
 /**
  * 
@@ -15702,7 +15702,7 @@ export interface RequestedItemStatusRequestedFor {
      * @type {string}
      * @memberof RequestedItemStatusRequestedFor
      */
-    'type'?: RequestedItemStatusRequestedForTypeEnum;
+    'type'?: RequestedItemStatusRequestedForTypeV3;
     /**
      * ID of the object to which this reference applies
      * @type {string}
@@ -15717,11 +15717,11 @@ export interface RequestedItemStatusRequestedFor {
     'name'?: string;
 }
 
-export const RequestedItemStatusRequestedForTypeEnum = {
+export const RequestedItemStatusRequestedForTypeV3 = {
     Identity: 'IDENTITY'
 } as const;
 
-export type RequestedItemStatusRequestedForTypeEnum = typeof RequestedItemStatusRequestedForTypeEnum[keyof typeof RequestedItemStatusRequestedForTypeEnum];
+export type RequestedItemStatusRequestedForTypeV3 = typeof RequestedItemStatusRequestedForTypeV3[keyof typeof RequestedItemStatusRequestedForTypeV3];
 
 /**
  * 
@@ -15759,7 +15759,7 @@ export interface RequestedItemStatusSodViolationContext {
      * @type {string}
      * @memberof RequestedItemStatusSodViolationContext
      */
-    'state'?: RequestedItemStatusSodViolationContextStateEnum | null;
+    'state'?: RequestedItemStatusSodViolationContextStateV3 | null;
     /**
      * The id of the Violation check event
      * @type {string}
@@ -15774,13 +15774,13 @@ export interface RequestedItemStatusSodViolationContext {
     'violationCheckResult'?: SodViolationCheckResult;
 }
 
-export const RequestedItemStatusSodViolationContextStateEnum = {
+export const RequestedItemStatusSodViolationContextStateV3 = {
     Success: 'SUCCESS',
     Error: 'ERROR',
     Null: 'null'
 } as const;
 
-export type RequestedItemStatusSodViolationContextStateEnum = typeof RequestedItemStatusSodViolationContextStateEnum[keyof typeof RequestedItemStatusSodViolationContextStateEnum];
+export type RequestedItemStatusSodViolationContextStateV3 = typeof RequestedItemStatusSodViolationContextStateV3[keyof typeof RequestedItemStatusSodViolationContextStateV3];
 
 /**
  * 
@@ -16212,7 +16212,7 @@ export interface Reviewer {
      * @type {string}
      * @memberof Reviewer
      */
-    'type'?: ReviewerTypeEnum;
+    'type'?: ReviewerTypeV3;
     /**
      * The created date of the reviewing identity.
      * @type {string}
@@ -16227,11 +16227,11 @@ export interface Reviewer {
     'modified'?: string | null;
 }
 
-export const ReviewerTypeEnum = {
+export const ReviewerTypeV3 = {
     Identity: 'IDENTITY'
 } as const;
 
-export type ReviewerTypeEnum = typeof ReviewerTypeEnum[keyof typeof ReviewerTypeEnum];
+export type ReviewerTypeV3 = typeof ReviewerTypeV3[keyof typeof ReviewerTypeV3];
 
 /**
  * 
@@ -17112,7 +17112,7 @@ export interface Schedule {
      * @type {string}
      * @memberof Schedule
      */
-    'type': ScheduleTypeEnum;
+    'type': ScheduleTypeV3;
     /**
      * 
      * @type {ScheduleMonths}
@@ -17145,14 +17145,14 @@ export interface Schedule {
     'timeZoneId'?: string;
 }
 
-export const ScheduleTypeEnum = {
+export const ScheduleTypeV3 = {
     Weekly: 'WEEKLY',
     Monthly: 'MONTHLY',
     Annually: 'ANNUALLY',
     Calendar: 'CALENDAR'
 } as const;
 
-export type ScheduleTypeEnum = typeof ScheduleTypeEnum[keyof typeof ScheduleTypeEnum];
+export type ScheduleTypeV3 = typeof ScheduleTypeV3[keyof typeof ScheduleTypeV3];
 
 /**
  * The schedule information.
@@ -17291,7 +17291,7 @@ export interface ScheduleDays {
      * @type {string}
      * @memberof ScheduleDays
      */
-    'type': ScheduleDaysTypeEnum;
+    'type': ScheduleDaysTypeV3;
     /**
      * Values of the days based on the enum type mentioned above
      * @type {Array<string>}
@@ -17306,12 +17306,12 @@ export interface ScheduleDays {
     'interval'?: number;
 }
 
-export const ScheduleDaysTypeEnum = {
+export const ScheduleDaysTypeV3 = {
     List: 'LIST',
     Range: 'RANGE'
 } as const;
 
-export type ScheduleDaysTypeEnum = typeof ScheduleDaysTypeEnum[keyof typeof ScheduleDaysTypeEnum];
+export type ScheduleDaysTypeV3 = typeof ScheduleDaysTypeV3[keyof typeof ScheduleDaysTypeV3];
 
 /**
  * Specifies which hour(s) a schedule is active for. Examples:  Every three hours starting from 8AM, inclusive: * type LIST * values \"8\" * interval 3  During business hours: * type RANGE * values \"9\", \"5\"  At 5AM, noon, and 5PM: * type LIST * values \"5\", \"12\", \"17\" 
@@ -17324,7 +17324,7 @@ export interface ScheduleHours {
      * @type {string}
      * @memberof ScheduleHours
      */
-    'type': ScheduleHoursTypeEnum;
+    'type': ScheduleHoursTypeV3;
     /**
      * Values of the days based on the enum type mentioned above
      * @type {Array<string>}
@@ -17339,12 +17339,12 @@ export interface ScheduleHours {
     'interval'?: number;
 }
 
-export const ScheduleHoursTypeEnum = {
+export const ScheduleHoursTypeV3 = {
     List: 'LIST',
     Range: 'RANGE'
 } as const;
 
-export type ScheduleHoursTypeEnum = typeof ScheduleHoursTypeEnum[keyof typeof ScheduleHoursTypeEnum];
+export type ScheduleHoursTypeV3 = typeof ScheduleHoursTypeV3[keyof typeof ScheduleHoursTypeV3];
 
 /**
  * Specifies which months of a schedule are active. Only valid for ANNUALLY schedule types. Examples:  On February and March: * type LIST * values \"2\", \"3\"  Every 3 months, starting in January (quarterly): * type LIST * values \"1\" * interval 3  Every two months between July and December: * type RANGE * values \"7\", \"12\" * interval 2 
@@ -17357,7 +17357,7 @@ export interface ScheduleMonths {
      * @type {string}
      * @memberof ScheduleMonths
      */
-    'type': ScheduleMonthsTypeEnum;
+    'type': ScheduleMonthsTypeV3;
     /**
      * Values of the months based on the enum type mentioned above
      * @type {Array<string>}
@@ -17372,12 +17372,12 @@ export interface ScheduleMonths {
     'interval'?: number;
 }
 
-export const ScheduleMonthsTypeEnum = {
+export const ScheduleMonthsTypeV3 = {
     List: 'LIST',
     Range: 'RANGE'
 } as const;
 
-export type ScheduleMonthsTypeEnum = typeof ScheduleMonthsTypeEnum[keyof typeof ScheduleMonthsTypeEnum];
+export type ScheduleMonthsTypeV3 = typeof ScheduleMonthsTypeV3[keyof typeof ScheduleMonthsTypeV3];
 
 /**
  * Enum representing the currently supported schedule types.  Additional values may be added in the future without notice. 
@@ -17413,7 +17413,7 @@ export interface ScheduledAttributes {
      * @type {string}
      * @memberof ScheduledAttributes
      */
-    'frequency': ScheduledAttributesFrequencyEnum;
+    'frequency': ScheduledAttributesFrequencyV3;
     /**
      * Time zone identifier
      * @type {string}
@@ -17434,7 +17434,7 @@ export interface ScheduledAttributes {
     'weeklyTimes'?: Array<string>;
 }
 
-export const ScheduledAttributesFrequencyEnum = {
+export const ScheduledAttributesFrequencyV3 = {
     Daily: 'daily',
     Weekly: 'weekly',
     Monthly: 'monthly',
@@ -17442,7 +17442,7 @@ export const ScheduledAttributesFrequencyEnum = {
     CronSchedule: 'cronSchedule'
 } as const;
 
-export type ScheduledAttributesFrequencyEnum = typeof ScheduledAttributesFrequencyEnum[keyof typeof ScheduledAttributesFrequencyEnum];
+export type ScheduledAttributesFrequencyV3 = typeof ScheduledAttributesFrequencyV3[keyof typeof ScheduledAttributesFrequencyV3];
 
 /**
  * 
@@ -17541,7 +17541,7 @@ export interface ScheduledSearchAllOfOwner {
      * @type {string}
      * @memberof ScheduledSearchAllOfOwner
      */
-    'type': ScheduledSearchAllOfOwnerTypeEnum;
+    'type': ScheduledSearchAllOfOwnerTypeV3;
     /**
      * The ID of the referenced object
      * @type {string}
@@ -17550,11 +17550,11 @@ export interface ScheduledSearchAllOfOwner {
     'id': string;
 }
 
-export const ScheduledSearchAllOfOwnerTypeEnum = {
+export const ScheduledSearchAllOfOwnerTypeV3 = {
     Identity: 'IDENTITY'
 } as const;
 
-export type ScheduledSearchAllOfOwnerTypeEnum = typeof ScheduledSearchAllOfOwnerTypeEnum[keyof typeof ScheduledSearchAllOfOwnerTypeEnum];
+export type ScheduledSearchAllOfOwnerTypeV3 = typeof ScheduledSearchAllOfOwnerTypeV3[keyof typeof ScheduledSearchAllOfOwnerTypeV3];
 
 /**
  * 
@@ -17628,7 +17628,7 @@ export interface Schema {
      * @type {Array<string>}
      * @memberof Schema
      */
-    'features'?: Array<SchemaFeaturesEnum>;
+    'features'?: Array<SchemaFeaturesV3>;
     /**
      * Holds any extra configuration data that the schema may require.
      * @type {object}
@@ -17655,7 +17655,7 @@ export interface Schema {
     'modified'?: string;
 }
 
-export const SchemaFeaturesEnum = {
+export const SchemaFeaturesV3 = {
     Authenticate: 'AUTHENTICATE',
     Composite: 'COMPOSITE',
     DirectPermissions: 'DIRECT_PERMISSIONS',
@@ -17689,7 +17689,7 @@ export const SchemaFeaturesEnum = {
     UsesUuid: 'USES_UUID'
 } as const;
 
-export type SchemaFeaturesEnum = typeof SchemaFeaturesEnum[keyof typeof SchemaFeaturesEnum];
+export type SchemaFeaturesV3 = typeof SchemaFeaturesV3[keyof typeof SchemaFeaturesV3];
 
 /**
  * 
@@ -18005,7 +18005,7 @@ export interface SearchScheduleRecipientsInner {
      * @type {string}
      * @memberof SearchScheduleRecipientsInner
      */
-    'type': SearchScheduleRecipientsInnerTypeEnum;
+    'type': SearchScheduleRecipientsInnerTypeV3;
     /**
      * The ID of the referenced object
      * @type {string}
@@ -18014,11 +18014,11 @@ export interface SearchScheduleRecipientsInner {
     'id': string;
 }
 
-export const SearchScheduleRecipientsInnerTypeEnum = {
+export const SearchScheduleRecipientsInnerTypeV3 = {
     Identity: 'IDENTITY'
 } as const;
 
-export type SearchScheduleRecipientsInnerTypeEnum = typeof SearchScheduleRecipientsInnerTypeEnum[keyof typeof SearchScheduleRecipientsInnerTypeEnum];
+export type SearchScheduleRecipientsInnerTypeV3 = typeof SearchScheduleRecipientsInnerTypeV3[keyof typeof SearchScheduleRecipientsInnerTypeV3];
 
 /**
  * 
@@ -18171,10 +18171,10 @@ export interface SendTokenRequest {
      * @type {string}
      * @memberof SendTokenRequest
      */
-    'deliveryType': SendTokenRequestDeliveryTypeEnum;
+    'deliveryType': SendTokenRequestDeliveryTypeV3;
 }
 
-export const SendTokenRequestDeliveryTypeEnum = {
+export const SendTokenRequestDeliveryTypeV3 = {
     SmsPersonal: 'SMS_PERSONAL',
     VoicePersonal: 'VOICE_PERSONAL',
     SmsWork: 'SMS_WORK',
@@ -18183,7 +18183,7 @@ export const SendTokenRequestDeliveryTypeEnum = {
     EmailPersonal: 'EMAIL_PERSONAL'
 } as const;
 
-export type SendTokenRequestDeliveryTypeEnum = typeof SendTokenRequestDeliveryTypeEnum[keyof typeof SendTokenRequestDeliveryTypeEnum];
+export type SendTokenRequestDeliveryTypeV3 = typeof SendTokenRequestDeliveryTypeV3[keyof typeof SendTokenRequestDeliveryTypeV3];
 
 /**
  * 
@@ -18202,7 +18202,7 @@ export interface SendTokenResponse {
      * @type {string}
      * @memberof SendTokenResponse
      */
-    'status'?: SendTokenResponseStatusEnum;
+    'status'?: SendTokenResponseStatusV3;
     /**
      * Error messages from token send request
      * @type {string}
@@ -18211,12 +18211,12 @@ export interface SendTokenResponse {
     'errorMessage'?: string | null;
 }
 
-export const SendTokenResponseStatusEnum = {
+export const SendTokenResponseStatusV3 = {
     Success: 'SUCCESS',
     Failed: 'FAILED'
 } as const;
 
-export type SendTokenResponseStatusEnum = typeof SendTokenResponseStatusEnum[keyof typeof SendTokenResponseStatusEnum];
+export type SendTokenResponseStatusV3 = typeof SendTokenResponseStatusV3[keyof typeof SendTokenResponseStatusV3];
 
 /**
  * 
@@ -18390,7 +18390,7 @@ export interface ServiceDeskSource {
      * @type {string}
      * @memberof ServiceDeskSource
      */
-    'type'?: ServiceDeskSourceTypeEnum;
+    'type'?: ServiceDeskSourceTypeV3;
     /**
      * ID of source for service desk integration template.
      * @type {string}
@@ -18405,11 +18405,11 @@ export interface ServiceDeskSource {
     'name'?: string;
 }
 
-export const ServiceDeskSourceTypeEnum = {
+export const ServiceDeskSourceTypeV3 = {
     Source: 'SOURCE'
 } as const;
 
-export type ServiceDeskSourceTypeEnum = typeof ServiceDeskSourceTypeEnum[keyof typeof ServiceDeskSourceTypeEnum];
+export type ServiceDeskSourceTypeV3 = typeof ServiceDeskSourceTypeV3[keyof typeof ServiceDeskSourceTypeV3];
 
 /**
  * Represents the IdentityNow as Service Provider Configuration allowing customers to log into IDN via an Identity Provider
@@ -18534,7 +18534,7 @@ export interface SlimCampaign {
      * @type {string}
      * @memberof SlimCampaign
      */
-    'type': SlimCampaignTypeEnum;
+    'type': SlimCampaignTypeV3;
     /**
      * Enables email notification for this campaign
      * @type {boolean}
@@ -18558,13 +18558,13 @@ export interface SlimCampaign {
      * @type {string}
      * @memberof SlimCampaign
      */
-    'status'?: SlimCampaignStatusEnum;
+    'status'?: SlimCampaignStatusV3;
     /**
      * The correlatedStatus of the campaign. Only SOURCE_OWNER campaigns can be Uncorrelated. An Uncorrelated certification campaign only includes Uncorrelated identities (An identity is uncorrelated if it has no accounts on an authoritative source).
      * @type {string}
      * @memberof SlimCampaign
      */
-    'correlatedStatus'?: SlimCampaignCorrelatedStatusEnum;
+    'correlatedStatus'?: SlimCampaignCorrelatedStatusV3;
     /**
      * Created time of the campaign
      * @type {string}
@@ -18591,15 +18591,15 @@ export interface SlimCampaign {
     'alerts'?: Array<CampaignAlert>;
 }
 
-export const SlimCampaignTypeEnum = {
+export const SlimCampaignTypeV3 = {
     Manager: 'MANAGER',
     SourceOwner: 'SOURCE_OWNER',
     Search: 'SEARCH',
     RoleComposition: 'ROLE_COMPOSITION'
 } as const;
 
-export type SlimCampaignTypeEnum = typeof SlimCampaignTypeEnum[keyof typeof SlimCampaignTypeEnum];
-export const SlimCampaignStatusEnum = {
+export type SlimCampaignTypeV3 = typeof SlimCampaignTypeV3[keyof typeof SlimCampaignTypeV3];
+export const SlimCampaignStatusV3 = {
     Pending: 'PENDING',
     Staged: 'STAGED',
     Canceling: 'CANCELING',
@@ -18611,13 +18611,13 @@ export const SlimCampaignStatusEnum = {
     Archived: 'ARCHIVED'
 } as const;
 
-export type SlimCampaignStatusEnum = typeof SlimCampaignStatusEnum[keyof typeof SlimCampaignStatusEnum];
-export const SlimCampaignCorrelatedStatusEnum = {
+export type SlimCampaignStatusV3 = typeof SlimCampaignStatusV3[keyof typeof SlimCampaignStatusV3];
+export const SlimCampaignCorrelatedStatusV3 = {
     Correlated: 'CORRELATED',
     Uncorrelated: 'UNCORRELATED'
 } as const;
 
-export type SlimCampaignCorrelatedStatusEnum = typeof SlimCampaignCorrelatedStatusEnum[keyof typeof SlimCampaignCorrelatedStatusEnum];
+export type SlimCampaignCorrelatedStatusV3 = typeof SlimCampaignCorrelatedStatusV3[keyof typeof SlimCampaignCorrelatedStatusV3];
 
 /**
  * Discovered applications
@@ -18784,7 +18784,7 @@ export interface SodPolicy {
      * @type {string}
      * @memberof SodPolicy
      */
-    'state'?: SodPolicyStateEnum;
+    'state'?: SodPolicyStateV3;
     /**
      * tags for this policy object
      * @type {Array<string>}
@@ -18820,7 +18820,7 @@ export interface SodPolicy {
      * @type {string}
      * @memberof SodPolicy
      */
-    'type'?: SodPolicyTypeEnum;
+    'type'?: SodPolicyTypeV3;
     /**
      * 
      * @type {SodPolicyConflictingAccessCriteria}
@@ -18829,18 +18829,18 @@ export interface SodPolicy {
     'conflictingAccessCriteria'?: SodPolicyConflictingAccessCriteria;
 }
 
-export const SodPolicyStateEnum = {
+export const SodPolicyStateV3 = {
     Enforced: 'ENFORCED',
     NotEnforced: 'NOT_ENFORCED'
 } as const;
 
-export type SodPolicyStateEnum = typeof SodPolicyStateEnum[keyof typeof SodPolicyStateEnum];
-export const SodPolicyTypeEnum = {
+export type SodPolicyStateV3 = typeof SodPolicyStateV3[keyof typeof SodPolicyStateV3];
+export const SodPolicyTypeV3 = {
     General: 'GENERAL',
     ConflictingAccessBased: 'CONFLICTING_ACCESS_BASED'
 } as const;
 
-export type SodPolicyTypeEnum = typeof SodPolicyTypeEnum[keyof typeof SodPolicyTypeEnum];
+export type SodPolicyTypeV3 = typeof SodPolicyTypeV3[keyof typeof SodPolicyTypeV3];
 
 /**
  * 
@@ -18872,7 +18872,7 @@ export interface SodPolicyDto {
      * @type {string}
      * @memberof SodPolicyDto
      */
-    'type'?: SodPolicyDtoTypeEnum;
+    'type'?: SodPolicyDtoTypeV3;
     /**
      * SOD policy ID.
      * @type {string}
@@ -18887,11 +18887,11 @@ export interface SodPolicyDto {
     'name'?: string;
 }
 
-export const SodPolicyDtoTypeEnum = {
+export const SodPolicyDtoTypeV3 = {
     SodPolicy: 'SOD_POLICY'
 } as const;
 
-export type SodPolicyDtoTypeEnum = typeof SodPolicyDtoTypeEnum[keyof typeof SodPolicyDtoTypeEnum];
+export type SodPolicyDtoTypeV3 = typeof SodPolicyDtoTypeV3[keyof typeof SodPolicyDtoTypeV3];
 
 /**
  * The owner of the SOD policy.
@@ -18904,7 +18904,7 @@ export interface SodPolicyOwnerRef {
      * @type {string}
      * @memberof SodPolicyOwnerRef
      */
-    'type'?: SodPolicyOwnerRefTypeEnum;
+    'type'?: SodPolicyOwnerRefTypeV3;
     /**
      * Owner\'s ID.
      * @type {string}
@@ -18919,12 +18919,12 @@ export interface SodPolicyOwnerRef {
     'name'?: string;
 }
 
-export const SodPolicyOwnerRefTypeEnum = {
+export const SodPolicyOwnerRefTypeV3 = {
     Identity: 'IDENTITY',
     GovernanceGroup: 'GOVERNANCE_GROUP'
 } as const;
 
-export type SodPolicyOwnerRefTypeEnum = typeof SodPolicyOwnerRefTypeEnum[keyof typeof SodPolicyOwnerRefTypeEnum];
+export type SodPolicyOwnerRefTypeV3 = typeof SodPolicyOwnerRefTypeV3[keyof typeof SodPolicyOwnerRefTypeV3];
 
 /**
  * 
@@ -18998,7 +18998,7 @@ export interface SodRecipient {
      * @type {string}
      * @memberof SodRecipient
      */
-    'type'?: SodRecipientTypeEnum;
+    'type'?: SodRecipientTypeV3;
     /**
      * SOD policy recipient\'s identity ID.
      * @type {string}
@@ -19013,11 +19013,11 @@ export interface SodRecipient {
     'name'?: string;
 }
 
-export const SodRecipientTypeEnum = {
+export const SodRecipientTypeV3 = {
     Identity: 'IDENTITY'
 } as const;
 
-export type SodRecipientTypeEnum = typeof SodRecipientTypeEnum[keyof typeof SodRecipientTypeEnum];
+export type SodRecipientTypeV3 = typeof SodRecipientTypeV3[keyof typeof SodRecipientTypeV3];
 
 /**
  * SOD policy violation report result.
@@ -19030,7 +19030,7 @@ export interface SodReportResultDto {
      * @type {string}
      * @memberof SodReportResultDto
      */
-    'type'?: SodReportResultDtoTypeEnum;
+    'type'?: SodReportResultDtoTypeV3;
     /**
      * SOD policy violation report result ID.
      * @type {string}
@@ -19045,11 +19045,11 @@ export interface SodReportResultDto {
     'name'?: string;
 }
 
-export const SodReportResultDtoTypeEnum = {
+export const SodReportResultDtoTypeV3 = {
     ReportResult: 'REPORT_RESULT'
 } as const;
 
-export type SodReportResultDtoTypeEnum = typeof SodReportResultDtoTypeEnum[keyof typeof SodReportResultDtoTypeEnum];
+export type SodReportResultDtoTypeV3 = typeof SodReportResultDtoTypeV3[keyof typeof SodReportResultDtoTypeV3];
 
 /**
  * An object referencing an SOD violation check
@@ -19131,7 +19131,7 @@ export interface SodViolationContextCheckCompleted {
      * @type {string}
      * @memberof SodViolationContextCheckCompleted
      */
-    'state'?: SodViolationContextCheckCompletedStateEnum | null;
+    'state'?: SodViolationContextCheckCompletedStateV3 | null;
     /**
      * The id of the Violation check event
      * @type {string}
@@ -19146,13 +19146,13 @@ export interface SodViolationContextCheckCompleted {
     'violationCheckResult'?: SodViolationCheckResult;
 }
 
-export const SodViolationContextCheckCompletedStateEnum = {
+export const SodViolationContextCheckCompletedStateV3 = {
     Success: 'SUCCESS',
     Error: 'ERROR',
     Null: 'null'
 } as const;
 
-export type SodViolationContextCheckCompletedStateEnum = typeof SodViolationContextCheckCompletedStateEnum[keyof typeof SodViolationContextCheckCompletedStateEnum];
+export type SodViolationContextCheckCompletedStateV3 = typeof SodViolationContextCheckCompletedStateV3[keyof typeof SodViolationContextCheckCompletedStateV3];
 
 /**
  * The object which contains the left and right hand side of the entitlements that got violated according to the policy.
@@ -19269,7 +19269,7 @@ export interface Source {
      * @type {Array<string>}
      * @memberof Source
      */
-    'features'?: Array<SourceFeaturesEnum>;
+    'features'?: Array<SourceFeaturesV3>;
     /**
      * Specifies the type of system being managed e.g. Active Directory, Workday, etc.. If you are creating a delimited file source, you must set the `provisionasCsv` query parameter to `true`. 
      * @type {string}
@@ -19323,7 +19323,7 @@ export interface Source {
      * @type {string}
      * @memberof Source
      */
-    'status'?: SourceStatusEnum;
+    'status'?: SourceStatusV3;
     /**
      * Timestamp that shows when a source health check was last performed.
      * @type {string}
@@ -19380,7 +19380,7 @@ export interface Source {
     'category'?: string | null;
 }
 
-export const SourceFeaturesEnum = {
+export const SourceFeaturesV3 = {
     Authenticate: 'AUTHENTICATE',
     Composite: 'COMPOSITE',
     DirectPermissions: 'DIRECT_PERMISSIONS',
@@ -19414,8 +19414,8 @@ export const SourceFeaturesEnum = {
     UsesUuid: 'USES_UUID'
 } as const;
 
-export type SourceFeaturesEnum = typeof SourceFeaturesEnum[keyof typeof SourceFeaturesEnum];
-export const SourceStatusEnum = {
+export type SourceFeaturesV3 = typeof SourceFeaturesV3[keyof typeof SourceFeaturesV3];
+export const SourceStatusV3 = {
     ErrorAccountFileImport: 'SOURCE_STATE_ERROR_ACCOUNT_FILE_IMPORT',
     ErrorCluster: 'SOURCE_STATE_ERROR_CLUSTER',
     ErrorSource: 'SOURCE_STATE_ERROR_SOURCE',
@@ -19429,7 +19429,7 @@ export const SourceStatusEnum = {
     UncheckedSourceNoAccounts: 'SOURCE_STATE_UNCHECKED_SOURCE_NO_ACCOUNTS'
 } as const;
 
-export type SourceStatusEnum = typeof SourceStatusEnum[keyof typeof SourceStatusEnum];
+export type SourceStatusV3 = typeof SourceStatusV3[keyof typeof SourceStatusV3];
 
 /**
  * Reference to account correlation config object.
@@ -19442,7 +19442,7 @@ export interface SourceAccountCorrelationConfig {
      * @type {string}
      * @memberof SourceAccountCorrelationConfig
      */
-    'type'?: SourceAccountCorrelationConfigTypeEnum;
+    'type'?: SourceAccountCorrelationConfigTypeV3;
     /**
      * Account correlation config ID.
      * @type {string}
@@ -19457,11 +19457,11 @@ export interface SourceAccountCorrelationConfig {
     'name'?: string;
 }
 
-export const SourceAccountCorrelationConfigTypeEnum = {
+export const SourceAccountCorrelationConfigTypeV3 = {
     AccountCorrelationConfig: 'ACCOUNT_CORRELATION_CONFIG'
 } as const;
 
-export type SourceAccountCorrelationConfigTypeEnum = typeof SourceAccountCorrelationConfigTypeEnum[keyof typeof SourceAccountCorrelationConfigTypeEnum];
+export type SourceAccountCorrelationConfigTypeV3 = typeof SourceAccountCorrelationConfigTypeV3[keyof typeof SourceAccountCorrelationConfigTypeV3];
 
 /**
  * Reference to a rule that can do COMPLEX correlation. Only use this rule when you can\'t use accountCorrelationConfig.
@@ -19474,7 +19474,7 @@ export interface SourceAccountCorrelationRule {
      * @type {string}
      * @memberof SourceAccountCorrelationRule
      */
-    'type'?: SourceAccountCorrelationRuleTypeEnum;
+    'type'?: SourceAccountCorrelationRuleTypeV3;
     /**
      * Rule ID.
      * @type {string}
@@ -19489,11 +19489,11 @@ export interface SourceAccountCorrelationRule {
     'name'?: string;
 }
 
-export const SourceAccountCorrelationRuleTypeEnum = {
+export const SourceAccountCorrelationRuleTypeV3 = {
     Rule: 'RULE'
 } as const;
 
-export type SourceAccountCorrelationRuleTypeEnum = typeof SourceAccountCorrelationRuleTypeEnum[keyof typeof SourceAccountCorrelationRuleTypeEnum];
+export type SourceAccountCorrelationRuleTypeV3 = typeof SourceAccountCorrelationRuleTypeV3[keyof typeof SourceAccountCorrelationRuleTypeV3];
 
 /**
  * Rule that runs on the CCG and allows for customization of provisioning plans before the API calls the connector. 
@@ -19506,7 +19506,7 @@ export interface SourceBeforeProvisioningRule {
      * @type {string}
      * @memberof SourceBeforeProvisioningRule
      */
-    'type'?: SourceBeforeProvisioningRuleTypeEnum;
+    'type'?: SourceBeforeProvisioningRuleTypeV3;
     /**
      * Rule ID.
      * @type {string}
@@ -19521,11 +19521,11 @@ export interface SourceBeforeProvisioningRule {
     'name'?: string;
 }
 
-export const SourceBeforeProvisioningRuleTypeEnum = {
+export const SourceBeforeProvisioningRuleTypeV3 = {
     Rule: 'RULE'
 } as const;
 
-export type SourceBeforeProvisioningRuleTypeEnum = typeof SourceBeforeProvisioningRuleTypeEnum[keyof typeof SourceBeforeProvisioningRuleTypeEnum];
+export type SourceBeforeProvisioningRuleTypeV3 = typeof SourceBeforeProvisioningRuleTypeV3[keyof typeof SourceBeforeProvisioningRuleTypeV3];
 
 /**
  * Reference to the source\'s associated cluster.
@@ -19538,7 +19538,7 @@ export interface SourceCluster {
      * @type {string}
      * @memberof SourceCluster
      */
-    'type': SourceClusterTypeEnum;
+    'type': SourceClusterTypeV3;
     /**
      * Cluster ID.
      * @type {string}
@@ -19553,11 +19553,11 @@ export interface SourceCluster {
     'name': string;
 }
 
-export const SourceClusterTypeEnum = {
+export const SourceClusterTypeV3 = {
     Cluster: 'CLUSTER'
 } as const;
 
-export type SourceClusterTypeEnum = typeof SourceClusterTypeEnum[keyof typeof SourceClusterTypeEnum];
+export type SourceClusterTypeV3 = typeof SourceClusterTypeV3[keyof typeof SourceClusterTypeV3];
 
 /**
  * Source cluster.
@@ -19570,7 +19570,7 @@ export interface SourceClusterDto {
      * @type {string}
      * @memberof SourceClusterDto
      */
-    'type'?: SourceClusterDtoTypeEnum;
+    'type'?: SourceClusterDtoTypeV3;
     /**
      * Source cluster ID.
      * @type {string}
@@ -19585,11 +19585,11 @@ export interface SourceClusterDto {
     'name'?: string;
 }
 
-export const SourceClusterDtoTypeEnum = {
+export const SourceClusterDtoTypeV3 = {
     Cluster: 'CLUSTER'
 } as const;
 
-export type SourceClusterDtoTypeEnum = typeof SourceClusterDtoTypeEnum[keyof typeof SourceClusterDtoTypeEnum];
+export type SourceClusterDtoTypeV3 = typeof SourceClusterDtoTypeV3[keyof typeof SourceClusterDtoTypeV3];
 
 /**
  * 
@@ -19705,10 +19705,10 @@ export interface SourceHealthDto {
      * @type {string}
      * @memberof SourceHealthDto
      */
-    'status'?: SourceHealthDtoStatusEnum;
+    'status'?: SourceHealthDtoStatusV3;
 }
 
-export const SourceHealthDtoStatusEnum = {
+export const SourceHealthDtoStatusV3 = {
     ErrorCluster: 'SOURCE_STATE_ERROR_CLUSTER',
     ErrorSource: 'SOURCE_STATE_ERROR_SOURCE',
     ErrorVa: 'SOURCE_STATE_ERROR_VA',
@@ -19721,7 +19721,7 @@ export const SourceHealthDtoStatusEnum = {
     UncheckedSourceNoAccounts: 'SOURCE_STATE_UNCHECKED_SOURCE_NO_ACCOUNTS'
 } as const;
 
-export type SourceHealthDtoStatusEnum = typeof SourceHealthDtoStatusEnum[keyof typeof SourceHealthDtoStatusEnum];
+export type SourceHealthDtoStatusV3 = typeof SourceHealthDtoStatusV3[keyof typeof SourceHealthDtoStatusV3];
 
 /**
  * Reference to management workgroup for the source.
@@ -19734,7 +19734,7 @@ export interface SourceManagementWorkgroup {
      * @type {string}
      * @memberof SourceManagementWorkgroup
      */
-    'type'?: SourceManagementWorkgroupTypeEnum;
+    'type'?: SourceManagementWorkgroupTypeV3;
     /**
      * Management workgroup ID.
      * @type {string}
@@ -19749,11 +19749,11 @@ export interface SourceManagementWorkgroup {
     'name'?: string;
 }
 
-export const SourceManagementWorkgroupTypeEnum = {
+export const SourceManagementWorkgroupTypeV3 = {
     GovernanceGroup: 'GOVERNANCE_GROUP'
 } as const;
 
-export type SourceManagementWorkgroupTypeEnum = typeof SourceManagementWorkgroupTypeEnum[keyof typeof SourceManagementWorkgroupTypeEnum];
+export type SourceManagementWorkgroupTypeV3 = typeof SourceManagementWorkgroupTypeV3[keyof typeof SourceManagementWorkgroupTypeV3];
 
 /**
  * 
@@ -19785,7 +19785,7 @@ export interface SourceManagerCorrelationRule {
      * @type {string}
      * @memberof SourceManagerCorrelationRule
      */
-    'type'?: SourceManagerCorrelationRuleTypeEnum;
+    'type'?: SourceManagerCorrelationRuleTypeV3;
     /**
      * Rule ID.
      * @type {string}
@@ -19800,11 +19800,11 @@ export interface SourceManagerCorrelationRule {
     'name'?: string;
 }
 
-export const SourceManagerCorrelationRuleTypeEnum = {
+export const SourceManagerCorrelationRuleTypeV3 = {
     Rule: 'RULE'
 } as const;
 
-export type SourceManagerCorrelationRuleTypeEnum = typeof SourceManagerCorrelationRuleTypeEnum[keyof typeof SourceManagerCorrelationRuleTypeEnum];
+export type SourceManagerCorrelationRuleTypeV3 = typeof SourceManagerCorrelationRuleTypeV3[keyof typeof SourceManagerCorrelationRuleTypeV3];
 
 /**
  * Reference to identity object who owns the source.
@@ -19817,7 +19817,7 @@ export interface SourceOwner {
      * @type {string}
      * @memberof SourceOwner
      */
-    'type'?: SourceOwnerTypeEnum;
+    'type'?: SourceOwnerTypeV3;
     /**
      * Owner identity\'s ID.
      * @type {string}
@@ -19832,11 +19832,11 @@ export interface SourceOwner {
     'name'?: string;
 }
 
-export const SourceOwnerTypeEnum = {
+export const SourceOwnerTypeV3 = {
     Identity: 'IDENTITY'
 } as const;
 
-export type SourceOwnerTypeEnum = typeof SourceOwnerTypeEnum[keyof typeof SourceOwnerTypeEnum];
+export type SourceOwnerTypeV3 = typeof SourceOwnerTypeV3[keyof typeof SourceOwnerTypeV3];
 
 /**
  * 
@@ -19849,7 +19849,7 @@ export interface SourcePasswordPoliciesInner {
      * @type {string}
      * @memberof SourcePasswordPoliciesInner
      */
-    'type'?: SourcePasswordPoliciesInnerTypeEnum;
+    'type'?: SourcePasswordPoliciesInnerTypeV3;
     /**
      * Policy ID.
      * @type {string}
@@ -19864,11 +19864,11 @@ export interface SourcePasswordPoliciesInner {
     'name'?: string;
 }
 
-export const SourcePasswordPoliciesInnerTypeEnum = {
+export const SourcePasswordPoliciesInnerTypeV3 = {
     PasswordPolicy: 'PASSWORD_POLICY'
 } as const;
 
-export type SourcePasswordPoliciesInnerTypeEnum = typeof SourcePasswordPoliciesInnerTypeEnum[keyof typeof SourcePasswordPoliciesInnerTypeEnum];
+export type SourcePasswordPoliciesInnerTypeV3 = typeof SourcePasswordPoliciesInnerTypeV3[keyof typeof SourcePasswordPoliciesInnerTypeV3];
 
 /**
  * 
@@ -19881,7 +19881,7 @@ export interface SourceSchemasInner {
      * @type {string}
      * @memberof SourceSchemasInner
      */
-    'type'?: SourceSchemasInnerTypeEnum;
+    'type'?: SourceSchemasInnerTypeV3;
     /**
      * Schema ID.
      * @type {string}
@@ -19896,11 +19896,11 @@ export interface SourceSchemasInner {
     'name'?: string;
 }
 
-export const SourceSchemasInnerTypeEnum = {
+export const SourceSchemasInnerTypeV3 = {
     ConnectorSchema: 'CONNECTOR_SCHEMA'
 } as const;
 
-export type SourceSchemasInnerTypeEnum = typeof SourceSchemasInnerTypeEnum[keyof typeof SourceSchemasInnerTypeEnum];
+export type SourceSchemasInnerTypeV3 = typeof SourceSchemasInnerTypeV3[keyof typeof SourceSchemasInnerTypeV3];
 
 /**
  * 
@@ -19932,15 +19932,15 @@ export interface SourceUsageStatus {
      * @type {string}
      * @memberof SourceUsageStatus
      */
-    'status'?: SourceUsageStatusStatusEnum;
+    'status'?: SourceUsageStatusStatusV3;
 }
 
-export const SourceUsageStatusStatusEnum = {
+export const SourceUsageStatusStatusV3 = {
     Complete: 'COMPLETE',
     Incomplete: 'INCOMPLETE'
 } as const;
 
-export type SourceUsageStatusStatusEnum = typeof SourceUsageStatusStatusEnum[keyof typeof SourceUsageStatusStatusEnum];
+export type SourceUsageStatusStatusV3 = typeof SourceUsageStatusStatusV3[keyof typeof SourceUsageStatusStatusV3];
 
 /**
  * Message model for Config Import/Export.
@@ -19978,7 +19978,7 @@ export interface SpDetails {
      * @type {string}
      * @memberof SpDetails
      */
-    'role'?: SpDetailsRoleEnum;
+    'role'?: SpDetailsRoleV3;
     /**
      * An entity ID is a globally unique name for a SAML entity, either an Identity Provider (IDP) or a Service Provider (SP).
      * @type {string}
@@ -19999,11 +19999,11 @@ export interface SpDetails {
     'callbackUrl'?: string;
 }
 
-export const SpDetailsRoleEnum = {
+export const SpDetailsRoleV3 = {
     SamlSp: 'SAML_SP'
 } as const;
 
-export type SpDetailsRoleEnum = typeof SpDetailsRoleEnum[keyof typeof SpDetailsRoleEnum];
+export type SpDetailsRoleV3 = typeof SpDetailsRoleV3[keyof typeof SpDetailsRoleV3];
 
 /**
  * 
@@ -20190,7 +20190,7 @@ export interface TaggedObjectDto {
      * @type {string}
      * @memberof TaggedObjectDto
      */
-    'type'?: TaggedObjectDtoTypeEnum;
+    'type'?: TaggedObjectDtoTypeV3;
     /**
      * ID of the object this reference applies to
      * @type {string}
@@ -20205,7 +20205,7 @@ export interface TaggedObjectDto {
     'name'?: string | null;
 }
 
-export const TaggedObjectDtoTypeEnum = {
+export const TaggedObjectDtoTypeV3 = {
     AccessProfile: 'ACCESS_PROFILE',
     Application: 'APPLICATION',
     Campaign: 'CAMPAIGN',
@@ -20216,7 +20216,7 @@ export const TaggedObjectDtoTypeEnum = {
     Source: 'SOURCE'
 } as const;
 
-export type TaggedObjectDtoTypeEnum = typeof TaggedObjectDtoTypeEnum[keyof typeof TaggedObjectDtoTypeEnum];
+export type TaggedObjectDtoTypeV3 = typeof TaggedObjectDtoTypeV3[keyof typeof TaggedObjectDtoTypeV3];
 
 /**
  * Details about job or task type, state and lifecycle.
@@ -20229,7 +20229,7 @@ export interface TaskResultDetails {
      * @type {string}
      * @memberof TaskResultDetails
      */
-    'type'?: TaskResultDetailsTypeEnum;
+    'type'?: TaskResultDetailsTypeV3;
     /**
      * Unique task definition identifier.
      * @type {string}
@@ -20241,7 +20241,7 @@ export interface TaskResultDetails {
      * @type {object}
      * @memberof TaskResultDetails
      */
-    'reportType'?: TaskResultDetailsReportTypeEnum;
+    'reportType'?: TaskResultDetailsReportTypeV3;
     /**
      * Description of the report purpose and/or contents.
      * @type {string}
@@ -20283,7 +20283,7 @@ export interface TaskResultDetails {
      * @type {string}
      * @memberof TaskResultDetails
      */
-    'completionStatus'?: TaskResultDetailsCompletionStatusEnum | null;
+    'completionStatus'?: TaskResultDetailsCompletionStatusV3 | null;
     /**
      * List of the messages dedicated to the report.  From task definition perspective here usually should be warnings or errors.
      * @type {Array<TaskResultDetailsMessagesInner>}
@@ -20310,15 +20310,15 @@ export interface TaskResultDetails {
     'progress'?: string | null;
 }
 
-export const TaskResultDetailsTypeEnum = {
+export const TaskResultDetailsTypeV3 = {
     Quartz: 'QUARTZ',
     Qpoc: 'QPOC',
     Mentos: 'MENTOS',
     QueuedTask: 'QUEUED_TASK'
 } as const;
 
-export type TaskResultDetailsTypeEnum = typeof TaskResultDetailsTypeEnum[keyof typeof TaskResultDetailsTypeEnum];
-export const TaskResultDetailsReportTypeEnum = {
+export type TaskResultDetailsTypeV3 = typeof TaskResultDetailsTypeV3[keyof typeof TaskResultDetailsTypeV3];
+export const TaskResultDetailsReportTypeV3 = {
     Accounts: 'ACCOUNTS',
     IdentitiesDetails: 'IDENTITIES_DETAILS',
     Identities: 'IDENTITIES',
@@ -20328,8 +20328,8 @@ export const TaskResultDetailsReportTypeEnum = {
     UncorrelatedAccounts: 'UNCORRELATED_ACCOUNTS'
 } as const;
 
-export type TaskResultDetailsReportTypeEnum = typeof TaskResultDetailsReportTypeEnum[keyof typeof TaskResultDetailsReportTypeEnum];
-export const TaskResultDetailsCompletionStatusEnum = {
+export type TaskResultDetailsReportTypeV3 = typeof TaskResultDetailsReportTypeV3[keyof typeof TaskResultDetailsReportTypeV3];
+export const TaskResultDetailsCompletionStatusV3 = {
     Success: 'SUCCESS',
     Warning: 'WARNING',
     Error: 'ERROR',
@@ -20337,7 +20337,7 @@ export const TaskResultDetailsCompletionStatusEnum = {
     TempError: 'TEMP_ERROR'
 } as const;
 
-export type TaskResultDetailsCompletionStatusEnum = typeof TaskResultDetailsCompletionStatusEnum[keyof typeof TaskResultDetailsCompletionStatusEnum];
+export type TaskResultDetailsCompletionStatusV3 = typeof TaskResultDetailsCompletionStatusV3[keyof typeof TaskResultDetailsCompletionStatusV3];
 
 /**
  * 
@@ -20350,7 +20350,7 @@ export interface TaskResultDetailsMessagesInner {
      * @type {string}
      * @memberof TaskResultDetailsMessagesInner
      */
-    'type'?: TaskResultDetailsMessagesInnerTypeEnum;
+    'type'?: TaskResultDetailsMessagesInnerTypeV3;
     /**
      * Flag whether message is an error.
      * @type {boolean}
@@ -20377,13 +20377,13 @@ export interface TaskResultDetailsMessagesInner {
     'localizedText'?: string;
 }
 
-export const TaskResultDetailsMessagesInnerTypeEnum = {
+export const TaskResultDetailsMessagesInnerTypeV3 = {
     Info: 'INFO',
     Warn: 'WARN',
     Error: 'ERROR'
 } as const;
 
-export type TaskResultDetailsMessagesInnerTypeEnum = typeof TaskResultDetailsMessagesInnerTypeEnum[keyof typeof TaskResultDetailsMessagesInnerTypeEnum];
+export type TaskResultDetailsMessagesInnerTypeV3 = typeof TaskResultDetailsMessagesInnerTypeV3[keyof typeof TaskResultDetailsMessagesInnerTypeV3];
 
 /**
  * 
@@ -20415,7 +20415,7 @@ export interface TaskResultDto {
      * @type {string}
      * @memberof TaskResultDto
      */
-    'type'?: TaskResultDtoTypeEnum;
+    'type'?: TaskResultDtoTypeV3;
     /**
      * Task result ID.
      * @type {string}
@@ -20430,11 +20430,11 @@ export interface TaskResultDto {
     'name'?: string | null;
 }
 
-export const TaskResultDtoTypeEnum = {
+export const TaskResultDtoTypeV3 = {
     TaskResult: 'TASK_RESULT'
 } as const;
 
-export type TaskResultDtoTypeEnum = typeof TaskResultDtoTypeEnum[keyof typeof TaskResultDtoTypeEnum];
+export type TaskResultDtoTypeV3 = typeof TaskResultDtoTypeV3[keyof typeof TaskResultDtoTypeV3];
 
 /**
  * 
@@ -20483,10 +20483,10 @@ export interface TaskResultSimplified {
      * @type {string}
      * @memberof TaskResultSimplified
      */
-    'completionStatus'?: TaskResultSimplifiedCompletionStatusEnum;
+    'completionStatus'?: TaskResultSimplifiedCompletionStatusV3;
 }
 
-export const TaskResultSimplifiedCompletionStatusEnum = {
+export const TaskResultSimplifiedCompletionStatusV3 = {
     Success: 'Success',
     Warning: 'Warning',
     Error: 'Error',
@@ -20494,7 +20494,7 @@ export const TaskResultSimplifiedCompletionStatusEnum = {
     TempError: 'TempError'
 } as const;
 
-export type TaskResultSimplifiedCompletionStatusEnum = typeof TaskResultSimplifiedCompletionStatusEnum[keyof typeof TaskResultSimplifiedCompletionStatusEnum];
+export type TaskResultSimplifiedCompletionStatusV3 = typeof TaskResultSimplifiedCompletionStatusV3[keyof typeof TaskResultSimplifiedCompletionStatusV3];
 
 /**
  * 
@@ -20602,10 +20602,10 @@ export interface TokenAuthRequest {
      * @type {string}
      * @memberof TokenAuthRequest
      */
-    'deliveryType': TokenAuthRequestDeliveryTypeEnum;
+    'deliveryType': TokenAuthRequestDeliveryTypeV3;
 }
 
-export const TokenAuthRequestDeliveryTypeEnum = {
+export const TokenAuthRequestDeliveryTypeV3 = {
     SmsPersonal: 'SMS_PERSONAL',
     VoicePersonal: 'VOICE_PERSONAL',
     SmsWork: 'SMS_WORK',
@@ -20614,7 +20614,7 @@ export const TokenAuthRequestDeliveryTypeEnum = {
     EmailPersonal: 'EMAIL_PERSONAL'
 } as const;
 
-export type TokenAuthRequestDeliveryTypeEnum = typeof TokenAuthRequestDeliveryTypeEnum[keyof typeof TokenAuthRequestDeliveryTypeEnum];
+export type TokenAuthRequestDeliveryTypeV3 = typeof TokenAuthRequestDeliveryTypeV3[keyof typeof TokenAuthRequestDeliveryTypeV3];
 
 /**
  * 
@@ -20627,10 +20627,10 @@ export interface TokenAuthResponse {
      * @type {string}
      * @memberof TokenAuthResponse
      */
-    'status'?: TokenAuthResponseStatusEnum;
+    'status'?: TokenAuthResponseStatusV3;
 }
 
-export const TokenAuthResponseStatusEnum = {
+export const TokenAuthResponseStatusV3 = {
     Pending: 'PENDING',
     Success: 'SUCCESS',
     Failed: 'FAILED',
@@ -20638,7 +20638,7 @@ export const TokenAuthResponseStatusEnum = {
     NotEnoughData: 'NOT_ENOUGH_DATA'
 } as const;
 
-export type TokenAuthResponseStatusEnum = typeof TokenAuthResponseStatusEnum[keyof typeof TokenAuthResponseStatusEnum];
+export type TokenAuthResponseStatusV3 = typeof TokenAuthResponseStatusV3[keyof typeof TokenAuthResponseStatusV3];
 
 /**
  * The representation of an internally- or customer-defined transform.
@@ -20657,7 +20657,7 @@ export interface Transform {
      * @type {string}
      * @memberof Transform
      */
-    'type': TransformTypeEnum;
+    'type': TransformTypeV3;
     /**
      * 
      * @type {TransformAttributes}
@@ -20666,7 +20666,7 @@ export interface Transform {
     'attributes': TransformAttributes | null;
 }
 
-export const TransformTypeEnum = {
+export const TransformTypeV3 = {
     AccountAttribute: 'accountAttribute',
     Base64Decode: 'base64Decode',
     Base64Encode: 'base64Encode',
@@ -20704,7 +20704,7 @@ export const TransformTypeEnum = {
     Rfc5646: 'rfc5646'
 } as const;
 
-export type TransformTypeEnum = typeof TransformTypeEnum[keyof typeof TransformTypeEnum];
+export type TransformTypeV3 = typeof TransformTypeV3[keyof typeof TransformTypeV3];
 
 /**
  * @type TransformAttributes
@@ -20749,7 +20749,7 @@ export interface TransformRead {
      * @type {string}
      * @memberof TransformRead
      */
-    'type': TransformReadTypeEnum;
+    'type': TransformReadTypeV3;
     /**
      * 
      * @type {TransformAttributes}
@@ -20770,7 +20770,7 @@ export interface TransformRead {
     'internal': boolean;
 }
 
-export const TransformReadTypeEnum = {
+export const TransformReadTypeV3 = {
     AccountAttribute: 'accountAttribute',
     Base64Decode: 'base64Decode',
     Base64Encode: 'base64Encode',
@@ -20808,7 +20808,7 @@ export const TransformReadTypeEnum = {
     Rfc5646: 'rfc5646'
 } as const;
 
-export type TransformReadTypeEnum = typeof TransformReadTypeEnum[keyof typeof TransformReadTypeEnum];
+export type TransformReadTypeV3 = typeof TransformReadTypeV3[keyof typeof TransformReadTypeV3];
 
 /**
  * 
@@ -20960,17 +20960,17 @@ export interface UpdateDetail {
      * @type {string}
      * @memberof UpdateDetail
      */
-    'status'?: UpdateDetailStatusEnum;
+    'status'?: UpdateDetailStatusV3;
 }
 
-export const UpdateDetailStatusEnum = {
+export const UpdateDetailStatusV3 = {
     Error: 'ERROR',
     Updated: 'UPDATED',
     Unchanged: 'UNCHANGED',
     Skipped: 'SKIPPED'
 } as const;
 
-export type UpdateDetailStatusEnum = typeof UpdateDetailStatusEnum[keyof typeof UpdateDetailStatusEnum];
+export type UpdateDetailStatusV3 = typeof UpdateDetailStatusV3[keyof typeof UpdateDetailStatusV3];
 
 /**
  * 
@@ -21072,17 +21072,17 @@ export interface V3ConnectorDto {
      * @type {string}
      * @memberof V3ConnectorDto
      */
-    'status'?: V3ConnectorDtoStatusEnum;
+    'status'?: V3ConnectorDtoStatusV3;
 }
 
-export const V3ConnectorDtoStatusEnum = {
+export const V3ConnectorDtoStatusV3 = {
     Deprecated: 'DEPRECATED',
     Development: 'DEVELOPMENT',
     Demo: 'DEMO',
     Released: 'RELEASED'
 } as const;
 
-export type V3ConnectorDtoStatusEnum = typeof V3ConnectorDtoStatusEnum[keyof typeof V3ConnectorDtoStatusEnum];
+export type V3ConnectorDtoStatusV3 = typeof V3ConnectorDtoStatusV3[keyof typeof V3ConnectorDtoStatusV3];
 
 /**
  * 
@@ -21119,16 +21119,16 @@ export interface V3CreateConnectorDto {
      * @type {string}
      * @memberof V3CreateConnectorDto
      */
-    'status'?: V3CreateConnectorDtoStatusEnum;
+    'status'?: V3CreateConnectorDtoStatusV3;
 }
 
-export const V3CreateConnectorDtoStatusEnum = {
+export const V3CreateConnectorDtoStatusV3 = {
     Development: 'DEVELOPMENT',
     Demo: 'DEMO',
     Released: 'RELEASED'
 } as const;
 
-export type V3CreateConnectorDtoStatusEnum = typeof V3CreateConnectorDtoStatusEnum[keyof typeof V3CreateConnectorDtoStatusEnum];
+export type V3CreateConnectorDtoStatusV3 = typeof V3CreateConnectorDtoStatusV3[keyof typeof V3CreateConnectorDtoStatusV3];
 
 /**
  * 
@@ -21316,7 +21316,7 @@ export interface VerificationResponse {
      * @type {string}
      * @memberof VerificationResponse
      */
-    'status'?: VerificationResponseStatusEnum;
+    'status'?: VerificationResponseStatusV3;
     /**
      * Error messages from MFA verification request
      * @type {string}
@@ -21325,7 +21325,7 @@ export interface VerificationResponse {
     'error'?: string | null;
 }
 
-export const VerificationResponseStatusEnum = {
+export const VerificationResponseStatusV3 = {
     Pending: 'PENDING',
     Success: 'SUCCESS',
     Failed: 'FAILED',
@@ -21333,7 +21333,7 @@ export const VerificationResponseStatusEnum = {
     NotEnoughData: 'NOT_ENOUGH_DATA'
 } as const;
 
-export type VerificationResponseStatusEnum = typeof VerificationResponseStatusEnum[keyof typeof VerificationResponseStatusEnum];
+export type VerificationResponseStatusV3 = typeof VerificationResponseStatusV3[keyof typeof VerificationResponseStatusV3];
 
 /**
  * 
@@ -21365,7 +21365,7 @@ export interface ViolationContextPolicy {
      * @type {object}
      * @memberof ViolationContextPolicy
      */
-    'type'?: ViolationContextPolicyTypeEnum;
+    'type'?: ViolationContextPolicyTypeV3;
     /**
      * SOD policy ID.
      * @type {string}
@@ -21380,11 +21380,11 @@ export interface ViolationContextPolicy {
     'name'?: string;
 }
 
-export const ViolationContextPolicyTypeEnum = {
+export const ViolationContextPolicyTypeV3 = {
     Entitlement: 'ENTITLEMENT'
 } as const;
 
-export type ViolationContextPolicyTypeEnum = typeof ViolationContextPolicyTypeEnum[keyof typeof ViolationContextPolicyTypeEnum];
+export type ViolationContextPolicyTypeV3 = typeof ViolationContextPolicyTypeV3[keyof typeof ViolationContextPolicyTypeV3];
 
 /**
  * 
@@ -21397,7 +21397,7 @@ export interface ViolationOwnerAssignmentConfig {
      * @type {string}
      * @memberof ViolationOwnerAssignmentConfig
      */
-    'assignmentRule'?: ViolationOwnerAssignmentConfigAssignmentRuleEnum | null;
+    'assignmentRule'?: ViolationOwnerAssignmentConfigAssignmentRuleV3 | null;
     /**
      * 
      * @type {ViolationOwnerAssignmentConfigOwnerRef}
@@ -21406,13 +21406,13 @@ export interface ViolationOwnerAssignmentConfig {
     'ownerRef'?: ViolationOwnerAssignmentConfigOwnerRef | null;
 }
 
-export const ViolationOwnerAssignmentConfigAssignmentRuleEnum = {
+export const ViolationOwnerAssignmentConfigAssignmentRuleV3 = {
     Manager: 'MANAGER',
     Static: 'STATIC',
     Null: 'null'
 } as const;
 
-export type ViolationOwnerAssignmentConfigAssignmentRuleEnum = typeof ViolationOwnerAssignmentConfigAssignmentRuleEnum[keyof typeof ViolationOwnerAssignmentConfigAssignmentRuleEnum];
+export type ViolationOwnerAssignmentConfigAssignmentRuleV3 = typeof ViolationOwnerAssignmentConfigAssignmentRuleV3[keyof typeof ViolationOwnerAssignmentConfigAssignmentRuleV3];
 
 /**
  * The owner of the violation assignment config.
@@ -21425,7 +21425,7 @@ export interface ViolationOwnerAssignmentConfigOwnerRef {
      * @type {string}
      * @memberof ViolationOwnerAssignmentConfigOwnerRef
      */
-    'type'?: ViolationOwnerAssignmentConfigOwnerRefTypeEnum;
+    'type'?: ViolationOwnerAssignmentConfigOwnerRefTypeV3;
     /**
      * Owner\'s ID.
      * @type {string}
@@ -21440,14 +21440,14 @@ export interface ViolationOwnerAssignmentConfigOwnerRef {
     'name'?: string;
 }
 
-export const ViolationOwnerAssignmentConfigOwnerRefTypeEnum = {
+export const ViolationOwnerAssignmentConfigOwnerRefTypeV3 = {
     Identity: 'IDENTITY',
     GovernanceGroup: 'GOVERNANCE_GROUP',
     Manager: 'MANAGER',
     Null: 'null'
 } as const;
 
-export type ViolationOwnerAssignmentConfigOwnerRefTypeEnum = typeof ViolationOwnerAssignmentConfigOwnerRefTypeEnum[keyof typeof ViolationOwnerAssignmentConfigOwnerRefTypeEnum];
+export type ViolationOwnerAssignmentConfigOwnerRefTypeV3 = typeof ViolationOwnerAssignmentConfigOwnerRefTypeV3[keyof typeof ViolationOwnerAssignmentConfigOwnerRefTypeV3];
 
 /**
  * An object containing a listing of the SOD violation reasons detected by this check.
@@ -21851,7 +21851,7 @@ export interface WorkflowAllOfCreator {
      * @type {string}
      * @memberof WorkflowAllOfCreator
      */
-    'type'?: WorkflowAllOfCreatorTypeEnum;
+    'type'?: WorkflowAllOfCreatorTypeV3;
     /**
      * Workflow creator\'s identity ID.
      * @type {string}
@@ -21866,11 +21866,11 @@ export interface WorkflowAllOfCreator {
     'name'?: string;
 }
 
-export const WorkflowAllOfCreatorTypeEnum = {
+export const WorkflowAllOfCreatorTypeV3 = {
     Identity: 'IDENTITY'
 } as const;
 
-export type WorkflowAllOfCreatorTypeEnum = typeof WorkflowAllOfCreatorTypeEnum[keyof typeof WorkflowAllOfCreatorTypeEnum];
+export type WorkflowAllOfCreatorTypeV3 = typeof WorkflowAllOfCreatorTypeV3[keyof typeof WorkflowAllOfCreatorTypeV3];
 
 /**
  * 
@@ -21926,7 +21926,7 @@ export interface WorkflowBodyOwner {
      * @type {string}
      * @memberof WorkflowBodyOwner
      */
-    'type'?: WorkflowBodyOwnerTypeEnum;
+    'type'?: WorkflowBodyOwnerTypeV3;
     /**
      * The unique ID of the object
      * @type {string}
@@ -21941,11 +21941,11 @@ export interface WorkflowBodyOwner {
     'name'?: string;
 }
 
-export const WorkflowBodyOwnerTypeEnum = {
+export const WorkflowBodyOwnerTypeV3 = {
     Identity: 'IDENTITY'
 } as const;
 
-export type WorkflowBodyOwnerTypeEnum = typeof WorkflowBodyOwnerTypeEnum[keyof typeof WorkflowBodyOwnerTypeEnum];
+export type WorkflowBodyOwnerTypeV3 = typeof WorkflowBodyOwnerTypeV3[keyof typeof WorkflowBodyOwnerTypeV3];
 
 /**
  * The map of steps that the workflow will execute.
@@ -22007,17 +22007,17 @@ export interface WorkflowExecution {
      * @type {string}
      * @memberof WorkflowExecution
      */
-    'status'?: WorkflowExecutionStatusEnum;
+    'status'?: WorkflowExecutionStatusV3;
 }
 
-export const WorkflowExecutionStatusEnum = {
+export const WorkflowExecutionStatusV3 = {
     Completed: 'Completed',
     Failed: 'Failed',
     Canceled: 'Canceled',
     Executing: 'Executing'
 } as const;
 
-export type WorkflowExecutionStatusEnum = typeof WorkflowExecutionStatusEnum[keyof typeof WorkflowExecutionStatusEnum];
+export type WorkflowExecutionStatusV3 = typeof WorkflowExecutionStatusV3[keyof typeof WorkflowExecutionStatusV3];
 
 /**
  * 
@@ -22030,7 +22030,7 @@ export interface WorkflowExecutionEvent {
      * @type {string}
      * @memberof WorkflowExecutionEvent
      */
-    'type'?: WorkflowExecutionEventTypeEnum;
+    'type'?: WorkflowExecutionEventTypeV3;
     /**
      * The date-time when the event occurred
      * @type {string}
@@ -22045,7 +22045,7 @@ export interface WorkflowExecutionEvent {
     'attributes'?: object;
 }
 
-export const WorkflowExecutionEventTypeEnum = {
+export const WorkflowExecutionEventTypeV3 = {
     WorkflowExecutionScheduled: 'WorkflowExecutionScheduled',
     WorkflowExecutionStarted: 'WorkflowExecutionStarted',
     WorkflowExecutionCompleted: 'WorkflowExecutionCompleted',
@@ -22064,7 +22064,7 @@ export const WorkflowExecutionEventTypeEnum = {
     ChildWorkflowExecutionFailed: 'ChildWorkflowExecutionFailed'
 } as const;
 
-export type WorkflowExecutionEventTypeEnum = typeof WorkflowExecutionEventTypeEnum[keyof typeof WorkflowExecutionEventTypeEnum];
+export type WorkflowExecutionEventTypeV3 = typeof WorkflowExecutionEventTypeV3[keyof typeof WorkflowExecutionEventTypeV3];
 
 /**
  * 
@@ -22192,10 +22192,10 @@ export interface WorkflowLibraryFormFields {
      * @type {string}
      * @memberof WorkflowLibraryFormFields
      */
-    'type'?: WorkflowLibraryFormFieldsTypeEnum | null;
+    'type'?: WorkflowLibraryFormFieldsTypeV3 | null;
 }
 
-export const WorkflowLibraryFormFieldsTypeEnum = {
+export const WorkflowLibraryFormFieldsTypeV3 = {
     Text: 'text',
     Textarea: 'textarea',
     Boolean: 'boolean',
@@ -22223,7 +22223,7 @@ export const WorkflowLibraryFormFieldsTypeEnum = {
     HtmlEditor: 'htmlEditor'
 } as const;
 
-export type WorkflowLibraryFormFieldsTypeEnum = typeof WorkflowLibraryFormFieldsTypeEnum[keyof typeof WorkflowLibraryFormFieldsTypeEnum];
+export type WorkflowLibraryFormFieldsTypeV3 = typeof WorkflowLibraryFormFieldsTypeV3[keyof typeof WorkflowLibraryFormFieldsTypeV3];
 
 /**
  * 
@@ -22303,7 +22303,7 @@ export interface WorkflowLibraryTrigger {
      * @type {string}
      * @memberof WorkflowLibraryTrigger
      */
-    'type'?: WorkflowLibraryTriggerTypeEnum;
+    'type'?: WorkflowLibraryTriggerTypeV3;
     /**
      * 
      * @type {boolean}
@@ -22360,13 +22360,13 @@ export interface WorkflowLibraryTrigger {
     'formFields'?: Array<WorkflowLibraryFormFields> | null;
 }
 
-export const WorkflowLibraryTriggerTypeEnum = {
+export const WorkflowLibraryTriggerTypeV3 = {
     Event: 'EVENT',
     Scheduled: 'SCHEDULED',
     External: 'EXTERNAL'
 } as const;
 
-export type WorkflowLibraryTriggerTypeEnum = typeof WorkflowLibraryTriggerTypeEnum[keyof typeof WorkflowLibraryTriggerTypeEnum];
+export type WorkflowLibraryTriggerTypeV3 = typeof WorkflowLibraryTriggerTypeV3[keyof typeof WorkflowLibraryTriggerTypeV3];
 
 /**
  * 
@@ -22379,7 +22379,7 @@ export interface WorkflowModifiedBy {
      * @type {string}
      * @memberof WorkflowModifiedBy
      */
-    'type'?: WorkflowModifiedByTypeEnum;
+    'type'?: WorkflowModifiedByTypeV3;
     /**
      * Identity ID
      * @type {string}
@@ -22394,11 +22394,11 @@ export interface WorkflowModifiedBy {
     'name'?: string;
 }
 
-export const WorkflowModifiedByTypeEnum = {
+export const WorkflowModifiedByTypeV3 = {
     Identity: 'IDENTITY'
 } as const;
 
-export type WorkflowModifiedByTypeEnum = typeof WorkflowModifiedByTypeEnum[keyof typeof WorkflowModifiedByTypeEnum];
+export type WorkflowModifiedByTypeV3 = typeof WorkflowModifiedByTypeV3[keyof typeof WorkflowModifiedByTypeV3];
 
 /**
  * 
@@ -22436,7 +22436,7 @@ export interface WorkflowTrigger {
      * @type {string}
      * @memberof WorkflowTrigger
      */
-    'type': WorkflowTriggerTypeEnum;
+    'type': WorkflowTriggerTypeV3;
     /**
      * 
      * @type {string}
@@ -22451,13 +22451,13 @@ export interface WorkflowTrigger {
     'attributes': WorkflowTriggerAttributes;
 }
 
-export const WorkflowTriggerTypeEnum = {
+export const WorkflowTriggerTypeV3 = {
     Event: 'EVENT',
     External: 'EXTERNAL',
     Scheduled: 'SCHEDULED'
 } as const;
 
-export type WorkflowTriggerTypeEnum = typeof WorkflowTriggerTypeEnum[keyof typeof WorkflowTriggerTypeEnum];
+export type WorkflowTriggerTypeV3 = typeof WorkflowTriggerTypeV3[keyof typeof WorkflowTriggerTypeV3];
 
 /**
  * @type WorkflowTriggerAttributes
@@ -26413,13 +26413,13 @@ export const ApplicationDiscoveryApiAxiosParamCreator = function (configuration?
          * @summary Retrieve discovered applications for tenant
          * @param {number} [limit] Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
          * @param {number} [offset] Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
-         * @param {GetDiscoveredApplicationsDetailEnum} [detail] Determines whether slim, or increased level of detail is provided for each discovered application in the returned list. SLIM is the default behavior.
+         * @param {GetDiscoveredApplicationsDetailV3} [detail] Determines whether slim, or increased level of detail is provided for each discovered application in the returned list. SLIM is the default behavior.
          * @param {string} [filter] Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)       Filtering is supported for the following fields and operators:  **name**: *eq, sw, co*  **description**: *eq, sw, co*  **createdAtStart**: *eq, le, ge*  **createdAtEnd**: *eq, le, ge*  **discoveredAtStart**: *eq, le, ge*  **discoveredAtEnd**: *eq, le, ge*  **discoverySource**: *eq, in* 
          * @param {string} [sorters] Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **name, description, discoveredAt, discoverySource**
          * @param {*} [axioOptions] Override http request option.
          * @throws {RequiredError}
          */
-        getDiscoveredApplications: async (limit?: number, offset?: number, detail?: GetDiscoveredApplicationsDetailEnum, filter?: string, sorters?: string, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        getDiscoveredApplications: async (limit?: number, offset?: number, detail?: GetDiscoveredApplicationsDetailV3, filter?: string, sorters?: string, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             const localVarPath = `/discovered-applications`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -26611,13 +26611,13 @@ export const ApplicationDiscoveryApiFp = function(configuration?: Configuration)
          * @summary Retrieve discovered applications for tenant
          * @param {number} [limit] Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
          * @param {number} [offset] Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
-         * @param {GetDiscoveredApplicationsDetailEnum} [detail] Determines whether slim, or increased level of detail is provided for each discovered application in the returned list. SLIM is the default behavior.
+         * @param {GetDiscoveredApplicationsDetailV3} [detail] Determines whether slim, or increased level of detail is provided for each discovered application in the returned list. SLIM is the default behavior.
          * @param {string} [filter] Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)       Filtering is supported for the following fields and operators:  **name**: *eq, sw, co*  **description**: *eq, sw, co*  **createdAtStart**: *eq, le, ge*  **createdAtEnd**: *eq, le, ge*  **discoveredAtStart**: *eq, le, ge*  **discoveredAtEnd**: *eq, le, ge*  **discoverySource**: *eq, in* 
          * @param {string} [sorters] Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **name, description, discoveredAt, discoverySource**
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async getDiscoveredApplications(limit?: number, offset?: number, detail?: GetDiscoveredApplicationsDetailEnum, filter?: string, sorters?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<GetDiscoveredApplications200ResponseInner>>> {
+        async getDiscoveredApplications(limit?: number, offset?: number, detail?: GetDiscoveredApplicationsDetailV3, filter?: string, sorters?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<GetDiscoveredApplications200ResponseInner>>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getDiscoveredApplications(limit, offset, detail, filter, sorters, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['ApplicationDiscoveryApi.getDiscoveredApplications']?.[localVarOperationServerIndex]?.url;
@@ -26736,7 +26736,7 @@ export interface ApplicationDiscoveryApiGetDiscoveredApplicationsRequest {
      * @type {'SLIM' | 'FULL'}
      * @memberof ApplicationDiscoveryApiGetDiscoveredApplications
      */
-    readonly detail?: GetDiscoveredApplicationsDetailEnum
+    readonly detail?: GetDiscoveredApplicationsDetailV3
 
     /**
      * Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)       Filtering is supported for the following fields and operators:  **name**: *eq, sw, co*  **description**: *eq, sw, co*  **createdAtStart**: *eq, le, ge*  **createdAtEnd**: *eq, le, ge*  **discoveredAtStart**: *eq, le, ge*  **discoveredAtEnd**: *eq, le, ge*  **discoverySource**: *eq, in* 
@@ -26824,11 +26824,11 @@ export class ApplicationDiscoveryApi extends BaseAPI {
 /**
  * @export
  */
-export const GetDiscoveredApplicationsDetailEnum = {
+export const GetDiscoveredApplicationsDetailV3 = {
     Slim: 'SLIM',
     Full: 'FULL'
 } as const;
-export type GetDiscoveredApplicationsDetailEnum = typeof GetDiscoveredApplicationsDetailEnum[keyof typeof GetDiscoveredApplicationsDetailEnum];
+export type GetDiscoveredApplicationsDetailV3 = typeof GetDiscoveredApplicationsDetailV3[keyof typeof GetDiscoveredApplicationsDetailV3];
 
 
 /**
@@ -28581,7 +28581,7 @@ export const CertificationCampaignsApiAxiosParamCreator = function (configuratio
         /**
          * Use this API to get a list of campaigns. This API can provide increased level of detail for each campaign for the correct provided query. 
          * @summary List Campaigns
-         * @param {GetActiveCampaignsDetailEnum} [detail] Determines whether slim, or increased level of detail is provided for each campaign in the returned list. Slim is the default behavior.
+         * @param {GetActiveCampaignsDetailV3} [detail] Determines whether slim, or increased level of detail is provided for each campaign in the returned list. Slim is the default behavior.
          * @param {number} [limit] Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
          * @param {number} [offset] Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
          * @param {boolean} [count] If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
@@ -28590,7 +28590,7 @@ export const CertificationCampaignsApiAxiosParamCreator = function (configuratio
          * @param {*} [axioOptions] Override http request option.
          * @throws {RequiredError}
          */
-        getActiveCampaigns: async (detail?: GetActiveCampaignsDetailEnum, limit?: number, offset?: number, count?: boolean, filters?: string, sorters?: string, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        getActiveCampaigns: async (detail?: GetActiveCampaignsDetailV3, limit?: number, offset?: number, count?: boolean, filters?: string, sorters?: string, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             const localVarPath = `/campaigns`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -28650,11 +28650,11 @@ export const CertificationCampaignsApiAxiosParamCreator = function (configuratio
          * Use this API to get information for an existing certification campaign by the campaign\'s ID. 
          * @summary Get Campaign
          * @param {string} id ID of the campaign to be retrieved.
-         * @param {GetCampaignDetailEnum} [detail] Determines whether slim, or increased level of detail is provided for each campaign in the returned list. Slim is the default behavior.
+         * @param {GetCampaignDetailV3} [detail] Determines whether slim, or increased level of detail is provided for each campaign in the returned list. Slim is the default behavior.
          * @param {*} [axioOptions] Override http request option.
          * @throws {RequiredError}
          */
-        getCampaign: async (id: string, detail?: GetCampaignDetailEnum, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        getCampaign: async (id: string, detail?: GetCampaignDetailV3, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'id' is not null or undefined
             assertParamExists('getCampaign', 'id', id)
             const localVarPath = `/campaigns/{id}`
@@ -29422,7 +29422,7 @@ export const CertificationCampaignsApiFp = function(configuration?: Configuratio
         /**
          * Use this API to get a list of campaigns. This API can provide increased level of detail for each campaign for the correct provided query. 
          * @summary List Campaigns
-         * @param {GetActiveCampaignsDetailEnum} [detail] Determines whether slim, or increased level of detail is provided for each campaign in the returned list. Slim is the default behavior.
+         * @param {GetActiveCampaignsDetailV3} [detail] Determines whether slim, or increased level of detail is provided for each campaign in the returned list. Slim is the default behavior.
          * @param {number} [limit] Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
          * @param {number} [offset] Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
          * @param {boolean} [count] If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
@@ -29431,7 +29431,7 @@ export const CertificationCampaignsApiFp = function(configuration?: Configuratio
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async getActiveCampaigns(detail?: GetActiveCampaignsDetailEnum, limit?: number, offset?: number, count?: boolean, filters?: string, sorters?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<GetActiveCampaigns200ResponseInner>>> {
+        async getActiveCampaigns(detail?: GetActiveCampaignsDetailV3, limit?: number, offset?: number, count?: boolean, filters?: string, sorters?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<GetActiveCampaigns200ResponseInner>>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getActiveCampaigns(detail, limit, offset, count, filters, sorters, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['CertificationCampaignsApi.getActiveCampaigns']?.[localVarOperationServerIndex]?.url;
@@ -29441,11 +29441,11 @@ export const CertificationCampaignsApiFp = function(configuration?: Configuratio
          * Use this API to get information for an existing certification campaign by the campaign\'s ID. 
          * @summary Get Campaign
          * @param {string} id ID of the campaign to be retrieved.
-         * @param {GetCampaignDetailEnum} [detail] Determines whether slim, or increased level of detail is provided for each campaign in the returned list. Slim is the default behavior.
+         * @param {GetCampaignDetailV3} [detail] Determines whether slim, or increased level of detail is provided for each campaign in the returned list. Slim is the default behavior.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async getCampaign(id: string, detail?: GetCampaignDetailEnum, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<GetActiveCampaigns200ResponseInner>> {
+        async getCampaign(id: string, detail?: GetCampaignDetailV3, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<GetActiveCampaigns200ResponseInner>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getCampaign(id, detail, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['CertificationCampaignsApi.getCampaign']?.[localVarOperationServerIndex]?.url;
@@ -29976,7 +29976,7 @@ export interface CertificationCampaignsApiGetActiveCampaignsRequest {
      * @type {'SLIM' | 'FULL'}
      * @memberof CertificationCampaignsApiGetActiveCampaigns
      */
-    readonly detail?: GetActiveCampaignsDetailEnum
+    readonly detail?: GetActiveCampaignsDetailV3
 
     /**
      * Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
@@ -30032,7 +30032,7 @@ export interface CertificationCampaignsApiGetCampaignRequest {
      * @type {'SLIM' | 'FULL'}
      * @memberof CertificationCampaignsApiGetCampaign
      */
-    readonly detail?: GetCampaignDetailEnum
+    readonly detail?: GetCampaignDetailV3
 }
 
 /**
@@ -30561,19 +30561,19 @@ export class CertificationCampaignsApi extends BaseAPI {
 /**
  * @export
  */
-export const GetActiveCampaignsDetailEnum = {
+export const GetActiveCampaignsDetailV3 = {
     Slim: 'SLIM',
     Full: 'FULL'
 } as const;
-export type GetActiveCampaignsDetailEnum = typeof GetActiveCampaignsDetailEnum[keyof typeof GetActiveCampaignsDetailEnum];
+export type GetActiveCampaignsDetailV3 = typeof GetActiveCampaignsDetailV3[keyof typeof GetActiveCampaignsDetailV3];
 /**
  * @export
  */
-export const GetCampaignDetailEnum = {
+export const GetCampaignDetailV3 = {
     Slim: 'SLIM',
     Full: 'FULL'
 } as const;
-export type GetCampaignDetailEnum = typeof GetCampaignDetailEnum[keyof typeof GetCampaignDetailEnum];
+export type GetCampaignDetailV3 = typeof GetCampaignDetailV3[keyof typeof GetCampaignDetailV3];
 
 
 /**
@@ -30586,7 +30586,7 @@ export const CertificationSummariesApiAxiosParamCreator = function (configuratio
          * This API returns a list of access summaries for the specified identity campaign certification and type. Reviewers for this certification can also call this API.
          * @summary Access Summaries
          * @param {string} id The identity campaign certification ID
-         * @param {GetIdentityAccessSummariesTypeEnum} type The type of access review item to retrieve summaries for
+         * @param {GetIdentityAccessSummariesTypeV3} type The type of access review item to retrieve summaries for
          * @param {number} [limit] Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
          * @param {number} [offset] Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
          * @param {boolean} [count] If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
@@ -30595,7 +30595,7 @@ export const CertificationSummariesApiAxiosParamCreator = function (configuratio
          * @param {*} [axioOptions] Override http request option.
          * @throws {RequiredError}
          */
-        getIdentityAccessSummaries: async (id: string, type: GetIdentityAccessSummariesTypeEnum, limit?: number, offset?: number, count?: boolean, filters?: string, sorters?: string, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        getIdentityAccessSummaries: async (id: string, type: GetIdentityAccessSummariesTypeV3, limit?: number, offset?: number, count?: boolean, filters?: string, sorters?: string, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'id' is not null or undefined
             assertParamExists('getIdentityAccessSummaries', 'id', id)
             // verify required parameter 'type' is not null or undefined
@@ -30827,7 +30827,7 @@ export const CertificationSummariesApiFp = function(configuration?: Configuratio
          * This API returns a list of access summaries for the specified identity campaign certification and type. Reviewers for this certification can also call this API.
          * @summary Access Summaries
          * @param {string} id The identity campaign certification ID
-         * @param {GetIdentityAccessSummariesTypeEnum} type The type of access review item to retrieve summaries for
+         * @param {GetIdentityAccessSummariesTypeV3} type The type of access review item to retrieve summaries for
          * @param {number} [limit] Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
          * @param {number} [offset] Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
          * @param {boolean} [count] If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
@@ -30836,7 +30836,7 @@ export const CertificationSummariesApiFp = function(configuration?: Configuratio
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async getIdentityAccessSummaries(id: string, type: GetIdentityAccessSummariesTypeEnum, limit?: number, offset?: number, count?: boolean, filters?: string, sorters?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<AccessSummary>>> {
+        async getIdentityAccessSummaries(id: string, type: GetIdentityAccessSummariesTypeV3, limit?: number, offset?: number, count?: boolean, filters?: string, sorters?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<AccessSummary>>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getIdentityAccessSummaries(id, type, limit, offset, count, filters, sorters, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['CertificationSummariesApi.getIdentityAccessSummaries']?.[localVarOperationServerIndex]?.url;
@@ -30959,7 +30959,7 @@ export interface CertificationSummariesApiGetIdentityAccessSummariesRequest {
      * @type {'ROLE' | 'ACCESS_PROFILE' | 'ENTITLEMENT'}
      * @memberof CertificationSummariesApiGetIdentityAccessSummaries
      */
-    readonly type: GetIdentityAccessSummariesTypeEnum
+    readonly type: GetIdentityAccessSummariesTypeV3
 
     /**
      * Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
@@ -31147,12 +31147,12 @@ export class CertificationSummariesApi extends BaseAPI {
 /**
  * @export
  */
-export const GetIdentityAccessSummariesTypeEnum = {
+export const GetIdentityAccessSummariesTypeV3 = {
     Role: 'ROLE',
     AccessProfile: 'ACCESS_PROFILE',
     Entitlement: 'ENTITLEMENT'
 } as const;
-export type GetIdentityAccessSummariesTypeEnum = typeof GetIdentityAccessSummariesTypeEnum[keyof typeof GetIdentityAccessSummariesTypeEnum];
+export type GetIdentityAccessSummariesTypeV3 = typeof GetIdentityAccessSummariesTypeV3[keyof typeof GetIdentityAccessSummariesTypeV3];
 
 
 /**
@@ -33620,11 +33620,11 @@ export const ConnectorsApiAxiosParamCreator = function (configuration?: Configur
          * Fetches a connector that using its script name.    
          * @summary Gets connector by script name
          * @param {string} scriptName The scriptName value of the connector. Scriptname is the unique id generated at connector creation.
-         * @param {GetConnectorLocaleEnum} [locale] The locale to apply to the config. If no viable locale is given, it will default to \&quot;en\&quot;
+         * @param {GetConnectorLocaleV3} [locale] The locale to apply to the config. If no viable locale is given, it will default to \&quot;en\&quot;
          * @param {*} [axioOptions] Override http request option.
          * @throws {RequiredError}
          */
-        getConnector: async (scriptName: string, locale?: GetConnectorLocaleEnum, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        getConnector: async (scriptName: string, locale?: GetConnectorLocaleV3, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'scriptName' is not null or undefined
             assertParamExists('getConnector', 'scriptName', scriptName)
             const localVarPath = `/connectors/{scriptName}`
@@ -33711,11 +33711,11 @@ export const ConnectorsApiAxiosParamCreator = function (configuration?: Configur
          * @param {number} [limit] Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
          * @param {number} [offset] Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
          * @param {boolean} [count] If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
-         * @param {GetConnectorListLocaleEnum} [locale] The locale to apply to the config. If no viable locale is given, it will default to \&quot;en\&quot;
+         * @param {GetConnectorListLocaleV3} [locale] The locale to apply to the config. If no viable locale is given, it will default to \&quot;en\&quot;
          * @param {*} [axioOptions] Override http request option.
          * @throws {RequiredError}
          */
-        getConnectorList: async (filters?: string, limit?: number, offset?: number, count?: boolean, locale?: GetConnectorListLocaleEnum, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        getConnectorList: async (filters?: string, limit?: number, offset?: number, count?: boolean, locale?: GetConnectorListLocaleV3, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             const localVarPath = `/connectors`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -33852,11 +33852,11 @@ export const ConnectorsApiAxiosParamCreator = function (configuration?: Configur
         /**
          * Fetches a connector\'s translations using its script name.    
          * @param {string} scriptName The scriptName value of the connector. Scriptname is the unique id generated at connector creation.
-         * @param {GetConnectorTranslationsLocaleEnum} locale The locale to apply to the config. If no viable locale is given, it will default to \&quot;en\&quot;
+         * @param {GetConnectorTranslationsLocaleV3} locale The locale to apply to the config. If no viable locale is given, it will default to \&quot;en\&quot;
          * @param {*} [axioOptions] Override http request option.
          * @throws {RequiredError}
          */
-        getConnectorTranslations: async (scriptName: string, locale: GetConnectorTranslationsLocaleEnum, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        getConnectorTranslations: async (scriptName: string, locale: GetConnectorTranslationsLocaleV3, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'scriptName' is not null or undefined
             assertParamExists('getConnectorTranslations', 'scriptName', scriptName)
             // verify required parameter 'locale' is not null or undefined
@@ -34053,11 +34053,11 @@ export const ConnectorsApiAxiosParamCreator = function (configuration?: Configur
         /**
          * Update a connector\'s translations using its script name.    
          * @param {string} scriptName The scriptName value of the connector. Scriptname is the unique id generated at connector creation.
-         * @param {PutTranslationsLocaleEnum} locale The locale to apply to the config. If no viable locale is given, it will default to \&quot;en\&quot;
+         * @param {PutTranslationsLocaleV3} locale The locale to apply to the config. If no viable locale is given, it will default to \&quot;en\&quot;
          * @param {*} [axioOptions] Override http request option.
          * @throws {RequiredError}
          */
-        putTranslations: async (scriptName: string, locale: PutTranslationsLocaleEnum, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        putTranslations: async (scriptName: string, locale: PutTranslationsLocaleV3, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'scriptName' is not null or undefined
             assertParamExists('putTranslations', 'scriptName', scriptName)
             // verify required parameter 'locale' is not null or undefined
@@ -34183,11 +34183,11 @@ export const ConnectorsApiFp = function(configuration?: Configuration) {
          * Fetches a connector that using its script name.    
          * @summary Gets connector by script name
          * @param {string} scriptName The scriptName value of the connector. Scriptname is the unique id generated at connector creation.
-         * @param {GetConnectorLocaleEnum} [locale] The locale to apply to the config. If no viable locale is given, it will default to \&quot;en\&quot;
+         * @param {GetConnectorLocaleV3} [locale] The locale to apply to the config. If no viable locale is given, it will default to \&quot;en\&quot;
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async getConnector(scriptName: string, locale?: GetConnectorLocaleEnum, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ConnectorDetail>> {
+        async getConnector(scriptName: string, locale?: GetConnectorLocaleV3, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ConnectorDetail>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getConnector(scriptName, locale, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['ConnectorsApi.getConnector']?.[localVarOperationServerIndex]?.url;
@@ -34212,11 +34212,11 @@ export const ConnectorsApiFp = function(configuration?: Configuration) {
          * @param {number} [limit] Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
          * @param {number} [offset] Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
          * @param {boolean} [count] If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
-         * @param {GetConnectorListLocaleEnum} [locale] The locale to apply to the config. If no viable locale is given, it will default to \&quot;en\&quot;
+         * @param {GetConnectorListLocaleV3} [locale] The locale to apply to the config. If no viable locale is given, it will default to \&quot;en\&quot;
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async getConnectorList(filters?: string, limit?: number, offset?: number, count?: boolean, locale?: GetConnectorListLocaleEnum, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<V3ConnectorDto>>> {
+        async getConnectorList(filters?: string, limit?: number, offset?: number, count?: boolean, locale?: GetConnectorListLocaleV3, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<V3ConnectorDto>>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getConnectorList(filters, limit, offset, count, locale, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['ConnectorsApi.getConnectorList']?.[localVarOperationServerIndex]?.url;
@@ -34249,11 +34249,11 @@ export const ConnectorsApiFp = function(configuration?: Configuration) {
         /**
          * Fetches a connector\'s translations using its script name.    
          * @param {string} scriptName The scriptName value of the connector. Scriptname is the unique id generated at connector creation.
-         * @param {GetConnectorTranslationsLocaleEnum} locale The locale to apply to the config. If no viable locale is given, it will default to \&quot;en\&quot;
+         * @param {GetConnectorTranslationsLocaleV3} locale The locale to apply to the config. If no viable locale is given, it will default to \&quot;en\&quot;
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async getConnectorTranslations(scriptName: string, locale: GetConnectorTranslationsLocaleEnum, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<string>> {
+        async getConnectorTranslations(scriptName: string, locale: GetConnectorTranslationsLocaleV3, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<string>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getConnectorTranslations(scriptName, locale, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['ConnectorsApi.getConnectorTranslations']?.[localVarOperationServerIndex]?.url;
@@ -34301,11 +34301,11 @@ export const ConnectorsApiFp = function(configuration?: Configuration) {
         /**
          * Update a connector\'s translations using its script name.    
          * @param {string} scriptName The scriptName value of the connector. Scriptname is the unique id generated at connector creation.
-         * @param {PutTranslationsLocaleEnum} locale The locale to apply to the config. If no viable locale is given, it will default to \&quot;en\&quot;
+         * @param {PutTranslationsLocaleV3} locale The locale to apply to the config. If no viable locale is given, it will default to \&quot;en\&quot;
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async putTranslations(scriptName: string, locale: PutTranslationsLocaleEnum, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<UpdateDetail>> {
+        async putTranslations(scriptName: string, locale: PutTranslationsLocaleV3, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<UpdateDetail>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.putTranslations(scriptName, locale, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['ConnectorsApi.putTranslations']?.[localVarOperationServerIndex]?.url;
@@ -34506,7 +34506,7 @@ export interface ConnectorsApiGetConnectorRequest {
      * @type {'de' | 'false' | 'fi' | 'sv' | 'ru' | 'pt' | 'ko' | 'zh-TW' | 'en' | 'it' | 'fr' | 'zh-CN' | 'hu' | 'es' | 'cs' | 'ja' | 'pl' | 'da' | 'nl'}
      * @memberof ConnectorsApiGetConnector
      */
-    readonly locale?: GetConnectorLocaleEnum
+    readonly locale?: GetConnectorLocaleV3
 }
 
 /**
@@ -34562,7 +34562,7 @@ export interface ConnectorsApiGetConnectorListRequest {
      * @type {'de' | 'false' | 'fi' | 'sv' | 'ru' | 'pt' | 'ko' | 'zh-TW' | 'en' | 'it' | 'fr' | 'zh-CN' | 'hu' | 'es' | 'cs' | 'ja' | 'pl' | 'da' | 'nl'}
      * @memberof ConnectorsApiGetConnectorList
      */
-    readonly locale?: GetConnectorListLocaleEnum
+    readonly locale?: GetConnectorListLocaleV3
 }
 
 /**
@@ -34611,7 +34611,7 @@ export interface ConnectorsApiGetConnectorTranslationsRequest {
      * @type {'de' | 'false' | 'fi' | 'sv' | 'ru' | 'pt' | 'ko' | 'zh-TW' | 'en' | 'it' | 'fr' | 'zh-CN' | 'hu' | 'es' | 'cs' | 'ja' | 'pl' | 'da' | 'nl'}
      * @memberof ConnectorsApiGetConnectorTranslations
      */
-    readonly locale: GetConnectorTranslationsLocaleEnum
+    readonly locale: GetConnectorTranslationsLocaleV3
 }
 
 /**
@@ -34695,7 +34695,7 @@ export interface ConnectorsApiPutTranslationsRequest {
      * @type {'de' | 'false' | 'fi' | 'sv' | 'ru' | 'pt' | 'ko' | 'zh-TW' | 'en' | 'it' | 'fr' | 'zh-CN' | 'hu' | 'es' | 'cs' | 'ja' | 'pl' | 'da' | 'nl'}
      * @memberof ConnectorsApiPutTranslations
      */
-    readonly locale: PutTranslationsLocaleEnum
+    readonly locale: PutTranslationsLocaleV3
 }
 
 /**
@@ -34878,7 +34878,7 @@ export class ConnectorsApi extends BaseAPI {
 /**
  * @export
  */
-export const GetConnectorLocaleEnum = {
+export const GetConnectorLocaleV3 = {
     De: 'de',
     False: 'false',
     Fi: 'fi',
@@ -34899,11 +34899,11 @@ export const GetConnectorLocaleEnum = {
     Da: 'da',
     Nl: 'nl'
 } as const;
-export type GetConnectorLocaleEnum = typeof GetConnectorLocaleEnum[keyof typeof GetConnectorLocaleEnum];
+export type GetConnectorLocaleV3 = typeof GetConnectorLocaleV3[keyof typeof GetConnectorLocaleV3];
 /**
  * @export
  */
-export const GetConnectorListLocaleEnum = {
+export const GetConnectorListLocaleV3 = {
     De: 'de',
     False: 'false',
     Fi: 'fi',
@@ -34924,11 +34924,11 @@ export const GetConnectorListLocaleEnum = {
     Da: 'da',
     Nl: 'nl'
 } as const;
-export type GetConnectorListLocaleEnum = typeof GetConnectorListLocaleEnum[keyof typeof GetConnectorListLocaleEnum];
+export type GetConnectorListLocaleV3 = typeof GetConnectorListLocaleV3[keyof typeof GetConnectorListLocaleV3];
 /**
  * @export
  */
-export const GetConnectorTranslationsLocaleEnum = {
+export const GetConnectorTranslationsLocaleV3 = {
     De: 'de',
     False: 'false',
     Fi: 'fi',
@@ -34949,11 +34949,11 @@ export const GetConnectorTranslationsLocaleEnum = {
     Da: 'da',
     Nl: 'nl'
 } as const;
-export type GetConnectorTranslationsLocaleEnum = typeof GetConnectorTranslationsLocaleEnum[keyof typeof GetConnectorTranslationsLocaleEnum];
+export type GetConnectorTranslationsLocaleV3 = typeof GetConnectorTranslationsLocaleV3[keyof typeof GetConnectorTranslationsLocaleV3];
 /**
  * @export
  */
-export const PutTranslationsLocaleEnum = {
+export const PutTranslationsLocaleV3 = {
     De: 'de',
     False: 'false',
     Fi: 'fi',
@@ -34974,7 +34974,7 @@ export const PutTranslationsLocaleEnum = {
     Da: 'da',
     Nl: 'nl'
 } as const;
-export type PutTranslationsLocaleEnum = typeof PutTranslationsLocaleEnum[keyof typeof PutTranslationsLocaleEnum];
+export type PutTranslationsLocaleV3 = typeof PutTranslationsLocaleV3[keyof typeof PutTranslationsLocaleV3];
 
 
 /**
@@ -47088,13 +47088,13 @@ export const ReportsDataExtractionApiAxiosParamCreator = function (configuration
          * Gets a report in file format.
          * @summary Get Report File
          * @param {string} taskResultId Unique identifier of the task result which handled report
-         * @param {GetReportFileFormatEnum} fileFormat Output format of the requested report file
+         * @param {GetReportFileFormatV3} fileFormat Output format of the requested report file
          * @param {string} [name] preferred Report file name, by default will be used report name from task result.
          * @param {boolean} [auditable] Enables auditing for current report download. Will create an audit event and sent it to the REPORT cloud-audit kafka topic.  Event will be created if there is any result present by requested taskResultId.
          * @param {*} [axioOptions] Override http request option.
          * @throws {RequiredError}
          */
-        getReport: async (taskResultId: string, fileFormat: GetReportFileFormatEnum, name?: string, auditable?: boolean, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        getReport: async (taskResultId: string, fileFormat: GetReportFileFormatV3, name?: string, auditable?: boolean, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'taskResultId' is not null or undefined
             assertParamExists('getReport', 'taskResultId', taskResultId)
             // verify required parameter 'fileFormat' is not null or undefined
@@ -47261,13 +47261,13 @@ export const ReportsDataExtractionApiFp = function(configuration?: Configuration
          * Gets a report in file format.
          * @summary Get Report File
          * @param {string} taskResultId Unique identifier of the task result which handled report
-         * @param {GetReportFileFormatEnum} fileFormat Output format of the requested report file
+         * @param {GetReportFileFormatV3} fileFormat Output format of the requested report file
          * @param {string} [name] preferred Report file name, by default will be used report name from task result.
          * @param {boolean} [auditable] Enables auditing for current report download. Will create an audit event and sent it to the REPORT cloud-audit kafka topic.  Event will be created if there is any result present by requested taskResultId.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async getReport(taskResultId: string, fileFormat: GetReportFileFormatEnum, name?: string, auditable?: boolean, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<File>> {
+        async getReport(taskResultId: string, fileFormat: GetReportFileFormatV3, name?: string, auditable?: boolean, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<File>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getReport(taskResultId, fileFormat, name, auditable, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['ReportsDataExtractionApi.getReport']?.[localVarOperationServerIndex]?.url;
@@ -47385,7 +47385,7 @@ export interface ReportsDataExtractionApiGetReportRequest {
      * @type {'csv' | 'pdf'}
      * @memberof ReportsDataExtractionApiGetReport
      */
-    readonly fileFormat: GetReportFileFormatEnum
+    readonly fileFormat: GetReportFileFormatV3
 
     /**
      * preferred Report file name, by default will be used report name from task result.
@@ -47496,11 +47496,11 @@ export class ReportsDataExtractionApi extends BaseAPI {
 /**
  * @export
  */
-export const GetReportFileFormatEnum = {
+export const GetReportFileFormatV3 = {
     Csv: 'csv',
     Pdf: 'pdf'
 } as const;
-export type GetReportFileFormatEnum = typeof GetReportFileFormatEnum[keyof typeof GetReportFileFormatEnum];
+export type GetReportFileFormatV3 = typeof GetReportFileFormatV3[keyof typeof GetReportFileFormatV3];
 
 
 /**
@@ -55249,11 +55249,11 @@ export const SourcesApiAxiosParamCreator = function (configuration?: Configurati
          * Use this API to list the schemas that exist on the specified source in Identity Security Cloud (ISC). 
          * @summary List Schemas on Source
          * @param {string} sourceId Source ID.
-         * @param {GetSourceSchemasIncludeTypesEnum} [includeTypes] If this is set to &#x60;group&#x60;, the API filters the account schema and only returns only group schemas. If this is set to &#x60;user&#x60;, the API returns the account schema for the source. 
+         * @param {GetSourceSchemasIncludeTypesV3} [includeTypes] If this is set to &#x60;group&#x60;, the API filters the account schema and only returns only group schemas. If this is set to &#x60;user&#x60;, the API returns the account schema for the source. 
          * @param {*} [axioOptions] Override http request option.
          * @throws {RequiredError}
          */
-        getSourceSchemas: async (sourceId: string, includeTypes?: GetSourceSchemasIncludeTypesEnum, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        getSourceSchemas: async (sourceId: string, includeTypes?: GetSourceSchemasIncludeTypesV3, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'sourceId' is not null or undefined
             assertParamExists('getSourceSchemas', 'sourceId', sourceId)
             const localVarPath = `/sources/{sourceId}/schemas`
@@ -56119,11 +56119,11 @@ export const SourcesApiFp = function(configuration?: Configuration) {
          * Use this API to list the schemas that exist on the specified source in Identity Security Cloud (ISC). 
          * @summary List Schemas on Source
          * @param {string} sourceId Source ID.
-         * @param {GetSourceSchemasIncludeTypesEnum} [includeTypes] If this is set to &#x60;group&#x60;, the API filters the account schema and only returns only group schemas. If this is set to &#x60;user&#x60;, the API returns the account schema for the source. 
+         * @param {GetSourceSchemasIncludeTypesV3} [includeTypes] If this is set to &#x60;group&#x60;, the API filters the account schema and only returns only group schemas. If this is set to &#x60;user&#x60;, the API returns the account schema for the source. 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async getSourceSchemas(sourceId: string, includeTypes?: GetSourceSchemasIncludeTypesEnum, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Schema>>> {
+        async getSourceSchemas(sourceId: string, includeTypes?: GetSourceSchemasIncludeTypesV3, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Schema>>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getSourceSchemas(sourceId, includeTypes, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['SourcesApi.getSourceSchemas']?.[localVarOperationServerIndex]?.url;
@@ -56834,7 +56834,7 @@ export interface SourcesApiGetSourceSchemasRequest {
      * @type {'group' | 'user'}
      * @memberof SourcesApiGetSourceSchemas
      */
-    readonly includeTypes?: GetSourceSchemasIncludeTypesEnum
+    readonly includeTypes?: GetSourceSchemasIncludeTypesV3
 }
 
 /**
@@ -57468,11 +57468,11 @@ export class SourcesApi extends BaseAPI {
 /**
  * @export
  */
-export const GetSourceSchemasIncludeTypesEnum = {
+export const GetSourceSchemasIncludeTypesV3 = {
     Group: 'group',
     User: 'user'
 } as const;
-export type GetSourceSchemasIncludeTypesEnum = typeof GetSourceSchemasIncludeTypesEnum[keyof typeof GetSourceSchemasIncludeTypesEnum];
+export type GetSourceSchemasIncludeTypesV3 = typeof GetSourceSchemasIncludeTypesV3[keyof typeof GetSourceSchemasIncludeTypesV3];
 
 
 /**
@@ -57484,12 +57484,12 @@ export const TaggedObjectsApiAxiosParamCreator = function (configuration?: Confi
         /**
          * This deletes a tagged object for the specified type.
          * @summary Delete Tagged Object
-         * @param {DeleteTaggedObjectTypeEnum} type The type of tagged object to delete.
+         * @param {DeleteTaggedObjectTypeV3} type The type of tagged object to delete.
          * @param {string} id The ID of the object reference to delete.
          * @param {*} [axioOptions] Override http request option.
          * @throws {RequiredError}
          */
-        deleteTaggedObject: async (type: DeleteTaggedObjectTypeEnum, id: string, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        deleteTaggedObject: async (type: DeleteTaggedObjectTypeV3, id: string, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'type' is not null or undefined
             assertParamExists('deleteTaggedObject', 'type', type)
             // verify required parameter 'id' is not null or undefined
@@ -57578,12 +57578,12 @@ export const TaggedObjectsApiAxiosParamCreator = function (configuration?: Confi
         /**
          * This gets a tagged object for the specified type.
          * @summary Get Tagged Object
-         * @param {GetTaggedObjectTypeEnum} type The type of tagged object to retrieve.
+         * @param {GetTaggedObjectTypeV3} type The type of tagged object to retrieve.
          * @param {string} id The ID of the object reference to retrieve.
          * @param {*} [axioOptions] Override http request option.
          * @throws {RequiredError}
          */
-        getTaggedObject: async (type: GetTaggedObjectTypeEnum, id: string, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        getTaggedObject: async (type: GetTaggedObjectTypeV3, id: string, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'type' is not null or undefined
             assertParamExists('getTaggedObject', 'type', type)
             // verify required parameter 'id' is not null or undefined
@@ -57682,7 +57682,7 @@ export const TaggedObjectsApiAxiosParamCreator = function (configuration?: Confi
         /**
          * This API returns a list of all tagged objects by type.  Any authenticated token may be used to call this API.
          * @summary List Tagged Objects by Type
-         * @param {ListTaggedObjectsByTypeTypeEnum} type The type of tagged object to retrieve.
+         * @param {ListTaggedObjectsByTypeTypeV3} type The type of tagged object to retrieve.
          * @param {number} [limit] Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
          * @param {number} [offset] Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
          * @param {boolean} [count] If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
@@ -57690,7 +57690,7 @@ export const TaggedObjectsApiAxiosParamCreator = function (configuration?: Confi
          * @param {*} [axioOptions] Override http request option.
          * @throws {RequiredError}
          */
-        listTaggedObjectsByType: async (type: ListTaggedObjectsByTypeTypeEnum, limit?: number, offset?: number, count?: boolean, filters?: string, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        listTaggedObjectsByType: async (type: ListTaggedObjectsByTypeTypeV3, limit?: number, offset?: number, count?: boolean, filters?: string, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'type' is not null or undefined
             assertParamExists('listTaggedObjectsByType', 'type', type)
             const localVarPath = `/tagged-objects/{type}`
@@ -57744,13 +57744,13 @@ export const TaggedObjectsApiAxiosParamCreator = function (configuration?: Confi
         /**
          * This updates a tagged object for the specified type.
          * @summary Update Tagged Object
-         * @param {PutTaggedObjectTypeEnum} type The type of tagged object to update.
+         * @param {PutTaggedObjectTypeV3} type The type of tagged object to update.
          * @param {string} id The ID of the object reference to update.
          * @param {TaggedObject} taggedObject 
          * @param {*} [axioOptions] Override http request option.
          * @throws {RequiredError}
          */
-        putTaggedObject: async (type: PutTaggedObjectTypeEnum, id: string, taggedObject: TaggedObject, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        putTaggedObject: async (type: PutTaggedObjectTypeV3, id: string, taggedObject: TaggedObject, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'type' is not null or undefined
             assertParamExists('putTaggedObject', 'type', type)
             // verify required parameter 'id' is not null or undefined
@@ -57898,12 +57898,12 @@ export const TaggedObjectsApiFp = function(configuration?: Configuration) {
         /**
          * This deletes a tagged object for the specified type.
          * @summary Delete Tagged Object
-         * @param {DeleteTaggedObjectTypeEnum} type The type of tagged object to delete.
+         * @param {DeleteTaggedObjectTypeV3} type The type of tagged object to delete.
          * @param {string} id The ID of the object reference to delete.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async deleteTaggedObject(type: DeleteTaggedObjectTypeEnum, id: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
+        async deleteTaggedObject(type: DeleteTaggedObjectTypeV3, id: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.deleteTaggedObject(type, id, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['TaggedObjectsApi.deleteTaggedObject']?.[localVarOperationServerIndex]?.url;
@@ -57925,12 +57925,12 @@ export const TaggedObjectsApiFp = function(configuration?: Configuration) {
         /**
          * This gets a tagged object for the specified type.
          * @summary Get Tagged Object
-         * @param {GetTaggedObjectTypeEnum} type The type of tagged object to retrieve.
+         * @param {GetTaggedObjectTypeV3} type The type of tagged object to retrieve.
          * @param {string} id The ID of the object reference to retrieve.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async getTaggedObject(type: GetTaggedObjectTypeEnum, id: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<TaggedObject>> {
+        async getTaggedObject(type: GetTaggedObjectTypeV3, id: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<TaggedObject>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getTaggedObject(type, id, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['TaggedObjectsApi.getTaggedObject']?.[localVarOperationServerIndex]?.url;
@@ -57955,7 +57955,7 @@ export const TaggedObjectsApiFp = function(configuration?: Configuration) {
         /**
          * This API returns a list of all tagged objects by type.  Any authenticated token may be used to call this API.
          * @summary List Tagged Objects by Type
-         * @param {ListTaggedObjectsByTypeTypeEnum} type The type of tagged object to retrieve.
+         * @param {ListTaggedObjectsByTypeTypeV3} type The type of tagged object to retrieve.
          * @param {number} [limit] Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
          * @param {number} [offset] Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
          * @param {boolean} [count] If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
@@ -57963,7 +57963,7 @@ export const TaggedObjectsApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async listTaggedObjectsByType(type: ListTaggedObjectsByTypeTypeEnum, limit?: number, offset?: number, count?: boolean, filters?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<TaggedObject>>> {
+        async listTaggedObjectsByType(type: ListTaggedObjectsByTypeTypeV3, limit?: number, offset?: number, count?: boolean, filters?: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<TaggedObject>>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.listTaggedObjectsByType(type, limit, offset, count, filters, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['TaggedObjectsApi.listTaggedObjectsByType']?.[localVarOperationServerIndex]?.url;
@@ -57972,13 +57972,13 @@ export const TaggedObjectsApiFp = function(configuration?: Configuration) {
         /**
          * This updates a tagged object for the specified type.
          * @summary Update Tagged Object
-         * @param {PutTaggedObjectTypeEnum} type The type of tagged object to update.
+         * @param {PutTaggedObjectTypeV3} type The type of tagged object to update.
          * @param {string} id The ID of the object reference to update.
          * @param {TaggedObject} taggedObject 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async putTaggedObject(type: PutTaggedObjectTypeEnum, id: string, taggedObject: TaggedObject, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<TaggedObject>> {
+        async putTaggedObject(type: PutTaggedObjectTypeV3, id: string, taggedObject: TaggedObject, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<TaggedObject>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.putTaggedObject(type, id, taggedObject, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['TaggedObjectsApi.putTaggedObject']?.[localVarOperationServerIndex]?.url;
@@ -58114,7 +58114,7 @@ export interface TaggedObjectsApiDeleteTaggedObjectRequest {
      * @type {'ACCESS_PROFILE' | 'APPLICATION' | 'CAMPAIGN' | 'ENTITLEMENT' | 'IDENTITY' | 'ROLE' | 'SOD_POLICY' | 'SOURCE'}
      * @memberof TaggedObjectsApiDeleteTaggedObject
      */
-    readonly type: DeleteTaggedObjectTypeEnum
+    readonly type: DeleteTaggedObjectTypeV3
 
     /**
      * The ID of the object reference to delete.
@@ -58149,7 +58149,7 @@ export interface TaggedObjectsApiGetTaggedObjectRequest {
      * @type {'ACCESS_PROFILE' | 'APPLICATION' | 'CAMPAIGN' | 'ENTITLEMENT' | 'IDENTITY' | 'ROLE' | 'SOD_POLICY' | 'SOURCE'}
      * @memberof TaggedObjectsApiGetTaggedObject
      */
-    readonly type: GetTaggedObjectTypeEnum
+    readonly type: GetTaggedObjectTypeV3
 
     /**
      * The ID of the object reference to retrieve.
@@ -58205,7 +58205,7 @@ export interface TaggedObjectsApiListTaggedObjectsByTypeRequest {
      * @type {'ACCESS_PROFILE' | 'APPLICATION' | 'CAMPAIGN' | 'ENTITLEMENT' | 'IDENTITY' | 'ROLE' | 'SOD_POLICY' | 'SOURCE'}
      * @memberof TaggedObjectsApiListTaggedObjectsByType
      */
-    readonly type: ListTaggedObjectsByTypeTypeEnum
+    readonly type: ListTaggedObjectsByTypeTypeV3
 
     /**
      * Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
@@ -58247,7 +58247,7 @@ export interface TaggedObjectsApiPutTaggedObjectRequest {
      * @type {'ACCESS_PROFILE' | 'APPLICATION' | 'CAMPAIGN' | 'ENTITLEMENT' | 'IDENTITY' | 'ROLE' | 'SOD_POLICY' | 'SOURCE'}
      * @memberof TaggedObjectsApiPutTaggedObject
      */
-    readonly type: PutTaggedObjectTypeEnum
+    readonly type: PutTaggedObjectTypeV3
 
     /**
      * The ID of the object reference to update.
@@ -58399,7 +58399,7 @@ export class TaggedObjectsApi extends BaseAPI {
 /**
  * @export
  */
-export const DeleteTaggedObjectTypeEnum = {
+export const DeleteTaggedObjectTypeV3 = {
     AccessProfile: 'ACCESS_PROFILE',
     Application: 'APPLICATION',
     Campaign: 'CAMPAIGN',
@@ -58409,11 +58409,11 @@ export const DeleteTaggedObjectTypeEnum = {
     SodPolicy: 'SOD_POLICY',
     Source: 'SOURCE'
 } as const;
-export type DeleteTaggedObjectTypeEnum = typeof DeleteTaggedObjectTypeEnum[keyof typeof DeleteTaggedObjectTypeEnum];
+export type DeleteTaggedObjectTypeV3 = typeof DeleteTaggedObjectTypeV3[keyof typeof DeleteTaggedObjectTypeV3];
 /**
  * @export
  */
-export const GetTaggedObjectTypeEnum = {
+export const GetTaggedObjectTypeV3 = {
     AccessProfile: 'ACCESS_PROFILE',
     Application: 'APPLICATION',
     Campaign: 'CAMPAIGN',
@@ -58423,11 +58423,11 @@ export const GetTaggedObjectTypeEnum = {
     SodPolicy: 'SOD_POLICY',
     Source: 'SOURCE'
 } as const;
-export type GetTaggedObjectTypeEnum = typeof GetTaggedObjectTypeEnum[keyof typeof GetTaggedObjectTypeEnum];
+export type GetTaggedObjectTypeV3 = typeof GetTaggedObjectTypeV3[keyof typeof GetTaggedObjectTypeV3];
 /**
  * @export
  */
-export const ListTaggedObjectsByTypeTypeEnum = {
+export const ListTaggedObjectsByTypeTypeV3 = {
     AccessProfile: 'ACCESS_PROFILE',
     Application: 'APPLICATION',
     Campaign: 'CAMPAIGN',
@@ -58437,11 +58437,11 @@ export const ListTaggedObjectsByTypeTypeEnum = {
     SodPolicy: 'SOD_POLICY',
     Source: 'SOURCE'
 } as const;
-export type ListTaggedObjectsByTypeTypeEnum = typeof ListTaggedObjectsByTypeTypeEnum[keyof typeof ListTaggedObjectsByTypeTypeEnum];
+export type ListTaggedObjectsByTypeTypeV3 = typeof ListTaggedObjectsByTypeTypeV3[keyof typeof ListTaggedObjectsByTypeTypeV3];
 /**
  * @export
  */
-export const PutTaggedObjectTypeEnum = {
+export const PutTaggedObjectTypeV3 = {
     AccessProfile: 'ACCESS_PROFILE',
     Application: 'APPLICATION',
     Campaign: 'CAMPAIGN',
@@ -58451,7 +58451,7 @@ export const PutTaggedObjectTypeEnum = {
     SodPolicy: 'SOD_POLICY',
     Source: 'SOURCE'
 } as const;
-export type PutTaggedObjectTypeEnum = typeof PutTaggedObjectTypeEnum[keyof typeof PutTaggedObjectTypeEnum];
+export type PutTaggedObjectTypeV3 = typeof PutTaggedObjectTypeV3[keyof typeof PutTaggedObjectTypeV3];
 
 
 /**
