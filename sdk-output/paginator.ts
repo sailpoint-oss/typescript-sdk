@@ -1,4 +1,4 @@
-import type { AxiosResponse } from "axios";
+import type { AxiosResponse, RawAxiosRequestConfig } from "axios";
 import {
   Search,
   SearchApi,
@@ -31,6 +31,7 @@ export interface PaginationParams {
    * @memberof AccountsApiListAccounts
    */
   filters?: string;
+  axiosOptions?: RawAxiosRequestConfig;
 }
 
 export interface ExtraParams {
