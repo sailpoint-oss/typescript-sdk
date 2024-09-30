@@ -28347,8 +28347,8 @@ export class AccountsApi extends BaseAPI {
 export const ApplicationDiscoveryApiAxiosParamCreator = function (configuration?: Configuration) {
     return {
         /**
-         * Fetches a list of applications that have been identified within the environment. This includes details such as application names, discovery dates, potential correlated saas_vendors and related suggested connectors. 
-         * @summary Retrieve discovered applications for tenant
+         * Get a list of applications that have been identified within the environment. This includes details such as application names, discovery dates, potential correlated saas_vendors and related suggested connectors. 
+         * @summary Get Discovered Applications for Tenant
          * @param {number} [limit] Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
          * @param {number} [offset] Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
          * @param {'SLIM' | 'FULL'} [detail] Determines whether slim, or increased level of detail is provided for each discovered application in the returned list. SLIM is the default behavior.
@@ -28410,8 +28410,8 @@ export const ApplicationDiscoveryApiAxiosParamCreator = function (configuration?
             };
         },
         /**
-         * This endpoint allows the user to download an example CSV file with two columns `application_name` and `description`.  The CSV file contains a single row with the values \'Example Application\' and \'Example Description\'.  The downloaded template is specifically designed for use with the `/manual-discover-applications` endpoint. 
-         * @summary CSV template download for discovery
+         * Download an example CSV file with two columns `application_name` and `description`.  The CSV file contains a single row with the values \'Example Application\' and \'Example Description\'.  The downloaded template is specifically designed for use with the `/manual-discover-applications` endpoint. 
+         * @summary Download CSV Template for Discovery
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
@@ -28448,46 +28448,8 @@ export const ApplicationDiscoveryApiAxiosParamCreator = function (configuration?
             };
         },
         /**
-         * Retrieves a list of mappings between SaaS vendors and IDN connectors, detailing the connections established for correlation. 
-         * @summary List vendor connector mappings
-         * @param {*} [axiosOptions] Override http request option.
-         * @throws {RequiredError}
-         */
-        getVendorConnectorMappings: async (axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
-            const localVarPath = `/vendor-connector-mappings`;
-            // use dummy base URL string because the URL constructor only accepts absolute URLs.
-            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
-            let baseOptions;
-            if (configuration) {
-                baseOptions = configuration.baseOptions;
-            }
-
-            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...axiosOptions};
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-
-            // authentication userAuth required
-            // oauth required
-            await setOAuthToObject(localVarHeaderParameter, "userAuth", [], configuration)
-
-            // authentication userAuth required
-            // oauth required
-            await setOAuthToObject(localVarHeaderParameter, "userAuth", [], configuration)
-
-
-    
-            setSearchParams(localVarUrlObj, localVarQueryParameter);
-            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
-            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
-
-            return {
-                url: toPathString(localVarUrlObj),
-                axiosOptions: localVarRequestOptions,
-            };
-        },
-        /**
-         * This endpoint supports uploading a CSV file with application data for manual correlation to specific IDN connectors.  If a suitable IDN connector is unavailable, the system will recommend generic connectors instead.
-         * @summary CSV Upload to discover applications
+         * Uploading a CSV file with application data for manual correlation to specific ISC connectors.  If a suitable ISC connector is unavailable, the system will recommend generic connectors instead.
+         * @summary Upload CSV to Discover Applications
          * @param {any} file The CSV file to upload containing &#x60;application_name&#x60; and &#x60;description&#x60; columns. Each row represents an application to be discovered.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
@@ -28545,8 +28507,8 @@ export const ApplicationDiscoveryApiFp = function(configuration?: Configuration)
     const localVarAxiosParamCreator = ApplicationDiscoveryApiAxiosParamCreator(configuration)
     return {
         /**
-         * Fetches a list of applications that have been identified within the environment. This includes details such as application names, discovery dates, potential correlated saas_vendors and related suggested connectors. 
-         * @summary Retrieve discovered applications for tenant
+         * Get a list of applications that have been identified within the environment. This includes details such as application names, discovery dates, potential correlated saas_vendors and related suggested connectors. 
+         * @summary Get Discovered Applications for Tenant
          * @param {number} [limit] Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
          * @param {number} [offset] Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
          * @param {'SLIM' | 'FULL'} [detail] Determines whether slim, or increased level of detail is provided for each discovered application in the returned list. SLIM is the default behavior.
@@ -28560,8 +28522,8 @@ export const ApplicationDiscoveryApiFp = function(configuration?: Configuration)
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
-         * This endpoint allows the user to download an example CSV file with two columns `application_name` and `description`.  The CSV file contains a single row with the values \'Example Application\' and \'Example Description\'.  The downloaded template is specifically designed for use with the `/manual-discover-applications` endpoint. 
-         * @summary CSV template download for discovery
+         * Download an example CSV file with two columns `application_name` and `description`.  The CSV file contains a single row with the values \'Example Application\' and \'Example Description\'.  The downloaded template is specifically designed for use with the `/manual-discover-applications` endpoint. 
+         * @summary Download CSV Template for Discovery
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
@@ -28570,18 +28532,8 @@ export const ApplicationDiscoveryApiFp = function(configuration?: Configuration)
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
-         * Retrieves a list of mappings between SaaS vendors and IDN connectors, detailing the connections established for correlation. 
-         * @summary List vendor connector mappings
-         * @param {*} [axiosOptions] Override http request option.
-         * @throws {RequiredError}
-         */
-        async getVendorConnectorMappings(axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<VendorConnectorMapping>>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.getVendorConnectorMappings(axiosOptions);
-            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
-        },
-        /**
-         * This endpoint supports uploading a CSV file with application data for manual correlation to specific IDN connectors.  If a suitable IDN connector is unavailable, the system will recommend generic connectors instead.
-         * @summary CSV Upload to discover applications
+         * Uploading a CSV file with application data for manual correlation to specific ISC connectors.  If a suitable ISC connector is unavailable, the system will recommend generic connectors instead.
+         * @summary Upload CSV to Discover Applications
          * @param {any} file The CSV file to upload containing &#x60;application_name&#x60; and &#x60;description&#x60; columns. Each row represents an application to be discovered.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
@@ -28601,8 +28553,8 @@ export const ApplicationDiscoveryApiFactory = function (configuration?: Configur
     const localVarFp = ApplicationDiscoveryApiFp(configuration)
     return {
         /**
-         * Fetches a list of applications that have been identified within the environment. This includes details such as application names, discovery dates, potential correlated saas_vendors and related suggested connectors. 
-         * @summary Retrieve discovered applications for tenant
+         * Get a list of applications that have been identified within the environment. This includes details such as application names, discovery dates, potential correlated saas_vendors and related suggested connectors. 
+         * @summary Get Discovered Applications for Tenant
          * @param {number} [limit] Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
          * @param {number} [offset] Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
          * @param {'SLIM' | 'FULL'} [detail] Determines whether slim, or increased level of detail is provided for each discovered application in the returned list. SLIM is the default behavior.
@@ -28615,8 +28567,8 @@ export const ApplicationDiscoveryApiFactory = function (configuration?: Configur
             return localVarFp.getDiscoveredApplications(limit, offset, detail, filter, sorters, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
-         * This endpoint allows the user to download an example CSV file with two columns `application_name` and `description`.  The CSV file contains a single row with the values \'Example Application\' and \'Example Description\'.  The downloaded template is specifically designed for use with the `/manual-discover-applications` endpoint. 
-         * @summary CSV template download for discovery
+         * Download an example CSV file with two columns `application_name` and `description`.  The CSV file contains a single row with the values \'Example Application\' and \'Example Description\'.  The downloaded template is specifically designed for use with the `/manual-discover-applications` endpoint. 
+         * @summary Download CSV Template for Discovery
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
@@ -28624,17 +28576,8 @@ export const ApplicationDiscoveryApiFactory = function (configuration?: Configur
             return localVarFp.getManualDiscoverApplicationsCsvTemplate(axiosOptions).then((request) => request(axios, basePath));
         },
         /**
-         * Retrieves a list of mappings between SaaS vendors and IDN connectors, detailing the connections established for correlation. 
-         * @summary List vendor connector mappings
-         * @param {*} [axiosOptions] Override http request option.
-         * @throws {RequiredError}
-         */
-        getVendorConnectorMappings(axiosOptions?: any): AxiosPromise<Array<VendorConnectorMapping>> {
-            return localVarFp.getVendorConnectorMappings(axiosOptions).then((request) => request(axios, basePath));
-        },
-        /**
-         * This endpoint supports uploading a CSV file with application data for manual correlation to specific IDN connectors.  If a suitable IDN connector is unavailable, the system will recommend generic connectors instead.
-         * @summary CSV Upload to discover applications
+         * Uploading a CSV file with application data for manual correlation to specific ISC connectors.  If a suitable ISC connector is unavailable, the system will recommend generic connectors instead.
+         * @summary Upload CSV to Discover Applications
          * @param {any} file The CSV file to upload containing &#x60;application_name&#x60; and &#x60;description&#x60; columns. Each row represents an application to be discovered.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
@@ -28709,8 +28652,8 @@ export interface ApplicationDiscoveryApiSendManualDiscoverApplicationsCsvTemplat
  */
 export class ApplicationDiscoveryApi extends BaseAPI {
     /**
-     * Fetches a list of applications that have been identified within the environment. This includes details such as application names, discovery dates, potential correlated saas_vendors and related suggested connectors. 
-     * @summary Retrieve discovered applications for tenant
+     * Get a list of applications that have been identified within the environment. This includes details such as application names, discovery dates, potential correlated saas_vendors and related suggested connectors. 
+     * @summary Get Discovered Applications for Tenant
      * @param {ApplicationDiscoveryApiGetDiscoveredApplicationsRequest} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
@@ -28721,8 +28664,8 @@ export class ApplicationDiscoveryApi extends BaseAPI {
     }
 
     /**
-     * This endpoint allows the user to download an example CSV file with two columns `application_name` and `description`.  The CSV file contains a single row with the values \'Example Application\' and \'Example Description\'.  The downloaded template is specifically designed for use with the `/manual-discover-applications` endpoint. 
-     * @summary CSV template download for discovery
+     * Download an example CSV file with two columns `application_name` and `description`.  The CSV file contains a single row with the values \'Example Application\' and \'Example Description\'.  The downloaded template is specifically designed for use with the `/manual-discover-applications` endpoint. 
+     * @summary Download CSV Template for Discovery
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
      * @memberof ApplicationDiscoveryApi
@@ -28732,19 +28675,8 @@ export class ApplicationDiscoveryApi extends BaseAPI {
     }
 
     /**
-     * Retrieves a list of mappings between SaaS vendors and IDN connectors, detailing the connections established for correlation. 
-     * @summary List vendor connector mappings
-     * @param {*} [axiosOptions] Override http request option.
-     * @throws {RequiredError}
-     * @memberof ApplicationDiscoveryApi
-     */
-    public getVendorConnectorMappings(axiosOptions?: AxiosRequestConfig) {
-        return ApplicationDiscoveryApiFp(this.configuration).getVendorConnectorMappings(axiosOptions).then((request) => request(this.axios, this.basePath));
-    }
-
-    /**
-     * This endpoint supports uploading a CSV file with application data for manual correlation to specific IDN connectors.  If a suitable IDN connector is unavailable, the system will recommend generic connectors instead.
-     * @summary CSV Upload to discover applications
+     * Uploading a CSV file with application data for manual correlation to specific ISC connectors.  If a suitable ISC connector is unavailable, the system will recommend generic connectors instead.
+     * @summary Upload CSV to Discover Applications
      * @param {ApplicationDiscoveryApiSendManualDiscoverApplicationsCsvTemplateRequest} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
@@ -53856,8 +53788,8 @@ export class SearchApi extends BaseAPI {
 export const SearchAttributeConfigurationApiAxiosParamCreator = function (configuration?: Configuration) {
     return {
         /**
-         * This API accepts an attribute name, an attribute display name and a list of name/value pair associates of application IDs to attribute names.  It will then validate the inputs and configure/create and attribute promotion configuration in the Link ObjectConfig.
-         * @summary Configure/create search attributes in IdentityNow.
+         * Create and configure extended search attributes. This API accepts an attribute name, an attribute display name and a list of name/value pair associates of application IDs to attribute names. It will then validate the inputs and configure/create and attribute promotion configuration in the Link ObjectConfig.
+         * @summary Create Extended Search Attributes
          * @param {SearchAttributeConfig} searchAttributeConfig 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
@@ -53900,8 +53832,8 @@ export const SearchAttributeConfigurationApiAxiosParamCreator = function (config
             };
         },
         /**
-         * This API accepts an extended search attribute name and deletes the corresponding extended attribute configuration.
-         * @summary Delete search attribute in IdentityNow.
+         * Delete an extended attribute configuration by name.
+         * @summary Delete Extended Search Attribute
          * @param {string} name Name of the extended search attribute configuration to delete.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
@@ -53942,8 +53874,8 @@ export const SearchAttributeConfigurationApiAxiosParamCreator = function (config
             };
         },
         /**
-         * This API retrieves a list of extended search attribute/application associates currently configured in IdentityNow.
-         * @summary Retrieve attribute list in IdentityNow.
+         * Get a list of attribute/application associates currently configured in Identity Security Cloud (ISC).
+         * @summary List Extended Search Attributes
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
@@ -53980,8 +53912,8 @@ export const SearchAttributeConfigurationApiAxiosParamCreator = function (config
             };
         },
         /**
-         * This API accepts an extended search attribute name and retrieves the corresponding extended attribute configuration.
-         * @summary Get specific attribute in IdentityNow.
+         * Get an extended attribute configuration by name.
+         * @summary Get Extended Search Attribute
          * @param {string} name Name of the extended search attribute configuration to retrieve.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
@@ -54022,9 +53954,9 @@ export const SearchAttributeConfigurationApiAxiosParamCreator = function (config
             };
         },
         /**
-         * This API updates an existing Search Attribute Configuration. The following fields are patchable: **name**, **displayName**, **applicationAttributes**
-         * @summary Update search attribute in IdentityNow.
-         * @param {string} name Name of the Search Attribute Configuration to patch.
+         * Update an existing search attribute configuration.  You can patch these fields: * name  * displayName * applicationAttributes
+         * @summary Update Extended Search Attribute
+         * @param {string} name Name of the search attribute configuration to patch.
          * @param {Array<JsonPatchOperation>} jsonPatchOperation 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
@@ -54080,8 +54012,8 @@ export const SearchAttributeConfigurationApiFp = function(configuration?: Config
     const localVarAxiosParamCreator = SearchAttributeConfigurationApiAxiosParamCreator(configuration)
     return {
         /**
-         * This API accepts an attribute name, an attribute display name and a list of name/value pair associates of application IDs to attribute names.  It will then validate the inputs and configure/create and attribute promotion configuration in the Link ObjectConfig.
-         * @summary Configure/create search attributes in IdentityNow.
+         * Create and configure extended search attributes. This API accepts an attribute name, an attribute display name and a list of name/value pair associates of application IDs to attribute names. It will then validate the inputs and configure/create and attribute promotion configuration in the Link ObjectConfig.
+         * @summary Create Extended Search Attributes
          * @param {SearchAttributeConfig} searchAttributeConfig 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
@@ -54091,8 +54023,8 @@ export const SearchAttributeConfigurationApiFp = function(configuration?: Config
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
-         * This API accepts an extended search attribute name and deletes the corresponding extended attribute configuration.
-         * @summary Delete search attribute in IdentityNow.
+         * Delete an extended attribute configuration by name.
+         * @summary Delete Extended Search Attribute
          * @param {string} name Name of the extended search attribute configuration to delete.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
@@ -54102,8 +54034,8 @@ export const SearchAttributeConfigurationApiFp = function(configuration?: Config
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
-         * This API retrieves a list of extended search attribute/application associates currently configured in IdentityNow.
-         * @summary Retrieve attribute list in IdentityNow.
+         * Get a list of attribute/application associates currently configured in Identity Security Cloud (ISC).
+         * @summary List Extended Search Attributes
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
@@ -54112,8 +54044,8 @@ export const SearchAttributeConfigurationApiFp = function(configuration?: Config
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
-         * This API accepts an extended search attribute name and retrieves the corresponding extended attribute configuration.
-         * @summary Get specific attribute in IdentityNow.
+         * Get an extended attribute configuration by name.
+         * @summary Get Extended Search Attribute
          * @param {string} name Name of the extended search attribute configuration to retrieve.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
@@ -54123,9 +54055,9 @@ export const SearchAttributeConfigurationApiFp = function(configuration?: Config
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
-         * This API updates an existing Search Attribute Configuration. The following fields are patchable: **name**, **displayName**, **applicationAttributes**
-         * @summary Update search attribute in IdentityNow.
-         * @param {string} name Name of the Search Attribute Configuration to patch.
+         * Update an existing search attribute configuration.  You can patch these fields: * name  * displayName * applicationAttributes
+         * @summary Update Extended Search Attribute
+         * @param {string} name Name of the search attribute configuration to patch.
          * @param {Array<JsonPatchOperation>} jsonPatchOperation 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
@@ -54145,8 +54077,8 @@ export const SearchAttributeConfigurationApiFactory = function (configuration?: 
     const localVarFp = SearchAttributeConfigurationApiFp(configuration)
     return {
         /**
-         * This API accepts an attribute name, an attribute display name and a list of name/value pair associates of application IDs to attribute names.  It will then validate the inputs and configure/create and attribute promotion configuration in the Link ObjectConfig.
-         * @summary Configure/create search attributes in IdentityNow.
+         * Create and configure extended search attributes. This API accepts an attribute name, an attribute display name and a list of name/value pair associates of application IDs to attribute names. It will then validate the inputs and configure/create and attribute promotion configuration in the Link ObjectConfig.
+         * @summary Create Extended Search Attributes
          * @param {SearchAttributeConfig} searchAttributeConfig 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
@@ -54155,8 +54087,8 @@ export const SearchAttributeConfigurationApiFactory = function (configuration?: 
             return localVarFp.createSearchAttributeConfig(searchAttributeConfig, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
-         * This API accepts an extended search attribute name and deletes the corresponding extended attribute configuration.
-         * @summary Delete search attribute in IdentityNow.
+         * Delete an extended attribute configuration by name.
+         * @summary Delete Extended Search Attribute
          * @param {string} name Name of the extended search attribute configuration to delete.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
@@ -54165,8 +54097,8 @@ export const SearchAttributeConfigurationApiFactory = function (configuration?: 
             return localVarFp.deleteSearchAttributeConfig(name, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
-         * This API retrieves a list of extended search attribute/application associates currently configured in IdentityNow.
-         * @summary Retrieve attribute list in IdentityNow.
+         * Get a list of attribute/application associates currently configured in Identity Security Cloud (ISC).
+         * @summary List Extended Search Attributes
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
@@ -54174,8 +54106,8 @@ export const SearchAttributeConfigurationApiFactory = function (configuration?: 
             return localVarFp.getSearchAttributeConfig(axiosOptions).then((request) => request(axios, basePath));
         },
         /**
-         * This API accepts an extended search attribute name and retrieves the corresponding extended attribute configuration.
-         * @summary Get specific attribute in IdentityNow.
+         * Get an extended attribute configuration by name.
+         * @summary Get Extended Search Attribute
          * @param {string} name Name of the extended search attribute configuration to retrieve.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
@@ -54184,9 +54116,9 @@ export const SearchAttributeConfigurationApiFactory = function (configuration?: 
             return localVarFp.getSingleSearchAttributeConfig(name, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
-         * This API updates an existing Search Attribute Configuration. The following fields are patchable: **name**, **displayName**, **applicationAttributes**
-         * @summary Update search attribute in IdentityNow.
-         * @param {string} name Name of the Search Attribute Configuration to patch.
+         * Update an existing search attribute configuration.  You can patch these fields: * name  * displayName * applicationAttributes
+         * @summary Update Extended Search Attribute
+         * @param {string} name Name of the search attribute configuration to patch.
          * @param {Array<JsonPatchOperation>} jsonPatchOperation 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
@@ -54246,7 +54178,7 @@ export interface SearchAttributeConfigurationApiGetSingleSearchAttributeConfigRe
  */
 export interface SearchAttributeConfigurationApiPatchSearchAttributeConfigRequest {
     /**
-     * Name of the Search Attribute Configuration to patch.
+     * Name of the search attribute configuration to patch.
      * @type {string}
      * @memberof SearchAttributeConfigurationApiPatchSearchAttributeConfig
      */
@@ -54268,8 +54200,8 @@ export interface SearchAttributeConfigurationApiPatchSearchAttributeConfigReques
  */
 export class SearchAttributeConfigurationApi extends BaseAPI {
     /**
-     * This API accepts an attribute name, an attribute display name and a list of name/value pair associates of application IDs to attribute names.  It will then validate the inputs and configure/create and attribute promotion configuration in the Link ObjectConfig.
-     * @summary Configure/create search attributes in IdentityNow.
+     * Create and configure extended search attributes. This API accepts an attribute name, an attribute display name and a list of name/value pair associates of application IDs to attribute names. It will then validate the inputs and configure/create and attribute promotion configuration in the Link ObjectConfig.
+     * @summary Create Extended Search Attributes
      * @param {SearchAttributeConfigurationApiCreateSearchAttributeConfigRequest} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
@@ -54280,8 +54212,8 @@ export class SearchAttributeConfigurationApi extends BaseAPI {
     }
 
     /**
-     * This API accepts an extended search attribute name and deletes the corresponding extended attribute configuration.
-     * @summary Delete search attribute in IdentityNow.
+     * Delete an extended attribute configuration by name.
+     * @summary Delete Extended Search Attribute
      * @param {SearchAttributeConfigurationApiDeleteSearchAttributeConfigRequest} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
@@ -54292,8 +54224,8 @@ export class SearchAttributeConfigurationApi extends BaseAPI {
     }
 
     /**
-     * This API retrieves a list of extended search attribute/application associates currently configured in IdentityNow.
-     * @summary Retrieve attribute list in IdentityNow.
+     * Get a list of attribute/application associates currently configured in Identity Security Cloud (ISC).
+     * @summary List Extended Search Attributes
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
      * @memberof SearchAttributeConfigurationApi
@@ -54303,8 +54235,8 @@ export class SearchAttributeConfigurationApi extends BaseAPI {
     }
 
     /**
-     * This API accepts an extended search attribute name and retrieves the corresponding extended attribute configuration.
-     * @summary Get specific attribute in IdentityNow.
+     * Get an extended attribute configuration by name.
+     * @summary Get Extended Search Attribute
      * @param {SearchAttributeConfigurationApiGetSingleSearchAttributeConfigRequest} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
@@ -54315,8 +54247,8 @@ export class SearchAttributeConfigurationApi extends BaseAPI {
     }
 
     /**
-     * This API updates an existing Search Attribute Configuration. The following fields are patchable: **name**, **displayName**, **applicationAttributes**
-     * @summary Update search attribute in IdentityNow.
+     * Update an existing search attribute configuration.  You can patch these fields: * name  * displayName * applicationAttributes
+     * @summary Update Extended Search Attribute
      * @param {SearchAttributeConfigurationApiPatchSearchAttributeConfigRequest} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
@@ -60403,8 +60335,8 @@ export class TransformsApi extends BaseAPI {
 export const VendorConnectorMappingsApiAxiosParamCreator = function (configuration?: Configuration) {
     return {
         /**
-         * Creates a new mapping between a SaaS vendor and an IDN connector to establish correlation paths. 
-         * @summary Create a vendor connector mapping
+         * Create a new mapping between a SaaS vendor and an ISC connector to establish correlation paths. 
+         * @summary Create Vendor Connector Mapping
          * @param {VendorConnectorMapping} vendorConnectorMapping 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
@@ -60447,8 +60379,8 @@ export const VendorConnectorMappingsApiAxiosParamCreator = function (configurati
             };
         },
         /**
-         * Soft deletes a mapping between a SaaS vendor and an IDN connector, removing the established correlation. 
-         * @summary Delete a vendor connector mapping
+         * Soft delete a mapping between a SaaS vendor and an ISC connector, removing the established correlation. 
+         * @summary Delete Vendor Connector Mapping
          * @param {VendorConnectorMapping} vendorConnectorMapping 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
@@ -60501,8 +60433,8 @@ export const VendorConnectorMappingsApiFp = function(configuration?: Configurati
     const localVarAxiosParamCreator = VendorConnectorMappingsApiAxiosParamCreator(configuration)
     return {
         /**
-         * Creates a new mapping between a SaaS vendor and an IDN connector to establish correlation paths. 
-         * @summary Create a vendor connector mapping
+         * Create a new mapping between a SaaS vendor and an ISC connector to establish correlation paths. 
+         * @summary Create Vendor Connector Mapping
          * @param {VendorConnectorMapping} vendorConnectorMapping 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
@@ -60512,8 +60444,8 @@ export const VendorConnectorMappingsApiFp = function(configuration?: Configurati
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
-         * Soft deletes a mapping between a SaaS vendor and an IDN connector, removing the established correlation. 
-         * @summary Delete a vendor connector mapping
+         * Soft delete a mapping between a SaaS vendor and an ISC connector, removing the established correlation. 
+         * @summary Delete Vendor Connector Mapping
          * @param {VendorConnectorMapping} vendorConnectorMapping 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
@@ -60533,8 +60465,8 @@ export const VendorConnectorMappingsApiFactory = function (configuration?: Confi
     const localVarFp = VendorConnectorMappingsApiFp(configuration)
     return {
         /**
-         * Creates a new mapping between a SaaS vendor and an IDN connector to establish correlation paths. 
-         * @summary Create a vendor connector mapping
+         * Create a new mapping between a SaaS vendor and an ISC connector to establish correlation paths. 
+         * @summary Create Vendor Connector Mapping
          * @param {VendorConnectorMapping} vendorConnectorMapping 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
@@ -60543,8 +60475,8 @@ export const VendorConnectorMappingsApiFactory = function (configuration?: Confi
             return localVarFp.createVendorConnectorMapping(vendorConnectorMapping, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
-         * Soft deletes a mapping between a SaaS vendor and an IDN connector, removing the established correlation. 
-         * @summary Delete a vendor connector mapping
+         * Soft delete a mapping between a SaaS vendor and an ISC connector, removing the established correlation. 
+         * @summary Delete Vendor Connector Mapping
          * @param {VendorConnectorMapping} vendorConnectorMapping 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
@@ -60591,8 +60523,8 @@ export interface VendorConnectorMappingsApiDeleteVendorConnectorMappingRequest {
  */
 export class VendorConnectorMappingsApi extends BaseAPI {
     /**
-     * Creates a new mapping between a SaaS vendor and an IDN connector to establish correlation paths. 
-     * @summary Create a vendor connector mapping
+     * Create a new mapping between a SaaS vendor and an ISC connector to establish correlation paths. 
+     * @summary Create Vendor Connector Mapping
      * @param {VendorConnectorMappingsApiCreateVendorConnectorMappingRequest} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
@@ -60603,8 +60535,8 @@ export class VendorConnectorMappingsApi extends BaseAPI {
     }
 
     /**
-     * Soft deletes a mapping between a SaaS vendor and an IDN connector, removing the established correlation. 
-     * @summary Delete a vendor connector mapping
+     * Soft delete a mapping between a SaaS vendor and an ISC connector, removing the established correlation. 
+     * @summary Delete Vendor Connector Mapping
      * @param {VendorConnectorMappingsApiDeleteVendorConnectorMappingRequest} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
@@ -60612,6 +60544,112 @@ export class VendorConnectorMappingsApi extends BaseAPI {
      */
     public deleteVendorConnectorMapping(requestParameters: VendorConnectorMappingsApiDeleteVendorConnectorMappingRequest, axiosOptions?: AxiosRequestConfig) {
         return VendorConnectorMappingsApiFp(this.configuration).deleteVendorConnectorMapping(requestParameters.vendorConnectorMapping, axiosOptions).then((request) => request(this.axios, this.basePath));
+    }
+}
+
+
+/**
+ * VendorConnectorMapppingApi - axios parameter creator
+ * @export
+ */
+export const VendorConnectorMapppingApiAxiosParamCreator = function (configuration?: Configuration) {
+    return {
+        /**
+         * Get a list of mappings between SaaS vendors and ISC connectors, detailing the connections established for correlation. 
+         * @summary List Vendor Connector Mappings
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        getVendorConnectorMappings: async (axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            const localVarPath = `/vendor-connector-mappings`;
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...axiosOptions};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication userAuth required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "userAuth", [], configuration)
+
+            // authentication userAuth required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "userAuth", [], configuration)
+
+
+    
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                axiosOptions: localVarRequestOptions,
+            };
+        },
+    }
+};
+
+/**
+ * VendorConnectorMapppingApi - functional programming interface
+ * @export
+ */
+export const VendorConnectorMapppingApiFp = function(configuration?: Configuration) {
+    const localVarAxiosParamCreator = VendorConnectorMapppingApiAxiosParamCreator(configuration)
+    return {
+        /**
+         * Get a list of mappings between SaaS vendors and ISC connectors, detailing the connections established for correlation. 
+         * @summary List Vendor Connector Mappings
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        async getVendorConnectorMappings(axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<VendorConnectorMapping>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getVendorConnectorMappings(axiosOptions);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+    }
+};
+
+/**
+ * VendorConnectorMapppingApi - factory interface
+ * @export
+ */
+export const VendorConnectorMapppingApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
+    const localVarFp = VendorConnectorMapppingApiFp(configuration)
+    return {
+        /**
+         * Get a list of mappings between SaaS vendors and ISC connectors, detailing the connections established for correlation. 
+         * @summary List Vendor Connector Mappings
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        getVendorConnectorMappings(axiosOptions?: any): AxiosPromise<Array<VendorConnectorMapping>> {
+            return localVarFp.getVendorConnectorMappings(axiosOptions).then((request) => request(axios, basePath));
+        },
+    };
+};
+
+/**
+ * VendorConnectorMapppingApi - object-oriented interface
+ * @export
+ * @class VendorConnectorMapppingApi
+ * @extends {BaseAPI}
+ */
+export class VendorConnectorMapppingApi extends BaseAPI {
+    /**
+     * Get a list of mappings between SaaS vendors and ISC connectors, detailing the connections established for correlation. 
+     * @summary List Vendor Connector Mappings
+     * @param {*} [axiosOptions] Override http request option.
+     * @throws {RequiredError}
+     * @memberof VendorConnectorMapppingApi
+     */
+    public getVendorConnectorMappings(axiosOptions?: AxiosRequestConfig) {
+        return VendorConnectorMapppingApiFp(this.configuration).getVendorConnectorMappings(axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 }
 
