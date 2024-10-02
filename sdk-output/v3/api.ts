@@ -5212,6 +5212,12 @@ export type CampaignCompleteOptionsAutoCompleteActionEnum = typeof CampaignCompl
  */
 export interface CampaignFilterDetails {
     /**
+     * The unique ID of the campaign filter
+     * @type {string}
+     * @memberof CampaignFilterDetails
+     */
+    'id': string;
+    /**
      * Campaign filter name.
      * @type {string}
      * @memberof CampaignFilterDetails
@@ -5241,6 +5247,12 @@ export interface CampaignFilterDetails {
      * @memberof CampaignFilterDetails
      */
     'criteriaList'?: Array<CampaignFilterDetailsCriteriaListInner>;
+    /**
+     * If true, the filter is created by the system. If false, the filter is created by a user.
+     * @type {boolean}
+     * @memberof CampaignFilterDetails
+     */
+    'isSystemFilter': boolean;
 }
 
 export const CampaignFilterDetailsModeEnum = {
@@ -29725,15 +29737,15 @@ export const CertificationCampaignFiltersApiAxiosParamCreator = function (config
         /**
          * Retrieves information for an existing campaign filter using the filter\'s ID.
          * @summary Get Campaign Filter by ID
-         * @param {string} filterId The ID of the campaign filter to be retrieved.
+         * @param {string} id The ID of the campaign filter to be retrieved.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        getCampaignFilterById: async (filterId: string, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
-            // verify required parameter 'filterId' is not null or undefined
-            assertParamExists('getCampaignFilterById', 'filterId', filterId)
+        getCampaignFilterById: async (id: string, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'id' is not null or undefined
+            assertParamExists('getCampaignFilterById', 'id', id)
             const localVarPath = `/campaign-filters/{id}`
-                .replace(`{${"filterId"}}`, encodeURIComponent(String(filterId)));
+                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -29900,12 +29912,12 @@ export const CertificationCampaignFiltersApiFp = function(configuration?: Config
         /**
          * Retrieves information for an existing campaign filter using the filter\'s ID.
          * @summary Get Campaign Filter by ID
-         * @param {string} filterId The ID of the campaign filter to be retrieved.
+         * @param {string} id The ID of the campaign filter to be retrieved.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async getCampaignFilterById(filterId: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<CampaignFilterDetails>>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.getCampaignFilterById(filterId, axiosOptions);
+        async getCampaignFilterById(id: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<CampaignFilterDetails>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getCampaignFilterById(id, axiosOptions);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
@@ -29966,12 +29978,12 @@ export const CertificationCampaignFiltersApiFactory = function (configuration?: 
         /**
          * Retrieves information for an existing campaign filter using the filter\'s ID.
          * @summary Get Campaign Filter by ID
-         * @param {string} filterId The ID of the campaign filter to be retrieved.
+         * @param {string} id The ID of the campaign filter to be retrieved.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        getCampaignFilterById(filterId: string, axiosOptions?: any): AxiosPromise<Array<CampaignFilterDetails>> {
-            return localVarFp.getCampaignFilterById(filterId, axiosOptions).then((request) => request(axios, basePath));
+        getCampaignFilterById(id: string, axiosOptions?: any): AxiosPromise<Array<CampaignFilterDetails>> {
+            return localVarFp.getCampaignFilterById(id, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * Use this API to list all campaign filters. You can reduce scope with standard V3 query parameters.
@@ -30038,7 +30050,7 @@ export interface CertificationCampaignFiltersApiGetCampaignFilterByIdRequest {
      * @type {string}
      * @memberof CertificationCampaignFiltersApiGetCampaignFilterById
      */
-    readonly filterId: string
+    readonly id: string
 }
 
 /**
@@ -30130,7 +30142,7 @@ export class CertificationCampaignFiltersApi extends BaseAPI {
      * @memberof CertificationCampaignFiltersApi
      */
     public getCampaignFilterById(requestParameters: CertificationCampaignFiltersApiGetCampaignFilterByIdRequest, axiosOptions?: AxiosRequestConfig) {
-        return CertificationCampaignFiltersApiFp(this.configuration).getCampaignFilterById(requestParameters.filterId, axiosOptions).then((request) => request(this.axios, this.basePath));
+        return CertificationCampaignFiltersApiFp(this.configuration).getCampaignFilterById(requestParameters.id, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
