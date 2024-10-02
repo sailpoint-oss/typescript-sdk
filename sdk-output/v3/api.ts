@@ -29916,7 +29916,7 @@ export const CertificationCampaignFiltersApiFp = function(configuration?: Config
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async getCampaignFilterById(id: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<CampaignFilterDetails>>> {
+        async getCampaignFilterById(id: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<CampaignFilterDetails>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getCampaignFilterById(id, axiosOptions);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -29982,7 +29982,7 @@ export const CertificationCampaignFiltersApiFactory = function (configuration?: 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        getCampaignFilterById(id: string, axiosOptions?: any): AxiosPromise<Array<CampaignFilterDetails>> {
+        getCampaignFilterById(id: string, axiosOptions?: any): AxiosPromise<CampaignFilterDetails> {
             return localVarFp.getCampaignFilterById(id, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
