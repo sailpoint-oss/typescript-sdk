@@ -9,7 +9,8 @@
     "rootDir": ".",
     "lib": [
       "es6",
-      "dom"
+      "dom",
+      "ES2018"
     ],
     "typeRoots": [
       "node_modules/@types"
