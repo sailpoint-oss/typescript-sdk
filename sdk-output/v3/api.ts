@@ -56233,11 +56233,11 @@ export const SourcesApiAxiosParamCreator = function (configuration?: Configurati
 
             // authentication userAuth required
             // oauth required
-            await setOAuthToObject(localVarHeaderParameter, "userAuth", ["sp:scopes:all"], configuration)
+            await setOAuthToObject(localVarHeaderParameter, "userAuth", [], configuration)
 
             // authentication userAuth required
             // oauth required
-            await setOAuthToObject(localVarHeaderParameter, "userAuth", ["sp:scopes:all"], configuration)
+            await setOAuthToObject(localVarHeaderParameter, "userAuth", [], configuration)
 
 
     
@@ -56703,14 +56703,15 @@ export const SourcesApiAxiosParamCreator = function (configuration?: Configurati
             };
         },
         /**
-         * Use this API to list the schemas that exist on the specified source in Identity Security Cloud (ISC). 
+         * Use this API to list the schemas that exist on the specified source in Identity Security Cloud (ISC).
          * @summary List Schemas on Source
          * @param {string} sourceId Source ID.
-         * @param {'group' | 'user'} [includeTypes] If this is set to &#x60;group&#x60;, the API filters the account schema and only returns only group schemas. If this is set to &#x60;user&#x60;, the API returns the account schema for the source. 
+         * @param {'group' | 'user'} [includeTypes] If set to \&#39;group\&#39;, then the account schema is filtered and only group schemas are returned. Only a value of \&#39;group\&#39; is recognized presently.  Note: The API will check whether include-types is group or not, if not, it will list schemas based on include-names, if include-names is not provided, it will list all schemas.
+         * @param {string} [includeNames] A comma-separated list of schema names to filter result.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        getSourceSchemas: async (sourceId: string, includeTypes?: 'group' | 'user', axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        getSourceSchemas: async (sourceId: string, includeTypes?: 'group' | 'user', includeNames?: string, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'sourceId' is not null or undefined
             assertParamExists('getSourceSchemas', 'sourceId', sourceId)
             const localVarPath = `/sources/{sourceId}/schemas`
@@ -56728,14 +56729,18 @@ export const SourcesApiAxiosParamCreator = function (configuration?: Configurati
 
             // authentication userAuth required
             // oauth required
-            await setOAuthToObject(localVarHeaderParameter, "userAuth", ["sp:scopes:all"], configuration)
+            await setOAuthToObject(localVarHeaderParameter, "userAuth", [], configuration)
 
             // authentication userAuth required
             // oauth required
-            await setOAuthToObject(localVarHeaderParameter, "userAuth", ["sp:scopes:all"], configuration)
+            await setOAuthToObject(localVarHeaderParameter, "userAuth", [], configuration)
 
             if (includeTypes !== undefined) {
                 localVarQueryParameter['include-types'] = includeTypes;
+            }
+
+            if (includeNames !== undefined) {
+                localVarQueryParameter['include-names'] = includeNames;
             }
 
 
@@ -57547,15 +57552,16 @@ export const SourcesApiFp = function(configuration?: Configuration) {
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
-         * Use this API to list the schemas that exist on the specified source in Identity Security Cloud (ISC). 
+         * Use this API to list the schemas that exist on the specified source in Identity Security Cloud (ISC).
          * @summary List Schemas on Source
          * @param {string} sourceId Source ID.
-         * @param {'group' | 'user'} [includeTypes] If this is set to &#x60;group&#x60;, the API filters the account schema and only returns only group schemas. If this is set to &#x60;user&#x60;, the API returns the account schema for the source. 
+         * @param {'group' | 'user'} [includeTypes] If set to \&#39;group\&#39;, then the account schema is filtered and only group schemas are returned. Only a value of \&#39;group\&#39; is recognized presently.  Note: The API will check whether include-types is group or not, if not, it will list schemas based on include-names, if include-names is not provided, it will list all schemas.
+         * @param {string} [includeNames] A comma-separated list of schema names to filter result.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async getSourceSchemas(sourceId: string, includeTypes?: 'group' | 'user', axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Schema>>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.getSourceSchemas(sourceId, includeTypes, axiosOptions);
+        async getSourceSchemas(sourceId: string, includeTypes?: 'group' | 'user', includeNames?: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Schema>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getSourceSchemas(sourceId, includeTypes, includeNames, axiosOptions);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
@@ -57859,15 +57865,16 @@ export const SourcesApiFactory = function (configuration?: Configuration, basePa
             return localVarFp.getSourceSchema(sourceId, schemaId, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
-         * Use this API to list the schemas that exist on the specified source in Identity Security Cloud (ISC). 
+         * Use this API to list the schemas that exist on the specified source in Identity Security Cloud (ISC).
          * @summary List Schemas on Source
          * @param {string} sourceId Source ID.
-         * @param {'group' | 'user'} [includeTypes] If this is set to &#x60;group&#x60;, the API filters the account schema and only returns only group schemas. If this is set to &#x60;user&#x60;, the API returns the account schema for the source. 
+         * @param {'group' | 'user'} [includeTypes] If set to \&#39;group\&#39;, then the account schema is filtered and only group schemas are returned. Only a value of \&#39;group\&#39; is recognized presently.  Note: The API will check whether include-types is group or not, if not, it will list schemas based on include-names, if include-names is not provided, it will list all schemas.
+         * @param {string} [includeNames] A comma-separated list of schema names to filter result.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        getSourceSchemas(sourceId: string, includeTypes?: 'group' | 'user', axiosOptions?: any): AxiosPromise<Array<Schema>> {
-            return localVarFp.getSourceSchemas(sourceId, includeTypes, axiosOptions).then((request) => request(axios, basePath));
+        getSourceSchemas(sourceId: string, includeTypes?: 'group' | 'user', includeNames?: string, axiosOptions?: any): AxiosPromise<Array<Schema>> {
+            return localVarFp.getSourceSchemas(sourceId, includeTypes, includeNames, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * This API uploads a source schema template file to configure a source\'s account attributes.  To retrieve the file to modify and upload, log into Identity Now.   Click **Admin** -> **Connections** -> **Sources** -> **`{SourceName}`** -> **Import Data** -> **Account Schema** -> **Options** -> **Download Schema**  >**NOTE: This API is designated only for Delimited File sources.**
@@ -58264,11 +58271,18 @@ export interface SourcesApiGetSourceSchemasRequest {
     readonly sourceId: string
 
     /**
-     * If this is set to &#x60;group&#x60;, the API filters the account schema and only returns only group schemas. If this is set to &#x60;user&#x60;, the API returns the account schema for the source. 
+     * If set to \&#39;group\&#39;, then the account schema is filtered and only group schemas are returned. Only a value of \&#39;group\&#39; is recognized presently.  Note: The API will check whether include-types is group or not, if not, it will list schemas based on include-names, if include-names is not provided, it will list all schemas.
      * @type {'group' | 'user'}
      * @memberof SourcesApiGetSourceSchemas
      */
     readonly includeTypes?: 'group' | 'user'
+
+    /**
+     * A comma-separated list of schema names to filter result.
+     * @type {string}
+     * @memberof SourcesApiGetSourceSchemas
+     */
+    readonly includeNames?: string
 }
 
 /**
@@ -58743,7 +58757,7 @@ export class SourcesApi extends BaseAPI {
     }
 
     /**
-     * Use this API to list the schemas that exist on the specified source in Identity Security Cloud (ISC). 
+     * Use this API to list the schemas that exist on the specified source in Identity Security Cloud (ISC).
      * @summary List Schemas on Source
      * @param {SourcesApiGetSourceSchemasRequest} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
@@ -58751,7 +58765,7 @@ export class SourcesApi extends BaseAPI {
      * @memberof SourcesApi
      */
     public getSourceSchemas(requestParameters: SourcesApiGetSourceSchemasRequest, axiosOptions?: AxiosRequestConfig) {
-        return SourcesApiFp(this.configuration).getSourceSchemas(requestParameters.sourceId, requestParameters.includeTypes, axiosOptions).then((request) => request(this.axios, this.basePath));
+        return SourcesApiFp(this.configuration).getSourceSchemas(requestParameters.sourceId, requestParameters.includeTypes, requestParameters.includeNames, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
