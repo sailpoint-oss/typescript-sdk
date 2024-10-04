@@ -7487,6 +7487,38 @@ export type DependantConnectionsMissingDtoDependencyTypeEnum = typeof DependantC
 /**
  * 
  * @export
+ * @interface DimensionRef
+ */
+export interface DimensionRef {
+    /**
+     * The type of the object to which this reference applies
+     * @type {string}
+     * @memberof DimensionRef
+     */
+    'type'?: DimensionRefTypeEnum;
+    /**
+     * ID of the object to which this reference applies
+     * @type {string}
+     * @memberof DimensionRef
+     */
+    'id'?: string;
+    /**
+     * Human-readable display name of the object to which this reference applies
+     * @type {string}
+     * @memberof DimensionRef
+     */
+    'name'?: string;
+}
+
+export const DimensionRefTypeEnum = {
+    Dimension: 'DIMENSION'
+} as const;
+
+export type DimensionRefTypeEnum = typeof DimensionRefTypeEnum[keyof typeof DimensionRefTypeEnum];
+
+/**
+ * 
+ * @export
  * @interface DisplayReference
  */
 export interface DisplayReference {
@@ -17979,11 +18011,11 @@ export interface Role {
      */
     'dimensional'?: boolean | null;
     /**
-     * TBD
-     * @type {string}
+     * List of references to dimensions to which this Role is assigned. This field is only relevant if the Role is dimensional.
+     * @type {Array<DimensionRef>}
      * @memberof Role
      */
-    'dimensionRefs'?: string | null;
+    'dimensionRefs'?: Array<DimensionRef> | null;
     /**
      * 
      * @type {Array<AttributeDTOList>}
