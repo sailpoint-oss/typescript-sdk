@@ -14516,7 +14516,7 @@ export interface ObjectMappingBulkCreateRequest {
      * @type {Array<ObjectMappingRequest>}
      * @memberof ObjectMappingBulkCreateRequest
      */
-    'newObjectMappings': Array<ObjectMappingRequest>;
+    'newObjectsMappings': Array<ObjectMappingRequest>;
 }
 /**
  * 
