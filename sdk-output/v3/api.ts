@@ -2631,19 +2631,19 @@ export interface AccountsAsyncResult {
     'id': string;
 }
 /**
- * Arguments for Account Export (ACCOUNTS)
+ * Arguments for Account Export report (ACCOUNTS)
  * @export
  * @interface AccountsExportReportArguments
  */
 export interface AccountsExportReportArguments {
     /**
-     * Id of the authoritative source to export related accounts e.g. identities
+     * Source ID.
      * @type {string}
      * @memberof AccountsExportReportArguments
      */
     'application': string;
     /**
-     * Name of the authoritative source for accounts export
+     * Source name.
      * @type {string}
      * @memberof AccountsExportReportArguments
      */
@@ -9652,13 +9652,13 @@ export interface ISO3166 {
     'input'?: { [key: string]: any; };
 }
 /**
- * Arguments for Identities details report (IDENTITIES_DETAILS)
+ * Arguments for Identities Details report (IDENTITIES_DETAILS)
  * @export
  * @interface IdentitiesDetailsReportArguments
  */
 export interface IdentitiesDetailsReportArguments {
     /**
-     * Boolean FLAG to specify if only correlated identities should be used in report processing
+     * Flag to specify if only correlated identities are included in report.
      * @type {boolean}
      * @memberof IdentitiesDetailsReportArguments
      */
@@ -9671,7 +9671,7 @@ export interface IdentitiesDetailsReportArguments {
  */
 export interface IdentitiesReportArguments {
     /**
-     * Boolean FLAG to specify if only correlated identities should be used in report processing
+     * Flag to specify if only correlated identities are included in report.
      * @type {boolean}
      * @memberof IdentitiesReportArguments
      */
@@ -10867,7 +10867,7 @@ export type IdentityProfileExportedObjectSelfTypeEnum = typeof IdentityProfileEx
  */
 export interface IdentityProfileIdentityErrorReportArguments {
     /**
-     * Source Id to be checked on errors of identity profiles aggregation
+     * Source ID.
      * @type {string}
      * @memberof IdentityProfileIdentityErrorReportArguments
      */
@@ -14778,25 +14778,25 @@ export interface OriginalRequest {
     'source'?: AccountSource;
 }
 /**
- * Arguments for Orphan Identities report (ORPHAN_IDENTITIES) and Uncorrelated Accounts report (UNCORRELATED_ACCOUNTS)
+ * Arguments for Orphan Identities report (ORPHAN_IDENTITIES)
  * @export
- * @interface OrphanUncorrelatedReportArguments
+ * @interface OrphanIdentitiesReportArguments
  */
-export interface OrphanUncorrelatedReportArguments {
+export interface OrphanIdentitiesReportArguments {
     /**
-     * Output report file formats. This are formats for calling get endpoint as a query parameter \'fileFormat\'.  In case report won\'t have this argument there will be [\'CSV\', \'PDF\'] as default.
+     * Output report file formats. These are formats for calling GET endpoint as query parameter \'fileFormat\'.  In case report won\'t have this argument there will be [\'CSV\', \'PDF\'] as default.
      * @type {Array<string>}
-     * @memberof OrphanUncorrelatedReportArguments
+     * @memberof OrphanIdentitiesReportArguments
      */
-    'selectedFormats'?: Array<OrphanUncorrelatedReportArgumentsSelectedFormatsEnum>;
+    'selectedFormats'?: Array<OrphanIdentitiesReportArgumentsSelectedFormatsEnum>;
 }
 
-export const OrphanUncorrelatedReportArgumentsSelectedFormatsEnum = {
+export const OrphanIdentitiesReportArgumentsSelectedFormatsEnum = {
     Csv: 'CSV',
     Pdf: 'PDF'
 } as const;
 
-export type OrphanUncorrelatedReportArgumentsSelectedFormatsEnum = typeof OrphanUncorrelatedReportArgumentsSelectedFormatsEnum[keyof typeof OrphanUncorrelatedReportArgumentsSelectedFormatsEnum];
+export type OrphanIdentitiesReportArgumentsSelectedFormatsEnum = typeof OrphanIdentitiesReportArgumentsSelectedFormatsEnum[keyof typeof OrphanIdentitiesReportArgumentsSelectedFormatsEnum];
 
 /**
  * Owner\'s identity.
@@ -16674,7 +16674,7 @@ export type ReportDetailsReportTypeEnum = typeof ReportDetailsReportTypeEnum[key
  * The string-object map(dictionary) with the arguments needed for report processing.
  * @export
  */
-export type ReportDetailsArguments = AccountsExportReportArguments | IdentitiesDetailsReportArguments | IdentitiesReportArguments | IdentityProfileIdentityErrorReportArguments | OrphanUncorrelatedReportArguments | SearchExportReportArguments;
+export type ReportDetailsArguments = AccountsExportReportArguments | IdentitiesDetailsReportArguments | IdentitiesReportArguments | IdentityProfileIdentityErrorReportArguments | OrphanIdentitiesReportArguments | SearchExportReportArguments | UncorrelatedAccountsReportArguments;
 
 /**
  * 
@@ -19629,7 +19629,7 @@ export interface SearchAttributeConfig {
 export type SearchDocument = AccessProfileDocument | AccountActivityDocument | EntitlementDocument | EventDocument | IdentityDocument | RoleDocument;
 
 /**
- * Arguments for Search Export report (SEARCH_EXPORT)
+ * Arguments for Search Export report (SEARCH_EXPORT)  The report file generated will be a zip file containing csv files of the search results. 
  * @export
  * @interface SearchExportReportArguments
  */
@@ -19641,23 +19641,17 @@ export interface SearchExportReportArguments {
      */
     'indices'?: Array<Index>;
     /**
-     * The filters to be applied for each filtered field name.
-     * @type {{ [key: string]: Filter; }}
+     * The query using the Elasticsearch [Query String Query](https://www.elastic.co/guide/en/elasticsearch/reference/5.2/query-dsl-query-string-query.html#query-string) syntax from the Query DSL extended by SailPoint to support Nested queries.
+     * @type {string}
      * @memberof SearchExportReportArguments
      */
-    'filters'?: { [key: string]: Filter; };
+    'query': string;
     /**
-     * 
-     * @type {Query}
+     * Comma separated string consisting of technical attribute names of fields to include in report.  Use `access.spread`, `apps.spread`, `accounts.spread` to include respective identity access details.  Use `accessProfiles.spread` to unclude access profile details.  Use `entitlements.spread` to include entitlement details. 
+     * @type {string}
      * @memberof SearchExportReportArguments
      */
-    'query': Query;
-    /**
-     * Indicates whether nested objects from returned search results should be included.
-     * @type {boolean}
-     * @memberof SearchExportReportArguments
-     */
-    'includeNested'?: boolean;
+    'columns'?: string;
     /**
      * The fields to be used to sort the search results. Use + or - to specify the sort direction.
      * @type {Array<string>}
@@ -22859,6 +22853,27 @@ export interface UUIDGenerator {
      */
     'requiresPeriodicRefresh'?: boolean;
 }
+/**
+ * Arguments for Uncorrelated Accounts report (UNCORRELATED_ACCOUNTS)
+ * @export
+ * @interface UncorrelatedAccountsReportArguments
+ */
+export interface UncorrelatedAccountsReportArguments {
+    /**
+     * Output report file formats. These are formats for calling GET endpoint as query parameter \'fileFormat\'.  In case report won\'t have this argument there will be [\'CSV\', \'PDF\'] as default.
+     * @type {Array<string>}
+     * @memberof UncorrelatedAccountsReportArguments
+     */
+    'selectedFormats'?: Array<UncorrelatedAccountsReportArgumentsSelectedFormatsEnum>;
+}
+
+export const UncorrelatedAccountsReportArgumentsSelectedFormatsEnum = {
+    Csv: 'CSV',
+    Pdf: 'PDF'
+} as const;
+
+export type UncorrelatedAccountsReportArgumentsSelectedFormatsEnum = typeof UncorrelatedAccountsReportArgumentsSelectedFormatsEnum[keyof typeof UncorrelatedAccountsReportArgumentsSelectedFormatsEnum];
+
 /**
  * 
  * @export
@@ -48741,7 +48756,7 @@ export const ReportsDataExtractionApiAxiosParamCreator = function (configuration
             };
         },
         /**
-         * Runs a report according to input report details. If non-concurrent task is already running then it returns, otherwise new task creates and returns.
+         * Use this API to run a report according to report input details. If non-concurrent task is already running then it returns, otherwise new task creates and returns.
          * @summary Run Report
          * @param {ReportDetails} reportDetails 
          * @param {*} [axiosOptions] Override http request option.
@@ -48761,6 +48776,10 @@ export const ReportsDataExtractionApiAxiosParamCreator = function (configuration
             const localVarRequestOptions = { method: 'POST', ...baseOptions, ...axiosOptions};
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
+
+            // authentication applicationAuth required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "applicationAuth", [], configuration)
 
             // authentication userAuth required
             // oauth required
@@ -48832,7 +48851,7 @@ export const ReportsDataExtractionApiFp = function(configuration?: Configuration
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
-         * Runs a report according to input report details. If non-concurrent task is already running then it returns, otherwise new task creates and returns.
+         * Use this API to run a report according to report input details. If non-concurrent task is already running then it returns, otherwise new task creates and returns.
          * @summary Run Report
          * @param {ReportDetails} reportDetails 
          * @param {*} [axiosOptions] Override http request option.
@@ -48887,7 +48906,7 @@ export const ReportsDataExtractionApiFactory = function (configuration?: Configu
             return localVarFp.getReportResult(taskResultId, completed, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
-         * Runs a report according to input report details. If non-concurrent task is already running then it returns, otherwise new task creates and returns.
+         * Use this API to run a report according to report input details. If non-concurrent task is already running then it returns, otherwise new task creates and returns.
          * @summary Run Report
          * @param {ReportDetails} reportDetails 
          * @param {*} [axiosOptions] Override http request option.
@@ -49027,7 +49046,7 @@ export class ReportsDataExtractionApi extends BaseAPI {
     }
 
     /**
-     * Runs a report according to input report details. If non-concurrent task is already running then it returns, otherwise new task creates and returns.
+     * Use this API to run a report according to report input details. If non-concurrent task is already running then it returns, otherwise new task creates and returns.
      * @summary Run Report
      * @param {ReportsDataExtractionApiStartReportRequest} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
