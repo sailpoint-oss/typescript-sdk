@@ -7004,7 +7004,7 @@ export interface CreateWorkflowRequest {
      * @type {WorkflowBodyOwner}
      * @memberof CreateWorkflowRequest
      */
-    'owner': WorkflowBodyOwner;
+    'owner'?: WorkflowBodyOwner;
     /**
      * Description of what the workflow accomplishes
      * @type {string}
@@ -62189,7 +62189,7 @@ export const WorkflowsApiAxiosParamCreator = function (configuration?: Configura
         createWorkflow: async (createWorkflowRequest: CreateWorkflowRequest, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'createWorkflowRequest' is not null or undefined
             assertParamExists('createWorkflow', 'createWorkflowRequest', createWorkflowRequest)
-            const localVarPath = `/workflows/{id}`;
+            const localVarPath = `/workflows`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
