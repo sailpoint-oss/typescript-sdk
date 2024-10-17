@@ -18018,10 +18018,10 @@ export interface Role {
     'dimensionRefs'?: Array<DimensionRef> | null;
     /**
      * 
-     * @type {Array<AttributeDTOList>}
+     * @type {AttributeDTOList}
      * @memberof Role
      */
-    'accessModelMetadata'?: Array<AttributeDTOList>;
+    'accessModelMetadata'?: AttributeDTOList;
 }
 /**
  * Type which indicates how a particular Identity obtained a particular Role
