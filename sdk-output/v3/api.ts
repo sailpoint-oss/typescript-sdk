@@ -6784,6 +6784,12 @@ export interface CreatePersonalAccessTokenRequest {
      * @memberof CreatePersonalAccessTokenRequest
      */
     'scope'?: Array<string> | null;
+    /**
+     * Number of seconds an access token is valid when generated using this Personal Access Token. If no value is specified, the token will be created with the default value of 43200.
+     * @type {number}
+     * @memberof CreatePersonalAccessTokenRequest
+     */
+    'accessTokenValiditySeconds'?: number;
 }
 /**
  * 
@@ -6827,6 +6833,12 @@ export interface CreatePersonalAccessTokenResponse {
      * @memberof CreatePersonalAccessTokenResponse
      */
     'created': string;
+    /**
+     * Number of seconds an access token is valid when generated using this Personal Access Token. If no value is specified, the token will be created with the default value of 43200.
+     * @type {number}
+     * @memberof CreatePersonalAccessTokenResponse
+     */
+    'accessTokenValiditySeconds': number;
 }
 /**
  * 
