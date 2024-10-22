@@ -4801,6 +4801,12 @@ export interface Campaign {
      */
     'roleCompositionCampaignInfo'?: CampaignAllOfRoleCompositionCampaignInfo;
     /**
+     * 
+     * @type {CampaignAllOfMachineAccountCampaignInfo}
+     * @memberof Campaign
+     */
+    'machineAccountCampaignInfo'?: CampaignAllOfMachineAccountCampaignInfo;
+    /**
      * A list of sources in the campaign that contain \\\"orphan entitlements\\\" (entitlements without a corresponding Managed Attribute). An empty list indicates the campaign has no orphan entitlements. Null indicates there may be unknown orphan entitlements in the campaign (the campaign was created before this feature was implemented).
      * @type {Array<CampaignAllOfSourcesWithOrphanEntitlements>}
      * @memberof Campaign
@@ -4818,7 +4824,8 @@ export const CampaignTypeEnum = {
     Manager: 'MANAGER',
     SourceOwner: 'SOURCE_OWNER',
     Search: 'SEARCH',
-    RoleComposition: 'ROLE_COMPOSITION'
+    RoleComposition: 'ROLE_COMPOSITION',
+    MachineAccount: 'MACHINE_ACCOUNT'
 } as const;
 
 export type CampaignTypeEnum = typeof CampaignTypeEnum[keyof typeof CampaignTypeEnum];
@@ -4926,6 +4933,12 @@ export interface CampaignAllOf {
      */
     'roleCompositionCampaignInfo'?: CampaignAllOfRoleCompositionCampaignInfo;
     /**
+     * 
+     * @type {CampaignAllOfMachineAccountCampaignInfo}
+     * @memberof CampaignAllOf
+     */
+    'machineAccountCampaignInfo'?: CampaignAllOfMachineAccountCampaignInfo;
+    /**
      * A list of sources in the campaign that contain \\\"orphan entitlements\\\" (entitlements without a corresponding Managed Attribute). An empty list indicates the campaign has no orphan entitlements. Null indicates there may be unknown orphan entitlements in the campaign (the campaign was created before this feature was implemented).
      * @type {Array<CampaignAllOfSourcesWithOrphanEntitlements>}
      * @memberof CampaignAllOf
@@ -4985,6 +4998,32 @@ export const CampaignAllOfFilterTypeEnum = {
 } as const;
 
 export type CampaignAllOfFilterTypeEnum = typeof CampaignAllOfFilterTypeEnum[keyof typeof CampaignAllOfFilterTypeEnum];
+
+/**
+ * Must be set only if the campaign type is MACHINE_ACCOUNT.
+ * @export
+ * @interface CampaignAllOfMachineAccountCampaignInfo
+ */
+export interface CampaignAllOfMachineAccountCampaignInfo {
+    /**
+     * The list of sources to be included in the campaign.
+     * @type {Array<string>}
+     * @memberof CampaignAllOfMachineAccountCampaignInfo
+     */
+    'sourceIds'?: Array<string>;
+    /**
+     * The reviewer\'s type.
+     * @type {string}
+     * @memberof CampaignAllOfMachineAccountCampaignInfo
+     */
+    'reviewerType'?: CampaignAllOfMachineAccountCampaignInfoReviewerTypeEnum;
+}
+
+export const CampaignAllOfMachineAccountCampaignInfoReviewerTypeEnum = {
+    AccountOwner: 'ACCOUNT_OWNER'
+} as const;
+
+export type CampaignAllOfMachineAccountCampaignInfoReviewerTypeEnum = typeof CampaignAllOfMachineAccountCampaignInfoReviewerTypeEnum[keyof typeof CampaignAllOfMachineAccountCampaignInfoReviewerTypeEnum];
 
 /**
  * Optional configuration options for role composition campaigns.
@@ -17739,7 +17778,57 @@ export interface ReviewableEntitlementAccount {
      * @memberof ReviewableEntitlementAccount
      */
     'activityInsights'?: ActivityInsights;
+    /**
+     * Information about the account
+     * @type {string}
+     * @memberof ReviewableEntitlementAccount
+     */
+    'description'?: string | null;
+    /**
+     * The id associated with the machine Account Governance Group
+     * @type {string}
+     * @memberof ReviewableEntitlementAccount
+     */
+    'governanceGroupId'?: string | null;
+    /**
+     * 
+     * @type {ReviewableEntitlementAccountOwner}
+     * @memberof ReviewableEntitlementAccount
+     */
+    'owner'?: ReviewableEntitlementAccountOwner | null;
 }
+/**
+ * Information about the machine account owner
+ * @export
+ * @interface ReviewableEntitlementAccountOwner
+ */
+export interface ReviewableEntitlementAccountOwner {
+    /**
+     * The id associated with the machine account owner
+     * @type {string}
+     * @memberof ReviewableEntitlementAccountOwner
+     */
+    'id'?: string | null;
+    /**
+     * An enumeration of the types of Owner supported within the IdentityNow infrastructure.
+     * @type {string}
+     * @memberof ReviewableEntitlementAccountOwner
+     */
+    'type'?: ReviewableEntitlementAccountOwnerTypeEnum;
+    /**
+     * The machine account owner\'s display name
+     * @type {string}
+     * @memberof ReviewableEntitlementAccountOwner
+     */
+    'displayName'?: string | null;
+}
+
+export const ReviewableEntitlementAccountOwnerTypeEnum = {
+    Identity: 'IDENTITY'
+} as const;
+
+export type ReviewableEntitlementAccountOwnerTypeEnum = typeof ReviewableEntitlementAccountOwnerTypeEnum[keyof typeof ReviewableEntitlementAccountOwnerTypeEnum];
+
 /**
  * 
  * @export
@@ -20469,7 +20558,8 @@ export const SlimCampaignTypeEnum = {
     Manager: 'MANAGER',
     SourceOwner: 'SOURCE_OWNER',
     Search: 'SEARCH',
-    RoleComposition: 'ROLE_COMPOSITION'
+    RoleComposition: 'ROLE_COMPOSITION',
+    MachineAccount: 'MACHINE_ACCOUNT'
 } as const;
 
 export type SlimCampaignTypeEnum = typeof SlimCampaignTypeEnum[keyof typeof SlimCampaignTypeEnum];
