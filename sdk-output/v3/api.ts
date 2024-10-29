@@ -60742,10 +60742,10 @@ export class VendorConnectorMappingsApi extends BaseAPI {
 
 
 /**
- * VendorConnectorMapppingApi - axios parameter creator
+ * VendorConnectorMapppingsApi - axios parameter creator
  * @export
  */
-export const VendorConnectorMapppingApiAxiosParamCreator = function (configuration?: Configuration) {
+export const VendorConnectorMapppingsApiAxiosParamCreator = function (configuration?: Configuration) {
     return {
         /**
          * Get a list of mappings between SaaS vendors and ISC connectors, detailing the connections established for correlation. 
@@ -60789,11 +60789,11 @@ export const VendorConnectorMapppingApiAxiosParamCreator = function (configurati
 };
 
 /**
- * VendorConnectorMapppingApi - functional programming interface
+ * VendorConnectorMapppingsApi - functional programming interface
  * @export
  */
-export const VendorConnectorMapppingApiFp = function(configuration?: Configuration) {
-    const localVarAxiosParamCreator = VendorConnectorMapppingApiAxiosParamCreator(configuration)
+export const VendorConnectorMapppingsApiFp = function(configuration?: Configuration) {
+    const localVarAxiosParamCreator = VendorConnectorMapppingsApiAxiosParamCreator(configuration)
     return {
         /**
          * Get a list of mappings between SaaS vendors and ISC connectors, detailing the connections established for correlation. 
@@ -60809,11 +60809,11 @@ export const VendorConnectorMapppingApiFp = function(configuration?: Configurati
 };
 
 /**
- * VendorConnectorMapppingApi - factory interface
+ * VendorConnectorMapppingsApi - factory interface
  * @export
  */
-export const VendorConnectorMapppingApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
-    const localVarFp = VendorConnectorMapppingApiFp(configuration)
+export const VendorConnectorMapppingsApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
+    const localVarFp = VendorConnectorMapppingsApiFp(configuration)
     return {
         /**
          * Get a list of mappings between SaaS vendors and ISC connectors, detailing the connections established for correlation. 
@@ -60828,21 +60828,21 @@ export const VendorConnectorMapppingApiFactory = function (configuration?: Confi
 };
 
 /**
- * VendorConnectorMapppingApi - object-oriented interface
+ * VendorConnectorMapppingsApi - object-oriented interface
  * @export
- * @class VendorConnectorMapppingApi
+ * @class VendorConnectorMapppingsApi
  * @extends {BaseAPI}
  */
-export class VendorConnectorMapppingApi extends BaseAPI {
+export class VendorConnectorMapppingsApi extends BaseAPI {
     /**
      * Get a list of mappings between SaaS vendors and ISC connectors, detailing the connections established for correlation. 
      * @summary List Vendor Connector Mappings
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
-     * @memberof VendorConnectorMapppingApi
+     * @memberof VendorConnectorMapppingsApi
      */
     public getVendorConnectorMappings(axiosOptions?: AxiosRequestConfig) {
-        return VendorConnectorMapppingApiFp(this.configuration).getVendorConnectorMappings(axiosOptions).then((request) => request(this.axios, this.basePath));
+        return VendorConnectorMapppingsApiFp(this.configuration).getVendorConnectorMappings(axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 }
 
