@@ -60615,6 +60615,44 @@ export const VendorConnectorMappingsApiAxiosParamCreator = function (configurati
                 axiosOptions: localVarRequestOptions,
             };
         },
+        /**
+         * Get a list of mappings between SaaS vendors and ISC connectors, detailing the connections established for correlation. 
+         * @summary List Vendor Connector Mappings
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        getVendorConnectorMappings: async (axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            const localVarPath = `/vendor-connector-mappings`;
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...axiosOptions};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication userAuth required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "userAuth", [], configuration)
+
+            // authentication userAuth required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "userAuth", [], configuration)
+
+
+    
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                axiosOptions: localVarRequestOptions,
+            };
+        },
     }
 };
 
@@ -60647,6 +60685,16 @@ export const VendorConnectorMappingsApiFp = function(configuration?: Configurati
             const localVarAxiosArgs = await localVarAxiosParamCreator.deleteVendorConnectorMapping(vendorConnectorMapping, axiosOptions);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
+        /**
+         * Get a list of mappings between SaaS vendors and ISC connectors, detailing the connections established for correlation. 
+         * @summary List Vendor Connector Mappings
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        async getVendorConnectorMappings(axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<VendorConnectorMapping>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getVendorConnectorMappings(axiosOptions);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
     }
 };
 
@@ -60676,6 +60724,15 @@ export const VendorConnectorMappingsApiFactory = function (configuration?: Confi
          */
         deleteVendorConnectorMapping(vendorConnectorMapping: VendorConnectorMapping, axiosOptions?: any): AxiosPromise<DeleteVendorConnectorMapping200Response> {
             return localVarFp.deleteVendorConnectorMapping(vendorConnectorMapping, axiosOptions).then((request) => request(axios, basePath));
+        },
+        /**
+         * Get a list of mappings between SaaS vendors and ISC connectors, detailing the connections established for correlation. 
+         * @summary List Vendor Connector Mappings
+         * @param {*} [axiosOptions] Override http request option.
+         * @throws {RequiredError}
+         */
+        getVendorConnectorMappings(axiosOptions?: any): AxiosPromise<Array<VendorConnectorMapping>> {
+            return localVarFp.getVendorConnectorMappings(axiosOptions).then((request) => request(axios, basePath));
         },
     };
 };
@@ -60738,111 +60795,16 @@ export class VendorConnectorMappingsApi extends BaseAPI {
     public deleteVendorConnectorMapping(requestParameters: VendorConnectorMappingsApiDeleteVendorConnectorMappingRequest, axiosOptions?: AxiosRequestConfig) {
         return VendorConnectorMappingsApiFp(this.configuration).deleteVendorConnectorMapping(requestParameters.vendorConnectorMapping, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
-}
 
-
-/**
- * VendorConnectorMapppingsApi - axios parameter creator
- * @export
- */
-export const VendorConnectorMapppingsApiAxiosParamCreator = function (configuration?: Configuration) {
-    return {
-        /**
-         * Get a list of mappings between SaaS vendors and ISC connectors, detailing the connections established for correlation. 
-         * @summary List Vendor Connector Mappings
-         * @param {*} [axiosOptions] Override http request option.
-         * @throws {RequiredError}
-         */
-        getVendorConnectorMappings: async (axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
-            const localVarPath = `/vendor-connector-mappings`;
-            // use dummy base URL string because the URL constructor only accepts absolute URLs.
-            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
-            let baseOptions;
-            if (configuration) {
-                baseOptions = configuration.baseOptions;
-            }
-
-            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...axiosOptions};
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-
-            // authentication userAuth required
-            // oauth required
-            await setOAuthToObject(localVarHeaderParameter, "userAuth", [], configuration)
-
-            // authentication userAuth required
-            // oauth required
-            await setOAuthToObject(localVarHeaderParameter, "userAuth", [], configuration)
-
-
-    
-            setSearchParams(localVarUrlObj, localVarQueryParameter);
-            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
-            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
-
-            return {
-                url: toPathString(localVarUrlObj),
-                axiosOptions: localVarRequestOptions,
-            };
-        },
-    }
-};
-
-/**
- * VendorConnectorMapppingsApi - functional programming interface
- * @export
- */
-export const VendorConnectorMapppingsApiFp = function(configuration?: Configuration) {
-    const localVarAxiosParamCreator = VendorConnectorMapppingsApiAxiosParamCreator(configuration)
-    return {
-        /**
-         * Get a list of mappings between SaaS vendors and ISC connectors, detailing the connections established for correlation. 
-         * @summary List Vendor Connector Mappings
-         * @param {*} [axiosOptions] Override http request option.
-         * @throws {RequiredError}
-         */
-        async getVendorConnectorMappings(axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<VendorConnectorMapping>>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.getVendorConnectorMappings(axiosOptions);
-            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
-        },
-    }
-};
-
-/**
- * VendorConnectorMapppingsApi - factory interface
- * @export
- */
-export const VendorConnectorMapppingsApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
-    const localVarFp = VendorConnectorMapppingsApiFp(configuration)
-    return {
-        /**
-         * Get a list of mappings between SaaS vendors and ISC connectors, detailing the connections established for correlation. 
-         * @summary List Vendor Connector Mappings
-         * @param {*} [axiosOptions] Override http request option.
-         * @throws {RequiredError}
-         */
-        getVendorConnectorMappings(axiosOptions?: any): AxiosPromise<Array<VendorConnectorMapping>> {
-            return localVarFp.getVendorConnectorMappings(axiosOptions).then((request) => request(axios, basePath));
-        },
-    };
-};
-
-/**
- * VendorConnectorMapppingsApi - object-oriented interface
- * @export
- * @class VendorConnectorMapppingsApi
- * @extends {BaseAPI}
- */
-export class VendorConnectorMapppingsApi extends BaseAPI {
     /**
      * Get a list of mappings between SaaS vendors and ISC connectors, detailing the connections established for correlation. 
      * @summary List Vendor Connector Mappings
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
-     * @memberof VendorConnectorMapppingsApi
+     * @memberof VendorConnectorMappingsApi
      */
     public getVendorConnectorMappings(axiosOptions?: AxiosRequestConfig) {
-        return VendorConnectorMapppingsApiFp(this.configuration).getVendorConnectorMappings(axiosOptions).then((request) => request(this.axios, this.basePath));
+        return VendorConnectorMappingsApiFp(this.configuration).getVendorConnectorMappings(axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 }
 
