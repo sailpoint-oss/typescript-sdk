@@ -1314,7 +1314,7 @@ export interface Account {
      * @type {string}
      * @memberof Account
      */
-    'sourceName': string;
+    'sourceName': string | null;
     /**
      * The unique ID of the identity this account is correlated to
      * @type {string}
@@ -2082,7 +2082,7 @@ export interface AccountAllOf {
      * @type {string}
      * @memberof AccountAllOf
      */
-    'sourceName': string;
+    'sourceName': string | null;
     /**
      * The unique ID of the identity this account is correlated to
      * @type {string}
@@ -4697,7 +4697,7 @@ export interface Campaign {
      * @type {string}
      * @memberof Campaign
      */
-    'description': string;
+    'description': string | null;
     /**
      * The campaign\'s completion deadline.  This date must be in the future in order to activate the campaign.  If you try to activate a campaign with a deadline of today or in the past, you will receive a 400 error response.
      * @type {string}
@@ -9413,10 +9413,186 @@ export interface GenerateRandomString {
     'requiresPeriodicRefresh'?: boolean;
 }
 /**
- * @type GetActiveCampaigns200ResponseInner
+ * 
  * @export
+ * @interface GetActiveCampaigns200ResponseInner
  */
-export type GetActiveCampaigns200ResponseInner = Campaign | SlimCampaign;
+export interface GetActiveCampaigns200ResponseInner {
+    /**
+     * Id of the campaign
+     * @type {string}
+     * @memberof GetActiveCampaigns200ResponseInner
+     */
+    'id'?: string;
+    /**
+     * The campaign name. If this object is part of a template, special formatting applies; see the `/campaign-templates/{id}/generate` endpoint documentation for details.
+     * @type {string}
+     * @memberof GetActiveCampaigns200ResponseInner
+     */
+    'name': string;
+    /**
+     * The campaign description. If this object is part of a template, special formatting applies; see the `/campaign-templates/{id}/generate` endpoint documentation for details.
+     * @type {string}
+     * @memberof GetActiveCampaigns200ResponseInner
+     */
+    'description': string | null;
+    /**
+     * The campaign\'s completion deadline.  This date must be in the future in order to activate the campaign.  If you try to activate a campaign with a deadline of today or in the past, you will receive a 400 error response.
+     * @type {string}
+     * @memberof GetActiveCampaigns200ResponseInner
+     */
+    'deadline'?: string;
+    /**
+     * The type of campaign. Could be extended in the future.
+     * @type {string}
+     * @memberof GetActiveCampaigns200ResponseInner
+     */
+    'type': GetActiveCampaigns200ResponseInnerTypeEnum;
+    /**
+     * Enables email notification for this campaign
+     * @type {boolean}
+     * @memberof GetActiveCampaigns200ResponseInner
+     */
+    'emailNotificationEnabled'?: boolean;
+    /**
+     * Allows auto revoke for this campaign
+     * @type {boolean}
+     * @memberof GetActiveCampaigns200ResponseInner
+     */
+    'autoRevokeAllowed'?: boolean;
+    /**
+     * Enables IAI for this campaign. Accepts true even if the IAI product feature is off. If IAI is turned off then campaigns generated from this template will indicate false. The real value will then be returned if IAI is ever enabled for the org in the future.
+     * @type {boolean}
+     * @memberof GetActiveCampaigns200ResponseInner
+     */
+    'recommendationsEnabled'?: boolean;
+    /**
+     * The campaign\'s current status.
+     * @type {string}
+     * @memberof GetActiveCampaigns200ResponseInner
+     */
+    'status'?: GetActiveCampaigns200ResponseInnerStatusEnum;
+    /**
+     * The correlatedStatus of the campaign. Only SOURCE_OWNER campaigns can be Uncorrelated. An Uncorrelated certification campaign only includes Uncorrelated identities (An identity is uncorrelated if it has no accounts on an authoritative source).
+     * @type {string}
+     * @memberof GetActiveCampaigns200ResponseInner
+     */
+    'correlatedStatus'?: GetActiveCampaigns200ResponseInnerCorrelatedStatusEnum;
+    /**
+     * Created time of the campaign
+     * @type {string}
+     * @memberof GetActiveCampaigns200ResponseInner
+     */
+    'created'?: string;
+    /**
+     * The total number of certifications in this campaign.
+     * @type {number}
+     * @memberof GetActiveCampaigns200ResponseInner
+     */
+    'totalCertifications'?: number;
+    /**
+     * The number of completed certifications in this campaign.
+     * @type {number}
+     * @memberof GetActiveCampaigns200ResponseInner
+     */
+    'completedCertifications'?: number;
+    /**
+     * A list of errors and warnings that have accumulated.
+     * @type {Array<CampaignAlert>}
+     * @memberof GetActiveCampaigns200ResponseInner
+     */
+    'alerts'?: Array<CampaignAlert>;
+    /**
+     * Modified time of the campaign
+     * @type {string}
+     * @memberof GetActiveCampaigns200ResponseInner
+     */
+    'modified'?: string;
+    /**
+     * 
+     * @type {CampaignAllOfFilter}
+     * @memberof GetActiveCampaigns200ResponseInner
+     */
+    'filter'?: CampaignAllOfFilter;
+    /**
+     * Determines if comments on sunset date changes are required.
+     * @type {boolean}
+     * @memberof GetActiveCampaigns200ResponseInner
+     */
+    'sunsetCommentsRequired'?: boolean;
+    /**
+     * 
+     * @type {CampaignAllOfSourceOwnerCampaignInfo}
+     * @memberof GetActiveCampaigns200ResponseInner
+     */
+    'sourceOwnerCampaignInfo'?: CampaignAllOfSourceOwnerCampaignInfo;
+    /**
+     * 
+     * @type {CampaignAllOfSearchCampaignInfo}
+     * @memberof GetActiveCampaigns200ResponseInner
+     */
+    'searchCampaignInfo'?: CampaignAllOfSearchCampaignInfo;
+    /**
+     * 
+     * @type {CampaignAllOfRoleCompositionCampaignInfo}
+     * @memberof GetActiveCampaigns200ResponseInner
+     */
+    'roleCompositionCampaignInfo'?: CampaignAllOfRoleCompositionCampaignInfo;
+    /**
+     * 
+     * @type {CampaignAllOfMachineAccountCampaignInfo}
+     * @memberof GetActiveCampaigns200ResponseInner
+     */
+    'machineAccountCampaignInfo'?: CampaignAllOfMachineAccountCampaignInfo;
+    /**
+     * A list of sources in the campaign that contain \\\"orphan entitlements\\\" (entitlements without a corresponding Managed Attribute). An empty list indicates the campaign has no orphan entitlements. Null indicates there may be unknown orphan entitlements in the campaign (the campaign was created before this feature was implemented).
+     * @type {Array<CampaignAllOfSourcesWithOrphanEntitlements>}
+     * @memberof GetActiveCampaigns200ResponseInner
+     */
+    'sourcesWithOrphanEntitlements'?: Array<CampaignAllOfSourcesWithOrphanEntitlements>;
+    /**
+     * Determines whether comments are required for decisions during certification reviews. You can require comments for all decisions, revoke-only decisions, or no decisions. By default, comments are not required for decisions.
+     * @type {string}
+     * @memberof GetActiveCampaigns200ResponseInner
+     */
+    'mandatoryCommentRequirement'?: GetActiveCampaigns200ResponseInnerMandatoryCommentRequirementEnum;
+}
+
+export const GetActiveCampaigns200ResponseInnerTypeEnum = {
+    Manager: 'MANAGER',
+    SourceOwner: 'SOURCE_OWNER',
+    Search: 'SEARCH',
+    RoleComposition: 'ROLE_COMPOSITION',
+    MachineAccount: 'MACHINE_ACCOUNT'
+} as const;
+
+export type GetActiveCampaigns200ResponseInnerTypeEnum = typeof GetActiveCampaigns200ResponseInnerTypeEnum[keyof typeof GetActiveCampaigns200ResponseInnerTypeEnum];
+export const GetActiveCampaigns200ResponseInnerStatusEnum = {
+    Pending: 'PENDING',
+    Staged: 'STAGED',
+    Canceling: 'CANCELING',
+    Activating: 'ACTIVATING',
+    Active: 'ACTIVE',
+    Completing: 'COMPLETING',
+    Completed: 'COMPLETED',
+    Error: 'ERROR',
+    Archived: 'ARCHIVED'
+} as const;
+
+export type GetActiveCampaigns200ResponseInnerStatusEnum = typeof GetActiveCampaigns200ResponseInnerStatusEnum[keyof typeof GetActiveCampaigns200ResponseInnerStatusEnum];
+export const GetActiveCampaigns200ResponseInnerCorrelatedStatusEnum = {
+    Correlated: 'CORRELATED',
+    Uncorrelated: 'UNCORRELATED'
+} as const;
+
+export type GetActiveCampaigns200ResponseInnerCorrelatedStatusEnum = typeof GetActiveCampaigns200ResponseInnerCorrelatedStatusEnum[keyof typeof GetActiveCampaigns200ResponseInnerCorrelatedStatusEnum];
+export const GetActiveCampaigns200ResponseInnerMandatoryCommentRequirementEnum = {
+    AllDecisions: 'ALL_DECISIONS',
+    RevokeOnlyDecisions: 'REVOKE_ONLY_DECISIONS',
+    NoDecisions: 'NO_DECISIONS'
+} as const;
+
+export type GetActiveCampaigns200ResponseInnerMandatoryCommentRequirementEnum = typeof GetActiveCampaigns200ResponseInnerMandatoryCommentRequirementEnum[keyof typeof GetActiveCampaigns200ResponseInnerMandatoryCommentRequirementEnum];
 
 /**
  * @type GetDiscoveredApplications200ResponseInner
@@ -20485,7 +20661,7 @@ export interface SlimCampaign {
      * @type {string}
      * @memberof SlimCampaign
      */
-    'description': string;
+    'description': string | null;
     /**
      * The campaign\'s completion deadline.  This date must be in the future in order to activate the campaign.  If you try to activate a campaign with a deadline of today or in the past, you will receive a 400 error response.
      * @type {string}
