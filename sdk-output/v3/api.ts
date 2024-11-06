@@ -5959,13 +5959,13 @@ export interface ClientLogConfiguration {
      */
     'clientId'?: string;
     /**
-     * Duration in minutes for log configuration to remain in effect before resetting to defaults
+     * Duration in minutes for log configuration to remain in effect before resetting to defaults.
      * @type {number}
      * @memberof ClientLogConfiguration
      */
-    'durationMinutes': number;
+    'durationMinutes'?: number;
     /**
-     * Expiration date-time of the log configuration request
+     * Expiration date-time of the log configuration request.  Can be no greater than 24 hours from current date-time.
      * @type {string}
      * @memberof ClientLogConfiguration
      */
@@ -5980,6 +5980,68 @@ export interface ClientLogConfiguration {
      * Mapping of identifiers to Standard Log Level values
      * @type {{ [key: string]: StandardLevel; }}
      * @memberof ClientLogConfiguration
+     */
+    'logLevels'?: { [key: string]: StandardLevel; };
+}
+/**
+ * Client Runtime Logging Configuration
+ * @export
+ * @interface ClientLogConfigurationDurationMinutes
+ */
+export interface ClientLogConfigurationDurationMinutes {
+    /**
+     * Log configuration\'s client ID
+     * @type {string}
+     * @memberof ClientLogConfigurationDurationMinutes
+     */
+    'clientId'?: string;
+    /**
+     * Duration in minutes for log configuration to remain in effect before resetting to defaults.
+     * @type {number}
+     * @memberof ClientLogConfigurationDurationMinutes
+     */
+    'durationMinutes'?: number;
+    /**
+     * 
+     * @type {StandardLevel}
+     * @memberof ClientLogConfigurationDurationMinutes
+     */
+    'rootLevel': StandardLevel;
+    /**
+     * Mapping of identifiers to Standard Log Level values
+     * @type {{ [key: string]: StandardLevel; }}
+     * @memberof ClientLogConfigurationDurationMinutes
+     */
+    'logLevels'?: { [key: string]: StandardLevel; };
+}
+/**
+ * Client Runtime Logging Configuration
+ * @export
+ * @interface ClientLogConfigurationExpiration
+ */
+export interface ClientLogConfigurationExpiration {
+    /**
+     * Log configuration\'s client ID
+     * @type {string}
+     * @memberof ClientLogConfigurationExpiration
+     */
+    'clientId'?: string;
+    /**
+     * Expiration date-time of the log configuration request.  Can be no greater than 24 hours from current date-time.
+     * @type {string}
+     * @memberof ClientLogConfigurationExpiration
+     */
+    'expiration'?: string;
+    /**
+     * 
+     * @type {StandardLevel}
+     * @memberof ClientLogConfigurationExpiration
+     */
+    'rootLevel': StandardLevel;
+    /**
+     * Mapping of identifiers to Standard Log Level values
+     * @type {{ [key: string]: StandardLevel; }}
+     * @memberof ClientLogConfigurationExpiration
      */
     'logLevels'?: { [key: string]: StandardLevel; };
 }
@@ -16320,6 +16382,12 @@ export interface PublicIdentityConfig {
      */
     'modifiedBy'?: IdentityReference | null;
 }
+/**
+ * @type PutClientLogConfigurationRequest
+ * @export
+ */
+export type PutClientLogConfigurationRequest = ClientLogConfigurationDurationMinutes | ClientLogConfigurationExpiration;
+
 /**
  * 
  * @export
@@ -41709,7 +41777,7 @@ export const ManagedClustersApiAxiosParamCreator = function (configuration?: Con
         },
         /**
          * Get managed cluster\'s log configuration.
-         * @summary Get managed cluster\'s log configuration
+         * @summary Get Managed Cluster\'s log configuration
          * @param {string} id ID of ManagedCluster to get log configuration for
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
@@ -41850,18 +41918,18 @@ export const ManagedClustersApiAxiosParamCreator = function (configuration?: Con
             };
         },
         /**
-         * Update managed cluster\'s log configuration
-         * @summary Update managed cluster\'s log configuration
+         * Update managed cluster\'s log configuration.  Only one of `durationMinutes` or `expiration` may be specified, up to 1440 minutes (24 hours) in the future. If neither is specified, the default value for `durationMinutes` will be 240.
+         * @summary Update Managed Cluster\'s log configuration
          * @param {string} id ID of ManagedCluster to update log configuration for
-         * @param {ClientLogConfiguration} clientLogConfiguration ClientLogConfiguration for given ManagedCluster
+         * @param {PutClientLogConfigurationRequest} putClientLogConfigurationRequest ClientLogConfiguration for given ManagedCluster
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        putClientLogConfiguration: async (id: string, clientLogConfiguration: ClientLogConfiguration, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        putClientLogConfiguration: async (id: string, putClientLogConfigurationRequest: PutClientLogConfigurationRequest, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'id' is not null or undefined
             assertParamExists('putClientLogConfiguration', 'id', id)
-            // verify required parameter 'clientLogConfiguration' is not null or undefined
-            assertParamExists('putClientLogConfiguration', 'clientLogConfiguration', clientLogConfiguration)
+            // verify required parameter 'putClientLogConfigurationRequest' is not null or undefined
+            assertParamExists('putClientLogConfiguration', 'putClientLogConfigurationRequest', putClientLogConfigurationRequest)
             const localVarPath = `/managed-clusters/{id}/log-config`
                 .replace(`{${"id"}}`, encodeURIComponent(String(id)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
@@ -41890,7 +41958,7 @@ export const ManagedClustersApiAxiosParamCreator = function (configuration?: Con
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(clientLogConfiguration, localVarRequestOptions, configuration)
+            localVarRequestOptions.data = serializeDataIfNeeded(putClientLogConfigurationRequest, localVarRequestOptions, configuration)
 
             return {
                 url: toPathString(localVarUrlObj),
@@ -41980,7 +42048,7 @@ export const ManagedClustersApiFp = function(configuration?: Configuration) {
         },
         /**
          * Get managed cluster\'s log configuration.
-         * @summary Get managed cluster\'s log configuration
+         * @summary Get Managed Cluster\'s log configuration
          * @param {string} id ID of ManagedCluster to get log configuration for
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
@@ -42015,15 +42083,15 @@ export const ManagedClustersApiFp = function(configuration?: Configuration) {
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
-         * Update managed cluster\'s log configuration
-         * @summary Update managed cluster\'s log configuration
+         * Update managed cluster\'s log configuration.  Only one of `durationMinutes` or `expiration` may be specified, up to 1440 minutes (24 hours) in the future. If neither is specified, the default value for `durationMinutes` will be 240.
+         * @summary Update Managed Cluster\'s log configuration
          * @param {string} id ID of ManagedCluster to update log configuration for
-         * @param {ClientLogConfiguration} clientLogConfiguration ClientLogConfiguration for given ManagedCluster
+         * @param {PutClientLogConfigurationRequest} putClientLogConfigurationRequest ClientLogConfiguration for given ManagedCluster
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async putClientLogConfiguration(id: string, clientLogConfiguration: ClientLogConfiguration, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ClientLogConfiguration>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.putClientLogConfiguration(id, clientLogConfiguration, axiosOptions);
+        async putClientLogConfiguration(id: string, putClientLogConfigurationRequest: PutClientLogConfigurationRequest, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ClientLogConfiguration>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.putClientLogConfiguration(id, putClientLogConfigurationRequest, axiosOptions);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
@@ -42071,7 +42139,7 @@ export const ManagedClustersApiFactory = function (configuration?: Configuration
         },
         /**
          * Get managed cluster\'s log configuration.
-         * @summary Get managed cluster\'s log configuration
+         * @summary Get Managed Cluster\'s log configuration
          * @param {string} id ID of ManagedCluster to get log configuration for
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
@@ -42103,15 +42171,15 @@ export const ManagedClustersApiFactory = function (configuration?: Configuration
             return localVarFp.getManagedClusters(offset, limit, count, filters, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
-         * Update managed cluster\'s log configuration
-         * @summary Update managed cluster\'s log configuration
+         * Update managed cluster\'s log configuration.  Only one of `durationMinutes` or `expiration` may be specified, up to 1440 minutes (24 hours) in the future. If neither is specified, the default value for `durationMinutes` will be 240.
+         * @summary Update Managed Cluster\'s log configuration
          * @param {string} id ID of ManagedCluster to update log configuration for
-         * @param {ClientLogConfiguration} clientLogConfiguration ClientLogConfiguration for given ManagedCluster
+         * @param {PutClientLogConfigurationRequest} putClientLogConfigurationRequest ClientLogConfiguration for given ManagedCluster
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        putClientLogConfiguration(id: string, clientLogConfiguration: ClientLogConfiguration, axiosOptions?: any): AxiosPromise<ClientLogConfiguration> {
-            return localVarFp.putClientLogConfiguration(id, clientLogConfiguration, axiosOptions).then((request) => request(axios, basePath));
+        putClientLogConfiguration(id: string, putClientLogConfigurationRequest: PutClientLogConfigurationRequest, axiosOptions?: any): AxiosPromise<ClientLogConfiguration> {
+            return localVarFp.putClientLogConfiguration(id, putClientLogConfigurationRequest, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * Update an existing Managed Cluster.
@@ -42240,10 +42308,10 @@ export interface ManagedClustersApiPutClientLogConfigurationRequest {
 
     /**
      * ClientLogConfiguration for given ManagedCluster
-     * @type {ClientLogConfiguration}
+     * @type {PutClientLogConfigurationRequest}
      * @memberof ManagedClustersApiPutClientLogConfiguration
      */
-    readonly clientLogConfiguration: ClientLogConfiguration
+    readonly putClientLogConfigurationRequest: PutClientLogConfigurationRequest
 }
 
 /**
@@ -42300,7 +42368,7 @@ export class ManagedClustersApi extends BaseAPI {
 
     /**
      * Get managed cluster\'s log configuration.
-     * @summary Get managed cluster\'s log configuration
+     * @summary Get Managed Cluster\'s log configuration
      * @param {ManagedClustersApiGetClientLogConfigurationRequest} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
@@ -42335,15 +42403,15 @@ export class ManagedClustersApi extends BaseAPI {
     }
 
     /**
-     * Update managed cluster\'s log configuration
-     * @summary Update managed cluster\'s log configuration
+     * Update managed cluster\'s log configuration.  Only one of `durationMinutes` or `expiration` may be specified, up to 1440 minutes (24 hours) in the future. If neither is specified, the default value for `durationMinutes` will be 240.
+     * @summary Update Managed Cluster\'s log configuration
      * @param {ManagedClustersApiPutClientLogConfigurationRequest} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
      * @memberof ManagedClustersApi
      */
     public putClientLogConfiguration(requestParameters: ManagedClustersApiPutClientLogConfigurationRequest, axiosOptions?: AxiosRequestConfig) {
-        return ManagedClustersApiFp(this.configuration).putClientLogConfiguration(requestParameters.id, requestParameters.clientLogConfiguration, axiosOptions).then((request) => request(this.axios, this.basePath));
+        return ManagedClustersApiFp(this.configuration).putClientLogConfiguration(requestParameters.id, requestParameters.putClientLogConfigurationRequest, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
