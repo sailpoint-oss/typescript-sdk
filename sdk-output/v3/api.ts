@@ -1340,11 +1340,17 @@ export interface Account {
      */
     'connectionType'?: string | null;
     /**
-     * The type of the account
-     * @type {string}
+     * Indicates if the account is of machine type
+     * @type {boolean}
      * @memberof Account
      */
-    'type'?: string | null;
+    'isMachine'?: boolean;
+    /**
+     * 
+     * @type {Recommendation}
+     * @memberof Account
+     */
+    'recommendation'?: Recommendation;
     /**
      * The account attributes that are aggregated
      * @type {{ [key: string]: any; }}
@@ -1419,10 +1425,10 @@ export interface Account {
     'identity'?: BaseReferenceDto;
     /**
      * 
-     * @type {AccountAllOfSourceOwner}
+     * @type {BaseReferenceDto}
      * @memberof Account
      */
-    'sourceOwner'?: AccountAllOfSourceOwner | null;
+    'sourceOwner'?: BaseReferenceDto;
     /**
      * A string list containing the owning source\'s features
      * @type {string}
@@ -1437,16 +1443,10 @@ export interface Account {
     'origin'?: AccountOriginEnum;
     /**
      * 
-     * @type {AccountAllOfOwnerIdentity}
+     * @type {BaseReferenceDto}
      * @memberof Account
      */
-    'ownerIdentity'?: AccountAllOfOwnerIdentity | null;
-    /**
-     * 
-     * @type {AccountAllOfOwnerGroup}
-     * @memberof Account
-     */
-    'ownerGroup'?: AccountAllOfOwnerGroup | null;
+    'ownerIdentity'?: BaseReferenceDto;
 }
 
 export const AccountOriginEnum = {
@@ -2108,11 +2108,17 @@ export interface AccountAllOf {
      */
     'connectionType'?: string | null;
     /**
-     * The type of the account
-     * @type {string}
+     * Indicates if the account is of machine type
+     * @type {boolean}
      * @memberof AccountAllOf
      */
-    'type'?: string | null;
+    'isMachine'?: boolean;
+    /**
+     * 
+     * @type {Recommendation}
+     * @memberof AccountAllOf
+     */
+    'recommendation'?: Recommendation;
     /**
      * The account attributes that are aggregated
      * @type {{ [key: string]: any; }}
@@ -2187,10 +2193,10 @@ export interface AccountAllOf {
     'identity'?: BaseReferenceDto;
     /**
      * 
-     * @type {AccountAllOfSourceOwner}
+     * @type {BaseReferenceDto}
      * @memberof AccountAllOf
      */
-    'sourceOwner'?: AccountAllOfSourceOwner | null;
+    'sourceOwner'?: BaseReferenceDto;
     /**
      * A string list containing the owning source\'s features
      * @type {string}
@@ -2205,16 +2211,10 @@ export interface AccountAllOf {
     'origin'?: AccountAllOfOriginEnum;
     /**
      * 
-     * @type {AccountAllOfOwnerIdentity}
+     * @type {BaseReferenceDto}
      * @memberof AccountAllOf
      */
-    'ownerIdentity'?: AccountAllOfOwnerIdentity | null;
-    /**
-     * 
-     * @type {AccountAllOfOwnerGroup}
-     * @memberof AccountAllOf
-     */
-    'ownerGroup'?: AccountAllOfOwnerGroup | null;
+    'ownerIdentity'?: BaseReferenceDto;
 }
 
 export const AccountAllOfOriginEnum = {
@@ -2224,102 +2224,6 @@ export const AccountAllOfOriginEnum = {
 } as const;
 
 export type AccountAllOfOriginEnum = typeof AccountAllOfOriginEnum[keyof typeof AccountAllOfOriginEnum];
-
-/**
- * The governance group who owns this account, typically used for non-human accounts
- * @export
- * @interface AccountAllOfOwnerGroup
- */
-export interface AccountAllOfOwnerGroup {
-    /**
-     * The type of object being referenced
-     * @type {string}
-     * @memberof AccountAllOfOwnerGroup
-     */
-    'type'?: AccountAllOfOwnerGroupTypeEnum;
-    /**
-     * ID of the governance group
-     * @type {string}
-     * @memberof AccountAllOfOwnerGroup
-     */
-    'id'?: string;
-    /**
-     * Human-readable display name of the governance group
-     * @type {string}
-     * @memberof AccountAllOfOwnerGroup
-     */
-    'name'?: string;
-}
-
-export const AccountAllOfOwnerGroupTypeEnum = {
-    GovernanceGroup: 'GOVERNANCE_GROUP'
-} as const;
-
-export type AccountAllOfOwnerGroupTypeEnum = typeof AccountAllOfOwnerGroupTypeEnum[keyof typeof AccountAllOfOwnerGroupTypeEnum];
-
-/**
- * The identity who owns this account, typically used for non-human accounts
- * @export
- * @interface AccountAllOfOwnerIdentity
- */
-export interface AccountAllOfOwnerIdentity {
-    /**
-     * The type of object being referenced
-     * @type {string}
-     * @memberof AccountAllOfOwnerIdentity
-     */
-    'type'?: AccountAllOfOwnerIdentityTypeEnum;
-    /**
-     * ID of the identity
-     * @type {string}
-     * @memberof AccountAllOfOwnerIdentity
-     */
-    'id'?: string;
-    /**
-     * Human-readable display name of the identity
-     * @type {string}
-     * @memberof AccountAllOfOwnerIdentity
-     */
-    'name'?: string;
-}
-
-export const AccountAllOfOwnerIdentityTypeEnum = {
-    Identity: 'IDENTITY'
-} as const;
-
-export type AccountAllOfOwnerIdentityTypeEnum = typeof AccountAllOfOwnerIdentityTypeEnum[keyof typeof AccountAllOfOwnerIdentityTypeEnum];
-
-/**
- * The owner of this object.
- * @export
- * @interface AccountAllOfSourceOwner
- */
-export interface AccountAllOfSourceOwner {
-    /**
-     * Type of owner object.
-     * @type {string}
-     * @memberof AccountAllOfSourceOwner
-     */
-    'type'?: AccountAllOfSourceOwnerTypeEnum;
-    /**
-     * Identity id
-     * @type {string}
-     * @memberof AccountAllOfSourceOwner
-     */
-    'id'?: string;
-    /**
-     * Human-readable display name of the owner.
-     * @type {string}
-     * @memberof AccountAllOfSourceOwner
-     */
-    'name'?: string;
-}
-
-export const AccountAllOfSourceOwnerTypeEnum = {
-    Identity: 'IDENTITY'
-} as const;
-
-export type AccountAllOfSourceOwnerTypeEnum = typeof AccountAllOfSourceOwnerTypeEnum[keyof typeof AccountAllOfSourceOwnerTypeEnum];
 
 /**
  * 
@@ -7709,6 +7613,7 @@ export const DtoType = {
     Identity: 'IDENTITY',
     IdentityProfile: 'IDENTITY_PROFILE',
     IdentityRequest: 'IDENTITY_REQUEST',
+    MachineIdentity: 'MACHINE_IDENTITY',
     LifecycleState: 'LIFECYCLE_STATE',
     PasswordPolicy: 'PASSWORD_POLICY',
     Role: 'ROLE',
@@ -16709,6 +16614,40 @@ export const ReassignmentType = {
 
 export type ReassignmentType = typeof ReassignmentType[keyof typeof ReassignmentType];
 
+
+/**
+ * 
+ * @export
+ * @interface Recommendation
+ */
+export interface Recommendation {
+    /**
+     * Recommended type of account.
+     * @type {string}
+     * @memberof Recommendation
+     */
+    'type': RecommendationTypeEnum;
+    /**
+     * Method used to produce the recommendation. DISCOVERY - suggested by AI, SOURCE - the account comes from a source flagged as containing machine accounts, CRITERIA - the account satisfies classification criteria.
+     * @type {string}
+     * @memberof Recommendation
+     */
+    'method': RecommendationMethodEnum;
+}
+
+export const RecommendationTypeEnum = {
+    Human: 'HUMAN',
+    Machine: 'MACHINE'
+} as const;
+
+export type RecommendationTypeEnum = typeof RecommendationTypeEnum[keyof typeof RecommendationTypeEnum];
+export const RecommendationMethodEnum = {
+    Discovery: 'DISCOVERY',
+    Source: 'SOURCE',
+    Criteria: 'CRITERIA'
+} as const;
+
+export type RecommendationMethodEnum = typeof RecommendationMethodEnum[keyof typeof RecommendationMethodEnum];
 
 /**
  * 
@@ -27845,7 +27784,7 @@ export const AccountsApiAxiosParamCreator = function (configuration?: Configurat
          * @param {number} [limit] Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
          * @param {number} [offset] Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
          * @param {boolean} [count] If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
-         * @param {string} [filters] Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, in, sw*  **identityId**: *eq, in, sw*  **name**: *eq, in, sw*  **nativeIdentity**: *eq, in, sw*  **sourceId**: *eq, in, sw*  **uncorrelated**: *eq*  **entitlements**: *eq*  **origin**: *eq, in*  **manuallyCorrelated**: *eq*  **identity.name**: *eq, in, sw*  **identity.correlated**: *eq*  **identity.identityState**: *eq, in*  **source.displayableName**: *eq, in*  **source.authoritative**: *eq*  **source.connectionType**: *eq, in*
+         * @param {string} [filters] Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, in, sw*  **identityId**: *eq, in, sw*  **name**: *eq, in, sw*  **nativeIdentity**: *eq, in, sw*  **sourceId**: *eq, in, sw*  **uncorrelated**: *eq*  **entitlements**: *eq*  **origin**: *eq, in*  **manuallyCorrelated**: *eq*  **identity.name**: *eq, in, sw*  **identity.correlated**: *eq*  **identity.identityState**: *eq, in*  **source.displayableName**: *eq, in*  **source.authoritative**: *eq*  **source.connectionType**: *eq, in*  **recommendation.method**: *eq, in, isnull*
          * @param {string} [sorters] Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **id, name, created, modified, sourceId, identityId, identity.id, nativeIdentity, uuid, manuallyCorrelated, entitlements, origin, identity.name, identity.identityState, identity.correlated, source.displayableName, source.authoritative, source.connectionType**
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
@@ -28175,7 +28114,7 @@ export const AccountsApiFp = function(configuration?: Configuration) {
          * @param {number} [limit] Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
          * @param {number} [offset] Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
          * @param {boolean} [count] If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
-         * @param {string} [filters] Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, in, sw*  **identityId**: *eq, in, sw*  **name**: *eq, in, sw*  **nativeIdentity**: *eq, in, sw*  **sourceId**: *eq, in, sw*  **uncorrelated**: *eq*  **entitlements**: *eq*  **origin**: *eq, in*  **manuallyCorrelated**: *eq*  **identity.name**: *eq, in, sw*  **identity.correlated**: *eq*  **identity.identityState**: *eq, in*  **source.displayableName**: *eq, in*  **source.authoritative**: *eq*  **source.connectionType**: *eq, in*
+         * @param {string} [filters] Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, in, sw*  **identityId**: *eq, in, sw*  **name**: *eq, in, sw*  **nativeIdentity**: *eq, in, sw*  **sourceId**: *eq, in, sw*  **uncorrelated**: *eq*  **entitlements**: *eq*  **origin**: *eq, in*  **manuallyCorrelated**: *eq*  **identity.name**: *eq, in, sw*  **identity.correlated**: *eq*  **identity.identityState**: *eq, in*  **source.displayableName**: *eq, in*  **source.authoritative**: *eq*  **source.connectionType**: *eq, in*  **recommendation.method**: *eq, in, isnull*
          * @param {string} [sorters] Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **id, name, created, modified, sourceId, identityId, identity.id, nativeIdentity, uuid, manuallyCorrelated, entitlements, origin, identity.name, identity.identityState, identity.correlated, source.displayableName, source.authoritative, source.connectionType**
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
@@ -28312,7 +28251,7 @@ export const AccountsApiFactory = function (configuration?: Configuration, baseP
          * @param {number} [limit] Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
          * @param {number} [offset] Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
          * @param {boolean} [count] If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
-         * @param {string} [filters] Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, in, sw*  **identityId**: *eq, in, sw*  **name**: *eq, in, sw*  **nativeIdentity**: *eq, in, sw*  **sourceId**: *eq, in, sw*  **uncorrelated**: *eq*  **entitlements**: *eq*  **origin**: *eq, in*  **manuallyCorrelated**: *eq*  **identity.name**: *eq, in, sw*  **identity.correlated**: *eq*  **identity.identityState**: *eq, in*  **source.displayableName**: *eq, in*  **source.authoritative**: *eq*  **source.connectionType**: *eq, in*
+         * @param {string} [filters] Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, in, sw*  **identityId**: *eq, in, sw*  **name**: *eq, in, sw*  **nativeIdentity**: *eq, in, sw*  **sourceId**: *eq, in, sw*  **uncorrelated**: *eq*  **entitlements**: *eq*  **origin**: *eq, in*  **manuallyCorrelated**: *eq*  **identity.name**: *eq, in, sw*  **identity.correlated**: *eq*  **identity.identityState**: *eq, in*  **source.displayableName**: *eq, in*  **source.authoritative**: *eq*  **source.connectionType**: *eq, in*  **recommendation.method**: *eq, in, isnull*
          * @param {string} [sorters] Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **id, name, created, modified, sourceId, identityId, identity.id, nativeIdentity, uuid, manuallyCorrelated, entitlements, origin, identity.name, identity.identityState, identity.correlated, source.displayableName, source.authoritative, source.connectionType**
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
@@ -28513,7 +28452,7 @@ export interface AccountsApiListAccountsRequest {
     readonly count?: boolean
 
     /**
-     * Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, in, sw*  **identityId**: *eq, in, sw*  **name**: *eq, in, sw*  **nativeIdentity**: *eq, in, sw*  **sourceId**: *eq, in, sw*  **uncorrelated**: *eq*  **entitlements**: *eq*  **origin**: *eq, in*  **manuallyCorrelated**: *eq*  **identity.name**: *eq, in, sw*  **identity.correlated**: *eq*  **identity.identityState**: *eq, in*  **source.displayableName**: *eq, in*  **source.authoritative**: *eq*  **source.connectionType**: *eq, in*
+     * Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, in, sw*  **identityId**: *eq, in, sw*  **name**: *eq, in, sw*  **nativeIdentity**: *eq, in, sw*  **sourceId**: *eq, in, sw*  **uncorrelated**: *eq*  **entitlements**: *eq*  **origin**: *eq, in*  **manuallyCorrelated**: *eq*  **identity.name**: *eq, in, sw*  **identity.correlated**: *eq*  **identity.identityState**: *eq, in*  **source.displayableName**: *eq, in*  **source.authoritative**: *eq*  **source.connectionType**: *eq, in*  **recommendation.method**: *eq, in, isnull*
      * @type {string}
      * @memberof AccountsApiListAccounts
      */
