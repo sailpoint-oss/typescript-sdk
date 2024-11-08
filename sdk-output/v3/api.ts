@@ -16412,19 +16412,19 @@ export type QueryType = typeof QueryType[keyof typeof QueryType];
 
 
 /**
- * Configuration of maximum number days and interval for checking Service Desk integration queue status
+ * Configuration of maximum number of days and interval for checking Service Desk integration queue status.
  * @export
  * @interface QueuedCheckConfigDetails
  */
 export interface QueuedCheckConfigDetails {
     /**
-     * interval in minutes between status checks
+     * Interval in minutes between status checks
      * @type {string}
      * @memberof QueuedCheckConfigDetails
      */
     'provisioningStatusCheckIntervalMinutes': string;
     /**
-     * maximum number of days to check
+     * Maximum number of days to check
      * @type {string}
      * @memberof QueuedCheckConfigDetails
      */
@@ -55164,7 +55164,7 @@ export class SegmentsApi extends BaseAPI {
 export const ServiceDeskIntegrationApiAxiosParamCreator = function (configuration?: Configuration) {
     return {
         /**
-         * Create a new Service Desk Integrations.
+         * Create a new Service Desk integration.
          * @summary Create new Service Desk integration
          * @param {ServiceDeskIntegrationDto} serviceDeskIntegrationDto The specifics of a new integration to create
          * @param {*} [axiosOptions] Override http request option.
@@ -55293,7 +55293,7 @@ export const ServiceDeskIntegrationApiAxiosParamCreator = function (configuratio
         },
         /**
          * This API endpoint returns an existing Service Desk integration template by scriptName.
-         * @summary Service Desk integration template by scriptName.
+         * @summary Service Desk integration template by scriptName
          * @param {string} scriptName The scriptName value of the Service Desk integration template to get
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
@@ -55335,7 +55335,7 @@ export const ServiceDeskIntegrationApiAxiosParamCreator = function (configuratio
         },
         /**
          * This API endpoint returns the current list of supported Service Desk integration types.
-         * @summary Service Desk Integration Types List.
+         * @summary List Service Desk integration types
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
@@ -55372,8 +55372,8 @@ export const ServiceDeskIntegrationApiAxiosParamCreator = function (configuratio
             };
         },
         /**
-         * Get a list of ServiceDeskIntegrationDto for existing Service Desk Integrations.
-         * @summary List existing Service Desk Integrations
+         * Get a list of Service Desk integration objects.
+         * @summary List existing Service Desk integrations
          * @param {number} [offset] Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
          * @param {number} [limit] Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
          * @param {string} [sorters] Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **name**
@@ -55473,10 +55473,10 @@ export const ServiceDeskIntegrationApiAxiosParamCreator = function (configuratio
             };
         },
         /**
-         * Update an existing ServiceDeskIntegration by ID with a PATCH request.
-         * @summary Service Desk Integration Update PATCH
+         * Update an existing Service Desk integration by ID with a PATCH request.
+         * @summary Patch a Service Desk Integration
          * @param {string} id ID of the Service Desk integration to update
-         * @param {PatchServiceDeskIntegrationRequest} patchServiceDeskIntegrationRequest A list of SDIM update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.  Only &#x60;replace&#x60; operations are accepted by this endpoint.  A 403 Forbidden Error indicates that you attempted to PATCH a operation that is not allowed. 
+         * @param {PatchServiceDeskIntegrationRequest} patchServiceDeskIntegrationRequest A list of SDIM update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.  Only &#x60;replace&#x60; operations are accepted by this endpoint.  A 403 Forbidden Error indicates that a PATCH operation was attempted that is not allowed. 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
@@ -55521,7 +55521,7 @@ export const ServiceDeskIntegrationApiAxiosParamCreator = function (configuratio
             };
         },
         /**
-         * Update an existing Service Desk integration by ID with updated value in JSON form as the request body.
+         * Update an existing Service Desk integration by ID.
          * @summary Update a Service Desk integration
          * @param {string} id ID of the Service Desk integration to update
          * @param {ServiceDeskIntegrationDto} serviceDeskIntegrationDto The specifics of the integration to update
@@ -55571,7 +55571,7 @@ export const ServiceDeskIntegrationApiAxiosParamCreator = function (configuratio
         /**
          * Update the time check configuration of queued SDIM tickets.
          * @summary Update the time check configuration
-         * @param {QueuedCheckConfigDetails} queuedCheckConfigDetails the modified time check configuration
+         * @param {QueuedCheckConfigDetails} queuedCheckConfigDetails The modified time check configuration
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
@@ -55623,7 +55623,7 @@ export const ServiceDeskIntegrationApiFp = function(configuration?: Configuratio
     const localVarAxiosParamCreator = ServiceDeskIntegrationApiAxiosParamCreator(configuration)
     return {
         /**
-         * Create a new Service Desk Integrations.
+         * Create a new Service Desk integration.
          * @summary Create new Service Desk integration
          * @param {ServiceDeskIntegrationDto} serviceDeskIntegrationDto The specifics of a new integration to create
          * @param {*} [axiosOptions] Override http request option.
@@ -55657,7 +55657,7 @@ export const ServiceDeskIntegrationApiFp = function(configuration?: Configuratio
         },
         /**
          * This API endpoint returns an existing Service Desk integration template by scriptName.
-         * @summary Service Desk integration template by scriptName.
+         * @summary Service Desk integration template by scriptName
          * @param {string} scriptName The scriptName value of the Service Desk integration template to get
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
@@ -55668,7 +55668,7 @@ export const ServiceDeskIntegrationApiFp = function(configuration?: Configuratio
         },
         /**
          * This API endpoint returns the current list of supported Service Desk integration types.
-         * @summary Service Desk Integration Types List.
+         * @summary List Service Desk integration types
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
@@ -55677,8 +55677,8 @@ export const ServiceDeskIntegrationApiFp = function(configuration?: Configuratio
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
-         * Get a list of ServiceDeskIntegrationDto for existing Service Desk Integrations.
-         * @summary List existing Service Desk Integrations
+         * Get a list of Service Desk integration objects.
+         * @summary List existing Service Desk integrations
          * @param {number} [offset] Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
          * @param {number} [limit] Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
          * @param {string} [sorters] Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **name**
@@ -55702,10 +55702,10 @@ export const ServiceDeskIntegrationApiFp = function(configuration?: Configuratio
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
-         * Update an existing ServiceDeskIntegration by ID with a PATCH request.
-         * @summary Service Desk Integration Update PATCH
+         * Update an existing Service Desk integration by ID with a PATCH request.
+         * @summary Patch a Service Desk Integration
          * @param {string} id ID of the Service Desk integration to update
-         * @param {PatchServiceDeskIntegrationRequest} patchServiceDeskIntegrationRequest A list of SDIM update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.  Only &#x60;replace&#x60; operations are accepted by this endpoint.  A 403 Forbidden Error indicates that you attempted to PATCH a operation that is not allowed. 
+         * @param {PatchServiceDeskIntegrationRequest} patchServiceDeskIntegrationRequest A list of SDIM update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.  Only &#x60;replace&#x60; operations are accepted by this endpoint.  A 403 Forbidden Error indicates that a PATCH operation was attempted that is not allowed. 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
@@ -55714,7 +55714,7 @@ export const ServiceDeskIntegrationApiFp = function(configuration?: Configuratio
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
-         * Update an existing Service Desk integration by ID with updated value in JSON form as the request body.
+         * Update an existing Service Desk integration by ID.
          * @summary Update a Service Desk integration
          * @param {string} id ID of the Service Desk integration to update
          * @param {ServiceDeskIntegrationDto} serviceDeskIntegrationDto The specifics of the integration to update
@@ -55728,7 +55728,7 @@ export const ServiceDeskIntegrationApiFp = function(configuration?: Configuratio
         /**
          * Update the time check configuration of queued SDIM tickets.
          * @summary Update the time check configuration
-         * @param {QueuedCheckConfigDetails} queuedCheckConfigDetails the modified time check configuration
+         * @param {QueuedCheckConfigDetails} queuedCheckConfigDetails The modified time check configuration
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
@@ -55747,7 +55747,7 @@ export const ServiceDeskIntegrationApiFactory = function (configuration?: Config
     const localVarFp = ServiceDeskIntegrationApiFp(configuration)
     return {
         /**
-         * Create a new Service Desk Integrations.
+         * Create a new Service Desk integration.
          * @summary Create new Service Desk integration
          * @param {ServiceDeskIntegrationDto} serviceDeskIntegrationDto The specifics of a new integration to create
          * @param {*} [axiosOptions] Override http request option.
@@ -55778,7 +55778,7 @@ export const ServiceDeskIntegrationApiFactory = function (configuration?: Config
         },
         /**
          * This API endpoint returns an existing Service Desk integration template by scriptName.
-         * @summary Service Desk integration template by scriptName.
+         * @summary Service Desk integration template by scriptName
          * @param {string} scriptName The scriptName value of the Service Desk integration template to get
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
@@ -55788,7 +55788,7 @@ export const ServiceDeskIntegrationApiFactory = function (configuration?: Config
         },
         /**
          * This API endpoint returns the current list of supported Service Desk integration types.
-         * @summary Service Desk Integration Types List.
+         * @summary List Service Desk integration types
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
@@ -55796,8 +55796,8 @@ export const ServiceDeskIntegrationApiFactory = function (configuration?: Config
             return localVarFp.getServiceDeskIntegrationTypes(axiosOptions).then((request) => request(axios, basePath));
         },
         /**
-         * Get a list of ServiceDeskIntegrationDto for existing Service Desk Integrations.
-         * @summary List existing Service Desk Integrations
+         * Get a list of Service Desk integration objects.
+         * @summary List existing Service Desk integrations
          * @param {number} [offset] Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
          * @param {number} [limit] Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
          * @param {string} [sorters] Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **name**
@@ -55819,10 +55819,10 @@ export const ServiceDeskIntegrationApiFactory = function (configuration?: Config
             return localVarFp.getStatusCheckDetails(axiosOptions).then((request) => request(axios, basePath));
         },
         /**
-         * Update an existing ServiceDeskIntegration by ID with a PATCH request.
-         * @summary Service Desk Integration Update PATCH
+         * Update an existing Service Desk integration by ID with a PATCH request.
+         * @summary Patch a Service Desk Integration
          * @param {string} id ID of the Service Desk integration to update
-         * @param {PatchServiceDeskIntegrationRequest} patchServiceDeskIntegrationRequest A list of SDIM update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.  Only &#x60;replace&#x60; operations are accepted by this endpoint.  A 403 Forbidden Error indicates that you attempted to PATCH a operation that is not allowed. 
+         * @param {PatchServiceDeskIntegrationRequest} patchServiceDeskIntegrationRequest A list of SDIM update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.  Only &#x60;replace&#x60; operations are accepted by this endpoint.  A 403 Forbidden Error indicates that a PATCH operation was attempted that is not allowed. 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
@@ -55830,7 +55830,7 @@ export const ServiceDeskIntegrationApiFactory = function (configuration?: Config
             return localVarFp.patchServiceDeskIntegration(id, patchServiceDeskIntegrationRequest, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
-         * Update an existing Service Desk integration by ID with updated value in JSON form as the request body.
+         * Update an existing Service Desk integration by ID.
          * @summary Update a Service Desk integration
          * @param {string} id ID of the Service Desk integration to update
          * @param {ServiceDeskIntegrationDto} serviceDeskIntegrationDto The specifics of the integration to update
@@ -55843,7 +55843,7 @@ export const ServiceDeskIntegrationApiFactory = function (configuration?: Config
         /**
          * Update the time check configuration of queued SDIM tickets.
          * @summary Update the time check configuration
-         * @param {QueuedCheckConfigDetails} queuedCheckConfigDetails the modified time check configuration
+         * @param {QueuedCheckConfigDetails} queuedCheckConfigDetails The modified time check configuration
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
@@ -55965,7 +55965,7 @@ export interface ServiceDeskIntegrationApiPatchServiceDeskIntegrationRequest {
     readonly id: string
 
     /**
-     * A list of SDIM update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.  Only &#x60;replace&#x60; operations are accepted by this endpoint.  A 403 Forbidden Error indicates that you attempted to PATCH a operation that is not allowed. 
+     * A list of SDIM update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.  Only &#x60;replace&#x60; operations are accepted by this endpoint.  A 403 Forbidden Error indicates that a PATCH operation was attempted that is not allowed. 
      * @type {PatchServiceDeskIntegrationRequest}
      * @memberof ServiceDeskIntegrationApiPatchServiceDeskIntegration
      */
@@ -56000,7 +56000,7 @@ export interface ServiceDeskIntegrationApiPutServiceDeskIntegrationRequest {
  */
 export interface ServiceDeskIntegrationApiUpdateStatusCheckDetailsRequest {
     /**
-     * the modified time check configuration
+     * The modified time check configuration
      * @type {QueuedCheckConfigDetails}
      * @memberof ServiceDeskIntegrationApiUpdateStatusCheckDetails
      */
@@ -56015,7 +56015,7 @@ export interface ServiceDeskIntegrationApiUpdateStatusCheckDetailsRequest {
  */
 export class ServiceDeskIntegrationApi extends BaseAPI {
     /**
-     * Create a new Service Desk Integrations.
+     * Create a new Service Desk integration.
      * @summary Create new Service Desk integration
      * @param {ServiceDeskIntegrationApiCreateServiceDeskIntegrationRequest} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
@@ -56052,7 +56052,7 @@ export class ServiceDeskIntegrationApi extends BaseAPI {
 
     /**
      * This API endpoint returns an existing Service Desk integration template by scriptName.
-     * @summary Service Desk integration template by scriptName.
+     * @summary Service Desk integration template by scriptName
      * @param {ServiceDeskIntegrationApiGetServiceDeskIntegrationTemplateRequest} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
@@ -56064,7 +56064,7 @@ export class ServiceDeskIntegrationApi extends BaseAPI {
 
     /**
      * This API endpoint returns the current list of supported Service Desk integration types.
-     * @summary Service Desk Integration Types List.
+     * @summary List Service Desk integration types
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
      * @memberof ServiceDeskIntegrationApi
@@ -56074,8 +56074,8 @@ export class ServiceDeskIntegrationApi extends BaseAPI {
     }
 
     /**
-     * Get a list of ServiceDeskIntegrationDto for existing Service Desk Integrations.
-     * @summary List existing Service Desk Integrations
+     * Get a list of Service Desk integration objects.
+     * @summary List existing Service Desk integrations
      * @param {ServiceDeskIntegrationApiGetServiceDeskIntegrationsRequest} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
@@ -56097,8 +56097,8 @@ export class ServiceDeskIntegrationApi extends BaseAPI {
     }
 
     /**
-     * Update an existing ServiceDeskIntegration by ID with a PATCH request.
-     * @summary Service Desk Integration Update PATCH
+     * Update an existing Service Desk integration by ID with a PATCH request.
+     * @summary Patch a Service Desk Integration
      * @param {ServiceDeskIntegrationApiPatchServiceDeskIntegrationRequest} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
@@ -56109,7 +56109,7 @@ export class ServiceDeskIntegrationApi extends BaseAPI {
     }
 
     /**
-     * Update an existing Service Desk integration by ID with updated value in JSON form as the request body.
+     * Update an existing Service Desk integration by ID.
      * @summary Update a Service Desk integration
      * @param {ServiceDeskIntegrationApiPutServiceDeskIntegrationRequest} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
