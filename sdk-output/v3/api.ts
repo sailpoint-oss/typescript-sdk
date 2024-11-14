@@ -24742,23 +24742,101 @@ export interface WorkflowTrigger {
      * @type {WorkflowTriggerAttributes}
      * @memberof WorkflowTrigger
      */
-    'attributes': WorkflowTriggerAttributes;
+    'attributes': WorkflowTriggerAttributes | null;
 }
 
 export const WorkflowTriggerTypeEnum = {
     Event: 'EVENT',
     External: 'EXTERNAL',
-    Scheduled: 'SCHEDULED'
+    Scheduled: 'SCHEDULED',
+    Empty: ''
 } as const;
 
 export type WorkflowTriggerTypeEnum = typeof WorkflowTriggerTypeEnum[keyof typeof WorkflowTriggerTypeEnum];
 
 /**
- * @type WorkflowTriggerAttributes
  * Workflow Trigger Attributes.
  * @export
+ * @interface WorkflowTriggerAttributes
  */
-export type WorkflowTriggerAttributes = EventAttributes | ExternalAttributes | ScheduledAttributes;
+export interface WorkflowTriggerAttributes {
+    /**
+     * The unique ID of the trigger
+     * @type {string}
+     * @memberof WorkflowTriggerAttributes
+     */
+    'id': string;
+    /**
+     * JSON path expression that will limit which events the trigger will fire on
+     * @type {string}
+     * @memberof WorkflowTriggerAttributes
+     */
+    'filter.$'?: string;
+    /**
+     * Additonal context about the external trigger
+     * @type {string}
+     * @memberof WorkflowTriggerAttributes
+     */
+    'description'?: string;
+    /**
+     * A unique name for the external trigger
+     * @type {string}
+     * @memberof WorkflowTriggerAttributes
+     */
+    'name'?: string;
+    /**
+     * OAuth Client ID to authenticate with this trigger
+     * @type {string}
+     * @memberof WorkflowTriggerAttributes
+     */
+    'clientId'?: string;
+    /**
+     * URL to invoke this workflow
+     * @type {string}
+     * @memberof WorkflowTriggerAttributes
+     */
+    'url'?: string;
+    /**
+     * A valid CRON expression
+     * @type {string}
+     * @memberof WorkflowTriggerAttributes
+     */
+    'cronString'?: string;
+    /**
+     * Frequency of execution
+     * @type {string}
+     * @memberof WorkflowTriggerAttributes
+     */
+    'frequency': WorkflowTriggerAttributesFrequencyEnum;
+    /**
+     * Time zone identifier
+     * @type {string}
+     * @memberof WorkflowTriggerAttributes
+     */
+    'timeZone'?: string;
+    /**
+     * Scheduled days of the week for execution
+     * @type {Array<string>}
+     * @memberof WorkflowTriggerAttributes
+     */
+    'weeklyDays'?: Array<string>;
+    /**
+     * Scheduled execution times
+     * @type {Array<string>}
+     * @memberof WorkflowTriggerAttributes
+     */
+    'weeklyTimes'?: Array<string>;
+}
+
+export const WorkflowTriggerAttributesFrequencyEnum = {
+    Daily: 'daily',
+    Weekly: 'weekly',
+    Monthly: 'monthly',
+    Yearly: 'yearly',
+    CronSchedule: 'cronSchedule'
+} as const;
+
+export type WorkflowTriggerAttributesFrequencyEnum = typeof WorkflowTriggerAttributesFrequencyEnum[keyof typeof WorkflowTriggerAttributesFrequencyEnum];
 
 
 /**
