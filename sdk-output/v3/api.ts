@@ -13576,7 +13576,7 @@ export interface NonEmployeeRecord {
      */
     'sourceId'?: string;
     /**
-     * Attribute blob/bag for a non-employee.
+     * Additional attributes for a non-employee. Up to 10 custom attributes can be added.
      * @type {{ [key: string]: string; }}
      * @memberof NonEmployeeRecord
      */
@@ -13692,7 +13692,7 @@ export interface NonEmployeeRequest {
      */
     'nonEmployeeSource'?: NonEmployeeSourceLite;
     /**
-     * Attribute blob/bag for a non-employee.
+     * Additional attributes for a non-employee. Up to 10 custom attributes can be added.
      * @type {{ [key: string]: string; }}
      * @memberof NonEmployeeRequest
      */
@@ -13710,7 +13710,7 @@ export interface NonEmployeeRequest {
      */
     'approvalStatus'?: ApprovalStatus;
     /**
-     * comment of requester
+     * Comment of requester
      * @type {string}
      * @memberof NonEmployeeRequest
      */
@@ -13795,7 +13795,7 @@ export interface NonEmployeeRequestAllOf {
      */
     'nonEmployeeSource'?: NonEmployeeSourceLite;
     /**
-     * Attribute blob/bag for a non-employee.
+     * Additional attributes for a non-employee. Up to 10 custom attributes can be added.
      * @type {{ [key: string]: string; }}
      * @memberof NonEmployeeRequestAllOf
      */
@@ -13813,7 +13813,7 @@ export interface NonEmployeeRequestAllOf {
      */
     'approvalStatus'?: ApprovalStatus;
     /**
-     * comment of requester
+     * Comment of requester
      * @type {string}
      * @memberof NonEmployeeRequestAllOf
      */
@@ -13898,7 +13898,7 @@ export interface NonEmployeeRequestBody {
      */
     'sourceId': string;
     /**
-     * Attribute blob/bag for a non-employee, 10 attributes is the maximum size supported.
+     * Additional attributes for a non-employee. Up to 10 custom attributes can be added.
      * @type {{ [key: string]: string; }}
      * @memberof NonEmployeeRequestBody
      */
@@ -14027,7 +14027,7 @@ export interface NonEmployeeRequestWithoutApprovalItem {
      */
     'nonEmployeeSource'?: NonEmployeeSourceLiteWithSchemaAttributes;
     /**
-     * Attribute blob/bag for a non-employee.
+     * Additional attributes for a non-employee. Up to 10 custom attributes can be added.
      * @type {{ [key: string]: string; }}
      * @memberof NonEmployeeRequestWithoutApprovalItem
      */
@@ -14039,7 +14039,7 @@ export interface NonEmployeeRequestWithoutApprovalItem {
      */
     'approvalStatus'?: ApprovalStatus;
     /**
-     * comment of requester
+     * Comment of requester
      * @type {string}
      * @memberof NonEmployeeRequestWithoutApprovalItem
      */
@@ -14124,7 +14124,7 @@ export interface NonEmployeeRequestWithoutApprovalItemAllOf {
      */
     'nonEmployeeSource'?: NonEmployeeSourceLiteWithSchemaAttributes;
     /**
-     * Attribute blob/bag for a non-employee.
+     * Additional attributes for a non-employee. Up to 10 custom attributes can be added.
      * @type {{ [key: string]: string; }}
      * @memberof NonEmployeeRequestWithoutApprovalItemAllOf
      */
@@ -14136,7 +14136,7 @@ export interface NonEmployeeRequestWithoutApprovalItemAllOf {
      */
     'approvalStatus'?: ApprovalStatus;
     /**
-     * comment of requester
+     * Comment of requester
      * @type {string}
      * @memberof NonEmployeeRequestWithoutApprovalItemAllOf
      */
