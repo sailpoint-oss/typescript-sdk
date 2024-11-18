@@ -9903,31 +9903,6 @@ export interface IdentityAttribute {
     'input'?: { [key: string]: any; };
 }
 /**
- * 
- * @export
- * @interface IdentityAttribute1
- */
-export interface IdentityAttribute1 {
-    /**
-     * The attribute key
-     * @type {string}
-     * @memberof IdentityAttribute1
-     */
-    'key'?: string;
-    /**
-     * Human-readable display name of the attribute
-     * @type {string}
-     * @memberof IdentityAttribute1
-     */
-    'name'?: string;
-    /**
-     * The attribute value
-     * @type {string}
-     * @memberof IdentityAttribute1
-     */
-    'value'?: string;
-}
-/**
  * Defines all the identity attribute mapping configurations. This defines how to generate or collect data for each identity attributes in identity refresh process.
  * @export
  * @interface IdentityAttributeConfig
@@ -16228,10 +16203,10 @@ export interface PublicIdentity {
     'manager'?: IdentityReference | null;
     /**
      * The public identity attributes of the identity
-     * @type {Array<IdentityAttribute1>}
+     * @type {Array<PublicIdentityAttributesInner>}
      * @memberof PublicIdentity
      */
-    'attributes'?: Array<IdentityAttribute1>;
+    'attributes'?: Array<PublicIdentityAttributesInner>;
 }
 
 export const PublicIdentityIdentityStateEnum = {
@@ -16261,6 +16236,31 @@ export interface PublicIdentityAttributeConfig {
      * @memberof PublicIdentityAttributeConfig
      */
     'name'?: string;
+}
+/**
+ * 
+ * @export
+ * @interface PublicIdentityAttributesInner
+ */
+export interface PublicIdentityAttributesInner {
+    /**
+     * The attribute key
+     * @type {string}
+     * @memberof PublicIdentityAttributesInner
+     */
+    'key'?: string;
+    /**
+     * Human-readable display name of the attribute
+     * @type {string}
+     * @memberof PublicIdentityAttributesInner
+     */
+    'name'?: string;
+    /**
+     * The attribute value
+     * @type {string}
+     * @memberof PublicIdentityAttributesInner
+     */
+    'value'?: string | null;
 }
 /**
  * Details of up to 5 Identity attributes that will be publicly accessible for all Identities to anyone in the org.
@@ -48590,8 +48590,8 @@ export class PersonalAccessTokensApi extends BaseAPI {
 export const PublicIdentitiesApiAxiosParamCreator = function (configuration?: Configuration) {
     return {
         /**
-         * 
-         * @summary Get a list of public identities
+         * Get a list of public identities.  Set `add-core-filters` to `true` to exclude incomplete identities and uncorrelated accounts.
+         * @summary Get list of public identities
          * @param {number} [limit] Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
          * @param {number} [offset] Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
          * @param {boolean} [count] If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
@@ -48616,11 +48616,11 @@ export const PublicIdentitiesApiAxiosParamCreator = function (configuration?: Co
 
             // authentication userAuth required
             // oauth required
-            await setOAuthToObject(localVarHeaderParameter, "userAuth", ["sp:scopes:all"], configuration)
+            await setOAuthToObject(localVarHeaderParameter, "userAuth", ["sp:scopes:default"], configuration)
 
             // authentication userAuth required
             // oauth required
-            await setOAuthToObject(localVarHeaderParameter, "userAuth", ["sp:scopes:all"], configuration)
+            await setOAuthToObject(localVarHeaderParameter, "userAuth", ["sp:scopes:default"], configuration)
 
             if (limit !== undefined) {
                 localVarQueryParameter['limit'] = limit;
@@ -48668,8 +48668,8 @@ export const PublicIdentitiesApiFp = function(configuration?: Configuration) {
     const localVarAxiosParamCreator = PublicIdentitiesApiAxiosParamCreator(configuration)
     return {
         /**
-         * 
-         * @summary Get a list of public identities
+         * Get a list of public identities.  Set `add-core-filters` to `true` to exclude incomplete identities and uncorrelated accounts.
+         * @summary Get list of public identities
          * @param {number} [limit] Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
          * @param {number} [offset] Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
          * @param {boolean} [count] If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
@@ -48694,8 +48694,8 @@ export const PublicIdentitiesApiFactory = function (configuration?: Configuratio
     const localVarFp = PublicIdentitiesApiFp(configuration)
     return {
         /**
-         * 
-         * @summary Get a list of public identities
+         * Get a list of public identities.  Set `add-core-filters` to `true` to exclude incomplete identities and uncorrelated accounts.
+         * @summary Get list of public identities
          * @param {number} [limit] Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
          * @param {number} [offset] Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
          * @param {boolean} [count] If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
@@ -48768,8 +48768,8 @@ export interface PublicIdentitiesApiGetPublicIdentitiesRequest {
  */
 export class PublicIdentitiesApi extends BaseAPI {
     /**
-     * 
-     * @summary Get a list of public identities
+     * Get a list of public identities.  Set `add-core-filters` to `true` to exclude incomplete identities and uncorrelated accounts.
+     * @summary Get list of public identities
      * @param {PublicIdentitiesApiGetPublicIdentitiesRequest} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
