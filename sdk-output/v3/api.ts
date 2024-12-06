@@ -41068,8 +41068,8 @@ export class MFAControllerApi extends BaseAPI {
 export const ManagedClientsApiAxiosParamCreator = function (configuration?: Configuration) {
     return {
         /**
-         * Create a new Managed Client. The API returns a result that includes the Managed Client ID.
-         * @summary Create a new Managed Client
+         * Create a new managed client. The API returns a result that includes the managed client ID.
+         * @summary Create Managed Client
          * @param {ManagedClientRequest} managedClientRequest 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
@@ -41112,9 +41112,9 @@ export const ManagedClientsApiAxiosParamCreator = function (configuration?: Conf
             };
         },
         /**
-         * Delete an existing Managed Client.
-         * @summary Delete a Managed Client
-         * @param {string} id Managed Client ID.
+         * Delete an existing managed client.
+         * @summary Delete Managed Client
+         * @param {string} id Managed client ID.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
@@ -41196,10 +41196,10 @@ export const ManagedClientsApiAxiosParamCreator = function (configuration?: Conf
             };
         },
         /**
-         * Retrieve the Status of a Managed Client by ID.
-         * @summary Get Managed Client Status.
-         * @param {string} id ID of the Managed Client to get Status of
-         * @param {ManagedClientType} type Type of the Managed Client to get Status of
+         * Get a managed client\'s status, using its ID.
+         * @summary Get Managed Client Status
+         * @param {string} id Managed client ID to get status for.
+         * @param {ManagedClientType} type Managed client type to get status for.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
@@ -41245,7 +41245,7 @@ export const ManagedClientsApiAxiosParamCreator = function (configuration?: Conf
             };
         },
         /**
-         * Get a list of Managed Clients.
+         * List managed clients.
          * @summary Get Managed Clients
          * @param {number} [offset] Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
          * @param {number} [limit] Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
@@ -41303,10 +41303,10 @@ export const ManagedClientsApiAxiosParamCreator = function (configuration?: Conf
             };
         },
         /**
-         * Update an existing Managed Client.
-         * @summary Update a Managed Client
-         * @param {string} id Managed Client ID.
-         * @param {Array<JsonPatchOperation>} jsonPatchOperation The JSONPatch payload used to update the object.
+         * Update an existing managed client.
+         * @summary Update Managed Client
+         * @param {string} id Managed client ID.
+         * @param {Array<JsonPatchOperation>} jsonPatchOperation JSONPatch payload used to update the object.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
@@ -41361,8 +41361,8 @@ export const ManagedClientsApiFp = function(configuration?: Configuration) {
     const localVarAxiosParamCreator = ManagedClientsApiAxiosParamCreator(configuration)
     return {
         /**
-         * Create a new Managed Client. The API returns a result that includes the Managed Client ID.
-         * @summary Create a new Managed Client
+         * Create a new managed client. The API returns a result that includes the managed client ID.
+         * @summary Create Managed Client
          * @param {ManagedClientRequest} managedClientRequest 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
@@ -41372,9 +41372,9 @@ export const ManagedClientsApiFp = function(configuration?: Configuration) {
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
-         * Delete an existing Managed Client.
-         * @summary Delete a Managed Client
-         * @param {string} id Managed Client ID.
+         * Delete an existing managed client.
+         * @summary Delete Managed Client
+         * @param {string} id Managed client ID.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
@@ -41394,10 +41394,10 @@ export const ManagedClientsApiFp = function(configuration?: Configuration) {
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
-         * Retrieve the Status of a Managed Client by ID.
-         * @summary Get Managed Client Status.
-         * @param {string} id ID of the Managed Client to get Status of
-         * @param {ManagedClientType} type Type of the Managed Client to get Status of
+         * Get a managed client\'s status, using its ID.
+         * @summary Get Managed Client Status
+         * @param {string} id Managed client ID to get status for.
+         * @param {ManagedClientType} type Managed client type to get status for.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
@@ -41406,7 +41406,7 @@ export const ManagedClientsApiFp = function(configuration?: Configuration) {
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
-         * Get a list of Managed Clients.
+         * List managed clients.
          * @summary Get Managed Clients
          * @param {number} [offset] Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
          * @param {number} [limit] Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
@@ -41420,10 +41420,10 @@ export const ManagedClientsApiFp = function(configuration?: Configuration) {
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
-         * Update an existing Managed Client.
-         * @summary Update a Managed Client
-         * @param {string} id Managed Client ID.
-         * @param {Array<JsonPatchOperation>} jsonPatchOperation The JSONPatch payload used to update the object.
+         * Update an existing managed client.
+         * @summary Update Managed Client
+         * @param {string} id Managed client ID.
+         * @param {Array<JsonPatchOperation>} jsonPatchOperation JSONPatch payload used to update the object.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
@@ -41442,8 +41442,8 @@ export const ManagedClientsApiFactory = function (configuration?: Configuration,
     const localVarFp = ManagedClientsApiFp(configuration)
     return {
         /**
-         * Create a new Managed Client. The API returns a result that includes the Managed Client ID.
-         * @summary Create a new Managed Client
+         * Create a new managed client. The API returns a result that includes the managed client ID.
+         * @summary Create Managed Client
          * @param {ManagedClientRequest} managedClientRequest 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
@@ -41452,9 +41452,9 @@ export const ManagedClientsApiFactory = function (configuration?: Configuration,
             return localVarFp.createManagedClient(managedClientRequest, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
-         * Delete an existing Managed Client.
-         * @summary Delete a Managed Client
-         * @param {string} id Managed Client ID.
+         * Delete an existing managed client.
+         * @summary Delete Managed Client
+         * @param {string} id Managed client ID.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
@@ -41472,10 +41472,10 @@ export const ManagedClientsApiFactory = function (configuration?: Configuration,
             return localVarFp.getManagedClient(id, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
-         * Retrieve the Status of a Managed Client by ID.
-         * @summary Get Managed Client Status.
-         * @param {string} id ID of the Managed Client to get Status of
-         * @param {ManagedClientType} type Type of the Managed Client to get Status of
+         * Get a managed client\'s status, using its ID.
+         * @summary Get Managed Client Status
+         * @param {string} id Managed client ID to get status for.
+         * @param {ManagedClientType} type Managed client type to get status for.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
@@ -41483,7 +41483,7 @@ export const ManagedClientsApiFactory = function (configuration?: Configuration,
             return localVarFp.getManagedClientStatus(id, type, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
-         * Get a list of Managed Clients.
+         * List managed clients.
          * @summary Get Managed Clients
          * @param {number} [offset] Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
          * @param {number} [limit] Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
@@ -41496,10 +41496,10 @@ export const ManagedClientsApiFactory = function (configuration?: Configuration,
             return localVarFp.getManagedClients(offset, limit, count, filters, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
-         * Update an existing Managed Client.
-         * @summary Update a Managed Client
-         * @param {string} id Managed Client ID.
-         * @param {Array<JsonPatchOperation>} jsonPatchOperation The JSONPatch payload used to update the object.
+         * Update an existing managed client.
+         * @summary Update Managed Client
+         * @param {string} id Managed client ID.
+         * @param {Array<JsonPatchOperation>} jsonPatchOperation JSONPatch payload used to update the object.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
@@ -41530,7 +41530,7 @@ export interface ManagedClientsApiCreateManagedClientRequest {
  */
 export interface ManagedClientsApiDeleteManagedClientRequest {
     /**
-     * Managed Client ID.
+     * Managed client ID.
      * @type {string}
      * @memberof ManagedClientsApiDeleteManagedClient
      */
@@ -41558,14 +41558,14 @@ export interface ManagedClientsApiGetManagedClientRequest {
  */
 export interface ManagedClientsApiGetManagedClientStatusRequest {
     /**
-     * ID of the Managed Client to get Status of
+     * Managed client ID to get status for.
      * @type {string}
      * @memberof ManagedClientsApiGetManagedClientStatus
      */
     readonly id: string
 
     /**
-     * Type of the Managed Client to get Status of
+     * Managed client type to get status for.
      * @type {ManagedClientType}
      * @memberof ManagedClientsApiGetManagedClientStatus
      */
@@ -41614,14 +41614,14 @@ export interface ManagedClientsApiGetManagedClientsRequest {
  */
 export interface ManagedClientsApiUpdateManagedClientRequest {
     /**
-     * Managed Client ID.
+     * Managed client ID.
      * @type {string}
      * @memberof ManagedClientsApiUpdateManagedClient
      */
     readonly id: string
 
     /**
-     * The JSONPatch payload used to update the object.
+     * JSONPatch payload used to update the object.
      * @type {Array<JsonPatchOperation>}
      * @memberof ManagedClientsApiUpdateManagedClient
      */
@@ -41636,8 +41636,8 @@ export interface ManagedClientsApiUpdateManagedClientRequest {
  */
 export class ManagedClientsApi extends BaseAPI {
     /**
-     * Create a new Managed Client. The API returns a result that includes the Managed Client ID.
-     * @summary Create a new Managed Client
+     * Create a new managed client. The API returns a result that includes the managed client ID.
+     * @summary Create Managed Client
      * @param {ManagedClientsApiCreateManagedClientRequest} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
@@ -41648,8 +41648,8 @@ export class ManagedClientsApi extends BaseAPI {
     }
 
     /**
-     * Delete an existing Managed Client.
-     * @summary Delete a Managed Client
+     * Delete an existing managed client.
+     * @summary Delete Managed Client
      * @param {ManagedClientsApiDeleteManagedClientRequest} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
@@ -41672,8 +41672,8 @@ export class ManagedClientsApi extends BaseAPI {
     }
 
     /**
-     * Retrieve the Status of a Managed Client by ID.
-     * @summary Get Managed Client Status.
+     * Get a managed client\'s status, using its ID.
+     * @summary Get Managed Client Status
      * @param {ManagedClientsApiGetManagedClientStatusRequest} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
@@ -41684,7 +41684,7 @@ export class ManagedClientsApi extends BaseAPI {
     }
 
     /**
-     * Get a list of Managed Clients.
+     * List managed clients.
      * @summary Get Managed Clients
      * @param {ManagedClientsApiGetManagedClientsRequest} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
@@ -41696,8 +41696,8 @@ export class ManagedClientsApi extends BaseAPI {
     }
 
     /**
-     * Update an existing Managed Client.
-     * @summary Update a Managed Client
+     * Update an existing managed client.
+     * @summary Update Managed Client
      * @param {ManagedClientsApiUpdateManagedClientRequest} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
