@@ -8643,6 +8643,12 @@ export interface EventAttributes {
      * @memberof EventAttributes
      */
     'description'?: string;
+    /**
+     * The attribute to filter on
+     * @type {string}
+     * @memberof EventAttributes
+     */
+    'attributeToFilter'?: string;
 }
 /**
  * Event
@@ -24778,6 +24784,12 @@ export interface WorkflowTriggerAttributes {
      * @memberof WorkflowTriggerAttributes
      */
     'description'?: string;
+    /**
+     * The attribute to filter on
+     * @type {string}
+     * @memberof WorkflowTriggerAttributes
+     */
+    'attributeToFilter'?: string;
     /**
      * A unique name for the external trigger
      * @type {string}
