@@ -989,6 +989,12 @@ export interface AccessRequestConfig {
      */
     'autoApprovalEnabled'?: boolean;
     /**
+     * If this is true, reauthorization will be enforced for appropriately configured access items. Enablement of this feature is currently in a limited state.
+     * @type {boolean}
+     * @memberof AccessRequestConfig
+     */
+    'reauthorizationEnabled'?: boolean;
+    /**
      * 
      * @type {RequestOnBehalfOfConfig}
      * @memberof AccessRequestConfig
