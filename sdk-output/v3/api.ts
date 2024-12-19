@@ -1121,6 +1121,56 @@ export const AccessRequestPhasesResultEnum = {
 export type AccessRequestPhasesResultEnum = typeof AccessRequestPhasesResultEnum[keyof typeof AccessRequestPhasesResultEnum];
 
 /**
+ * 
+ * @export
+ * @interface AccessRequestResponse
+ */
+export interface AccessRequestResponse {
+    /**
+     * A list of new access request tracking data mapped to the values requested.
+     * @type {Array<AccessRequestTracking>}
+     * @memberof AccessRequestResponse
+     */
+    'newRequests'?: Array<AccessRequestTracking>;
+    /**
+     * A list of existing access request tracking data mapped to the values requested.  This indicates access has already been requested for this item.
+     * @type {Array<AccessRequestTracking>}
+     * @memberof AccessRequestResponse
+     */
+    'existingRequests'?: Array<AccessRequestTracking>;
+}
+/**
+ * 
+ * @export
+ * @interface AccessRequestTracking
+ */
+export interface AccessRequestTracking {
+    /**
+     * The identity id in which the access request is for.
+     * @type {string}
+     * @memberof AccessRequestTracking
+     */
+    'requestedFor'?: string;
+    /**
+     * The details of the item requested.
+     * @type {Array<RequestedItemDetails>}
+     * @memberof AccessRequestTracking
+     */
+    'requestedItemsDetails'?: Array<RequestedItemDetails>;
+    /**
+     * a hash representation of the access requested, useful for longer term tracking client side.
+     * @type {string}
+     * @memberof AccessRequestTracking
+     */
+    'attributesHash'?: string;
+    /**
+     * a list of access request identifiers, generally only one will be populated, but high volume requested may result in multiple ids.
+     * @type {Array<string>}
+     * @memberof AccessRequestTracking
+     */
+    'accessRequestIds'?: Array<string>;
+}
+/**
  * Access request type. Defaults to GRANT_ACCESS. REVOKE_ACCESS type can only have a single Identity ID in the requestedFor field.
  * @export
  * @enum {string}
@@ -4597,13 +4647,13 @@ export interface Campaign {
      */
     'id'?: string;
     /**
-     * The campaign name. If this object is part of a template, special formatting applies; see the `/campaign-templates/{id}/generate` endpoint documentation for details.
+     * The campaign name. If this object is part of a template, special formatting applies; see the `/campaign-templates/{id}/generate` endpoint documentation for details. 
      * @type {string}
      * @memberof Campaign
      */
     'name': string;
     /**
-     * The campaign description. If this object is part of a template, special formatting applies; see the `/campaign-templates/{id}/generate` endpoint documentation for details.
+     * The campaign description. If this object is part of a template, special formatting applies; see the `/campaign-templates/{id}/generate` endpoint documentation for details. 
      * @type {string}
      * @memberof Campaign
      */
@@ -7164,7 +7214,7 @@ export interface DateCompare {
      */
     'secondDate': DateCompareSecondDate;
     /**
-     * This is the comparison to perform. | Operation | Description | | --------- | ------- | | LT        | Strictly less than: firstDate < secondDate | | LTE       | Less than or equal to: firstDate <= secondDate | | GT        | Strictly greater than: firstDate > secondDate | | GTE       | Greater than or equal to: firstDate >= secondDate | 
+     * This is the comparison to perform. | Operation | Description | | --------- | ------- | | LT        | Strictly less than: `firstDate < secondDate` | | LTE       | Less than or equal to: `firstDate <= secondDate` | | GT        | Strictly greater than: `firstDate > secondDate` | | GTE       | Greater than or equal to: `firstDate >= secondDate` | 
      * @type {string}
      * @memberof DateCompare
      */
@@ -8222,7 +8272,7 @@ export interface EntitlementRequestConfig {
      */
     'deniedCommentsRequired'?: boolean;
     /**
-     * Approval schemes for granting entitlement request. This can be empty if no approval is needed. Multiple schemes must be comma-separated. The valid schemes are \"entitlementOwner\", \"sourceOwner\", \"manager\" and \"workgroup:{id}\". You can use multiple governance groups (workgroups). 
+     * Approval schemes for granting entitlement request. This can be empty if no approval is needed. Multiple schemes must be comma-separated. The valid schemes are \"entitlementOwner\", \"sourceOwner\", \"manager\" and \"`workgroup:{id}`\". You can use multiple governance groups (workgroups). 
      * @type {string}
      * @memberof EntitlementRequestConfig
      */
@@ -9404,13 +9454,13 @@ export interface GetActiveCampaigns200ResponseInner {
      */
     'id'?: string;
     /**
-     * The campaign name. If this object is part of a template, special formatting applies; see the `/campaign-templates/{id}/generate` endpoint documentation for details.
+     * The campaign name. If this object is part of a template, special formatting applies; see the `/campaign-templates/{id}/generate` endpoint documentation for details. 
      * @type {string}
      * @memberof GetActiveCampaigns200ResponseInner
      */
     'name': string;
     /**
-     * The campaign description. If this object is part of a template, special formatting applies; see the `/campaign-templates/{id}/generate` endpoint documentation for details.
+     * The campaign description. If this object is part of a template, special formatting applies; see the `/campaign-templates/{id}/generate` endpoint documentation for details. 
      * @type {string}
      * @memberof GetActiveCampaigns200ResponseInner
      */
@@ -17303,6 +17353,34 @@ export type RequestableObjectType = typeof RequestableObjectType[keyof typeof Re
 /**
  * 
  * @export
+ * @interface RequestedItemDetails
+ */
+export interface RequestedItemDetails {
+    /**
+     * The type of access item requested.
+     * @type {string}
+     * @memberof RequestedItemDetails
+     */
+    'type'?: RequestedItemDetailsTypeEnum;
+    /**
+     * The id of the access item requested.
+     * @type {string}
+     * @memberof RequestedItemDetails
+     */
+    'id'?: string;
+}
+
+export const RequestedItemDetailsTypeEnum = {
+    AccessProfile: 'ACCESS_PROFILE',
+    Entitlement: 'ENTITLEMENT',
+    Role: 'ROLE'
+} as const;
+
+export type RequestedItemDetailsTypeEnum = typeof RequestedItemDetailsTypeEnum[keyof typeof RequestedItemDetailsTypeEnum];
+
+/**
+ * 
+ * @export
  * @interface RequestedItemStatus
  */
 export interface RequestedItemStatus {
@@ -20670,13 +20748,13 @@ export interface SlimCampaign {
      */
     'id'?: string;
     /**
-     * The campaign name. If this object is part of a template, special formatting applies; see the `/campaign-templates/{id}/generate` endpoint documentation for details.
+     * The campaign name. If this object is part of a template, special formatting applies; see the `/campaign-templates/{id}/generate` endpoint documentation for details. 
      * @type {string}
      * @memberof SlimCampaign
      */
     'name': string;
     /**
-     * The campaign description. If this object is part of a template, special formatting applies; see the `/campaign-templates/{id}/generate` endpoint documentation for details.
+     * The campaign description. If this object is part of a template, special formatting applies; see the `/campaign-templates/{id}/generate` endpoint documentation for details. 
      * @type {string}
      * @memberof SlimCampaign
      */
@@ -26800,7 +26878,7 @@ export const AccessRequestsApiFp = function(configuration?: Configuration) {
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async createAccessRequest(accessRequest: AccessRequest, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<object>> {
+        async createAccessRequest(accessRequest: AccessRequest, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<AccessRequestResponse>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.createAccessRequest(accessRequest, axiosOptions);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -26872,7 +26950,7 @@ export const AccessRequestsApiFactory = function (configuration?: Configuration,
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        createAccessRequest(accessRequest: AccessRequest, axiosOptions?: any): AxiosPromise<object> {
+        createAccessRequest(accessRequest: AccessRequest, axiosOptions?: any): AxiosPromise<AccessRequestResponse> {
             return localVarFp.createAccessRequest(accessRequest, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
@@ -37197,7 +37275,7 @@ export const GlobalTenantSecuritySettingsApiAxiosParamCreator = function (config
             };
         },
         /**
-         * This API returns the details of an org\'s network auth configuration. Requires security scope of: \'sp:auth-org:read\'
+         * This API returns the details of an org\'s network auth configuration.
          * @summary Get security network configuration.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
@@ -37311,9 +37389,9 @@ export const GlobalTenantSecuritySettingsApiAxiosParamCreator = function (config
             };
         },
         /**
-         * This API updates an existing lockout configuration for an org using PATCH  Requires security scope of:  \'sp:auth-org:update\'
+         * This API updates an existing lockout configuration for an org using PATCH 
          * @summary Update Auth Org Lockout Configuration
-         * @param {Array<JsonPatchOperation>} jsonPatchOperation A list of auth org lockout configuration update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard. Ensures that the patched Lockout Config conforms to certain logical guidelines, which are:   1. maximumAttempts &gt;&#x3D; 1 &amp;&amp; maximumAttempts &lt;&#x3D; 15   2. lockoutDuration &gt;&#x3D; 5 &amp;&amp; lockoutDuration &lt;&#x3D; 60   3. lockoutWindow &gt;&#x3D; 5 &amp;&amp; lockoutDuration &lt;&#x3D; 60
+         * @param {Array<JsonPatchOperation>} jsonPatchOperation A list of auth org lockout configuration update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard. Ensures that the patched Lockout Config conforms to certain logical guidelines, which are:   &#x60;1. maximumAttempts &gt;&#x3D; 1 &amp;&amp; maximumAttempts &lt;&#x3D; 15   2. lockoutDuration &gt;&#x3D; 5 &amp;&amp; lockoutDuration &lt;&#x3D; 60   3. lockoutWindow &gt;&#x3D; 5 &amp;&amp; lockoutDuration &lt;&#x3D; 60&#x60;
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
@@ -37445,7 +37523,7 @@ export const GlobalTenantSecuritySettingsApiAxiosParamCreator = function (config
         /**
          * This API updates an existing session configuration for an org using PATCH.
          * @summary Update Auth Org Session Configuration
-         * @param {Array<JsonPatchOperation>} jsonPatchOperation A list of auth org session configuration update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard. Ensures that the patched Session Config conforms to certain logical guidelines, which are:   1. maxSessionTime &gt;&#x3D; 1 &amp;&amp; maxSessionTime &lt;&#x3D; 10080 (1 week)   2. maxIdleTime &gt;&#x3D; 1 &amp;&amp; maxIdleTime &lt;&#x3D; 1440 (1 day)   3. maxSessionTime must have a greater duration than maxIdleTime.
+         * @param {Array<JsonPatchOperation>} jsonPatchOperation A list of auth org session configuration update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.  Ensures that the patched Session Config conforms to certain logical guidelines, which are:   &#x60;1. maxSessionTime &gt;&#x3D; 1 &amp;&amp; maxSessionTime &lt;&#x3D; 10080 (1 week)   2. maxIdleTime &gt;&#x3D; 1 &amp;&amp; maxIdleTime &lt;&#x3D; 1440 (1 day)   3. maxSessionTime must have a greater duration than maxIdleTime.&#x60; 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
@@ -37518,7 +37596,7 @@ export const GlobalTenantSecuritySettingsApiFp = function(configuration?: Config
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
-         * This API returns the details of an org\'s network auth configuration. Requires security scope of: \'sp:auth-org:read\'
+         * This API returns the details of an org\'s network auth configuration.
          * @summary Get security network configuration.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
@@ -37548,9 +37626,9 @@ export const GlobalTenantSecuritySettingsApiFp = function(configuration?: Config
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
-         * This API updates an existing lockout configuration for an org using PATCH  Requires security scope of:  \'sp:auth-org:update\'
+         * This API updates an existing lockout configuration for an org using PATCH 
          * @summary Update Auth Org Lockout Configuration
-         * @param {Array<JsonPatchOperation>} jsonPatchOperation A list of auth org lockout configuration update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard. Ensures that the patched Lockout Config conforms to certain logical guidelines, which are:   1. maximumAttempts &gt;&#x3D; 1 &amp;&amp; maximumAttempts &lt;&#x3D; 15   2. lockoutDuration &gt;&#x3D; 5 &amp;&amp; lockoutDuration &lt;&#x3D; 60   3. lockoutWindow &gt;&#x3D; 5 &amp;&amp; lockoutDuration &lt;&#x3D; 60
+         * @param {Array<JsonPatchOperation>} jsonPatchOperation A list of auth org lockout configuration update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard. Ensures that the patched Lockout Config conforms to certain logical guidelines, which are:   &#x60;1. maximumAttempts &gt;&#x3D; 1 &amp;&amp; maximumAttempts &lt;&#x3D; 15   2. lockoutDuration &gt;&#x3D; 5 &amp;&amp; lockoutDuration &lt;&#x3D; 60   3. lockoutWindow &gt;&#x3D; 5 &amp;&amp; lockoutDuration &lt;&#x3D; 60&#x60;
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
@@ -37583,7 +37661,7 @@ export const GlobalTenantSecuritySettingsApiFp = function(configuration?: Config
         /**
          * This API updates an existing session configuration for an org using PATCH.
          * @summary Update Auth Org Session Configuration
-         * @param {Array<JsonPatchOperation>} jsonPatchOperation A list of auth org session configuration update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard. Ensures that the patched Session Config conforms to certain logical guidelines, which are:   1. maxSessionTime &gt;&#x3D; 1 &amp;&amp; maxSessionTime &lt;&#x3D; 10080 (1 week)   2. maxIdleTime &gt;&#x3D; 1 &amp;&amp; maxIdleTime &lt;&#x3D; 1440 (1 day)   3. maxSessionTime must have a greater duration than maxIdleTime.
+         * @param {Array<JsonPatchOperation>} jsonPatchOperation A list of auth org session configuration update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.  Ensures that the patched Session Config conforms to certain logical guidelines, which are:   &#x60;1. maxSessionTime &gt;&#x3D; 1 &amp;&amp; maxSessionTime &lt;&#x3D; 10080 (1 week)   2. maxIdleTime &gt;&#x3D; 1 &amp;&amp; maxIdleTime &lt;&#x3D; 1440 (1 day)   3. maxSessionTime must have a greater duration than maxIdleTime.&#x60; 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
@@ -37621,7 +37699,7 @@ export const GlobalTenantSecuritySettingsApiFactory = function (configuration?: 
             return localVarFp.getAuthOrgLockoutConfig(axiosOptions).then((request) => request(axios, basePath));
         },
         /**
-         * This API returns the details of an org\'s network auth configuration. Requires security scope of: \'sp:auth-org:read\'
+         * This API returns the details of an org\'s network auth configuration.
          * @summary Get security network configuration.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
@@ -37648,9 +37726,9 @@ export const GlobalTenantSecuritySettingsApiFactory = function (configuration?: 
             return localVarFp.getAuthOrgSessionConfig(axiosOptions).then((request) => request(axios, basePath));
         },
         /**
-         * This API updates an existing lockout configuration for an org using PATCH  Requires security scope of:  \'sp:auth-org:update\'
+         * This API updates an existing lockout configuration for an org using PATCH 
          * @summary Update Auth Org Lockout Configuration
-         * @param {Array<JsonPatchOperation>} jsonPatchOperation A list of auth org lockout configuration update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard. Ensures that the patched Lockout Config conforms to certain logical guidelines, which are:   1. maximumAttempts &gt;&#x3D; 1 &amp;&amp; maximumAttempts &lt;&#x3D; 15   2. lockoutDuration &gt;&#x3D; 5 &amp;&amp; lockoutDuration &lt;&#x3D; 60   3. lockoutWindow &gt;&#x3D; 5 &amp;&amp; lockoutDuration &lt;&#x3D; 60
+         * @param {Array<JsonPatchOperation>} jsonPatchOperation A list of auth org lockout configuration update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard. Ensures that the patched Lockout Config conforms to certain logical guidelines, which are:   &#x60;1. maximumAttempts &gt;&#x3D; 1 &amp;&amp; maximumAttempts &lt;&#x3D; 15   2. lockoutDuration &gt;&#x3D; 5 &amp;&amp; lockoutDuration &lt;&#x3D; 60   3. lockoutWindow &gt;&#x3D; 5 &amp;&amp; lockoutDuration &lt;&#x3D; 60&#x60;
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
@@ -37680,7 +37758,7 @@ export const GlobalTenantSecuritySettingsApiFactory = function (configuration?: 
         /**
          * This API updates an existing session configuration for an org using PATCH.
          * @summary Update Auth Org Session Configuration
-         * @param {Array<JsonPatchOperation>} jsonPatchOperation A list of auth org session configuration update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard. Ensures that the patched Session Config conforms to certain logical guidelines, which are:   1. maxSessionTime &gt;&#x3D; 1 &amp;&amp; maxSessionTime &lt;&#x3D; 10080 (1 week)   2. maxIdleTime &gt;&#x3D; 1 &amp;&amp; maxIdleTime &lt;&#x3D; 1440 (1 day)   3. maxSessionTime must have a greater duration than maxIdleTime.
+         * @param {Array<JsonPatchOperation>} jsonPatchOperation A list of auth org session configuration update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.  Ensures that the patched Session Config conforms to certain logical guidelines, which are:   &#x60;1. maxSessionTime &gt;&#x3D; 1 &amp;&amp; maxSessionTime &lt;&#x3D; 10080 (1 week)   2. maxIdleTime &gt;&#x3D; 1 &amp;&amp; maxIdleTime &lt;&#x3D; 1440 (1 day)   3. maxSessionTime must have a greater duration than maxIdleTime.&#x60; 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
@@ -37711,7 +37789,7 @@ export interface GlobalTenantSecuritySettingsApiCreateAuthOrgNetworkConfigReques
  */
 export interface GlobalTenantSecuritySettingsApiPatchAuthOrgLockoutConfigRequest {
     /**
-     * A list of auth org lockout configuration update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard. Ensures that the patched Lockout Config conforms to certain logical guidelines, which are:   1. maximumAttempts &gt;&#x3D; 1 &amp;&amp; maximumAttempts &lt;&#x3D; 15   2. lockoutDuration &gt;&#x3D; 5 &amp;&amp; lockoutDuration &lt;&#x3D; 60   3. lockoutWindow &gt;&#x3D; 5 &amp;&amp; lockoutDuration &lt;&#x3D; 60
+     * A list of auth org lockout configuration update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard. Ensures that the patched Lockout Config conforms to certain logical guidelines, which are:   &#x60;1. maximumAttempts &gt;&#x3D; 1 &amp;&amp; maximumAttempts &lt;&#x3D; 15   2. lockoutDuration &gt;&#x3D; 5 &amp;&amp; lockoutDuration &lt;&#x3D; 60   3. lockoutWindow &gt;&#x3D; 5 &amp;&amp; lockoutDuration &lt;&#x3D; 60&#x60;
      * @type {Array<JsonPatchOperation>}
      * @memberof GlobalTenantSecuritySettingsApiPatchAuthOrgLockoutConfig
      */
@@ -37753,7 +37831,7 @@ export interface GlobalTenantSecuritySettingsApiPatchAuthOrgServiceProviderConfi
  */
 export interface GlobalTenantSecuritySettingsApiPatchAuthOrgSessionConfigRequest {
     /**
-     * A list of auth org session configuration update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard. Ensures that the patched Session Config conforms to certain logical guidelines, which are:   1. maxSessionTime &gt;&#x3D; 1 &amp;&amp; maxSessionTime &lt;&#x3D; 10080 (1 week)   2. maxIdleTime &gt;&#x3D; 1 &amp;&amp; maxIdleTime &lt;&#x3D; 1440 (1 day)   3. maxSessionTime must have a greater duration than maxIdleTime.
+     * A list of auth org session configuration update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.  Ensures that the patched Session Config conforms to certain logical guidelines, which are:   &#x60;1. maxSessionTime &gt;&#x3D; 1 &amp;&amp; maxSessionTime &lt;&#x3D; 10080 (1 week)   2. maxIdleTime &gt;&#x3D; 1 &amp;&amp; maxIdleTime &lt;&#x3D; 1440 (1 day)   3. maxSessionTime must have a greater duration than maxIdleTime.&#x60; 
      * @type {Array<JsonPatchOperation>}
      * @memberof GlobalTenantSecuritySettingsApiPatchAuthOrgSessionConfig
      */
@@ -37791,7 +37869,7 @@ export class GlobalTenantSecuritySettingsApi extends BaseAPI {
     }
 
     /**
-     * This API returns the details of an org\'s network auth configuration. Requires security scope of: \'sp:auth-org:read\'
+     * This API returns the details of an org\'s network auth configuration.
      * @summary Get security network configuration.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
@@ -37824,7 +37902,7 @@ export class GlobalTenantSecuritySettingsApi extends BaseAPI {
     }
 
     /**
-     * This API updates an existing lockout configuration for an org using PATCH  Requires security scope of:  \'sp:auth-org:update\'
+     * This API updates an existing lockout configuration for an org using PATCH 
      * @summary Update Auth Org Lockout Configuration
      * @param {GlobalTenantSecuritySettingsApiPatchAuthOrgLockoutConfigRequest} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
