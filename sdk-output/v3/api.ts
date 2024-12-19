@@ -16358,13 +16358,26 @@ export type PutClientLogConfigurationRequest = ClientLogConfigurationDurationMin
 /**
  * 
  * @export
- * @interface PutCorrelationConfigRequest
+ * @interface PutConnectorSourceConfigRequest
  */
-export interface PutCorrelationConfigRequest {
+export interface PutConnectorSourceConfigRequest {
     /**
-     * connector correlation config xml file
+     * connector source config xml file
      * @type {any}
-     * @memberof PutCorrelationConfigRequest
+     * @memberof PutConnectorSourceConfigRequest
+     */
+    'file': any;
+}
+/**
+ * 
+ * @export
+ * @interface PutConnectorSourceTemplateRequest
+ */
+export interface PutConnectorSourceTemplateRequest {
+    /**
+     * connector source template xml file
+     * @type {any}
+     * @memberof PutConnectorSourceTemplateRequest
      */
     'file': any;
 }
@@ -16380,32 +16393,6 @@ export interface PutPasswordDictionaryRequest {
      * @memberof PutPasswordDictionaryRequest
      */
     'file'?: any;
-}
-/**
- * 
- * @export
- * @interface PutSourceConfigRequest
- */
-export interface PutSourceConfigRequest {
-    /**
-     * connector source config xml file
-     * @type {any}
-     * @memberof PutSourceConfigRequest
-     */
-    'file': any;
-}
-/**
- * 
- * @export
- * @interface PutSourceTemplateRequest
- */
-export interface PutSourceTemplateRequest {
-    /**
-     * connector source template xml file
-     * @type {any}
-     * @memberof PutSourceTemplateRequest
-     */
-    'file': any;
 }
 /**
  * Query parameters used to construct an Elasticsearch query object.
@@ -35857,7 +35844,7 @@ export const ConnectorsApiAxiosParamCreator = function (configuration?: Configur
     return {
         /**
          * Create custom connector.    
-         * @summary Create custom connector
+         * @summary Create Custom Connector
          * @param {V3CreateConnectorDto} v3CreateConnectorDto 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
@@ -35901,8 +35888,8 @@ export const ConnectorsApiAxiosParamCreator = function (configuration?: Configur
         },
         /**
          * Delete a custom connector that using its script name.
-         * @summary Deletes connector by script name
-         * @param {string} scriptName The scriptName value of the connector. Scriptname is the unique id generated at connector creation.
+         * @summary Delete Connector by Script Name
+         * @param {string} scriptName The scriptName value of the connector. ScriptName is the unique id generated at connector creation.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
@@ -35943,8 +35930,8 @@ export const ConnectorsApiAxiosParamCreator = function (configuration?: Configur
         },
         /**
          * Fetches a connector that using its script name.    
-         * @summary Gets connector by script name
-         * @param {string} scriptName The scriptName value of the connector. Scriptname is the unique id generated at connector creation.
+         * @summary Get Connector by Script Name
+         * @param {string} scriptName The scriptName value of the connector. ScriptName is the unique id generated at connector creation.
          * @param {'de' | 'false' | 'fi' | 'sv' | 'ru' | 'pt' | 'ko' | 'zh-TW' | 'en' | 'it' | 'fr' | 'zh-CN' | 'hu' | 'es' | 'cs' | 'ja' | 'pl' | 'da' | 'nl'} [locale] The locale to apply to the config. If no viable locale is given, it will default to \&quot;en\&quot;
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
@@ -35989,49 +35976,8 @@ export const ConnectorsApiAxiosParamCreator = function (configuration?: Configur
             };
         },
         /**
-         * Fetches a connector\'s correlation config using its script name.    
-         * @param {string} scriptName The scriptName value of the connector. Scriptname is the unique id generated at connector creation.
-         * @param {*} [axiosOptions] Override http request option.
-         * @throws {RequiredError}
-         */
-        getConnectorCorrelationConfig: async (scriptName: string, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
-            // verify required parameter 'scriptName' is not null or undefined
-            assertParamExists('getConnectorCorrelationConfig', 'scriptName', scriptName)
-            const localVarPath = `/connectors/{scriptName}/correlation-config`
-                .replace(`{${"scriptName"}}`, encodeURIComponent(String(scriptName)));
-            // use dummy base URL string because the URL constructor only accepts absolute URLs.
-            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
-            let baseOptions;
-            if (configuration) {
-                baseOptions = configuration.baseOptions;
-            }
-
-            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...axiosOptions};
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-
-            // authentication userAuth required
-            // oauth required
-            await setOAuthToObject(localVarHeaderParameter, "userAuth", [], configuration)
-
-            // authentication userAuth required
-            // oauth required
-            await setOAuthToObject(localVarHeaderParameter, "userAuth", [], configuration)
-
-
-    
-            setSearchParams(localVarUrlObj, localVarQueryParameter);
-            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
-            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
-
-            return {
-                url: toPathString(localVarUrlObj),
-                axiosOptions: localVarRequestOptions,
-            };
-        },
-        /**
          * Fetches list of connectors that have \'RELEASED\' status using filtering and pagination.
-         * @summary Gets connector list
+         * @summary Get Connector List
          * @param {string} [filters] Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **name**: *sw, co*  **type**: *sw, co, eq*  **directConnect**: *eq*  **category**: *eq*  **features**: *ca*  **labels**: *ca*
          * @param {number} [limit] Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
          * @param {number} [offset] Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
@@ -36094,7 +36040,8 @@ export const ConnectorsApiAxiosParamCreator = function (configuration?: Configur
         },
         /**
          * Fetches a connector\'s source config using its script name.    
-         * @param {string} scriptName The scriptName value of the connector. Scriptname is the unique id generated at connector creation.
+         * @summary Get Connector Source Configuration
+         * @param {string} scriptName The scriptName value of the connector. ScriptName is the unique id generated at connector creation.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
@@ -36135,7 +36082,8 @@ export const ConnectorsApiAxiosParamCreator = function (configuration?: Configur
         },
         /**
          * Fetches a connector\'s source template using its script name.    
-         * @param {string} scriptName The scriptName value of the connector. Scriptname is the unique id generated at connector creation.
+         * @summary Get Connector Source Template
+         * @param {string} scriptName The scriptName value of the connector. ScriptName is the unique id generated at connector creation.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
@@ -36176,6 +36124,7 @@ export const ConnectorsApiAxiosParamCreator = function (configuration?: Configur
         },
         /**
          * Fetches a connector\'s translations using its script name.    
+         * @summary Get Connector Translations
          * @param {string} scriptName The scriptName value of the connector. Scriptname is the unique id generated at connector creation.
          * @param {'de' | 'false' | 'fi' | 'sv' | 'ru' | 'pt' | 'ko' | 'zh-TW' | 'en' | 'it' | 'fr' | 'zh-CN' | 'hu' | 'es' | 'cs' | 'ja' | 'pl' | 'da' | 'nl'} locale The locale to apply to the config. If no viable locale is given, it will default to \&quot;en\&quot;
          * @param {*} [axiosOptions] Override http request option.
@@ -36220,69 +36169,18 @@ export const ConnectorsApiAxiosParamCreator = function (configuration?: Configur
             };
         },
         /**
-         * Update a connector\'s correlation config using its script name.    
-         * @param {string} scriptName The scriptName value of the connector. Scriptname is the unique id generated at connector creation.
-         * @param {any} file connector correlation config xml file
-         * @param {*} [axiosOptions] Override http request option.
-         * @throws {RequiredError}
-         */
-        putCorrelationConfig: async (scriptName: string, file: any, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
-            // verify required parameter 'scriptName' is not null or undefined
-            assertParamExists('putCorrelationConfig', 'scriptName', scriptName)
-            // verify required parameter 'file' is not null or undefined
-            assertParamExists('putCorrelationConfig', 'file', file)
-            const localVarPath = `/connectors/{scriptName}/correlation-config`
-                .replace(`{${"scriptName"}}`, encodeURIComponent(String(scriptName)));
-            // use dummy base URL string because the URL constructor only accepts absolute URLs.
-            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
-            let baseOptions;
-            if (configuration) {
-                baseOptions = configuration.baseOptions;
-            }
-
-            const localVarRequestOptions = { method: 'PUT', ...baseOptions, ...axiosOptions};
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-            const localVarFormParams = new ((configuration && configuration.formDataCtor) || FormData)();
-
-            // authentication userAuth required
-            // oauth required
-            await setOAuthToObject(localVarHeaderParameter, "userAuth", [], configuration)
-
-            // authentication userAuth required
-            // oauth required
-            await setOAuthToObject(localVarHeaderParameter, "userAuth", [], configuration)
-
-
-            if (file !== undefined) { 
-                localVarFormParams.append('file', file as any);
-            }
-    
-    
-            localVarHeaderParameter['Content-Type'] = 'multipart/form-data';
-    
-            setSearchParams(localVarUrlObj, localVarQueryParameter);
-            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
-            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...axiosOptions.headers};
-            localVarRequestOptions.data = localVarFormParams;
-
-            return {
-                url: toPathString(localVarUrlObj),
-                axiosOptions: localVarRequestOptions,
-            };
-        },
-        /**
          * Update a connector\'s source config using its script name.    
-         * @param {string} scriptName The scriptName value of the connector. Scriptname is the unique id generated at connector creation.
+         * @summary Update Connector Source Configuration
+         * @param {string} scriptName The scriptName value of the connector. ScriptName is the unique id generated at connector creation.
          * @param {any} file connector source config xml file
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        putSourceConfig: async (scriptName: string, file: any, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        putConnectorSourceConfig: async (scriptName: string, file: any, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'scriptName' is not null or undefined
-            assertParamExists('putSourceConfig', 'scriptName', scriptName)
+            assertParamExists('putConnectorSourceConfig', 'scriptName', scriptName)
             // verify required parameter 'file' is not null or undefined
-            assertParamExists('putSourceConfig', 'file', file)
+            assertParamExists('putConnectorSourceConfig', 'file', file)
             const localVarPath = `/connectors/{scriptName}/source-config`
                 .replace(`{${"scriptName"}}`, encodeURIComponent(String(scriptName)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
@@ -36325,16 +36223,17 @@ export const ConnectorsApiAxiosParamCreator = function (configuration?: Configur
         },
         /**
          * Update a connector\'s source template using its script name.    
-         * @param {string} scriptName The scriptName value of the connector. Scriptname is the unique id generated at connector creation.
+         * @summary Update Connector Source Template
+         * @param {string} scriptName The scriptName value of the connector. ScriptName is the unique id generated at connector creation.
          * @param {any} file connector source template xml file
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        putSourceTemplate: async (scriptName: string, file: any, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        putConnectorSourceTemplate: async (scriptName: string, file: any, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'scriptName' is not null or undefined
-            assertParamExists('putSourceTemplate', 'scriptName', scriptName)
+            assertParamExists('putConnectorSourceTemplate', 'scriptName', scriptName)
             // verify required parameter 'file' is not null or undefined
-            assertParamExists('putSourceTemplate', 'file', file)
+            assertParamExists('putConnectorSourceTemplate', 'file', file)
             const localVarPath = `/connectors/{scriptName}/source-template`
                 .replace(`{${"scriptName"}}`, encodeURIComponent(String(scriptName)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
@@ -36377,16 +36276,17 @@ export const ConnectorsApiAxiosParamCreator = function (configuration?: Configur
         },
         /**
          * Update a connector\'s translations using its script name.    
+         * @summary Update Connector Translations
          * @param {string} scriptName The scriptName value of the connector. Scriptname is the unique id generated at connector creation.
          * @param {'de' | 'false' | 'fi' | 'sv' | 'ru' | 'pt' | 'ko' | 'zh-TW' | 'en' | 'it' | 'fr' | 'zh-CN' | 'hu' | 'es' | 'cs' | 'ja' | 'pl' | 'da' | 'nl'} locale The locale to apply to the config. If no viable locale is given, it will default to \&quot;en\&quot;
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        putTranslations: async (scriptName: string, locale: 'de' | 'false' | 'fi' | 'sv' | 'ru' | 'pt' | 'ko' | 'zh-TW' | 'en' | 'it' | 'fr' | 'zh-CN' | 'hu' | 'es' | 'cs' | 'ja' | 'pl' | 'da' | 'nl', axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        putConnectorTranslations: async (scriptName: string, locale: 'de' | 'false' | 'fi' | 'sv' | 'ru' | 'pt' | 'ko' | 'zh-TW' | 'en' | 'it' | 'fr' | 'zh-CN' | 'hu' | 'es' | 'cs' | 'ja' | 'pl' | 'da' | 'nl', axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'scriptName' is not null or undefined
-            assertParamExists('putTranslations', 'scriptName', scriptName)
+            assertParamExists('putConnectorTranslations', 'scriptName', scriptName)
             // verify required parameter 'locale' is not null or undefined
-            assertParamExists('putTranslations', 'locale', locale)
+            assertParamExists('putConnectorTranslations', 'locale', locale)
             const localVarPath = `/connectors/{scriptName}/translations/{locale}`
                 .replace(`{${"scriptName"}}`, encodeURIComponent(String(scriptName)))
                 .replace(`{${"locale"}}`, encodeURIComponent(String(locale)));
@@ -36421,10 +36321,10 @@ export const ConnectorsApiAxiosParamCreator = function (configuration?: Configur
             };
         },
         /**
-         * Patch a custom connector that using its script name. The following fields are patchable: * connectorMetadata * applicationXml * correlationConfigXml * sourceConfigXml
-         * @summary Update connector by script name
-         * @param {string} scriptName The scriptName value of the connector. Scriptname is the unique id generated at connector creation.
-         * @param {Array<JsonPatchOperation>} jsonPatchOperation A list of connector detail update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.
+         * This API updates a custom connector by script name using [JSON Patch](https://tools.ietf.org/html/rfc6902) syntax.  The following fields are patchable:   * connectorMetadata  * applicationXml  * correlationConfigXml  * sourceConfigXml 
+         * @summary Update Connector by Script Name
+         * @param {string} scriptName The scriptName value of the connector. ScriptName is the unique id generated at connector creation.
+         * @param {Array<JsonPatchOperation>} jsonPatchOperation A list of connector detail update operations 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
@@ -36480,7 +36380,7 @@ export const ConnectorsApiFp = function(configuration?: Configuration) {
     return {
         /**
          * Create custom connector.    
-         * @summary Create custom connector
+         * @summary Create Custom Connector
          * @param {V3CreateConnectorDto} v3CreateConnectorDto 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
@@ -36491,8 +36391,8 @@ export const ConnectorsApiFp = function(configuration?: Configuration) {
         },
         /**
          * Delete a custom connector that using its script name.
-         * @summary Deletes connector by script name
-         * @param {string} scriptName The scriptName value of the connector. Scriptname is the unique id generated at connector creation.
+         * @summary Delete Connector by Script Name
+         * @param {string} scriptName The scriptName value of the connector. ScriptName is the unique id generated at connector creation.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
@@ -36502,8 +36402,8 @@ export const ConnectorsApiFp = function(configuration?: Configuration) {
         },
         /**
          * Fetches a connector that using its script name.    
-         * @summary Gets connector by script name
-         * @param {string} scriptName The scriptName value of the connector. Scriptname is the unique id generated at connector creation.
+         * @summary Get Connector by Script Name
+         * @param {string} scriptName The scriptName value of the connector. ScriptName is the unique id generated at connector creation.
          * @param {'de' | 'false' | 'fi' | 'sv' | 'ru' | 'pt' | 'ko' | 'zh-TW' | 'en' | 'it' | 'fr' | 'zh-CN' | 'hu' | 'es' | 'cs' | 'ja' | 'pl' | 'da' | 'nl'} [locale] The locale to apply to the config. If no viable locale is given, it will default to \&quot;en\&quot;
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
@@ -36513,18 +36413,8 @@ export const ConnectorsApiFp = function(configuration?: Configuration) {
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
-         * Fetches a connector\'s correlation config using its script name.    
-         * @param {string} scriptName The scriptName value of the connector. Scriptname is the unique id generated at connector creation.
-         * @param {*} [axiosOptions] Override http request option.
-         * @throws {RequiredError}
-         */
-        async getConnectorCorrelationConfig(scriptName: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<string>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.getConnectorCorrelationConfig(scriptName, axiosOptions);
-            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
-        },
-        /**
          * Fetches list of connectors that have \'RELEASED\' status using filtering and pagination.
-         * @summary Gets connector list
+         * @summary Get Connector List
          * @param {string} [filters] Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **name**: *sw, co*  **type**: *sw, co, eq*  **directConnect**: *eq*  **category**: *eq*  **features**: *ca*  **labels**: *ca*
          * @param {number} [limit] Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
          * @param {number} [offset] Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
@@ -36539,7 +36429,8 @@ export const ConnectorsApiFp = function(configuration?: Configuration) {
         },
         /**
          * Fetches a connector\'s source config using its script name.    
-         * @param {string} scriptName The scriptName value of the connector. Scriptname is the unique id generated at connector creation.
+         * @summary Get Connector Source Configuration
+         * @param {string} scriptName The scriptName value of the connector. ScriptName is the unique id generated at connector creation.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
@@ -36549,7 +36440,8 @@ export const ConnectorsApiFp = function(configuration?: Configuration) {
         },
         /**
          * Fetches a connector\'s source template using its script name.    
-         * @param {string} scriptName The scriptName value of the connector. Scriptname is the unique id generated at connector creation.
+         * @summary Get Connector Source Template
+         * @param {string} scriptName The scriptName value of the connector. ScriptName is the unique id generated at connector creation.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
@@ -36559,6 +36451,7 @@ export const ConnectorsApiFp = function(configuration?: Configuration) {
         },
         /**
          * Fetches a connector\'s translations using its script name.    
+         * @summary Get Connector Translations
          * @param {string} scriptName The scriptName value of the connector. Scriptname is the unique id generated at connector creation.
          * @param {'de' | 'false' | 'fi' | 'sv' | 'ru' | 'pt' | 'ko' | 'zh-TW' | 'en' | 'it' | 'fr' | 'zh-CN' | 'hu' | 'es' | 'cs' | 'ja' | 'pl' | 'da' | 'nl'} locale The locale to apply to the config. If no viable locale is given, it will default to \&quot;en\&quot;
          * @param {*} [axiosOptions] Override http request option.
@@ -36569,54 +36462,46 @@ export const ConnectorsApiFp = function(configuration?: Configuration) {
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
-         * Update a connector\'s correlation config using its script name.    
-         * @param {string} scriptName The scriptName value of the connector. Scriptname is the unique id generated at connector creation.
-         * @param {any} file connector correlation config xml file
-         * @param {*} [axiosOptions] Override http request option.
-         * @throws {RequiredError}
-         */
-        async putCorrelationConfig(scriptName: string, file: any, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<UpdateDetail>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.putCorrelationConfig(scriptName, file, axiosOptions);
-            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
-        },
-        /**
          * Update a connector\'s source config using its script name.    
-         * @param {string} scriptName The scriptName value of the connector. Scriptname is the unique id generated at connector creation.
+         * @summary Update Connector Source Configuration
+         * @param {string} scriptName The scriptName value of the connector. ScriptName is the unique id generated at connector creation.
          * @param {any} file connector source config xml file
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async putSourceConfig(scriptName: string, file: any, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<UpdateDetail>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.putSourceConfig(scriptName, file, axiosOptions);
+        async putConnectorSourceConfig(scriptName: string, file: any, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<UpdateDetail>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.putConnectorSourceConfig(scriptName, file, axiosOptions);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
          * Update a connector\'s source template using its script name.    
-         * @param {string} scriptName The scriptName value of the connector. Scriptname is the unique id generated at connector creation.
+         * @summary Update Connector Source Template
+         * @param {string} scriptName The scriptName value of the connector. ScriptName is the unique id generated at connector creation.
          * @param {any} file connector source template xml file
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async putSourceTemplate(scriptName: string, file: any, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<UpdateDetail>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.putSourceTemplate(scriptName, file, axiosOptions);
+        async putConnectorSourceTemplate(scriptName: string, file: any, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<UpdateDetail>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.putConnectorSourceTemplate(scriptName, file, axiosOptions);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
          * Update a connector\'s translations using its script name.    
+         * @summary Update Connector Translations
          * @param {string} scriptName The scriptName value of the connector. Scriptname is the unique id generated at connector creation.
          * @param {'de' | 'false' | 'fi' | 'sv' | 'ru' | 'pt' | 'ko' | 'zh-TW' | 'en' | 'it' | 'fr' | 'zh-CN' | 'hu' | 'es' | 'cs' | 'ja' | 'pl' | 'da' | 'nl'} locale The locale to apply to the config. If no viable locale is given, it will default to \&quot;en\&quot;
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async putTranslations(scriptName: string, locale: 'de' | 'false' | 'fi' | 'sv' | 'ru' | 'pt' | 'ko' | 'zh-TW' | 'en' | 'it' | 'fr' | 'zh-CN' | 'hu' | 'es' | 'cs' | 'ja' | 'pl' | 'da' | 'nl', axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<UpdateDetail>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.putTranslations(scriptName, locale, axiosOptions);
+        async putConnectorTranslations(scriptName: string, locale: 'de' | 'false' | 'fi' | 'sv' | 'ru' | 'pt' | 'ko' | 'zh-TW' | 'en' | 'it' | 'fr' | 'zh-CN' | 'hu' | 'es' | 'cs' | 'ja' | 'pl' | 'da' | 'nl', axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<UpdateDetail>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.putConnectorTranslations(scriptName, locale, axiosOptions);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
-         * Patch a custom connector that using its script name. The following fields are patchable: * connectorMetadata * applicationXml * correlationConfigXml * sourceConfigXml
-         * @summary Update connector by script name
-         * @param {string} scriptName The scriptName value of the connector. Scriptname is the unique id generated at connector creation.
-         * @param {Array<JsonPatchOperation>} jsonPatchOperation A list of connector detail update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.
+         * This API updates a custom connector by script name using [JSON Patch](https://tools.ietf.org/html/rfc6902) syntax.  The following fields are patchable:   * connectorMetadata  * applicationXml  * correlationConfigXml  * sourceConfigXml 
+         * @summary Update Connector by Script Name
+         * @param {string} scriptName The scriptName value of the connector. ScriptName is the unique id generated at connector creation.
+         * @param {Array<JsonPatchOperation>} jsonPatchOperation A list of connector detail update operations 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
@@ -36636,7 +36521,7 @@ export const ConnectorsApiFactory = function (configuration?: Configuration, bas
     return {
         /**
          * Create custom connector.    
-         * @summary Create custom connector
+         * @summary Create Custom Connector
          * @param {V3CreateConnectorDto} v3CreateConnectorDto 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
@@ -36646,8 +36531,8 @@ export const ConnectorsApiFactory = function (configuration?: Configuration, bas
         },
         /**
          * Delete a custom connector that using its script name.
-         * @summary Deletes connector by script name
-         * @param {string} scriptName The scriptName value of the connector. Scriptname is the unique id generated at connector creation.
+         * @summary Delete Connector by Script Name
+         * @param {string} scriptName The scriptName value of the connector. ScriptName is the unique id generated at connector creation.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
@@ -36656,8 +36541,8 @@ export const ConnectorsApiFactory = function (configuration?: Configuration, bas
         },
         /**
          * Fetches a connector that using its script name.    
-         * @summary Gets connector by script name
-         * @param {string} scriptName The scriptName value of the connector. Scriptname is the unique id generated at connector creation.
+         * @summary Get Connector by Script Name
+         * @param {string} scriptName The scriptName value of the connector. ScriptName is the unique id generated at connector creation.
          * @param {'de' | 'false' | 'fi' | 'sv' | 'ru' | 'pt' | 'ko' | 'zh-TW' | 'en' | 'it' | 'fr' | 'zh-CN' | 'hu' | 'es' | 'cs' | 'ja' | 'pl' | 'da' | 'nl'} [locale] The locale to apply to the config. If no viable locale is given, it will default to \&quot;en\&quot;
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
@@ -36666,17 +36551,8 @@ export const ConnectorsApiFactory = function (configuration?: Configuration, bas
             return localVarFp.getConnector(scriptName, locale, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
-         * Fetches a connector\'s correlation config using its script name.    
-         * @param {string} scriptName The scriptName value of the connector. Scriptname is the unique id generated at connector creation.
-         * @param {*} [axiosOptions] Override http request option.
-         * @throws {RequiredError}
-         */
-        getConnectorCorrelationConfig(scriptName: string, axiosOptions?: any): AxiosPromise<string> {
-            return localVarFp.getConnectorCorrelationConfig(scriptName, axiosOptions).then((request) => request(axios, basePath));
-        },
-        /**
          * Fetches list of connectors that have \'RELEASED\' status using filtering and pagination.
-         * @summary Gets connector list
+         * @summary Get Connector List
          * @param {string} [filters] Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **name**: *sw, co*  **type**: *sw, co, eq*  **directConnect**: *eq*  **category**: *eq*  **features**: *ca*  **labels**: *ca*
          * @param {number} [limit] Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
          * @param {number} [offset] Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
@@ -36690,7 +36566,8 @@ export const ConnectorsApiFactory = function (configuration?: Configuration, bas
         },
         /**
          * Fetches a connector\'s source config using its script name.    
-         * @param {string} scriptName The scriptName value of the connector. Scriptname is the unique id generated at connector creation.
+         * @summary Get Connector Source Configuration
+         * @param {string} scriptName The scriptName value of the connector. ScriptName is the unique id generated at connector creation.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
@@ -36699,7 +36576,8 @@ export const ConnectorsApiFactory = function (configuration?: Configuration, bas
         },
         /**
          * Fetches a connector\'s source template using its script name.    
-         * @param {string} scriptName The scriptName value of the connector. Scriptname is the unique id generated at connector creation.
+         * @summary Get Connector Source Template
+         * @param {string} scriptName The scriptName value of the connector. ScriptName is the unique id generated at connector creation.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
@@ -36708,6 +36586,7 @@ export const ConnectorsApiFactory = function (configuration?: Configuration, bas
         },
         /**
          * Fetches a connector\'s translations using its script name.    
+         * @summary Get Connector Translations
          * @param {string} scriptName The scriptName value of the connector. Scriptname is the unique id generated at connector creation.
          * @param {'de' | 'false' | 'fi' | 'sv' | 'ru' | 'pt' | 'ko' | 'zh-TW' | 'en' | 'it' | 'fr' | 'zh-CN' | 'hu' | 'es' | 'cs' | 'ja' | 'pl' | 'da' | 'nl'} locale The locale to apply to the config. If no viable locale is given, it will default to \&quot;en\&quot;
          * @param {*} [axiosOptions] Override http request option.
@@ -36717,50 +36596,43 @@ export const ConnectorsApiFactory = function (configuration?: Configuration, bas
             return localVarFp.getConnectorTranslations(scriptName, locale, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
-         * Update a connector\'s correlation config using its script name.    
-         * @param {string} scriptName The scriptName value of the connector. Scriptname is the unique id generated at connector creation.
-         * @param {any} file connector correlation config xml file
-         * @param {*} [axiosOptions] Override http request option.
-         * @throws {RequiredError}
-         */
-        putCorrelationConfig(scriptName: string, file: any, axiosOptions?: any): AxiosPromise<UpdateDetail> {
-            return localVarFp.putCorrelationConfig(scriptName, file, axiosOptions).then((request) => request(axios, basePath));
-        },
-        /**
          * Update a connector\'s source config using its script name.    
-         * @param {string} scriptName The scriptName value of the connector. Scriptname is the unique id generated at connector creation.
+         * @summary Update Connector Source Configuration
+         * @param {string} scriptName The scriptName value of the connector. ScriptName is the unique id generated at connector creation.
          * @param {any} file connector source config xml file
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        putSourceConfig(scriptName: string, file: any, axiosOptions?: any): AxiosPromise<UpdateDetail> {
-            return localVarFp.putSourceConfig(scriptName, file, axiosOptions).then((request) => request(axios, basePath));
+        putConnectorSourceConfig(scriptName: string, file: any, axiosOptions?: any): AxiosPromise<UpdateDetail> {
+            return localVarFp.putConnectorSourceConfig(scriptName, file, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * Update a connector\'s source template using its script name.    
-         * @param {string} scriptName The scriptName value of the connector. Scriptname is the unique id generated at connector creation.
+         * @summary Update Connector Source Template
+         * @param {string} scriptName The scriptName value of the connector. ScriptName is the unique id generated at connector creation.
          * @param {any} file connector source template xml file
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        putSourceTemplate(scriptName: string, file: any, axiosOptions?: any): AxiosPromise<UpdateDetail> {
-            return localVarFp.putSourceTemplate(scriptName, file, axiosOptions).then((request) => request(axios, basePath));
+        putConnectorSourceTemplate(scriptName: string, file: any, axiosOptions?: any): AxiosPromise<UpdateDetail> {
+            return localVarFp.putConnectorSourceTemplate(scriptName, file, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * Update a connector\'s translations using its script name.    
+         * @summary Update Connector Translations
          * @param {string} scriptName The scriptName value of the connector. Scriptname is the unique id generated at connector creation.
          * @param {'de' | 'false' | 'fi' | 'sv' | 'ru' | 'pt' | 'ko' | 'zh-TW' | 'en' | 'it' | 'fr' | 'zh-CN' | 'hu' | 'es' | 'cs' | 'ja' | 'pl' | 'da' | 'nl'} locale The locale to apply to the config. If no viable locale is given, it will default to \&quot;en\&quot;
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        putTranslations(scriptName: string, locale: 'de' | 'false' | 'fi' | 'sv' | 'ru' | 'pt' | 'ko' | 'zh-TW' | 'en' | 'it' | 'fr' | 'zh-CN' | 'hu' | 'es' | 'cs' | 'ja' | 'pl' | 'da' | 'nl', axiosOptions?: any): AxiosPromise<UpdateDetail> {
-            return localVarFp.putTranslations(scriptName, locale, axiosOptions).then((request) => request(axios, basePath));
+        putConnectorTranslations(scriptName: string, locale: 'de' | 'false' | 'fi' | 'sv' | 'ru' | 'pt' | 'ko' | 'zh-TW' | 'en' | 'it' | 'fr' | 'zh-CN' | 'hu' | 'es' | 'cs' | 'ja' | 'pl' | 'da' | 'nl', axiosOptions?: any): AxiosPromise<UpdateDetail> {
+            return localVarFp.putConnectorTranslations(scriptName, locale, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
-         * Patch a custom connector that using its script name. The following fields are patchable: * connectorMetadata * applicationXml * correlationConfigXml * sourceConfigXml
-         * @summary Update connector by script name
-         * @param {string} scriptName The scriptName value of the connector. Scriptname is the unique id generated at connector creation.
-         * @param {Array<JsonPatchOperation>} jsonPatchOperation A list of connector detail update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.
+         * This API updates a custom connector by script name using [JSON Patch](https://tools.ietf.org/html/rfc6902) syntax.  The following fields are patchable:   * connectorMetadata  * applicationXml  * correlationConfigXml  * sourceConfigXml 
+         * @summary Update Connector by Script Name
+         * @param {string} scriptName The scriptName value of the connector. ScriptName is the unique id generated at connector creation.
+         * @param {Array<JsonPatchOperation>} jsonPatchOperation A list of connector detail update operations 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
@@ -36791,7 +36663,7 @@ export interface ConnectorsApiCreateCustomConnectorRequest {
  */
 export interface ConnectorsApiDeleteCustomConnectorRequest {
     /**
-     * The scriptName value of the connector. Scriptname is the unique id generated at connector creation.
+     * The scriptName value of the connector. ScriptName is the unique id generated at connector creation.
      * @type {string}
      * @memberof ConnectorsApiDeleteCustomConnector
      */
@@ -36805,7 +36677,7 @@ export interface ConnectorsApiDeleteCustomConnectorRequest {
  */
 export interface ConnectorsApiGetConnectorRequest {
     /**
-     * The scriptName value of the connector. Scriptname is the unique id generated at connector creation.
+     * The scriptName value of the connector. ScriptName is the unique id generated at connector creation.
      * @type {string}
      * @memberof ConnectorsApiGetConnector
      */
@@ -36817,20 +36689,6 @@ export interface ConnectorsApiGetConnectorRequest {
      * @memberof ConnectorsApiGetConnector
      */
     readonly locale?: 'de' | 'false' | 'fi' | 'sv' | 'ru' | 'pt' | 'ko' | 'zh-TW' | 'en' | 'it' | 'fr' | 'zh-CN' | 'hu' | 'es' | 'cs' | 'ja' | 'pl' | 'da' | 'nl'
-}
-
-/**
- * Request parameters for getConnectorCorrelationConfig operation in ConnectorsApi.
- * @export
- * @interface ConnectorsApiGetConnectorCorrelationConfigRequest
- */
-export interface ConnectorsApiGetConnectorCorrelationConfigRequest {
-    /**
-     * The scriptName value of the connector. Scriptname is the unique id generated at connector creation.
-     * @type {string}
-     * @memberof ConnectorsApiGetConnectorCorrelationConfig
-     */
-    readonly scriptName: string
 }
 
 /**
@@ -36882,7 +36740,7 @@ export interface ConnectorsApiGetConnectorListRequest {
  */
 export interface ConnectorsApiGetConnectorSourceConfigRequest {
     /**
-     * The scriptName value of the connector. Scriptname is the unique id generated at connector creation.
+     * The scriptName value of the connector. ScriptName is the unique id generated at connector creation.
      * @type {string}
      * @memberof ConnectorsApiGetConnectorSourceConfig
      */
@@ -36896,7 +36754,7 @@ export interface ConnectorsApiGetConnectorSourceConfigRequest {
  */
 export interface ConnectorsApiGetConnectorSourceTemplateRequest {
     /**
-     * The scriptName value of the connector. Scriptname is the unique id generated at connector creation.
+     * The scriptName value of the connector. ScriptName is the unique id generated at connector creation.
      * @type {string}
      * @memberof ConnectorsApiGetConnectorSourceTemplate
      */
@@ -36925,85 +36783,64 @@ export interface ConnectorsApiGetConnectorTranslationsRequest {
 }
 
 /**
- * Request parameters for putCorrelationConfig operation in ConnectorsApi.
+ * Request parameters for putConnectorSourceConfig operation in ConnectorsApi.
  * @export
- * @interface ConnectorsApiPutCorrelationConfigRequest
+ * @interface ConnectorsApiPutConnectorSourceConfigRequest
  */
-export interface ConnectorsApiPutCorrelationConfigRequest {
+export interface ConnectorsApiPutConnectorSourceConfigRequest {
     /**
-     * The scriptName value of the connector. Scriptname is the unique id generated at connector creation.
+     * The scriptName value of the connector. ScriptName is the unique id generated at connector creation.
      * @type {string}
-     * @memberof ConnectorsApiPutCorrelationConfig
-     */
-    readonly scriptName: string
-
-    /**
-     * connector correlation config xml file
-     * @type {any}
-     * @memberof ConnectorsApiPutCorrelationConfig
-     */
-    readonly file: any
-}
-
-/**
- * Request parameters for putSourceConfig operation in ConnectorsApi.
- * @export
- * @interface ConnectorsApiPutSourceConfigRequest
- */
-export interface ConnectorsApiPutSourceConfigRequest {
-    /**
-     * The scriptName value of the connector. Scriptname is the unique id generated at connector creation.
-     * @type {string}
-     * @memberof ConnectorsApiPutSourceConfig
+     * @memberof ConnectorsApiPutConnectorSourceConfig
      */
     readonly scriptName: string
 
     /**
      * connector source config xml file
      * @type {any}
-     * @memberof ConnectorsApiPutSourceConfig
+     * @memberof ConnectorsApiPutConnectorSourceConfig
      */
     readonly file: any
 }
 
 /**
- * Request parameters for putSourceTemplate operation in ConnectorsApi.
+ * Request parameters for putConnectorSourceTemplate operation in ConnectorsApi.
  * @export
- * @interface ConnectorsApiPutSourceTemplateRequest
+ * @interface ConnectorsApiPutConnectorSourceTemplateRequest
  */
-export interface ConnectorsApiPutSourceTemplateRequest {
+export interface ConnectorsApiPutConnectorSourceTemplateRequest {
     /**
-     * The scriptName value of the connector. Scriptname is the unique id generated at connector creation.
+     * The scriptName value of the connector. ScriptName is the unique id generated at connector creation.
      * @type {string}
-     * @memberof ConnectorsApiPutSourceTemplate
+     * @memberof ConnectorsApiPutConnectorSourceTemplate
      */
     readonly scriptName: string
 
     /**
      * connector source template xml file
      * @type {any}
-     * @memberof ConnectorsApiPutSourceTemplate
+     * @memberof ConnectorsApiPutConnectorSourceTemplate
      */
     readonly file: any
 }
 
 /**
- * Request parameters for putTranslations operation in ConnectorsApi.
+ * Request parameters for putConnectorTranslations operation in ConnectorsApi.
  * @export
- * @interface ConnectorsApiPutTranslationsRequest
+ * @interface ConnectorsApiPutConnectorTranslationsRequest
  */
-export interface ConnectorsApiPutTranslationsRequest {
+export interface ConnectorsApiPutConnectorTranslationsRequest {
     /**
      * The scriptName value of the connector. Scriptname is the unique id generated at connector creation.
      * @type {string}
-     * @memberof ConnectorsApiPutTranslations
+     * @memberof ConnectorsApiPutConnectorTranslations
      */
     readonly scriptName: string
 
     /**
      * The locale to apply to the config. If no viable locale is given, it will default to \&quot;en\&quot;
      * @type {'de' | 'false' | 'fi' | 'sv' | 'ru' | 'pt' | 'ko' | 'zh-TW' | 'en' | 'it' | 'fr' | 'zh-CN' | 'hu' | 'es' | 'cs' | 'ja' | 'pl' | 'da' | 'nl'}
-     * @memberof ConnectorsApiPutTranslations
+     * @memberof ConnectorsApiPutConnectorTranslations
      */
     readonly locale: 'de' | 'false' | 'fi' | 'sv' | 'ru' | 'pt' | 'ko' | 'zh-TW' | 'en' | 'it' | 'fr' | 'zh-CN' | 'hu' | 'es' | 'cs' | 'ja' | 'pl' | 'da' | 'nl'
 }
@@ -37015,14 +36852,14 @@ export interface ConnectorsApiPutTranslationsRequest {
  */
 export interface ConnectorsApiUpdateConnectorRequest {
     /**
-     * The scriptName value of the connector. Scriptname is the unique id generated at connector creation.
+     * The scriptName value of the connector. ScriptName is the unique id generated at connector creation.
      * @type {string}
      * @memberof ConnectorsApiUpdateConnector
      */
     readonly scriptName: string
 
     /**
-     * A list of connector detail update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.
+     * A list of connector detail update operations 
      * @type {Array<JsonPatchOperation>}
      * @memberof ConnectorsApiUpdateConnector
      */
@@ -37038,7 +36875,7 @@ export interface ConnectorsApiUpdateConnectorRequest {
 export class ConnectorsApi extends BaseAPI {
     /**
      * Create custom connector.    
-     * @summary Create custom connector
+     * @summary Create Custom Connector
      * @param {ConnectorsApiCreateCustomConnectorRequest} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
@@ -37050,7 +36887,7 @@ export class ConnectorsApi extends BaseAPI {
 
     /**
      * Delete a custom connector that using its script name.
-     * @summary Deletes connector by script name
+     * @summary Delete Connector by Script Name
      * @param {ConnectorsApiDeleteCustomConnectorRequest} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
@@ -37062,7 +36899,7 @@ export class ConnectorsApi extends BaseAPI {
 
     /**
      * Fetches a connector that using its script name.    
-     * @summary Gets connector by script name
+     * @summary Get Connector by Script Name
      * @param {ConnectorsApiGetConnectorRequest} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
@@ -37073,19 +36910,8 @@ export class ConnectorsApi extends BaseAPI {
     }
 
     /**
-     * Fetches a connector\'s correlation config using its script name.    
-     * @param {ConnectorsApiGetConnectorCorrelationConfigRequest} requestParameters Request parameters.
-     * @param {*} [axiosOptions] Override http request option.
-     * @throws {RequiredError}
-     * @memberof ConnectorsApi
-     */
-    public getConnectorCorrelationConfig(requestParameters: ConnectorsApiGetConnectorCorrelationConfigRequest, axiosOptions?: AxiosRequestConfig) {
-        return ConnectorsApiFp(this.configuration).getConnectorCorrelationConfig(requestParameters.scriptName, axiosOptions).then((request) => request(this.axios, this.basePath));
-    }
-
-    /**
      * Fetches list of connectors that have \'RELEASED\' status using filtering and pagination.
-     * @summary Gets connector list
+     * @summary Get Connector List
      * @param {ConnectorsApiGetConnectorListRequest} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
@@ -37097,6 +36923,7 @@ export class ConnectorsApi extends BaseAPI {
 
     /**
      * Fetches a connector\'s source config using its script name.    
+     * @summary Get Connector Source Configuration
      * @param {ConnectorsApiGetConnectorSourceConfigRequest} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
@@ -37108,6 +36935,7 @@ export class ConnectorsApi extends BaseAPI {
 
     /**
      * Fetches a connector\'s source template using its script name.    
+     * @summary Get Connector Source Template
      * @param {ConnectorsApiGetConnectorSourceTemplateRequest} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
@@ -37119,6 +36947,7 @@ export class ConnectorsApi extends BaseAPI {
 
     /**
      * Fetches a connector\'s translations using its script name.    
+     * @summary Get Connector Translations
      * @param {ConnectorsApiGetConnectorTranslationsRequest} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
@@ -37129,52 +36958,44 @@ export class ConnectorsApi extends BaseAPI {
     }
 
     /**
-     * Update a connector\'s correlation config using its script name.    
-     * @param {ConnectorsApiPutCorrelationConfigRequest} requestParameters Request parameters.
-     * @param {*} [axiosOptions] Override http request option.
-     * @throws {RequiredError}
-     * @memberof ConnectorsApi
-     */
-    public putCorrelationConfig(requestParameters: ConnectorsApiPutCorrelationConfigRequest, axiosOptions?: AxiosRequestConfig) {
-        return ConnectorsApiFp(this.configuration).putCorrelationConfig(requestParameters.scriptName, requestParameters.file, axiosOptions).then((request) => request(this.axios, this.basePath));
-    }
-
-    /**
      * Update a connector\'s source config using its script name.    
-     * @param {ConnectorsApiPutSourceConfigRequest} requestParameters Request parameters.
+     * @summary Update Connector Source Configuration
+     * @param {ConnectorsApiPutConnectorSourceConfigRequest} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
      * @memberof ConnectorsApi
      */
-    public putSourceConfig(requestParameters: ConnectorsApiPutSourceConfigRequest, axiosOptions?: AxiosRequestConfig) {
-        return ConnectorsApiFp(this.configuration).putSourceConfig(requestParameters.scriptName, requestParameters.file, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public putConnectorSourceConfig(requestParameters: ConnectorsApiPutConnectorSourceConfigRequest, axiosOptions?: AxiosRequestConfig) {
+        return ConnectorsApiFp(this.configuration).putConnectorSourceConfig(requestParameters.scriptName, requestParameters.file, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * Update a connector\'s source template using its script name.    
-     * @param {ConnectorsApiPutSourceTemplateRequest} requestParameters Request parameters.
+     * @summary Update Connector Source Template
+     * @param {ConnectorsApiPutConnectorSourceTemplateRequest} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
      * @memberof ConnectorsApi
      */
-    public putSourceTemplate(requestParameters: ConnectorsApiPutSourceTemplateRequest, axiosOptions?: AxiosRequestConfig) {
-        return ConnectorsApiFp(this.configuration).putSourceTemplate(requestParameters.scriptName, requestParameters.file, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public putConnectorSourceTemplate(requestParameters: ConnectorsApiPutConnectorSourceTemplateRequest, axiosOptions?: AxiosRequestConfig) {
+        return ConnectorsApiFp(this.configuration).putConnectorSourceTemplate(requestParameters.scriptName, requestParameters.file, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * Update a connector\'s translations using its script name.    
-     * @param {ConnectorsApiPutTranslationsRequest} requestParameters Request parameters.
+     * @summary Update Connector Translations
+     * @param {ConnectorsApiPutConnectorTranslationsRequest} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
      * @memberof ConnectorsApi
      */
-    public putTranslations(requestParameters: ConnectorsApiPutTranslationsRequest, axiosOptions?: AxiosRequestConfig) {
-        return ConnectorsApiFp(this.configuration).putTranslations(requestParameters.scriptName, requestParameters.locale, axiosOptions).then((request) => request(this.axios, this.basePath));
+    public putConnectorTranslations(requestParameters: ConnectorsApiPutConnectorTranslationsRequest, axiosOptions?: AxiosRequestConfig) {
+        return ConnectorsApiFp(this.configuration).putConnectorTranslations(requestParameters.scriptName, requestParameters.locale, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
-     * Patch a custom connector that using its script name. The following fields are patchable: * connectorMetadata * applicationXml * correlationConfigXml * sourceConfigXml
-     * @summary Update connector by script name
+     * This API updates a custom connector by script name using [JSON Patch](https://tools.ietf.org/html/rfc6902) syntax.  The following fields are patchable:   * connectorMetadata  * applicationXml  * correlationConfigXml  * sourceConfigXml 
+     * @summary Update Connector by Script Name
      * @param {ConnectorsApiUpdateConnectorRequest} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
