@@ -27673,7 +27673,7 @@ export class AccountUsagesApi extends BaseAPI {
 export const AccountsApiAxiosParamCreator = function (configuration?: Configuration) {
     return {
         /**
-         * This API submits an account creation task and returns the task ID.    You must include the `sourceId` where the account will be created in the `attributes` object.  This endpoint creates an account on the source record in your ISC tenant. This is useful for Flat File (`DelimitedFile`) type sources because it allows you to aggregate new accounts without needing to import a new CSV file every time.   However, if you use this endpoint to create an account for a Direct Connection type source, you must ensure that the account also exists on the target source.  The endpoint doesn\'t actually provision the account on the target source, which means that if the account doesn\'t also exist on the target source, an aggregation between the source and your tenant will remove it from your tenant.   By providing the account ID of an existing account in the request body, this API will function as a PATCH operation and update the account. 
+         * Submit an account creation task - the API then returns the task ID.    You must include the `sourceId` where the account will be created in the `attributes` object.  This endpoint creates an account on the source record in your ISC tenant. This is useful for Flat File (`DelimitedFile`) type sources because it allows you to aggregate new accounts without needing to import a new CSV file every time.   However, if you use this endpoint to create an account for a Direct Connection type source, you must ensure that the account also exists on the target source.  The endpoint doesn\'t actually provision the account on the target source, which means that if the account doesn\'t also exist on the target source, an aggregation between the source and your tenant will remove it from your tenant.   By providing the account ID of an existing account in the request body, this API will function as a PATCH operation and update the account. 
          * @summary Create Account
          * @param {AccountAttributesCreate} accountAttributesCreate 
          * @param {*} [axiosOptions] Override http request option.
@@ -27954,17 +27954,18 @@ export const AccountsApiAxiosParamCreator = function (configuration?: Configurat
             };
         },
         /**
-         * This returns a list of accounts.  
+         * List accounts. 
          * @summary Accounts List
          * @param {number} [limit] Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
          * @param {number} [offset] Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
          * @param {boolean} [count] If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+         * @param {'SLIM' | 'FULL'} [detailLevel] This value determines whether the API provides &#x60;SLIM&#x60; or increased level of detail (&#x60;FULL&#x60;) for each account in the returned list. &#x60;FULL&#x60; is the default behavior.
          * @param {string} [filters] Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, in, sw*  **identityId**: *eq, in, sw*  **name**: *eq, in, sw*  **nativeIdentity**: *eq, in, sw*  **sourceId**: *eq, in, sw*  **uncorrelated**: *eq*  **entitlements**: *eq*  **origin**: *eq, in*  **manuallyCorrelated**: *eq*  **identity.name**: *eq, in, sw*  **identity.correlated**: *eq*  **identity.identityState**: *eq, in*  **source.displayableName**: *eq, in*  **source.authoritative**: *eq*  **source.connectionType**: *eq, in*  **recommendation.method**: *eq, in, isnull*
          * @param {string} [sorters] Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **id, name, created, modified, sourceId, identityId, identity.id, nativeIdentity, uuid, manuallyCorrelated, entitlements, origin, identity.name, identity.identityState, identity.correlated, source.displayableName, source.authoritative, source.connectionType**
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        listAccounts: async (limit?: number, offset?: number, count?: boolean, filters?: string, sorters?: string, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        listAccounts: async (limit?: number, offset?: number, count?: boolean, detailLevel?: 'SLIM' | 'FULL', filters?: string, sorters?: string, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             const localVarPath = `/accounts`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -27995,6 +27996,10 @@ export const AccountsApiAxiosParamCreator = function (configuration?: Configurat
 
             if (count !== undefined) {
                 localVarQueryParameter['count'] = count;
+            }
+
+            if (detailLevel !== undefined) {
+                localVarQueryParameter['detailLevel'] = detailLevel;
             }
 
             if (filters !== undefined) {
@@ -28213,7 +28218,7 @@ export const AccountsApiFp = function(configuration?: Configuration) {
     const localVarAxiosParamCreator = AccountsApiAxiosParamCreator(configuration)
     return {
         /**
-         * This API submits an account creation task and returns the task ID.    You must include the `sourceId` where the account will be created in the `attributes` object.  This endpoint creates an account on the source record in your ISC tenant. This is useful for Flat File (`DelimitedFile`) type sources because it allows you to aggregate new accounts without needing to import a new CSV file every time.   However, if you use this endpoint to create an account for a Direct Connection type source, you must ensure that the account also exists on the target source.  The endpoint doesn\'t actually provision the account on the target source, which means that if the account doesn\'t also exist on the target source, an aggregation between the source and your tenant will remove it from your tenant.   By providing the account ID of an existing account in the request body, this API will function as a PATCH operation and update the account. 
+         * Submit an account creation task - the API then returns the task ID.    You must include the `sourceId` where the account will be created in the `attributes` object.  This endpoint creates an account on the source record in your ISC tenant. This is useful for Flat File (`DelimitedFile`) type sources because it allows you to aggregate new accounts without needing to import a new CSV file every time.   However, if you use this endpoint to create an account for a Direct Connection type source, you must ensure that the account also exists on the target source.  The endpoint doesn\'t actually provision the account on the target source, which means that if the account doesn\'t also exist on the target source, an aggregation between the source and your tenant will remove it from your tenant.   By providing the account ID of an existing account in the request body, this API will function as a PATCH operation and update the account. 
          * @summary Create Account
          * @param {AccountAttributesCreate} accountAttributesCreate 
          * @param {*} [axiosOptions] Override http request option.
@@ -28284,18 +28289,19 @@ export const AccountsApiFp = function(configuration?: Configuration) {
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
-         * This returns a list of accounts.  
+         * List accounts. 
          * @summary Accounts List
          * @param {number} [limit] Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
          * @param {number} [offset] Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
          * @param {boolean} [count] If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+         * @param {'SLIM' | 'FULL'} [detailLevel] This value determines whether the API provides &#x60;SLIM&#x60; or increased level of detail (&#x60;FULL&#x60;) for each account in the returned list. &#x60;FULL&#x60; is the default behavior.
          * @param {string} [filters] Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, in, sw*  **identityId**: *eq, in, sw*  **name**: *eq, in, sw*  **nativeIdentity**: *eq, in, sw*  **sourceId**: *eq, in, sw*  **uncorrelated**: *eq*  **entitlements**: *eq*  **origin**: *eq, in*  **manuallyCorrelated**: *eq*  **identity.name**: *eq, in, sw*  **identity.correlated**: *eq*  **identity.identityState**: *eq, in*  **source.displayableName**: *eq, in*  **source.authoritative**: *eq*  **source.connectionType**: *eq, in*  **recommendation.method**: *eq, in, isnull*
          * @param {string} [sorters] Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **id, name, created, modified, sourceId, identityId, identity.id, nativeIdentity, uuid, manuallyCorrelated, entitlements, origin, identity.name, identity.identityState, identity.correlated, source.displayableName, source.authoritative, source.connectionType**
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async listAccounts(limit?: number, offset?: number, count?: boolean, filters?: string, sorters?: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Account>>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.listAccounts(limit, offset, count, filters, sorters, axiosOptions);
+        async listAccounts(limit?: number, offset?: number, count?: boolean, detailLevel?: 'SLIM' | 'FULL', filters?: string, sorters?: string, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Account>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.listAccounts(limit, offset, count, detailLevel, filters, sorters, axiosOptions);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
@@ -28356,7 +28362,7 @@ export const AccountsApiFactory = function (configuration?: Configuration, baseP
     const localVarFp = AccountsApiFp(configuration)
     return {
         /**
-         * This API submits an account creation task and returns the task ID.    You must include the `sourceId` where the account will be created in the `attributes` object.  This endpoint creates an account on the source record in your ISC tenant. This is useful for Flat File (`DelimitedFile`) type sources because it allows you to aggregate new accounts without needing to import a new CSV file every time.   However, if you use this endpoint to create an account for a Direct Connection type source, you must ensure that the account also exists on the target source.  The endpoint doesn\'t actually provision the account on the target source, which means that if the account doesn\'t also exist on the target source, an aggregation between the source and your tenant will remove it from your tenant.   By providing the account ID of an existing account in the request body, this API will function as a PATCH operation and update the account. 
+         * Submit an account creation task - the API then returns the task ID.    You must include the `sourceId` where the account will be created in the `attributes` object.  This endpoint creates an account on the source record in your ISC tenant. This is useful for Flat File (`DelimitedFile`) type sources because it allows you to aggregate new accounts without needing to import a new CSV file every time.   However, if you use this endpoint to create an account for a Direct Connection type source, you must ensure that the account also exists on the target source.  The endpoint doesn\'t actually provision the account on the target source, which means that if the account doesn\'t also exist on the target source, an aggregation between the source and your tenant will remove it from your tenant.   By providing the account ID of an existing account in the request body, this API will function as a PATCH operation and update the account. 
          * @summary Create Account
          * @param {AccountAttributesCreate} accountAttributesCreate 
          * @param {*} [axiosOptions] Override http request option.
@@ -28421,18 +28427,19 @@ export const AccountsApiFactory = function (configuration?: Configuration, baseP
             return localVarFp.getAccountEntitlements(id, limit, offset, count, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
-         * This returns a list of accounts.  
+         * List accounts. 
          * @summary Accounts List
          * @param {number} [limit] Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
          * @param {number} [offset] Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
          * @param {boolean} [count] If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+         * @param {'SLIM' | 'FULL'} [detailLevel] This value determines whether the API provides &#x60;SLIM&#x60; or increased level of detail (&#x60;FULL&#x60;) for each account in the returned list. &#x60;FULL&#x60; is the default behavior.
          * @param {string} [filters] Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, in, sw*  **identityId**: *eq, in, sw*  **name**: *eq, in, sw*  **nativeIdentity**: *eq, in, sw*  **sourceId**: *eq, in, sw*  **uncorrelated**: *eq*  **entitlements**: *eq*  **origin**: *eq, in*  **manuallyCorrelated**: *eq*  **identity.name**: *eq, in, sw*  **identity.correlated**: *eq*  **identity.identityState**: *eq, in*  **source.displayableName**: *eq, in*  **source.authoritative**: *eq*  **source.connectionType**: *eq, in*  **recommendation.method**: *eq, in, isnull*
          * @param {string} [sorters] Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **id, name, created, modified, sourceId, identityId, identity.id, nativeIdentity, uuid, manuallyCorrelated, entitlements, origin, identity.name, identity.identityState, identity.correlated, source.displayableName, source.authoritative, source.connectionType**
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        listAccounts(limit?: number, offset?: number, count?: boolean, filters?: string, sorters?: string, axiosOptions?: any): AxiosPromise<Array<Account>> {
-            return localVarFp.listAccounts(limit, offset, count, filters, sorters, axiosOptions).then((request) => request(axios, basePath));
+        listAccounts(limit?: number, offset?: number, count?: boolean, detailLevel?: 'SLIM' | 'FULL', filters?: string, sorters?: string, axiosOptions?: any): AxiosPromise<Array<Account>> {
+            return localVarFp.listAccounts(limit, offset, count, detailLevel, filters, sorters, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
          * Use this API to update an account with a PUT request.   This endpoint submits an account update task and returns the task ID.   >**Note: You can only use this PUT endpoint to update accounts from flat file sources.** 
@@ -28627,6 +28634,13 @@ export interface AccountsApiListAccountsRequest {
     readonly count?: boolean
 
     /**
+     * This value determines whether the API provides &#x60;SLIM&#x60; or increased level of detail (&#x60;FULL&#x60;) for each account in the returned list. &#x60;FULL&#x60; is the default behavior.
+     * @type {'SLIM' | 'FULL'}
+     * @memberof AccountsApiListAccounts
+     */
+    readonly detailLevel?: 'SLIM' | 'FULL'
+
+    /**
      * Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, in, sw*  **identityId**: *eq, in, sw*  **name**: *eq, in, sw*  **nativeIdentity**: *eq, in, sw*  **sourceId**: *eq, in, sw*  **uncorrelated**: *eq*  **entitlements**: *eq*  **origin**: *eq, in*  **manuallyCorrelated**: *eq*  **identity.name**: *eq, in, sw*  **identity.correlated**: *eq*  **identity.identityState**: *eq, in*  **source.displayableName**: *eq, in*  **source.authoritative**: *eq*  **source.connectionType**: *eq, in*  **recommendation.method**: *eq, in, isnull*
      * @type {string}
      * @memberof AccountsApiListAccounts
@@ -28726,7 +28740,7 @@ export interface AccountsApiUpdateAccountRequest {
  */
 export class AccountsApi extends BaseAPI {
     /**
-     * This API submits an account creation task and returns the task ID.    You must include the `sourceId` where the account will be created in the `attributes` object.  This endpoint creates an account on the source record in your ISC tenant. This is useful for Flat File (`DelimitedFile`) type sources because it allows you to aggregate new accounts without needing to import a new CSV file every time.   However, if you use this endpoint to create an account for a Direct Connection type source, you must ensure that the account also exists on the target source.  The endpoint doesn\'t actually provision the account on the target source, which means that if the account doesn\'t also exist on the target source, an aggregation between the source and your tenant will remove it from your tenant.   By providing the account ID of an existing account in the request body, this API will function as a PATCH operation and update the account. 
+     * Submit an account creation task - the API then returns the task ID.    You must include the `sourceId` where the account will be created in the `attributes` object.  This endpoint creates an account on the source record in your ISC tenant. This is useful for Flat File (`DelimitedFile`) type sources because it allows you to aggregate new accounts without needing to import a new CSV file every time.   However, if you use this endpoint to create an account for a Direct Connection type source, you must ensure that the account also exists on the target source.  The endpoint doesn\'t actually provision the account on the target source, which means that if the account doesn\'t also exist on the target source, an aggregation between the source and your tenant will remove it from your tenant.   By providing the account ID of an existing account in the request body, this API will function as a PATCH operation and update the account. 
      * @summary Create Account
      * @param {AccountsApiCreateAccountRequest} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
@@ -28798,7 +28812,7 @@ export class AccountsApi extends BaseAPI {
     }
 
     /**
-     * This returns a list of accounts.  
+     * List accounts. 
      * @summary Accounts List
      * @param {AccountsApiListAccountsRequest} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
@@ -28806,7 +28820,7 @@ export class AccountsApi extends BaseAPI {
      * @memberof AccountsApi
      */
     public listAccounts(requestParameters: AccountsApiListAccountsRequest = {}, axiosOptions?: AxiosRequestConfig) {
-        return AccountsApiFp(this.configuration).listAccounts(requestParameters.limit, requestParameters.offset, requestParameters.count, requestParameters.filters, requestParameters.sorters, axiosOptions).then((request) => request(this.axios, this.basePath));
+        return AccountsApiFp(this.configuration).listAccounts(requestParameters.limit, requestParameters.offset, requestParameters.count, requestParameters.detailLevel, requestParameters.filters, requestParameters.sorters, axiosOptions).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -41071,9 +41085,9 @@ export const ManagedClientsApiAxiosParamCreator = function (configuration?: Conf
             };
         },
         /**
-         * Get a Managed Client.
-         * @summary Get a Managed Client
-         * @param {string} id Managed Client ID.
+         * Get managed client by ID. 
+         * @summary Get Managed Client
+         * @param {string} id Managed client ID.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
@@ -41300,9 +41314,9 @@ export const ManagedClientsApiFp = function(configuration?: Configuration) {
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
-         * Get a Managed Client.
-         * @summary Get a Managed Client
-         * @param {string} id Managed Client ID.
+         * Get managed client by ID. 
+         * @summary Get Managed Client
+         * @param {string} id Managed client ID.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
@@ -41379,9 +41393,9 @@ export const ManagedClientsApiFactory = function (configuration?: Configuration,
             return localVarFp.deleteManagedClient(id, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
-         * Get a Managed Client.
-         * @summary Get a Managed Client
-         * @param {string} id Managed Client ID.
+         * Get managed client by ID. 
+         * @summary Get Managed Client
+         * @param {string} id Managed client ID.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
@@ -41461,7 +41475,7 @@ export interface ManagedClientsApiDeleteManagedClientRequest {
  */
 export interface ManagedClientsApiGetManagedClientRequest {
     /**
-     * Managed Client ID.
+     * Managed client ID.
      * @type {string}
      * @memberof ManagedClientsApiGetManagedClient
      */
@@ -41577,8 +41591,8 @@ export class ManagedClientsApi extends BaseAPI {
     }
 
     /**
-     * Get a Managed Client.
-     * @summary Get a Managed Client
+     * Get managed client by ID. 
+     * @summary Get Managed Client
      * @param {ManagedClientsApiGetManagedClientRequest} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
@@ -41633,8 +41647,8 @@ export class ManagedClientsApi extends BaseAPI {
 export const ManagedClustersApiAxiosParamCreator = function (configuration?: Configuration) {
     return {
         /**
-         * Create a new Managed Cluster. The API returns a result that includes the Managed Cluster ID.
-         * @summary Create a new Managed Cluster
+         * Create a new Managed Cluster. The API returns a result that includes the managed cluster ID.
+         * @summary Create Create Managed Cluster
          * @param {ManagedClusterRequest} managedClusterRequest 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
@@ -41677,10 +41691,10 @@ export const ManagedClustersApiAxiosParamCreator = function (configuration?: Con
             };
         },
         /**
-         * Delete an existing Managed Cluster.
-         * @summary Delete a Managed Cluster
-         * @param {string} id Managed Cluster ID.
-         * @param {boolean} [removeClients] Flag to determine the need to delete a cluster with clients
+         * Delete an existing managed cluster.
+         * @summary Delete Managed Cluster
+         * @param {string} id Managed cluster ID.
+         * @param {boolean} [removeClients] Flag to determine the need to delete a cluster with clients.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
@@ -41724,9 +41738,9 @@ export const ManagedClustersApiAxiosParamCreator = function (configuration?: Con
             };
         },
         /**
-         * Get managed cluster\'s log configuration.
-         * @summary Get Managed Cluster\'s log configuration
-         * @param {string} id ID of ManagedCluster to get log configuration for
+         * Get a managed cluster\'s log configuration.
+         * @summary Get Managed Cluster Log Configuration
+         * @param {string} id ID of managed cluster to get log configuration for.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
@@ -41766,9 +41780,9 @@ export const ManagedClustersApiAxiosParamCreator = function (configuration?: Con
             };
         },
         /**
-         * Retrieve a ManagedCluster by ID.
-         * @summary Get a specified Managed Cluster.
-         * @param {string} id ManagedCluster ID.
+         * Get a managed cluster by ID.
+         * @summary Get Managed Cluster
+         * @param {string} id Managed cluster ID.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
@@ -41808,8 +41822,8 @@ export const ManagedClustersApiAxiosParamCreator = function (configuration?: Con
             };
         },
         /**
-         * Retrieve all Managed Clusters for the current Org, based on request context.
-         * @summary Retrieve all Managed Clusters.
+         * List current organization\'s managed clusters, based on request context.
+         * @summary Get Managed Clusters
          * @param {number} [offset] Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
          * @param {number} [limit] Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
          * @param {boolean} [count] If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
@@ -41866,10 +41880,10 @@ export const ManagedClustersApiAxiosParamCreator = function (configuration?: Con
             };
         },
         /**
-         * Update managed cluster\'s log configuration.  Only one of `durationMinutes` or `expiration` may be specified, up to 1440 minutes (24 hours) in the future. If neither is specified, the default value for `durationMinutes` will be 240.
-         * @summary Update Managed Cluster\'s log configuration
-         * @param {string} id ID of ManagedCluster to update log configuration for
-         * @param {PutClientLogConfigurationRequest} putClientLogConfigurationRequest ClientLogConfiguration for given ManagedCluster
+         * Update a managed cluster\'s log configuration. You may only specify one of `durationMinutes` or `expiration`, up to 1440 minutes (24 hours) in the future. If neither is specified, the default value for `durationMinutes` is 240.
+         * @summary Update Managed Cluster Log Configuration
+         * @param {string} id ID of the managed cluster to update the log configuration for.
+         * @param {PutClientLogConfigurationRequest} putClientLogConfigurationRequest Client log configuration for the given managed cluster.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
@@ -41914,10 +41928,10 @@ export const ManagedClustersApiAxiosParamCreator = function (configuration?: Con
             };
         },
         /**
-         * Update an existing Managed Cluster.
-         * @summary Update a Managed Cluster
-         * @param {string} id Managed Cluster ID.
-         * @param {Array<JsonPatchOperation>} jsonPatchOperation The JSONPatch payload used to update the object.
+         * Update an existing managed cluster.
+         * @summary Update Managed Cluster
+         * @param {string} id Managed cluster ID.
+         * @param {Array<JsonPatchOperation>} jsonPatchOperation JSONPatch payload used to update the object.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
@@ -41972,8 +41986,8 @@ export const ManagedClustersApiFp = function(configuration?: Configuration) {
     const localVarAxiosParamCreator = ManagedClustersApiAxiosParamCreator(configuration)
     return {
         /**
-         * Create a new Managed Cluster. The API returns a result that includes the Managed Cluster ID.
-         * @summary Create a new Managed Cluster
+         * Create a new Managed Cluster. The API returns a result that includes the managed cluster ID.
+         * @summary Create Create Managed Cluster
          * @param {ManagedClusterRequest} managedClusterRequest 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
@@ -41983,10 +41997,10 @@ export const ManagedClustersApiFp = function(configuration?: Configuration) {
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
-         * Delete an existing Managed Cluster.
-         * @summary Delete a Managed Cluster
-         * @param {string} id Managed Cluster ID.
-         * @param {boolean} [removeClients] Flag to determine the need to delete a cluster with clients
+         * Delete an existing managed cluster.
+         * @summary Delete Managed Cluster
+         * @param {string} id Managed cluster ID.
+         * @param {boolean} [removeClients] Flag to determine the need to delete a cluster with clients.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
@@ -41995,9 +42009,9 @@ export const ManagedClustersApiFp = function(configuration?: Configuration) {
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
-         * Get managed cluster\'s log configuration.
-         * @summary Get Managed Cluster\'s log configuration
-         * @param {string} id ID of ManagedCluster to get log configuration for
+         * Get a managed cluster\'s log configuration.
+         * @summary Get Managed Cluster Log Configuration
+         * @param {string} id ID of managed cluster to get log configuration for.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
@@ -42006,9 +42020,9 @@ export const ManagedClustersApiFp = function(configuration?: Configuration) {
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
-         * Retrieve a ManagedCluster by ID.
-         * @summary Get a specified Managed Cluster.
-         * @param {string} id ManagedCluster ID.
+         * Get a managed cluster by ID.
+         * @summary Get Managed Cluster
+         * @param {string} id Managed cluster ID.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
@@ -42017,8 +42031,8 @@ export const ManagedClustersApiFp = function(configuration?: Configuration) {
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
-         * Retrieve all Managed Clusters for the current Org, based on request context.
-         * @summary Retrieve all Managed Clusters.
+         * List current organization\'s managed clusters, based on request context.
+         * @summary Get Managed Clusters
          * @param {number} [offset] Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
          * @param {number} [limit] Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
          * @param {boolean} [count] If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
@@ -42031,10 +42045,10 @@ export const ManagedClustersApiFp = function(configuration?: Configuration) {
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
-         * Update managed cluster\'s log configuration.  Only one of `durationMinutes` or `expiration` may be specified, up to 1440 minutes (24 hours) in the future. If neither is specified, the default value for `durationMinutes` will be 240.
-         * @summary Update Managed Cluster\'s log configuration
-         * @param {string} id ID of ManagedCluster to update log configuration for
-         * @param {PutClientLogConfigurationRequest} putClientLogConfigurationRequest ClientLogConfiguration for given ManagedCluster
+         * Update a managed cluster\'s log configuration. You may only specify one of `durationMinutes` or `expiration`, up to 1440 minutes (24 hours) in the future. If neither is specified, the default value for `durationMinutes` is 240.
+         * @summary Update Managed Cluster Log Configuration
+         * @param {string} id ID of the managed cluster to update the log configuration for.
+         * @param {PutClientLogConfigurationRequest} putClientLogConfigurationRequest Client log configuration for the given managed cluster.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
@@ -42043,10 +42057,10 @@ export const ManagedClustersApiFp = function(configuration?: Configuration) {
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
-         * Update an existing Managed Cluster.
-         * @summary Update a Managed Cluster
-         * @param {string} id Managed Cluster ID.
-         * @param {Array<JsonPatchOperation>} jsonPatchOperation The JSONPatch payload used to update the object.
+         * Update an existing managed cluster.
+         * @summary Update Managed Cluster
+         * @param {string} id Managed cluster ID.
+         * @param {Array<JsonPatchOperation>} jsonPatchOperation JSONPatch payload used to update the object.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
@@ -42065,8 +42079,8 @@ export const ManagedClustersApiFactory = function (configuration?: Configuration
     const localVarFp = ManagedClustersApiFp(configuration)
     return {
         /**
-         * Create a new Managed Cluster. The API returns a result that includes the Managed Cluster ID.
-         * @summary Create a new Managed Cluster
+         * Create a new Managed Cluster. The API returns a result that includes the managed cluster ID.
+         * @summary Create Create Managed Cluster
          * @param {ManagedClusterRequest} managedClusterRequest 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
@@ -42075,10 +42089,10 @@ export const ManagedClustersApiFactory = function (configuration?: Configuration
             return localVarFp.createManagedCluster(managedClusterRequest, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
-         * Delete an existing Managed Cluster.
-         * @summary Delete a Managed Cluster
-         * @param {string} id Managed Cluster ID.
-         * @param {boolean} [removeClients] Flag to determine the need to delete a cluster with clients
+         * Delete an existing managed cluster.
+         * @summary Delete Managed Cluster
+         * @param {string} id Managed cluster ID.
+         * @param {boolean} [removeClients] Flag to determine the need to delete a cluster with clients.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
@@ -42086,9 +42100,9 @@ export const ManagedClustersApiFactory = function (configuration?: Configuration
             return localVarFp.deleteManagedCluster(id, removeClients, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
-         * Get managed cluster\'s log configuration.
-         * @summary Get Managed Cluster\'s log configuration
-         * @param {string} id ID of ManagedCluster to get log configuration for
+         * Get a managed cluster\'s log configuration.
+         * @summary Get Managed Cluster Log Configuration
+         * @param {string} id ID of managed cluster to get log configuration for.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
@@ -42096,9 +42110,9 @@ export const ManagedClustersApiFactory = function (configuration?: Configuration
             return localVarFp.getClientLogConfiguration(id, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
-         * Retrieve a ManagedCluster by ID.
-         * @summary Get a specified Managed Cluster.
-         * @param {string} id ManagedCluster ID.
+         * Get a managed cluster by ID.
+         * @summary Get Managed Cluster
+         * @param {string} id Managed cluster ID.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
@@ -42106,8 +42120,8 @@ export const ManagedClustersApiFactory = function (configuration?: Configuration
             return localVarFp.getManagedCluster(id, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
-         * Retrieve all Managed Clusters for the current Org, based on request context.
-         * @summary Retrieve all Managed Clusters.
+         * List current organization\'s managed clusters, based on request context.
+         * @summary Get Managed Clusters
          * @param {number} [offset] Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
          * @param {number} [limit] Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
          * @param {boolean} [count] If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
@@ -42119,10 +42133,10 @@ export const ManagedClustersApiFactory = function (configuration?: Configuration
             return localVarFp.getManagedClusters(offset, limit, count, filters, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
-         * Update managed cluster\'s log configuration.  Only one of `durationMinutes` or `expiration` may be specified, up to 1440 minutes (24 hours) in the future. If neither is specified, the default value for `durationMinutes` will be 240.
-         * @summary Update Managed Cluster\'s log configuration
-         * @param {string} id ID of ManagedCluster to update log configuration for
-         * @param {PutClientLogConfigurationRequest} putClientLogConfigurationRequest ClientLogConfiguration for given ManagedCluster
+         * Update a managed cluster\'s log configuration. You may only specify one of `durationMinutes` or `expiration`, up to 1440 minutes (24 hours) in the future. If neither is specified, the default value for `durationMinutes` is 240.
+         * @summary Update Managed Cluster Log Configuration
+         * @param {string} id ID of the managed cluster to update the log configuration for.
+         * @param {PutClientLogConfigurationRequest} putClientLogConfigurationRequest Client log configuration for the given managed cluster.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
@@ -42130,10 +42144,10 @@ export const ManagedClustersApiFactory = function (configuration?: Configuration
             return localVarFp.putClientLogConfiguration(id, putClientLogConfigurationRequest, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
-         * Update an existing Managed Cluster.
-         * @summary Update a Managed Cluster
-         * @param {string} id Managed Cluster ID.
-         * @param {Array<JsonPatchOperation>} jsonPatchOperation The JSONPatch payload used to update the object.
+         * Update an existing managed cluster.
+         * @summary Update Managed Cluster
+         * @param {string} id Managed cluster ID.
+         * @param {Array<JsonPatchOperation>} jsonPatchOperation JSONPatch payload used to update the object.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
@@ -42164,14 +42178,14 @@ export interface ManagedClustersApiCreateManagedClusterRequest {
  */
 export interface ManagedClustersApiDeleteManagedClusterRequest {
     /**
-     * Managed Cluster ID.
+     * Managed cluster ID.
      * @type {string}
      * @memberof ManagedClustersApiDeleteManagedCluster
      */
     readonly id: string
 
     /**
-     * Flag to determine the need to delete a cluster with clients
+     * Flag to determine the need to delete a cluster with clients.
      * @type {boolean}
      * @memberof ManagedClustersApiDeleteManagedCluster
      */
@@ -42185,7 +42199,7 @@ export interface ManagedClustersApiDeleteManagedClusterRequest {
  */
 export interface ManagedClustersApiGetClientLogConfigurationRequest {
     /**
-     * ID of ManagedCluster to get log configuration for
+     * ID of managed cluster to get log configuration for.
      * @type {string}
      * @memberof ManagedClustersApiGetClientLogConfiguration
      */
@@ -42199,7 +42213,7 @@ export interface ManagedClustersApiGetClientLogConfigurationRequest {
  */
 export interface ManagedClustersApiGetManagedClusterRequest {
     /**
-     * ManagedCluster ID.
+     * Managed cluster ID.
      * @type {string}
      * @memberof ManagedClustersApiGetManagedCluster
      */
@@ -42248,14 +42262,14 @@ export interface ManagedClustersApiGetManagedClustersRequest {
  */
 export interface ManagedClustersApiPutClientLogConfigurationRequest {
     /**
-     * ID of ManagedCluster to update log configuration for
+     * ID of the managed cluster to update the log configuration for.
      * @type {string}
      * @memberof ManagedClustersApiPutClientLogConfiguration
      */
     readonly id: string
 
     /**
-     * ClientLogConfiguration for given ManagedCluster
+     * Client log configuration for the given managed cluster.
      * @type {PutClientLogConfigurationRequest}
      * @memberof ManagedClustersApiPutClientLogConfiguration
      */
@@ -42269,14 +42283,14 @@ export interface ManagedClustersApiPutClientLogConfigurationRequest {
  */
 export interface ManagedClustersApiUpdateManagedClusterRequest {
     /**
-     * Managed Cluster ID.
+     * Managed cluster ID.
      * @type {string}
      * @memberof ManagedClustersApiUpdateManagedCluster
      */
     readonly id: string
 
     /**
-     * The JSONPatch payload used to update the object.
+     * JSONPatch payload used to update the object.
      * @type {Array<JsonPatchOperation>}
      * @memberof ManagedClustersApiUpdateManagedCluster
      */
@@ -42291,8 +42305,8 @@ export interface ManagedClustersApiUpdateManagedClusterRequest {
  */
 export class ManagedClustersApi extends BaseAPI {
     /**
-     * Create a new Managed Cluster. The API returns a result that includes the Managed Cluster ID.
-     * @summary Create a new Managed Cluster
+     * Create a new Managed Cluster. The API returns a result that includes the managed cluster ID.
+     * @summary Create Create Managed Cluster
      * @param {ManagedClustersApiCreateManagedClusterRequest} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
@@ -42303,8 +42317,8 @@ export class ManagedClustersApi extends BaseAPI {
     }
 
     /**
-     * Delete an existing Managed Cluster.
-     * @summary Delete a Managed Cluster
+     * Delete an existing managed cluster.
+     * @summary Delete Managed Cluster
      * @param {ManagedClustersApiDeleteManagedClusterRequest} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
@@ -42315,8 +42329,8 @@ export class ManagedClustersApi extends BaseAPI {
     }
 
     /**
-     * Get managed cluster\'s log configuration.
-     * @summary Get Managed Cluster\'s log configuration
+     * Get a managed cluster\'s log configuration.
+     * @summary Get Managed Cluster Log Configuration
      * @param {ManagedClustersApiGetClientLogConfigurationRequest} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
@@ -42327,8 +42341,8 @@ export class ManagedClustersApi extends BaseAPI {
     }
 
     /**
-     * Retrieve a ManagedCluster by ID.
-     * @summary Get a specified Managed Cluster.
+     * Get a managed cluster by ID.
+     * @summary Get Managed Cluster
      * @param {ManagedClustersApiGetManagedClusterRequest} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
@@ -42339,8 +42353,8 @@ export class ManagedClustersApi extends BaseAPI {
     }
 
     /**
-     * Retrieve all Managed Clusters for the current Org, based on request context.
-     * @summary Retrieve all Managed Clusters.
+     * List current organization\'s managed clusters, based on request context.
+     * @summary Get Managed Clusters
      * @param {ManagedClustersApiGetManagedClustersRequest} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
@@ -42351,8 +42365,8 @@ export class ManagedClustersApi extends BaseAPI {
     }
 
     /**
-     * Update managed cluster\'s log configuration.  Only one of `durationMinutes` or `expiration` may be specified, up to 1440 minutes (24 hours) in the future. If neither is specified, the default value for `durationMinutes` will be 240.
-     * @summary Update Managed Cluster\'s log configuration
+     * Update a managed cluster\'s log configuration. You may only specify one of `durationMinutes` or `expiration`, up to 1440 minutes (24 hours) in the future. If neither is specified, the default value for `durationMinutes` is 240.
+     * @summary Update Managed Cluster Log Configuration
      * @param {ManagedClustersApiPutClientLogConfigurationRequest} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
@@ -42363,8 +42377,8 @@ export class ManagedClustersApi extends BaseAPI {
     }
 
     /**
-     * Update an existing Managed Cluster.
-     * @summary Update a Managed Cluster
+     * Update an existing managed cluster.
+     * @summary Update Managed Cluster
      * @param {ManagedClustersApiUpdateManagedClusterRequest} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
@@ -46804,7 +46818,7 @@ export const PasswordManagementApiAxiosParamCreator = function (configuration?: 
             };
         },
         /**
-         * This API is used to set a password for an identity.   An identity can change their own password (as well as any of their accounts\' passwords) if they use a token generated by their ISC user, such as a [personal access token](https://developer.sailpoint.com/idn/api/authentication#personal-access-tokens) or [\"authorization_code\" derived OAuth token](https://developer.sailpoint.com/idn/api/authentication#authorization-code-grant-flow).  >**Note: If you want to set an identity\'s source account password, you must enable `PASSWORD` as one of the source\'s features. You can use the [PATCH Source endpoint](https://developer.sailpoint.com/docs/api/v3/update-source) to add the `PASSWORD` feature.**  To generate the encryptedPassword (RSA encrypted using publicKey) for the request body, run the following command:  ```bash echo \"myPassword\" | openssl pkeyutl -encrypt -inkey public_key.pem -pubin | base64 ```  In this example, myPassword is the plain text password being set and encrypted, and public_key.pem is the path to the public key file. You can retrieve the required publicKey, along with other information like identityId, sourceId, publicKeyId, accounts, and policies, using the Query Password Info endpoint.  To successfully run this command, you must have OpenSSL installed on your machine. If OpenSSL is unavailable, consider using the Virtual Appliance (VA), which has OpenSSL pre-installed and configured.  If you are using a Windows machine, refer to this [guide](https://tecadmin.net/install-openssl-on-windows/) for instructions on installing OpenSSL.  You can then use [Get Password Change Request Status](https://developer.sailpoint.com/idn/api/v3/get-password-change-status) to check the password change request status. To do so, you must provide the `requestId` from your earlier request to set the password.  
+         * This API is used to set a password for an identity.   An identity can change their own password (as well as any of their accounts\' passwords) if they use a token generated by their ISC user, such as a [personal access token](https://developer.sailpoint.com/idn/api/authentication#personal-access-tokens) or [\"authorization_code\" derived OAuth token](https://developer.sailpoint.com/idn/api/authentication#authorization-code-grant-flow).  >**Note: If you want to set an identity\'s source account password, you must enable `PASSWORD` as one of the source\'s features. You can use the [PATCH Source endpoint](https://developer.sailpoint.com/docs/api/v3/update-source) to add the `PASSWORD` feature.**  To generate the encryptedPassword (RSA encrypted using publicKey) for the request body, run the following command:  ```bash echo -n \"myPassword\" | openssl pkeyutl -encrypt -inkey public_key.pem -pubin | base64 ```  In this example, myPassword is the plain text password being set and encrypted, and public_key.pem is the path to the public key file. You can retrieve the required publicKey, along with other information like identityId, sourceId, publicKeyId, accounts, and policies, using the Query Password Info endpoint.  To successfully run this command, you must have OpenSSL installed on your machine. If OpenSSL is unavailable, consider using the Virtual Appliance (VA), which has OpenSSL pre-installed and configured.  If you are using a Windows machine, refer to this [guide](https://tecadmin.net/install-openssl-on-windows/) for instructions on installing OpenSSL.  You can then use [Get Password Change Request Status](https://developer.sailpoint.com/idn/api/v3/get-password-change-status) to check the password change request status. To do so, you must provide the `requestId` from your earlier request to set the password.  
          * @summary Set Identity\'s Password
          * @param {PasswordChangeRequest} passwordChangeRequest 
          * @param {*} [axiosOptions] Override http request option.
@@ -46876,7 +46890,7 @@ export const PasswordManagementApiFp = function(configuration?: Configuration) {
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
-         * This API is used to set a password for an identity.   An identity can change their own password (as well as any of their accounts\' passwords) if they use a token generated by their ISC user, such as a [personal access token](https://developer.sailpoint.com/idn/api/authentication#personal-access-tokens) or [\"authorization_code\" derived OAuth token](https://developer.sailpoint.com/idn/api/authentication#authorization-code-grant-flow).  >**Note: If you want to set an identity\'s source account password, you must enable `PASSWORD` as one of the source\'s features. You can use the [PATCH Source endpoint](https://developer.sailpoint.com/docs/api/v3/update-source) to add the `PASSWORD` feature.**  To generate the encryptedPassword (RSA encrypted using publicKey) for the request body, run the following command:  ```bash echo \"myPassword\" | openssl pkeyutl -encrypt -inkey public_key.pem -pubin | base64 ```  In this example, myPassword is the plain text password being set and encrypted, and public_key.pem is the path to the public key file. You can retrieve the required publicKey, along with other information like identityId, sourceId, publicKeyId, accounts, and policies, using the Query Password Info endpoint.  To successfully run this command, you must have OpenSSL installed on your machine. If OpenSSL is unavailable, consider using the Virtual Appliance (VA), which has OpenSSL pre-installed and configured.  If you are using a Windows machine, refer to this [guide](https://tecadmin.net/install-openssl-on-windows/) for instructions on installing OpenSSL.  You can then use [Get Password Change Request Status](https://developer.sailpoint.com/idn/api/v3/get-password-change-status) to check the password change request status. To do so, you must provide the `requestId` from your earlier request to set the password.  
+         * This API is used to set a password for an identity.   An identity can change their own password (as well as any of their accounts\' passwords) if they use a token generated by their ISC user, such as a [personal access token](https://developer.sailpoint.com/idn/api/authentication#personal-access-tokens) or [\"authorization_code\" derived OAuth token](https://developer.sailpoint.com/idn/api/authentication#authorization-code-grant-flow).  >**Note: If you want to set an identity\'s source account password, you must enable `PASSWORD` as one of the source\'s features. You can use the [PATCH Source endpoint](https://developer.sailpoint.com/docs/api/v3/update-source) to add the `PASSWORD` feature.**  To generate the encryptedPassword (RSA encrypted using publicKey) for the request body, run the following command:  ```bash echo -n \"myPassword\" | openssl pkeyutl -encrypt -inkey public_key.pem -pubin | base64 ```  In this example, myPassword is the plain text password being set and encrypted, and public_key.pem is the path to the public key file. You can retrieve the required publicKey, along with other information like identityId, sourceId, publicKeyId, accounts, and policies, using the Query Password Info endpoint.  To successfully run this command, you must have OpenSSL installed on your machine. If OpenSSL is unavailable, consider using the Virtual Appliance (VA), which has OpenSSL pre-installed and configured.  If you are using a Windows machine, refer to this [guide](https://tecadmin.net/install-openssl-on-windows/) for instructions on installing OpenSSL.  You can then use [Get Password Change Request Status](https://developer.sailpoint.com/idn/api/v3/get-password-change-status) to check the password change request status. To do so, you must provide the `requestId` from your earlier request to set the password.  
          * @summary Set Identity\'s Password
          * @param {PasswordChangeRequest} passwordChangeRequest 
          * @param {*} [axiosOptions] Override http request option.
@@ -46917,7 +46931,7 @@ export const PasswordManagementApiFactory = function (configuration?: Configurat
             return localVarFp.queryPasswordInfo(passwordInfoQueryDTO, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
-         * This API is used to set a password for an identity.   An identity can change their own password (as well as any of their accounts\' passwords) if they use a token generated by their ISC user, such as a [personal access token](https://developer.sailpoint.com/idn/api/authentication#personal-access-tokens) or [\"authorization_code\" derived OAuth token](https://developer.sailpoint.com/idn/api/authentication#authorization-code-grant-flow).  >**Note: If you want to set an identity\'s source account password, you must enable `PASSWORD` as one of the source\'s features. You can use the [PATCH Source endpoint](https://developer.sailpoint.com/docs/api/v3/update-source) to add the `PASSWORD` feature.**  To generate the encryptedPassword (RSA encrypted using publicKey) for the request body, run the following command:  ```bash echo \"myPassword\" | openssl pkeyutl -encrypt -inkey public_key.pem -pubin | base64 ```  In this example, myPassword is the plain text password being set and encrypted, and public_key.pem is the path to the public key file. You can retrieve the required publicKey, along with other information like identityId, sourceId, publicKeyId, accounts, and policies, using the Query Password Info endpoint.  To successfully run this command, you must have OpenSSL installed on your machine. If OpenSSL is unavailable, consider using the Virtual Appliance (VA), which has OpenSSL pre-installed and configured.  If you are using a Windows machine, refer to this [guide](https://tecadmin.net/install-openssl-on-windows/) for instructions on installing OpenSSL.  You can then use [Get Password Change Request Status](https://developer.sailpoint.com/idn/api/v3/get-password-change-status) to check the password change request status. To do so, you must provide the `requestId` from your earlier request to set the password.  
+         * This API is used to set a password for an identity.   An identity can change their own password (as well as any of their accounts\' passwords) if they use a token generated by their ISC user, such as a [personal access token](https://developer.sailpoint.com/idn/api/authentication#personal-access-tokens) or [\"authorization_code\" derived OAuth token](https://developer.sailpoint.com/idn/api/authentication#authorization-code-grant-flow).  >**Note: If you want to set an identity\'s source account password, you must enable `PASSWORD` as one of the source\'s features. You can use the [PATCH Source endpoint](https://developer.sailpoint.com/docs/api/v3/update-source) to add the `PASSWORD` feature.**  To generate the encryptedPassword (RSA encrypted using publicKey) for the request body, run the following command:  ```bash echo -n \"myPassword\" | openssl pkeyutl -encrypt -inkey public_key.pem -pubin | base64 ```  In this example, myPassword is the plain text password being set and encrypted, and public_key.pem is the path to the public key file. You can retrieve the required publicKey, along with other information like identityId, sourceId, publicKeyId, accounts, and policies, using the Query Password Info endpoint.  To successfully run this command, you must have OpenSSL installed on your machine. If OpenSSL is unavailable, consider using the Virtual Appliance (VA), which has OpenSSL pre-installed and configured.  If you are using a Windows machine, refer to this [guide](https://tecadmin.net/install-openssl-on-windows/) for instructions on installing OpenSSL.  You can then use [Get Password Change Request Status](https://developer.sailpoint.com/idn/api/v3/get-password-change-status) to check the password change request status. To do so, you must provide the `requestId` from your earlier request to set the password.  
          * @summary Set Identity\'s Password
          * @param {PasswordChangeRequest} passwordChangeRequest 
          * @param {*} [axiosOptions] Override http request option.
@@ -47003,7 +47017,7 @@ export class PasswordManagementApi extends BaseAPI {
     }
 
     /**
-     * This API is used to set a password for an identity.   An identity can change their own password (as well as any of their accounts\' passwords) if they use a token generated by their ISC user, such as a [personal access token](https://developer.sailpoint.com/idn/api/authentication#personal-access-tokens) or [\"authorization_code\" derived OAuth token](https://developer.sailpoint.com/idn/api/authentication#authorization-code-grant-flow).  >**Note: If you want to set an identity\'s source account password, you must enable `PASSWORD` as one of the source\'s features. You can use the [PATCH Source endpoint](https://developer.sailpoint.com/docs/api/v3/update-source) to add the `PASSWORD` feature.**  To generate the encryptedPassword (RSA encrypted using publicKey) for the request body, run the following command:  ```bash echo \"myPassword\" | openssl pkeyutl -encrypt -inkey public_key.pem -pubin | base64 ```  In this example, myPassword is the plain text password being set and encrypted, and public_key.pem is the path to the public key file. You can retrieve the required publicKey, along with other information like identityId, sourceId, publicKeyId, accounts, and policies, using the Query Password Info endpoint.  To successfully run this command, you must have OpenSSL installed on your machine. If OpenSSL is unavailable, consider using the Virtual Appliance (VA), which has OpenSSL pre-installed and configured.  If you are using a Windows machine, refer to this [guide](https://tecadmin.net/install-openssl-on-windows/) for instructions on installing OpenSSL.  You can then use [Get Password Change Request Status](https://developer.sailpoint.com/idn/api/v3/get-password-change-status) to check the password change request status. To do so, you must provide the `requestId` from your earlier request to set the password.  
+     * This API is used to set a password for an identity.   An identity can change their own password (as well as any of their accounts\' passwords) if they use a token generated by their ISC user, such as a [personal access token](https://developer.sailpoint.com/idn/api/authentication#personal-access-tokens) or [\"authorization_code\" derived OAuth token](https://developer.sailpoint.com/idn/api/authentication#authorization-code-grant-flow).  >**Note: If you want to set an identity\'s source account password, you must enable `PASSWORD` as one of the source\'s features. You can use the [PATCH Source endpoint](https://developer.sailpoint.com/docs/api/v3/update-source) to add the `PASSWORD` feature.**  To generate the encryptedPassword (RSA encrypted using publicKey) for the request body, run the following command:  ```bash echo -n \"myPassword\" | openssl pkeyutl -encrypt -inkey public_key.pem -pubin | base64 ```  In this example, myPassword is the plain text password being set and encrypted, and public_key.pem is the path to the public key file. You can retrieve the required publicKey, along with other information like identityId, sourceId, publicKeyId, accounts, and policies, using the Query Password Info endpoint.  To successfully run this command, you must have OpenSSL installed on your machine. If OpenSSL is unavailable, consider using the Virtual Appliance (VA), which has OpenSSL pre-installed and configured.  If you are using a Windows machine, refer to this [guide](https://tecadmin.net/install-openssl-on-windows/) for instructions on installing OpenSSL.  You can then use [Get Password Change Request Status](https://developer.sailpoint.com/idn/api/v3/get-password-change-status) to check the password change request status. To do so, you must provide the `requestId` from your earlier request to set the password.  
      * @summary Set Identity\'s Password
      * @param {PasswordManagementApiSetPasswordRequest} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
@@ -59228,10 +59242,10 @@ export class SourcesApi extends BaseAPI {
 export const TaggedObjectsApiAxiosParamCreator = function (configuration?: Configuration) {
     return {
         /**
-         * This deletes a tagged object for the specified type.
-         * @summary Delete Tagged Object
-         * @param {'ACCESS_PROFILE' | 'APPLICATION' | 'CAMPAIGN' | 'ENTITLEMENT' | 'IDENTITY' | 'ROLE' | 'SOD_POLICY' | 'SOURCE'} type The type of tagged object to delete.
-         * @param {string} id The ID of the object reference to delete.
+         * Delete all tags from a tagged object.
+         * @summary Delete Object Tags
+         * @param {'ACCESS_PROFILE' | 'APPLICATION' | 'CAMPAIGN' | 'ENTITLEMENT' | 'IDENTITY' | 'ROLE' | 'SOD_POLICY' | 'SOURCE'} type The type of object to delete tags from.
+         * @param {string} id The ID of the object to delete tags from.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
@@ -59642,10 +59656,10 @@ export const TaggedObjectsApiFp = function(configuration?: Configuration) {
     const localVarAxiosParamCreator = TaggedObjectsApiAxiosParamCreator(configuration)
     return {
         /**
-         * This deletes a tagged object for the specified type.
-         * @summary Delete Tagged Object
-         * @param {'ACCESS_PROFILE' | 'APPLICATION' | 'CAMPAIGN' | 'ENTITLEMENT' | 'IDENTITY' | 'ROLE' | 'SOD_POLICY' | 'SOURCE'} type The type of tagged object to delete.
-         * @param {string} id The ID of the object reference to delete.
+         * Delete all tags from a tagged object.
+         * @summary Delete Object Tags
+         * @param {'ACCESS_PROFILE' | 'APPLICATION' | 'CAMPAIGN' | 'ENTITLEMENT' | 'IDENTITY' | 'ROLE' | 'SOD_POLICY' | 'SOURCE'} type The type of object to delete tags from.
+         * @param {string} id The ID of the object to delete tags from.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
@@ -59751,10 +59765,10 @@ export const TaggedObjectsApiFactory = function (configuration?: Configuration, 
     const localVarFp = TaggedObjectsApiFp(configuration)
     return {
         /**
-         * This deletes a tagged object for the specified type.
-         * @summary Delete Tagged Object
-         * @param {'ACCESS_PROFILE' | 'APPLICATION' | 'CAMPAIGN' | 'ENTITLEMENT' | 'IDENTITY' | 'ROLE' | 'SOD_POLICY' | 'SOURCE'} type The type of tagged object to delete.
-         * @param {string} id The ID of the object reference to delete.
+         * Delete all tags from a tagged object.
+         * @summary Delete Object Tags
+         * @param {'ACCESS_PROFILE' | 'APPLICATION' | 'CAMPAIGN' | 'ENTITLEMENT' | 'IDENTITY' | 'ROLE' | 'SOD_POLICY' | 'SOURCE'} type The type of object to delete tags from.
+         * @param {string} id The ID of the object to delete tags from.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
@@ -59851,14 +59865,14 @@ export const TaggedObjectsApiFactory = function (configuration?: Configuration, 
  */
 export interface TaggedObjectsApiDeleteTaggedObjectRequest {
     /**
-     * The type of tagged object to delete.
+     * The type of object to delete tags from.
      * @type {'ACCESS_PROFILE' | 'APPLICATION' | 'CAMPAIGN' | 'ENTITLEMENT' | 'IDENTITY' | 'ROLE' | 'SOD_POLICY' | 'SOURCE'}
      * @memberof TaggedObjectsApiDeleteTaggedObject
      */
     readonly type: 'ACCESS_PROFILE' | 'APPLICATION' | 'CAMPAIGN' | 'ENTITLEMENT' | 'IDENTITY' | 'ROLE' | 'SOD_POLICY' | 'SOURCE'
 
     /**
-     * The ID of the object reference to delete.
+     * The ID of the object to delete tags from.
      * @type {string}
      * @memberof TaggedObjectsApiDeleteTaggedObject
      */
@@ -60041,8 +60055,8 @@ export interface TaggedObjectsApiSetTagsToManyObjectsRequest {
  */
 export class TaggedObjectsApi extends BaseAPI {
     /**
-     * This deletes a tagged object for the specified type.
-     * @summary Delete Tagged Object
+     * Delete all tags from a tagged object.
+     * @summary Delete Object Tags
      * @param {TaggedObjectsApiDeleteTaggedObjectRequest} requestParameters Request parameters.
      * @param {*} [axiosOptions] Override http request option.
      * @throws {RequiredError}
