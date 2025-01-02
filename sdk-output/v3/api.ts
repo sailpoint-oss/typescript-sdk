@@ -25809,15 +25809,13 @@ export const AccessRequestApprovalsApiAxiosParamCreator = function (configuratio
          * Use this endpoint to approve an access request approval. Only the owner of the approval and ORG_ADMIN users are allowed to perform this action.
          * @summary Approve Access Request Approval
          * @param {string} approvalId Approval ID.
-         * @param {CommentDto} commentDto Reviewer\&#39;s comment.
+         * @param {CommentDto} [commentDto] Reviewer\&#39;s comment.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        approveAccessRequest: async (approvalId: string, commentDto: CommentDto, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        approveAccessRequest: async (approvalId: string, commentDto?: CommentDto, axiosOptions: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'approvalId' is not null or undefined
             assertParamExists('approveAccessRequest', 'approvalId', approvalId)
-            // verify required parameter 'commentDto' is not null or undefined
-            assertParamExists('approveAccessRequest', 'commentDto', commentDto)
             const localVarPath = `/access-request-approvals/{approvalId}/approve`
                 .replace(`{${"approvalId"}}`, encodeURIComponent(String(approvalId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
@@ -25833,11 +25831,11 @@ export const AccessRequestApprovalsApiAxiosParamCreator = function (configuratio
 
             // authentication userAuth required
             // oauth required
-            await setOAuthToObject(localVarHeaderParameter, "userAuth", ["sp:scopes:all"], configuration)
+            await setOAuthToObject(localVarHeaderParameter, "userAuth", [], configuration)
 
             // authentication userAuth required
             // oauth required
-            await setOAuthToObject(localVarHeaderParameter, "userAuth", ["sp:scopes:all"], configuration)
+            await setOAuthToObject(localVarHeaderParameter, "userAuth", [], configuration)
 
 
     
@@ -26147,11 +26145,11 @@ export const AccessRequestApprovalsApiFp = function(configuration?: Configuratio
          * Use this endpoint to approve an access request approval. Only the owner of the approval and ORG_ADMIN users are allowed to perform this action.
          * @summary Approve Access Request Approval
          * @param {string} approvalId Approval ID.
-         * @param {CommentDto} commentDto Reviewer\&#39;s comment.
+         * @param {CommentDto} [commentDto] Reviewer\&#39;s comment.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async approveAccessRequest(approvalId: string, commentDto: CommentDto, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<object>> {
+        async approveAccessRequest(approvalId: string, commentDto?: CommentDto, axiosOptions?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<object>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.approveAccessRequest(approvalId, commentDto, axiosOptions);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
@@ -26237,11 +26235,11 @@ export const AccessRequestApprovalsApiFactory = function (configuration?: Config
          * Use this endpoint to approve an access request approval. Only the owner of the approval and ORG_ADMIN users are allowed to perform this action.
          * @summary Approve Access Request Approval
          * @param {string} approvalId Approval ID.
-         * @param {CommentDto} commentDto Reviewer\&#39;s comment.
+         * @param {CommentDto} [commentDto] Reviewer\&#39;s comment.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        approveAccessRequest(approvalId: string, commentDto: CommentDto, axiosOptions?: any): AxiosPromise<object> {
+        approveAccessRequest(approvalId: string, commentDto?: CommentDto, axiosOptions?: any): AxiosPromise<object> {
             return localVarFp.approveAccessRequest(approvalId, commentDto, axiosOptions).then((request) => request(axios, basePath));
         },
         /**
@@ -26328,7 +26326,7 @@ export interface AccessRequestApprovalsApiApproveAccessRequestRequest {
      * @type {CommentDto}
      * @memberof AccessRequestApprovalsApiApproveAccessRequest
      */
-    readonly commentDto: CommentDto
+    readonly commentDto?: CommentDto
 }
 
 /**
