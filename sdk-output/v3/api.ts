@@ -3150,6 +3150,12 @@ export type ApprovalStatus = typeof ApprovalStatus[keyof typeof ApprovalStatus];
  */
 export interface ApprovalStatusDto {
     /**
+     * Unique identifier for the approval.
+     * @type {string}
+     * @memberof ApprovalStatusDto
+     */
+    'approvalId'?: string | null;
+    /**
      * True if the request for this item was forwarded from one owner to another.
      * @type {boolean}
      * @memberof ApprovalStatusDto
@@ -17407,6 +17413,12 @@ export interface RequestedItemStatus {
      * @memberof RequestedItemStatus
      */
     'approvalDetails'?: Array<ApprovalStatusDto>;
+    /**
+     * List of approval IDs associated with the request.
+     * @type {Array<string>}
+     * @memberof RequestedItemStatus
+     */
+    'approvalIds'?: Array<string> | null;
     /**
      * Manual work items created for provisioning the item.
      * @type {Array<ManualWorkItemDetails>}
