@@ -39204,10 +39204,6 @@ export const LifecycleStatesApiAxiosParamCreator = function (configuration?: Con
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
 
-            // authentication applicationAuth required
-            // oauth required
-            await setOAuthToObject(localVarHeaderParameter, "applicationAuth", [], configuration)
-
             // authentication userAuth required
             // oauth required
             await setOAuthToObject(localVarHeaderParameter, "userAuth", [], configuration)
