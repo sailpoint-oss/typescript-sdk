@@ -70,6 +70,10 @@ jobs:
           cd sdk-output
           jq '.version = "${{ github.event.inputs.version }}"' package.json > package.json.tmp && mv package.json.tmp package.json
 
+      - name: Download OpenAPI Generator
+        run: |
+          wget https://repo1.maven.org/maven2/org/openapitools/openapi-generator-cli/7.11.0/openapi-generator-cli-7.11.0.jar -O openapi-generator-cli.jar
+
       - name: Build V3 SDK
         id: buildV3
         if: steps.updatePackageJsonVersion.outcome == 'success'
