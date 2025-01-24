@@ -145,7 +145,21 @@ export const toPathString = function (url: URL) {
  */
 export const createRequestFunction = function (axiosArgs: RequestArgs, globalAxios: AxiosInstance, BASE_PATH: string, configuration?: Configuration) {
     return <T = unknown, R = AxiosResponse<T>>(axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
-        const axiosRequestArgs = {...axiosArgs.axiosOptions, url: (axios.defaults.baseURL ? '' : configuration?.basePath ?? basePath) + axiosArgs.url};
+        axiosRetry(globalAxios, configuration.retriesConfig)
+        const headers = {
+            ...{'User-Agent':'OpenAPI-Generator/1.4.13/ts'}, 
+            ...axiosArgs.axiosOptions.headers,
+            ...{'X-SailPoint-SDK':'typescript-1.4.13'}
+        }
+
+        if(!configuration.experimental && ("X-SailPoint-Experimental" in headers)) {
+            throw new Error("You are using Experimental APIs. Set configuration.experimental = True to enable these APIs in the SDK.")
+        } else if(configuration.experimental == true && ("X-SailPoint-Experimental" in headers)) {
+            console.log("Warning: You are using Experimental APIs")
+        }
+
+        axiosArgs.axiosOptions.headers = headers
+        const axiosRequestArgs = {...axiosArgs.axiosOptions, url: (configuration?.basePath + "/beta" || basePath) + axiosArgs.url};
         return axios.request<T, R>(axiosRequestArgs);
     };
 }
