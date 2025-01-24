@@ -13,9 +13,10 @@
  */
 
 
-import { Configuration } from "../configuration";
-import { RequiredError, RequestArgs } from "./base";
-import { AxiosInstance, AxiosResponse } from 'axios';
+import type { Configuration } from "../configuration";
+import type { RequestArgs } from "./base";
+import type { AxiosInstance, AxiosResponse } from 'axios';
+import { RequiredError } from "./base";
 import axiosRetry from "axios-retry";
 
 /**
@@ -84,24 +85,35 @@ export const setOAuthToObject = async function (object: any, name: string, scope
     }
 }
 
+function setFlattenedQueryParams(urlSearchParams: URLSearchParams, parameter: any, key: string = ""): void {
+    if (parameter == null) return;
+    if (typeof parameter === "object") {
+        if (Array.isArray(parameter)) {
+            (parameter as any[]).forEach(item => setFlattenedQueryParams(urlSearchParams, item, key));
+        } 
+        else {
+            Object.keys(parameter).forEach(currentKey => 
+                setFlattenedQueryParams(urlSearchParams, parameter[currentKey], `${key}${key !== '' ? '.' : ''}${currentKey}`)
+            );
+        }
+    } 
+    else {
+        if (urlSearchParams.has(key)) {
+            urlSearchParams.append(key, parameter);
+        } 
+        else {
+            urlSearchParams.set(key, parameter);
+        }
+    }
+}
+
 /**
  *
  * @export
  */
 export const setSearchParams = function (url: URL, ...objects: any[]) {
     const searchParams = new URLSearchParams(url.search);
-    for (const object of objects) {
-        for (const key in object) {
-            if (Array.isArray(object[key])) {
-                searchParams.delete(key);
-                for (const item of object[key]) {
-                    searchParams.append(key, item);
-                }
-            } else {
-                searchParams.set(key, object[key]);
-            }
-        }
-    }
+    setFlattenedQueryParams(searchParams, objects);
     url.search = searchParams.toString();
 }
 
@@ -133,21 +145,7 @@ export const toPathString = function (url: URL) {
  */
 export const createRequestFunction = function (axiosArgs: RequestArgs, globalAxios: AxiosInstance, BASE_PATH: string, configuration?: Configuration) {
     return <T = unknown, R = AxiosResponse<T>>(axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
-        axiosRetry(globalAxios, configuration.retriesConfig)
-        const headers = {
-            ...{'User-Agent':'OpenAPI-Generator/1.4.13/ts'}, 
-            ...axiosArgs.axiosOptions.headers,
-            ...{'X-SailPoint-SDK':'typescript-1.4.13'}
-        }
-
-        if(!configuration.experimental && ("X-SailPoint-Experimental" in headers)) {
-            throw new Error("You are using Experimental APIs. Set configuration.experimental = True to enable these APIs in the SDK.")
-        } else if(configuration.experimental == true && ("X-SailPoint-Experimental" in headers)) {
-            console.log("Warning: You are using Experimental APIs")
-        }
-
-        axiosArgs.axiosOptions.headers = headers
-        const axiosRequestArgs = {...axiosArgs.axiosOptions, url: (configuration?.basePath + "/v2024" || basePath) + axiosArgs.url};
+        const axiosRequestArgs = {...axiosArgs.axiosOptions, url: (axios.defaults.baseURL ? '' : configuration?.basePath ?? basePath) + axiosArgs.url};
         return axios.request<T, R>(axiosRequestArgs);
     };
 }
