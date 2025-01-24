@@ -8,3 +8,4 @@ npmRepository: sailpoint.com
 npmVersion: 1.4.13
 useSingleRequestParameter: true
 apiVersion: v3
+enumNameSuffix: V3

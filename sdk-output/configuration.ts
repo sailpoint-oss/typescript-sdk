@@ -1,240 +1,274 @@
 import axios from "axios";
-import * as os from 'os';
-import * as path from 'path';
+import * as os from "os";
+import * as path from "path";
 import * as yaml from "js-yaml";
 import * as fs from "fs";
-import FormData from 'form-data'
+import FormData from "form-data";
 import { IAxiosRetryConfig } from "axios-retry";
 
 export interface ConfigurationParameters {
-    baseurl?: string;
-    clientId?: string;
-    clientSecret?: string;
-    accessToken?: string;
-    tokenUrl?: string;
+  baseurl?: string;
+  clientId?: string;
+  clientSecret?: string;
+  accessToken?: string;
+  serverIndex?: number;
+  tokenUrl?: string;
 }
 
 export interface Configuration {
-    activeenvironment?:         string;
-    authtype?:                  string;
-    customexporttemplatespath?: string;
-    customsearchtemplatespath?: string;
-    debug?:                     boolean;
-    experimental?:              boolean;
-    environments?:              {[key: string]: Environment};
+  activeenvironment?: string;
+  authtype?: string;
+  customexporttemplatespath?: string;
+  customsearchtemplatespath?: string;
+  debug?: boolean;
+  experimental?: boolean;
+  environments?: { [key: string]: Environment };
+  serverIndex?: number;
 }
 
 export interface Environment {
-    baseurl:   string;
-    pat:       Pat;
-    tenanturl: string;
+  baseurl: string;
+  pat: Pat;
+  tenanturl: string;
 }
 
 export interface Pat {
-    clientid:     string;
-    clientsecret: string;
+  clientid: string;
+  clientsecret: string;
 }
 
 export class Configuration {
+  /**
+   * parameter for apiKey security
+   * @param name security name
+   * @memberof Configuration
+   */
+  apiKey?:
+    | string
+    | Promise<string>
+    | ((name: string) => string)
+    | ((name: string) => Promise<string>);
 
-    /**
-     * parameter for apiKey security
-     * @param name security name
-     * @memberof Configuration
-     */
-     apiKey?: string | Promise<string> | ((name: string) => string) | ((name: string) => Promise<string>);
+  /**
+   * parameter for clientId
+   *
+   * @type {string}
+   * @memberof Configuration
+   */
+  clientId?: string;
+  /**
+   * parameter for clientSecret
+   *
+   * @type {string}
+   * @memberof Configuration
+   */
+  clientSecret?: string;
+  /**
+   * parameter for clientSecret
+   *
+   * @type {string}
+   * @memberof Configuration
+   */
+  /**
+   * parameter for oauth2 security
+   * @param name security name
+   * @param scopes oauth2 scope
+   * @memberof Configuration
+   */
+  accessToken?:
+    | string
+    | Promise<string>
+    | ((name?: string, scopes?: string[]) => string)
+    | ((name?: string, scopes?: string[]) => Promise<string>);
 
-     /**
-      * parameter for clientId
-      *
-      * @type {string}
-      * @memberof Configuration
-      */
-    clientId?: string;
-     /**
-      * parameter for clientSecret
-      *
-      * @type {string}
-      * @memberof Configuration
-      */
-    clientSecret?: string;
-     /**
-      * parameter for clientSecret
-      *
-      * @type {string}
-      * @memberof Configuration
-      */
-    /**
-     * parameter for oauth2 security
-     * @param name security name
-     * @param scopes oauth2 scope
-     * @memberof Configuration
-     */
-     accessToken?: string | Promise<string> | ((name?: string, scopes?: string[]) => string) | ((name?: string, scopes?: string[]) => Promise<string>);
+  /**
+   * parameter for clientId
+   *
+   * @type {string}
+   * @memberof Configuration
+   */
+  tokenUrl?: string;
+  /**
+   * parameter for basic security
+   *
+   * @type {string}
+   * @memberof Configuration
+   */
+  username?: string;
+  /**
+   * parameter for basic security
+   *
+   * @type {string}
+   * @memberof Configuration
+   */
+  password?: string;
+  /**
+   * override base path
+   *
+   * @type {string}
+   * @memberof Configuration
+   */
+  basePath?: string;
+  /**
+   * base options for axios calls
+   *
+   * @type {any}
+   * @memberof Configuration
+   */
+  serverIndex?: number;
+  /**
+   * base options for axios calls
+   *
+   * @type {any}
+   * @memberof Configuration
+   */
+  baseOptions?: any;
+  /**
+   * The FormData constructor that will be used to create multipart form data
+   * requests. You can inject this here so that execution environments that
+   * do not support the FormData class can still run the generated client.
+   *
+   * @type {new () => FormData}
+   */
+  formDataCtor?: new () => any;
+  /**
+   * axios retry configuration
+   *
+   * @type {IAxiosRetryConfig}
+   * @memberof Configuration
+   */
+  retriesConfig?: IAxiosRetryConfig;
 
-    /**
-      * parameter for clientId
-      *
-      * @type {string}
-      * @memberof Configuration
-      */
-    tokenUrl?: string;
-    /**
-     * parameter for basic security
-     *
-     * @type {string}
-     * @memberof Configuration
-     */
-     username?: string;
-     /**
-      * parameter for basic security
-      *
-      * @type {string}
-      * @memberof Configuration
-      */
-     password?: string;
-    /**
-     * override base path
-     *
-     * @type {string}
-     * @memberof Configuration
-     */
-     basePath?: string;
-    /**
-     * base options for axios calls
-     *
-     * @type {any}
-     * @memberof Configuration
-     */
-    baseOptions?: any;
-    /**
-     * The FormData constructor that will be used to create multipart form data
-     * requests. You can inject this here so that execution environments that
-     * do not support the FormData class can still run the generated client.
-     *
-     * @type {new () => FormData}
-     */
-    formDataCtor?: new () => any;
-    /**
-     * axios retry configuration
-     *
-     * @type {IAxiosRetryConfig}
-     * @memberof Configuration
-     */
-    retriesConfig?: IAxiosRetryConfig
-
-    constructor(param?: ConfigurationParameters) {
-
-        if (!param) {
-            param = this.getParams()
-        }
-
-        this.accessToken = param.accessToken
-        this.basePath = param.baseurl
-        this.tokenUrl = param.tokenUrl
-        this.clientId = param.clientId;
-        this.clientSecret = param.clientSecret;
-        
-        if (!this.accessToken) {
-            const url = `${this.tokenUrl}`;
-            const formData = new FormData()
-            formData.append('grant_type', 'client_credentials')
-            formData.append('client_id', this.clientId)
-            formData.append('client_secret', this.clientSecret)
-            this.accessToken = this.getAccessToken(url, formData);
-        }
+  constructor(param?: ConfigurationParameters) {
+    if (!param) {
+      param = this.getParams();
     }
 
-    private getHomeParams(): ConfigurationParameters {
-        const config: ConfigurationParameters = {}
-        try {
-            const homeDir = os.homedir()
-            const configPath = path.join(homeDir, '.sailpoint','config.yaml')
-            const doc = yaml.load(fs.readFileSync(configPath, 'utf8')) as Configuration
-            if (doc.authtype && doc.authtype.toLowerCase() === 'pat') {
-                config.baseurl = doc.environments[doc.activeenvironment].baseurl
-                config.clientId = doc.environments[doc.activeenvironment].pat.clientid
-                config.clientSecret = doc.environments[doc.activeenvironment].pat.clientsecret
-                config.tokenUrl = config.baseurl + '/oauth/token'
-            }   
-        } catch (error) {
-            console.log('unable to find config file in home directory')
-        }
-        return config
+    this.accessToken = param.accessToken;
+    this.basePath = param.baseurl;
+    this.tokenUrl = param.tokenUrl;
+    this.clientId = param.clientId;
+    this.clientSecret = param.clientSecret;
+
+    if (!this.accessToken) {
+      const url = `${this.tokenUrl}`;
+      const formData = new FormData();
+      formData.append("grant_type", "client_credentials");
+      formData.append("client_id", this.clientId);
+      formData.append("client_secret", this.clientSecret);
+      this.accessToken = this.getAccessToken(url, formData);
     }
+  }
 
-    private getLocalParams(): ConfigurationParameters {
-        const config: ConfigurationParameters = {}
-        try {
-            const configPath = './config.json'
-            const jsonString = fs.readFileSync(configPath, 'utf-8');
-            const jsonData = JSON.parse(jsonString);
-            config.baseurl = jsonData.BaseURL
-            config.clientId = jsonData.ClientId
-            config.clientSecret = jsonData.ClientSecret
-            config.tokenUrl = config.baseurl + '/oauth/token'
-        } catch (error) {
-            console.log('unable to find config file in local directory')
-        }
-        return config
+  private getHomeParams(): ConfigurationParameters {
+    const config: ConfigurationParameters = {};
+    try {
+      const homeDir = os.homedir();
+      const configPath = path.join(homeDir, ".sailpoint", "config.yaml");
+      const doc = yaml.load(
+        fs.readFileSync(configPath, "utf8")
+      ) as Configuration;
+      if (doc.authtype && doc.authtype.toLowerCase() === "pat") {
+        config.baseurl = doc.environments[doc.activeenvironment].baseurl;
+        config.clientId = doc.environments[doc.activeenvironment].pat.clientid;
+        config.clientSecret =
+          doc.environments[doc.activeenvironment].pat.clientsecret;
+        config.tokenUrl = config.baseurl + "/oauth/token";
+      }
+    } catch (error) {
+      console.log("unable to find config file in home directory");
     }
+    return config;
+  }
 
-    private getEnvParams(): ConfigurationParameters {
-        const config: ConfigurationParameters = {}
-        config.baseurl = process.env["SAIL_BASE_URL"] ? process.env["SAIL_BASE_URL"] : ""
-        config.clientId = process.env["SAIL_CLIENT_ID"] ? process.env["SAIL_CLIENT_ID"] : ""
-        config.clientSecret = process.env["SAIL_CLIENT_SECRET"] ? process.env["SAIL_CLIENT_SECRET"] : ""
-
-        config.tokenUrl = config.baseurl + '/oauth/token'
-
-        return config
+  private getLocalParams(): ConfigurationParameters {
+    const config: ConfigurationParameters = {};
+    try {
+      const configPath = "./config.json";
+      const jsonString = fs.readFileSync(configPath, "utf-8");
+      const jsonData = JSON.parse(jsonString);
+      config.baseurl = jsonData.BaseURL;
+      config.clientId = jsonData.ClientId;
+      config.clientSecret = jsonData.ClientSecret;
+      config.tokenUrl = config.baseurl + "/oauth/token";
+    } catch (error) {
+      console.log("unable to find config file in local directory");
     }
+    return config;
+  }
 
-    private getParams(): ConfigurationParameters {
-        const envConfig = this.getEnvParams()
-        if (envConfig.baseurl) {
-            return envConfig
-        }
-        const localConfig = this.getLocalParams()
-        if (localConfig.baseurl) {
-            return localConfig
-        }
-        const homeConfig = this.getHomeParams()
-        if (homeConfig.baseurl) {
-            console.log("Configuration file found in home directory, this approach of loading configuration will be deprecated in future releases, please upgrade the CLI and use the new 'sail sdk init config' command to create a local configuration file")
-            return homeConfig
-        }
-        return {}
+  private getEnvParams(): ConfigurationParameters {
+    const config: ConfigurationParameters = {};
+    config.baseurl = process.env["SAIL_BASE_URL"]
+      ? process.env["SAIL_BASE_URL"]
+      : "";
+    config.clientId = process.env["SAIL_CLIENT_ID"]
+      ? process.env["SAIL_CLIENT_ID"]
+      : "";
+    config.clientSecret = process.env["SAIL_CLIENT_SECRET"]
+      ? process.env["SAIL_CLIENT_SECRET"]
+      : "";
 
+    config.tokenUrl = config.baseurl + "/oauth/token";
+
+    return config;
+  }
+
+  private getParams(): ConfigurationParameters {
+    const envConfig = this.getEnvParams();
+    if (envConfig.baseurl) {
+      return envConfig;
     }
-
-    private async getAccessToken(url: string, formData: FormData): Promise<string> {
-        try {
-            const {data, status} = await axios.post(url, formData )
-            if (status === 200) {
-                return data.access_token;
-            } else {
-                throw new Error("Unauthorized")
-            }
-        } catch (error) {
-            console.error("Unable to fetch access token.  Aborting.");
-            throw new Error(error);
-        }
+    const localConfig = this.getLocalParams();
+    if (localConfig.baseurl) {
+      return localConfig;
     }
-
-
-    /**
-     * Check if the given MIME is a JSON MIME.
-     * JSON MIME examples:
-     *   application/json
-     *   application/json; charset=UTF8
-     *   APPLICATION/JSON
-     *   application/vnd.company+json
-     * @param mime - MIME (Multipurpose Internet Mail Extensions)
-     * @return True if the given MIME is JSON, false otherwise.
-     */
-     public isJsonMime(mime: string): boolean {
-        const jsonMime: RegExp = new RegExp('^(application\/json|[^;/ \t]+\/[^;/ \t]+[+]json)[ \t]*(;.*)?$', 'i');
-        return mime !== null && (jsonMime.test(mime) || mime.toLowerCase() === 'application/json-patch+json');
+    const homeConfig = this.getHomeParams();
+    if (homeConfig.baseurl) {
+      console.log(
+        "Configuration file found in home directory, this approach of loading configuration will be deprecated in future releases, please upgrade the CLI and use the new 'sail sdk init config' command to create a local configuration file"
+      );
+      return homeConfig;
     }
+    return {};
+  }
+
+  private async getAccessToken(
+    url: string,
+    formData: FormData
+  ): Promise<string> {
+    try {
+      const { data, status } = await axios.post(url, formData);
+      if (status === 200) {
+        return data.access_token;
+      } else {
+        throw new Error("Unauthorized");
+      }
+    } catch (error) {
+      console.error("Unable to fetch access token.  Aborting.");
+      throw new Error(error);
+    }
+  }
+
+  /**
+   * Check if the given MIME is a JSON MIME.
+   * JSON MIME examples:
+   *   application/json
+   *   application/json; charset=UTF8
+   *   APPLICATION/JSON
+   *   application/vnd.company+json
+   * @param mime - MIME (Multipurpose Internet Mail Extensions)
+   * @return True if the given MIME is JSON, false otherwise.
+   */
+  public isJsonMime(mime: string): boolean {
+    const jsonMime: RegExp = new RegExp(
+      "^(application/json|[^;/ \t]+/[^;/ \t]+[+]json)[ \t]*(;.*)?$",
+      "i"
+    );
+    return (
+      mime !== null &&
+      (jsonMime.test(mime) ||
+        mime.toLowerCase() === "application/json-patch+json")
+    );
+  }
 }
