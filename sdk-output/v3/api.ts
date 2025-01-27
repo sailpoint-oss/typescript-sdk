@@ -37965,11 +37965,11 @@ export const MFAConfigurationApiAxiosParamCreator = function (configuration?: Co
         /**
          * This API removes the configuration for the specified MFA method.
          * @summary Delete MFA method configuration
-         * @param {string} method The name of the MFA method. The currently supported method names are \&#39;okta-verify\&#39; and \&#39;duo-web\&#39;.
+         * @param {DeleteMFAConfigMethodV3} method The name of the MFA method. The currently supported method names are \&#39;okta-verify\&#39; and \&#39;duo-web\&#39;.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        deleteMFAConfig: async (method: string, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        deleteMFAConfig: async (method: DeleteMFAConfigMethodV3, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'method' is not null or undefined
             assertParamExists('deleteMFAConfig', 'method', method)
             const localVarPath = `/mfa/{method}/delete`
@@ -38258,11 +38258,11 @@ export const MFAConfigurationApiAxiosParamCreator = function (configuration?: Co
         /**
          * This API validates that the configuration is valid and will properly authenticate with the MFA provider identified by the method path parameter.
          * @summary MFA method\'s test configuration
-         * @param {string} method The name of the MFA method. The currently supported method names are \&#39;okta-verify\&#39; and \&#39;duo-web\&#39;.
+         * @param {TestMFAConfigMethodV3} method The name of the MFA method. The currently supported method names are \&#39;okta-verify\&#39; and \&#39;duo-web\&#39;.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        testMFAConfig: async (method: string, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        testMFAConfig: async (method: TestMFAConfigMethodV3, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'method' is not null or undefined
             assertParamExists('testMFAConfig', 'method', method)
             const localVarPath = `/mfa/{method}/test`
@@ -38310,11 +38310,11 @@ export const MFAConfigurationApiFp = function(configuration?: Configuration) {
         /**
          * This API removes the configuration for the specified MFA method.
          * @summary Delete MFA method configuration
-         * @param {string} method The name of the MFA method. The currently supported method names are \&#39;okta-verify\&#39; and \&#39;duo-web\&#39;.
+         * @param {DeleteMFAConfigMethodV3} method The name of the MFA method. The currently supported method names are \&#39;okta-verify\&#39; and \&#39;duo-web\&#39;.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async deleteMFAConfig(method: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<MfaOktaConfig>> {
+        async deleteMFAConfig(method: DeleteMFAConfigMethodV3, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<MfaOktaConfig>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.deleteMFAConfig(method, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['MFAConfigurationApi.deleteMFAConfig']?.[localVarOperationServerIndex]?.url;
@@ -38399,11 +38399,11 @@ export const MFAConfigurationApiFp = function(configuration?: Configuration) {
         /**
          * This API validates that the configuration is valid and will properly authenticate with the MFA provider identified by the method path parameter.
          * @summary MFA method\'s test configuration
-         * @param {string} method The name of the MFA method. The currently supported method names are \&#39;okta-verify\&#39; and \&#39;duo-web\&#39;.
+         * @param {TestMFAConfigMethodV3} method The name of the MFA method. The currently supported method names are \&#39;okta-verify\&#39; and \&#39;duo-web\&#39;.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async testMFAConfig(method: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<MfaConfigTestResponse>> {
+        async testMFAConfig(method: TestMFAConfigMethodV3, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<MfaConfigTestResponse>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.testMFAConfig(method, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['MFAConfigurationApi.testMFAConfig']?.[localVarOperationServerIndex]?.url;
@@ -38508,10 +38508,10 @@ export const MFAConfigurationApiFactory = function (configuration?: Configuratio
 export interface MFAConfigurationApiDeleteMFAConfigRequest {
     /**
      * The name of the MFA method. The currently supported method names are \&#39;okta-verify\&#39; and \&#39;duo-web\&#39;.
-     * @type {string}
+     * @type {'okta-verify' | 'duo-web'}
      * @memberof MFAConfigurationApiDeleteMFAConfig
      */
-    readonly method: string
+    readonly method: DeleteMFAConfigMethodV3
 }
 
 /**
@@ -38578,10 +38578,10 @@ export interface MFAConfigurationApiSetMFAOktaConfigRequest {
 export interface MFAConfigurationApiTestMFAConfigRequest {
     /**
      * The name of the MFA method. The currently supported method names are \&#39;okta-verify\&#39; and \&#39;duo-web\&#39;.
-     * @type {string}
+     * @type {'okta-verify' | 'duo-web'}
      * @memberof MFAConfigurationApiTestMFAConfig
      */
-    readonly method: string
+    readonly method: TestMFAConfigMethodV3
 }
 
 /**
@@ -38686,6 +38686,22 @@ export class MFAConfigurationApi extends BaseAPI {
     }
 }
 
+/**
+ * @export
+ */
+export const DeleteMFAConfigMethodV3 = {
+    OktaVerify: 'okta-verify',
+    DuoWeb: 'duo-web'
+} as const;
+export type DeleteMFAConfigMethodV3 = typeof DeleteMFAConfigMethodV3[keyof typeof DeleteMFAConfigMethodV3];
+/**
+ * @export
+ */
+export const TestMFAConfigMethodV3 = {
+    OktaVerify: 'okta-verify',
+    DuoWeb: 'duo-web'
+} as const;
+export type TestMFAConfigMethodV3 = typeof TestMFAConfigMethodV3[keyof typeof TestMFAConfigMethodV3];
 
 
 /**
@@ -38741,12 +38757,12 @@ export const MFAControllerApiAxiosParamCreator = function (configuration?: Confi
         /**
          * This API poll the VerificationPollRequest for the specified MFA method.
          * @summary Polling MFA method by VerificationPollRequest
-         * @param {string} method The name of the MFA method. The currently supported method names are \&#39;okta-verify\&#39;, \&#39;duo-web\&#39;, \&#39;kba\&#39;,\&#39;token\&#39;, \&#39;rsa\&#39;
+         * @param {PingVerificationStatusMethodV3} method The name of the MFA method. The currently supported method names are \&#39;okta-verify\&#39;, \&#39;duo-web\&#39;, \&#39;kba\&#39;,\&#39;token\&#39;, \&#39;rsa\&#39;
          * @param {VerificationPollRequest} verificationPollRequest 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        pingVerificationStatus: async (method: string, verificationPollRequest: VerificationPollRequest, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        pingVerificationStatus: async (method: PingVerificationStatusMethodV3, verificationPollRequest: VerificationPollRequest, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'method' is not null or undefined
             assertParamExists('pingVerificationStatus', 'method', method)
             // verify required parameter 'verificationPollRequest' is not null or undefined
@@ -38988,12 +39004,12 @@ export const MFAControllerApiFp = function(configuration?: Configuration) {
         /**
          * This API poll the VerificationPollRequest for the specified MFA method.
          * @summary Polling MFA method by VerificationPollRequest
-         * @param {string} method The name of the MFA method. The currently supported method names are \&#39;okta-verify\&#39;, \&#39;duo-web\&#39;, \&#39;kba\&#39;,\&#39;token\&#39;, \&#39;rsa\&#39;
+         * @param {PingVerificationStatusMethodV3} method The name of the MFA method. The currently supported method names are \&#39;okta-verify\&#39;, \&#39;duo-web\&#39;, \&#39;kba\&#39;,\&#39;token\&#39;, \&#39;rsa\&#39;
          * @param {VerificationPollRequest} verificationPollRequest 
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async pingVerificationStatus(method: string, verificationPollRequest: VerificationPollRequest, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<VerificationResponse>> {
+        async pingVerificationStatus(method: PingVerificationStatusMethodV3, verificationPollRequest: VerificationPollRequest, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<VerificationResponse>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.pingVerificationStatus(method, verificationPollRequest, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['MFAControllerApi.pingVerificationStatus']?.[localVarOperationServerIndex]?.url;
@@ -39146,10 +39162,10 @@ export interface MFAControllerApiCreateSendTokenRequest {
 export interface MFAControllerApiPingVerificationStatusRequest {
     /**
      * The name of the MFA method. The currently supported method names are \&#39;okta-verify\&#39;, \&#39;duo-web\&#39;, \&#39;kba\&#39;,\&#39;token\&#39;, \&#39;rsa\&#39;
-     * @type {string}
+     * @type {'okta-verify' | 'duo-web' | 'kba' | 'token' | 'rsa'}
      * @memberof MFAControllerApiPingVerificationStatus
      */
-    readonly method: string
+    readonly method: PingVerificationStatusMethodV3
 
     /**
      * 
@@ -39295,6 +39311,17 @@ export class MFAControllerApi extends BaseAPI {
     }
 }
 
+/**
+ * @export
+ */
+export const PingVerificationStatusMethodV3 = {
+    OktaVerify: 'okta-verify',
+    DuoWeb: 'duo-web',
+    Kba: 'kba',
+    Token: 'token',
+    Rsa: 'rsa'
+} as const;
+export type PingVerificationStatusMethodV3 = typeof PingVerificationStatusMethodV3[keyof typeof PingVerificationStatusMethodV3];
 
 
 /**
@@ -52215,12 +52242,12 @@ export const SearchApiAxiosParamCreator = function (configuration?: Configuratio
         /**
          * Fetches a single document from the specified index, using the specified document ID.
          * @summary Get a Document by ID
-         * @param {string} index The index from which to fetch the specified document.  The currently supported index names are: *accessprofiles*, *accountactivities*, *entitlements*, *events*, *identities*, and *roles*. 
+         * @param {SearchGetIndexV3} index The index from which to fetch the specified document.  The currently supported index names are: *accessprofiles*, *accountactivities*, *entitlements*, *events*, *identities*, and *roles*. 
          * @param {string} id ID of the requested document.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        searchGet: async (index: string, id: string, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        searchGet: async (index: SearchGetIndexV3, id: string, axiosOptions: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'index' is not null or undefined
             assertParamExists('searchGet', 'index', index)
             // verify required parameter 'id' is not null or undefined
@@ -52359,12 +52386,12 @@ export const SearchApiFp = function(configuration?: Configuration) {
         /**
          * Fetches a single document from the specified index, using the specified document ID.
          * @summary Get a Document by ID
-         * @param {string} index The index from which to fetch the specified document.  The currently supported index names are: *accessprofiles*, *accountactivities*, *entitlements*, *events*, *identities*, and *roles*. 
+         * @param {SearchGetIndexV3} index The index from which to fetch the specified document.  The currently supported index names are: *accessprofiles*, *accountactivities*, *entitlements*, *events*, *identities*, and *roles*. 
          * @param {string} id ID of the requested document.
          * @param {*} [axiosOptions] Override http request option.
          * @throws {RequiredError}
          */
-        async searchGet(index: string, id: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SearchDocument>> {
+        async searchGet(index: SearchGetIndexV3, id: string, axiosOptions?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<SearchDocument>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.searchGet(index, id, axiosOptions);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['SearchApi.searchGet']?.[localVarOperationServerIndex]?.url;
@@ -52496,10 +52523,10 @@ export interface SearchApiSearchCountRequest {
 export interface SearchApiSearchGetRequest {
     /**
      * The index from which to fetch the specified document.  The currently supported index names are: *accessprofiles*, *accountactivities*, *entitlements*, *events*, *identities*, and *roles*. 
-     * @type {string}
+     * @type {'accessprofiles' | 'accountactivities' | 'entitlements' | 'events' | 'identities' | 'roles'}
      * @memberof SearchApiSearchGet
      */
-    readonly index: string
+    readonly index: SearchGetIndexV3
 
     /**
      * ID of the requested document.
@@ -52600,6 +52627,18 @@ export class SearchApi extends BaseAPI {
     }
 }
 
+/**
+ * @export
+ */
+export const SearchGetIndexV3 = {
+    Accessprofiles: 'accessprofiles',
+    Accountactivities: 'accountactivities',
+    Entitlements: 'entitlements',
+    Events: 'events',
+    Identities: 'identities',
+    Roles: 'roles'
+} as const;
+export type SearchGetIndexV3 = typeof SearchGetIndexV3[keyof typeof SearchGetIndexV3];
 
 
 /**
