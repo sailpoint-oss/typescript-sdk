@@ -14196,11 +14196,11 @@ export interface PendingApproval {
      */
     'requester'?: AccessItemRequester;
     /**
-     * Identities access was requested for.
-     * @type {Array<AccessItemRequestedFor>}
+     * 
+     * @type {AccessItemRequestedFor}
      * @memberof PendingApproval
      */
-    'requestedFor'?: Array<AccessItemRequestedFor>;
+    'requestedFor'?: AccessItemRequestedFor;
     /**
      * 
      * @type {PendingApprovalOwner}
