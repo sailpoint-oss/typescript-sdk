@@ -55848,6 +55848,10 @@ export const SourcesApiAxiosParamCreator = function (configuration?: Configurati
             // oauth required
             await setOAuthToObject(localVarHeaderParameter, "userAuth", [], configuration)
 
+            // authentication applicationAuth required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "applicationAuth", [], configuration)
+
             if (limit !== undefined) {
                 localVarQueryParameter['limit'] = limit;
             }
